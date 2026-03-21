@@ -1,0 +1,1282 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="alternate" href="https://airgate.co.il/" hreflang="he">
+<link rel="alternate" href="https://airgate.co.il/en/home/" hreflang="en">
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>איירגייט ישראל בע"מ | חברת השילוח המובילה והמתקדמת בארץ</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CThasadith%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CTitillium%20Web%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7COffside%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CThasadith%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CTitillium%20Web%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7COffside%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CThasadith%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CTitillium%20Web%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7COffside%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=hebrew&#038;display=swap" /></noscript><link rel="stylesheet" href="https://airgate.co.il/wp-content/cache/min/1/32765fd6013dc3401e9715a1260b5f8d.css" media="all" data-minify="1">
+	<meta name="description" content="איירגייט ישראל בע”מ הינה חברת שילוח ותיקה, מנוסה ומקצועית המספקים מגוון רחב של שירותי הובלה ימית, אווירית ויבשתית ומתמחים במתן פתרונות לוגיסטיים, לפרטים לחצו">
+	<link rel="canonical" href="https://airgate.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="איירגייט ישראל בע&quot;מ | חברת השילוח המובילה והמתקדמת בארץ">
+	<meta property="og:description" content="איירגייט ישראל בע”מ הינה חברת שילוח ותיקה, מנוסה ומקצועית המספקים מגוון רחב של שירותי הובלה ימית, אווירית ויבשתית ומתמחים במתן פתרונות לוגיסטיים, לפרטים לחצו">
+	<meta property="og:url" content="https://airgate.co.il/">
+	<meta property="og:site_name" content="אייר גייט ישראל \ Air Gate">
+	<meta property="article:modified_time" content="2023-02-07T11:45:30+00:00">
+	<meta property="og:image" content="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png">
+	<meta property="og:image:width" content="520">
+	<meta property="og:image:height" content="260">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="זמן קריאה מוערך">
+	<meta name="twitter:data1" content="7 דקות">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://airgate.co.il/#website","url":"https://airgate.co.il/","name":"אייר גייט ישראל \\ Air Gate","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://airgate.co.il/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"he-IL"},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://airgate.co.il/#primaryimage","url":"https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png","contentUrl":"https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png","width":520,"height":260},{"@type":"WebPage","@id":"https://airgate.co.il/#webpage","url":"https://airgate.co.il/","name":"איירגייט ישראל בע\"מ | חברת השילוח המובילה והמתקדמת בארץ","isPartOf":{"@id":"https://airgate.co.il/#website"},"primaryImageOfPage":{"@id":"https://airgate.co.il/#primaryimage"},"datePublished":"2022-06-22T19:13:20+00:00","dateModified":"2023-02-07T11:45:30+00:00","description":"איירגייט ישראל בע”מ הינה חברת שילוח ותיקה, מנוסה ומקצועית המספקים מגוון רחב של שירותי הובלה ימית, אווירית ויבשתית ומתמחים במתן פתרונות לוגיסטיים, לפרטים לחצו","breadcrumb":{"@id":"https://airgate.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://airgate.co.il/"]}]},{"@type":"BreadcrumbList","@id":"https://airgate.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית"}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="אייר גייט ישראל \ Air Gate « פיד‏" href="https://airgate.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="אייר גייט ישראל \ Air Gate « פיד תגובות‏" href="https://airgate.co.il/comments/feed/">
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+
+
+
+<style id="elementor-frontend-inline-css" type="text/css">
+@-webkit-keyframes ha_fadeIn{0%{opacity:0}to{opacity:1}}@keyframes ha_fadeIn{0%{opacity:0}to{opacity:1}}@-webkit-keyframes ha_zoomIn{0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes ha_zoomIn{0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}50%{opacity:1}}@-webkit-keyframes ha_rollIn{0%{opacity:0;-webkit-transform:translate3d(-100%,0,0) rotate3d(0,0,1,-120deg);transform:translate3d(-100%,0,0) rotate3d(0,0,1,-120deg)}to{opacity:1}}@keyframes ha_rollIn{0%{opacity:0;-webkit-transform:translate3d(-100%,0,0) rotate3d(0,0,1,-120deg);transform:translate3d(-100%,0,0) rotate3d(0,0,1,-120deg)}to{opacity:1}}@-webkit-keyframes ha_bounce{0%,20%,53%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}40%,43%{-webkit-transform:translate3d(0,-30px,0) scaleY(1.1);transform:translate3d(0,-30px,0) scaleY(1.1);-webkit-animation-timing-function:cubic-bezier(.755,.05,.855,.06);animation-timing-function:cubic-bezier(.755,.05,.855,.06)}70%{-webkit-transform:translate3d(0,-15px,0) scaleY(1.05);transform:translate3d(0,-15px,0) scaleY(1.05);-webkit-animation-timing-function:cubic-bezier(.755,.05,.855,.06);animation-timing-function:cubic-bezier(.755,.05,.855,.06)}80%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1);-webkit-transform:translate3d(0,0,0) scaleY(.95);transform:translate3d(0,0,0) scaleY(.95)}90%{-webkit-transform:translate3d(0,-4px,0) scaleY(1.02);transform:translate3d(0,-4px,0) scaleY(1.02)}}@keyframes ha_bounce{0%,20%,53%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}40%,43%{-webkit-transform:translate3d(0,-30px,0) scaleY(1.1);transform:translate3d(0,-30px,0) scaleY(1.1);-webkit-animation-timing-function:cubic-bezier(.755,.05,.855,.06);animation-timing-function:cubic-bezier(.755,.05,.855,.06)}70%{-webkit-transform:translate3d(0,-15px,0) scaleY(1.05);transform:translate3d(0,-15px,0) scaleY(1.05);-webkit-animation-timing-function:cubic-bezier(.755,.05,.855,.06);animation-timing-function:cubic-bezier(.755,.05,.855,.06)}80%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1);-webkit-transform:translate3d(0,0,0) scaleY(.95);transform:translate3d(0,0,0) scaleY(.95)}90%{-webkit-transform:translate3d(0,-4px,0) scaleY(1.02);transform:translate3d(0,-4px,0) scaleY(1.02)}}@-webkit-keyframes ha_bounceIn{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}20%{-webkit-transform:scale3d(1.1,1.1,1.1);transform:scale3d(1.1,1.1,1.1)}40%{-webkit-transform:scale3d(.9,.9,.9);transform:scale3d(.9,.9,.9)}60%{opacity:1;-webkit-transform:scale3d(1.03,1.03,1.03);transform:scale3d(1.03,1.03,1.03)}80%{-webkit-transform:scale3d(.97,.97,.97);transform:scale3d(.97,.97,.97)}to{opacity:1}}@keyframes ha_bounceIn{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}20%{-webkit-transform:scale3d(1.1,1.1,1.1);transform:scale3d(1.1,1.1,1.1)}40%{-webkit-transform:scale3d(.9,.9,.9);transform:scale3d(.9,.9,.9)}60%{opacity:1;-webkit-transform:scale3d(1.03,1.03,1.03);transform:scale3d(1.03,1.03,1.03)}80%{-webkit-transform:scale3d(.97,.97,.97);transform:scale3d(.97,.97,.97)}to{opacity:1}}@-webkit-keyframes ha_flipInX{0%{opacity:0;-webkit-transform:perspective(400px) rotate3d(1,0,0,90deg);transform:perspective(400px) rotate3d(1,0,0,90deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}40%{-webkit-transform:perspective(400px) rotate3d(1,0,0,-20deg);transform:perspective(400px) rotate3d(1,0,0,-20deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}60%{opacity:1;-webkit-transform:perspective(400px) rotate3d(1,0,0,10deg);transform:perspective(400px) rotate3d(1,0,0,10deg)}80%{-webkit-transform:perspective(400px) rotate3d(1,0,0,-5deg);transform:perspective(400px) rotate3d(1,0,0,-5deg)}}@keyframes ha_flipInX{0%{opacity:0;-webkit-transform:perspective(400px) rotate3d(1,0,0,90deg);transform:perspective(400px) rotate3d(1,0,0,90deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}40%{-webkit-transform:perspective(400px) rotate3d(1,0,0,-20deg);transform:perspective(400px) rotate3d(1,0,0,-20deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}60%{opacity:1;-webkit-transform:perspective(400px) rotate3d(1,0,0,10deg);transform:perspective(400px) rotate3d(1,0,0,10deg)}80%{-webkit-transform:perspective(400px) rotate3d(1,0,0,-5deg);transform:perspective(400px) rotate3d(1,0,0,-5deg)}}@-webkit-keyframes ha_flipInY{0%{opacity:0;-webkit-transform:perspective(400px) rotate3d(0,1,0,90deg);transform:perspective(400px) rotate3d(0,1,0,90deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}40%{-webkit-transform:perspective(400px) rotate3d(0,1,0,-20deg);transform:perspective(400px) rotate3d(0,1,0,-20deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}60%{opacity:1;-webkit-transform:perspective(400px) rotate3d(0,1,0,10deg);transform:perspective(400px) rotate3d(0,1,0,10deg)}80%{-webkit-transform:perspective(400px) rotate3d(0,1,0,-5deg);transform:perspective(400px) rotate3d(0,1,0,-5deg)}}@keyframes ha_flipInY{0%{opacity:0;-webkit-transform:perspective(400px) rotate3d(0,1,0,90deg);transform:perspective(400px) rotate3d(0,1,0,90deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}40%{-webkit-transform:perspective(400px) rotate3d(0,1,0,-20deg);transform:perspective(400px) rotate3d(0,1,0,-20deg);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}60%{opacity:1;-webkit-transform:perspective(400px) rotate3d(0,1,0,10deg);transform:perspective(400px) rotate3d(0,1,0,10deg)}80%{-webkit-transform:perspective(400px) rotate3d(0,1,0,-5deg);transform:perspective(400px) rotate3d(0,1,0,-5deg)}}@-webkit-keyframes ha_swing{20%{-webkit-transform:rotate3d(0,0,1,15deg);transform:rotate3d(0,0,1,15deg)}40%{-webkit-transform:rotate3d(0,0,1,-10deg);transform:rotate3d(0,0,1,-10deg)}60%{-webkit-transform:rotate3d(0,0,1,5deg);transform:rotate3d(0,0,1,5deg)}80%{-webkit-transform:rotate3d(0,0,1,-5deg);transform:rotate3d(0,0,1,-5deg)}}@keyframes ha_swing{20%{-webkit-transform:rotate3d(0,0,1,15deg);transform:rotate3d(0,0,1,15deg)}40%{-webkit-transform:rotate3d(0,0,1,-10deg);transform:rotate3d(0,0,1,-10deg)}60%{-webkit-transform:rotate3d(0,0,1,5deg);transform:rotate3d(0,0,1,5deg)}80%{-webkit-transform:rotate3d(0,0,1,-5deg);transform:rotate3d(0,0,1,-5deg)}}@-webkit-keyframes ha_slideInDown{0%{visibility:visible;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}}@keyframes ha_slideInDown{0%{visibility:visible;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}}@-webkit-keyframes ha_slideInUp{0%{visibility:visible;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}}@keyframes ha_slideInUp{0%{visibility:visible;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}}@-webkit-keyframes ha_slideInLeft{0%{visibility:visible;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}}@keyframes ha_slideInLeft{0%{visibility:visible;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0)}}@-webkit-keyframes ha_slideInRight{0%{visibility:visible;-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}@keyframes ha_slideInRight{0%{visibility:visible;-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}.ha_fadeIn{-webkit-animation-name:ha_fadeIn;animation-name:ha_fadeIn}.ha_zoomIn{-webkit-animation-name:ha_zoomIn;animation-name:ha_zoomIn}.ha_rollIn{-webkit-animation-name:ha_rollIn;animation-name:ha_rollIn}.ha_bounce{-webkit-transform-origin:center bottom;-ms-transform-origin:center bottom;transform-origin:center bottom;-webkit-animation-name:ha_bounce;animation-name:ha_bounce}.ha_bounceIn{-webkit-animation-name:ha_bounceIn;animation-name:ha_bounceIn;-webkit-animation-duration:.75s;-webkit-animation-duration:calc(var(--animate-duration)*.75);animation-duration:.75s;animation-duration:calc(var(--animate-duration)*.75)}.ha_flipInX,.ha_flipInY{-webkit-animation-name:ha_flipInX;animation-name:ha_flipInX;-webkit-backface-visibility:visible!important;backface-visibility:visible!important}.ha_flipInY{-webkit-animation-name:ha_flipInY;animation-name:ha_flipInY}.ha_swing{-webkit-transform-origin:top center;-ms-transform-origin:top center;transform-origin:top center;-webkit-animation-name:ha_swing;animation-name:ha_swing}.ha_slideInDown{-webkit-animation-name:ha_slideInDown;animation-name:ha_slideInDown}.ha_slideInUp{-webkit-animation-name:ha_slideInUp;animation-name:ha_slideInUp}.ha_slideInLeft{-webkit-animation-name:ha_slideInLeft;animation-name:ha_slideInLeft}.ha_slideInRight{-webkit-animation-name:ha_slideInRight;animation-name:ha_slideInRight}.ha-css-transform-yes{-webkit-transition-duration:var(--ha-tfx-transition-duration, .2s);transition-duration:var(--ha-tfx-transition-duration, .2s);-webkit-transition-property:-webkit-transform;transition-property:transform;transition-property:transform,-webkit-transform;-webkit-transform:translate(var(--ha-tfx-translate-x, 0),var(--ha-tfx-translate-y, 0)) scale(var(--ha-tfx-scale-x, 1),var(--ha-tfx-scale-y, 1)) skew(var(--ha-tfx-skew-x, 0),var(--ha-tfx-skew-y, 0)) rotateX(var(--ha-tfx-rotate-x, 0)) rotateY(var(--ha-tfx-rotate-y, 0)) rotateZ(var(--ha-tfx-rotate-z, 0));transform:translate(var(--ha-tfx-translate-x, 0),var(--ha-tfx-translate-y, 0)) scale(var(--ha-tfx-scale-x, 1),var(--ha-tfx-scale-y, 1)) skew(var(--ha-tfx-skew-x, 0),var(--ha-tfx-skew-y, 0)) rotateX(var(--ha-tfx-rotate-x, 0)) rotateY(var(--ha-tfx-rotate-y, 0)) rotateZ(var(--ha-tfx-rotate-z, 0))}.ha-css-transform-yes:hover{-webkit-transform:translate(var(--ha-tfx-translate-x-hover, var(--ha-tfx-translate-x, 0)),var(--ha-tfx-translate-y-hover, var(--ha-tfx-translate-y, 0))) scale(var(--ha-tfx-scale-x-hover, var(--ha-tfx-scale-x, 1)),var(--ha-tfx-scale-y-hover, var(--ha-tfx-scale-y, 1))) skew(var(--ha-tfx-skew-x-hover, var(--ha-tfx-skew-x, 0)),var(--ha-tfx-skew-y-hover, var(--ha-tfx-skew-y, 0))) rotateX(var(--ha-tfx-rotate-x-hover, var(--ha-tfx-rotate-x, 0))) rotateY(var(--ha-tfx-rotate-y-hover, var(--ha-tfx-rotate-y, 0))) rotateZ(var(--ha-tfx-rotate-z-hover, var(--ha-tfx-rotate-z, 0)));transform:translate(var(--ha-tfx-translate-x-hover, var(--ha-tfx-translate-x, 0)),var(--ha-tfx-translate-y-hover, var(--ha-tfx-translate-y, 0))) scale(var(--ha-tfx-scale-x-hover, var(--ha-tfx-scale-x, 1)),var(--ha-tfx-scale-y-hover, var(--ha-tfx-scale-y, 1))) skew(var(--ha-tfx-skew-x-hover, var(--ha-tfx-skew-x, 0)),var(--ha-tfx-skew-y-hover, var(--ha-tfx-skew-y, 0))) rotateX(var(--ha-tfx-rotate-x-hover, var(--ha-tfx-rotate-x, 0))) rotateY(var(--ha-tfx-rotate-y-hover, var(--ha-tfx-rotate-y, 0))) rotateZ(var(--ha-tfx-rotate-z-hover, var(--ha-tfx-rotate-z, 0)))}.happy-addon>.elementor-widget-container{word-wrap:break-word;overflow-wrap:break-word}.happy-addon>.elementor-widget-container,.happy-addon>.elementor-widget-container *{-webkit-box-sizing:border-box;box-sizing:border-box}.happy-addon p:empty{display:none}.happy-addon .elementor-inline-editing{min-height:auto!important}.happy-addon-pro img{max-width:100%;height:auto;-o-object-fit:cover;object-fit:cover}.ha-screen-reader-text{position:absolute;overflow:hidden;clip:rect(1px,1px,1px,1px);margin:-1px;padding:0;width:1px;height:1px;border:0;word-wrap:normal!important;-webkit-clip-path:inset(50%);clip-path:inset(50%)}.ha-has-bg-overlay>.elementor-widget-container{position:relative;z-index:1}.ha-has-bg-overlay>.elementor-widget-container:before{position:absolute;top:0;left:0;z-index:-1;width:100%;height:100%;content:""}.ha-popup--is-enabled .ha-js-popup,.ha-popup--is-enabled .ha-js-popup img{cursor:-webkit-zoom-in!important;cursor:zoom-in!important}.mfp-wrap .mfp-arrow,.mfp-wrap .mfp-close{background-color:transparent}.mfp-wrap .mfp-arrow:focus,.mfp-wrap .mfp-close:focus{outline-width:thin}.ha-advanced-tooltip-enable{position:relative;cursor:pointer;--ha-tooltip-arrow-color:black;--ha-tooltip-arrow-distance:0}.ha-advanced-tooltip-enable .ha-advanced-tooltip-content{position:absolute;z-index:999;display:none;padding:5px 0;width:120px;height:auto;border-radius:6px;background-color:#000;color:#fff;text-align:center;opacity:0}.ha-advanced-tooltip-enable .ha-advanced-tooltip-content::after{position:absolute;border-width:5px;border-style:solid;content:""}.ha-advanced-tooltip-enable .ha-advanced-tooltip-content.no-arrow::after{visibility:hidden}.ha-advanced-tooltip-enable .ha-advanced-tooltip-content.show{display:inline-block;opacity:1}.ha-advanced-tooltip-enable.ha-advanced-tooltip-top .ha-advanced-tooltip-content,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-top .ha-advanced-tooltip-content{top:unset;right:0;bottom:calc(101% + var(--ha-tooltip-arrow-distance));left:0;margin:0 auto}.ha-advanced-tooltip-enable.ha-advanced-tooltip-top .ha-advanced-tooltip-content::after,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-top .ha-advanced-tooltip-content::after{top:100%;right:unset;bottom:unset;left:50%;border-color:var(--ha-tooltip-arrow-color) transparent transparent transparent;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}.ha-advanced-tooltip-enable.ha-advanced-tooltip-bottom .ha-advanced-tooltip-content,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-bottom .ha-advanced-tooltip-content{top:calc(101% + var(--ha-tooltip-arrow-distance));right:0;bottom:unset;left:0;margin:0 auto}.ha-advanced-tooltip-enable.ha-advanced-tooltip-bottom .ha-advanced-tooltip-content::after,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-bottom .ha-advanced-tooltip-content::after{top:unset;right:unset;bottom:100%;left:50%;border-color:transparent transparent var(--ha-tooltip-arrow-color) transparent;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}.ha-advanced-tooltip-enable.ha-advanced-tooltip-left .ha-advanced-tooltip-content,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-left .ha-advanced-tooltip-content{top:50%;right:calc(101% + var(--ha-tooltip-arrow-distance));bottom:unset;left:unset;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}.ha-advanced-tooltip-enable.ha-advanced-tooltip-left .ha-advanced-tooltip-content::after,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-left .ha-advanced-tooltip-content::after{top:50%;right:unset;bottom:unset;left:100%;border-color:transparent transparent transparent var(--ha-tooltip-arrow-color);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}.ha-advanced-tooltip-enable.ha-advanced-tooltip-right .ha-advanced-tooltip-content,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-right .ha-advanced-tooltip-content{top:50%;right:unset;bottom:unset;left:calc(101% + var(--ha-tooltip-arrow-distance));-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}.ha-advanced-tooltip-enable.ha-advanced-tooltip-right .ha-advanced-tooltip-content::after,body[data-elementor-device-mode=tablet] .ha-advanced-tooltip-enable.ha-advanced-tooltip-tablet-right .ha-advanced-tooltip-content::after{top:50%;right:100%;bottom:unset;left:unset;border-color:transparent var(--ha-tooltip-arrow-color) transparent transparent;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-top .ha-advanced-tooltip-content{top:unset;right:0;bottom:calc(101% + var(--ha-tooltip-arrow-distance));left:0;margin:0 auto}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-top .ha-advanced-tooltip-content::after{top:100%;right:unset;bottom:unset;left:50%;border-color:var(--ha-tooltip-arrow-color) transparent transparent transparent;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-bottom .ha-advanced-tooltip-content{top:calc(101% + var(--ha-tooltip-arrow-distance));right:0;bottom:unset;left:0;margin:0 auto}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-bottom .ha-advanced-tooltip-content::after{top:unset;right:unset;bottom:100%;left:50%;border-color:transparent transparent var(--ha-tooltip-arrow-color) transparent;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-left .ha-advanced-tooltip-content{top:50%;right:calc(101% + var(--ha-tooltip-arrow-distance));bottom:unset;left:unset;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-left .ha-advanced-tooltip-content::after{top:50%;right:unset;bottom:unset;left:100%;border-color:transparent transparent transparent var(--ha-tooltip-arrow-color);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-right .ha-advanced-tooltip-content{top:50%;right:unset;bottom:unset;left:calc(101% + var(--ha-tooltip-arrow-distance));-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}body[data-elementor-device-mode=mobile] .ha-advanced-tooltip-enable.ha-advanced-tooltip-mobile-right .ha-advanced-tooltip-content::after{top:50%;right:100%;bottom:unset;left:unset;border-color:transparent var(--ha-tooltip-arrow-color) transparent transparent;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}body.elementor-editor-active .happy-addon.ha-gravityforms .gform_wrapper{display:block!important}
+</style>
+
+
+
+
+
+
+
+<link rel="stylesheet" id="happy-icons-css" href="https://airgate.co.il/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=3.6.1" type="text/css" media="all">
+
+
+<style id="rocket-lazyload-inline-css" type="text/css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;cursor:pointer;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:72px;width:72px;left:50%;top:50%;margin-left:-36px;margin-top:-36px;position:absolute;background:url(https://airgate.co.il/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat;cursor:pointer}
+</style>
+
+
+
+
+<link rel="stylesheet" id="elementor-icons-shared-1-css" href="https://airgate.co.il/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=3.6.1" type="text/css" media="all">
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.6.6" id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="https://airgate.co.il/wp-json/"><link rel="alternate" type="application/json" href="https://airgate.co.il/wp-json/wp/v2/pages/22"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://airgate.co.il/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://airgate.co.il/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 6.0.11">
+<link rel="shortlink" href="https://airgate.co.il/">
+<link rel="alternate" type="application/json+oembed" href="https://airgate.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fairgate.co.il%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://airgate.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fairgate.co.il%2F&amp;format=xml">
+<!-- HFCM by 99 Robots - Snippet # 2: google analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64966529-1"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64966529-1');
+</script>
+
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 3: search console -->
+<meta name="google-site-verification" content="KkSxeMBCDmKgTFllPF9CYU5wqZfOxexgNKfnzTgXDsY">
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 4: GA4 -->
+<!-- Google tag (gtag.js) -->
+<script type="rocketlazyloadscript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-9KWJV4VNXB"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9KWJV4VNXB');
+</script>
+<!-- /end HFCM by 99 Robots -->
+<!-- Call Now Button 1.1.10 (https://callnowbutton.com) [renderer:noop]-->
+<link rel="icon" href="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1-150x150.png" sizes="32x32">
+<link rel="icon" href="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png">
+<meta name="msapplication-TileImage" content="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+<body data-rsssl="1" class="rtl home page-template page-template-elementor_canvas page page-id-22 wp-custom-logo elementor-default elementor-template-canvas elementor-kit-5 elementor-page elementor-page-22">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627"></feFuncR><feFuncG type="table" tableValues="0 0.49803921568627"></feFuncG><feFuncB type="table" tableValues="0 0.49803921568627"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 0.27843137254902"></feFuncG><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0"></feFuncR><feFuncG type="table" tableValues="0 0.64705882352941"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.94901960784314"></feFuncG><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.44705882352941 0.4"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.66274509803922"></feFuncG><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg>		<div data-elementor-type="wp-page" data-elementor-id="22" class="elementor elementor-22">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-45004616 elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="45004616" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;_ha_eqh_enable&quot;:false,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-68032c2e" data-id="68032c2e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-66a4142e elementor-nav-menu__align-justify elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="66a4142e" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav migration_allowed="1" migrated="0" role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-fade">
+				<ul id="menu-1-66a4142e" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-22 current_page_item menu-item-43"><a href="https://airgate.co.il/" aria-current="page" class="elementor-item elementor-item-active">בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-50"><a href="https://airgate.co.il/%d7%a9%d7%a8%d7%95%d7%aa%d7%99%d7%9d/" class="elementor-item">שרותים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-531"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/" class="elementor-sub-item">שילוח אווירי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-526"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99/" class="elementor-sub-item">שילוח ימי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-525"><a href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94/" class="elementor-sub-item">לוגיסטיקה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-524"><a href="https://airgate.co.il/%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/" class="elementor-sub-item">עמילות מכס</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-48"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%97%d7%95%d7%93%d7%99%d7%99%d7%9d/" class="elementor-item">פתרונות יחודיים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-529"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%91%d7%95%d7%90-%d7%9e%d7%90%d7%99%d7%98%d7%9c%d7%99%d7%94/" class="elementor-sub-item">פתרונות יבוא מאיטליה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-528"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%91%d7%95%d7%90/" class="elementor-sub-item">פתרונות יבוא</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-527"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%a6%d7%95%d7%90/" class="elementor-sub-item">פתרונות יצוא</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-893"><a href="https://airgate.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/" class="elementor-item">מאמרים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-949"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99/" class="elementor-sub-item">שילוח ימי</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-951"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%9e%d7%90%d7%a8%d7%94%d7%91-%d7%9c%d7%99%d7%a9%d7%a8%d7%90%d7%9c/" class="elementor-sub-item">שילוח ימי מארה”ב לישראל</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-953"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%9e%d7%a1%d7%99%d7%9f/" class="elementor-sub-item">שילוח ימי מסין</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-950"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%90%d7%a9%d7%93%d7%95%d7%93/" class="elementor-sub-item">שילוח ימי אשדוד</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-952"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%9e%d7%98%d7%95%d7%a8%d7%a7%d7%99%d7%94/" class="elementor-sub-item">שילוח ימי מטורקיה</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-933"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%91%d7%92%d7%93%d7%99%d7%9d-%d7%9e%d7%90%d7%99%d7%98%d7%9c%d7%99%d7%94/" class="elementor-sub-item">יבוא בגדים מאיטליה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-947"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%95%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/" class="elementor-sub-item">שילוח בינלאומי ועמילות מכס</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-948"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%98%d7%a7%d7%a1%d7%98%d7%99%d7%9c-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99/" class="elementor-sub-item">שילוח טקסטיל בינלאומי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-954"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%a0%d7%95%d7%a2-%d7%95%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%91%d7%99%d7%9f-%d7%9c%d7%90%d7%95%d7%9e%d7%99/" class="elementor-sub-item">שינוע ושילוח בין לאומי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-929"><a href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94-%d7%95%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99/" class="elementor-sub-item">לוגיסטיקה ושילוח מטענים בינלאומי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-930"><a href="https://airgate.co.il/%d7%97%d7%91%d7%a8%d7%aa-%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99%d7%aa/" class="elementor-sub-item">חברת הובלה אווירית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-932"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%90%d7%99%d7%a9%d7%99-%d7%a9%d7%9c-%d7%90%d7%95%d7%a4%d7%a0%d7%95%d7%a2%d7%99%d7%9d/" class="elementor-sub-item">יבוא אישי של אופנועים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-934"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%91%d7%99%d7%92%d7%95%d7%93-%d7%91%d7%a1%d7%99%d7%98%d7%95%d7%a0%d7%90%d7%95%d7%aa-%d7%9e%d7%a1%d7%99%d7%9f/" class="elementor-sub-item">יבוא ביגוד בסיטונאות מסין</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-936"><a href="https://airgate.co.il/%d7%99%d7%99%d7%a6%d7%95%d7%a8-%d7%95%d7%99%d7%91%d7%95%d7%90-%d7%a9%d7%9c-%d7%a1%d7%97%d7%95%d7%a8%d7%95%d7%aa-%d7%9e%d7%98%d7%95%d7%a8%d7%a7%d7%99%d7%94/" class="elementor-sub-item">ייצור ויבוא של סחורות מטורקיה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-938"><a href="https://airgate.co.il/%d7%9e%d7%94%d7%95-%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/" class="elementor-sub-item">מהו שילוח אווירי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-946"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%95%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%99%d7%9e%d7%99%d7%aa-%d7%95%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99%d7%aa/" class="elementor-sub-item">שילוח בינלאומי והובלה ימית ואווירית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-931"><a href="https://airgate.co.il/%d7%97%d7%91%d7%a8%d7%aa-%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/" class="elementor-sub-item">חברת שילוח אווירי</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-47"><a href="https://airgate.co.il/%d7%a4%d7%a8%d7%95%d7%99%d7%99%d7%a7%d7%98%d7%99%d7%9d/" class="elementor-item">פרוייקטים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-534"><a href="https://airgate.co.il/%d7%a4%d7%99%d7%99%d7%9c%d7%95%d7%98-%d7%a2%d7%91%d7%95%d7%a8-%d7%a2%d7%99%d7%a8%d7%99%d7%99%d7%aa-%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91/" class="elementor-sub-item">פיילוט עבור עיריית תל אביב</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-533"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%90%d7%99%d7%a9%d7%99-%d7%a9%d7%9c-%d7%90%d7%95%d7%a4%d7%a0%d7%95%d7%a2%d7%99%d7%9d/" class="elementor-sub-item">יבוא אישי של אופנועים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-532"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%99%d7%9d-%d7%9c%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d/" class="elementor-sub-item">פתרונות לוגיסטיים למטענים מיוחדים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-530"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%9b%d7%9c%d7%99-%d7%a9%d7%99%d7%98/" class="elementor-sub-item">יבוא כלי שיט</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46"><a href="https://airgate.co.il/%d7%9e%d7%99%d7%9c%d7%95%d7%9f-%d7%9e%d7%95%d7%a0%d7%97%d7%99%d7%9d/" class="elementor-item">מילון מונחים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://airgate.co.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%a8%d7%93%d7%94/" class="elementor-item">טפסים להורדה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://airgate.co.il/%d7%94%d7%a6%d7%a2%d7%aa-%d7%9e%d7%97%d7%99%d7%a8-%d7%97%d7%99%d7%a0%d7%9d/" class="elementor-item">הצעת מחיר חינם!</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="https://airgate.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item">צור קשר</a></li>
+<li class="lang-item lang-item-14 lang-item-en lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-651-en"><a href="https://airgate.co.il/en/home/" hreflang="en-US" lang="en-US" class="elementor-item">English</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="כפתור פתיחת תפריט" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>			<span class="elementor-screen-only">תפריט</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true">
+				<ul id="menu-2-66a4142e" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-22 current_page_item menu-item-43"><a href="https://airgate.co.il/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">בית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-50"><a href="https://airgate.co.il/%d7%a9%d7%a8%d7%95%d7%aa%d7%99%d7%9d/" class="elementor-item" tabindex="-1">שרותים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-531"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/" class="elementor-sub-item" tabindex="-1">שילוח אווירי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-526"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99/" class="elementor-sub-item" tabindex="-1">שילוח ימי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-525"><a href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94/" class="elementor-sub-item" tabindex="-1">לוגיסטיקה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-524"><a href="https://airgate.co.il/%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/" class="elementor-sub-item" tabindex="-1">עמילות מכס</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-48"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%97%d7%95%d7%93%d7%99%d7%99%d7%9d/" class="elementor-item" tabindex="-1">פתרונות יחודיים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-529"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%91%d7%95%d7%90-%d7%9e%d7%90%d7%99%d7%98%d7%9c%d7%99%d7%94/" class="elementor-sub-item" tabindex="-1">פתרונות יבוא מאיטליה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-528"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%91%d7%95%d7%90/" class="elementor-sub-item" tabindex="-1">פתרונות יבוא</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-527"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%a6%d7%95%d7%90/" class="elementor-sub-item" tabindex="-1">פתרונות יצוא</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-893"><a href="https://airgate.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d/" class="elementor-item" tabindex="-1">מאמרים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-949"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99/" class="elementor-sub-item" tabindex="-1">שילוח ימי</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-951"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%9e%d7%90%d7%a8%d7%94%d7%91-%d7%9c%d7%99%d7%a9%d7%a8%d7%90%d7%9c/" class="elementor-sub-item" tabindex="-1">שילוח ימי מארה”ב לישראל</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-953"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%9e%d7%a1%d7%99%d7%9f/" class="elementor-sub-item" tabindex="-1">שילוח ימי מסין</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-950"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%90%d7%a9%d7%93%d7%95%d7%93/" class="elementor-sub-item" tabindex="-1">שילוח ימי אשדוד</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-952"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99-%d7%9e%d7%98%d7%95%d7%a8%d7%a7%d7%99%d7%94/" class="elementor-sub-item" tabindex="-1">שילוח ימי מטורקיה</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-933"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%91%d7%92%d7%93%d7%99%d7%9d-%d7%9e%d7%90%d7%99%d7%98%d7%9c%d7%99%d7%94/" class="elementor-sub-item" tabindex="-1">יבוא בגדים מאיטליה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-947"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%95%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/" class="elementor-sub-item" tabindex="-1">שילוח בינלאומי ועמילות מכס</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-948"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%98%d7%a7%d7%a1%d7%98%d7%99%d7%9c-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99/" class="elementor-sub-item" tabindex="-1">שילוח טקסטיל בינלאומי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-954"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%a0%d7%95%d7%a2-%d7%95%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%91%d7%99%d7%9f-%d7%9c%d7%90%d7%95%d7%9e%d7%99/" class="elementor-sub-item" tabindex="-1">שינוע ושילוח בין לאומי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-929"><a href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94-%d7%95%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99/" class="elementor-sub-item" tabindex="-1">לוגיסטיקה ושילוח מטענים בינלאומי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-930"><a href="https://airgate.co.il/%d7%97%d7%91%d7%a8%d7%aa-%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99%d7%aa/" class="elementor-sub-item" tabindex="-1">חברת הובלה אווירית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-932"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%90%d7%99%d7%a9%d7%99-%d7%a9%d7%9c-%d7%90%d7%95%d7%a4%d7%a0%d7%95%d7%a2%d7%99%d7%9d/" class="elementor-sub-item" tabindex="-1">יבוא אישי של אופנועים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-934"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%91%d7%99%d7%92%d7%95%d7%93-%d7%91%d7%a1%d7%99%d7%98%d7%95%d7%a0%d7%90%d7%95%d7%aa-%d7%9e%d7%a1%d7%99%d7%9f/" class="elementor-sub-item" tabindex="-1">יבוא ביגוד בסיטונאות מסין</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-936"><a href="https://airgate.co.il/%d7%99%d7%99%d7%a6%d7%95%d7%a8-%d7%95%d7%99%d7%91%d7%95%d7%90-%d7%a9%d7%9c-%d7%a1%d7%97%d7%95%d7%a8%d7%95%d7%aa-%d7%9e%d7%98%d7%95%d7%a8%d7%a7%d7%99%d7%94/" class="elementor-sub-item" tabindex="-1">ייצור ויבוא של סחורות מטורקיה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-938"><a href="https://airgate.co.il/%d7%9e%d7%94%d7%95-%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/" class="elementor-sub-item" tabindex="-1">מהו שילוח אווירי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-946"><a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%95%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%99%d7%9e%d7%99%d7%aa-%d7%95%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99%d7%aa/" class="elementor-sub-item" tabindex="-1">שילוח בינלאומי והובלה ימית ואווירית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-931"><a href="https://airgate.co.il/%d7%97%d7%91%d7%a8%d7%aa-%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/" class="elementor-sub-item" tabindex="-1">חברת שילוח אווירי</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-47"><a href="https://airgate.co.il/%d7%a4%d7%a8%d7%95%d7%99%d7%99%d7%a7%d7%98%d7%99%d7%9d/" class="elementor-item" tabindex="-1">פרוייקטים</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-534"><a href="https://airgate.co.il/%d7%a4%d7%99%d7%99%d7%9c%d7%95%d7%98-%d7%a2%d7%91%d7%95%d7%a8-%d7%a2%d7%99%d7%a8%d7%99%d7%99%d7%aa-%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91/" class="elementor-sub-item" tabindex="-1">פיילוט עבור עיריית תל אביב</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-533"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%90%d7%99%d7%a9%d7%99-%d7%a9%d7%9c-%d7%90%d7%95%d7%a4%d7%a0%d7%95%d7%a2%d7%99%d7%9d/" class="elementor-sub-item" tabindex="-1">יבוא אישי של אופנועים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-532"><a href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%99%d7%9d-%d7%9c%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%9e%d7%99%d7%95%d7%97%d7%93%d7%99%d7%9d/" class="elementor-sub-item" tabindex="-1">פתרונות לוגיסטיים למטענים מיוחדים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-530"><a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%9b%d7%9c%d7%99-%d7%a9%d7%99%d7%98/" class="elementor-sub-item" tabindex="-1">יבוא כלי שיט</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46"><a href="https://airgate.co.il/%d7%9e%d7%99%d7%9c%d7%95%d7%9f-%d7%9e%d7%95%d7%a0%d7%97%d7%99%d7%9d/" class="elementor-item" tabindex="-1">מילון מונחים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://airgate.co.il/%d7%98%d7%a4%d7%a1%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%a8%d7%93%d7%94/" class="elementor-item" tabindex="-1">טפסים להורדה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://airgate.co.il/%d7%94%d7%a6%d7%a2%d7%aa-%d7%9e%d7%97%d7%99%d7%a8-%d7%97%d7%99%d7%a0%d7%9d/" class="elementor-item" tabindex="-1">הצעת מחיר חינם!</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="https://airgate.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item" tabindex="-1">צור קשר</a></li>
+<li class="lang-item lang-item-14 lang-item-en lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-651-en"><a href="https://airgate.co.il/en/home/" hreflang="en-US" lang="en-US" class="elementor-item" tabindex="-1">English</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-3504abb0" data-id="3504abb0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-01cb18f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="01cb18f" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c4d8507" data-id="c4d8507" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="cpel-switcher--layout-horizontal elementor-element elementor-element-bc2490f cpel-switcher--align-center elementor-hidden-desktop cpel-switcher--layout-horizontal cpel-switcher--aspect-ratio-43 elementor-widget elementor-widget-polylang-language-switcher" data-id="bc2490f" data-element_type="widget" data-widget_type="polylang-language-switcher.default">
+				<div class="elementor-widget-container">
+			<nav class="cpel-switcher__nav"><ul class="cpel-switcher__list"><li class="cpel-switcher__lang cpel-switcher__lang--active"><a lang="he-IL" hreflang="he-IL" href="https://airgate.co.il/"><span class="cpel-switcher__flag cpel-switcher__flag--il"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2021%2015'%3E%3C/svg%3E" alt="עברית" data-lazy-src="data:image/svg+xml;utf8,%3Csvg width='21' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='a'%3E%3Cstop stop-color='%23FFF' offset='0%'/%3E%3Cstop stop-color='%23F0F0F0' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='b'%3E%3Cstop stop-color='%230E46D4' offset='0%'/%3E%3Cstop stop-color='%230538B9' offset='100%'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='url(%23a)' d='M0 0h21v15H0z'/%3E%3Cpath fill='url(%23b)' d='M0 0h21v3H0zm0 12h21v3H0z'/%3E%3Cpath fill='url(%23a)' d='M0 3h21v9H0z'/%3E%3Cpath d='M7.575 9.25L10.5 3.985l2.925 5.265h-5.85z' stroke='%23093EC5' stroke-width='.5'/%3E%3Cpath d='M7.575 5.75l2.925 5.265 2.925-5.265h-5.85z' stroke='%23093EC5' stroke-width='.5'/%3E%3C/g%3E%3C/svg%3E"><noscript><img src="data:image/svg+xml;utf8,%3Csvg width='21' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='a'%3E%3Cstop stop-color='%23FFF' offset='0%'/%3E%3Cstop stop-color='%23F0F0F0' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='b'%3E%3Cstop stop-color='%230E46D4' offset='0%'/%3E%3Cstop stop-color='%230538B9' offset='100%'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='url(%23a)' d='M0 0h21v15H0z'/%3E%3Cpath fill='url(%23b)' d='M0 0h21v3H0zm0 12h21v3H0z'/%3E%3Cpath fill='url(%23a)' d='M0 3h21v9H0z'/%3E%3Cpath d='M7.575 9.25L10.5 3.985l2.925 5.265h-5.85z' stroke='%23093EC5' stroke-width='.5'/%3E%3Cpath d='M7.575 5.75l2.925 5.265 2.925-5.265h-5.85z' stroke='%23093EC5' stroke-width='.5'/%3E%3C/g%3E%3C/svg%3E" alt="עברית" /></noscript></span></a></li><li class="cpel-switcher__lang"><a lang="en-US" hreflang="en-US" href="https://airgate.co.il/en/home/"><span class="cpel-switcher__flag cpel-switcher__flag--us"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2021%2015'%3E%3C/svg%3E" alt="English" data-lazy-src="data:image/svg+xml;utf8,%3Csvg width='21' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='a'%3E%3Cstop stop-color='%23FFF' offset='0%'/%3E%3Cstop stop-color='%23F0F0F0' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='b'%3E%3Cstop stop-color='%23D02F44' offset='0%'/%3E%3Cstop stop-color='%23B12537' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='c'%3E%3Cstop stop-color='%2346467F' offset='0%'/%3E%3Cstop stop-color='%233C3C6D' offset='100%'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='url(%23a)' d='M0 0h21v15H0z'/%3E%3Cpath d='M0 0h21v1H0V0zm0 2h21v1H0V2zm0 2h21v1H0V4zm0 2h21v1H0V6zm0 2h21v1H0V8zm0 2h21v1H0v-1zm0 2h21v1H0v-1zm0 2h21v1H0v-1z' fill='url(%23b)'/%3E%3Cpath fill='url(%23c)' d='M0 0h9v7H0z'/%3E%3Cpath d='M1.5 2a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm-5 1a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm1 1a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm1 1a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm1 1a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1z' fill='url(%23a)'/%3E%3C/g%3E%3C/svg%3E"><noscript><img src="data:image/svg+xml;utf8,%3Csvg width='21' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='a'%3E%3Cstop stop-color='%23FFF' offset='0%'/%3E%3Cstop stop-color='%23F0F0F0' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='b'%3E%3Cstop stop-color='%23D02F44' offset='0%'/%3E%3Cstop stop-color='%23B12537' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='c'%3E%3Cstop stop-color='%2346467F' offset='0%'/%3E%3Cstop stop-color='%233C3C6D' offset='100%'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='url(%23a)' d='M0 0h21v15H0z'/%3E%3Cpath d='M0 0h21v1H0V0zm0 2h21v1H0V2zm0 2h21v1H0V4zm0 2h21v1H0V6zm0 2h21v1H0V8zm0 2h21v1H0v-1zm0 2h21v1H0v-1zm0 2h21v1H0v-1z' fill='url(%23b)'/%3E%3Cpath fill='url(%23c)' d='M0 0h9v7H0z'/%3E%3Cpath d='M1.5 2a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm-5 1a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm1 1a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm1 1a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm1 1a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 0a.5.5 0 110-1 .5.5 0 010 1z' fill='url(%23a)'/%3E%3C/g%3E%3C/svg%3E" alt="English" /></noscript></span></a></li></ul></nav>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-fd025df" data-id="fd025df" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-03032fb elementor-shape-circle e-grid-align-mobile-right e-grid-align-left elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="03032fb" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container{line-height:1;font-size:0}.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid{display:inline-grid}.elementor-widget-social-icons .elementor-grid{grid-column-gap:var(--grid-column-gap,5px);grid-row-gap:var(--grid-row-gap,5px);grid-template-columns:var(--grid-template-columns);-webkit-box-pack:var(--justify-content,center);-ms-flex-pack:var(--justify-content,center);justify-content:var(--justify-content,center);justify-items:var(--justify-content,center)}.elementor-icon.elementor-social-icon{font-size:var(--icon-size,25px);line-height:var(--icon-size,25px);width:calc(var(--icon-size, 25px) + (2 * var(--icon-padding, .5em)));height:calc(var(--icon-size, 25px) + (2 * var(--icon-padding, .5em)))}.elementor-social-icon{--e-social-icon-icon-color:#fff;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;background-color:#818a91;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;cursor:pointer}.elementor-social-icon i{color:var(--e-social-icon-icon-color)}.elementor-social-icon svg{fill:var(--e-social-icon-icon-color)}.elementor-social-icon:last-child{margin:0}.elementor-social-icon:hover{opacity:.9;color:#fff}.elementor-social-icon-android{background-color:#a4c639}.elementor-social-icon-apple{background-color:#999}.elementor-social-icon-behance{background-color:#1769ff}.elementor-social-icon-bitbucket{background-color:#205081}.elementor-social-icon-codepen{background-color:#000}.elementor-social-icon-delicious{background-color:#39f}.elementor-social-icon-deviantart{background-color:#05cc47}.elementor-social-icon-digg{background-color:#005be2}.elementor-social-icon-dribbble{background-color:#ea4c89}.elementor-social-icon-elementor{background-color:#d30c5c}.elementor-social-icon-envelope{background-color:#ea4335}.elementor-social-icon-facebook,.elementor-social-icon-facebook-f{background-color:#3b5998}.elementor-social-icon-flickr{background-color:#0063dc}.elementor-social-icon-foursquare{background-color:#2d5be3}.elementor-social-icon-free-code-camp,.elementor-social-icon-freecodecamp{background-color:#006400}.elementor-social-icon-github{background-color:#333}.elementor-social-icon-gitlab{background-color:#e24329}.elementor-social-icon-globe{background-color:#818a91}.elementor-social-icon-google-plus,.elementor-social-icon-google-plus-g{background-color:#dd4b39}.elementor-social-icon-houzz{background-color:#7ac142}.elementor-social-icon-instagram{background-color:#262626}.elementor-social-icon-jsfiddle{background-color:#487aa2}.elementor-social-icon-link{background-color:#818a91}.elementor-social-icon-linkedin,.elementor-social-icon-linkedin-in{background-color:#0077b5}.elementor-social-icon-medium{background-color:#00ab6b}.elementor-social-icon-meetup{background-color:#ec1c40}.elementor-social-icon-mixcloud{background-color:#273a4b}.elementor-social-icon-odnoklassniki{background-color:#f4731c}.elementor-social-icon-pinterest{background-color:#bd081c}.elementor-social-icon-product-hunt{background-color:#da552f}.elementor-social-icon-reddit{background-color:#ff4500}.elementor-social-icon-rss{background-color:#f26522}.elementor-social-icon-shopping-cart{background-color:#4caf50}.elementor-social-icon-skype{background-color:#00aff0}.elementor-social-icon-slideshare{background-color:#0077b5}.elementor-social-icon-snapchat{background-color:#fffc00}.elementor-social-icon-soundcloud{background-color:#f80}.elementor-social-icon-spotify{background-color:#2ebd59}.elementor-social-icon-stack-overflow{background-color:#fe7a15}.elementor-social-icon-steam{background-color:#00adee}.elementor-social-icon-stumbleupon{background-color:#eb4924}.elementor-social-icon-telegram{background-color:#2ca5e0}.elementor-social-icon-thumb-tack{background-color:#1aa1d8}.elementor-social-icon-tripadvisor{background-color:#589442}.elementor-social-icon-tumblr{background-color:#35465c}.elementor-social-icon-twitch{background-color:#6441a5}.elementor-social-icon-twitter{background-color:#1da1f2}.elementor-social-icon-viber{background-color:#665cac}.elementor-social-icon-vimeo{background-color:#1ab7ea}.elementor-social-icon-vk{background-color:#45668e}.elementor-social-icon-weibo{background-color:#dd2430}.elementor-social-icon-weixin{background-color:#31a918}.elementor-social-icon-whatsapp{background-color:#25d366}.elementor-social-icon-wordpress{background-color:#21759b}.elementor-social-icon-xing{background-color:#026466}.elementor-social-icon-yelp{background-color:#af0606}.elementor-social-icon-youtube{background-color:#cd201f}.elementor-social-icon-500px{background-color:#0099e5}.elementor-shape-rounded .elementor-icon.elementor-social-icon{border-radius:10%}.elementor-shape-circle .elementor-icon.elementor-social-icon{border-radius:50%}</style>		<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-7bf3bf4" href="https://www.facebook.com/airgatefreight" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-177981a" href="https://twitter.com/airgate" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<i class="fab fa-twitter"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5f3f743a elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="5f3f743a" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/airgate.co.il\/wp-content\/uploads\/2022\/06\/pexels-kelly-lacy-6595364.mp4&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;shape_divider_bottom&quot;:&quot;opacity-fan&quot;,&quot;_ha_eqh_enable&quot;:false}">
+								<div class="elementor-background-video-container">
+													<video class="elementor-background-video-hosted elementor-html5-video" autoplay="" muted="" playsinline="" loop=""></video>
+											</div>
+									<div class="elementor-background-overlay"></div>
+						<div class="elementor-shape elementor-shape-bottom" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 19.6" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" style="opacity:0.33" d="M0 0L0 18.8 141.8 4.1 283.5 18.8 283.5 0z"></path>
+	<path class="elementor-shape-fill" style="opacity:0.33" d="M0 0L0 12.6 141.8 4 283.5 12.6 283.5 0z"></path>
+	<path class="elementor-shape-fill" style="opacity:0.33" d="M0 0L0 6.4 141.8 4 283.5 6.4 283.5 0z"></path>
+	<path class="elementor-shape-fill" d="M0 0L0 1.2 141.8 4 283.5 1.2 283.5 0z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2a47315f" data-id="2a47315f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-757b366 elementor-widget elementor-widget-image" data-id="757b366" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img width="520" height="260" src="https://airgate.co.il/wp-content/uploads/2022/06/logo-W.png" class="attachment-large size-large lazyloaded" alt="" sizes="(max-width: 520px) 100vw, 520px" srcset="https://airgate.co.il/wp-content/uploads/2022/06/logo-W.png 520w, https://airgate.co.il/wp-content/uploads/2022/06/logo-W-300x150.png 300w" data-ll-status="loaded"><noscript><img width="520" height="260" src="https://airgate.co.il/wp-content/uploads/2022/06/logo-W.png" class="attachment-large size-large" alt="" srcset="https://airgate.co.il/wp-content/uploads/2022/06/logo-W.png 520w, https://airgate.co.il/wp-content/uploads/2022/06/logo-W-300x150.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-63d79196 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="63d79196" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-widget-divider{--divider-border-style:none;--divider-border-width:1px;--divider-color:#2c2c2c;--divider-icon-size:20px;--divider-element-spacing:10px;--divider-pattern-height:24px;--divider-pattern-size:20px;--divider-pattern-url:none;--divider-pattern-repeat:repeat-x}.elementor-widget-divider .elementor-divider{display:-webkit-box;display:-ms-flexbox;display:flex}.elementor-widget-divider .elementor-divider__text{font-size:15px;line-height:1;max-width:95%}.elementor-widget-divider .elementor-divider__element{margin:0 var(--divider-element-spacing);-ms-flex-negative:0;flex-shrink:0}.elementor-widget-divider .elementor-icon{font-size:var(--divider-icon-size)}.elementor-widget-divider .elementor-divider-separator{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0;direction:ltr}.elementor-widget-divider--view-line_icon .elementor-divider-separator,.elementor-widget-divider--view-line_text .elementor-divider-separator{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.elementor-widget-divider--view-line_icon .elementor-divider-separator:after,.elementor-widget-divider--view-line_icon .elementor-divider-separator:before,.elementor-widget-divider--view-line_text .elementor-divider-separator:after,.elementor-widget-divider--view-line_text .elementor-divider-separator:before{display:block;content:"";border-bottom:0;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;border-top:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--element-align-left .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:100;flex-shrink:100}.elementor-widget-divider--element-align-left .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-left .elementor-divider__element{margin-left:0}.elementor-widget-divider--element-align-right .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:100;flex-shrink:100}.elementor-widget-divider--element-align-right .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-right .elementor-divider__element{margin-right:0}.elementor-widget-divider:not(.elementor-widget-divider--view-line_text):not(.elementor-widget-divider--view-line_icon) .elementor-divider-separator{border-top:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--separator-type-pattern{--divider-border-style:none}.elementor-widget-divider--separator-type-pattern.elementor-widget-divider--view-line .elementor-divider-separator,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:after,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:before,.elementor-widget-divider--separator-type-pattern:not([class*=elementor-widget-divider--view]) .elementor-divider-separator{width:100%;min-height:var(--divider-pattern-height);-webkit-mask-size:var(--divider-pattern-size) 100%;mask-size:var(--divider-pattern-size) 100%;-webkit-mask-repeat:var(--divider-pattern-repeat);mask-repeat:var(--divider-pattern-repeat);background-color:var(--divider-color);-webkit-mask-image:var(--divider-pattern-url);mask-image:var(--divider-pattern-url)}.elementor-widget-divider--no-spacing{--divider-pattern-size:auto}.elementor-widget-divider--bg-round{--divider-pattern-repeat:round}.rtl .elementor-widget-divider .elementor-divider__text{direction:rtl}</style>		<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-3a823c79 elementor-widget elementor-widget-premium-addon-fancy-text" data-id="3a823c79" data-element_type="widget" data-widget_type="premium-addon-fancy-text.default">
+				<div class="elementor-widget-container">
+					<div class="premium-fancy-text-wrapper slide  " data-settings="{&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:200,&quot;showItems&quot;:1,&quot;pause&quot;:2000,&quot;mousePause&quot;:false,&quot;loading&quot;:&quot;&quot;}">
+			
+					<div class="premium-fancy-text" style="display: inline-block; text-align: center">
+				<ul class="premium-fancy-text-items-wrapper">
+									<li class="premium-fancy-list-items premium-fancy-item-visible">
+							שילוח אווירי בין לאומי						</li>
+											<li class="premium-fancy-list-items premium-fancy-item-visible">
+							שילוח ימי בין לאומי						</li>
+											<li class="premium-fancy-list-items premium-fancy-item-visible">
+							עמילות מכס						</li>
+											<li class="premium-fancy-list-items premium-fancy-item-visible">
+							שירות B2B 						</li>
+											<li class="premium-fancy-list-items premium-fancy-item-visible">
+							לוגיסטיקה						</li>
+											<li class="premium-fancy-list-items premium-fancy-item-visible">
+							שילוח מטענים						</li>
+									</ul>
+			</div>
+					</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-b33326c elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="b33326c" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-14e083e7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="14e083e7" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-28c89a12" data-id="28c89a12" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-688240be elementor-widget elementor-widget-counter" data-id="688240be" data-element_type="widget" data-widget_type="counter.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-counter .elementor-counter-number-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;font-size:69px;font-weight:600;line-height:1}.elementor-counter .elementor-counter-number-prefix,.elementor-counter .elementor-counter-number-suffix{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;white-space:pre-wrap}.elementor-counter .elementor-counter-number-prefix{text-align:left}.elementor-counter .elementor-counter-number-suffix{text-align:right}.elementor-counter .elementor-counter-title{text-align:center;font-size:19px;font-weight:400;line-height:2.5}</style>		<div class="elementor-counter">
+			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="45" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix"></span>
+			</div>
+							<div class="elementor-counter-title">שנות פעילות</div>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-199d54b0" data-id="199d54b0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-349a7ce8 elementor-widget elementor-widget-counter" data-id="349a7ce8" data-element_type="widget" data-widget_type="counter.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-counter">
+			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix">%</span>
+				<span class="elementor-counter-number" data-duration="2500" data-to-value="100" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix"></span>
+			</div>
+							<div class="elementor-counter-title">עמידה ביעדים</div>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-4abf8307" data-id="4abf8307" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-31426278 elementor-widget elementor-widget-counter" data-id="31426278" data-element_type="widget" data-widget_type="counter.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-counter">
+			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix">%</span>
+				<span class="elementor-counter-number" data-duration="3000" data-to-value="100" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix"></span>
+			</div>
+							<div class="elementor-counter-title">יחס אישי אמיתי</div>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<div class="elementor-element elementor-element-5f2c92e9 elementor-view-default elementor-widget elementor-widget-icon" data-id="5f2c92e9" data-element_type="widget" data-settings="{&quot;ha_floating_fx&quot;:&quot;yes&quot;,&quot;ha_floating_fx_translate_toggle&quot;:&quot;yes&quot;,&quot;ha_floating_fx_translate_x&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;from&quot;:0,&quot;to&quot;:0}},&quot;ha_floating_fx_translate_y&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;from&quot;:0,&quot;to&quot;:15}},&quot;ha_floating_fx_translate_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1000,&quot;sizes&quot;:[]},&quot;ha_floating_fx_translate_delay&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<i aria-hidden="true" class="icon icon-arrow-point-to-down"></i>			</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3f1fe010 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="3f1fe010" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-49ff2b0b" data-id="49ff2b0b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7196a7a9 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="7196a7a9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">איירגייט ישראל בע"מ</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7f0a8e31 elementor-widget elementor-widget-heading" data-id="7f0a8e31" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">חברת השילוח המובילה והמתקדמת בארץ</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-20b6aa03 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="20b6aa03" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">.Airgate Israel Ltd</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-165b6134 elementor-widget elementor-widget-text-editor" data-id="165b6134" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#818a91;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#818a91;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:right;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p>איירגייט ישראל בע”מ אשר הוקמה ב- 1999, היא חברת שילוח ותיקה, מנוסה ומקצועית. אנו מספקים מגוון רחב של שירותי הובלה ימית, אווירית ויבשתית ומתמחים במתן פתרונות לוגיסטיים מסוגים שונים, בארץ ובחו”ל.</p><p>לאיירגייט ישראל בע”מ קשרים מסועפים בכל רחבי העולם, המאפשרים לנו לספק את צרכי המשלוח שלכם באופן הטוב ביותר ובמחירים אטרקטיביים במיוחד. צוות המומחים המקצועי והמיומן של איירגייט ישראל בע”מ יספק לכם פתרונות יצירתיים לצד שירות אישי, אמין, מהיר ואיכותי.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5f71e7d elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="5f71e7d" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-53ed1e63" data-id="53ed1e63" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-383cdcb8 elementor-widget elementor-widget-heading" data-id="383cdcb8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">הפתרונות שלנו</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-f5d2aaa ha-image-accordion-horizontal ha-image-accordion-click elementor-widget elementor-widget-ha-image-accordion happy-addon ha-image-accordion" data-id="f5d2aaa" data-element_type="widget" data-widget_type="ha-image-accordion.default">
+				<div class="elementor-widget-container">
+			        <div class="ha-image-accordion-wrapper">
+            <div class="ha-ia-container">
+                <div class="ha-ia-gallery-wrap">
+                                            <div data-bg="https://airgate.co.il/wp-content/uploads/2022/06/שילוח-אווירי.jpg" style="" class="ha-ia-item active rocket-lazyload">
+                            <div class="ha-overlay">
+                                <div class="ha-ia-content-wrapper ha_noAnimation">
+                                                                                                                <span class="ha-ia-content-label">.A</span>
+                                                                        <div class="ha-ia-content-icon-title ha-ia-icon-left">
+                                                                                <span class="ha-ia-content-title">שילוח אווירי בין לאומי</span>
+                                    </div>
+                                                                                                                <a class="ha-ia-content-button" href="https://airgate.co.il/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%99%d7%a6%d7%95%d7%90/">
+                                            לקריאה                                        </a>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <div data-bg="https://airgate.co.il/wp-content/uploads/2022/06/1שילוח-ימי-בינלאומי.jpg" style="" class="ha-ia-item active rocket-lazyload">
+                            <div class="ha-overlay">
+                                <div class="ha-ia-content-wrapper ha_noAnimation">
+                                                                                                                <span class="ha-ia-content-label">.B</span>
+                                                                        <div class="ha-ia-content-icon-title ha-ia-icon-left">
+                                                                                <span class="ha-ia-content-title">שילוח ימי בין לאומי </span>
+                                    </div>
+                                                                                                                <a class="ha-ia-content-button" href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99/">
+                                            לקריאה                                        </a>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <div data-bg="https://airgate.co.il/wp-content/uploads/2022/06/עמילות-מכס.jpg" style="" class="ha-ia-item active rocket-lazyload">
+                            <div class="ha-overlay">
+                                <div class="ha-ia-content-wrapper ha_noAnimation">
+                                                                                                                <span class="ha-ia-content-label">.C</span>
+                                                                        <div class="ha-ia-content-icon-title ha-ia-icon-left">
+                                                                                <span class="ha-ia-content-title">עמילות מכס</span>
+                                    </div>
+                                                                                                                <a class="ha-ia-content-button" href="https://airgate.co.il/%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/">
+                                            לקריאה                                        </a>
+                                                                    </div>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+		</div>
+				</div>
+				<div class="elementor-element elementor-element-35158fa ha-image-accordion-horizontal ha-image-accordion-click elementor-widget elementor-widget-ha-image-accordion happy-addon ha-image-accordion" data-id="35158fa" data-element_type="widget" data-widget_type="ha-image-accordion.default">
+				<div class="elementor-widget-container">
+			        <div class="ha-image-accordion-wrapper">
+            <div class="ha-ia-container">
+                <div class="ha-ia-gallery-wrap">
+                                            <div data-bg="https://airgate.co.il/wp-content/uploads/2022/06/שירות-B2B.jpg" style="" class="ha-ia-item active rocket-lazyload">
+                            <div class="ha-overlay">
+                                <div class="ha-ia-content-wrapper ha_noAnimation">
+                                                                                                                <span class="ha-ia-content-label">.D</span>
+                                                                        <div class="ha-ia-content-icon-title ha-ia-icon-left">
+                                                                                <span class="ha-ia-content-title">שירות B2B </span>
+                                    </div>
+                                                                                                                <a class="ha-ia-content-button" href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%9b%d7%9c%d7%99-%d7%a9%d7%99%d7%98/">
+                                            לקריאה                                        </a>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <div data-bg="https://airgate.co.il/wp-content/uploads/2022/06/לוגיסטיקה.jpg" style="" class="ha-ia-item active rocket-lazyload">
+                            <div class="ha-overlay">
+                                <div class="ha-ia-content-wrapper ha_noAnimation">
+                                                                                                                <span class="ha-ia-content-label">.E</span>
+                                                                        <div class="ha-ia-content-icon-title ha-ia-icon-left">
+                                                                                <span class="ha-ia-content-title">לוגיסטיקה</span>
+                                    </div>
+                                                                                                                <a class="ha-ia-content-button" href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94/">
+                                            לקריאה                                        </a>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <div data-bg="https://airgate.co.il/wp-content/uploads/2022/06/שילוח-מטענים.jpg" style="" class="ha-ia-item active rocket-lazyload">
+                            <div class="ha-overlay">
+                                <div class="ha-ia-content-wrapper ha_noAnimation">
+                                                                                                                <span class="ha-ia-content-label">.F</span>
+                                                                        <div class="ha-ia-content-icon-title ha-ia-icon-left">
+                                                                                <span class="ha-ia-content-title">שילוח מטענים</span>
+                                    </div>
+                                                                                                                <a class="ha-ia-content-button" href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/">
+                                            לקריאה                                        </a>
+                                                                    </div>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-59bbc778 elementor-section-content-middle elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="59bbc778" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_bottom&quot;:&quot;triangle&quot;,&quot;shape_divider_bottom_negative&quot;:&quot;yes&quot;,&quot;_ha_eqh_enable&quot;:false}">
+							<div class="elementor-background-overlay"></div>
+						<div class="elementor-shape elementor-shape-bottom" data-negative="true">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3b78a63c" data-id="3b78a63c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-eedf19b elementor-widget elementor-widget-heading" data-id="eedf19b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">התמחות בייבוא מכל רחבי העולם</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-ec0dacb elementor-widget elementor-widget-heading" data-id="ec0dacb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">אנו באיירגייט מציעים לך, היבואן, מכלול שירותים מקצועי ומתקדם,<br>הכולל את מיטב פתרונות היבוא ליבוא דרך הים, האוויר והיבשה.</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3843a7a4 elementor-widget elementor-widget-heading" data-id="3843a7a4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">הליך היבוא של סחורות לארץ הינו הליך ארוך ומורכב, הדורש יכולות התמודדות עם מגוון נושאים, ביניהם:<br>מכשולים בירוקרטים, מציאת פתרונות לוגיסטיים כגון שינוע הסחורה מן הנמל או אליו, מציאת פתרונות איחסון, טיפול במשלוחים מורכבים (ציוד עדין או שביר, משלוחים מבוקרי טמפרטורה וכד'), שינויים לא צפויים בלוחות הזמנים ועוד.</p>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-c8bd058 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default" data-id="c8bd058" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-667e7b2" data-id="667e7b2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2e16071 elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="2e16071" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i aria-hidden="true" class="hm hm-ship"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<p class="elementor-icon-box-title">
+					<span>
+						ייבוא דרך הים					</span>
+				</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-0f6660c" data-id="0f6660c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1ec10f8 elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="1ec10f8" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i aria-hidden="true" class="hm hm-shipping-address"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<p class="elementor-icon-box-title">
+					<span>
+						ייבוא דרך היבשה					</span>
+				</p>
+									<p class="elementor-icon-box-description">
+						[ לפרטים ]					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-1909f6b" data-id="1909f6b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e5c71a4 elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="e5c71a4" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i aria-hidden="true" class="hm hm-plane"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<p class="elementor-icon-box-title">
+					<span>
+						ייבוא דרך האוויר					</span>
+				</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<div class="elementor-element elementor-element-770bd65 elementor-widget elementor-widget-heading" data-id="770bd65" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">קבלו הצעת מחיר חינם!</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-33cefa22 elementor-widget elementor-widget-ha-creative-button happy-addon ha-creative-button" data-id="33cefa22" data-element_type="widget" data-widget_type="ha-creative-button.default">
+				<div class="elementor-widget-container">
+					<div data-magnetic="no" class="ha-creative-btn-wrap">
+			<a class="ha-creative-btn ha-stl--iconica ha-eft--slide-in-down" href="https://airgate.co.il/%d7%94%d7%a6%d7%a2%d7%aa-%d7%9e%d7%97%d7%99%d7%a8-%d7%97%d7%99%d7%a0%d7%9d/" rel="nofollow"><span>הקליקו כאן </span><i aria-hidden="true" class="hm hm-arrow-left"></i></a>
+		</div>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6de97884 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="6de97884" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5b8b59d7" data-id="5b8b59d7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4c5f51cd elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="4c5f51cd" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">working with airgate</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-77a0214 elementor-widget elementor-widget-heading" data-id="77a0214" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">מדוע לעבוד איתנו?</h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-1b072ebd elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1b072ebd" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-32032df7" data-id="32032df7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-695020ab elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="695020ab" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-grow">
+				<i aria-hidden="true" class="hm hm-refresh-time"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<p class="elementor-icon-box-title">
+					<span>
+						שירות מהיר ואישי					</span>
+				</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-62d3f1b" data-id="62d3f1b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-76adccde elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="76adccde" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-grow">
+				<i aria-hidden="true" class="hm hm-support-call"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<p class="elementor-icon-box-title">
+					<span>
+						מענה מקצועי					</span>
+				</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6f41acfa" data-id="6f41acfa" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-756ccea elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="756ccea" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-grow">
+				<i aria-hidden="true" class="hm hm-inbox"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<p class="elementor-icon-box-title">
+					<span>
+						התאמה לכל לקוח					</span>
+				</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-3e62de1f" data-id="3e62de1f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2ee18b8f elementor-view-default elementor-mobile-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="2ee18b8f" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-grow">
+				<i aria-hidden="true" class="hm hm-paper-plane"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<p class="elementor-icon-box-title">
+					<span>
+						פתרונות ייבוא \ יצוא מקיפים					</span>
+				</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-64150f0d elementor-section-full_width elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-section-height-default elementor-section-height-default" data-id="64150f0d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2261ab31" data-id="2261ab31" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c20b1cb elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="c20b1cb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">ARTICLES</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-23c03d03 elementor-widget elementor-widget-heading" data-id="23c03d03" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">מאמרים</h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-172ab4fb elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="172ab4fb" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2117b1b3" data-id="2117b1b3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-39bdce35 elementor-grid-4 elementor-posts--align-center elementor-posts--thumbnail-none elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-card-shadow-yes elementor-posts__hover-gradient elementor-widget elementor-widget-posts" data-id="39bdce35" data-element_type="widget" data-settings="{&quot;cards_columns&quot;:&quot;4&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;,&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:35,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="posts.cards">
+				<div class="elementor-widget-container">
+					<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid">
+				<article class="elementor-post elementor-grid-item post-1070 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%98%d7%99%d7%a4%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%96%d7%9c%d7%aa-%d7%a2%d7%9c%d7%95%d7%99%d7%95%d7%aa-%d7%95%d7%9c%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%94%d7%aa%d7%94%d7%9c%d7%99%d7%9a/">
+				טיפים להוזלת עלויות ולשיפור התהליך			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>אחד הצעדים החשובים ביותר בתהליך השילוח הוא תכנון מקדים. חשוב לוודא שאנו מכירים את כל המידע הנחוץ לפני תחילת השילוח, כולל זמני אספקה, עלויות, והתקנות</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%98%d7%99%d7%a4%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%96%d7%9c%d7%aa-%d7%a2%d7%9c%d7%95%d7%99%d7%95%d7%aa-%d7%95%d7%9c%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%94%d7%aa%d7%94%d7%9c%d7%99%d7%9a/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-1058 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99/">
+				שילוח מטענים בינלאומי			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>שילוח מטענים בינלאומי הוא אחד התחומים הקריטיים ביותר בעולם הסחר הגלובלי המודרני. כאשר מדובר בשינוע סחורות ברחבי העולם, חשוב להבטיח שהמשלוח יתבצע בצורה המהירה, הבטוחה</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-1056 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%97%d7%91%d7%a8%d7%aa-%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%90%d7%a0%d7%92%d7%9c%d7%99%d7%94/">
+				חברת שילוח מאנגליה			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>אנחנו באיירגייט ישראל מתמחים במתן פתרונות שילוח מתקדמים וחדשניים, המותאמים לצרכים הייחודיים של כל לקוח. אנו מחויבים לספק שירות אישי ומקצועי, המשלב ידע רב תחומי</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%97%d7%91%d7%a8%d7%aa-%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%90%d7%a0%d7%92%d7%9c%d7%99%d7%94/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-1044 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%98%d7%a7%d7%a1%d7%98%d7%99%d7%9c-%d7%9e%d7%9e%d7%a8%d7%95%d7%a7%d7%95/">
+				יבוא טקסטיל ממרוקו			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>אנחנו באיירגייט ישראל גאים להיות חלק משמעותי מהתהליך המרגש של יבוא טקסטיל ממרוקו. כחברת שילוח מובילה, אנחנו מבינים את החשיבות הגדולה של טקסטיל איכותי ומגוון,</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%98%d7%a7%d7%a1%d7%98%d7%99%d7%9c-%d7%9e%d7%9e%d7%a8%d7%95%d7%a7%d7%95/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-521 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/">
+				עמילות מכס			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>מחלקת עמילות מכס מתמחה במתן שרותי עמילות ללקוחות בתחומים רבים ומגוונים. המחלקה מנוהלת ע”י צוות בעל ניסיון של שנים רבות ובקיא בכל תהליכי השחרור של</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-519 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94/">
+				לוגיסטיקה			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>צוות נהול לוגיסטיקה ושרשרת אספקה בעל נסיון רב בפרוייקטים שונים ומגוונים ובעל ציוד מיוחד ומגוון לשינוע. טיפול במשלוחים החל מרגע ההזמנה, הובלה אוירית וימית, שחרור,</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-516 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99/">
+				שילוח ימי			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>חברת איירגייט היא חברה אמינה וותיקה המתמחה במשלוח בינלאומי על כל סוגיו. אנו מציעים שירותי משלוח ימי מקצועי ואיכותי, בליווי אישי, אשר יאפשר לכם להעביר</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%99%d7%9e%d7%99/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-494 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+			<div class="elementor-post__card">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/">
+				שילוח אווירי			</a>
+		</h3>
+				<div class="elementor-post__excerpt">
+			<p>איירגייט חברה בארגון התעופה העולמי IATA וחברה ברשתות שונות של סוכני מטען ברחבי העולם. אנו מספקים פתרונות שינוע אווירי במהירות ובמחירים אטרקטיביים. צוות החברה בעל</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%90%d7%95%d7%95%d7%99%d7%a8%d7%99/">
+			קרא עוד »		</a>
+
+				</div>
+					</div>
+		</article>
+				</div>
+
+
+		
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-15f1dee0 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="15f1dee0" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5f955d8" data-id="5f955d8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7651acb6 elementor-widget elementor-widget-template" data-id="7651acb6" data-element_type="widget" data-widget_type="template.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-template">
+					<div data-elementor-type="footer" data-elementor-id="282" class="elementor elementor-282">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-1ee2e36 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="1ee2e36" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ddcc559" data-id="ddcc559" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6b9e9b8 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="6b9e9b8" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+																<a href="https://airgate.co.il">
+							<img width="520" height="260" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20520%20260'%3E%3C/svg%3E" class="attachment-full size-full" alt="" data-lazy-srcset="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png 520w, https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1-300x150.png 300w" data-lazy-sizes="(max-width: 520px) 100vw, 520px" data-lazy-src="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png"><noscript><img width="520" height="260" src="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png" class="attachment-full size-full" alt="" srcset="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1.png 520w, https://airgate.co.il/wp-content/uploads/2022/06/LOGO-N1-300x150.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></noscript>								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<footer class="elementor-section elementor-top-section elementor-element elementor-element-c538f67 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="c538f67" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3c73d3f" data-id="3c73d3f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1c588c1 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="1c588c1" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="hm hm-map-pointer2"></i>						</span>
+										<span class="elementor-icon-list-text"> המלאכה 7, לוד</span>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="mailto:Info@airgate.co.Il" target="_blank">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="hm hm-mail-open"></i>						</span>
+										<span class="elementor-icon-list-text">Info@Airgate.Co.Il</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-64b849f elementor-grid-6 elementor-posts--thumbnail-none elementor-posts--align-center elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-widget elementor-widget-posts" data-id="64b849f" data-element_type="widget" data-settings="{&quot;classic_columns&quot;:&quot;6&quot;,&quot;classic_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;classic_columns_tablet&quot;:&quot;2&quot;,&quot;classic_columns_mobile&quot;:&quot;1&quot;,&quot;classic_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;classic_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="posts.classic">
+				<div class="elementor-widget-container">
+					<div class="elementor-posts-container elementor-posts elementor-posts--skin-classic elementor-grid">
+				<article class="elementor-post elementor-grid-item post-1070 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%98%d7%99%d7%a4%d7%99%d7%9d-%d7%9c%d7%94%d7%95%d7%96%d7%9c%d7%aa-%d7%a2%d7%9c%d7%95%d7%99%d7%95%d7%aa-%d7%95%d7%9c%d7%a9%d7%99%d7%a4%d7%95%d7%a8-%d7%94%d7%aa%d7%94%d7%9c%d7%99%d7%9a/">
+				טיפים להוזלת עלויות ולשיפור התהליך			</a>
+		</h3>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-1058 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%98%d7%a2%d7%a0%d7%99%d7%9d-%d7%91%d7%99%d7%a0%d7%9c%d7%90%d7%95%d7%9e%d7%99/">
+				שילוח מטענים בינלאומי			</a>
+		</h3>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-1056 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%97%d7%91%d7%a8%d7%aa-%d7%a9%d7%99%d7%9c%d7%95%d7%97-%d7%9e%d7%90%d7%a0%d7%92%d7%9c%d7%99%d7%94/">
+				חברת שילוח מאנגליה			</a>
+		</h3>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-1044 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%99%d7%91%d7%95%d7%90-%d7%98%d7%a7%d7%a1%d7%98%d7%99%d7%9c-%d7%9e%d7%9e%d7%a8%d7%95%d7%a7%d7%95/">
+				יבוא טקסטיל ממרוקו			</a>
+		</h3>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-521 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%a2%d7%9e%d7%99%d7%9c%d7%95%d7%aa-%d7%9e%d7%9b%d7%a1/">
+				עמילות מכס			</a>
+		</h3>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-519 post type-post status-publish format-standard has-post-thumbnail hentry category-1">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://airgate.co.il/%d7%9c%d7%95%d7%92%d7%99%d7%a1%d7%98%d7%99%d7%a7%d7%94/">
+				לוגיסטיקה			</a>
+		</h3>
+				</div>
+				</article>
+				</div>
+
+
+		
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</footer>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-9e6703f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="9e6703f" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-610c2ba" data-id="610c2ba" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-bcf8b29 elementor-widget elementor-widget-google_maps" data-id="bcf8b29" data-element_type="widget" data-widget_type="google_maps.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-widget-google_maps .elementor-widget-container{overflow:hidden}.elementor-widget-google_maps iframe{height:300px}</style>		<div class="elementor-custom-embed">
+			<iframe loading="lazy" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="about:blank" title=" המלאכה 7, לוד, ישראל" aria-label=" המלאכה 7, לוד, ישראל" data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://maps.google.com/maps?q=%20%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%94%207%2C%20%D7%9C%D7%95%D7%93%2C%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near"></iframe><noscript><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+					src="https://maps.google.com/maps?q=%20%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%94%207%2C%20%D7%9C%D7%95%D7%93%2C%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C&#038;t=m&#038;z=15&#038;output=embed&#038;iwloc=near"
+					title=" המלאכה 7, לוד, ישראל"
+					aria-label=" המלאכה 7, לוד, ישראל"
+			></iframe></noscript>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-9bdada7" data-id="9bdada7" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c31abe8 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="c31abe8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">Contact us</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-bbd671f elementor-widget elementor-widget-heading" data-id="bbd671f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">יצירת קשר</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-cd155bc elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-text-editor" data-id="cd155bc" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<iframe loading="lazy" id="aff_iframe" style="height: 90px; width: 750PX; padding: 0px; margin: 0px auto; border: 0px; background-color: transparent; text-align: center;" src="about:blank" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://www.myprice.co.il/myprice/affiliate_service.aspx?tid=203&amp;fk_service_id=7944&amp;fk_affiliate_id=9103143"></iframe><noscript><iframe id="aff_iframe" style="height: 90px; width: 750PX; padding: 0px; margin: 0px auto; border: 0px; background-color: transparent; text-align: center;" src="https://www.myprice.co.il/myprice/affiliate_service.aspx?tid=203&amp;fk_service_id=7944&amp;fk_affiliate_id=9103143" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></noscript>						</div>
+				</div>
+				<div class="elementor-element elementor-element-a5b9b4f elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-text-editor" data-id="a5b9b4f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<iframe loading="lazy" id="aff_iframe" style="height: 200px; width: 100%; padding: 0px; margin: 0px auto; border: 0px; background-color: transparent; text-align: center;" src="about:blank" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://www.myprice.co.il/myprice/affiliate_service.aspx?tid=9&amp;fk_service_id=7944&amp;fk_affiliate_id=9103143"></iframe><noscript><iframe id="aff_iframe" style="height: 200px; width: 100%; padding: 0px; margin: 0px auto; border: 0px; background-color: transparent; text-align: center;" src="https://www.myprice.co.il/myprice/affiliate_service.aspx?tid=9&amp;fk_service_id=7944&amp;fk_affiliate_id=9103143" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></noscript>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-f1e8559 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f1e8559" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8b968d1" data-id="8b968d1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-37a853b elementor-widget elementor-widget-image" data-id="37a853b" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="260" height="91" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20260%2091'%3E%3C/svg%3E" class="attachment-large size-large" alt="" data-lazy-src="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-4-W.png"><noscript><img width="260" height="91" src="https://airgate.co.il/wp-content/uploads/2022/06/LOGO-4-W.png" class="attachment-large size-large" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-1ed6f3b elementor-widget elementor-widget-text-editor" data-id="1ed6f3b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<span style="font-size: 14px;"><span style="color: #FFFFFF;">&nbsp; &nbsp; &nbsp;<a style="color: #FFFFFF;" href="https://www.mediagroup.co.il/%D7%A7%D7%99%D7%93%D7%95%D7%9D-%D7%90%D7%95%D7%A8%D7%92%D7%A0%D7%99-1.html" target="_blank" rel="noopener"> קידום אורגני</a> | <a style="color: #FFFFFF;" href="https://www.mediagroup.co.il/" target="_blank" rel="noopener">קידום אתרים</a></span></span>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+						</div>
+				</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+							</div>
+		<!-- HFCM by 99 Robots - Snippet # 1: מודול ונציגה -->
+
+
+
+<script type="rocketlazyloadscript" src="https://cdn.enable.co.il/licenses/enable-L3768ac8zvlx97p-0419-8875/init.js"></script>
+<!-- /end HFCM by 99 Robots -->
+
+
+
+<script type="text/javascript" id="pa-frontend-js-extra">
+/* <![CDATA[ */
+var PremiumSettings = {"ajaxurl":"https:\/\/airgate.co.il\/wp-admin\/admin-ajax.php","nonce":"e3365365f1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/uploads/premium-addons-elementor/pa-frontend-b26eda50a.min.js?ver=1773906645" id="pa-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/airgate.co.il","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=1.0.0" id="hello-theme-frontend-js"></script>
+<script type="text/javascript" id="happy-elementor-addons-js-extra">
+/* <![CDATA[ */
+var HappyLocalize = {"ajax_url":"https:\/\/airgate.co.il\/wp-admin\/admin-ajax.php","nonce":"331f0735a5","pdf_js_lib":"https:\/\/airgate.co.il\/wp-content\/plugins\/happy-elementor-addons\/assets\/vendor\/pdfjs\/lib"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/happy-elementor-addons/assets/js/happy-addons.min.js?ver=3.6.1" id="happy-elementor-addons-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1" id="smartmenus-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/typed.min.js?ver=4.9.19" id="pa-typed-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/vticker.min.js?ver=4.9.19" id="pa-vticker-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min.js?ver=0.2.1" id="jquery-numerator-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/happy-elementor-addons/assets/vendor/anime/lib/anime.min.js?ver=3.6.1" id="anime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/imagesloaded.min.js?ver=4.1.4" id="imagesloaded-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.7.2" id="elementor-pro-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.6.6" id="elementor-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.6.6" id="elementor-frontend-modules-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9" id="regenerator-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/dist/hooks.min.js?ver=c6d64f2cb8f5c6bb49caca37f8828ce3" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/dist/i18n.min.js?ver=ebee46757c6a411e38fd079a7ac71d94" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/airgate.co.il\/wp-admin\/admin-ajax.php","nonce":"a9f76435de","urls":{"assets":"https:\/\/airgate.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/airgate.co.il\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/airgate.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.7.2" id="elementor-pro-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1" id="jquery-ui-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnTwitter":"\u05e9\u05ea\u05e3 \u05d1\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e7\u05e1\u05d8\u05e8\u05d4","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e7\u05e1\u05d8\u05e8\u05d4","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.6.6","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"e_import_export":true,"additional_custom_breakpoints":true,"e_hidden_wordpress_widgets":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"page-transitions":true,"notes":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/airgate.co.il\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":22,"title":"%D7%90%D7%99%D7%99%D7%A8%D7%92%D7%99%D7%99%D7%98%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C%20%D7%91%D7%A2%22%D7%9E%20%7C%20%D7%97%D7%91%D7%A8%D7%AA%20%D7%94%D7%A9%D7%99%D7%9C%D7%95%D7%97%20%D7%94%D7%9E%D7%95%D7%91%D7%99%D7%9C%D7%94%20%D7%95%D7%94%D7%9E%D7%AA%D7%A7%D7%93%D7%9E%D7%AA%20%D7%91%D7%90%D7%A8%D7%A5","excerpt":"","featuredImage":"https:\/\/airgate.co.il\/wp-content\/uploads\/2022\/06\/LOGO-N1.png"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.6.6" id="elementor-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-frontend-js-after">
+"use strict";
+
+;
+
+(function ($) {
+  var $window = $(window),
+      debounce = function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+      var context = this,
+          args = arguments;
+
+      var later = function later() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+
+  $window.on('elementor/frontend/init', function () {
+    var ModuleHandler = elementorModules.frontend.handlers.Base,
+        FloatingFxHandler;
+    FloatingFxHandler = ModuleHandler.extend({
+      bindEvents: function bindEvents() {
+        this.run();
+      },
+      getDefaultSettings: function getDefaultSettings() {
+        return {
+          direction: 'alternate',
+          easing: 'easeInOutSine',
+          loop: true,
+          targets: this.findElement('.elementor-widget-container').get(0)
+        };
+      },
+      onElementChange: debounce(function (prop) {
+        if (prop.indexOf('ha_floating') !== -1) {
+          this.anime && this.anime.restart();
+          this.run();
+        }
+      }, 400),
+      getFxVal: function getFxVal(key) {
+        return this.getElementSettings('ha_floating_fx_' + key);
+      },
+      run: function run() {
+        var config = this.getDefaultSettings();
+
+        if (this.getFxVal('translate_toggle')) {
+          if (this.getFxVal('translate_x.size') || this.getFxVal('translate_x.sizes.to')) {
+            config.translateX = {
+              value: [this.getFxVal('translate_x.sizes.from') || 0, this.getFxVal('translate_x.size') || this.getFxVal('translate_x.sizes.to')],
+              duration: this.getFxVal('translate_duration.size'),
+              delay: this.getFxVal('translate_delay.size') || 0
+            };
+          }
+
+          if (this.getFxVal('translate_y.size') || this.getFxVal('translate_y.sizes.to')) {
+            config.translateY = {
+              value: [this.getFxVal('translate_y.sizes.from') || 0, this.getFxVal('translate_y.size') || this.getFxVal('translate_y.sizes.to')],
+              duration: this.getFxVal('translate_duration.size'),
+              delay: this.getFxVal('translate_delay.size') || 0
+            };
+          }
+        }
+
+        if (this.getFxVal('rotate_toggle')) {
+          if (this.getFxVal('rotate_x.size') || this.getFxVal('rotate_x.sizes.to')) {
+            config.rotateX = {
+              value: [this.getFxVal('rotate_x.sizes.from') || 0, this.getFxVal('rotate_x.size') || this.getFxVal('rotate_x.sizes.to')],
+              duration: this.getFxVal('rotate_duration.size'),
+              delay: this.getFxVal('rotate_delay.size') || 0
+            };
+          }
+
+          if (this.getFxVal('rotate_y.size') || this.getFxVal('rotate_y.sizes.to')) {
+            config.rotateY = {
+              value: [this.getFxVal('rotate_y.sizes.from') || 0, this.getFxVal('rotate_y.size') || this.getFxVal('rotate_y.sizes.to')],
+              duration: this.getFxVal('rotate_duration.size'),
+              delay: this.getFxVal('rotate_delay.size') || 0
+            };
+          }
+
+          if (this.getFxVal('rotate_z.size') || this.getFxVal('rotate_z.sizes.to')) {
+            config.rotateZ = {
+              value: [this.getFxVal('rotate_z.sizes.from') || 0, this.getFxVal('rotate_z.size') || this.getFxVal('rotate_z.sizes.to')],
+              duration: this.getFxVal('rotate_duration.size'),
+              delay: this.getFxVal('rotate_delay.size') || 0
+            };
+          }
+        }
+
+        if (this.getFxVal('scale_toggle')) {
+          if (this.getFxVal('scale_x.size') || this.getFxVal('scale_x.sizes.to')) {
+            config.scaleX = {
+              value: [this.getFxVal('scale_x.sizes.from') || 0, this.getFxVal('scale_x.size') || this.getFxVal('scale_x.sizes.to')],
+              duration: this.getFxVal('scale_duration.size'),
+              delay: this.getFxVal('scale_delay.size') || 0
+            };
+          }
+
+          if (this.getFxVal('scale_y.size') || this.getFxVal('scale_y.sizes.to')) {
+            config.scaleY = {
+              value: [this.getFxVal('scale_y.sizes.from') || 0, this.getFxVal('scale_y.size') || this.getFxVal('scale_y.sizes.to')],
+              duration: this.getFxVal('scale_duration.size'),
+              delay: this.getFxVal('scale_delay.size') || 0
+            };
+          }
+        }
+
+        if (this.getFxVal('translate_toggle') || this.getFxVal('rotate_toggle') || this.getFxVal('scale_toggle')) {
+          this.findElement('.elementor-widget-container').css('will-change', 'transform');
+          this.anime = window.anime && window.anime(config);
+        }
+      }
+    });
+    elementorFrontend.hooks.addAction('frontend/element_ready/widget', function ($scope) {
+      elementorFrontend.elementsHandler.addHandler(FloatingFxHandler, {
+        $element: $scope
+      });
+    });
+  });
+})(jQuery);
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.7.2" id="pro-elements-handlers-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://airgate.co.il/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.7.2" id="e-sticky-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=he; expires=" + expirationDate.toUTCString() + "; path=/; secure; SameSite=Lax";
+			}());
+</script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://airgate.co.il/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img loading="lazy" data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<div class="play"></div>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.dataset.query.length?'':'&'+this.dataset.query;e.setAttribute("src",t.replace("ID",this.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.replaceChild(e,this)}document.addEventListener("DOMContentLoaded",function(){var e,t,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),e.onclick=lazyLoadYoutubeIframe,a[t].appendChild(e)});</script>	<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>

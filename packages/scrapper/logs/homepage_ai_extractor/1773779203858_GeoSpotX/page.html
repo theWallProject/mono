@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en-US" class="light"><head>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="https://geospotx.com/static/favicon.png" crossorigin="use-credentials">
+		<link rel="icon" type="image/png" href="https://geospotx.com/static/favicon-96x96.png" sizes="96x96" crossorigin="use-credentials">
+		<link rel="icon" type="image/svg+xml" href="https://geospotx.com/static/favicon.svg" crossorigin="use-credentials">
+		<link rel="shortcut icon" href="https://geospotx.com/static/favicon.ico" crossorigin="use-credentials">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://geospotx.com/static/apple-touch-icon.png" crossorigin="use-credentials">
+		<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="robots" content="noindex,nofollow">
+
+		<script src="/static/loader.js" defer="" crossorigin="use-credentials"></script>
+		<link rel="stylesheet" href="/static/custom.css" crossorigin="use-credentials">
+
+		<script>
+			function resizeIframe(obj) {
+				obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+			}
+		</script>
+
+		<script>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			(() => {
+				const metaThemeColorTag = document.querySelector('meta[name="theme-color"]');
+				const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+				if (!localStorage?.theme) {
+					localStorage.theme = 'system';
+				}
+
+				if (localStorage.theme === 'system') {
+					document.documentElement.classList.add(prefersDarkTheme ? 'dark' : 'light');
+					metaThemeColorTag.setAttribute('content', prefersDarkTheme ? '#171717' : '#ffffff');
+				} else if (localStorage.theme === 'oled-dark') {
+					document.documentElement.style.setProperty('--color-gray-800', '#101010');
+					document.documentElement.style.setProperty('--color-gray-850', '#050505');
+					document.documentElement.style.setProperty('--color-gray-900', '#000000');
+					document.documentElement.style.setProperty('--color-gray-950', '#000000');
+					document.documentElement.classList.add('dark');
+					metaThemeColorTag.setAttribute('content', '#000000');
+				} else if (localStorage.theme === 'light') {
+					document.documentElement.classList.add('light');
+					metaThemeColorTag.setAttribute('content', '#ffffff');
+				} else if (localStorage.theme === 'her') {
+					document.documentElement.classList.add('her');
+					metaThemeColorTag.setAttribute('content', '#983724');
+				} else {
+					document.documentElement.classList.add('dark');
+					metaThemeColorTag.setAttribute('content', '#171717');
+				}
+
+				window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+					if (localStorage.theme === 'system') {
+						if (e.matches) {
+							document.documentElement.classList.add('dark');
+							document.documentElement.classList.remove('light');
+							metaThemeColorTag.setAttribute('content', '#171717');
+						} else {
+							document.documentElement.classList.add('light');
+							document.documentElement.classList.remove('dark');
+							metaThemeColorTag.setAttribute('content', '#ffffff');
+						}
+					}
+				});
+				const isDarkMode = document.documentElement.classList.contains('dark');
+
+				const logo = document.createElement('img');
+				logo.id = 'logo';
+				logo.style =
+					'position: absolute; width: auto; height: 6rem; top: 44%; left: 50%; transform: translateX(-50%); display:block;';
+				logo.src = isDarkMode ? '/static/splash-dark.png' : '/static/splash.png';
+
+				document.addEventListener('DOMContentLoaded', function () {
+					const splash = document.getElementById('splash-screen');
+					if (document.documentElement.classList.contains('her')) {
+						return;
+					}
+
+					if (splash) splash.prepend(logo);
+				});
+			})();
+		</script>
+
+		<title>
+		Open WebUI
+	</title>
+
+		
+		<link rel="modulepreload" href="/_app/immutable/entry/start.D5s5YTUb.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/BYfvXhfD.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/BsAB9Z30.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.C3jjZZTv.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/C1FmrZbK.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/IHki7fMi.js">
+	<link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/nodes/0.BYf56vT4.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/D0QH3NT1.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CGwCSIWv.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DmTNmOsd.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/D0VT4zI9.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/D2VKnAEk.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BjVHJN9o.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/cMkWkffq.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BFmuJLeH.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DQjSdZ1e.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/Toaster.DQwrSZtH.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DSJSuBFl.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Be40uvcO.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/I1CDPYOB.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DJHKAnWW.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BFK-koEx.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BHRBYxmF.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CL0EuV-A.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/B1Cj3nBs.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BT28bLwl.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/QjJsDpFa.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DGw7pOW4.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CbQmQGdd.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/0.Bkw602pf.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/nodes/1.DjgqQPnk.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/nodes/2.COXCK1_-.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/5-chS5bE.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CCuVEwBR.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Ccw7PXcW.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DxJz99V8.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/uGiGrDOH.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CtZb9aXP.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BNk9ADfP.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/C_R67QgC.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/g5t9vw8M.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BqxbSdYI.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/Modal.CyLKLEmt.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/FMLTfk-j.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CubwYUHd.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CgqN014N.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/fl9Qo3pM.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/ozVhkuYd.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/C-kqD5vK.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BrJK0JaC.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DmxdQp_j.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/kgdPJmrw.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CU2r43ac.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/D9KdRKiL.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/C0iDKsId.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DdHy0twy.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/D1EfUlPX.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/638BPrjF.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BW7wCiOr.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/cj8VJLhq.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BozS3sJL.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/ConfirmDialog.kaSBQ3kP.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/LNJKunkS.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Cbzj8oLO.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BjfKCu6r.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CTQ19wv-.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BqKrh9kf.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CWlaJreh.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CfstUa2o.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Dd8rmAoC.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/38eJHLMs.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/D2YARiY4.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/4WLmODPH.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CoiS0ZBL.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DTQqZwhl.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BO0KuA--.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/Skeleton.Cr25vAl_.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CgtMQgO5.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BXP-4RTu.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BQWQRICs.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CHERwNdF.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Vcq4gwWv.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Bp-Vukyc.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/Collapsible.BSTcku12.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CRPU72Cg.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/C8iviNoy.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/HNTRN4uT.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/C5K_OTdC.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BNJXXAzR.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CPRxkh2D.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/Messages.Bbuu_qma.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/6bX91EV5.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/HJqR3EwY.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Ov9pFsd3.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/2fPayoST.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DKy_K7mo.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/m23BgZW6.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BDV35Fwe.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BsaRaYkz.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/_G01qdEX.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Drl34F7E.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/N3GU-DtH.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DhOJMFGK.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BfJ33jvc.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/C83syoBY.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DQfRr7yB.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/2.123V3CJ9.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/nodes/8.BFaHbkWP.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/eG_gxts2.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CRUGFvdf.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/B9gJLFWI.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DR9EKaEX.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DDlVWxFG.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Nx2xTy3H.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CvyCbeyv.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/BlrBIox9.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/Drawer.Bz8t_RYw.css"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/Bp3mZZin.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CdHStLu8.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/F23C_MCE.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CIz3seMp.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DkWXCM6m.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/CdxBF-wH.js"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/chunks/DJCGIHjZ.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/EmojiPicker.Behhsett.css"><link crossorigin="anonymous" rel="icon" href="https://geospotx.com/static/favicon.png"><meta name="apple-mobile-web-app-title" content="Open WebUI"><meta name="description" content="Open WebUI"><link rel="search" type="application/opensearchdescription+xml" title="Open WebUI" href="/opensearch.xml" crossorigin="use-credentials"><link rel="modulepreload" as="script" crossorigin="" href="https://geospotx.com/_app/immutable/nodes/42.47ycli03.js"><link rel="stylesheet" crossorigin="" href="https://geospotx.com/_app/immutable/assets/42.DUP86x5U.css"></head>
+
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_eehdsh = {
+						base: ""
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/_app/immutable/entry/start.D5s5YTUb.js"),
+						import("/_app/immutable/entry/app.C3jjZZTv.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		    <div class="w-full h-screen max-h-[100dvh] text-white relative" id="auth-page"><div class="w-full h-full absolute top-0 left-0 bg-white dark:bg-black"></div> <div class="w-full absolute top-0 left-0 right-0 h-8 drag-region"></div> <div class="fixed bg-transparent min-h-screen w-full flex justify-center font-primary z-50 text-black dark:text-white" id="auth-container"><div class="w-full px-10 min-h-screen flex flex-col text-center"><div class="my-auto flex flex-col justify-center items-center"><div class="sm:max-w-md my-auto pb-10 w-full dark:text-gray-100"> <form class="flex flex-col justify-center"><div class="mb-1"><div class="text-2xl font-medium">Sign in to Open WebUI</div> </div> <div class="flex flex-col mt-4"> <div class="mb-2"><label for="email" class="text-sm font-medium text-left mb-1 block">Email</label> <input type="email" id="email" class="my-0.5 w-full text-sm outline-hidden bg-transparent placeholder:text-gray-300 dark:placeholder:text-gray-600" autocomplete="email" name="email" placeholder="Enter Your Email" required=""></div> <div><label for="password" class="text-sm font-medium text-left mb-1 block">Password</label> <div class="flex flex-1 bg-transparent"><label class="sr-only" for="password">Enter Your Password</label> <input id="password" class="w-full text-sm py-0.5 bg-transparent password  outline-hidden placeholder:text-gray-300 dark:placeholder:text-gray-600" placeholder="Enter Your Password" type="password" required="" autocomplete="off"> <button class="pl-1.5  transition bg-transparent" type="button" aria-pressed="false" aria-label="Make password visible in the user interface"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4" aria-hidden="true"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path><path fill-rule="evenodd" d="M1.38 8.28a.87.87 0 0 1 0-.566 7.003 7.003 0 0 1 13.238.006.87.87 0 0 1 0 .566A7.003 7.003 0 0 1 1.379 8.28ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" clip-rule="evenodd"></path></svg></button></div></div> </div> <div class="mt-5"><button class="bg-gray-700/5 hover:bg-gray-700/10 dark:bg-gray-100/5 dark:hover:bg-gray-100/10 dark:text-gray-300 dark:hover:text-white transition w-full rounded-full font-medium text-sm py-2.5" type="submit">Sign in</button> </div></form>  </div> </div></div></div> <div class="fixed m-10 z-50"><div class="flex space-x-2"><div class="self-center"><img id="logo" crossorigin="anonymous" src="/static/favicon.png" class="w-6 rounded-full" alt=""></div></div></div></div>  <div id="svelte-announcer" aria-live="assertive" aria-atomic="true" style="position: absolute; left: 0px; top: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); overflow: hidden; white-space: nowrap; width: 1px; height: 1px;">Open WebUI</div></div>
+
+		
+	
+
+
+<style type="text/css" nonce="">
+	html {
+		overflow-y: hidden !important;
+		overscroll-behavior-y: none;
+	}
+
+	#splash-screen {
+		background: #fff;
+	}
+
+	html.dark #splash-screen {
+		background: #000;
+	}
+
+	html.her #splash-screen {
+		background: #983724;
+	}
+
+	#logo-her {
+		display: none;
+	}
+
+	#progress-background {
+		display: none;
+	}
+
+	#progress-bar {
+		display: none;
+	}
+
+	html.her #logo {
+		display: none;
+	}
+
+	html.her #logo-her {
+		display: block;
+		filter: invert(1);
+	}
+
+	html.her #progress-background {
+		display: block;
+	}
+
+	html.her #progress-bar {
+		display: block;
+	}
+
+	@media (max-width: 24rem) {
+		html.her #progress-background {
+			display: none;
+		}
+
+		html.her #progress-bar {
+			display: none;
+		}
+	}
+
+	@keyframes pulse {
+		50% {
+			opacity: 0.65;
+		}
+	}
+
+	.animate-pulse-fast {
+		animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+</style>
+</body></html>

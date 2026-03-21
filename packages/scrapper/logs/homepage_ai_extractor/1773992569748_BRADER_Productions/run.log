@@ -1,0 +1,69 @@
+[2026-03-20T07:42:49.748Z] === Homepage AI Extractor: BRADER Productions ===
+[2026-03-20T07:42:49.748Z] Started at: 2026-03-20T07:42:49.748Z
+[2026-03-20T07:42:49.748Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773992569748_BRADER_Productions
+[2026-03-20T07:42:49.748Z] Company: BRADER Productions
+[2026-03-20T07:42:49.748Z] Website: brader.co.il
+[2026-03-20T07:42:49.749Z] cbRank: 2784479
+[2026-03-20T07:42:49.749Z] Reasons: h
+[2026-03-20T07:42:49.749Z] Fetching: https://brader.co.il
+[2026-03-20T07:42:53.360Z] Redirected: https://brader.co.il -> https://www.brader.co.il/
+[2026-03-20T07:42:53.389Z] Saved HTML (1191096 bytes) to page.html
+[2026-03-20T07:42:53.392Z] Extracted 13 unique links from page
+[2026-03-20T07:42:53.393Z] Saved 13 links to links.json
+[2026-03-20T07:42:53.395Z] Extracted footer HTML (8136 chars)
+[2026-03-20T07:42:53.395Z] Extracted header HTML (14099 chars)
+[2026-03-20T07:42:53.399Z] Website (post-redirect): https://www.brader.co.il/ → origin: https://www.brader.co.il
+[2026-03-20T07:42:53.400Z] External links: 4 (of 13 total)
+[2026-03-20T07:42:53.400Z] ── All external links ──
+[2026-03-20T07:42:53.400Z]   EXT: https://maps.google.com/?cid=7369419679352932212
+[2026-03-20T07:42:53.400Z]   EXT: https://vimeo.com/kerenbader
+[2026-03-20T07:42:53.400Z]   EXT: https://www.facebook.com/braderproductions
+[2026-03-20T07:42:53.400Z]   EXT: https://www.instagram.com/brader_productions
+[2026-03-20T07:42:53.400Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T07:42:53.400Z]   UNCATEGORIZED: https://maps.google.com/?cid=7369419679352932212
+[2026-03-20T07:42:53.400Z]   UNCATEGORIZED: https://vimeo.com/kerenbader
+[2026-03-20T07:42:53.400Z]   REGEX: fb <- https://www.facebook.com/braderproductions
+[2026-03-20T07:42:53.401Z]   REGEX: ig <- https://www.instagram.com/brader_productions
+[2026-03-20T07:42:53.401Z] Programmatic result: ws:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-20T07:42:53.401Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T07:42:53.404Z] Saved AI prompt (6697 chars) to ai_prompt.txt
+[2026-03-20T07:42:53.404Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T07:42:53.407Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T07:43:29.849Z]   AI: First token received, streaming...
+[2026-03-20T07:43:34.327Z] AI response complete: 89 chars in 40.9s
+[2026-03-20T07:43:34.328Z] Saved AI response to ai_response.json
+[2026-03-20T07:43:34.328Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T07:43:34.329Z]   AI LINK: https://www.facebook.com/braderproductions/
+[2026-03-20T07:43:34.329Z]   AI LINK: https://www.instagram.com/brader_productions/
+[2026-03-20T07:43:34.329Z] AI returned 2 valid links
+[2026-03-20T07:43:34.329Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T07:43:34.329Z]   AI→REGEX: fb <- https://www.facebook.com/braderproductions/ (duplicate, skipped)
+[2026-03-20T07:43:34.330Z]   AI→REGEX: ig <- https://www.instagram.com/brader_productions/ (duplicate, skipped)
+[2026-03-20T07:43:34.330Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T07:43:34.330Z] Footer/header origins (5):
+[2026-03-20T07:43:34.330Z]   FOOTER/HEADER ORIGIN: https://maps.google.com
+[2026-03-20T07:43:34.330Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T07:43:34.330Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T07:43:34.331Z]   FOOTER/HEADER ORIGIN: https://vimeo.com
+[2026-03-20T07:43:34.331Z]   FOOTER/HEADER ORIGIN: https://www.brader.co.il
+[2026-03-20T07:43:34.331Z]   ADDED: urls <- https://maps.google.com (cleaned from https://maps.google.com/?cid=7369419679352932212)
+[2026-03-20T07:43:34.331Z]   ADDED: urls <- https://vimeo.com/kerenbader
+[2026-03-20T07:43:34.331Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-20T07:43:34.331Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T07:43:34.331Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T07:43:34.332Z] ── Step 3: Final dedup ──
+[2026-03-20T07:43:34.332Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T07:43:34.332Z] ── FINAL RESULT ──
+[2026-03-20T07:43:34.332Z]   ws (1):
+[2026-03-20T07:43:34.332Z]     - https://www.brader.co.il
+[2026-03-20T07:43:34.332Z]   fb (1):
+[2026-03-20T07:43:34.332Z]     - https://www.facebook.com/braderproductions
+[2026-03-20T07:43:34.332Z]   ig (1):
+[2026-03-20T07:43:34.332Z]     - https://www.instagram.com/brader_productions
+[2026-03-20T07:43:34.332Z]   urls (2):
+[2026-03-20T07:43:34.333Z]     - https://maps.google.com
+[2026-03-20T07:43:34.333Z]     - https://vimeo.com/kerenbader
+[2026-03-20T07:43:34.333Z] Summary: ws:1, fb:1, ig:1, urls:2
+[2026-03-20T07:43:34.334Z] Saved final result to result.json
+[2026-03-20T07:43:34.334Z] Override fields: ws, fb, ig, urls
+[2026-03-20T07:43:34.334Z] Finished at: 2026-03-20T07:43:34.334Z

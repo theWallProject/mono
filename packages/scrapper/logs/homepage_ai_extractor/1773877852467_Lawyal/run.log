@@ -1,0 +1,61 @@
+[2026-03-18T23:50:52.468Z] === Homepage AI Extractor: Lawyal ===
+[2026-03-18T23:50:52.468Z] Started at: 2026-03-18T23:50:52.468Z
+[2026-03-18T23:50:52.469Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773877852467_Lawyal
+[2026-03-18T23:50:52.469Z] Company: Lawyal
+[2026-03-18T23:50:52.469Z] Website: law-yal.com
+[2026-03-18T23:50:52.469Z] cbRank: 1847316
+[2026-03-18T23:50:52.469Z] Reasons: h
+[2026-03-18T23:50:52.469Z] Fetching: https://law-yal.com
+[2026-03-18T23:50:55.814Z] Redirected: https://law-yal.com -> https://law-yal.com/
+[2026-03-18T23:50:55.820Z] Saved HTML (179427 bytes) to page.html
+[2026-03-18T23:50:55.823Z] Extracted 14 unique links from page
+[2026-03-18T23:50:55.823Z] Saved 14 links to links.json
+[2026-03-18T23:50:55.826Z] Extracted footer HTML (16827 chars)
+[2026-03-18T23:50:55.827Z] Extracted header HTML (22464 chars)
+[2026-03-18T23:50:55.830Z] Website (post-redirect): https://law-yal.com/ → origin: https://law-yal.com
+[2026-03-18T23:50:55.830Z] External links: 3 (of 14 total)
+[2026-03-18T23:50:55.830Z] ── All external links ──
+[2026-03-18T23:50:55.830Z]   EXT: https://precise-int.com
+[2026-03-18T23:50:55.830Z]   EXT: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-18T23:50:55.831Z]   EXT: https://www.linkedin.com/company/law-yal
+[2026-03-18T23:50:55.831Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T23:50:55.831Z]   UNCATEGORIZED: https://precise-int.com
+[2026-03-18T23:50:55.831Z]   UNCATEGORIZED: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-18T23:50:55.831Z]   REGEX: li <- https://www.linkedin.com/company/law-yal
+[2026-03-18T23:50:55.831Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-18T23:50:55.831Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T23:50:55.835Z] Saved AI prompt (7500 chars) to ai_prompt.txt
+[2026-03-18T23:50:55.835Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T23:50:55.838Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T23:51:29.509Z]   AI: First token received, streaming...
+[2026-03-18T23:51:31.168Z] AI response complete: 41 chars in 35.3s
+[2026-03-18T23:51:31.169Z] Saved AI response to ai_response.json
+[2026-03-18T23:51:31.170Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T23:51:31.170Z]   AI LINK: https://www.linkedin.com/company/law-yal/
+[2026-03-18T23:51:31.170Z] AI returned 1 valid links
+[2026-03-18T23:51:31.170Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T23:51:31.170Z]   AI→REGEX: li <- https://www.linkedin.com/company/law-yal/ (duplicate, skipped)
+[2026-03-18T23:51:31.171Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T23:51:31.171Z] Footer/header origins (4):
+[2026-03-18T23:51:31.171Z]   FOOTER/HEADER ORIGIN: http://law-yal.com
+[2026-03-18T23:51:31.171Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T23:51:31.171Z]   FOOTER/HEADER ORIGIN: https://law-yal.com
+[2026-03-18T23:51:31.172Z]   FOOTER/HEADER ORIGIN: https://precise-int.com
+[2026-03-18T23:51:31.172Z]   ADDED: urls <- https://precise-int.com
+[2026-03-18T23:51:31.172Z]   SKIP (not in footer/header): https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-18T23:51:31.172Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T23:51:31.172Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T23:51:31.172Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T23:51:31.172Z] ── Step 3: Final dedup ──
+[2026-03-18T23:51:31.172Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T23:51:31.172Z] ── FINAL RESULT ──
+[2026-03-18T23:51:31.173Z]   ws (1):
+[2026-03-18T23:51:31.173Z]     - https://law-yal.com
+[2026-03-18T23:51:31.173Z]   li (1):
+[2026-03-18T23:51:31.173Z]     - https://www.linkedin.com/company/law-yal
+[2026-03-18T23:51:31.173Z]   urls (1):
+[2026-03-18T23:51:31.173Z]     - https://precise-int.com
+[2026-03-18T23:51:31.173Z] Summary: ws:1, li:1, urls:1
+[2026-03-18T23:51:31.174Z] Saved final result to result.json
+[2026-03-18T23:51:31.174Z] Override fields: ws, li, urls
+[2026-03-18T23:51:31.175Z] Finished at: 2026-03-18T23:51:31.175Z

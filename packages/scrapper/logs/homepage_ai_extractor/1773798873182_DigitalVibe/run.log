@@ -1,0 +1,64 @@
+[2026-03-18T01:54:33.183Z] === Homepage AI Extractor: DigitalVibe ===
+[2026-03-18T01:54:33.183Z] Started at: 2026-03-18T01:54:33.183Z
+[2026-03-18T01:54:33.183Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773798873182_DigitalVibe
+[2026-03-18T01:54:33.183Z] Company: DigitalVibe
+[2026-03-18T01:54:33.183Z] Website: digitalvibe.co.il
+[2026-03-18T01:54:33.183Z] cbRank: 1416159
+[2026-03-18T01:54:33.183Z] Reasons: h
+[2026-03-18T01:54:33.183Z] Fetching: https://digitalvibe.co.il
+[2026-03-18T01:54:35.755Z] Redirected: https://digitalvibe.co.il -> https://www.digitalvibe.co.il/
+[2026-03-18T01:54:35.761Z] Saved HTML (181249 bytes) to page.html
+[2026-03-18T01:54:35.766Z] Extracted 28 unique links from page
+[2026-03-18T01:54:35.767Z] Saved 28 links to links.json
+[2026-03-18T01:54:35.769Z] Extracted footer HTML (8023 chars)
+[2026-03-18T01:54:35.769Z] Extracted header HTML (9627 chars)
+[2026-03-18T01:54:35.772Z] Website (post-redirect): https://www.digitalvibe.co.il/ → origin: https://www.digitalvibe.co.il
+[2026-03-18T01:54:35.773Z] External links: 4 (of 28 total)
+[2026-03-18T01:54:35.773Z] ── All external links ──
+[2026-03-18T01:54:35.773Z]   EXT: https://www.facebook.com/DigitalVibeIL
+[2026-03-18T01:54:35.773Z]   EXT: https://www.facebook.com/business/partner-directory/search?solution_type=campaign_management&id=1412736752259407&section=overview
+[2026-03-18T01:54:35.773Z]   EXT: https://www.google.com/partners/agency?id=7417429050
+[2026-03-18T01:54:35.773Z]   EXT: https://www.instagram.com/digitalvibeil
+[2026-03-18T01:54:35.773Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T01:54:35.773Z]   REGEX: fb <- https://www.facebook.com/DigitalVibeIL
+[2026-03-18T01:54:35.773Z]   REGEX: fb <- https://www.facebook.com/business/partner-directory/search?solution_type=campaign_management&id=1412736752259407&section=overview
+[2026-03-18T01:54:35.773Z]   UNCATEGORIZED: https://www.google.com/partners/agency?id=7417429050
+[2026-03-18T01:54:35.774Z]   REGEX: ig <- https://www.instagram.com/digitalvibeil
+[2026-03-18T01:54:35.774Z] Programmatic result: ws:1, fb:2, ig:1 | 1 uncategorized
+[2026-03-18T01:54:35.774Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T01:54:35.777Z] Saved AI prompt (7340 chars) to ai_prompt.txt
+[2026-03-18T01:54:35.777Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T01:54:35.781Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T01:55:15.821Z]   AI: First token received, streaming...
+[2026-03-18T01:55:20.177Z] AI response complete: 80 chars in 44.4s
+[2026-03-18T01:55:20.179Z] Saved AI response to ai_response.json
+[2026-03-18T01:55:20.179Z] ── Parsing AI response (2 lines) ──
+[2026-03-18T01:55:20.179Z]   AI LINK: https://www.facebook.com/DigitalVibeIL/
+[2026-03-18T01:55:20.180Z]   AI LINK: https://www.instagram.com/digitalvibeil/
+[2026-03-18T01:55:20.180Z] AI returned 2 valid links
+[2026-03-18T01:55:20.180Z] ── Categorizing 2 AI-returned links ──
+[2026-03-18T01:55:20.180Z]   AI→REGEX: fb <- https://www.facebook.com/DigitalVibeIL/ (duplicate, skipped)
+[2026-03-18T01:55:20.180Z]   AI→REGEX: ig <- https://www.instagram.com/digitalvibeil/ (duplicate, skipped)
+[2026-03-18T01:55:20.181Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T01:55:20.181Z] Footer/header origins (3):
+[2026-03-18T01:55:20.181Z]   FOOTER/HEADER ORIGIN: https://www.digitalvibe.co.il
+[2026-03-18T01:55:20.181Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T01:55:20.181Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-18T01:55:20.181Z]   SKIP (not in footer/header): https://www.google.com/partners/agency?id=7417429050
+[2026-03-18T01:55:20.182Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T01:55:20.182Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T01:55:20.182Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T01:55:20.182Z] ── Step 3: Final dedup ──
+[2026-03-18T01:55:20.182Z] No urls to dedup
+[2026-03-18T01:55:20.182Z] ── FINAL RESULT ──
+[2026-03-18T01:55:20.182Z]   ws (1):
+[2026-03-18T01:55:20.182Z]     - https://www.digitalvibe.co.il
+[2026-03-18T01:55:20.182Z]   fb (2):
+[2026-03-18T01:55:20.182Z]     - https://www.facebook.com/business
+[2026-03-18T01:55:20.183Z]     - https://www.facebook.com/digitalvibeil
+[2026-03-18T01:55:20.183Z]   ig (1):
+[2026-03-18T01:55:20.183Z]     - https://www.instagram.com/digitalvibeil
+[2026-03-18T01:55:20.183Z] Summary: ws:1, fb:2, ig:1
+[2026-03-18T01:55:20.184Z] Saved final result to result.json
+[2026-03-18T01:55:20.184Z] Override fields: ws, fb, ig
+[2026-03-18T01:55:20.185Z] Finished at: 2026-03-18T01:55:20.185Z

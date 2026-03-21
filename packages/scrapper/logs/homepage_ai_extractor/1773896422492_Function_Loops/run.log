@@ -1,0 +1,70 @@
+[2026-03-19T05:00:22.492Z] === Homepage AI Extractor: Function Loops ===
+[2026-03-19T05:00:22.492Z] Started at: 2026-03-19T05:00:22.492Z
+[2026-03-19T05:00:22.492Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773896422492_Function_Loops
+[2026-03-19T05:00:22.492Z] Company: Function Loops
+[2026-03-19T05:00:22.492Z] Website: functionloops.com
+[2026-03-19T05:00:22.492Z] cbRank: 1931004
+[2026-03-19T05:00:22.492Z] Reasons: h
+[2026-03-19T05:00:22.492Z] Fetching: https://functionloops.com
+[2026-03-19T05:00:25.898Z] Redirected: https://functionloops.com -> https://www.functionloops.com/
+[2026-03-19T05:00:25.902Z] Saved HTML (85028 bytes) to page.html
+[2026-03-19T05:00:25.906Z] Extracted 85 unique links from page
+[2026-03-19T05:00:25.907Z] Saved 85 links to links.json
+[2026-03-19T05:00:25.909Z] No footer section found in DOM
+[2026-03-19T05:00:25.910Z] Extracted header HTML (3277 chars)
+[2026-03-19T05:00:25.913Z] Website (post-redirect): https://www.functionloops.com/ → origin: https://www.functionloops.com
+[2026-03-19T05:00:25.913Z]   SUBDOMAIN: blog.functionloops.com (added to ws)
+[2026-03-19T05:00:25.914Z] Website subdomains found: 1
+[2026-03-19T05:00:25.914Z] External links: 5 (of 85 total)
+[2026-03-19T05:00:25.914Z] ── All external links ──
+[2026-03-19T05:00:25.914Z]   EXT: https://discord.com/invite/functionloops
+[2026-03-19T05:00:25.914Z]   EXT: https://www.facebook.com/FunctionLoopsDesign
+[2026-03-19T05:00:25.914Z]   EXT: https://www.instagram.com/functionloops
+[2026-03-19T05:00:25.915Z]   EXT: https://www.payloadz.com/go/view_cart.asp?id_user=239523
+[2026-03-19T05:00:25.915Z]   EXT: https://www.youtube.com/functionloops
+[2026-03-19T05:00:25.915Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:00:25.915Z]   UNCATEGORIZED: https://discord.com/invite/functionloops
+[2026-03-19T05:00:25.915Z]   REGEX: fb <- https://www.facebook.com/FunctionLoopsDesign
+[2026-03-19T05:00:25.915Z]   REGEX: ig <- https://www.instagram.com/functionloops
+[2026-03-19T05:00:25.915Z]   UNCATEGORIZED: https://www.payloadz.com/go/view_cart.asp?id_user=239523
+[2026-03-19T05:00:25.915Z]   REGEX: ytp <- https://www.youtube.com/functionloops
+[2026-03-19T05:00:25.915Z] Programmatic result: ws:2, fb:1, ig:1, ytp:1 | 2 uncategorized
+[2026-03-19T05:00:25.915Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:00:25.919Z] Saved AI prompt (2050 chars) to ai_prompt.txt
+[2026-03-19T05:00:25.919Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:00:25.922Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:00:32.427Z]   AI: First token received, streaming...
+[2026-03-19T05:00:33.318Z] AI response complete: 40 chars in 7.4s
+[2026-03-19T05:00:33.320Z] Saved AI response to ai_response.json
+[2026-03-19T05:00:33.320Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T05:00:33.320Z]   AI LINK: https://discord.com/invite/functionloops
+[2026-03-19T05:00:33.320Z] AI returned 1 valid links
+[2026-03-19T05:00:33.321Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T05:00:33.321Z]   AI→URLS: https://discord.com/invite/functionloops
+[2026-03-19T05:00:33.321Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:00:33.322Z] Footer/header origins (1):
+[2026-03-19T05:00:33.322Z]   FOOTER/HEADER ORIGIN: https://www.payloadz.com
+[2026-03-19T05:00:33.322Z]   SKIP (AI claimed): https://discord.com/invite/functionloops
+[2026-03-19T05:00:33.322Z]   ADDED: urls <- https://www.payloadz.com/go/view_cart.asp (cleaned from https://www.payloadz.com/go/view_cart.asp?id_user=239523)
+[2026-03-19T05:00:33.322Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T05:00:33.322Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:00:33.323Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T05:00:33.323Z] ── Step 3: Final dedup ──
+[2026-03-19T05:00:33.323Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T05:00:33.323Z] ── FINAL RESULT ──
+[2026-03-19T05:00:33.323Z]   ws (2):
+[2026-03-19T05:00:33.323Z]     - https://blog.functionloops.com
+[2026-03-19T05:00:33.323Z]     - https://www.functionloops.com
+[2026-03-19T05:00:33.324Z]   fb (1):
+[2026-03-19T05:00:33.324Z]     - https://www.facebook.com/functionloopsdesign
+[2026-03-19T05:00:33.324Z]   ig (1):
+[2026-03-19T05:00:33.324Z]     - https://www.instagram.com/functionloops
+[2026-03-19T05:00:33.324Z]   ytp (1):
+[2026-03-19T05:00:33.324Z]     - https://www.youtube.com/@functionloops
+[2026-03-19T05:00:33.324Z]   urls (2):
+[2026-03-19T05:00:33.325Z]     - https://discord.com/invite/functionloops
+[2026-03-19T05:00:33.325Z]     - https://www.payloadz.com/go/view_cart.asp
+[2026-03-19T05:00:33.325Z] Summary: ws:2, fb:1, ig:1, ytp:1, urls:2
+[2026-03-19T05:00:33.326Z] Saved final result to result.json
+[2026-03-19T05:00:33.327Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-19T05:00:33.327Z] Finished at: 2026-03-19T05:00:33.327Z

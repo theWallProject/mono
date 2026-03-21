@@ -1,0 +1,1726 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html dir="rtl"><head>
+
+
+<title>קיבוץ רשפים - רשפים- קהילנט</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">      
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
+<meta http-equiv="Content-Language" content="he">
+<meta name="allow-search" content="yes">
+<meta name="audience" content="all"> 
+<meta name="robots" content="all, index, follow">
+<meta http-equiv="Cache-control" content="public, max-age=604800"> 
+<meta name="revisit-after" content="7 days">
+<meta name="keywords" content=",רשפים, רשפים קהילנט,קיבוץ רשפים רשפים">
+<meta name="description" content=" רשפים">
+
+<meta property="og:title" content="קיבוץ רשפים - רשפים- קהילנט">
+<meta property="og:description" content=" רשפים">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.reshafim.org.il/http_new/index.asp?sitename=reshafim">
+<meta property="og:locale" content="he_IL">
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://www.reshafim.org.il/http_new/index.asp?sitename=reshafim">
+	
+	<link rel="image_src" href="https://www.reshafim.org.il/gallery/pictures/2011/12/13016/13016_TitleImage972025124126.png">	
+	<meta property="og:image" content="https://www.reshafim.org.il/gallery/pictures/2011/12/13016/13016_TitleImage972025124126.png">
+	
+<meta property="og:image:alt" content="רשפים - קהילה-נט">
+<meta property="og:image:type" content="image/jpeg"> 
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="300">
+
+
+<link rel="stylesheet" type="text/css" href="/main_css.css" title="">
+ 
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-JB35DLG7KY&amp;cx=c&amp;gtm=4e63g1h2"></script><script language="JavaScript" src="/Includes/js/validForm.js?456" type="text/javascript"></script>
+
+
+	<link rel="STYLESHEET" type="text/css" href="/Includes/css/CascadeMenuR_Kehila.css">
+
+<script>
+
+function InitMenu()
+{
+/*	 var bar = menuBarPages.children     
+
+     for(var i=0;i < bar.length;i++) 
+        {
+		if (bar[i].menu.indexOf("menuPages")!=-1)
+		{
+	      var menu=eval(bar[i].menu)
+		  menu.style.visibility = "hidden"
+          bar[i].onmouseover = new Function("ShowMenu1("+bar[i].id+")")
+          var Items = menu.children
+          for(var j=0; j<Items.length; j++)
+            {
+              var menuItem = eval(Items[j].id)
+                
+                if(menuItem.menu != null)
+                   { 
+                    menuItem.innerHTML += "<Span Id="+menuItem.id+"_Arrow class='Arrow'>3</Span>"
+                    FindSubMenu(menuItem.menu)}
+               
+                 if(menuItem.cmd != null) 
+                   {
+                   menuItem.onclick = new Function("Do("+menuItem.id+")") } 
+                   
+              menuItem.onmouseover = new Function("highlight("+Items[j].id+")")
+            
+            }    
+        
+        }  
+	} */
+}
+
+   function FindSubMenu(subMenu)
+   {
+         var menu=eval(subMenu)
+         var Items = menu.children
+          for(var j=0; j<Items.length; j++)
+            {
+              menu.style.visibility = "hidden"
+              var menuItem = eval(Items[j].id)
+              
+              
+              if(menuItem.menu!= null)
+                 {
+                    menuItem.innerHTML += "<Span Id="+menuItem.id+"_Arrow class='Arrow'>4</Span>"
+                    // var tmp = eval(menuItem.id+"_Arrow")
+                    //tmp.style.pixelLeft = 35 //menuItem.getBoundingClientRect().right - tmp.offsetWidth - 15
+                    FindSubMenu(menuItem.menu)
+                 }
+
+                 if(menuItem.cmd != null) 
+                   {
+                   menuItem.onclick = new Function("Do("+menuItem.id+")") } 
+                  
+              menuItem.onmouseover = new Function("highlight("+Items[j].id+")")
+                 
+            }  
+   } 
+  
+ 
+   function ShowMenu1(obj)
+   {
+     HideMenu(menuBarPages);
+	
+
+     var menu = eval(obj.menu)
+     var bar = eval(obj.id)
+     bar.className="barOver"
+     menu.style.visibility = "visible"
+     menu.style.pixelTop =  obj.getBoundingClientRect().top + obj.offsetHeight + Bdy.scrollTop-20
+     menu.style.pixelLeft = obj.getBoundingClientRect().right + Bdy.scrollLeft- 250
+   }
+
+   function highlight(obj)
+   {
+     var PElement = eval(obj.parentElement.id)
+//	 alert(PElement);
+     if(PElement.hasChildNodes() == true)
+     {  var Elements = PElement.children
+       for(var i=0;i<Elements.length;i++)
+       {
+          TE = eval(Elements[i].id)
+          TE.className = "menuItem"
+       }
+      } 
+     obj.className="ItemMouseOver"
+     window.defaultStatus = obj.title
+     ShowSubMenu(obj)
+   }
+   
+   function Do(obj)
+   {
+    var cmd = eval(obj).cmd	
+    window.navigate(cmd)
+     
+   }
+   
+   function HideMenu(obj)
+   {
+          if(obj.hasChildNodes()==true)
+              {  
+                 var child = obj.children     
+                 
+                 for(var j =0;j<child.length;j++)
+                  {
+                     if (child[j].className=="barOver")
+                     {var bar = eval(child[j].id)
+                      bar.className="Bar"}
+                      
+                     if(child[j].menu != null)
+                       {
+                          var childMenu = eval(child[j].menu)
+                          if(childMenu.hasChildNodes()==true) 
+                               HideMenu(childMenu)
+                          
+                           childMenu.style.visibility = "hidden" 
+                         }
+                  }
+              
+              }
+   }
+   
+  function ShowSubMenu(obj)
+  {
+     PMenu = eval(obj.parentElement.id)
+      HideMenu(PMenu)
+     if(obj.menu != null)
+     {
+     var menu = eval(obj.menu)
+     menu.style.visibility = "visible"
+     menu.style.pixelTop =  obj.getBoundingClientRect().top + Bdy.scrollTop+20
+     menu.style.pixelLeft = obj.getBoundingClientRect().left + Bdy.scrollLeft-50
+     if(menu.getBoundingClientRect().right > window.screen.availWidth )
+       menu.style.pixelLeft = obj.getBoundingClientRect().left - menu.offsetWidth
+    }
+  } 
+
+
+function MyHideMenu()
+{
+
+	HideMenu(menuBar);
+	
+}
+
+
+
+</script>
+<script language="JavaScript">
+	function valid(forma){
+	var rtrn;
+	rtrn=true;
+		if(validChr(forma.str,"You have entered and invalid character.")==false){rtrn=false}
+	return rtrn; 
+	}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="/includes/1.2.6/jquery.tools.min.js"></script>
+<link href="https://fonts.googleapis.com/earlyaccess/alefhebrew.css" media="screen" rel="stylesheet" type="text/css">
+<!--link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Arimo" /--->
+<!-- Beginning MENUS of compulsory code below -->
+<link href="/includes/menus/css/dropdown/themes/default/helper.css" media="screen" rel="stylesheet" type="text/css">
+<link href="/includes/menus/css/dropdown/dropdown.css" media="screen" rel="stylesheet" type="text/css">
+<link href="/includes/menus/css/dropdown/dropdown.vertical.rtl.css" media="screen" rel="stylesheet" type="text/css">
+<style type="text/css">	
+	
+@charset "UTF-8";
+
+/** 
+ * Default CSS Drop-Down Menu Theme
+ *
+ * @file		default.css
+ * @name		Default
+ * @version		0.1.1
+ * @type		transitional
+ * @browsers	Windows: IE5+, Opera7+, Firefox1+
+ *				Mac OS: Safari2+, Firefox2+
+ *
+ * @link		http://www.lwis.net/
+ * @copyright	2008 Live Web Institute
+ *
+ * Module Classes: *.dir {} *.on {} *.open {} li.hover {} li.first {} li.last {}
+ * Expected directory tag - li
+ *
+ */
+
+
+/*-------------------------------------------------/
+ * @section		Base Drop-Down Styling
+ * @structure	ul (unordered list)
+ *				ul li (list item)
+ *				ul li a (links)
+ *				/*\.class|(li|a):hover/
+ * @level sep	ul
+ */
+
+
+ul.dropdown {
+ /*font-weight: bold;*/
+}
+
+	ul.dropdown li {
+	/* height:15px;
+	 padding: 7px 10px;*/
+	 /*background-color: #626f80;*/
+	 border-style: solid;
+	 border-width: 0px 0px 0px 0px;
+	 border-color: #ffffff #ffffff #ffffff;
+	 vertical-align:middle;
+	 color: #FFFFFF;
+	}
+
+	ul.dropdown li.hover,
+	ul.dropdown li:hover {
+	/* height:15px;
+	 padding: 7px 10px;*/
+	 /*background-color: #626f80;*/
+	 border-style: solid;
+	 border-width: 0px 0px 0px 0px;
+	 border-color: #ffffff #ffffff #ffffff;
+	 vertical-align:middle;
+	 color: #FFFFFF;
+	 
+	}
+
+	ul.dropdown a:link,
+	ul.dropdown a:visited	{ color: #FFFFFF; vertical-align:middle;text-decoration: none;font-size:12px; }
+	ul.dropdown a:hover		{ color: #FFFFFF; font-size:12px;vertical-align:middle;}
+	ul.dropdown a:active	{ color: #FFFFFF;font-size:12px;vertical-align:middle;}
+
+
+	/* -- level mark -- */
+
+	ul.dropdown ul {
+	 width: 140px;
+	 margin-top: 0px;
+	}
+
+		ul.dropdown ul li {
+		 font-weight: normal;
+		}
+
+
+
+/*-------------------------------------------------/
+ * @section		Support Class `dir`
+ * @level sep	ul, .class
+ */
+
+
+ul.dropdown *.dir {
+ padding-right: 10px;
+
+ background-position: 100% 10%;
+ background-repeat: no-repeat;
+}
+
+
+/* -- Components override -- */
+
+ul.dropdown-horizontal ul *.dir {
+ padding-right: 15px;
+ /*background-image: url(images/nav-arrow-right.png);*/
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+ 
+}
+
+ul.dropdown-upward *.dir {
+ background-image: url(images/nav-arrow-top.png);
+}
+
+ul.dropdown-vertical *.dir,
+ul.dropdown-upward ul *.dir {
+ #background-image: url(images/nav-arrow-right.png);
+}
+
+ul.dropdown-vertical-rtl *.dir {
+ padding-right: 10px;
+ padding-left: 15px;
+ 
+background-repeat:no-repeat;
+background-image:url('/gallery/pictures/2011/12/13016/btnRight.jpg');
+ 
+}
+	</style>
+<!--[if lt IE 7]>
+<!--script type="text/javascript" src="/includes/menus/js/jquery/jquery.js"></script-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> 
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>  --> 
+<script type="text/javascript" src="/includes/menus/js/jquery/jquery.dropdown.js"></script>
+<!--[endif]---->
+<!-- / END MENUS-->
+<script type="text/javascript" src="/includes/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="/includes/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="/includes/fancybox/jquery.fancybox-1.3.4.css" media="screen">
+                  
+<script type="text/javascript">
+		$(document).ready(function() {
+			$("A#NewWindowBox").fancybox({
+				'width'				: '93%',
+				'height'			: '93%',
+				'autoScale'			: true,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition': 'inside',
+				'onClosed': function() {
+					parent.location.reload(true); ;
+				}
+			});		
+			$("A#NewWindowBoxSmall").fancybox({
+				'width'				: '30%',
+				'height'			: '20%',
+				'autoScale'			: true,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition': 'inside',
+				'onClosed': function() {
+					//parent.location.reload(true); ;
+				}
+			});		
+			$("A#NewWindowBoxScale").fancybox({				
+				'width'				: '90%',
+				'height'			: '90%',
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition'		: 'inside',				
+				'onClosed': function() {
+					//parent.location.reload(true); ;
+				}
+			});		
+			$("A#NewWindowBoxScaleNoPrecent").fancybox({				
+				'width'				: 800,
+				'height'			: 300,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition'		: 'inside',				
+				'onClosed': function() {
+					//parent.location.reload(true); ;
+				}
+			});		
+			$("A#NewWindowBoxScaleNoPrecentRefresh").fancybox({				
+				'width'				: 800,
+				'height'			: 300,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition'		: 'inside',				
+				'onClosed': function() {
+					parent.location.reload(true); ;
+				}
+			});	
+			$("A#NewWindowBoxOrginizeMSG").fancybox({				
+				'width'				: 300,
+				'height'			: 500,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition'		: 'inside',				
+				'onClosed': function() {
+					parent.location.reload(true); ;
+				}
+			});		
+			$("A#NewWindowBoxAddPhotos").fancybox({				
+				'width'				: 600,
+				'height'			: 350,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition'		: 'inside',				
+				'onClosed': function() {
+					//parent.location.reload(true); ;
+				}
+			});		
+			$("A#NewWindowBoxAddCatAlbum").fancybox({				
+				'width'				: 900,
+				'height'			: 350,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition'		: 'inside',				
+				'onClosed': function() {
+					parent.location.reload(true); ;
+				}
+			});
+			$("A#NewWindowBoxSmallRefresh").fancybox({
+				'width'				: '30%',
+				'height'			: '20%',
+				'autoScale'			: true,
+				'transitionIn'		: 'fade',
+				'transitionOut'		: 'fade',
+				'type'				: 'iframe',
+				'titlePosition': 'inside',
+				'onClosed': function() {
+					parent.location.reload(true); ;
+				}
+			});	
+		});
+		
+		function callMeWithRefresh(site){ 
+				$("#sample").fancybox({ 'hideOnOverlayClick': false,
+						'width'                         : 850,
+						'height'                        : '95%',
+						'transitionIn'          : 'fade',						
+						'transitionOut'         : 'fade',
+						'hideOnOverlayClick': false,
+						'hideOnOverlayClick': false,
+						'type'                          : 'iframe',  
+						'href'                          : ''+site+'',
+						'autoScale'                      : false,
+						'onStart'                       : function(){$("body").css({'overflow':'visible'});},
+						'onClosed'                      : function(){$("body").css({"overflow":"visible"});location.reload(true);},
+						'onComplete' : function () {$("#fancybox-frame").attr("allowfullscreen", "allowfullscreen")}
+				});
+		readyFancy();
+		}
+		
+		function callMeSmall(site){ 
+				$("#sample").fancybox({ 'hideOnOverlayClick': false,
+						'width'                         : '30%', 
+						'height'                        : '20%',
+						'transitionIn'          : 'fade',						
+						'transitionOut'         : 'fade',
+						'hideOnOverlayClick': false,
+						'hideOnOverlayClick': false,
+						'type'                          : 'iframe', 
+						'href'                          : ''+site+'',
+						'autoScale'                      : false,
+						'onStart'                       : function(){$("body").css({'overflow':'visible'});},
+						'onClosed'                      : function(){$("body").css({"overflow":"visible"});location.reload(true);}
+				});
+		readyFancy();
+		}
+		
+		function callMe(site){ 
+				$("#sample").fancybox({ 'hideOnOverlayClick': false,
+						'width'                         : 850,
+						'height'                        : '95%',
+						'hideOnContentClick': false, 
+						'hideOnOverlayClick': false,
+						'transitionIn'          : 'none',
+						'transitionOut'         : 'none',
+						'type'                          : 'iframe', 
+						'href'                          : ''+site+'',
+						'autoScale'                      : false,
+						'onStart'                       : function(){$("body").css({'overflow':'visible'});},
+						'onClosed'                      : function(){$("body").css({"overflow":"visible"});}
+				});
+		readyFancy();
+		}
+		
+		function callMeTopSmall(site){ 
+				$("#sample").fancybox({ 'hideOnOverlayClick': false,
+						'width'                         : '30%', 
+						'height'                        : '20%',
+						'topRatio'    					: 0,
+						'margin'     					: [100, 0, 20, 0],         
+						'transitionIn'          : 'none',
+						'transitionOut'         : 'none',
+						'type'                          : 'iframe', 
+						'href'                          : ''+site+'',
+						'autoScale'                      : false,
+						'onStart'                       : function(){$("body").css({'overflow':'visible'});},
+						'onClosed'                      : function(){$("body").css({"overflow":"visible"});location.reload(true);}
+				});       
+		readyFancy();
+		}
+		
+		function readyFancy(){      
+				$("a#sample").trigger("click");
+		}
+	</script>
+
+<style type="text/css">	
+<!--
+
+body {
+	scrollbar-face-color:#FFFFFF;
+	background-position:center top;
+	
+		background-color:#FFFFFF;	
+		
+	background-repeat:no-repeat;
+	align:center;
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Arial;
+	 
+	/*text-align:center;*/
+}  
+table {
+	padding: 0px;  
+	border-spacing: 0px;
+}
+td {
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Arial;
+}
+A.menu:link {
+	COLOR: #FFFFFF; FONT-FAMILY: Arial; FONT-SIZE: 12px; font-weight: bold;   TEXT-DECORATION: none;
+}
+A.menu:visited {
+	COLOR:#FFFFFF; FONT-FAMILY: Arial; FONT-SIZE: 12px; font-weight: bold;  TEXT-DECORATION: none;
+}
+A.menu:active {
+	COLOR: #FFFFFF; FONT-FAMILY: Arial; FONT-SIZE: 12px; font-weight: bold;  TEXT-DECORATION: none;
+}
+A.menu:hover {
+	COLOR: #FFFFFF; FONT-FAMILY: Arial; FONT-SIZE: 12px; TEXT-DECORATION: underline;
+}
+A:link {
+	COLOR: #8F8F8F; FONT-FAMILY: Arial; FONT-SIZE: 12px;   TEXT-DECORATION: none;
+}
+A:visited {
+	COLOR:#8F8F8F; FONT-FAMILY: Arial; FONT-SIZE: 12px; font-weight: bold;  TEXT-DECORATION: none;
+}
+A:active {
+	COLOR: #8F8F8F; FONT-FAMILY: Arial; FONT-SIZE: 12px; font-weight: bold;  TEXT-DECORATION: none;
+}
+A:hover {
+	COLOR: #8F8F8F; FONT-FAMILY: Arial; FONT-SIZE: 12px; TEXT-DECORATION: underline;
+}
+h1 {
+	font-size:22px;-webkit-margin-before:0;-webkit-margin-after:0;
+}
+h2 {
+	font-size:16px;-webkit-margin-before:0;-webkit-margin-after:0;
+}
+h3 {
+	font-size:14px;-webkit-margin-before:0;-webkit-margin-after:0;
+}
+-->
+</style>
+<link rel="stylesheet" href="/includes/NewDesign/NewDesign2.css" type="text/css" media="all">
+<script>
+function sb_change_mode_new(e,f){
+	var elemMore,elemMoreBtn,elemImg,imgSrc,imgMarginBottom,class_Name,display_Type,doc_onclick;
+	var evt = e || window.event;
+	var imgUp="";
+	var imgDown="";
+	elemMoreBtn = document.getElementById("sb_more");
+	elemMore = document.getElementById("sb_more_menu"+f);	
+	elemImg= document.getElementById("sb_more_img");
+	imgSrc=imgUp;
+	imgMarginBottom="3px";
+	class_Name="type2";
+	display_Type="block";
+	doc_onclick=function(e){sb_change_mode_mode(e);}
+	if(elemMore.style.display==display_Type){
+		doc_onclick=null;
+		display_Type="none";
+		class_Name="type2_2";
+		imgSrc=imgDown;
+		imgMarginBottom="1px";
+	}
+	document.onclick=doc_onclick;
+	elemMoreBtn.className=class_Name;
+	elemMore.style.display=display_Type;
+	elemImg.src=imgSrc;
+	elemImg.style.marginBottom=imgMarginBottom;
+	if (evt.stopPropagation) evt.stopPropagation(); else evt.cancelBubble = true;
+}
+
+function sb_change_mode_mode(e,f){
+	var elemMore,elemMoreBtn,elemImg,imgSrc,imgMarginBottom,class_Name,display_Type,doc_onclick;
+	var evt = e || window.event;
+	var imgUp="";
+	var imgDown="";
+	elemMoreBtn = document.getElementById("sb_more");
+	//alert(f);
+	elemMore = document.getElementById("sb_more_menu"+f);
+	elemImg= document.getElementById("sb_more_img");
+	imgSrc=imgUp;
+	imgMarginBottom="3px";
+	class_Name="type2";
+	display_Type="block";
+	doc_onclick=function(e){sb_change_mode_mode(e);}
+	document.onclick=doc_onclick;
+	elemMoreBtn.className=class_Name;
+	elemMore.style.display=display_Type;
+
+	if (evt.stopPropagation) evt.stopPropagation(); else evt.cancelBubble = true;
+}
+
+function changeClass(el,class_Name){ el.className=class_Name; }
+</script>
+<style>.btnBlack{color:white;font-family:arial;font-size:12px;background-color:#252525;font-weight:bold;border:solid 0px white;height:20px;text-align:center;}</style>
+
+<script type="text/javascript">
+    $(function() {
+        $("#bookmarkme").click(function() {
+            // Mozilla Firefox Bookmark
+            if ('sidebar' in window && 'addPanel' in window.sidebar) { 
+                window.sidebar.addPanel(location.href,document.title,"");
+            } else if( /*@cc_on!@*/false) { // IE Favorite
+                window.external.AddFavorite(location.href,document.title); 
+            } else { // webkit - safari/chrome
+                alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+            }
+        });
+    });
+</script>
+
+</head>
+
+<body align="center" id="Bdy" leftmargin="0" topmargin="0" bottommargin="0" marginwidth="0" onload="InitMenu()" marginheight="0" style="width: 100%;height: 100%;margin: 0;
+
+		zoom:1; -moz-transform:scale(1);
+	
+" class="top-header vegas-container"><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in" style="transition: 3000ms;"><div class="vegas-slide-inner" style="background-image: url(&quot;/gallery/pictures/SliderSite/reshafim/pic33.JPG&quot;); background-color: rgb(255, 255, 255); background-size: cover;"></div></div>
+
+	<img border="0" style="width:0px;height:0px;" src="/gallery/pictures/2011/12/13016/13016_TitleImage972025124126.png">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools 11111-->
+<!--script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=zurchen" async="async"></script--->
+
+ 
+	<div style="position:relative;width:100%;" id="divSpace"></div>
+	<!--<link type="text/css" rel="stylesheet" href="/includes/nagishut/font-awesome-4.4.0/css/font-awesome.min.css"> -->
+	<link type="text/css" rel="stylesheet" href="/includes/nagishut/access.css?123">
+	
+	<div id="clsAccess">
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+		<a href="/includes/nagishut/access.asp#" tabindex="-1" id="mainAccess"><img src="/includes/nagishut/images/wheel-chair.jpg"></a>
+		<div id="clsAccessMain" style="font-size:12px;">
+			<div id="clsAccessMenu">
+				<div style="padding-bottom:20px;">
+					<font style="font-size:16px;border-bottom:1px dashed #003466;">גודל הטקסט</font>
+					<div style="float:left;"><img src="/includes/nagishut/images/AA.jpg"></div>
+				</div>
+				<a href="#" class="fontSize active" id="clsAccessFontN" title="גודל רגיל">» רגיל</a>
+				<a href="#" class="fontSize " id="clsAccessFontL" title="גדול">» גדול</a>
+				<a href="#" class="fontSize " id="clsAccessFontXL" title="ענק">» ענק</a>
+				<img src="/includes/nagishut/images/seperators.png" style="padding-top:10px;padding-bottom:10px;">
+				<div style="padding-bottom:20px;">
+					<font style="font-size:16px;border-bottom:1px dashed #003466;">תצוגת צבעי האתר *</font>
+					<div style="float:left;"><img src="/includes/nagishut/images/color.jpg"></div>
+				</div>
+				<a href="#" class="siteColors active" id="clsAccessDefault" title="תצוגה רגילה">» תצוגה רגילה</a>
+				<a href="#" class="siteColors " id="clsAccessGrayscale" title="הופך את האתר לגווני שחור לבן">» מותאם לעיוורי צבעים</a>
+				<a href="#" class="siteColors " id="clsAccessInverted" title="הופך את צבעי האתר לניגודיות מקסימלית. מתאים לכבדי ראייה">» מותאם לכבדי ראייה</a>
+				<span style="font-size:smaller;color:#777f82;">(* פועל בדפדפנים מתקדמים מסוג Chrome ו- Firefox)</span>
+				<img src="/includes/nagishut/images/seperators.png" style="padding-top:10px;padding-bottom:10px;">
+				<div style="padding-bottom:20px;">
+					<font style="font-size:16px;border-bottom:1px dashed #003466;">מידע</font>
+					<div style="float:left;"><img src="/includes/nagishut/images/info.jpg"></div>
+				</div>
+				
+				<a href="/http_new/ViewPage.asp?pagesCatID=31649&amp;siteName=reshafim" target="_blank" title="הצהרת נגישות">» הצהרת נגישות</a>
+				
+				<a href="/http_new/ViewPage.asp?pagesCatID=31650&amp;siteName=reshafim" target="_blank" title="מקשי קיצור באתר">» מקשי קיצור באתר</a>
+				
+			</div>
+			<div style="border-top:1px solid #0a7ebb;height:50px;">
+				<a href="#" id="clsAccessClose" title="סגור"><img src="/includes/nagishut/images/close.jpg"></a>
+			</div>
+		</div>
+	
+</div>
+	
+	<script>
+	if(self.location==top.location) {
+
+		$( document ).ready(function() {
+			$("#clsAccess").load("/includes/nagishut/access.asp", function(){
+				$("#mainAccess").click(function(e) {
+					e.preventDefault();
+					$("#clsAccessMain").toggle();
+				});
+				$("#clsAccessClose").click(function(e) {
+					e.preventDefault();
+					$("#clsAccessMain").hide();
+				});
+				$("#clsAccessGrayscale").click(function(e) {
+					e.preventDefault();
+					$("html").removeClass("AccessInverted");
+					$("html").toggleClass("AccessGrayscale");
+					parent.document.getElementById("updNagishutIframe").src = "/includes/nagishut/changeNagishutParams.asp?siteColors=Grayscale";
+					setActiveButton(".siteColors",$(this));
+				});
+				$("#clsAccessInverted").click(function(e) {
+					e.preventDefault();
+					$("html").removeClass("AccessGrayscale");
+					$("html").toggleClass("AccessInverted");
+					parent.document.getElementById("updNagishutIframe").src = "/includes/nagishut/changeNagishutParams.asp?siteColors=Inverted";
+					setActiveButton(".siteColors",$(this));
+				});
+				$("#clsAccessDefault").click(function(e) {
+					e.preventDefault();
+					$("html").removeClass("AccessGrayscale");
+					$("html").removeClass("AccessInverted");
+					parent.document.getElementById("updNagishutIframe").src = "/includes/nagishut/changeNagishutParams.asp?siteColors=Default";
+					setActiveButton(".siteColors",$(this));
+				});
+				
+				$("#clsAccessFontN").click(function(e) {
+					e.preventDefault();
+					parent.document.getElementById("updNagishutIframe").src = "/includes/nagishut/changeNagishutParams.asp?font=N";
+					document.body.style = "zoom:1; -moz-transform:scale(1);"
+					window.document.getElementById("bottomFrame").contentDocument.body.style = "zoom:1; -moz-transform:scale(1);"
+					setActiveButton(".fontSize",$(this));
+				});
+				$("#clsAccessFontL").click(function(e) {
+					e.preventDefault();
+					parent.document.getElementById("updNagishutIframe").src = "/includes/nagishut/changeNagishutParams.asp?font=L";
+					document.body.style = "zoom:1.1; -moz-transform:scale(1.1);"
+					window.document.getElementById("bottomFrame").contentDocument.body.style = "zoom:1.1; -moz-transform:scale(1.1);"
+					setActiveButton(".fontSize",$(this));
+				});       
+				$("#clsAccessFontXL").click(function(e) {
+					e.preventDefault();
+					parent.document.getElementById("updNagishutIframe").src = "/includes/nagishut/changeNagishutParams.asp?font=XL";
+					document.body.style = "zoom:1.2; -moz-transform:scale(1.2);"
+					window.document.getElementById("bottomFrame").contentDocument.body.style = "zoom:1.2; -moz-transform:scale(1.2);"
+					setActiveButton(".fontSize",$(this));
+				});
+				
+				function setActiveButton(linksClass,elm) {
+					$(linksClass).each(function(){
+						
+						if	($(this).attr("id") == elm.attr("id")) {
+							$(this).addClass("active");
+						} else {
+							$(this).removeClass("active"); 
+						}
+					});
+				}
+				
+				
+			});
+		});
+	} 
+</script> 
+	
+	<ul class="fast-nav">
+		<li><a href="#contentLink" accesskey="s">תוכן העמוד</a></li>
+		<li><a href="/" accesskey="1">עמוד הבית</a></li>
+		<li><a href="/ViewPage.asp?pagesCatID=31650&amp;siteName=reshafim" accesskey="0">מקשי קיצור</a></li>
+		<!--<li><a href="./?view=pages&amp;id=3773" accesskey="8">תנאי שימוש באתר</a></li>-->
+	</ul>
+	
+	<iframe name="updNagishutIframe" id="updNagishutIframe" style="display:none;" width="300" height="100"></iframe>  
+	
+	<!--script>
+		if (screen.availWidth<=1024) 
+			document.getElementById("divSpace").innerHTML = "<Br><Br>";
+	</script-->
+
+<a href="#" id="sample"></a>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<meta name="keywords" content=",רשפים, רשפים קהילנט,קיבוץ רשפים רשפים">
+<meta name="description" content=" רשפים">
+
+<meta property="og:title" content="קיבוץ רשפים - רשפים- קהילנט">
+<meta property="og:description" content=" רשפים">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.reshafim.org.il/http_new/index.asp?sitename=reshafim">
+<meta property="og:locale" content="he_IL">
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://www.reshafim.org.il/http_new/index.asp?sitename=reshafim">
+	
+	<link rel="image_src" href="https://www.reshafim.org.il/gallery/pictures/2011/12/13016/13016_TitleImage972025124126.png">	
+	<meta property="og:image" content="https://www.reshafim.org.il/gallery/pictures/2011/12/13016/13016_TitleImage972025124126.png">
+	
+<meta property="og:image:alt" content="רשפים - קהילה-נט">
+<meta property="og:image:type" content="image/jpeg"> 
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="300">
+
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/themify/themify-icons.css">
+
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/all.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="assets/css/style.css?444">
+    <link rel="stylesheet" href="assets/css/responsive.css?123">
+	<link href="https://fonts.googleapis.com/earlyaccess/alefhebrew.css" media="screen" rel="stylesheet" type="text/css">
+
+    <title>Rapoo- It solutions &amp; Corporate template</title>
+	<style>		  
+		.sticky {
+		  position: fixed;
+		  top: 24px;
+		  width: 100%;
+		   z-index:9990;
+		}
+
+		
+		#navbar {
+		  overflow: hidden;
+		  background-color: #333;
+		 
+		  
+		}
+		
+		.bg-primary,.btn-primary,.btn-white:hover{
+			background:#69BA2D!important;
+			border-color: #69BA2D!important;
+			color: #fff;
+		}
+
+		.bg-dark,.btn-primary:hover{
+			background: #232323!important;
+			border-color: #232323!important;
+			color: #fff;
+		}
+		
+		
+		.dropdown-item:hover {
+			color: #fff;
+			text-decoration: none;
+			background-color: #69BA2D;
+		}
+
+		
+	</style>
+
+
+
+<!-- LOADER TEMPLATE -->
+<div id="page-loader" style="opacity: 0.0169;">
+    <div class="loader-icon fa fa-spin colored-border"></div>
+</div>
+
+<!-- /LOADER TEMPLATE -->
+
+	<div class="top-bar" id="top-bar">
+        <div class="container">          
+			
+				<div class="row align-items-center p-1">
+					<div class="top-info-block d-inline-flex">
+<div class="icon-block " style="font-size:20px;">
+<em class="ti-mobile "></em>
+</div>
+<div class="info-block mt-1">
+<h5 class="font-weight-500 align-middle"><a style="color:#458312;" href="tel:04-6065448">04-6065448</a></h5>
+</div>
+</div>
+<div class="top-info-block d-inline-flex" style="color: #ffffff;">
+<div class="icon-block ">
+<em style="font-size:20px;" class="ti-email "></em>
+</div>
+<div class="info-block pr-2 mt-1">
+<h5 class="font-weight-500 "><span style="color: #3366ff;"></span><a href="https://www.reshafim.org.il/msite/manage/mazkirut@reshafim.org.il" style="color: #ffffff;"><span style="color: #3366ff;"><span style="color: #ffffff;">mazkirut</span></span></a><a style="color:#458312;" href="mailto:m.kehila@reshafim.org.il">@reshafim.org.il</a><a style="color:#458312;" href="mailto:m.kehila@reshafim.org.il"></a></h5>
+</div>
+</div>
+<div class="top-info-block d-inline-flex text-left">
+<div class="icon-block " style="direction: rtl;">
+<a target="_blank" href="https://www.facebook.com/%D7%A7%D7%99%D7%91%D7%95%D7%A5-%D7%A8%D7%A9%D7%A4%D7%99%D7%9D-300695110546166/"><img src="https://cdn.iconscout.com/icon/free/png-64/facebook-224-498412.png" style="height:20px;" alt=""></a>
+</div>
+</div>
+				</div>
+			
+            
+        </div>
+    </div>
+	
+	
+    <div class="logo-bar d-none d-md-block d-lg-block bg-light">
+        <div class="container">
+            <div class="row">
+                 <div class="col-lg-2">
+					
+				</div>
+
+                 <div class="col-lg-10 mt-2 justify-content-end ml-lg-auto d-flex col-12 align-items-center">
+                   	
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+   <!-- NAVBAR
+    ================================================= -->
+    <div class="main-navigation menu-2 navbar" id="mainmenu-area">
+        <div class="container">
+		
+			
+		<div class="col-10"> 
+		
+		
+			<nav class="navbar col-lg-12 navbar-expand-lg navbar-dark bg-primary main-nav navbar-togglable">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse bg-primary" id="navbarCollapse">
+					
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            				
+								<a role="button" class="nav-link " aria-haspopup="true" aria-expanded="false" accesskey="1" title="ראשי" href="index.asp" style="font-weight:normal;" target="_self">
+							<font size="3">ראשי</font>
+							</a>
+							
+                        </li>
+						
+				 </ul>
+				
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                             
+								<a role="button" class="nav-link  dropdown-toggle" aria-haspopup="true" aria-expanded="false" title="הסטוריה" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=1507&amp;siteName=reshafim" target="">
+							<font size="3">הסטוריה</font>
+							</a>
+							
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarWelcome">
+								 
+									<a class="dropdown-item " title="ציר הזמן" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=31651&amp;siteName=reshafim" target="">
+								<font size="3">ציר הזמן</font>
+								</a>                                
+                            
+								 
+									<a class="dropdown-item " title="עליה לקרקע" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=5073&amp;siteName=reshafim" target="">
+								<font size="3">עליה לקרקע</font>
+								</a>                                
+                            
+								 
+									<a class="dropdown-item " title="דפי הנצחה" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=1513&amp;siteName=reshafim" target="">
+								<font size="3">דפי הנצחה</font>
+								</a>                                
+                            
+								</div>
+							
+                        </li>
+						
+				 </ul>
+				
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                             
+								<a role="button" class="nav-link " aria-haspopup="true" aria-expanded="false" title="עסקים" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=1511&amp;siteName=reshafim" target="">
+							<font size="3">עסקים</font>
+							</a>
+							
+                        </li>
+						
+				 </ul>
+				
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                             
+								<a role="button" class="nav-link " aria-haspopup="true" aria-expanded="false" title="אלבומים" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=1514&amp;siteName=reshafim" target="">
+							<font size="3">אלבומים</font>
+							</a>
+							
+                        </li>
+						
+				 </ul>
+				
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                             
+								<a role="button" class="nav-link  dropdown-toggle" aria-haspopup="true" aria-expanded="false" title="קליטה" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=2764&amp;siteName=reshafim" target="">
+							<font size="3">קליטה</font>
+							</a>
+							
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarWelcome">
+								 
+									<a class="dropdown-item " title="קצת על הקיבוץ" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=2908&amp;siteName=reshafim" target="">
+								<font size="3">קצת על הקיבוץ</font>
+								</a>                                
+                            
+								 
+									<a class="dropdown-item " title="הצטרפות לקיבוץ רשפים " style="font-weight:normal;" href="ViewPage.asp?pagesCatID=2766&amp;siteName=reshafim" target="">
+								<font size="3">הצטרפות לקיבוץ רשפים </font>
+								</a>                                
+                            
+								 
+									<a class="dropdown-item " title="חינוך ברשפים" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=32503&amp;siteName=reshafim" target="">
+								<font size="3">חינוך ברשפים</font>
+								</a>                                
+                            
+								 
+									<a class="dropdown-item " title="עלויות מחייה למשפחה" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=2910&amp;siteName=reshafim" target="">
+								<font size="3">עלויות מחייה למשפחה</font>
+								</a>                                
+                            
+								 
+									<a class="dropdown-item " title="תעסוקה" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=32504&amp;siteName=reshafim" target="">
+								<font size="3">תעסוקה</font>
+								</a>                                
+                            
+								</div>
+							
+                        </li>
+						
+				 </ul>
+				
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            				
+								<a role="button" class="nav-link " aria-haspopup="true" aria-expanded="false" title="כניסת חברים" href="\login.asp" style="font-weight:normal;" target="_self">
+							<font size="3">כניסת חברים</font>
+							</a>
+							
+                        </li>
+						
+				 </ul>
+				
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                             
+								<a role="button" class="nav-link " aria-haspopup="true" aria-expanded="false" accesskey="3" title="צור קשר" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=1509&amp;siteName=reshafim" target="">
+							<font size="3">צור קשר</font>
+							</a>
+							
+                        </li>
+						
+				 </ul>
+				
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                             
+								<a role="button" class="nav-link " aria-haspopup="true" aria-expanded="false" title="Reshafim" style="font-weight:normal;" href="ViewPage.asp?pagesCatID=1516&amp;siteName=reshafim" target="">
+							<font size="3">Reshafim</font>
+							</a>
+							
+                        </li>
+						
+				 </ul>
+				                      
+                   
+
+                    <!--ul class="ml-lg-auto list-unstyled m-0">
+                        <li><a href="#" class="btn btn-trans-white btn-circled">Get a quote</a></li>
+                    </ul-->
+                </div> <!-- / .navbar-collapse -->
+            </nav>
+			</div> 
+        </div> <!-- / .container -->
+
+    </div>
+
+ 
+
+    <!-- HERO
+    ================================================== -->
+
+   
+<link rel="stylesheet" href="/includes/BGSlider/vegas.min.css">
+<script src="/includes/BGSlider/vegas.min.js"></script>
+<style>
+	.vegas-slide {
+		height:100%;
+		overflow-y:hidden;
+	}
+</style>
+<script>
+	$("#myVegasBanner, body").vegas({		
+		cover: true,
+		valign: top, 		
+		align: top, 
+		slides: [
+			
+				{ src: "/gallery/pictures/SliderSite/reshafim/pic33.JPG"},
+			
+		], 
+		transition: 'fade',
+		transitionDuration: 3000,
+		timer: false
+	});
+ </script>
+
+
+<!--<script>
+	var currentBackground = 0;
+
+	var backgrounds = [];
+
+					
+		backgrounds[0] = '/Gallery/Pictures/SliderSite/reshafim/pic33.JPG';
+		
+
+	function changeBackground() {
+
+		currentBackground++;
+
+		if(currentBackground > 0) currentBackground = 0;
+
+	  /*  $('#banner').fadeOut(500,function() {*/
+			$('#banner').css({
+				'background-image' : "url('" + backgrounds[currentBackground] + "')",
+				'transition' : "all 4s ease-in-out 1s",
+				'background-blend-mode' : "multiply",
+				'background-repeat': "no-repeat",
+				'background-size': "100%"
+			});
+			/*$('#banner').fadeIn(500);*/
+		/*});*/
+
+
+		setTimeout(changeBackground, 5000);
+	}
+
+	$(document).ready(function() {
+
+		setTimeout(changeBackground, 1);  
+
+	}); 
+</script>-->
+
+
+<style>
+	video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+	height
+    z-index: -99;
+     background-size: cover;
+    transition: 1s opacity;
+	}
+	.vidi {
+		
+		object-fit: cover;	
+		overflow: hidden;
+	}
+</style>
+
+
+<script>
+	function myPassFunction(eName) {
+	  var x = document.getElementById(eName);
+	  if (x.type === "password") {
+		x.type = "text";
+	  } else {
+		x.type = "password";
+	  }
+	}
+</script>
+
+    <section class="banner-area py-5" id="myVegasBanner">
+	<!--<section class="banner-area py-5" id="banner" style="background: url('');no-repeat;">-->
+		
+	    <!--<div class="overlay"></div>-->
+        <!-- Content -->
+        <div class="container">
+            <div class="row  align-items-center justify-content-center">
+					
+				
+				<div class="col-md-12 col-lg-8">
+				   <div class="banner-content text-center text-lg-right">
+					  <!-- Heading -->
+						<h1 class="display-4 mb-4 "><div style="text-align:center;background-color:rgba(0, 0, 0, 0.3);border-radius: 25px;">
+							&nbsp;ברוכים הבאים לקיבוץ רשפים&nbsp;</div>
+						</h1>
+					
+					</div>
+				</div>
+					
+				
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </section>
+
+    <!-- SECTIONS
+    ================================================== -->
+ 
+    <!-- About
+    ================================================== -->
+    
+    <section id="about" class="section bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                
+				<div class="col-lg-12 pt-3 col-md-12">
+				
+                    <div class="row justy-content-center">
+					<div><span style="font-family: Arial; font-size: 12pt;">&nbsp;ברוכים הבאים לאתר של קיבוץ רשפים!</span></div><div style="font-family: Arial; font-size: 12pt;">&nbsp;</div><div style="font-family: Arial; font-size: 12pt;">באתר תוכלו למצוא מידע על הקיבוץ, מידע לנקלט ועוד.&nbsp;&nbsp;</div><div style="font-family: Arial; font-size: 12pt;">&nbsp;</div><div><div style="115%"><span style="font-family: Arial; font-size: 12pt;">קיבוץ רשפים שייך לתנועת השומר הצעיר, עלה לקרקע בשנת 1948, אוכלוסיית רשפים מהווה קיבוץ גלויות אמיתי ומונה כיום כ - 135 בתי אב השותפים לחיי קהילה המעניקה איכות חיים ומקיימת מערכות חינוך, בריאות, תרבות, מסורת ונוי. הקיבוץ מופרט אך שומר על זכויות החברים גם בעידן השינויים של "הקיבוץ -המתחדש"</span><span dir="LTR" style="font-family: Arial; font-size: 12pt;">.</span><span style="font-family: Arial; font-size: 12pt;"> כלכלת הקיבוץ מתבססת על ענפי חקלאות ועבודת חברים מחוץ לקיבוץ.<br></span><span style="font-family: Arial; font-size: 12pt;">הרכב האוכלוסייה:<br></span><span style="font-family: Arial; font-size: 12pt;">סה"כ תושבים (241 חברי קיבוץ, 156 ילדי חברים + 97 תושבים,  56 ילדי תושבים).</span><ul style="font-family: Arial; font-size: 12pt;" type="disc"><li dir="RTL" style="text-align: right;"><span style="font-family:&quot;David Transparent&quot;,sans-serif;Tahoma;Tahoma">מערכת קהילתית: כל-בו,      בריכת שחייה, מספרה, ארכיון, ספריית ילדים, מועדון לחבר, מתקני שעשועים      לילדים ותעסוקון לותיקים, יוזמות קהילתיות, כגון: "ברלה" - מרחב      לילדים עד גיל תשע הכולל ספרייה ומשחקייה להנאת התושבים והחברים. "חנות      קטנה ומתנה" - חנות יד שנייה המנוהלת בהתנדבות על ידי שתי חברות קיבוץ.</span><span dir="LTR" style="font-family:&quot;Tahoma&quot;,sans-serif;&quot;David Transparent&quot;">.</span></li></ul><ul style="font-family: Arial; font-size: 12pt;" type="disc"><li dir="RTL" style="text-align: right;"><span style="font-family:&quot;David Transparent&quot;,sans-serif;Tahoma;Tahoma">במרכז הקיבוץ      ממוקמים מבני הציבור; מועדון לחבר לכינוסים, אירועים ושמחות. בצמוד לו      הספרייה חדר עיון וארכיון פעיל, המבנה המרכזי משמש לתרבות וחגים, סרטים      ופעילות רב-תכליתיות. מתחם הבריכה משמש לנופש וספורט בחודשי הקיץ. מבני      התרבות עומדים לשימוש החברים כולם. חדר האוכל משמש לאירועי תרבות וחלק ממנו      שופץ לטובת הפעלת חוגים למבוגרים ולילדים. </span></li></ul><ul style="font-family: Arial; font-size: 12pt;" type="disc"><li dir="RTL" style="text-align: right;"><span style="font-family:&quot;David Transparent&quot;,sans-serif;Tahoma;Tahoma">מערכת בריאות: מרפאה      כללית, מרפאת שיניים</span><span dir="LTR" style="font-family:&quot;Tahoma&quot;,sans-serif;&quot;David Transparent&quot;">.</span></li></ul><ul style="font-family: Arial; font-size: 12pt;" type="disc"><li dir="RTL" style="115%;l0 level1 lfo1"><span style="font-family:&quot;David Transparent&quot;,sans-serif;      Tahoma;Tahoma">מערכת הגיל הרך 0-6:  פועלת ברמה גבוהה ע"י אנשי חינוך      מיומנים</span><span dir="LTR" style="font-family:&quot;Tahoma&quot;,sans-serif;&quot;David Transparent&quot;">.<br>      </span></li></ul><ul style="font-family: Arial; font-size: 12pt;" type="disc"><li dir="RTL" style="115%;l0 level1 lfo1"><span style="font-family:&quot;David Transparent&quot;,sans-serif;Tahoma;Tahoma">המערכת פועלת רוב      ימות השנה מהשעה 07:00 בבוקר ועד 16:00 אחה"צ, בימי שישי וערבי חג מהשעה      07:00 בבוקר עד 13:00 בצהרים</span><span dir="LTR" style="font-family:&quot;Tahoma&quot;,sans-serif;&quot;David Transparent&quot;">.</span><span style="font-family:&quot;David Transparent&quot;,sans-serif;Tahoma;Tahoma"> מעונות תמ"ת עם הסכם שירותים נוספים מעבר לתקן      התמ"ת וגני משרד החינוך הכוללים תשלומי צהרון.</span></li></ul><ul style="font-family: Arial; font-size: 12pt;" type="disc"><li dir="RTL" style="115%;l0 level1 lfo1"><span style="font-family:&quot;David Transparent&quot;,sans-serif;      Tahoma;Tahoma">מערכת חינוך חברתי קהילתי לילדי בית      הספר ותיכון: </span></li></ul><span style="font-family: Arial; font-size: 12pt;">ילדי בית הספר היסודי לומדים בבית הספר המשותף "רימון" שבמסילות</span><span dir="LTR" style="font-family: Arial; font-size: 12pt;">,<br> </span><span style="font-family: Arial; font-size: 12pt;">בשעות אחרי הלימודים ובחופשים, הילדים נמצאים במסגרת מועדונית "בתלתון" לפעילות בלתי פורמלית</span><span dir="LTR" style="font-family: Arial; font-size: 12pt;">.<br> </span><span style="font-family: Arial; font-size: 12pt;">הנערים לומדים בביה"ס גאון הירדן בנוה-איתן. לנערים יש מועדון משלהם עם מדריך חברתי לשעות שלאחר הלימודים/ ערב/חופש.</span><ul style="font-family: Arial; font-size: 12pt;" type="disc"><li dir="RTL" style="text-align: right;"><span style="font-family:&quot;David Transparent&quot;,sans-serif;Tahoma;Tahoma">פעילות תרבותית: הקהילה      ברשפים מקיימת חיי תרבות וקהילה מגוונים, בדגש על כוחות פנים. פעילויות רבות      מתקיימות ע"י חברי הקהילה למען הכלל. אנו מעודדים השתתפות בחיי התרבות      של הקהילה.</span></li></ul>&nbsp;</div>              <p dir="RTL" style="text-align:justify;115%"><u> </u></p></div><div></div>
+                    </div>
+					 
+					
+					
+					<div class="col-lg-12  pt-5">
+						<div class="carousel slide " id="service-carousel" data-ride="carousel">
+							<div class="carousel-inner">
+							
+							
+										<div class="carousel-item active">
+											<div class="col-lg-12">
+												<div class="row">
+									
+												<div class="col-lg-6">
+													<div class="service-block media">
+														<div class="service-icon">
+															<i class="ti-reload"></i>
+														</div>			
+														<div class="service-inner-content media-body pr-1">
+															<h4>30/10/2023</h4>
+															<p></p><div>מלחמת חרבות ברזל - קישור לאתר רשפים בחירום:<br>לחץ <strong><span style="color: red;"><u><a href="https://www.reshafim-info.com/">כאן</a></u></span></strong></div><p></p>
+														</div>																							
+													</div>
+												</div>
+									
+												<div class="col-lg-6">
+													<div class="service-block media">
+														<div class="service-icon">
+															<i class="ti-reload"></i>
+														</div>			
+														<div class="service-inner-content media-body pr-1">
+															<h4></h4>
+															<p>ברכות לאתר החדש</p><div>התקינו את האפליקציה שלנו</div><p></p>
+														</div>																							
+													</div>
+												</div>
+									
+											</div>
+										</div>
+									</div>
+							
+										<div class="carousel-item ">
+											<div class="col-lg-12">
+												<div class="row">
+									
+												<div class="col-lg-6">
+													<div class="service-block media">
+														<div class="service-icon">
+															<i class="ti-reload"></i>
+														</div>			
+														<div class="service-inner-content media-body pr-1">
+															<h4>20/04/2020</h4>
+															<p></p><div>אנו מודים לכל המתנדבים המסייעים לקהילנט במיוחד בתקופה זו.</div><p></p>
+														</div>																							
+													</div>
+												</div>
+									
+												<div class="col-lg-6">
+													<div class="service-block media">
+														<div class="service-icon">
+															<i class="ti-reload"></i>
+														</div>			
+														<div class="service-inner-content media-body pr-1">
+															<h4>20/04/2020</h4>
+															<p></p><div>הורידו עכשיו את האפליקציה החדשה של רשפים.</div><p></p>
+														</div>																							
+													</div>
+												</div>
+									
+											</div>
+										</div>
+									</div>
+							
+							</div>
+						</div>
+					</div>
+					
+					
+					
+                </div>
+            </div>
+        </div>
+    </section> 
+
+	
+   <!-- Working Process
+    ================================================== -->
+    <section class="section bg-grey" id="process">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8 col-lg-6 text-center">
+                    <div class="section-heading">
+                        <!-- Heading -->
+                        <h2 class="section-title ">
+                            מידע נוסף
+                        </h2>
+                    </div>
+                </div>
+            </div> <!-- / .row -->
+
+            <div class="row justify-content-center">
+			
+				
+                <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="process-block">
+                        <!--img src="assets/img/process/process-1.jpg" alt="" class="img-fluid"-->
+						<a style="text-decoration:none;" href="/http_new/ViewPage.asp?pagesCatID=1511&amp;siteName=reshafim"><img align="center" src="\gallery\pictures\2011/12/13016\left.jpg" border="0" style="height:100px;width:100%;object-fit: cover;"></a>
+								
+
+                        <h3>עסקים</h3>
+                        <p>עסקים ויזמויות של חברי קיבוץ רשפים...</p><br><br>
+                    </div>					
+                </div>
+				
+                <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="process-block">
+                        <!--img src="assets/img/process/process-1.jpg" alt="" class="img-fluid"-->
+						<a style="text-decoration:none;" href="/http_new/ViewPage.asp?pagesCatID=1513&amp;siteName=reshafim"><img align="center" src="\gallery\pictures\2011/12/13016\PageIcon1513.jpg" border="0" style="height:100px;width:100%;object-fit: cover;"></a>
+								
+
+                        <h3>דפי הנצחה</h3>
+                        <p>רשימת יקירנו, חברים ובני משפחותיהם שהלכו לעולמם. הרשימה מתעדכנת על ידי ארכיון הקיבוץ....</p><br><br>
+                    </div>					
+                </div>
+				
+                <div class="col-lg-4 col-sm-6 col-md-6">
+                    <div class="process-block">
+                        <!--img src="assets/img/process/process-1.jpg" alt="" class="img-fluid"-->
+						<a style="text-decoration:none;" href="/VideoGallery/Clips/2011/12/13016//חובת_ביצוע_התאמת_נגישות2932022124540.pdf" target="_blank"><img align="center" src="\gallery\pictures\2011/12/13016\PageIcon34817.jpeg" border="0" style="height:100px;width:100%;object-fit: cover;"></a>
+								
+
+                        <h3>התאמות נגישות, ועד מקומי רשפים</h3>
+                        <p>...</p><br><br>
+                    </div>					
+                </div>
+				
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- companies
+    ================================================== -->
+
+	<section class="section" id="service"> 
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 pl-4 text-center">
+                    <div class="service-heading">
+                        <h1>אינדקס יזמויות ועסקים</h1>
+                    </div>
+                </div>
+            </div>
+			 <div class="row justify-content-center mb-5">
+			
+						<div class="col-lg-4 col-md-6">
+							<div class="service-block media">
+								<a href="viewPage.asp?companyid=5089&amp;SiteName=reshafim">
+									<img style="border-radius:50%;width:80px;height:80px;object-fit: cover;" src="/upload/logos/2011/12/13016/event5089_1.png" title="דר' כפרי - מרפאת חיות העמק">
+								</a>
+								<div class="service-inner-content media-body pr-4" style="text-align:right;">
+									<a href="viewPage.asp?companyid=5089&amp;SiteName=reshafim"><h4>דר' כפרי - מרפאת חיות העמק</h4></a>
+									<p>
+
+
+מרפאת חיות העמק
+בקיבוץ רשפים:
+
+
+
+
+
+&nbsp;
+
+
+
+
+
+מרפאה וטרינרית
+בניהולו של דר'...</p>
+								</div>
+							</div>
+						</div>
+						
+				 
+						<div class="col-lg-4 col-md-6">
+							<div class="service-block media">
+								<a href="viewPage.asp?companyid=5104&amp;SiteName=reshafim">
+									<img style="border-radius:50%;width:80px;height:80px;object-fit: cover;" src="/upload/logos/2011/12/13016/event5104_logo.jpg" title="לימוד שחייה לילדים ולמבוגרים.">
+								</a>
+								<div class="service-inner-content media-body pr-4" style="text-align:right;">
+									<a href="viewPage.asp?companyid=5104&amp;SiteName=reshafim"><h4>לימוד שחייה לילדים ולמבוגרים.</h4></a>
+									<p>אני  הידרותרפסטיית ומורה לשחייה,כ 20 שנה.אני מלמדת ילדים - לימוד שחייה, חיזוק ביטחון  העצמי,הריגשי ו...</p>
+								</div>
+							</div>
+						</div>
+						
+				 
+						<div class="col-lg-4 col-md-6">
+							<div class="service-block media">
+								<a href="viewPage.asp?companyid=5099&amp;SiteName=reshafim">
+									<img style="border-radius:50%;width:80px;height:80px;object-fit: cover;" src="/upload/logos/2011/12/13016/event5099_logo.png" title="ענבר רון - איתך בהנקה - מדריכת הנקה מוסמכת">
+								</a>
+								<div class="service-inner-content media-body pr-4" style="text-align:right;">
+									<a href="viewPage.asp?companyid=5099&amp;SiteName=reshafim"><h4>ענבר רון - איתך בהנקה - מדריכת הנקה מוסמכת</h4></a>
+									<p>עם הולדת בתי הבכורה ליבי התאהבתי בהנקה, נדהמתי מהקסם שקורה בגוף שלנו. עם לידת בני לביא הבנתי שאני רו...</p>
+								</div>
+							</div>
+						</div>
+						
+				 
+						<div class="col-lg-4 col-md-6">
+							<div class="service-block media">
+								<a href="viewPage.asp?companyid=5083&amp;SiteName=reshafim">
+									<img style="border-radius:50%;width:80px;height:80px;object-fit: cover;" src="/upload/logos/2011/12/13016/event5083_logo.png" title="הדס טיפול בתזונה וצמחי מרפא">
+								</a>
+								<div class="service-inner-content media-body pr-4" style="text-align:right;">
+									<a href="viewPage.asp?companyid=5083&amp;SiteName=reshafim"><h4>הדס טיפול בתזונה וצמחי מרפא</h4></a>
+									<p>קוראים לי הדס סגל, אני מלווה אישית לשינוי תזונתי וירידה במשקל, יועצת לאורח חיים בריא והרבליסטית קלינ...</p>
+								</div>
+							</div>
+						</div>
+						
+				 
+				<a href="viewpage.asp?pagesCatID=1511&amp;sitename=reshafim">לצפייה בכל העסקים לחץ כאן</a>
+			</div>
+        </div>
+    </section>
+ 
+
+
+	
+	<!-- Projects================================================== -->
+
+    <!--<section id="work-wrap">
+		<div class="row justify-content-center">
+			<div class="text-center">
+				<div >
+					<h2 class="section-title mb-2">
+						אלבומי תמונות
+					</h2>
+
+					<p class="mb-5">
+						תעוד מצולם מחיי הקהילה. תמונות מאירועים, חגים, וארכיון.
+					</p>
+				</div>
+			</div>
+		</div> 
+	</section>-->
+   				
+		<section id="work" class="section-bottom">
+            <div class="container">
+				<div class="row justify-content-center mb-4">
+					<div class="col-md-8 col-lg-6 text-center">
+						<div class="section-heading">
+							<!-- Heading -->
+							<h2 class="section-title ">
+								אלבומי תמונות
+							</h2>
+							<p class="mb-5">
+								תעוד מצולם מחיי הקהילה. תמונות מאירועים, חגים, וארכיון.
+							</p>
+						</div>
+					</div>
+				</div>
+				
+                <div class="row">
+				
+						  <div class="col-lg-4 col-md-6 p-0">
+								<div class="work-block">
+									<img alt="חצר רשפים- פסח 2013" src="/gallery/assets/2011/12/13016/039.jpg" class="img-fluid">
+									<a href="ViewPage.asp?GalleryID=11020&amp;CAT_NAME=חצר רשפים- פסח 2013&amp;sitename=reshafim">
+										<div class="overlay-content-block" style="text-align:center;">
+										<h4>חצר רשפים- פסח 2013</h4>
+										<!--p>Web Development</p-->
+						
+										<i class="fa fa-link"></i>
+									</div></a>
+							    </div>
+							</div>
+
+					
+						  <div class="col-lg-4 col-md-6 p-0">
+								<div class="work-block">
+									<img alt="זר כלניות" src="/gallery/assets/2011/12/13016/DSCN3229.JPG" class="img-fluid">
+									<a href="ViewPage.asp?GalleryID=10115&amp;CAT_NAME=זר כלניות&amp;sitename=reshafim">
+										<div class="overlay-content-block" style="text-align:center;">
+										<h4>זר כלניות</h4>
+										<!--p>Web Development</p-->
+						
+										<i class="fa fa-link"></i>
+									</div></a>
+							    </div>
+							</div>
+
+					
+						  <div class="col-lg-4 col-md-6 p-0">
+								<div class="work-block">
+									<img alt="balagan" src="/gallery/assets/2011/12/13016/PC180100.JPG" class="img-fluid">
+									<a href="ViewPage.asp?GalleryID=10034&amp;CAT_NAME=balagan&amp;sitename=reshafim">
+										<div class="overlay-content-block" style="text-align:center;">
+										<h4>balagan</h4>
+										<!--p>Web Development</p-->
+						
+										<i class="fa fa-link"></i>
+									</div></a>
+							    </div>
+							</div>
+
+					
+						  <div class="col-lg-3 col-md-6 p-0">
+								<div class="work-block">
+									<img alt="חצר" src="/gallery/assets/2011/12/13016/.jpg" class="img-fluid">
+									<a href="ViewPage.asp?GalleryID=9165&amp;CAT_NAME=חצר&amp;sitename=reshafim">
+										<div class="overlay-content-block" style="text-align:center;">
+										<h4>חצר</h4>
+										<!--p>Web Development</p-->
+						
+										<i class="fa fa-link"></i>
+									</div></a>
+							    </div>
+							</div>
+
+					
+				
+				
+                </div>
+            </div>
+        </section>
+    
+
+
+    
+  
+    <!-- FOOTER
+    ================================================== -->
+    <footer class="section " id="footer">
+        <div class="overlay footer-overlay"></div>
+        <!--Content -->
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="footer-widget" style="text-align:right;">
+                        <!-- Brand -->
+                        <a title="אתר לקיבוץ אתר למושב אתר לישוב רשת חברתית לקיבוצים וישובים" href="https://www.kehilanet.co.il/mainsite.asp?siteName=kcrm" target="_blank" class="footer-brand text-white">
+                            <h3>קהילה-נט </h3>
+                        </a>
+                        <p>אתר זה הינו חלק ממערכת <a title="אתר לקיבוץ אתר למושב אתר לישוב רשת חברתית לקיבוצים וישובים" href="https://www.kehilanet.co.il/mainsite.asp?siteName=kcrm" target="_blank" class="footer-brand text-white">קהילהנט </a><br>רשת חברתית תפעולית לארגונים, אגודות, קיבוצים וישובים</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 ml-lg-auto col-sm-12">
+                    <div class="footer-widget" style="text-align:right;">
+                        <h3>החשבון שלי</h3>
+                        <!-- Links -->
+                        <ul class="footer-links ">
+                            
+							<li>
+                                <a href="/login.asp" target="_blank">
+                                    ניהול אתר
+                                </a>
+                            </li>
+                            
+							<li>
+                                <a href="/viewPagePrivate.asp?pg=1" target="_blank">
+                                    תנאי שימוש
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/viewPagePrivate.asp?pg=2" target="_blank">
+								    מדיניות פרטיות
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/http_new/viewPage.asp?map=1&amp;sitename=reshafim">                                
+                                    מפת אתר
+                                </a>
+                            </li>                            
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-sm-12">
+                    <div class="footer-widget" style="text-align:right;">
+                        <h3>קישורים שימושיים</h3>
+                        <!-- Links -->
+                        <ul class="footer-links">
+					 <li> <a target="_blank" href="http://www.maianot.co.il/cgi-webaxy/sal/sal.pl?lang=he&amp;ID=930898_bbshean&amp;act=search2&amp;dbid=education2012&amp;query=res_len%3CD%3E50%3CD%3Eand_or%3CD%3Eand%3CD%3EresShow%3CD%3Ef3&amp;positionInImageStyle=background-color%3Atransparent">אגף חינוך וקהילה בעמק המעיינות</a></li> <li> <a target="_blank" href="http://www.maianot.co.il/">מועצה אזורית עמק המעיינות</a></li> <li> <a target="_blank" href="http://www.maianot.co.il/maavarim/">מעברים עמק המעיינות- </a></li>
+							<li> <a target="_blank" href="https://www.150.co.il/rustdesk-1.1.9.exe">תמיכה - שליטה מרחוק</a></li>
+							
+                        </ul>
+                    </div>			
+                </div>
+
+               
+
+            <div class="row text-right pt-5">
+                <div class="col-lg-12">
+                    <!-- Copyright -->
+                    <p class="footer-copy ">
+                        <!--<span class="current-year"><a href="https://themefisher.com/free-bootstrap-templates">Free Bootstrap Templates</a></span>-->
+						<a target="_blank" href="https://www.kehilanet.co.il/mainsite.asp?siteName=kcrm" title="אתר לקיבוץ - אתר קהילתי"><img height="40" alt="אתר לקיבוץ" src="/images/kehilanet.png" align="left" border="0"></a>
+						&nbsp;
+						<br><br>כל הזכויות שמורות לקהילה-נט פתרונות תוכנה בע"מ 2003-2026(c)
+                    </p>
+                </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </div></footer>
+
+<style>
+		#InstallAPPDiv{
+			z-index:2000;
+			position: fixed;
+			width:100%;
+			bottom: 0;
+			color:white;
+			background-color:black;			
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align:center;
+			visibility:visible;
+			font-size: 16px;
+		}		
+</style>
+
+
+    <!-- JAVASCRIPT
+    ================================================== -->
+    <!-- Global JS -->    
+    <script src="assets/js/popper.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Slick JS -->
+    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <!-- Theme JS -->
+    <script src="assets/js/theme.js"></script>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("mainmenu-area");
+var sticky = navbar.offsetTop;
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+
+	<a href="https://www.kehilanet.co.il/viewpage.asp?pagesCatID=29884&amp;siteName=kcrm">מערכת הצבעות דיגיטליות</a>
+	<a href="https://www.kehilanet.co.il/viewpage.asp?pagesCatID=29884&amp;siteName=kcrm">הצבעה דיגיטלית</a>
+	<a href="https://www.kehilanet.co.il/mainsite.asp?siteName=kcrm">אתר לקיבוץ</a>
+	<a href="https://www.kehilanet.co.il/viewPage.asp?pagesCatID=31676&amp;siteName=kcrm">קריאות שירות</a>
+	<a href="https://www.kehilanet.co.il/viewpage.asp?pagesCatID=29893&amp;siteName=kcrm">קריאות שירות</a>
+<div id="fb-root"></div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-38772331-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-38772331-1');
+</script>
+ 
+
+
+
+
+
+
+
+
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div></body></html>

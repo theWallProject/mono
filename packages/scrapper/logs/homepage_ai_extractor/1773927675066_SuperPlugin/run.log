@@ -1,0 +1,65 @@
+[2026-03-19T13:41:15.066Z] === Homepage AI Extractor: SuperPlugin ===
+[2026-03-19T13:41:15.067Z] Started at: 2026-03-19T13:41:15.067Z
+[2026-03-19T13:41:15.067Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773927675066_SuperPlugin
+[2026-03-19T13:41:15.067Z] Company: SuperPlugin
+[2026-03-19T13:41:15.067Z] Website: superplug.in
+[2026-03-19T13:41:15.067Z] cbRank: 2228441
+[2026-03-19T13:41:15.067Z] Reasons: h
+[2026-03-19T13:41:15.067Z] Fetching: https://superplug.in
+[2026-03-19T13:41:17.482Z] Dismissed cookie consent popup via: button:has-text("Accept cookies")
+[2026-03-19T13:41:20.428Z] Redirected: https://superplug.in -> https://www.superplug.in/
+[2026-03-19T13:41:20.431Z] Saved HTML (65659 bytes) to page.html
+[2026-03-19T13:41:20.433Z] Extracted 15 unique links from page
+[2026-03-19T13:41:20.434Z] Saved 15 links to links.json
+[2026-03-19T13:41:20.437Z] Extracted footer HTML (3877 chars)
+[2026-03-19T13:41:20.437Z] Extracted header HTML (1636 chars)
+[2026-03-19T13:41:20.441Z] Website (post-redirect): https://www.superplug.in/ → origin: https://www.superplug.in
+[2026-03-19T13:41:20.441Z]   SUBDOMAIN: blog.superplug.in (added to ws)
+[2026-03-19T13:41:20.441Z] Website subdomains found: 1
+[2026-03-19T13:41:20.441Z] External links: 3 (of 15 total)
+[2026-03-19T13:41:20.441Z] ── All external links ──
+[2026-03-19T13:41:20.441Z]   EXT: https://aheadware.com
+[2026-03-19T13:41:20.441Z]   EXT: https://aheadware.com/imprint.php
+[2026-03-19T13:41:20.442Z]   EXT: https://aheadware.com/privacy.php
+[2026-03-19T13:41:20.442Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T13:41:20.442Z]   UNCATEGORIZED: https://aheadware.com
+[2026-03-19T13:41:20.442Z]   UNCATEGORIZED: https://aheadware.com/imprint.php
+[2026-03-19T13:41:20.442Z]   UNCATEGORIZED: https://aheadware.com/privacy.php
+[2026-03-19T13:41:20.442Z] Programmatic result: ws:2 | 3 uncategorized
+[2026-03-19T13:41:20.442Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T13:41:20.446Z] Saved AI prompt (3654 chars) to ai_prompt.txt
+[2026-03-19T13:41:20.446Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T13:41:20.450Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T13:41:33.629Z]   AI: First token received, streaming...
+[2026-03-19T13:41:34.080Z] AI response complete: 25 chars in 13.6s
+[2026-03-19T13:41:34.081Z] Saved AI response to ai_response.json
+[2026-03-19T13:41:34.081Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T13:41:34.081Z]   AI LINK: https://blog.superplug.in
+[2026-03-19T13:41:34.082Z] AI returned 1 valid links
+[2026-03-19T13:41:34.082Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T13:41:34.082Z]   AI→URLS: https://blog.superplug.in
+[2026-03-19T13:41:34.083Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T13:41:34.083Z] Footer/header origins (2):
+[2026-03-19T13:41:34.083Z]   FOOTER/HEADER ORIGIN: https://blog.superplug.in
+[2026-03-19T13:41:34.083Z]   FOOTER/HEADER ORIGIN: https://aheadware.com
+[2026-03-19T13:41:34.083Z]   ADDED: urls <- https://aheadware.com
+[2026-03-19T13:41:34.083Z]   ADDED: urls <- https://aheadware.com/imprint.php
+[2026-03-19T13:41:34.084Z]   ADDED: urls <- https://aheadware.com/privacy.php
+[2026-03-19T13:41:34.084Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-19T13:41:34.084Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T13:41:34.084Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T13:41:34.084Z] ── Step 3: Final dedup ──
+[2026-03-19T13:41:34.084Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-19T13:41:34.084Z] ── FINAL RESULT ──
+[2026-03-19T13:41:34.085Z]   ws (2):
+[2026-03-19T13:41:34.085Z]     - https://blog.superplug.in
+[2026-03-19T13:41:34.085Z]     - https://www.superplug.in
+[2026-03-19T13:41:34.085Z]   urls (4):
+[2026-03-19T13:41:34.085Z]     - https://aheadware.com
+[2026-03-19T13:41:34.085Z]     - https://aheadware.com/imprint.php
+[2026-03-19T13:41:34.085Z]     - https://aheadware.com/privacy.php
+[2026-03-19T13:41:34.086Z]     - https://blog.superplug.in
+[2026-03-19T13:41:34.086Z] Summary: ws:2, urls:4
+[2026-03-19T13:41:34.087Z] Saved final result to result.json
+[2026-03-19T13:41:34.087Z] Override fields: ws, urls
+[2026-03-19T13:41:34.087Z] Finished at: 2026-03-19T13:41:34.087Z

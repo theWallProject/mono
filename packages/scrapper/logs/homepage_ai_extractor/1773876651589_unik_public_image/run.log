@@ -1,0 +1,63 @@
+[2026-03-18T23:30:51.590Z] === Homepage AI Extractor: unik public image ===
+[2026-03-18T23:30:51.590Z] Started at: 2026-03-18T23:30:51.590Z
+[2026-03-18T23:30:51.590Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773876651589_unik_public_image
+[2026-03-18T23:30:51.590Z] Company: unik public image
+[2026-03-18T23:30:51.591Z] Website: unik.co.il
+[2026-03-18T23:30:51.591Z] cbRank: 1839527
+[2026-03-18T23:30:51.591Z] Reasons: h
+[2026-03-18T23:30:51.591Z] Fetching: https://unik.co.il
+[2026-03-18T23:30:55.262Z] Dismissed cookie consent popup via: #accept-cookies
+[2026-03-18T23:30:58.235Z] Redirected: https://unik.co.il -> https://unik.co.il/
+[2026-03-18T23:30:58.483Z] Saved HTML (235582 bytes) to page.html
+[2026-03-18T23:30:58.492Z] Extracted 19 unique links from page
+[2026-03-18T23:30:58.494Z] Saved 19 links to links.json
+[2026-03-18T23:30:58.498Z] No footer section found in DOM
+[2026-03-18T23:30:58.498Z] No header section found in DOM
+[2026-03-18T23:30:58.503Z] Website (post-redirect): https://unik.co.il/ → origin: https://unik.co.il
+[2026-03-18T23:30:58.503Z] External links: 4 (of 19 total)
+[2026-03-18T23:30:58.503Z] ── All external links ──
+[2026-03-18T23:30:58.503Z]   EXT: https://www.facebook.com/Unik.Public.Image
+[2026-03-18T23:30:58.503Z]   EXT: https://www.instagram.com/unik_public_image_
+[2026-03-18T23:30:58.503Z]   EXT: https://www.wemake.co.il
+[2026-03-18T23:30:58.504Z]   EXT: https://x.com/unikpublicimage
+[2026-03-18T23:30:58.504Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T23:30:58.504Z]   REGEX: fb <- https://www.facebook.com/Unik.Public.Image
+[2026-03-18T23:30:58.504Z]   REGEX: ig <- https://www.instagram.com/unik_public_image_
+[2026-03-18T23:30:58.504Z]   UNCATEGORIZED: https://www.wemake.co.il
+[2026-03-18T23:30:58.504Z]   REGEX: tw <- https://x.com/unikpublicimage
+[2026-03-18T23:30:58.505Z] Programmatic result: ws:1, fb:1, ig:1, tw:1 | 1 uncategorized
+[2026-03-18T23:30:58.505Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T23:30:58.508Z] Saved AI prompt (1984 chars) to ai_prompt.txt
+[2026-03-18T23:30:58.508Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T23:30:58.512Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T23:31:05.326Z]   AI: First token received, streaming...
+[2026-03-18T23:31:05.781Z] AI response complete: 24 chars in 7.3s
+[2026-03-18T23:31:05.783Z] Saved AI response to ai_response.json
+[2026-03-18T23:31:05.783Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T23:31:05.783Z]   AI LINK: https://www.wemake.co.il
+[2026-03-18T23:31:05.783Z] AI returned 1 valid links
+[2026-03-18T23:31:05.783Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T23:31:05.784Z]   AI→URLS: https://www.wemake.co.il
+[2026-03-18T23:31:05.784Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T23:31:05.784Z] Footer/header origins (0):
+[2026-03-18T23:31:05.784Z]   SKIP (AI claimed): https://www.wemake.co.il
+[2026-03-18T23:31:05.784Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T23:31:05.784Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T23:31:05.784Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T23:31:05.784Z] ── Step 3: Final dedup ──
+[2026-03-18T23:31:05.785Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T23:31:05.785Z] ── FINAL RESULT ──
+[2026-03-18T23:31:05.785Z]   ws (1):
+[2026-03-18T23:31:05.785Z]     - https://unik.co.il
+[2026-03-18T23:31:05.785Z]   fb (1):
+[2026-03-18T23:31:05.785Z]     - https://www.facebook.com/unik.public.image
+[2026-03-18T23:31:05.785Z]   tw (1):
+[2026-03-18T23:31:05.785Z]     - https://x.com/unikpublicimage
+[2026-03-18T23:31:05.786Z]   ig (1):
+[2026-03-18T23:31:05.786Z]     - https://www.instagram.com/unik_public_image_
+[2026-03-18T23:31:05.786Z]   urls (1):
+[2026-03-18T23:31:05.786Z]     - https://www.wemake.co.il
+[2026-03-18T23:31:05.786Z] Summary: ws:1, fb:1, ig:1, tw:1, urls:1
+[2026-03-18T23:31:05.787Z] Saved final result to result.json
+[2026-03-18T23:31:05.788Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-18T23:31:05.788Z] Finished at: 2026-03-18T23:31:05.788Z

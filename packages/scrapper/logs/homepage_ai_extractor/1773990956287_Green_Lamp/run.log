@@ -1,0 +1,72 @@
+[2026-03-20T07:15:56.287Z] === Homepage AI Extractor: Green Lamp ===
+[2026-03-20T07:15:56.287Z] Started at: 2026-03-20T07:15:56.287Z
+[2026-03-20T07:15:56.287Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773990956287_Green_Lamp
+[2026-03-20T07:15:56.288Z] Company: Green Lamp
+[2026-03-20T07:15:56.288Z] Website: greenlamp.co
+[2026-03-20T07:15:56.288Z] cbRank: 2773417
+[2026-03-20T07:15:56.288Z] Reasons: h
+[2026-03-20T07:15:56.288Z] Fetching: https://greenlamp.co
+[2026-03-20T07:16:01.008Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-20T07:16:03.861Z] Redirected: https://greenlamp.co -> https://www.greenlamp.co/
+[2026-03-20T07:16:03.865Z] Saved HTML (52278 bytes) to page.html
+[2026-03-20T07:16:03.867Z] Extracted 18 unique links from page
+[2026-03-20T07:16:03.867Z] Saved 18 links to links.json
+[2026-03-20T07:16:03.870Z] Extracted footer HTML (2768 chars)
+[2026-03-20T07:16:03.870Z] Extracted header HTML (2248 chars)
+[2026-03-20T07:16:03.873Z] Website (post-redirect): https://www.greenlamp.co/ → origin: https://www.greenlamp.co
+[2026-03-20T07:16:03.873Z] External links: 4 (of 18 total)
+[2026-03-20T07:16:03.873Z] ── All external links ──
+[2026-03-20T07:16:03.873Z]   EXT: http://www.madeintelaviv.org
+[2026-03-20T07:16:03.873Z]   EXT: https://twitter.com/GreenLampCo
+[2026-03-20T07:16:03.873Z]   EXT: https://www.facebook.com/greenlampco
+[2026-03-20T07:16:03.873Z]   EXT: https://www.linkedin.com/company/green-lamp
+[2026-03-20T07:16:03.873Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T07:16:03.874Z]   UNCATEGORIZED: http://www.madeintelaviv.org
+[2026-03-20T07:16:03.874Z]   REGEX: tw <- https://twitter.com/GreenLampCo
+[2026-03-20T07:16:03.874Z]   REGEX: fb <- https://www.facebook.com/greenlampco
+[2026-03-20T07:16:03.874Z]   REGEX: li <- https://www.linkedin.com/company/green-lamp
+[2026-03-20T07:16:03.874Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-20T07:16:03.874Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T07:16:03.877Z] Saved AI prompt (3850 chars) to ai_prompt.txt
+[2026-03-20T07:16:03.878Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T07:16:03.881Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T07:16:17.836Z]   AI: First token received, streaming...
+[2026-03-20T07:16:23.992Z] AI response complete: 113 chars in 20.1s
+[2026-03-20T07:16:23.993Z] Saved AI response to ai_response.json
+[2026-03-20T07:16:23.994Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T07:16:23.994Z]   AI LINK: https://www.facebook.com/greenlampco
+[2026-03-20T07:16:23.994Z]   AI LINK: https://twitter.com/GreenLampCo
+[2026-03-20T07:16:23.994Z]   AI LINK: https://www.linkedin.com/company/green-lamp/
+[2026-03-20T07:16:23.994Z] AI returned 3 valid links
+[2026-03-20T07:16:23.994Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T07:16:23.995Z]   AI→REGEX: fb <- https://www.facebook.com/greenlampco (duplicate, skipped)
+[2026-03-20T07:16:23.995Z]   AI→REGEX: tw <- https://twitter.com/GreenLampCo (duplicate, skipped)
+[2026-03-20T07:16:23.995Z]   AI→REGEX: li <- https://www.linkedin.com/company/green-lamp/ (duplicate, skipped)
+[2026-03-20T07:16:23.995Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T07:16:23.995Z] Footer/header origins (5):
+[2026-03-20T07:16:23.996Z]   FOOTER/HEADER ORIGIN: https://www.greenlamp.co
+[2026-03-20T07:16:23.996Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T07:16:23.996Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-20T07:16:23.996Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T07:16:23.996Z]   FOOTER/HEADER ORIGIN: http://www.madeintelaviv.org
+[2026-03-20T07:16:23.996Z]   ADDED: urls <- http://www.madeintelaviv.org
+[2026-03-20T07:16:23.996Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T07:16:23.997Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T07:16:23.997Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T07:16:23.997Z] ── Step 3: Final dedup ──
+[2026-03-20T07:16:23.997Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T07:16:23.997Z] ── FINAL RESULT ──
+[2026-03-20T07:16:23.997Z]   ws (1):
+[2026-03-20T07:16:23.997Z]     - https://www.greenlamp.co
+[2026-03-20T07:16:23.997Z]   li (1):
+[2026-03-20T07:16:23.997Z]     - https://www.linkedin.com/company/green-lamp
+[2026-03-20T07:16:23.997Z]   fb (1):
+[2026-03-20T07:16:23.998Z]     - https://www.facebook.com/greenlampco
+[2026-03-20T07:16:23.998Z]   tw (1):
+[2026-03-20T07:16:23.998Z]     - https://x.com/greenlampco
+[2026-03-20T07:16:23.998Z]   urls (1):
+[2026-03-20T07:16:23.998Z]     - http://www.madeintelaviv.org
+[2026-03-20T07:16:23.998Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-20T07:16:23.999Z] Saved final result to result.json
+[2026-03-20T07:16:23.999Z] Override fields: ws, li, fb, tw, urls
+[2026-03-20T07:16:24.000Z] Finished at: 2026-03-20T07:16:24.000Z

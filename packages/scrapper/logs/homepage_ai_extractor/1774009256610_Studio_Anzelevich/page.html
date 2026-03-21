@@ -1,0 +1,669 @@
+<!DOCTYPE html><html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths js" dir="rtl" lang="he-IL" style=""><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Tag Manager -->
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-M4BT7WLQVT&amp;cx=c&amp;_slc=1"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-802617483&amp;cx=c&amp;gtm=4e63i0"></script><script type="text/javascript" src="//cdn-media.web-view.net/popups/ext/v1/jquery.qtip.js?v=862602"></script><script type="text/javascript" src="//cdn-media.web-view.net/popups/ext/v1/jquery-migrate.min.js?v=862602"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-763687825&amp;cx=c&amp;gtm=4e63i0"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-31RHXG04S0&amp;cx=c&amp;gtm=4e63i0"></script><script type="text/javascript" src="//cdn-media.web-view.net/popups/ext/v1/jquery.js?v=862602"></script><script src="https://connect.facebook.net/signals/config/221480108310059?v=2.9.280&amp;r=stable&amp;domain=www.anz.co.il&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157%2C217%2C216%2C211%2C213%2C214%2C215%2C212%2C200%2C210%2C182%2C179%2C180%2C174%2C178%2C181%2C177%2C172%2C303%2C266%2C185%2C204%2C173%2C171%2C223%2C195%2C165%2C166%2C161%2C167%2C164%2C162%2C163%2C160%2C158%2C169%2C170%2C168%2C253%2C302%2C183" async=""></script><script src="https://connect.facebook.net/signals/config/2209599582615782?v=2.9.280&amp;r=stable&amp;domain=www.anz.co.il&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157" async=""></script><script src="https://connect.facebook.net/en_US/bundle/sdk.js/" async="" crossorigin="anonymous"></script><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__iw.js" crossorigin="anonymous" integrity="sha384-70ufmXq5nuLl1yrFTO3RfY+DVj0lAHYeSX0dYQsGzUKocfrs74msaYEnsDQqXSk0"></script><script type="text/javascript" src="//cdn-media.web-view.net/popups/lib/v1/common-util.js?v=862602"></script><script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0"></script><script type="text/javascript" async="" src="https://d10lpsik1i8c69.cloudfront.net/w.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TWTXSCC"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="https://cdn-media.web-view.net/popups/lib/v1/loader.min.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-N87XRL5"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N87XRL5');</script>
+<!-- End Google Tag Manager -->
+
+  <link rel="alternate" type="application/rss+xml" title="סטודיו אנזלביץ Feed" href="https://www.anz.co.il/feed/">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet" type="text/css">
+  <link href="https://cdn-media.web-view.net/popups/style/v1/main_combined-rtl.css" rel="stylesheet" type="text/css">
+  <title>חברת מיתוג, עיצוב לוגו, brand build | סטודיו אנזלביץ</title>
+
+<!-- All in One SEO Pack 2.9.1 by Michael Torbert of Semper Fi Web Designob_start_detected [-1,-1] -->
+<meta name="description" content="סטודיו אנזלביץ מלווה את לקוחותיו לאורך תהליך המיתוג והעיצוב, החל משלב למידת הצרכים והגדרת המטרות, דרך פיתוח הקונספט השיווקי והשפה החזותית ועד להטמעת קו המותג">
+
+<link rel="canonical" href="https://www.anz.co.il/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="//ajax.googleapis.com">
+<link rel="dns-prefetch" href="//apis.google.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="סטודיו אנזלביץ « פיד תגובות של Home" href="https://www.anz.co.il/home/feed/">
+<meta property="fb:admins" content="394621034048324"><meta property="og:title" content="Home"><meta property="og:type" content="website"><meta property="og:url" content="https://www.anz.co.il/"><meta property="og:site_name" content="סטודיו אנזלביץ"><meta property="fb:app_id" content=""><meta property="og:image" content="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/anzelevich_logo.png">		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.anz.co.il\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.26"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55358,56760,9792,65039],[55358,56760,8203,9792,65039])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://www.anz.co.il/wp-includes/js/wp-emoji-release.min.js?ver=4.9.26" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="roots_main-css" href="https://www.anz.co.il/wp-content/themes/roots-master/assets/css/bootstrap.min.css?ver=9880649384aea9f1ee166331c0a30daa" type="text/css" media="all">
+<link rel="stylesheet" id="child_main_css-css" href="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/assets/css/main.css?ver=4.9.26" type="text/css" media="all">
+<script type="text/javascript" src="https://www.anz.co.il/wp-content/themes/roots-master/assets/js/vendor/modernizr-2.7.0.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://www.anz.co.il/wp-content/themes/roots-master/assets/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+<script type="text/javascript" src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/assets/js/main.js?ver=4.9.26"></script>
+<script type="text/javascript" src="https://apis.google.com/js/platform.js?ver=4.9.26" gapi_processed="true"></script>
+<link rel="https://api.w.org/" href="https://www.anz.co.il/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.anz.co.il/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.anz.co.il/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.9.26">
+<link rel="shortlink" href="https://www.anz.co.il/">
+<link rel="alternate" type="application/json+oembed" href="https://www.anz.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.anz.co.il%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.anz.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.anz.co.il%2F&amp;format=xml">
+<script type="text/javascript">document.documentElement.className += " js";</script>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2209599582615782');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2209599582615782&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23582338-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-763687825');
+  gtag('config', 'UA-23582338-13');
+</script>
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TWTXSCC');</script>
+<!-- End Google Tag Manager --> 	<script type="text/javascript">
+		window.__lo_site_id = 72163;
+      	(function() {
+           var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+           wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+         })();
+	</script>
+
+  <link rel="stylesheet" type="text/css" href="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/assets/js/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/assets/js/slick/slick-theme.css">
+<style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+
+.fb_dialog{background:#525252b3;position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:700;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) #fff no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:#0006;inset:0;min-height:100%;position:absolute;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba),to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:#fff 0 1px 1px -1px inset;color:#fff;font:700 14px Helvetica,sans-serif;text-overflow:ellipsis;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2),to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:700 12px Helvetica,sans-serif;margin:2px -12px;padding:2px 6px 3px;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:700;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4A4A4A;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4A4A4A;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/y2/r/onuUJj0tCqE.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+</style></head>
+<body class="rtl home page-template page-template-templates page-template-template-home page-template-templatestemplate-home-php page page-id-5 hebrew-page" style="zoom: 1;">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWTXSCC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!--[if lt IE 8]>
+    <div class="alert alert-warning">
+      הדפדפן בו אתם גולשים הינו מגירסה ישנה ולא מעודכנת. אנא <a href="http://browsehappy.com/">עדכנו‪</‬a‪>‬ את הדפדפן לשיפור חווית הגלישה באתר.    </div>
+  <![endif]-->
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N87XRL5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div class="desktop-header">
+<!-- HEADER NAVIGATION SECTION -->
+
+<div class="header-navigation">
+    <button type="button" class="navbar-toggle lines-button x">
+        <span class="lines"></span>
+    </button>
+    <div class="header-navigation-menus" style="height: 720px;">
+        <ul id="menu-%d7%a0%d7%99%d7%95%d7%95%d7%98-%d7%a8%d7%90%d7%a9%d7%99-%d7%91%d7%90%d7%aa%d7%a8" class="nav nav-pills nav-stacked"><li class="active dropdown menu-home"><a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="https://www.anz.co.il/">Home <b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li class="menu-%d7%97%d7%93%d7%a9"><a href="https://www.anz.co.il/project_category/new/">חדש</a></li>
+	<li class="menu-%d7%aa%d7%93%d7%9e%d7%99%d7%aa"><a href="https://www.anz.co.il/project_category/branding/">תדמית</a></li>
+	<li class="menu-%d7%a4%d7%a8%d7%99%d7%a0%d7%98"><a href="https://www.anz.co.il/project_category/print/">פרינט</a></li>
+	<li class="menu-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98"><a href="https://www.anz.co.il/project_category/web/">אינטרנט</a></li>
+	<li class="menu-%d7%9c%d7%95%d7%92%d7%95"><a href="https://www.anz.co.il/project_category/logos/">לוגו</a></li>
+	<li class="menu-%d7%9e%d7%a6%d7%92%d7%95%d7%aa"><a href="https://www.anz.co.il/project_category/presentations/">מצגות</a></li>
+	<li class="menu-%d7%90%d7%97%d7%a8"><a href="https://www.anz.co.il/project_category/other/">אחר</a></li>
+</ul>
+</li>
+<li class="menu-%d7%90%d7%95%d7%93%d7%95%d7%aa"><a href="https://www.anz.co.il/about/">אודות</a></li>
+<li class="menu-%d7%91%d7%9c%d7%95%d7%92"><a href="https://www.anz.co.il/category/blog/">בלוג</a></li>
+<li class="active menu-%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8"><a href="https://www.anz.co.il/#homepage-category">צור קשר</a></li>
+<li class="menu-english"><a href="/?lang=en">English</a></li>
+</ul>        <div class="header-social-icons">
+                        <ul>
+                <li><a href="https://www.facebook.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/fb-black.png" alt="Facebook" title="Facebook"></a></li>
+                <li><a href="https://www.pinterest.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/pinterest-black.png" alt="Pinterest" title="Pinterest"></a></li>
+                <li><a href="https://www.instagram.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/instagram-black.png" alt="Instagram" title="Instagram"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- END OF HEADER NAVIGATION SECTION -->
+
+<!-- SITE LOGO SECTION -->
+
+<div class="site-logo">
+    <a href="https://www.anz.co.il"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/anzelevich_logo.svg"></a>
+</div>
+<!-- END OF SITE LOGO SECTION -->
+
+<!-- LANGUAGE SELECTOR SECTION -->
+<div class="language-selector">
+    <ul>
+       <li><a href="https://www.anz.co.il">עברית</a></li>
+        <li><a href="https://www.anz.co.il/?lang=en">English</a></li>
+    </ul>
+</div>
+<!-- END OF LANGUAGE SELECTOR SECTION -->
+</div>
+<div class="mobile-header">
+
+<!-- HEADER NAVIGATION SECTION -->
+<div class="mobile-header-navigation header-navigation">
+    <button type="button" class="navbar-toggle lines-button x">
+        <span class="lines"></span>
+    </button>
+    <div class="header-navigation-menus">
+        <ul id="menu-%d7%a0%d7%99%d7%95%d7%95%d7%98-%d7%a8%d7%90%d7%a9%d7%99-%d7%91%d7%90%d7%aa%d7%a8-1" class="nav nav-pills nav-stacked"><li class="active dropdown menu-home"><a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="https://www.anz.co.il/">Home <b class="caret"></b></a>
+<ul class="dropdown-menu">
+	<li class="menu-%d7%97%d7%93%d7%a9"><a href="https://www.anz.co.il/project_category/new/">חדש</a></li>
+	<li class="menu-%d7%aa%d7%93%d7%9e%d7%99%d7%aa"><a href="https://www.anz.co.il/project_category/branding/">תדמית</a></li>
+	<li class="menu-%d7%a4%d7%a8%d7%99%d7%a0%d7%98"><a href="https://www.anz.co.il/project_category/print/">פרינט</a></li>
+	<li class="menu-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98"><a href="https://www.anz.co.il/project_category/web/">אינטרנט</a></li>
+	<li class="menu-%d7%9c%d7%95%d7%92%d7%95"><a href="https://www.anz.co.il/project_category/logos/">לוגו</a></li>
+	<li class="menu-%d7%9e%d7%a6%d7%92%d7%95%d7%aa"><a href="https://www.anz.co.il/project_category/presentations/">מצגות</a></li>
+	<li class="menu-%d7%90%d7%97%d7%a8"><a href="https://www.anz.co.il/project_category/other/">אחר</a></li>
+</ul>
+</li>
+<li class="menu-%d7%90%d7%95%d7%93%d7%95%d7%aa"><a href="https://www.anz.co.il/about/">אודות</a></li>
+<li class="menu-%d7%91%d7%9c%d7%95%d7%92"><a href="https://www.anz.co.il/category/blog/">בלוג</a></li>
+<li class="active menu-%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8"><a href="https://www.anz.co.il/#homepage-category">צור קשר</a></li>
+<li class="menu-english"><a href="/?lang=en">English</a></li>
+</ul>        <div class="header-social-icons">
+                        <ul>
+                <li><a href="https://www.facebook.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/fb-black.png" alt="Facebook" title="Facebook"></a></li>
+                <li><a href="https://www.pinterest.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/pinterest-black.png" alt="Pinterest" title="Pinterest"></a></li>
+                <li><a href="https://www.instagram.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/instagram-black.png" alt="Instagram" title="Instagram"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+        <!-- END OF HEADER NAVIGATION SECTION -->
+
+<!-- SITE LOGO SECTION -->
+
+<div class="mobile-site-logo">
+    <a href="https://www.anz.co.il"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/anzelevich_logo_mobile.svg"></a>
+</div>
+<!-- END OF SITE LOGO SECTION -->
+
+
+</div>
+
+  <div class="wrap container" role="document">
+    <div class="content row">
+      <main class="main col-sm-12" role="main">
+        <!-- HOMEPAGE CAROUSEL SECTION -->
+<div class="row">
+    <div class="home-top-container">
+        <div class="col-sm-10 col-xs-10 pull-left home-slider">
+             
+                <div id="carousel-example-generic" class="carousel slide home-page-carousel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                                                        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                                                        <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+                                                        <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
+                                                </ol>
+                    <div class="carousel-inner" role="listbox">
+                                                                                    <div class="item active" style="height: 720px;">
+                                    <img width="1200" height="909" src="https://www.anz.co.il/wp-content/uploads/slider5-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">                                </div>
+                                                                <div class="item " style="height: 720px;">
+                                    <img width="1200" height="909" src="https://www.anz.co.il/wp-content/uploads/slider7.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">                                </div>
+                                                                <div class="item " style="height: 720px;">
+                                    <img width="1200" height="909" src="https://www.anz.co.il/wp-content/uploads/slider3-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">                                </div>
+                                                                <div class="item " style="height: 720px;">
+                                    <img width="1200" height="909" src="https://www.anz.co.il/wp-content/uploads/slyder_6.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">                                </div>
+                                                                <div class="item " style="height: 720px;">
+                                    <img width="1200" height="909" src="https://www.anz.co.il/wp-content/uploads/slider2-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">                                </div>
+                                                    </div>
+                </div>
+                        </div>
+        <div class="homepage-top-container-text">
+            <h5>ברוכים הבאים</h5>
+            <h3>‪סטודיו אנזלביץ‬</h3>
+            <h4>מאז <span>2003</span></h4>
+        </div>
+    </div>
+</div>
+
+<!-- END OF HOMEPAGE CAROUSEL SECTION -->
+
+<!-- HOMEPAGE CONTENT SECTION -->
+
+<div class="row desktop-homepage-contact" id="homepage-category ">
+    <div class="col-sm-12 col-xs-12 homepage-content-container">
+                <!--NEW CODE-->
+
+
+
+        <div class="col-sm-12 col-xs-12 homepage-content-container">
+            <!-- TOP CONTAINER SECTION -->
+
+            <div class="homepage-top-content-container">
+                <div class="right-content-container" style="height: 646px;">
+                    <div class="inner-container col-sm-10 col-xs-12 no-padding pull-left" style="margin-bottom: 50px;">
+                                                <img src="https://www.anz.co.il/wp-content/uploads/tadmit_desktop_shenkar.jpg" srcset="" sizes="(max-width: 644px) 100vw, 644px" alt="תדמית" title="תדמית" style="height: 322px;">
+                        <div class="inner-content" data-link="https://www.anz.co.il/project_category/branding/">
+                            <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/branding/" title="תדמית">תדמית</a></div>
+                        </div>
+                    </div>
+                    <div class="inner-container">
+                                                <img src="https://www.anz.co.il/wp-content/uploads/other_desktop_teva.jpg" srcset="" sizes="(max-width: 774px) 100vw, 774px" alt="אחר" title="אחר">
+                        <div class="inner-content" data-link="https://www.anz.co.il/project_category/other/">
+                            <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/other/" title="אחר">אחר</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="left-content-container">
+                    <div class="inner-container">
+                                                <img src="https://www.anz.co.il/wp-content/uploads/print_desktop_new.jpg" srcset="" sizes="(max-width: 648px) 100vw, 648px" alt="פרינט" title="פרינט">
+                        <div class="inner-content" data-link="https://www.anz.co.il/project_category/print/">
+                            <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/print/" title="פרינט">פרינט</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- END OF TOP CONTAINER SECTION -->
+
+            <!-- BOTTOM CONTENT CONTAINER -->
+
+            <div class="homepage-bottom-content-container">
+                <div class="right-content-container" style="height: 850px;">
+                    <div class="inner-container">
+                                                <img src="https://www.anz.co.il/wp-content/uploads/new_desktop_nest.jpg" srcset="" sizes="(max-width: 612px) 100vw, 612px" alt="חדש" title="חדש">
+                        <div class="inner-content" data-link="https://www.anz.co.il/project_category/new/">
+                            <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/new/" title="חדש">חדש</a></div>
+                        </div>
+                    </div>
+
+                    <div class="inner-container col-sm-10 col-xs-12 no-padding pull-left" style="height: 247px; position: absolute;">
+                                                <img src="https://www.anz.co.il/wp-content/uploads/forscale.jpg" srcset="" sizes="(max-width: 774px) 100vw, 774px" alt="מצגות" title="מצגות">
+                        <div class="inner-content" data-link="https://www.anz.co.il/project_category/presentations/">
+                            <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/presentations/" title="מצגות">מצגות</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="left-content-container">
+                    <div class="inner-container col-sm-11 col-xs-12 pull-right no-padding">
+                                                <img src="https://www.anz.co.il/wp-content/uploads/logo-GIF_fix.gif" alt="לוגו" srcset="" sizes="(max-width: 742px) 100vw, 742px" title="לוגו">
+                        <div class="inner-content" data-link="https://www.anz.co.il/project_category/logos/">
+                            <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/logos/" title="לוגו">לוגו</a></div>
+                        </div>
+                    </div>
+
+                    <div class="inner-container">
+                                                <img src="https://www.anz.co.il/wp-content/uploads/web_desktop_slomit.jpg" srcset="" sizes="(max-width: 808px) 100vw, 808px" alt="אינטרנט" title="אינטרנט">
+                        <div class="inner-content" data-link="https://www.anz.co.il/project_category/web/">
+                            <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/web/" title="אינטרנט">אינטרנט</a></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- END OF BOTTOM CONTENT CONTAINER -->
+
+        </div>
+        <!--END OF NEW CODE-->
+
+    </div>
+</div>
+
+
+
+<!-- END OF HOMEPAGE CONTENT SECTION -->
+<div class="row" id="homepage-category">
+    <div class="col-sm-12 col-xs-12 homepage-content-container">
+        
+        <div class="col-sm-12 col-xs-12 home-contact-form mobile-homepage-contact">
+            <div class="container">
+                 <div class="row">
+                    <div class="col-md-3 col-xs-7 two-images-wapper">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <div class="well">
+                                    <div class="inner-container" style="height: 0px;">
+                                                                        <img src="https://www.anz.co.il/wp-content/uploads/tadmit_desktop_shenkar.jpg" srcset="" sizes="(max-width: 644px) 100vw, 644px" alt="תדמית" title="תדמית">
+                                    <div class="inner-content" data-link="https://www.anz.co.il/project_category/branding/">
+                                        <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/branding/" title="תדמית">תדמית</a></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+                            <div class="col-xs-12">
+                                <div class="inner-container" style="height: 0px;">
+                                <div class="well">
+                                                                        <img src="https://www.anz.co.il/wp-content/uploads/other_desktop_teva.jpg" srcset="" sizes="(max-width: 774px) 100vw, 774px" alt="אחר" title="אחר">
+                                    <div class="inner-content" data-link="https://www.anz.co.il/project_category/other/">
+                                        <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/other/" title="אחר">אחר</a></div>
+                                    </div>
+
+                                </div>
+                                </div>
+                            </div>         	
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-xs-5 one-images-wapper">
+                        <div class="row">
+                            <div class="col-md-4 col-md-push-4 col-xs-12">
+                                <div class="inner-container">
+                                <div class="well tall">   
+                                                                        <img src="https://www.anz.co.il/wp-content/uploads/print_desktop_new.jpg" srcset="" sizes="(max-width: 648px) 100vw, 648px" alt="פרינט" title="פרינט">
+                                    <div class="inner-content" data-link="https://www.anz.co.il/project_category/print/">
+                                        <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/print/" title="פרינט">פרינט</a></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col-xs-9 col-md-9 pull-left center-images-wapper">
+                        <div class="inner-container">
+                        <div class="well tall"> 
+                                                        <img src="https://www.anz.co.il/wp-content/uploads/web_desktop_slomit.jpg" srcset="" sizes="(max-width: 808px) 100vw, 808px" alt="אינטרנט" title="אינטרנט">
+                            <div class="inner-content" data-link="https://www.anz.co.il/project_category/web/">
+                                <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/web/" title="אינטרנט">אינטרנט</a></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-4 col-xs-5 bottom-one-images-wapper">
+                        <div class="row">
+                            <div class="col-md-4 col-md-push-4 col-xs-12">
+                                <div class="inner-container">
+                                <div class="well tall">  
+                                                                        <img src="https://www.anz.co.il/wp-content/uploads/new_desktop_nest.jpg" srcset="" sizes="(max-width: 612px) 100vw, 612px" alt="חדש" title="חדש">
+                                    <div class="inner-content" data-link="https://www.anz.co.il/project_category/new/">
+                                        <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/new/" title="חדש">חדש</a></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>  
+                    <div class="col-md-6 col-xs-7 bottom-two-image-wapper">
+                        <div class="row">
+                            <div class="col-xs-11">
+                                <div class="inner-container" style="height: 0px;">
+                                <div class="well">   
+                                                                        <img src="https://www.anz.co.il/wp-content/uploads/logo-GIF_fix.gif" alt="לוגו" srcset="" sizes="(max-width: 742px) 100vw, 742px" title="לוגו">
+                                    <div class="inner-content" data-link="https://www.anz.co.il/project_category/logos/">
+                                        <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/logos/" title="לוגו">לוגו</a></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+                            <div class="col-xs-12">
+                                <div class="inner-container" style="height: 0px;">
+                                <div class="well">  
+                                                                        <img src="https://www.anz.co.il/wp-content/uploads/forscale.jpg" srcset="" sizes="(max-width: 774px) 100vw, 774px" alt="מצגות" title="מצגות">
+                                    <div class="inner-content" data-link="https://www.anz.co.il/project_category/presentations/">
+                                        <div class="inner-content-text"><a href="https://www.anz.co.il/project_category/presentations/" title="מצגות">מצגות</a></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>         	
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- HOMEPAGE CONTACTUS TEXT SECTION -->
+<div class="row" id="homepage-contact mobile-home homepage-category">
+    <div class="contactus-text-image">
+        <div class="col-sm-10 col-xs-10 pull-left">
+            <div class="contactus-image">
+                                <a href="https://goo.gl/maps/GhiUwG33V3K2" target="new">
+                    <img src="https://www.anz.co.il/wp-content/uploads/anz_map_desktop.png" srcset="" sizes="(max-width: 1183px) 100vw, 1183px" id="contact-image">
+                </a>
+
+            </div>
+        </div>
+        <div class="contactus-text">
+            <a href="https://goo.gl/maps/GhiUwG33V3K2" target="new">
+            <h2>צרו איתנו קשר</h2>
+            <p>אנחנו כאן</p>
+            <h4 class="phone-number">03.5270202</h4>
+            </a>
+            <h4><span>אדוארד ברנשטיין 18, תל אביב 63408</span><span class="separator">|</span><span><a href="mailto:studio@anz.co.il?subject=contact us from website">studio@anz.co.il</a></span></h4>
+        </div>
+    </div>
+</div>
+<!-- END OF HOMEPAGE CONTACTUS TEXT SECTION -->
+
+<!-- HOMEPAGE CONTACT, MAICHIMP FORM SECTION -->
+
+<div class="row homepage-forms">
+    <!-- MAILCHIMP FORM SECTION -->
+
+    <div class="col-sm-4 col-xs-12 mailchimp-form">
+        <h4>הרשמו לעדכונים</h4>
+        <div id="_atPopupSU" class="shown">
+            <div class="bl-signup-container offset0" at-form-width="12">
+
+                <div class="bl-block-content-item bl-block-content-item-signupfieldpage bl-content-item-unremovable" data-is-auto-fill="true">
+                    <input type="text" maxlength="50" class="signup-field first-input" data-field-type="email" data-field-source="Email" data-mandatory="true" placeholder="אימייל" data-field-validation-msg="הוספת אימייל">
+                    <input type="text" maxlength="50" class="signup-field" data-field-type="text" data-field-source="FirstName" data-mandatory="false" placeholder="שם" data-field-validation-msg="הוספת שם">
+                    <div class="confirm-emails hidden" data-field-validation-msg="הוספת אימייל"></div>
+                </div>
+
+                <div class="bl-padding-columns bl-content-wrapper-columns">
+                    <div class="bl-block-button-content-wrapper">
+                        <span>שלח</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END OF MAILCHIMP FORM SECTION -->
+
+    <!-- CONTACT FORM SECTION -->
+
+    <div class="col-sm-8 col-xs-12 home-contact-form">
+        <h4>צרו איתנו קשר</h4>
+            <div class="frm_forms " id="frm_form_3_container">
+<form enctype="multipart/form-data" method="post" class="frm-show-form  frm_js_validate  frm_pro_form  frm_ajax_submit " id="form_thjibm">
+<div class="frm_form_fields ">
+<fieldset>
+
+<div class="frm_fields_container">
+<input type="hidden" name="frm_action" value="create">
+<input type="hidden" name="form_id" value="3">
+<input type="hidden" name="frm_hide_fields_3" id="frm_hide_fields_3" value="">
+<input type="hidden" name="form_key" value="thjibm">
+<input type="hidden" name="item_meta[0]" value="">
+<input type="hidden" id="frm_submit_entry_3" name="frm_submit_entry_3" value="f271930e22"><input type="hidden" name="_wp_http_referer" value="/"><label for="frm_verify_3" class="frm_screen_reader frm_hidden">If you are human, leave this field blank.</label>
+<input type="text" class="frm_hidden frm_verify" id="frm_verify_3" name="frm_verify" value="" style="display:none;">
+<div id="frm_field_15_container" class="frm_form_field form-field  frm_none_container frm_half frm_first home-contact-text">
+    <label for="field_pluota" class="frm_primary_label">Full Name
+        <span class="frm_required"></span>
+    </label>
+    <input type="text" id="field_pluota" name="item_meta[15]" value="" placeholder="שם" data-invmsg="Full Name is invalid">
+    
+    
+</div>
+<div id="frm_field_16_container" class="frm_form_field form-field  frm_required_field frm_none_container frm_half home-contact-text home-contact-email">
+    <label for="field_nltvoa" class="frm_primary_label">Email
+        <span class="frm_required">*</span>
+    </label>
+    <input type="email" id="field_nltvoa" name="item_meta[16]" value="" placeholder="כתובת מייל*" data-reqmsg="זהו שדה חובה" data-invmsg="Email is invalid">
+    
+    
+</div>
+<div id="frm_field_77_container" class="frm_form_field form-field  frm_top_container frm_half frm_first">
+    <label for="field_rz2ni" class="frm_primary_label">Phone
+        <span class="frm_required"></span>
+    </label>
+    <input type="tel" id="field_rz2ni" name="item_meta[77]" value="" placeholder="טלפון" data-invmsg="Phone is invalid" pattern="((\+\d{1,3}(-|.| )?\(?\d\)?(-| |.)?\d{1,5})|(\(?\d{2,6}\)?))(-|.| )?(\d{3,4})(-|.| )?(\d{4})(( x| ext)\d{1,5}){0,1}$">
+    
+    
+</div>
+<div id="frm_field_17_container" class="frm_form_field form-field  frm_none_container home-contact-address frm_half">
+    <label for="field_wn11n7" class="frm_primary_label">Subject
+        <span class="frm_required"></span>
+    </label>
+    <input type="text" id="field_wn11n7" name="item_meta[17]" value="" placeholder="נושא הפניה" data-invmsg="Subject is invalid">
+    
+    
+</div>
+<div id="frm_field_79_container" class="frm_form_field form-field  frm_none_container">
+    <label class="frm_primary_label">reCAPTCHA
+        <span class="frm_required"></span>
+    </label>
+    <div id="field_d3js0" class="g-recaptcha" data-sitekey="6LdMR78ZAAAAAFXC0St0XwzkQZZP5DSy0XOwJ450" data-size="invisible" data-theme="light" data-callback="frmAfterRecaptcha"><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-27z9e14taaq3" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdMR78ZAAAAAFXC0St0XwzkQZZP5DSy0XOwJ450&amp;co=aHR0cHM6Ly93d3cuYW56LmNvLmlsOjQ0Mw..&amp;hl=iw&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;theme=light&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=xkj26t3v960u"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+    
+    
+</div>
+<input type="hidden" name="item_key" value="">
+<div class="frm_submit">
+
+<input type="submit" value="שלח" class="frm_final_submit">
+<img class="frm_ajax_loading" src="https://www.anz.co.il/wp-content/plugins/formidable/images/ajax_loader.gif" alt="Sending" style="visibility:hidden;">
+
+</div></div>
+</fieldset>
+</div>
+</form>
+</div>
+    </div>
+
+    <!-- END OF CONTACT FORM SECTION -->
+
+
+    <!-- END OF HOMEPAGE CONTACT, MAICHIMP FORM SECTION -->
+
+
+
+      </div></main><!-- /.main -->
+          </div><!-- /.content -->
+  </div><!-- /.wrap -->
+
+  <footer class="content-info" role="contentinfo">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-8 col-xs-10 copyright-section">
+            <div class="hidden-xs">
+              כל הזכויות שמורות © סטודיו אנזלביץ<span class="separator">|</span><a href="http://www.etyhadar.com/?utm_source=clients&amp;utm_medium=site&amp;utm_term=etyhadar&amp;utm_content=footer&amp;utm_campaign=ANZ" target="new" title="אטי הדר - הקמת אתרים וניהול תוכן">פיתוח: אטי הדר</a><span class="separator">|</span><a href="http://www.anz.co.il" title="‏‪סטודיו אנזלביץ‬ לעיצוב" target="new">עיצוב: אנחנו</a><span class="separator">|</span>
+              03.5270202              </div>
+              <div class="visible-xs-block">
+                <div>
+                  <span><a href="https://www.anz.co.il" title="‏‪סטודיו אנזלביץ‬ לעיצוב" target="new">עיצוב: אנחנו</a></span>
+                  <span class="separator">|</span>
+                  <span><a href="https://www.etyhadar.com/?utm_source=clients&amp;utm_medium=site&amp;utm_term=etyhadar&amp;utm_content=footer&amp;utm_campaign=ANZ" target="new" title="אטי הדר - הקמת אתרים וניהול תוכן">פיתוח: אטי הדר</a></span>
+                </div>
+                <div class="address">
+                  <span>03.5270202</span><span class="separator">|</span><span>אדוארד ברנשטיין 18,&nbsp;</span><span class="zipcode">תל אביב 63408</span>
+                </div>
+                <div>
+                  כל הזכויות שמורות © סטודיו אנזלביץ                </div>
+              </div>
+            </div>
+          
+          <div class="col-sm-4 col-xs-2 footer-social-icons">
+                                  <ul>
+                    <li><a href="https://www.facebook.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/fb-white.png" alt="Facebook" title="Facebook"></a></li>
+                    <li><a href="https://www.pinterest.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/pinterest-white.png" alt="Pinterest" title="Pinterest"></a></li>
+                    <li><a href="https://www.instagram.com/anzelevich/"><img src="https://www.anz.co.il/wp-content/themes/anz_v2-etyhadar/images/instagram-white.png" alt="Instagram" title="Instagram"></a></li>
+                </ul>
+          </div>
+      </div>
+  </div>
+</footer>
+
+  <script type="text/javascript">
+_linkedin_partner_id = "1025042";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=1025042&fmt=gif" />
+</noscript>    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id))
+                return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+  <script type="text/javascript" src="https://www.anz.co.il/wp-content/themes/roots-master/assets/js/bootstrap.min.js?ver=0fc6af96786d8f267c8686338a34cd38"></script>
+<script type="text/javascript" src="https://www.anz.co.il/wp-includes/js/wp-embed.min.js?ver=4.9.26"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var frm_js = {"ajax_url":"https:\/\/www.anz.co.il\/wp-admin\/admin-ajax.php","images_url":"https:\/\/www.anz.co.il\/wp-content\/plugins\/formidable\/images","loading":"Loading\u2026","remove":"Remove","offset":"4","nonce":"2ed27e178f","id":"ID","no_results":"No results match","file_spam":"That file looks like Spam.","calc_error":"There is an error in the calculation in the field with key","empty_fields":"Please complete the preceding required fields before uploading a file."};
+var frm_js = {"ajax_url":"https:\/\/www.anz.co.il\/wp-admin\/admin-ajax.php","images_url":"https:\/\/www.anz.co.il\/wp-content\/plugins\/formidable\/images","loading":"Loading\u2026","remove":"Remove","offset":"4","nonce":"2ed27e178f","id":"ID","no_results":"No results match","file_spam":"That file looks like Spam.","calc_error":"There is an error in the calculation in the field with key","empty_fields":"Please complete the preceding required fields before uploading a file."};
+var frm_js = {"ajax_url":"https:\/\/www.anz.co.il\/wp-admin\/admin-ajax.php","images_url":"https:\/\/www.anz.co.il\/wp-content\/plugins\/formidable\/images","loading":"Loading\u2026","remove":"Remove","offset":"4","nonce":"2ed27e178f","id":"ID","no_results":"No results match","file_spam":"That file looks like Spam.","calc_error":"There is an error in the calculation in the field with key","empty_fields":"Please complete the preceding required fields before uploading a file."};
+var frm_js = {"ajax_url":"https:\/\/www.anz.co.il\/wp-admin\/admin-ajax.php","images_url":"https:\/\/www.anz.co.il\/wp-content\/plugins\/formidable\/images","loading":"Loading\u2026","remove":"Remove","offset":"4","nonce":"2ed27e178f","id":"ID","no_results":"No results match","file_spam":"That file looks like Spam.","calc_error":"There is an error in the calculation in the field with key","empty_fields":"Please complete the preceding required fields before uploading a file."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anz.co.il/wp-content/plugins/formidable/js/formidable.min.js?ver=3.04.01"></script>
+<script type="text/javascript" defer="defer" async="async" src="https://www.google.com/recaptcha/api.js?hl=iw&amp;ver=4.9.26"></script>
+<script type="text/javascript" src="https://www.anz.co.il/wp-content/plugins/formidable-pro/js/formidablepro.min.js?ver=3.04.01"></script>
+
+<script>
+/*<![CDATA[*/
+/*]]>*/
+</script>
+
+
+
+
+<script type="text/javascript" id="" charset="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","221480108310059");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=221480108310059&amp;ev=PageView&amp;noscript=1"></noscript>
+<iframe id="lo-cs-frame" src="about:blank" aria-hidden="true" title="Lucky Orange" style="display: none !important;"></iframe><div id="qtip-rcontainer" class="__atPopupQtips-rcontainer"></div><div style="visibility: hidden; position: absolute; width: 100%; top: -10000px; left: 0px; right: 0px; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.5;"></div><div style="margin: 0px auto; top: 0px; left: 0px; right: 0px; position: fixed; border: 1px solid rgb(204, 204, 204); z-index: 2000000000; background-color: rgb(255, 255, 255);"><iframe title="התוקף של אתגר reCAPTCHA יפוג בעוד שתי דקות" name="c-27z9e14taaq3" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=iw&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;k=6LdMR78ZAAAAAFXC0St0XwzkQZZP5DSy0XOwJ450&amp;bft=0dAFcWeA4iEcmqnTSSJ7i6S2XHd7UPhbu2ci1_9OTT9LVJb-Y4LfAAqmgBtleXTxRyn_cQBQHX3iCTaKvC40JDRcGTlJJmNtbYag" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

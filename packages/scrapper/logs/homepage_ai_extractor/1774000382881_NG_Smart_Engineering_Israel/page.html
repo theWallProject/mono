@@ -1,0 +1,1853 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NG Smart ENG | Trust But Verify</title>
+    <meta name="description" content="NG Smart ENG - Expert consulting and project management for natural gas infrastructure in Israel. Serving IEC, EAPC, and Chevron.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Gas flame palette - blue core with warm edges */
+            --flame-core: #0d47a1;
+            --flame-blue: #1565c0;
+            --flame-bright: #1e88e5;
+            --flame-cyan: #29b6f6;
+            --flame-edge: #e65100;
+            --flame-tip: #ff9800;
+            --flame-glow: #ffb74d;
+            --charcoal: #1a1a1f;
+            --charcoal-light: #252530;
+            --slate: #3d3d4a;
+            --light-gray: #9e9eb0;
+            --ice: #f0f4f8;
+            --snow: #f8fafc;
+            --white: #ffffff;
+            
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            background: var(--snow);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body[dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(21, 101, 192, 0.1);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--flame-core) 0%, var(--flame-blue) 50%, var(--flame-bright) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 28px;
+            background: linear-gradient(to top, var(--flame-edge) 0%, var(--flame-tip) 30%, var(--flame-cyan) 60%, transparent 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 2s ease-in-out infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { transform: scale(1) translateY(0); opacity: 0.9; }
+            50% { transform: scale(1.05) translateY(-2px); opacity: 1; }
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text span {
+            color: var(--flame-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--flame-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--ice);
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid rgba(21, 101, 192, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--flame-blue);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--slate);
+        }
+
+        .lang-btn.active {
+            background: var(--flame-blue);
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--flame-blue);
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: var(--transition);
+        }
+        
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--charcoal);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 80%, rgba(21, 101, 192, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(41, 182, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 100% at 50% 100%, rgba(230, 81, 0, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--snow);
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(21, 101, 192, 0.2);
+            border: 1px solid rgba(41, 182, 246, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--flame-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--flame-cyan);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--flame-cyan) 0%, var(--flame-bright) 50%, var(--flame-tip) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .hero-cta.primary {
+            background: linear-gradient(135deg, var(--flame-blue) 0%, var(--flame-core) 100%);
+            color: var(--white);
+        }
+
+        .hero-cta.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(21, 101, 192, 0.4);
+        }
+
+        .hero-cta.secondary {
+            background: transparent;
+            border: 2px solid var(--slate);
+            color: var(--snow);
+        }
+
+        .hero-cta.secondary:hover {
+            border-color: var(--flame-cyan);
+            color: var(--flame-cyan);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-graphic {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1;
+        }
+
+        .flame-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid;
+            animation: rotate 20s linear infinite;
+        }
+
+        .flame-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            border-color: rgba(21, 101, 192, 0.3);
+        }
+
+        .flame-ring:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-color: rgba(41, 182, 246, 0.25);
+            animation-direction: reverse;
+            animation-duration: 15s;
+        }
+
+        .flame-ring:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            border-color: rgba(230, 81, 0, 0.2);
+            animation-duration: 25s;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-center-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--flame-core) 0%, var(--flame-blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 60px rgba(21, 101, 192, 0.5);
+        }
+
+        .hero-center-icon svg {
+            width: 50px;
+            height: 50px;
+            fill: var(--white);
+        }
+
+        .hero-stats {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 3rem;
+            background: var(--charcoal-light);
+            padding: 1.5rem 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(21, 101, 192, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--flame-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--light-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Section Styles */
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--flame-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--ice);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .about-feature-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: linear-gradient(135deg, var(--flame-blue) 0%, var(--flame-bright) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-feature-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .about-feature h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .about-feature p {
+            font-size: 0.9rem;
+            color: var(--slate);
+            margin: 0;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-container::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--flame-blue) 0%, transparent 70%);
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        .about-image-container svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--flame-cyan);
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .about-badge-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--flame-blue);
+        }
+
+        .about-badge-text {
+            font-size: 0.85rem;
+            color: var(--slate);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 50% 50% at 0% 100%, rgba(21, 101, 192, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 100% 0%, rgba(41, 182, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .services .section-tag {
+            color: var(--flame-cyan);
+        }
+
+        .services .section-title,
+        .services .section-subtitle {
+            color: var(--snow);
+        }
+
+        .services .section-subtitle {
+            opacity: 0.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(21, 101, 192, 0.2);
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--flame-core), var(--flame-cyan));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-5px);
+            border-color: var(--flame-blue);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(21, 101, 192, 0.2);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--flame-blue) 0%, var(--flame-cyan) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .service-card h3 {
+            color: var(--snow);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Clients Section */
+        .clients {
+            background: var(--snow);
+        }
+
+        .clients-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .clients-intro p {
+            color: var(--slate);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .client-card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .client-card:hover {
+            box-shadow: 0 20px 60px rgba(21, 101, 192, 0.15);
+            transform: translateY(-5px);
+            border-color: var(--flame-cyan);
+        }
+
+        .client-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-logo-text {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            letter-spacing: -0.02em;
+        }
+
+        .client-logo-text.iec { color: #0066b3; }
+        .client-logo-text.eapc { color: #1a4d7c; }
+        .client-logo-text.chevron { color: #d32f2f; }
+
+        .client-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .client-desc {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        /* Systems Section */
+        .systems {
+            background: var(--ice);
+        }
+
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .system-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .system-item:hover {
+            border-color: var(--flame-blue);
+            transform: translateY(-3px);
+        }
+
+        .system-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, rgba(21, 101, 192, 0.1) 0%, rgba(41, 182, 246, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .system-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--flame-blue);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .system-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at right center, rgba(21, 101, 192, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .contact .section-tag,
+        .contact .section-title,
+        .contact .section-subtitle {
+            color: var(--snow);
+        }
+
+        .contact .section-subtitle {
+            opacity: 0.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            color: var(--snow);
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(21, 101, 192, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--flame-cyan);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .contact-item-text {
+            font-size: 1rem;
+            color: var(--snow);
+        }
+
+        .contact-item-label {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+        }
+
+        .contact-form-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(21, 101, 192, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--light-gray);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(21, 101, 192, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--snow);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--flame-blue);
+            background: rgba(21, 101, 192, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--slate);
+        }
+
+        .form-group select option {
+            background: var(--charcoal);
+            color: var(--warm-white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, var(--flame-blue) 0%, var(--flame-core) 100%);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(21, 101, 192, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal-light);
+            border-top: 1px solid rgba(21, 101, 192, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            color: var(--snow);
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand .logo-text {
+            color: var(--snow);
+        }
+
+        .footer-brand p {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            color: var(--snow);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--flame-cyan);
+        }
+
+        .footer-wdi {
+            background: rgba(21, 101, 192, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .footer-wdi p {
+            color: var(--light-gray);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-wdi a {
+            color: var(--flame-cyan);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .footer-wdi a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--light-gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .systems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--snow);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid rgba(21, 101, 192, 0.1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                padding-top: 7rem;
+            }
+            
+            .hero-visual {
+                display: none;
+            }
+            
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-visual {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .about-image-container {
+                aspect-ratio: 1;
+            }
+            
+            .about-badge {
+                bottom: -10px;
+                right: -10px;
+                padding: 1rem;
+            }
+            
+            .about-badge-number {
+                font-size: 1.8rem;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-container {
+                padding: 4rem 1.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .systems-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-visual {
+                max-width: 200px;
+            }
+            
+            .about-image-container svg {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .about-badge {
+                padding: 0.75rem;
+            }
+            
+            .about-badge-number {
+                font-size: 1.5rem;
+            }
+            
+            .about-badge-text {
+                font-size: 0.75rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+
+        /* RTL Adjustments */
+        [dir="rtl"] .service-number {
+            right: auto;
+            left: 1.5rem;
+        }
+
+        [dir="rtl"] .about-badge {
+            right: auto;
+            left: -20px;
+        }
+
+        [dir="rtl"] .hero-cta svg,
+        [dir="rtl"] .nav-cta svg {
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">NG Smart <span>ENG</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about" data-en="About" data-he="אודות">About</a></li>
+                <li><a href="#services" data-en="Services" data-he="שירותים">Services</a></li>
+                <li><a href="#clients" data-en="Clients" data-he="לקוחות">Clients</a></li>
+                <li><a href="#systems" data-en="Gas Systems" data-he="מערכות גז">Gas Systems</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="he">עב</button>
+                </div>
+                <a href="#contact" class="nav-cta" data-en="Contact Us" data-he="צור קשר">Contact Us</a>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tag" data-en="Smart Natural Gas Infrastructure Solutions" data-he="פתרונות חכמים לתשתיות גז טבעי">Smart Natural Gas Infrastructure Solutions</span>
+                <h1>
+                    <span data-en="Trust But" data-he="Trust But">Trust But</span><br>
+                    <span class="highlight" data-en="Verify" data-he="Verify">Verify</span>
+                </h1>
+                <p class="hero-subtitle" data-en="Expert consulting and project management for natural gas infrastructure. From feasibility to operation, we ensure safety, efficiency, and compliance at every stage." data-he="ייעוץ, תכנון וניהול פרויקטים לתשתיות גז טבעי. משלב ההיתכנות ועד ההפעלה — אנחנו מלווים אתכם בכל שלבי הפרויקט תוך עמידה מלאה בסטנדרטים של בטיחות ויעילות.">
+                    Expert consulting and project management for natural gas infrastructure. From feasibility to operation, we ensure safety, efficiency, and compliance at every stage.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#contact" class="hero-cta primary">
+                        <span data-en="Start Your Project" data-he="הפרויקט שלכם מתחיל כאן">Start Your Project</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#services" class="hero-cta secondary">
+                        <span data-en="Our Services" data-he="השירותים שלנו">Our Services</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <div class="flame-ring"></div>
+                    <div class="flame-ring"></div>
+                    <div class="flame-ring"></div>
+                    <div class="hero-center-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag" data-en="Who We Are" data-he="מי אנחנו">Who We Are</span>
+                    <h3 data-en="Excellence in Natural Gas Infrastructure" data-he="מצוינות בתשתיות גז טבעי">Excellence in Natural Gas Infrastructure</h3>
+                    <p data-en="NG Smart ENG is a specialized Israeli consultancy providing comprehensive project management and engineering services for natural gas infrastructure. Our expertise spans the complete project lifecycle, from initial feasibility studies through design, construction supervision, and operational guidance." data-he="NG Smart ENG היא חברת ייעוץ הנדסי המתמחה בניהול ותכנון פרויקטים לתשתיות גז טבעי. הניסיון שלנו מכסה את כל מחזור חיי הפרויקט — מחקרי היתכנות, תכנון, בקרת תכנון, פיקוח הנדסי וליווי תפעולי.">
+                        NG Smart ENG is a specialized Israeli consultancy providing comprehensive project management and engineering services for natural gas infrastructure. Our expertise spans the complete project lifecycle, from initial feasibility studies through design, construction supervision, and operational guidance.
+                    </p>
+                    <p data-en="As a member of the WDI Global group, we combine local expertise with international standards and best practices, delivering solutions that meet the highest safety and efficiency requirements." data-he="כחלק מקבוצת WDI Global אנו משלבים ידע מקומי עם סטנדרטים בינלאומיים ומביאים לשוק פתרונות הנדסיים מדויקים, בטוחים ויעילים.">
+                        As a member of the WDI Global group, we combine local expertise with international standards and best practices, delivering solutions that meet the highest safety and efficiency requirements.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                            </div>
+                            <div>
+                                <h4 data-en="Verified Excellence" data-he="איכות ללא פשרות">Verified Excellence</h4>
+                                <p data-en="Rigorous quality assurance" data-he="עמידה בסטנדרטים הגבוהים בענף">Rigorous quality assurance</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 data-en="Safety First" data-he="בטיחות בראש">Safety First</h4>
+                                <p data-en="Uncompromising standards" data-he="הקפדה על נהלים ותקנות">Uncompromising standards</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 data-en="Global Standards" data-he="תקנים גלובליים">Global Standards</h4>
+                                <p data-en="International best practices" data-he="יישום מתודולוגיות בינלאומיות">International best practices</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div>
+                                <h4 data-en="Expert Team" data-he="ניסיון מוכח">Expert Team</h4>
+                                <p data-en="Decades of experience" data-he="עשרות שנים בתכנון וליווי מערכות גז">Decades of experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image-container">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>
+                    </div>
+                    <div class="about-badge">
+                        <div class="about-badge-number">10+</div>
+                        <div class="about-badge-text" data-en="Years Experience" data-he="שנות ניסיון">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-en="What We Do" data-he="מה אנחנו עושים">What We Do</span>
+                <h2 class="section-title" data-en="End-to-End Gas Infrastructure Solutions" data-he="פתרונות תשתית גז מקצה לקצה">End-to-End Gas Infrastructure Solutions</h2>
+                <p class="section-subtitle" data-en="Comprehensive consulting services for every phase of your gas infrastructure project" data-he="שירותי ייעוץ מקיפים לכל שלב בפרויקט תשתיות הגז שלך">Comprehensive consulting services for every phase of your gas infrastructure project</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-number">01</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 17H7v-7h2m4 7h-2V7h2m4 10h-2v-4h2m2 6H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2z"></path></svg>
+                    </div>
+                    <h3 data-en="Feasibility Study" data-he="חקר היתכנות">Feasibility Study</h3>
+                    <p data-en="Comprehensive feasibility assessments for gas infrastructure projects, including technical, economic, and regulatory analysis to ensure project viability." data-he="הערכות היתכנות מקיפות לפרויקטי תשתיות גז, כולל ניתוח טכני, כלכלי ורגולטורי להבטחת כדאיות הפרויקט.">Comprehensive feasibility assessments for gas infrastructure projects, including technical, economic, and regulatory analysis to ensure project viability.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-number">02</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3 data-en="FEED" data-he="תכנון הנדסי ראשוני">FEED</h3>
+                    <p data-en="Front End Engineering Design services that define project scope, cost estimates, and technical specifications before detailed design begins." data-he="שירותי תכנון הנדסי ראשוני המגדירים את היקף הפרויקט, אומדני עלויות ומפרטים טכניים לפני תחילת התכנון המפורט.">Front End Engineering Design services that define project scope, cost estimates, and technical specifications before detailed design begins.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-number">03</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    <h3 data-en="Design &amp; Engineering" data-he="תכנון והנדסה">Design &amp; Engineering</h3>
+                    <p data-en="Complete design and engineering solutions for gas systems including detailed drawings, equipment specifications, and control system layouts." data-he="פתרונות תכנון והנדסה מלאים למערכות גז כולל שרטוטים מפורטים, מפרטי ציוד ותכניות מערכות בקרה.">Complete design and engineering solutions for gas systems including detailed drawings, equipment specifications, and control system layouts.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-number">04</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <h3 data-en="Design Review" data-he="בקרת תכנון">Design Review</h3>
+                    <p data-en="Thorough independent design reviews ensuring compliance with codes, standards, and best practices for gas system safety and efficiency." data-he="בקרות תכנון עצמאיות יסודיות המבטיחות עמידה בתקנים, סטנדרטים ושיטות עבודה מומלצות לבטיחות ויעילות מערכות גז.">Thorough independent design reviews ensuring compliance with codes, standards, and best practices for gas system safety and efficiency.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-number">05</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <h3 data-en="Project Management &amp; Supervision" data-he="ניהול ופיקוח פרויקטים">Project Management &amp; Supervision</h3>
+                    <p data-en="Full project management and on-site supervision services ensuring quality, schedule, and budget adherence throughout construction." data-he="שירותי ניהול פרויקט מלא ופיקוח באתר המבטיחים איכות, עמידה בלוחות זמנים ובתקציב לאורך כל הבנייה.">Full project management and on-site supervision services ensuring quality, schedule, and budget adherence throughout construction.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-number">06</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 data-en="Gas System Training" data-he="הדרכת מערכות גז">Gas System Training</h3>
+                    <p data-en="Specialized training programs for personnel involved in operating, maintaining, and managing gas systems to ensure safe and efficient operations." data-he="תוכניות הדרכה מתמחות לאנשי צוות העוסקים בהפעלה, תחזוקה וניהול מערכות גז להבטחת פעילות בטוחה ויעילה.">Specialized training programs for personnel involved in operating, maintaining, and managing gas systems to ensure safe and efficient operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients" id="clients">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Our Clients" data-he="הלקוחות שלנו">Our Clients</span>
+                <h2 class="section-title" data-en="Trusted by Industry Leaders" data-he="הגופים המובילים במשק סומכים עלינו">Trusted by Industry Leaders</h2>
+                <p class="section-subtitle" data-en="We're proud to work with Israel's leading energy companies" data-he="שותפים לפרויקטים של חברות האנרגיה המרכזיות בישראל">We're proud to work with Israel's leading energy companies</p>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-card">
+                    <div class="client-logo">
+                        <span class="client-logo-text iec">IEC</span>
+                    </div>
+                    <h4 class="client-name" data-en="Israel Electric Corporation" data-he="חברת החשמל לישראל">Israel Electric Corporation</h4>
+                    <p class="client-desc" data-en="Israel's national electricity utility company" data-he="חברת החשמל הלאומית של ישראל">Israel's national electricity utility company</p>
+                </div>
+                
+                <div class="client-card">
+                    <div class="client-logo">
+                        <span class="client-logo-text eapc">EAPC</span>
+                    </div>
+                    <h4 class="client-name" data-en="Europe Asia Pipeline Company" data-he="קצא״א">Europe Asia Pipeline Company</h4>
+                    <p class="client-desc" data-en="Strategic energy infrastructure operator" data-he="מפעילת תשתיות אנרגיה אסטרטגיות">Strategic energy infrastructure operator</p>
+                </div>
+                
+                <div class="client-card">
+                    <div class="client-logo">
+                        <span class="client-logo-text chevron">Chevron</span>
+                    </div>
+                    <h4 class="client-name" data-en="Chevron (Noble Energy)" data-he="שברון (נובל אנרג׳י)">Chevron (Noble Energy)</h4>
+                    <p class="client-desc" data-en="Major offshore natural gas producer" data-he="יצרן גז טבעי ימי מרכזי">Major offshore natural gas producer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gas Systems Section -->
+    <section class="systems" id="systems">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Our Expertise" data-he="המומחיות שלנו">Our Expertise</span>
+                <h2 class="section-title" data-en="Types of Gas Systems" data-he="סוגי מערכות גז">Types of Gas Systems</h2>
+                <p class="section-subtitle" data-en="Comprehensive expertise across all gas infrastructure systems" data-he="מומחיות מקיפה בכל מערכות תשתיות הגז">Comprehensive expertise across all gas infrastructure systems</p>
+            </div>
+            
+            <div class="systems-grid">
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <h4 data-en="LPG Tank Farms" data-he="מתקני מיכלי LPG">LPG Tank Farms</h4>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M12 6l4 4-4 4-4-4z"></path></svg>
+                    </div>
+                    <h4 data-en="SNG Plants" data-he="מתקני SNG">SNG Plants</h4>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 19h16M4 15h16M4 11h16M4 7h16"></path></svg>
+                    </div>
+                    <h4 data-en="Distribution Networks" data-he="רשתות הפצה">Distribution Networks</h4>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+                    </div>
+                    <h4 data-en="PRMS Stations" data-he="תחנות PRMS">PRMS Stations</h4>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h4 data-en="Gas in Buildings" data-he="גז במבנים">Gas in Buildings</h4>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <h4 data-en="Feeder Pipelines" data-he="צינורות הזנה">Feeder Pipelines</h4>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M12 8v8M8 12h8"></path></svg>
+                    </div>
+                    <h4 data-en="Smart Metering" data-he="מדידה חכמה">Smart Metering</h4>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4 data-en="Safety Systems" data-he="מערכות בטיחות">Safety Systems</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Get In Touch" data-he="צור קשר">Get In Touch</span>
+                <h2 class="section-title" data-en="Let's Discuss Your Project" data-he="נשמח לשמוע על הפרויקט שלכם">Let's Discuss Your Project</h2>
+                <p class="section-subtitle" data-en="Ready to start your next gas infrastructure project? Contact our team of experts." data-he="רוצים להתחיל? אנחנו כאן בשבילכם.">Ready to start your next gas infrastructure project? Contact our team of experts.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 data-en="We're Here to Help" data-he="מוזמנים ליצור קשר">We're Here to Help</h3>
+                    <p data-en="Whether you're planning a new gas infrastructure project or need expert consultation on an existing system, our team is ready to assist you." data-he="בין אם אתם מתכננים פרויקט חדש או זקוקים לייעוץ על מערכת קיימת — הצוות שלנו כאן בשבילכם.">Whether you're planning a new gas infrastructure project or need expert consultation on an existing system, our team is ready to assist you.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div>
+                                <div class="contact-item-label" data-en="Email" data-he="אימייל">Email</div>
+                                <div class="contact-item-text">contact@ngse.co.il</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div>
+                                <div class="contact-item-label" data-en="Location" data-he="מיקום">Location</div>
+                                <div class="contact-item-text" data-en="Israel" data-he="ישראל">Israel</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" method="POST" name="contact">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p style="display:none;">
+                            <label>Don't fill this out: <input name="bot-field"></label>
+                        </p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" data-en="Full Name" data-he="שם מלא">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="company" data-en="Company" data-he="חברה">Company</label>
+                                <input type="text" id="company" name="company" placeholder="Company Name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" data-en="Email" data-he="אימייל">Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@company.com" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" data-en="Phone" data-he="טלפון">Phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+972-XX-XXX-XXXX">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" data-en="Service Interest" data-he="שירות מבוקש">Service Interest</label>
+                            <select id="service" name="service">
+                                <option value="" data-en="Select a service..." data-he="בחר שירות...">Select a service...</option>
+                                <option value="feasibility" data-en="Feasibility Study" data-he="חקר היתכנות">Feasibility Study</option>
+                                <option value="feed" data-en="FEED" data-he="תכנון הנדסי ראשוני">FEED</option>
+                                <option value="design" data-en="Design &amp; Engineering" data-he="תכנון והנדסה">Design &amp; Engineering</option>
+                                <option value="review" data-en="Design Review" data-he="בקרת תכנון">Design Review</option>
+                                <option value="pm" data-en="Project Management" data-he="ניהול פרויקטים">Project Management</option>
+                                <option value="training" data-en="Training" data-he="הדרכה">Training</option>
+                                <option value="other" data-en="Other" data-he="אחר">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-he="הודעה">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project..." data-placeholder-en="Tell us about your project..." data-placeholder-he="ספרו לנו על הפרויקט שלכם..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit" data-en="Send Message" data-he="שליחה">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon"></div>
+                        <span class="logo-text">NG Smart <span>ENG</span></span>
+                    </a>
+                    <p data-en="Expert consulting and project management for natural gas infrastructure. Trust But Verify." data-he="ייעוץ וניהול פרויקטים לתשתיות גז טבעי. Trust But Verify.">Expert consulting and project management for natural gas infrastructure. Trust But Verify.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 data-en="Services" data-he="שירותים">Services</h4>
+                    <ul>
+                        <li><a href="#services" data-en="Feasibility Study" data-he="חקר היתכנות">Feasibility Study</a></li>
+                        <li><a href="#services" data-en="FEED" data-he="תכנון הנדסי ראשוני">FEED</a></li>
+                        <li><a href="#services" data-en="Design &amp; Engineering" data-he="תכנון והנדסה">Design &amp; Engineering</a></li>
+                        <li><a href="#services" data-en="Project Management" data-he="ניהול פרויקטים">Project Management</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 data-en="Company" data-he="חברה">Company</h4>
+                    <ul>
+                        <li><a href="#about" data-en="About Us" data-he="אודות">About Us</a></li>
+                        <li><a href="#clients" data-en="Our Clients" data-he="לקוחות">Our Clients</a></li>
+                        <li><a href="#systems" data-en="Expertise" data-he="מומחיות">Expertise</a></li>
+                        <li><a href="#contact" data-en="Contact" data-he="צור קשר">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-wdi">
+                    <p data-en="A member of" data-he="חלק מקבוצת">A member of</p>
+                    <a href="https://wdiglobal.com" target="_blank">WDI Global</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 NG Smart ENG. <span data-en="All rights reserved." data-he="כל הזכויות שמורות.">All rights reserved.</span></p>
+                <p style="display: flex; align-items: center; justify-content: center; gap: 6px;"><span data-en="Website by" data-he="הוקם ע״י">Website by</span> <a href="https://daflash.com/" target="_blank" style="display: inline-flex; align-items: center;"><img src="daflash-logo.png" alt="daflash" style="height: 36px; width: auto; margin-top: -12px;"></a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Toggle
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const elementsWithTranslation = document.querySelectorAll('[data-en], [data-he]');
+        
+        function setLanguage(lang) {
+            const html = document.documentElement;
+            
+            if (lang === 'he') {
+                html.setAttribute('lang', 'he');
+                html.setAttribute('dir', 'rtl');
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                document.body.setAttribute('dir', 'ltr');
+            }
+            
+            elementsWithTranslation.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+            
+            // Handle placeholders separately
+            const textareaMsg = document.getElementById('message');
+            if (textareaMsg) {
+                textareaMsg.placeholder = lang === 'he' ? 'ספרו לנו על הפרויקט שלכם...' : 'Tell us about your project...';
+            }
+            
+            langBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            localStorage.setItem('preferredLang', lang);
+        }
+        
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+        
+        // Check for saved language preference
+        const savedLang = localStorage.getItem('preferredLang');
+        if (savedLang) {
+            setLanguage(savedLang);
+        }
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navigation background on scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.classList.toggle('active');
+            });
+            
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+
+</body></html>

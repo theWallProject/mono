@@ -1,0 +1,62 @@
+[2026-03-19T09:13:03.679Z] === Homepage AI Extractor: Goren Capital Group ===
+[2026-03-19T09:13:03.679Z] Started at: 2026-03-19T09:13:03.679Z
+[2026-03-19T09:13:03.679Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773911583678_Goren_Capital_Group
+[2026-03-19T09:13:03.679Z] Company: Goren Capital Group
+[2026-03-19T09:13:03.679Z] Website: goren-capital.com
+[2026-03-19T09:13:03.679Z] cbRank: 2069441
+[2026-03-19T09:13:03.679Z] Reasons: h
+[2026-03-19T09:13:03.679Z] Fetching: https://goren-capital.com
+[2026-03-19T09:13:06.797Z] Redirected: https://goren-capital.com -> https://www.goren-capital.com/
+[2026-03-19T09:13:06.804Z] Saved HTML (177342 bytes) to page.html
+[2026-03-19T09:13:06.807Z] Extracted 16 unique links from page
+[2026-03-19T09:13:06.808Z] Saved 16 links to links.json
+[2026-03-19T09:13:06.810Z] Extracted footer HTML (5913 chars)
+[2026-03-19T09:13:06.810Z] Extracted header HTML (24959 chars)
+[2026-03-19T09:13:06.814Z] Website (post-redirect): https://www.goren-capital.com/ → origin: https://www.goren-capital.com
+[2026-03-19T09:13:06.814Z] External links: 3 (of 16 total)
+[2026-03-19T09:13:06.814Z] ── All external links ──
+[2026-03-19T09:13:06.814Z]   EXT: http://www.aurion.co.il
+[2026-03-19T09:13:06.814Z]   EXT: https://www.linkedin.com/company/goren-capital-group
+[2026-03-19T09:13:06.814Z]   EXT: https://www.waze.com/ul?ll=32.07846910%2C34.78729110&navigate=yes
+[2026-03-19T09:13:06.814Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T09:13:06.815Z]   UNCATEGORIZED: http://www.aurion.co.il
+[2026-03-19T09:13:06.815Z]   REGEX: li <- https://www.linkedin.com/company/goren-capital-group
+[2026-03-19T09:13:06.815Z]   UNCATEGORIZED: https://www.waze.com/ul?ll=32.07846910%2C34.78729110&navigate=yes
+[2026-03-19T09:13:06.815Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-19T09:13:06.815Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T09:13:06.818Z] Saved AI prompt (4445 chars) to ai_prompt.txt
+[2026-03-19T09:13:06.818Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T09:13:06.822Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T09:13:26.425Z]   AI: First token received, streaming...
+[2026-03-19T09:13:28.028Z] AI response complete: 53 chars in 21.2s
+[2026-03-19T09:13:28.029Z] Saved AI response to ai_response.json
+[2026-03-19T09:13:28.029Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T09:13:28.030Z]   AI LINK: https://www.linkedin.com/company/goren-capital-group/
+[2026-03-19T09:13:28.030Z] AI returned 1 valid links
+[2026-03-19T09:13:28.030Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T09:13:28.030Z]   AI→REGEX: li <- https://www.linkedin.com/company/goren-capital-group/ (duplicate, skipped)
+[2026-03-19T09:13:28.031Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T09:13:28.031Z] Footer/header origins (4):
+[2026-03-19T09:13:28.031Z]   FOOTER/HEADER ORIGIN: https://www.waze.com
+[2026-03-19T09:13:28.031Z]   FOOTER/HEADER ORIGIN: https://www.goren-capital.com
+[2026-03-19T09:13:28.031Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T09:13:28.032Z]   FOOTER/HEADER ORIGIN: http://www.aurion.co.il
+[2026-03-19T09:13:28.032Z]   ADDED: urls <- http://www.aurion.co.il
+[2026-03-19T09:13:28.032Z]   ADDED: urls <- https://www.waze.com/ul (cleaned from https://www.waze.com/ul?ll=32.07846910%2C34.78729110&navigate=yes)
+[2026-03-19T09:13:28.032Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-19T09:13:28.032Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T09:13:28.032Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T09:13:28.033Z] ── Step 3: Final dedup ──
+[2026-03-19T09:13:28.033Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T09:13:28.033Z] ── FINAL RESULT ──
+[2026-03-19T09:13:28.033Z]   ws (1):
+[2026-03-19T09:13:28.033Z]     - https://www.goren-capital.com
+[2026-03-19T09:13:28.033Z]   li (1):
+[2026-03-19T09:13:28.033Z]     - https://www.linkedin.com/company/goren-capital-group
+[2026-03-19T09:13:28.034Z]   urls (2):
+[2026-03-19T09:13:28.034Z]     - http://www.aurion.co.il
+[2026-03-19T09:13:28.034Z]     - https://www.waze.com/ul
+[2026-03-19T09:13:28.034Z] Summary: ws:1, li:1, urls:2
+[2026-03-19T09:13:28.035Z] Saved final result to result.json
+[2026-03-19T09:13:28.035Z] Override fields: ws, li, urls
+[2026-03-19T09:13:28.036Z] Finished at: 2026-03-19T09:13:28.036Z

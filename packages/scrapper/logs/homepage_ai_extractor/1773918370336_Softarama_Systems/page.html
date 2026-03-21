@@ -1,0 +1,644 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+  <script type="text/javascript" src="/js/misha.js"></script>
+  <link rel="Stylesheet" href="/css/mainmisha.css" type="text/css" media="screen">
+  
+  <title>Softarama Systems - Made for People</title>
+  <link rel="Stylesheet" href="/slider/css/screen.css" type="text/css" media="screen">
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/easySlider1.7.js"></script>
+  
+  <script type="text/javascript">
+  //<![CDATA[
+    $(document).ready(function(){   
+      $("#slider").easySlider({
+        auto: true,
+        speed: 2000, 
+        continuous: true
+      });
+      $("#slider").css('visibility', 'visible')
+    }); 
+  //]]>
+  </script>
+  
+  <script type="text/javascript">
+  //<![CDATA[
+  $(document).ready(function() {
+    $("ul#topnav li").hover(function() {
+      $(this).find(".sub").show();
+    }, function() {
+      $(this).find(".sub").hide();
+    });
+  });
+  //]]>
+  </script>
+  
+  <style>
+  /* Modern CSS Reset and Base Styles */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+  }
+  
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+  }
+  
+  /* Header Modernization - Lighter Colors */
+  .header {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .header h1 {
+    margin: 0;
+    float: left;
+  }
+  
+  .header h1 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2.2em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .header h1 a:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Navigation Modernization */
+  #topnav {
+    float: right;
+    margin: 15px 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  #topnav li {
+    float: left;
+    margin-left: 5px;
+    position: relative;
+  }
+  
+  #topnav li a {
+    display: block;
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+  }
+  
+  #topnav li a:hover,
+  #topnav li.active a {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  
+  #topnav .sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    padding: 15px;
+    min-width: 200px;
+    z-index: 1000;
+    margin-top: 10px;
+  }
+  
+  #topnav .sub a {
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    text-transform: none;
+    font-weight: normal;
+  }
+  
+  #topnav .sub a:hover {
+    background: #f0f4f8;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Container and Slider */
+  .container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sitebanner {
+    position: relative;
+  }
+  
+  #container {
+    padding: 40px 0;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .sliderbox {
+    background: rgba(255,255,255,0.95);
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .sliderinfo {
+    padding: 40px;
+  }
+  
+  .sliderinfo h1 {
+    color: #02273c;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .sliderinfo h4 {
+    color: #555;
+    font-size: 1.3em;
+    font-weight: 400;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+  
+  /* Content Area */
+  .content {
+    padding: 40px 30px;
+    background: #fff;
+  }
+  
+  .leftcolumn {
+    width: 65%;
+    float: left;
+    padding-right: 30px;
+  }
+  
+  .rightcolumn {
+    width: 35%;
+    float: right;
+  }
+  
+  /* Product List Modernization */
+  .site-products {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .site-products li {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #4a90e2;
+  }
+  
+  .site-products li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  .site-products h3 {
+    color: #4a90e2;
+    font-size: 1.4em;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+  }
+  
+  .site-products p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .app-download {
+    float: right;
+    margin-top: 10px;
+  }
+  
+  /* Button Modernization */
+  .learn-button, .download-button, .buy-button, .buy-small-button,
+  .slider-learn-button, .slider-save-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin: 0 5px;
+  }
+  
+  .learn-button, .slider-learn-button {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    width: 110px;
+    height: 28px;
+    line-height: 8px;
+  }
+  
+  .download-button {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+    width: 136px;
+    height: 28px;
+    line-height: 8px;
+  }
+  
+  .buy-button, .buy-small-button {
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+    color: white;
+    width: 92px;
+    height: 21px;
+    line-height: 1px;
+  }
+  
+  .slider-save-button {
+    background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+    color: white;
+    width: 167px;
+    height: 46px;
+    line-height: 26px;
+  }
+  
+  .learn-button:hover, .download-button:hover, .buy-button:hover, 
+  .buy-small-button:hover, .slider-learn-button:hover, .slider-save-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  /* Right Column Modernization */
+  .security, .newsletter, .news, .compatibility {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .security:hover, .newsletter:hover, .news:hover, .compatibility:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+  
+  .newsletter h4, .news h4 {
+    color: #4a90e2;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .news p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .news a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .news a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer Modernization - Lighter Colors */
+  .newfooter {
+    background: linear-gradient(135deg, #6c7b7f 0%, #7a8a8e 100%);
+    color: #fff;
+    padding: 40px 30px 20px;
+  }
+  
+  .inner-footer h3, .inner-footer h4 {
+    color: #fff;
+    margin-bottom: 15px;
+  }
+  
+  .links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .links li {
+    margin-bottom: 8px;
+  }
+  
+  .links a {
+    color: #e8eaeb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .links a:hover {
+    color: #fff;
+  }
+  
+  .copyright {
+    text-align: left;
+    padding: 20px 30px;
+    background: #6c7b7f;
+    color: #e8eaeb;
+    margin: 0;
+    font-size: 0.9em;
+  }
+  
+  /* Clearfix */
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .wrapper {
+      margin: 0;
+      border-radius: 0;
+    }
+    
+    .header {
+      padding: 15px;
+    }
+    
+    .header h1 {
+      float: none;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    #topnav {
+      float: none;
+      text-align: center;
+    }
+    
+    #topnav li {
+      float: none;
+      display: inline-block;
+      margin: 5px;
+    }
+    
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      float: none;
+      padding: 0;
+    }
+    
+    .content {
+      padding: 20px 15px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding: 20px 15px;
+    }
+  }
+  
+  /* Legacy styles for compatibility */
+  .footer {
+    background: url("/images/new/footer-awards.png") no-repeat left bottom;
+    height: 73px;
+  }
+  
+  #prevBtn, #nextBtn, #slider1next, #slider1prev {
+    width: 31px;
+    top: 130px;
+  }
+  
+  #prevBtn a, #nextBtn a, #slider1next a, #slider1prev a {
+    width: 31px;
+    height: 31px;
+    background: url(/images/new/previous.png) no-repeat 0 0;
+  }
+  
+  #nextBtn a, #slider1next a {
+    background: url(/images/new/next.png) no-repeat 0 0;
+  }
+  
+  #prevBtn {
+    left: 20px;
+  }
+  
+  #nextBtn {
+    left: 883px;
+  }
+  
+  #slider, #slider li, #slider2 li {
+    width: 932px;
+  }
+  </style>
+</head>
+
+<body>
+<div class="wrapper">
+<div class="header clearfix">
+<h1><a href="/">Softarama</a></h1>
+<ul class="clearfix" id="topnav">
+<li class="active"><a href="/"><strong><em class="mo-bold"><span>home</span></em></strong></a></li>
+<li><a href="/Products/"><strong><em class="mo-bold"><span>products</span></em></strong></a>
+<div class="sub" style="display: none;"><a class="mo-reg" href="/Products/">Products Overview</a><hr><a class="mo-reg" href="/Products/Seniorama/">Seniorama Pointer</a> <a class="mo-reg" href="/Products/CaptainOptimizer/">Captain Optimizer</a> <a class="mo-reg" href="/Products/RegistryCommander/">Registry Commander</a> <a class="mo-reg" href="/Products/PrivacySentinel/">Privacy Sentinel</a> <a class="mo-reg" href="/Products/Impassable/">Impassable</a><hr><a class="mo-reg" href="/SpecialOffers/">Special Offers</a></div>
+</li>
+<li><a href="/News/"><strong><em class="mo-bold"><span>news</span></em></strong></a>
+<div class="sub" style="display: none;"><a class="mo-reg" href="/News/">General</a><hr><a class="mo-reg" href="/News/PressReleases.php">Press Releases</a></div>
+</li>
+<li><a href="/Support/"><strong><em class="mo-bold"><span>support</span></em></strong></a>
+<div class="sub" style="display: none;"><a class="mo-reg" href="/Support/">General</a><hr><a class="mo-reg" href="/Support/CaptainOptimizer/">Captain Optimizer</a> <a class="mo-reg" href="/Support/RegistryCommander/">Registry Commander</a> <a class="mo-reg" href="/Support/PrivacySentinel/">Privacy Sentinel</a> <a class="mo-reg" href="/Support/Impassable/">Impassable</a> <a class="mo-reg" href="/Support/Seniorama/">Seniorama</a> <a class="mo-reg" href="/Support/SoftwareDownloads/">Software Downloads</a></div>
+</li>
+<li style="float: left; margin-right: 0;"><a href="/Company/"><strong><em class="mo-bold"><span>company</span></em></strong>&nbsp;</a></li>
+</ul>
+</div>
+<div class="container" style="background: url('../images/new2012/sliderbg.jpg') no-repeat scroll 0 0 transparent;">
+<div class="content clearfix">
+<div class="leftcolumn">
+<div class="app-download"><a href="/Products/Seniorama/" class="learn-button">Learn</a> <a href="/Products/Seniorama/Purchase/" class="buy-small-button">Buy</a></div>
+<h3 class="mo-bold"><a href="/Products/Seniorama/"><span class="products-title">Seniorama Pointer™</span></a></h3>
+<p>A revolutionary desktop application tailored for Seniors.</p>
+<br>
+<ul class="site-products">
+<li class="clearfix" style="background: url('/images/new/icon-small-co.png') no-repeat 18px 32px;">
+<div style="position: relative; left: 0px; height: 73px; width: 110px; float: left;"><a href="/Products/CaptainOptimizer/"></a>
+<div style="height: 73px; width: 110px;">&nbsp;</div>
+</div>
+<div class="app-download"><a onclick="download('co', this.href)" href="/Products/CaptainOptimizer/Download/" class="download-button">Download</a> <a href="/Products/CaptainOptimizer/Purchase/" class="buy-small-button">Buy</a></div>
+<h3 class="mo-bold"><a href="/Products/CaptainOptimizer/"><span class="products-title">Captain Optimizer™</span></a></h3>
+<p>Slow PC? Tune it up for smoother performance &amp; extra speed. <a href="/Products/CaptainOptimizer/"><span class="learn-more"><u>Details</u></span></a></p>
+</li>
+<li class="clearfix" style="background: url('/images/new/icon-small-rc.png') no-repeat 18px 32px;">
+<div style="position: relative; left: 0px; height: 73px; width: 110px; float: left;"><a href="/Products/RegistryCommander/"></a>
+<div style="height: 73px; width: 110px;">&nbsp;</div>
+</div>
+<div class="app-download"><a onclick="download('rc', this.href)" href="/Products/RegistryCommander/Download/" class="download-button">Download</a> <a href="/Products/RegistryCommander/Purchase/" class="buy-small-button">Buy</a></div>
+<h3 class="mo-bold"><a href="/Products/RegistryCommander/"><span class="products-title">Registry Commander™</span></a></h3>
+<p>Crashes? freezes? blue screens? Fix your registry errors asap. <a href="/Products/RegistryCommander/"><span class="learn-more"><u>Details</u></span></a></p>
+</li>
+<li class="clearfix" style="background: url('/images/new/icon-small-ps.png') no-repeat 18px 34px;">
+<div style="position: relative; left: 0px; height: 73px; width: 110px; float: left;"><a href="/Products/PrivacySentinel/"></a>
+<div style="height: 73px; width: 110px;">&nbsp;</div>
+</div>
+<div class="app-download"><a onclick="download('ps', this.href)" href="/Products/PrivacySentinel/Download/" class="download-button">Download</a> <a href="/Products/PrivacySentinel/Purchase/" class="buy-small-button">Buy</a></div>
+<h3 class="mo-bold"><a href="/Products/PrivacySentinel/"><span class="products-title">Privacy Sentinel™</span></a></h3>
+<p>Eliminate unwanted online activity traces. Protect your online privacy. <a href="/Products/PrivacySentinel/"><span class="learn-more"><u>Details</u></span></a></p>
+</li>
+<li class="clearfix" style="background: url('/images/new/icon-small-im.png') no-repeat 18px 20px; border-bottom: 0;">
+<div style="position: relative; left: 0px; height: 73px; width: 110px; float: left;"><a href="/Products/Impassable/"></a>
+<div style="height: 73px; width: 110px;">&nbsp;</div>
+</div>
+<div class="app-download"><a href="/Products/Impassable/" class="learn-button">Learn</a> <a href="/Products/Impassable/Purchase/" class="buy-small-button">Buy</a></div>
+<h3 class="mo-bold"><a href="/Products/Impassable/"><span class="products-title">Impassable™</span></a></h3>
+<p>Award winning digital Safe. Maximum protection to your digital data. <a href="/Products/Impassable/"><span class="learn-more"><u>Details</u></span></a></p>
+</li>
+</ul>
+</div>
+<div class="rightcolumn">
+<div class="security">
+<div class="clearfix">
+<div style="float: left; margin-left: 5px;"></div>
+<div style="float: left; margin: 12px 0 0 25px;"><a href="http://captain-optimizer.software.informer.com/" target="_blank" rel="nofollow noopener"> <img border="0" src="http://img.informer.com/awards/software_awards_no_viruses.gif" alt="Software.Informer Virus Free award" height="60" width="90"> </a></div>
+</div>
+</div>
+<div class="newsletter">
+<div>
+<h4>Join Our Newsletter</h4>
+<p>to get regular updates and offers</p>
+</div>
+</div>
+<div class="news">
+<div>
+<h4 class="mo-bold">News</h4>
+<p><a href="/News/Captain-Optimizer-Best-Of-2010.php">Captain Optimizer - Best software of 2011</a>Captain Optimizer has been accredited as the "Best Software Program for 2011" by Cloudeight Internet. Join millions who benefit from Captain Optimizer.</p>
+<p><a href="/News/">Captain Optimizer 2012 final version</a>We are happy to announce the final version of Captain optimizer has been launched.<br><br><strong><span style="font-size: 20px;">Latest Posts:</span></strong></p>
+<div>
+<ul id="1006288620817605240"><li><a href="/the-benefits-of-b2b-saas-marketing-how-to-drive-growth-in-a-competitive-market">The Benefits of B2B SaaS Marketing: How to Drive Growth in a Competitive Market</a> - 2025-12-17</li><li><a href="/ai-job-displacement-vs-creation-signals-sectors-and-skills">AI Job Displacement vs. Creation: Signals, Sectors, and Skills</a> - 2025-10-31</li><li><a href="/ai-and-regulation-what-compliance-looks-like-in-2025">AI and Regulation: What Compliance Looks Like in 2025</a> - 2025-10-31</li><li><a href="/trends-shaping-the-future-of-digital-risk-protection">Trends Shaping the Future of Digital Risk Protection</a> - 2025-09-04</li></ul>
+</div>
+</div>
+</div>
+<div class="compatibility">
+<div class="clearfix"><img src="/images/new/icon-compatiblewindows.gif" alt="Compatible with Windows 7"> <img src="/images/new/icon-certifiedwindowsvista.gif" alt="Certified Windows Vista"> <img src="/images/new/icon-ecofriendly.gif" alt="100% Eco Friendly"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer"></div>
+</div>
+<div class="newfooter">
+<div class="inner-footer">
+<div class="keepusinmind clearfix">
+<h3 class="mo-bold">Keep us in mind!</h3>
+<div class="visit-follow"><a href="/blog/" onclick="return ! window.open(this.href);">Visit Our Blog</a></div>
+<div class="share-save"></div>
+</div>
+<div class="links">
+<ul class="clearfix sitemap">
+<li>
+<h4 class="mo-bold">Company</h4>
+<ol>
+<li><a href="/Company/">About</a></li>
+<li><a href="/Company/ContactUs/">Contact</a></li>
+<li><a href="/Company/affiliates.php">Affiliates</a></li>
+<li><a href="/Company/Partners/">Partners</a></li>
+<li><a href="/affiliates">Affiliates Center</a></li>
+<li><a href="http://www.valueshine.com" rel="nofollow">Valueshine Group</a></li>
+</ol>
+</li>
+<li>
+<h4 class="mo-bold">News</h4>
+<ol>
+<li><a href="/News/">Latest news</a></li>
+<li><a href="/News/PressReleases.php">Press Releases</a></li>
+<li><a href="/News/">Media resources</a></li>
+<li><a href="/labs">Softarama Labs</a></li>
+<li><a href="/SpecialOffers/">Special Offers</a></li>
+</ol>
+</li>
+<li>
+<h4 class="mo-bold">Support</h4>
+<ol>
+<li><a href="/Support/">General</a></li>
+<li><a href="/Company/privacy.php">Privacy Policy</a></li>
+<li>Corporate Responsibility</li>
+<li><a href="/Company/termsofuse.php">Terms of Use</a></li>
+<li><a href="http://ratepoint.com/profile/59307" rel="nofollow">Testimonials</a></li>
+</ol>
+</li>
+<li class="sproducts">
+<h4 class="mo-bold">Products</h4>
+<ol>
+<li><a href="/Products/CaptainOptimizer/">Captain Optimizer</a></li>
+<li><a href="/Products/RegistryCommander/">Registry Commander</a></li>
+<li><a href="/Products/Seniorama/">Seniorama Pointer</a></li>
+<li><a href="/Products/PrivacySentinel/">Privacy Sentinel</a></li>
+<li><a href="/Products/Impassable/">Impassable</a></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table cellspacing="0" border="0" style="width: 95.5683%;"><colgroup width="565"><col style="width: 50%;"><col style="width: 50%;"></colgroup>
+<tbody>
+<tr>
+<td height="23" align="left"></td>
+<td>support@saltlands-game.com</td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript">
+  /* <![CDATA[ */
+  var google_conversion_id = 1015146123;
+  var google_conversion_language = "en";
+  var google_conversion_format = "3";
+  var google_conversion_color = "ffffff";
+  var google_conversion_label = "bub4CPWE6gIQi82H5AM";
+  var google_conversion_value = 0;
+  /* ]]> */
+</script>
+<noscript>
+  <div style="display:inline;"></div>
+</noscript>
+
+
+</body></html>

@@ -1,0 +1,66 @@
+[2026-03-19T10:31:33.759Z] === Homepage AI Extractor: Joyvoo ===
+[2026-03-19T10:31:33.759Z] Started at: 2026-03-19T10:31:33.759Z
+[2026-03-19T10:31:33.759Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773916293759_Joyvoo
+[2026-03-19T10:31:33.759Z] Company: Joyvoo
+[2026-03-19T10:31:33.760Z] Website: joyvoo.com
+[2026-03-19T10:31:33.760Z] cbRank: 2123440
+[2026-03-19T10:31:33.760Z] Reasons: h
+[2026-03-19T10:31:33.760Z] Fetching: https://joyvoo.com
+[2026-03-19T10:31:35.801Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-19T10:31:38.777Z] Redirected: https://joyvoo.com -> https://joyvoo.com/
+[2026-03-19T10:31:38.782Z] Saved HTML (102950 bytes) to page.html
+[2026-03-19T10:31:38.783Z] Extracted 7 unique links from page
+[2026-03-19T10:31:38.784Z] Saved 7 links to links.json
+[2026-03-19T10:31:38.786Z] Extracted footer HTML (1317 chars)
+[2026-03-19T10:31:38.786Z] Extracted header HTML (815 chars)
+[2026-03-19T10:31:38.791Z] Website (post-redirect): https://joyvoo.com/ → origin: https://joyvoo.com
+[2026-03-19T10:31:38.791Z] External links: 3 (of 7 total)
+[2026-03-19T10:31:38.791Z] ── All external links ──
+[2026-03-19T10:31:38.791Z]   EXT: https://apps.apple.com/us/developer/joyvoo-ltd/id441053285
+[2026-03-19T10:31:38.791Z]   EXT: https://play.google.com/store/apps/developer?id=Joyvoo+LTD&hl=en
+[2026-03-19T10:31:38.791Z]   EXT: https://www.linkedin.com/company/joyvoo
+[2026-03-19T10:31:38.791Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T10:31:38.792Z]   UNCATEGORIZED: https://apps.apple.com/us/developer/joyvoo-ltd/id441053285
+[2026-03-19T10:31:38.792Z]   REGEX: android_dev_id <- Joyvoo+LTD (from https://play.google.com/store/apps/developer?id=Joyvoo+LTD&hl=en)
+[2026-03-19T10:31:38.792Z]   REGEX: li <- https://www.linkedin.com/company/joyvoo
+[2026-03-19T10:31:38.792Z] Programmatic result: ws:1, android_dev_id:1, li:1 | 1 uncategorized
+[2026-03-19T10:31:38.792Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T10:31:38.793Z] Saved AI prompt (2698 chars) to ai_prompt.txt
+[2026-03-19T10:31:38.793Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T10:31:38.796Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T10:31:48.236Z]   AI: First token received, streaming...
+[2026-03-19T10:32:00.347Z] AI response complete: 168 chars in 21.6s
+[2026-03-19T10:32:00.349Z] Saved AI response to ai_response.json
+[2026-03-19T10:32:00.349Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T10:32:00.349Z]   AI LINK: https://www.linkedin.com/company/joyvoo/
+[2026-03-19T10:32:00.349Z]   AI LINK: https://apps.apple.com/us/developer/joyvoo-ltd/id441053285
+[2026-03-19T10:32:00.350Z]   AI LINK: https://play.google.com/store/apps/developer?id=Joyvoo+LTD&amp;hl=en
+[2026-03-19T10:32:00.350Z] AI returned 3 valid links
+[2026-03-19T10:32:00.350Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T10:32:00.350Z]   AI→REGEX: li <- https://www.linkedin.com/company/joyvoo/ (duplicate, skipped)
+[2026-03-19T10:32:00.351Z]   AI→URLS: https://apps.apple.com/us/developer/joyvoo-ltd/id441053285
+[2026-03-19T10:32:00.351Z]   AI→REGEX: android_dev_id <- Joyvoo+LTD
+[2026-03-19T10:32:00.351Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T10:32:00.351Z] Footer/header origins (4):
+[2026-03-19T10:32:00.351Z]   FOOTER/HEADER ORIGIN: https://joyvoo.com
+[2026-03-19T10:32:00.351Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T10:32:00.351Z]   FOOTER/HEADER ORIGIN: https://apps.apple.com
+[2026-03-19T10:32:00.352Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-19T10:32:00.352Z]   SKIP (AI claimed): https://apps.apple.com/us/developer/joyvoo-ltd/id441053285
+[2026-03-19T10:32:00.352Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T10:32:00.352Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T10:32:00.352Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T10:32:00.352Z] ── Step 3: Final dedup ──
+[2026-03-19T10:32:00.352Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T10:32:00.352Z] ── FINAL RESULT ──
+[2026-03-19T10:32:00.352Z]   ws (1):
+[2026-03-19T10:32:00.353Z]     - https://joyvoo.com
+[2026-03-19T10:32:00.353Z]   li (1):
+[2026-03-19T10:32:00.353Z]     - https://www.linkedin.com/company/joyvoo
+[2026-03-19T10:32:00.353Z]   urls (1):
+[2026-03-19T10:32:00.353Z]     - https://apps.apple.com/us/developer/joyvoo-ltd/id441053285
+[2026-03-19T10:32:00.353Z]   android_dev_id: Joyvoo+LTD
+[2026-03-19T10:32:00.354Z] Summary: ws:1, android_dev_id:1, li:1, urls:1
+[2026-03-19T10:32:00.355Z] Saved final result to result.json
+[2026-03-19T10:32:00.355Z] Override fields: ws, li, urls, android_dev_id
+[2026-03-19T10:32:00.355Z] Finished at: 2026-03-19T10:32:00.355Z

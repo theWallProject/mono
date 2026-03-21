@@ -1,0 +1,69 @@
+[2026-03-19T05:03:06.449Z] === Homepage AI Extractor: QualityWorks ===
+[2026-03-19T05:03:06.449Z] Started at: 2026-03-19T05:03:06.449Z
+[2026-03-19T05:03:06.449Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773896586448_QualityWorks
+[2026-03-19T05:03:06.449Z] Company: QualityWorks
+[2026-03-19T05:03:06.449Z] Website: qualityworks.pro
+[2026-03-19T05:03:06.449Z] cbRank: 1931299
+[2026-03-19T05:03:06.449Z] Reasons: h
+[2026-03-19T05:03:06.449Z] Fetching: https://qualityworks.pro
+[2026-03-19T05:03:16.991Z] Network idle timeout — continuing with current state
+[2026-03-19T05:03:17.024Z] Redirected: https://qualityworks.pro -> https://qualityworks.pro/
+[2026-03-19T05:03:17.030Z] Saved HTML (185433 bytes) to page.html
+[2026-03-19T05:03:17.033Z] Extracted 32 unique links from page
+[2026-03-19T05:03:17.033Z] Saved 32 links to links.json
+[2026-03-19T05:03:17.035Z] Extracted footer HTML (16201 chars)
+[2026-03-19T05:03:17.035Z] Extracted header HTML (22077 chars)
+[2026-03-19T05:03:17.039Z] Website (post-redirect): https://qualityworks.pro/ → origin: https://qualityworks.pro
+[2026-03-19T05:03:17.040Z] External links: 4 (of 32 total)
+[2026-03-19T05:03:17.040Z] ── All external links ──
+[2026-03-19T05:03:17.040Z]   EXT: https://qualityworkspro.blogspot.com
+[2026-03-19T05:03:17.040Z]   EXT: https://www.facebook.com/sharon.resnick
+[2026-03-19T05:03:17.040Z]   EXT: https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-us_corp_applications_base
+[2026-03-19T05:03:17.040Z]   EXT: https://www.linkedin.com/company/qualityworkspro
+[2026-03-19T05:03:17.040Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:03:17.040Z]   UNCATEGORIZED: https://qualityworkspro.blogspot.com
+[2026-03-19T05:03:17.040Z]   REGEX: fb <- https://www.facebook.com/sharon.resnick
+[2026-03-19T05:03:17.041Z]   UNCATEGORIZED: https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-us_corp_applications_base
+[2026-03-19T05:03:17.041Z]   REGEX: li <- https://www.linkedin.com/company/qualityworkspro
+[2026-03-19T05:03:17.041Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-19T05:03:17.041Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:03:17.045Z] Saved AI prompt (4189 chars) to ai_prompt.txt
+[2026-03-19T05:03:17.045Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:03:17.048Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:03:32.166Z]   AI: First token received, streaming...
+[2026-03-19T05:03:35.595Z] AI response complete: 86 chars in 18.6s
+[2026-03-19T05:03:35.597Z] Saved AI response to ai_response.json
+[2026-03-19T05:03:35.597Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T05:03:35.597Z]   AI LINK: https://qualityworkspro.blogspot.com
+[2026-03-19T05:03:35.598Z]   AI LINK: https://www.linkedin.com/company/qualityworkspro/
+[2026-03-19T05:03:35.598Z] AI returned 2 valid links
+[2026-03-19T05:03:35.598Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T05:03:35.598Z]   AI→URLS: https://qualityworkspro.blogspot.com
+[2026-03-19T05:03:35.598Z]   AI→REGEX: li <- https://www.linkedin.com/company/qualityworkspro/ (duplicate, skipped)
+[2026-03-19T05:03:35.600Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:03:35.600Z] Footer/header origins (4):
+[2026-03-19T05:03:35.600Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T05:03:35.600Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T05:03:35.600Z]   FOOTER/HEADER ORIGIN: https://www.godaddy.com
+[2026-03-19T05:03:35.600Z]   FOOTER/HEADER ORIGIN: https://qualityworkspro.blogspot.com
+[2026-03-19T05:03:35.600Z]   SKIP (AI claimed): https://qualityworkspro.blogspot.com
+[2026-03-19T05:03:35.601Z]   ADDED: urls <- https://www.godaddy.com/websites/website-builder (cleaned from https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-us_corp_applications_base)
+[2026-03-19T05:03:35.601Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T05:03:35.601Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:03:35.601Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T05:03:35.601Z] ── Step 3: Final dedup ──
+[2026-03-19T05:03:35.601Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T05:03:35.601Z] ── FINAL RESULT ──
+[2026-03-19T05:03:35.601Z]   ws (1):
+[2026-03-19T05:03:35.602Z]     - https://qualityworks.pro
+[2026-03-19T05:03:35.602Z]   li (1):
+[2026-03-19T05:03:35.602Z]     - https://www.linkedin.com/company/qualityworkspro
+[2026-03-19T05:03:35.602Z]   fb (1):
+[2026-03-19T05:03:35.602Z]     - https://www.facebook.com/sharon.resnick
+[2026-03-19T05:03:35.602Z]   urls (2):
+[2026-03-19T05:03:35.602Z]     - https://qualityworkspro.blogspot.com
+[2026-03-19T05:03:35.603Z]     - https://www.godaddy.com/websites/website-builder
+[2026-03-19T05:03:35.603Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-19T05:03:35.604Z] Saved final result to result.json
+[2026-03-19T05:03:35.604Z] Override fields: ws, li, fb, urls
+[2026-03-19T05:03:35.604Z] Finished at: 2026-03-19T05:03:35.604Z

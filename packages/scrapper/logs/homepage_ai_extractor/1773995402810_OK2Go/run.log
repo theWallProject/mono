@@ -1,0 +1,92 @@
+[2026-03-20T08:30:02.810Z] === Homepage AI Extractor: OK2Go ===
+[2026-03-20T08:30:02.810Z] Started at: 2026-03-20T08:30:02.810Z
+[2026-03-20T08:30:02.810Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773995402810_OK2Go
+[2026-03-20T08:30:02.810Z] Company: OK2Go
+[2026-03-20T08:30:02.810Z] Website: ok2go.co.il
+[2026-03-20T08:30:02.810Z] cbRank: 2807433
+[2026-03-20T08:30:02.810Z] Reasons: h
+[2026-03-20T08:30:02.810Z] Fetching: https://ok2go.co.il
+[2026-03-20T08:30:14.108Z] Network idle timeout — continuing with current state
+[2026-03-20T08:30:14.144Z] Redirected: https://ok2go.co.il -> https://ok2go.co.il/
+[2026-03-20T08:30:14.159Z] Saved HTML (697183 bytes) to page.html
+[2026-03-20T08:30:14.162Z] Extracted 59 unique links from page
+[2026-03-20T08:30:14.163Z] Saved 59 links to links.json
+[2026-03-20T08:30:14.165Z] Extracted footer HTML (7627 chars)
+[2026-03-20T08:30:14.165Z] Extracted header HTML (341 chars)
+[2026-03-20T08:30:14.170Z] Website (post-redirect): https://ok2go.co.il/ → origin: https://ok2go.co.il
+[2026-03-20T08:30:14.170Z]   SUBDOMAIN: clocklb.ok2go.co.il (added to ws)
+[2026-03-20T08:30:14.170Z] Website subdomains found: 1
+[2026-03-20T08:30:14.170Z] External links: 7 (of 59 total)
+[2026-03-20T08:30:14.170Z] ── All external links ──
+[2026-03-20T08:30:14.170Z]   EXT: https://api.whatsapp.com/send?phone=9720503445052
+[2026-03-20T08:30:14.170Z]   EXT: https://api.whatsapp.com/send?phone=9720506801061
+[2026-03-20T08:30:14.170Z]   EXT: https://www.facebook.com/ok2goIsrael
+[2026-03-20T08:30:14.170Z]   EXT: https://www.instagram.com/ok2go.telecom
+[2026-03-20T08:30:14.171Z]   EXT: https://www.linkedin.com/company/ok2go-ltd
+[2026-03-20T08:30:14.171Z]   EXT: https://www.selected.co.il
+[2026-03-20T08:30:14.171Z]   EXT: https://www.youtube.com/channel/UCpH9VZOE7bCCOUOn7oIqebw
+[2026-03-20T08:30:14.171Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T08:30:14.171Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=9720503445052
+[2026-03-20T08:30:14.171Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=9720506801061
+[2026-03-20T08:30:14.171Z]   REGEX: fb <- https://www.facebook.com/ok2goIsrael
+[2026-03-20T08:30:14.171Z]   REGEX: ig <- https://www.instagram.com/ok2go.telecom
+[2026-03-20T08:30:14.171Z]   REGEX: li <- https://www.linkedin.com/company/ok2go-ltd
+[2026-03-20T08:30:14.172Z]   UNCATEGORIZED: https://www.selected.co.il
+[2026-03-20T08:30:14.172Z]   REGEX: ytc <- https://www.youtube.com/channel/UCpH9VZOE7bCCOUOn7oIqebw
+[2026-03-20T08:30:14.172Z] Programmatic result: ws:2, fb:1, ig:1, li:1, ytc:1 | 3 uncategorized
+[2026-03-20T08:30:14.172Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T08:30:14.175Z] Saved AI prompt (8270 chars) to ai_prompt.txt
+[2026-03-20T08:30:14.175Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T08:30:14.179Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T08:31:03.358Z]   AI: First token received, streaming...
+[2026-03-20T08:31:17.112Z] AI response complete: 178 chars in 62.9s
+[2026-03-20T08:31:17.113Z] Saved AI response to ai_response.json
+[2026-03-20T08:31:17.113Z] ── Parsing AI response (4 lines) ──
+[2026-03-20T08:31:17.113Z]   AI LINK: https://www.facebook.com/ok2goIsrael
+[2026-03-20T08:31:17.114Z]   AI LINK: https://www.linkedin.com/company/ok2go-ltd/
+[2026-03-20T08:31:17.114Z]   AI LINK: https://www.youtube.com/channel/UCpH9VZOE7bCCOUOn7oIqebw
+[2026-03-20T08:31:17.114Z]   AI LINK: https://www.instagram.com/ok2go.telecom/
+[2026-03-20T08:31:17.114Z] AI returned 4 valid links
+[2026-03-20T08:31:17.114Z] ── Categorizing 4 AI-returned links ──
+[2026-03-20T08:31:17.114Z]   AI→REGEX: fb <- https://www.facebook.com/ok2goIsrael (duplicate, skipped)
+[2026-03-20T08:31:17.115Z]   AI→REGEX: li <- https://www.linkedin.com/company/ok2go-ltd/ (duplicate, skipped)
+[2026-03-20T08:31:17.115Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCpH9VZOE7bCCOUOn7oIqebw (duplicate, skipped)
+[2026-03-20T08:31:17.115Z]   AI→REGEX: ig <- https://www.instagram.com/ok2go.telecom/ (duplicate, skipped)
+[2026-03-20T08:31:17.116Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T08:31:17.116Z] Footer/header origins (6):
+[2026-03-20T08:31:17.116Z]   FOOTER/HEADER ORIGIN: https://ok2go.co.il
+[2026-03-20T08:31:17.116Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T08:31:17.116Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T08:31:17.116Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T08:31:17.116Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T08:31:17.116Z]   FOOTER/HEADER ORIGIN: https://www.selected.co.il
+[2026-03-20T08:31:17.117Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=9720503445052
+[2026-03-20T08:31:17.117Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=9720506801061
+[2026-03-20T08:31:17.117Z]   ADDED: urls <- https://www.selected.co.il
+[2026-03-20T08:31:17.117Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T08:31:17.117Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T08:31:17.118Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-20T08:31:17.432Z]   YOUTUBE: resolved UCpH9VZOE7bCCOUOn7oIqebw → @ok2gotraffic629
+[2026-03-20T08:31:17.432Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-20T08:31:17.432Z] ── Step 3: Final dedup ──
+[2026-03-20T08:31:17.432Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T08:31:17.432Z] ── FINAL RESULT ──
+[2026-03-20T08:31:17.432Z]   ws (2):
+[2026-03-20T08:31:17.432Z]     - https://clocklb.ok2go.co.il
+[2026-03-20T08:31:17.432Z]     - https://ok2go.co.il
+[2026-03-20T08:31:17.432Z]   li (1):
+[2026-03-20T08:31:17.432Z]     - https://www.linkedin.com/company/ok2go-ltd
+[2026-03-20T08:31:17.432Z]   fb (1):
+[2026-03-20T08:31:17.432Z]     - https://www.facebook.com/ok2goisrael
+[2026-03-20T08:31:17.433Z]   ig (1):
+[2026-03-20T08:31:17.433Z]     - https://www.instagram.com/ok2go.telecom
+[2026-03-20T08:31:17.433Z]   ytp (1):
+[2026-03-20T08:31:17.433Z]     - https://www.youtube.com/@ok2gotraffic629
+[2026-03-20T08:31:17.433Z]   ytc (1):
+[2026-03-20T08:31:17.433Z]     - https://www.youtube.com/channel/UCpH9VZOE7bCCOUOn7oIqebw
+[2026-03-20T08:31:17.433Z]   urls (1):
+[2026-03-20T08:31:17.433Z]     - https://www.selected.co.il
+[2026-03-20T08:31:17.433Z] Summary: ws:2, fb:1, ig:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-20T08:31:17.434Z] Saved final result to result.json
+[2026-03-20T08:31:17.434Z] Override fields: ws, li, fb, ig, ytp, ytc, urls
+[2026-03-20T08:31:17.434Z] Finished at: 2026-03-20T08:31:17.434Z

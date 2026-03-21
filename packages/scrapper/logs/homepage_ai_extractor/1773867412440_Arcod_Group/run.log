@@ -1,0 +1,72 @@
+[2026-03-18T20:56:52.440Z] === Homepage AI Extractor: Arcod Group ===
+[2026-03-18T20:56:52.441Z] Started at: 2026-03-18T20:56:52.441Z
+[2026-03-18T20:56:52.441Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773867412440_Arcod_Group
+[2026-03-18T20:56:52.441Z] Company: Arcod Group
+[2026-03-18T20:56:52.441Z] Website: arcod.co.il
+[2026-03-18T20:56:52.441Z] cbRank: 1749922
+[2026-03-18T20:56:52.441Z] Reasons: h
+[2026-03-18T20:56:52.441Z] Fetching: https://arcod.co.il
+[2026-03-18T20:56:55.629Z] Redirected: https://arcod.co.il -> https://www.arcod.co.il/
+[2026-03-18T20:56:55.655Z] Saved HTML (1248799 bytes) to page.html
+[2026-03-18T20:56:55.658Z] Extracted 11 unique links from page
+[2026-03-18T20:56:55.658Z] Saved 11 links to links.json
+[2026-03-18T20:56:55.660Z] Extracted footer HTML (9462 chars)
+[2026-03-18T20:56:55.660Z] Extracted header HTML (3467 chars)
+[2026-03-18T20:56:55.665Z] Website (post-redirect): https://www.arcod.co.il/ → origin: https://www.arcod.co.il
+[2026-03-18T20:56:55.665Z] External links: 4 (of 11 total)
+[2026-03-18T20:56:55.665Z] ── All external links ──
+[2026-03-18T20:56:55.665Z]   EXT: https://architek.co.il
+[2026-03-18T20:56:55.666Z]   EXT: https://il.linkedin.com/company/arcod-group?trk=public_jobs_topcard_logo
+[2026-03-18T20:56:55.666Z]   EXT: https://www.facebook.com/arcodgroup
+[2026-03-18T20:56:55.666Z]   EXT: https://www.instagram.com/arcod_architects/?hl=en
+[2026-03-18T20:56:55.666Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T20:56:55.666Z]   UNCATEGORIZED: https://architek.co.il
+[2026-03-18T20:56:55.666Z]   REGEX: li <- https://il.linkedin.com/company/arcod-group?trk=public_jobs_topcard_logo
+[2026-03-18T20:56:55.666Z]   REGEX: fb <- https://www.facebook.com/arcodgroup
+[2026-03-18T20:56:55.666Z]   REGEX: ig <- https://www.instagram.com/arcod_architects/?hl=en
+[2026-03-18T20:56:55.666Z] Programmatic result: ws:1, li:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-18T20:56:55.666Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T20:56:55.670Z] Saved AI prompt (8747 chars) to ai_prompt.txt
+[2026-03-18T20:56:55.670Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T20:56:55.672Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T20:57:34.850Z]   AI: First token received, streaming...
+[2026-03-18T20:57:45.680Z] AI response complete: 182 chars in 50.0s
+[2026-03-18T20:57:45.682Z] Saved AI response to ai_response.json
+[2026-03-18T20:57:45.682Z] ── Parsing AI response (4 lines) ──
+[2026-03-18T20:57:45.682Z]   AI LINK: https://www.arcod.co.il
+[2026-03-18T20:57:45.682Z]   AI LINK: https://www.facebook.com/arcodgroup
+[2026-03-18T20:57:45.682Z]   AI LINK: https://il.linkedin.com/company/arcod-group?trk=public_jobs_topcard_logo
+[2026-03-18T20:57:45.682Z]   AI LINK: https://www.instagram.com/arcod_architects/?hl=en
+[2026-03-18T20:57:45.683Z] AI returned 4 valid links
+[2026-03-18T20:57:45.683Z] ── Categorizing 4 AI-returned links ──
+[2026-03-18T20:57:45.683Z]   AI→URLS: https://www.arcod.co.il
+[2026-03-18T20:57:45.683Z]   AI→REGEX: fb <- https://www.facebook.com/arcodgroup (duplicate, skipped)
+[2026-03-18T20:57:45.683Z]   AI→REGEX: li <- https://il.linkedin.com/company/arcod-group?trk=public_jobs_topcard_logo (duplicate, skipped)
+[2026-03-18T20:57:45.684Z]   AI→REGEX: ig <- https://www.instagram.com/arcod_architects/?hl=en (duplicate, skipped)
+[2026-03-18T20:57:45.684Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T20:57:45.684Z] Footer/header origins (4):
+[2026-03-18T20:57:45.684Z]   FOOTER/HEADER ORIGIN: https://www.arcod.co.il
+[2026-03-18T20:57:45.684Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T20:57:45.684Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-18T20:57:45.685Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-18T20:57:45.685Z]   SKIP (not in footer/header): https://architek.co.il
+[2026-03-18T20:57:45.685Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T20:57:45.685Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T20:57:45.685Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T20:57:45.685Z] ── Step 3: Final dedup ──
+[2026-03-18T20:57:45.685Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T20:57:45.685Z] ── FINAL RESULT ──
+[2026-03-18T20:57:45.686Z]   ws (1):
+[2026-03-18T20:57:45.686Z]     - https://www.arcod.co.il
+[2026-03-18T20:57:45.686Z]   li (1):
+[2026-03-18T20:57:45.686Z]     - https://www.linkedin.com/company/arcod-group
+[2026-03-18T20:57:45.686Z]   fb (1):
+[2026-03-18T20:57:45.686Z]     - https://www.facebook.com/arcodgroup
+[2026-03-18T20:57:45.686Z]   ig (1):
+[2026-03-18T20:57:45.687Z]     - https://www.instagram.com/arcod_architects
+[2026-03-18T20:57:45.687Z]   urls (1):
+[2026-03-18T20:57:45.687Z]     - https://www.arcod.co.il
+[2026-03-18T20:57:45.687Z] Summary: ws:1, li:1, fb:1, ig:1, urls:1
+[2026-03-18T20:57:45.688Z] Saved final result to result.json
+[2026-03-18T20:57:45.689Z] Override fields: ws, li, fb, ig
+[2026-03-18T20:57:45.689Z] Finished at: 2026-03-18T20:57:45.689Z

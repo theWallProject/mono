@@ -1,0 +1,65 @@
+[2026-03-17T16:58:31.055Z] === Homepage AI Extractor: Israel Infrastructure Fund ===
+[2026-03-17T16:58:31.055Z] Started at: 2026-03-17T16:58:31.055Z
+[2026-03-17T16:58:31.055Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773766711054_Israel_Infrastructure_Fund
+[2026-03-17T16:58:31.055Z] Company: Israel Infrastructure Fund
+[2026-03-17T16:58:31.055Z] Website: iif.co.il
+[2026-03-17T16:58:31.055Z] cbRank: 1206950
+[2026-03-17T16:58:31.055Z] Reasons: h
+[2026-03-17T16:58:31.055Z] Fetching: https://iif.co.il
+[2026-03-17T16:58:42.157Z] Network idle timeout — continuing with current state
+[2026-03-17T16:58:42.186Z] Redirected: https://iif.co.il -> https://www.iif.co.il/
+[2026-03-17T16:58:42.188Z] Saved HTML (77394 bytes) to page.html
+[2026-03-17T16:58:42.191Z] Extracted 11 unique links from page
+[2026-03-17T16:58:42.191Z] Saved 11 links to links.json
+[2026-03-17T16:58:42.193Z] Extracted footer HTML (6450 chars)
+[2026-03-17T16:58:42.193Z] Extracted header HTML (6688 chars)
+[2026-03-17T16:58:42.196Z] Website (post-redirect): https://www.iif.co.il/ → origin: https://www.iif.co.il
+[2026-03-17T16:58:42.196Z] External links: 3 (of 11 total)
+[2026-03-17T16:58:42.196Z] ── All external links ──
+[2026-03-17T16:58:42.196Z]   EXT: http://natie.com
+[2026-03-17T16:58:42.196Z]   EXT: https://iif.natiedev.com
+[2026-03-17T16:58:42.196Z]   EXT: https://www.linkedin.com/company/iif-israel-infrastructure-fund
+[2026-03-17T16:58:42.196Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T16:58:42.197Z]   UNCATEGORIZED: http://natie.com
+[2026-03-17T16:58:42.197Z]   UNCATEGORIZED: https://iif.natiedev.com
+[2026-03-17T16:58:42.197Z]   REGEX: li <- https://www.linkedin.com/company/iif-israel-infrastructure-fund
+[2026-03-17T16:58:42.197Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-17T16:58:42.197Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T16:58:42.198Z] Saved AI prompt (6172 chars) to ai_prompt.txt
+[2026-03-17T16:58:42.198Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T16:58:42.201Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T16:59:09.349Z]   AI: First token received, streaming...
+[2026-03-17T16:59:13.571Z] AI response complete: 89 chars in 31.4s
+[2026-03-17T16:59:13.572Z] Saved AI response to ai_response.json
+[2026-03-17T16:59:13.572Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T16:59:13.573Z]   AI LINK: https://iif.natiedev.com
+[2026-03-17T16:59:13.573Z]   AI LINK: https://www.linkedin.com/company/iif-israel-infrastructure-fund/
+[2026-03-17T16:59:13.573Z] AI returned 2 valid links
+[2026-03-17T16:59:13.573Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T16:59:13.574Z]   AI→URLS: https://iif.natiedev.com
+[2026-03-17T16:59:13.574Z]   AI→REGEX: li <- https://www.linkedin.com/company/iif-israel-infrastructure-fund/ (duplicate, skipped)
+[2026-03-17T16:59:13.574Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T16:59:13.574Z] Footer/header origins (4):
+[2026-03-17T16:59:13.574Z]   FOOTER/HEADER ORIGIN: https://iif.natiedev.com
+[2026-03-17T16:59:13.574Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T16:59:13.574Z]   FOOTER/HEADER ORIGIN: https://www.iif.co.il
+[2026-03-17T16:59:13.574Z]   FOOTER/HEADER ORIGIN: http://natie.com
+[2026-03-17T16:59:13.575Z]   ADDED: urls <- http://natie.com
+[2026-03-17T16:59:13.575Z]   SKIP (AI claimed): https://iif.natiedev.com
+[2026-03-17T16:59:13.575Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T16:59:13.575Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T16:59:13.575Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T16:59:13.575Z] ── Step 3: Final dedup ──
+[2026-03-17T16:59:13.575Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T16:59:13.575Z] ── FINAL RESULT ──
+[2026-03-17T16:59:13.575Z]   ws (1):
+[2026-03-17T16:59:13.576Z]     - https://www.iif.co.il
+[2026-03-17T16:59:13.576Z]   li (1):
+[2026-03-17T16:59:13.576Z]     - https://www.linkedin.com/company/iif-israel-infrastructure-fund
+[2026-03-17T16:59:13.576Z]   urls (2):
+[2026-03-17T16:59:13.576Z]     - http://natie.com
+[2026-03-17T16:59:13.576Z]     - https://iif.natiedev.com
+[2026-03-17T16:59:13.576Z] Summary: ws:1, li:1, urls:2
+[2026-03-17T16:59:13.580Z] Saved final result to result.json
+[2026-03-17T16:59:13.580Z] Override fields: ws, li, urls
+[2026-03-17T16:59:13.580Z] Finished at: 2026-03-17T16:59:13.580Z

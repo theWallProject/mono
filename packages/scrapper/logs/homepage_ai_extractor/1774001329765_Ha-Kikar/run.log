@@ -1,0 +1,73 @@
+[2026-03-20T10:08:49.765Z] === Homepage AI Extractor: Ha-Kikar ===
+[2026-03-20T10:08:49.765Z] Started at: 2026-03-20T10:08:49.765Z
+[2026-03-20T10:08:49.765Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774001329765_Ha-Kikar
+[2026-03-20T10:08:49.765Z] Company: Ha-Kikar
+[2026-03-20T10:08:49.765Z] Website: hakikar.org
+[2026-03-20T10:08:49.766Z] cbRank: 2870204
+[2026-03-20T10:08:49.766Z] Reasons: h
+[2026-03-20T10:08:49.766Z] Fetching: https://hakikar.org
+[2026-03-20T10:08:54.796Z] Redirected: https://hakikar.org -> https://hakikar.org/
+[2026-03-20T10:08:54.800Z] Saved HTML (93147 bytes) to page.html
+[2026-03-20T10:08:54.802Z] Extracted 10 unique links from page
+[2026-03-20T10:08:54.803Z] Saved 10 links to links.json
+[2026-03-20T10:08:54.805Z] Extracted footer HTML (11276 chars)
+[2026-03-20T10:08:54.805Z] Extracted header HTML (6634 chars)
+[2026-03-20T10:08:54.809Z] Website (post-redirect): https://hakikar.org/ → origin: https://hakikar.org
+[2026-03-20T10:08:54.809Z]   SUBDOMAIN: campus.hakikar.org (added to ws)
+[2026-03-20T10:08:54.809Z] Website subdomains found: 1
+[2026-03-20T10:08:54.809Z] External links: 4 (of 10 total)
+[2026-03-20T10:08:54.809Z] ── All external links ──
+[2026-03-20T10:08:54.809Z]   EXT: https://pincuscenter.org
+[2026-03-20T10:08:54.809Z]   EXT: https://www.facebook.com/haKikar.ok
+[2026-03-20T10:08:54.809Z]   EXT: https://www.instagram.com/hakikar.ok
+[2026-03-20T10:08:54.810Z]   EXT: https://www.paypal.com/us/fundraiser/charity/2582394
+[2026-03-20T10:08:54.810Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T10:08:54.810Z]   UNCATEGORIZED: https://pincuscenter.org
+[2026-03-20T10:08:54.810Z]   REGEX: fb <- https://www.facebook.com/haKikar.ok
+[2026-03-20T10:08:54.810Z]   REGEX: ig <- https://www.instagram.com/hakikar.ok
+[2026-03-20T10:08:54.810Z]   UNCATEGORIZED: https://www.paypal.com/us/fundraiser/charity/2582394
+[2026-03-20T10:08:54.810Z] Programmatic result: ws:2, fb:1, ig:1 | 2 uncategorized
+[2026-03-20T10:08:54.810Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T10:08:54.813Z] Saved AI prompt (7939 chars) to ai_prompt.txt
+[2026-03-20T10:08:54.814Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T10:08:54.818Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T10:09:47.781Z]   AI: First token received, streaming...
+[2026-03-20T10:09:52.092Z] AI response complete: 73 chars in 57.3s
+[2026-03-20T10:09:52.093Z] Saved AI response to ai_response.json
+[2026-03-20T10:09:52.093Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T10:09:52.094Z]   AI LINK: https://www.instagram.com/hakikar.ok/
+[2026-03-20T10:09:52.094Z]   AI LINK: https://www.facebook.com/haKikar.ok
+[2026-03-20T10:09:52.094Z] AI returned 2 valid links
+[2026-03-20T10:09:52.094Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T10:09:52.094Z]   AI→REGEX: ig <- https://www.instagram.com/hakikar.ok/ (duplicate, skipped)
+[2026-03-20T10:09:52.095Z]   AI→REGEX: fb <- https://www.facebook.com/haKikar.ok (duplicate, skipped)
+[2026-03-20T10:09:52.095Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T10:09:52.095Z] Footer/header origins (6):
+[2026-03-20T10:09:52.095Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T10:09:52.095Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T10:09:52.095Z]   FOOTER/HEADER ORIGIN: https://pincuscenter.org
+[2026-03-20T10:09:52.096Z]   FOOTER/HEADER ORIGIN: https://www.paypal.com
+[2026-03-20T10:09:52.096Z]   FOOTER/HEADER ORIGIN: https://hakikar.org
+[2026-03-20T10:09:52.096Z]   FOOTER/HEADER ORIGIN: https://campus.hakikar.org
+[2026-03-20T10:09:52.096Z]   ADDED: urls <- https://pincuscenter.org
+[2026-03-20T10:09:52.096Z]   ADDED: urls <- https://www.paypal.com/us/fundraiser/charity/2582394
+[2026-03-20T10:09:52.096Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-20T10:09:52.096Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T10:09:52.097Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T10:09:52.097Z] ── Step 3: Final dedup ──
+[2026-03-20T10:09:52.097Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T10:09:52.097Z] ── FINAL RESULT ──
+[2026-03-20T10:09:52.097Z]   ws (2):
+[2026-03-20T10:09:52.097Z]     - https://campus.hakikar.org
+[2026-03-20T10:09:52.097Z]     - https://hakikar.org
+[2026-03-20T10:09:52.097Z]   fb (1):
+[2026-03-20T10:09:52.098Z]     - https://www.facebook.com/hakikar.ok
+[2026-03-20T10:09:52.098Z]   ig (1):
+[2026-03-20T10:09:52.098Z]     - https://www.instagram.com/hakikar.ok
+[2026-03-20T10:09:52.098Z]   urls (2):
+[2026-03-20T10:09:52.098Z]     - https://pincuscenter.org
+[2026-03-20T10:09:52.098Z]     - https://www.paypal.com/us/fundraiser/charity/2582394
+[2026-03-20T10:09:52.099Z] Summary: ws:2, fb:1, ig:1, urls:2
+[2026-03-20T10:09:52.100Z] Saved final result to result.json
+[2026-03-20T10:09:52.100Z] Override fields: ws, fb, ig, urls
+[2026-03-20T10:09:52.100Z] Finished at: 2026-03-20T10:09:52.100Z

@@ -1,0 +1,1312 @@
+<!DOCTYPE html><html lang="en" data-bs-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senserum - AI Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://senserum.com/favicon.png" rel="icon" type="image/png">
+    <link rel="canonical" href="https://senserum.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Senserum",
+        "url": "https://senserum.com",
+        "sameAs": [
+            "https://www.instagram.com/senserum_ai",
+            "https://x.com/senserum_ai"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Senserum",
+            "url": "https://senserum.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://senserum.com/logo.png",
+                "width": 512,
+                "height": 512
+            }
+        }
+    }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+        html, body {
+            overflow-x: hidden;
+            overscroll-behavior: none;
+        }
+        #main-box {}
+        #chat-box-container {
+            overflow-y: auto;
+            min-height: 0;
+        }
+        #tools-box { flex: 0 0 auto; }
+        .loading { color: #aaa; font-size: 1.2rem !important; }
+        @keyframes dots {
+            0% { content: "."; }
+            33% { content: ".."; }
+            66% { content: "..."; }
+        }
+        .loading::after {
+            content: "...";
+            display: inline-block;
+            animation: dots 1.5s infinite;
+        }
+        h1 { font-family: "Prata", serif !important; }
+        think { display: none; color: #007bff; margin-top: 12px; font-style: normal; font-size: 0.8rem !important; }
+        pre { overflow: hidden; border-radius: 3px; font-family: courier, monospace; padding: 0px; width: 100%; margin-top: 12px; color: inherit !important; }
+        #d001 {
+            position: absolute;
+            z-index: -100;
+            left: 0px;
+            top: 0px;
+            right: 0px;
+            height: 100px;
+            background: transparent;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.05) 100%);
+        }
+        #d002 {
+            position: fixed;
+            z-index: -100;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            height: 100px;
+            background: transparent;
+            background: linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 100%);
+        }
+        .loader {
+            height: 4px;
+            width: 100%;
+            --c:no-repeat linear-gradient(#007bff 0 0);
+            background: var(--c),var(--c),#57a8ff;
+            background-size: 60% 100%;
+            animation: l16 5s infinite;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }
+        @keyframes l16 {
+            0%   {background-position:-150% 0,-150% 0}
+            66%  {background-position: 250% 0,-150% 0}
+            100% {background-position: 250% 0, 250% 0}
+        }
+        .card-bgd {
+            background-color: #21252b !important;
+            border-radius: 14px !important;
+            border: 2px solid transparent !important;
+            position: relative !important;
+            box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.3) !important;
+        }
+        .card-bgd::before {
+            content: "";
+            position: absolute !important;
+            top:    -2px;
+            right:  -2px;
+            left:   -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            z-index: -1 !important;
+            border-radius: 14px !important;
+        }
+        .card-bgd::after {
+            content: "";
+            position: absolute;
+            top:    0px;
+            right:  0px;
+            left:   0px;
+            bottom: 0px;
+            background-color: #21252b !important;
+            border-radius: 12px;
+            z-index: 0 !important;
+        }
+        .card-bgd > .card-header, .card-bgd > .card-body {
+            position: relative;
+            z-index: 1 !important;
+        }
+        .card-bgd > .card-header { border-radius: 12px 12px 0 0 !important; }
+        .fh { height: 100dvh !important; }
+        .card-header-fs { border-radius: 0 !important; }
+        .xpcss { max-width: 480px !important; }
+        pre code { white-space: pre-wrap; }
+        /*** FORMATTING ***/
+        .box-formatting img {
+            display: inline-block;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto;
+            border-radius: 8px;
+            box-sizing: border-box;
+            margin-top: 12px !important;
+        }
+        .box-formatting *:last-child {
+            margin-bottom: 0px !important;
+        }
+        .box-formatting {
+            font-size: 0.8 !important;
+        }
+        /*******************/
+        .border-top-left-radius-0 {
+            border-top-left-radius: 0px !important;
+        }
+        .border-top-right-radius-0 {
+            border-top-right-radius: 0px !important;
+        }
+        .rounded-bottom-0 {
+            border-bottom-left-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+        }
+    </style>
+    <link rel="stylesheet" href="./dracula.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+<body class="d-flex flex-column align-items-center justify-content-center">
+    <div id="d001"></div>
+    <div id="d002"></div>
+    <div class="container" style="max-width: 680px">
+        <div class="text-center" id="start-element-1">
+           <h1 style="max-width: 480px; display: inline-block" class="text-center mb-5 mt-5">Chat, discover and create almost anything with <i class="fw-bold">Senserum</i> <i class="bi bi-stars"></i>.</h1>
+           <br>
+           <div class="mb-5">
+               <span class="badge rounded-pill text-bg-secondary fw-normal"><i class="bi bi-search"></i> Web</span>
+               <span class="badge rounded-pill text-bg-secondary fw-normal"><i class="bi bi-code-slash"></i> Code</span>
+               <span class="badge rounded-pill text-bg-secondary fw-normal"><i class="bi bi-plus-circle"></i> Create</span>
+               <span class="badge rounded-pill text-bg-secondary fw-normal"><i class="bi bi-blockquote-left"></i> Summarize</span>
+               <span class="badge rounded-pill text-bg-secondary fw-normal"><i class="bi bi-marker-tip"></i> Analyze</span>
+           </div>
+                   </div> 
+        <div class="card card-bgd w-100 bg-dark mt-5 mb-5 animate__animated animate__pulse" id="main-box">
+            <div class="card-header text-start fw-bold d-flex justify-content-between py-2" id="card-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-chat-square-quote me-2"></i>
+                </div>
+                <div class="d-flex">
+                    <select class="form-select form-select-sm rounded-4" id="mdlSelector">
+                        <option value="mdl1">General</option>
+                        <option value="mdl2">Web Search</option>
+                        <option value="mdl3">Vision</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body pt-0 pb-0 px-0 d-flex flex-column bg-light-subtle overflow-hidden" style="height: 100%; min-height: 0; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px" id="box-190">
+                <div class="flex-grow-1 border-0 px-3 p-0 mb-0 mt-0" id="chat-box-container">
+                    <div class="chat-box" id="chat-box"></div>
+                </div>
+                <div class="d-flex align-items-end mb-0 py-3 px-3 w-100 bg-dark-subtle" id="tools-box">
+                    <form id="chat-form" class="w-100" enctype="multipart/form-data">
+                    <input class="form-control form-control-sm mb-3" id="docFile" name="docFile" type="file" style="display: none;">
+                    <textarea id="user-message" maxlength="480" class="form-control border-0 mb-3 bg-transparent" placeholder="Ask anything..." style="min-height: 1.5em; max-height: 6em; overflow-y: hidden; resize: none" required=""></textarea>
+                    <input type="text" class="d-none" id="user-hcs" name="username" autocomplete="off">
+                    <input type="text" class="d-none" id="token-hcs" value="0f8cbc840e524a5a11a831426964a7225293c8d618606e47dfef586bf6b67a04" autocomplete="off">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <button type="button" class="btn btn-secondary rounded-4 me-1" data-bs-toggle="modal" data-bs-target="#settingsBox">
+                                <i class=" bi bi-sliders"></i>
+                            </button>
+                                                        <a href="https://senserum.com/sign_in" class="btn btn-secondary rounded-4 me-1" id="account-btn"><i class="bi bi-person"></i> Account</a>
+                                                    </div>
+                        <div>
+                            <button class="btn btn-secondary rounded-4 me-1" type="button" id="voice-button"><i class="bi bi-mic"></i></button>
+                            <button class="btn btn-primary rounded-4 px-4" type="submit"><i class="bi bi-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="start-element-2">
+            <p class="form-text mt-5 mb-5 text-center">Senserum is an advanced AI-powered chat assistant designed to provide fast, intelligent, and context-aware responses to all your queries. Whether you're a developer, student, business owner, or simply curious, Senserum is here to assist you with coding, general knowledge, brainstorming, writing assistance, and more.</p>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <img src="./Senserum_Multimodal_AI.png" alt="Senserum is a Free Multimodal AI" style="width: 100%; max-width: 480px">
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-light-subtle mt-5 mb-5 shadow border rounded-5">
+                        <div class="card-body p-4 text-center">
+                            <h2 class="fs-4 mb-3">Communicate naturally and get answers to all your questions</h2>
+                            <p class="form-text mb-4">A few seconds are enough for Senserum to understand your request and provide you with a logical and appropriate result. Don't limit your creativity and let yourself be advised. <strong>We do not store your conversations and your data is not sold.</strong></p>
+                            <a href="./sign_up" class="btn btn-secondary rounded-4 w-100">Sign up for free</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion mb-5" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            What is Senserum?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Senserum is an advanced AI-powered chatbot designed to assist users with a wide range of tasks, including answering questions, coding, brainstorming, generating images, summarizing content, and more.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Can Senserum generate images?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! Senserum can generate AI-powered images. Simply describe the image you want, and Senserum will create it for you.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            How do I switch between modes?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can switch between different AI modes using the dropdown menu at the top of the chat. The <strong>General</strong> mode is for text-based interactions and image generation while the <strong>Web Search</strong> allows you to obtain data in real time.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Does Senserum store my conversations?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No, Senserum does not store or save your conversations. All interactions are processed in real-time and are not logged for privacy reasons.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Is Senserum free to use?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, Senserum is free to use with standard features. However, some advanced features or higher usage limits require a premium plan (<strong>Senserum Plus</strong>).
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            What languages does Senserum support?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Senserum supports multiple languages, including English, French, Spanish, and more. However, responses may be more accurate in English.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            Can Senserum write and debug code?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! Senserum can generate and debug code in multiple programming languages, including Python, JavaScript, HTML, CSS, and more. You can also run HTML code directly using the built-in <strong>Run</strong> feature.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            How do I report a bug or suggest a feature?
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            If you encounter a bug or have a feature request, you can report the issue directly through our support email.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="start-element-3">
+            <p class="text-center form-text mb-5" style="font-size: 0.8rem;">
+                The results may be erroneous, inappropriate, or offensive. Some information may appear real but is not. Use our tool with caution and always compare results with other sources. © Senserum <em>(OnzeMars)</em> - 2026 - <span id="emDisplay"><a href="mailto:contact@senserum.com">contact@senserum.com</a></span> - <a href="./terms_conditions">Terms &amp; Conditions</a> - <a href="./privacy_policy">Privacy Policy</a> - <a href="./legal_notice">Legal notice</a> - <a href="https://www.instagram.com/senserum_ai/" target="_blank">Instagram</a> - <a href="https://x.com/senserum_ai" target="_blank">X.com</a>
+            </p>
+        </div>
+    </div>
+    <div class="modal fade" id="settingsBox" tabindex="-1" aria-labelledby="settingsBoxLabel">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="settingsBoxLabel">Settings</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check form-text">
+                        <input class="form-check-input" type="checkbox" id="toggle-think">
+                        <label class="form-check-label" for="toggle-think">Show Thoughts</label>
+                    </div>
+                </div>
+                <div class="modal-footer form-text">
+                    <strong>Senserum 1x</strong> (v1.0.2)
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+    let startMessage = true;
+    
+    document.addEventListener("DOMContentLoaded", function() {
+    const setupEmail = () => {
+        const docFile = document.getElementById("docFile");
+        if (docFile) docFile.style.display = "none";
+        
+        const user = "contact";
+        const domain = "senserum.com";
+        const email = `${user}@${domain}`;
+        const emailDisplay = document.getElementById("emDisplay");
+        if (emailDisplay) emailDisplay.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+    };
+    
+        
+    function goFullscreen() {
+        const startE1 = document.getElementById("start-element-1");
+        const startE2 = document.getElementById("start-element-2");
+        const startE3 = document.getElementById("start-element-3");
+        const mainBox = document.getElementById("main-box");
+        const headerBox = document.getElementById("card-header");
+        const chatBoxContainer = document.getElementById("chat-box-container");
+        const toolsBox = document.getElementById("tools-box");
+        const chatBox = document.getElementById("chat-box");
+        const box190 = document.getElementById("box-190");
+        
+        if (startE1) startE1.innerHTML = "";
+        if (startE2) startE2.innerHTML = "";
+        if (startE3) startE3.innerHTML = "";
+            
+        if (mainBox) {
+            mainBox.classList.remove("card-bgd", "mt-5", "mb-5");
+            mainBox.classList.add("position-absolute", "top-0", "bottom-0", "start-0", "end-0", "fh", "border-0", "rounded-0");
+        }
+            
+        if (toolsBox) toolsBox.classList.add("border-top", "rounded-bottom-0", "rounded-top-4", "pt-4", "mt-0");
+        if (box190) box190.classList.add("rounded-bottom-0");
+        if (headerBox) headerBox.classList.add("card-header-fs");
+        
+        chatBox.innerHTML = `<div class="alert alert-secondary mt-3 mb-3 me-5 rounded-4 border-top-left-radius-0"><span class="badge text-bg-secondary"><i class="bi bi-stars"></i></span> <div class="mb-0 mt-2 box-formatting" id="air-i0"></div></div>`;
+                typeWriterEffect('air-i0', 'Hello &#128075; how can I help you? You can choose from different modes: <ul class="mb-0"><li><strong>General</strong>: Food, Culture, Maths, Image generation...</li> <li><strong>Web Search</strong>: Real-time data</li> <li><strong>Vision</strong>: Image analysis</li></ul>', 10, function() {});
+    }
+    
+    let mdl = "mdl1";
+
+    const setupTextarea = () => {
+        const textUM = document.getElementById("user-message");
+        if (!textUM) return;
+        
+        function adjustTextareaHeight() {
+            textUM.style.height = "auto";
+            const lineHeight = parseInt(getComputedStyle(textUM).lineHeight);
+            const maxHeight = lineHeight * 4; 
+            textUM.style.height = `${Math.min(textUM.scrollHeight, maxHeight)}px`;
+        }
+        
+        textUM.addEventListener("input", adjustTextareaHeight);
+    };
+    
+    const setupVoiceRecognition = () => {
+        const voiceButton = document.getElementById("voice-button");
+        if (!voiceButton) return;
+        
+        if (!('webkitSpeechRecognition' in window)) {
+            voiceButton.style.display = 'none';
+            return;
+        }
+        
+        voiceButton.addEventListener("click", function() {
+            const recognition = new webkitSpeechRecognition();
+            recognition.interimResults = false; 
+            recognition.maxAlternatives = 1;
+            recognition.start();
+
+            recognition.onstart = () => {
+                voiceButton.classList.add("btn-warning");
+            };
+
+            recognition.onspeechend = () => {
+                recognition.stop();
+                voiceButton.classList.remove("btn-warning");
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById("user-message").value = transcript;
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error: ", event.error);
+                voiceButton.classList.remove("btn-warning");
+            };
+        });
+    };
+
+    const encodeFileToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const base64String = reader.result.split(",")[1]; 
+                resolve(base64String);
+            };
+            reader.onerror = (error) => reject(error);
+        });
+    };
+    
+    const setupChatForm = () => {
+        const chatForm = document.getElementById("chat-form");
+        if (!chatForm) return;
+        
+        chatForm.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            
+            const startE1 = document.getElementById("start-element-1");
+            const startE2 = document.getElementById("start-element-2");
+            const startE3 = document.getElementById("start-element-3");
+            const mainBox = document.getElementById("main-box");
+            const headerBox = document.getElementById("card-header");
+            const chatBoxContainer = document.getElementById("chat-box-container");
+            const userMessageInput = document.getElementById("user-message");
+            const chatBox = document.getElementById("chat-box");
+            const toolsBox = document.getElementById("tools-box");
+            const box190 = document.getElementById("box-190");
+            const message = userMessageInput.value.trim();
+            
+            if (!message) return;
+            
+            if (startE1) startE1.innerHTML = "";
+            if (startE2) startE2.innerHTML = "";
+            if (startE3) startE3.innerHTML = "";
+            
+            if (mainBox) {
+                mainBox.classList.remove("card-bgd", "mt-5", "mb-5");
+                mainBox.classList.add("position-absolute", "top-0", "bottom-0", "start-0", "end-0", "fh", "border-0", "rounded-0");
+            }
+            
+            if (toolsBox) toolsBox.classList.add("border-top", "rounded-bottom-0", "rounded-top-4", "pt-4", "mt-0");
+            if (box190) box190.classList.add("rounded-bottom-0");
+            if (headerBox) headerBox.classList.add("card-header-fs");
+        
+            const userHCS = document.getElementById("user-hcs")?.value || "";
+            const tokenHCS = document.getElementById("token-hcs")?.value || "";
+            const fileInput = document.getElementById("docFile");
+            const file = fileInput?.files[0];
+
+            if (startMessage == true) {
+                chatBox.innerHTML = `<div class="alert alert-info mt-3 mb-3 me-5 rounded-4 border-top-left-radius-0 box-formatting"><i class="bi bi-exclamation-circle"></i> The results may be erroneous, inappropriate, or offensive. Some information may appear real but is not. Use our tool with caution and always compare results with other sources.</div>`;
+                startMessage = false;
+            }
+        
+            chatBox.innerHTML += `
+                <div class="alert alert-secondary mt-3 mb-3 ms-5 rounded-4 border-top-right-radius-0">
+                    <span class="badge text-bg-secondary">You</span> 
+                    <p class="mb-0 mt-2 box-formatting">${message}</p>
+                </div>`;
+            
+            const loadingMessage = document.createElement("div");
+            loadingMessage.className = "alert alert-secondary mt-3 mb-3 me-5 rounded-4 border-top-left-radius-0";
+            loadingMessage.innerHTML = `<span class="badge text-bg-secondary"><i class="bi bi-stars"></i></span> <p class="mb-0 mt-2 box-formatting"><span class="loading"></span></p>`;
+            chatBox.appendChild(loadingMessage);
+            
+            userMessageInput.disabled = true;
+            
+            if (chatBoxContainer) {
+                chatBoxContainer.scrollTo({
+                    top: chatBox.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+            
+            let endpoint;
+            switch (mdl) {
+                case "mdl2":
+                    endpoint = "core_web.php";
+                    break;
+                case "mdl3":
+                    endpoint = "core_vision.php";
+                    break;
+                default:
+                    endpoint = "core.php";
+            }
+            
+            let fileData = null;
+            let fileName = "";
+            let fileType = "";
+            
+            if (file) {
+                fileData = await encodeFileToBase64(file);
+                fileName = file.name;
+                fileType = file.type;
+            }
+            
+            const requestData = { message, tokenhcs: tokenHCS };
+            
+            if (file) {
+                requestData.fileData = fileData;
+                requestData.fileName = fileName;
+                requestData.fileType = fileType;
+                fileInput.value = "";
+            }
+        
+            fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatBox.removeChild(loadingMessage);
+                const formattedReply = data.reply;
+                const responseType = data.type;
+                const responseId = `air-${Date.now()}`;
+                
+                if (responseType === "error") {
+                    const parsedReply = marked.parse(data.reply);
+                    const responseErrorContainer = document.createElement("div");
+                    responseErrorContainer.className = "alert alert-danger mt-3 mb-3 me-5 rounded-4 border-top-left-radius-0";
+                    responseErrorContainer.innerHTML = `<span class="badge text-bg-danger">Error</span> <div class="mb-0 mt-2 box-formatting" id="${responseId}"></div>`;
+                    chatBox.appendChild(responseErrorContainer);
+                    typeWriterEffect(responseId, parsedReply, 10, function() {
+                        
+                    });
+                    userMessageInput.disabled = false;
+                } else if (responseType === "error-account") { 
+                    const parsedReply = marked.parse(data.reply);
+                    const responseErrorAccountContainer = document.createElement("div");
+                    const accountBtn = document.getElementById("account-btn");
+                    responseErrorAccountContainer.className = "alert alert-danger mt-3 mb-3 me-5 rounded-4 border-top-left-radius-0";
+                    responseErrorAccountContainer.innerHTML = `<span class="badge text-bg-danger">Error</span> <div class="mb-0 mt-2 box-formatting" id="${responseId}"></div>`;
+                    chatBox.appendChild(responseErrorAccountContainer);
+                    typeWriterEffect(responseId, parsedReply, 10, function() {
+                        
+                    });
+                    userMessageInput.disabled = false;
+                    
+                    if (accountBtn) {
+                        accountBtn.classList.add('animate__animated', 'animate__tada');
+                        accountBtn.addEventListener('animationend', () => {
+                            accountBtn.classList.remove('animate__animated', 'animate__tada');
+                        });
+                    }
+                } else {
+                    const parsedReply = marked.parse(data.reply);
+                    const mainResponse = parsedReply.replace(/<think>[\s\S]*?<\/think>/g, ''); 
+                    const thinkBlocks = parsedReply.match(/<think>[\s\S]*?<\/think>/g) || []; 
+                    const responseContainer = document.createElement("div");
+                    responseContainer.className = "alert alert-secondary mt-3 mb-3 me-5 rounded-4 border-top-left-radius-0";
+                    responseContainer.innerHTML = `<span class="badge text-bg-secondary"><i class="bi bi-stars"></i></span> <div class="mb-0 mt-2 box-formatting" id="${responseId}"></div>`;
+                    chatBox.appendChild(responseContainer);
+                    
+                    typeWriterEffect(responseId, mainResponse, 10, function() {
+                        thinkBlocks.forEach(thinkBlock => {
+                            const thinkElement = document.createElement("div");
+                            thinkElement.innerHTML = thinkBlock;
+                            responseContainer.appendChild(thinkElement);
+                        });
+                    
+                        applyThinkToggle();
+                        addRunButtons();
+                        
+                        if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                            MathJax.typesetPromise();
+                        }
+                        
+                        if (typeof hljs !== 'undefined' && hljs.highlightAll) {
+                            hljs.highlightAll();
+                        }
+                        
+                        if (chatBoxContainer) {
+                            chatBoxContainer.scrollTo({
+                                top: chatBox.scrollHeight,
+                                behavior: 'smooth'
+                            });
+                        }
+                        userMessageInput.disabled = false;
+                    });
+                }
+            })
+            .catch(error => {
+                chatBox.removeChild(loadingMessage);
+                chatBox.innerHTML += `<div class="alert alert-danger mt-3 mb-3 me-5 rounded-4 border-top-left-radius-0 box-formatting"><i class="bi bi-exclamation-circle"></i> Error fetching response.</div>`;
+                userMessageInput.disabled = false;
+            });
+            
+            userMessageInput.value = "";
+            adjustTextareaHeight();
+        });
+    };
+    
+    function typeWriterEffect(elementId, text, speed, callback) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        element.innerHTML = "";
+        let index = 0;
+        
+        function addNextCharacter() {
+            if (index < text.length) {
+                element.innerHTML = text.substring(0, index + 1);
+                index++;
+                setTimeout(addNextCharacter, speed);
+            } else {
+                if (callback) callback();
+            } 
+        }
+        addNextCharacter();
+    }
+    
+    function applyThinkToggle() {
+        const toggleThink = document.getElementById("toggle-think");
+        if (!toggleThink) return;
+        
+        const showThink = toggleThink.checked;
+        document.querySelectorAll("think").forEach(thinkBlock => {
+            thinkBlock.style.display = showThink ? "block" : "none";
+        });
+    }
+    
+    function applyMdl() {
+        const mdlSelector = document.getElementById("mdlSelector");
+        if (!mdlSelector) return;
+        
+        const userMsg = document.getElementById("user-message");
+        const docFile = document.getElementById("docFile");
+        
+        switch (mdlSelector.value) {
+            case "mdl2":
+                mdl = "mdl2";
+                if (userMsg) {
+                    userMsg.placeholder = "Ask anything, I will answer with real-time data...";
+                    userMsg.disabled = false;
+                }
+                if (docFile) docFile.style.display = "none";
+                break;
+            case "mdl3":
+                mdl = "mdl3";
+                if (userMsg) {
+                    userMsg.placeholder = "Add an image and ask your questions...";
+                    userMsg.disabled = false;
+                }
+                if (docFile) docFile.style.display = "block";
+                break;
+            default:
+                mdl = "mdl1";
+                if (userMsg) {
+                    userMsg.placeholder = "Ask anything...";
+                    userMsg.disabled = false;
+                }
+                if (docFile) docFile.style.display = "none";
+        }
+    }
+
+    function detectLanguage(code) {
+        if (typeof hljs === 'undefined' || !hljs.highlightAuto) return "unknown";
+        
+        try {
+            const detected = hljs.highlightAuto(code);
+            return detected?.language || "unknown";
+        } catch (e) {
+            console.error("Language detection error:", e);
+            return "unknown";
+        }
+    }
+
+    function addRunButtons() {
+        document.querySelectorAll("code").forEach((codeBlock, index) => {
+            const parentPre = codeBlock.parentElement;
+            if (!parentPre || !parentPre.parentElement) return;
+            
+            const nextSibling = parentPre.nextSibling;
+            if (nextSibling && 
+                nextSibling.tagName === "BUTTON" && 
+                nextSibling.classList.contains("btn-success")) {
+                return;
+            }
+        
+            const detectedLang = detectLanguage(codeBlock.innerText.trim());
+            
+            if (detectedLang === "xml" || detectedLang === "html") {
+                const runButton = document.createElement("button");
+                runButton.className = "btn btn-sm btn-success w-100 mt-1 mb-2";
+                runButton.innerHTML = '<i class="bi bi-play-fill"></i> Run';
+                runButton.onclick = function() {
+                    execute(codeBlock, index, "code");
+                };
+                
+                parentPre.parentElement.insertBefore(runButton, parentPre.nextSibling);
+            }
+        });
+    }
+    
+    function removeElementsByClass(className) {
+        const elements = document.getElementsByClassName(className);
+        while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+    }
+    
+    window.closePreview = function() { 
+        removeElementsByClass('xpcss'); 
+    };
+    
+    window.sizePreview = function() {
+        const sizePreviewBlock = document.getElementById("preview-28");
+        if (!sizePreviewBlock) return;
+        
+        if (sizePreviewBlock.style.height === "200px") {
+            sizePreviewBlock.style.height = "400px";
+        } else {
+            sizePreviewBlock.style.height = "200px";
+        }
+    };
+    
+    window.execute = function(contentBlock, index, etype) {
+        removeElementsByClass('xpcss');
+        
+        const previewContainer = document.getElementById("chat-box");
+        if (!previewContainer) return;
+        
+        const outputCard = document.createElement("div");
+        const outputBody = document.createElement("div");
+        const outputFooter = document.createElement("div");
+        const chatBoxContainer = document.getElementById("chat-box-container");
+        
+        outputCard.id = `output-${index}`;
+        outputCard.className = "card mt-3 mb-3 overflow-hidden rounded-4 xpcss";
+        
+        outputBody.className = "card-body p-0 overflow-hidden";
+       
+        outputFooter.className = "card-footer mt-0 form-text d-flex justify-content-between align-items-center py-2";
+        outputFooter.innerHTML = `
+            <div class="d-flex justify-content-start align-items-center">
+                <i class="bi bi-play-fill"></i>
+            </div>
+            <div>
+                <button class="btn btn-secondary btn-sm me-2" onclick="sizePreview()">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="closePreview()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>`;
+        
+        if (etype === "code") {
+            const content = contentBlock.innerText.trim();
+            const iframe = document.createElement("iframe");
+            iframe.className = "mb-0";
+            iframe.id = "preview-28";
+            iframe.style.width = "100%";
+            iframe.style.height = "200px";
+            iframe.style.border = "none";
+            iframe.style.display = "block";
+            iframe.sandbox = "allow-scripts";
+            
+            const isFullHtml = /<!DOCTYPE html>/i.test(content);
+            
+            const iframeContent = isFullHtml ? content : `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Preview</title>
+                    <style>body { font-family: Arial, sans-serif; }</style>
+                </head>
+                <body>
+                    ${content}
+                </body>
+                </html>
+            `;
+            
+            iframe.srcdoc = iframeContent;
+            outputBody.appendChild(iframe);
+        } else {
+            const content = contentBlock.trim();
+            const image = document.createElement("img");
+            image.id = "preview-28";
+            image.className = "mb-0";
+            image.style.width = "100%";
+            image.style.height = "auto";
+            image.src = content;
+            outputBody.appendChild(image);
+            
+            const userMessageInput = document.getElementById("user-message");
+            if (userMessageInput) userMessageInput.disabled = false;
+        }
+        
+        outputCard.appendChild(outputBody);
+        outputCard.appendChild(outputFooter);
+        previewContainer.appendChild(outputCard);
+        
+        if (chatBoxContainer) {
+            chatBoxContainer.scrollTo({
+                top: previewContainer.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    };
+    
+    function setupLinks() {
+        function setLinks() {
+            const chatBox = document.getElementById("chat-box");
+            if (!chatBox) return;
+            
+            const links = chatBox.querySelectorAll("a");
+            links.forEach(link => {
+                if (!link.hasAttribute("target") || link.getAttribute("target") !== "_blank") {
+                    link.setAttribute("target", "_blank");
+                    link.setAttribute("rel", "noopener noreferrer");
+                }
+                if (!link.nextElementSibling || !link.nextElementSibling.classList.contains("bi-box-arrow-up-right")) {
+                    link.insertAdjacentHTML("afterend", ` <i class="bi bi-box-arrow-up-right"></i>`);
+                }
+            });
+        }
+        setLinks();
+
+        const chatBox = document.getElementById("chat-box");
+        if (chatBox) {
+            const observer = new MutationObserver(setLinks);
+            observer.observe(chatBox, { childList: true, subtree: true });
+        }
+    }
+    
+    function setupEventListeners() {
+        const toggleThink = document.getElementById("toggle-think");
+        if (toggleThink) {
+            toggleThink.addEventListener("change", applyThinkToggle);
+        }
+        
+        const mdlSelector = document.getElementById("mdlSelector");
+        if (mdlSelector) {
+            mdlSelector.addEventListener("change", applyMdl);
+        }
+    }
+    
+    function initMathJax() {
+        if (typeof MathJax !== 'undefined' && MathJax.typeset) {
+            MathJax.typeset();
+        }
+    }
+    
+    setupEmail();
+    setupTextarea();
+    setupVoiceRecognition();
+    setupChatForm();
+    setupEventListeners();
+    setupLinks();
+    initMathJax();
+    applyThinkToggle();
+    addRunButtons();
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    
+    
+    
+    
+    </body></html>

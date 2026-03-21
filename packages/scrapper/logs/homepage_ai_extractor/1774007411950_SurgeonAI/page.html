@@ -1,0 +1,749 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.4",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>Surgeon AI</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//widgetlogic.org">
+
+<link rel="alternate" type="application/rss+xml" title="Surgeon AI » Feed" href="https://surgeonai.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Surgeon AI » Comments Feed" href="https://surgeonai.com/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://surgeonai.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsurgeonai.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://surgeonai.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsurgeonai.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel="stylesheet" id="formidable-css" href="https://surgeonai.com/wp-admin/admin-ajax.php?action=frmpro_css&amp;ver=12132041" media="all">
+<link data-minify="1" rel="stylesheet" id="hfe-widgets-style-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hfe-woo-product-grid-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/header-footer-elementor/inc/widgets-css/woo-products.css?ver=1773801603" media="all">
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="jet-engine-frontend-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="block-widget-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/widget-logic/block_widget/css/widget.css?ver=1773801603" media="all">
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="woocommerce-layout-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="woocommerce-smallscreen-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=1773801603" media="only screen and (max-width: 768px)">
+<link data-minify="1" rel="stylesheet" id="woocommerce-general-css" href="https://surgeonai.com/wp-content/cache/background-css/1/surgeonai.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=1773801603&amp;wpr_t=1773801603" media="all">
+<style id="woocommerce-inline-inline-css">
+.woocommerce form .form-row .required { visibility: visible; }
+/*# sourceURL=woocommerce-inline-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="hfe-style-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://surgeonai.com/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1773801602" media="all">
+<link rel="stylesheet" id="elementor-post-6-css" href="https://surgeonai.com/wp-content/uploads/elementor/css/post-6.css?ver=1773801602" media="all">
+<link data-minify="1" rel="stylesheet" id="font-awesome-5-all-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="e-animation-fadeIn-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="e-animation-slideInRight-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/lib/animations/styles/slideInRight.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-divider-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-image-box-css" href="https://surgeonai.com/wp-content/uploads/elementor/css/custom-widget-image-box.min.css?ver=1773801602" media="all">
+<link rel="stylesheet" id="widget-author-box-css" href="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/css/widget-author-box.min.css?ver=3.33.2" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-nested-carousel-css" href="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/css/widget-nested-carousel.min.css?ver=3.33.2" media="all">
+<link rel="stylesheet" id="elementor-post-166-css" href="https://surgeonai.com/wp-content/cache/background-css/1/surgeonai.com/wp-content/uploads/elementor/css/post-166.css?ver=1773801603&amp;wpr_t=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-theme-style-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/theme.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-child-style-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/themes/TEMP/hello-theme-child-master/style.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/reset.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-header-footer-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-nav-menu-css" href="https://surgeonai.com/wp-content/uploads/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1773801602" media="all">
+<link rel="stylesheet" id="e-sticky-css" href="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.33.2" media="all">
+<link rel="stylesheet" id="elementor-post-2510-css" href="https://surgeonai.com/wp-content/uploads/elementor/css/post-2510.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="elementor-post-2513-css" href="https://surgeonai.com/wp-content/uploads/elementor/css/post-2513.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hfe-elementor-icons-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="hfe-icons-list-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.24.3" media="all">
+<link rel="stylesheet" id="hfe-social-icons-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.24.0" media="all">
+<link data-minify="1" rel="stylesheet" id="hfe-social-share-icons-brands-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hfe-social-share-icons-fontawesome-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="hfe-nav-menu-icons-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="hfe-widget-blockquote-css" href="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/css/widget-blockquote.min.css?ver=3.25.0" media="all">
+<link rel="stylesheet" id="hfe-mega-menu-css" href="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/css/widget-mega-menu.min.css?ver=3.26.2" media="all">
+<link rel="stylesheet" id="hfe-nav-menu-widget-css" href="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.26.0" media="all">
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-e93d864f-caa2-4cdc-8bd9-ab7701073a28) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}.wp-embed-responsive .wp-has-aspect-ratio .rll-youtube-player{position:absolute;padding-bottom:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="elementor-gf-local-montserrat-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/montserrat.css?ver=1773801603" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://surgeonai.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-fa-solid-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1773801603" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" id="jquery-js-after">window.addEventListener('DOMContentLoaded', function() {
+!function($){"use strict";$(document).ready(function(){$(this).scrollTop()>100&&$(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"),$(window).scroll(function(){$(this).scrollTop()<100?$(".hfe-scroll-to-top-wrap").fadeOut(300):$(".hfe-scroll-to-top-wrap").fadeIn(300)}),$(".hfe-scroll-to-top-wrap").on("click",function(){$("html, body").animate({scrollTop:0},300);return!1})})}(jQuery);
+!function($){'use strict';$(document).ready(function(){var bar=$('.hfe-reading-progress-bar');if(!bar.length)return;$(window).on('scroll',function(){var s=$(window).scrollTop(),d=$(document).height()-$(window).height(),p=d? s/d*100:0;bar.css('width',p+'%')});});}(jQuery);
+//# sourceURL=jquery-js-after
+});</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.10.6.1" id="wc-jquery-blockui-js" defer="" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.10.6.1" id="wc-js-cookie-js" defer="" data-wp-strategy="defer"></script>
+<script id="woocommerce-js-extra">
+var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%","i18n_password_show":"Show password","i18n_password_hide":"Hide password"};
+//# sourceURL=woocommerce-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=10.6.1" id="woocommerce-js" defer="" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.35.7" id="font-awesome-4-shim-js" data-rocket-defer="" defer=""></script>
+<link rel="https://api.w.org/" href="https://surgeonai.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://surgeonai.com/wp-json/wp/v2/pages/166"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://surgeonai.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<meta name="generator" content="WooCommerce 10.6.1">
+<link rel="canonical" href="https://surgeonai.com/">
+<link rel="shortlink" href="https://surgeonai.com/">
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Elementor 3.35.7; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://surgeonai.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-31-at-16.02.59_caeb800e-100x100.jpg" sizes="32x32">
+<link rel="icon" href="https://surgeonai.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-31-at-16.02.59_caeb800e.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://surgeonai.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-31-at-16.02.59_caeb800e.jpg">
+<meta name="msapplication-TileImage" content="https://surgeonai.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-31-at-16.02.59_caeb800e.jpg">
+<style id="kirki-inline-styles"></style><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpr-lazyload-bg-container"></style><style>.elementor-166 .elementor-element.elementor-element-1a84f8f:not(.elementor-motion-effects-element-type-background), .elementor-166 .elementor-element.elementor-element-1a84f8f > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-74245041-fe76-41a8-8e9f-ac29a94eb00e: url('https://surgeonai.com/wp-content/uploads/2023/12/SOREG.jpg');}</style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.woocommerce .blockUI.blockOverlay::before{--wpr-bg-5a7f617b-8363-459d-a059-49c6a31cb7b3: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/loader.svg');}.woocommerce .loader::before{--wpr-bg-7a2e761b-7fbe-43a3-879e-37f59d467389: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/loader.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.visa,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.visa,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.visa{--wpr-bg-bcd1155f-f8b4-47e6-8d1b-15fc5f645efb: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/visa.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.mastercard{--wpr-bg-ec1195b1-8660-4120-aef2-84bd21573f4c: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/mastercard.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.laser,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.laser,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.laser{--wpr-bg-882d6952-6513-4825-864c-1b99c7e1d32c: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/laser.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.dinersclub{--wpr-bg-d997a5bc-37c8-43aa-ac7b-707b7887fd86: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/diners.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.maestro{--wpr-bg-78d688c7-90c7-490a-ae1f-63899d2859b3: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/maestro.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.jcb{--wpr-bg-976d13cb-2596-4eef-b671-267a7f9bd069: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/jcb.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.amex,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.amex,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.amex{--wpr-bg-1489b37a-a107-409a-88b6-df7d5d92e228: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/amex.svg');}#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.discover,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.discover,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.discover{--wpr-bg-11d6a471-7779-47cc-a309-f6d800d9083a: url('https://surgeonai.com/wp-content/plugins/woocommerce/assets/images/icons/credit-cards/discover.svg');}.elementor-166 .elementor-element.elementor-element-1a84f8f:not(.elementor-motion-effects-element-type-background), .elementor-166 .elementor-element.elementor-element-1a84f8f > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-74245041-fe76-41a8-8e9f-ac29a94eb00e: url('https://surgeonai.com/wp-content/uploads/2023/12/SOREG.jpg');}.rll-youtube-player .play{--wpr-bg-e93d864f-caa2-4cdc-8bd9-ab7701073a28: url('https://surgeonai.com/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".woocommerce .blockUI.blockOverlay","style":".woocommerce .blockUI.blockOverlay::before{--wpr-bg-5a7f617b-8363-459d-a059-49c6a31cb7b3: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/loader.svg');}","hash":"5a7f617b-8363-459d-a059-49c6a31cb7b3","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/loader.svg"},{"selector":".woocommerce .loader","style":".woocommerce .loader::before{--wpr-bg-7a2e761b-7fbe-43a3-879e-37f59d467389: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/loader.svg');}","hash":"7a2e761b-7fbe-43a3-879e-37f59d467389","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/loader.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.visa,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.visa,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.visa","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.visa,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.visa,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.visa,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.visa,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.visa{--wpr-bg-bcd1155f-f8b4-47e6-8d1b-15fc5f645efb: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/visa.svg');}","hash":"bcd1155f-f8b4-47e6-8d1b-15fc5f645efb","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/visa.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.mastercard","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.mastercard,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.mastercard{--wpr-bg-ec1195b1-8660-4120-aef2-84bd21573f4c: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/mastercard.svg');}","hash":"ec1195b1-8660-4120-aef2-84bd21573f4c","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/mastercard.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.laser,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.laser,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.laser","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.laser,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.laser,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.laser,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.laser,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.laser{--wpr-bg-882d6952-6513-4825-864c-1b99c7e1d32c: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/laser.svg');}","hash":"882d6952-6513-4825-864c-1b99c7e1d32c","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/laser.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.dinersclub","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.dinersclub,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.dinersclub{--wpr-bg-d997a5bc-37c8-43aa-ac7b-707b7887fd86: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/diners.svg');}","hash":"d997a5bc-37c8-43aa-ac7b-707b7887fd86","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/diners.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.maestro","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.maestro,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.maestro{--wpr-bg-78d688c7-90c7-490a-ae1f-63899d2859b3: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/maestro.svg');}","hash":"78d688c7-90c7-490a-ae1f-63899d2859b3","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/maestro.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.jcb","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.jcb,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.jcb{--wpr-bg-976d13cb-2596-4eef-b671-267a7f9bd069: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/jcb.svg');}","hash":"976d13cb-2596-4eef-b671-267a7f9bd069","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/jcb.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.amex,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.amex,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.amex","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.amex,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.amex,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.amex,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.amex,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.amex{--wpr-bg-1489b37a-a107-409a-88b6-df7d5d92e228: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/amex.svg');}","hash":"1489b37a-a107-409a-88b6-df7d5d92e228","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/amex.svg"},{"selector":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.discover,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.discover,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.discover","style":"#add_payment_method #payment div.payment_box .wc-credit-card-form-card-cvc.discover,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-expiry.discover,#add_payment_method #payment div.payment_box .wc-credit-card-form-card-number.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-cvc.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-expiry.discover,.woocommerce-cart #payment div.payment_box .wc-credit-card-form-card-number.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-cvc.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-expiry.discover,.woocommerce-checkout #payment div.payment_box .wc-credit-card-form-card-number.discover{--wpr-bg-11d6a471-7779-47cc-a309-f6d800d9083a: url('https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/discover.svg');}","hash":"11d6a471-7779-47cc-a309-f6d800d9083a","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/woocommerce\/assets\/images\/icons\/credit-cards\/discover.svg"},{"selector":".elementor-166 .elementor-element.elementor-element-1a84f8f:not(.elementor-motion-effects-element-type-background), .elementor-166 .elementor-element.elementor-element-1a84f8f > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-166 .elementor-element.elementor-element-1a84f8f:not(.elementor-motion-effects-element-type-background), .elementor-166 .elementor-element.elementor-element-1a84f8f > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-74245041-fe76-41a8-8e9f-ac29a94eb00e: url('https:\/\/surgeonai.com\/wp-content\/uploads\/2023\/12\/SOREG.jpg');}","hash":"74245041-fe76-41a8-8e9f-ac29a94eb00e","url":"https:\/\/surgeonai.com\/wp-content\/uploads\/2023\/12\/SOREG.jpg"},{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-e93d864f-caa2-4cdc-8bd9-ab7701073a28: url('https:\/\/surgeonai.com\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"e93d864f-caa2-4cdc-8bd9-ab7701073a28","url":"https:\/\/surgeonai.com\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [];</script><meta name="generator" content="WP Rocket 3.19.4" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_image_dimensions wpr_minify_css wpr_preload_links wpr_desktop"></head>
+<body class="home wp-singular page-template-default page page-id-166 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-TEMPhello-theme-child-master theme-hello-elementor woocommerce-no-js ehf-template-hello-elementor ehf-stylesheet-TEMP/hello-theme-child-master hello-elementor-default elementor-default elementor-kit-6 elementor-page elementor-page-166">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-rocket-location-hash="6ed56f93626712b194b393f996fc23f8" data-elementor-type="header" data-elementor-id="2510" class="elementor elementor-2510 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-42c3e1f e-con-full e-flex e-con e-parent" data-id="42c3e1f" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;jet_parallax_layout_list&quot;:[],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;laptop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+				<div data-rocket-location-hash="477ab603a80c73d813a8b2c0f0856932" class="elementor-element elementor-element-0a60038 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="0a60038" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://surgeonai.com">
+							<img fetchpriority="high" width="800" height="194" src="https://surgeonai.com/wp-content/uploads/2023/12/Logo-1.png" class="attachment-large size-large wp-image-2216 entered lazyloaded" alt="" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Logo-1.png" data-ll-status="loaded"><noscript><img fetchpriority="high" width="800" height="194" src="https://surgeonai.com/wp-content/uploads/2023/12/Logo-1.png" class="attachment-large size-large wp-image-2216" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-f0dc457 elementor-nav-menu__align-start elementor-nav-menu--stretch elementor-widget-mobile__width-initial elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="f0dc457" data-element_type="widget" data-e-type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-slide">
+				<ul id="menu-1-f0dc457" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2349"><a href="/#mission" aria-current="page" class="elementor-item elementor-item-anchor">Mission</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2350"><a href="/#technology" aria-current="page" class="elementor-item elementor-item-anchor">Technology</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2351"><a href="/#team" aria-current="page" class="elementor-item elementor-item-anchor">Team</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2352"><a href="/#about" aria-current="page" class="elementor-item elementor-item-anchor">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2520"><a href="https://surgeonai.com/blog/" class="elementor-item">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2353"><a href="#contact" class="elementor-item elementor-item-anchor">Contact Us</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-f0dc457" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2349"><a href="/#mission" aria-current="page" class="elementor-item elementor-item-anchor" tabindex="-1">Mission</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2350"><a href="/#technology" aria-current="page" class="elementor-item elementor-item-anchor" tabindex="-1">Technology</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2351"><a href="/#team" aria-current="page" class="elementor-item elementor-item-anchor" tabindex="-1">Team</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-2352"><a href="/#about" aria-current="page" class="elementor-item elementor-item-anchor" tabindex="-1">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2520"><a href="https://surgeonai.com/blog/" class="elementor-item" tabindex="-1">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2353"><a href="#contact" class="elementor-item elementor-item-anchor" tabindex="-1">Contact Us</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+				</header>
+		
+<main data-rocket-location-hash="ba8a631f20a3e1a2ea0a0ba577cb6f9c" id="content" class="site-main post-166 page type-page status-publish hentry">
+
+	
+	<div data-rocket-location-hash="65df79cf2c1096997cc65fbe9ebd67f2" class="page-content">
+				<div data-rocket-location-hash="9069650ac94384539a7e39229b3213f2" data-elementor-type="wp-post" data-elementor-id="166" class="elementor elementor-166" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-1a84f8f e-flex e-con-boxed e-con e-parent" data-id="1a84f8f" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;jet_parallax_layout_list&quot;:[]}" data-rocket-lazy-bg-74245041-fe76-41a8-8e9f-ac29a94eb00e="loaded">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e070662 premium-floating-effects-yes elementor-widget elementor-widget-heading animated fadeIn" data-id="e070662" data-element_type="widget" data-e-type="widget" data-settings="{&quot;premium_fe_trigger&quot;:&quot;load&quot;,&quot;premium_fe_direction&quot;:&quot;alternate&quot;,&quot;premium_fe_loop&quot;:&quot;default&quot;,&quot;premium_fe_easing&quot;:&quot;easeInOutSine&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Surgical Excellence Amplified by AI: </h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-572d38a elementor-widget elementor-widget-heading animated slideInRight" data-id="572d38a" data-element_type="widget" data-e-type="widget" data-settings="{}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Safer Surgery, Better Outcome</h2>				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-d0af773 e-flex e-con-boxed e-con e-parent" data-id="d0af773" data-element_type="container" data-e-type="container" id="mission" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-c05b110 elementor-widget elementor-widget-heading" data-id="c05b110" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Mission</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-4b9265a elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="4b9265a" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-42cfd11 elementor-widget elementor-widget-text-editor" data-id="42cfd11" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Our mission at SurgeonAI is to create the most advanced AI platform for continuous safety supervision and real-time decision support for surgeons during Minimally Invasive Surgeries (MIS). More than 1% of the 13,000,000 MIS worldwide undergo preventable surgical errors. While 1% of the procedures may not seem significant at first glance, this translates to 130,000 preventable errors. These errors can result in complications, repeated procedures, prolonged hospital stays, legal and insurance disputes, and, tragically, fatalities. SurgeonAI is developing a platform to provide real-time safety alerts, anatomical guidance, and quantitative information aimed at preventing errors during MIS procedures, ensuring safer surgeries, and ultimately achieving better patient outcomes.</p>								</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-5983472 e-flex e-con-boxed e-con e-parent" data-id="5983472" data-element_type="container" data-e-type="container" id="technology" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-c9c659e elementor-widget elementor-widget-heading" data-id="c9c659e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Technology</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-53debd8 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="53debd8" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-f6528ff e-flex e-con-boxed e-con e-parent" data-id="f6528ff" data-element_type="container" data-e-type="container" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1088e0f elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-position-top elementor-widget elementor-widget-image-box" data-id="1088e0f" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="720" height="425" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20425'%3E%3C/svg%3E" class="attachment-full size-full wp-image-2335" alt="" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Platform.png"><noscript><img decoding="async" width="720" height="425" src="https://surgeonai.com/wp-content/uploads/2023/12/Platform.png" class="attachment-full size-full wp-image-2335" alt="" /></noscript></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">The SurgeonAI Platform</h3><p class="elementor-image-box-description">At SurgeonAI, we utilize a dedicated computation unit installed in the operating room (OR). This specialized unit efficiently runs various AI networks and computer vision algorithms on the surgical video. It seamlessly fits into the OR setup, blending into medical procedures without disruption. Once operational, It acts as an additional resource available during surgery, leveraging its vast experience from numerous procedures it was trained on to provide valuable advice and support to the surgical team in real time.</p></div></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-aa134ee elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-position-top elementor-widget elementor-widget-image-box" data-id="aa134ee" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="720" height="425" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20425'%3E%3C/svg%3E" class="attachment-full size-full wp-image-2337" alt="" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Alerts.png"><noscript><img decoding="async" width="720" height="425" src="https://surgeonai.com/wp-content/uploads/2023/12/Alerts.png" class="attachment-full size-full wp-image-2337" alt="" /></noscript></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">SurgeonAI Real Time Alerts​</h3><p class="elementor-image-box-description">It is very common to ask
+for a second opinion
+when people deal with a
+health problem.
+But what happens when
+the second opinion is
+needed in real time while
+you are going through a
+surgery? How can you
+make sure that you are
+being operated with the
+best surgical care
+possible?
+The SurgeonAI platform
+provides surgical
+guidance and alerts
+during your surgery to
+support your surgeon in
+real time and make sure
+that you are getting the
+best surgical care
+possible.</p></div></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-57f9722 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-position-top elementor-widget elementor-widget-image-box" data-id="57f9722" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="720" height="425" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20425'%3E%3C/svg%3E" class="attachment-full size-full wp-image-2338" alt="" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Analysis2.png"><noscript><img loading="lazy" decoding="async" width="720" height="425" src="https://surgeonai.com/wp-content/uploads/2023/12/Analysis2.png" class="attachment-full size-full wp-image-2338" alt="" /></noscript></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">SurgeonAI Quantitative Analysis</h3><p class="elementor-image-box-description">During laparoscopic surgeries quantitative information is essential. It can be the length of the bowls, the size of a hernia or the estimation of blood flow in a tissue. 
+Such information can only be roughly estimated by the human surgeon. Alternatively, quantitative information might require additional expensive equipment, e..g 3D cameras. 
+SurgeonAI uses state of the art computer vision and deep learning algorithms to provide accurate quantitative information using the standard equipment of laparoscopic towers. </p></div></div>				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-15ad8e6 e-flex e-con-boxed e-con e-parent" data-id="15ad8e6" data-element_type="container" data-e-type="container" id="team" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-56905a7 elementor-widget elementor-widget-heading" data-id="56905a7" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Team</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-c488a80 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="c488a80" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-50ff1fe e-flex e-con-boxed e-con e-parent" data-id="50ff1fe" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-09ec125 elementor-pagination-type-bullets elementor-arrows-position-inside elementor-pagination-position-outside elementor-widget elementor-widget-n-carousel" data-id="09ec125" data-element_type="widget" data-e-type="widget" data-settings="{&quot;carousel_items&quot;:[{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;d0f459b&quot;},{&quot;slide_title&quot;:&quot;Slide #2&quot;,&quot;_id&quot;:&quot;ba8eb41&quot;},{&quot;slide_title&quot;:&quot;Slide #3&quot;,&quot;_id&quot;:&quot;ed18f50&quot;},{&quot;slide_title&quot;:&quot;Slide #3&quot;,&quot;_id&quot;:&quot;60e9c22&quot;},{&quot;_id&quot;:&quot;cc40b92&quot;,&quot;slide_title&quot;:&quot;Slide #5&quot;}],&quot;slides_to_show_tablet&quot;:&quot;2&quot;,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;offset_sides&quot;:&quot;none&quot;,&quot;arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;image_spacing_custom_laptop&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="nested-carousel.default">
+				<div class="elementor-widget-container">
+							<div class="e-n-carousel swiper" role="region" aria-roledescription="carousel" aria-label="Carousel" dir="ltr">
+			<div class="swiper-wrapper" aria-live="off">
+										<div class="swiper-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="1 of 5">
+							<div class="elementor-element elementor-element-008ab4e e-flex e-con-boxed e-con e-child" data-id="008ab4e" data-element_type="container" data-e-type="container" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-7cdc9f2 elementor-author-box--layout-image-above elementor-author-box--align-center elementor-widget elementor-widget-author-box" data-id="7cdc9f2" data-element_type="widget" data-e-type="widget" data-widget_type="author-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-author-box">
+							<div class="elementor-author-box__avatar">
+					<img width="142" height="187" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20142%20187'%3E%3C/svg%3E" alt="Picture of Prof. Yoav Mintz" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Yoav.jpg"><noscript><img width="142" height="187" decoding="async" src="https://surgeonai.com/wp-content/uploads/2023/12/Yoav.jpg" alt="Picture of Prof. Yoav Mintz" loading="lazy"></noscript>
+				</div>
+			
+			<div class="elementor-author-box__text">
+									<div>
+						<h4 class="elementor-author-box__name">
+							Prof. Yoav Mintz						</h4>
+					</div>
+				
+									<div class="elementor-author-box__bio">
+						<p>Chief Medical Officer<br>
+(CMO) &amp; Co-Founder</p>
+					</div>
+				
+							</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-1e20d24 elementor-widget__width-initial elementor-view-default elementor-widget elementor-widget-icon" data-id="1e20d24" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.linkedin.com/in/yoav-mintz-98b35a2a/" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Capa_1" x="0px" y="0px" viewBox="0 0 112.196 112.196" style="enable-background:new 0 0 112.196 112.196;" xml:space="preserve"><g>	<circle style="fill:#007AB9;" cx="56.098" cy="56.097" r="56.098"></circle>	<g>		<path style="fill:#F1F2F2;" d="M89.616,60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118   c-3.705,0-5.906,2.491-6.878,4.903c-0.353,0.862-0.444,2.059-0.444,3.268v22.524H48.684c0,0,0.18-36.546,0-40.329h13.411v5.715   c-0.027,0.045-0.065,0.089-0.089,0.132h0.089v-0.132c1.782-2.742,4.96-6.662,12.085-6.662   C83.002,42.462,89.616,48.226,89.616,60.611L89.616,60.611z M34.656,23.969c-4.587,0-7.588,3.011-7.588,6.967   c0,3.872,2.914,6.97,7.412,6.97h0.087c4.677,0,7.585-3.098,7.585-6.97C42.063,26.98,39.244,23.969,34.656,23.969L34.656,23.969z    M27.865,83.739H41.27V43.409H27.865V83.739z"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="2 of 5">
+							<div class="elementor-element elementor-element-6ba1fec e-flex e-con-boxed e-con e-child" data-id="6ba1fec" data-element_type="container" data-e-type="container" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-6e0f123 elementor-author-box--layout-image-above elementor-author-box--align-center elementor-widget elementor-widget-author-box" data-id="6e0f123" data-element_type="widget" data-e-type="widget" data-widget_type="author-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-author-box">
+							<div class="elementor-author-box__avatar">
+					<img width="296" height="300" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20296%20300'%3E%3C/svg%3E" alt="Picture of Dr. Chen Sagiv" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Chenweb-296x300.jpg"><noscript><img width="296" height="300" decoding="async" src="https://surgeonai.com/wp-content/uploads/2023/12/Chenweb-296x300.jpg" alt="Picture of Dr. Chen Sagiv" loading="lazy"></noscript>
+				</div>
+			
+			<div class="elementor-author-box__text">
+									<div>
+						<h4 class="elementor-author-box__name">
+							Dr. Chen Sagiv						</h4>
+					</div>
+				
+									<div class="elementor-author-box__bio">
+						<p>Chief Artificial Intelligence<br>
+Officer (CAIO) &amp; Co-Founder</p>
+					</div>
+				
+							</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-1032893 elementor-widget__width-initial elementor-view-default elementor-widget elementor-widget-icon" data-id="1032893" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.linkedin.com/in/chensagivron" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Capa_1" x="0px" y="0px" viewBox="0 0 112.196 112.196" style="enable-background:new 0 0 112.196 112.196;" xml:space="preserve"><g>	<circle style="fill:#007AB9;" cx="56.098" cy="56.097" r="56.098"></circle>	<g>		<path style="fill:#F1F2F2;" d="M89.616,60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118   c-3.705,0-5.906,2.491-6.878,4.903c-0.353,0.862-0.444,2.059-0.444,3.268v22.524H48.684c0,0,0.18-36.546,0-40.329h13.411v5.715   c-0.027,0.045-0.065,0.089-0.089,0.132h0.089v-0.132c1.782-2.742,4.96-6.662,12.085-6.662   C83.002,42.462,89.616,48.226,89.616,60.611L89.616,60.611z M34.656,23.969c-4.587,0-7.588,3.011-7.588,6.967   c0,3.872,2.914,6.97,7.412,6.97h0.087c4.677,0,7.585-3.098,7.585-6.97C42.063,26.98,39.244,23.969,34.656,23.969L34.656,23.969z    M27.865,83.739H41.27V43.409H27.865V83.739z"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="3 of 5">
+							<div class="elementor-element elementor-element-6703381 e-flex e-con-boxed e-con e-child" data-id="6703381" data-element_type="container" data-e-type="container" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d6e3198 elementor-author-box--layout-image-above elementor-author-box--align-center elementor-widget elementor-widget-author-box" data-id="d6e3198" data-element_type="widget" data-e-type="widget" data-widget_type="author-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-author-box">
+							<div class="elementor-author-box__avatar">
+					<img width="720" height="425" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20425'%3E%3C/svg%3E" alt="Picture of Nizan Sagiv" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Nizannew2.png"><noscript><img width="720" height="425" decoding="async" src="https://surgeonai.com/wp-content/uploads/2023/12/Nizannew2.png" alt="Picture of Nizan Sagiv" loading="lazy"></noscript>
+				</div>
+			
+			<div class="elementor-author-box__text">
+									<div>
+						<h4 class="elementor-author-box__name">
+							Nizan Sagiv						</h4>
+					</div>
+				
+									<div class="elementor-author-box__bio">
+						<p>Co-Founder &amp; Executive Chairman</p>
+					</div>
+				
+							</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-0bc19ee elementor-widget__width-initial elementor-view-default elementor-widget elementor-widget-icon" data-id="0bc19ee" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.linkedin.com/in/nizan-sagiv-b31a1718/" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Capa_1" x="0px" y="0px" viewBox="0 0 112.196 112.196" style="enable-background:new 0 0 112.196 112.196;" xml:space="preserve"><g>	<circle style="fill:#007AB9;" cx="56.098" cy="56.097" r="56.098"></circle>	<g>		<path style="fill:#F1F2F2;" d="M89.616,60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118   c-3.705,0-5.906,2.491-6.878,4.903c-0.353,0.862-0.444,2.059-0.444,3.268v22.524H48.684c0,0,0.18-36.546,0-40.329h13.411v5.715   c-0.027,0.045-0.065,0.089-0.089,0.132h0.089v-0.132c1.782-2.742,4.96-6.662,12.085-6.662   C83.002,42.462,89.616,48.226,89.616,60.611L89.616,60.611z M34.656,23.969c-4.587,0-7.588,3.011-7.588,6.967   c0,3.872,2.914,6.97,7.412,6.97h0.087c4.677,0,7.585-3.098,7.585-6.97C42.063,26.98,39.244,23.969,34.656,23.969L34.656,23.969z    M27.865,83.739H41.27V43.409H27.865V83.739z"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="4" role="group" aria-roledescription="slide" aria-label="4 of 5">
+							<div class="elementor-element elementor-element-f89514e e-flex e-con-boxed e-con e-child" data-id="f89514e" data-element_type="container" data-e-type="container" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-98e7ea3 elementor-author-box--layout-image-above elementor-author-box--align-center elementor-widget elementor-widget-author-box" data-id="98e7ea3" data-element_type="widget" data-e-type="widget" data-widget_type="author-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-author-box">
+							<div class="elementor-author-box__avatar">
+					<img width="300" height="189" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20189'%3E%3C/svg%3E" alt="Picture of Yossi Appelbaum-Elad " data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Yossi-300x189.jpg"><noscript><img width="300" height="189" decoding="async" src="https://surgeonai.com/wp-content/uploads/2023/12/Yossi-300x189.jpg" alt="Picture of Yossi Appelbaum-Elad " loading="lazy"></noscript>
+				</div>
+			
+			<div class="elementor-author-box__text">
+									<div>
+						<h4 class="elementor-author-box__name">
+							Yossi Appelbaum-Elad 						</h4>
+					</div>
+				
+									<div class="elementor-author-box__bio">
+						<p>CEO</p>
+					</div>
+				
+							</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-5a906b6 elementor-widget__width-initial elementor-view-default elementor-widget elementor-widget-icon" data-id="5a906b6" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.linkedin.com/in/yossi-appelbaum-elad-66927229/" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Capa_1" x="0px" y="0px" viewBox="0 0 112.196 112.196" style="enable-background:new 0 0 112.196 112.196;" xml:space="preserve"><g>	<circle style="fill:#007AB9;" cx="56.098" cy="56.097" r="56.098"></circle>	<g>		<path style="fill:#F1F2F2;" d="M89.616,60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118   c-3.705,0-5.906,2.491-6.878,4.903c-0.353,0.862-0.444,2.059-0.444,3.268v22.524H48.684c0,0,0.18-36.546,0-40.329h13.411v5.715   c-0.027,0.045-0.065,0.089-0.089,0.132h0.089v-0.132c1.782-2.742,4.96-6.662,12.085-6.662   C83.002,42.462,89.616,48.226,89.616,60.611L89.616,60.611z M34.656,23.969c-4.587,0-7.588,3.011-7.588,6.967   c0,3.872,2.914,6.97,7.412,6.97h0.087c4.677,0,7.585-3.098,7.585-6.97C42.063,26.98,39.244,23.969,34.656,23.969L34.656,23.969z    M27.865,83.739H41.27V43.409H27.865V83.739z"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="5" role="group" aria-roledescription="slide" aria-label="5 of 5">
+							<div class="elementor-element elementor-element-2b40751 e-flex e-con-boxed e-con e-child" data-id="2b40751" data-element_type="container" data-e-type="container" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-91fc1f0 elementor-author-box--layout-image-above elementor-author-box--align-center elementor-widget elementor-widget-author-box" data-id="91fc1f0" data-element_type="widget" data-e-type="widget" data-widget_type="author-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-author-box">
+							<div class="elementor-author-box__avatar">
+					<img width="300" height="189" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20189'%3E%3C/svg%3E" alt="Picture of Gil Alter" data-lazy-src="https://surgeonai.com/wp-content/uploads/2023/12/Gil-300x189.jpg"><noscript><img width="300" height="189" decoding="async" src="https://surgeonai.com/wp-content/uploads/2023/12/Gil-300x189.jpg" alt="Picture of Gil Alter" loading="lazy"></noscript>
+				</div>
+			
+			<div class="elementor-author-box__text">
+									<div>
+						<h4 class="elementor-author-box__name">
+							Gil Alter						</h4>
+					</div>
+				
+									<div class="elementor-author-box__bio">
+						<p>VP R&amp;D</p>
+					</div>
+				
+							</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-1c51a06 elementor-widget__width-initial elementor-view-default elementor-widget elementor-widget-icon" data-id="1c51a06" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.linkedin.com/in/gil-alter-4143167b/" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Capa_1" x="0px" y="0px" viewBox="0 0 112.196 112.196" style="enable-background:new 0 0 112.196 112.196;" xml:space="preserve"><g>	<circle style="fill:#007AB9;" cx="56.098" cy="56.097" r="56.098"></circle>	<g>		<path style="fill:#F1F2F2;" d="M89.616,60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118   c-3.705,0-5.906,2.491-6.878,4.903c-0.353,0.862-0.444,2.059-0.444,3.268v22.524H48.684c0,0,0.18-36.546,0-40.329h13.411v5.715   c-0.027,0.045-0.065,0.089-0.089,0.132h0.089v-0.132c1.782-2.742,4.96-6.662,12.085-6.662   C83.002,42.462,89.616,48.226,89.616,60.611L89.616,60.611z M34.656,23.969c-4.587,0-7.588,3.011-7.588,6.967   c0,3.872,2.914,6.97,7.412,6.97h0.087c4.677,0,7.585-3.098,7.585-6.97C42.063,26.98,39.244,23.969,34.656,23.969L34.656,23.969z    M27.865,83.739H41.27V43.409H27.865V83.739z"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+								</div>
+								</div>
+		</div>
+					<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0" aria-label="Previous">
+				<i aria-hidden="true" class="eicon-chevron-left"></i>			</div>
+			<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0" aria-label="Next">
+				<i aria-hidden="true" class="eicon-chevron-right"></i>			</div>
+					<div class="swiper-pagination"></div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-fb5435e e-flex e-con-boxed e-con e-parent" data-id="fb5435e" data-element_type="container" data-e-type="container" id="about" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-a291f40 elementor-widget elementor-widget-heading" data-id="a291f40" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">About</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-336336e elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="336336e" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-66a8d84 elementor-widget elementor-widget-text-editor" data-id="66a8d84" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>SurgeonAI was created with the vision to bring the experience of the best surgeons into every Minimal Invasive Surgery via Artificial Intelligence (AI) technology to increase safety and improve patient outcome.<br>There is a growing demand for safer surgeries with better outcomes. This demand can only be met by harnessing state of the art AI technology for real time alerts and critical quantitative information.<br>SurgeonAI platform aims to bring AI capabilities to surgeons, surgical robots and laparoscopic devices. <br>Promoting Minimally Invasive Surgery into the AI era enfolds many opportunities and will save many lives!</p>								</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+		
+			</div>
+
+	
+</main>
+
+			<footer data-elementor-type="footer" data-elementor-id="2513" class="elementor elementor-2513 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-03559de e-flex e-con-boxed e-con e-parent" data-id="03559de" data-element_type="container" data-e-type="container" id="contact" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;jet_parallax_layout_list&quot;:[]}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-a443337 elementor-widget elementor-widget-heading" data-id="a443337" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Contact</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-d7f28ce elementor-widget elementor-widget-text-editor" data-id="d7f28ce" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>SurgeonAI Offices<br>HaTidhar 5<br>Ra’anana 4365104<br>Phone: +972-(0)9-7465114<br>Email: info@surgeonai.com</p>								</div>
+				</div>
+					</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/TEMP/hello-theme-child-master/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<style>
+	#wp-admin-bar-new-elementor_lead {
+		display: none;
+	}
+	body.post-type-elementor_lead .wrap a.page-title-action {
+		display: none;
+	}
+</style>
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            
+            (function() {
+                // First, track UTM parameters
+                function getQueryParam(name) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name);
+                }
+
+                function compressValue(value) {
+                    if (!value) return '';
+                    try {
+                        const decodedValue = decodeURIComponent(value);
+                        return decodedValue;
+                    } catch (e) {
+                        return value;
+                    }
+                }
+
+                function saveLeadSource() {
+                    // Get UTM source first
+                    const currentUtmSource = compressValue(getQueryParam('utm_source'));
+                    
+                    // Only proceed if we have a source
+                    if (!currentUtmSource) {
+                        return;
+                    }
+
+                    const cookies = document.cookie.split('; ');
+                    const existingCookie = cookies.find(c => {
+                        if (!c.startsWith('lenix_utms=')) return false;
+                        try {
+                            const cookieData = JSON.parse(decodeURIComponent(c.split('=')[1]));
+                            return cookieData.lenix_utm_source !== currentUtmSource;
+                        } catch (e) {
+                            return false;
+                        }
+                    });
+                    
+                    // If utm_source is different, save the new one
+                    if (!existingCookie) {
+                        return;
+                    }
+
+                    // Get UTM params without compression
+                    const data = {
+                        lenix_utm_source: currentUtmSource,
+                        lenix_utm_medium: compressValue(getQueryParam('utm_medium')),
+                        lenix_utm_campaign: compressValue(getQueryParam('utm_campaign')),
+                        lenix_utm_term: compressValue(getQueryParam('utm_term')),
+                        lenix_utm_content: compressValue(getQueryParam('utm_content')),
+                        lenix_referrer: compressValue(document.referrer),
+                        lenix_d: Math.floor(Date.now() / 1000)
+                    };
+
+                    // Remove empty values
+                    Object.keys(data).forEach(key => {
+                        if (!data[key]) delete data[key];
+                    });
+
+                    try {
+                        const cookieValue = encodeURIComponent(JSON.stringify(data));
+                        document.cookie = `lenix_utms=${cookieValue}; path=/; max-age=2592000`;
+                        
+                        if (window.location.hostname === 'localhost') {
+                        }
+                    } catch (e) {
+                    }
+                }
+
+                // New function to track first landing page
+                function trackFirstVisit() {
+                    // Check if first visit is already tracked
+                    // add initial_referrer
+                    if (document.cookie.includes('lenix_first_visit=')) {
+                        return;
+                    }
+
+                    const firstVisitData = {
+                        landing_page: window.location.href,
+                        landing_page_title: document.title,
+                        first_visit_time: Math.floor(Date.now() / 1000),
+                        initial_referrer: document.referrer ? document.referrer : 'Direct'
+                    };
+
+                    try {
+                        const cookieValue = encodeURIComponent(JSON.stringify(firstVisitData));
+                        // Set cookie to expire in 30 days
+                        document.cookie = `lenix_first_visit=${cookieValue}; path=/; max-age=2592000`;
+                        
+                        if (window.location.hostname === 'localhost') {
+                        }
+                    } catch (e) {
+                        console.error('Error saving first visit data:', e);
+                    }
+                }
+
+                // Run both tracking functions
+                saveLeadSource();
+                trackFirstVisit();
+            })();
+        </script>
+        			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+				<script type="rocketlazyloadscript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link data-minify="1" rel="stylesheet" id="wc-blocks-style-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=1773801603" media="all">
+<link data-minify="1" rel="stylesheet" id="jet-elements-css" href="https://surgeonai.com/wp-content/cache/min/1/wp-content/plugins/jet-elements/assets/css/jet-elements.css?ver=1773801603" media="all">
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://surgeonai.com/wp-content/cache/min/1/v2/js/data.js?ver=1768267871" id="widget-logic_live_match_widget-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.35.7" id="elementor-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.35.7" id="elementor-frontend-modules-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" data-rocket-defer="" defer=""></script>
+<script id="elementor-frontend-js-extra">
+var PremiumSettings = {"ajaxurl":"https://surgeonai.com/wp-admin/admin-ajax.php","nonce":"c0e745414e"};
+var PaBehanceSettings = {"key":"XQhsS66hLTKjUoj8Gky7FOFJxNMh23uu"};
+var PremiumProSettings = {"ajaxurl":"https://surgeonai.com/wp-admin/admin-ajax.php","nonce":"a2932f2637","magicSection":"1"};
+//# sourceURL=elementor-frontend-js-extra
+</script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":true},"version":"3.35.7","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_editor_one":true,"import-export-customization":true,"e_pro_variables":true},"urls":{"assets":"https:\/\/surgeonai.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/surgeonai.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/surgeonai.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"1778bf8b0a"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","woocommerce_notices_elements":[]},"post":{"id":166,"title":"Surgeon%20AI","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.35.7" id="elementor-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/checkout/??(.*)|/cart/?|/my-account/??(.*)|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://surgeonai.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.33.2" id="e-sticky-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=10.6.1" id="sourcebuster-js-js" data-rocket-defer="" defer=""></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https://surgeonai.com/wp-admin/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+//# sourceURL=wc-order-attribution-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=10.6.1" id="wc-order-attribution-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/elements-handler.min.js?ver=4.11.70" id="pa-elements-handler-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/anime.min.js?ver=4.11.70" id="pa-anime-js" data-rocket-defer="" defer=""></script>
+<script id="pa-feffects-js-extra">
+var PremiumFESettings = {"papro_installed":"1"};
+//# sourceURL=pa-feffects-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/premium-float-effects.min.js?ver=4.11.70" id="pa-feffects-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.33.2" id="elementor-pro-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/surgeonai.com\/wp-admin\/admin-ajax.php","nonce":"8008bb5179","urls":{"assets":"https:\/\/surgeonai.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/surgeonai.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"woocommerce":{"menu_cart":{"cart_page_url":"https:\/\/surgeonai.com\/cart\/","checkout_page_url":"https:\/\/surgeonai.com\/checkout\/","fragments_nonce":"ac28baccdf"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/surgeonai.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.33.2" id="elementor-pro-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.33.2" id="pro-elements-handlers-js" data-rocket-defer="" defer=""></script>
+<script id="jet-elements-js-extra">
+var jetElements = {"ajaxUrl":"https://surgeonai.com/wp-admin/admin-ajax.php","isMobile":"false","templateApiUrl":"https://surgeonai.com/wp-json/jet-elements-api/v1/elementor-template","devMode":"false","messages":{"invalidMail":"Please specify a valid e-mail"}};
+//# sourceURL=jet-elements-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://surgeonai.com/wp-content/plugins/jet-elements/assets/js/jet-elements.min.js?ver=2.7.12.2" id="jet-elements-js" data-rocket-defer="" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://surgeonai.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="Play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=[];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>
+<script>var rocket_beacon_data = {"ajax_url":"https:\/\/surgeonai.com\/wp-admin\/admin-ajax.php","nonce":"1a75a530a2","url":"https:\/\/surgeonai.com","is_mobile":false,"width_threshold":1600,"height_threshold":700,"delay":500,"debug":null,"status":{"atf":true,"lrc":true,"preconnect_external_domain":true},"elements":"img, video, picture, p, main, div, li, svg, section, header, span","lrc_threshold":1800,"preconnect_external_domain_elements":["link","script","iframe"],"preconnect_external_domain_exclusions":["static.cloudflareinsights.com","rel=\"profile\"","rel=\"preconnect\"","rel=\"dns-prefetch\"","rel=\"icon\""]}</script><script data-name="wpr-wpr-beacon" src="https://surgeonai.com/wp-content/plugins/wp-rocket/assets/js/wpr-beacon.min.js" async="" beacon-completed="true"></script><script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach((t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}}))}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find((t=>e[t]))];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout((()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)}),i);window.addEventListener("rocket-startLoading",(function(){clearTimeout(o)}))}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach((t=>{e.forEach((e=>{i.push(t+e)}))})),i}l(t,e){this.i().forEach((t=>delete e[t])),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

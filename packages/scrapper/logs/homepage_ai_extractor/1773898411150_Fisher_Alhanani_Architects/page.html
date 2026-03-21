@@ -1,0 +1,1617 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>פישר אלחנני אדריכלים בע״מ</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPlayfair%20Display%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPlayfair%20Display%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPlayfair%20Display%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=hebrew&#038;display=swap" /></noscript><link rel="stylesheet" href="https://fe-arc.co.il/wp-content/cache/min/1/e3136bfec57d5966c734484cbb35a421.css" media="all" data-minify="1">
+	<meta name="description" content="יוצרים סביבות חיים חדשניות, מותאמות לסביבה ומתוכננות היטב">
+	<link rel="canonical" href="https://fe-arc.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="פישר אלחנני אדריכלים בע״מ">
+	<meta property="og:description" content="יוצרים סביבות חיים חדשניות, מותאמות לסביבה ומתוכננות היטב">
+	<meta property="og:url" content="https://fe-arc.co.il/">
+	<meta property="og:site_name" content="פישר אלחנני אדריכלים בע״מ">
+	<meta property="article:modified_time" content="2024-02-29T07:27:04+00:00">
+	<meta property="og:image" content="https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02.png">
+	<meta property="og:image:width" content="3508">
+	<meta property="og:image:height" content="2482">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://fe-arc.co.il/","url":"https://fe-arc.co.il/","name":"פישר אלחנני אדריכלים בע״מ","isPartOf":{"@id":"https://fe-arc.co.il/#website"},"about":{"@id":"https://fe-arc.co.il/#organization"},"primaryImageOfPage":{"@id":"https://fe-arc.co.il/#primaryimage"},"image":{"@id":"https://fe-arc.co.il/#primaryimage"},"thumbnailUrl":"https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35735.png","datePublished":"2023-09-24T13:08:50+00:00","dateModified":"2024-02-29T07:27:04+00:00","description":"יוצרים סביבות חיים חדשניות, מותאמות לסביבה ומתוכננות היטב","breadcrumb":{"@id":"https://fe-arc.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://fe-arc.co.il/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://fe-arc.co.il/#primaryimage","url":"https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35735.png","contentUrl":"https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35735.png","width":203,"height":220},{"@type":"BreadcrumbList","@id":"https://fe-arc.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית"}]},{"@type":"WebSite","@id":"https://fe-arc.co.il/#website","url":"https://fe-arc.co.il/","name":"פישר אלחנני אדריכלים בע״מ","description":"יוצרים סביבות חיים חדשניות, מותאמות לסביבה ומתוכננות היטב","publisher":{"@id":"https://fe-arc.co.il/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://fe-arc.co.il/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"he-IL"},{"@type":"Organization","@id":"https://fe-arc.co.il/#organization","name":"פישר אלחנני אדריכלים בע״מ","url":"https://fe-arc.co.il/","logo":{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://fe-arc.co.il/#/schema/logo/image/","url":"https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02-1.png","contentUrl":"https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02-1.png","width":3508,"height":539,"caption":"פישר אלחנני אדריכלים בע״מ"},"image":{"@id":"https://fe-arc.co.il/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="פישר אלחנני אדריכלים בע״מ « פיד‏" href="https://fe-arc.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="פישר אלחנני אדריכלים בע״מ « פיד תגובות‏" href="https://fe-arc.co.il/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://fe-arc.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffe-arc.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://fe-arc.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffe-arc.co.il%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://fe-arc.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://fe-arc.co.il/wp-json/wp/v2/pages/10"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://fe-arc.co.il/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="shortlink" href="https://fe-arc.co.il/">
+<meta name="generator" content="Elementor 3.19.4; features: e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<link rel="icon" href="https://fe-arc.co.il/wp-content/uploads/2023/09/cropped-logo-02-32x32.png" sizes="32x32">
+<link rel="icon" href="https://fe-arc.co.il/wp-content/uploads/2023/09/cropped-logo-02-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://fe-arc.co.il/wp-content/uploads/2023/09/cropped-logo-02-180x180.png">
+<meta name="msapplication-TileImage" content="https://fe-arc.co.il/wp-content/uploads/2023/09/cropped-logo-02-270x270.png">
+
+
+
+
+
+</head>
+<body class="rtl home wp-singular page-template page-template-elementor_header_footer page page-id-10 wp-theme-hello-elementor eio-default elementor-default elementor-template-full-width elementor-kit-5 elementor-page elementor-page-10">
+
+
+<a class="skip-link screen-reader-text" href="#content">דלג לתוכן</a>
+
+		<div data-elementor-type="header" data-elementor-id="63" class="elementor elementor-63 elementor-location-header" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-ec10bb1 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="ec10bb1" data-element_type="section" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-916d442" data-id="916d442" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7b6980b elementor-view-default elementor-widget elementor-widget-icon" data-id="7b6980b" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6Ijc0IiwidG9nZ2xlIjpmYWxzZX0%3D">
+			<svg xmlns="http://www.w3.org/2000/svg" height="384pt" viewBox="0 -53 384 384" width="384pt"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"></path><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"></path><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"></path></svg>			</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-670d7e2" data-id="670d7e2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-58b2610 elementor-widget elementor-widget-heading" data-id="58b2610" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.19.0 - 28-02-2024 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default"><a href="https://fe-arc.co.il/en">EN</a></h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3cb7f4f" data-id="3cb7f4f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-37547fb elementor-widget elementor-widget-image" data-id="37547fb" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.19.0 - 28-02-2024 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>											<a href="https://fe-arc.co.il">
+							<img fetchpriority="high" width="3508" height="2481" src="https://fe-arc.co.il/wp-content/uploads/2023/09/logo-06.png" class="attachment-full size-full wp-image-850" alt="" srcset="https://fe-arc.co.il/wp-content/uploads/2023/09/logo-06.png 3508w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-06-300x212.png 300w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-06-1024x724.png 1024w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-06-768x543.png 768w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-06-1536x1086.png 1536w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-06-2048x1448.png 2048w" sizes="(max-width: 3508px) 100vw, 3508px">								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+							</div>
+				</div>
+				<div data-elementor-type="wp-page" data-elementor-id="10" class="elementor elementor-10" data-elementor-post-type="page">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-b8f5056 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="b8f5056" data-element_type="section" id="sec1" data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:[],&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_transition_duration&quot;:500}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4bf75e2" data-id="4bf75e2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a381395 animated-slow elementor-widget elementor-widget-heading" data-id="a381395" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_mobile&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">יוצרים סביבות חיים חדשניות<br>מותאמות לסביבה ומתוכננות היטב</h2>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-d03f5e1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d03f5e1" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a258bb1" data-id="a258bb1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8730b51 elementor-widget elementor-widget-spacer" data-id="8730b51" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.19.0 - 28-02-2024 */
+.elementor-column .elementor-spacer-inner{height:var(--spacer-size)}.e-con{--container-widget-width:100%}.e-con-inner>.elementor-widget-spacer,.e-con>.elementor-widget-spacer{width:var(--container-widget-width,var(--spacer-size));--align-self:var(--container-widget-align-self,initial);--flex-shrink:0}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container,.e-con>.elementor-widget-spacer>.elementor-widget-container{height:100%;width:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer{height:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner{height:var(--container-widget-height,var(--spacer-size))}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty,.e-con>.elementor-widget-spacer.elementor-widget-empty{position:relative;min-height:22px;min-width:22px}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon,.e-con>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:0;width:22px;height:22px}</style>		<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-43ee167 elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="43ee167" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-16a9143 elementor-hidden-mobile" data-id="16a9143" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1b7931b elementor-widget elementor-widget-text-editor" data-id="1b7931b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.19.0 - 28-02-2024 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:right;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p>כשאנחנו מתכננים פרויקטים למגורים, לעסקים, לרשויות ולארגונים, אנחנו לא חושבים על מה שעבד עד היום, אלא על מה שיעבוד בעתיד. אנחנו אוהבים להתעדכן, לשפר, להתייעל ולקחת קדימה. להכיר תוכנות חדשות, גאדג'טים, לייצר עבודת צוות מקורית ולחשוב מחוץ לקופסא.<br>החברה נותנת מעטפת אדריכלית רחבה – אנחנו הפרטנרים לליווי פרויקטים החל מהשלב הראשוני. הייעוץ שלנו כולל התייחסות למדיניות תכנון ומקרקעין, לכדאיות כלכלית, חשיבה משותפת על השימוש המתאים למגרש והגשת פתרונות ביצוע.</p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-bf040ec elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bf040ec" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-48c1899" data-id="48c1899" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1c8255d elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-text-editor" data-id="1c8255d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>כשאנחנו מתכננים פרויקטים למגורים, לעסקים, לרשויות ולארגונים, אנחנו לא חושבים על מה שעבד עד היום, אלא על מה שיעבוד בעתיד. אנחנו אוהבים להתעדכן, לשפר, להתייעל ולקחת קדימה. להכיר תוכנות חדשות, גאדג'טים, לייצר עבודת צוות מקורית ולחשוב מחוץ לקופסא.<br>החברה נותנת מעטפת אדריכלית רחבה – אנחנו הפרטנרים לליווי פרויקטים החל מהשלב הראשוני. הייעוץ שלנו כולל התייחסות למדיניות תכנון ומקרקעין, לכדאיות כלכלית, חשיבה משותפת על השימוש המתאים למגרש והגשת פתרונות ביצוע.</p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ae942e0 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="ae942e0" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-63176b8" data-id="63176b8" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-351bcca" data-id="351bcca" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-47d7f78 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="47d7f78" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img decoding="async" width="203" height="220" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35735.png" class="attachment-full size-full wp-image-103" alt="">													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c6bd2db elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c6bd2db" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-fd670d5" data-id="fd670d5" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-8ab7c21" data-id="8ab7c21" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-06196d9 elementor-align-justify elementor-widget elementor-widget-button" data-id="06196d9" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-md" href="https://fe-arc.co.il/about/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">עוד עלינו</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-b5bc284" data-id="b5bc284" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-e032ac8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e032ac8" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-c60bfd7" data-id="c60bfd7" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-d429d1c elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="d429d1c" data-element_type="section" id="sec3">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7074fb9" data-id="7074fb9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ec9f549 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides" data-id="ec9f549" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor-pro - v3.18.0 - 20-12-2023 */
+.elementor-slides .swiper-slide-bg{background-size:cover;background-position:50%;background-repeat:no-repeat;min-width:100%;min-height:100%}.elementor-slides .swiper-slide-inner{background-repeat:no-repeat;background-position:50%;position:absolute;top:0;left:0;bottom:0;right:0;padding:50px;margin:auto}.elementor-slides .swiper-slide-inner,.elementor-slides .swiper-slide-inner:hover{color:#fff;display:flex}.elementor-slides .swiper-slide-inner .elementor-background-overlay{position:absolute;z-index:0;top:0;bottom:0;left:0;right:0}.elementor-slides .swiper-slide-inner .elementor-slide-content{position:relative;z-index:1;width:100%}.elementor-slides .swiper-slide-inner .elementor-slide-heading{font-size:35px;font-weight:700;line-height:1}.elementor-slides .swiper-slide-inner .elementor-slide-description{font-size:17px;line-height:1.4}.elementor-slides .swiper-slide-inner .elementor-slide-description:not(:last-child),.elementor-slides .swiper-slide-inner .elementor-slide-heading:not(:last-child){margin-bottom:30px}.elementor-slides .swiper-slide-inner .elementor-slide-button{border:2px solid #fff;color:#fff;background:transparent;display:inline-block}.elementor-slides .swiper-slide-inner .elementor-slide-button,.elementor-slides .swiper-slide-inner .elementor-slide-button:hover{background:transparent;color:inherit;text-decoration:none}.elementor--v-position-top .swiper-slide-inner{align-items:flex-start}.elementor--v-position-bottom .swiper-slide-inner{align-items:flex-end}.elementor--v-position-middle .swiper-slide-inner{align-items:center}.elementor--h-position-left .swiper-slide-inner{justify-content:flex-end}.elementor--h-position-right .swiper-slide-inner{justify-content:flex-start}.elementor--h-position-center .swiper-slide-inner{justify-content:center}body.rtl .elementor-widget-slides .elementor-swiper-button-next{left:10px;right:auto}body.rtl .elementor-widget-slides .elementor-swiper-button-prev{right:10px;left:auto}.elementor-slides-wrapper div:not(.swiper-slide)>.swiper-slide-inner{display:none}@media (max-width:767px){.elementor-slides .swiper-slide-inner{padding:30px}.elementor-slides .swiper-slide-inner .elementor-slide-heading{font-size:23px;line-height:1;margin-bottom:15px}.elementor-slides .swiper-slide-inner .elementor-slide-description{font-size:13px;line-height:1.4;margin-bottom:15px}}</style>		<div class="elementor-swiper">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper" dir="rtl" data-animation="fadeInDown">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-b2edc79 swiper-slide"><div class="swiper-slide-bg elementor-ken-burns elementor-ken-burns--out" role="img"></div><a class="swiper-slide-inner" href="https://fe-arc.co.il/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-%d7%94%d7%9e%d7%92%d7%95%d7%a8%d7%99%d7%9d-airport-1-%d7%91%d7%90%d7%99%d7%9c%d7%aa/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">פרויקט המגורים AIRPORT1 </div><div class="elementor-slide-description">אילת</div></div></a></div>				</div>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-48a459f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="48a459f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-94e0bc7" data-id="94e0bc7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6849b36 elementor-widget elementor-widget-spacer" data-id="6849b36" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-79c172e elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="79c172e" data-element_type="section" id="sec2">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7474fc0" data-id="7474fc0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ccdf25a elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides" data-id="ccdf25a" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper" dir="rtl" data-animation="fadeInDown">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-b2edc79 swiper-slide"><div class="swiper-slide-bg elementor-ken-burns elementor-ken-burns--out" role="img"></div><a class="swiper-slide-inner" href="https://fe-arc.co.il/mccann-vally/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">מקאן ואלי</div><div class="elementor-slide-description">מצפה רמון</div></div></a></div>				</div>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-500f919 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="500f919" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9f58a04" data-id="9f58a04" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-11ab5b5 elementor-widget elementor-widget-spacer" data-id="11ab5b5" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ed708ca elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ed708ca" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-dc9d41f" data-id="dc9d41f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a65b112 elementor-widget elementor-widget-text-editor" data-id="a65b112" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>החברה נותנת מעטפת אדריכלית רחבה – אנחנו הפרטנרים לליווי פרויקטים החל מהשלב הראשוני. הייעוץ שלנו כולל התייחסות למדיניות תכנון ומקרקעין, לכדאיות כלכלית, חשיבה משותפת על השימוש המתאים למגרש והגשת פתרונות ביצוע.</p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-b8d8fa9 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="b8d8fa9" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7c4a45f" data-id="7c4a45f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8c9a42a elementor-widget elementor-widget-image" data-id="8c9a42a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img decoding="async" width="207" height="195" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35742.png" class="attachment-full size-full wp-image-135" alt="">													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f87ba2b" data-id="f87ba2b" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ec74b4b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ec74b4b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-a37ed0b" data-id="a37ed0b" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3c6c54e" data-id="3c6c54e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-25121b7 elementor-align-justify elementor-widget elementor-widget-button" data-id="25121b7" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-md" href="https://fe-arc.co.il/projects/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">הפרוייקטים שלנו</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-2cb737f" data-id="2cb737f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1bbcd2d elementor-widget elementor-widget-spacer" data-id="1bbcd2d" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1518b4e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1518b4e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-70c67b3" data-id="70c67b3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-47383f7 elementor-widget elementor-widget-spacer" data-id="47383f7" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-636dec1 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="636dec1" data-element_type="section" id="sec4">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9be3eb8" data-id="9be3eb8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7d38731 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="7d38731" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="246" height="195" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35735-1.png" class="attachment-full size-full wp-image-141" alt="">													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c1abf1c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c1abf1c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-c53f8b6" data-id="c53f8b6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2379f64 elementor-widget elementor-widget-spacer" data-id="2379f64" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-430e0bf elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="430e0bf" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-53a5c01" data-id="53a5c01" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fb2885d elementor-widget elementor-widget-spacer" data-id="fb2885d" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-19ff745 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="19ff745" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ccac8a7" data-id="ccac8a7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1214fd8 elementor-widget elementor-widget-spacer" data-id="1214fd8" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-4b6c626 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="4b6c626" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b15796e" data-id="b15796e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f8bf340 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides" data-id="f8bf340" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper" dir="rtl" data-animation="fadeInDown">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-b2edc79 swiper-slide"><div class="swiper-slide-bg elementor-ken-burns elementor-ken-burns--out" role="img"></div><a class="swiper-slide-inner" href="https://fe-arc.co.il/%d7%93%d7%9e%d7%a8%d7%99-%d7%a9%d7%a2%d7%a8-%d7%94%d7%a2%d7%99%d7%a8-%d7%a9%d7%93%d7%a8%d7%95%d7%aa/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">דמרי שער העיר</div><div class="elementor-slide-description">שדרות</div></div></a></div>				</div>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-645dc6f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="645dc6f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1acca74" data-id="1acca74" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c3ef8b4 elementor-widget elementor-widget-spacer" data-id="c3ef8b4" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a9813a3 elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a9813a3" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fc788d3" data-id="fc788d3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c9e2f93 elementor-widget elementor-widget-text-editor" data-id="c9e2f93" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><strong>אנחנו משרד מאמן, המעסיק 41 אנשי צוות.</strong></p><p><strong>המשרד ממוקם בפארק התעשייה עומר ואנו גאים להיות חלק מהצמיחה וההתקדמות של אזור הדרום.</strong></p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6f93fc3 elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6f93fc3" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8caf8c4" data-id="8caf8c4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-22c0c58 elementor-widget elementor-widget-text-editor" data-id="22c0c58" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><strong>אנחנו משרד מאמן, המעסיק 41 אנשי צוות.</strong></p><p><strong>המשרד ממוקם בפארק התעשייה עומר ואנו גאים להיות חלק מהצמיחה וההתקדמות של אזור הדרום.</strong></p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1e58b89 elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1e58b89" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e3b532f" data-id="e3b532f" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8ac6a2a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8ac6a2a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-74a7d5d" data-id="74a7d5d" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-c68eea7" data-id="c68eea7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7bdbd39 elementor-align-justify elementor-widget elementor-widget-button" data-id="7bdbd39" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-md" href="https://fe-arc.co.il/team/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">הנבחרת שלנו</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7c565f8" data-id="7c565f8" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6345bf7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6345bf7" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-05eac42" data-id="05eac42" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d75e196 elementor-widget elementor-widget-spacer" data-id="d75e196" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3ec8337 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="3ec8337" data-element_type="section" id="sec6">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e051304" data-id="e051304" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3176d7d elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides" data-id="3176d7d" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper" dir="rtl" data-animation="fadeInDown">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-b2edc79 swiper-slide"><div class="swiper-slide-bg elementor-ken-burns elementor-ken-burns--out" role="img"></div><a class="swiper-slide-inner" href="https://fe-arc.co.il/%d7%91%d7%a0%d7%99%d7%99%d7%9f-%d7%9e%d7%a9%d7%a8%d7%93%d7%99%d7%9d-%d7%9e%d7%aa%d7%a7%d7%93%d7%9d-g7-%d7%91%d7%91%d7%90%d7%a8-%d7%a9%d7%91%d7%a2/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">בניין משרדים מתקדם - G7 </div><div class="elementor-slide-description">באר שבע</div></div></a></div>				</div>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-f7f55f3 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides" data-id="f7f55f3" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper" dir="rtl" data-animation="fadeInDown">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-b2edc79 swiper-slide"><div class="swiper-slide-bg elementor-ken-burns elementor-ken-burns--out" role="img"></div><a class="swiper-slide-inner" href="https://fe-arc.co.il/%d7%92%d7%a0%d7%99%d7%9d-%d7%99%d7%a8%d7%95%d7%a7%d7%99%d7%9d-%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-%d7%9e%d7%92%d7%95%d7%a8%d7%99-%d7%91%d7%95%d7%98%d7%99%d7%a7-%d7%91%d7%a9%d7%9b%d7%95%d7%a0%d7%aa/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">גנים ירוקים - מגורי בוטיק בשכונת הפארק</div><div class="elementor-slide-description">באר שבע</div></div></a></div>				</div>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-df66c8e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="df66c8e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ce06131" data-id="ce06131" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d6f57d8 elementor-widget elementor-widget-spacer" data-id="d6f57d8" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c338aed elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c338aed" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e60b097" data-id="e60b097" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-52987ae elementor-widget elementor-widget-text-editor" data-id="52987ae" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							אנחנו חברה צומחת ונשמח להכיר אנשי מקצוע מוכשרים. דרושים לנו: מתכנני ערים, גיאוגרפים ואדריכלים שיצטרפו לצוות הפועל ממשרדנו בא.ת עומר.
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5da5f2e elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5da5f2e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4e149dd" data-id="4e149dd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-dbd75b9 elementor-widget elementor-widget-text-editor" data-id="dbd75b9" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							אנחנו חברה צומחת ונשמח להכיר אנשי מקצוע מוכשרים. דרושים לנו: מתכנני ערים, גיאוגרפים ואדריכלים שיצטרפו לצוות הפועל ממשרדנו בא.ת עומר.
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-d311f84 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="d311f84" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-aa70810" data-id="aa70810" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0c8e74e elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="0c8e74e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img decoding="async" width="207" height="195" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35742.png" class="attachment-full size-full wp-image-135" alt="">													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-3354dd2" data-id="3354dd2" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-326b94b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="326b94b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2bea899" data-id="2bea899" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-092fba2 elementor-widget elementor-widget-spacer" data-id="092fba2" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-fa17f40 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="fa17f40" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-205202e" data-id="205202e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-268e82a elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-spacer" data-id="268e82a" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-d665c41" data-id="d665c41" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-100c8fc elementor-align-justify elementor-widget elementor-widget-button" data-id="100c8fc" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-md" href="https://fe-arc.co.il/hiring/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">בואו לעבוד איתנו</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3807adf" data-id="3807adf" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8956fb6 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8956fb6" data-element_type="section" id="sec7">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-849655e" data-id="849655e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-76570af elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides" data-id="76570af" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper" dir="rtl" data-animation="fadeInDown">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-b2edc79 swiper-slide"><div class="swiper-slide-bg elementor-ken-burns elementor-ken-burns--out" role="img"></div><a class="swiper-slide-inner" href="https://fe-arc.co.il/%d7%91%d7%99%d7%aa-%d7%a1%d7%a4%d7%a8-%d7%9e%d7%9e%d7%9c%d7%9b%d7%aa%d7%99-%d7%97%d7%93%d7%a9%d7%a0%d7%99-%d7%90%d7%9e%d7%99%d7%a8-%d7%91%d7%93%d7%99%d7%9e%d7%95%d7%a0%d7%94/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">בי"ס ממלכתי חדשני-אמיר</div><div class="elementor-slide-description">דימונה</div></div></a></div>				</div>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-9352dcc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9352dcc" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2f3d439" data-id="2f3d439" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a1fa8cf elementor-widget elementor-widget-spacer" data-id="a1fa8cf" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-18e0d39 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="18e0d39" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b7f9010" data-id="b7f9010" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1ba2ff6 elementor-widget elementor-widget-spacer" data-id="1ba2ff6" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5c2e2f4 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="5c2e2f4" data-element_type="section" id="sec8">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-bda82a0" data-id="bda82a0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-dfb42e7 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides" data-id="dfb42e7" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-slides-wrapper elementor-main-swiper swiper" dir="rtl" data-animation="fadeInDown">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-b2edc79 swiper-slide"><div class="swiper-slide-bg elementor-ken-burns elementor-ken-burns--out" role="img"></div><a class="swiper-slide-inner" href="https://fe-arc.co.il/%d7%a9%d7%9b%d7%95%d7%a0%d7%aa-%d7%a1%d7%99%d7%92%d7%9c%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-c-boutique-%d7%91%d7%91%d7%90%d7%a8-%d7%a9%d7%91%d7%a2/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">שכונת סיגליות - פרויקט C BOUTIQUE</div><div class="elementor-slide-description">באר שבע</div></div></a></div>				</div>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ad26419 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="ad26419" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-6bde834" data-id="6bde834" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-00770fa" data-id="00770fa" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-673f957 elementor-widget elementor-widget-spacer" data-id="673f957" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8cd78ef elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8cd78ef" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2104fcb" data-id="2104fcb" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-9187d07 elementor-widget elementor-widget-text-editor" data-id="9187d07" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							מאמרים וסיקורים על הפרויקטים שלנו בתקשורת&nbsp;						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-562f8b9 elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="562f8b9" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9368185" data-id="9368185" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2efa13d elementor-widget elementor-widget-text-editor" data-id="2efa13d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>מאמרים וסיקורים על הפרויקטים שלנו בתקשורת&nbsp;</p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-e52144d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e52144d" data-element_type="section" id="sec10">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3e1b3b6" data-id="3e1b3b6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3372699 elementor-grid-3 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-widget elementor-widget-loop-grid" data-id="3372699" data-element_type="widget" data-settings="{&quot;template_id&quot;:2368,&quot;_skin&quot;:&quot;post&quot;,&quot;columns&quot;:&quot;3&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_mobile&quot;:&quot;1&quot;,&quot;edit_handle_selector&quot;:&quot;[data-elementor-type=\&quot;loop-item\&quot;]&quot;,&quot;row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="loop-grid.post">
+				<div class="elementor-widget-container">
+					<div class="e-loop-nothing-found-message">
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8c2f9b7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8c2f9b7" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-09bf232" data-id="09bf232" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-820c604 elementor-skin-carousel elementor-arrows-yes elementor-pagination-type-bullets elementor-pagination-position-outside elementor-widget elementor-widget-media-carousel" data-id="820c604" data-element_type="widget" data-settings="{&quot;slides_per_view&quot;:&quot;4&quot;,&quot;slides_to_scroll&quot;:&quot;3&quot;,&quot;skin&quot;:&quot;carousel&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;show_arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;speed&quot;:500,&quot;space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]}}" data-widget_type="media-carousel.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-main-swiper swiper">
+				<div class="swiper-wrapper">
+											<div class="swiper-slide">
+							<a href="https://nadlan.walla.co.il/item/3524127" target="_blank">		<div class="elementor-carousel-image" role="img" aria-label="מטה חברת ICL העולמית מוקם בבאר שבע בסטנדרט 3 כוכבי בנייה ירוקה" style="background-image: url('https://fe-arc.co.il/wp-content/uploads/2023/11/Group-675.png')">
+
+			
+					</div>
+					<div class="elementor-carousel-image-overlay e-overlay-animation-fade">
+				מטה חברת ICL העולמית מוקם בבאר שבע בסטנדרט 3 כוכבי בנייה ירוקה			</div>
+			</a>						</div>
+											<div class="swiper-slide">
+							<a href="https://www.b7net.co.il/%d7%94%d7%91%d7%9c%d7%95%d7%92%d7%99%d7%9d/%d7%90%d7%93%d7%a8%d7%99%d7%9b%d7%9c-%d7%91%d7%9b%d7%99%d7%a8-%d7%9e%d7%94%d7%93%d7%a8%d7%95%d7%9d-%d7%9e%d7%96%d7%94%d7%99%d7%a8-%d7%97%d7%99%d7%99-%d7%a8%d7%91%d7%99%d7%9d-%d7%9e%d7%94%d7%93%d7%a8%d7%95%d7%9d-%d7%99%d7%a2%d7%9e%d7%93%d7%95-%d7%91%d7%a1%d7%9b%d7%a0%d7%94-%d7%91%d7%9e%d7%a7%d7%a8%d7%94-%d7%a9%d7%9c-%d7%a8%d7%a2%d7%99%d7%93%d7%aa-%d7%90%d7%93%d7%9e%d7%94-532016" target="_blank">		<div class="elementor-carousel-image" role="img" aria-label="אדריכל בכיר מהדרום מזהיר: ''חיי רבים מהדרום יעמדו בסכנה במקרה של רעידת אדמה''" style="background-image: url('https://fe-arc.co.il/wp-content/uploads/2023/11/Group-63.png')">
+
+			
+					</div>
+					<div class="elementor-carousel-image-overlay e-overlay-animation-fade">
+				אדריכל בכיר מהדרום מזהיר: ''חיי רבים מהדרום יעמדו בסכנה במקרה של רעידת אדמה''			</div>
+			</a>						</div>
+											<div class="swiper-slide">
+							<a href="https://nadlan.walla.co.il/item/3520391" target="_blank">		<div class="elementor-carousel-image" role="img" aria-label="אחרי המתנה ארוכה: פרויקט פינוי בינוי חדש בבאר שבע יוצא לדרך" style="background-image: url('https://fe-arc.co.il/wp-content/uploads/2023/11/Group-66.png')">
+
+			
+					</div>
+					<div class="elementor-carousel-image-overlay e-overlay-animation-fade">
+				אחרי המתנה ארוכה: פרויקט פינוי בינוי חדש בבאר שבע יוצא לדרך			</div>
+			</a>						</div>
+											<div class="swiper-slide">
+							<a href="https://www.themarker.com/realestate/2022-09-01/ty-article-magazine/.premium/00000182-eef5-d392-a3e6-fff77f880000?utm_source=App_Share&amp;utm_medium=iOS_Native" target="_blank">		<div class="elementor-carousel-image" role="img" aria-label="לומדים חשבון בסופרמרקט ושיעור טבע בחצר: האם המפתח לשיפור מערכת החינוך נמצא בקירות?" style="background-image: url('https://fe-arc.co.il/wp-content/uploads/2023/11/Group-64.png')">
+
+			
+					</div>
+					<div class="elementor-carousel-image-overlay e-overlay-animation-fade">
+				לומדים חשבון בסופרמרקט ושיעור טבע בחצר: האם המפתח לשיפור מערכת החינוך נמצא בקירות?			</div>
+			</a>						</div>
+											<div class="swiper-slide">
+							<a href="https://sheva7.co.il/business/140685/" target="_blank">		<div class="elementor-carousel-image" role="img" aria-label="משרד דרומי זכה ב&quot;אות העיצוב&quot; הישראלי" style="background-image: url('https://fe-arc.co.il/wp-content/uploads/2024/01/נבשבע1.jpg')">
+
+			
+					</div>
+					<div class="elementor-carousel-image-overlay e-overlay-animation-fade">
+				משרד דרומי זכה ב"אות העיצוב" הישראלי			</div>
+			</a>						</div>
+											<div class="swiper-slide">
+							<a href="http://mako.co.il/living-architecture/local/Article-fb503f9145a5a81027.htm" target="_blank">		<div class="elementor-carousel-image" role="img" aria-label="שלום כיתה: ככה מעצבים בית ספר שעושה חשק ללמוד" style="background-image: url('https://fe-arc.co.il/wp-content/uploads/2024/02/MAKO.jpg')">
+
+			
+					</div>
+					<div class="elementor-carousel-image-overlay e-overlay-animation-fade">
+				שלום כיתה: ככה מעצבים בית ספר שעושה חשק ללמוד			</div>
+			</a>						</div>
+											<div class="swiper-slide">
+							<a href="https://www.themarker.com/labels/real-estate/2022-09-18/ty-article-labels/00000183-4f88-d54c-a9cb-dfcff30b0000?utm_source=Web_Share&amp;utm_medium=Whatsapp&amp;utm_campaign=Share" target="_blank">		<div class="elementor-carousel-image" role="img" aria-label="פתרון אפשרי לצפיפות האוכלוסין הגואה בישראל הוא השקעה מסיבית בפיתוח הנגב. שיחה עם אנשי המקצוע שמתכננים את ההתחדשות וההתקדמות בערי הדרום" style="background-image: url('https://fe-arc.co.il/wp-content/uploads/2024/02/Untitled-design12345.jpg')">
+
+			
+					</div>
+					<div class="elementor-carousel-image-overlay e-overlay-animation-fade">
+				פתרון אפשרי לצפיפות האוכלוסין הגואה בישראל הוא השקעה מסיבית בפיתוח הנגב. שיחה עם אנשי המקצוע שמתכננים את ההתחדשות וההתקדמות בערי הדרום			</div>
+			</a>						</div>
+									</div>
+															<div class="swiper-pagination"></div>
+																<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0">
+							<i aria-hidden="true" class="eicon-chevron-right"></i>							<span class="elementor-screen-only">הקודם</span>
+						</div>
+						<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0">
+							<i aria-hidden="true" class="eicon-chevron-left"></i>							<span class="elementor-screen-only">הבא</span>
+						</div>
+												</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7e5dae7 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="7e5dae7" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-951ba39" data-id="951ba39" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4ab64b4" data-id="4ab64b4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-885b66a elementor-widget elementor-widget-spacer" data-id="885b66a" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-06bbc41 elementor-section-full_width elementor-hidden-mobile elementor-section-height-default elementor-section-height-default" data-id="06bbc41" data-element_type="section" id="sec9">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-01d9160" data-id="01d9160" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-62e8d18 elementor-widget elementor-widget-shortcode" data-id="62e8d18" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode">		<div data-elementor-type="section" data-elementor-id="154" class="elementor elementor-154" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-ac819c0 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="ac819c0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e7247cf" data-id="e7247cf" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-029dcc9 elementor-widget elementor-widget-image" data-id="029dcc9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="57" height="134" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Vector-4.png" class="attachment-full size-full wp-image-507" alt="">													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-b48832a" data-id="b48832a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-bd08b6e elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="bd08b6e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">זמינים טלפונית וגם לפנות אלינו בווטסאפ או דרך האתר, זה מצוין. </h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-8ff03e3" data-id="8ff03e3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f057df8 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="f057df8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">אנחנו זמינים טלפונית, במייל, או דרך האתר, זה מצוין.</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-841b1a5 elementor-button-align-start elementor-widget elementor-widget-form" data-id="841b1a5" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor-pro - v3.18.0 - 20-12-2023 */
+.elementor-button.elementor-hidden,.elementor-hidden{display:none}.e-form__step{width:100%}.e-form__step:not(.elementor-hidden){display:flex;flex-wrap:wrap}.e-form__buttons{flex-wrap:wrap}.e-form__buttons,.e-form__buttons__wrapper{display:flex}.e-form__indicators{display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;font-size:13px;margin-bottom:var(--e-form-steps-indicators-spacing)}.e-form__indicators__indicator{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-basis:0;padding:0 var(--e-form-steps-divider-gap)}.e-form__indicators__indicator__progress{width:100%;position:relative;background-color:var(--e-form-steps-indicator-progress-background-color);border-radius:var(--e-form-steps-indicator-progress-border-radius);overflow:hidden}.e-form__indicators__indicator__progress__meter{width:var(--e-form-steps-indicator-progress-meter-width,0);height:var(--e-form-steps-indicator-progress-height);line-height:var(--e-form-steps-indicator-progress-height);padding-right:15px;border-radius:var(--e-form-steps-indicator-progress-border-radius);background-color:var(--e-form-steps-indicator-progress-color);color:var(--e-form-steps-indicator-progress-meter-color);text-align:right;transition:width .1s linear}.e-form__indicators__indicator:first-child{padding-left:0}.e-form__indicators__indicator:last-child{padding-right:0}.e-form__indicators__indicator--state-inactive{color:var(--e-form-steps-indicator-inactive-primary-color,#c2cbd2)}.e-form__indicators__indicator--state-inactive [class*=indicator--shape-]:not(.e-form__indicators__indicator--shape-none){background-color:var(--e-form-steps-indicator-inactive-secondary-color,#fff)}.e-form__indicators__indicator--state-inactive object,.e-form__indicators__indicator--state-inactive svg{fill:var(--e-form-steps-indicator-inactive-primary-color,#c2cbd2)}.e-form__indicators__indicator--state-active{color:var(--e-form-steps-indicator-active-primary-color,#39b54a);border-color:var(--e-form-steps-indicator-active-secondary-color,#fff)}.e-form__indicators__indicator--state-active [class*=indicator--shape-]:not(.e-form__indicators__indicator--shape-none){background-color:var(--e-form-steps-indicator-active-secondary-color,#fff)}.e-form__indicators__indicator--state-active object,.e-form__indicators__indicator--state-active svg{fill:var(--e-form-steps-indicator-active-primary-color,#39b54a)}.e-form__indicators__indicator--state-completed{color:var(--e-form-steps-indicator-completed-secondary-color,#fff)}.e-form__indicators__indicator--state-completed [class*=indicator--shape-]:not(.e-form__indicators__indicator--shape-none){background-color:var(--e-form-steps-indicator-completed-primary-color,#39b54a)}.e-form__indicators__indicator--state-completed .e-form__indicators__indicator__label{color:var(--e-form-steps-indicator-completed-primary-color,#39b54a)}.e-form__indicators__indicator--state-completed .e-form__indicators__indicator--shape-none{color:var(--e-form-steps-indicator-completed-primary-color,#39b54a);background-color:initial}.e-form__indicators__indicator--state-completed object,.e-form__indicators__indicator--state-completed svg{fill:var(--e-form-steps-indicator-completed-secondary-color,#fff)}.e-form__indicators__indicator__icon{width:var(--e-form-steps-indicator-padding,30px);height:var(--e-form-steps-indicator-padding,30px);font-size:var(--e-form-steps-indicator-icon-size);border-width:1px;border-style:solid;display:flex;justify-content:center;align-items:center;overflow:hidden;margin-bottom:10px}.e-form__indicators__indicator__icon img,.e-form__indicators__indicator__icon object,.e-form__indicators__indicator__icon svg{width:var(--e-form-steps-indicator-icon-size);height:auto}.e-form__indicators__indicator__icon .e-font-icon-svg{height:1em}.e-form__indicators__indicator__number{width:var(--e-form-steps-indicator-padding,30px);height:var(--e-form-steps-indicator-padding,30px);border-width:1px;border-style:solid;display:flex;justify-content:center;align-items:center;margin-bottom:10px}.e-form__indicators__indicator--shape-circle{border-radius:50%}.e-form__indicators__indicator--shape-square{border-radius:0}.e-form__indicators__indicator--shape-rounded{border-radius:5px}.e-form__indicators__indicator--shape-none{border:0}.e-form__indicators__indicator__label{text-align:center}.e-form__indicators__indicator__separator{width:100%;height:var(--e-form-steps-divider-width);background-color:#babfc5}.e-form__indicators--type-icon,.e-form__indicators--type-icon_text,.e-form__indicators--type-number,.e-form__indicators--type-number_text{align-items:flex-start}.e-form__indicators--type-icon .e-form__indicators__indicator__separator,.e-form__indicators--type-icon_text .e-form__indicators__indicator__separator,.e-form__indicators--type-number .e-form__indicators__indicator__separator,.e-form__indicators--type-number_text .e-form__indicators__indicator__separator{margin-top:calc(var(--e-form-steps-indicator-padding, 30px) / 2 - var(--e-form-steps-divider-width, 1px) / 2)}.elementor-field-type-hidden{display:none}.elementor-field-type-html{display:inline-block}.elementor-field-type-tel input{direction:inherit}.elementor-login .elementor-lost-password,.elementor-login .elementor-remember-me{font-size:.85em}.elementor-field-type-recaptcha_v3 .elementor-field-label{display:none}.elementor-field-type-recaptcha_v3 .grecaptcha-badge{z-index:1}.elementor-button .elementor-form-spinner{order:3}.elementor-form .elementor-button>span{display:flex;justify-content:center;align-items:center}.elementor-form .elementor-button .elementor-button-text{white-space:normal;flex-grow:0}.elementor-form .elementor-button svg{height:auto}.elementor-form .elementor-button .e-font-icon-svg{height:1em}.elementor-select-wrapper .select-caret-down-wrapper{position:absolute;top:50%;transform:translateY(-50%);inset-inline-end:10px;pointer-events:none;font-size:11px}.elementor-select-wrapper .select-caret-down-wrapper svg{display:unset;width:1em;aspect-ratio:unset;fill:currentColor}.elementor-select-wrapper .select-caret-down-wrapper i{font-size:19px;line-height:2}.elementor-select-wrapper.remove-before:before{content:""!important}</style>		<form class="elementor-form" method="post" name="New Form">
+			<input type="hidden" name="post_id" value="154">
+			<input type="hidden" name="form_id" value="841b1a5">
+			<input type="hidden" name="referer_title" value="פישר אלחנני אדריכלים בע״מ">
+
+							<input type="hidden" name="queried_id" value="10">
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-25 elementor-field-required">
+												<label for="form-field-name" class="elementor-field-label elementor-screen-only">
+								שם מלא							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="שם מלא" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_343738b elementor-col-25 elementor-field-required">
+												<label for="form-field-field_343738b" class="elementor-field-label elementor-screen-only">
+								טלפון							</label>
+								<input size="1" type="tel" name="form_fields[field_343738b]" id="form-field-field_343738b" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="טלפון" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="מותר להשתמש רק במספרים ותווי טלפון (#, -, *, וכו').">
+
+						</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-25 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
+								דוא״ל							</label>
+														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="דוא״ל" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_910b2f2 elementor-col-25">
+												<label for="form-field-field_910b2f2" class="elementor-field-label elementor-screen-only">
+								שם החברה							</label>
+														<input size="1" type="text" name="form_fields[field_910b2f2]" id="form-field-field_910b2f2" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="שם החברה">
+											</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+												<label for="form-field-message" class="elementor-field-label elementor-screen-only">
+								הודעה							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-md" name="form_fields[message]" id="form-field-message" rows="8" placeholder="הודעה..."></textarea>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button type="submit" class="elementor-button elementor-size-sm">
+						<span>
+															<span class=" elementor-button-icon">
+																										</span>
+																						<span class="elementor-button-text">כתבו לנו</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-74a69af" data-id="74a69af" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-97e786c elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="97e786c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="54" height="134" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Vector-1.png" class="attachment-full size-full wp-image-84" alt="">													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+							</div>
+				</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8fa0223 elementor-section-full_width elementor-hidden-desktop elementor-hidden-tablet elementor-section-height-default elementor-section-height-default" data-id="8fa0223" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4fc85d4" data-id="4fc85d4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6a430b5 elementor-widget elementor-widget-shortcode" data-id="6a430b5" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode">		<div data-elementor-type="section" data-elementor-id="154" class="elementor elementor-154" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-ac819c0 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="ac819c0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e7247cf" data-id="e7247cf" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-029dcc9 elementor-widget elementor-widget-image" data-id="029dcc9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="57" height="134" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Vector-4.png" class="attachment-full size-full wp-image-507" alt="">													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-b48832a" data-id="b48832a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-bd08b6e elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="bd08b6e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">זמינים טלפונית וגם לפנות אלינו בווטסאפ או דרך האתר, זה מצוין. </h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-8ff03e3" data-id="8ff03e3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f057df8 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="f057df8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">אנחנו זמינים טלפונית, במייל, או דרך האתר, זה מצוין.</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-841b1a5 elementor-button-align-start elementor-widget elementor-widget-form" data-id="841b1a5" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-form" method="post" name="New Form">
+			<input type="hidden" name="post_id" value="154">
+			<input type="hidden" name="form_id" value="841b1a5">
+			<input type="hidden" name="referer_title" value="פישר אלחנני אדריכלים בע״מ">
+
+							<input type="hidden" name="queried_id" value="10">
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-25 elementor-field-required">
+												<label for="form-field-name" class="elementor-field-label elementor-screen-only">
+								שם מלא							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="שם מלא" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_343738b elementor-col-25 elementor-field-required">
+												<label for="form-field-field_343738b" class="elementor-field-label elementor-screen-only">
+								טלפון							</label>
+								<input size="1" type="tel" name="form_fields[field_343738b]" id="form-field-field_343738b" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="טלפון" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="מותר להשתמש רק במספרים ותווי טלפון (#, -, *, וכו').">
+
+						</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-25 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
+								דוא״ל							</label>
+														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="דוא״ל" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_910b2f2 elementor-col-25">
+												<label for="form-field-field_910b2f2" class="elementor-field-label elementor-screen-only">
+								שם החברה							</label>
+														<input size="1" type="text" name="form_fields[field_910b2f2]" id="form-field-field_910b2f2" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="שם החברה">
+											</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+												<label for="form-field-message" class="elementor-field-label elementor-screen-only">
+								הודעה							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-md" name="form_fields[message]" id="form-field-message" rows="8" placeholder="הודעה..."></textarea>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button type="submit" class="elementor-button elementor-size-sm">
+						<span>
+															<span class=" elementor-button-icon">
+																										</span>
+																						<span class="elementor-button-text">כתבו לנו</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-74a69af" data-id="74a69af" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-97e786c elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="97e786c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="54" height="134" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Vector-1.png" class="attachment-full size-full wp-image-84" alt="">													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+							</div>
+				</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				<div data-elementor-type="footer" data-elementor-id="81" class="elementor elementor-81 elementor-location-footer" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-9ba210a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ba210a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-838184b" data-id="838184b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-dccfb8a elementor-widget elementor-widget-spacer" data-id="dccfb8a" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8910d4f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8910d4f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-009964f" data-id="009964f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a6a4ba9 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="a6a4ba9" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.19.0 - 28-02-2024 */
+.elementor-widget-divider{--divider-border-style:none;--divider-border-width:1px;--divider-color:#0c0d0e;--divider-icon-size:20px;--divider-element-spacing:10px;--divider-pattern-height:24px;--divider-pattern-size:20px;--divider-pattern-url:none;--divider-pattern-repeat:repeat-x}.elementor-widget-divider .elementor-divider{display:flex}.elementor-widget-divider .elementor-divider__text{font-size:15px;line-height:1;max-width:95%}.elementor-widget-divider .elementor-divider__element{margin:0 var(--divider-element-spacing);flex-shrink:0}.elementor-widget-divider .elementor-icon{font-size:var(--divider-icon-size)}.elementor-widget-divider .elementor-divider-separator{display:flex;margin:0;direction:ltr}.elementor-widget-divider--view-line_icon .elementor-divider-separator,.elementor-widget-divider--view-line_text .elementor-divider-separator{align-items:center}.elementor-widget-divider--view-line_icon .elementor-divider-separator:after,.elementor-widget-divider--view-line_icon .elementor-divider-separator:before,.elementor-widget-divider--view-line_text .elementor-divider-separator:after,.elementor-widget-divider--view-line_text .elementor-divider-separator:before{display:block;content:"";border-block-end:0;flex-grow:1;border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--element-align-left .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-left .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-left .elementor-divider__element{margin-left:0}.elementor-widget-divider--element-align-right .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-right .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-right .elementor-divider__element{margin-right:0}.elementor-widget-divider--element-align-start .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-start .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-start .elementor-divider__element{margin-inline-start:0}.elementor-widget-divider--element-align-end .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-end .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-end .elementor-divider__element{margin-inline-end:0}.elementor-widget-divider:not(.elementor-widget-divider--view-line_text):not(.elementor-widget-divider--view-line_icon) .elementor-divider-separator{border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--separator-type-pattern{--divider-border-style:none}.elementor-widget-divider--separator-type-pattern.elementor-widget-divider--view-line .elementor-divider-separator,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:after,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:before,.elementor-widget-divider--separator-type-pattern:not([class*=elementor-widget-divider--view]) .elementor-divider-separator{width:100%;min-height:var(--divider-pattern-height);-webkit-mask-size:var(--divider-pattern-size) 100%;mask-size:var(--divider-pattern-size) 100%;-webkit-mask-repeat:var(--divider-pattern-repeat);mask-repeat:var(--divider-pattern-repeat);background-color:var(--divider-color);-webkit-mask-image:var(--divider-pattern-url);mask-image:var(--divider-pattern-url)}.elementor-widget-divider--no-spacing{--divider-pattern-size:auto}.elementor-widget-divider--bg-round{--divider-pattern-repeat:round}.rtl .elementor-widget-divider .elementor-divider__text{direction:rtl}.e-con-inner>.elementor-widget-divider,.e-con>.elementor-widget-divider{width:var(--container-widget-width,100%);--flex-grow:var(--container-widget-flex-grow)}</style>		<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-eb1e37b elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="eb1e37b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-3a549d4" data-id="3a549d4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-dc1e178 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="dc1e178" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/about/">
+
+											<span class="elementor-icon-list-text">עלינו</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/team/">
+
+											<span class="elementor-icon-list-text">הנבחרת</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/hiring/">
+
+											<span class="elementor-icon-list-text">מגייסים</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/contact/">
+
+											<span class="elementor-icon-list-text">צרו קשר</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-86b0a1c" data-id="86b0a1c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ad545de elementor-widget__width-initial elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="ad545de" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f-%d7%94%d7%90%d7%aa%d7%a8/">
+
+											<span class="elementor-icon-list-text">תקנון האתר</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/">
+
+											<span class="elementor-icon-list-text">נגישות האתר</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/contact/">
+
+											<span class="elementor-icon-list-text">צרו קשר </span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-20cde90" data-id="20cde90" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-2ccd6c9" data-id="2ccd6c9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-203424e elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="203424e" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="tel:08-6210000">
+
+											<span class="elementor-icon-list-text">08-6210000</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="mailto:office@fe-arc.co.il">
+
+											<span class="elementor-icon-list-text">office@fe-arc.co.il</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://maps.app.goo.gl/xFxhbzhYgcRCkEgb9">
+
+											<span class="elementor-icon-list-text">אשכולות 3, א.ת עומר, 8500813</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-a19b406" data-id="a19b406" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4297725 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="4297725" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://www.duns100.co.il/%D7%A4%D7%99%D7%A9%D7%A8_%D7%90%D7%9C%D7%97%D7%A0%D7%A0%D7%99_%D7%90%D7%93%D7%A8%D7%99%D7%9B%D7%9C%D7%99%D7%9D" target="_blank">
+							<img loading="lazy" width="1876" height="1876" src="https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1.png" class="attachment-full size-full wp-image-2365" alt="" srcset="https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1.png 1876w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-300x300.png 300w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-1024x1024.png 1024w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-150x150.png 150w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-768x768.png 768w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-1536x1536.png 1536w" sizes="(max-width: 1876px) 100vw, 1876px">								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-85df81a" data-id="85df81a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-cbfb4b9 elementor-widget elementor-widget-image" data-id="cbfb4b9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://fe-arc.co.il">
+							<img loading="lazy" width="113" height="66" src="https://fe-arc.co.il/wp-content/uploads/2023/09/Clip-path-group.png" class="attachment-full size-full wp-image-88" alt="">								</a>
+													</div>
+				</div>
+				<div class="elementor-element elementor-element-75bc2a7 elementor-shape-rounded elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="75bc2a7" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.19.0 - 28-02-2024 */
+.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container{line-height:1;font-size:0}.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid{display:inline-grid}.elementor-widget-social-icons .elementor-grid{grid-column-gap:var(--grid-column-gap,5px);grid-row-gap:var(--grid-row-gap,5px);grid-template-columns:var(--grid-template-columns);justify-content:var(--justify-content,center);justify-items:var(--justify-content,center)}.elementor-icon.elementor-social-icon{font-size:var(--icon-size,25px);line-height:var(--icon-size,25px);width:calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));height:calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))}.elementor-social-icon{--e-social-icon-icon-color:#fff;display:inline-flex;background-color:#69727d;align-items:center;justify-content:center;text-align:center;cursor:pointer}.elementor-social-icon i{color:var(--e-social-icon-icon-color)}.elementor-social-icon svg{fill:var(--e-social-icon-icon-color)}.elementor-social-icon:last-child{margin:0}.elementor-social-icon:hover{opacity:.9;color:#fff}.elementor-social-icon-android{background-color:#a4c639}.elementor-social-icon-apple{background-color:#999}.elementor-social-icon-behance{background-color:#1769ff}.elementor-social-icon-bitbucket{background-color:#205081}.elementor-social-icon-codepen{background-color:#000}.elementor-social-icon-delicious{background-color:#39f}.elementor-social-icon-deviantart{background-color:#05cc47}.elementor-social-icon-digg{background-color:#005be2}.elementor-social-icon-dribbble{background-color:#ea4c89}.elementor-social-icon-elementor{background-color:#d30c5c}.elementor-social-icon-envelope{background-color:#ea4335}.elementor-social-icon-facebook,.elementor-social-icon-facebook-f{background-color:#3b5998}.elementor-social-icon-flickr{background-color:#0063dc}.elementor-social-icon-foursquare{background-color:#2d5be3}.elementor-social-icon-free-code-camp,.elementor-social-icon-freecodecamp{background-color:#006400}.elementor-social-icon-github{background-color:#333}.elementor-social-icon-gitlab{background-color:#e24329}.elementor-social-icon-globe{background-color:#69727d}.elementor-social-icon-google-plus,.elementor-social-icon-google-plus-g{background-color:#dd4b39}.elementor-social-icon-houzz{background-color:#7ac142}.elementor-social-icon-instagram{background-color:#262626}.elementor-social-icon-jsfiddle{background-color:#487aa2}.elementor-social-icon-link{background-color:#818a91}.elementor-social-icon-linkedin,.elementor-social-icon-linkedin-in{background-color:#0077b5}.elementor-social-icon-medium{background-color:#00ab6b}.elementor-social-icon-meetup{background-color:#ec1c40}.elementor-social-icon-mixcloud{background-color:#273a4b}.elementor-social-icon-odnoklassniki{background-color:#f4731c}.elementor-social-icon-pinterest{background-color:#bd081c}.elementor-social-icon-product-hunt{background-color:#da552f}.elementor-social-icon-reddit{background-color:#ff4500}.elementor-social-icon-rss{background-color:#f26522}.elementor-social-icon-shopping-cart{background-color:#4caf50}.elementor-social-icon-skype{background-color:#00aff0}.elementor-social-icon-slideshare{background-color:#0077b5}.elementor-social-icon-snapchat{background-color:#fffc00}.elementor-social-icon-soundcloud{background-color:#f80}.elementor-social-icon-spotify{background-color:#2ebd59}.elementor-social-icon-stack-overflow{background-color:#fe7a15}.elementor-social-icon-steam{background-color:#00adee}.elementor-social-icon-stumbleupon{background-color:#eb4924}.elementor-social-icon-telegram{background-color:#2ca5e0}.elementor-social-icon-thumb-tack{background-color:#1aa1d8}.elementor-social-icon-tripadvisor{background-color:#589442}.elementor-social-icon-tumblr{background-color:#35465c}.elementor-social-icon-twitch{background-color:#6441a5}.elementor-social-icon-twitter{background-color:#1da1f2}.elementor-social-icon-viber{background-color:#665cac}.elementor-social-icon-vimeo{background-color:#1ab7ea}.elementor-social-icon-vk{background-color:#45668e}.elementor-social-icon-weibo{background-color:#dd2430}.elementor-social-icon-weixin{background-color:#31a918}.elementor-social-icon-whatsapp{background-color:#25d366}.elementor-social-icon-wordpress{background-color:#21759b}.elementor-social-icon-xing{background-color:#026466}.elementor-social-icon-yelp{background-color:#af0606}.elementor-social-icon-youtube{background-color:#cd201f}.elementor-social-icon-500px{background-color:#0099e5}.elementor-shape-rounded .elementor-icon.elementor-social-icon{border-radius:10%}.elementor-shape-circle .elementor-icon.elementor-social-icon{border-radius:50%}</style>		<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon- elementor-animation-grow elementor-repeater-item-e3c61d4" href="https://www.facebook.com/FEArchitects" target="_blank">
+						<span class="elementor-screen-only"></span>
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M448,0H64C28.704,0,0,28.704,0,64v384c0,35.296,28.704,64,64,64h192V336h-64v-80h64v-64c0-53.024,42.976-96,96-96h64v80   h-32c-17.664,0-32-1.664-32,16v64h80l-32,80h-48v176h96c35.296,0,64-28.704,64-64V64C512,28.704,483.296,0,448,0z"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-grow elementor-repeater-item-c3d40fb" href="https://www.instagram.com/fisher_elhanany_architects/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<i class="fab fa-instagram"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon- elementor-animation-grow elementor-repeater-item-c41ced4" href="https://www.linkedin.com/company/fearchitects/" target="_blank">
+						<span class="elementor-screen-only"></span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M0 2.72208C0 1.21913 1.25721 3.8147e-06 2.80813 3.8147e-06H35.1919C36.7427 3.8147e-06 38 1.21913 38 2.72208V35.2779C38 36.7814 36.7427 38 35.1919 38H2.80813C1.25721 38 0 36.7814 0 35.2779V2.72208Z" fill="#932E37"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12.3243 31.6667V14.5734H6.66741V31.6667H12.3243ZM9.49581 12.2397C11.4685 12.2397 12.6963 10.9271 12.6963 9.28675C12.6595 7.60949 11.4685 6.33334 9.53323 6.33334C7.59819 6.33334 6.33301 7.60949 6.33301 9.28675C6.33301 10.9271 7.56056 12.2397 9.45894 12.2397H9.49581Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.4544 31.6667H21.1112V22.1211C21.1112 21.6102 21.148 21.0999 21.2973 20.7347C21.7063 19.714 22.6371 18.6568 24.1998 18.6568C26.2467 18.6568 27.0655 20.2243 27.0655 22.5222V31.6667H32.7219V21.8657C32.7219 16.6154 29.9311 14.1723 26.2093 14.1723C23.1576 14.1723 21.8179 15.8855 21.0736 17.0524H21.1113V14.5734H15.4545C15.5288 16.1774 15.4544 31.6667 15.4544 31.6667Z" fill="white"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-envelope-open elementor-animation-grow elementor-repeater-item-6893fc0" target="_blank">
+						<span class="elementor-screen-only">Envelope-open</span>
+						<i class="fas fa-envelope-open"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-0ea771f elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0ea771f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-0225635" data-id="0225635" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7f01a0e elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="7f01a0e" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/about/">
+
+											<span class="elementor-icon-list-text">עלינו</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/team/">
+
+											<span class="elementor-icon-list-text">הנבחרת</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/hiring/">
+
+											<span class="elementor-icon-list-text">מגייסים</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f-%d7%94%d7%90%d7%aa%d7%a8/">
+
+											<span class="elementor-icon-list-text">תקנון האתר</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/projects/">
+
+											<span class="elementor-icon-list-text">פרויקטים</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/contact/">
+
+											<span class="elementor-icon-list-text">צרו קשר</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://fe-arc.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/">
+
+											<span class="elementor-icon-list-text">נגישות האתר</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-d903554" data-id="d903554" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0a7551d elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="0a7551d" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="tel:08-6210000">
+
+											<span class="elementor-icon-list-text">08-6210000</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="mailto:office@fe-arc.co.il">
+
+											<span class="elementor-icon-list-text">office@fe-arc.co.il</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://maps.app.goo.gl/xFxhbzhYgcRCkEgb9">
+
+											<span class="elementor-icon-list-text">אשכולות 3, פארק תעשייה עומר, 8500813</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-f7783b4" data-id="f7783b4" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-c17b082" data-id="c17b082" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div data-ra-element-link="{&quot;url&quot;:&quot;https:\/\/www.duns100.co.il\/%D7%A4%D7%99%D7%A9%D7%A8_%D7%90%D7%9C%D7%97%D7%A0%D7%A0%D7%99_%D7%90%D7%93%D7%A8%D7%99%D7%9B%D7%9C%D7%99%D7%9D&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;}" style="cursor: pointer" target="_self" onclick="window.open('https://www.duns100.co.il/%D7%A4%D7%99%D7%A9%D7%A8_%D7%90%D7%9C%D7%97%D7%A0%D7%A0%D7%99_%D7%90%D7%93%D7%A8%D7%99%D7%9B%D7%9C%D7%99%D7%9D', '_self')" class="elementor-element elementor-element-69083e4 elementor-widget elementor-widget-image" data-id="69083e4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" width="800" height="800" src="https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-1024x1024.png" class="attachment-large size-large wp-image-2365" alt="" srcset="https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-1024x1024.png 1024w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-300x300.png 300w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-150x150.png 150w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-768x768.png 768w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1-1536x1536.png 1536w, https://fe-arc.co.il/wp-content/uploads/2023/09/הורדה1-1.png 1876w" sizes="(max-width: 800px) 100vw, 800px">													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-cda1f80" data-id="cda1f80" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d68c3a2 elementor-widget elementor-widget-image" data-id="d68c3a2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://fe-arc.co.il" target="_blank">
+							<img loading="lazy" width="3508" height="2482" src="https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02.png" class="attachment-full size-full wp-image-630" alt="" srcset="https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02.png 3508w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02-300x212.png 300w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02-1024x725.png 1024w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02-768x543.png 768w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02-1536x1087.png 1536w, https://fe-arc.co.il/wp-content/uploads/2023/09/logo-02-2048x1449.png 2048w" sizes="(max-width: 3508px) 100vw, 3508px">								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-67fab89" data-id="67fab89" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c1215fb elementor-grid-mobile-0 e-grid-align-mobile-center elementor-shape-rounded elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="c1215fb" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon- elementor-animation-grow elementor-repeater-item-e3c61d4" href="https://www.facebook.com/FEArchitects/" target="_blank">
+						<span class="elementor-screen-only"></span>
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<path d="M448,0H64C28.704,0,0,28.704,0,64v384c0,35.296,28.704,64,64,64h192V336h-64v-80h64v-64c0-53.024,42.976-96,96-96h64v80   h-32c-17.664,0-32-1.664-32,16v64h80l-32,80h-48v176h96c35.296,0,64-28.704,64-64V64C512,28.704,483.296,0,448,0z"></path>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-grow elementor-repeater-item-cf86228" href="https://www.instagram.com/fisher_elhanany_architects/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<i class="fab fa-instagram"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon- elementor-animation-grow elementor-repeater-item-c41ced4" href="https://www.linkedin.com/company/fearchitects/" target="_blank">
+						<span class="elementor-screen-only"></span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M0 2.72208C0 1.21913 1.25721 3.8147e-06 2.80813 3.8147e-06H35.1919C36.7427 3.8147e-06 38 1.21913 38 2.72208V35.2779C38 36.7814 36.7427 38 35.1919 38H2.80813C1.25721 38 0 36.7814 0 35.2779V2.72208Z" fill="#932E37"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12.3243 31.6667V14.5734H6.66741V31.6667H12.3243ZM9.49581 12.2397C11.4685 12.2397 12.6963 10.9271 12.6963 9.28675C12.6595 7.60949 11.4685 6.33334 9.53323 6.33334C7.59819 6.33334 6.33301 7.60949 6.33301 9.28675C6.33301 10.9271 7.56056 12.2397 9.45894 12.2397H9.49581Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.4544 31.6667H21.1112V22.1211C21.1112 21.6102 21.148 21.0999 21.2973 20.7347C21.7063 19.714 22.6371 18.6568 24.1998 18.6568C26.2467 18.6568 27.0655 20.2243 27.0655 22.5222V31.6667H32.7219V21.8657C32.7219 16.6154 29.9311 14.1723 26.2093 14.1723C23.1576 14.1723 21.8179 15.8855 21.0736 17.0524H21.1113V14.5734H15.4545C15.5288 16.1774 15.4544 31.6667 15.4544 31.6667Z" fill="white"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-envelope-open elementor-animation-grow elementor-repeater-item-6893fc0" target="_blank">
+						<span class="elementor-screen-only">Envelope-open</span>
+						<i class="fas fa-envelope-open"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1390bbb elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1390bbb" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7e31322" data-id="7e31322" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0e829c6 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="0e829c6" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="http://www.lotan-pr.com">
+							<img src="https://fe-arc.co.il/wp-content/uploads/2023/09/Group-35706.png" title="Group 35706" alt="Group 35706" loading="lazy">								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+							</div>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<div data-elementor-type="popup" data-elementor-id="74" class="elementor elementor-74 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;slideInDown&quot;,&quot;exit_animation&quot;:&quot;slideInDown&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;1&quot;,&quot;sizes&quot;:[]},&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-055e67d elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="055e67d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-d6c683f" data-id="d6c683f" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-834b14d" data-id="834b14d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c5c791f elementor-widget elementor-widget-heading" data-id="c5c791f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h5 class="elementor-heading-title elementor-size-default"><a href="https://fe-arc.co.il/en">EN</a></h5>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-03bddd3" data-id="03bddd3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0abd402 elementor-widget elementor-widget-image" data-id="0abd402" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://fe-arc.co.il">
+							<img loading="lazy" width="473" height="218" src="https://fe-arc.co.il/wp-content/uploads/2023/09/cropped-logo-02-e1709192307484.png" class="attachment-full size-full wp-image-2790" alt="" srcset="https://fe-arc.co.il/wp-content/uploads/2023/09/cropped-logo-02-e1709192307484.png 473w, https://fe-arc.co.il/wp-content/uploads/2023/09/cropped-logo-02-e1709192307484-300x138.png 300w" sizes="(max-width: 473px) 100vw, 473px">								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2ae5ebc elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="2ae5ebc" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0cd19fe" data-id="0cd19fe" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7896d100 elementor-nav-menu__align-center elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="7896d100" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-7896d100" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-10 current_page_item menu-item-25"><a href="https://fe-arc.co.il/" aria-current="page" class="elementor-item elementor-item-active">עמוד הבית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="https://fe-arc.co.il/about/" class="elementor-item">עלינו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="https://fe-arc.co.il/team/" class="elementor-item">הנבחרת</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://fe-arc.co.il/projects/" class="elementor-item">פרויקטים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="https://fe-arc.co.il/hiring/" class="elementor-item">בואו לעבוד איתנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="https://fe-arc.co.il/contact/" class="elementor-item">צרו קשר</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-7896d100" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-10 current_page_item menu-item-25"><a href="https://fe-arc.co.il/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">עמוד הבית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="https://fe-arc.co.il/about/" class="elementor-item" tabindex="-1">עלינו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="https://fe-arc.co.il/team/" class="elementor-item" tabindex="-1">הנבחרת</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://fe-arc.co.il/projects/" class="elementor-item" tabindex="-1">פרויקטים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="https://fe-arc.co.il/hiring/" class="elementor-item" tabindex="-1">בואו לעבוד איתנו</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="https://fe-arc.co.il/contact/" class="elementor-item" tabindex="-1">צרו קשר</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-be8934b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="be8934b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-8cf6134" data-id="8cf6134" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6976a84 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6976a84" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://fe-arc.co.il/projects/">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-hashtag"></i>						</span>
+										<span class="elementor-icon-list-text">מגורים</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://fe-arc.co.il/projects/">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-hashtag"></i>						</span>
+										<span class="elementor-icon-list-text">מסחר ומשרדים</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://fe-arc.co.il/projects/">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-hashtag"></i>						</span>
+										<span class="elementor-icon-list-text">תכנון אורבני</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://fe-arc.co.il/projects/">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-hashtag"></i>						</span>
+										<span class="elementor-icon-list-text">מבני ציבור וחינוך</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://fe-arc.co.il/projects/">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-hashtag"></i>						</span>
+										<span class="elementor-icon-list-text">עיצוב פנים</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://fe-arc.co.il/projects/">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-hashtag"></i>						</span>
+										<span class="elementor-icon-list-text">תשתיות</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+							</div>
+				</div>
+		<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(.+/)?feed/?.+/?|/(?:.+/)?embed/|/(index\\.php/)?wp\\-json(/.*|$)|/wp-admin/|/logout/|/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https://fe-arc.co.il","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=1.0.0" id="hello-theme-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1" id="smartmenus-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.18.2" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.19.4" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.19.4" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/fe-arc.co.il\/wp-admin\/admin-ajax.php","nonce":"c4425b25cf","urls":{"assets":"https:\/\/fe-arc.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/fe-arc.co.il\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/fe-arc.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.18.2" id="elementor-pro-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnTwitter":"\u05e9\u05ea\u05e3 \u05d1\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8","a11yCarouselWrapperAriaLabel":"\u05e7\u05e8\u05d5\u05e1\u05dc\u05d4 | \u05d2\u05dc\u05d9\u05dc\u05d4 \u05d0\u05d5\u05e4\u05e7\u05d9\u05ea: \u05d7\u05d9\u05e6\u05d9\u05dd \u05d9\u05de\u05d9\u05e0\u05d4 \u05d5\u05e9\u05de\u05d0\u05dc\u05d4","a11yCarouselPrevSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e7\u05d5\u05d3\u05de\u05ea","a11yCarouselNextSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d1\u05d0\u05d4","a11yCarouselFirstSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05e8\u05d0\u05e9\u05d5\u05e0\u05d4","a11yCarouselLastSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d0\u05d7\u05e8\u05d5\u05e0\u05d4","a11yCarouselPaginationBulletMessage":"\u05dc\u05e2\u05d1\u05d5\u05e8 \u05dc\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e0\u05db\u05d9","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05d5\u05e4\u05e7\u05d9","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e0\u05db\u05d9","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05d5\u05e4\u05e7\u05d9","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.19.4","is_static":false,"experimentalFeatures":{"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"additional_custom_breakpoints":true,"e_swiper_latest":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"block_editor_assets_optimize":true,"ai-layout":true,"landing-pages":true,"e_image_loading_optimization":true,"e_global_styleguide":true,"page-transitions":true,"notes":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/fe-arc.co.il\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":10,"title":"%D7%A4%D7%99%D7%A9%D7%A8%20%D7%90%D7%9C%D7%97%D7%A0%D7%A0%D7%99%20%D7%90%D7%93%D7%A8%D7%99%D7%9B%D7%9C%D7%99%D7%9D%20%D7%91%D7%A2%D7%B4%D7%9E","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.19.4" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.18.2" id="pro-elements-handlers-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://fe-arc.co.il/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.18.2" id="e-sticky-js" defer=""></script>
+<!-- BEGIN accessible.org.il -->
+<script type="rocketlazyloadscript">(function(d,src){j=d.createElement('script'),j.defer=true;j.src=src;d.getElementsByTagName('script')[0].appendChild(j); })(document,'https://accessible.vagas.co.il/a/fe-arc/accessibility.js');</script>
+<!-- END accessible.org.il -->
+
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>

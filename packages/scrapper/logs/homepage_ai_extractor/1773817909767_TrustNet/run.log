@@ -1,0 +1,73 @@
+[2026-03-18T07:11:49.768Z] === Homepage AI Extractor: TrustNet ===
+[2026-03-18T07:11:49.768Z] Started at: 2026-03-18T07:11:49.768Z
+[2026-03-18T07:11:49.768Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773817909767_TrustNet
+[2026-03-18T07:11:49.768Z] Company: TrustNet
+[2026-03-18T07:11:49.768Z] Website: trustnet.co.il
+[2026-03-18T07:11:49.768Z] cbRank: 1568955
+[2026-03-18T07:11:49.768Z] Reasons: h
+[2026-03-18T07:11:49.768Z] Fetching: https://trustnet.co.il
+[2026-03-18T07:11:52.814Z] Redirected: https://trustnet.co.il -> https://www.trustnet.co.il/
+[2026-03-18T07:11:52.880Z] Saved HTML (592392 bytes) to page.html
+[2026-03-18T07:11:52.954Z] Extracted 18 unique links from page
+[2026-03-18T07:11:52.958Z] Saved 18 links to links.json
+[2026-03-18T07:11:52.962Z] Extracted footer HTML (11363 chars)
+[2026-03-18T07:11:52.962Z] Extracted header HTML (39564 chars)
+[2026-03-18T07:11:52.967Z] Website (post-redirect): https://www.trustnet.co.il/ → origin: https://www.trustnet.co.il
+[2026-03-18T07:11:52.968Z] External links: 5 (of 18 total)
+[2026-03-18T07:11:52.968Z] ── All external links ──
+[2026-03-18T07:11:52.968Z]   EXT: https://lemonzz.co.il
+[2026-03-18T07:11:52.968Z]   EXT: https://www.enable.co.il
+[2026-03-18T07:11:52.968Z]   EXT: https://www.facebook.com/TrustnetTrustnet
+[2026-03-18T07:11:52.968Z]   EXT: https://www.linkedin.com/company/trustnet
+[2026-03-18T07:11:52.968Z]   EXT: https://www.upress.co.il
+[2026-03-18T07:11:52.968Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T07:11:52.968Z]   UNCATEGORIZED: https://lemonzz.co.il
+[2026-03-18T07:11:52.969Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-18T07:11:52.969Z]   REGEX: fb <- https://www.facebook.com/TrustnetTrustnet
+[2026-03-18T07:11:52.969Z]   REGEX: li <- https://www.linkedin.com/company/trustnet
+[2026-03-18T07:11:52.969Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-18T07:11:52.969Z] Programmatic result: ws:1, fb:1, li:1 | 3 uncategorized
+[2026-03-18T07:11:52.969Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T07:11:52.970Z] Saved AI prompt (6558 chars) to ai_prompt.txt
+[2026-03-18T07:11:52.970Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T07:11:52.973Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T07:12:19.557Z]   AI: First token received, streaming...
+[2026-03-18T07:12:25.474Z] AI response complete: 112 chars in 32.5s
+[2026-03-18T07:12:25.476Z] Saved AI response to ai_response.json
+[2026-03-18T07:12:25.476Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T07:12:25.476Z]   AI LINK: https://www.trustnet.co.il/
+[2026-03-18T07:12:25.476Z]   AI LINK: https://www.facebook.com/TrustnetTrustnet
+[2026-03-18T07:12:25.476Z]   AI LINK: https://www.linkedin.com/company/trustnet/
+[2026-03-18T07:12:25.477Z] AI returned 3 valid links
+[2026-03-18T07:12:25.477Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T07:12:25.477Z]   AI→URLS: https://www.trustnet.co.il (cleaned from https://www.trustnet.co.il/)
+[2026-03-18T07:12:25.477Z]   AI→REGEX: fb <- https://www.facebook.com/TrustnetTrustnet (duplicate, skipped)
+[2026-03-18T07:12:25.477Z]   AI→REGEX: li <- https://www.linkedin.com/company/trustnet/ (duplicate, skipped)
+[2026-03-18T07:12:25.478Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T07:12:25.478Z] Footer/header origins (4):
+[2026-03-18T07:12:25.478Z]   FOOTER/HEADER ORIGIN: https://www.trustnet.co.il
+[2026-03-18T07:12:25.478Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T07:12:25.478Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T07:12:25.479Z]   FOOTER/HEADER ORIGIN: https://lemonzz.co.il
+[2026-03-18T07:12:25.479Z]   ADDED: urls <- https://lemonzz.co.il
+[2026-03-18T07:12:25.479Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-18T07:12:25.479Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-18T07:12:25.479Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T07:12:25.479Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T07:12:25.479Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T07:12:25.479Z] ── Step 3: Final dedup ──
+[2026-03-18T07:12:25.479Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T07:12:25.480Z] ── FINAL RESULT ──
+[2026-03-18T07:12:25.480Z]   ws (1):
+[2026-03-18T07:12:25.480Z]     - https://www.trustnet.co.il
+[2026-03-18T07:12:25.480Z]   li (1):
+[2026-03-18T07:12:25.480Z]     - https://www.linkedin.com/company/trustnet
+[2026-03-18T07:12:25.480Z]   fb (1):
+[2026-03-18T07:12:25.480Z]     - https://www.facebook.com/trustnettrustnet
+[2026-03-18T07:12:25.480Z]   urls (2):
+[2026-03-18T07:12:25.481Z]     - https://lemonzz.co.il
+[2026-03-18T07:12:25.481Z]     - https://www.trustnet.co.il
+[2026-03-18T07:12:25.481Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-18T07:12:25.482Z] Saved final result to result.json
+[2026-03-18T07:12:25.483Z] Override fields: ws, li, fb, urls
+[2026-03-18T07:12:25.483Z] Finished at: 2026-03-18T07:12:25.483Z

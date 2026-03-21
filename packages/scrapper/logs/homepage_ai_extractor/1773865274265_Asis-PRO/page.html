@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ACMI - Quality Association Management</title>
+
+<style type="text/css" media="screen">
+	@import url(acmi.css);
+</style>
+
+<script src="jquery-1.4.2.min.js" type="text/javascript" language="javascript"></script>
+</head>
+
+<body>
+	<div id="container">
+    	<div id="header">
+        	<a href=""><img src="images/acmiLogo.png" title="ACMI - Quality Association Management" alt="ACMI - Quality Association Management" height="63" width="197"></a>
+            <address>12603 Louetta Road, SUITE 101<br>Cypress, Texas 77429-5136</address>
+        </div>
+        <div id="nav">
+            <ul>
+                <li class="first firstSelected selected"><a href="">Home</a></li>
+                <li><a href="contact.html">Contact ACMI</a></li>
+                <li><a href="communications.html">Communications</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="arc.html">Architectural</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li class="last"><a href="/access.html">Homeowner Access</a></li>
+            </ul>
+        </div>
+        <div id="content">
+        	<div id="carousel">
+            	<ul id="carouselControl">
+                    <li onclick="showFrame('10');" id="10Control" class="selected"></li>
+                    <li onclick="showFrame('1');" id="1Control"></li> 
+                    <li onclick="showFrame('2');" id="2Control"></li>
+                    <li onclick="showFrame('3');" id="3Control"></li>                
+                    <li onclick="showFrame('4');" id="4Control"></li>                
+                    <li onclick="showFrame('5');" id="5Control"></li>                
+                    <li onclick="showFrame('6');" id="6Control"></li>                
+                    <li onclick="showFrame('7');" id="7Control"></li>                
+                    <li onclick="showFrame('8');" id="8Control"></li>                
+                    <li onclick="showFrame('9');" id="9Control"></li>                
+                </ul>  
+                <ul id="carouselContents">
+                	<li id="10" class="carouselContent" style="display:block;"><img src="10.jpg" alt=""></li>
+                    <li id="1" class="carouselContent"><img src="1.jpg" alt=""></li>
+                    <li id="2" class="carouselContent"><img src="2.jpg" alt=""></li>
+                    <li id="3" class="carouselContent"><img src="3.jpg" alt=""></li>
+                    <li id="4" class="carouselContent"><img src="4.jpg" alt=""></li>
+                    <li id="5" class="carouselContent"><img src="5.jpg" alt=""></li>
+                    <li id="6" class="carouselContent"><img src="6.jpg" alt=""></li>
+                    <li id="7" class="carouselContent"><img src="7.jpg" alt=""></li>
+                    <li id="8" class="carouselContent"><img src="8.jpg" alt=""></li>
+                    <li id="9" class="carouselContent"><img src="9.jpg" alt=""></li>
+                </ul>
+            </div>
+            <div id="intro">
+            	<h1>Welcome to ACMI</h1>
+                <p>ACMI is a management company that works with home owner and other association Directors and members in the day-to-day operation of association activities. In this role we advise the association on issues and procedures as required to conduct association business in an outstanding manner and to provide excellent day-to-day execution of association business activities.</p>
+
+<p>If you want more information on services we provide please contact us via phone or e-mail through the communication links provided.</p> 
+              
+                <!-- <a href="" class="button">
+                    <span>Read More</span>
+                </a> -->
+            </div>
+        </div>
+        <div id="info">
+        	<h2>Management For</h2>
+        	<ul>
+            	<li>
+              	    <h3>Master Planned Communities</h3>
+					<p></p>
+				</li>
+                <li>
+                	<h3>Home Owner Associations</h3> 
+					<p></p>
+                </li>
+                <li>
+                	<h3>Town Home Associations</h3> 
+					<p></p>
+                </li>
+            </ul>
+            <ul>
+            	<li>
+                	<h3>Condominium Associations</h3>
+					<p></p>
+				</li>
+                <li>
+                	<h3>Office Condominium Associations</h3>
+                    <p></p>
+				</li>
+                <li>
+                	<h3>Property Associations</h3>
+                    <p></p>
+				</li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+<br>
+<a target="_blank" href=""><img align="right" title="Click to verify BBB accreditation and to see a BBB report." border="0" src="bbbsealh1US.gif" alt="Click to verify BBB accreditation and to see a BBB report."></a>
+
+    </div>
+    
+    <script type="text/javascript" language="javascript">
+		
+		var myTimeout = null;
+		
+		function rotateCarousel(){
+			//Clear the old rotation and start a new one
+			if (myTimeout !== null ){
+				clearTimeout( myTimeout );
+			}
+			
+			//Get currentFrame
+			var currentFrame = $("#carouselControl > li.selected")[0];
+									
+			//Get the last frame in the carousel
+			var lastFrame = $("#carouselControl > li:last")[0];
+			
+			//Check to see if the currently selected frame is the last frame						
+			if( currentFrame === lastFrame ){
+				//If it is the last frame, click on the first frame
+				myTimeout = setTimeout(	function(){ $("#carouselControl > li:first").click(); } , 5000 );
+			}
+			else{				
+				//If it is not the last frame, click on the next frame
+				myTimeout = setTimeout(	function(){ $("#carouselControl > li.selected").next().click(); } , 5000 );
+			}
+		}
+		
+		function showFrame(frame) {			
+			//Remove select class from controls and hide all frames
+			$("#carouselControl > li").removeClass("selected");			
+			$(".carouselContent").hide();
+			
+			//Show and select current frame
+			$("#" + frame).show();
+			$("#" + frame + "Control").addClass("selected");
+			
+			//Restarte the carousel rotation
+			rotateCarousel();
+		}		
+		
+		$(document).ready( function() {
+			rotateCarousel();
+		});
+	 
+	 </script>
+
+
+</body></html>

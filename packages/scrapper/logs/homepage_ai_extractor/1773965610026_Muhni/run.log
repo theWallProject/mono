@@ -1,0 +1,77 @@
+[2026-03-20T00:13:30.027Z] === Homepage AI Extractor: Muhni ===
+[2026-03-20T00:13:30.027Z] Started at: 2026-03-20T00:13:30.027Z
+[2026-03-20T00:13:30.027Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773965610026_Muhni
+[2026-03-20T00:13:30.027Z] Company: Muhni
+[2026-03-20T00:13:30.027Z] Website: muhni.co.il
+[2026-03-20T00:13:30.027Z] cbRank: 2507567
+[2026-03-20T00:13:30.027Z] Reasons: h
+[2026-03-20T00:13:30.027Z] Fetching: https://muhni.co.il
+[2026-03-20T00:13:44.274Z] Network idle timeout — continuing with current state
+[2026-03-20T00:13:44.314Z] Redirected: https://muhni.co.il -> https://muhni.co.il/
+[2026-03-20T00:13:44.320Z] Saved HTML (135682 bytes) to page.html
+[2026-03-20T00:13:44.322Z] Extracted 17 unique links from page
+[2026-03-20T00:13:44.323Z] Saved 17 links to links.json
+[2026-03-20T00:13:44.325Z] Extracted footer HTML (7832 chars)
+[2026-03-20T00:13:44.325Z] Extracted header HTML (3672 chars)
+[2026-03-20T00:13:44.329Z] Website (post-redirect): https://muhni.co.il/ → origin: https://muhni.co.il
+[2026-03-20T00:13:44.330Z] External links: 4 (of 17 total)
+[2026-03-20T00:13:44.330Z] ── All external links ──
+[2026-03-20T00:13:44.330Z]   EXT: https://twitter.com/Muhni00072903
+[2026-03-20T00:13:44.330Z]   EXT: https://www.facebook.com/Muhni.Israel
+[2026-03-20T00:13:44.330Z]   EXT: https://www.instagram.com/muhni.mortgages
+[2026-03-20T00:13:44.330Z]   EXT: https://www.youtube.com/channel/UCv95xYa5lRIzcPoPKSk287w
+[2026-03-20T00:13:44.330Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T00:13:44.330Z]   REGEX: tw <- https://twitter.com/Muhni00072903
+[2026-03-20T00:13:44.331Z]   REGEX: fb <- https://www.facebook.com/Muhni.Israel
+[2026-03-20T00:13:44.331Z]   REGEX: ig <- https://www.instagram.com/muhni.mortgages
+[2026-03-20T00:13:44.331Z]   REGEX: ytc <- https://www.youtube.com/channel/UCv95xYa5lRIzcPoPKSk287w
+[2026-03-20T00:13:44.331Z] Programmatic result: ws:1, tw:1, fb:1, ig:1, ytc:1 | 0 uncategorized
+[2026-03-20T00:13:44.331Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T00:13:44.334Z] Saved AI prompt (6952 chars) to ai_prompt.txt
+[2026-03-20T00:13:44.334Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T00:13:44.337Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T00:14:16.731Z]   AI: First token received, streaming...
+[2026-03-20T00:14:30.998Z] AI response complete: 171 chars in 46.7s
+[2026-03-20T00:14:30.999Z] Saved AI response to ai_response.json
+[2026-03-20T00:14:30.999Z] ── Parsing AI response (4 lines) ──
+[2026-03-20T00:14:30.999Z]   AI LINK: https://www.facebook.com/Muhni.Israel
+[2026-03-20T00:14:31.000Z]   AI LINK: https://www.youtube.com/channel/UCv95xYa5lRIzcPoPKSk287w
+[2026-03-20T00:14:31.000Z]   AI LINK: https://twitter.com/Muhni00072903
+[2026-03-20T00:14:31.000Z]   AI LINK: https://www.instagram.com/muhni.mortgages/
+[2026-03-20T00:14:31.000Z] AI returned 4 valid links
+[2026-03-20T00:14:31.000Z] ── Categorizing 4 AI-returned links ──
+[2026-03-20T00:14:31.000Z]   AI→REGEX: fb <- https://www.facebook.com/Muhni.Israel (duplicate, skipped)
+[2026-03-20T00:14:31.000Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCv95xYa5lRIzcPoPKSk287w (duplicate, skipped)
+[2026-03-20T00:14:31.001Z]   AI→REGEX: tw <- https://twitter.com/Muhni00072903 (duplicate, skipped)
+[2026-03-20T00:14:31.001Z]   AI→REGEX: ig <- https://www.instagram.com/muhni.mortgages/ (duplicate, skipped)
+[2026-03-20T00:14:31.001Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T00:14:31.001Z] Footer/header origins (5):
+[2026-03-20T00:14:31.001Z]   FOOTER/HEADER ORIGIN: https://muhni.co.il
+[2026-03-20T00:14:31.002Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T00:14:31.002Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T00:14:31.002Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-20T00:14:31.002Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T00:14:31.002Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T00:14:31.002Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T00:14:31.002Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-20T00:14:31.274Z]   YOUTUBE: resolved UCv95xYa5lRIzcPoPKSk287w → @muhni-israel
+[2026-03-20T00:14:31.274Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-20T00:14:31.274Z] ── Step 3: Final dedup ──
+[2026-03-20T00:14:31.275Z] No urls to dedup
+[2026-03-20T00:14:31.275Z] ── FINAL RESULT ──
+[2026-03-20T00:14:31.275Z]   ws (1):
+[2026-03-20T00:14:31.275Z]     - https://muhni.co.il
+[2026-03-20T00:14:31.275Z]   fb (1):
+[2026-03-20T00:14:31.275Z]     - https://www.facebook.com/muhni.israel
+[2026-03-20T00:14:31.275Z]   tw (1):
+[2026-03-20T00:14:31.275Z]     - https://x.com/muhni00072903
+[2026-03-20T00:14:31.275Z]   ig (1):
+[2026-03-20T00:14:31.275Z]     - https://www.instagram.com/muhni.mortgages
+[2026-03-20T00:14:31.275Z]   ytp (1):
+[2026-03-20T00:14:31.275Z]     - https://www.youtube.com/@muhni-israel
+[2026-03-20T00:14:31.276Z]   ytc (1):
+[2026-03-20T00:14:31.276Z]     - https://www.youtube.com/channel/UCv95xYa5lRIzcPoPKSk287w
+[2026-03-20T00:14:31.276Z] Summary: ws:1, tw:1, fb:1, ig:1, ytc:1, ytp:1
+[2026-03-20T00:14:31.276Z] Saved final result to result.json
+[2026-03-20T00:14:31.277Z] Override fields: ws, fb, tw, ig, ytp, ytc
+[2026-03-20T00:14:31.277Z] Finished at: 2026-03-20T00:14:31.277Z

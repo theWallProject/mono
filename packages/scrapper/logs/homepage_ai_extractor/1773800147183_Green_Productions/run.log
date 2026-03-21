@@ -1,0 +1,66 @@
+[2026-03-18T02:15:47.183Z] === Homepage AI Extractor: Green Productions ===
+[2026-03-18T02:15:47.183Z] Started at: 2026-03-18T02:15:47.183Z
+[2026-03-18T02:15:47.183Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773800147183_Green_Productions
+[2026-03-18T02:15:47.183Z] Company: Green Productions
+[2026-03-18T02:15:47.183Z] Website: greenproductions.co.il
+[2026-03-18T02:15:47.183Z] cbRank: 1427215
+[2026-03-18T02:15:47.183Z] Reasons: h
+[2026-03-18T02:15:47.183Z] Fetching: https://greenproductions.co.il
+[2026-03-18T02:15:58.278Z] Network idle timeout — continuing with current state
+[2026-03-18T02:15:58.313Z] Redirected: https://greenproductions.co.il -> https://www.greenproductions.co.il/
+[2026-03-18T02:15:58.326Z] Saved HTML (591089 bytes) to page.html
+[2026-03-18T02:15:58.329Z] Extracted 14 unique links from page
+[2026-03-18T02:15:58.330Z] Saved 14 links to links.json
+[2026-03-18T02:15:58.332Z] Extracted footer HTML (7162 chars)
+[2026-03-18T02:15:58.332Z] Extracted header HTML (972 chars)
+[2026-03-18T02:15:58.336Z] Website (post-redirect): https://www.greenproductions.co.il/ → origin: https://www.greenproductions.co.il
+[2026-03-18T02:15:58.336Z] External links: 3 (of 14 total)
+[2026-03-18T02:15:58.336Z] ── All external links ──
+[2026-03-18T02:15:58.336Z]   EXT: https://vimeo.com/user23010303
+[2026-03-18T02:15:58.336Z]   EXT: https://www.facebook.com/GREENproductions-113754182028398
+[2026-03-18T02:15:58.336Z]   EXT: https://www.instagram.com/green_productions_il
+[2026-03-18T02:15:58.337Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T02:15:58.337Z]   UNCATEGORIZED: https://vimeo.com/user23010303
+[2026-03-18T02:15:58.337Z]   REGEX: fb <- https://www.facebook.com/GREENproductions-113754182028398
+[2026-03-18T02:15:58.337Z]   REGEX: ig <- https://www.instagram.com/green_productions_il
+[2026-03-18T02:15:58.337Z] Programmatic result: ws:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-18T02:15:58.337Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T02:15:58.341Z] Saved AI prompt (7209 chars) to ai_prompt.txt
+[2026-03-18T02:15:58.341Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T02:15:58.344Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T02:16:33.339Z]   AI: First token received, streaming...
+[2026-03-18T02:16:44.382Z] AI response complete: 137 chars in 46.0s
+[2026-03-18T02:16:44.384Z] Saved AI response to ai_response.json
+[2026-03-18T02:16:44.384Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T02:16:44.384Z]   AI LINK: https://www.facebook.com/GREENproductions-113754182028398/
+[2026-03-18T02:16:44.384Z]   AI LINK: https://www.instagram.com/green_productions_il/
+[2026-03-18T02:16:44.385Z]   AI LINK: https://vimeo.com/user23010303
+[2026-03-18T02:16:44.385Z] AI returned 3 valid links
+[2026-03-18T02:16:44.385Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T02:16:44.385Z]   AI→REGEX: fb <- https://www.facebook.com/GREENproductions-113754182028398/ (duplicate, skipped)
+[2026-03-18T02:16:44.385Z]   AI→REGEX: ig <- https://www.instagram.com/green_productions_il/ (duplicate, skipped)
+[2026-03-18T02:16:44.386Z]   AI→URLS: https://vimeo.com/user23010303
+[2026-03-18T02:16:44.386Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T02:16:44.386Z] Footer/header origins (3):
+[2026-03-18T02:16:44.386Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T02:16:44.386Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-18T02:16:44.386Z]   FOOTER/HEADER ORIGIN: https://vimeo.com
+[2026-03-18T02:16:44.386Z]   SKIP (AI claimed): https://vimeo.com/user23010303
+[2026-03-18T02:16:44.387Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T02:16:44.387Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T02:16:44.387Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T02:16:44.387Z] ── Step 3: Final dedup ──
+[2026-03-18T02:16:44.387Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T02:16:44.387Z] ── FINAL RESULT ──
+[2026-03-18T02:16:44.387Z]   ws (1):
+[2026-03-18T02:16:44.388Z]     - https://www.greenproductions.co.il
+[2026-03-18T02:16:44.388Z]   fb (1):
+[2026-03-18T02:16:44.388Z]     - https://www.facebook.com/greenproductions-113754182028398
+[2026-03-18T02:16:44.388Z]   ig (1):
+[2026-03-18T02:16:44.388Z]     - https://www.instagram.com/green_productions_il
+[2026-03-18T02:16:44.388Z]   urls (1):
+[2026-03-18T02:16:44.388Z]     - https://vimeo.com/user23010303
+[2026-03-18T02:16:44.388Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-18T02:16:44.389Z] Saved final result to result.json
+[2026-03-18T02:16:44.390Z] Override fields: ws, fb, ig, urls
+[2026-03-18T02:16:44.390Z] Finished at: 2026-03-18T02:16:44.390Z

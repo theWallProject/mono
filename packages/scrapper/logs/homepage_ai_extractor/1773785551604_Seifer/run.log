@@ -1,0 +1,78 @@
+[2026-03-17T22:12:31.604Z] === Homepage AI Extractor: Seifer ===
+[2026-03-17T22:12:31.604Z] Started at: 2026-03-17T22:12:31.604Z
+[2026-03-17T22:12:31.604Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773785551604_Seifer
+[2026-03-17T22:12:31.604Z] Company: Seifer
+[2026-03-17T22:12:31.604Z] Website: seifer.co.il
+[2026-03-17T22:12:31.604Z] cbRank: 1352070
+[2026-03-17T22:12:31.604Z] Reasons: h
+[2026-03-17T22:12:31.604Z] Fetching: https://seifer.co.il
+[2026-03-17T22:12:35.492Z] Redirected: https://seifer.co.il -> https://www.seifer.co.il/
+[2026-03-17T22:12:35.498Z] Saved HTML (190618 bytes) to page.html
+[2026-03-17T22:12:35.501Z] Extracted 46 unique links from page
+[2026-03-17T22:12:35.501Z] Saved 46 links to links.json
+[2026-03-17T22:12:35.503Z] Extracted footer HTML (9847 chars)
+[2026-03-17T22:12:35.503Z] Extracted header HTML (6802 chars)
+[2026-03-17T22:12:35.508Z] Website (post-redirect): https://www.seifer.co.il/ → origin: https://www.seifer.co.il
+[2026-03-17T22:12:35.508Z] External links: 6 (of 46 total)
+[2026-03-17T22:12:35.508Z] ── All external links ──
+[2026-03-17T22:12:35.508Z]   EXT: http://www.negishim.org
+[2026-03-17T22:12:35.508Z]   EXT: https://chatbots.blog
+[2026-03-17T22:12:35.509Z]   EXT: https://plus.google.com/105858483596642714282/about?gmbpt=true&hl=en&_ga=1.138977972.660246936.1468886888
+[2026-03-17T22:12:35.509Z]   EXT: https://tukiai.com
+[2026-03-17T22:12:35.509Z]   EXT: https://twitter.com/seiferexpress
+[2026-03-17T22:12:35.509Z]   EXT: https://wa.me/972542207140
+[2026-03-17T22:12:35.509Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T22:12:35.509Z]   UNCATEGORIZED: http://www.negishim.org
+[2026-03-17T22:12:35.509Z]   UNCATEGORIZED: https://chatbots.blog
+[2026-03-17T22:12:35.509Z]   UNCATEGORIZED: https://plus.google.com/105858483596642714282/about?gmbpt=true&hl=en&_ga=1.138977972.660246936.1468886888
+[2026-03-17T22:12:35.509Z]   UNCATEGORIZED: https://tukiai.com
+[2026-03-17T22:12:35.509Z]   REGEX: tw <- https://twitter.com/seiferexpress
+[2026-03-17T22:12:35.509Z]   UNCATEGORIZED: https://wa.me/972542207140
+[2026-03-17T22:12:35.509Z] Programmatic result: ws:1, tw:1 | 5 uncategorized
+[2026-03-17T22:12:35.509Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T22:12:35.513Z] Saved AI prompt (10706 chars) to ai_prompt.txt
+[2026-03-17T22:12:35.513Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T22:12:35.516Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T22:13:22.967Z]   AI: First token received, streaming...
+[2026-03-17T22:13:42.946Z] AI response complete: 178 chars in 67.4s
+[2026-03-17T22:13:42.947Z] Saved AI response to ai_response.json
+[2026-03-17T22:13:42.947Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T22:13:42.947Z]   AI LINK: https://twitter.com/seiferexpress
+[2026-03-17T22:13:42.947Z]   AI LINK: https://plus.google.com/105858483596642714282/about?gmbpt=true&hl=en&_ga=1.138977972.660246936.1468886888
+[2026-03-17T22:13:42.948Z]   AI LINK: https://www.facebook.com/seiferexpress
+[2026-03-17T22:13:42.948Z] AI returned 3 valid links
+[2026-03-17T22:13:42.948Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T22:13:42.948Z]   AI→REGEX: tw <- https://twitter.com/seiferexpress (duplicate, skipped)
+[2026-03-17T22:13:42.948Z]   AI→URLS: https://plus.google.com/105858483596642714282/about (cleaned from https://plus.google.com/105858483596642714282/about?gmbpt=true&hl=en&_ga=1.138977972.660246936.1468886888)
+[2026-03-17T22:13:42.949Z]   AI→REGEX: fb <- https://www.facebook.com/seiferexpress
+[2026-03-17T22:13:42.949Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T22:13:42.949Z] Footer/header origins (5):
+[2026-03-17T22:13:42.949Z]   FOOTER/HEADER ORIGIN: https://www.seifer.co.il
+[2026-03-17T22:13:42.949Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-17T22:13:42.949Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-17T22:13:42.950Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T22:13:42.950Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-17T22:13:42.950Z]   SKIP (not in footer/header): http://www.negishim.org
+[2026-03-17T22:13:42.950Z]   SKIP (not in footer/header): https://chatbots.blog
+[2026-03-17T22:13:42.950Z]   SKIP (AI claimed): https://plus.google.com/105858483596642714282/about?gmbpt=true&hl=en&_ga=1.138977972.660246936.1468886888
+[2026-03-17T22:13:42.950Z]   SKIP (not in footer/header): https://tukiai.com
+[2026-03-17T22:13:42.950Z]   ADDED: urls <- https://wa.me/972542207140
+[2026-03-17T22:13:42.950Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T22:13:42.950Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T22:13:42.951Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T22:13:42.951Z] ── Step 3: Final dedup ──
+[2026-03-17T22:13:42.951Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T22:13:42.951Z] ── FINAL RESULT ──
+[2026-03-17T22:13:42.951Z]   ws (1):
+[2026-03-17T22:13:42.951Z]     - https://www.seifer.co.il
+[2026-03-17T22:13:42.951Z]   fb (1):
+[2026-03-17T22:13:42.951Z]     - https://www.facebook.com/seiferexpress
+[2026-03-17T22:13:42.951Z]   tw (1):
+[2026-03-17T22:13:42.951Z]     - https://x.com/seiferexpress
+[2026-03-17T22:13:42.951Z]   urls (2):
+[2026-03-17T22:13:42.951Z]     - https://plus.google.com/105858483596642714282/about
+[2026-03-17T22:13:42.952Z]     - https://wa.me/972542207140
+[2026-03-17T22:13:42.952Z] Summary: ws:1, tw:1, urls:2, fb:1
+[2026-03-17T22:13:42.953Z] Saved final result to result.json
+[2026-03-17T22:13:42.953Z] Override fields: ws, fb, tw, urls
+[2026-03-17T22:13:42.953Z] Finished at: 2026-03-17T22:13:42.953Z

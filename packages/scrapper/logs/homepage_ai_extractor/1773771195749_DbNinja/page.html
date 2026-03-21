@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head> 
+<meta name="description" content="Web-based application for secure and efficient management of MySQL database servers">
+<meta name="keywords" content="mysql server sql manager online web-based monitor backup extract import export hosting table view procedure function trigger event">
+<meta name="copyright" content="Copyright © 2009-2012 Vayer Software Ltd.">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>DbNinja | Online MySQL database manager</title>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="js/common1.js"></script>
+<link rel="stylesheet" type="text/css" href="css/anythingslider.css">
+<link rel="stylesheet" type="text/css" href="css/theme-dbninja.css">
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-5363806-4']); _gaq.push(['_setDomainName', 'dbninja.com']); _gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+<body onload="HandleResize()" onresize="HandleResize()">
+<div id="screen" class="shadow">
+<div id="header"><a href="./"><img id="topLogo" src="images/logo_top.png" alt="DbNinja.com"></a></div>
+<div id="menu">
+<a class="menuSelItem round" href="?page=home">Home</a><a class="menuItem" href="?page=download">Download</a><a class="menuItem" href="?page=screenshots">Screenshots</a><a class="menuItem" href="?page=resources">Resources</a><a class="menuItem" href="?page=contact">Contact</a><a class="menuItem" href="?page=bug-report">Bug Report</a></div>
+<div class="anythingSlider anythingSlider-dbninja activeSlider" style="width: 1000px; height: 280px;"><div class="anythingWindow"><ul id="slider" style="width: 6000px; height: 280px; visibility: visible; border-top: 1px solid rgb(102, 102, 102); left: -1000px;" class="anythingBase horizontal"><li style="background-image: url(&quot;images/slides/bg_slider_4.jpg&quot;); width: 1000px; height: 280px;" class="cloned panel">
+        <div class="sliderContent" style="width: 100%; height: 100%;">
+            <div style="width:650px;margin:50px 0 0 25px">
+                <h1>DbNinja is FREE for personal use!</h1>
+                <br>
+                <h2>No registration or payment information is needed - no strings are attached.<br>
+                    Paid premium features such as scheduled backups and server monitoring will soon become available.
+                </h2>
+                <img src="images/slides/present.png" style="position:absolute; left:710px; top:16px">
+            </div>
+        </div>
+    </li>
+    <li style="background-image: url(&quot;images/slides/bg_slider_1.jpg&quot;); width: 1000px; height: 280px;" class="panel activePage">
+        <div class="sliderContent" style="width: 100%; height: 100%;">
+            <div style="width:600px;margin:40px 0 0 30px">
+                <h1>Manage Your MySQL Server from Anywhere Using a Browser!</h1>
+                <br>
+                <h2>DbNinja is the most complete solution for novice and professional MySQL developers.
+                    It is also supported by most shared hosting providers.</h2>
+            </div>
+            <img style="position:absolute;left:680px;top:20px" src="images/slides/network.png">
+        </div>
+    </li>
+    <li style="background-image: url(&quot;images/slides/bg_slider_3.jpg&quot;); width: 1000px; height: 280px;" class="panel">
+        <div class="sliderContent" style="width: 100%; height: 100%;">
+            <div style="width:470px; padding-top:15px">
+                <h1>Work Conveniently with a Slick and Responsive User Interface</h1>
+                <br>
+                <h2>DbNinja features tabbed workspaces, object-dragging and dropping and all of the other
+                    bells and whistles that you would expect only from a stand-alone management application.</h2>
+            </div>
+            <img src="images/slides/screens.png" style="position:absolute; left:480px; top:15px">
+        </div>
+    </li>
+    <li style="background-image: url(&quot;images/slides/bg_slider_2.jpg&quot;); width: 1000px; height: 280px;" class="panel">
+        <div class="sliderContent" style="width: 100%; height: 100%;">
+            <div style="width:600px;margin:50px 0 0 25px">
+                <h1>We Take Security Seriously</h1>
+                <br>
+                <h2>The connection between your browser and DbNinja is encrypted, so even if you do not
+                    have SSL installed no one will be able to eavesdrop on your communication.</h2>
+                <img src="images/slides/lock.png" style="position:absolute; left:710px; top:16px">
+            </div>
+        </div>
+    </li>
+    <li style="background-image: url(&quot;images/slides/bg_slider_4.jpg&quot;); width: 1000px; height: 280px;" class="panel">
+        <div class="sliderContent" style="width: 100%; height: 100%;">
+            <div style="width:650px;margin:50px 0 0 25px">
+                <h1>DbNinja is FREE for personal use!</h1>
+                <br>
+                <h2>No registration or payment information is needed - no strings are attached.<br>
+                    Paid premium features such as scheduled backups and server monitoring will soon become available.
+                </h2>
+                <img src="images/slides/present.png" style="position:absolute; left:710px; top:16px">
+            </div>
+        </div>
+    </li>
+<li style="background-image: url(&quot;images/slides/bg_slider_1.jpg&quot;); width: 1000px; height: 280px;" class="cloned panel">
+        <div class="sliderContent" style="width: 100%; height: 100%;">
+            <div style="width:600px;margin:40px 0 0 30px">
+                <h1>Manage Your MySQL Server from Anywhere Using a Browser!</h1>
+                <br>
+                <h2>DbNinja is the most complete solution for novice and professional MySQL developers.
+                    It is also supported by most shared hosting providers.</h2>
+            </div>
+            <img style="position:absolute;left:680px;top:20px" src="images/slides/network.png">
+        </div>
+    </li></ul></div><span class="arrow back"><a href="#"><span>«</span></a></span><span class="arrow forward"><a href="#"><span>»</span></a></span></div>
+<script>window.jQuery || document.write('<scr'+'ipt src="js/lib/jquery.min.js"><\/script>')</script><script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery.anythingslider.min.js"></script>
+<script>
+$(document).ready(function(){$('#slider').anythingSlider({theme:'dbninja',startPanel:1,width:1000,height:280,toggleControls:false,enableKeyboard:false,buildNavigation:false,buildStartStop:false,autoPlay:true,hashTags:false,delay:6500,onInitialized:function() { document.getElementById('slider').style.visibility='visible';}});});
+</script>
+<div class="content" style="padding:0 5px 0 5px">
+	<h1>DbNinja for MySQL</h1>
+	<a id="btnDownload" href="?page=download" class="round">
+		<div style="font-size:20px;margin:58px 0 0 0">DbNinja v3.2.7</div>
+		<div style="font-size:17px;margin:0px 0 0 0">Download Now!</div>
+	</a>
+	DbNinja is an advanced web-based application for MySQL database administration and development. It's a must-have
+	for those who wish to access their hosted servers remotely. DbNinja supports all the latest features including:
+	triggers, events, views, stored routines and foreign keys; in addition it allows to import and backup data and MySQL
+	object structures, manage users and much more. DbNinja has a highly functional and elegant user interface, and can
+	be used securely in any modern browser on any OS.
+</div>
+<div style="margin-top:20px;padding:20px 0 0 0" class="content green round">
+	<div class="content cell" style="padding-left:30px">
+		<h2 id="manageFeatures">Management Features</h2>
+		<ul>
+			<li>Manage databases, tables and events</li>
+			<li>Manage indices, foreign keys and triggers</li>
+			<li>Edit procedures, functions and views</li>
+			<li>Manage and export user accounts and privileges</li>
+			<li>Back-up and restore database structure and data</li>
+			<li>Compare and synchronize databases between hosts</li>
+			<li>Export data into CSV, SQL, Excel and JSON formats</li>
+			<li>Check, repair and optimize tables</li>
+			<li>View and terminate active server connections</li>
+			<li>View system status info and edit system variables</li>
+		</ul>
+	</div>
+	<div class="content cell" style="padding-left:30px">
+		<h2 id="guiFeatures">User Interface Features</h2>
+		<ul>
+			<li>Connect to multiple hosts at same time</li>
+			<li>Do tasks simultaneously with tabs-based interface</li>
+			<li>Access all hosts and database objects from a tree view</li>
+			<li>Items can be right-clicked to show context-sensitive menus</li>
+			<li>Edit queries and routines efficiently with syntax highlighting</li>
+			<li>Work with multilingual data - different encodings are supported</li>
+			<li>Preview images and other binary data that's stored in tables</li>
+			<li>Save your favorite queries for later use</li>
+			<li>Set limits on amounts of fetched data and query execution time</li>
+			<li>Use keyboard shortcuts for common tasks</li>
+		</ul>
+	</div>
+	<div style="clear:both"></div>
+</div>
+<br>
+<div id="phFooter">
+	<div id="footer" style="position: static; visibility: visible;">
+		<div id="footerLinks">
+<a href="?page=home">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?page=download">Download</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?page=screenshots">Screenshots</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?page=resources">Resources</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?page=contact">Contact</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?page=bug-report">Bug Report</a>			<div style="text-align:center">
+				<a href="?page=resources&amp;z=300">Terms of Use</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="?page=resources&amp;z=302">Privacy &amp; Security Policy</a>
+			</div>
+		</div>
+		<div id="footerCopyright">
+			<img src="images/logo_small.png" alt="" style="vertical-align: -8px">
+			© 2009-2026, Vayer Software Ltd., All rights reserved
+		</div>
+	</div>
+</div>
+
+</div>
+
+</body></html>

@@ -1,0 +1,71 @@
+[2026-03-18T06:58:05.816Z] === Homepage AI Extractor: MyleFly ===
+[2026-03-18T06:58:05.816Z] Started at: 2026-03-18T06:58:05.816Z
+[2026-03-18T06:58:05.816Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773817085816_MyleFly
+[2026-03-18T06:58:05.816Z] Company: MyleFly
+[2026-03-18T06:58:05.816Z] Website: mylefly.com
+[2026-03-18T06:58:05.816Z] cbRank: 1559646
+[2026-03-18T06:58:05.816Z] Reasons: h
+[2026-03-18T06:58:05.816Z] Fetching: https://mylefly.com
+[2026-03-18T06:58:10.381Z] Redirected: https://mylefly.com -> https://mylefly.com/
+[2026-03-18T06:58:10.385Z] Saved HTML (92088 bytes) to page.html
+[2026-03-18T06:58:10.387Z] Extracted 14 unique links from page
+[2026-03-18T06:58:10.387Z] Saved 14 links to links.json
+[2026-03-18T06:58:10.390Z] Extracted footer HTML (2778 chars)
+[2026-03-18T06:58:10.390Z] Extracted header HTML (1906 chars)
+[2026-03-18T06:58:10.393Z] Website (post-redirect): https://mylefly.com/ → origin: https://mylefly.com
+[2026-03-18T06:58:10.393Z] External links: 4 (of 14 total)
+[2026-03-18T06:58:10.393Z] ── All external links ──
+[2026-03-18T06:58:10.393Z]   EXT: https://twitter.com/mylefly
+[2026-03-18T06:58:10.393Z]   EXT: https://www.facebook.com/MyleFly
+[2026-03-18T06:58:10.393Z]   EXT: https://www.instagram.com/mylefly/?hl=en
+[2026-03-18T06:58:10.393Z]   EXT: https://www.linkedin.com/company/mylefly
+[2026-03-18T06:58:10.393Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T06:58:10.394Z]   REGEX: tw <- https://twitter.com/mylefly
+[2026-03-18T06:58:10.394Z]   REGEX: fb <- https://www.facebook.com/MyleFly
+[2026-03-18T06:58:10.394Z]   REGEX: ig <- https://www.instagram.com/mylefly/?hl=en
+[2026-03-18T06:58:10.394Z]   REGEX: li <- https://www.linkedin.com/company/mylefly
+[2026-03-18T06:58:10.394Z] Programmatic result: ws:1, tw:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-18T06:58:10.394Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T06:58:10.397Z] Saved AI prompt (3733 chars) to ai_prompt.txt
+[2026-03-18T06:58:10.398Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T06:58:10.401Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T06:58:23.899Z]   AI: First token received, streaming...
+[2026-03-18T06:58:31.672Z] AI response complete: 144 chars in 21.3s
+[2026-03-18T06:58:31.674Z] Saved AI response to ai_response.json
+[2026-03-18T06:58:31.674Z] ── Parsing AI response (4 lines) ──
+[2026-03-18T06:58:31.674Z]   AI LINK: https://www.facebook.com/MyleFly/
+[2026-03-18T06:58:31.674Z]   AI LINK: https://www.linkedin.com/company/mylefly/
+[2026-03-18T06:58:31.674Z]   AI LINK: https://twitter.com/mylefly
+[2026-03-18T06:58:31.675Z]   AI LINK: https://www.instagram.com/mylefly/?hl=en
+[2026-03-18T06:58:31.675Z] AI returned 4 valid links
+[2026-03-18T06:58:31.675Z] ── Categorizing 4 AI-returned links ──
+[2026-03-18T06:58:31.675Z]   AI→REGEX: fb <- https://www.facebook.com/MyleFly/ (duplicate, skipped)
+[2026-03-18T06:58:31.675Z]   AI→REGEX: li <- https://www.linkedin.com/company/mylefly/ (duplicate, skipped)
+[2026-03-18T06:58:31.675Z]   AI→REGEX: tw <- https://twitter.com/mylefly (duplicate, skipped)
+[2026-03-18T06:58:31.676Z]   AI→REGEX: ig <- https://www.instagram.com/mylefly/?hl=en (duplicate, skipped)
+[2026-03-18T06:58:31.676Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T06:58:31.676Z] Footer/header origins (4):
+[2026-03-18T06:58:31.677Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T06:58:31.677Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T06:58:31.677Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-18T06:58:31.677Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-18T06:58:31.677Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T06:58:31.677Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T06:58:31.677Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T06:58:31.677Z] ── Step 3: Final dedup ──
+[2026-03-18T06:58:31.677Z] No urls to dedup
+[2026-03-18T06:58:31.677Z] ── FINAL RESULT ──
+[2026-03-18T06:58:31.678Z]   ws (1):
+[2026-03-18T06:58:31.678Z]     - https://mylefly.com
+[2026-03-18T06:58:31.678Z]   li (1):
+[2026-03-18T06:58:31.678Z]     - https://www.linkedin.com/company/mylefly
+[2026-03-18T06:58:31.678Z]   fb (1):
+[2026-03-18T06:58:31.678Z]     - https://www.facebook.com/mylefly
+[2026-03-18T06:58:31.678Z]   tw (1):
+[2026-03-18T06:58:31.678Z]     - https://x.com/mylefly
+[2026-03-18T06:58:31.678Z]   ig (1):
+[2026-03-18T06:58:31.678Z]     - https://www.instagram.com/mylefly
+[2026-03-18T06:58:31.679Z] Summary: ws:1, tw:1, fb:1, ig:1, li:1
+[2026-03-18T06:58:31.680Z] Saved final result to result.json
+[2026-03-18T06:58:31.680Z] Override fields: ws, li, fb, tw, ig
+[2026-03-18T06:58:31.680Z] Finished at: 2026-03-18T06:58:31.680Z

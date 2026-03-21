@@ -1,0 +1,77 @@
+[2026-03-19T06:49:14.156Z] === Homepage AI Extractor: Sabio ===
+[2026-03-19T06:49:14.156Z] Started at: 2026-03-19T06:49:14.156Z
+[2026-03-19T06:49:14.156Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773902954155_Sabio
+[2026-03-19T06:49:14.156Z] Company: Sabio
+[2026-03-19T06:49:14.156Z] Website: sabio.co.il
+[2026-03-19T06:49:14.156Z] cbRank: 1988752
+[2026-03-19T06:49:14.156Z] Reasons: h
+[2026-03-19T06:49:14.156Z] Fetching: https://sabio.co.il
+[2026-03-19T06:49:24.809Z] Network idle timeout — continuing with current state
+[2026-03-19T06:49:24.842Z] Redirected: https://sabio.co.il -> https://www.sabio.co.il/
+[2026-03-19T06:49:24.864Z] Saved HTML (1046490 bytes) to page.html
+[2026-03-19T06:49:24.867Z] Extracted 16 unique links from page
+[2026-03-19T06:49:24.868Z] Saved 16 links to links.json
+[2026-03-19T06:49:24.870Z] Extracted footer HTML (10599 chars)
+[2026-03-19T06:49:24.870Z] Extracted header HTML (3750 chars)
+[2026-03-19T06:49:24.874Z] Website (post-redirect): https://www.sabio.co.il/ → origin: https://www.sabio.co.il
+[2026-03-19T06:49:24.874Z] External links: 6 (of 16 total)
+[2026-03-19T06:49:24.874Z] ── All external links ──
+[2026-03-19T06:49:24.875Z]   EXT: https://www.facebook.com/SABIO.ADVERTISING
+[2026-03-19T06:49:24.875Z]   EXT: https://www.facebook.com/share/9cTDziyo3fPu9n8q/?mibextid=LQQJ4d
+[2026-03-19T06:49:24.875Z]   EXT: https://www.instagram.com/sabio_israel
+[2026-03-19T06:49:24.875Z]   EXT: https://www.linkedin.com/company/81866276/admin/feed/posts
+[2026-03-19T06:49:24.875Z]   EXT: https://www.linkedin.com/company/sabio-israel
+[2026-03-19T06:49:24.875Z]   EXT: https://youtube.com/@sabioadv3214
+[2026-03-19T06:49:24.875Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T06:49:24.875Z]   REGEX: fb <- https://www.facebook.com/SABIO.ADVERTISING
+[2026-03-19T06:49:24.875Z]   REGEX: ig <- https://www.instagram.com/sabio_israel
+[2026-03-19T06:49:24.875Z]   REGEX: li <- https://www.linkedin.com/company/81866276/admin/feed/posts
+[2026-03-19T06:49:24.875Z]   REGEX: li <- https://www.linkedin.com/company/sabio-israel
+[2026-03-19T06:49:24.875Z]   REGEX: ytp <- https://youtube.com/@sabioadv3214
+[2026-03-19T06:49:24.875Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T06:49:24.875Z]   SKIP (regex domain, no match): https://www.facebook.com/share/9cTDziyo3fPu9n8q/?mibextid=LQQJ4d
+[2026-03-19T06:49:24.876Z] Programmatic result: ws:1, fb:1, ig:1, li:2, ytp:1 | 0 uncategorized
+[2026-03-19T06:49:24.876Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T06:49:24.876Z] Saved AI prompt (8408 chars) to ai_prompt.txt
+[2026-03-19T06:49:24.877Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T06:49:24.880Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T06:50:02.782Z]   AI: First token received, streaming...
+[2026-03-19T06:50:10.406Z] AI response complete: 120 chars in 45.5s
+[2026-03-19T06:50:10.407Z] Saved AI response to ai_response.json
+[2026-03-19T06:50:10.408Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T06:50:10.408Z]   AI LINK: https://www.instagram.com/sabio_israel/
+[2026-03-19T06:50:10.408Z]   AI LINK: https://youtube.com/@sabioadv3214
+[2026-03-19T06:50:10.408Z]   AI LINK: https://www.linkedin.com/company/sabio-israel/
+[2026-03-19T06:50:10.408Z] AI returned 3 valid links
+[2026-03-19T06:50:10.409Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T06:50:10.409Z]   AI→REGEX: ig <- https://www.instagram.com/sabio_israel/ (duplicate, skipped)
+[2026-03-19T06:50:10.409Z]   AI→REGEX: ytp <- https://youtube.com/@sabioadv3214 (duplicate, skipped)
+[2026-03-19T06:50:10.409Z]   AI→REGEX: li <- https://www.linkedin.com/company/sabio-israel/ (duplicate, skipped)
+[2026-03-19T06:50:10.409Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T06:50:10.410Z] Footer/header origins (5):
+[2026-03-19T06:50:10.410Z]   FOOTER/HEADER ORIGIN: https://www.sabio.co.il
+[2026-03-19T06:50:10.410Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T06:50:10.410Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T06:50:10.410Z]   FOOTER/HEADER ORIGIN: https://youtube.com
+[2026-03-19T06:50:10.410Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T06:50:10.410Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T06:50:10.410Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T06:50:10.411Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T06:50:10.411Z] ── Step 3: Final dedup ──
+[2026-03-19T06:50:10.411Z] No urls to dedup
+[2026-03-19T06:50:10.411Z] ── FINAL RESULT ──
+[2026-03-19T06:50:10.411Z]   ws (1):
+[2026-03-19T06:50:10.411Z]     - https://www.sabio.co.il
+[2026-03-19T06:50:10.411Z]   li (2):
+[2026-03-19T06:50:10.411Z]     - https://www.linkedin.com/company/81866276
+[2026-03-19T06:50:10.412Z]     - https://www.linkedin.com/company/sabio-israel
+[2026-03-19T06:50:10.412Z]   fb (1):
+[2026-03-19T06:50:10.412Z]     - https://www.facebook.com/sabio.advertising
+[2026-03-19T06:50:10.412Z]   ig (1):
+[2026-03-19T06:50:10.412Z]     - https://www.instagram.com/sabio_israel
+[2026-03-19T06:50:10.412Z]   ytp (1):
+[2026-03-19T06:50:10.412Z]     - https://www.youtube.com/@sabioadv3214
+[2026-03-19T06:50:10.413Z] Summary: ws:1, fb:1, ig:1, li:2, ytp:1
+[2026-03-19T06:50:10.414Z] Saved final result to result.json
+[2026-03-19T06:50:10.414Z] Override fields: ws, li, fb, ig, ytp
+[2026-03-19T06:50:10.414Z] Finished at: 2026-03-19T06:50:10.414Z

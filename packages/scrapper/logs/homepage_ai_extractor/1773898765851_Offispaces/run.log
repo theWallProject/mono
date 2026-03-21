@@ -1,0 +1,72 @@
+[2026-03-19T05:39:25.852Z] === Homepage AI Extractor: Offispaces ===
+[2026-03-19T05:39:25.852Z] Started at: 2026-03-19T05:39:25.852Z
+[2026-03-19T05:39:25.852Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773898765851_Offispaces
+[2026-03-19T05:39:25.852Z] Company: Offispaces
+[2026-03-19T05:39:25.852Z] Website: offispaces.com
+[2026-03-19T05:39:25.852Z] cbRank: 1952119
+[2026-03-19T05:39:25.852Z] Reasons: h
+[2026-03-19T05:39:25.852Z] Fetching: https://offispaces.com
+[2026-03-19T05:39:28.394Z] Redirected: https://offispaces.com -> https://offispaces.com/
+[2026-03-19T05:39:28.408Z] Saved HTML (554576 bytes) to page.html
+[2026-03-19T05:39:28.411Z] Extracted 14 unique links from page
+[2026-03-19T05:39:28.411Z] Saved 14 links to links.json
+[2026-03-19T05:39:28.413Z] Extracted footer HTML (5906 chars)
+[2026-03-19T05:39:28.413Z] Extracted header HTML (2203 chars)
+[2026-03-19T05:39:28.417Z] Website (post-redirect): https://offispaces.com/ → origin: https://offispaces.com
+[2026-03-19T05:39:28.417Z]   SUBDOMAIN: techawish.offispaces.com (added to ws)
+[2026-03-19T05:39:28.417Z] Website subdomains found: 1
+[2026-03-19T05:39:28.417Z] External links: 3 (of 14 total)
+[2026-03-19T05:39:28.417Z] ── All external links ──
+[2026-03-19T05:39:28.417Z]   EXT: https://www.facebook.com/offispaces
+[2026-03-19T05:39:28.417Z]   EXT: https://www.linkedin.com/company/18328338
+[2026-03-19T05:39:28.417Z]   EXT: https://www.youtube.com/channel/UCmcaIdQJIassJr1NE4DYpaA/featured
+[2026-03-19T05:39:28.418Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:39:28.418Z]   REGEX: fb <- https://www.facebook.com/offispaces
+[2026-03-19T05:39:28.418Z]   REGEX: li <- https://www.linkedin.com/company/18328338
+[2026-03-19T05:39:28.418Z]   REGEX: ytc <- https://www.youtube.com/channel/UCmcaIdQJIassJr1NE4DYpaA/featured
+[2026-03-19T05:39:28.418Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-19T05:39:28.419Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:39:28.420Z] Saved AI prompt (4750 chars) to ai_prompt.txt
+[2026-03-19T05:39:28.420Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:39:28.423Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:39:46.199Z]   AI: First token received, streaming...
+[2026-03-19T05:39:56.491Z] AI response complete: 145 chars in 28.1s
+[2026-03-19T05:39:56.492Z] Saved AI response to ai_response.json
+[2026-03-19T05:39:56.493Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T05:39:56.493Z]   AI LINK: https://www.facebook.com/offispaces/
+[2026-03-19T05:39:56.493Z]   AI LINK: https://www.linkedin.com/company/18328338/
+[2026-03-19T05:39:56.493Z]   AI LINK: https://www.youtube.com/channel/UCmcaIdQJIassJr1NE4DYpaA/featured
+[2026-03-19T05:39:56.493Z] AI returned 3 valid links
+[2026-03-19T05:39:56.493Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T05:39:56.494Z]   AI→REGEX: fb <- https://www.facebook.com/offispaces/ (duplicate, skipped)
+[2026-03-19T05:39:56.494Z]   AI→REGEX: li <- https://www.linkedin.com/company/18328338/ (duplicate, skipped)
+[2026-03-19T05:39:56.494Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCmcaIdQJIassJr1NE4DYpaA/featured (duplicate, skipped)
+[2026-03-19T05:39:56.495Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:39:56.496Z] Footer/header origins (4):
+[2026-03-19T05:39:56.496Z]   FOOTER/HEADER ORIGIN: http://techawish.offispaces.com
+[2026-03-19T05:39:56.496Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T05:39:56.496Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T05:39:56.496Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T05:39:56.496Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T05:39:56.496Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:39:56.497Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T05:39:56.869Z]   YOUTUBE: resolved UCmcaIdQJIassJr1NE4DYpaA → @offispaces8281
+[2026-03-19T05:39:56.869Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T05:39:56.869Z] ── Step 3: Final dedup ──
+[2026-03-19T05:39:56.870Z] No urls to dedup
+[2026-03-19T05:39:56.870Z] ── FINAL RESULT ──
+[2026-03-19T05:39:56.870Z]   ws (2):
+[2026-03-19T05:39:56.870Z]     - https://offispaces.com
+[2026-03-19T05:39:56.870Z]     - https://techawish.offispaces.com
+[2026-03-19T05:39:56.870Z]   li (1):
+[2026-03-19T05:39:56.870Z]     - https://www.linkedin.com/company/18328338
+[2026-03-19T05:39:56.870Z]   fb (1):
+[2026-03-19T05:39:56.870Z]     - https://www.facebook.com/offispaces
+[2026-03-19T05:39:56.870Z]   ytp (1):
+[2026-03-19T05:39:56.870Z]     - https://www.youtube.com/@offispaces8281
+[2026-03-19T05:39:56.870Z]   ytc (1):
+[2026-03-19T05:39:56.870Z]     - https://www.youtube.com/channel/UCmcaIdQJIassJr1NE4DYpaA
+[2026-03-19T05:39:56.870Z] Summary: ws:2, fb:1, li:1, ytc:1, ytp:1
+[2026-03-19T05:39:56.871Z] Saved final result to result.json
+[2026-03-19T05:39:56.871Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-19T05:39:56.871Z] Finished at: 2026-03-19T05:39:56.871Z

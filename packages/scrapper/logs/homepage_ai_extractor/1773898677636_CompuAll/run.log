@@ -1,0 +1,71 @@
+[2026-03-19T05:37:57.636Z] === Homepage AI Extractor: CompuAll ===
+[2026-03-19T05:37:57.636Z] Started at: 2026-03-19T05:37:57.636Z
+[2026-03-19T05:37:57.636Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773898677636_CompuAll
+[2026-03-19T05:37:57.636Z] Company: CompuAll
+[2026-03-19T05:37:57.636Z] Website: compuall.co.il
+[2026-03-19T05:37:57.636Z] cbRank: 1951489
+[2026-03-19T05:37:57.636Z] Reasons: h
+[2026-03-19T05:37:57.636Z] Fetching: https://compuall.co.il
+[2026-03-19T05:37:59.859Z] Redirected: https://compuall.co.il -> https://compuall.co.il/
+[2026-03-19T05:37:59.862Z] Saved HTML (78437 bytes) to page.html
+[2026-03-19T05:37:59.864Z] Extracted 15 unique links from page
+[2026-03-19T05:37:59.865Z] Saved 15 links to links.json
+[2026-03-19T05:37:59.867Z] Extracted footer HTML (21400 chars)
+[2026-03-19T05:37:59.867Z] Extracted header HTML (10102 chars)
+[2026-03-19T05:37:59.871Z] Website (post-redirect): https://compuall.co.il/ → origin: https://compuall.co.il
+[2026-03-19T05:37:59.871Z]   SUBDOMAIN: support.compuall.co.il (added to ws)
+[2026-03-19T05:37:59.871Z] Website subdomains found: 1
+[2026-03-19T05:37:59.871Z] External links: 4 (of 15 total)
+[2026-03-19T05:37:59.871Z] ── All external links ──
+[2026-03-19T05:37:59.871Z]   EXT: http://www.facebook.com/Compuall
+[2026-03-19T05:37:59.871Z]   EXT: https://api.whatsapp.com/send?phone=972524651574
+[2026-03-19T05:37:59.872Z]   EXT: https://www.facebook.com/Compuall
+[2026-03-19T05:37:59.872Z]   EXT: https://www.youtube.com/@CompuAll2011
+[2026-03-19T05:37:59.872Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:37:59.872Z]   REGEX: fb <- http://www.facebook.com/Compuall
+[2026-03-19T05:37:59.872Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972524651574
+[2026-03-19T05:37:59.872Z]   REGEX: fb <- https://www.facebook.com/Compuall (duplicate, skipped)
+[2026-03-19T05:37:59.872Z]   REGEX: ytp <- https://www.youtube.com/@CompuAll2011
+[2026-03-19T05:37:59.872Z] Programmatic result: ws:2, fb:1, ytp:1 | 1 uncategorized
+[2026-03-19T05:37:59.872Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:37:59.876Z] Saved AI prompt (9950 chars) to ai_prompt.txt
+[2026-03-19T05:37:59.876Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:37:59.880Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:38:53.324Z]   AI: First token received, streaming...
+[2026-03-19T05:38:57.750Z] AI response complete: 71 chars in 57.9s
+[2026-03-19T05:38:57.752Z] Saved AI response to ai_response.json
+[2026-03-19T05:38:57.752Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T05:38:57.753Z]   AI LINK: https://www.facebook.com/Compuall
+[2026-03-19T05:38:57.753Z]   AI LINK: https://www.youtube.com/@CompuAll2011
+[2026-03-19T05:38:57.753Z] AI returned 2 valid links
+[2026-03-19T05:38:57.753Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T05:38:57.753Z]   AI→REGEX: fb <- https://www.facebook.com/Compuall (duplicate, skipped)
+[2026-03-19T05:38:57.753Z]   AI→REGEX: ytp <- https://www.youtube.com/@CompuAll2011 (duplicate, skipped)
+[2026-03-19T05:38:57.754Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:38:57.754Z] Footer/header origins (6):
+[2026-03-19T05:38:57.754Z]   FOOTER/HEADER ORIGIN: https://compuall.co.il
+[2026-03-19T05:38:57.754Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-19T05:38:57.754Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-19T05:38:57.754Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T05:38:57.754Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T05:38:57.755Z]   FOOTER/HEADER ORIGIN: https://support.compuall.co.il:8040
+[2026-03-19T05:38:57.755Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972524651574)
+[2026-03-19T05:38:57.755Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T05:38:57.755Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:38:57.755Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T05:38:57.755Z] ── Step 3: Final dedup ──
+[2026-03-19T05:38:57.755Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T05:38:57.755Z] ── FINAL RESULT ──
+[2026-03-19T05:38:57.756Z]   ws (2):
+[2026-03-19T05:38:57.756Z]     - https://compuall.co.il
+[2026-03-19T05:38:57.756Z]     - https://support.compuall.co.il
+[2026-03-19T05:38:57.756Z]   fb (1):
+[2026-03-19T05:38:57.756Z]     - https://www.facebook.com/compuall
+[2026-03-19T05:38:57.756Z]   ytp (1):
+[2026-03-19T05:38:57.756Z]     - https://www.youtube.com/@compuall2011
+[2026-03-19T05:38:57.756Z]   urls (1):
+[2026-03-19T05:38:57.756Z]     - https://api.whatsapp.com/send
+[2026-03-19T05:38:57.756Z] Summary: ws:2, fb:1, ytp:1, urls:1
+[2026-03-19T05:38:57.758Z] Saved final result to result.json
+[2026-03-19T05:38:57.758Z] Override fields: ws, fb, ytp, urls
+[2026-03-19T05:38:57.758Z] Finished at: 2026-03-19T05:38:57.758Z

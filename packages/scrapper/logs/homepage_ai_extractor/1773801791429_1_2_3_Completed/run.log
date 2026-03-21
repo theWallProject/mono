@@ -1,0 +1,57 @@
+[2026-03-18T02:43:11.429Z] === Homepage AI Extractor: 1 2 3 Completed ===
+[2026-03-18T02:43:11.429Z] Started at: 2026-03-18T02:43:11.429Z
+[2026-03-18T02:43:11.430Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773801791429_1_2_3_Completed
+[2026-03-18T02:43:11.430Z] Company: 1 2 3 Completed
+[2026-03-18T02:43:11.430Z] Website: 123completed.com
+[2026-03-18T02:43:11.430Z] cbRank: 1442133
+[2026-03-18T02:43:11.430Z] Reasons: h
+[2026-03-18T02:43:11.430Z] Fetching: https://123completed.com
+[2026-03-18T02:43:15.795Z] Redirected: https://123completed.com -> https://www.123completed.com/
+[2026-03-18T02:43:15.802Z] Saved HTML (259054 bytes) to page.html
+[2026-03-18T02:43:15.806Z] Extracted 17 unique links from page
+[2026-03-18T02:43:15.806Z] Saved 17 links to links.json
+[2026-03-18T02:43:15.809Z] Extracted footer HTML (33607 chars)
+[2026-03-18T02:43:15.809Z] Extracted header HTML (44765 chars)
+[2026-03-18T02:43:15.813Z] Website (post-redirect): https://www.123completed.com/ → origin: https://www.123completed.com
+[2026-03-18T02:43:15.813Z] External links: 2 (of 17 total)
+[2026-03-18T02:43:15.813Z] ── All external links ──
+[2026-03-18T02:43:15.813Z]   EXT: https://www.linkedin.com/company/1-2-3-completed
+[2026-03-18T02:43:15.813Z]   EXT: https://www.webnoise.co.il
+[2026-03-18T02:43:15.814Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T02:43:15.814Z]   REGEX: li <- https://www.linkedin.com/company/1-2-3-completed
+[2026-03-18T02:43:15.814Z]   UNCATEGORIZED: https://www.webnoise.co.il
+[2026-03-18T02:43:15.814Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-18T02:43:15.814Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T02:43:15.818Z] Saved AI prompt (2871 chars) to ai_prompt.txt
+[2026-03-18T02:43:15.818Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T02:43:15.821Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T02:43:25.421Z]   AI: First token received, streaming...
+[2026-03-18T02:43:27.981Z] AI response complete: 49 chars in 12.2s
+[2026-03-18T02:43:27.983Z] Saved AI response to ai_response.json
+[2026-03-18T02:43:27.983Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T02:43:27.983Z]   AI LINK: https://www.linkedin.com/company/1-2-3-completed/
+[2026-03-18T02:43:27.984Z] AI returned 1 valid links
+[2026-03-18T02:43:27.984Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T02:43:27.984Z]   AI→REGEX: li <- https://www.linkedin.com/company/1-2-3-completed/ (duplicate, skipped)
+[2026-03-18T02:43:27.985Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T02:43:27.985Z] Footer/header origins (3):
+[2026-03-18T02:43:27.985Z]   FOOTER/HEADER ORIGIN: https://www.123completed.com
+[2026-03-18T02:43:27.985Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T02:43:27.985Z]   FOOTER/HEADER ORIGIN: https://www.webnoise.co.il
+[2026-03-18T02:43:27.985Z]   ADDED: urls <- https://www.webnoise.co.il
+[2026-03-18T02:43:27.985Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T02:43:27.986Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T02:43:27.986Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T02:43:27.986Z] ── Step 3: Final dedup ──
+[2026-03-18T02:43:27.986Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T02:43:27.986Z] ── FINAL RESULT ──
+[2026-03-18T02:43:27.986Z]   ws (1):
+[2026-03-18T02:43:27.986Z]     - https://www.123completed.com
+[2026-03-18T02:43:27.986Z]   li (1):
+[2026-03-18T02:43:27.986Z]     - https://www.linkedin.com/company/1-2-3-completed
+[2026-03-18T02:43:27.987Z]   urls (1):
+[2026-03-18T02:43:27.987Z]     - https://www.webnoise.co.il
+[2026-03-18T02:43:27.987Z] Summary: ws:1, li:1, urls:1
+[2026-03-18T02:43:27.988Z] Saved final result to result.json
+[2026-03-18T02:43:27.988Z] Override fields: ws, li, urls
+[2026-03-18T02:43:27.988Z] Finished at: 2026-03-18T02:43:27.988Z

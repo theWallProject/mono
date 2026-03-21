@@ -1,0 +1,76 @@
+[2026-03-19T22:53:21.464Z] === Homepage AI Extractor: Pollight ===
+[2026-03-19T22:53:21.465Z] Started at: 2026-03-19T22:53:21.465Z
+[2026-03-19T22:53:21.465Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773960801464_Pollight
+[2026-03-19T22:53:21.465Z] Company: Pollight
+[2026-03-19T22:53:21.465Z] Website: pollights.com
+[2026-03-19T22:53:21.465Z] cbRank: 2448601
+[2026-03-19T22:53:21.465Z] Reasons: h
+[2026-03-19T22:53:21.465Z] Fetching: https://pollights.com
+[2026-03-19T22:53:29.722Z] Redirected: https://pollights.com -> https://pollights.com/
+[2026-03-19T22:53:29.725Z] Saved HTML (38448 bytes) to page.html
+[2026-03-19T22:53:29.730Z] Extracted 13 unique links from page
+[2026-03-19T22:53:29.731Z] Saved 13 links to links.json
+[2026-03-19T22:53:29.735Z] Extracted footer HTML (2754 chars)
+[2026-03-19T22:53:29.735Z] Extracted header HTML (2507 chars)
+[2026-03-19T22:53:29.818Z] Website (post-redirect): https://pollights.com/ → origin: https://pollights.com
+[2026-03-19T22:53:29.819Z] External links: 5 (of 13 total)
+[2026-03-19T22:53:29.819Z] ── All external links ──
+[2026-03-19T22:53:29.819Z]   EXT: https://flaticon.com
+[2026-03-19T22:53:29.819Z]   EXT: https://laviwebsites.com
+[2026-03-19T22:53:29.819Z]   EXT: https://twitter.com/pollights
+[2026-03-19T22:53:29.819Z]   EXT: https://www.facebook.com/Pollight-2160398894280000
+[2026-03-19T22:53:29.820Z]   EXT: https://www.linkedin.com/company/18930885
+[2026-03-19T22:53:29.820Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T22:53:29.822Z]   UNCATEGORIZED: https://flaticon.com
+[2026-03-19T22:53:29.823Z]   UNCATEGORIZED: https://laviwebsites.com
+[2026-03-19T22:53:29.823Z]   REGEX: tw <- https://twitter.com/pollights
+[2026-03-19T22:53:29.823Z]   REGEX: fb <- https://www.facebook.com/Pollight-2160398894280000
+[2026-03-19T22:53:29.823Z]   REGEX: li <- https://www.linkedin.com/company/18930885
+[2026-03-19T22:53:29.824Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-19T22:53:29.824Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T22:53:29.825Z] Saved AI prompt (3411 chars) to ai_prompt.txt
+[2026-03-19T22:53:29.826Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T22:53:29.831Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T22:53:42.036Z]   AI: First token received, streaming...
+[2026-03-19T22:53:52.585Z] AI response complete: 123 chars in 22.8s
+[2026-03-19T22:53:52.587Z] Saved AI response to ai_response.json
+[2026-03-19T22:53:52.587Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T22:53:52.588Z]   AI LINK: https://www.linkedin.com/company/18930885
+[2026-03-19T22:53:52.588Z]   AI LINK: https://www.facebook.com/Pollight-2160398894280000/
+[2026-03-19T22:53:52.588Z]   AI LINK: https://twitter.com/pollights
+[2026-03-19T22:53:52.588Z] AI returned 3 valid links
+[2026-03-19T22:53:52.588Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T22:53:52.589Z]   AI→REGEX: li <- https://www.linkedin.com/company/18930885 (duplicate, skipped)
+[2026-03-19T22:53:52.589Z]   AI→REGEX: fb <- https://www.facebook.com/Pollight-2160398894280000/ (duplicate, skipped)
+[2026-03-19T22:53:52.589Z]   AI→REGEX: tw <- https://twitter.com/pollights (duplicate, skipped)
+[2026-03-19T22:53:52.590Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T22:53:52.590Z] Footer/header origins (6):
+[2026-03-19T22:53:52.590Z]   FOOTER/HEADER ORIGIN: https://flaticon.com
+[2026-03-19T22:53:52.590Z]   FOOTER/HEADER ORIGIN: https://laviwebsites.com
+[2026-03-19T22:53:52.591Z]   FOOTER/HEADER ORIGIN: https://pollights.com
+[2026-03-19T22:53:52.591Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T22:53:52.591Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T22:53:52.591Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-19T22:53:52.591Z]   ADDED: urls <- https://flaticon.com
+[2026-03-19T22:53:52.591Z]   ADDED: urls <- https://laviwebsites.com
+[2026-03-19T22:53:52.592Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-19T22:53:52.592Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T22:53:52.592Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T22:53:52.593Z] ── Step 3: Final dedup ──
+[2026-03-19T22:53:52.593Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T22:53:52.593Z] ── FINAL RESULT ──
+[2026-03-19T22:53:52.593Z]   ws (1):
+[2026-03-19T22:53:52.593Z]     - https://pollights.com
+[2026-03-19T22:53:52.594Z]   li (1):
+[2026-03-19T22:53:52.594Z]     - https://www.linkedin.com/company/18930885
+[2026-03-19T22:53:52.594Z]   fb (1):
+[2026-03-19T22:53:52.594Z]     - https://www.facebook.com/pollight-2160398894280000
+[2026-03-19T22:53:52.594Z]   tw (1):
+[2026-03-19T22:53:52.595Z]     - https://x.com/pollights
+[2026-03-19T22:53:52.595Z]   urls (2):
+[2026-03-19T22:53:52.595Z]     - https://flaticon.com
+[2026-03-19T22:53:52.595Z]     - https://laviwebsites.com
+[2026-03-19T22:53:52.595Z] Summary: ws:1, tw:1, fb:1, li:1, urls:2
+[2026-03-19T22:53:52.597Z] Saved final result to result.json
+[2026-03-19T22:53:52.598Z] Override fields: ws, li, fb, tw, urls
+[2026-03-19T22:53:52.599Z] Finished at: 2026-03-19T22:53:52.599Z

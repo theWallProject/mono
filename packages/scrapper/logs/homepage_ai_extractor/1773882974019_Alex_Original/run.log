@@ -1,0 +1,73 @@
+[2026-03-19T01:16:14.019Z] === Homepage AI Extractor: Alex Original ===
+[2026-03-19T01:16:14.019Z] Started at: 2026-03-19T01:16:14.019Z
+[2026-03-19T01:16:14.019Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773882974019_Alex_Original
+[2026-03-19T01:16:14.019Z] Company: Alex Original
+[2026-03-19T01:16:14.020Z] Website: alex-original.com
+[2026-03-19T01:16:14.020Z] cbRank: 1890141
+[2026-03-19T01:16:14.020Z] Reasons: h
+[2026-03-19T01:16:14.020Z] Fetching: https://alex-original.com
+[2026-03-19T01:16:18.286Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-19T01:16:21.274Z] Redirected: https://alex-original.com -> https://www.alex-original.com/Home
+[2026-03-19T01:16:21.294Z] Saved HTML (871792 bytes) to page.html
+[2026-03-19T01:16:21.298Z] Extracted 273 unique links from page
+[2026-03-19T01:16:21.299Z] Saved 273 links to links.json
+[2026-03-19T01:16:21.303Z] Extracted footer HTML (4311 chars)
+[2026-03-19T01:16:21.303Z] Extracted header HTML (23883 chars)
+[2026-03-19T01:16:21.306Z] Website (post-redirect): https://www.alex-original.com/Home → origin: https://www.alex-original.com
+[2026-03-19T01:16:21.306Z] External links: 4 (of 273 total)
+[2026-03-19T01:16:21.306Z] ── All external links ──
+[2026-03-19T01:16:21.307Z]   EXT: http://www.catom.co.il
+[2026-03-19T01:16:21.307Z]   EXT: http://www.catom.com
+[2026-03-19T01:16:21.307Z]   EXT: https://www.facebook.com/alexoriginalltd
+[2026-03-19T01:16:21.307Z]   EXT: https://www.youtube.com/channel/UCK1IYZTJmaqzFpR-94IPLpQ
+[2026-03-19T01:16:21.307Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T01:16:21.307Z]   UNCATEGORIZED: http://www.catom.co.il
+[2026-03-19T01:16:21.307Z]   UNCATEGORIZED: http://www.catom.com
+[2026-03-19T01:16:21.307Z]   REGEX: fb <- https://www.facebook.com/alexoriginalltd
+[2026-03-19T01:16:21.307Z]   REGEX: ytc <- https://www.youtube.com/channel/UCK1IYZTJmaqzFpR-94IPLpQ
+[2026-03-19T01:16:21.307Z] Programmatic result: ws:1, fb:1, ytc:1 | 2 uncategorized
+[2026-03-19T01:16:21.307Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T01:16:21.310Z] Saved AI prompt (4934 chars) to ai_prompt.txt
+[2026-03-19T01:16:21.311Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T01:16:21.314Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T01:16:40.807Z]   AI: First token received, streaming...
+[2026-03-19T01:16:48.625Z] AI response complete: 98 chars in 27.3s
+[2026-03-19T01:16:48.626Z] Saved AI response to ai_response.json
+[2026-03-19T01:16:48.627Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T01:16:48.627Z]   AI LINK: https://www.youtube.com/channel/UCK1IYZTJmaqzFpR-94IPLpQ
+[2026-03-19T01:16:48.627Z]   AI LINK: https://www.facebook.com/alexoriginalltd/
+[2026-03-19T01:16:48.627Z] AI returned 2 valid links
+[2026-03-19T01:16:48.627Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T01:16:48.628Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCK1IYZTJmaqzFpR-94IPLpQ (duplicate, skipped)
+[2026-03-19T01:16:48.628Z]   AI→REGEX: fb <- https://www.facebook.com/alexoriginalltd/ (duplicate, skipped)
+[2026-03-19T01:16:48.634Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T01:16:48.634Z] Footer/header origins (4):
+[2026-03-19T01:16:48.634Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T01:16:48.634Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T01:16:48.635Z]   FOOTER/HEADER ORIGIN: http://www.catom.com
+[2026-03-19T01:16:48.635Z]   FOOTER/HEADER ORIGIN: http://www.catom.co.il
+[2026-03-19T01:16:48.635Z]   ADDED: urls <- http://www.catom.co.il
+[2026-03-19T01:16:48.635Z]   ADDED: urls <- http://www.catom.com
+[2026-03-19T01:16:48.635Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-19T01:16:48.635Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T01:16:48.636Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T01:16:48.897Z]   YOUTUBE: resolved UCK1IYZTJmaqzFpR-94IPLpQ → @alexoriginal1959
+[2026-03-19T01:16:48.897Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T01:16:48.897Z] ── Step 3: Final dedup ──
+[2026-03-19T01:16:48.897Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T01:16:48.897Z] ── FINAL RESULT ──
+[2026-03-19T01:16:48.897Z]   ws (1):
+[2026-03-19T01:16:48.897Z]     - https://www.alex-original.com
+[2026-03-19T01:16:48.897Z]   fb (1):
+[2026-03-19T01:16:48.897Z]     - https://www.facebook.com/alexoriginalltd
+[2026-03-19T01:16:48.898Z]   ytp (1):
+[2026-03-19T01:16:48.898Z]     - https://www.youtube.com/@alexoriginal1959
+[2026-03-19T01:16:48.898Z]   ytc (1):
+[2026-03-19T01:16:48.898Z]     - https://www.youtube.com/channel/UCK1IYZTJmaqzFpR-94IPLpQ
+[2026-03-19T01:16:48.898Z]   urls (2):
+[2026-03-19T01:16:48.898Z]     - http://www.catom.co.il
+[2026-03-19T01:16:48.898Z]     - http://www.catom.com
+[2026-03-19T01:16:48.898Z] Summary: ws:1, fb:1, ytc:1, urls:2, ytp:1
+[2026-03-19T01:16:48.899Z] Saved final result to result.json
+[2026-03-19T01:16:48.899Z] Override fields: ws, fb, ytp, ytc, urls
+[2026-03-19T01:16:48.899Z] Finished at: 2026-03-19T01:16:48.899Z

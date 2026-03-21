@@ -1,0 +1,71 @@
+[2026-03-18T22:03:23.802Z] === Homepage AI Extractor: AssafMedia ===
+[2026-03-18T22:03:23.802Z] Started at: 2026-03-18T22:03:23.802Z
+[2026-03-18T22:03:23.802Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773871403800_AssafMedia
+[2026-03-18T22:03:23.802Z] Company: AssafMedia
+[2026-03-18T22:03:23.802Z] Website: assafmedia.co.il
+[2026-03-18T22:03:23.802Z] cbRank: 1778532
+[2026-03-18T22:03:23.802Z] Reasons: h
+[2026-03-18T22:03:23.803Z] Fetching: https://assafmedia.co.il
+[2026-03-18T22:03:27.750Z] Redirected: https://assafmedia.co.il -> https://assafmedia.co.il/
+[2026-03-18T22:03:27.754Z] Saved HTML (91548 bytes) to page.html
+[2026-03-18T22:03:27.758Z] Extracted 48 unique links from page
+[2026-03-18T22:03:27.758Z] Saved 48 links to links.json
+[2026-03-18T22:03:27.761Z] Extracted footer HTML (8813 chars)
+[2026-03-18T22:03:27.761Z] Extracted header HTML (19727 chars)
+[2026-03-18T22:03:27.767Z] Website (post-redirect): https://assafmedia.co.il/ → origin: https://assafmedia.co.il
+[2026-03-18T22:03:27.768Z] External links: 6 (of 48 total)
+[2026-03-18T22:03:27.768Z] ── All external links ──
+[2026-03-18T22:03:27.768Z]   EXT: http://designrush.com
+[2026-03-18T22:03:27.768Z]   EXT: https://api.whatsapp.com/send?phone=972508223825
+[2026-03-18T22:03:27.768Z]   EXT: https://api.whatsapp.com/send?phone=972559662410
+[2026-03-18T22:03:27.768Z]   EXT: https://assafmedia.com
+[2026-03-18T22:03:27.768Z]   EXT: https://taxes.gov.il/taxesformslist/itc101_2017.pdf
+[2026-03-18T22:03:27.768Z]   EXT: https://www.linkedin.com/in/assaf-levy-assafmedia
+[2026-03-18T22:03:27.768Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T22:03:27.768Z]   UNCATEGORIZED: http://designrush.com
+[2026-03-18T22:03:27.768Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972508223825
+[2026-03-18T22:03:27.768Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972559662410
+[2026-03-18T22:03:27.768Z]   UNCATEGORIZED: https://assafmedia.com
+[2026-03-18T22:03:27.768Z]   UNCATEGORIZED: https://taxes.gov.il/taxesformslist/itc101_2017.pdf
+[2026-03-18T22:03:27.769Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-18T22:03:27.769Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/assaf-levy-assafmedia
+[2026-03-18T22:03:27.769Z] Programmatic result: ws:1 | 5 uncategorized
+[2026-03-18T22:03:27.769Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T22:03:27.772Z] Saved AI prompt (8444 chars) to ai_prompt.txt
+[2026-03-18T22:03:27.772Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T22:03:27.776Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T22:04:31.508Z]   AI: First token received, streaming...
+[2026-03-18T22:04:31.990Z] AI response complete: 24 chars in 64.2s
+[2026-03-18T22:04:31.992Z] Saved AI response to ai_response.json
+[2026-03-18T22:04:31.992Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T22:04:31.992Z]   AI LINK: https://assafmedia.co.il
+[2026-03-18T22:04:31.992Z] AI returned 1 valid links
+[2026-03-18T22:04:31.993Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T22:04:31.993Z]   AI→URLS: https://assafmedia.co.il
+[2026-03-18T22:04:31.994Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T22:04:31.994Z] Footer/header origins (4):
+[2026-03-18T22:04:31.994Z]   FOOTER/HEADER ORIGIN: https://assafmedia.co.il
+[2026-03-18T22:04:31.994Z]   FOOTER/HEADER ORIGIN: http://designrush.com
+[2026-03-18T22:04:31.995Z]   FOOTER/HEADER ORIGIN: https://taxes.gov.il
+[2026-03-18T22:04:31.995Z]   FOOTER/HEADER ORIGIN: https://assafmedia.com
+[2026-03-18T22:04:31.995Z]   ADDED: urls <- http://designrush.com
+[2026-03-18T22:04:31.995Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=972508223825
+[2026-03-18T22:04:31.995Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=972559662410
+[2026-03-18T22:04:31.995Z]   ADDED: urls <- https://assafmedia.com
+[2026-03-18T22:04:31.996Z]   SKIP (noise): https://taxes.gov.il/taxesformslist/itc101_2017.pdf
+[2026-03-18T22:04:31.996Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-18T22:04:31.996Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T22:04:31.996Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T22:04:31.996Z] ── Step 3: Final dedup ──
+[2026-03-18T22:04:31.996Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-18T22:04:31.997Z] ── FINAL RESULT ──
+[2026-03-18T22:04:31.997Z]   ws (1):
+[2026-03-18T22:04:31.997Z]     - https://assafmedia.co.il
+[2026-03-18T22:04:31.997Z]   urls (3):
+[2026-03-18T22:04:31.997Z]     - http://designrush.com
+[2026-03-18T22:04:31.997Z]     - https://assafmedia.co.il
+[2026-03-18T22:04:31.998Z]     - https://assafmedia.com
+[2026-03-18T22:04:31.998Z] Summary: ws:1, urls:3
+[2026-03-18T22:04:31.999Z] Saved final result to result.json
+[2026-03-18T22:04:31.999Z] Override fields: ws, urls
+[2026-03-18T22:04:32.000Z] Finished at: 2026-03-18T22:04:32.000Z

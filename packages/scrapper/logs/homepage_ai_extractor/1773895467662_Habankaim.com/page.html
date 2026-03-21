@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="en" dir="rtl"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>אולטרה פיננסים</title>
+
+  <!-- Bootstrap -->
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:300,400,700" rel="stylesheet">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .bg-image {
+      /* The image used */
+      background-image: url("assets/background.jpg");
+
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Position text in the middle of the page/image */
+    .bg-text {
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(255, 255, 255, 0.9);
+      /* Black w/opacity/see-through */
+      color: white;
+      font-weight: bold;
+      border: 3px solid #f1f1f1;
+      border-radius: 15px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
+
+    p#timer {
+      color: #000;
+      font-size: 24px;
+    }
+
+    a.link {
+      font-size: 24px;
+      padding-top: 30px;
+    }
+
+    h4.sub-heading,
+    h1.heading.purple {
+      color: #000;
+      font-size: 24px;
+    }
+
+    button {
+      padding: 10px 50px;
+      background: #000;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+
+    span.arrw img {
+      width: 40px;
+      top: -24px;
+      position: relative;
+      margin-left: 20px;
+    }
+
+    span.imgs img {
+    width:60%;
+    }
+
+@media(max-width: 450px){
+ span.imgs img {
+    width:100%;
+    }
+}
+	
+  </style>
+  <script type="text/javascript">
+    var count = 60; // Timer
+    var redirect = "https://ultrafinance.co.il/"; // Target URL
+
+    function countDown() {
+      var timer = document.getElementById("timer"); // Timer ID
+      if (count > 0) {
+        count--;
+        timer.innerHTML = "תועברו באופן אוטומטי בעוד " + count + " שניות..."; // Timer Message
+        setTimeout("countDown()", 1000);
+      } else {
+        window.location.href = redirect;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="bg-image"></div>
+
+  <div class="bg-text">
+    <span class="imgs">
+      <!-- <img src="assets/logo_change.png" > -->
+      <img src="assets/newlogo.png">
+    </span>
+
+    <h4 class="sub-heading">
+      המותג השתנה, השירות נשאר מעולה :)</h4>
+    <h1 class="heading purple">הבנקאים עברו לעבוד תחת השם החדש ״אולטרה״. <br><br>
+      לשירותכם באתר החדש שלנו:<br>
+      <a class="link" href="https://ultrafinance.co.il/">www.ultrafinance.co.il</a>
+    </h1>
+    <p id="timer">תועברו באופן אוטומטי בעוד 59 שניות...</p>
+    <script type="text/javascript">
+      countDown();
+    </script>
+    <a href="https://ultrafinance.co.il/"><button type="button">עבור כעת</button> </a>
+  </div>
+
+  <!-- Some Javascript -->
+  <script src="js/jquery-2.1.1.js"></script>
+
+
+</body></html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html><html><head>
+		<title>Tensiograph - Mottes Tensiometers</title>
+		<link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/css/open_sans_hebrew/stylesheet.css">
+		<link rel="stylesheet" href="/css/default.css?v=2.85" media="all">
+		<link rel="stylesheet" href="/css/default_mobile.css?v=2.81" media="only screen and (max-width: 480px)">
+		<link rel="stylesheet" href="/css/default_small.css?v=2.8" media="only screen and (min-width: 480px)and (max-width: 1366px)">
+		<link href="/css/default_ltr.css?v=1" rel="stylesheet" type="text/css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="/css/cupertino/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+		
+						
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<!--script src="js/jquery.mobile-1.3.2.min.js"></script-->
+		<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="js/site.js?3"></script>
+		<script type="text/javascript" src="js/ajaxsbmt.js?2"></script>
+			<script type="text/javascript">
+				var mediaquery= window.matchMedia( "(min-width: 481px)" )
+				var phonequery= window.matchMedia( "max-width: 480px" )
+				var template_resize_functions = [];
+				
+				// pop out from frame
+				if (window.location != window.parent.location) {
+					top.location = self.location.href;
+				}
+
+				function isMobile() {
+					var mobile = false;
+					(function (a) {
+						if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4)))
+							mobile = true
+					})(navigator.userAgent || navigator.vendor || window.opera);
+					return mobile;
+				}
+				
+				function resizeFixedHeaderTable(class_name) {
+					var tables = document.getElementsByClassName(class_name);
+					for (idx=0; idx<tables.length; idx++) {
+						var div = tables.item(idx);
+						for(i=0; i<div.children.length; i++) {
+							if(div.children.item(i).tagName == 'TABLE' ) {
+								var table_element = div.children.item(i);
+								console.log(table_element);
+								var header_element = table_element.querySelector('thead tr');
+								var body_element =table_element.querySelector('tbody tr');
+								for(j=0; j<header_element.children.length; j++) {
+									header_element.children.item(j).style.boxSizing = 'border-box';
+									header_element.children.item(j).style.width = body_element.children.item(j).offsetWidth + 'px';
+
+								}
+							}
+						}
+					}
+				}
+
+				function setSize() {
+
+					$(".box .text").css("height",'auto');
+					var windowWidth = $(window).width();
+					//whether to add margins to the main div
+					var windowHeight = $(window).height();
+											if ((windowWidth / windowHeight) > 2.8) {
+						maxWidth = windowHeight * 2.8;
+						/*$("#everything").css("maxWidth", maxWidth + "px");
+						$("#everything").css("marginLeft", "auto");
+						$("#everything").css("marginRight", "auto");*/
+						//make it very slow and doesnt load in chrome $('#unit-form #select-unit select').css("maxWidth",(maxWidth-1100)+'px');
+					} else {
+						$("#everything").css("maxWidth", "100%");
+						$("#everything").css("marginLeft", "0");
+						$("#everything").css("marginRight", "0");
+						//$('#unit-form #select-unit select').css("maxWidth",(windowWidth *0.79 -1100)+'px');
+
+					}
+					if(!isMobile())
+						$(".box .text").height(30+$('.box .text').height() );
+					
+					
+					// whether to display 3 or 1 box per line
+					var boxParentWidth = $(".box").parent().width();
+					var boxMinSize = parseInt($(".box").css("minWidth"));
+					if (boxParentWidth <= boxMinSize * 3) {
+						$("body").addClass("two-columns");
+						//$(".box").css("width", '100%');
+					} else {
+						$("body").removeClass("two-columns");
+						//$(".box").css("width", 100 / 3 + '%');
+						//$(".box").css("display","inline-block");
+					}
+					
+					// whether to display 2 or 1 box per line
+					var boxParentWidth = $("#content").width();//$(".two-box").parent().width();
+					var boxMinSize = parseInt($(".two-box").css("minWidth"));
+					if (boxParentWidth <= boxMinSize * 2) {
+						$("body").addClass("one-column");
+						//$(".two-box").addClass('css("width", '100%');
+					} else {
+						$("body").removeClass("one-column");
+						//$(".two-box").css("width", '50%');
+						//$(".box").css("display","inline-block");
+					}
+					resizeFixedHeaderTable('fixed-table-header');
+					for(template in template_resize_functions) {
+						try {
+							template_resize_functions[template]();
+						}
+						catch(error) {
+							console.log(error.toString());
+						}
+					}
+				}
+
+				
+				$(window).ready(function () {
+					setSize();
+					$('#logo,.scrolling-logo').click(function(e) {
+						window.location="/";
+					});
+					
+											
+					$('#login').click(function (e) {
+						show_login();//$("#login-form").css("display", "block");
+					});
+						
+											
+					// whether to display mobile-style or regular style
+					if(  $(window).height()> $(window).width()  || phonequery.matches ) {
+						console.log("mobile");
+						$("body").addClass("mobile");
+					}
+					
+					if ($("#menu > div").height()>$("#menu").height()*1.5) {
+						$("body").addClass("mobile");
+					}
+					
+					$(".mobile #menu").click(function(e) {						
+						$(this).toggleClass('clicked');						
+					});
+					
+					/* mobile hidden side bar*/
+					$(".mobile #sidebar .toggle-button").mousedown(function(e) {
+						$(".mobile #sidebar").toggleClass('clicked');
+					});
+				});
+				$(window).resize(setSize);
+
+				/* floating menu on scrolling */
+				var menu = $("#menu");
+				function toggleScrollMenu(scroll) {
+					if(scroll) {
+						$("#menu").addClass("scrolling");
+						$("#menu").css("maxWidth",'100%');
+					} else {
+						$("#menu").removeClass("scrolling");
+						$("#menu").css("maxWidth","auto");
+					}
+				}
+				
+				$(window).scroll(function () {
+					floating_menu_class = "scrolling";
+					header_height = $('#logo').height() ;
+					toggleScrollMenu($(this).scrollTop() > header_height );
+				});
+				
+
+   $(function() {
+	   $(window).on("swipeleft",function(e) {
+		   if(! $("#menu").hasClass("clicked")) {
+			   $("#menu").addClass("clicked");
+		   }
+	   });
+	   $("#menu").on("swiperight",function(e){
+	        $(this).toggleClass("clicked");
+	   });
+   });
+   
+</script>
+	</head>
+	<body class="en">
+		
+<div style="display:none" id="login-form" class="login-form">
+	<span style="position:absolute;top:20px;left:20px;cursor:pointer;font-weight:bold;" onclick="hide_login()">X</span>
+<center><h1>Login</h1>
+	<form name="login" method="post" action="index.php?action=login">
+<div class="login">
+		<div>
+	<label>Username:</label>
+	<input type="text" name="username">
+	<label>Password:</label>
+	<input type="password" name="password">
+	</div>
+	<div>
+		<input type="submit" name="submit_login" value="Login" title="Login">
+	</div>
+</div>
+
+</form>
+</center>
+</div>
+<script type="text/javascript">
+	var login_div = document.getElementById("login-form");
+	function hide_login() {
+		login_div.style.display = "none";
+	}
+		
+		function show_login() {
+			login_div.style.display = "block";
+		}
+		
+		</script>
+		<div id="everything" style="max-width: 100%; margin-left: 0px; margin-right: 0px;">
+			<a name="home"></a>
+			<div class="fixed">
+				<div id="logo">
+					<!--img src="logo.png" alt="sensing the roots and irrigating correctly" title="sensing the roots and irrigating correctly"-->
+					<!--img src="images/mottes_logo_trans.png"  alt="sensing the roots and irrigating correctly" title="sensing the roots and irrigating correctly"/-->
+				</div>
+				<script>
+	
+	template_resize_functions[menu] = function() {
+	var getChildrenWidth = function(element) {
+		var size=0;
+		for(x=0; x < element.children.length ; x+=1) {
+			if(typeof element.children[x] !=='undefined')
+				size+=element.children[x].getClientRects()[0].width;
+		}
+		return size;
+	};
+	if(mediaquery.matches) {
+	var menu_line = document.getElementById("menu");
+	var login = document.getElementById("login");
+	var menuFontSize =parseInt(window.getComputedStyle(menu_line, null).getPropertyValue('font-size').replace('px',''));
+	fontSize=menuFontSize;
+	login.style.fontSize = fontSize +'px';
+	while(login.getClientRects()[0].width < getChildrenWidth(login) && fontSize>10) {
+		fontSize-=1;
+		login.style.fontSize = fontSize +'px';
+	}
+	
+	menu = document.querySelector("#menu ul.menu");
+	fontSize=menuFontSize;
+	while(menu.offsetHeight > menu_line.offsetHeight && fontSize>16) {
+		fontSize-=1;
+		menu.style.fontSize =  fontSize +'px';
+	}
+	
+	if(menu.offsetHeight > menu_line.offsetHeight) {
+		submenu = document.getElementById("lastmenuitem");
+		//menu.appendChild(submenu);
+		var lastnode;
+		while(menu.offsetHeight > menu_line.offsetHeight && menu.children.length>1) {
+			lielement = menu.children[menu.children.length-2].cloneNode(true);
+			/*item.onmouseover=''
+			item.onmouseout=''
+			item.className=''*/
+                try{
+			if(submenu.children.length==0) 
+				lastnode = submenu.appendChild(lielement)
+			else lastnode=submenu.insertBefore(lielement,lastnode);
+                    }
+                    catch(error){
+                        lastnode = submenu.appendChild(lielement)
+                    }
+			menu.removeChild( menu.children[menu.children.length-2]);
+		}
+		menu.children[menu.children.length-1].style.visibility='visible';
+	}
+	}
+};
+
+</script>
+<div id="menu">
+	<div class="scrolling-logo" style="">
+		&nbsp;
+	</div>
+	<ul id="login" class="first-column menu-block" style="font-size: 22px;">
+	<li><a href="#login" title="Login">Login</a></li>	</ul>
+	<div id="language" class="menu-block">
+		<a href="?action=&amp;lang=he"><img src="/images/israel.jpg" title="עברית"></a>
+		<a href="?action=&amp;lang=en"><img src="/images/GB.jpg" title="English" class="selected"></a>
+		<a href="?action=&amp;lang=es"><img src="/images/spain.jpg" title="Español"></a>
+		<a href="?action=&amp;lang=fr"><img src="/images/france.png" title="fr"></a>
+  		<a href="?action=&amp;lang=it"><img src="/images/italy.png" title="it"></a>
+		<a href="?action=&amp;lang=ru"><img src="/images/russia.png" title="русский"></a>
+	</div>
+	<ul class="menu menu-block">
+					<li onmouseover="this.className='show'" onmouseout="this.className='hide'">
+		<a href="/?">Home</a>
+								</li>
+																									<li onmouseover="this.className='show'" onmouseout="this.className='hide'">
+		<a href="#contact">Contact Us</a>
+								</li>
+							<li onmouseover="this.className='show'" onmouseout="this.className='hide'">
+		<a href="http://www.mottestens.com">More Info</a>
+								</li>
+						<li class="facebook">
+		<a href="https://www.facebook.com/Mottes-146957535934750/" target="_blank"><img src="/images/FB-f-Logo__blue_29.png" style="vertical-align:middle" title="Find us on Facebook"></a>
+	</li>
+	<li class="youtube">
+		<a href="https://www.youtube.com/channel/UC6H2uOgiTdxEgUwJRaN1_HQ" target="_blank"><img src="/images/youtube_social_icon_red.png" style="height:30px;vertical-align:middle" title="Find us on YouTube"></a>
+	</li>
+
+		<li id="menucollector" onmouseover="this.className='show'" onmouseout="this.className='hide'" style="visibility:hidden"><a>&gt;&gt;</a>
+			<ul id="lastmenuitem" class="submenu">
+			</ul>
+		</li>
+	</ul>
+</div>
+			</div>
+							<script type="text/javascript" src="/js/jssor.slider.min.js"></script>
+<script type="text/javascript" src="/js/slider.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/slider.css">
+<div id="tensio_banner">
+	<div style="max-height:80vh;min-width:100%;overflow:hidden;">
+		<div id="jssor_1" class="scaling_slider" refsize="#everything" style="position: relative; margin: 0px auto; top: 0px; left: 0px; width: 1280px; height: 512px; overflow: hidden; visibility: visible; background-color: rgba(255, 255, 255, 0);" jssor-slider="true">
+			<!-- Loading Screen -->
+			
+			
+			<!-- Bullet Navigator -->
+			
+			<!-- Arrow Navigator -->
+			
+			
+		<div style="position: absolute; top: 0px; left: 0px; width: 1900px; height: 760px; transform-origin: 0px 0px; transform: scale(0.673684);"><div class="scaling_slider" style="position: relative; margin: 0px auto; top: 0px; left: 0px; width: 1900px; height: 760px; overflow: visible; visibility: visible; background-color: rgba(255, 255, 255, 0); display: block;"><div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 1900px; height: 760px; display: none;">
+				<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+				<div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+			</div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 1900px; height: 760px; overflow: hidden; z-index: 0;"><div style="position: absolute; z-index: 0; pointer-events: none; display: none;"></div></div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 1900px; height: 760px; overflow: hidden; z-index: 0;"><div style="top: 0px; left: 0px; width: 1900px; height: 760px; position: absolute; background-color: rgb(0, 0, 0); opacity: 0; display: none;"></div>
+				<div data-p="332.50" style="top: 0px; left: 0px; width: 1900px; height: 760px; position: absolute; overflow: hidden; perspective: 332.5px;">
+					<img data-u="image" src="/images/slider/01.jpg" border="0" style="top: -15.8333px; left: 0px; width: 1900px; height: 791.667px; position: absolute;">
+					<div class="textlogo01" data-u="caption" data-t="0" style="position: absolute; top: -110px; left: -200px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 401.395, 460.886, 0, 1); opacity: 0.75;">Sensing the roots</div>
+					<div class="textlogo01" data-u="caption" data-t="1" style="position: absolute; top: -110px; left: -200px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 230.857, 648.781, 0, 1); opacity: 0.28;">and irrigating </div>
+					<div class="textlogo01" data-u="caption" data-t="2" style="position: absolute; top: -110px; left: -200px; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 39.4625, 681.813, 0, 1); opacity: 0.04;">with world's best Tensiometers</div>
+				<div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 1900px; height: 760px; z-index: 1000; display: none;">
+				<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+				<div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+			</div></div>
+				<div data-p="332.50" style="background-color: rgba(255, 255, 255, 0); top: 0px; left: 0px; width: 1900px; height: 760px; position: absolute; overflow: hidden; perspective: 332.5px; transform: translate3d(1900px, 0px, 0px);">
+					<img data-u="image" src="/images/slider/02.jpg" border="0" style="top: -15.8333px; left: 0px; width: 1900px; height: 791.667px; position: absolute;">
+					<div class="textlogo01" data-u="caption" data-t="3" style="position: absolute; top: -100px; left: 600px; text-align: center; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); opacity: 0;">Measure the suction force of the roots </div>
+				<div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 1900px; height: 760px; z-index: 1000; display: none;">
+				<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+				<div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+			</div></div>
+				<div data-p="332.50" style="background-color: rgb(115, 144, 0); top: 0px; left: 0px; width: 1900px; height: 760px; position: absolute; overflow: hidden; perspective: 332.5px; transform: translate3d(-1900px, 0px, 0px);">
+					<img data-u="image" src="/images/slider/03.jpg" border="0" style="top: -15.8333px; left: 0px; width: 1900px; height: 791.667px; position: absolute;">
+					<div class="textlogo01" data-u="caption" data-t="4" style="position: absolute; top: -110px; left: -200px; text-align: left; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); opacity: 0;">and irrigate at the plant's demand</div>
+					<div class="textlogo01" data-u="caption" data-t="5" style="position: absolute; top: -110px; left: -200px; text-align: left; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); opacity: 0;">With world's</div>
+					<div class="textlogo01" data-u="caption" data-t="6" style="position: absolute; top: -120px; left: -200px; text-align: left; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); opacity: 0;">Best Tensiometers</div>
+				<div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 1900px; height: 760px; z-index: 1000; display: none;">
+				<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+				<div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+			</div></div>
+
+			</div><div data-u="navigator" class="jssorb01" style="bottom: 16px; right: 16px; width: 56px; height: 12px; left: 922px; display: none;" data-autocenter="1">
+				
+			<div data-u="prototype" style="width: 12px; height: 12px; position: absolute; left: 0px; top: 0px;" class="av"></div><div data-u="prototype" style="width: 12px; height: 12px; position: absolute; left: 22px; top: 0px;"></div><div data-u="prototype" style="width: 12px; height: 12px; position: absolute; left: 44px; top: 0px;"></div></div><span data-u="arrowleft" class="jssora03l" style="top: 352.5px; left: 8px; width: 55px; height: 55px;" data-autocenter="2"></span><span data-u="arrowright" class="jssora03r" style="top: 352.5px; right: 8px; width: 55px; height: 55px;" data-autocenter="2"></span></div></div></div>
+		<script>
+			jssor_1_slider_init();
+		</script>
+	</div>
+</div>						
+	<!--link href="css/news_ticker/styles/ticker-style.css" rel="stylesheet" type="text/css" /-->
+	<script src="js/jQuery-News-Ticker/includes/jquery.ticker.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#js-news').ticker({
+				htmlFeed: false,
+				ajaxFeed: true,
+				feedUrl: 'news-rss.php',
+				titleText: '',
+				feedType: 'xml',
+				direction: 'ltr',
+				controls: false,
+				prevId: 'news-previous',
+				nextId: 'news-next',
+				speed: 1,
+				displayType: 'reveal',
+			});
+		});
+	</script>
+	<style>
+		.ticker-title {
+			display:none;
+		}
+		.ticker-content {
+			margin:0;
+		}
+		.ticker-content a:link{
+			color:black;
+			font-weight:bold;
+		}
+		.ticker-wrapper.has-js {
+			display: inline-block;
+			max-height:40px;
+			position:absolute;
+			overflow:hidden;
+			/*font-size: 1.2em;*/
+		}
+
+		.mobile .ticker-wrapper.has-js{
+			font-size:0.7em;
+			margin-top:0.25vh;
+		}
+		.ticker-swipe {
+			/*	padding-top: auto;
+				position: relative;
+				top: 0px;
+				background-color: transparent;
+				display: inline;
+				width: auto;
+				height: auto; */
+		}
+		.ticker-swipe span {
+			margin-left: 1px;
+			background-color: auto;
+			border-bottom: none;
+			height: 18px;
+			width: 100%;
+			display: block;
+		}
+		.ticker-controls {
+			padding: 8px 0px 0px 0px;
+			list-style-type: none;
+			float: left;
+		}
+		.ticker-controls li {
+			padding: 0px;
+			margin-left: 5px;
+			float: left;
+			cursor: pointer;
+			height: 16px;
+			width: 16px;
+			display: block;
+		}
+		.ticker {
+			position:absolote;
+			display:inline-block;
+			background-color:transparent;
+		}
+
+		.ticker-controls {
+			padding: 8px 0px 0px 0px;
+			list-style-type: none;
+			float: left;
+		}
+		.ticker-controls li {
+			padding: 0px;
+			margin-left: 5px;
+			float: left;
+			cursor: pointer;
+			height: 16px;
+			width: 16px;
+			display: block;
+		}
+		.ticker-controls li.jnt-play-pause {
+			display:none;
+		}
+		.ticker-controls li.jnt-play-pause.over {
+		}
+		.ticker-controls li.jnt-play-pause.down {
+		}
+		.ticker-controls li.jnt-play-pause.paused {
+			display:none;
+		}
+		.ticker-controls li.jnt-play-pause.paused.over {
+		}
+		.ticker-controls li.jnt-play-pause.paused.down {
+		}
+		.ticker-controls li.jnt-prev {
+			background-image: url('/images/previous.png');
+		}
+		.ticker-controls li.jnt-prev.over {
+		}
+		.ticker-controls li.jnt-prev.down {
+		}
+		.ticker-controls li.jnt-next {
+			background-image: url('/images/next.png');	
+		}
+		.ticker-controls li.jnt-next.over {
+		}
+		.ticker-controls li.jnt-next.down {	
+		}
+	</style>
+
+<a name="news"></a>
+<div class="fixed" id="news">
+	<div id="news-icon">
+		<img src="images/news_icon.png">
+		<span class="label">News</span>
+	</div>
+	<div id="news-flash">
+		<span id="news-controls">
+			<img id="news-previous" src="images/previous.png">
+			<img id="news-next" src="images/next.png">
+		</span>
+		<div id="ticker-wrapper-1773912292440" class="ticker-wrapper has-js left"><div id="ticker-1773912292440" class="ticker"><div id="ticker-title-1773912292440" class="ticker-title"><span><!-- --></span></div><p id="ticker-content-1773912292440" class="ticker-content" style="display: none;"></p><div id="ticker-swipe-1773912292440" class="ticker-swipe"><span><!-- --></span></div></div></div>
+	</div>
+</div>
+			<div id="container">
+							<div id="content" class="home">
+									<script>
+	
+        pictures_slider_init = function() {
+            
+            var pictures_SlideshowTransitions = [
+              {$Duration:1200,$Opacity:2}
+            ];
+            
+            var pictures_options = {
+              $AutoPlay: true,
+              $FillMode: 2,
+              $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: pictures_SlideshowTransitions,
+                $TransitionsOrder: 1
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              }
+            };
+            
+            var pictures_slider = new $JssorSlider$("pictures", pictures_options);
+	function ScalePictureSlider() {
+	var refSize = pictures_slider.$Elmt.parentNode.clientWidth;
+	var winSize = $(window).width();
+		if (refSize) {
+			if(winSize && refSize>(winSize*0.8))
+				refSize=(winSize *0.8)
+			pictures_slider.$ScaleWidth(refSize);
+		} else {
+			window.setTimeout(ScalePictureSlider, 30);
+		}
+	}
+	ScalePictureSlider();
+	$Jssor$.$AddEvent(window, "load", ScalePictureSlider);
+	$Jssor$.$AddEvent(window, "resize", ScalePictureSlider);
+	$Jssor$.$AddEvent(window, "orientationchange", ScalePictureSlider);
+	//responsive code end
+
+        };
+		
+</script>
+
+<a name="about"></a>
+   <h1>Water is one of the most important resources in modern and precision agriculture of this century</h1>
+<p>
+</p><p>Planning and scheduling right and effective irrigation leads to great savings in water and fertilizer and improving productivity and quality of crops. This is a great benefit inherent in the use of the Internet Tensiometers produced by Mottes and offered on this Web site</p>
+<p></p>
+<div class="box-container">
+	<div class="box">
+		<div id="tensiometers">
+			<div class="icon ripple-out">
+				&nbsp;
+			</div>
+			<div class="text" style="height: 259px;">
+			<h1>Tensiometers</h1>
+			<p>Quality tensiometers, with high precision enable continuous measurements over many years, very reliable and considered to be the best.</p>
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div id="units">
+			<div class="icon">
+				&nbsp;
+			</div>
+			<div class="text" style="height: 259px;">
+			<h1>The Units</h1>
+			<p>Qualitative data collection system, easy to operate and reliable communication system. Unique data transfer, high durability and long-term, energy-efficient technology.</p>
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div id="data">
+			<div class="icon">
+				&nbsp;
+			</div>
+			<div class="text" style="height: 259px;">
+			<h1>Data Processing</h1>
+			<p>Web-based, user-friendly application for inspect and manage the data in forms of graphs and tables </p>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="second-paragraph" class="box-container">
+	<div class="two-box"><p>Mottes Tensiometers - manufacturers of high quality Tensiometers since 1978 is proud to present an innovative concept in measuring and monitoring the plant water consumption. The concept is a solution for remote sensing and monitoring the soil water tension as well as soil and air temperature, to assist the decision maker with an accurate and reliable data wherever he may be. The solution is derived from a combination of accurate measuring technology, reliable data transmittance by cellular and internet networks and a professional prenentation of accumulated data. This system solution is available at any internet connection everywhere and both the grower and his consultant can follow-up the data from different sites at the same time. The user can detect the irrigation performance, confer to others, analyze the plants needs and receive recommendations from his consultants.</p>	</div>
+	<div class="two-box">
+    <div id="pictures" refsize=".two-box" style="direction: ltr; position: relative; top: 0px; left: 0px; width: 518px; height: 385.63px; overflow: hidden; visibility: visible;" jssor-slider="true">
+        <!-- Loading Screen -->
+        
+        
+        <!-- Bullet Navigator -->
+        
+        <!-- Arrow Navigator -->
+        
+        
+    <div style="position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; transform-origin: 0px 0px; transform: scale(0.675359);"><div class="" style="direction: ltr; position: relative; top: 0px; left: 0px; width: 767px; height: 571px; overflow: visible; visibility: visible; display: block;"><div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; display: none;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; overflow: hidden; z-index: 0;"><div style="position: absolute; z-index: 0; pointer-events: none; display: none;"></div></div><div data-u="slides" style="cursor: default; position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; overflow: hidden; z-index: 0;"><div style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute; background-color: rgb(0, 0, 0); opacity: 0; display: none;"></div>
+            <div data-p="175.00" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute; overflow: hidden; perspective: 175px;">
+                <img data-u="image" src="/images/tensio_galery/gerbera.jpg" title="gerbera" alt="gerbera" border="0" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute;">
+            <div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div></div>
+            <div data-p="175.00" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute; overflow: hidden; perspective: 175px; transform: translate3d(767px, 0px, 0px);">
+                <img data-u="image" src="/images/tensio_galery/nactarine.jpg" title="nectarine" alt="nectarine" border="0" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute;">
+            <div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div></div>
+            <div data-p="175.00" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute; overflow: hidden; perspective: 175px; transform: translate3d(-767px, 0px, 0px);">
+                <img data-u="image" src="/images/tensio_galery/almonds.jpg" title="almonds" alt="almonds" border="0" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute;">
+            <div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div></div>
+            <div data-p="175.00" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute; overflow: hidden; perspective: 175px; transform: translate3d(-767px, 0px, 0px);">
+                <img data-u="image" src="/images/tensio_galery/tomato.jpg" title="tomatos" alt="tomatos" border="0" style="top: 0px; left: 0px; width: 767px; height: 571px; position: absolute;">
+            <div data-u="loading" style="position: absolute; top: 0px; left: 0px; width: 767px; height: 571px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('/images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div></div>
+        
+        </div><div data-u="navigator" class="jssorb01" style="bottom: 16px; right: 16px; width: 78px; height: 12px; left: 344.5px;" data-autocenter="1">
+            
+        <div data-u="prototype" style="width: 12px; height: 12px; position: absolute; left: 0px; top: 0px;" class="av"></div><div data-u="prototype" style="width: 12px; height: 12px; position: absolute; left: 22px; top: 0px;"></div><div data-u="prototype" style="width: 12px; height: 12px; position: absolute; left: 44px; top: 0px;"></div><div data-u="prototype" style="width: 12px; height: 12px; position: absolute; left: 66px; top: 0px;"></div></div><span data-u="arrowleft" class="jssora03l" style="top: 258px; left: 8px; width: 55px; height: 55px;" data-autocenter="2"></span><span data-u="arrowright" class="jssora03r" style="top: 258px; right: 8px; width: 55px; height: 55px;" data-autocenter="2"></span></div></div></div>
+    <script>
+        pictures_slider_init();
+		
+	
+    </script>
+	</div>
+</div>
+							</div>
+			</div>
+			<div id="content-footer">
+				<div id="mottes-slogan">
+					<img src="/images/en_slogan.png" alt="motes_slogan" title="motes_slogan">
+				</div>
+			</div>
+			<div id="footer">
+				<a name="contact"></a>
+				<div id="footer-content" class="box-container">
+					<div class="box">
+						<div>
+						</div>
+					</div>
+					<div class="box">
+						<div id="contact-info">
+							Mottes Tensiometers, POB 599, 3710502 Karkur, ISRAEL<br>
+							Phone: +972-4-6272950<br>
+							Cellphone: +972-50-5366530<br>
+							Fax.: +972-4-6270094<br>
+							E-mail: <a href="mailto:adimotes@gmail.com">adimotes@gmail.com</a><br>
+							skype: <a href="skype:adimotes?call">adimotes</a><br>
+							<a href="https://www.facebook.com/Mottes-146957535934750/" target="__blank"><img src="/images/FB-f-Logo__blue_29.png" align="middle" title="Find us on Facebook"></a>&nbsp;<a href="https://www.facebook.com/Mottes-146957535934750/">Find us on Facebook</a>
+						</div>
+					</div>
+					<div class="box">
+						<div id="copyright">
+							All rights reserved
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+</body></html>

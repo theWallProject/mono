@@ -1,0 +1,64 @@
+[2026-03-19T11:49:45.630Z] === Homepage AI Extractor: Manta ===
+[2026-03-19T11:49:45.630Z] Started at: 2026-03-19T11:49:45.630Z
+[2026-03-19T11:49:45.630Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773920985629_Manta
+[2026-03-19T11:49:45.630Z] Company: Manta
+[2026-03-19T11:49:45.630Z] Website: manta-m.com
+[2026-03-19T11:49:45.631Z] cbRank: 2171689
+[2026-03-19T11:49:45.631Z] Reasons: h
+[2026-03-19T11:49:45.631Z] Fetching: https://manta-m.com
+[2026-03-19T11:49:50.278Z] Redirected: https://manta-m.com -> https://www.manta-m.com/
+[2026-03-19T11:49:50.289Z] Saved HTML (447528 bytes) to page.html
+[2026-03-19T11:49:50.293Z] Extracted 88 unique links from page
+[2026-03-19T11:49:50.293Z] Saved 88 links to links.json
+[2026-03-19T11:49:50.297Z] Extracted footer HTML (20716 chars)
+[2026-03-19T11:49:50.297Z] Extracted header HTML (50428 chars)
+[2026-03-19T11:49:50.301Z] Website (post-redirect): https://www.manta-m.com/ → origin: https://www.manta-m.com
+[2026-03-19T11:49:50.301Z] External links: 4 (of 88 total)
+[2026-03-19T11:49:50.301Z] ── All external links ──
+[2026-03-19T11:49:50.301Z]   EXT: https://did.li/ZOkrl
+[2026-03-19T11:49:50.301Z]   EXT: https://www.e-shop.co.il
+[2026-03-19T11:49:50.302Z]   EXT: https://www.facebook.com/il.manta
+[2026-03-19T11:49:50.302Z]   EXT: https://www.instagram.com/manta_m1
+[2026-03-19T11:49:50.302Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T11:49:50.302Z]   UNCATEGORIZED: https://did.li/ZOkrl
+[2026-03-19T11:49:50.302Z]   UNCATEGORIZED: https://www.e-shop.co.il
+[2026-03-19T11:49:50.302Z]   REGEX: fb <- https://www.facebook.com/il.manta
+[2026-03-19T11:49:50.302Z]   REGEX: ig <- https://www.instagram.com/manta_m1
+[2026-03-19T11:49:50.302Z] Programmatic result: ws:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-19T11:49:50.302Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T11:49:50.305Z] Saved AI prompt (10840 chars) to ai_prompt.txt
+[2026-03-19T11:49:50.305Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T11:49:50.308Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T11:50:46.454Z]   AI: First token received, streaming...
+[2026-03-19T11:50:49.822Z] AI response complete: 69 chars in 59.5s
+[2026-03-19T11:50:49.823Z] Saved AI response to ai_response.json
+[2026-03-19T11:50:49.823Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T11:50:49.823Z]   AI LINK: https://www.instagram.com/manta_m1/
+[2026-03-19T11:50:49.824Z]   AI LINK: https://www.facebook.com/il.manta
+[2026-03-19T11:50:49.824Z] AI returned 2 valid links
+[2026-03-19T11:50:49.824Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T11:50:49.824Z]   AI→REGEX: ig <- https://www.instagram.com/manta_m1/ (duplicate, skipped)
+[2026-03-19T11:50:49.824Z]   AI→REGEX: fb <- https://www.facebook.com/il.manta (duplicate, skipped)
+[2026-03-19T11:50:49.827Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T11:50:49.827Z] Footer/header origins (3):
+[2026-03-19T11:50:49.827Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T11:50:49.827Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T11:50:49.827Z]   FOOTER/HEADER ORIGIN: https://www.manta-m.com
+[2026-03-19T11:50:49.828Z]   SKIP (not in footer/header): https://did.li/ZOkrl
+[2026-03-19T11:50:49.828Z]   SKIP (not in footer/header): https://www.e-shop.co.il
+[2026-03-19T11:50:49.828Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T11:50:49.828Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T11:50:49.828Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T11:50:49.828Z] ── Step 3: Final dedup ──
+[2026-03-19T11:50:49.828Z] No urls to dedup
+[2026-03-19T11:50:49.829Z] ── FINAL RESULT ──
+[2026-03-19T11:50:49.829Z]   ws (1):
+[2026-03-19T11:50:49.829Z]     - https://www.manta-m.com
+[2026-03-19T11:50:49.829Z]   fb (1):
+[2026-03-19T11:50:49.829Z]     - https://www.facebook.com/il.manta
+[2026-03-19T11:50:49.829Z]   ig (1):
+[2026-03-19T11:50:49.829Z]     - https://www.instagram.com/manta_m1
+[2026-03-19T11:50:49.829Z] Summary: ws:1, fb:1, ig:1
+[2026-03-19T11:50:49.831Z] Saved final result to result.json
+[2026-03-19T11:50:49.831Z] Override fields: ws, fb, ig
+[2026-03-19T11:50:49.831Z] Finished at: 2026-03-19T11:50:49.831Z

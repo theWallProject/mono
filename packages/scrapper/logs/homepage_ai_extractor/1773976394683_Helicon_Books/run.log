@@ -1,0 +1,63 @@
+[2026-03-20T03:13:14.684Z] === Homepage AI Extractor: Helicon Books ===
+[2026-03-20T03:13:14.684Z] Started at: 2026-03-20T03:13:14.684Z
+[2026-03-20T03:13:14.684Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773976394683_Helicon_Books
+[2026-03-20T03:13:14.684Z] Company: Helicon Books
+[2026-03-20T03:13:14.684Z] Website: heliconbooks.com
+[2026-03-20T03:13:14.684Z] cbRank: 2617264
+[2026-03-20T03:13:14.684Z] Reasons: h
+[2026-03-20T03:13:14.684Z] Fetching: https://heliconbooks.com
+[2026-03-20T03:13:16.051Z] Redirected: https://heliconbooks.com -> https://www.heliconbooks.com/
+[2026-03-20T03:13:16.055Z] Saved HTML (118197 bytes) to page.html
+[2026-03-20T03:13:16.058Z] Extracted 12 unique links from page
+[2026-03-20T03:13:16.058Z] Saved 12 links to links.json
+[2026-03-20T03:13:16.060Z] Extracted footer HTML (4153 chars)
+[2026-03-20T03:13:16.060Z] Extracted header HTML (1604 chars)
+[2026-03-20T03:13:16.063Z] Website (post-redirect): https://www.heliconbooks.com/ → origin: https://www.heliconbooks.com
+[2026-03-20T03:13:16.064Z] External links: 3 (of 12 total)
+[2026-03-20T03:13:16.064Z] ── All external links ──
+[2026-03-20T03:13:16.064Z]   EXT: http://moostash.co.il
+[2026-03-20T03:13:16.064Z]   EXT: https://twitter.com/Heliconbooks
+[2026-03-20T03:13:16.064Z]   EXT: https://www.facebook.com/HeliconBooks
+[2026-03-20T03:13:16.064Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T03:13:16.064Z]   UNCATEGORIZED: http://moostash.co.il
+[2026-03-20T03:13:16.064Z]   REGEX: tw <- https://twitter.com/Heliconbooks
+[2026-03-20T03:13:16.064Z]   REGEX: fb <- https://www.facebook.com/HeliconBooks
+[2026-03-20T03:13:16.064Z] Programmatic result: ws:1, tw:1, fb:1 | 1 uncategorized
+[2026-03-20T03:13:16.065Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T03:13:16.068Z] Saved AI prompt (4069 chars) to ai_prompt.txt
+[2026-03-20T03:13:16.068Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T03:13:16.070Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T03:13:31.729Z]   AI: First token received, streaming...
+[2026-03-20T03:13:34.913Z] AI response complete: 70 chars in 18.8s
+[2026-03-20T03:13:34.915Z] Saved AI response to ai_response.json
+[2026-03-20T03:13:34.915Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T03:13:34.915Z]   AI LINK: https://www.facebook.com/HeliconBooks
+[2026-03-20T03:13:34.915Z]   AI LINK: https://twitter.com/Heliconbooks
+[2026-03-20T03:13:34.915Z] AI returned 2 valid links
+[2026-03-20T03:13:34.916Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T03:13:34.916Z]   AI→REGEX: fb <- https://www.facebook.com/HeliconBooks (duplicate, skipped)
+[2026-03-20T03:13:34.916Z]   AI→REGEX: tw <- https://twitter.com/Heliconbooks (duplicate, skipped)
+[2026-03-20T03:13:34.917Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T03:13:34.917Z] Footer/header origins (3):
+[2026-03-20T03:13:34.917Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T03:13:34.917Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-20T03:13:34.917Z]   FOOTER/HEADER ORIGIN: http://moostash.co.il
+[2026-03-20T03:13:34.918Z]   ADDED: urls <- http://moostash.co.il
+[2026-03-20T03:13:34.918Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T03:13:34.918Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T03:13:34.918Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T03:13:34.918Z] ── Step 3: Final dedup ──
+[2026-03-20T03:13:34.918Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T03:13:34.918Z] ── FINAL RESULT ──
+[2026-03-20T03:13:34.918Z]   ws (1):
+[2026-03-20T03:13:34.918Z]     - https://www.heliconbooks.com
+[2026-03-20T03:13:34.919Z]   fb (1):
+[2026-03-20T03:13:34.919Z]     - https://www.facebook.com/heliconbooks
+[2026-03-20T03:13:34.919Z]   tw (1):
+[2026-03-20T03:13:34.919Z]     - https://x.com/heliconbooks
+[2026-03-20T03:13:34.919Z]   urls (1):
+[2026-03-20T03:13:34.919Z]     - http://moostash.co.il
+[2026-03-20T03:13:34.919Z] Summary: ws:1, tw:1, fb:1, urls:1
+[2026-03-20T03:13:34.920Z] Saved final result to result.json
+[2026-03-20T03:13:34.921Z] Override fields: ws, fb, tw, urls
+[2026-03-20T03:13:34.921Z] Finished at: 2026-03-20T03:13:34.921Z

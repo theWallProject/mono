@@ -1,0 +1,66 @@
+[2026-03-18T22:40:23.022Z] === Homepage AI Extractor: Sogo Services ===
+[2026-03-18T22:40:23.022Z] Started at: 2026-03-18T22:40:23.022Z
+[2026-03-18T22:40:23.022Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773873623022_Sogo_Services
+[2026-03-18T22:40:23.022Z] Company: Sogo Services
+[2026-03-18T22:40:23.022Z] Website: sogoservices.com
+[2026-03-18T22:40:23.022Z] cbRank: 1810907
+[2026-03-18T22:40:23.022Z] Reasons: h
+[2026-03-18T22:40:23.022Z] Fetching: https://sogoservices.com
+[2026-03-18T22:40:33.850Z] Network idle timeout — continuing with current state
+[2026-03-18T22:40:33.895Z] Redirected: https://sogoservices.com -> https://www.sogoservices.com/
+[2026-03-18T22:40:33.956Z] Saved HTML (2788662 bytes) to page.html
+[2026-03-18T22:40:33.960Z] Extracted 14 unique links from page
+[2026-03-18T22:40:33.960Z] Saved 14 links to links.json
+[2026-03-18T22:40:33.967Z] Extracted footer HTML (9149 chars)
+[2026-03-18T22:40:33.967Z] Extracted header HTML (277964 chars)
+[2026-03-18T22:40:33.971Z] Website (post-redirect): https://www.sogoservices.com/ → origin: https://www.sogoservices.com
+[2026-03-18T22:40:33.971Z] External links: 3 (of 14 total)
+[2026-03-18T22:40:33.971Z] ── All external links ──
+[2026-03-18T22:40:33.971Z]   EXT: http://linkedin.com/company/sogoservices
+[2026-03-18T22:40:33.971Z]   EXT: https://il.linkedin.com/company/sogoservices
+[2026-03-18T22:40:33.972Z]   EXT: https://www.facebook.com/sogoservices
+[2026-03-18T22:40:33.972Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T22:40:33.972Z]   REGEX: li <- http://linkedin.com/company/sogoservices
+[2026-03-18T22:40:33.972Z]   REGEX: li <- https://il.linkedin.com/company/sogoservices (duplicate, skipped)
+[2026-03-18T22:40:33.972Z]   REGEX: fb <- https://www.facebook.com/sogoservices
+[2026-03-18T22:40:33.972Z] Programmatic result: ws:1, li:1, fb:1 | 0 uncategorized
+[2026-03-18T22:40:33.972Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T22:40:34.002Z] Saved AI prompt (5998 chars) to ai_prompt.txt
+[2026-03-18T22:40:34.002Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T22:40:34.006Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T22:40:57.480Z]   AI: First token received, streaming...
+[2026-03-18T22:41:05.821Z] AI response complete: 162 chars in 31.8s
+[2026-03-18T22:41:05.822Z] Saved AI response to ai_response.json
+[2026-03-18T22:41:05.823Z] ── Parsing AI response (4 lines) ──
+[2026-03-18T22:41:05.823Z]   AI LINK: https://il.linkedin.com/company/sogoservices
+[2026-03-18T22:41:05.823Z]   AI LINK: https://www.facebook.com/sogoservices/
+[2026-03-18T22:41:05.823Z]   AI LINK: http://linkedin.com/company/sogoservices
+[2026-03-18T22:41:05.823Z]   AI LINK: https://www.facebook.com/sogoservices
+[2026-03-18T22:41:05.823Z] AI returned 4 valid links
+[2026-03-18T22:41:05.824Z] ── Categorizing 4 AI-returned links ──
+[2026-03-18T22:41:05.824Z]   AI→REGEX: li <- https://il.linkedin.com/company/sogoservices (duplicate, skipped)
+[2026-03-18T22:41:05.824Z]   AI→REGEX: fb <- https://www.facebook.com/sogoservices/ (duplicate, skipped)
+[2026-03-18T22:41:05.824Z]   AI→REGEX: li <- http://linkedin.com/company/sogoservices (duplicate, skipped)
+[2026-03-18T22:41:05.824Z]   AI→REGEX: fb <- https://www.facebook.com/sogoservices (duplicate, skipped)
+[2026-03-18T22:41:05.825Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T22:41:05.825Z] Footer/header origins (4):
+[2026-03-18T22:41:05.825Z]   FOOTER/HEADER ORIGIN: https://www.sogoservices.com
+[2026-03-18T22:41:05.826Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-18T22:41:05.826Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T22:41:05.826Z]   FOOTER/HEADER ORIGIN: http://linkedin.com
+[2026-03-18T22:41:05.826Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T22:41:05.826Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T22:41:05.826Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T22:41:05.826Z] ── Step 3: Final dedup ──
+[2026-03-18T22:41:05.826Z] No urls to dedup
+[2026-03-18T22:41:05.826Z] ── FINAL RESULT ──
+[2026-03-18T22:41:05.827Z]   ws (1):
+[2026-03-18T22:41:05.827Z]     - https://www.sogoservices.com
+[2026-03-18T22:41:05.827Z]   li (1):
+[2026-03-18T22:41:05.827Z]     - https://www.linkedin.com/company/sogoservices
+[2026-03-18T22:41:05.827Z]   fb (1):
+[2026-03-18T22:41:05.827Z]     - https://www.facebook.com/sogoservices
+[2026-03-18T22:41:05.827Z] Summary: ws:1, li:1, fb:1
+[2026-03-18T22:41:05.828Z] Saved final result to result.json
+[2026-03-18T22:41:05.829Z] Override fields: ws, li, fb
+[2026-03-18T22:41:05.829Z] Finished at: 2026-03-18T22:41:05.829Z

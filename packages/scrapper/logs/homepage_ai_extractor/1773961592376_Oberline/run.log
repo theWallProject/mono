@@ -1,0 +1,58 @@
+[2026-03-19T23:06:32.376Z] === Homepage AI Extractor: Oberline ===
+[2026-03-19T23:06:32.377Z] Started at: 2026-03-19T23:06:32.377Z
+[2026-03-19T23:06:32.377Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773961592376_Oberline
+[2026-03-19T23:06:32.377Z] Company: Oberline
+[2026-03-19T23:06:32.377Z] Website: overline.co.il
+[2026-03-19T23:06:32.377Z] cbRank: 2455018
+[2026-03-19T23:06:32.377Z] Reasons: h
+[2026-03-19T23:06:32.377Z] Fetching: https://overline.co.il
+[2026-03-19T23:06:37.079Z] Redirected: https://overline.co.il -> https://overline.co.il/
+[2026-03-19T23:06:37.106Z] Saved HTML (64253 bytes) to page.html
+[2026-03-19T23:06:37.161Z] Extracted 19 unique links from page
+[2026-03-19T23:06:37.163Z] Saved 19 links to links.json
+[2026-03-19T23:06:37.218Z] Extracted footer HTML (6076 chars)
+[2026-03-19T23:06:37.219Z] Extracted header HTML (3836 chars)
+[2026-03-19T23:06:37.223Z] Website (post-redirect): https://overline.co.il/ → origin: https://overline.co.il
+[2026-03-19T23:06:37.223Z] External links: 2 (of 19 total)
+[2026-03-19T23:06:37.223Z] ── All external links ──
+[2026-03-19T23:06:37.223Z]   EXT: https://www.facebook.com/profile.php?id=100053444964682
+[2026-03-19T23:06:37.223Z]   EXT: https://www.linkedin.com/company/overline
+[2026-03-19T23:06:37.224Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T23:06:37.224Z]   REGEX: li <- https://www.linkedin.com/company/overline
+[2026-03-19T23:06:37.224Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T23:06:38.006Z]   RESOLVE: no redirect for https://www.facebook.com/profile.php?id=100053444964682
+[2026-03-19T23:06:38.010Z]   SKIP (regex domain, no match): https://www.facebook.com/profile.php?id=100053444964682
+[2026-03-19T23:06:38.010Z] Programmatic result: ws:1, li:1 | 0 uncategorized
+[2026-03-19T23:06:38.010Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T23:06:38.014Z] Saved AI prompt (3990 chars) to ai_prompt.txt
+[2026-03-19T23:06:38.014Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T23:06:38.017Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T23:06:51.815Z]   AI: First token received, streaming...
+[2026-03-19T23:06:58.701Z] AI response complete: 97 chars in 20.7s
+[2026-03-19T23:06:58.702Z] Saved AI response to ai_response.json
+[2026-03-19T23:06:58.703Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T23:06:58.703Z]   AI LINK: https://www.facebook.com/profile.php?id=100053444964682
+[2026-03-19T23:06:58.703Z]   AI LINK: https://www.linkedin.com/company/overline
+[2026-03-19T23:06:58.703Z] AI returned 2 valid links
+[2026-03-19T23:06:58.703Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T23:06:59.195Z]   RESOLVE: no redirect for https://www.facebook.com/profile.php?id=100053444964682
+[2026-03-19T23:06:59.200Z]   AI→SKIP (regex domain, no match): https://www.facebook.com/profile.php?id=100053444964682
+[2026-03-19T23:06:59.200Z]   AI→REGEX: li <- https://www.linkedin.com/company/overline (duplicate, skipped)
+[2026-03-19T23:06:59.200Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T23:06:59.201Z] Footer/header origins (2):
+[2026-03-19T23:06:59.201Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T23:06:59.201Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T23:06:59.201Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T23:06:59.201Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T23:06:59.201Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T23:06:59.201Z] ── Step 3: Final dedup ──
+[2026-03-19T23:06:59.201Z] No urls to dedup
+[2026-03-19T23:06:59.201Z] ── FINAL RESULT ──
+[2026-03-19T23:06:59.201Z]   ws (1):
+[2026-03-19T23:06:59.201Z]     - https://overline.co.il
+[2026-03-19T23:06:59.201Z]   li (1):
+[2026-03-19T23:06:59.201Z]     - https://www.linkedin.com/company/overline
+[2026-03-19T23:06:59.201Z] Summary: ws:1, li:1
+[2026-03-19T23:06:59.202Z] Saved final result to result.json
+[2026-03-19T23:06:59.202Z] Override fields: ws, li
+[2026-03-19T23:06:59.202Z] Finished at: 2026-03-19T23:06:59.202Z

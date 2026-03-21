@@ -1,0 +1,208 @@
+<!DOCTYPE html><html class="fp-enabled" style="overflow: hidden; height: 100%;"><head>
+
+        <title>mostwanted</title>
+
+        <meta charset="UTF-8">
+        <meta name="author" content="Most Wanted Software">
+        <meta name="description" content="Most Wanted is a young startup from the east of the Netherlands. We develop SaaS applications with an eye for design and usability.">
+
+        <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+
+        <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/media.css">
+
+        <link rel="stylesheet" type="text/css" href="/assets/vendor/fullpage/jquery.fullPage.css">
+
+        <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-6WGWXZEWCQ&amp;cx=c&amp;_slc=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+        <script type="text/javascript" src="/assets/vendor/fullpage/vendors/jquery.slimscroll.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/fullpage/jquery.fullPage.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                var slideTimeout;
+
+                $('#fullpage').fullpage(
+                {
+                    anchors: ['', 'contact'],
+                    menu: '#menu',
+                    navigation: true,
+                    navigationPosition: 'right',
+                    navigationTooltips: ['', 'Contact'],
+                    scrollingSpeed: 1000,
+                    scrollOverflow: true,
+                    afterRender: function()
+                    {
+                        slideTimeout = setInterval(function()
+                        {
+                            $.fn.fullpage.moveSlideRight();
+                        }, 7500);
+                    },
+                    afterSlideLoad: function()
+                    {
+                        clearInterval(slideTimeout);
+
+                        slideTimeout = setInterval(function()
+                        {
+                            $.fn.fullpage.moveSlideRight();
+                        }, 7500);
+                    },
+                });
+
+                var userLang = navigator.language || navigator.userLanguage;
+                var simpleLang = userLang.split('-')[0];
+
+                translate(loadLanguage(simpleLang));
+
+                $('#lang-en, #lang-nl').click(function() {
+                    translate(
+                        loadLanguage(
+                            $(this).data('lang')
+                        )
+                    );
+                });
+
+            });
+
+            function loadLanguage(language)
+            {
+                $('.language').removeClass('active');
+
+                var translationUrl = '/resources/lang/en.json';
+
+                switch (language)
+                {
+                    default:
+                    case 'en':
+                        $('#lang-en').addClass('active');
+                        translationUrl = '/resources/lang/en.json';
+                        break;
+                    case 'nl':
+                        $('#lang-nl').addClass('active');
+                        translationUrl = '/resources/lang/nl.json';
+                        break;
+                }
+
+                var translation = (function () {
+                    var translation = null;
+                    $.ajax({
+                        'async': false,
+                        'global': false,
+                        'url': translationUrl,
+                        'dataType': "json",
+                        'success': function (data) {
+                            translation = data;
+                        }
+                    });
+                    return translation;
+                })();
+
+                return translation;
+            }
+
+            function translate(translation)
+            {
+                $('.translation').each(function(i) {
+                    $(this).html(translation[$(this).data('key')]);
+                });
+            }
+
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70854174-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
+    </head>
+
+    <body class="fp-viewing-" style="overflow: hidden; height: 100%;">
+
+        <div id="fullpage" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px);">
+
+            
+
+            <div class="section fp-section active fp-table" id="section0" data-anchor="" style="height: 720px;"><div class="fp-tableCell" style="height:720px;">
+
+                <video id="video" autoplay="autoplay" loop="loop" muted="muted">
+                    <source src="/assets/images/joshua.mp4" type="video/mp4">
+                </video>
+
+                <div class="section0-container">
+
+                    <div class="line-language">
+                        <button id="lang-nl" class="language button translation" type="button" data-key="dutch" data-lang="nl">NL</button>
+                        <button id="lang-en" class="language button translation active" type="button" data-key="english" data-lang="en">EN</button>
+                    </div>
+
+                    <div class="line-top translation" data-key="section0-title">Code and design coming together</div>
+
+                    <div class="line-bottom translation" data-key="section0-footer">Scroll down to read our story..</div>
+
+                    <a href="#contact">
+                        <div class="arrow">
+                            <img src="/assets/images/arrow.png">
+                        </div>
+                    </a>
+
+                    <div class="section0-wrapper">
+
+                        <div class="logo">
+
+                           <img src="/assets/images/logo-white.png">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div></div>
+
+            <div class="section fp-section fp-table" id="section3" data-anchor="contact" style="height: 720px;"><div class="fp-tableCell" style="height:720px;">
+
+                <div class="section3-map"></div>
+
+                <div class="section3-container">
+
+                    <div class="logo">
+
+                       <img src="/assets/images/logo-white.png">
+
+                    </div>
+
+                    <div class="wrapper">
+
+                        <div class="content">
+
+                            <a href="mailto:team@mostwanted.io"><img src="/assets/images/mail.png"></a>
+                            <a href="tel:+31547745270"><img src="/assets/images/phone.png"></a>
+                            <a href="//www.linkedin.com/company/mostwanted-development-studios"><img src="/assets/images/linkedin.png"></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="line-bottom translation" data-key="section3-footer">Mostwanted Software B.V. • Hogepad 83 • 7462 TB Rijssen • The Netherlands<br>CoC number: 64674681 • VAT number: 855773674B01</div>
+
+                </div>
+
+            </div></div>
+
+        </div>
+
+    
+
+
+<div id="menu" class="menu">
+
+                <ul>
+                    <li data-menuanchor="1"><a href="#contact" class="translation" data-key="about_us"></a></li>
+                </ul>
+
+            </div><div id="fp-nav" class="right" style="margin-top: -23.5px;"><ul><li><a href="#" class="active"><span></span></a></li><li><a href="#contact"><span></span></a><div class="fp-tooltip right">Contact</div></li></ul></div></body></html>

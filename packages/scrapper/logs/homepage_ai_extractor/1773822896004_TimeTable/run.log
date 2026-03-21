@@ -1,0 +1,68 @@
+[2026-03-18T08:34:56.004Z] === Homepage AI Extractor: TimeTable ===
+[2026-03-18T08:34:56.004Z] Started at: 2026-03-18T08:34:56.004Z
+[2026-03-18T08:34:56.004Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773822896004_TimeTable
+[2026-03-18T08:34:56.005Z] Company: TimeTable
+[2026-03-18T08:34:56.005Z] Website: timetable.co.il
+[2026-03-18T08:34:56.005Z] cbRank: 1613199
+[2026-03-18T08:34:56.005Z] Reasons: h
+[2026-03-18T08:34:56.005Z] Fetching: https://timetable.co.il
+[2026-03-18T08:34:57.457Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-18T08:35:00.440Z] Redirected: https://timetable.co.il -> https://timetable.co.il/
+[2026-03-18T08:35:00.452Z] Saved HTML (332517 bytes) to page.html
+[2026-03-18T08:35:00.456Z] Extracted 35 unique links from page
+[2026-03-18T08:35:00.456Z] Saved 35 links to links.json
+[2026-03-18T08:35:00.459Z] No footer section found in DOM
+[2026-03-18T08:35:00.459Z] Extracted header HTML (24346 chars)
+[2026-03-18T08:35:00.462Z] Website (post-redirect): https://timetable.co.il/ → origin: https://timetable.co.il
+[2026-03-18T08:35:00.463Z]   SUBDOMAIN: main.timetable.co.il (added to ws)
+[2026-03-18T08:35:00.463Z] Website subdomains found: 1
+[2026-03-18T08:35:00.463Z] External links: 4 (of 35 total)
+[2026-03-18T08:35:00.463Z] ── All external links ──
+[2026-03-18T08:35:00.463Z]   EXT: https://apps.apple.com/mt/app/timetable-management/id1589688641
+[2026-03-18T08:35:00.463Z]   EXT: https://play.google.com/store/apps/details?id=il.co.timetable.timeTablePlus&hl=en&gl=US
+[2026-03-18T08:35:00.463Z]   EXT: https://www.facebook.com/EmployeeSchedulingSoftware/?ref=embed_page
+[2026-03-18T08:35:00.463Z]   EXT: https://www.linkedin.com/company/timetable-ltd
+[2026-03-18T08:35:00.463Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T08:35:00.463Z]   UNCATEGORIZED: https://apps.apple.com/mt/app/timetable-management/id1589688641
+[2026-03-18T08:35:00.464Z]   REGEX: android_app_ids <- il.co.timetable.timeTablePlus (from https://play.google.com/store/apps/details?id=il.co.timetable.timeTablePlus&hl=en&gl=US)
+[2026-03-18T08:35:00.464Z]   REGEX: fb <- https://www.facebook.com/EmployeeSchedulingSoftware/?ref=embed_page
+[2026-03-18T08:35:00.464Z]   REGEX: li <- https://www.linkedin.com/company/timetable-ltd
+[2026-03-18T08:35:00.464Z] Programmatic result: ws:2, android_app_ids:1, fb:1, li:1 | 1 uncategorized
+[2026-03-18T08:35:00.464Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T08:35:00.468Z] Saved AI prompt (1999 chars) to ai_prompt.txt
+[2026-03-18T08:35:00.468Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T08:35:00.471Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T08:35:06.835Z]   AI: First token received, streaming...
+[2026-03-18T08:35:11.138Z] AI response complete: 63 chars in 10.7s
+[2026-03-18T08:35:11.139Z] Saved AI response to ai_response.json
+[2026-03-18T08:35:11.140Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T08:35:11.140Z]   AI LINK: https://apps.apple.com/mt/app/timetable-management/id1589688641
+[2026-03-18T08:35:11.140Z] AI returned 1 valid links
+[2026-03-18T08:35:11.140Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T08:35:11.141Z]   AI→URLS: https://apps.apple.com/mt/app/timetable-management/id1589688641
+[2026-03-18T08:35:11.141Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T08:35:11.141Z] Footer/header origins (2):
+[2026-03-18T08:35:11.141Z]   FOOTER/HEADER ORIGIN: https://timetable.co.il
+[2026-03-18T08:35:11.141Z]   FOOTER/HEADER ORIGIN: https://main.timetable.co.il
+[2026-03-18T08:35:11.142Z]   SKIP (AI claimed): https://apps.apple.com/mt/app/timetable-management/id1589688641
+[2026-03-18T08:35:11.142Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T08:35:11.142Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T08:35:11.142Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T08:35:11.142Z] ── Step 3: Final dedup ──
+[2026-03-18T08:35:11.142Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T08:35:11.143Z] ── FINAL RESULT ──
+[2026-03-18T08:35:11.143Z]   ws (2):
+[2026-03-18T08:35:11.143Z]     - https://main.timetable.co.il
+[2026-03-18T08:35:11.143Z]     - https://timetable.co.il
+[2026-03-18T08:35:11.143Z]   li (1):
+[2026-03-18T08:35:11.143Z]     - https://www.linkedin.com/company/timetable-ltd
+[2026-03-18T08:35:11.143Z]   fb (1):
+[2026-03-18T08:35:11.143Z]     - https://www.facebook.com/employeeschedulingsoftware
+[2026-03-18T08:35:11.143Z]   urls (1):
+[2026-03-18T08:35:11.143Z]     - https://apps.apple.com/mt/app/timetable-management/id1589688641
+[2026-03-18T08:35:11.144Z]   android_app_ids (1):
+[2026-03-18T08:35:11.144Z]     - il.co.timetable.timeTablePlus
+[2026-03-18T08:35:11.144Z] Summary: ws:2, android_app_ids:1, fb:1, li:1, urls:1
+[2026-03-18T08:35:11.145Z] Saved final result to result.json
+[2026-03-18T08:35:11.145Z] Override fields: ws, li, fb, urls, android_app_ids
+[2026-03-18T08:35:11.146Z] Finished at: 2026-03-18T08:35:11.146Z

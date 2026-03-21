@@ -1,0 +1,64 @@
+[2026-03-19T00:44:06.316Z] === Homepage AI Extractor: OBJECTIVE ===
+[2026-03-19T00:44:06.316Z] Started at: 2026-03-19T00:44:06.316Z
+[2026-03-19T00:44:06.316Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773881046315_OBJECTIVE
+[2026-03-19T00:44:06.316Z] Company: OBJECTIVE
+[2026-03-19T00:44:06.317Z] Website: objective.finance
+[2026-03-19T00:44:06.317Z] cbRank: 1867535
+[2026-03-19T00:44:06.317Z] Reasons: h
+[2026-03-19T00:44:06.317Z] Fetching: https://objective.finance
+[2026-03-19T00:44:12.468Z] Redirected: https://objective.finance -> https://objective.finance/en/
+[2026-03-19T00:44:12.489Z] Saved HTML (876932 bytes) to page.html
+[2026-03-19T00:44:12.492Z] Extracted 28 unique links from page
+[2026-03-19T00:44:12.493Z] Saved 28 links to links.json
+[2026-03-19T00:44:12.497Z] Extracted footer HTML (16156 chars)
+[2026-03-19T00:44:12.497Z] Extracted header HTML (23833 chars)
+[2026-03-19T00:44:12.500Z] Website (post-redirect): https://objective.finance/en/ → origin: https://objective.finance
+[2026-03-19T00:44:12.500Z] External links: 3 (of 28 total)
+[2026-03-19T00:44:12.500Z] ── All external links ──
+[2026-03-19T00:44:12.500Z]   EXT: https://wa.me/+972508287014
+[2026-03-19T00:44:12.500Z]   EXT: https://www.linkedin.com/company/objectiveanalysis
+[2026-03-19T00:44:12.501Z]   EXT: https://www.youtube.com/@Objective-Analyzes
+[2026-03-19T00:44:12.501Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T00:44:12.501Z]   UNCATEGORIZED: https://wa.me/+972508287014
+[2026-03-19T00:44:12.501Z]   REGEX: li <- https://www.linkedin.com/company/objectiveanalysis
+[2026-03-19T00:44:12.501Z]   REGEX: ytp <- https://www.youtube.com/@Objective-Analyzes
+[2026-03-19T00:44:12.501Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-19T00:44:12.501Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T00:44:12.504Z] Saved AI prompt (9834 chars) to ai_prompt.txt
+[2026-03-19T00:44:12.504Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T00:44:12.508Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T00:44:52.707Z]   AI: First token received, streaming...
+[2026-03-19T00:44:56.387Z] AI response complete: 94 chars in 43.9s
+[2026-03-19T00:44:56.389Z] Saved AI response to ai_response.json
+[2026-03-19T00:44:56.389Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T00:44:56.389Z]   AI LINK: https://www.linkedin.com/company/objectiveanalysis
+[2026-03-19T00:44:56.389Z]   AI LINK: https://www.youtube.com/@Objective-Analyzes
+[2026-03-19T00:44:56.389Z] AI returned 2 valid links
+[2026-03-19T00:44:56.390Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T00:44:56.390Z]   AI→REGEX: li <- https://www.linkedin.com/company/objectiveanalysis (duplicate, skipped)
+[2026-03-19T00:44:56.390Z]   AI→REGEX: ytp <- https://www.youtube.com/@Objective-Analyzes (duplicate, skipped)
+[2026-03-19T00:44:56.391Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T00:44:56.391Z] Footer/header origins (4):
+[2026-03-19T00:44:56.391Z]   FOOTER/HEADER ORIGIN: https://objective.finance
+[2026-03-19T00:44:56.391Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T00:44:56.391Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T00:44:56.391Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-19T00:44:56.391Z]   ADDED: urls <- https://wa.me/+972508287014
+[2026-03-19T00:44:56.392Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T00:44:56.392Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T00:44:56.392Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T00:44:56.392Z] ── Step 3: Final dedup ──
+[2026-03-19T00:44:56.392Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T00:44:56.392Z] ── FINAL RESULT ──
+[2026-03-19T00:44:56.392Z]   ws (1):
+[2026-03-19T00:44:56.392Z]     - https://objective.finance
+[2026-03-19T00:44:56.392Z]   li (1):
+[2026-03-19T00:44:56.392Z]     - https://www.linkedin.com/company/objectiveanalysis
+[2026-03-19T00:44:56.393Z]   ytp (1):
+[2026-03-19T00:44:56.393Z]     - https://www.youtube.com/@objective-analyzes
+[2026-03-19T00:44:56.393Z]   urls (1):
+[2026-03-19T00:44:56.393Z]     - https://wa.me/+972508287014
+[2026-03-19T00:44:56.393Z] Summary: ws:1, li:1, ytp:1, urls:1
+[2026-03-19T00:44:56.394Z] Saved final result to result.json
+[2026-03-19T00:44:56.394Z] Override fields: ws, li, ytp, urls
+[2026-03-19T00:44:56.395Z] Finished at: 2026-03-19T00:44:56.395Z

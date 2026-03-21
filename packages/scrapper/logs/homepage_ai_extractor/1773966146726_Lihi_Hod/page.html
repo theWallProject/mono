@@ -1,0 +1,847 @@
+<!DOCTYPE html><html lang="en-US" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <meta charset="utf-8">
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-W7J9LX8L2N&amp;cx=c&amp;_slc=1"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-obDEicORg1BccYuEfFig6FFh0s3Ho2B7lr6lAHLJGwZTVRSgTgfEKmrfdJ2g/NkT"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-1011615938&amp;cx=c&amp;gtm=4e63i0"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-199819700-1&amp;cx=c&amp;gtm=4e63i0"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-K61LVK577E&amp;cx=c&amp;gtm=4e63i0"></script><script src="https://connect.facebook.net/signals/config/2630654033832978?v=2.9.280&amp;r=stable&amp;domain=www.lihihod.com&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157%2C217%2C216%2C211%2C213%2C214%2C215%2C212%2C200%2C210%2C221%2C182%2C179%2C180%2C174%2C178%2C181%2C177%2C172%2C303%2C266%2C185%2C204%2C173%2C171%2C199%2C223%2C195%2C165%2C166%2C161%2C167%2C164%2C162%2C163%2C160%2C158%2C169%2C170%2C168%2C253%2C302%2C183" async=""></script><script src="https://connect.facebook.net/signals/config/2069271736669374?v=2.9.280&amp;r=stable&amp;domain=www.lihihod.com&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157%2C217%2C216%2C211%2C213%2C214%2C215%2C212%2C200%2C210%2C221%2C182%2C179%2C180%2C174%2C178%2C181%2C177%2C172%2C303%2C266%2C185%2C204%2C173%2C171%2C199%2C223%2C195%2C165%2C166%2C161%2C167%2C164%2C162%2C163%2C160%2C158%2C169%2C170%2C168%2C253%2C302%2C183" async=""></script><script src="https://connect.facebook.net/signals/config/784687902022888?v=2.9.280&amp;r=stable&amp;domain=www.lihihod.com&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-T8KK428"></script><script type="text/javascript">
+/* <![CDATA[ */
+var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
+/* ]]> */
+</script>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" type="image/x-icon" href="https://www.lihihod.com/wp-content/themes/lihihod/favicon.ico">
+
+  
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel="alternate" hreflang="en-us" href="https://www.lihihod.com/">
+<link rel="alternate" hreflang="x-default" href="https://www.lihihod.com/">
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Homepage - Lihi Hod</title>
+	<link rel="canonical" href="https://www.lihihod.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Homepage - Lihi Hod">
+	<meta property="og:url" content="https://www.lihihod.com/">
+	<meta property="og:site_name" content="lihihod | fashion design">
+	<meta property="article:modified_time" content="2025-10-20T11:09:12+00:00">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.lihihod.com/","url":"https://www.lihihod.com/","name":"Homepage - Lihi Hod","isPartOf":{"@id":"https://www.lihihod.com/#website"},"datePublished":"2015-03-16T01:18:19+00:00","dateModified":"2025-10-20T11:09:12+00:00","breadcrumb":{"@id":"https://www.lihihod.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.lihihod.com/"]}]},{"@type":"BreadcrumbList","@id":"https://www.lihihod.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.lihihod.com/#website","url":"https://www.lihihod.com/","name":"lihihod | fashion design","description":"Just another WordPress site","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.lihihod.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//hello.myfonts.net">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.lihihod.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.5"}};
+/*! This file is auto-generated */
+!function(s,n){var o,i,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),a=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===a[t]})}function u(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);for(var n=e.getImageData(16,16,1,1),a=0;a<n.data.length;a++)if(0!==n.data[a])return!1;return!0}function f(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\udedf")}return!1}function g(e,t,n,a){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):s.createElement("canvas"),o=r.getContext("2d",{willReadFrequently:!0}),i=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(function(e){i[e]=t(o,e,n,a)}),i}function t(e){var t=s.createElement("script");t.src=e,t.defer=!0,s.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",i=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){s.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+g.toString()+"("+[JSON.stringify(i),f.toString(),p.toString(),u.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"}),r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=function(e){c(n=e.data),r.terminate(),t(n)})}catch(e){}c(n=g(i,f,p,u))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="https://www.lihihod.com/wp-includes/css/dist/block-library/style.min.css?ver=6.8.5" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="wpml-legacy-dropdown-0-css" href="https://www.lihihod.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/style.min.css?ver=1" type="text/css" media="all">
+<style id="wpml-legacy-dropdown-0-inline-css" type="text/css">
+.wpml-ls-statics-shortcode_actions, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu, .wpml-ls-statics-shortcode_actions a {border-color:#cdcdcd;}.wpml-ls-statics-shortcode_actions a, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:link, .wpml-ls-statics-shortcode_actions li:not(.wpml-ls-current-language) .wpml-ls-link, .wpml-ls-statics-shortcode_actions li:not(.wpml-ls-current-language) .wpml-ls-link:link {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:hover,.wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:focus, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:link:hover, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:link:focus {color:#000000;background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language > a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language:hover>a, .wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a:focus {color:#000000;background-color:#eeeeee;}
+</style>
+<link rel="stylesheet" id="mailchimp-for-wp-checkbox-css" href="https://www.lihihod.com/wp-content/plugins/mailchimp-for-wp/assets/css/checkbox.min.css?ver=2.3.14" type="text/css" media="all">
+<link rel="stylesheet" id="normalize-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/normalize.css" type="text/css" media="all">
+<link rel="stylesheet" id="myfonts-counter-css" href="//hello.myfonts.net/count/2da62c" type="text/css" media="all">
+<link rel="stylesheet" id="lato-css" href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" type="text/css" media="all">
+<link rel="stylesheet" id="fonts-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/fonts.css" type="text/css" media="all">
+<link rel="stylesheet" id="flickity-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/flickity.css" type="text/css" media="all">
+<link rel="stylesheet" id="main-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/main.css?ver=2.1" type="text/css" media="all">
+<link rel="stylesheet" id="print-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/print.css?ver=2.1" type="text/css" media="print">
+<link rel="stylesheet" id="small-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/small.css?ver=2.1" type="text/css" media="(max-width: 1400px)">
+<link rel="stylesheet" id="tablet-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/tablet.css?ver=2.1" type="text/css" media="(max-width: 1100px)">
+<link rel="stylesheet" id="mobile-css" href="https://www.lihihod.com/wp-content/themes/lihihod/css/mobile.css?ver=2.1" type="text/css" media="(max-width: 780px)">
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/script.min.js?ver=1" id="wpml-legacy-dropdown-0-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/html5shiv.js" id="html5shiv-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/html5shiv-printshiv.js" id="html5shiv-printshiv-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" id="modernizr-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/handlebars.js" id="handlebars-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/jquery.cycle2.min.js" id="cycle2-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/jquery.cycle2.carousel.min.js" id="cycle2-carousel-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/jquery.cycle2.swipe.min.js" id="cycle2-swipe-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/jquery.isotope.min.js" id="isotope-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/jquery.isotope.packery-mode.min.js" id="isotope-packery-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/jquery.cookie.js" id="cookie-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/vendor/flickity.pkgd.min.js" id="flickity-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/util.js" id="util-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/mobile.js" id="mobile-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/gallery.js" id="gallery-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/popup.js" id="popup-js"></script>
+<script type="text/javascript" id="main-js-extra">
+/* <![CDATA[ */
+var siteOptions = {"ajaxUrl":"https:\/\/www.lihihod.com\/wp-admin\/admin-ajax.php","homeUrl":"https:\/\/www.lihihod.com","pageId":"1012"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-content/themes/lihihod/js/main.js" id="main-js"></script>
+<link rel="https://api.w.org/" href="https://www.lihihod.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.lihihod.com/wp-json/wp/v2/pages/1012"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.lihihod.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.8.5">
+<link rel="shortlink" href="https://www.lihihod.com/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.lihihod.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.lihihod.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.lihihod.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.lihihod.com%2F&amp;format=xml">
+<meta name="generator" content="WPML ver:4.8.3 stt:1;">
+
+
+  
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-T8KK428');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta name="p:domain_verify" content="0c96c717ddfd734462fde9b0ffb2018d">
+  <meta name="facebook-domain-verification" content="s4prahx5cy92swlkyioxbqiozuntsv">
+
+
+<script src="https://www.lihihod.com/wp-includes/js/wp-emoji-release.min.js?ver=6.8.5" defer=""></script></head>
+<body class="wp-singular page-template page-template-homepage page-template-homepage-php page page-id-1012 wp-theme-lihihod ">
+
+
+<!-- Facebook Pixel Code -->
+
+<script>
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '784687902022888');
+  fbq('track', 'PageView');
+</script>
+
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=784687902022888&ev=PageView&noscript=1"
+  /></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8KK428"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header id="main-header" class="fixed-items main-header">
+
+    <div class="menu-left">
+        <a class="mobile mobile-menu" href="javascript:void(0)" data-toggle="is-menu-open" data-toggle-target="html"></a>
+
+    
+        <div class="menu-inner full-width" style="max-height: 625px;">
+      <div class="menu-inner-content">
+
+                <nav class="main-menu main-menu--desktop desktop">
+  <a class="mobile mobile-menu mobile-menu--close" data-toggle="is-menu-open" data-toggle-target="html"></a>
+
+  <ul>
+
+                <li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8274 menu-item-has-children" id="main-menu-item--1011962994" style="--inner-height: 202px;">
+      <a role="menuitem" href="javascript:void(0)" data-toggle="is-open" data-toggle-target="#main-menu-item--1011962994">Collections</a>
+      <div class="submenu-overlay"></div>
+
+                    <div class="submenu submenu--long">
+          <ul class="submenu__wrapper">
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3409 menu-item-has-children">
+                <a role="menuitem" href="https://www.lihihod.com/2017-collection/">Couture</a>
+
+                                  <ul class="submenu-items">
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-10917" href="https://www.lihihod.com/2026-collection/">
+                          2026
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9774" href="https://www.lihihod.com/2025-collection/">
+                          2025
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9241" href="https://www.lihihod.com/2024-collection/">
+                          2024
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8807" href="https://www.lihihod.com/2023-collection/">
+                          2023
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8063" href="https://www.lihihod.com/2021-collection/">
+                          2021
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-6618" href="https://www.lihihod.com/2020-collection/">
+                          2020
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-5652" href="https://www.lihihod.com/2019-collection/">
+                          2019
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-4610" href="https://www.lihihod.com/2018-collection/">
+                          2018
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-3408" href="https://www.lihihod.com/2017-collection/">
+                          2017
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1744" href="https://www.lihihod.com/timeless/">
+                          Timeless
+                        </a>
+                      </li>
+                                      </ul>
+                              </li>
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3771 menu-item-has-children">
+                <a role="menuitem" href="https://www.lihihod.com/dreams-2017/">Dreams</a>
+
+                                  <ul class="submenu-items">
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-11329" href="https://www.lihihod.com/dreams-2026/">
+                          2026
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-10425" href="https://www.lihihod.com/dreams-2025/">
+                          2025
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9439" href="https://www.lihihod.com/dreams-2024/">
+                          2024
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9040" href="https://www.lihihod.com/dreams-2023/">
+                          2023
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8463" href="https://www.lihihod.com/dreams-2022/">
+                          2021
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-7322" href="https://www.lihihod.com/dreams-2020/">
+                          2020
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-6208" href="https://www.lihihod.com/dreams-2019/">
+                          2019
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-5149" href="https://www.lihihod.com/dreams-2018/">
+                          2018
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-3772" href="https://www.lihihod.com/dreams-2017/">
+                          2017
+                        </a>
+                      </li>
+                                      </ul>
+                              </li>
+                      </ul>
+        </div>
+                    </li><li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1746" id="main-menu-item--1395157422">
+      <a role="menuitem" href="https://www.lihihod.com/about/">About</a>
+      <div class="submenu-overlay"></div>
+
+                          </li><li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1047 menu-item-has-children" id="main-menu-item--689344642" style="--inner-height: 15px;">
+      <a role="menuitem" href="javascript:void(0)" data-toggle="is-open" data-toggle-target="#main-menu-item--689344642">Stores</a>
+      <div class="submenu-overlay"></div>
+
+                    <div class="submenu submenu--long">
+          <ul class="submenu__wrapper">
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3838">
+                <a role="menuitem" href="https://www.lihihod.com/stores/">Lihi Hod Bridal</a>
+
+                              </li>
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3837">
+                <a role="menuitem" href="https://www.lihihod.com/stores-dreams-lihi-hod/">Dreams by Lihi Hod</a>
+
+                              </li>
+                      </ul>
+        </div>
+                    </li><li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1082 menu-item-has-children" id="main-menu-item--1328471092" style="--inner-height: 15px;">
+      <a role="menuitem" href="javascript:void(0)" data-toggle="is-open" data-toggle-target="#main-menu-item--1328471092">Trunk Shows</a>
+      <div class="submenu-overlay"></div>
+
+                    <div class="submenu submenu--long">
+          <ul class="submenu__wrapper">
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3840">
+                <a role="menuitem" href="https://www.lihihod.com/events/">Lihi Hod Bridal</a>
+
+                              </li>
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3839">
+                <a role="menuitem" href="https://www.lihihod.com/dreams-lihi-hod-events/">Dreams by Lihi Hod</a>
+
+                              </li>
+                      </ul>
+        </div>
+                    </li><li class="main-menu-item mobile menu-item menu-item-type-post_type menu-item-object-page menu-item-8559" id="main-menu-item--957751247">
+      <a role="menuitem" href="https://www.lihihod.com/contact/">Contact</a>
+      <div class="submenu-overlay"></div>
+
+                    </li></ul>
+
+  <a class="mobile main-menu__close-overlay" data-toggle="is-menu-open" data-toggle-target="html"></a>
+</nav>
+        <nav class="main-menu main-menu--mobile mobile">
+  <a class="mobile mobile-menu mobile-menu--close" data-toggle="is-menu-open" data-toggle-target="html"></a>
+
+  <ul>
+
+                <li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8274 menu-item-has-children" id="main-menu-item--1069205289" style="--inner-height: 0px;">
+      <a role="menuitem" href="javascript:void(0)" data-toggle="is-open" data-toggle-target="#main-menu-item--1069205289">Collections</a>
+      <div class="submenu-overlay"></div>
+
+                    <div class="submenu submenu--long">
+          <ul class="submenu__wrapper">
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3409 menu-item-has-children">
+                <a role="menuitem" href="https://www.lihihod.com/2017-collection/">Couture</a>
+
+                                  <ul class="submenu-items">
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-10917" href="https://www.lihihod.com/2026-collection/">
+                          2026
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9774" href="https://www.lihihod.com/2025-collection/">
+                          2025
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9241" href="https://www.lihihod.com/2024-collection/">
+                          2024
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8807" href="https://www.lihihod.com/2023-collection/">
+                          2023
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8063" href="https://www.lihihod.com/2021-collection/">
+                          2021
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-6618" href="https://www.lihihod.com/2020-collection/">
+                          2020
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-5652" href="https://www.lihihod.com/2019-collection/">
+                          2019
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-4610" href="https://www.lihihod.com/2018-collection/">
+                          2018
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-3408" href="https://www.lihihod.com/2017-collection/">
+                          2017
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1744" href="https://www.lihihod.com/timeless/">
+                          Timeless
+                        </a>
+                      </li>
+                                      </ul>
+                              </li>
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3771 menu-item-has-children">
+                <a role="menuitem" href="https://www.lihihod.com/dreams-2017/">Dreams</a>
+
+                                  <ul class="submenu-items">
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-11329" href="https://www.lihihod.com/dreams-2026/">
+                          2026
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-10425" href="https://www.lihihod.com/dreams-2025/">
+                          2025
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9439" href="https://www.lihihod.com/dreams-2024/">
+                          2024
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-9040" href="https://www.lihihod.com/dreams-2023/">
+                          2023
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-8463" href="https://www.lihihod.com/dreams-2022/">
+                          2021
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-7322" href="https://www.lihihod.com/dreams-2020/">
+                          2020
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-6208" href="https://www.lihihod.com/dreams-2019/">
+                          2019
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-5149" href="https://www.lihihod.com/dreams-2018/">
+                          2018
+                        </a>
+                      </li>
+                                          <li class="submenu-item__wrapper">
+                        <a class="submenu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-3772" href="https://www.lihihod.com/dreams-2017/">
+                          2017
+                        </a>
+                      </li>
+                                      </ul>
+                              </li>
+                      </ul>
+        </div>
+                    </li><li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1746" id="main-menu-item--2018926403">
+      <a role="menuitem" href="https://www.lihihod.com/about/">About</a>
+      <div class="submenu-overlay"></div>
+
+                          </li><li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1047 menu-item-has-children" id="main-menu-item--556354927" style="--inner-height: 0px;">
+      <a role="menuitem" href="javascript:void(0)" data-toggle="is-open" data-toggle-target="#main-menu-item--556354927">Stores</a>
+      <div class="submenu-overlay"></div>
+
+                    <div class="submenu submenu--long">
+          <ul class="submenu__wrapper">
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3838">
+                <a role="menuitem" href="https://www.lihihod.com/stores/">Lihi Hod Bridal</a>
+
+                              </li>
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3837">
+                <a role="menuitem" href="https://www.lihihod.com/stores-dreams-lihi-hod/">Dreams by Lihi Hod</a>
+
+                              </li>
+                      </ul>
+        </div>
+                    </li><li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-1082 menu-item-has-children" id="main-menu-item--1117938260" style="--inner-height: 0px;">
+      <a role="menuitem" href="javascript:void(0)" data-toggle="is-open" data-toggle-target="#main-menu-item--1117938260">Trunk Shows</a>
+      <div class="submenu-overlay"></div>
+
+                    <div class="submenu submenu--long">
+          <ul class="submenu__wrapper">
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3840">
+                <a role="menuitem" href="https://www.lihihod.com/events/">Lihi Hod Bridal</a>
+
+                              </li>
+                          <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-3839">
+                <a role="menuitem" href="https://www.lihihod.com/dreams-lihi-hod-events/">Dreams by Lihi Hod</a>
+
+                              </li>
+                      </ul>
+        </div>
+                    </li><li class="main-menu-item mobile menu-item menu-item-type-post_type menu-item-object-page menu-item-8559" id="main-menu-item--1653440742">
+      <a role="menuitem" href="https://www.lihihod.com/contact/">Contact</a>
+      <div class="submenu-overlay"></div>
+
+                    </li></ul>
+
+  <a class="mobile main-menu__close-overlay" data-toggle="is-menu-open" data-toggle-target="html"></a>
+</nav>
+      </div>
+    </div>
+  </div>
+
+    <a class="site-name" href="https://www.lihihod.com">
+    <img src="https://www.lihihod.com/wp-content/themes/lihihod/images/logo.svg" alt="lihihod | fashion design" class="is-loaded">
+  </a>
+
+    <div class="menu-right">
+          <a class="button button--book" href="#/popup/book">
+        Book an appointment
+      </a>
+    
+          <div class="social-icons">
+      <a class="social-icon" href="https://instagram.com/lihihod/">
+      <img src="https://www.lihihod.com/wp-content/uploads/2021/09/instagram.svg" alt="Instagram" class="is-loaded">
+    </a>
+      <a class="social-icon" href="https://www.facebook.com/Lihi-Hod-Bridal-%D7%9C%D7%99%D7%94%D7%99-%D7%94%D7%95%D7%93-199090320429850/?fref=ts">
+      <img src="https://www.lihihod.com/wp-content/uploads/2021/09/facebook.svg" alt="Facebook" class="is-loaded">
+    </a>
+      <a class="social-icon" href="https://www.pinterest.com/lihihod/">
+      <img src="https://www.lihihod.com/wp-content/uploads/2021/09/pinterest.svg" alt="Pinterest" class="is-loaded">
+    </a>
+  </div>      </div>
+</header>
+
+<div class="main-content" id="main-content" role="main" style="min-height: 601px;">
+  
+<div class="homepage-slideshow">
+  <div class="cycle-slideshow" data-cycle-fx="fade" data-cycle-timeout="7000" data-cycle-speed="1000" data-cycle-slides="&gt; .cycle-slide" data-cycle-pager="&gt; .cycle-pager"><div class="cycle-slide cycle-sentinel" style="background-image: url(&quot;https://www.lihihod.com/wp-content/uploads/2025/10/LihiHod21038-1-e1760955740618.jpg&quot;); position: static; top: 0px; left: 0px; z-index: 100; opacity: 1; visibility: hidden; display: block;">
+        <div class="homepage-slide-inner" style="visibility: hidden;">
+                      <h3 class="slide-title" style="visibility: hidden;">We'd Love <br style="visibility: hidden;">
+to Hear <br style="visibility: hidden;">
+From You.</h3>
+          
+                      <a class="slide-link" href="https://www.lihihod.com/contact/" style="visibility: hidden;">BOOK AN APPOINTMENT</a>
+                  </div>
+      </div>
+
+          
+          
+          
+    
+          <div class="cycle-pager"><span class="cycle-pager-active">•</span><span>•</span><span>•</span></div>
+      <div class="cycle-slide cycle-slide-active" style="background-image: url(&quot;https://www.lihihod.com/wp-content/uploads/2025/10/LihiHod21038-1-e1760955740618.jpg&quot;); position: absolute; top: 0px; left: 0px; z-index: 100; opacity: 1;">
+        <div class="homepage-slide-inner">
+                      <h3 class="slide-title">We'd Love <br>
+to Hear <br>
+From You.</h3>
+          
+                      <a class="slide-link" href="https://www.lihihod.com/contact/">BOOK AN APPOINTMENT</a>
+                  </div>
+      </div><div class="cycle-slide" style="background-image: url(&quot;https://www.lihihod.com/wp-content/uploads/2025/10/LihiHod16164-e1760955374727.jpg&quot;); position: absolute; top: 0px; left: 0px; z-index: 99; display: none;">
+        <div class="homepage-slide-inner">
+                      <h3 class="slide-title">We'd Love <br>
+to Hear <br>
+From You.</h3>
+          
+                      <a class="slide-link" href="https://www.lihihod.com/contact/">BOOK AN APPOINTMENT</a>
+                  </div>
+      </div><div class="cycle-slide" style="background-image: url(&quot;https://www.lihihod.com/wp-content/uploads/2025/10/LihiHod16565-1-e1760956026470.jpg&quot;); position: absolute; top: 0px; left: 0px; z-index: 97; display: none;">
+        <div class="homepage-slide-inner">
+                      <h3 class="slide-title">We'd Love <br>
+to Hear <br>
+From You.</h3>
+          
+                      <a class="slide-link" href="https://www.lihihod.com/contact/">BOOK AN APPOINTMENT</a>
+                  </div>
+      </div></div>
+  <a class="scroll-to homepage-down" href="#page-homepage"></a>
+</div>
+
+<article class="page-homepage" data-popup-display="welcome" data-popup-timeout="5000" id="page-homepage">
+  <ul class="tiles clearfix">
+      <li class="tile tile-1x2 mobile-tile-2x1">
+
+            <div class="tile-background">
+                  <div class="bg-image" style="background-image: url('https://www.lihihod.com/wp-content/uploads/2025/10/LihiHod15485-1.jpg')"></div>
+              </div>
+
+              <a class="tile-link" href="https://www.lihihod.com/dreams-2026/"></a>
+      
+              <h3 class="tile-title">The 2026 Dreams Collection</h3>
+          </li>
+      <li class="tile tile-2x2 mobile-tile-2x2">
+
+            <div class="tile-background">
+                  <iframe class="vimeo video" id="video-vimeo-e95ccb854f8161f31a189f36cc11319a" src="//player.vimeo.com/video/1128815085?title=0&amp;byline=0&amp;portrait=0" width="100%" height="100%"></iframe>
+              </div>
+
+      
+          </li>
+      <li class="tile tile-half mobile-tile-1x1">
+
+            <div class="tile-background">
+                  <div class="bg-image" style="background-image: url('https://www.lihihod.com/wp-content/uploads/2025/10/LihiHod20631-1-e1760957253891.jpg')"></div>
+              </div>
+
+              <a class="tile-link" href="https://www.lihihod.com/events/"></a>
+      
+              <h3 class="tile-title">Events</h3>
+          </li>
+      <li class="tile tile-half mobile-tile-1x1">
+
+            <div class="tile-background">
+                  <div class="bg-image" style="background-image: url('https://www.lihihod.com/wp-content/uploads/2025/10/LihiHod19764-1-e1760957489217.jpg')"></div>
+              </div>
+
+              <a class="tile-link" href="https://www.lihihod.com/stores/"></a>
+      
+              <h3 class="tile-title">Stores</h3>
+          </li>
+    </ul>
+</article>
+</div>
+
+<footer class="main-footer">
+
+  <div class="main-footer__left">
+    
+    <div class="footer__text">
+      <p>©2015 Lihi Hod. Design by&nbsp;<a href="http://koniakdesign.com/" target="_blank" rel="noopener">Koniak</a>.</p>
+
+    </div>
+  </div>
+
+  <div class="main-footer__center">
+    <nav class="main-footer__center-menu footer-center-menu">
+              <a class="footer-center-menu__item" href="https://www.lihihod.com/press/">Press</a>
+              <a class="footer-center-menu__item" href="https://www.lihihod.com/contact/">Contact</a>
+          </nav>
+
+    <div class="main-footer__social">
+      <h3 class="main-footer__social-title">Follow us on</h3>
+      <div class="social-icons">
+      <a class="social-icon" href="https://instagram.com/lihihod/">
+      <img src="https://www.lihihod.com/wp-content/uploads/2021/09/instagram.svg" alt="Instagram" class="is-loaded">
+    </a>
+      <a class="social-icon" href="https://www.facebook.com/Lihi-Hod-Bridal-%D7%9C%D7%99%D7%94%D7%99-%D7%94%D7%95%D7%93-199090320429850/?fref=ts">
+      <img src="https://www.lihihod.com/wp-content/uploads/2021/09/facebook.svg" alt="Facebook" class="is-loaded">
+    </a>
+      <a class="social-icon" href="https://www.pinterest.com/lihihod/">
+      <img src="https://www.lihihod.com/wp-content/uploads/2021/09/pinterest.svg" alt="Pinterest" class="is-loaded">
+    </a>
+  </div>    </div>
+  </div>
+
+  <div class="main-footer__right">&nbsp;</div>
+</footer>
+
+  <section class="form-popup form-popup--welcome" data-popup="welcome">
+  <a class="form-popup__overlay close fill overlay" href="#/"></a>
+
+  <div class="form-popup__inner">
+    <a class="form-popup__close close" href="#/"></a>
+
+    <div class="form-popup__content">
+
+              <h3 class="form-popup__title">We invite you to the beautiful world of Lihi Hod, discover our new collection, events and exclusive offers.</h3>
+      
+      
+        <div class="gravity-form">
+          
+      </div>
+
+         </div>
+
+    <div class="form-popup__image-wrapper ">
+              
+
+  
+  
+
+<picture loading="lazy" class="picture form-popup__image fill fill-image">
+
+      <source media="(max-width: 765px)" type="image/webp" data-size="1920x" srcset="https://www.lihihod.com/wp-content/uploads/2025/04/PNIN5203-scaled-e1744267978261-1920x0-c-default.webp">
+
+    <source media="(max-width: 765px)" data-size="1920x" srcset="https://www.lihihod.com/wp-content/uploads/2025/04/PNIN5203-scaled-e1744267978261-1920x0-c-default.jpg">
+  
+  <source data-size="1920x" type="image/webp" srcset="https://www.lihihod.com/wp-content/uploads/2025/04/PNIN5203-scaled-e1744267978261-1920x0-c-default.webp">
+
+  <source data-size="full-screen" type="image/jpeg" srcset="https://www.lihihod.com/wp-content/uploads/2025/04/PNIN5203-scaled-e1744267978261-1920x0-c-default.jpg">
+
+  <img loading="lazy" width="1920" height="1668" class="is-loaded" src="https://www.lihihod.com/wp-content/uploads/2025/04/PNIN5203-scaled-e1744267978261-1920x0-c-default.jpg" alt="">
+</picture>
+      
+          </div>
+  </div>
+</section>
+  <section class="form-popup form-popup--book" data-popup="book">
+  <a class="form-popup__overlay close fill overlay" href="#/"></a>
+
+  <div class="form-popup__inner">
+    <a class="form-popup__close close" href="#/"></a>
+
+    <div class="form-popup__content">
+
+              <h3 class="form-popup__title">Dive into the beautiful world of Lihi Hod and find the wedding gown that suits you and your dreams. </h3>
+      
+              <div class="form-popup__subtitle">Book your appointment today.</div>
+      
+        <div class="gravity-form">
+          
+                <div class="gf_browser_safari gf_browser_iphone gform_wrapper gform-theme gform-theme--foundation gform-theme--framework gform-theme--orbital" data-form-theme="orbital" data-form-index="0" id="gform_wrapper_3"><style>#gform_wrapper_3[data-form-index="0"].gform-theme,[data-parent-form="3_0"]{--gf-color-primary: #204ce5;--gf-color-primary-rgb: 32, 76, 229;--gf-color-primary-contrast: #fff;--gf-color-primary-contrast-rgb: 255, 255, 255;--gf-color-primary-darker: #001AB3;--gf-color-primary-lighter: #527EFF;--gf-color-secondary: #fff;--gf-color-secondary-rgb: 255, 255, 255;--gf-color-secondary-contrast: #112337;--gf-color-secondary-contrast-rgb: 17, 35, 55;--gf-color-secondary-darker: #F5F5F5;--gf-color-secondary-lighter: #FFFFFF;--gf-color-out-ctrl-light: rgba(17, 35, 55, 0.1);--gf-color-out-ctrl-light-rgb: 17, 35, 55;--gf-color-out-ctrl-light-darker: rgba(104, 110, 119, 0.35);--gf-color-out-ctrl-light-lighter: #F5F5F5;--gf-color-out-ctrl-dark: #585e6a;--gf-color-out-ctrl-dark-rgb: 88, 94, 106;--gf-color-out-ctrl-dark-darker: #112337;--gf-color-out-ctrl-dark-lighter: rgba(17, 35, 55, 0.65);--gf-color-in-ctrl: #fff;--gf-color-in-ctrl-rgb: 255, 255, 255;--gf-color-in-ctrl-contrast: #112337;--gf-color-in-ctrl-contrast-rgb: 17, 35, 55;--gf-color-in-ctrl-darker: #F5F5F5;--gf-color-in-ctrl-lighter: #FFFFFF;--gf-color-in-ctrl-primary: #204ce5;--gf-color-in-ctrl-primary-rgb: 32, 76, 229;--gf-color-in-ctrl-primary-contrast: #fff;--gf-color-in-ctrl-primary-contrast-rgb: 255, 255, 255;--gf-color-in-ctrl-primary-darker: #001AB3;--gf-color-in-ctrl-primary-lighter: #527EFF;--gf-color-in-ctrl-light: rgba(17, 35, 55, 0.1);--gf-color-in-ctrl-light-rgb: 17, 35, 55;--gf-color-in-ctrl-light-darker: rgba(104, 110, 119, 0.35);--gf-color-in-ctrl-light-lighter: #F5F5F5;--gf-color-in-ctrl-dark: #585e6a;--gf-color-in-ctrl-dark-rgb: 88, 94, 106;--gf-color-in-ctrl-dark-darker: #112337;--gf-color-in-ctrl-dark-lighter: rgba(17, 35, 55, 0.65);--gf-radius: 3px;--gf-font-size-secondary: 14px;--gf-font-size-tertiary: 13px;--gf-icon-ctrl-number: url("data:image/svg+xml,%3Csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 0C4.26522 5.96046e-08 4.51957 0.105357 4.70711 0.292893L7.70711 3.29289C8.09763 3.68342 8.09763 4.31658 7.70711 4.70711C7.31658 5.09763 6.68342 5.09763 6.29289 4.70711L4 2.41421L1.70711 4.70711C1.31658 5.09763 0.683417 5.09763 0.292893 4.70711C-0.0976311 4.31658 -0.097631 3.68342 0.292893 3.29289L3.29289 0.292893C3.48043 0.105357 3.73478 0 4 0ZM0.292893 9.29289C0.683417 8.90237 1.31658 8.90237 1.70711 9.29289L4 11.5858L6.29289 9.29289C6.68342 8.90237 7.31658 8.90237 7.70711 9.29289C8.09763 9.68342 8.09763 10.3166 7.70711 10.7071L4.70711 13.7071C4.31658 14.0976 3.68342 14.0976 3.29289 13.7071L0.292893 10.7071C-0.0976311 10.3166 -0.0976311 9.68342 0.292893 9.29289Z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gf-icon-ctrl-select: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.292893C0.683417 -0.097631 1.31658 -0.097631 1.70711 0.292893L5 3.58579L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L5.70711 5.70711C5.31658 6.09763 4.68342 6.09763 4.29289 5.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gf-icon-ctrl-search: url("data:image/svg+xml,%3Csvg width='640' height='640' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M256 128c-70.692 0-128 57.308-128 128 0 70.691 57.308 128 128 128 70.691 0 128-57.309 128-128 0-70.692-57.309-128-128-128zM64 256c0-106.039 85.961-192 192-192s192 85.961 192 192c0 41.466-13.146 79.863-35.498 111.248l154.125 154.125c12.496 12.496 12.496 32.758 0 45.254s-32.758 12.496-45.254 0L367.248 412.502C335.862 434.854 297.467 448 256 448c-106.039 0-192-85.962-192-192z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gf-label-space-y-secondary: var(--gf-label-space-y-md-secondary);--gf-ctrl-border-color: #686e77;--gf-ctrl-size: var(--gf-ctrl-size-md);--gf-ctrl-label-color-primary: #112337;--gf-ctrl-label-color-secondary: #112337;--gf-ctrl-choice-size: var(--gf-ctrl-choice-size-md);--gf-ctrl-checkbox-check-size: var(--gf-ctrl-checkbox-check-size-md);--gf-ctrl-radio-check-size: var(--gf-ctrl-radio-check-size-md);--gf-ctrl-btn-font-size: var(--gf-ctrl-btn-font-size-md);--gf-ctrl-btn-padding-x: var(--gf-ctrl-btn-padding-x-md);--gf-ctrl-btn-size: var(--gf-ctrl-btn-size-md);--gf-ctrl-btn-border-color-secondary: #686e77;--gf-ctrl-file-btn-bg-color-hover: #EBEBEB;--gf-field-img-choice-size: var(--gf-field-img-choice-size-md);--gf-field-img-choice-card-space: var(--gf-field-img-choice-card-space-md);--gf-field-img-choice-check-ind-size: var(--gf-field-img-choice-check-ind-size-md);--gf-field-img-choice-check-ind-icon-size: var(--gf-field-img-choice-check-ind-icon-size-md);--gf-field-pg-steps-number-color: rgba(17, 35, 55, 0.8);}</style><div id="gf_3" class="gform_anchor" tabindex="-1"></div>
+                        <div class="gform_heading">
+                            <p class="gform_description"></p>
+                        </div><form method="post" enctype="multipart/form-data" target="gform_ajax_frame_3" id="gform_3" action="/#gf_3" data-formid="3" novalidate="">
+                        <div class="gform-body gform_body"><div id="gform_fields_3" class="gform_fields top_label form_sublabel_below description_below validation_below"><div id="field_3_1" class="gfield gfield--type-text gfield--input-type-text gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"><label class="gfield_label gform-field-label" for="input_3_1">Full Name<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class="ginput_container ginput_container_text"><input name="input_1" id="input_3_1" type="text" value="" class="large" aria-required="true" aria-invalid="false"></div></div><div id="field_3_2" class="gfield gfield--type-email gfield--input-type-email gfield--width-full gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"><label class="gfield_label gform-field-label" for="input_3_2">Your Email Address<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class="ginput_container ginput_container_email">
+                            <input name="input_2" id="input_3_2" type="email" value="" class="large" aria-required="true" aria-invalid="false">
+                        </div></div><div id="field_3_3" class="gfield gfield--type-textarea gfield--input-type-textarea gfield--width-full gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"><label class="gfield_label gform-field-label" for="input_3_3">Message<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class="ginput_container ginput_container_textarea"><textarea name="input_3" id="input_3_3" class="textarea large" aria-required="true" aria-invalid="false" rows="10" cols="50"></textarea></div></div><div id="field_3_4" class="gfield gfield--type-captcha gfield--input-type-captcha gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"><label class="gfield_label gform-field-label" for="input_3_4">CAPTCHA</label><div id="input_3_4" class="ginput_container ginput_recaptcha gform-initialized" data-sitekey="6Lee8nQUAAAAAGEO7OcWOC4e1GQSleoFnbuHk4cT" data-theme="light" data-tabindex="0" data-badge="" data-widget-id="0"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-vctqnmkynm7f" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lee8nQUAAAAAGEO7OcWOC4e1GQSleoFnbuHk4cT&amp;co=aHR0cHM6Ly93d3cubGloaWhvZC5jb206NDQz&amp;hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;theme=light&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=7ovzv7ggvnsf"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></div></div></div>
+        <div class="gform-footer gform_footer top_label"> <input type="submit" id="gform_submit_button_3" class="gform_button button" onclick="gform.submission.handleButtonClick(this);" data-submission-type="submit" value="Submit"> <input type="hidden" name="gform_ajax" value="form_id=3&amp;title=&amp;description=1&amp;tabindex=0&amp;theme=orbital&amp;styles=[]&amp;hash=897c0f10fefa72514fb4c1c91402d877">
+            <input type="hidden" class="gform_hidden" name="gform_submission_method" data-js="gform_submission_method_3" value="iframe">
+            <input type="hidden" class="gform_hidden" name="gform_theme" data-js="gform_theme_3" id="gform_theme_3" value="orbital">
+            <input type="hidden" class="gform_hidden" name="gform_style_settings" data-js="gform_style_settings_3" id="gform_style_settings_3" value="[]">
+            <input type="hidden" class="gform_hidden" name="is_submit_3" value="1">
+            <input type="hidden" class="gform_hidden" name="gform_submit" value="3">
+            
+            <input type="hidden" class="gform_hidden" name="gform_currency" data-currency="USD" value="uJxvBB03ImwGbDAe/Ezu6aoSwmPhUcyv/N/wi41oPlWK9+HdxaBm8qlmw1AVAI57MwqqfO5h1wNRnkr8edsQNqP2FRhqdT7rn/VYjqhhTgMRe8A=">
+            <input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
+            <input type="hidden" class="gform_hidden" name="state_3" value="WyJbXSIsIjg2NjZmY2U3NWM1ZDBlNTljZWJlNmE1MTYwMGIxZTUzIl0=">
+            <input type="hidden" autocomplete="off" class="gform_hidden" name="gform_target_page_number_3" id="gform_target_page_number_3" value="0">
+            <input type="hidden" autocomplete="off" class="gform_hidden" name="gform_source_page_number_3" id="gform_source_page_number_3" value="1">
+            <input type="hidden" name="gform_field_values" value="">
+            
+        </div>
+                        </form>
+                        </div>
+		                <iframe style="display:none;width:0px;height:0px;" src="about:blank" name="gform_ajax_frame_3" id="gform_ajax_frame_3" title="This iframe contains the logic required to handle Ajax powered Gravity Forms."></iframe>
+		                <script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {gformInitSpinner( 3, 'https://www.lihihod.com/wp-content/plugins/gravityforms/images/spinner.svg', false );jQuery('#gform_ajax_frame_3').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_3');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_3').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_3').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_3').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_3').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */ jQuery(document).scrollTop(jQuery('#gform_wrapper_3').offset().top - mt); }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_3').val();gformInitSpinner( 3, 'https://www.lihihod.com/wp-content/plugins/gravityforms/images/spinner.svg', false );jQuery(document).trigger('gform_page_loaded', [3, current_page]);window['gf_submitting_3'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}jQuery('#gform_wrapper_3').replaceWith(confirmation_content);jQuery(document).scrollTop(jQuery('#gf_3').offset().top - mt);jQuery(document).trigger('gform_confirmation_loaded', [3]);window['gf_submitting_3'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_3').text());}else{jQuery('#gform_3').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger("gform_pre_post_render", [{ formId: "3", currentPage: "current_page", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_3" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_3";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_3" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 3, current_page );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );} ); 
+/* ]]> */
+</script>
+
+      </div>
+
+         </div>
+
+    <div class="form-popup__image-wrapper ">
+              
+
+  
+  
+
+<picture loading="lazy" class="picture form-popup__image fill fill-image">
+
+      <source media="(max-width: 765px)" type="image/webp" data-size="396x" srcset="https://www.lihihod.com/wp-content/uploads/2021/09/popup-book-mobile-396x0-c-default.webp">
+
+    <source media="(max-width: 765px)" data-size="396x" srcset="https://www.lihihod.com/wp-content/uploads/2021/09/popup-book-mobile-396x0-c-default.jpg">
+  
+  <source data-size="396x" type="image/webp" srcset="https://www.lihihod.com/wp-content/uploads/2021/09/popup-book-396x0-c-default.webp">
+
+  <source data-size="full-screen" type="image/jpeg" srcset="https://www.lihihod.com/wp-content/uploads/2021/09/popup-book-396x0-c-default.jpg">
+
+  <img loading="lazy" width="396" height="619" class="is-loaded" src="https://www.lihihod.com/wp-content/uploads/2021/09/popup-book-396x0-c-default.jpg" alt="">
+</picture>
+      
+          </div>
+  </div>
+</section>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/lihihod\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script type="text/javascript" id="" charset="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","2069271736669374");fbq("init","2630654033832978");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2069271736669374&amp;ev=PageView&amp;noscript=1"></noscript>
+
+<script id="" text="" charset="" type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-81151518-1"></script>
+<script type="text/javascript" id="" charset="">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","UA-81151518-1");gtag("config","UA-199819700-1");gtag("config","AW-1011615938");</script>
+
+<script type="text/javascript" src="https://www.lihihod.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.lihihod.com/wp-includes/js/dist/a11y.min.js?ver=3156534cc54473497e14" id="wp-a11y-js"></script>
+<script type="text/javascript" defer="defer" src="https://www.lihihod.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.9.29" id="gform_json-js"></script>
+<script type="text/javascript" id="gform_gravityforms-js-extra">
+/* <![CDATA[ */
+var gform_i18n = {"datepicker":{"days":{"monday":"Mo","tuesday":"Tu","wednesday":"We","thursday":"Th","friday":"Fr","saturday":"Sa","sunday":"Su"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
+var gf_legacy_multi = [];
+var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled","error":"Error","message":"Message"},"vars":{"images_url":"https:\/\/www.lihihod.com\/wp-content\/plugins\/gravityforms\/images"}};
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https:\/\/www.lihihod.com\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/www.lihihod.com\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","version_hash":"3cbb2c5d3be1e70077a1340dccca2697","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+/* ]]> */
+</script>
+<script type="text/javascript" defer="defer" src="https://www.lihihod.com/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.9.29" id="gform_gravityforms-js"></script>
+<script type="text/javascript" defer="defer" src="https://www.google.com/recaptcha/api.js?hl=en&amp;ver=6.8.5#038;render=explicit" id="gform_recaptcha-js"></script>
+<script type="text/javascript" defer="defer" src="https://www.lihihod.com/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=3f278756f0a3032bed328ff6a9f6c01d" id="gform_gravityforms_utils-js"></script>
+<script type="text/javascript" defer="defer" src="https://www.lihihod.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4f8b3915c1c1e1a6800825abd64b03cb" id="gform_gravityforms_theme_vendors-js"></script>
+<script type="text/javascript" id="gform_gravityforms_theme-js-extra">
+/* <![CDATA[ */
+var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"3cbb2c5d3be1e70077a1340dccca2697"},"ajax":{"ajaxurl":"https:\/\/www.lihihod.com\/wp-admin\/admin-ajax.php","ajax_submission_nonce":"b3b45f6624","i18n":{"step_announcement":"Step %1$s of %2$s, %3$s","unknown_error":"There was an unknown error processing your request. Please try again."}}}},"hmr_dev":"","public_path":"https:\/\/www.lihihod.com\/wp-content\/plugins\/gravityforms\/assets\/js\/dist\/","config_nonce":"9bc6ad7970"};
+/* ]]> */
+</script>
+<script type="text/javascript" defer="defer" src="https://www.lihihod.com/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=7383fdf9ccf5533a5ee9c6a7a5ad6800" id="gform_gravityforms_theme-js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 3) {} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } ); 
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "3", currentPage: "1", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_3" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_3";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_3" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 3, 1 );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } ); 
+/* ]]> */
+</script>
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-43311344-1', 'lihihod.com');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+<p id="a11y-speak-intro-text" class="a11y-speak-intro-text" style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;" hidden="hidden">Notifications</p><div id="a11y-speak-assertive" class="a11y-speak-region" style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;" aria-live="assertive" aria-relevant="additions text" aria-atomic="true"></div><div id="a11y-speak-polite" class="a11y-speak-region" style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;" aria-live="polite" aria-relevant="additions text" aria-atomic="true"></div><a class="overlay" href="#/"></a><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" name="c-vctqnmkynm7f" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;k=6Lee8nQUAAAAAGEO7OcWOC4e1GQSleoFnbuHk4cT&amp;bft=0dAFcWeA5z5N6oGE7sPb4afbK_4IYVAbVIrgvWe7xly0FgqGaAAsHhn07Q1DomMb38N8KYnXTM2y9ENx1jHvEjytXCdLGxzJrfeQ" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

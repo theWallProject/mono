@@ -1,0 +1,85 @@
+[2026-03-18T19:27:24.659Z] === Homepage AI Extractor: FlyChips ===
+[2026-03-18T19:27:24.659Z] Started at: 2026-03-18T19:27:24.659Z
+[2026-03-18T19:27:24.659Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773862044659_FlyChips
+[2026-03-18T19:27:24.659Z] Company: FlyChips
+[2026-03-18T19:27:24.659Z] Website: flychips.com
+[2026-03-18T19:27:24.659Z] cbRank: 1710168
+[2026-03-18T19:27:24.659Z] Reasons: h
+[2026-03-18T19:27:24.660Z] Fetching: https://flychips.com
+[2026-03-18T19:27:31.446Z] Redirected: https://flychips.com -> https://flychips.com/
+[2026-03-18T19:27:31.457Z] Saved HTML (489874 bytes) to page.html
+[2026-03-18T19:27:31.461Z] Extracted 73 unique links from page
+[2026-03-18T19:27:31.461Z] Saved 73 links to links.json
+[2026-03-18T19:27:31.478Z] Extracted footer HTML (14948 chars)
+[2026-03-18T19:27:31.479Z] Extracted header HTML (16725 chars)
+[2026-03-18T19:27:31.483Z] Website (post-redirect): https://flychips.com/ → origin: https://flychips.com
+[2026-03-18T19:27:31.483Z] External links: 7 (of 73 total)
+[2026-03-18T19:27:31.483Z] ── All external links ──
+[2026-03-18T19:27:31.483Z]   EXT: https://api.whatsapp.com/send?text=https%3A%2F%2Fflychips.com%2F
+[2026-03-18T19:27:31.484Z]   EXT: https://il.linkedin.com/company/fly-chips
+[2026-03-18T19:27:31.484Z]   EXT: https://telegram.me/share/url?url=https://flychips.com
+[2026-03-18T19:27:31.484Z]   EXT: https://www.facebook.com/flychips
+[2026-03-18T19:27:31.484Z]   EXT: https://www.facebook.com/sharer/sharer.php?u=https://flychips.com
+[2026-03-18T19:27:31.484Z]   EXT: https://www.linkedin.com/shareArticle?mini=true&url=https://flychips.com
+[2026-03-18T19:27:31.484Z]   EXT: https://x.com/share?url=https://flychips.com
+[2026-03-18T19:27:31.484Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T19:27:31.484Z]   UNCATEGORIZED: https://api.whatsapp.com/send?text=https%3A%2F%2Fflychips.com%2F
+[2026-03-18T19:27:31.485Z]   REGEX: li <- https://il.linkedin.com/company/fly-chips
+[2026-03-18T19:27:31.485Z]   UNCATEGORIZED: https://telegram.me/share/url?url=https://flychips.com
+[2026-03-18T19:27:31.485Z]   REGEX: fb <- https://www.facebook.com/flychips
+[2026-03-18T19:27:31.485Z]   REGEX: tw <- https://x.com/share?url=https://flychips.com
+[2026-03-18T19:27:31.485Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-18T19:27:31.485Z]   SKIP (regex domain, no match): https://www.facebook.com/sharer/sharer.php?u=https://flychips.com
+[2026-03-18T19:27:31.485Z]   SKIP (regex domain, no match): https://www.linkedin.com/shareArticle?mini=true&url=https://flychips.com
+[2026-03-18T19:27:31.485Z] Programmatic result: ws:1, li:1, fb:1, tw:1 | 2 uncategorized
+[2026-03-18T19:27:31.485Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T19:27:31.488Z] Saved AI prompt (8206 chars) to ai_prompt.txt
+[2026-03-18T19:27:31.488Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T19:27:31.492Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T19:28:06.768Z]   AI: First token received, streaming...
+[2026-03-18T19:28:21.685Z]   AI streaming: 203 chars received (50.2s elapsed)
+[2026-03-18T19:28:23.107Z] AI response complete: 233 chars in 51.6s
+[2026-03-18T19:28:23.109Z] Saved AI response to ai_response.json
+[2026-03-18T19:28:23.109Z] ── Parsing AI response (4 lines) ──
+[2026-03-18T19:28:23.109Z]   AI LINK: https://www.facebook.com/sharer/sharer.php?u=https://flychips.com/
+[2026-03-18T19:28:23.109Z]   AI LINK: https://x.com/share?url=https://flychips.com/
+[2026-03-18T19:28:23.109Z]   AI LINK: https://api.whatsapp.com/send?text=https%3A%2F%2Fflychips.com%2F
+[2026-03-18T19:28:23.109Z]   AI LINK: https://telegram.me/share/url?url=https://flychips.com/
+[2026-03-18T19:28:23.110Z] AI returned 4 valid links
+[2026-03-18T19:28:23.110Z] ── Categorizing 4 AI-returned links ──
+[2026-03-18T19:28:23.110Z]   AI→SKIP (regex domain, no match): https://www.facebook.com/sharer/sharer.php?u=https://flychips.com/
+[2026-03-18T19:28:23.110Z]   AI→REGEX: tw <- https://x.com/share?url=https://flychips.com/ (duplicate, skipped)
+[2026-03-18T19:28:23.110Z]   AI→URLS: https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?text=https%3A%2F%2Fflychips.com%2F)
+[2026-03-18T19:28:23.111Z]   AI→URLS: https://telegram.me/share/url (cleaned from https://telegram.me/share/url?url=https://flychips.com/)
+[2026-03-18T19:28:23.111Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T19:28:23.111Z] Footer/header origins (7):
+[2026-03-18T19:28:23.111Z]   FOOTER/HEADER ORIGIN: https://flychips.com
+[2026-03-18T19:28:23.112Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T19:28:23.112Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-18T19:28:23.112Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T19:28:23.112Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-18T19:28:23.112Z]   FOOTER/HEADER ORIGIN: https://telegram.me
+[2026-03-18T19:28:23.112Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-18T19:28:23.112Z]   SKIP (AI claimed): https://api.whatsapp.com/send?text=https%3A%2F%2Fflychips.com%2F
+[2026-03-18T19:28:23.112Z]   SKIP (AI claimed): https://telegram.me/share/url?url=https://flychips.com
+[2026-03-18T19:28:23.113Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T19:28:23.113Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T19:28:23.113Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T19:28:23.113Z] ── Step 3: Final dedup ──
+[2026-03-18T19:28:23.113Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T19:28:23.114Z] ── FINAL RESULT ──
+[2026-03-18T19:28:23.114Z]   ws (1):
+[2026-03-18T19:28:23.114Z]     - https://flychips.com
+[2026-03-18T19:28:23.114Z]   li (1):
+[2026-03-18T19:28:23.114Z]     - https://www.linkedin.com/company/fly-chips
+[2026-03-18T19:28:23.114Z]   fb (1):
+[2026-03-18T19:28:23.115Z]     - https://www.facebook.com/flychips
+[2026-03-18T19:28:23.115Z]   tw (1):
+[2026-03-18T19:28:23.115Z]     - https://x.com/share
+[2026-03-18T19:28:23.115Z]   urls (2):
+[2026-03-18T19:28:23.115Z]     - https://api.whatsapp.com/send
+[2026-03-18T19:28:23.115Z]     - https://telegram.me/share/url
+[2026-03-18T19:28:23.115Z] Summary: ws:1, li:1, fb:1, tw:1, urls:2
+[2026-03-18T19:28:23.116Z] Saved final result to result.json
+[2026-03-18T19:28:23.116Z] Override fields: ws, li, fb, tw, urls
+[2026-03-18T19:28:23.117Z] Finished at: 2026-03-18T19:28:23.117Z

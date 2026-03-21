@@ -1,0 +1,77 @@
+[2026-03-20T04:49:29.899Z] === Homepage AI Extractor: Geoda ===
+[2026-03-20T04:49:29.899Z] Started at: 2026-03-20T04:49:29.899Z
+[2026-03-20T04:49:29.899Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773982169898_Geoda
+[2026-03-20T04:49:29.899Z] Company: Geoda
+[2026-03-20T04:49:29.899Z] Website: geoda.co.il
+[2026-03-20T04:49:29.899Z] cbRank: 2681447
+[2026-03-20T04:49:29.899Z] Reasons: h
+[2026-03-20T04:49:29.899Z] Fetching: https://geoda.co.il
+[2026-03-20T04:49:34.222Z] Redirected: https://geoda.co.il -> https://geoda.co.il/
+[2026-03-20T04:49:34.226Z] Saved HTML (53250 bytes) to page.html
+[2026-03-20T04:49:34.228Z] Extracted 19 unique links from page
+[2026-03-20T04:49:34.229Z] Saved 19 links to links.json
+[2026-03-20T04:49:34.231Z] Extracted footer HTML (4938 chars)
+[2026-03-20T04:49:34.231Z] Extracted header HTML (7629 chars)
+[2026-03-20T04:49:34.235Z] Website (post-redirect): https://geoda.co.il/ → origin: https://geoda.co.il
+[2026-03-20T04:49:34.236Z] External links: 6 (of 19 total)
+[2026-03-20T04:49:34.236Z] ── All external links ──
+[2026-03-20T04:49:34.236Z]   EXT: http://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:34.236Z]   EXT: http://geodata.co.il
+[2026-03-20T04:49:34.236Z]   EXT: https://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:34.236Z]   EXT: https://geodata.co.il
+[2026-03-20T04:49:34.236Z]   EXT: https://waze.com/ul/hsv8y8v0sd
+[2026-03-20T04:49:34.236Z]   EXT: https://www.linkedin.com/company/916445
+[2026-03-20T04:49:34.237Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T04:49:34.237Z]   UNCATEGORIZED: http://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:34.237Z]   UNCATEGORIZED: http://geodata.co.il
+[2026-03-20T04:49:34.237Z]   UNCATEGORIZED: https://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:34.237Z]   UNCATEGORIZED: https://geodata.co.il
+[2026-03-20T04:49:34.237Z]   UNCATEGORIZED: https://waze.com/ul/hsv8y8v0sd
+[2026-03-20T04:49:34.237Z]   REGEX: li <- https://www.linkedin.com/company/916445
+[2026-03-20T04:49:34.237Z] Programmatic result: ws:1, li:1 | 5 uncategorized
+[2026-03-20T04:49:34.237Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T04:49:34.239Z] Saved AI prompt (4419 chars) to ai_prompt.txt
+[2026-03-20T04:49:34.239Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T04:49:34.243Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T04:49:55.449Z]   AI: First token received, streaming...
+[2026-03-20T04:49:57.792Z] AI response complete: 40 chars in 23.6s
+[2026-03-20T04:49:57.794Z] Saved AI response to ai_response.json
+[2026-03-20T04:49:57.794Z] ── Parsing AI response (1 lines) ──
+[2026-03-20T04:49:57.794Z]   AI LINK: https://www.linkedin.com/company/916445/
+[2026-03-20T04:49:57.794Z] AI returned 1 valid links
+[2026-03-20T04:49:57.794Z] ── Categorizing 1 AI-returned links ──
+[2026-03-20T04:49:57.795Z]   AI→REGEX: li <- https://www.linkedin.com/company/916445/ (duplicate, skipped)
+[2026-03-20T04:49:57.795Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T04:49:57.796Z] Footer/header origins (7):
+[2026-03-20T04:49:57.796Z]   FOOTER/HEADER ORIGIN: https://waze.com
+[2026-03-20T04:49:57.796Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T04:49:57.796Z]   FOOTER/HEADER ORIGIN: https://geoda.co.il
+[2026-03-20T04:49:57.796Z]   FOOTER/HEADER ORIGIN: http://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:57.796Z]   FOOTER/HEADER ORIGIN: http://geodata.co.il
+[2026-03-20T04:49:57.797Z]   FOOTER/HEADER ORIGIN: https://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:57.797Z]   FOOTER/HEADER ORIGIN: https://geodata.co.il
+[2026-03-20T04:49:57.797Z]   ADDED: urls <- http://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:57.797Z]   ADDED: urls <- http://geodata.co.il
+[2026-03-20T04:49:57.797Z]   ADDED: urls <- https://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:57.797Z]   ADDED: urls <- https://geodata.co.il
+[2026-03-20T04:49:57.798Z]   ADDED: urls <- https://waze.com/ul/hsv8y8v0sd
+[2026-03-20T04:49:57.798Z] Step 2b result: added 5 uncategorized domains from footer/header
+[2026-03-20T04:49:57.798Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T04:49:57.798Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T04:49:57.798Z] ── Step 3: Final dedup ──
+[2026-03-20T04:49:57.798Z] Dedup: removed 0 of 5 URLs already in specialized fields
+[2026-03-20T04:49:57.799Z] ── FINAL RESULT ──
+[2026-03-20T04:49:57.799Z]   ws (1):
+[2026-03-20T04:49:57.799Z]     - https://geoda.co.il
+[2026-03-20T04:49:57.799Z]   li (1):
+[2026-03-20T04:49:57.799Z]     - https://www.linkedin.com/company/916445
+[2026-03-20T04:49:57.799Z]   urls (5):
+[2026-03-20T04:49:57.800Z]     - http://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:57.800Z]     - http://geodata.co.il
+[2026-03-20T04:49:57.800Z]     - https://geoda-buildingcontrol.co.il
+[2026-03-20T04:49:57.800Z]     - https://geodata.co.il
+[2026-03-20T04:49:57.800Z]     - https://waze.com/ul/hsv8y8v0sd
+[2026-03-20T04:49:57.801Z] Summary: ws:1, li:1, urls:5
+[2026-03-20T04:49:57.802Z] Saved final result to result.json
+[2026-03-20T04:49:57.802Z] Override fields: ws, li, urls
+[2026-03-20T04:49:57.802Z] Finished at: 2026-03-20T04:49:57.802Z

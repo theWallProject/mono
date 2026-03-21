@@ -1,0 +1,596 @@
+<!DOCTYPE html><html lang="en" data-current-slide="1" class="fp-enabled" style="overflow: hidden; height: 100%;"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Syncleo</title>
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="msapplication-config" content="/browserconfig.xml">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+	<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="css/normalize.css">
+	<style>
+		body{background: #000;overflow: hidden;height: 100%;}.planets-section{display: none;}.preload {background: #000;position: fixed;width: 100%;height: 100%;z-index: 10002;left: 0;top: 0;display: -webkit-flex;display: -moz-flex;display: -ms-flex;display: -o-flex;display: flex;-webkit-transition: opacity 500ms;-o-transition: opacity 500ms;transition: opacity 500ms;opacity: 1;}.preload.hide{opacity: 0;}.preloader-bg{background:url(images/index/preloader-bg.jpg) no-repeat;-webkit-background-size: cover;background-size: cover;position: absolute;left: 0;top: 0;width: 100%;height: 100%;opacity: 0;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);-o-transform: translateZ(0);transform: translateZ(0);}.preload::before{content: '';width: 100%;height: 4px;background: url(images/index/preloader-line.png) no-repeat;-webkit-background-size: 100% 4px;background-size: 100% 4px;position: absolute;left: 0;bottom: 0;z-index:3}.preloader-title{color: #fff;font-family:'helvetica neue', helvetica, arial, tahoma, sans-serif;font-size: 47px;font-weight:bold;text-align:center;margin: auto;position: relative;-webkit-transform: translate(-50%, 0%);-ms-transform: translate(-50%, 0%);-o-transform: translate(-50%, 0%);transform: translate(-50%, 0);}.preloader-title img{position: absolute;right: 100%;top: 50%;margin-top: -27px;margin-right: 20px;}.preloader-title span{position: absolute;left: 100%;top: 0;display: none;padding-left: 2px;}.preloader-title .cl-1{color: #70d463;display: block;}.cl-2{color: #faeb5e;}.cl-3{color: #fea1cc;}.cl-4{color: #57daf2;}.cl-5{color: #fd995b;}.cl-6{color: #a591ff;}.cl-7{color: #22cfa6;}.preloader-phrase{position: relative;}.preloader-final{top: 50%;left: 50%;right:50%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);position: absolute;display: block;max-width: 70%;opacity: 0;height: auto !important;}.preload-image{position: fixed;width: 20px;height: 20px;left: -1000px;top: -1000px;}@media (max-width:1024px){.preloader-title{font-size:33px;font-family:'helvetica neue', helvetica, arial, tahoma, sans-serif;}.preloader-title img{width: 30px !important;height: auto !important;margin-top: -15px;}.guidebook-sidenavi{display: none !important;}.preloader-phrase{height: 35px;line-height: 1;}}.preloader-bg{-webkit-transition: all 0.5s linear;-o-transition: all 0.5s linear;transition: all 0.5s linear;}.preloader-bg.vs{opacity: 1;}.preloader-final,.preloader-title{-webkit-transition: opacity 500ms 500ms linear;-o-transition: opacity 500ms 500ms linear;transition: opacity 500ms 500ms linear;}.preloader-phrase{-webkit-transition:opacity 500ms linear,transform 500ms linear;-o-transition:opacity 500ms linear,transform 500ms linear;transition:opacity 500ms linear,transform 500ms linear;}.preloader-title img{-webkit-transition: right 500ms linear;-o-transition: right 500ms linear;transition: right 500ms linear}.done .preloader-phrase span::after{animation:none;}.done .preloader-phrase{-webkit-transform: translateY(125%);-ms-transform: translateY(125%);-o-transform: translateY(125%);transform: translateY(125%);opacity: 0;}.done .preloader-title img{right:-55px;}.done .preloader-final{opacity: 1;}.done .preloader-title{opacity: 0;}
+	</style>
+	<script src="js/vendor/jquery-3.1.1.min.js"></script>
+	<script src="js/vendor/jquery-migrate-1.4.1.min.js"></script>
+	<script>
+		function preloadimages(arr) {
+			var newimages = [], loadedimages=0, attempts = 0, maxattempts = 1;
+			var postaction=function(){};
+			var arr=(typeof arr!='object') ? [arr] : arr;
+			function imageloadpost(){
+				if (loadedimages == newimages.length){
+					postaction(newimages); }
+			}
+			for (var i=0; i<arr.length; i++){
+				newimages[i]=new Image();
+				newimages[i].src=arr[i];
+				newimages[i].onload=function(){
+					attempts=0;
+					if(loadedimages==2){
+						setTimeout(function(){
+							$('.preloader-bg').addClass('vs')
+						}, 300)
+					}
+					loadedimages++;
+					imageloadpost();
+				};
+				newimages[i].onerror=function(){
+					attempts++;
+					if(attempts < maxattempts){
+						this.src = this.src;
+					}
+					else{
+						var tSrc = this.src;
+						loadedimages++;
+						imageloadpost();
+					}
+				};
+			}  //end of for loop
+			return { done: function(f) { postaction = f || postaction } }
+		}
+
+		$(document).ready(function(){
+			var wordsCount=0, pageReady=false, firstAttempt=false, firstAttemptTime=3000;
+			if($(window).width()>960) firstAttemptTime=1000;
+			var wordsChange=function() {
+				if(pageReady && wordsCount>=$('.preload span').length && firstAttempt){
+					$('.preload').addClass('done');
+					 setTimeout(function(){
+						$('.planets-section').show();
+						$('.preload').addClass('hide');
+						setTimeout(function(){
+							if($(window).width()<998){
+								$('body').css('overflow','auto');
+							}
+							$('.preload').remove();
+							$('.btn-cl').each(function(){
+								$(this).append('<strong><span>'+$(this).html()+'</span></strong>').find('strong span').css('width',$(this).outerWidth());
+							})
+						}, 600)
+					 },1000)
+				}
+				else {
+					var c=$('.preload').find('span:visible'), n=$('.preload').find('span').first();
+					if(c.next().is('span')) n=c.next();
+					c.hide();
+					n.show();
+					wordsCount++;
+					setTimeout(wordsChange, 200);
+				}
+			}
+			setTimeout(wordsChange, 200);
+			setTimeout(function(){
+				firstAttempt=true
+			}, firstAttemptTime);
+			var preloadArr=[
+				"images/index/preloader-bg.jpg",
+				"images/index/00_bg.jpg",
+				"images/index/01_bg.jpg",
+				"images/index/02_bg.jpg",
+				"images/index/sp1.png",
+				"images/preloader-logo-2.png",
+				"images/preloader-logo.png",
+				"images/index/00_glow.png",
+				"images/index/00_planet_06.png",
+				"images/index/00_planet_05.png",
+				"images/index/00_planet_04.png",
+				"images/index/00_planet_03.png",
+				"images/index/00_planet_02.png",
+				"images/index/00_planet_07.png",
+				"images/index/00_planet_01.png"
+			];
+
+			if($(window).width()<998){
+				preloadArr=[
+				"images/index/preloader-bg.jpg",
+				"images/index_mobile/00_bg.jpg",
+				"images/index_mobile/01_bg.jpg",
+				"images/index_mobile/02_bg.jpg",
+				"images/index_mobile/03_bg.jpg",
+				"images/index_mobile/04_bg.jpg",
+				"images/index_mobile/00_fg.png",
+				"images/index_mobile/01_fg.png",
+				"images/index_mobile/02_fg.png",
+				"images/index_mobile/03_fg.png",
+				"images/index_mobile/04_fg.png",
+				"images/mob-navi-bg.jpg",
+				"images/mob-navi-fg.png",
+				"images/preloader-logo-2.png",
+				"images/preloader-logo.png"
+				]
+			}
+
+			preloadimages(preloadArr).done(function() {
+				pageReady=true;
+			});
+		});
+	</script>
+</head>
+<body class="fp-viewing-0" style="overflow: hidden; height: 100%;">
+	
+	<div class="info-page">
+		
+		<div class="planets-container fullpage-wrapper" id="fullpage" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px);">
+			<section class="panel planets-section current-slide planets-section-00 fp-section active fp-completely" style="height: 720px;">
+				<div class="stars"></div>
+				<div class="stars-2"></div>
+				<div class="bg"></div>
+				<div class="galaxy-complex">
+					<div class="galaxy-lines">
+						<div class="planet-small planet-01"></div>
+						<div class="planet-small planet-02"></div>
+						<div class="planet-small planet-03"></div>
+						<div class="planet-small planet-04"></div>
+						<div class="planet-small planet-05"></div>
+						<div class="planet-small planet-06"></div>
+						<div class="planet-small planet-07"></div>
+						<div class="star">
+							<div class="star-layer-01"></div>
+							<div class="star-layer-02"></div>
+							<div class="star-layer-03"></div>
+						</div>
+						<div class="galaxy-lines-itself"></div>
+					</div>
+				</div>
+				<div class="planet-width">
+					<div class="planet-text planet-text-00 appear-left">
+						<h1><b>Boutique IoT Engineering</b></h1>
+						<p>With its proprietary edge-to-cloud IoT platform, Syncleo is a leading enabler <br> of cutting edge home appliance IoT systems and applications.</p>
+						<a class="btn btn-bigger btn-cl btn-gd-sides" href="/strategies"><span>SYNCLEO IOT CRM</span> </a></div>
+				</div>
+			</section>
+
+			<section class="panel planets-section planets-section-01 fp-section" style="height: 720px;">
+					<div class="stars"></div>
+					<div class="stars-2"></div>
+					<div class="bg"></div>
+					<div class="planet-width">
+						<div class="axis">
+							<div class="planet-complex">
+								<div class="planet-layer-00"></div>
+								<div class="planet-layer-01"></div>
+								<div class="planet-layer-02"></div>
+								<div class="planet-layer-03"></div>
+								<div class="light"></div>
+							</div>
+							<div class="axis-itself"></div>
+						</div>
+
+
+						<div class="planet-text-cols">
+							<header class="planet-text appear-left">
+								<h2>Product Definition</h2>
+								<p>The first stage of the development process is understanding your organization’s vision and ensuring that the proposed solution is designed for maximum value impact while minimizing deployment and maintenance resources. </p>
+							</header>
+							<div class="planet-text planet-text-r appear-right">
+								<p class="lead">High level product definition milestones:</p>
+								<ul class="marked-list">
+									<li>Defining the primary purpose of the proposed IoT feature</li>
+									<li>Designating the most appropriate IoT communication protocol</li>
+									<li>Identifying technological compatibility with existing solutions</li>
+									<li>Determining the user interface (UI) </li>
+								</ul>
+								<a href="/guidebook#product-definition" class="btn btn-mid btn-cl">
+									<span>learn More</span>
+								</a>
+
+							</div>
+						</div>
+					</div>
+			</section>
+			<section class="panel planets-section planets-section-02 fp-section" style="height: 720px;">
+				<div class="stars"></div>
+				<div class="stars-2"></div>
+				<div class="bg"></div>
+				<div class="planet-width">
+					<div class="axis">
+						<div class="planet-complex">
+							<div class="planet-layer-00"></div>
+							<div class="planet-layer-01"></div>
+							<div class="planet-layer-02"></div>
+							<div class="planet-layer-03"></div>
+							<div class="light"></div>
+						</div>
+						<div class="axis-itself"></div>
+
+					</div>
+
+					<div class="planet-text-cols">
+						<header class="planet-text appear-left">
+							<h2>Prototype</h2>
+							<p>Building a well-defined and well-executed prototype will be critical to the successful execution of your vision. It is a sand box of sorts enabling for a physical representation of your IoT product that you can test, tweak, and validate, before committing to a much more stringent and less forgiving process of mass production. </p>
+						</header>
+						<div class="planet-text planet-text-r appear-right">
+							<p class="lead">Iterative prototype phases:</p>
+							<ul class="marked-list">
+								<li>Mobile app wire frame and sample screenshots – high level flow of the target user experience and feature set</li>
+								<li>Mobile app demo – Enables for basic interaction and experience of the target application</li>
+								<li>IoT enabled physical product - existing products can be enabled with a wide range of IoT features, remote control capabilities, and connectivity via integration with an external microcontroller</li>
+							</ul>
+							<a href="/guidebook#prototype" class="btn btn-mid btn-cl"><span>learn More</span></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="panel planets-section planets-section-03 fp-section" style="height: 720px;">
+				<div class="stars"></div>
+				<div class="stars-2"></div>
+				<div class="bg"></div>
+
+				<div class="planet-width">
+					<div class="axis">
+						<div class="planet-complex">
+							<div class="planet-layer-00"></div>
+							<div class="planet-layer-01"></div>
+							<div class="planet-layer-02"></div>
+							<div class="planet-layer-03"></div>
+							<div class="planet-layer-04"></div>
+							<div class="light"></div>
+						</div>
+						<div class="axis-itself"></div>
+					</div>
+
+
+					<div class="planet-text-cols">
+						<header class="planet-text appear-left">
+							<h2>User Experience</h2>
+							<p>No matter how advanced the technology is, or how valuable the scope of features are, if there is a misalignment between the user experience and target application, the initiative will ultimately fail. A clear, easy to understand, and engaging user experience will be one of the key factors in the success of the product roll out. </p>
+						</header>
+						<div class="planet-text planet-text-r appear-right">
+							<p class="lead">Dimensions of the user experience to be considered:</p>
+							<ul class="marked-list">
+								<li>Useful – it can have financial value or simply be entertaining, but either way it must be somehow useful to compete for the user’s attention. </li>
+								<li>Usable – If it is useful, but difficult to use, the user will ultimately stop using it.</li>
+								<li>Findable – Your service or product should be simple and fast to acquire. Any unnecessary complexities at this level will create a barrier for adoption.</li>
+								<li>Credible – You only have one chance to make a good impression. If you are going to acquire the user’s loyalty, the product needs to do what it is supposed to do and the service behind needs to be unequivocally credible. </li>
+								<li>Desirable – There are many ways to get from A to B, but where possible, better to do it in style!</li>
+								<li>Accessible – The spectrum of users is as wide as it is deep and your IoT product will need to accommodate for just that. </li>
+								<li>Valuable – While the benefit of IoT for both enterprise and user do not necessarily need to be equivalent, both parties must be able to derive significant value to ensure a successful and sustainable deployment.</li>
+							</ul>
+							<a href="/guidebook#user-experience" class="btn btn-mid btn-cl"><span>learn More</span></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="panel planets-section planets-section-04 fp-section" style="height: 720px;">
+				<div class="stars"></div>
+				<div class="stars-2"></div>
+				<div class="bg"></div>
+
+				<div class="planet-width">
+					<div class="axis">
+						<div class="planet-complex">
+							<div class="planet-layer-00"></div>
+							<div class="planet-layer-01"></div>
+							<div class="planet-layer-02"></div>
+							<div class="planet-layer-03"></div>
+							<div class="planet-layer-04"></div>
+							<div class="light"></div>
+						</div>
+						<div class="axis-itself"></div>
+					</div>
+
+
+					<div class="planet-text-cols">
+						<header class="planet-text appear-left">
+							<h2>Productization</h2>
+							<p>Now that we have defined the target product, finalized the prototype, and designed a stellar user experience, we are ready to transition into manufacturing! This is where we leverage our experience in IoT production to prepare production files for manufacturing, secure a production line that meets your technological, budgeting, and timing requirements, and last, but certainly not least, ensure an effective and efficient execution of the project.</p>
+						</header>
+						<div class="planet-text planet-text-r appear-right">
+							<p class="lead">Additional aspects of the manufacturing process to be considered:</p>
+							<ul class="marked-list">
+								<li>Component longevity and interoperability</li>
+								<li>Manufacturer / supplier agnostic production process</li>
+								<li>Cross-geographical technological compatibility and functionality</li>
+							</ul>
+							<a href="/guidebook#productization" class="btn btn-mid btn-cl"><span>learn More</span></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="panel planets-section planets-section-05 fp-section" style="height: 720px;">
+				<div class="stars"></div>
+				<div class="stars-2"></div>
+				<div class="bg"></div>
+
+				<div class="planet-width">
+					<div class="axis">
+						<div class="planet-complex">
+							<div class="planet-layer-00"></div>
+							<div class="planet-layer-01"></div>
+							<div class="planet-layer-02"></div>
+							<div class="planet-layer-03"></div>
+							<div class="planet-layer-04"></div>
+							<div class="planet-layer-05"></div>
+							<div class="planet-layer-06"></div>
+							<div class="light"></div>
+						</div>
+						<div class="axis-itself"></div>
+					</div>
+
+
+					<div class="planet-text-cols">
+						<header class="planet-text appear-left">
+							<h2>Quality Assurance</h2>
+							<p>Testing a prototype is very different from testing a commercial sample. While the former leaves plenty of wiggle room for future development and bug fixes, the latter is the backbone of a successful product deployment. And as such, we spare no effort or detail when it comes to QA. </p>
+						</header>
+						<div class="planet-text planet-text-r appear-right">
+							<p class="lead">Dependent on where in the design, develop, and deploy phase we are, here are some of the major considerations with regard to QA:</p>
+							<ul class="marked-list">
+								<li>Feature specific stress tests</li>
+								<li>Simultaneous multi-user control testing</li>
+								<li>Crowd testing</li>
+								<li>Random automatic testing</li>
+								<li>Self-testing for manufacturing and customer support</li>
+							</ul>
+							<a href="/guidebook#qa" class="btn btn-mid btn-cl"><span>learn More</span></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="panel planets-section planets-section-06 fp-section" style="height: 720px;">
+				<div class="stars"></div>
+				<div class="stars-2"></div>
+				<div class="bg"></div>
+
+				<div class="planet-width">
+					<div class="axis">
+						<div class="planet-complex">
+							<div class="planet-layer-00"></div>
+							<div class="planet-layer-01"></div>
+							<div class="planet-layer-02"></div>
+							<div class="planet-layer-03"></div>
+							<div class="planet-layer-04"></div>
+							<div class="planet-layer-05"></div>
+							<div class="light"></div>
+						</div>
+						<div class="axis-itself"></div>
+					</div>
+
+
+					<div class="planet-text-cols">
+						<header class="planet-text appear-left">
+							<h2>Maintenance</h2>
+							<p>IoT introduces a vast array of new opportunities for the enterprises leading its deployment. More specifically, IoT enables the maintenance of a digital relationship between user and operator that goes far beyond the point of sale, a relationship which can be leveraged to generate new and highly profitable revenue streams. </p>
+						</header>
+						<div class="planet-text planet-text-r appear-right">
+							<p class="lead">Example IoT revenue opportunities:</p>
+							<ul class="marked-list">
+								<li>Pay-per-use business models</li>
+								<li>Preventive maintenance service contracts</li>
+								<li>Preemptive customer support models</li>
+								<li>Generation of operational efficiencies via real-time monitoring</li>
+							</ul>
+							<a href="/guidebook#maintenance" class="btn btn-mid btn-cl"><span>learn More</span></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="panel planets-section planets-section-07 fp-section" style="height: 720px;">
+				<div class="stars"></div>
+				<div class="stars-2"></div>
+				<div class="bg"></div>
+
+				<div class="planet-width">
+					<div class="axis">
+						<div class="planet-complex">
+							<div class="planet-layer-00"></div>
+							<div class="planet-layer-01"></div>
+							<div class="planet-layer-02"></div>
+							<div class="planet-layer-03"></div>
+							<div class="planet-layer-04"></div>
+							<div class="light"></div>
+						</div>
+						<div class="axis-itself"></div>
+					</div>
+
+
+					<div class="planet-text-cols">
+						<header class="planet-text appear-left">
+							<h2>Data Mining</h2>
+							<p>Perhaps one of the biggest benefits of IoT is the digitalization of data and information generated by the explosively growing number of devices connected to the internet. Be it healthcare, industry, smart cities, or consumer goods, IoT will continue to create exponentially growing value for both its users and operators. </p>
+						</header>
+						<div class="planet-text planet-text-r appear-right">
+							<p class="lead">Questions to be addressed when establishing a cloud based IoT service:</p>
+							<ul class="marked-list">
+								<li>Where will the data be stored?</li>
+								<li>How will it be secured?</li>
+								<li>What means will be used to translate the data into actionable intelligence?</li>
+								<li>Who will have access to the data?</li>
+								<li>Will the generated data be segmented, anonymized, and redistributed to 3rd parties? </li><li>
+							</li></ul>
+							<a href="/guidebook#data-mining" class="btn btn-mid btn-cl"><span>learn More</span></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+<!--
+	<div class="popped-banner-bg"></div>
+	<div class="popped-banner">
+		<div class="pb-content"></div>
+		<span class="pb-close"></span>
+	</div>
+-->
+
+	<script src="js/plugins.js"></script>
+	<script src="js/custom.js"></script>
+
+	<script>
+		$(function(){
+      //setTimeout(function(){
+      //  $('.popped-banner-bg, .popped-banner').fadeIn();
+      //  $('.popped-banner').css({'top':$(window).scrollTop()+$(window).height()/2-$('.popped-banner').height()/2,'visibility':'visible'})
+      //},10000)
+      //$('.pb-close').click(function(e){
+      //  e.preventDefault();
+      //  $('.popped-banner-bg, .popped-banner').fadeOut();
+      //})
+		})
+	</script>
+
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+	<link rel="stylesheet" href="css/indexpage.css">
+	<link href="css/pop-banner.css" rel="stylesheet">
+
+
+<section class="preload done">
+		<div class="preloader-bg vs"></div>
+		<div class="preloader-title">
+			<img src="images/preloader-logo.png" alt="" width="55" height="55">
+			<div class="preloader-phrase">
+				Sync
+					<span class="cl-1" style="">project</span>
+					<span class="cl-2" style="display: none;">cloud</span>
+					<span class="cl-3" style="display: none;">app</span>
+					<span class="cl-4" style="display: none;">control</span>
+					<span class="cl-5" style="display: none;">chip</span>
+					<span class="cl-6" style="display: none;">mesh</span>
+					<span class="cl-7" style="display: none;">hronisity</span>
+			</div>
+		</div>
+		<img src="images/preloader-logo-2.png" alt="" width="375" class="preloader-final">
+	</section><header class="header">
+			<div class="width">
+				<div class="header-row">
+					<div class="logo">
+						<a href="/">
+							<span class="logo-place">
+								<img src="images/logo-w.png" alt="" class="logo-logo logo-logo-w">
+								<img src="images/logo-wc.png" alt="" class="logo-logo">
+							</span>
+							<img src="images/logo-title-w.png" alt="" class="logo-title">
+						</a>
+					</div>
+					<nav class="header-nav">
+						<div class="header-nav-fg"></div>
+						<div class="header-nav-fix">
+							<ul>
+								<li class="active"><a href="/"><span>HOME</span></a></li>
+								<li><a href="/about"><span>ABOUT</span></a></li>
+								<li><a href="/services"><span>SERVICES</span></a></li>
+								<li><a href="/guidebook"><span>GUIDEBOOK</span></a></li>
+								<li><a href="/contact"><span>CONTACT US</span></a></li>
+							</ul>
+						</div>
+						<a href="" class="navi-close">
+							<i class="icn icn-navi-close"></i>
+						</a>
+					</nav>
+					<div class="header-btnplace">
+						<a href="" class="btn btn-reg btn-gd" data-call-state="galaxies">
+							<span>
+								<i class="icn icn-galaxies"></i>
+								<b>galaxy navigation</b>
+							</span>
+						</a>
+					</div>
+					<a href="" class="toggle-navi show-mobile">
+						<i class="navi-call">
+							<span></span>
+							<span></span>
+							<span></span>
+						</i>
+					</a>
+				</div>
+			</div>
+		</header><a href="" class="scroll-down">
+			<i class="icn icn-mouse-scroll"></i>
+			<i class="icn icn-mouse-scroll-extra"></i>
+			<span>scroll down</span>
+		</a><footer class="footer">
+			<div class="width">
+				<div class="footer-row">
+					<div class="footer-l">
+						<small class="copyright">© Syncleo Ltd.</small>
+						<small class="link"><a href="/privacy-policy">Privacy Policy</a></small>
+					</div>
+					<a href="" class="galaxy-link">
+						<span>back to the galaxy</span>
+					</a>
+<!--					<div class="footer-r">
+						<small class="link done-by">created by <a href="http://www.brightside.pro/" target="_blank">brightside production</a></small>
+					</div>
+-->
+				</div>
+			</div>
+		</footer><ul class="guidebook-sidenavi" style="display: none;">
+			<li><a href="" data-section-link="01"><i class="planet-navi planet-navi-01"></i><span>Top</span></a></li>
+			<li><a href="" data-section-link="02"><i class="planet-navi planet-navi-02"></i><span>Product Definition</span></a></li>
+			<li><a href="" data-section-link="03"><i class="planet-navi planet-navi-03"></i><span>Prototype</span></a></li>
+			<li><a href="" data-section-link="04"><i class="planet-navi planet-navi-04"></i><span>User Experiense</span></a></li>
+			<li><a href="" data-section-link="05"><i class="planet-navi planet-navi-05"></i><span>Productization</span></a></li>
+			<li><a href="" data-section-link="06"><i class="planet-navi planet-navi-06"></i><span>Quality Assurance</span></a></li>
+			<li><a href="" data-section-link="07"><i class="planet-navi planet-navi-07"></i><span>Maintenance</span></a></li>
+			<li><a href="" data-section-link="08"><i class="planet-navi planet-navi-08"></i><span>Data mining</span></a></li>
+		</ul><div class="partners-section galaxy-navi" data-state="galaxies">
+			<ul class="partners-list">
+				<li><a href="/guidebook#product-definition" data-section-link="02" class="partners-cell galaxy-cell-01">
+						<span class="cell-h">Product Definition</span>
+						<span class="btn btn-reg btn-cl">show more</span>
+				</a></li>
+				<li><a href="/guidebook#prototype" data-section-link="03" class="partners-cell galaxy-cell-02">
+						<span class="cell-h">Prototype</span>
+						<span class="btn btn-reg btn-cl">show more</span>
+				</a></li>
+				<li><a href="/guidebook#user-experience" data-section-link="04" class="partners-cell galaxy-cell-03">
+						<span class="cell-h">User Experience</span>
+						<span class="btn btn-reg btn-cl">show more</span>
+				</a></li>
+				<li><a href="/guidebook#productization" data-section-link="05" class="partners-cell galaxy-cell-04">
+						<span class="cell-h">Productization</span>
+						<span class="btn btn-reg btn-cl">show more</span>
+				</a></li>
+				<li><a href="/guidebook#qa" data-section-link="06" class="partners-cell galaxy-cell-05">
+						<span class="cell-h">Quality Assurance</span>
+						<span class="btn btn-reg btn-cl">show more</span>
+				</a></li>
+				<li><a href="/guidebook#maintenance" data-section-link="07" class="partners-cell galaxy-cell-06">
+						<span class="cell-h">Maintenance</span>
+						<span class="btn btn-reg btn-cl">show more</span>
+				</a></li>
+				<li><a href="/guidebook#data-mining" data-section-link="08" class="partners-cell galaxy-cell-07">
+						<span class="cell-h">Data mining</span>
+						<span class="btn btn-reg btn-cl">show more</span>
+				</a></li>
+				<li><a href="#" class="partners-cell go-back-link" data-section-link="01">
+					<span class="btn btn-reg btn-cl">Back to the galaxy</span>
+				</a></li>
+			</ul>
+		</div></body></html>

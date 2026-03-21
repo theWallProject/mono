@@ -1,0 +1,81 @@
+[2026-03-20T02:04:27.459Z] === Homepage AI Extractor: WhiteScent ===
+[2026-03-20T02:04:27.459Z] Started at: 2026-03-20T02:04:27.459Z
+[2026-03-20T02:04:27.459Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773972267459_WhiteScent
+[2026-03-20T02:04:27.459Z] Company: WhiteScent
+[2026-03-20T02:04:27.459Z] Website: scent.co.il
+[2026-03-20T02:04:27.459Z] cbRank: 2575370
+[2026-03-20T02:04:27.460Z] Reasons: h
+[2026-03-20T02:04:27.460Z] Fetching: https://scent.co.il
+[2026-03-20T02:04:33.562Z] Redirected: https://scent.co.il -> https://www.scent.co.il/
+[2026-03-20T02:04:33.574Z] Saved HTML (473431 bytes) to page.html
+[2026-03-20T02:04:33.578Z] Extracted 134 unique links from page
+[2026-03-20T02:04:33.579Z] Saved 134 links to links.json
+[2026-03-20T02:04:33.582Z] Extracted footer HTML (13553 chars)
+[2026-03-20T02:04:33.582Z] Extracted header HTML (25375 chars)
+[2026-03-20T02:04:33.587Z] Website (post-redirect): https://www.scent.co.il/ → origin: https://www.scent.co.il
+[2026-03-20T02:04:33.588Z] External links: 7 (of 134 total)
+[2026-03-20T02:04:33.588Z] ── All external links ──
+[2026-03-20T02:04:33.588Z]   EXT: https://vee.co.il
+[2026-03-20T02:04:33.588Z]   EXT: https://vee.co.il/pricing
+[2026-03-20T02:04:33.588Z]   EXT: https://www.facebook.com/whitescenthome
+[2026-03-20T02:04:33.588Z]   EXT: https://www.gotolstoy.com
+[2026-03-20T02:04:33.588Z]   EXT: https://www.instagram.com/whitescent_home
+[2026-03-20T02:04:33.588Z]   EXT: https://www.tiktok.com/@whitescent_home
+[2026-03-20T02:04:33.588Z]   EXT: https://www.wst.co.il
+[2026-03-20T02:04:33.588Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T02:04:33.589Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-20T02:04:33.589Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-20T02:04:33.589Z]   REGEX: fb <- https://www.facebook.com/whitescenthome
+[2026-03-20T02:04:33.589Z]   UNCATEGORIZED: https://www.gotolstoy.com
+[2026-03-20T02:04:33.589Z]   REGEX: ig <- https://www.instagram.com/whitescent_home
+[2026-03-20T02:04:33.589Z]   REGEX: tt <- https://www.tiktok.com/@whitescent_home
+[2026-03-20T02:04:33.589Z]   UNCATEGORIZED: https://www.wst.co.il
+[2026-03-20T02:04:33.589Z] Programmatic result: ws:1, fb:1, ig:1, tt:1 | 4 uncategorized
+[2026-03-20T02:04:33.589Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T02:04:33.592Z] Saved AI prompt (8128 chars) to ai_prompt.txt
+[2026-03-20T02:04:33.592Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T02:04:33.595Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T02:05:11.967Z]   AI: First token received, streaming...
+[2026-03-20T02:05:20.442Z] AI response complete: 144 chars in 46.9s
+[2026-03-20T02:05:20.444Z] Saved AI response to ai_response.json
+[2026-03-20T02:05:20.444Z] ── Parsing AI response (4 lines) ──
+[2026-03-20T02:05:20.444Z]   AI LINK: https://www.wst.co.il
+[2026-03-20T02:05:20.445Z]   AI LINK: https://www.instagram.com/whitescent_home/
+[2026-03-20T02:05:20.445Z]   AI LINK: https://www.tiktok.com/@whitescent_home
+[2026-03-20T02:05:20.445Z]   AI LINK: https://www.facebook.com/whitescenthome
+[2026-03-20T02:05:20.445Z] AI returned 4 valid links
+[2026-03-20T02:05:20.445Z] ── Categorizing 4 AI-returned links ──
+[2026-03-20T02:05:20.446Z]   AI→URLS: https://www.wst.co.il
+[2026-03-20T02:05:20.446Z]   AI→REGEX: ig <- https://www.instagram.com/whitescent_home/ (duplicate, skipped)
+[2026-03-20T02:05:20.446Z]   AI→REGEX: tt <- https://www.tiktok.com/@whitescent_home (duplicate, skipped)
+[2026-03-20T02:05:20.446Z]   AI→REGEX: fb <- https://www.facebook.com/whitescenthome (duplicate, skipped)
+[2026-03-20T02:05:20.447Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T02:05:20.447Z] Footer/header origins (4):
+[2026-03-20T02:05:20.447Z]   FOOTER/HEADER ORIGIN: https://www.scent.co.il
+[2026-03-20T02:05:20.447Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T02:05:20.447Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-20T02:05:20.447Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T02:05:20.447Z]   SKIP (not in footer/header): https://vee.co.il
+[2026-03-20T02:05:20.447Z]   SKIP (not in footer/header): https://vee.co.il/pricing
+[2026-03-20T02:05:20.448Z]   SKIP (not in footer/header): https://www.gotolstoy.com
+[2026-03-20T02:05:20.448Z]   SKIP (AI claimed): https://www.wst.co.il
+[2026-03-20T02:05:20.448Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T02:05:20.448Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T02:05:20.448Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T02:05:20.448Z] ── Step 3: Final dedup ──
+[2026-03-20T02:05:20.448Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T02:05:20.448Z] ── FINAL RESULT ──
+[2026-03-20T02:05:20.449Z]   ws (1):
+[2026-03-20T02:05:20.449Z]     - https://www.scent.co.il
+[2026-03-20T02:05:20.449Z]   fb (1):
+[2026-03-20T02:05:20.449Z]     - https://www.facebook.com/whitescenthome
+[2026-03-20T02:05:20.449Z]   ig (1):
+[2026-03-20T02:05:20.449Z]     - https://www.instagram.com/whitescent_home
+[2026-03-20T02:05:20.450Z]   tt (1):
+[2026-03-20T02:05:20.450Z]     - https://www.tiktok.com/@whitescent_home
+[2026-03-20T02:05:20.450Z]   urls (1):
+[2026-03-20T02:05:20.450Z]     - https://www.wst.co.il
+[2026-03-20T02:05:20.451Z] Summary: ws:1, fb:1, ig:1, tt:1, urls:1
+[2026-03-20T02:05:20.451Z] Saved final result to result.json
+[2026-03-20T02:05:20.452Z] Override fields: ws, fb, ig, tt, urls
+[2026-03-20T02:05:20.452Z] Finished at: 2026-03-20T02:05:20.452Z

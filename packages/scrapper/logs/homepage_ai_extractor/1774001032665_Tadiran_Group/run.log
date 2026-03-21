@@ -1,0 +1,70 @@
+[2026-03-20T10:03:52.666Z] === Homepage AI Extractor: Tadiran Group ===
+[2026-03-20T10:03:52.666Z] Started at: 2026-03-20T10:03:52.666Z
+[2026-03-20T10:03:52.666Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774001032665_Tadiran_Group
+[2026-03-20T10:03:52.666Z] Company: Tadiran Group
+[2026-03-20T10:03:52.666Z] Website: tadiran-international.com
+[2026-03-20T10:03:52.666Z] cbRank: 2867505
+[2026-03-20T10:03:52.666Z] Reasons: h
+[2026-03-20T10:03:52.666Z] Fetching: https://tadiran-international.com
+[2026-03-20T10:04:00.052Z] Redirected: https://tadiran-international.com -> https://tadiran-international.com/
+[2026-03-20T10:04:00.060Z] Saved HTML (290805 bytes) to page.html
+[2026-03-20T10:04:00.063Z] Extracted 21 unique links from page
+[2026-03-20T10:04:00.064Z] Saved 21 links to links.json
+[2026-03-20T10:04:00.067Z] Extracted footer HTML (5286 chars)
+[2026-03-20T10:04:00.067Z] Extracted header HTML (3782 chars)
+[2026-03-20T10:04:00.071Z] Website (post-redirect): https://tadiran-international.com/ → origin: https://tadiran-international.com
+[2026-03-20T10:04:00.072Z] External links: 3 (of 21 total)
+[2026-03-20T10:04:00.072Z] ── All external links ──
+[2026-03-20T10:04:00.072Z]   EXT: https://www.facebook.com/TadiranInternational
+[2026-03-20T10:04:00.072Z]   EXT: https://www.linkedin.com/company/tadiran-international
+[2026-03-20T10:04:00.072Z]   EXT: https://www.youtube.com/channel/UCqhlfkSkismpC3Aoyx3MWEQ
+[2026-03-20T10:04:00.072Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T10:04:00.072Z]   REGEX: fb <- https://www.facebook.com/TadiranInternational
+[2026-03-20T10:04:00.072Z]   REGEX: li <- https://www.linkedin.com/company/tadiran-international
+[2026-03-20T10:04:00.072Z]   REGEX: ytc <- https://www.youtube.com/channel/UCqhlfkSkismpC3Aoyx3MWEQ
+[2026-03-20T10:04:00.072Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-20T10:04:00.073Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T10:04:00.076Z] Saved AI prompt (4845 chars) to ai_prompt.txt
+[2026-03-20T10:04:00.076Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T10:04:00.079Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T10:04:18.809Z]   AI: First token received, streaming...
+[2026-03-20T10:04:28.200Z] AI response complete: 158 chars in 28.1s
+[2026-03-20T10:04:28.201Z] Saved AI response to ai_response.json
+[2026-03-20T10:04:28.201Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T10:04:28.202Z]   AI LINK: https://www.linkedin.com/company/tadiran-international/
+[2026-03-20T10:04:28.202Z]   AI LINK: https://www.youtube.com/channel/UCqhlfkSkismpC3Aoyx3MWEQ
+[2026-03-20T10:04:28.202Z]   AI LINK: https://www.facebook.com/TadiranInternational
+[2026-03-20T10:04:28.202Z] AI returned 3 valid links
+[2026-03-20T10:04:28.202Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T10:04:28.202Z]   AI→REGEX: li <- https://www.linkedin.com/company/tadiran-international/ (duplicate, skipped)
+[2026-03-20T10:04:28.203Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCqhlfkSkismpC3Aoyx3MWEQ (duplicate, skipped)
+[2026-03-20T10:04:28.203Z]   AI→REGEX: fb <- https://www.facebook.com/TadiranInternational (duplicate, skipped)
+[2026-03-20T10:04:28.204Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T10:04:28.204Z] Footer/header origins (5):
+[2026-03-20T10:04:28.204Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T10:04:28.204Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T10:04:28.204Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T10:04:28.204Z]   FOOTER/HEADER ORIGIN: https://tadiran-international.com
+[2026-03-20T10:04:28.204Z]   FOOTER/HEADER ORIGIN: https://www.tadiran-international.com
+[2026-03-20T10:04:28.204Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T10:04:28.204Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T10:04:28.205Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-20T10:04:28.607Z]   YOUTUBE: resolved UCqhlfkSkismpC3Aoyx3MWEQ → @tadiran-international2777
+[2026-03-20T10:04:28.607Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-20T10:04:28.607Z] ── Step 3: Final dedup ──
+[2026-03-20T10:04:28.607Z] No urls to dedup
+[2026-03-20T10:04:28.607Z] ── FINAL RESULT ──
+[2026-03-20T10:04:28.607Z]   ws (1):
+[2026-03-20T10:04:28.607Z]     - https://tadiran-international.com
+[2026-03-20T10:04:28.607Z]   li (1):
+[2026-03-20T10:04:28.607Z]     - https://www.linkedin.com/company/tadiran-international
+[2026-03-20T10:04:28.608Z]   fb (1):
+[2026-03-20T10:04:28.608Z]     - https://www.facebook.com/tadiraninternational
+[2026-03-20T10:04:28.608Z]   ytp (1):
+[2026-03-20T10:04:28.608Z]     - https://www.youtube.com/@tadiran-international2777
+[2026-03-20T10:04:28.608Z]   ytc (1):
+[2026-03-20T10:04:28.608Z]     - https://www.youtube.com/channel/UCqhlfkSkismpC3Aoyx3MWEQ
+[2026-03-20T10:04:28.608Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-20T10:04:28.609Z] Saved final result to result.json
+[2026-03-20T10:04:28.609Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-20T10:04:28.609Z] Finished at: 2026-03-20T10:04:28.609Z

@@ -1,0 +1,99 @@
+[2026-03-19T06:05:35.709Z] === Homepage AI Extractor: Amber ===
+[2026-03-19T06:05:35.709Z] Started at: 2026-03-19T06:05:35.709Z
+[2026-03-19T06:05:35.709Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773900335708_Amber
+[2026-03-19T06:05:35.709Z] Company: Amber
+[2026-03-19T06:05:35.710Z] Website: ambar.co.il
+[2026-03-19T06:05:35.710Z] cbRank: 1965071
+[2026-03-19T06:05:35.710Z] Reasons: h
+[2026-03-19T06:05:35.710Z] Fetching: https://ambar.co.il
+[2026-03-19T06:05:46.285Z] Network idle timeout — continuing with current state
+[2026-03-19T06:05:46.318Z] Redirected: https://ambar.co.il -> https://ambar.co.il/
+[2026-03-19T06:05:46.324Z] Saved HTML (223466 bytes) to page.html
+[2026-03-19T06:05:46.327Z] Extracted 57 unique links from page
+[2026-03-19T06:05:46.327Z] Saved 57 links to links.json
+[2026-03-19T06:05:46.330Z] Extracted footer HTML (10746 chars)
+[2026-03-19T06:05:46.330Z] Extracted header HTML (9736 chars)
+[2026-03-19T06:05:46.335Z] Website (post-redirect): https://ambar.co.il/ → origin: https://ambar.co.il
+[2026-03-19T06:05:46.335Z] External links: 9 (of 57 total)
+[2026-03-19T06:05:46.335Z] ── All external links ──
+[2026-03-19T06:05:46.335Z]   EXT: http://ambar.gnf-it.com/Account/Login
+[2026-03-19T06:05:46.335Z]   EXT: http://www.ozglobalb2b.com
+[2026-03-19T06:05:46.335Z]   EXT: https://ambfin.gnf.co.il
+[2026-03-19T06:05:46.335Z]   EXT: https://ambfin.gnf.co.il/Login
+[2026-03-19T06:05:46.335Z]   EXT: https://ambord.gnf.co.il
+[2026-03-19T06:05:46.336Z]   EXT: https://ambord.gnf.co.il/Account/Login
+[2026-03-19T06:05:46.336Z]   EXT: https://www.facebook.com/ambar.feed.mill
+[2026-03-19T06:05:46.336Z]   EXT: https://www.linkedin.com/company/ambarmill
+[2026-03-19T06:05:46.336Z]   EXT: https://www.youtube.com/channel/UCH0ta9f8NaVGX36j-HhxRtQ
+[2026-03-19T06:05:46.336Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T06:05:46.336Z]   UNCATEGORIZED: http://ambar.gnf-it.com/Account/Login
+[2026-03-19T06:05:46.336Z]   UNCATEGORIZED: http://www.ozglobalb2b.com
+[2026-03-19T06:05:46.336Z]   UNCATEGORIZED: https://ambfin.gnf.co.il
+[2026-03-19T06:05:46.336Z]   UNCATEGORIZED: https://ambfin.gnf.co.il/Login
+[2026-03-19T06:05:46.336Z]   UNCATEGORIZED: https://ambord.gnf.co.il
+[2026-03-19T06:05:46.336Z]   UNCATEGORIZED: https://ambord.gnf.co.il/Account/Login
+[2026-03-19T06:05:46.336Z]   REGEX: fb <- https://www.facebook.com/ambar.feed.mill
+[2026-03-19T06:05:46.337Z]   REGEX: li <- https://www.linkedin.com/company/ambarmill
+[2026-03-19T06:05:46.337Z]   REGEX: ytc <- https://www.youtube.com/channel/UCH0ta9f8NaVGX36j-HhxRtQ
+[2026-03-19T06:05:46.337Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 6 uncategorized
+[2026-03-19T06:05:46.337Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T06:05:46.340Z] Saved AI prompt (8485 chars) to ai_prompt.txt
+[2026-03-19T06:05:46.341Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T06:05:46.344Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T06:06:31.656Z]   AI: First token received, streaming...
+[2026-03-19T06:06:41.610Z] AI response complete: 142 chars in 55.3s
+[2026-03-19T06:06:41.611Z] Saved AI response to ai_response.json
+[2026-03-19T06:06:41.612Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T06:06:41.612Z]   AI LINK: https://www.youtube.com/channel/UCH0ta9f8NaVGX36j-HhxRtQ
+[2026-03-19T06:06:41.612Z]   AI LINK: https://www.facebook.com/ambar.feed.mill/
+[2026-03-19T06:06:41.612Z]   AI LINK: https://www.linkedin.com/company/ambarmill/
+[2026-03-19T06:06:41.612Z] AI returned 3 valid links
+[2026-03-19T06:06:41.612Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T06:06:41.613Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCH0ta9f8NaVGX36j-HhxRtQ (duplicate, skipped)
+[2026-03-19T06:06:41.613Z]   AI→REGEX: fb <- https://www.facebook.com/ambar.feed.mill/ (duplicate, skipped)
+[2026-03-19T06:06:41.613Z]   AI→REGEX: li <- https://www.linkedin.com/company/ambarmill/ (duplicate, skipped)
+[2026-03-19T06:06:41.614Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T06:06:41.614Z] Footer/header origins (8):
+[2026-03-19T06:06:41.614Z]   FOOTER/HEADER ORIGIN: https://ambar.co.il
+[2026-03-19T06:06:41.614Z]   FOOTER/HEADER ORIGIN: http://ambar.gnf-it.com
+[2026-03-19T06:06:41.614Z]   FOOTER/HEADER ORIGIN: https://ambfin.gnf.co.il
+[2026-03-19T06:06:41.614Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T06:06:41.615Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T06:06:41.615Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T06:06:41.615Z]   FOOTER/HEADER ORIGIN: http://www.ozglobalb2b.com
+[2026-03-19T06:06:41.615Z]   FOOTER/HEADER ORIGIN: https://ambord.gnf.co.il
+[2026-03-19T06:06:41.615Z]   ADDED: urls <- http://ambar.gnf-it.com/Account/Login
+[2026-03-19T06:06:41.615Z]   ADDED: urls <- http://www.ozglobalb2b.com
+[2026-03-19T06:06:41.615Z]   ADDED: urls <- https://ambfin.gnf.co.il
+[2026-03-19T06:06:41.616Z]   ADDED: urls <- https://ambfin.gnf.co.il/Login
+[2026-03-19T06:06:41.616Z]   ADDED: urls <- https://ambord.gnf.co.il
+[2026-03-19T06:06:41.616Z]   ADDED: urls <- https://ambord.gnf.co.il/Account/Login
+[2026-03-19T06:06:41.616Z] Step 2b result: added 6 uncategorized domains from footer/header
+[2026-03-19T06:06:41.616Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T06:06:41.617Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T06:06:41.916Z]   YOUTUBE: resolved UCH0ta9f8NaVGX36j-HhxRtQ → @%D7%90%D7%9E%D7%91%D7%A8-%D7%AA4%D7%96
+[2026-03-19T06:06:41.917Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T06:06:41.917Z] ── Step 3: Final dedup ──
+[2026-03-19T06:06:41.917Z] Dedup: removed 0 of 6 URLs already in specialized fields
+[2026-03-19T06:06:41.917Z] ── FINAL RESULT ──
+[2026-03-19T06:06:41.917Z]   ws (1):
+[2026-03-19T06:06:41.917Z]     - https://ambar.co.il
+[2026-03-19T06:06:41.917Z]   li (1):
+[2026-03-19T06:06:41.917Z]     - https://www.linkedin.com/company/ambarmill
+[2026-03-19T06:06:41.917Z]   fb (1):
+[2026-03-19T06:06:41.917Z]     - https://www.facebook.com/ambar.feed.mill
+[2026-03-19T06:06:41.917Z]   ytp (1):
+[2026-03-19T06:06:41.917Z]     - https://www.youtube.com/@%D7%90%D7%9E%D7%91%D7%A8-%D7%AA4%D7%96
+[2026-03-19T06:06:41.917Z]   ytc (1):
+[2026-03-19T06:06:41.917Z]     - https://www.youtube.com/channel/UCH0ta9f8NaVGX36j-HhxRtQ
+[2026-03-19T06:06:41.918Z]   urls (6):
+[2026-03-19T06:06:41.918Z]     - http://ambar.gnf-it.com/Account/Login
+[2026-03-19T06:06:41.918Z]     - http://www.ozglobalb2b.com
+[2026-03-19T06:06:41.918Z]     - https://ambfin.gnf.co.il
+[2026-03-19T06:06:41.918Z]     - https://ambfin.gnf.co.il/Login
+[2026-03-19T06:06:41.918Z]     - https://ambord.gnf.co.il
+[2026-03-19T06:06:41.918Z]     - https://ambord.gnf.co.il/Account/Login
+[2026-03-19T06:06:41.918Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:6, ytp:1
+[2026-03-19T06:06:41.918Z] Saved final result to result.json
+[2026-03-19T06:06:41.919Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-19T06:06:41.919Z] Finished at: 2026-03-19T06:06:41.919Z

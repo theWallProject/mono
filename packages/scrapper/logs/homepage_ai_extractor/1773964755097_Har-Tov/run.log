@@ -1,0 +1,78 @@
+[2026-03-19T23:59:15.098Z] === Homepage AI Extractor: Har-Tov ===
+[2026-03-19T23:59:15.098Z] Started at: 2026-03-19T23:59:15.098Z
+[2026-03-19T23:59:15.098Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773964755097_Har-Tov
+[2026-03-19T23:59:15.098Z] Company: Har-Tov
+[2026-03-19T23:59:15.098Z] Website: har-tov.com
+[2026-03-19T23:59:15.098Z] cbRank: 2495463
+[2026-03-19T23:59:15.098Z] Reasons: h
+[2026-03-19T23:59:15.098Z] Fetching: https://har-tov.com
+[2026-03-19T23:59:25.916Z] Network idle timeout — continuing with current state
+[2026-03-19T23:59:25.949Z] Redirected: https://har-tov.com -> https://www.har-tov.com/
+[2026-03-19T23:59:25.961Z] Saved HTML (442369 bytes) to page.html
+[2026-03-19T23:59:25.964Z] Extracted 11 unique links from page
+[2026-03-19T23:59:25.964Z] Saved 11 links to links.json
+[2026-03-19T23:59:25.967Z] Extracted footer HTML (7043 chars)
+[2026-03-19T23:59:25.967Z] Extracted header HTML (12313 chars)
+[2026-03-19T23:59:25.970Z] Website (post-redirect): https://www.har-tov.com/ → origin: https://www.har-tov.com
+[2026-03-19T23:59:25.970Z] External links: 3 (of 11 total)
+[2026-03-19T23:59:25.970Z] ── All external links ──
+[2026-03-19T23:59:25.971Z]   EXT: http://www.facebook.com/hartovltd
+[2026-03-19T23:59:25.971Z]   EXT: http://www.hartovcnc.com
+[2026-03-19T23:59:25.971Z]   EXT: http://www.yoshpecrew.com
+[2026-03-19T23:59:25.971Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T23:59:25.971Z]   REGEX: fb <- http://www.facebook.com/hartovltd
+[2026-03-19T23:59:25.971Z]   UNCATEGORIZED: http://www.hartovcnc.com
+[2026-03-19T23:59:25.971Z]   UNCATEGORIZED: http://www.yoshpecrew.com
+[2026-03-19T23:59:25.971Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-19T23:59:25.971Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T23:59:25.972Z] Saved AI prompt (6889 chars) to ai_prompt.txt
+[2026-03-19T23:59:25.972Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T23:59:25.975Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T00:00:02.633Z]   AI: First token received, streaming...
+[2026-03-20T00:00:16.091Z] AI response complete: 193 chars in 50.1s
+[2026-03-20T00:00:16.092Z] Saved AI response to ai_response.json
+[2026-03-20T00:00:16.093Z] ── Parsing AI response (6 lines) ──
+[2026-03-20T00:00:16.093Z]   AI LINK: http://www.hartovcnc.com
+[2026-03-20T00:00:16.093Z]   AI LINK: http://www.facebook.com/hartovltd
+[2026-03-20T00:00:16.093Z]   AI LINK: https://www.har-tov.com/our-prodacts
+[2026-03-20T00:00:16.093Z]   AI LINK: https://www.har-tov.com/equipment
+[2026-03-20T00:00:16.094Z]   AI LINK: https://www.har-tov.com/aboutus
+[2026-03-20T00:00:16.094Z]   AI LINK: https://www.har-tov.com/support
+[2026-03-20T00:00:16.094Z] AI returned 6 valid links
+[2026-03-20T00:00:16.094Z] ── Categorizing 6 AI-returned links ──
+[2026-03-20T00:00:16.094Z]   AI→URLS: http://www.hartovcnc.com
+[2026-03-20T00:00:16.094Z]   AI→REGEX: fb <- http://www.facebook.com/hartovltd (duplicate, skipped)
+[2026-03-20T00:00:16.095Z]   AI→URLS: https://www.har-tov.com/our-prodacts
+[2026-03-20T00:00:16.095Z]   AI→URLS: https://www.har-tov.com/equipment
+[2026-03-20T00:00:16.095Z]   AI→URLS: https://www.har-tov.com/aboutus
+[2026-03-20T00:00:16.095Z]   AI→URLS: https://www.har-tov.com/support
+[2026-03-20T00:00:16.095Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T00:00:16.095Z] Footer/header origins (5):
+[2026-03-20T00:00:16.096Z]   FOOTER/HEADER ORIGIN: http://www.yoshpecrew.com
+[2026-03-20T00:00:16.096Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-20T00:00:16.096Z]   FOOTER/HEADER ORIGIN: https://www.har-tov.com
+[2026-03-20T00:00:16.096Z]   FOOTER/HEADER ORIGIN: http://www.har-tov.com
+[2026-03-20T00:00:16.096Z]   FOOTER/HEADER ORIGIN: http://www.hartovcnc.com
+[2026-03-20T00:00:16.096Z]   SKIP (AI claimed): http://www.hartovcnc.com
+[2026-03-20T00:00:16.096Z]   ADDED: urls <- http://www.yoshpecrew.com
+[2026-03-20T00:00:16.096Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T00:00:16.096Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T00:00:16.097Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T00:00:16.097Z] ── Step 3: Final dedup ──
+[2026-03-20T00:00:16.097Z] Dedup: removed 0 of 6 URLs already in specialized fields
+[2026-03-20T00:00:16.097Z] ── FINAL RESULT ──
+[2026-03-20T00:00:16.097Z]   ws (1):
+[2026-03-20T00:00:16.097Z]     - https://www.har-tov.com
+[2026-03-20T00:00:16.097Z]   fb (1):
+[2026-03-20T00:00:16.097Z]     - https://www.facebook.com/hartovltd
+[2026-03-20T00:00:16.097Z]   urls (6):
+[2026-03-20T00:00:16.097Z]     - http://www.hartovcnc.com
+[2026-03-20T00:00:16.097Z]     - http://www.yoshpecrew.com
+[2026-03-20T00:00:16.098Z]     - https://www.har-tov.com/aboutus
+[2026-03-20T00:00:16.098Z]     - https://www.har-tov.com/equipment
+[2026-03-20T00:00:16.098Z]     - https://www.har-tov.com/our-prodacts
+[2026-03-20T00:00:16.098Z]     - https://www.har-tov.com/support
+[2026-03-20T00:00:16.098Z] Summary: ws:1, fb:1, urls:6
+[2026-03-20T00:00:16.099Z] Saved final result to result.json
+[2026-03-20T00:00:16.099Z] Override fields: ws, fb, urls
+[2026-03-20T00:00:16.100Z] Finished at: 2026-03-20T00:00:16.100Z

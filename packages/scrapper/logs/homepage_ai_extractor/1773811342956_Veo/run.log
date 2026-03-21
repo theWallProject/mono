@@ -1,0 +1,69 @@
+[2026-03-18T05:22:22.956Z] === Homepage AI Extractor: Veo ===
+[2026-03-18T05:22:22.956Z] Started at: 2026-03-18T05:22:22.956Z
+[2026-03-18T05:22:22.956Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773811342956_Veo
+[2026-03-18T05:22:22.956Z] Company: Veo
+[2026-03-18T05:22:22.956Z] Website: veo.co.il
+[2026-03-18T05:22:22.956Z] cbRank: 1525151
+[2026-03-18T05:22:22.956Z] Reasons: h
+[2026-03-18T05:22:22.957Z] Fetching: https://veo.co.il
+[2026-03-18T05:22:27.624Z] Redirected: https://veo.co.il -> https://veo.co.il/
+[2026-03-18T05:22:27.629Z] Saved HTML (164279 bytes) to page.html
+[2026-03-18T05:22:27.632Z] Extracted 19 unique links from page
+[2026-03-18T05:22:27.633Z] Saved 19 links to links.json
+[2026-03-18T05:22:27.635Z] Extracted footer HTML (5769 chars)
+[2026-03-18T05:22:27.635Z] Extracted header HTML (6775 chars)
+[2026-03-18T05:22:27.638Z] Website (post-redirect): https://veo.co.il/ → origin: https://veo.co.il
+[2026-03-18T05:22:27.639Z] External links: 4 (of 19 total)
+[2026-03-18T05:22:27.639Z] ── All external links ──
+[2026-03-18T05:22:27.639Z]   EXT: http://san-i.co.il
+[2026-03-18T05:22:27.639Z]   EXT: https://www.facebook.com/veosmartvideo
+[2026-03-18T05:22:27.639Z]   EXT: https://www.linkedin.com/company/veo---smart-video
+[2026-03-18T05:22:27.639Z]   EXT: https://www.youtube.com/channel/UCDO1UZbbsWPn1z2S_mnuZZg
+[2026-03-18T05:22:27.639Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T05:22:27.639Z]   UNCATEGORIZED: http://san-i.co.il
+[2026-03-18T05:22:27.640Z]   REGEX: fb <- https://www.facebook.com/veosmartvideo
+[2026-03-18T05:22:27.640Z]   REGEX: li <- https://www.linkedin.com/company/veo---smart-video
+[2026-03-18T05:22:27.640Z]   REGEX: ytc <- https://www.youtube.com/channel/UCDO1UZbbsWPn1z2S_mnuZZg
+[2026-03-18T05:22:27.640Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-18T05:22:27.640Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T05:22:27.641Z] Saved AI prompt (4404 chars) to ai_prompt.txt
+[2026-03-18T05:22:27.641Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T05:22:27.644Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T05:22:44.976Z]   AI: First token received, streaming...
+[2026-03-18T05:22:44.978Z] AI response complete: 17 chars in 17.3s
+[2026-03-18T05:22:44.979Z] Saved AI response to ai_response.json
+[2026-03-18T05:22:44.980Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T05:22:44.980Z]   AI LINK: https://veo.co.il
+[2026-03-18T05:22:44.980Z] AI returned 1 valid links
+[2026-03-18T05:22:44.980Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T05:22:44.980Z]   AI→URLS: https://veo.co.il
+[2026-03-18T05:22:44.981Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T05:22:44.981Z] Footer/header origins (2):
+[2026-03-18T05:22:44.982Z]   FOOTER/HEADER ORIGIN: https://veo.co.il
+[2026-03-18T05:22:44.982Z]   FOOTER/HEADER ORIGIN: http://san-i.co.il
+[2026-03-18T05:22:44.982Z]   ADDED: urls <- http://san-i.co.il
+[2026-03-18T05:22:44.982Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T05:22:44.982Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T05:22:44.983Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T05:22:45.260Z]   YOUTUBE: resolved UCDO1UZbbsWPn1z2S_mnuZZg → @veo-videocontentcreativeag2543
+[2026-03-18T05:22:45.261Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T05:22:45.261Z] ── Step 3: Final dedup ──
+[2026-03-18T05:22:45.261Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T05:22:45.261Z] ── FINAL RESULT ──
+[2026-03-18T05:22:45.261Z]   ws (1):
+[2026-03-18T05:22:45.261Z]     - https://veo.co.il
+[2026-03-18T05:22:45.261Z]   li (1):
+[2026-03-18T05:22:45.262Z]     - https://www.linkedin.com/company/veo---smart-video
+[2026-03-18T05:22:45.262Z]   fb (1):
+[2026-03-18T05:22:45.262Z]     - https://www.facebook.com/veosmartvideo
+[2026-03-18T05:22:45.262Z]   ytp (1):
+[2026-03-18T05:22:45.262Z]     - https://www.youtube.com/@veo-videocontentcreativeag2543
+[2026-03-18T05:22:45.262Z]   ytc (1):
+[2026-03-18T05:22:45.262Z]     - https://www.youtube.com/channel/UCDO1UZbbsWPn1z2S_mnuZZg
+[2026-03-18T05:22:45.262Z]   urls (2):
+[2026-03-18T05:22:45.262Z]     - http://san-i.co.il
+[2026-03-18T05:22:45.262Z]     - https://veo.co.il
+[2026-03-18T05:22:45.262Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-18T05:22:45.263Z] Saved final result to result.json
+[2026-03-18T05:22:45.263Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-18T05:22:45.263Z] Finished at: 2026-03-18T05:22:45.263Z

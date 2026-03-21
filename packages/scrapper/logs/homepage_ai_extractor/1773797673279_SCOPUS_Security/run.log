@@ -1,0 +1,63 @@
+[2026-03-18T01:34:33.279Z] === Homepage AI Extractor: SCOPUS Security ===
+[2026-03-18T01:34:33.279Z] Started at: 2026-03-18T01:34:33.279Z
+[2026-03-18T01:34:33.279Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773797673279_SCOPUS_Security
+[2026-03-18T01:34:33.279Z] Company: SCOPUS Security
+[2026-03-18T01:34:33.279Z] Website: scopussecurity.com
+[2026-03-18T01:34:33.279Z] cbRank: 1410554
+[2026-03-18T01:34:33.279Z] Reasons: h
+[2026-03-18T01:34:33.279Z] Fetching: https://scopussecurity.com
+[2026-03-18T01:34:35.418Z] Redirected: https://scopussecurity.com -> https://scopussecurity.com/
+[2026-03-18T01:34:35.422Z] Saved HTML (86152 bytes) to page.html
+[2026-03-18T01:34:35.425Z] Extracted 28 unique links from page
+[2026-03-18T01:34:35.426Z] Saved 28 links to links.json
+[2026-03-18T01:34:35.428Z] No footer section found in DOM
+[2026-03-18T01:34:35.428Z] Extracted header HTML (6510 chars)
+[2026-03-18T01:34:35.431Z] Website (post-redirect): https://scopussecurity.com/ → origin: https://scopussecurity.com
+[2026-03-18T01:34:35.431Z] External links: 4 (of 28 total)
+[2026-03-18T01:34:35.431Z] ── All external links ──
+[2026-03-18T01:34:35.431Z]   EXT: https://www.bee-creations.com
+[2026-03-18T01:34:35.431Z]   EXT: https://www.facebook.com/Scopus-Security-Solutions-201647413183593
+[2026-03-18T01:34:35.432Z]   EXT: https://www.linkedin.com/company/scopus-security-solutions
+[2026-03-18T01:34:35.432Z]   EXT: https://www.youtube.com/channel/UCLpCFoSc2H9e00xnLzK3EVA
+[2026-03-18T01:34:35.432Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T01:34:35.432Z]   UNCATEGORIZED: https://www.bee-creations.com
+[2026-03-18T01:34:35.432Z]   REGEX: fb <- https://www.facebook.com/Scopus-Security-Solutions-201647413183593
+[2026-03-18T01:34:35.432Z]   REGEX: li <- https://www.linkedin.com/company/scopus-security-solutions
+[2026-03-18T01:34:35.432Z]   REGEX: ytc <- https://www.youtube.com/channel/UCLpCFoSc2H9e00xnLzK3EVA
+[2026-03-18T01:34:35.432Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-18T01:34:35.432Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T01:34:35.435Z] Saved AI prompt (1983 chars) to ai_prompt.txt
+[2026-03-18T01:34:35.435Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T01:34:35.439Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T01:34:40.892Z]   AI: AI returned empty response (263 raw bytes) — model produced no tokens
+[2026-03-18T01:34:40.892Z] AI response complete: 0 chars in 5.5s
+[2026-03-18T01:34:40.894Z] Saved AI response to ai_response.json
+[2026-03-18T01:34:40.894Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T01:34:40.894Z] AI returned 0 valid links
+[2026-03-18T01:34:40.894Z] ── Categorizing 0 AI-returned links ──
+[2026-03-18T01:34:40.895Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T01:34:40.895Z] Footer/header origins (1):
+[2026-03-18T01:34:40.895Z]   FOOTER/HEADER ORIGIN: https://scopussecurity.com
+[2026-03-18T01:34:40.895Z]   SKIP (not in footer/header): https://www.bee-creations.com
+[2026-03-18T01:34:40.896Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T01:34:40.896Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T01:34:40.896Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T01:34:41.149Z]   YOUTUBE: resolved UCLpCFoSc2H9e00xnLzK3EVA → @scopussecurityltd5631
+[2026-03-18T01:34:41.149Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T01:34:41.149Z] ── Step 3: Final dedup ──
+[2026-03-18T01:34:41.149Z] No urls to dedup
+[2026-03-18T01:34:41.149Z] ── FINAL RESULT ──
+[2026-03-18T01:34:41.149Z]   ws (1):
+[2026-03-18T01:34:41.149Z]     - https://scopussecurity.com
+[2026-03-18T01:34:41.149Z]   li (1):
+[2026-03-18T01:34:41.149Z]     - https://www.linkedin.com/company/scopus-security-solutions
+[2026-03-18T01:34:41.149Z]   fb (1):
+[2026-03-18T01:34:41.149Z]     - https://www.facebook.com/scopus-security-solutions-201647413183593
+[2026-03-18T01:34:41.150Z]   ytp (1):
+[2026-03-18T01:34:41.150Z]     - https://www.youtube.com/@scopussecurityltd5631
+[2026-03-18T01:34:41.150Z]   ytc (1):
+[2026-03-18T01:34:41.150Z]     - https://www.youtube.com/channel/UCLpCFoSc2H9e00xnLzK3EVA
+[2026-03-18T01:34:41.150Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-18T01:34:41.150Z] Saved final result to result.json
+[2026-03-18T01:34:41.151Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-18T01:34:41.151Z] Finished at: 2026-03-18T01:34:41.151Z

@@ -1,0 +1,733 @@
+<!DOCTYPE html><html lang="en" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><style type="text/css">.uploadcare--jcrop-handle{background:transparent;box-sizing:border-box;height:45px;padding:12.5px;width:45px;z-index:2147483621}.uploadcare--jcrop-handle:before{background:#fff;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);content:"";display:block;height:20px;width:20px}@media (min-width:760px){.uploadcare--jcrop-handle:before{height:15px;width:15px}}.uploadcare--jcrop-handle.ord-nw{left:0;margin-left:-22.5px;margin-top:-22.5px;top:0}@media (min-width:760px){.uploadcare--jcrop-handle.ord-nw{margin-left:-17.5px;margin-top:-17.5px}}.uploadcare--jcrop-handle.ord-ne{margin-right:-22.5px;margin-top:-22.5px;right:0;top:0}@media (min-width:760px){.uploadcare--jcrop-handle.ord-ne{margin-right:-17.5px;margin-top:-17.5px}}.uploadcare--jcrop-handle.ord-se{bottom:0;margin-bottom:-22.5px;margin-right:-22.5px;right:0}@media (min-width:760px){.uploadcare--jcrop-handle.ord-se{margin-bottom:-17.5px;margin-right:-17.5px}}.uploadcare--jcrop-handle.ord-sw{bottom:0;left:0;margin-bottom:-22.5px;margin-left:-22.5px}@media (min-width:760px){.uploadcare--jcrop-handle.ord-sw{margin-bottom:-17.5px;margin-left:-17.5px}.uploadcare--jcrop-handle{height:35px;padding:10px;width:35px}}.uploadcare--jcrop-hline{background-color:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.2);height:1px!important;width:100%;z-index:2147483620}.uploadcare--jcrop-hline.bottom{bottom:0}.uploadcare--jcrop-vline{background-color:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.2);height:100%;width:1px!important;z-index:2147483620}.uploadcare--jcrop-vline.right{right:0}.uploadcare--jcrop-tracker{height:100%;width:100%;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.uploadcare--jcrop-holder img{max-height:none;max-width:none}.uploadcare--text{font-size:17.5px;line-height:25px;margin:0 0 10px;padding:0}.uploadcare--text:empty{display:none}.uploadcare--text_muted{color:#a4a2a1}.uploadcare--text_pre{background:#e3e1e1;box-sizing:border-box;font-family:monospace;max-width:100%;overflow-x:auto;padding:20px;text-align:left;white-space:pre}.uploadcare--text_size_small{font-size:15px;line-height:20px}.uploadcare--text_size_medium{font-size:20px;font-weight:700;line-height:25px}.uploadcare--text_size_large{font-size:22px;font-weight:700;line-height:25px}.uploadcare--text_size_extra-large{font-size:35px;line-height:45px}@media (min-width:760px){.uploadcare--text_size_extra-large{font-size:42.5px;line-height:50px}}.uploadcare--icon{all:initial;color:inherit;fill:currentColor;cursor:inherit;height:32px;margin:0;max-width:100%;padding:0;width:32px}.uploadcare--link,.uploadcare--link:link,.uploadcare--link:visited{color:#157cfc;cursor:pointer;text-decoration:underline}.uploadcare--link:focus,.uploadcare--link:hover{color:#3891ff;text-decoration:none}.uploadcare--link:focus{outline:2px solid rgba(21,124,252,.5);outline-offset:1px}.uploadcare--link:active{color:#0969ee}.uploadcare--button{all:initial;-ms-flex-negative:0;background:transparent;border:1px solid #157cfc;border-radius:6px;box-shadow:none;box-sizing:border-box;color:#157cfc;cursor:default;display:inline-block;flex-shrink:0;font-family:inherit;font-size:15px;font-style:normal;font-weight:400;height:auto;line-height:20px;margin:0;min-height:0;min-width:100px;overflow:hidden;padding:10px;text-align:center;text-overflow:ellipsis;text-shadow:none;transition:background .3s,color .3s,border .3s;white-space:nowrap;width:auto}.uploadcare--button svg{pointer-events:none}.uploadcare--button:focus,.uploadcare--button:hover{background:transparent;border-color:#3891ff;box-shadow:none;color:#3891ff;font-style:normal;font-weight:400;text-shadow:none}.uploadcare--button:focus{outline:2px solid rgba(21,124,252,.5);outline-offset:1px}.uploadcare--button:active{border-color:#0969ee;color:#0969ee}.uploadcare--button:disabled,.uploadcare--button[aria-disabled=true]{background:transparent!important;border-color:#d4d2d2!important;color:#d4d2d2!important;cursor:not-allowed}@media (min-width:760px){.uploadcare--button{font-size:17.5px;line-height:25px;padding:10px 20px}}.uploadcare--button_icon{height:60px;min-width:0;padding:14px;width:60px}.uploadcare--button_muted{border-color:transparent!important;border-radius:0;color:#a4a2a1}.uploadcare--button_muted:focus,.uploadcare--button_muted:hover{color:#157cfc}.uploadcare--button_muted:disabled,.uploadcare--button_muted[aria-disabled=true]{border-color:transparent!important}.uploadcare--button_overlay{background:rgba(53,53,53,.5);border-color:transparent;color:#fff}.uploadcare--button_overlay:focus,.uploadcare--button_overlay:hover{background:hsla(0,0%,40%,.5);border-color:transparent;color:#fff}.uploadcare--button_overlay:active{background:rgba(33,33,33,.5)}.uploadcare--button_primary{background:#157cfc;border-color:#157cfc;color:#fff}.uploadcare--button_primary:focus,.uploadcare--button_primary:hover{background:#3891ff;border-color:#3891ff;color:#fff}.uploadcare--button_primary:active{background:#0969ee;border-color:#0969ee}.uploadcare--button_primary:disabled,.uploadcare--button_primary[aria-disabled=true]{background:#d4d2d2!important;border-color:#d4d2d2!important;color:#fff!important}.uploadcare--button_size_big{font-size:20px;line-height:30px;padding:10px 25px}.uploadcare--button_size_small{font-size:15px;line-height:20px;min-width:80px;padding:5px 10px}.uploadcare--input{-webkit-appearance:none;appearance:none;-ms-flex-negative:0;background:#fff;border:1px solid #a4a2a1;border-radius:2px;box-shadow:none;box-sizing:border-box;color:#353535;display:block;flex-shrink:0;font-size:17.5px;line-height:25px;margin:5px 0 15px;padding:10px 15px;width:100%}.uploadcare--input:focus{outline:2px solid rgba(21,124,252,.5);outline-offset:1px}.uploadcare--input:-ms-input-placeholder{color:#a4a2a1}.uploadcare--input::placeholder{color:#a4a2a1}.uploadcare--form{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center;box-sizing:border-box;max-width:400px;width:100%}.uploadcare--error{color:#e66a6a}.uploadcare--powered-by{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;color:#fff;font-size:12.5px;line-height:15px;padding:7.5px 0;text-align:center}.uploadcare--powered-by__link{color:inherit!important;display:-ms-inline-flexbox;display:inline-flex;text-decoration:none!important}.uploadcare--powered-by__logo{display:-ms-inline-flexbox;display:inline-flex;height:15px;vertical-align:text-bottom;width:20px}.uploadcare--progress__canvas{height:100%;width:100%}.uploadcare--progress__text{display:table-cell;font-size:60%;line-height:1;text-align:center;vertical-align:middle}.uploadcare--progress__text-container{display:table;height:100%;white-space:normal;width:100%}.uploadcare--progress_type_canvas{border-color:#e3e1e1;color:#ffd800;height:32px;padding:2px;width:32px}.uploadcare--progressbar{background:#e3e1e1;border-radius:6px;height:100%;overflow:hidden;width:100%}.uploadcare--progressbar__value{background:#ffd800;height:100%;width:0}.uploadcare--menu{-ms-flex-negative:0;flex-shrink:0;height:100%;max-width:100%;overflow:hidden;width:100%;width:100vw}@media (max-width:759px){.uploadcare--menu{height:60px}}@media (min-width:760px){.uploadcare--menu{width:60px}}.uploadcare--menu__icon{-ms-flex-negative:0;flex-shrink:0;margin:14px}@media (max-width:759px){.uploadcare--menu:not(.uploadcare--menu_opened) .uploadcare--menu__item_current:not(.uploadcare--menu__item_tab_file) .uploadcare--menu__icon{left:50%;margin-left:0;position:absolute;top:0;transform:translateX(-50%)}}.uploadcare--menu__item{-ms-flex-negative:0;display:-ms-flexbox;display:flex;flex-shrink:0;-ms-flex-align:center;align-items:center;background:#e3e1e1;color:#666;cursor:default;height:60px;overflow:hidden;transition:background .3s,color .3s;width:100vw}.uploadcare--menu__item:focus,.uploadcare--menu__item:hover{color:#157cfc}.uploadcare--menu__item:active{background-color:#fff;color:#0969ee}.uploadcare--menu__item:focus{box-shadow:inset 0 0 0 2px rgba(21,124,252,.5);outline:none}.uploadcare--menu__item[aria-disabled=true]{background:#e3e1e1!important;color:#666!important;cursor:not-allowed}@media (min-width:760px){.uploadcare--menu__item{width:60px}}.uploadcare--menu__item:after{content:attr(title);-ms-flex-negative:0;display:-ms-flexbox;display:flex;flex-shrink:0;font-size:17px;height:30px;line-height:30px;white-space:nowrap}@media (min-width:760px){.uploadcare--menu__item:after{max-width:170px;overflow:hidden;text-overflow:ellipsis}}.uploadcare--menu__item_current,.uploadcare--menu__item_current:active,.uploadcare--menu__item_current:focus,.uploadcare--menu__item_current:hover{background-color:#fff;color:#353535}.uploadcare--menu__item_hidden{display:none}.uploadcare--menu__items{background:#e3e1e1;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;height:100%;overflow-x:hidden;overflow-y:auto;padding-right:100vw;width:100%}.uploadcare--menu__toggle{height:60px;transition:none;width:60px}.uploadcare--menu__toggle:focus{outline-offset:-2px}@media (min-width:760px){.uploadcare--menu__toggle{display:none}}@media (max-width:759px){.uploadcare--menu:not(.uploadcare--menu_opened) .uploadcare--menu__toggle-icon_back{display:none}.uploadcare--menu_opened{height:100%;position:relative;z-index:1000}.uploadcare--menu_opened .uploadcare--menu__toggle{-ms-flex-pack:start;background:#e3e1e1;justify-content:flex-start;text-align:left;width:100%}.uploadcare--menu_opened .uploadcare--menu__toggle-icon_menu{display:none}.uploadcare--menu_opened .uploadcare--menu__items{height:calc(100% - 60px)}}.uploadcare--footer{-ms-flex-negative:0;display:-ms-flexbox;display:flex;flex-shrink:0;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center;box-sizing:border-box;margin-top:10px;padding:5px 20px 15px;width:100%}@media (max-width:759px) and (orientation:portrait){.uploadcare--footer{display:block}}.uploadcare--footer:empty{display:none}.uploadcare--footer__additions{-ms-flex-positive:1;flex-grow:1;-ms-flex-order:1;display:-ms-flexbox;display:flex;order:1;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;box-sizing:border-box;padding:0 0 15px;text-align:center}@media (max-width:759px) and (orientation:landscape){.uploadcare--footer__additions{padding:0 20px}}@media (max-width:500px) and (orientation:landscape){.uploadcare--footer__additions{display:none}}@media (min-width:760px){.uploadcare--footer__additions{padding:0 20px}}.uploadcare--footer__additions:empty{padding:0;visibility:hidden}.uploadcare--footer__button{margin-bottom:5px;margin-top:5px}.uploadcare--footer__button:first-of-type{-ms-flex-order:0;order:0}.uploadcare--footer__button:nth-of-type(2){-ms-flex-order:2;order:2}@media (max-width:759px){.uploadcare--footer__button{max-width:calc(50% - 20px)}}@media (max-width:759px) and (orientation:portrait){.uploadcare--footer__button:first-of-type{float:left}.uploadcare--footer__button:nth-of-type(2){float:right}}.uploadcare--dragging .uploadcare--draganddrop{background:#e3e1e1;border:2px dashed;border-radius:20px;color:#a4a2a1;margin:20px}.uploadcare--draganddrop.uploadcare--dragging{color:#157cfc!important}@media (max-width:759px){.uploadcare--draganddrop__title{display:none}}.uploadcare--draganddrop:not(.uploadcare--draganddrop_supported) .uploadcare--draganddrop__supported,.uploadcare--draganddrop_supported .uploadcare--draganddrop__not-supported,.uploadcare--dragging .uploadcare--dialog__close,.uploadcare--dragging__show{display:none}.uploadcare--dragging .uploadcare--dragging__show{display:block}.uploadcare--dragging .uploadcare--dragging__hide{display:none}.uploadcare--file{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:stretch;align-items:stretch;-ms-flex-pack:justify;box-sizing:border-box;color:#353535;cursor:default;justify-content:space-between;padding:5px 0 5px 20px}.uploadcare--file:hover{background:rgba(21,124,252,.1)}.uploadcare--file__description{-ms-flex-positive:1;flex-grow:1;min-width:0;padding-right:20px;text-align:left}.uploadcare--file__description:focus,.uploadcare--file__description:focus .uploadcare--file__preview,.uploadcare--file__description:hover,.uploadcare--file__description:hover .uploadcare--file__preview{color:#157cfc}.uploadcare--file__description:active,.uploadcare--file__description:active .uploadcare--file__preview{color:#0969ee}.uploadcare--file__description:focus{outline:2px solid rgba(21,124,252,.5);outline-offset:2px}.uploadcare--file__icon{max-height:100%;max-width:100%}.uploadcare--file__name{line-height:25px;margin:0;max-width:calc(100vw - 200px);overflow:hidden;text-overflow:ellipsis;transition:color .3s;white-space:nowrap}@media (min-width:760px){.uploadcare--file__name{max-width:350px}}.uploadcare--file__preview{-ms-flex-negative:0;display:-ms-flexbox;display:flex;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;background:transparent;border:1px solid;border-radius:6px;box-sizing:border-box;color:#e3e1e1;float:left;height:60px;justify-content:center;margin-right:10px;overflow:hidden;padding:2px;transition:border .3s;width:60px}.uploadcare--file__progressbar{-ms-flex-negative:0;flex-shrink:0;-ms-flex-item-align:center;align-self:center;height:10px;margin:0 10px;width:60px}.uploadcare--file__size{color:#a4a2a1;font-size:12.5px}.uploadcare--file_status_error,.uploadcare--file_status_error .uploadcare--file__description,.uploadcare--file_status_error .uploadcare--file__preview{color:#e66a6a!important}.uploadcare--file_status_error .uploadcare--file__name{color:hsla(0,71%,66%,.5)!important}.uploadcare--file_status_error .uploadcare--file__progressbar,.uploadcare--file_status_error .uploadcare--file__size,.uploadcare--file_status_uploaded .uploadcare--file__progressbar{display:none}.uploadcare--file_status_uploading,.uploadcare--file_status_uploading .uploadcare--file__description{color:#353535!important}.uploadcare--file_status_uploading .uploadcare--file__name{max-width:calc(100vw - 280px)}@media (min-width:760px){.uploadcare--file_status_uploading .uploadcare--file__name{max-width:270px}}.uploadcare--file_status_uploading .uploadcare--file__preview{background:#ffd800;color:#ffd800!important}.uploadcare--files{-ms-flex-positive:1;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;flex-grow:1;height:100%;overflow:auto;width:100%}.uploadcare--files__item{-ms-flex-negative:0;flex-shrink:0}.uploadcare--crop-sizes{-ms-flex-positive:1;display:-ms-flexbox;display:flex;flex-grow:1;-ms-flex-pack:distribute;justify-content:space-around}.uploadcare--crop-sizes__item{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:end;justify-content:flex-end;-ms-flex-align:center;align-items:center;background:transparent;border-color:transparent;color:#353535;height:65px;padding:0}.uploadcare--crop-sizes__item:focus,.uploadcare--crop-sizes__item:hover{background:transparent;border-color:transparent;color:#157cfc}.uploadcare--crop-sizes__item:active{background:transparent;border-color:transparent;color:#0969ee}.uploadcare--crop-sizes__item:disabled,.uploadcare--crop-sizes__item[aria-disabled=true]{border-color:transparent!important}.uploadcare--crop-sizes__item:after{content:attr(data-caption);display:block;font-size:14px;line-height:25px;text-transform:uppercase}@media (max-width:400px),(max-width:600px) and (orientation:landscape){.uploadcare--crop-sizes__item:after{font-size:12px}}.uploadcare--crop-sizes__item:before{content:"";display:block;-ms-flex-order:1;background:transparent;border-radius:50%;height:6px;margin:1px 0;order:1;width:6px}.uploadcare--crop-sizes__item_current:active,.uploadcare--crop-sizes__item_current:focus,.uploadcare--crop-sizes__item_current:hover{color:#353535}.uploadcare--crop-sizes__item_current:before{background:#157cfc}.uploadcare--crop-sizes__icon{border:2px solid;border-radius:2px;box-sizing:border-box;color:inherit;height:30px;transform:scale(.666);width:30px}.uploadcare--crop-sizes__icon_free{border:none;border-radius:0;transform:none}.uploadcare--file-source{background:#e3e1e1;border-color:#e3e1e1;color:#353535;margin:10px}.uploadcare--file-source_all{-ms-flex-order:1;background:transparent;border-color:currentColor;color:#157cfc;order:1}.uploadcare--file-sources{-ms-flex-negative:0;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;flex-shrink:0;-ms-flex-align:center;align-items:center;width:100%}@media (max-width:759px) and (max-height:450px),(min-width:760px){.uploadcare--file-sources{display:none}}.uploadcare--file-sources__caption{margin:15px 0 5px}@media (max-width:759px) and (max-height:550px){.uploadcare--file-sources__item:nth-child(4),.uploadcare--file-sources__item:nth-child(5),.uploadcare--file-sources__item:nth-child(6){display:none}}.uploadcare--file-sources__items{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-pack:center;justify-content:center;max-width:300px}.uploadcare--file-sources__items:empty,.uploadcare--file-sources__items:not(.uploadcare--file-sources__items_many) .uploadcare--file-source__all{display:none}.uploadcare--media{-ms-flex-positive:1;display:-ms-flexbox;display:flex;flex-grow:1;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;position:relative;width:100%}.uploadcare--media__image{left:50%;max-height:100%;max-width:100%;position:absolute;top:50%;transform:translateX(-50%) translateY(-50%)}.uploadcare--media__video{all:initial;height:auto;max-height:100%;max-width:100%;min-height:100px;width:auto}@media (max-width:759px) and (max-height:379px){.uploadcare--media__video{max-height:120px}}@media (max-width:759px) and (min-height:380px) and (max-height:499px){.uploadcare--media__video{max-height:160px}}@media (max-width:759px) and (min-height:500px),(min-width:760px){.uploadcare--media__video{max-height:300px}}.uploadcare--camera__button{margin:5px 10px}.uploadcare--camera__button_type_mirror{left:50%;margin:0;position:absolute;top:15px;transform:translateX(-50%)}.uploadcare--camera__video{transition:transform .8s cubic-bezier(.23,1,.32,1)}.uploadcare--camera__video_mirrored{transform:scaleX(-1)}.uploadcare--camera__video-container{-ms-flex-positive:0;flex-grow:0;margin-bottom:10px;position:relative}.uploadcare--camera_status_denied .uploadcare--camera__button_type_cancel-record,.uploadcare--camera_status_denied .uploadcare--camera__button_type_capture,.uploadcare--camera_status_denied .uploadcare--camera__button_type_mirror,.uploadcare--camera_status_denied .uploadcare--camera__button_type_start-record,.uploadcare--camera_status_denied .uploadcare--camera__button_type_stop-record,.uploadcare--camera_status_denied .uploadcare--camera__controls,.uploadcare--camera_status_denied .uploadcare--camera__not-found,.uploadcare--camera_status_denied .uploadcare--camera__please-allow,.uploadcare--camera_status_denied .uploadcare--camera__video-container,.uploadcare--camera_status_not-founded .uploadcare--camera__button_type_cancel-record,.uploadcare--camera_status_not-founded .uploadcare--camera__button_type_capture,.uploadcare--camera_status_not-founded .uploadcare--camera__button_type_mirror,.uploadcare--camera_status_not-founded .uploadcare--camera__button_type_retry,.uploadcare--camera_status_not-founded .uploadcare--camera__button_type_start-record,.uploadcare--camera_status_not-founded .uploadcare--camera__button_type_stop-record,.uploadcare--camera_status_not-founded .uploadcare--camera__controls,.uploadcare--camera_status_not-founded .uploadcare--camera__please-allow,.uploadcare--camera_status_not-founded .uploadcare--camera__video-container,.uploadcare--camera_status_ready .uploadcare--camera__button_type_cancel-record,.uploadcare--camera_status_ready .uploadcare--camera__button_type_retry,.uploadcare--camera_status_ready .uploadcare--camera__button_type_stop-record,.uploadcare--camera_status_ready .uploadcare--camera__not-found,.uploadcare--camera_status_ready .uploadcare--camera__please-allow,.uploadcare--camera_status_recording .uploadcare--camera__button_type_capture,.uploadcare--camera_status_recording .uploadcare--camera__button_type_mirror,.uploadcare--camera_status_recording .uploadcare--camera__button_type_retry,.uploadcare--camera_status_recording .uploadcare--camera__button_type_start-record,.uploadcare--camera_status_recording .uploadcare--camera__device-select,.uploadcare--camera_status_recording .uploadcare--camera__not-found,.uploadcare--camera_status_recording .uploadcare--camera__please-allow,.uploadcare--camera_status_requested .uploadcare--camera__button_type_cancel-record,.uploadcare--camera_status_requested .uploadcare--camera__button_type_capture,.uploadcare--camera_status_requested .uploadcare--camera__button_type_mirror,.uploadcare--camera_status_requested .uploadcare--camera__button_type_retry,.uploadcare--camera_status_requested .uploadcare--camera__button_type_start-record,.uploadcare--camera_status_requested .uploadcare--camera__button_type_stop-record,.uploadcare--camera_status_requested .uploadcare--camera__controls,.uploadcare--camera_status_requested .uploadcare--camera__device-select,.uploadcare--camera_status_requested .uploadcare--camera__not-found,.uploadcare--camera_status_requested .uploadcare--camera__video-container{display:none}.uploadcare--camera__device-select{all:initial;display:none;-ms-flex-negative:0;background-image:linear-gradient(45deg,transparent 50%,#3891ff 0),linear-gradient(135deg,#3891ff 50%,transparent 0),linear-gradient(90deg,#ccc,#ccc);background-position:calc(100% - 20px) calc(1em + 2px),calc(100% - 15px) calc(1em + 2px),calc(100% - 2.5em) .5em;background-repeat:no-repeat;background-size:5px 5px,5px 5px,1px 1.5em;border:1px solid #157cfc;border-radius:6px;box-shadow:none;box-sizing:border-box;color:#157cfc;cursor:default;flex-shrink:0;font-family:inherit;font-size:15px;font-style:normal;font-weight:400;height:auto;line-height:20px;margin:5px 10px 15px;max-width:500px;min-height:0;min-width:100px;overflow:hidden;padding:10px 60px 10px 10px;text-align:center;text-overflow:ellipsis;text-shadow:none;transition:background .3s,color .3s,border .3s;white-space:nowrap;width:auto}.uploadcare--camera__device-select svg{pointer-events:none}.uploadcare--camera__device-select:focus,.uploadcare--camera__device-select:hover{border-color:#3891ff;box-shadow:none;color:#3891ff;font-style:normal;font-weight:400;text-shadow:none}.uploadcare--camera__device-select:focus{outline:2px solid rgba(21,124,252,.5);outline-offset:1px}.uploadcare--camera__device-select:active{border-color:#0969ee;color:#0969ee}@media (min-width:760px){.uploadcare--camera__device-select{font-size:17.5px;line-height:25px;padding:10px 60px 10px 20px}}.uploadcare--camera__device-select.uploadcare--camera__device-select_has-options{display:block}.uploadcare--crop-widget>.uploadcare--preview__image{filter:brightness(60%);transform:none}.uploadcare--tab{overflow:hidden;-ms-flex-align:stretch;align-items:stretch;text-align:center}.uploadcare--tab,.uploadcare--tab__content{-ms-flex-positive:1;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;flex-grow:1;-ms-flex-pack:center;justify-content:center}.uploadcare--tab__content{-ms-flex-negative:1;flex-shrink:1;-ms-flex-align:center;align-items:center;overflow-y:auto;padding:0 20px}.uploadcare--tab__header{-ms-flex-negative:0;flex-shrink:0;overflow:hidden;padding:0 20px}@media (min-width:760px){.uploadcare--tab__header{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;height:60px;padding-right:60px}}.uploadcare--tab__iframe{-ms-flex-positive:1;border:0;flex-grow:1;height:100%;opacity:0;width:100%}.uploadcare--tab__title{margin-bottom:10px;margin-top:10px}.uploadcare--tab:not(.uploadcare--tab_current),.uploadcare--tab_name_preview.uploadcare--tab_current~.uploadcare--panel__footer{display:none}.uploadcare--tab_remote.uploadcare--tab_current~.uploadcare--panel__footer{margin-top:0}.uploadcare--panel{-ms-flex-negative:0;background:#fff;border:1px solid #a4a2a1;border-radius:6px;box-sizing:border-box;color:#353535;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;flex-shrink:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;font-size:15px;font-weight:400;height:500px;line-height:20px;overflow:hidden;position:relative;width:100%}@media (min-width:760px){.uploadcare--panel{-ms-flex-direction:row;flex-direction:row}}.uploadcare--panel>.uploadcare--icons{position:absolute}.uploadcare--panel__content{-ms-flex-positive:1;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;flex-grow:1;overflow:hidden}.uploadcare--panel__file-counter{display:inline}.uploadcare--panel__footer{background:#fff9d8;padding-top:15px}.uploadcare--panel__icon{box-sizing:border-box;padding:3px}.uploadcare--panel__menu_hidden{display:none}.uploadcare--panel__message_hidden{color:#d4d2d2}.uploadcare--panel__powered-by{background:#353535;color:hsla(0,0%,100%,.5)}@media (min-width:760px){.uploadcare--panel__powered-by{display:none}}.uploadcare--tab:not(:nth-child(2)).uploadcare--tab_current~.uploadcare--panel__powered-by{display:none}@media (max-width:759px){.uploadcare--panel_menu-hidden .uploadcare--tab__header{min-height:60px;padding:6px 60px 0}}.uploadcare--panel:not(.uploadcare--panel_multiple) .uploadcare--panel__footer{display:none}.uploadcare--panel_multiple .uploadcare--panel__content{position:relative}.uploadcare--panel_multiple .uploadcare--tab_name_preview{height:100%;left:0;position:absolute;top:0;width:100%}.uploadcare--panel_multiple .uploadcare--tab_name_preview .uploadcare--tab__content{padding-left:0;padding-right:0}.uploadcare--panel_multiple .uploadcare--tab_name_preview .uploadcare--tab__footer{margin-top:0;padding-top:15px;position:relative}.uploadcare--panel_multiple .uploadcare--tab_name_preview .uploadcare--tab__footer:before{background:#e3e1e1;content:"";height:1px;left:20px;position:absolute;top:0;width:calc(100% - 40px)}.uploadcare--preview__content{overflow:hidden}.uploadcare--preview__content_crop{padding:10px 20px}.uploadcare--dialog{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-align:stretch;align-items:stretch;background:#fff;box-sizing:border-box;color:#353535;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;font-size:15px;font-weight:400;height:100%;left:0;line-height:20px;opacity:0;overflow:hidden;position:fixed;top:0;-ms-touch-action:none;touch-action:none;transition:opacity .33s cubic-bezier(.05,.7,.25,1);width:100%;z-index:2147483647}@media (min-width:760px){.uploadcare--dialog{-ms-flex-align:center;align-items:center;background:rgba(0,0,0,.5);overflow-y:auto}}@media (min-width:760px) and (max-height:559px){.uploadcare--dialog{padding-top:30px}}@media (min-width:760px) and (min-height:560px){.uploadcare--dialog{-ms-flex-pack:center;justify-content:center}}.uploadcare--dialog__close{position:absolute;right:0;top:0;z-index:49}.uploadcare--dialog__close:focus{outline-offset:-2px}.uploadcare--dialog__container{display:-ms-flexbox;display:flex;overflow:hidden;position:relative}@media (max-width:759px){.uploadcare--dialog__container{-ms-flex-positive:1;flex-grow:1;height:100%}}@media (min-width:760px){.uploadcare--dialog__container{border-radius:6px;height:calc(100% - 60px);-webkit-mask-image:-webkit-radial-gradient(#fff,#000);max-height:660px;max-width:900px;min-height:500px;width:calc(100% - 60px)}}@media (min-width:1210px){.uploadcare--dialog__container{max-width:1050px}}.uploadcare--dialog__panel{border:none;border-radius:0;height:100%}@media (min-width:1210px){.uploadcare--dialog__panel .uploadcare--menu,.uploadcare--dialog__panel .uploadcare--menu__item{width:250px}}.uploadcare--dialog__powered-by{-ms-flex-negative:0;flex-shrink:0}@media (max-width:759px){.uploadcare--dialog__powered-by{display:none}}.uploadcare--dialog_status_active{opacity:1}.uploadcare--widget{display:inline-block;vertical-align:baseline}.uploadcare--dragging .uploadcare--widget,.uploadcare--widget.uploadcare--dragging{position:relative}.uploadcare--widget__button{all:initial;background:#c3c3c3;border:none;border-radius:6px;box-shadow:none;box-sizing:border-box;color:#fff;cursor:default;display:inline-block;font:inherit;height:auto;line-height:inherit;margin:0;min-height:0;min-width:0;padding:.4em 1em;text-align:center;text-shadow:inherit;transition:background .3s;white-space:nowrap;width:auto}.uploadcare--widget__button:focus,.uploadcare--widget__button:hover{background:#b3b3b3;box-shadow:none;color:#fff;font:inherit;text-shadow:inherit}.uploadcare--widget__button:focus{outline:2px solid rgba(21,124,252,.5);outline-offset:1px}.uploadcare--widget__button:active{background:#b3b3b3}.uploadcare--widget__button:disabled{background:#c3c3c3;color:#fff;cursor:not-allowed}.uploadcare--widget__button_type_open{background:#157cfc;color:#fff}.uploadcare--widget__button_type_open:focus,.uploadcare--widget__button_type_open:hover{background:#3891ff}.uploadcare--widget__button_type_open:active{background:#0969ee}.uploadcare--widget__button_type_open:disabled{background:#c3c3c3}.uploadcare--widget__dragndrop-area{background:#e3e1e1;border:1.5px dashed;border-radius:6px;box-sizing:border-box;color:#a4a2a1;display:none;font:inherit;left:0;line-height:inherit;margin:0;min-height:100%;min-width:100%;padding:calc(.4em - 1.5px) 1em;position:absolute;text-align:center;top:0;transition:color .3s;white-space:nowrap}.uploadcare--dragging .uploadcare--widget__dragndrop-area{display:block}.uploadcare--widget.uploadcare--dragging .uploadcare--widget__dragndrop-area{color:#157cfc}.uploadcare--widget__file-name,.uploadcare--widget__file-size{display:inline}.uploadcare--widget__progress{display:inline-block;height:1.8em;line-height:0;margin:0 .2em 0 0;padding:0;vertical-align:middle;width:1.8em}.uploadcare--widget__text{box-sizing:border-box;display:inline-block;margin-right:.2em;padding:.4em 0;white-space:nowrap}.uploadcare--widget:not(.uploadcare--widget_option_clearable).uploadcare--widget_status_error .uploadcare--widget__button_type_remove,.uploadcare--widget:not(.uploadcare--widget_option_clearable).uploadcare--widget_status_loaded .uploadcare--widget__button_type_remove,.uploadcare--widget_option_clearable.uploadcare--widget_status_error .uploadcare--widget__button_type_open,.uploadcare--widget_status_error .uploadcare--widget__button_type_cancel,.uploadcare--widget_status_error .uploadcare--widget__progress,.uploadcare--widget_status_loaded .uploadcare--widget__button_type_cancel,.uploadcare--widget_status_loaded .uploadcare--widget__button_type_open,.uploadcare--widget_status_loaded .uploadcare--widget__progress,.uploadcare--widget_status_ready .uploadcare--widget__button_type_cancel,.uploadcare--widget_status_ready .uploadcare--widget__button_type_remove,.uploadcare--widget_status_ready .uploadcare--widget__progress,.uploadcare--widget_status_ready .uploadcare--widget__text,.uploadcare--widget_status_started .uploadcare--widget__button_type_open,.uploadcare--widget_status_started .uploadcare--widget__button_type_remove{display:none}.uploadcare--page{height:auto;max-height:100%;max-width:100%;min-height:0;min-width:0;overflow:hidden;width:auto}.uploadcare--mouse-focused:focus{outline:none}</style>
+    <!-- Google Tag Manager -->
+
+<script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2Q87F48"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    
+    })(window,document,'script','dataLayer','GTM-P2Q87F48');</script>
+    
+    <!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="HTML5 Template">
+<meta name="description" content="Webster - Responsive Multi-purpose HTML5 Template">
+<meta name="author" content="potenzaglobalsolutions.com">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>home - Nisko Projects Ltd.</title>
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="152x152" href="https://nisko-projects.com/themes/nisko/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nisko-projects.com/themes/nisko/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nisko-projects.com/themes/nisko/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="https://nisko-projects.com/themes/nisko/assets/favicon/site.webmanifest">
+<link rel="mask-icon" href="https://nisko-projects.com/themes/nisko/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="https://nisko-projects.com/themes/nisko/assets/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="https://nisko-projects.com/themes/nisko/assets/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800">
+
+<!-- Plugins -->
+<link rel="stylesheet" type="text/css" href="https://nisko-projects.com/themes/nisko/assets/css/plugins-css.css">
+
+<!-- revoluation -->
+<link rel="stylesheet" type="text/css" href="https://nisko-projects.com/themes/nisko/assets/revolution/css/settings.css" media="screen">
+
+<!-- Typography -->
+<link rel="stylesheet" type="text/css" href="https://nisko-projects.com/themes/nisko/assets/css/typography.css">
+
+<!-- Shortcodes -->
+<link rel="stylesheet" type="text/css" href="https://nisko-projects.com/themes/nisko/assets/css/shortcodes/shortcodes.css">
+
+<!-- Style -->
+<link rel="stylesheet" type="text/css" href="https://nisko-projects.com/themes/nisko/assets/css/style.css">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="https://nisko-projects.com/themes/nisko/assets/css/responsive.css">
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<style type="text/css" id="jarallax-clip-0">#jarallax-container-0 {
+            clip: rect(0 1280px 720px 0);
+            clip: rect(0, 1280px, 720px, 0);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }</style><style type="text/css" id="jarallax-clip-1">#jarallax-container-1 {
+            clip: rect(0 1280px 396px 0);
+            clip: rect(0, 1280px, 396px, 0);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }</style></head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-P2Q87F48
+
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- End Google Tag Manager (noscript) -->
+<div class="wrapper">
+
+<!--=================================
+ preloader -->
+
+<div id="pre-loader" style="display: none;">
+    <img src="https://nisko-projects.com/themes/nisko/assets/images/pre-loader/loader-01.svg" alt="">
+</div>
+
+<!--=================================
+ preloader -->
+
+<!--=================================
+ header -->
+
+<header id="header" class="header default">
+
+<!--=================================
+ mega menu -->
+
+<div class="menu">
+  <!-- menu start -->
+   <nav id="menu" class="mega-menu">
+    <!-- menu list items container -->
+    <section class="menu-list-items" style="height: 120px;">
+     <div class="container">
+      <div class="row">
+       <div class="col-lg-12 col-md-12 position-relative">
+        <!-- menu logo -->
+        <ul class="menu-logo">
+            <li data-asw-org-font-size="16" style="font-size: 16px;">
+                <a href="/" data-asw-org-font-size="12" style="font-size: 12px;"><img id="logo_img" src="/storage/app/media/line-card/NiskoPROJECTS_LOGO_BC72.jpg" alt="logo"> </a>
+            <div class="menu-mobile-collapse-trigger"><span></span></div></li>
+        </ul>
+        <!-- menu links -->
+        <div class="menu-bar">
+         <ul class="menu-links" style="display: none; max-height: 400px; overflow: auto;">
+        <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/" data-asw-org-font-size="14" style="font-size: 14px;">Home</a></li>
+        <li data-asw-org-font-size="16" style="font-size: 16px;" class="hoverTrigger"><a href="/about" data-asw-org-font-size="14" style="font-size: 14px;"> About Us <i class="fa fa-angle-down fa-indicator"></i><div class="mobileTriggerButton"></div></a>
+              <!-- drop down multilevel  -->
+            <ul class="drop-down-multilevel effect-expand-top" style="transition: 400ms;">
+              <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/about" data-asw-org-font-size="12" style="font-size: 12px;">Company Profile</a></li>
+              <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/team" data-asw-org-font-size="12" style="font-size: 12px;">Executive Team</a></li>
+              <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/jobs" data-asw-org-font-size="12" style="font-size: 12px;">Careers</a></li>
+            </ul>
+        </li>
+        <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/line-card" data-asw-org-font-size="14" style="font-size: 14px;">Line Card</a></li>
+        <li data-asw-org-font-size="16" style="font-size: 16px;" class="hoverTrigger"><a href="javascript:void(0)" data-asw-org-font-size="14" style="font-size: 14px;"> Solutions <i class="fa fa-angle-down fa-indicator"></i><div class="mobileTriggerButton"></div></a>
+              <!-- drop down multilevel  -->
+            <ul class="drop-down-multilevel effect-expand-top" style="transition: 400ms;">
+              <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/markets" data-asw-org-font-size="12" style="font-size: 12px;">Markets</a></li>
+              <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/technologies" data-asw-org-font-size="12" style="font-size: 12px;">Technologies</a></li>
+              <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="/semiconductor-lifecycle" data-asw-org-font-size="12" style="font-size: 12px;">Obsolescence Solutions</a></li>
+            </ul>
+        </li>
+        <!--li><a href="/">News</a></li>
+        <li><a href="/">Events</a></li--> 
+        <li data-asw-org-font-size="16" style="font-size: 16px;"><a href="#contact" data-asw-org-font-size="14" style="font-size: 14px;">Contact Us</a></li>               
+        </ul>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </nav>
+  <!-- menu end -->
+ </div>
+</header>
+
+<!--=================================
+ header --><!--=================================
+ HERO -->
+ <section class="slider-parallax typer-banner business page-section-ptb bg-overlay-black-70 position-relative jarallax" style="height: 100vh; z-index: 0;" data-speed="0.6" data-video-src="mp4:themes/nisko/assets/img/video-1.mp4" data-jarallax-original-styles="height:100vh;">
+  <div class="slider-content-middle">
+   <div class="container">
+     <div class="row">
+        <div class="col-lg-12 col-md-12">
+         <div class="slider-content text-center">
+          <p class="text-white mt-40" data-asw-org-font-size="26" style="font-size: 26px;">Welcome To</p>
+          <h1 class="text-white" data-asw-org-font-size="100" style="font-size: 100px;">Nisko Projects Ltd.</h1>
+           <p class="text-white mt-40" data-asw-org-font-size="26" style="font-size: 26px;">A subsidiary of Nisko Group Ltd.</p>
+           <a class="button move mt-20" href="/#contact" data-asw-org-font-size="13" style="font-size: 13px;">Let's Talk</a>
+          </div>
+         </div>
+        </div>
+     </div>
+  </div>
+  
+<div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100;"><div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; background-image: none; position: fixed; top: 0px; left: 0px; width: 1280px; height: 720px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 0px; transform: translate3d(0px, 0px, 0px);"></div><video loop="" playsinline="" webkit-playsinline="" id="VideoWorker-0" style="position: fixed; inset: 0px; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0px; z-index: -1;"><source src="themes/nisko/assets/img/video-1.mp4" type="video/mp4"></video></div></section>
+<!--=================================
+ HERO --><section class="theme-bg page-section position-relative d-none">
+  <div class="container">
+    <div class="row py-4">
+        <div class="col">
+            <div class="d-flex justify-content-between align-items-center breaking-news theme-bg text-white">
+                <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> 
+                                <i class="fa fa-circle mx-5"></i> Nisko Projects Ltd. is a subsidiary of the Nisko Ardan Group&nbsp;&nbsp;                                <i class="fa fa-circle mx-5"></i> Nisko Projects Ltd&nbsp;&nbsp;<a href="https://webart.co.il" style="color: rgba(0, 0, 0, 0.4); font-size: 14px;" data-asw-org-font-size="14"><i class="fa fa-hand"></i> Read More</a>                                
+                </marquee>
+            </div>
+        </div>
+    </div>
+  </div>
+</section><!--=================================
+ Promotions -->
+ <section class="white-bg o-hidden popup-gallery">
+  <div class="container-fluid p-0">
+     <div class="row">
+        <div class="col-sm-12 text-center">
+          <div class="owl-carousel owl-loaded owl-drag" data-items="4" data-md-items="4" data-sm-items="3" data-xs-items="2" data-xx-items="1" data-space="0" data-margin="20">
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      
+                     <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1920px, 0px, 0px); transition: all; width: 7680px;"><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1204335718.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1179093007.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/hero/iStock-1355028413.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">Read More&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1266477605.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/hero/iStock-872673304.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">Read More&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-684108348.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item active" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/hero/iStock-1127283509.jpg" alt="kjhggff">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"><a href="/jobs" target="" data-asw-org-font-size="22" style="font-size: 22px;">kjhggff</a></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;">jhgffffffffffffffff</span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;"><a href="/jobs" target="" data-asw-org-font-size="16" style="font-size: 16px;">ppppp&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></a></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item active" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-656151898.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item active" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/img2.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item active" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1204583853.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/img3.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/ACTIVE.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1204335718.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1179093007.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/hero/iStock-1355028413.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">Read More&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1266477605.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/hero/iStock-872673304.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">Read More&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-684108348.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/hero/iStock-1127283509.jpg" alt="kjhggff">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"><a href="/jobs" target="" data-asw-org-font-size="22" style="font-size: 22px;">kjhggff</a></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;">jhgffffffffffffffff</span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;"><a href="/jobs" target="" data-asw-org-font-size="16" style="font-size: 16px;">ppppp&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></a></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-656151898.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/img2.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/iStock-1204583853.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/img3.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div><div class="owl-item cloned" style="width: 320px;"><div class="item">
+              <div class="portfolio-item">
+                <img src="/storage/app/media/slider/ACTIVE.jpg" alt="">
+                  <div class="portfolio-overlay">
+                      <h4 class="text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4>
+                      <span class="text-white" data-asw-org-font-size="14" style="font-size: 14px;"></span>
+                      <h6 class="text-warning text-end" data-asw-org-font-size="16" style="font-size: 16px;">&nbsp;&nbsp;<i class="fa fa-arrow-circle-o-right"></i></h6>
+                 </div>
+               </div>
+             </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-angle-left fa-2x"></i></button><button type="button" role="presentation" class="owl-next"><i class="fa fa-angle-right fa-2x"></i></button></div><div class="owl-dots disabled"></div></div>
+        </div>
+     </div>
+  </div>
+</section>
+ <!--=================================
+ Promotions --><!--=================================
+ about -->
+
+<section class="blockquote-section page-section-ptb">
+  <div class="container">
+     <div class="row no-gutter">
+        <div class="col-sm-7 text-start blockquote-section-left">
+          <h6 class="lacks-heading d-none" data-asw-org-font-size="16" style="font-size: 16px;">Lacks Heading</h6> <!-- lacks heading for w3c -->
+          <blockquote class="blockquote quote" data-asw-org-font-size="50" style="font-size: 50px;">
+            Nisko Projects Ltd. is a subsidiary of Nisko Group Ltd., acting as a leading distribution, representation and integration company within the Israeli market.
+         </blockquote>
+        </div>
+        <div class="col-sm-2 blockquote-section-right">
+           <img class="img-fluid" src="/storage/app/media/building.png" alt="">
+        </div>
+     </div>
+  </div>
+</section>
+
+ <!--=================================
+ about --><section class="action-box theme-bg full-width">
+  <div class="container">
+    <section class="theme-bg page-section-ptb position-relative">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 text-center">
+          <h2 class="mb-10 text-white" data-asw-org-font-size="32" style="font-size: 32px;">Our Products</h2>
+          <h4 class="mb-20 text-white" data-asw-org-font-size="22" style="font-size: 22px;"></h4> 
+          <p class="mb-30 text-white" data-asw-org-font-size="14" style="font-size: 14px;"></p>          
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+                  <div class="col">
+            <div class="team">
+              <div class="team-photo">
+                <a href="#" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto" src="/storage/app/media/em.png" alt="Active"></a>
+              </div>
+              <div class="team-description p-1 mt-3">
+                <div class="team-info">
+                     <h5 class="mb-10 text-white" data-asw-org-font-size="18" style="font-size: 18px;">Active</h5>
+                     <p data-asw-org-font-size="12" style="font-size: 12px;"><small>Nisko Projects has the distribution technologies to cost-effectively deliver products from the world´s leading solutions suppliers for: Analog, RF, Power, Lighting, Medical, Military Industrial &amp; Communication.</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col">
+            <div class="team">
+              <div class="team-photo">
+                <a href="#" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto" src="/storage/app/media/passive.png" alt="Passive"></a>
+              </div>
+              <div class="team-description p-1 mt-3">
+                <div class="team-info">
+                     <h5 class="mb-10 text-white" data-asw-org-font-size="18" style="font-size: 18px;">Passive</h5>
+                     <p data-asw-org-font-size="12" style="font-size: 12px;"><small>Nisko Projects is the largest Israeli distributor of passive components. The combination of inventory and the vendors we represent allows us to provide you practically all your passive needs.</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col">
+            <div class="team">
+              <div class="team-photo">
+                <a href="#" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto" src="/storage/app/media/rf.png" alt="RF/Communications"></a>
+              </div>
+              <div class="team-description p-1 mt-3">
+                <div class="team-info">
+                     <h5 class="mb-10 text-white" data-asw-org-font-size="18" style="font-size: 18px;">RF/Communications</h5>
+                     <p data-asw-org-font-size="12" style="font-size: 12px;"><small>Nisko Projects represents world class suppliers with products addressing a wide variety of unique application requirements including IC's and SoC's for Broadband Access, Digital Home and High Speed Optical Networks, Optical Transceivers &amp; Modules, TE 4G/3G small cell &amp; RF cards solutions.
+RF power devices: LDMOS, GaN for various applications we offer the whole spectrum of
+network solutions through market leadership in: POTS, VoIP, xDSL Broadband, Gigabit Ethernet, Wi-Fi, GPON ,T/E Carrier, ISDN and Fiber Optic Transceivers and Modules.</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col">
+            <div class="team">
+              <div class="team-photo">
+                <a href="#" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto" src="/storage/app/media/EM.png" alt="EM/Power Supply"></a>
+              </div>
+              <div class="team-description p-1 mt-3">
+                <div class="team-info">
+                     <h5 class="mb-10 text-white" data-asw-org-font-size="18" style="font-size: 18px;">EM/Power Supply</h5>
+                     <p data-asw-org-font-size="12" style="font-size: 12px;"><small>The Power supply &amp; Electro Mechanical Group provides a wide range of solutions for Power &amp; control systems, components and assemblies to the Israeli electronics industry.
+Our experienced application engineering team´s main objective is finding the best technical solutions for board designers and system developers, covering a wide range of applications (both general and customized) in different market segments: telecommunications, military and security, solar energy, industrial automation and consumer electronics products. Our customers include a long list of leading companies in Israel.</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="col">
+            <div class="team">
+              <div class="team-photo">
+                <a href="#" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto" src="/storage/app/media/fiber.png" alt="Fiber Optics"></a>
+              </div>
+              <div class="team-description p-1 mt-3">
+                <div class="team-info">
+                     <h5 class="mb-10 text-white" data-asw-org-font-size="18" style="font-size: 18px;">Fiber Optics</h5>
+                     <p data-asw-org-font-size="12" style="font-size: 12px;"><small></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+                </div>
+      </div>
+    </section>
+  </div>
+</section><!--=================================
+ Promotions -->
+<section class="custom-content-02 white-bg-bg page-section-ptb d-none">
+  <div class="container">
+     <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h2 class="mb-50 text-center" data-asw-org-font-size="32" style="font-size: 32px;">Featured Articles</h2>
+      </div>
+             <div class="col-lg-3 col-md-3 col-sm-6 xs-mb-40">
+        <div class="feature-text round theme-icon">
+          <a href="/ad-portfolio" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto mb-20" src="/storage/app/media/feature1.png" alt="Some Random Title"></a>
+          <div class="feature-info">
+            <h5 class="text-back" data-asw-org-font-size="18" style="font-size: 18px;"><a href="/ad-portfolio" data-asw-org-font-size="18" style="font-size: 18px;">Some Random Title</a></h5>
+            <p data-asw-org-font-size="14" style="font-size: 14px;">You will begin to realize why this exercise is called the Dickens Pattern with reference to the.</p>
+            <p data-asw-org-font-size="14" style="font-size: 14px;"><a href="/ad-portfolio" data-asw-org-font-size="14" style="font-size: 14px;">Contact Me</a></p>
+          </div>
+        </div>
+       </div>
+           <div class="col-lg-3 col-md-3 col-sm-6 xs-mb-40">
+        <div class="feature-text round theme-icon">
+          <a href="#contact" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto mb-20" src="/storage/app/media/feature2.png" alt="Another Title Appears Here"></a>
+          <div class="feature-info">
+            <h5 class="text-back" data-asw-org-font-size="18" style="font-size: 18px;"><a href="#contact" data-asw-org-font-size="18" style="font-size: 18px;">Another Title Appears Here</a></h5>
+            <p data-asw-org-font-size="14" style="font-size: 14px;">Have a think about something that you do that you are maybe not motivated to change about yourself.Have a think about something that you do that you are maybe not motivated to change about yourself.Ha</p>
+            <p data-asw-org-font-size="14" style="font-size: 14px;"><a href="#contact" data-asw-org-font-size="14" style="font-size: 14px;">Contact Me</a></p>
+          </div>
+        </div>
+       </div>
+           <div class="col-lg-3 col-md-3 col-sm-6 xs-mb-40">
+        <div class="feature-text round theme-icon">
+          <a href="#contact" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto mb-20" src="/storage/app/media/feature3.png" alt="Unlimited Text Areas"></a>
+          <div class="feature-info">
+            <h5 class="text-back" data-asw-org-font-size="18" style="font-size: 18px;"><a href="#contact" data-asw-org-font-size="18" style="font-size: 18px;">Unlimited Text Areas</a></h5>
+            <p data-asw-org-font-size="14" style="font-size: 14px;">Get yourself nice and relaxed and settled. Concentrate on your breathing, engage in the moment.Get yourself nice and relaxed and settled. Concentrate on your breathing, engage in the moment.</p>
+            <p data-asw-org-font-size="14" style="font-size: 14px;"><a href="#contact" data-asw-org-font-size="14" style="font-size: 14px;">Contact Me</a></p>
+          </div>
+        </div>
+       </div>
+           <div class="col-lg-3 col-md-3 col-sm-6 xs-mb-40">
+        <div class="feature-text round theme-icon">
+          <a href="https://nisko-projects.com" data-asw-org-font-size="14" style="font-size: 14px;"><img class="img-fluid mx-auto mb-20" src="/storage/app/media/feature4.png" alt="What Else Would You Like"></a>
+          <div class="feature-info">
+            <h5 class="text-back" data-asw-org-font-size="18" style="font-size: 18px;"><a href="https://nisko-projects.com" data-asw-org-font-size="18" style="font-size: 18px;">What Else Would You Like</a></h5>
+            <p data-asw-org-font-size="14" style="font-size: 14px;">Engage with the idea of really being there. Step Three: Imagine that a few more steps ahead there. Engage with the idea of really being there. Step Three: Imagine that a few more steps ahead there. En</p>
+            <p data-asw-org-font-size="14" style="font-size: 14px;"><a href="https://nisko-projects.com" data-asw-org-font-size="14" style="font-size: 14px;">Add Any Button Name</a></p>
+          </div>
+        </div>
+       </div>
+           </div>
+  </div>
+</section>
+ <!--=================================
+ Promotions --><!--=================================
+ play-video -->
+ <section class="page-section-pt bg-overlay-theme-20 jarallax" style="background-image: none; z-index: 0;" data-jarallax-original-styles="background-image: url(/storage/app/media/desktop.jpg);">
+  <div class="container">
+     <div class="row justify-content-center">
+        <div class="col-md-10 position-relative">
+         <div class="play-video-section text-center">
+            <div class="play-video text-center">
+              <a class="view-video popup-youtube" href="/storage/app/media/video.mp4" title="This video shows our abilities." data-asw-org-font-size="14" style="font-size: 14px;"> <i class="fa fa-play"></i> </a>
+            </div>
+            <div class="content mt-40">
+              <h2 class="text-white mb-20" data-asw-org-font-size="48" style="font-size: 48px;">Nisko Projects will help you to achieve your goals and to grow your business.</h2>
+               <h5 class="text-white mb-50" data-asw-org-font-size="18" style="font-size: 18px;"><i>Let's make something great together</i></h5>
+            </div>
+          </div>
+        </div>
+     </div>
+  </div>
+ <div id="jarallax-container-1" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100;"><div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; background-image: url(&quot;https://nisko-projects.com/storage/app/media/desktop.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 1280px; height: 558px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 81px; transform: translate3d(0px, 949.5px, 0px);"></div></div></section>
+  <!--=================================
+  play-video --><!--=================================
+ Form -->
+ <section class="page-section-ptb theme-bg" id="contact">
+
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+         <h2 class="mb-20 text-white" data-asw-org-font-size="32" style="font-size: 32px;">Send us a message</h2>
+         <p class="mb-40 text-white" data-asw-org-font-size="14" style="font-size: 14px;">We are at your service at any time, Send us a message using the contact form, Or use information below to reach us.</p>
+         <div class="contact-form dark-form clearfix">
+           <!-- 1. Import the @botpoison/browser script -->
+            <script src="https://unpkg.com/@botpoison/browser" async=""></script>
+            <!-- 2. Add your public key to the data-botpoison-public-key attribute -->
+         <form action="https://submit-form.com/1pnjQNPt" data-botpoison-public-key="pk_172d1f70-61f5-4679-885a-01a9fc24db4e">
+         <input type="checkbox" name="address" style="display:none" tabindex="-1" autocomplete="off">
+         <input type="hidden" name="_redirect" value="https://nisko-projects.com/thanks">
+          <div class="row">
+            <div class="col-md-3">
+              <input type="text" placeholder="Name*" class="form-control" name="name" required="">
+             </div>
+            <div class="col-md-3">
+              <input type="text" placeholder="Company*" class="form-control" name="company" required="">
+             </div>             
+             <div class="col-md-3">
+                <input type="email" placeholder="Email*" class="form-control" name="email" required="">
+              </div>
+             <div class="col-md-3">
+                <input type="text" placeholder="Phone*" class="form-control" name="phone" required="">
+              </div>
+            </div>
+             <div class="section-field textarea">
+               <textarea class="input-message form-control" placeholder="Comment*" rows="7" name="message" required=""></textarea>
+              </div>
+               <div class="section-field">
+                  <input type="hidden" name="action" value="sendEmail">
+                   <button name="submit" type="submit" value="Send" class="button white"><span data-asw-org-font-size="13" style="font-size: 13px;"> Send message </span> <i class="fa fa-paper-plane"></i></button>
+                  </div>
+               </form>   
+              </div>
+          </div>
+        </div>
+     </div>
+</section>
+<!--=================================
+ Form --><!--=================================
+ footer -->
+
+<footer id="footer" class="footer black-bg">
+ <div class="page-section-pt">
+ <div class="container">
+  <div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-6 sm-mb-30">
+      <div class="footer-logo">
+        <img id="logo-footer" class="mb-20" src="/storage/app/media/line-card/NiskoPROJECTS_LOGO_BC72.jpg" alt="">
+        <p class="pb-10" data-asw-org-font-size="14" style="font-size: 14px;">Nisko Projects Ltd. is a subsidiary of Nisko Group Ltd., acting as a leading distribution, representation and integration company within the Israeli market.</p>
+        <p data-asw-org-font-size="14" style="font-size: 14px;"><a href="/accessibility-statement" data-asw-org-font-size="14" style="font-size: 14px;">Accessibility Statement</a></p>
+      </div>
+       <div class="social-icons color-hover">
+         <ul>
+                              <li class="social-linkedin" data-asw-org-font-size="14" style="font-size: 14px;"><a href="https://www.linkedin.com/company/nisko-projects/" target="_blank" data-asw-org-font-size="16" style="font-size: 16px;"><i class="fa fa-linkedin"></i></a></li>                    
+                    
+         </ul>
+       </div>
+  </div>
+      <div class="col-lg-1 col-md-4 col-sm-6 xs-mb-30">
+&nbsp;
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6">
+    <h6 class="text-white mb-30 mt-10 text-uppercase" data-asw-org-font-size="14" style="font-size: 14px;">Contact Us</h6>
+    <ul class="addresss-info">
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><i class="fa fa-map-marker"></i> <p data-asw-org-font-size="14" style="font-size: 14px;">9 Ha-psagot St.,<br>Petach Tikva,<br>4951041, Israel</p> </li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><i class="fa fa-phone"></i> <a href="tel:+972-3-7657300" data-asw-org-font-size="14" style="font-size: 14px;"> <span data-asw-org-font-size="14" style="font-size: 14px;">+972-3-7657300 </span> </a> </li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><i class="fa fa-envelope-o"></i> <a href="mailto:orit@nisko.co.il" data-asw-org-font-size="14" style="font-size: 14px;">orit@nisko.co.il</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><i class="fa fa-fax"></i> <span data-asw-org-font-size="14" style="font-size: 14px;">+972-3-7657333</span></li>
+      </ul>
+    </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 sm-mb-30">
+      <div class="footer-useful-link footer-hedding">
+        <h6 class="text-white mb-30 mt-10 text-uppercase" data-asw-org-font-size="14" style="font-size: 14px;">Navigation</h6>
+         <ul>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/" data-asw-org-font-size="14" style="font-size: 14px;">Home</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/about" data-asw-org-font-size="14" style="font-size: 14px;"> About Us</a>
+        </li><li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/about" data-asw-org-font-size="14" style="font-size: 14px;">Company Profile</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/team" data-asw-org-font-size="14" style="font-size: 14px;">Executive Team</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/jobs" data-asw-org-font-size="14" style="font-size: 14px;">Careers</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/line-card" data-asw-org-font-size="14" style="font-size: 14px;">Line Card</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/markets" data-asw-org-font-size="14" style="font-size: 14px;">Markets</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/technologies" data-asw-org-font-size="14" style="font-size: 14px;">Technologies</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="/semiconductor-lifecycle" data-asw-org-font-size="14" style="font-size: 14px;">Obsolescence Solutions</a></li>
+        <li data-asw-org-font-size="14" style="font-size: 14px;"><a href="#contact" data-asw-org-font-size="14" style="font-size: 14px;">Contact Us</a></li>               
+        </ul>
+      </div>
+    </div>
+
+
+   </div>
+     <div class="footer-widget mt-20">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="mt-15 text-white" data-asw-org-font-size="14" style="font-size: 14px;">All Rights Reserved © Copyright <span id="copyright" data-asw-org-font-size="14" style="font-size: 14px;"> 1999-<script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>2026</span> Nisko Projects Electronics and Communication (1999) Ltd.<br>Website Design &amp; Coding by <a href="https://webart.co.il" target="_blank" data-asw-org-font-size="14" style="font-size: 14px;">Webart</a></p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+</footer>
+
+<!--=================================
+ footer -->
+
+</div>
+
+<div id="back-to-top" style="display: none;"><a class="top arrow" href="#top" data-asw-org-font-size="14" style="font-size: 14px;"><i class="fa fa-angle-up"></i> <span data-asw-org-font-size="11" style="font-size: 11px;">TOP</span></a></div>
+
+<!--=================================
+ jquery -->
+
+<!-- jquery -->
+<script src="https://nisko-projects.com/themes/nisko/assets/js/jquery-3.6.0.min.js"></script>
+
+<!-- plugins-jquery -->
+<script src="https://nisko-projects.com/themes/nisko/assets/js/plugins-jquery.js"></script>
+
+<!-- plugin_path -->
+<script>var plugin_path = 'themes/nisko/assets/js/';</script>
+
+<!-- REVOLUTION JS FILES -->
+<script src="https://nisko-projects.com/themes/nisko/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="https://nisko-projects.com/themes/nisko/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<!-- revolution custom -->
+<script src="https://nisko-projects.com/themes/nisko/assets/revolution/js/revolution-custom.js"></script>
+
+<!-- custom -->
+<script src="https://nisko-projects.com/themes/nisko/assets/js/custom.js"></script>
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer=""></script>
+
+<div class="asw-container"><style>.asw-widget,.asw-menu{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-weight:400;-webkit-font-smoothing:antialiased}.asw-widget *,.asw-menu *{box-sizing:border-box!important}.asw-menu-btn{position:fixed;z-index:500000;left:30px;bottom:30px;box-shadow:0 5px 15px #252c6126,0 2px 4px #5d649433;transition:transform .2s ease;border-radius:50%;align-items:center;justify-content:center;width:58px;height:58px;display:flex;cursor:pointer;border:3px solid white!important;outline:5px solid #0048ff!important;text-decoration:none!important;background:#326cff!important;background:linear-gradient(96deg,#326cff,#0048ff)!important}.asw-menu-btn svg{width:36px;height:36px;min-height:36px;min-width:36px;max-width:36px;max-height:36px;background:transparent!important}.asw-menu-btn:hover{transform:scale(1.05)}@media only screen and (max-width: 768px){.asw-menu-btn{width:42px;height:42px}.asw-menu-btn svg{width:26px;height:26px;min-height:26px;min-width:26px;max-width:26px;max-height:26px}}
+</style><div class="asw-widget"><a href="https://accessibility-widget.pages.dev" target="_blank" class="asw-menu-btn" title="Open Accessibility Menu" role="button" aria-expanded="false" data-translate="Open Accessibility Menu" style="bottom: 20px; left: 20px;"><svg xmlns="http://www.w3.org/2000/svg" style="fill:white;" viewBox="0 0 24 24" width="30px" height="30px"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></svg></a></div></div><script type="text/javascript" src="themes/nisko/assets/js/mega-menu/mega_menu.js"></script><script type="text/javascript" src="themes/nisko/assets/js/owl-carousel/owl-carousel.min.js"></script><script type="text/javascript" src="themes/nisko/assets/js/magnific-popup/jquery.magnific-popup.min.js"></script><script type="text/javascript" src="themes/nisko/assets/js/nicescroll/jquery.nicescroll.js"></script><script type="text/javascript" src="themes/nisko/assets/js/isotope/isotope.pkgd.min.js"></script></body></html>

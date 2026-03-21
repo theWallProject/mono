@@ -1,0 +1,71 @@
+[2026-03-20T10:39:05.030Z] === Homepage AI Extractor: Gil Vacation and Tourism Company ===
+[2026-03-20T10:39:05.030Z] Started at: 2026-03-20T10:39:05.030Z
+[2026-03-20T10:39:05.030Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774003145030_Gil_Vacation_and_Tourism_Company
+[2026-03-20T10:39:05.030Z] Company: Gil Vacation and Tourism Company
+[2026-03-20T10:39:05.030Z] Website: giltours.co.il
+[2026-03-20T10:39:05.030Z] cbRank: 2886514
+[2026-03-20T10:39:05.030Z] Reasons: h
+[2026-03-20T10:39:05.030Z] Fetching: https://giltours.co.il
+[2026-03-20T10:39:11.783Z] Redirected: https://giltours.co.il -> https://www.giltours.co.il/
+[2026-03-20T10:39:11.792Z] Saved HTML (381444 bytes) to page.html
+[2026-03-20T10:39:11.795Z] Extracted 40 unique links from page
+[2026-03-20T10:39:11.796Z] Saved 40 links to links.json
+[2026-03-20T10:39:11.805Z] Extracted footer HTML (20511 chars)
+[2026-03-20T10:39:11.806Z] Extracted header HTML (22594 chars)
+[2026-03-20T10:39:11.809Z] Website (post-redirect): https://www.giltours.co.il/ → origin: https://www.giltours.co.il
+[2026-03-20T10:39:11.809Z] External links: 4 (of 40 total)
+[2026-03-20T10:39:11.810Z] ── All external links ──
+[2026-03-20T10:39:11.810Z]   EXT: https://api.whatsapp.com/send?phone=972559454293
+[2026-03-20T10:39:11.810Z]   EXT: https://www.facebook.com/234516gg
+[2026-03-20T10:39:11.810Z]   EXT: https://www.instagram.com/giltours
+[2026-03-20T10:39:11.810Z]   EXT: https://www.youtube.com/@gilnofesh
+[2026-03-20T10:39:11.810Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T10:39:11.810Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972559454293
+[2026-03-20T10:39:11.810Z]   REGEX: fb <- https://www.facebook.com/234516gg
+[2026-03-20T10:39:11.810Z]   REGEX: ig <- https://www.instagram.com/giltours
+[2026-03-20T10:39:11.810Z]   REGEX: ytp <- https://www.youtube.com/@gilnofesh
+[2026-03-20T10:39:11.810Z] Programmatic result: ws:1, fb:1, ig:1, ytp:1 | 1 uncategorized
+[2026-03-20T10:39:11.811Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T10:39:11.814Z] Saved AI prompt (3410 chars) to ai_prompt.txt
+[2026-03-20T10:39:11.814Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T10:39:11.817Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T10:39:28.699Z]   AI: First token received, streaming...
+[2026-03-20T10:39:35.211Z] AI response complete: 105 chars in 23.4s
+[2026-03-20T10:39:35.212Z] Saved AI response to ai_response.json
+[2026-03-20T10:39:35.212Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T10:39:35.213Z]   AI LINK: https://www.facebook.com/234516gg/
+[2026-03-20T10:39:35.213Z]   AI LINK: https://www.instagram.com/giltours/
+[2026-03-20T10:39:35.213Z]   AI LINK: https://www.youtube.com/@gilnofesh
+[2026-03-20T10:39:35.213Z] AI returned 3 valid links
+[2026-03-20T10:39:35.213Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T10:39:35.213Z]   AI→REGEX: fb <- https://www.facebook.com/234516gg/ (duplicate, skipped)
+[2026-03-20T10:39:35.214Z]   AI→REGEX: ig <- https://www.instagram.com/giltours/ (duplicate, skipped)
+[2026-03-20T10:39:35.214Z]   AI→REGEX: ytp <- https://www.youtube.com/@gilnofesh (duplicate, skipped)
+[2026-03-20T10:39:35.214Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T10:39:35.214Z] Footer/header origins (5):
+[2026-03-20T10:39:35.215Z]   FOOTER/HEADER ORIGIN: https://www.giltours.co.il
+[2026-03-20T10:39:35.215Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T10:39:35.215Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T10:39:35.215Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T10:39:35.215Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-20T10:39:35.215Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972559454293)
+[2026-03-20T10:39:35.215Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T10:39:35.215Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T10:39:35.216Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T10:39:35.216Z] ── Step 3: Final dedup ──
+[2026-03-20T10:39:35.216Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T10:39:35.216Z] ── FINAL RESULT ──
+[2026-03-20T10:39:35.216Z]   ws (1):
+[2026-03-20T10:39:35.216Z]     - https://www.giltours.co.il
+[2026-03-20T10:39:35.216Z]   fb (1):
+[2026-03-20T10:39:35.216Z]     - https://www.facebook.com/234516gg
+[2026-03-20T10:39:35.217Z]   ig (1):
+[2026-03-20T10:39:35.217Z]     - https://www.instagram.com/giltours
+[2026-03-20T10:39:35.217Z]   ytp (1):
+[2026-03-20T10:39:35.217Z]     - https://www.youtube.com/@gilnofesh
+[2026-03-20T10:39:35.217Z]   urls (1):
+[2026-03-20T10:39:35.218Z]     - https://api.whatsapp.com/send
+[2026-03-20T10:39:35.218Z] Summary: ws:1, fb:1, ig:1, ytp:1, urls:1
+[2026-03-20T10:39:35.219Z] Saved final result to result.json
+[2026-03-20T10:39:35.219Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-20T10:39:35.219Z] Finished at: 2026-03-20T10:39:35.219Z

@@ -1,0 +1,66 @@
+[2026-03-17T20:43:07.590Z] === Homepage AI Extractor: STKI ===
+[2026-03-17T20:43:07.596Z] Started at: 2026-03-17T20:43:07.596Z
+[2026-03-17T20:43:07.597Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773780187569_STKI
+[2026-03-17T20:43:07.598Z] Company: STKI
+[2026-03-17T20:43:07.598Z] Website: stki.info
+[2026-03-17T20:43:07.598Z] cbRank: 1303646
+[2026-03-17T20:43:07.598Z] Reasons: h
+[2026-03-17T20:43:07.598Z] Fetching: https://stki.info
+[2026-03-17T20:43:19.030Z] Network idle timeout — continuing with current state
+[2026-03-17T20:43:19.060Z] Redirected: https://stki.info -> https://www.stki.info/
+[2026-03-17T20:43:19.071Z] Saved HTML (497926 bytes) to page.html
+[2026-03-17T20:43:19.074Z] Extracted 22 unique links from page
+[2026-03-17T20:43:19.074Z] Saved 22 links to links.json
+[2026-03-17T20:43:19.076Z] Extracted footer HTML (3798 chars)
+[2026-03-17T20:43:19.076Z] Extracted header HTML (9517 chars)
+[2026-03-17T20:43:19.080Z] Website (post-redirect): https://www.stki.info/ → origin: https://www.stki.info
+[2026-03-17T20:43:19.080Z] External links: 4 (of 22 total)
+[2026-03-17T20:43:19.080Z] ── All external links ──
+[2026-03-17T20:43:19.080Z]   EXT: https://open.spotify.com/show/1Rni87UFczRxHxro8HsYtg?si=f7tiQzVcSQmnWZRdPISoug&nd=1&dlsi=8baedc4117e84df0
+[2026-03-17T20:43:19.080Z]   EXT: https://www.facebook.com/stki.info
+[2026-03-17T20:43:19.081Z]   EXT: https://www.linkedin.com/company/stki
+[2026-03-17T20:43:19.081Z]   EXT: https://www.youtube.com/@Insight-OutSTKI
+[2026-03-17T20:43:19.081Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T20:43:19.081Z]   UNCATEGORIZED: https://open.spotify.com/show/1Rni87UFczRxHxro8HsYtg?si=f7tiQzVcSQmnWZRdPISoug&nd=1&dlsi=8baedc4117e84df0
+[2026-03-17T20:43:19.081Z]   REGEX: fb <- https://www.facebook.com/stki.info
+[2026-03-17T20:43:19.081Z]   REGEX: li <- https://www.linkedin.com/company/stki
+[2026-03-17T20:43:19.081Z]   REGEX: ytp <- https://www.youtube.com/@Insight-OutSTKI
+[2026-03-17T20:43:19.081Z] Programmatic result: ws:1, fb:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-17T20:43:19.081Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T20:43:19.082Z] Saved AI prompt (5072 chars) to ai_prompt.txt
+[2026-03-17T20:43:19.082Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T20:43:19.086Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T20:43:46.137Z]   AI: First token received, streaming...
+[2026-03-17T20:43:49.498Z] AI response complete: 73 chars in 30.4s
+[2026-03-17T20:43:49.500Z] Saved AI response to ai_response.json
+[2026-03-17T20:43:49.500Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T20:43:49.500Z]   AI LINK: https://www.facebook.com/stki.info
+[2026-03-17T20:43:49.500Z]   AI LINK: https://www.linkedin.com/company/stki/
+[2026-03-17T20:43:49.500Z] AI returned 2 valid links
+[2026-03-17T20:43:49.501Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T20:43:49.501Z]   AI→REGEX: fb <- https://www.facebook.com/stki.info (duplicate, skipped)
+[2026-03-17T20:43:49.501Z]   AI→REGEX: li <- https://www.linkedin.com/company/stki/ (duplicate, skipped)
+[2026-03-17T20:43:49.501Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T20:43:49.501Z] Footer/header origins (3):
+[2026-03-17T20:43:49.501Z]   FOOTER/HEADER ORIGIN: https://www.stki.info
+[2026-03-17T20:43:49.501Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T20:43:49.502Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T20:43:49.502Z]   SKIP (not in footer/header): https://open.spotify.com/show/1Rni87UFczRxHxro8HsYtg?si=f7tiQzVcSQmnWZRdPISoug&nd=1&dlsi=8baedc4117e84df0
+[2026-03-17T20:43:49.502Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T20:43:49.502Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T20:43:49.502Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T20:43:49.502Z] ── Step 3: Final dedup ──
+[2026-03-17T20:43:49.502Z] No urls to dedup
+[2026-03-17T20:43:49.502Z] ── FINAL RESULT ──
+[2026-03-17T20:43:49.502Z]   ws (1):
+[2026-03-17T20:43:49.503Z]     - https://www.stki.info
+[2026-03-17T20:43:49.503Z]   li (1):
+[2026-03-17T20:43:49.503Z]     - https://www.linkedin.com/company/stki
+[2026-03-17T20:43:49.503Z]   fb (1):
+[2026-03-17T20:43:49.503Z]     - https://www.facebook.com/stki.info
+[2026-03-17T20:43:49.503Z]   ytp (1):
+[2026-03-17T20:43:49.503Z]     - https://www.youtube.com/@insight-outstki
+[2026-03-17T20:43:49.503Z] Summary: ws:1, fb:1, li:1, ytp:1
+[2026-03-17T20:43:49.504Z] Saved final result to result.json
+[2026-03-17T20:43:49.505Z] Override fields: ws, li, fb, ytp
+[2026-03-17T20:43:49.505Z] Finished at: 2026-03-17T20:43:49.505Z

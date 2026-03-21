@@ -1,0 +1,64 @@
+[2026-03-20T00:06:13.441Z] === Homepage AI Extractor: Ety Hadar ===
+[2026-03-20T00:06:13.441Z] Started at: 2026-03-20T00:06:13.441Z
+[2026-03-20T00:06:13.441Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773965173441_Ety_Hadar
+[2026-03-20T00:06:13.441Z] Company: Ety Hadar
+[2026-03-20T00:06:13.441Z] Website: etyhadar.com
+[2026-03-20T00:06:13.441Z] cbRank: 2501418
+[2026-03-20T00:06:13.442Z] Reasons: h
+[2026-03-20T00:06:13.442Z] Fetching: https://etyhadar.com
+[2026-03-20T00:06:17.069Z] Redirected: https://etyhadar.com -> https://www.etyhadar.com/
+[2026-03-20T00:06:17.074Z] Saved HTML (146927 bytes) to page.html
+[2026-03-20T00:06:17.077Z] Extracted 56 unique links from page
+[2026-03-20T00:06:17.078Z] Saved 56 links to links.json
+[2026-03-20T00:06:17.081Z] Extracted footer HTML (7305 chars)
+[2026-03-20T00:06:17.081Z] Extracted header HTML (4548 chars)
+[2026-03-20T00:06:17.085Z] Website (post-redirect): https://www.etyhadar.com/ → origin: https://www.etyhadar.com
+[2026-03-20T00:06:17.085Z] External links: 4 (of 56 total)
+[2026-03-20T00:06:17.085Z] ── All external links ──
+[2026-03-20T00:06:17.085Z]   EXT: https://twitter.com/HadarEty
+[2026-03-20T00:06:17.085Z]   EXT: https://www.facebook.com/EtyHadar.sites.and.content
+[2026-03-20T00:06:17.085Z]   EXT: https://www.linkedin.com/company/ety-hadar
+[2026-03-20T00:06:17.085Z]   EXT: https://www.linkedin.com/company/ety-hadar/about/?viewAsMember=true
+[2026-03-20T00:06:17.085Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T00:06:17.085Z]   REGEX: tw <- https://twitter.com/HadarEty
+[2026-03-20T00:06:17.085Z]   REGEX: fb <- https://www.facebook.com/EtyHadar.sites.and.content
+[2026-03-20T00:06:17.085Z]   REGEX: li <- https://www.linkedin.com/company/ety-hadar
+[2026-03-20T00:06:17.085Z]   REGEX: li <- https://www.linkedin.com/company/ety-hadar/about/?viewAsMember=true (duplicate, skipped)
+[2026-03-20T00:06:17.085Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-20T00:06:17.085Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T00:06:17.089Z] Saved AI prompt (7081 chars) to ai_prompt.txt
+[2026-03-20T00:06:17.089Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T00:06:17.092Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T00:06:47.255Z]   AI: First token received, streaming...
+[2026-03-20T00:06:52.232Z] AI response complete: 96 chars in 35.1s
+[2026-03-20T00:06:52.233Z] Saved AI response to ai_response.json
+[2026-03-20T00:06:52.234Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T00:06:52.234Z]   AI LINK: https://www.facebook.com/EtyHadar.sites.and.content/
+[2026-03-20T00:06:52.234Z]   AI LINK: https://www.linkedin.com/company/ety-hadar/
+[2026-03-20T00:06:52.234Z] AI returned 2 valid links
+[2026-03-20T00:06:52.234Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T00:06:52.235Z]   AI→REGEX: fb <- https://www.facebook.com/EtyHadar.sites.and.content/ (duplicate, skipped)
+[2026-03-20T00:06:52.235Z]   AI→REGEX: li <- https://www.linkedin.com/company/ety-hadar/ (duplicate, skipped)
+[2026-03-20T00:06:52.235Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T00:06:52.235Z] Footer/header origins (3):
+[2026-03-20T00:06:52.235Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T00:06:52.235Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T00:06:52.235Z]   FOOTER/HEADER ORIGIN: https://www.etyhadar.com
+[2026-03-20T00:06:52.236Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T00:06:52.236Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T00:06:52.236Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T00:06:52.236Z] ── Step 3: Final dedup ──
+[2026-03-20T00:06:52.236Z] No urls to dedup
+[2026-03-20T00:06:52.236Z] ── FINAL RESULT ──
+[2026-03-20T00:06:52.236Z]   ws (1):
+[2026-03-20T00:06:52.236Z]     - https://www.etyhadar.com
+[2026-03-20T00:06:52.236Z]   li (1):
+[2026-03-20T00:06:52.236Z]     - https://www.linkedin.com/company/ety-hadar
+[2026-03-20T00:06:52.236Z]   fb (1):
+[2026-03-20T00:06:52.237Z]     - https://www.facebook.com/etyhadar.sites.and.content
+[2026-03-20T00:06:52.237Z]   tw (1):
+[2026-03-20T00:06:52.237Z]     - https://x.com/hadarety
+[2026-03-20T00:06:52.237Z] Summary: ws:1, tw:1, fb:1, li:1
+[2026-03-20T00:06:52.238Z] Saved final result to result.json
+[2026-03-20T00:06:52.238Z] Override fields: ws, li, fb, tw
+[2026-03-20T00:06:52.238Z] Finished at: 2026-03-20T00:06:52.238Z

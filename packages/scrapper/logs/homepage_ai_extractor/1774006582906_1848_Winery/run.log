@@ -1,0 +1,73 @@
+[2026-03-20T11:36:22.906Z] === Homepage AI Extractor: 1848 Winery ===
+[2026-03-20T11:36:22.906Z] Started at: 2026-03-20T11:36:22.906Z
+[2026-03-20T11:36:22.907Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774006582906_1848_Winery
+[2026-03-20T11:36:22.907Z] Company: 1848 Winery
+[2026-03-20T11:36:22.907Z] Website: 1848.co.il
+[2026-03-20T11:36:22.907Z] cbRank: 2931511
+[2026-03-20T11:36:22.907Z] Reasons: h
+[2026-03-20T11:36:22.907Z] Fetching: https://1848.co.il
+[2026-03-20T11:36:28.126Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-20T11:36:31.095Z] Redirected: https://1848.co.il -> https://1848.co.il/
+[2026-03-20T11:36:31.104Z] Saved HTML (385413 bytes) to page.html
+[2026-03-20T11:36:31.106Z] Extracted 36 unique links from page
+[2026-03-20T11:36:31.107Z] Saved 36 links to links.json
+[2026-03-20T11:36:31.123Z] Extracted footer HTML (7633 chars)
+[2026-03-20T11:36:31.123Z] Extracted header HTML (12384 chars)
+[2026-03-20T11:36:31.129Z] Website (post-redirect): https://1848.co.il/ → origin: https://1848.co.il
+[2026-03-20T11:36:31.135Z] External links: 5 (of 36 total)
+[2026-03-20T11:36:31.135Z] ── All external links ──
+[2026-03-20T11:36:31.135Z]   EXT: https://twitter.com/1848W
+[2026-03-20T11:36:31.135Z]   EXT: https://www.facebook.com/1848winery
+[2026-03-20T11:36:31.135Z]   EXT: https://www.google.com
+[2026-03-20T11:36:31.135Z]   EXT: https://www.google.com/maps/place/Barcelona,+Spain/@41.3940835,2.1483972,16.29z/data=!4m5!3m4!1s0x12a49816718e30e5:0x44b0fb3d4f47660a!8m2!3d41.3850639!4d2.1734035
+[2026-03-20T11:36:31.135Z]   EXT: https://www.instagram.com/1848_winery
+[2026-03-20T11:36:31.135Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T11:36:31.135Z]   REGEX: tw <- https://twitter.com/1848W
+[2026-03-20T11:36:31.136Z]   REGEX: fb <- https://www.facebook.com/1848winery
+[2026-03-20T11:36:31.136Z]   UNCATEGORIZED: https://www.google.com
+[2026-03-20T11:36:31.136Z]   UNCATEGORIZED: https://www.google.com/maps/place/Barcelona,+Spain/@41.3940835,2.1483972,16.29z/data=!4m5!3m4!1s0x12a49816718e30e5:0x44b0fb3d4f47660a!8m2!3d41.3850639!4d2.1734035
+[2026-03-20T11:36:31.136Z]   REGEX: ig <- https://www.instagram.com/1848_winery
+[2026-03-20T11:36:31.136Z] Programmatic result: ws:1, tw:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-20T11:36:31.136Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T11:36:31.145Z] Saved AI prompt (6515 chars) to ai_prompt.txt
+[2026-03-20T11:36:31.145Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T11:36:31.156Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T11:37:05.631Z]   AI: First token received, streaming...
+[2026-03-20T11:37:13.301Z] AI response complete: 100 chars in 42.2s
+[2026-03-20T11:37:13.303Z] Saved AI response to ai_response.json
+[2026-03-20T11:37:13.303Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T11:37:13.303Z]   AI LINK: https://www.facebook.com/1848winery
+[2026-03-20T11:37:13.303Z]   AI LINK: https://twitter.com/1848W
+[2026-03-20T11:37:13.303Z]   AI LINK: https://www.instagram.com/1848_winery/
+[2026-03-20T11:37:13.303Z] AI returned 3 valid links
+[2026-03-20T11:37:13.304Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T11:37:13.304Z]   AI→REGEX: fb <- https://www.facebook.com/1848winery (duplicate, skipped)
+[2026-03-20T11:37:13.304Z]   AI→REGEX: tw <- https://twitter.com/1848W (duplicate, skipped)
+[2026-03-20T11:37:13.304Z]   AI→REGEX: ig <- https://www.instagram.com/1848_winery/ (duplicate, skipped)
+[2026-03-20T11:37:13.304Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T11:37:13.305Z] Footer/header origins (5):
+[2026-03-20T11:37:13.305Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T11:37:13.305Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-20T11:37:13.305Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T11:37:13.305Z]   FOOTER/HEADER ORIGIN: http://1848.co.il
+[2026-03-20T11:37:13.305Z]   FOOTER/HEADER ORIGIN: https://1848.co.il
+[2026-03-20T11:37:13.305Z]   SKIP (not in footer/header): https://www.google.com
+[2026-03-20T11:37:13.305Z]   SKIP (not in footer/header): https://www.google.com/maps/place/Barcelona,+Spain/@41.3940835,2.1483972,16.29z/data=!4m5!3m4!1s0x12a49816718e30e5:0x44b0fb3d4f47660a!8m2!3d41.3850639!4d2.1734035
+[2026-03-20T11:37:13.305Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T11:37:13.306Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T11:37:13.306Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T11:37:13.306Z] ── Step 3: Final dedup ──
+[2026-03-20T11:37:13.306Z] No urls to dedup
+[2026-03-20T11:37:13.306Z] ── FINAL RESULT ──
+[2026-03-20T11:37:13.306Z]   ws (1):
+[2026-03-20T11:37:13.306Z]     - https://1848.co.il
+[2026-03-20T11:37:13.306Z]   fb (1):
+[2026-03-20T11:37:13.306Z]     - https://www.facebook.com/1848winery
+[2026-03-20T11:37:13.306Z]   tw (1):
+[2026-03-20T11:37:13.307Z]     - https://x.com/1848w
+[2026-03-20T11:37:13.307Z]   ig (1):
+[2026-03-20T11:37:13.307Z]     - https://www.instagram.com/1848_winery
+[2026-03-20T11:37:13.307Z] Summary: ws:1, tw:1, fb:1, ig:1
+[2026-03-20T11:37:13.308Z] Saved final result to result.json
+[2026-03-20T11:37:13.308Z] Override fields: ws, fb, tw, ig
+[2026-03-20T11:37:13.309Z] Finished at: 2026-03-20T11:37:13.309Z

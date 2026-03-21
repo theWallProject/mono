@@ -1,0 +1,704 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="Description" content="&lt;% = pageDescription %&gt;"><title>
+	BDL | Home 
+</title>
+<link href="css/css-bootstrap-4.6.0/bootstrap.min.css?v=20211227" rel="stylesheet">
+<link href="Plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css?v=20211227" rel="stylesheet">
+<link href="Plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css?v=20211227" rel="stylesheet">
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="Plugins/jquery-3.5.1.min.js?v=20211227"></script>
+<script src="Plugins/jquery-ui/js/jquery-ui-1.12.1.min.js?v=20211227"></script>
+<script src="js/js-bootstrap-4.6.0/pooper.js?v=20211227"></script>
+<link href="css/flickity.css?v=20211227" rel="stylesheet">
+<script src="js/js-bootstrap-4.6.0/bootstrap.min.js?v=20211227"></script>
+<script src="Plugins/OwlCarousel2-2.3.4/dist/owl.carousel.min.js?v=20211227"></script>
+<link href="Plugins/AlertCustom-confirm/custom-confirm.css?&lt;%=20211227" rel="stylesheet">
+<script src="Plugins/AlertCustom-confirm/custom-confirm.js?v=20211227"></script>
+<script src="Script/GlobalFunction.js?v=20211227"></script>
+<script src="Script/Script.js?v=20211227"></script>
+<script src="Script/autocomplete2.js?v=20211227"></script>
+<script src="Script/autocomplete.js?v=20211227"></script>
+<link href="css/Style.css?v=20211227" rel="stylesheet">
+
+    <script>
+
+        $(document).ready(function () {
+            //if (!$('.toggleMenu').is(':visible')) {
+            //    res();
+            //}
+            //Carousel
+            $(".owl-carousel").owlCarousel({
+                autoplay: 3000, //Set AutoPlay to 1 second
+                loop: true,
+                nav: true,
+                navText: ['<span class="flickity-prev-next-button previous" type="button"><svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(15,0)"></path></svg></span>',
+                    '<span class="flickity-prev-next-button next" type="button"><svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(180)"></path></svg>            </span>'],
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+
+            //read more /less
+            $('#readMorebtn').on('click', function () {
+                if ($(this).text() === "Read More") {
+                    $(this).text('Read less');
+                } else {
+                    $(this).text('Read More');
+                }
+            });
+        });
+
+    </script>
+
+   
+    <script>
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-58490323-1']);
+        _gaq.push(['_trackPageview']);
+			 
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        var fCategoryID = 0;
+			      var CategoryText = "";
+        var modal = "";
+
+      
+
+       
+
+        $(document).ready(function () {
+
+
+            $('[data-toggle="tooltip"]').tooltip()
+
+
+            OnPageDoneload();
+            $('input.Calendar').attr('autocomplete', 'off');
+            //back to top
+            $(window).scroll(function () {
+                var scroll = $(this).scrollTop();
+
+                // if (scroll > 20) {
+                if (scroll > 0) {
+                    //show button
+                    $('#toTopBtn').fadeIn();
+                    scroll += window.innerHeight;
+                    if (scroll < $(".footerMain").offset().top) {
+                        $('#toTopBtn').css('margin-bottom', '20px');
+                    }
+                    else {
+                        $('#toTopBtn').css('margin-bottom', scroll - $(".footerMain").offset().top + 15 + 'px');
+                    }
+                }
+                else {
+                    $('#toTopBtn').fadeOut();
+                }
+            });
+            //show or hide on load
+            $(window).scroll();
+
+            $('.toTopBtn').click(function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 500);
+                return false;
+            });
+
+            $('[location]').click(function () {
+                var location = $(this).attr('location');
+                window.location = location;
+
+            });
+            ///search input
+
+
+
+            $('.search-input-Header').keypress(function (event) {
+                if ($(this).val().length > 1)
+                    $(this).attr("autocomplete", "off");
+                if (event.which == 13) {
+                    $(this).parent().find('.search-icon').click();
+                }
+            });
+            $('.search-input-Header').blur(function () {
+                var search = $(this).val();
+                $('.search-input-Header').val(search);
+            });
+
+            $('.search-input-Header').dblclick(function () {
+                $('.search-input-Header').val('');
+            });
+            $('.search-icon').click(function () {
+                showLoading();
+            });
+
+
+            //footer css
+            $(window).resize(function () {
+                if (modal != 1) {
+                    var footerHeight = $(".footerMain").outerHeight();
+                    $('body').css('padding-bottom', footerHeight + 'px');
+                } else
+                    $('body').css('padding-bottom', '0px');
+            });
+            var footerHeight = $(".footerMain").outerHeight();
+            if (modal != 1)
+                $('body').css('padding-bottom', footerHeight + 'px');
+            else
+                $('body').css('padding-bottom', '0px');
+
+
+            //Login Modal
+            window.closeModal = function (logInOutVal) {
+                $('#loginModalCenter').modal('hide');
+                if (logInOutVal != undefined)
+                    $(".logInOut").html(logInOutVal);
+            };
+            var src = "Login.aspx?modal=1";
+            $(".btnLoginModal[data-toggle='modal']").on('click', function (e) {
+                $(".modal-body").find('iframe').attr('src', src);
+            });
+
+
+            var IsFromAdmin = 0;
+            if (IsFromAdmin == 1) {
+                $("#search").css('margin', 'auto');
+            }
+
+            //from ariba / university hide register,login, logout
+            var IsFromUnic =  '0';
+            if (IsFromUnic == 1) {
+                $(".hideInUnic").addClass('d-none');
+            }
+
+            //if there is session hide ItemsInCart_Count
+
+            var countItemInCart =  '-1';
+            $(".aNav").find('.dot').text(countItemInCart);
+            if (countItemInCart == -1) {
+                $(".aNav").find('.dot').addClass('d-none');
+            }
+        });
+
+
+
+        function searchitem() {
+
+            if (document.getElementById('mysearch').value.length < 3) {
+                removeLoading();
+                window.location.href = "Search.aspx";
+                return;
+            }
+
+            document.getElementById('mysearch').style.backgroundColor = "white"
+
+
+            var stringtosearch = new String("");
+
+            stringtosearch = "?";
+
+
+
+            if (document.getElementById('SearchID').value != "") {
+                stringtosearch += "" + document.getElementById('mysearch').value + "&SID=" + document.getElementById('SearchID').value
+            }
+            else {
+                stringtosearch += "Search=" + document.getElementById('mysearch').value
+            }
+
+            if (IsFromAdmin == 1) {
+                window.location = "Search.aspx" + stringtosearch + "&IsFromAdmin=1&fUserID=" + fUserID + "&fOrderID=" + fOrderID + "&s=" + $("#admin").val();
+            }
+            else
+                window.location = "Search.aspx" + stringtosearch;
+        }
+    </script>
+    <style>
+    </style>
+</head>
+<body dir="ltr" class="text-center" style="padding-bottom: 182px;">
+
+
+    <div>
+        <div class="mainContainer bootStyle">
+
+
+            <header id="ctl00_HeaderMobile" class="HeaderMobile row grey" style="height: auto">
+                
+
+
+                <div class="col-12">
+                    <a href="./">
+                        <img id="Logo" alt="BDL Beith Dekel is a leading Chemicals, Life Science, Laboratory consumables and instrument's supplier. Our products can be found in every lab and production plant in Israel." class="Logo col-3 col-md-2 d-inline-block p-0 float-left" src="Images/Logo/BDL_LOGO.PNG" style="margin-top: 20px">
+                    </a>
+                    <div id="ctl00_dynamicMenuMobile" class="dropdown ownMenue float-right" style="margin: 20px 0px 20px 20px">
+
+                        <img class="img-option dropdown-toggle" src="Images/Icons/menu-open.png" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        <div class="dropdown-menu menuGeneral " aria-labelledby="dropdownMenuLink">
+                            <div class="header">
+                                <img src="Images/Icons/menu-close.png" class="img-option">
+                            </div>
+                            <nav>
+                                
+<a href="./" class="dropdown-item  font23">Home</a>
+<a href="Newsletters.aspx" class="dropdown-item  font23">Newsletters</a>
+<a href="Portfolio.aspx?CategoryTab=Chemicals" class="dropdown-item  font23">Portfolio</a>
+<a href="Company.aspx" class="dropdown-item  font23">Company</a>
+<a href="Downloads.aspx" class="dropdown-item  font23">Download</a>
+<a href="Service.aspx" class="dropdown-item  font23">Service</a>
+<a href="Contact.aspx" class="dropdown-item  font23">Contact</a>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div id="ctl00_generalMenuMobile" class="mt-2 col-12 text-left">
+                    <div class="aNav logInOut hideInUnic">
+
+                        <a id="logIn" href="login.aspx"><span class="floatLeft">Log In</span><img src="Images/Icons/signin.png" alt="BDL Log In"><span class="vectorVertical m-10 mr-2"></span></a>
+                    </div>
+                    <div class="aNav hideInUnic">
+                        <a href="Registration.aspx"><span class="floatLeft">Register</span>
+                            <img src="Images/Icons/register.png" alt="BDL Register"><span class="vectorVertical m-10 "></span></a>
+                    </div>
+                    <div class="aNav">
+                        <a href="Cart.aspx"><span class="floatLeft">My cart</span>
+                            <img src="Images/Icons/mycart.png" alt="BDL Cart"><span class="vectorVertical m-10 "></span>
+                            <span class="dot d-none">-1</span>
+                        </a>
+                    </div>
+                    <div class="aNav">
+                        <a href="Quotes.aspx"><span class="floatLeft">My Quotes</span>
+                            <img src="Images/Icons/myquets.png" alt="BDL Quotes"><span class="vectorVertical m-10 "></span></a>
+                    </div>
+
+
+                </div>
+                <div class="search col-12 p-0 text-right">
+
+                    <div id="searchInputDiv" class="searchInputDiv">
+                        <div class="input-group m-0 p-1" style="padding-right: 15px !important; padding-left: 15px !important">
+                            <input id="mysearch" type="text" class="searchInput form-control search-input-Header" onfocus="DoNotCheckDic2=false;" placeholder="SEARCH" aria-label="SEARCH" aria-describedby="search-icon" autocomplete="off">
+                            <input type="text" id="SearchType" style="display: none;">
+                            <input type="text" id="SearchID" style="display: none;">
+                            <input type="text" id="CategoryID" value="0" style="display: none;">
+                            <input type="text" id="fOrderID" value="" style="display: none;">
+                            <input type="text" id="fUserID" value="" style="display: none;">
+                            <input type="text" id="IsFromAdmin" value="0" style="display: none;">
+                            <input type="text" id="admin" value="0" style="display: none;">
+                            <div class="input-group-prepend searchImg">
+                                <span class="input-group-text search-icon" id="search-icon" onclick="searchitem(); return false;">
+                                    <img id="searchImg" alt="BDL Search" src="Images/Icons/searchicon.png" class="pb-19"></span>
+                            </div>
+                            <div id="querydiv"></div>
+                        </div>
+
+                    </div>
+                    <div id="ctl00_searchLinkMobile" class="searchLink text-center pb-0 col-12 pr-0 offset-md-0 pl-0 d-inline-block">
+                        <a class="HeaderFont font23" href="Search.aspx">Webshop</a>
+                        <span class="smallVectorVertical vectorVertical m-10 mr-2 align-top"></span>
+                        <a href="AB_Search.aspx" class="HeaderFont font23">A-B Search</a>
+                    </div>
+                </div>
+            </header>
+
+            <header id="ctl00_Header" class="row grey mainHeader">
+                
+                <a href="./">
+                    <img id="Logo" class="ImgLogo d-inline-block p-0" alt="BDL Beith Dekel is a leading Chemicals, Life Science, Laboratory consumables and instrument's supplier. Our products can be found in every lab and production plant in Israel." src="Images/Logo/BDL_LOGO.PNG">
+                </a>
+                <div id="search" class="col-md-3 col-4 p-0 text-right headerSearch">
+                    <div id="ctl00_searchLink" class="searchLink text-right pb-0 col-11 pr-0 offset-md-0 pl-0 d-inline-block">
+                        <a class="HeaderFont font23" href="Search.aspx">Webshop</a>
+                        <span class="smallVectorVertical vectorVertical m-10 mr-2 align-top"></span>
+                        <a href="AB_Search.aspx" class="HeaderFont font23">A-B Search</a>
+                    </div>
+                    <div id="searchInputDiv">
+                        <div class="input-group m-0">
+                            <input id="mysearch2" type="text" class="searchInput form-control search-input-Header" onfocus="DoNotCheckDic2=false;" placeholder="SEARCH" aria-label="SEARCH" aria-describedby="search-icon">
+                            <input type="text" id="SearchType2" class="d-none" value="0">
+                            <input type="text" id="SearchID2" class="d-none" value="">
+                            <div class="input-group-prepend searchImg">
+                                <span class="input-group-text search-icon" id="search-icon" onclick="searchitem2(); return false;">
+                                    <img id="searchImg" alt="BDL Search" src="Images/Icons/searchicon.png" class="pb-19"></span>
+                            </div>
+                            <div id="querydiv2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="ctl00_rightPart" class="col text-right pr-0">
+
+                    
+                    <div class="row d-flex justify-content-end register">
+                        <div class="align-self-center pt-2">
+                            <div class="aNav attachItem logInOut hideInUnic">
+                                <a id="logIn" href="login.aspx"><span class="floatLeft">Log In</span><img src="Images/Icons/signin.png" alt="BDL Log In"><span class="vectorVertical m-10 mr-2"></span></a>
+                            </div>
+                            <div class="aNav hideInUnic">
+                                <a href="Registration.aspx"><span class="floatLeft">Register</span>
+                                    <img src="Images/Icons/register.png" alt="BDL Register"><span class="vectorVertical m-10 "></span></a>
+                            </div>
+                            <div class="aNav">
+                                <a href="Cart.aspx"><span class="floatLeft">My cart</span>
+                                    <img src="Images/Icons/mycart.png" alt="BDL cart">
+                                    <span class="vectorVertical m-10 "></span>
+                                     <span class="dot d-none">-1</span>
+                                </a>
+                            </div>
+                            <div class="aNav">
+                                <a href="Quotes.aspx"><span class="floatLeft">My Quotes</span>
+                                    <img src="Images/Icons/myquets.png" alt="BDL Quotes"><span class="vectorVertical m-10 "></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row d-flex justify-content-end align-self-center register">
+                        <div id="secondNav">
+                            <nav>
+                                
+<a href="./" class="aNavButtom font23 pl-0">Home</a>
+<a href="Newsletters.aspx" class="aNavButtom font23">Newsletters</a>
+<a href="Portfolio.aspx?CategoryTab=Chemicals" class="aNavButtom font23">Portfolio</a>
+<a href="Company.aspx" class="aNavButtom font23">Company</a>
+<a href="Downloads.aspx" class="aNavButtom font23">Download</a>
+<a href="Service.aspx" class="aNavButtom font23">Service</a>
+<a href="Contact.aspx" class="aNavButtom font23">Contact</a>
+
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            
+            
+
+    
+    
+<div id="slider" class="row d-flex justify-content-center homeSlider">
+<div id="carouselControls" class="carousel slide row" data-ride="carousel">
+<a class="carousel-control-prev col-2 col-md-1 " href="#carouselControls" role="button" data-slide="prev">
+<span class="pl-20" aria-hidden="true">
+<img class="sliderArrow" alt="Next" src="Images/Icons/arrowSliderLeft.png"></span>
+<span class="sr-only">Previous</span>
+</a>
+<div class="carousel-inner col-8 col-md-10">
+<div class="carousel-item active">
+<a href="">
+<img class="d-block w-100" alt="BDL your lab is our mission" src="https://www.bdl.co.il/Files/Slider/you-lab-is-our-mission.jpg"></a>
+</div>
+<div class="carousel-item ">
+<a href="">
+<img class="d-block w-100" alt="BDL KNF" src="https://www.bdl.co.il/Files/Slider/KNF--002-.png"></a>
+</div>
+<div class="carousel-item ">
+<a href="">
+<img class="d-block w-100" alt="BDL TCI3" src="https://www.bdl.co.il/Files/Slider/TCI3(1).png"></a>
+</div>
+<div class="carousel-item ">
+<a href="">
+<img class="d-block w-100" alt="BDL WTW" src="https://www.bdl.co.il/Files/Slider/MultiLab-Pro-IDS--1---002-.png"></a>
+</div>
+</div>
+<a class="carousel-control-next col-2 col-md-1" href="#carouselControls" role="button" data-slide="next">
+<span class="pr-20" aria-hidden="true">
+<img class="sliderArrow" alt="Prev" src="Images/Icons/arrowSliderRight.png"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+</div>
+
+
+    
+    <div id="mainSearch" class="row d-flex justify-content-center mt-12">
+
+        <div class="col-6 max-w-454 mainSearch grey">
+           <a href="Portfolio.aspx?CategoryTab=LaboratorySupply">
+                <img style="width: 100%; height: auto" src="Images/Main_Search/labSupply.jpg">
+                <div class=" text-center">
+                    <div class="align-items-center bodyImgSearch">
+                        <h1 class="searchHeader">Laboratory and Cleanroom Supply</h1>
+                        <h2 class="searchBody">We at Beith Dekel offer the widest assortment of laboratory consumables and instruments, Cleanroom materials,
+                            Garments and accessories. This offering is based on rigid supply chain of Ourselves and 
+                            LLG company in Germany who is our logistic backbone.</h2>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-6 mainSearch max-w-454 grey">
+            <a href="Search.aspx?Category=Chemistry&amp;FCD=1">
+                <img style="width: 100%; height: auto" src="Images/Main_Search/chemistry.jpg">
+                <div class=" text-center">
+                    <div class="align-items-center bodyImgSearch">
+                        <h1 class="searchHeader">Chemicals and life Science materials</h1>
+                        <h2 class="searchBody">We at Beith Dekel offer very wide product range of Chemicals
+                            from various vendors and qualities to vast number of applications.
+                            We are expanding our portfolio toward Life Science materials for Cell Culture, Histology Genomics and Proteomics. </h2>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    
+    <div id="carouselHeader" class="text-center">
+        <p class="blue mb-0 font-30">Glimpse of our suppliers</p>
+    </div>
+
+    <div id="carouselDiv" class="row d-flex justify-content-center">
+        <div id="cust" class="centerContainer col-9">
+            <div id="owl-demo" class="owl-theme owl-carousel owl-loaded owl-drag">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1780px, 0px, 0px); transition: all; width: 6942px;"><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/MACRON.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier MACRON" data-original-title="MACRON">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/jpt.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier JPT" data-original-title="JPT">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/vitlab.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier vitlab" data-original-title="vitlab">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/si.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Schott Instruments" data-original-title="Schott Instruments">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/hermle.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Hermle" data-original-title="Hermle">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/heidolph.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Heidolph" data-original-title="Heidolph">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/huber.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier huber" data-original-title="huber">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/memmert.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Memmert" data-original-title="Memmert">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/reagecon.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Reagecon" data-original-title="Reagecon">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/Logo_HPC_Druck.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier HPC STANDARDS" data-original-title="HPC STANDARDS">
+</div></div><div class="owl-item active" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/cust-JTbaker.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier JTbaker" data-original-title="JTbaker">
+</div></div><div class="owl-item active" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/cust-wtw.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier wtw" data-original-title="wtw">
+</div></div><div class="owl-item active" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/chemlab.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Chem-Lab" data-original-title="Chem-Lab">
+</div></div><div class="owl-item active" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/neodisher.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier neodisher" data-original-title="neodisher">
+</div></div><div class="owl-item active" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/de3abe8494726215b39a5d376887a1aa.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier VWR International " data-original-title="VWR International ">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/הורדה.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Hydroflex" data-original-title="Hydroflex">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/1337713.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Kartell " data-original-title="Kartell ">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/DWK.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier dkw" data-original-title="dkw">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/eppendorf(1).png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Eppendorf" data-original-title="Eppendorf">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/MACRON.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier MACRON" data-original-title="MACRON">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/jpt.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier JPT" data-original-title="JPT">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/vitlab.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier vitlab" data-original-title="vitlab">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/si.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Schott Instruments" data-original-title="Schott Instruments">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/hermle.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Hermle" data-original-title="Hermle">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/heidolph.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Heidolph" data-original-title="Heidolph">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/huber.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier huber" data-original-title="huber">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/memmert.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Memmert" data-original-title="Memmert">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/reagecon.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Reagecon" data-original-title="Reagecon">
+</div></div><div class="owl-item" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/Logo_HPC_Druck.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier HPC STANDARDS" data-original-title="HPC STANDARDS">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/cust-JTbaker.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier JTbaker" data-original-title="JTbaker">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/cust-wtw.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier wtw" data-original-title="wtw">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/chemlab.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Chem-Lab" data-original-title="Chem-Lab">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/neodisher.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier neodisher" data-original-title="neodisher">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/de3abe8494726215b39a5d376887a1aa.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier VWR International " data-original-title="VWR International ">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/הורדה.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Hydroflex" data-original-title="Hydroflex">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/1337713.jpg" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Kartell " data-original-title="Kartell ">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/DWK.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier dkw" data-original-title="dkw">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/eppendorf(1).png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier Eppendorf" data-original-title="Eppendorf">
+</div></div><div class="owl-item cloned" style="width: 178px;"><div class="item">
+ <img src="https://www.bdl.co.il/Files/Supplier/MACRON.png" data-toggle="tooltip" data-placement="bottom" title="" alt="BDL Supplier MACRON" data-original-title="MACRON">
+</div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><span class="flickity-prev-next-button previous" type="button"><svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(15,0)"></path></svg></span></button><button type="button" role="presentation" class="owl-next"><span class="flickity-prev-next-button next" type="button"><svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(180)"></path></svg>            </span></button></div><div class="owl-dots disabled"></div></div>
+        </div>
+    </div>
+
+    
+    <div class="blue darkGrey row d-flex justify-content-center h-62">
+        <b class="align-self-center font-34">CERTIFIED, FIRST-CLASS QUALITY</b>
+    </div>
+
+    <div class="grey row d-flex justify-content-center">
+        <section class="centerContainer p-20">
+            <p>
+                When it comes to quality,
+                you need to be able to rely on your partners and suppliers.
+                This is why we set up our quality management system back in 2005 and why we are of course certified to ISO 9001:2015.
+            </p>
+
+            <div class="">
+                <button id="readMorebtn" class="btn btn-primary d-md-none d-block" style="margin: auto" type="button" data-toggle="collapse" data-target="#MoreDetails" aria-expanded="false" aria-controls="MoreDetails">Read More</button>
+            </div>
+            <div class="collapse d-md-block" id="MoreDetails">
+                <div class="card-body">
+                    <p>
+                        The company works based on lot traceability and expiration dates.
+                        Our IT, Purchasing, sales, warehousing,
+                        transportation and technical service activities are well documented and monitored through our ERP system for permanent optimization of our processes.
+                        It means that we are constantly improving and at the same time ensuring maximum customer satisfaction and the efficient use of resources.
+
+                    </p>
+
+                    <p>
+                        But quality means more than just this. It is our standard for selecting new products and manufacturers, 
+                        for the evolution of processes and of course for the regular training courses that our employees undergo.
+                    </p>
+                    <div>
+
+                        <p>
+                            <a href="SiteFile/Beith-Dekel-BDL-ISO-CERTIFICATE-2023-2026.pdf" target="_blank">Our Iso certification</a>
+                        </p>
+                        <a href="https://www2.llg.de/" target="_blank">
+                            <img class="text-wrap float-right ml-20" src="Images/Logo/LLG-sml.jpg" alt="BDL LLG-Logo">
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+            
+            <button id="btnLoginModal" type="button" class="btn btn-primary btnLoginModal d-none" data-toggle="modal" data-target="#loginModalCenter">
+                Login Modal
+            </button>
+            <div class="modal fade modalLogin" id="loginModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="padding-bottom: 20px;">
+                            <button id="closeLogin" type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding: 0px; padding-right: 1rem;">
+                                <span aria-hidden="true" style="font-size: 40px;">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <a href="#" id="toTopBtn" class="text-replace js-cd-top cd-top--is-visible cd-top--fade-out toTopBtn" data-abc="true" style="display: none;">
+                <img src="Images/Icons/to-top.png" alt="BDL to-top">
+            </a>
+
+            <footer id="ctl00_footerMain" class="row footerMain">
+                <div class="d-flex align-items-center h-100 d-inline-block">
+                    <a href="./">
+                        <img class="Logo ImgLogo d-inline-block" alt="BDL Beith Dekel is a leading Chemicals, Life Science, Laboratory consumables and instrument's supplier. Our products can be found in every lab and production plant in Israel." src="Images/Logo/BDL_LOGO.PNG"></a>
+                </div>
+                <div class="col d-inline-block align-self-center">
+                    <div class="footerNav align-self-center">
+                        <div class="fNav d-block d-md-inline"><a href="https://www.bdl.co.il/Files/Document/SITE_USE_TERMS.pdf" target="_blank">Site Use Terms</a></div>
+                        <div class="fNav d-block d-md-inline"><a href="https://www.bdl.co.il/Files/Document/Privacy_Policy_190721.pdf" target="_blank">Privacy Policy</a></div>
+                        <div class="fNav d-block d-md-inline"><a href="https://www.bdl.co.il/Files/Document/General_Terms_190721.pdf" target="_blank">General Terms &amp; Conditions</a></div>
+                        <div class="fNav d-block d-md-inline"><a href="Contact.aspx">Contact</a></div>
+                    </div>
+                     
+                    <div class="footerNav align-self-center d-none d-lg-block">
+                       
+                        <div class="font-16"><a href="https://www.erg.co.il" target="_blank">Built By ERG Solution</a></div>
+                        <span class="footervector vectorVertical m-10"></span>
+                        <div class="font-16"><a href="http://www.shenkar.com" target="_blank">Design By Gal Shenkar</a></div>
+                        <span class="footervector vectorVertical m-10"></span>
+                        <div class="font-16"><span class="font-16">© All Rights Reserved BDL </span></div>
+                    </div>
+
+                </div>
+                 
+                <div class="d-block d-lg-none footerNav align-self-center col-12">
+                    <div class=" border-top text-left">
+                        <div>
+                            <span class="font-16">© All Rights Reserved BDL </span>
+                            <span>&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <div>
+                            <div class="font-16"><a href="https://www.erg.co.il" target="_blank">Built By ERG Solution</a></div>
+                            <span class="footervector vectorVertical m-10"></span>
+                            <div class="font-16"><a href="http://www.shenkar.com" target="_blank">Design By Gal Shenkar</a></div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <div class="overlay d-none"></div>
+
+        </div>
+    </div>
+
+
+</body></html>

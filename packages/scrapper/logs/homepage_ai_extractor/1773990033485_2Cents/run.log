@@ -1,0 +1,74 @@
+[2026-03-20T07:00:33.486Z] === Homepage AI Extractor: 2Cents ===
+[2026-03-20T07:00:33.486Z] Started at: 2026-03-20T07:00:33.486Z
+[2026-03-20T07:00:33.486Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773990033485_2Cents
+[2026-03-20T07:00:33.486Z] Company: 2Cents
+[2026-03-20T07:00:33.486Z] Website: 2cents.co.il
+[2026-03-20T07:00:33.486Z] cbRank: 2766068
+[2026-03-20T07:00:33.486Z] Reasons: h
+[2026-03-20T07:00:33.486Z] Fetching: https://2cents.co.il
+[2026-03-20T07:00:45.088Z] Network idle timeout — continuing with current state
+[2026-03-20T07:00:45.122Z] Redirected: https://2cents.co.il -> https://www.2cents.co.il/
+[2026-03-20T07:00:45.135Z] Saved HTML (587113 bytes) to page.html
+[2026-03-20T07:00:45.138Z] Extracted 27 unique links from page
+[2026-03-20T07:00:45.138Z] Saved 27 links to links.json
+[2026-03-20T07:00:45.140Z] Extracted footer HTML (5406 chars)
+[2026-03-20T07:00:45.140Z] Extracted header HTML (9225 chars)
+[2026-03-20T07:00:45.145Z] Website (post-redirect): https://www.2cents.co.il/ → origin: https://www.2cents.co.il
+[2026-03-20T07:00:45.146Z] External links: 4 (of 27 total)
+[2026-03-20T07:00:45.146Z] ── All external links ──
+[2026-03-20T07:00:45.146Z]   EXT: http://bit.ly/UXFriday
+[2026-03-20T07:00:45.146Z]   EXT: https://twitter.com/boazrossano
+[2026-03-20T07:00:45.146Z]   EXT: https://wa.me/972522655548?text=Hi+Boaz,+Please+call+me+back+ASAP.
+[2026-03-20T07:00:45.146Z]   EXT: https://www.linkedin.com/in/boazrossano
+[2026-03-20T07:00:45.146Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T07:00:45.146Z]   UNCATEGORIZED: http://bit.ly/UXFriday
+[2026-03-20T07:00:45.146Z]   REGEX: tw <- https://twitter.com/boazrossano
+[2026-03-20T07:00:45.146Z]   UNCATEGORIZED: https://wa.me/972522655548?text=Hi+Boaz,+Please+call+me+back+ASAP.
+[2026-03-20T07:00:45.146Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-20T07:00:45.147Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/boazrossano
+[2026-03-20T07:00:45.147Z] Programmatic result: ws:1, tw:1 | 2 uncategorized
+[2026-03-20T07:00:45.147Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T07:00:45.150Z] Saved AI prompt (6651 chars) to ai_prompt.txt
+[2026-03-20T07:00:45.150Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T07:00:45.153Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T07:01:25.017Z]   AI: First token received, streaming...
+[2026-03-20T07:01:32.854Z] AI response complete: 131 chars in 47.7s
+[2026-03-20T07:01:32.855Z] Saved AI response to ai_response.json
+[2026-03-20T07:01:32.856Z] ── Parsing AI response (4 lines) ──
+[2026-03-20T07:01:32.856Z]   AI LINK: https://www.2cents.co.il
+[2026-03-20T07:01:32.856Z]   AI LINK: https://twitter.com/boazrossano
+[2026-03-20T07:01:32.856Z]   AI LINK: https://www.linkedin.com/in/boazrossano
+[2026-03-20T07:01:32.856Z]   AI LINK: https://2cents.co.il/blog-feed.xml
+[2026-03-20T07:01:32.856Z] AI returned 4 valid links
+[2026-03-20T07:01:32.857Z] ── Categorizing 4 AI-returned links ──
+[2026-03-20T07:01:32.857Z]   AI→URLS: https://www.2cents.co.il
+[2026-03-20T07:01:32.857Z]   AI→REGEX: tw <- https://twitter.com/boazrossano (duplicate, skipped)
+[2026-03-20T07:01:32.857Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/boazrossano
+[2026-03-20T07:01:32.857Z]   AI→URLS: https://2cents.co.il/blog-feed.xml
+[2026-03-20T07:01:32.858Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T07:01:32.858Z] Footer/header origins (5):
+[2026-03-20T07:01:32.858Z]   FOOTER/HEADER ORIGIN: https://www.2cents.co.il
+[2026-03-20T07:01:32.858Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-20T07:01:32.858Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-20T07:01:32.858Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T07:01:32.858Z]   FOOTER/HEADER ORIGIN: https://2cents.co.il
+[2026-03-20T07:01:32.859Z]   SKIP (not in footer/header): http://bit.ly/UXFriday
+[2026-03-20T07:01:32.859Z]   ADDED: urls <- https://wa.me/972522655548 (cleaned from https://wa.me/972522655548?text=Hi+Boaz,+Please+call+me+back+ASAP.)
+[2026-03-20T07:01:32.859Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T07:01:32.859Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T07:01:32.859Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T07:01:32.859Z] ── Step 3: Final dedup ──
+[2026-03-20T07:01:32.859Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-20T07:01:32.859Z] ── FINAL RESULT ──
+[2026-03-20T07:01:32.860Z]   ws (1):
+[2026-03-20T07:01:32.860Z]     - https://www.2cents.co.il
+[2026-03-20T07:01:32.860Z]   tw (1):
+[2026-03-20T07:01:32.860Z]     - https://x.com/boazrossano
+[2026-03-20T07:01:32.860Z]   urls (3):
+[2026-03-20T07:01:32.860Z]     - https://2cents.co.il/blog-feed.xml
+[2026-03-20T07:01:32.860Z]     - https://wa.me/972522655548
+[2026-03-20T07:01:32.860Z]     - https://www.2cents.co.il
+[2026-03-20T07:01:32.861Z] Summary: ws:1, tw:1, urls:3
+[2026-03-20T07:01:32.862Z] Saved final result to result.json
+[2026-03-20T07:01:32.862Z] Override fields: ws, tw, urls
+[2026-03-20T07:01:32.862Z] Finished at: 2026-03-20T07:01:32.862Z

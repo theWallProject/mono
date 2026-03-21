@@ -1,0 +1,94 @@
+[2026-03-17T22:48:42.863Z] === Homepage AI Extractor: INCA ===
+[2026-03-17T22:48:42.863Z] Started at: 2026-03-17T22:48:42.863Z
+[2026-03-17T22:48:42.863Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773787722859_INCA
+[2026-03-17T22:48:42.863Z] Company: INCA
+[2026-03-17T22:48:42.863Z] Website: inca.co.il
+[2026-03-17T22:48:42.863Z] cbRank: 1365426
+[2026-03-17T22:48:42.864Z] Reasons: h
+[2026-03-17T22:48:42.864Z] Fetching: https://inca.co.il
+[2026-03-17T22:48:46.689Z] Redirected: https://inca.co.il -> https://www.inca.co.il/
+[2026-03-17T22:48:46.695Z] Saved HTML (221414 bytes) to page.html
+[2026-03-17T22:48:46.699Z] Extracted 56 unique links from page
+[2026-03-17T22:48:46.700Z] Saved 56 links to links.json
+[2026-03-17T22:48:46.704Z] Extracted footer HTML (23310 chars)
+[2026-03-17T22:48:46.704Z] Extracted header HTML (54289 chars)
+[2026-03-17T22:48:46.707Z] Website (post-redirect): https://www.inca.co.il/ → origin: https://www.inca.co.il
+[2026-03-17T22:48:46.708Z]   SUBDOMAIN: en.inca.co.il (added to ws)
+[2026-03-17T22:48:46.708Z] Website subdomains found: 1
+[2026-03-17T22:48:46.708Z] External links: 6 (of 56 total)
+[2026-03-17T22:48:46.708Z] ── All external links ──
+[2026-03-17T22:48:46.708Z]   EXT: https://www.facebook.com/INCA.SEONE
+[2026-03-17T22:48:46.708Z]   EXT: https://www.google.com/partners/agency?id=5134032346
+[2026-03-17T22:48:46.708Z]   EXT: https://www.instagram.com/inca_seone
+[2026-03-17T22:48:46.708Z]   EXT: https://www.linkedin.com/company/seone-co-il
+[2026-03-17T22:48:46.708Z]   EXT: https://www.tiktok.com/@inca_media
+[2026-03-17T22:48:46.708Z]   EXT: https://www.youtube.com/channel/UCfTs9g1D3_ag4R8q2x7SNZw
+[2026-03-17T22:48:46.709Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T22:48:46.709Z]   REGEX: fb <- https://www.facebook.com/INCA.SEONE
+[2026-03-17T22:48:46.709Z]   UNCATEGORIZED: https://www.google.com/partners/agency?id=5134032346
+[2026-03-17T22:48:46.709Z]   REGEX: ig <- https://www.instagram.com/inca_seone
+[2026-03-17T22:48:46.709Z]   REGEX: li <- https://www.linkedin.com/company/seone-co-il
+[2026-03-17T22:48:46.709Z]   REGEX: tt <- https://www.tiktok.com/@inca_media
+[2026-03-17T22:48:46.709Z]   REGEX: ytc <- https://www.youtube.com/channel/UCfTs9g1D3_ag4R8q2x7SNZw
+[2026-03-17T22:48:46.709Z] Programmatic result: ws:2, fb:1, ig:1, li:1, tt:1, ytc:1 | 1 uncategorized
+[2026-03-17T22:48:46.709Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T22:48:46.712Z] Saved AI prompt (6352 chars) to ai_prompt.txt
+[2026-03-17T22:48:46.713Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T22:48:46.716Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T22:49:34.524Z]   AI: First token received, streaming...
+[2026-03-17T22:49:50.678Z]   AI streaming: 200 chars received (64.0s elapsed)
+[2026-03-17T22:49:50.680Z] AI response complete: 211 chars in 64.0s
+[2026-03-17T22:49:50.681Z] Saved AI response to ai_response.json
+[2026-03-17T22:49:50.681Z] ── Parsing AI response (5 lines) ──
+[2026-03-17T22:49:50.681Z]   AI LINK: https://www.youtube.com/channel/UCfTs9g1D3_ag4R8q2x7SNZw
+[2026-03-17T22:49:50.682Z]   AI LINK: https://www.linkedin.com/company/seone-co-il/
+[2026-03-17T22:49:50.682Z]   AI LINK: https://www.tiktok.com/@inca_media
+[2026-03-17T22:49:50.682Z]   AI LINK: https://www.instagram.com/inca_seone/
+[2026-03-17T22:49:50.682Z]   AI LINK: https://www.facebook.com/INCA.SEONE
+[2026-03-17T22:49:50.682Z] AI returned 5 valid links
+[2026-03-17T22:49:50.682Z] ── Categorizing 5 AI-returned links ──
+[2026-03-17T22:49:50.682Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCfTs9g1D3_ag4R8q2x7SNZw (duplicate, skipped)
+[2026-03-17T22:49:50.683Z]   AI→REGEX: li <- https://www.linkedin.com/company/seone-co-il/ (duplicate, skipped)
+[2026-03-17T22:49:50.683Z]   AI→REGEX: tt <- https://www.tiktok.com/@inca_media (duplicate, skipped)
+[2026-03-17T22:49:50.683Z]   AI→REGEX: ig <- https://www.instagram.com/inca_seone/ (duplicate, skipped)
+[2026-03-17T22:49:50.683Z]   AI→REGEX: fb <- https://www.facebook.com/INCA.SEONE (duplicate, skipped)
+[2026-03-17T22:49:50.684Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T22:49:50.684Z] Footer/header origins (8):
+[2026-03-17T22:49:50.684Z]   FOOTER/HEADER ORIGIN: https://www.inca.co.il
+[2026-03-17T22:49:50.684Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-17T22:49:50.684Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T22:49:50.684Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T22:49:50.684Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-17T22:49:50.684Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T22:49:50.684Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T22:49:50.685Z]   FOOTER/HEADER ORIGIN: https://www.en.inca.co.il
+[2026-03-17T22:49:50.685Z]   ADDED: urls <- https://www.google.com/partners/agency (cleaned from https://www.google.com/partners/agency?id=5134032346)
+[2026-03-17T22:49:50.685Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T22:49:50.685Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T22:49:50.685Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T22:49:51.093Z]   YOUTUBE: resolved UCfTs9g1D3_ag4R8q2x7SNZw → @seonemarketing1
+[2026-03-17T22:49:51.093Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T22:49:51.093Z] ── Step 3: Final dedup ──
+[2026-03-17T22:49:51.093Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T22:49:51.093Z] ── FINAL RESULT ──
+[2026-03-17T22:49:51.093Z]   ws (2):
+[2026-03-17T22:49:51.093Z]     - https://en.inca.co.il
+[2026-03-17T22:49:51.093Z]     - https://www.inca.co.il
+[2026-03-17T22:49:51.093Z]   li (1):
+[2026-03-17T22:49:51.093Z]     - https://www.linkedin.com/company/seone-co-il
+[2026-03-17T22:49:51.093Z]   fb (1):
+[2026-03-17T22:49:51.094Z]     - https://www.facebook.com/inca.seone
+[2026-03-17T22:49:51.094Z]   ig (1):
+[2026-03-17T22:49:51.094Z]     - https://www.instagram.com/inca_seone
+[2026-03-17T22:49:51.094Z]   ytp (1):
+[2026-03-17T22:49:51.094Z]     - https://www.youtube.com/@seonemarketing1
+[2026-03-17T22:49:51.094Z]   ytc (1):
+[2026-03-17T22:49:51.094Z]     - https://www.youtube.com/channel/UCfTs9g1D3_ag4R8q2x7SNZw
+[2026-03-17T22:49:51.094Z]   tt (1):
+[2026-03-17T22:49:51.094Z]     - https://www.tiktok.com/@inca_media
+[2026-03-17T22:49:51.094Z]   urls (1):
+[2026-03-17T22:49:51.094Z]     - https://www.google.com/partners/agency
+[2026-03-17T22:49:51.094Z] Summary: ws:2, fb:1, ig:1, li:1, tt:1, ytc:1, urls:1, ytp:1
+[2026-03-17T22:49:51.095Z] Saved final result to result.json
+[2026-03-17T22:49:51.095Z] Override fields: ws, li, fb, ig, ytp, ytc, tt, urls
+[2026-03-17T22:49:51.095Z] Finished at: 2026-03-17T22:49:51.095Z

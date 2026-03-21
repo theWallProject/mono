@@ -1,0 +1,79 @@
+[2026-03-18T21:44:46.052Z] === Homepage AI Extractor: Webstick ===
+[2026-03-18T21:44:46.052Z] Started at: 2026-03-18T21:44:46.052Z
+[2026-03-18T21:44:46.052Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773870286051_Webstick
+[2026-03-18T21:44:46.052Z] Company: Webstick
+[2026-03-18T21:44:46.052Z] Website: webstick.co.il
+[2026-03-18T21:44:46.052Z] cbRank: 1770381
+[2026-03-18T21:44:46.052Z] Reasons: h
+[2026-03-18T21:44:46.052Z] Fetching: https://webstick.co.il
+[2026-03-18T21:44:50.114Z] Redirected: https://webstick.co.il -> https://www.webstick.co.il/
+[2026-03-18T21:44:50.135Z] Saved HTML (749242 bytes) to page.html
+[2026-03-18T21:44:50.139Z] Extracted 30 unique links from page
+[2026-03-18T21:44:50.139Z] Saved 30 links to links.json
+[2026-03-18T21:44:50.144Z] Extracted footer HTML (6063 chars)
+[2026-03-18T21:44:50.144Z] Extracted header HTML (2615 chars)
+[2026-03-18T21:44:50.148Z] Website (post-redirect): https://www.webstick.co.il/ → origin: https://www.webstick.co.il
+[2026-03-18T21:44:50.149Z] External links: 8 (of 30 total)
+[2026-03-18T21:44:50.149Z] ── All external links ──
+[2026-03-18T21:44:50.149Z]   EXT: https://ext.football.org.il/app
+[2026-03-18T21:44:50.149Z]   EXT: https://instagram.com
+[2026-03-18T21:44:50.149Z]   EXT: https://pumika.com
+[2026-03-18T21:44:50.149Z]   EXT: https://www.codenroll.co.il
+[2026-03-18T21:44:50.149Z]   EXT: https://www.facebook.com/WebStick
+[2026-03-18T21:44:50.149Z]   EXT: https://www.linkedin.com/in/skandrani
+[2026-03-18T21:44:50.149Z]   EXT: https://www.teamcad.co.il
+[2026-03-18T21:44:50.149Z]   EXT: https://www.teva.org.il
+[2026-03-18T21:44:50.149Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T21:44:50.149Z]   UNCATEGORIZED: https://ext.football.org.il/app
+[2026-03-18T21:44:50.150Z]   UNCATEGORIZED: https://pumika.com
+[2026-03-18T21:44:50.150Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-18T21:44:50.150Z]   REGEX: fb <- https://www.facebook.com/WebStick
+[2026-03-18T21:44:50.150Z]   UNCATEGORIZED: https://www.teamcad.co.il
+[2026-03-18T21:44:50.150Z]   UNCATEGORIZED: https://www.teva.org.il
+[2026-03-18T21:44:50.150Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-18T21:44:50.150Z]   SKIP (regex domain, no match): https://instagram.com
+[2026-03-18T21:44:50.150Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/skandrani
+[2026-03-18T21:44:50.150Z] Programmatic result: ws:1, fb:1 | 5 uncategorized
+[2026-03-18T21:44:50.150Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T21:44:50.154Z] Saved AI prompt (5464 chars) to ai_prompt.txt
+[2026-03-18T21:44:50.154Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T21:44:50.157Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T21:45:11.978Z]   AI: First token received, streaming...
+[2026-03-18T21:45:15.477Z] AI response complete: 73 chars in 25.3s
+[2026-03-18T21:45:15.479Z] Saved AI response to ai_response.json
+[2026-03-18T21:45:15.479Z] ── Parsing AI response (2 lines) ──
+[2026-03-18T21:45:15.479Z]   AI LINK: https://www.facebook.com/WebStick/
+[2026-03-18T21:45:15.480Z]   AI LINK: https://www.linkedin.com/in/skandrani/
+[2026-03-18T21:45:15.480Z] AI returned 2 valid links
+[2026-03-18T21:45:15.480Z] ── Categorizing 2 AI-returned links ──
+[2026-03-18T21:45:15.480Z]   AI→REGEX: fb <- https://www.facebook.com/WebStick/ (duplicate, skipped)
+[2026-03-18T21:45:15.480Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/skandrani/
+[2026-03-18T21:45:15.481Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T21:45:15.481Z] Footer/header origins (6):
+[2026-03-18T21:45:15.481Z]   FOOTER/HEADER ORIGIN: https://www.webstick.co.il
+[2026-03-18T21:45:15.481Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T21:45:15.481Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T21:45:15.482Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-18T21:45:15.482Z]   FOOTER/HEADER ORIGIN: https://pumika.com
+[2026-03-18T21:45:15.482Z]   FOOTER/HEADER ORIGIN: https://webstick.co.il
+[2026-03-18T21:45:15.482Z]   SKIP (not in footer/header): https://ext.football.org.il/app
+[2026-03-18T21:45:15.482Z]   ADDED: urls <- https://pumika.com
+[2026-03-18T21:45:15.482Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-18T21:45:15.482Z]   SKIP (not in footer/header): https://www.teamcad.co.il
+[2026-03-18T21:45:15.482Z]   SKIP (not in footer/header): https://www.teva.org.il
+[2026-03-18T21:45:15.482Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T21:45:15.483Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T21:45:15.483Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T21:45:15.483Z] ── Step 3: Final dedup ──
+[2026-03-18T21:45:15.483Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T21:45:15.483Z] ── FINAL RESULT ──
+[2026-03-18T21:45:15.483Z]   ws (1):
+[2026-03-18T21:45:15.483Z]     - https://www.webstick.co.il
+[2026-03-18T21:45:15.484Z]   fb (1):
+[2026-03-18T21:45:15.484Z]     - https://www.facebook.com/webstick
+[2026-03-18T21:45:15.484Z]   urls (1):
+[2026-03-18T21:45:15.484Z]     - https://pumika.com
+[2026-03-18T21:45:15.484Z] Summary: ws:1, fb:1, urls:1
+[2026-03-18T21:45:15.485Z] Saved final result to result.json
+[2026-03-18T21:45:15.486Z] Override fields: ws, fb, urls
+[2026-03-18T21:45:15.486Z] Finished at: 2026-03-18T21:45:15.486Z

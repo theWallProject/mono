@@ -1,0 +1,66 @@
+[2026-03-19T06:06:43.193Z] === Homepage AI Extractor: Intouch ===
+[2026-03-19T06:06:43.193Z] Started at: 2026-03-19T06:06:43.193Z
+[2026-03-19T06:06:43.193Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773900403193_Intouch
+[2026-03-19T06:06:43.194Z] Company: Intouch
+[2026-03-19T06:06:43.194Z] Website: intouch.co.il
+[2026-03-19T06:06:43.194Z] cbRank: 1965113
+[2026-03-19T06:06:43.194Z] Reasons: h
+[2026-03-19T06:06:43.194Z] Fetching: https://intouch.co.il
+[2026-03-19T06:06:45.659Z] Redirected: https://intouch.co.il -> https://intouch.co.il/
+[2026-03-19T06:06:45.666Z] Saved HTML (306716 bytes) to page.html
+[2026-03-19T06:06:45.668Z] Extracted 28 unique links from page
+[2026-03-19T06:06:45.669Z] Saved 28 links to links.json
+[2026-03-19T06:06:45.672Z] Extracted footer HTML (42452 chars)
+[2026-03-19T06:06:45.672Z] Extracted header HTML (21760 chars)
+[2026-03-19T06:06:45.677Z] Website (post-redirect): https://intouch.co.il/ → origin: https://intouch.co.il
+[2026-03-19T06:06:45.677Z] External links: 4 (of 28 total)
+[2026-03-19T06:06:45.677Z] ── All external links ──
+[2026-03-19T06:06:45.677Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-19T06:06:45.677Z]   EXT: https://www.facebook.com/intouch.israel
+[2026-03-19T06:06:45.677Z]   EXT: https://www.google.com/partners/agency?id=6440546909
+[2026-03-19T06:06:45.677Z]   EXT: https://www.linkedin.com/in/tzshasha
+[2026-03-19T06:06:45.677Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T06:06:45.678Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-19T06:06:45.678Z]   REGEX: fb <- https://www.facebook.com/intouch.israel
+[2026-03-19T06:06:45.678Z]   UNCATEGORIZED: https://www.google.com/partners/agency?id=6440546909
+[2026-03-19T06:06:45.678Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T06:06:45.678Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/tzshasha
+[2026-03-19T06:06:45.678Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-19T06:06:45.678Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T06:06:45.681Z] Saved AI prompt (4146 chars) to ai_prompt.txt
+[2026-03-19T06:06:45.682Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T06:06:45.684Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T06:07:08.781Z]   AI: First token received, streaming...
+[2026-03-19T06:07:12.474Z] AI response complete: 77 chars in 26.8s
+[2026-03-19T06:07:12.475Z] Saved AI response to ai_response.json
+[2026-03-19T06:07:12.476Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T06:07:12.476Z]   AI LINK: https://www.linkedin.com/in/tzshasha/
+[2026-03-19T06:07:12.476Z]   AI LINK: https://www.facebook.com/intouch.israel
+[2026-03-19T06:07:12.476Z] AI returned 2 valid links
+[2026-03-19T06:07:12.476Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T06:07:12.477Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/tzshasha/
+[2026-03-19T06:07:12.477Z]   AI→REGEX: fb <- https://www.facebook.com/intouch.israel (duplicate, skipped)
+[2026-03-19T06:07:12.478Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T06:07:12.478Z] Footer/header origins (4):
+[2026-03-19T06:07:12.478Z]   FOOTER/HEADER ORIGIN: https://intouch.co.il
+[2026-03-19T06:07:12.478Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-19T06:07:12.478Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T06:07:12.478Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T06:07:12.478Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-19T06:07:12.479Z]   ADDED: urls <- https://www.google.com/partners/agency (cleaned from https://www.google.com/partners/agency?id=6440546909)
+[2026-03-19T06:07:12.479Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T06:07:12.479Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T06:07:12.479Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T06:07:12.479Z] ── Step 3: Final dedup ──
+[2026-03-19T06:07:12.479Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T06:07:12.479Z] ── FINAL RESULT ──
+[2026-03-19T06:07:12.479Z]   ws (1):
+[2026-03-19T06:07:12.480Z]     - https://intouch.co.il
+[2026-03-19T06:07:12.480Z]   fb (1):
+[2026-03-19T06:07:12.480Z]     - https://www.facebook.com/intouch.israel
+[2026-03-19T06:07:12.480Z]   urls (1):
+[2026-03-19T06:07:12.480Z]     - https://www.google.com/partners/agency
+[2026-03-19T06:07:12.480Z] Summary: ws:1, fb:1, urls:1
+[2026-03-19T06:07:12.481Z] Saved final result to result.json
+[2026-03-19T06:07:12.482Z] Override fields: ws, fb, urls
+[2026-03-19T06:07:12.482Z] Finished at: 2026-03-19T06:07:12.482Z

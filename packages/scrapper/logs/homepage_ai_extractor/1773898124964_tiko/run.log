@@ -1,0 +1,71 @@
+[2026-03-19T05:28:44.965Z] === Homepage AI Extractor: tiko ===
+[2026-03-19T05:28:44.965Z] Started at: 2026-03-19T05:28:44.965Z
+[2026-03-19T05:28:44.965Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773898124964_tiko
+[2026-03-19T05:28:44.965Z] Company: tiko
+[2026-03-19T05:28:44.965Z] Website: tiko.co.il
+[2026-03-19T05:28:44.965Z] cbRank: 1947253
+[2026-03-19T05:28:44.965Z] Reasons: h
+[2026-03-19T05:28:44.965Z] Fetching: https://tiko.co.il
+[2026-03-19T05:28:47.146Z] Redirected: https://tiko.co.il -> https://tiko.co.il/
+[2026-03-19T05:28:47.154Z] Saved HTML (315938 bytes) to page.html
+[2026-03-19T05:28:47.157Z] Extracted 36 unique links from page
+[2026-03-19T05:28:47.157Z] Saved 36 links to links.json
+[2026-03-19T05:28:47.160Z] Extracted footer HTML (2142 chars)
+[2026-03-19T05:28:47.160Z] Extracted header HTML (4928 chars)
+[2026-03-19T05:28:47.163Z] Website (post-redirect): https://tiko.co.il/ → origin: https://tiko.co.il
+[2026-03-19T05:28:47.163Z] External links: 4 (of 36 total)
+[2026-03-19T05:28:47.163Z] ── All external links ──
+[2026-03-19T05:28:47.163Z]   EXT: https://oi-studio.com
+[2026-03-19T05:28:47.163Z]   EXT: https://www.facebook.com/studiotiko/?fref=tag
+[2026-03-19T05:28:47.163Z]   EXT: https://www.instagram.com/tiko.product.design
+[2026-03-19T05:28:47.163Z]   EXT: https://www.linkedin.com/company/tiko-product-design/about
+[2026-03-19T05:28:47.163Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:28:47.164Z]   UNCATEGORIZED: https://oi-studio.com
+[2026-03-19T05:28:47.164Z]   REGEX: fb <- https://www.facebook.com/studiotiko/?fref=tag
+[2026-03-19T05:28:47.164Z]   REGEX: ig <- https://www.instagram.com/tiko.product.design
+[2026-03-19T05:28:47.164Z]   REGEX: li <- https://www.linkedin.com/company/tiko-product-design/about
+[2026-03-19T05:28:47.164Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-19T05:28:47.164Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:28:47.167Z] Saved AI prompt (3286 chars) to ai_prompt.txt
+[2026-03-19T05:28:47.167Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:28:47.171Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:28:59.060Z]   AI: First token received, streaming...
+[2026-03-19T05:29:06.516Z] AI response complete: 152 chars in 19.3s
+[2026-03-19T05:29:06.518Z] Saved AI response to ai_response.json
+[2026-03-19T05:29:06.518Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T05:29:06.518Z]   AI LINK: https://www.facebook.com/studiotiko/?fref=tag
+[2026-03-19T05:29:06.518Z]   AI LINK: https://www.instagram.com/tiko.product.design/
+[2026-03-19T05:29:06.518Z]   AI LINK: https://www.linkedin.com/company/tiko-product-design/about/
+[2026-03-19T05:29:06.518Z] AI returned 3 valid links
+[2026-03-19T05:29:06.519Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T05:29:06.519Z]   AI→REGEX: fb <- https://www.facebook.com/studiotiko/?fref=tag (duplicate, skipped)
+[2026-03-19T05:29:06.519Z]   AI→REGEX: ig <- https://www.instagram.com/tiko.product.design/ (duplicate, skipped)
+[2026-03-19T05:29:06.519Z]   AI→REGEX: li <- https://www.linkedin.com/company/tiko-product-design/about/ (duplicate, skipped)
+[2026-03-19T05:29:06.520Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:29:06.520Z] Footer/header origins (5):
+[2026-03-19T05:29:06.520Z]   FOOTER/HEADER ORIGIN: https://tiko.co.il
+[2026-03-19T05:29:06.520Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T05:29:06.520Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T05:29:06.520Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T05:29:06.520Z]   FOOTER/HEADER ORIGIN: https://oi-studio.com
+[2026-03-19T05:29:06.520Z]   ADDED: urls <- https://oi-studio.com
+[2026-03-19T05:29:06.521Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T05:29:06.521Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:29:06.521Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T05:29:06.521Z] ── Step 3: Final dedup ──
+[2026-03-19T05:29:06.521Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T05:29:06.521Z] ── FINAL RESULT ──
+[2026-03-19T05:29:06.521Z]   ws (1):
+[2026-03-19T05:29:06.522Z]     - https://tiko.co.il
+[2026-03-19T05:29:06.522Z]   li (1):
+[2026-03-19T05:29:06.522Z]     - https://www.linkedin.com/company/tiko-product-design
+[2026-03-19T05:29:06.522Z]   fb (1):
+[2026-03-19T05:29:06.522Z]     - https://www.facebook.com/studiotiko
+[2026-03-19T05:29:06.522Z]   ig (1):
+[2026-03-19T05:29:06.522Z]     - https://www.instagram.com/tiko.product.design
+[2026-03-19T05:29:06.522Z]   urls (1):
+[2026-03-19T05:29:06.523Z]     - https://oi-studio.com
+[2026-03-19T05:29:06.523Z] Summary: ws:1, fb:1, ig:1, li:1, urls:1
+[2026-03-19T05:29:06.524Z] Saved final result to result.json
+[2026-03-19T05:29:06.524Z] Override fields: ws, li, fb, ig, urls
+[2026-03-19T05:29:06.524Z] Finished at: 2026-03-19T05:29:06.524Z

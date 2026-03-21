@@ -1,0 +1,70 @@
+[2026-03-20T00:24:47.419Z] === Homepage AI Extractor: Bonus BioGroup ===
+[2026-03-20T00:24:47.419Z] Started at: 2026-03-20T00:24:47.419Z
+[2026-03-20T00:24:47.419Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773966287418_Bonus_BioGroup
+[2026-03-20T00:24:47.419Z] Company: Bonus BioGroup
+[2026-03-20T00:24:47.420Z] Website: bonus-bio.com
+[2026-03-20T00:24:47.420Z] cbRank: 2512955
+[2026-03-20T00:24:47.420Z] Reasons: h
+[2026-03-20T00:24:47.420Z] Fetching: https://bonus-bio.com
+[2026-03-20T00:24:50.120Z] Redirected: https://bonus-bio.com -> https://bonus-bio.com/
+[2026-03-20T00:24:50.126Z] Saved HTML (191949 bytes) to page.html
+[2026-03-20T00:24:50.130Z] Extracted 27 unique links from page
+[2026-03-20T00:24:50.130Z] Saved 27 links to links.json
+[2026-03-20T00:24:50.132Z] Extracted footer HTML (5849 chars)
+[2026-03-20T00:24:50.132Z] No header section found in DOM
+[2026-03-20T00:24:50.136Z] Website (post-redirect): https://bonus-bio.com/ → origin: https://bonus-bio.com
+[2026-03-20T00:24:50.136Z] External links: 5 (of 27 total)
+[2026-03-20T00:24:50.136Z] ── All external links ──
+[2026-03-20T00:24:50.136Z]   EXT: https://twitter.com/BBiogroup
+[2026-03-20T00:24:50.136Z]   EXT: https://www.facebook.com/BonusBio
+[2026-03-20T00:24:50.136Z]   EXT: https://www.linkedin.com/company/bonus-biogroup
+[2026-03-20T00:24:50.136Z]   EXT: https://www.netron.co.il
+[2026-03-20T00:24:50.136Z]   EXT: https://www.youtube.com/channel/UChXNkBN4lQ0QKLW1w1Dls_Q/videos?view_as=subscriber
+[2026-03-20T00:24:50.136Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T00:24:50.136Z]   REGEX: tw <- https://twitter.com/BBiogroup
+[2026-03-20T00:24:50.136Z]   REGEX: fb <- https://www.facebook.com/BonusBio
+[2026-03-20T00:24:50.137Z]   REGEX: li <- https://www.linkedin.com/company/bonus-biogroup
+[2026-03-20T00:24:50.137Z]   UNCATEGORIZED: https://www.netron.co.il
+[2026-03-20T00:24:50.137Z]   REGEX: ytc <- https://www.youtube.com/channel/UChXNkBN4lQ0QKLW1w1Dls_Q/videos?view_as=subscriber
+[2026-03-20T00:24:50.137Z] Programmatic result: ws:1, tw:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-20T00:24:50.137Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T00:24:50.140Z] Saved AI prompt (7039 chars) to ai_prompt.txt
+[2026-03-20T00:24:50.140Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T00:24:50.143Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T00:25:26.729Z]   AI: First token received, streaming...
+[2026-03-20T00:25:27.212Z] AI response complete: 24 chars in 37.1s
+[2026-03-20T00:25:27.213Z] Saved AI response to ai_response.json
+[2026-03-20T00:25:27.214Z] ── Parsing AI response (1 lines) ──
+[2026-03-20T00:25:27.214Z]   AI LINK: https://www.netron.co.il
+[2026-03-20T00:25:27.214Z] AI returned 1 valid links
+[2026-03-20T00:25:27.214Z] ── Categorizing 1 AI-returned links ──
+[2026-03-20T00:25:27.214Z]   AI→URLS: https://www.netron.co.il
+[2026-03-20T00:25:27.215Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T00:25:27.215Z] Footer/header origins (0):
+[2026-03-20T00:25:27.215Z]   SKIP (AI claimed): https://www.netron.co.il
+[2026-03-20T00:25:27.215Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T00:25:27.215Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T00:25:27.215Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-20T00:25:27.469Z]   YOUTUBE: resolved UChXNkBN4lQ0QKLW1w1Dls_Q → @bonusbiogroup1099
+[2026-03-20T00:25:27.469Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-20T00:25:27.469Z] ── Step 3: Final dedup ──
+[2026-03-20T00:25:27.469Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T00:25:27.469Z] ── FINAL RESULT ──
+[2026-03-20T00:25:27.469Z]   ws (1):
+[2026-03-20T00:25:27.470Z]     - https://bonus-bio.com
+[2026-03-20T00:25:27.470Z]   li (1):
+[2026-03-20T00:25:27.470Z]     - https://www.linkedin.com/company/bonus-biogroup
+[2026-03-20T00:25:27.470Z]   fb (1):
+[2026-03-20T00:25:27.470Z]     - https://www.facebook.com/bonusbio
+[2026-03-20T00:25:27.470Z]   tw (1):
+[2026-03-20T00:25:27.470Z]     - https://x.com/bbiogroup
+[2026-03-20T00:25:27.470Z]   ytp (1):
+[2026-03-20T00:25:27.470Z]     - https://www.youtube.com/@bonusbiogroup1099
+[2026-03-20T00:25:27.470Z]   ytc (1):
+[2026-03-20T00:25:27.470Z]     - https://www.youtube.com/channel/UChXNkBN4lQ0QKLW1w1Dls_Q
+[2026-03-20T00:25:27.470Z]   urls (1):
+[2026-03-20T00:25:27.470Z]     - https://www.netron.co.il
+[2026-03-20T00:25:27.470Z] Summary: ws:1, tw:1, fb:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-20T00:25:27.471Z] Saved final result to result.json
+[2026-03-20T00:25:27.471Z] Override fields: ws, li, fb, tw, ytp, ytc, urls
+[2026-03-20T00:25:27.471Z] Finished at: 2026-03-20T00:25:27.471Z

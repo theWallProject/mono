@@ -1,0 +1,86 @@
+[2026-03-19T14:57:13.504Z] === Homepage AI Extractor: Perfector ===
+[2026-03-19T14:57:13.504Z] Started at: 2026-03-19T14:57:13.504Z
+[2026-03-19T14:57:13.504Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773932233504_Perfector
+[2026-03-19T14:57:13.504Z] Company: Perfector
+[2026-03-19T14:57:13.504Z] Website: testperfector.com
+[2026-03-19T14:57:13.504Z] cbRank: 2286177
+[2026-03-19T14:57:13.504Z] Reasons: h
+[2026-03-19T14:57:13.505Z] Fetching: https://testperfector.com
+[2026-03-19T14:57:24.394Z] Network idle timeout — continuing with current state
+[2026-03-19T14:57:24.431Z] Redirected: https://testperfector.com -> https://www.testperfector.com/
+[2026-03-19T14:57:24.443Z] Saved HTML (517177 bytes) to page.html
+[2026-03-19T14:57:24.445Z] Extracted 19 unique links from page
+[2026-03-19T14:57:24.446Z] Saved 19 links to links.json
+[2026-03-19T14:57:24.447Z] Extracted footer HTML (5474 chars)
+[2026-03-19T14:57:24.447Z] Extracted header HTML (516 chars)
+[2026-03-19T14:57:24.452Z] Website (post-redirect): https://www.testperfector.com/ → origin: https://www.testperfector.com
+[2026-03-19T14:57:24.452Z]   SUBDOMAIN: app.testperfector.com (added to ws)
+[2026-03-19T14:57:24.452Z] Website subdomains found: 1
+[2026-03-19T14:57:24.452Z] External links: 5 (of 19 total)
+[2026-03-19T14:57:24.452Z] ── All external links ──
+[2026-03-19T14:57:24.453Z]   EXT: http://wix.com/?utm_campaign=vir_created_with
+[2026-03-19T14:57:24.453Z]   EXT: https://plus.google.com/111388500556469644112
+[2026-03-19T14:57:24.453Z]   EXT: https://www.facebook.com/TestPerfector
+[2026-03-19T14:57:24.453Z]   EXT: https://www.linkedin.com/company/10562038?trk=tyah&trkInfo=clickedVertical%3Acompany%2CentityType%3AentityHistoryName%2CclickedEntityId%3Acompany_10562038%2Cidx%3A0
+[2026-03-19T14:57:24.453Z]   EXT: https://www.youtube.com/channel/UC7b0tMe0ZBc7McuMSVxyt3Q
+[2026-03-19T14:57:24.453Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T14:57:24.453Z]   UNCATEGORIZED: http://wix.com/?utm_campaign=vir_created_with
+[2026-03-19T14:57:24.453Z]   UNCATEGORIZED: https://plus.google.com/111388500556469644112
+[2026-03-19T14:57:24.453Z]   REGEX: fb <- https://www.facebook.com/TestPerfector
+[2026-03-19T14:57:24.453Z]   REGEX: li <- https://www.linkedin.com/company/10562038?trk=tyah&trkInfo=clickedVertical%3Acompany%2CentityType%3AentityHistoryName%2CclickedEntityId%3Acompany_10562038%2Cidx%3A0
+[2026-03-19T14:57:24.453Z]   REGEX: ytc <- https://www.youtube.com/channel/UC7b0tMe0ZBc7McuMSVxyt3Q
+[2026-03-19T14:57:24.454Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-19T14:57:24.454Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T14:57:24.457Z] Saved AI prompt (6692 chars) to ai_prompt.txt
+[2026-03-19T14:57:24.457Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T14:57:24.460Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T14:58:00.934Z]   AI: First token received, streaming...
+[2026-03-19T14:58:19.805Z]   AI streaming: 203 chars received (55.3s elapsed)
+[2026-03-19T14:58:31.846Z] AI response complete: 307 chars in 67.4s
+[2026-03-19T14:58:31.847Z] Saved AI response to ai_response.json
+[2026-03-19T14:58:31.847Z] ── Parsing AI response (4 lines) ──
+[2026-03-19T14:58:31.848Z]   AI LINK: https://www.linkedin.com/company/10562038?trk=tyah&trkInfo=clickedVertical%3Acompany%2CentityType%3AentityHistoryName%2CclickedEntityId%3Acompany_10562038%2Cidx%3A0
+[2026-03-19T14:58:31.848Z]   AI LINK: https://www.facebook.com/TestPerfector/
+[2026-03-19T14:58:31.848Z]   AI LINK: https://www.youtube.com/channel/UC7b0tMe0ZBc7McuMSVxyt3Q
+[2026-03-19T14:58:31.848Z]   AI LINK: https://plus.google.com/111388500556469644112
+[2026-03-19T14:58:31.848Z] AI returned 4 valid links
+[2026-03-19T14:58:31.848Z] ── Categorizing 4 AI-returned links ──
+[2026-03-19T14:58:31.849Z]   AI→REGEX: li <- https://www.linkedin.com/company/10562038?trk=tyah&trkInfo=clickedVertical%3Acompany%2CentityType%3AentityHistoryName%2CclickedEntityId%3Acompany_10562038%2Cidx%3A0 (duplicate, skipped)
+[2026-03-19T14:58:31.849Z]   AI→REGEX: fb <- https://www.facebook.com/TestPerfector/ (duplicate, skipped)
+[2026-03-19T14:58:31.849Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC7b0tMe0ZBc7McuMSVxyt3Q (duplicate, skipped)
+[2026-03-19T14:58:31.849Z]   AI→URLS: https://plus.google.com/111388500556469644112
+[2026-03-19T14:58:31.849Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T14:58:31.849Z] Footer/header origins (5):
+[2026-03-19T14:58:31.850Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T14:58:31.850Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T14:58:31.850Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T14:58:31.850Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-19T14:58:31.850Z]   FOOTER/HEADER ORIGIN: http://wix.com
+[2026-03-19T14:58:31.850Z]   ADDED: urls <- http://wix.com (cleaned from http://wix.com/?utm_campaign=vir_created_with)
+[2026-03-19T14:58:31.850Z]   SKIP (AI claimed): https://plus.google.com/111388500556469644112
+[2026-03-19T14:58:31.850Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T14:58:31.851Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T14:58:31.851Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T14:58:32.163Z]   YOUTUBE: resolved UC7b0tMe0ZBc7McuMSVxyt3Q → @perfector6512
+[2026-03-19T14:58:32.163Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T14:58:32.163Z] ── Step 3: Final dedup ──
+[2026-03-19T14:58:32.163Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T14:58:32.164Z] ── FINAL RESULT ──
+[2026-03-19T14:58:32.164Z]   ws (2):
+[2026-03-19T14:58:32.164Z]     - https://app.testperfector.com
+[2026-03-19T14:58:32.164Z]     - https://www.testperfector.com
+[2026-03-19T14:58:32.164Z]   li (1):
+[2026-03-19T14:58:32.164Z]     - https://www.linkedin.com/company/10562038
+[2026-03-19T14:58:32.164Z]   fb (1):
+[2026-03-19T14:58:32.164Z]     - https://www.facebook.com/testperfector
+[2026-03-19T14:58:32.164Z]   ytp (1):
+[2026-03-19T14:58:32.164Z]     - https://www.youtube.com/@perfector6512
+[2026-03-19T14:58:32.164Z]   ytc (1):
+[2026-03-19T14:58:32.165Z]     - https://www.youtube.com/channel/UC7b0tMe0ZBc7McuMSVxyt3Q
+[2026-03-19T14:58:32.165Z]   urls (2):
+[2026-03-19T14:58:32.165Z]     - http://wix.com
+[2026-03-19T14:58:32.165Z]     - https://plus.google.com/111388500556469644112
+[2026-03-19T14:58:32.165Z] Summary: ws:2, fb:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-19T14:58:32.165Z] Saved final result to result.json
+[2026-03-19T14:58:32.166Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-19T14:58:32.166Z] Finished at: 2026-03-19T14:58:32.166Z

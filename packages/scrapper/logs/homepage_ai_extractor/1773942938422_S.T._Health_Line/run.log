@@ -1,0 +1,69 @@
+[2026-03-19T17:55:38.423Z] === Homepage AI Extractor: S.T. Health Line ===
+[2026-03-19T17:55:38.423Z] Started at: 2026-03-19T17:55:38.423Z
+[2026-03-19T17:55:38.423Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773942938422_S.T._Health_Line
+[2026-03-19T17:55:38.423Z] Company: S.T. Health Line
+[2026-03-19T17:55:38.423Z] Website: health-sth.com
+[2026-03-19T17:55:38.423Z] cbRank: 2397933
+[2026-03-19T17:55:38.423Z] Reasons: h
+[2026-03-19T17:55:38.423Z] Fetching: https://health-sth.com
+[2026-03-19T17:55:43.309Z] Redirected: https://health-sth.com -> https://www.health-sth.com/
+[2026-03-19T17:55:43.312Z] Saved HTML (61630 bytes) to page.html
+[2026-03-19T17:55:43.315Z] Extracted 17 unique links from page
+[2026-03-19T17:55:43.315Z] Saved 17 links to links.json
+[2026-03-19T17:55:43.318Z] Extracted footer HTML (20655 chars)
+[2026-03-19T17:55:43.318Z] Extracted header HTML (6473 chars)
+[2026-03-19T17:55:43.324Z] Website (post-redirect): https://www.health-sth.com/ → origin: https://www.health-sth.com
+[2026-03-19T17:55:43.324Z] External links: 4 (of 17 total)
+[2026-03-19T17:55:43.324Z] ── All external links ──
+[2026-03-19T17:55:43.324Z]   EXT: https://business.facebook.com/STH-health-care-233091704090305/?business_id=291823670989151
+[2026-03-19T17:55:43.324Z]   EXT: https://writemypaper4me.org
+[2026-03-19T17:55:43.324Z]   EXT: https://www.youtube.com/channel/UCavL9sWJwrkUHjVDGe3Yd2g
+[2026-03-19T17:55:43.324Z]   EXT: https://www.youtube.com/embed/8l0Um91b6rg?autoplay=1
+[2026-03-19T17:55:43.324Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T17:55:43.324Z]   REGEX: fb <- https://business.facebook.com/STH-health-care-233091704090305/?business_id=291823670989151
+[2026-03-19T17:55:43.324Z]   UNCATEGORIZED: https://writemypaper4me.org
+[2026-03-19T17:55:43.325Z]   REGEX: ytc <- https://www.youtube.com/channel/UCavL9sWJwrkUHjVDGe3Yd2g
+[2026-03-19T17:55:43.325Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T17:55:43.325Z]   SKIP (regex domain, no match): https://www.youtube.com/embed/8l0Um91b6rg?autoplay=1
+[2026-03-19T17:55:43.325Z] Programmatic result: ws:1, fb:1, ytc:1 | 1 uncategorized
+[2026-03-19T17:55:43.325Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T17:55:43.328Z] Saved AI prompt (2086 chars) to ai_prompt.txt
+[2026-03-19T17:55:43.328Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T17:55:43.331Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T17:55:50.004Z]   AI: First token received, streaming...
+[2026-03-19T17:55:51.363Z] AI response complete: 39 chars in 8.0s
+[2026-03-19T17:55:51.364Z] Saved AI response to ai_response.json
+[2026-03-19T17:55:51.365Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T17:55:51.365Z]   AI LINK: https://www.health-sth.com/information/
+[2026-03-19T17:55:51.365Z] AI returned 1 valid links
+[2026-03-19T17:55:51.365Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T17:55:51.365Z]   AI→URLS: https://www.health-sth.com/information (cleaned from https://www.health-sth.com/information/)
+[2026-03-19T17:55:51.366Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T17:55:51.366Z] Footer/header origins (4):
+[2026-03-19T17:55:51.366Z]   FOOTER/HEADER ORIGIN: https://www.health-sth.com
+[2026-03-19T17:55:51.366Z]   FOOTER/HEADER ORIGIN: http://health-sth.com
+[2026-03-19T17:55:51.366Z]   FOOTER/HEADER ORIGIN: https://business.facebook.com
+[2026-03-19T17:55:51.367Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T17:55:51.367Z]   SKIP (not in footer/header): https://writemypaper4me.org
+[2026-03-19T17:55:51.367Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T17:55:51.367Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T17:55:51.367Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T17:55:51.790Z]   YOUTUBE: resolved UCavL9sWJwrkUHjVDGe3Yd2g → @s.t.healthline5265
+[2026-03-19T17:55:51.790Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T17:55:51.790Z] ── Step 3: Final dedup ──
+[2026-03-19T17:55:51.790Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T17:55:51.790Z] ── FINAL RESULT ──
+[2026-03-19T17:55:51.790Z]   ws (1):
+[2026-03-19T17:55:51.790Z]     - https://www.health-sth.com
+[2026-03-19T17:55:51.790Z]   fb (1):
+[2026-03-19T17:55:51.790Z]     - https://www.facebook.com/sth-health-care-233091704090305
+[2026-03-19T17:55:51.790Z]   ytp (1):
+[2026-03-19T17:55:51.790Z]     - https://www.youtube.com/@s.t.healthline5265
+[2026-03-19T17:55:51.790Z]   ytc (1):
+[2026-03-19T17:55:51.790Z]     - https://www.youtube.com/channel/UCavL9sWJwrkUHjVDGe3Yd2g
+[2026-03-19T17:55:51.791Z]   urls (1):
+[2026-03-19T17:55:51.791Z]     - https://www.health-sth.com/information
+[2026-03-19T17:55:51.791Z] Summary: ws:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-19T17:55:51.791Z] Saved final result to result.json
+[2026-03-19T17:55:51.792Z] Override fields: ws, fb, ytp, ytc
+[2026-03-19T17:55:51.792Z] Finished at: 2026-03-19T17:55:51.792Z

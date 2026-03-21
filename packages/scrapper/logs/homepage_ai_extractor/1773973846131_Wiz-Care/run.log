@@ -1,0 +1,60 @@
+[2026-03-20T02:30:46.132Z] === Homepage AI Extractor: Wiz-Care ===
+[2026-03-20T02:30:46.132Z] Started at: 2026-03-20T02:30:46.132Z
+[2026-03-20T02:30:46.132Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773973846131_Wiz-Care
+[2026-03-20T02:30:46.132Z] Company: Wiz-Care
+[2026-03-20T02:30:46.132Z] Website: wiz-care.com
+[2026-03-20T02:30:46.132Z] cbRank: 2590205
+[2026-03-20T02:30:46.132Z] Reasons: h
+[2026-03-20T02:30:46.132Z] Fetching: https://wiz-care.com
+[2026-03-20T02:30:49.644Z] Redirected: https://wiz-care.com -> https://www.wiz-care.com/
+[2026-03-20T02:30:49.655Z] Saved HTML (439994 bytes) to page.html
+[2026-03-20T02:30:49.658Z] Extracted 7 unique links from page
+[2026-03-20T02:30:49.659Z] Saved 7 links to links.json
+[2026-03-20T02:30:49.661Z] Extracted footer HTML (3859 chars)
+[2026-03-20T02:30:49.661Z] Extracted header HTML (1417 chars)
+[2026-03-20T02:30:49.666Z] Website (post-redirect): https://www.wiz-care.com/ → origin: https://www.wiz-care.com
+[2026-03-20T02:30:49.666Z] External links: 3 (of 7 total)
+[2026-03-20T02:30:49.666Z] ── All external links ──
+[2026-03-20T02:30:49.666Z]   EXT: https://www.facebook.com/wizcare
+[2026-03-20T02:30:49.666Z]   EXT: https://www.linkedin.com/company/11759270
+[2026-03-20T02:30:49.666Z]   EXT: https://www.youtube.com/channel/UCwb2TP95bTv9UuJRZNuSG_g
+[2026-03-20T02:30:49.666Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T02:30:49.667Z]   REGEX: fb <- https://www.facebook.com/wizcare
+[2026-03-20T02:30:49.667Z]   REGEX: li <- https://www.linkedin.com/company/11759270
+[2026-03-20T02:30:49.667Z]   REGEX: ytc <- https://www.youtube.com/channel/UCwb2TP95bTv9UuJRZNuSG_g
+[2026-03-20T02:30:49.667Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-20T02:30:49.667Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T02:30:49.670Z] Saved AI prompt (3241 chars) to ai_prompt.txt
+[2026-03-20T02:30:49.670Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T02:30:49.673Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T02:31:00.351Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-20T02:31:00.352Z] AI response complete: 0 chars in 10.7s
+[2026-03-20T02:31:00.353Z] Saved AI response to ai_response.json
+[2026-03-20T02:31:00.353Z] ── Parsing AI response (1 lines) ──
+[2026-03-20T02:31:00.353Z] AI returned 0 valid links
+[2026-03-20T02:31:00.354Z] ── Categorizing 0 AI-returned links ──
+[2026-03-20T02:31:00.354Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T02:31:00.354Z] Footer/header origins (1):
+[2026-03-20T02:31:00.354Z]   FOOTER/HEADER ORIGIN: https://www.wiz-care.com
+[2026-03-20T02:31:00.354Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T02:31:00.354Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T02:31:00.355Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-20T02:31:00.606Z]   YOUTUBE: resolved UCwb2TP95bTv9UuJRZNuSG_g → @wiz-carechannel4651
+[2026-03-20T02:31:00.607Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-20T02:31:00.607Z] ── Step 3: Final dedup ──
+[2026-03-20T02:31:00.607Z] No urls to dedup
+[2026-03-20T02:31:00.607Z] ── FINAL RESULT ──
+[2026-03-20T02:31:00.607Z]   ws (1):
+[2026-03-20T02:31:00.607Z]     - https://www.wiz-care.com
+[2026-03-20T02:31:00.607Z]   li (1):
+[2026-03-20T02:31:00.607Z]     - https://www.linkedin.com/company/11759270
+[2026-03-20T02:31:00.607Z]   fb (1):
+[2026-03-20T02:31:00.607Z]     - https://www.facebook.com/wizcare
+[2026-03-20T02:31:00.607Z]   ytp (1):
+[2026-03-20T02:31:00.607Z]     - https://www.youtube.com/@wiz-carechannel4651
+[2026-03-20T02:31:00.607Z]   ytc (1):
+[2026-03-20T02:31:00.608Z]     - https://www.youtube.com/channel/UCwb2TP95bTv9UuJRZNuSG_g
+[2026-03-20T02:31:00.608Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-20T02:31:00.608Z] Saved final result to result.json
+[2026-03-20T02:31:00.608Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-20T02:31:00.608Z] Finished at: 2026-03-20T02:31:00.608Z

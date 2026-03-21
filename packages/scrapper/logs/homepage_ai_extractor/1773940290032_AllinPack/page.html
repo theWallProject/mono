@@ -1,0 +1,770 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All in Pack - Complete Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=IBM+Plex+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --accent: #00F5D4;
+            --accent-2: #FE00A0;
+            --text: #E8E9F3;
+            --text-dim: #A0A4C2;
+            --background: #050814;
+            --card-bg: #0F1429;
+            --border: rgba(0, 245, 212, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 245, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(254, 0, 160, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 245, 212, 0.05) 0%, transparent 40%);
+            z-index: -1;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(5, 8, 20, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 5% 6rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -3px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            to { background-position: 200% center; }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 245, 212, 0.4);
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .solution-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease both;
+        }
+
+        .solution-card:nth-child(1) { animation-delay: 0.1s; }
+        .solution-card:nth-child(2) { animation-delay: 0.2s; }
+        .solution-card:nth-child(3) { animation-delay: 0.3s; }
+        .solution-card:nth-child(4) { animation-delay: 0.4s; }
+        .solution-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .solution-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 245, 212, 0.2);
+        }
+
+        .solution-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            animation: iconPulse 2s ease infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .solution-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .solution-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-features li {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .solution-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .about {
+            padding: 8rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-container {
+            position: relative;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-subtitle {
+            color: var(--text-dim);
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        .about-text {
+            margin-bottom: 4rem;
+        }
+
+        .about-text p {
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .about-text p:first-child::first-letter {
+            font-size: 3.5rem;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            line-height: 1;
+            float: left;
+            margin: 0.1rem 0.2rem 0 0;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .highlight-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 212, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .highlight-item:hover::before {
+            left: 100%;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 50px rgba(0, 245, 212, 0.15);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .highlight-item:hover .highlight-icon {
+            filter: grayscale(0%);
+        }
+
+        .highlight-item h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .highlight-item p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--card-bg), var(--primary));
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem 5%;
+            }
+
+            nav a {
+                margin: 0 1rem;
+            }
+
+            .hero {
+                padding: 5rem 5% 4rem;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 4px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: scrollDown 2s ease infinite;
+        }
+
+        @keyframes scrollDown {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ALL IN PACK</div>
+        <nav>
+            <a href="#solutions">Solutions</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Complete Digital <br><span class="gradient-text">Solutions</span></h1>
+        <p>Transforming ideas into powerful digital experiences with cutting-edge technology and expert craftsmanship</p>
+        <a href="#contact" class="cta-button">Start Your Project</a>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <section class="solutions" id="solutions">
+        <div class="section-header">
+            <h2>Our Solutions</h2>
+            <p>Comprehensive services designed to elevate your digital presence</p>
+        </div>
+
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-icon">📱</div>
+                <h3>Progressive Web Apps</h3>
+                <p>Build fast, reliable, and engaging applications that work seamlessly across all devices and platforms.</p>
+                <ul class="solution-features">
+                    <li>Offline-first architecture</li>
+                    <li>Native app-like experience</li>
+                    <li>Cross-platform compatibility</li>
+                    <li>Lightning-fast performance</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">☁️</div>
+                <h3>Cloud Solutions &amp; DevOps</h3>
+                <p>Scalable infrastructure and automated workflows that empower your team to deploy faster and more reliably.</p>
+                <ul class="solution-features">
+                    <li>AWS, Azure, GCP integration</li>
+                    <li>CI/CD pipeline automation</li>
+                    <li>Kubernetes orchestration</li>
+                    <li>Infrastructure as Code</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">🔌</div>
+                <h3>API Development &amp; Integration</h3>
+                <p>Robust, secure APIs that connect your systems and enable seamless data flow across your ecosystem.</p>
+                <ul class="solution-features">
+                    <li>RESTful &amp; GraphQL APIs</li>
+                    <li>Third-party integrations</li>
+                    <li>Microservices architecture</li>
+                    <li>Comprehensive documentation</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">🛒</div>
+                <h3>E-commerce Solutions</h3>
+                <p>Complete online stores built to convert visitors into customers with intuitive design and powerful features.</p>
+                <ul class="solution-features">
+                    <li>Custom shopping experiences</li>
+                    <li>Payment gateway integration</li>
+                    <li>Inventory management</li>
+                    <li>Analytics &amp; reporting</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">⚡</div>
+                <h3>SEO &amp; Performance Optimization</h3>
+                <p>Maximize visibility and speed with data-driven optimization strategies that drive traffic and engagement.</p>
+                <ul class="solution-features">
+                    <li>Technical SEO audits</li>
+                    <li>Core Web Vitals optimization</li>
+                    <li>Lighthouse score improvement</li>
+                    <li>Content strategy &amp; keywords</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-header">
+                    <h2>15 Years of Excellence</h2>
+                    <p class="about-subtitle">Building the future, one project at a time</p>
+                </div>
+                
+                <div class="about-text">
+                    <p>Since our founding, All in Pack has been at the forefront of digital innovation. With over 15 years of experience in hi-tech, we've partnered with startups, enterprises, and everything in between to deliver successful projects that drive real business results.</p>
+                    
+                    <p>Our journey has been marked by countless successful implementations across diverse industries—from revolutionary e-commerce platforms that process millions in transactions, to mission-critical cloud infrastructures serving global audiences. Each project has reinforced our commitment to excellence and innovation.</p>
+                    
+                    <p>What sets us apart is our deep technical expertise combined with a genuine understanding of business objectives. We don't just write code—we craft solutions that solve real problems, scale with your growth, and stand the test of time.</p>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-item" style="opacity: 0; transform: translateY(30px); transition: 0.6s;">
+                        <div class="highlight-icon">🏆</div>
+                        <h4>Industry Recognition</h4>
+                        <p>Award-winning projects and certified experts across multiple platforms</p>
+                    </div>
+                    <div class="highlight-item" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.15s;">
+                        <div class="highlight-icon">🚀</div>
+                        <h4>Proven Track Record</h4>
+                        <p>Successfully launched and scaled applications serving millions of users</p>
+                    </div>
+                    <div class="highlight-item" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.3s;">
+                        <div class="highlight-icon">💡</div>
+                        <h4>Innovation First</h4>
+                        <p>Early adopters of cutting-edge technologies and best practices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Projects Delivered</p>
+            </div>
+            <div class="stat-item">
+                <h3>99%</h3>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Support Available</p>
+            </div>
+            <div class="stat-item">
+                <h3>100+</h3>
+                <p>Happy Clients</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="font-family: 'Syne', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Ready to get started?</h2>
+        <p style="font-size: 1.1rem; color: var(--text); margin-bottom: 2rem;">Let's build something amazing together</p>
+        <a href="mailto:hello@allinpack.com" class="cta-button" style="margin-bottom: 3rem;">Get in Touch</a>
+        
+        <div class="footer-links">
+            <a href="#solutions">Solutions</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <p>© 2026 All in Pack. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards for staggered animation
+        document.querySelectorAll('.solution-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Observe about highlights
+        document.querySelectorAll('.highlight-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'all 0.6s ease';
+            item.style.transitionDelay = `${index * 0.15}s`;
+            observer.observe(item);
+        });
+    </script>
+
+</body></html>

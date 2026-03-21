@@ -1,0 +1,83 @@
+[2026-03-20T07:37:58.883Z] === Homepage AI Extractor: DISKIN ===
+[2026-03-20T07:37:58.883Z] Started at: 2026-03-20T07:37:58.883Z
+[2026-03-20T07:37:58.883Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773992278883_DISKIN
+[2026-03-20T07:37:58.883Z] Company: DISKIN
+[2026-03-20T07:37:58.883Z] Website: diskin.com
+[2026-03-20T07:37:58.883Z] cbRank: 2782862
+[2026-03-20T07:37:58.884Z] Reasons: h
+[2026-03-20T07:37:58.884Z] Fetching: https://diskin.com
+[2026-03-20T07:38:10.704Z] Network idle timeout — continuing with current state
+[2026-03-20T07:38:10.742Z] Redirected: https://diskin.com -> https://www.diskin.com/
+[2026-03-20T07:38:10.756Z] Saved HTML (605061 bytes) to page.html
+[2026-03-20T07:38:10.758Z] Extracted 61 unique links from page
+[2026-03-20T07:38:10.759Z] Saved 61 links to links.json
+[2026-03-20T07:38:10.761Z] Extracted footer HTML (8855 chars)
+[2026-03-20T07:38:10.761Z] Extracted header HTML (5415 chars)
+[2026-03-20T07:38:10.765Z] Website (post-redirect): https://www.diskin.com/ → origin: https://www.diskin.com
+[2026-03-20T07:38:10.766Z] External links: 5 (of 61 total)
+[2026-03-20T07:38:10.766Z] ── All external links ──
+[2026-03-20T07:38:10.766Z]   EXT: https://vimeo.com/diskinpro
+[2026-03-20T07:38:10.766Z]   EXT: https://www.facebook.com/Diskin-107059818220726
+[2026-03-20T07:38:10.766Z]   EXT: https://www.google.com/maps/place/575+Lexington+Ave,+New+York,+NY+10022/@40.7573356,-73.9737262,17z/data=!3m1!4b1!4m5!3m4!1s0x89c258fcb54f5e4d:0xf63fa7402277d03b!8m2!3d40.7573356!4d-73.9715375
+[2026-03-20T07:38:10.766Z]   EXT: https://www.instagram.com/diskin_pro/?ref=badge
+[2026-03-20T07:38:10.766Z]   EXT: https://www.youtube.com/channel/UC9zt-OKV_FJdmoFqwnuzeZg
+[2026-03-20T07:38:10.766Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T07:38:10.766Z]   UNCATEGORIZED: https://vimeo.com/diskinpro
+[2026-03-20T07:38:10.767Z]   REGEX: fb <- https://www.facebook.com/Diskin-107059818220726
+[2026-03-20T07:38:10.767Z]   UNCATEGORIZED: https://www.google.com/maps/place/575+Lexington+Ave,+New+York,+NY+10022/@40.7573356,-73.9737262,17z/data=!3m1!4b1!4m5!3m4!1s0x89c258fcb54f5e4d:0xf63fa7402277d03b!8m2!3d40.7573356!4d-73.9715375
+[2026-03-20T07:38:10.767Z]   REGEX: ig <- https://www.instagram.com/diskin_pro/?ref=badge
+[2026-03-20T07:38:10.767Z]   REGEX: ytc <- https://www.youtube.com/channel/UC9zt-OKV_FJdmoFqwnuzeZg
+[2026-03-20T07:38:10.767Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-20T07:38:10.767Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T07:38:10.770Z] Saved AI prompt (7980 chars) to ai_prompt.txt
+[2026-03-20T07:38:10.770Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T07:38:10.773Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T07:38:58.848Z]   AI: First token received, streaming...
+[2026-03-20T07:39:15.145Z] AI response complete: 181 chars in 64.4s
+[2026-03-20T07:39:15.146Z] Saved AI response to ai_response.json
+[2026-03-20T07:39:15.147Z] ── Parsing AI response (4 lines) ──
+[2026-03-20T07:39:15.147Z]   AI LINK: https://www.instagram.com/diskin_pro/?ref=badge
+[2026-03-20T07:39:15.147Z]   AI LINK: https://www.facebook.com/Diskin-107059818220726/
+[2026-03-20T07:39:15.147Z]   AI LINK: https://www.youtube.com/channel/UC9zt-OKV_FJdmoFqwnuzeZg
+[2026-03-20T07:39:15.147Z]   AI LINK: https://vimeo.com/diskinpro
+[2026-03-20T07:39:15.148Z] AI returned 4 valid links
+[2026-03-20T07:39:15.148Z] ── Categorizing 4 AI-returned links ──
+[2026-03-20T07:39:15.148Z]   AI→REGEX: ig <- https://www.instagram.com/diskin_pro/?ref=badge (duplicate, skipped)
+[2026-03-20T07:39:15.148Z]   AI→REGEX: fb <- https://www.facebook.com/Diskin-107059818220726/ (duplicate, skipped)
+[2026-03-20T07:39:15.148Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC9zt-OKV_FJdmoFqwnuzeZg (duplicate, skipped)
+[2026-03-20T07:39:15.149Z]   AI→URLS: https://vimeo.com/diskinpro
+[2026-03-20T07:39:15.149Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T07:39:15.149Z] Footer/header origins (6):
+[2026-03-20T07:39:15.149Z]   FOOTER/HEADER ORIGIN: https://www.diskin.com
+[2026-03-20T07:39:15.149Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-20T07:39:15.149Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T07:39:15.149Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T07:39:15.150Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T07:39:15.150Z]   FOOTER/HEADER ORIGIN: https://vimeo.com
+[2026-03-20T07:39:15.150Z]   SKIP (AI claimed): https://vimeo.com/diskinpro
+[2026-03-20T07:39:15.150Z]   ADDED: urls <- https://www.google.com/maps/place/575+Lexington+Ave,+New+York,+NY+10022/@40.7573356,-73.9737262,17z/data=!3m1!4b1!4m5!3m4!1s0x89c258fcb54f5e4d:0xf63fa7402277d03b!8m2!3d40.7573356!4d-73.9715375
+[2026-03-20T07:39:15.150Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T07:39:15.150Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T07:39:15.150Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-20T07:39:15.613Z]   YOUTUBE: resolved UC9zt-OKV_FJdmoFqwnuzeZg → @diskinpro
+[2026-03-20T07:39:15.614Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-20T07:39:15.614Z] ── Step 3: Final dedup ──
+[2026-03-20T07:39:15.614Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T07:39:15.614Z] ── FINAL RESULT ──
+[2026-03-20T07:39:15.614Z]   ws (1):
+[2026-03-20T07:39:15.614Z]     - https://www.diskin.com
+[2026-03-20T07:39:15.614Z]   fb (1):
+[2026-03-20T07:39:15.614Z]     - https://www.facebook.com/diskin-107059818220726
+[2026-03-20T07:39:15.615Z]   ig (1):
+[2026-03-20T07:39:15.615Z]     - https://www.instagram.com/diskin_pro
+[2026-03-20T07:39:15.615Z]   ytp (1):
+[2026-03-20T07:39:15.615Z]     - https://www.youtube.com/@diskinpro
+[2026-03-20T07:39:15.615Z]   ytc (1):
+[2026-03-20T07:39:15.615Z]     - https://www.youtube.com/channel/UC9zt-OKV_FJdmoFqwnuzeZg
+[2026-03-20T07:39:15.615Z]   urls (2):
+[2026-03-20T07:39:15.615Z]     - https://vimeo.com/diskinpro
+[2026-03-20T07:39:15.615Z]     - https://www.google.com/maps/place/575+Lexington+Ave,+New+York,+NY+10022/@40.7573356,-73.9737262,17z/data=!3m1!4b1!4m5!3m4!1s0x89c258fcb54f5e4d:0xf63fa7402277d03b!8m2!3d40.7573356!4d-73.9715375
+[2026-03-20T07:39:15.615Z] Summary: ws:1, fb:1, ig:1, ytc:1, urls:2, ytp:1
+[2026-03-20T07:39:15.616Z] Saved final result to result.json
+[2026-03-20T07:39:15.616Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-20T07:39:15.616Z] Finished at: 2026-03-20T07:39:15.616Z

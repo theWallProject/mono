@@ -1,0 +1,63 @@
+[2026-03-19T08:51:27.049Z] === Homepage AI Extractor: Eisenberg-Eliash ===
+[2026-03-19T08:51:27.049Z] Started at: 2026-03-19T08:51:27.049Z
+[2026-03-19T08:51:27.049Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773910287049_Eisenberg-Eliash
+[2026-03-19T08:51:27.049Z] Company: Eisenberg-Eliash
+[2026-03-19T08:51:27.049Z] Website: pr-ir.co.il
+[2026-03-19T08:51:27.049Z] cbRank: 2058261
+[2026-03-19T08:51:27.049Z] Reasons: h
+[2026-03-19T08:51:27.049Z] Fetching: https://pr-ir.co.il
+[2026-03-19T08:51:32.364Z] Redirected: https://pr-ir.co.il -> https://pr-ir.co.il/
+[2026-03-19T08:51:32.375Z] Saved HTML (454562 bytes) to page.html
+[2026-03-19T08:51:32.378Z] Extracted 20 unique links from page
+[2026-03-19T08:51:32.379Z] Saved 20 links to links.json
+[2026-03-19T08:51:32.382Z] Extracted footer HTML (1031 chars)
+[2026-03-19T08:51:32.382Z] Extracted header HTML (5478 chars)
+[2026-03-19T08:51:32.386Z] Website (post-redirect): https://pr-ir.co.il/ → origin: https://pr-ir.co.il
+[2026-03-19T08:51:32.386Z] External links: 4 (of 20 total)
+[2026-03-19T08:51:32.386Z] ── All external links ──
+[2026-03-19T08:51:32.386Z]   EXT: http://webmanager.co.il/seo.html
+[2026-03-19T08:51:32.386Z]   EXT: https://www.enable.co.il
+[2026-03-19T08:51:32.386Z]   EXT: https://www.linkedin.com/company/7972204?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A7972204%2Cidx%3A2-1-9%2CtarId%3A1469611203081%2Ctas%3AEISENBERG%20ELI
+[2026-03-19T08:51:32.386Z]   EXT: https://www.upress.co.il
+[2026-03-19T08:51:32.387Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T08:51:32.387Z]   UNCATEGORIZED: http://webmanager.co.il/seo.html
+[2026-03-19T08:51:32.387Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-19T08:51:32.387Z]   REGEX: li <- https://www.linkedin.com/company/7972204?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A7972204%2Cidx%3A2-1-9%2CtarId%3A1469611203081%2Ctas%3AEISENBERG%20ELI
+[2026-03-19T08:51:32.387Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-19T08:51:32.387Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-19T08:51:32.387Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T08:51:32.388Z] Saved AI prompt (2797 chars) to ai_prompt.txt
+[2026-03-19T08:51:32.388Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T08:51:32.392Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T08:51:42.649Z]   AI: First token received, streaming...
+[2026-03-19T08:52:03.871Z] AI response complete: 177 chars in 31.5s
+[2026-03-19T08:52:03.872Z] Saved AI response to ai_response.json
+[2026-03-19T08:52:03.872Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T08:52:03.872Z]   AI LINK: https://www.linkedin.com/company/7972204?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A7972204%2Cidx%3A2-1-9%2CtarId%3A1469611203081%2Ctas%3AEISENBERG%20ELI
+[2026-03-19T08:52:03.873Z] AI returned 1 valid links
+[2026-03-19T08:52:03.873Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T08:52:03.873Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/company/7972204?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A7972204%2Cidx%3A2-1-9%2CtarId%3A1469611203081%2Ctas%3AEISENBERG%20ELI
+[2026-03-19T08:52:03.873Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T08:52:03.874Z] Footer/header origins (3):
+[2026-03-19T08:52:03.874Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T08:52:03.874Z]   FOOTER/HEADER ORIGIN: http://webmanager.co.il
+[2026-03-19T08:52:03.874Z]   FOOTER/HEADER ORIGIN: https://pr-ir.co.il
+[2026-03-19T08:52:03.874Z]   ADDED: urls <- http://webmanager.co.il/seo.html
+[2026-03-19T08:52:03.874Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-19T08:52:03.875Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-19T08:52:03.875Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T08:52:03.875Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T08:52:03.875Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T08:52:03.875Z] ── Step 3: Final dedup ──
+[2026-03-19T08:52:03.875Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T08:52:03.875Z] ── FINAL RESULT ──
+[2026-03-19T08:52:03.875Z]   ws (1):
+[2026-03-19T08:52:03.876Z]     - https://pr-ir.co.il
+[2026-03-19T08:52:03.876Z]   li (1):
+[2026-03-19T08:52:03.876Z]     - https://www.linkedin.com/company/7972204
+[2026-03-19T08:52:03.876Z]   urls (1):
+[2026-03-19T08:52:03.876Z]     - http://webmanager.co.il/seo.html
+[2026-03-19T08:52:03.876Z] Summary: ws:1, li:1, urls:1
+[2026-03-19T08:52:03.877Z] Saved final result to result.json
+[2026-03-19T08:52:03.877Z] Override fields: ws, li, urls
+[2026-03-19T08:52:03.878Z] Finished at: 2026-03-19T08:52:03.878Z

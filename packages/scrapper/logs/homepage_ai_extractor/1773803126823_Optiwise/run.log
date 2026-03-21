@@ -1,0 +1,70 @@
+[2026-03-18T03:05:26.824Z] === Homepage AI Extractor: Optiwise ===
+[2026-03-18T03:05:26.824Z] Started at: 2026-03-18T03:05:26.824Z
+[2026-03-18T03:05:26.824Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773803126823_Optiwise
+[2026-03-18T03:05:26.825Z] Company: Optiwise
+[2026-03-18T03:05:26.825Z] Website: optiwise.co.il
+[2026-03-18T03:05:26.825Z] cbRank: 1455743
+[2026-03-18T03:05:26.825Z] Reasons: h
+[2026-03-18T03:05:26.825Z] Fetching: https://optiwise.co.il
+[2026-03-18T03:05:32.556Z] Redirected: https://optiwise.co.il -> https://www.optiwise.co.il/
+[2026-03-18T03:05:32.560Z] Saved HTML (104818 bytes) to page.html
+[2026-03-18T03:05:32.563Z] Extracted 20 unique links from page
+[2026-03-18T03:05:32.563Z] Saved 20 links to links.json
+[2026-03-18T03:05:32.566Z] Extracted footer HTML (6286 chars)
+[2026-03-18T03:05:32.566Z] Extracted header HTML (4273 chars)
+[2026-03-18T03:05:32.569Z] Website (post-redirect): https://www.optiwise.co.il/ → origin: https://www.optiwise.co.il
+[2026-03-18T03:05:32.569Z] External links: 4 (of 20 total)
+[2026-03-18T03:05:32.569Z] ── All external links ──
+[2026-03-18T03:05:32.569Z]   EXT: https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-18T03:05:32.570Z]   EXT: https://plus.google.com/+OptiwiseCoIl
+[2026-03-18T03:05:32.570Z]   EXT: https://www.facebook.com/optiwise
+[2026-03-18T03:05:32.570Z]   EXT: https://www.linkedin.com/company/optiwise
+[2026-03-18T03:05:32.570Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T03:05:32.570Z]   UNCATEGORIZED: https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-18T03:05:32.570Z]   UNCATEGORIZED: https://plus.google.com/+OptiwiseCoIl
+[2026-03-18T03:05:32.570Z]   REGEX: fb <- https://www.facebook.com/optiwise
+[2026-03-18T03:05:32.570Z]   REGEX: li <- https://www.linkedin.com/company/optiwise
+[2026-03-18T03:05:32.570Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-18T03:05:32.570Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T03:05:32.573Z] Saved AI prompt (5311 chars) to ai_prompt.txt
+[2026-03-18T03:05:32.574Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T03:05:32.577Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T03:05:54.552Z]   AI: First token received, streaming...
+[2026-03-18T03:06:00.643Z] AI response complete: 114 chars in 28.1s
+[2026-03-18T03:06:00.644Z] Saved AI response to ai_response.json
+[2026-03-18T03:06:00.645Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T03:06:00.645Z]   AI LINK: https://plus.google.com/+OptiwiseCoIl
+[2026-03-18T03:06:00.645Z]   AI LINK: https://www.facebook.com/optiwise/
+[2026-03-18T03:06:00.645Z]   AI LINK: https://www.linkedin.com/company/optiwise
+[2026-03-18T03:06:00.645Z] AI returned 3 valid links
+[2026-03-18T03:06:00.645Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T03:06:00.646Z]   AI→URLS: https://plus.google.com/+OptiwiseCoIl
+[2026-03-18T03:06:00.646Z]   AI→REGEX: fb <- https://www.facebook.com/optiwise/ (duplicate, skipped)
+[2026-03-18T03:06:00.646Z]   AI→REGEX: li <- https://www.linkedin.com/company/optiwise (duplicate, skipped)
+[2026-03-18T03:06:00.646Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T03:06:00.647Z] Footer/header origins (5):
+[2026-03-18T03:06:00.647Z]   FOOTER/HEADER ORIGIN: https://www.optiwise.co.il
+[2026-03-18T03:06:00.647Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-18T03:06:00.647Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T03:06:00.647Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T03:06:00.647Z]   FOOTER/HEADER ORIGIN: http://sogo.co.il
+[2026-03-18T03:06:00.647Z]   SKIP (not in footer/header): https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-18T03:06:00.647Z]   SKIP (AI claimed): https://plus.google.com/+OptiwiseCoIl
+[2026-03-18T03:06:00.648Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T03:06:00.648Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T03:06:00.648Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T03:06:00.648Z] ── Step 3: Final dedup ──
+[2026-03-18T03:06:00.648Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T03:06:00.648Z] ── FINAL RESULT ──
+[2026-03-18T03:06:00.648Z]   ws (1):
+[2026-03-18T03:06:00.648Z]     - https://www.optiwise.co.il
+[2026-03-18T03:06:00.648Z]   li (1):
+[2026-03-18T03:06:00.649Z]     - https://www.linkedin.com/company/optiwise
+[2026-03-18T03:06:00.649Z]   fb (1):
+[2026-03-18T03:06:00.649Z]     - https://www.facebook.com/optiwise
+[2026-03-18T03:06:00.649Z]   urls (1):
+[2026-03-18T03:06:00.649Z]     - https://plus.google.com/+OptiwiseCoIl
+[2026-03-18T03:06:00.649Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-18T03:06:00.650Z] Saved final result to result.json
+[2026-03-18T03:06:00.651Z] Override fields: ws, li, fb, urls
+[2026-03-18T03:06:00.651Z] Finished at: 2026-03-18T03:06:00.651Z

@@ -1,0 +1,77 @@
+[2026-03-19T23:38:17.527Z] === Homepage AI Extractor: Medyx ===
+[2026-03-19T23:38:17.527Z] Started at: 2026-03-19T23:38:17.527Z
+[2026-03-19T23:38:17.527Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773963497526_Medyx
+[2026-03-19T23:38:17.527Z] Company: Medyx
+[2026-03-19T23:38:17.527Z] Website: medyx.ai
+[2026-03-19T23:38:17.527Z] cbRank: 2482088
+[2026-03-19T23:38:17.527Z] Reasons: h
+[2026-03-19T23:38:17.528Z] Fetching: https://medyx.ai
+[2026-03-19T23:38:18.623Z] Redirected: https://medyx.ai -> https://medyx.ai/
+[2026-03-19T23:38:18.626Z] Saved HTML (36192 bytes) to page.html
+[2026-03-19T23:38:18.629Z] Extracted 6 unique links from page
+[2026-03-19T23:38:18.630Z] Saved 6 links to links.json
+[2026-03-19T23:38:18.634Z] Extracted footer HTML (4884 chars)
+[2026-03-19T23:38:18.634Z] No header section found in DOM
+[2026-03-19T23:38:18.636Z] Website (post-redirect): https://medyx.ai/ → origin: https://medyx.ai
+[2026-03-19T23:38:18.637Z] External links: 6 (of 6 total)
+[2026-03-19T23:38:18.637Z] ── All external links ──
+[2026-03-19T23:38:18.637Z]   EXT: https://linkedin.com/company/medyx-ai
+[2026-03-19T23:38:18.637Z]   EXT: https://maps.app.goo.gl/jxuyc3bZRaYjmkh68
+[2026-03-19T23:38:18.637Z]   EXT: https://maps.app.goo.gl/x7X12sH1J1ZrtQn68
+[2026-03-19T23:38:18.637Z]   EXT: https://www.crunchbase.com/organization/medyx-ai
+[2026-03-19T23:38:18.637Z]   EXT: https://www.youtube.com/watch?v=GlImq8icfow
+[2026-03-19T23:38:18.637Z]   EXT: https://x.com/medyx_ai
+[2026-03-19T23:38:18.637Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T23:38:18.637Z]   REGEX: li <- https://linkedin.com/company/medyx-ai
+[2026-03-19T23:38:18.637Z]   UNCATEGORIZED: https://maps.app.goo.gl/jxuyc3bZRaYjmkh68
+[2026-03-19T23:38:18.638Z]   UNCATEGORIZED: https://maps.app.goo.gl/x7X12sH1J1ZrtQn68
+[2026-03-19T23:38:18.638Z]   UNCATEGORIZED: https://www.crunchbase.com/organization/medyx-ai
+[2026-03-19T23:38:18.638Z]   REGEX: tw <- https://x.com/medyx_ai
+[2026-03-19T23:38:18.638Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T23:38:18.638Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=GlImq8icfow
+[2026-03-19T23:38:18.638Z] Programmatic result: ws:1, li:1, tw:1 | 3 uncategorized
+[2026-03-19T23:38:18.638Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T23:38:18.641Z] Saved AI prompt (6705 chars) to ai_prompt.txt
+[2026-03-19T23:38:18.641Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T23:38:18.645Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T23:39:08.772Z]   AI: First token received, streaming...
+[2026-03-19T23:39:19.593Z] AI response complete: 153 chars in 61.0s
+[2026-03-19T23:39:19.595Z] Saved AI response to ai_response.json
+[2026-03-19T23:39:19.595Z] ── Parsing AI response (4 lines) ──
+[2026-03-19T23:39:19.595Z]   AI LINK: https://www.crunchbase.com/organization/medyx-ai
+[2026-03-19T23:39:19.595Z]   AI LINK: https://linkedin.com/company/medyx-ai
+[2026-03-19T23:39:19.595Z]   AI LINK: https://x.com/medyx_ai
+[2026-03-19T23:39:19.596Z]   AI LINK: https://www.youtube.com/watch?v=GlImq8icfow
+[2026-03-19T23:39:19.596Z] AI returned 4 valid links
+[2026-03-19T23:39:19.596Z] ── Categorizing 4 AI-returned links ──
+[2026-03-19T23:39:19.596Z]   AI→URLS: https://www.crunchbase.com/organization/medyx-ai
+[2026-03-19T23:39:19.596Z]   AI→REGEX: li <- https://linkedin.com/company/medyx-ai (duplicate, skipped)
+[2026-03-19T23:39:19.596Z]   AI→REGEX: tw <- https://x.com/medyx_ai (duplicate, skipped)
+[2026-03-19T23:39:19.597Z]   AI→SKIP (regex domain, no match): https://www.youtube.com/watch?v=GlImq8icfow
+[2026-03-19T23:39:19.597Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T23:39:19.597Z] Footer/header origins (4):
+[2026-03-19T23:39:19.597Z]   FOOTER/HEADER ORIGIN: https://www.crunchbase.com
+[2026-03-19T23:39:19.597Z]   FOOTER/HEADER ORIGIN: https://linkedin.com
+[2026-03-19T23:39:19.597Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-19T23:39:19.597Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T23:39:19.597Z]   SKIP (not in footer/header): https://maps.app.goo.gl/jxuyc3bZRaYjmkh68
+[2026-03-19T23:39:19.598Z]   SKIP (not in footer/header): https://maps.app.goo.gl/x7X12sH1J1ZrtQn68
+[2026-03-19T23:39:19.598Z]   SKIP (AI claimed): https://www.crunchbase.com/organization/medyx-ai
+[2026-03-19T23:39:19.598Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T23:39:19.598Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T23:39:19.598Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T23:39:19.598Z] ── Step 3: Final dedup ──
+[2026-03-19T23:39:19.598Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T23:39:19.598Z] ── FINAL RESULT ──
+[2026-03-19T23:39:19.598Z]   ws (1):
+[2026-03-19T23:39:19.598Z]     - https://medyx.ai
+[2026-03-19T23:39:19.599Z]   li (1):
+[2026-03-19T23:39:19.599Z]     - https://www.linkedin.com/company/medyx-ai
+[2026-03-19T23:39:19.599Z]   tw (1):
+[2026-03-19T23:39:19.599Z]     - https://x.com/medyx_ai
+[2026-03-19T23:39:19.599Z]   urls (1):
+[2026-03-19T23:39:19.599Z]     - https://www.crunchbase.com/organization/medyx-ai
+[2026-03-19T23:39:19.599Z] Summary: ws:1, li:1, tw:1, urls:1
+[2026-03-19T23:39:19.600Z] Saved final result to result.json
+[2026-03-19T23:39:19.601Z] Override fields: ws, li, tw, urls
+[2026-03-19T23:39:19.601Z] Finished at: 2026-03-19T23:39:19.601Z

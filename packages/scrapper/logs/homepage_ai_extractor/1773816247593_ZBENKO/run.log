@@ -1,0 +1,73 @@
+[2026-03-18T06:44:07.594Z] === Homepage AI Extractor: ZBENKO ===
+[2026-03-18T06:44:07.594Z] Started at: 2026-03-18T06:44:07.594Z
+[2026-03-18T06:44:07.594Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773816247593_ZBENKO
+[2026-03-18T06:44:07.594Z] Company: ZBENKO
+[2026-03-18T06:44:07.594Z] Website: zbenko.com
+[2026-03-18T06:44:07.594Z] cbRank: 1549301
+[2026-03-18T06:44:07.594Z] Reasons: h
+[2026-03-18T06:44:07.594Z] Fetching: https://zbenko.com
+[2026-03-18T06:44:10.848Z] Redirected: https://zbenko.com -> https://zbenko.com/
+[2026-03-18T06:44:10.860Z] Saved HTML (370879 bytes) to page.html
+[2026-03-18T06:44:10.863Z] Extracted 17 unique links from page
+[2026-03-18T06:44:10.864Z] Saved 17 links to links.json
+[2026-03-18T06:44:10.870Z] Extracted footer HTML (650 chars)
+[2026-03-18T06:44:10.871Z] Extracted header HTML (2646 chars)
+[2026-03-18T06:44:10.873Z] Website (post-redirect): https://zbenko.com/ → origin: https://zbenko.com
+[2026-03-18T06:44:10.874Z] External links: 6 (of 17 total)
+[2026-03-18T06:44:10.874Z] ── All external links ──
+[2026-03-18T06:44:10.874Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-18T06:44:10.874Z]   EXT: https://gflec.org/initiatives/sp-global-finlit-survey
+[2026-03-18T06:44:10.874Z]   EXT: https://onlinelibrary.wiley.com/doi/10.1111/dsji.12188
+[2026-03-18T06:44:10.874Z]   EXT: https://www.facebook.com/ZbenkoGames?ref=bookmarks
+[2026-03-18T06:44:10.874Z]   EXT: https://www.linkedin.com/company/zbenko/about
+[2026-03-18T06:44:10.874Z]   EXT: https://www.youtube.com/channel/UCIBivxB86H3s0krQo8h7jpQ
+[2026-03-18T06:44:10.874Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T06:44:10.874Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-18T06:44:10.874Z]   UNCATEGORIZED: https://gflec.org/initiatives/sp-global-finlit-survey
+[2026-03-18T06:44:10.874Z]   UNCATEGORIZED: https://onlinelibrary.wiley.com/doi/10.1111/dsji.12188
+[2026-03-18T06:44:10.874Z]   REGEX: fb <- https://www.facebook.com/ZbenkoGames?ref=bookmarks
+[2026-03-18T06:44:10.875Z]   REGEX: li <- https://www.linkedin.com/company/zbenko/about
+[2026-03-18T06:44:10.875Z]   REGEX: ytc <- https://www.youtube.com/channel/UCIBivxB86H3s0krQo8h7jpQ
+[2026-03-18T06:44:10.875Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 3 uncategorized
+[2026-03-18T06:44:10.875Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T06:44:10.878Z] Saved AI prompt (2380 chars) to ai_prompt.txt
+[2026-03-18T06:44:10.878Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T06:44:10.881Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T06:44:19.444Z]   AI: First token received, streaming...
+[2026-03-18T06:44:19.897Z] AI response complete: 24 chars in 9.0s
+[2026-03-18T06:44:19.899Z] Saved AI response to ai_response.json
+[2026-03-18T06:44:19.899Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T06:44:19.899Z]   AI LINK: https://zbenko.com/feed/
+[2026-03-18T06:44:19.900Z] AI returned 1 valid links
+[2026-03-18T06:44:19.900Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T06:44:19.900Z]   AI→URLS: https://zbenko.com/feed (cleaned from https://zbenko.com/feed/)
+[2026-03-18T06:44:19.901Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T06:44:19.901Z] Footer/header origins (1):
+[2026-03-18T06:44:19.901Z]   FOOTER/HEADER ORIGIN: https://zbenko.com
+[2026-03-18T06:44:19.901Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-18T06:44:19.901Z]   SKIP (not in footer/header): https://gflec.org/initiatives/sp-global-finlit-survey
+[2026-03-18T06:44:19.902Z]   SKIP (not in footer/header): https://onlinelibrary.wiley.com/doi/10.1111/dsji.12188
+[2026-03-18T06:44:19.902Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T06:44:19.902Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T06:44:19.902Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T06:44:20.162Z]   YOUTUBE: resolved UCIBivxB86H3s0krQo8h7jpQ → @zbenko4815
+[2026-03-18T06:44:20.162Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T06:44:20.162Z] ── Step 3: Final dedup ──
+[2026-03-18T06:44:20.163Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T06:44:20.163Z] ── FINAL RESULT ──
+[2026-03-18T06:44:20.163Z]   ws (1):
+[2026-03-18T06:44:20.163Z]     - https://zbenko.com
+[2026-03-18T06:44:20.163Z]   li (1):
+[2026-03-18T06:44:20.163Z]     - https://www.linkedin.com/company/zbenko
+[2026-03-18T06:44:20.163Z]   fb (1):
+[2026-03-18T06:44:20.163Z]     - https://www.facebook.com/zbenkogames
+[2026-03-18T06:44:20.163Z]   ytp (1):
+[2026-03-18T06:44:20.163Z]     - https://www.youtube.com/@zbenko4815
+[2026-03-18T06:44:20.163Z]   ytc (1):
+[2026-03-18T06:44:20.163Z]     - https://www.youtube.com/channel/UCIBivxB86H3s0krQo8h7jpQ
+[2026-03-18T06:44:20.163Z]   urls (1):
+[2026-03-18T06:44:20.163Z]     - https://zbenko.com/feed
+[2026-03-18T06:44:20.163Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-18T06:44:20.164Z] Saved final result to result.json
+[2026-03-18T06:44:20.164Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-18T06:44:20.164Z] Finished at: 2026-03-18T06:44:20.164Z

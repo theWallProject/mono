@@ -1,0 +1,3917 @@
+<!DOCTYPE html><html lang="he" xmlns="http://www.w3.org/1999/html" class="nivo-lightbox-notouch"><head>
+ <title>Yalla - בניית חנות וירטואלית | בניית אתרים לעסקים</title>
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1" id="viewportId">
+ <meta name="title" content="Yalla - בניית חנות וירטואלית | בניית אתרים לעסקים">
+ <meta property="og:title" data-time="2026-03-09 14:04:19" content="Yalla - בניית חנות וירטואלית | בניית אתרים לעסקים">
+ <meta name="description" content="הקמת חנות אינטרנטית מקצועית בקליק!">
+ <meta property="og:description" content="הקמת חנות אינטרנטית מקצועית בקליק!">
+  <meta name="keywords" content="">
+  <meta property="og:image" itemprop="image" content="https://sites.yalla.co.il/stores/20207/n/1645475168-1725405770012735.png">
+ <meta property="og:image:secure_url" itemprop="image" content="https://sites.yalla.co.il/stores/20207/n/1645475168-1725405770012735.png">
+  <meta property="og:locale" content="he_IL">
+ <meta property="og:site_name" content="Yalla - בניית חנות וירטואלית | בניית אתרים לעסקים">
+ <link rel="shortcut icon" href="https://sites.yalla.co.il/stores/20207/n/1626820818-1705845266214400.png">
+ <meta property="og:url" content="https://sites.yalla.co.il/">
+  <link rel="canonical" href="https://sites.yalla.co.il/">
+  <style>
+ @keyframes fadeInLazyLoad {
+ 0% {
+ opacity: 0;
+ }
+ 100% {
+ opacity: 1;
+ }
+ }
+  #page-wrapper .lazyload, #page-wrapper .lazyloading {
+ opacity: 0;
+ }
+  #page-wrapper .lazyloaded {
+ opacity: 0;
+ animation: fadeInLazyLoad 0.2s ease forwards;
+ }
+  #page-wrapper [data-aos] .lazyloaded {
+ animation-duration: 0s;
+ }
+ </style>
+ <script>
+ function isIOSUser() {
+ const userAgent = window.navigator.userAgent;
+ return /iPhone|iPad|iPod/i.test(userAgent);
+ }
+  String.prototype.replaceAll = function (search, replacement) {
+ var target = this;
+ return target.split(search).join(replacement);
+ };
+  const runlater = [];
+  function run_later(func, callback = false) {
+ runlater.push(func);
+ }
+  function invoke_run_later() {
+ runlater.forEach(function (func) {
+ try {
+ func();
+ } catch (err) {
+ }
+ });
+ }
+  function empty_run_later() {
+ while (runlater.length) {
+ runlater.pop();
+ }
+ }
+  const plugins = {};
+ const immidiate_plugins = {};
+ const plugins_callback = {};
+  function add_plugin(plugin_name, is_sync = false, is_immidiate = false, callback = false) {
+ if (is_immidiate) {
+ immidiate_plugins[plugin_name] = true;
+ } else {
+ plugins[plugin_name] = is_sync;
+ }
+ if (callback) {
+ if (typeof plugins_callback[plugin_name] === 'undefined') {
+ plugins_callback[plugin_name] = [];
+ }
+ plugins_callback[plugin_name].push(callback);
+ }
+ }
+  const page_json = {"page_type":"","page_title":"","page_id":0};
+  </script>
+  <script>
+ function utf8_to_b64(str) {
+ return window.btoa((encodeURIComponent(str)));
+ }
+  function b64_to_utf8(str) {
+ return decodeURIComponent((window.atob(decodeURIComponent(str))));
+ }
+  function setCookie(name, value, days = false) {
+ let expires = '';
+ let encoded_value = utf8_to_b64(value);
+ if (days) {
+ let date = new Date();
+ date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+ expires = ';expires=' + date.toUTCString();
+ }
+ document.cookie = name + '=' + (encoded_value || '') + expires + ';path=/;secure';
+ }
+  function getCookie(name) {
+ let nameEQ = name + "=";
+ let ca = document.cookie.split(';');
+ for (let i = 0; i < ca.length; i++) {
+ let c = ca[i];
+ while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+ if (c.indexOf(nameEQ) == 0) {
+ try {
+ let val_found = c.substring(nameEQ.length, c.length);
+ return b64_to_utf8(val_found);
+ } catch (ex) {
+ return '';
+ }
+ }
+ }
+ return '';
+ }
+ </script>
+  <script>
+ const store_id = '20207';
+  const global_lang = 'he';
+ const global_is_web_page=0;
+ const global_page = '/';
+ const global_page_id = '0';
+  const global_userData = {
+ userAgent: navigator.userAgent,
+ language: navigator.language,
+ platform: navigator.platform,
+ screenResolution: `${screen.width}x${screen.height}`,
+ timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+ referrer: document.referrer,
+ url: window.location.href
+ }
+  add_plugin('https://sites.yalla.co.il/cdn/js/lazysizes/lazysizes_1.2.10.min.js', false, true);
+ window.lazySizesConfig = window.lazySizesConfig || {};
+ window.lazySizesConfig.expand = 10;
+ window.lazySizesConfig.expFactor = 1;
+  /*
+ add_plugin('/cdn/aos/aos.js', false, true, function() {
+  AOS.init();
+ console.log('loaded:AOS.init');
+ });
+ */
+  window.addEventListener('message', event => {
+ if (event.origin !== 'https://admin.yallastore.co.il' && event.origin !== location.origin) {
+ console.log('"' + event.origin + '" is not a webzie request');
+ return;
+ }
+  if (typeof event.data.function === 'undefined') {
+ console.log('no function parameter supplied');
+ return
+ }
+  if (typeof window[event.data.function] !== 'function') {
+ console.log('no such function:' + event.data.function + ' in js');
+ return;
+ }
+  window[event.data.function](event.data.data);
+ return;
+ });
+ </script>
+  <style>/* arabic */
+@font-face {
+ font-family: 'Rubik';
+ font-style: normal;
+ font-weight: 300 900;
+ font-display: swap;
+ src: url(/cdn/fonts/google_fonts_dir/Rubik/iJWKBXyIfDnIV7nErXyi0A.woff2) format('woff2');
+ unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EFD-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+ /* cyrillic-ext */
+@font-face {
+ font-family: 'Rubik';
+ font-style: normal;
+ font-weight: 300 900;
+ font-display: swap;
+ src: url(/cdn/fonts/google_fonts_dir/Rubik/iJWKBXyIfDnIV7nMrXyi0A.woff2) format('woff2');
+ unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+ /* cyrillic */
+@font-face {
+ font-family: 'Rubik';
+ font-style: normal;
+ font-weight: 300 900;
+ font-display: swap;
+ src: url(/cdn/fonts/google_fonts_dir/Rubik/iJWKBXyIfDnIV7nFrXyi0A.woff2) format('woff2');
+ unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+ /* hebrew */
+@font-face {
+ font-family: 'Rubik';
+ font-style: normal;
+ font-weight: 300 900;
+ font-display: swap;
+ src: url(/cdn/fonts/google_fonts_dir/Rubik/iJWKBXyIfDnIV7nDrXyi0A.woff2) format('woff2');
+ unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+ /* latin-ext */
+@font-face {
+ font-family: 'Rubik';
+ font-style: normal;
+ font-weight: 300 900;
+ font-display: swap;
+ src: url(/cdn/fonts/google_fonts_dir/Rubik/iJWKBXyIfDnIV7nPrXyi0A.woff2) format('woff2');
+ unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+ /* latin */
+@font-face {
+ font-family: 'Rubik';
+ font-style: normal;
+ font-weight: 300 900;
+ font-display: swap;
+ src: url(/cdn/fonts/google_fonts_dir/Rubik/iJWKBXyIfDnIV7nBrXw.woff2) format('woff2');
+ unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style><style></style><style>
+ :root {
+ --font-general: "Rubik";
+  --main-color : #BE00FF;--main-color-rgb:190,0,255;
+  --bg-color: #fff;--bg-color-rgb:255,15,;
+  --top-menu-color: #000;--top-menu-color-rgb:0,0,;
+  --price-color: #000;--price-color-rgb:0,0,;
+  --general-btn-color: #BE00FF;--general-btn-color-rgb:190,0,255;
+ --general-btn-text-color: #ffffff;--general-btn-text-color-rgb:255,255,255;
+  --btn1-color: #BE00FF;--btn1-color-rgb:190,0,255;
+ --btn1-text-color: #ffffff;--btn1-text-color-rgb:255,255,255;
+  --btn2-color: #000;--btn2-color-rgb:0,0,;
+ --btn2-text-color: #fff;--btn2-text-color-rgb:255,15,;
+  --nav-menu-color: #BE00FF;--nav-menu-color-rgb:190,0,255;
+ --nav-menu-text-color: #ffffff;--nav-menu-text-color-rgb:255,255,255;
+  --text-color: #000;--text-color-rgb:0,0,;
+  --header-text-color: #000;--header-text-color-rgb:0,0,;
+  --footer-color: #BE00FF;--footer-color-rgb:190,0,255;
+ --footer-text-color: #ffffff;--footer-text-color-rgb:255,255,255;
+  --links-color: #000;--links-color-rgb:0,0,;
+  --card-title-color: #000;--card-title-color-rgb:0,0,;
+ --card-text-color: #000;--card-text-color-rgb:0,0,;
+ --card-bg-color: #fff;--card-bg-color-rgb:255,15,;
+  --product-max-h: 240px;
+ --btn-border-radius: 5px;
+  --box-max-width: 1500px;
+}</style><style></style> <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="stylesheet" href="https://sites.yalla.co.il/cdn/themes/template2/css/wz1_style.rtl.v2.min.css">
+ <link rel="stylesheet" href="https://sites.yalla.co.il/cdn/themes/cpa/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://sites.yalla.co.il/cdn/themes/cpa/css/normalize.css">
+ <link rel="stylesheet" href="https://sites.yalla.co.il/cdn/themes/cpa/css/slicknav.css">
+ <link rel="stylesheet" href="https://sites.yalla.co.il/cdn/themes/cpa/css/nivo-lightbox.css">
+ <link rel="stylesheet" href="https://sites.yalla.co.il/cdn/themes/cpa/css/swiper.min.css">
+ <link rel="stylesheet" href="https://sites.yalla.co.il/cdn/themes/cpa/css/animate.min.css">
+ <style>
+ .img_container {
+ display: block;
+ position: relative;
+  height: 0;
+ overflow: hidden;
+ }
+  .img_container>img.lazyload {
+ background: #f6f6f6;
+ }
+  .img_inner {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: auto;
+ }
+  :root {
+ --direction: rtl;
+ --right: left;
+ --left: right;
+ }
+  #page-wrapper {
+ min-height: 100vh;
+ overflow-y: visible;
+ }
+  #page-wrapper {
+ display: flex;
+ flex-direction: column;
+ }
+  #page-wrapper>.reset_class {
+ position: relative;
+ margin: 0;
+ border: 0;
+ padding: 0;
+  /*needed for the new outline*/
+ }
+  #page-wrapper>section.reset_class:last-of-type {
+ margin-top: auto;
+ }
+ #page-wrapper>section.reset_class:first-of-type {
+ margin-top: 0;
+ }
+  body {
+ overflow-x: hidden;
+ padding: 0;
+ margin: 0;
+ }
+  #page-wrapper,
+ #addons {
+ direction: var(--direction);
+ text-align: var(--left);
+ background-color: var(--bg-color) !important;
+ color: var(--text-color);
+ }
+  .wz1 .breadcrumb-item+.breadcrumb-item {
+ padding-left: 0 !important;
+ padding-right: 0.5rem !important;
+ }
+  .wz1 .breadcrumb-item+.breadcrumb-item::before {
+ padding-right: 0 !important;
+ padding-left: 0.5rem !important;
+ }
+  .wz1 .card-product-list .card-body {
+ text-align: var(--left);
+ }
+  .wz1 .metismenu .has-arrow::after {
+ left: 1em;
+ right: auto;
+ }
+  .wz1 .list-tree .has-arrow::after {
+ right: 0;
+ left: auto;
+  }
+  .wz1 .input-icon:not(.input-icon-left)>i {
+ left: auto;
+ right: .5rem;
+ }
+  .wz1 input {
+ direction: var(--direction);
+ text-align: var(--left);
+ }
+  .wz1 svg {
+ fill: currentColor
+ }
+  .wz1 .dropdown-menu,
+ .wz1 .twitter-typeahead .tt-menu {
+ direction: var(--direction);
+ text-align: var(--left);
+ }
+  .wz1 .dropdown-submenu>.dropdown-menu,
+ .twitter-typeahead .dropdown-submenu>.tt-menu {
+ right: calc(100% - 2px);
+ left: auto;
+  }
+  .dropdown-submenu>.dropdown-item {
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' width='18px' height='18px'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/%3E%3C/svg%3E");
+ background-position: left center;
+ }
+  .wz1 .fixed-top {
+ background-color: var(--bg-color);
+ }
+  .wz1 header {
+ /* background-color: var(--bg-color);*/
+ background-color: unset;
+ }
+  .wz1 .card {
+ background-color: var(--card-bg-color);
+ color: var(--card-text-color);
+ }
+  .wz1 .card-content {
+ color: var(--card-text-color) !important;
+ }
+  .wz1 .card-title {
+ color: var(--card-title-color) !important;
+ }
+  #page-wrapper,
+ .wz1 .font-condensed,
+ .wz1 .price,
+ .wz1 .price span {
+ font-family: var(--font-general)!important;
+ }
+  /*reset*/
+ .wz1 .nav-circle .nav-link {
+ border-radius: unset;
+ }
+  .wz1 .price span.del::after {
+ border-top: 2px solid var(--price-color);
+ border-bottom: unset;
+ opacity: 0.6;
+ }
+  .wz1 .price {
+ color: var(--price-color);
+ }
+  .wz1 .price span {
+ color: var(--price-color);
+ }
+  .wz1 .list-tree .mm-active>a {
+ color: #424242;
+ }
+  .wz1 .nav-main .nav-link {
+ border-width: 0;
+ }
+  .wz1 .atc1 {
+ background: var(--btn1-color) !important;
+ color: var(--btn1-text-color) !important;
+  margin-right: 4px;
+ margin-left: 4px;
+ margin-top: .5rem;
+ border-radius: 4px;
+ }
+  .wz1 .atc2 {
+ background: var(--btn2-color) !important;
+ color: var(--btn2-text-color) !important;
+  margin-right: 4px;
+ margin-left: 4px;
+ margin-top: .5rem;
+ border-radius: 4px;
+ }
+  .wz1 .btn {
+ transition: filter 0.2s;
+ }
+  .wz1 .btn:hover {
+ filter: brightness(1.1);
+ }
+  .nav-link.hover,
+ .nav-link:focus,
+ .nav-link:hover {
+ background-color: #00000020 !important;
+ }
+  .wz_nav_color,
+ .wz_nav_color:hover,
+ .nav-link.hover,
+ .nav-link:focus,
+ .nav-link:hover {
+ color: var(--nav-menu-text-color) !important;
+ }
+  .wz_product_promo_img {
+ width: auto !important;
+ max-width: 100% !important;
+ max-height: 100% !important;
+ }
+  .wz_product_promo_img_wrapper {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: var(--promo-product-max-height) !important;
+ }
+  .wow {
+ animation-play-state: paused;
+ animation-duration:1s;
+ animation-duration:var(--animate-duration);
+ animation-fill-mode:both;
+ }
+ </style>
+ <style>
+/*
+ @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+@import url("https://fonts.googleapis.com/earlyaccess/opensanshebrew.css");
+ @keyframes fadeIn {
+ from {
+ opacity: 0
+ }
+ to {
+ opacity: 1
+ }
+}
+.fadeIn {
+ animation-name: fadeIn
+}
+@keyframes move1 {
+ from {
+ transform: translate(0, 0)
+ }
+ to {
+ transform: scale(0.95) translate(12px, -12px) matrix(1, 0.002, 0, 1, 1, 1)
+ }
+}
+.move1 {
+ animation-name: move1;
+ animation-iteration-count: infinite;
+ animation-duration: 2s;
+ animation-direction: alternate;
+ animation-timing-function: ease-in-out
+}
+@keyframes scale1 {
+ from {
+ transform: scale(1) translate(0 0)
+ }
+ to {
+ transform: scale(0.95) matrix(1, 0.002, 0, 1, 1, 1)
+ }
+}
+.scale1 {
+ animation-name: scale1;
+ animation-iteration-count: infinite;
+ animation-direction: alternate;
+ animation-timing-function: ease-in-out
+}
+ */
+ h1,
+h2,
+h3,
+h4 {
+ color: #434343
+}
+a {
+ transition: all .2s linear
+}
+a:hover {
+ text-decoration: none
+}
+a a:focus {
+ outline: none
+}
+img {
+ max-width: 100%;
+ height: auto
+}
+p {
+ font-weight: 400;
+ font-size: 1rem
+}
+ul,
+ol {
+ list-style: outside none none;
+ margin: 0;
+ padding: 0
+}
+ul li,
+ol li {
+ list-style: none
+}
+button,
+input {
+ padding: 3px
+}
+.rtl {
+ direction: rtl
+}
+.ltr {
+ direction: ltr
+}
+.section-title-header {
+ margin-bottom: 2.5rem
+}
+.section-title-header p {
+ text-align: center;
+ font-size: 1.5rem;
+ font-weight: 400
+}
+.section-title {
+ font-size: 3rem;
+ font-weight: 700;
+ text-align: center;
+ text-transform: uppercase;
+ position: relative
+}
+.btn {
+ font-size: 1.56rem;
+ padding-left: 2rem;
+ padding-right: 2rem;
+ padding-top: 0.6rem;
+ padding-bottom: 0.6rem;
+ border-radius: 35px;
+ position: relative;
+ overflow: hidden
+}
+.btn span {
+ display: inline-block;
+ position: relative;
+ z-index: 1;
+ font-weight: 600
+}
+.btn:active {
+ background-color: #e02c7f;
+ border-color: transparent
+}
+.btn:hover {
+ box-shadow: 0 2px 15px 3px rgba(0, 0, 0, 0.24) !important
+}
+.btn-primary {
+ background: linear-gradient(to right, #7b1bce 0%, #e02c7f 100%);
+ border-color: transparent
+}
+.btn-primary:hover,
+.btn-primary:focus {
+ color: #fff;
+ border-color: transparent;
+ background: linear-gradient(to left, #7b1bce 0%, #e02c7f 100%);
+ box-shadow: 0 2px 15px 3px rgba(0, 0, 0, 0.24) !important
+}
+.btn-primary2 {
+ background-color: #e02c7f;
+ border-color: transparent;
+ border-radius: 15px
+}
+.btn-primary2:hover,
+.btn-primary2:focus {
+ color: #fff;
+ border-color: transparent;
+ background: linear-gradient(to left, #7b1bce 0%, #e02c7f 100%);
+ box-shadow: 0 2px 15px 3px rgba(0, 0, 0, 0.24) !important
+}
+.btn-outline-primary {
+ color: #7d298c;
+ border-color: #7d298c;
+ border-width: 2px
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+ color: #fff;
+ border-color: transparent;
+ background: linear-gradient(to left, #7b1bce 0%, #e02c7f 100%);
+ box-shadow: 0 2px 15px 3px rgba(0, 0, 0, 0.24) !important
+}
+.btn-link {
+ position: relative;
+ overflow: hidden;
+ cursor: pointer;
+ color: #763a8d;
+ border-radius: 0
+}
+.btn-link span {
+ position: relative;
+ border-bottom: 1px solid #763a8d;
+ z-index: 1;
+ transition: transform .2s linear
+}
+.btn-link:hover {
+ color: #e02c7f;
+ box-shadow: none !important
+}
+.btn-link:hover span {
+ transform: translateY(-10px);
+ border-color: #e02c7f
+}
+.btn-common {
+ background-color: #7d298c;
+ color: #fff
+}
+.btn-common:hover,
+.btn-common:focus {
+ color: #fff;
+ border-color: transparent;
+ background: linear-gradient(to left, #7b1bce 0%, #e02c7f 100%);
+ box-shadow: 0 2px 15px 3px rgba(0, 0, 0, 0.24) !important
+}
+a.back-to-top {
+ display: none;
+ position: fixed;
+ bottom: 18px;
+ right: 15px;
+ text-decoration: none
+}
+a.back-to-top i {
+ display: block;
+ font-size: 22px;
+ width: 40px;
+ height: 40px;
+ line-height: 40px;
+ color: #fff;
+ border-radius: 50%;
+ background: #7b1bce;
+ text-align: center;
+ transition: all 0.2s ease-in-out;
+ box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 10px rgba(0, 0, 0, 0.5)
+}
+a.back-to-top:hover,
+a.back-to-top:focus {
+ text-decoration: none
+}
+a.back-to-top:hover i:after,
+a.back-to-top:focus i:after {
+ transform: rotate(90deg) scale(1.5)
+}
+#preloader {
+ position: fixed;
+ background: #fff;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 9999999999
+}
+.sk-circle {
+ margin: 0px auto;
+ width: 40px;
+ height: 40px;
+ top: 45%;
+ position: relative
+}
+.sk-circle .sk-child {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ left: 0;
+ top: 0
+}
+.sk-circle .sk-child:before {
+ content: '';
+ display: block;
+ margin: 0 auto;
+ width: 15%;
+ height: 15%;
+ background-color: #7b1bce;
+ border-radius: 100%;
+ animation: sk-circleBounceDelay 1.2s infinite ease-in-out both
+}
+.sk-circle .sk-circle2 {
+ transform: rotate(30deg)
+}
+.sk-circle .sk-circle3 {
+ transform: rotate(60deg)
+}
+.sk-circle .sk-circle4 {
+ transform: rotate(90deg)
+}
+.sk-circle .sk-circle5 {
+ transform: rotate(120deg)
+}
+.sk-circle .sk-circle6 {
+ transform: rotate(150deg)
+}
+.sk-circle .sk-circle7 {
+ transform: rotate(180deg)
+}
+.sk-circle .sk-circle8 {
+ transform: rotate(210deg)
+}
+.sk-circle .sk-circle9 {
+ transform: rotate(240deg)
+}
+.sk-circle .sk-circle10 {
+ transform: rotate(270deg)
+}
+.sk-circle .sk-circle11 {
+ transform: rotate(300deg)
+}
+.sk-circle .sk-circle12 {
+ transform: rotate(330deg)
+}
+.sk-circle .sk-circle2:before {
+ animation-delay: -1.1s
+}
+.sk-circle .sk-circle3:before {
+ animation-delay: -1s
+}
+.sk-circle .sk-circle4:before {
+ animation-delay: -0.9s
+}
+.sk-circle .sk-circle5:before {
+ animation-delay: -0.8s
+}
+.sk-circle .sk-circle6:before {
+ animation-delay: -0.7s
+}
+.sk-circle .sk-circle7:before {
+ animation-delay: -0.6s
+}
+.sk-circle .sk-circle8:before {
+ animation-delay: -0.5s
+}
+.sk-circle .sk-circle9:before {
+ animation-delay: -0.4s
+}
+.sk-circle .sk-circle10:before {
+ animation-delay: -0.3s
+}
+.sk-circle .sk-circle11:before {
+ animation-delay: -0.2s
+}
+.sk-circle .sk-circle12:before {
+ animation-delay: -0.1s
+}
+@keyframes sk-circleBounceDelay {
+ 0%,
+ 80%,
+ 100% {
+ transform: scale(0)
+ }
+ 40% {
+ transform: scale(1)
+ }
+}
+.section-padding {
+ padding: 60px 0
+}
+.section-padding-top {
+ padding-top: 60px
+}
+.section-padding-bottom {
+ padding-bottom: 60px
+}
+.width-padding {
+ padding-left: 12%;
+ padding-right: 12%
+}
+.width-padding-left {
+ padding-left: 12%
+}
+.no-padding {
+ padding: 0 !important
+}
+.padding-left-none {
+ padding-left: 0
+}
+.padding-right-none {
+ padding-right: 0
+}
+.pad2 {
+ padding-top: 2rem
+}
+.disp_fl {
+ display: flex
+}
+.disp_fl_cen {
+ display: flex;
+ justify-content: center;
+ align-items: center
+}
+.disp_fl_col {
+ display: flex;
+ flex-direction: column
+}
+.disp_fl_col_cen {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center
+}
+@media (max-width: 1680px) {
+ .width-padding {
+ padding-left: 5%;
+ padding-right: 5%
+ }
+}
+@media (max-width: 1440px) {
+ .width-padding-left {
+ padding-left: 15px
+ }
+}
+@media (max-width: 1366px) {
+ html {
+ font-size: 14px
+ }
+}
+@media (max-width: 1280px) {
+ html {
+ font-size: 12px
+ }
+ .width-padding {
+ padding-left: 15px;
+ padding-right: 15px
+ }
+}
+@media (max-width: 767px) {
+ .section-padding-top {
+ padding-top: 35px
+ }
+ .section-padding {
+ padding: 35px 0
+ }
+ .md-order-1 {
+ order: 1
+ }
+}
+.top-nav-collapse {
+ background: #fff;
+ z-index: 999999;
+ top: 0px !important;
+ min-height: 58px;
+ box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
+ animation-duration: 1s;
+ animation-name: fadeInDown
+}
+.top-nav-collapse .navbar-brand {
+ top: 0px
+}
+.top-nav-collapse .navbar-brand a {
+ width: 140px
+}
+.top-nav-collapse .secondary-menu {
+ display: none
+}
+.navbar-header {
+ top: 25px
+}
+.navbar {
+ padding: 0
+}
+.bottom-menu {
+ position: relative
+}
+.bottom-menu > div {
+ justify-content: space-between
+}
+.primary-menu {
+ display: flex;
+ flex: 1;
+ flex-wrap: wrap;
+ justify-content: flex-end;
+ align-items: center
+}
+.secondary-menu {
+ position: relative;
+ width: 100%;
+ justify-content: flex-end
+}
+.secondary-menu .nav-link:nth-last-child(1) {
+ padding-left: 0
+}
+.main-navbar {
+ box-shadow: 0.25rem 0.063rem 0.5rem rgba(0, 0, 0, 0.1);
+ background-color: #fff;
+ border-radius: 35px;
+ padding: 10px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex: 0 1 auto;
+ max-width: 100%
+}
+.main-navbar ul {
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+ padding: 0 1rem 0 2rem
+}
+.navbar-nav li a.nav-link {
+ color: #434343;
+ font-size: 1.313rem;
+ font-weight: 400;
+ padding: 0 0.5rem;
+ line-height: 1.5;
+ text-transform: uppercase;
+ background: transparent;
+ min-width: 60px;
+ text-align: center;
+ position: relative;
+ word-break: normal;
+ white-space: nowrap;
+ transition: color .3s ease-in-out
+}
+.navbar-nav li a.nav-link.nav-link-home img {
+ width: 30px;
+ vertical-align: baseline;
+ padding-top: 3px
+}
+.navbar-nav li a.nav-link img {
+ vertical-align: top
+}
+.navbar-nav li a.nav-link:before {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ height: 2px;
+ background: #fff
+}
+.navbar-nav li a.nav-link:after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ height: 2px;
+ background: #7b1bce;
+ transform: scale3d(0, 1, 1);
+ transition: transform .1s linear
+}
+.navbar-nav li a.nav-link:hover,
+.navbar-nav li a.nav-link:focus {
+ color: #7b1bce;
+ outline: none
+}
+.navbar-nav li a.nav-link:hover:after,
+.navbar-nav li a.nav-link:focus:after {
+ transform: scale3d(1, 1, 1)
+}
+.navbar-nav li.active a {
+ color: #7b1bce;
+ outline: none
+}
+.navbar-nav li.active a:before {
+ transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1)
+}
+.navbar-nav li.active a:after {
+ background-color: #7b1bce
+}
+.navbar-info {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ justify-content: flex-end
+}
+.navbar-info a {
+ font-weight: 600;
+ padding-top: 0.2rem;
+ padding-bottom: 0.2rem
+}
+.navbar-info a:nth-last-child(1) {
+ margin-right: 10px
+}
+.navbar-info a span {
+ white-space: nowrap
+}
+.navbar-brand {
+ text-align: left;
+ margin: 0
+}
+.rtl .navbar-brand {
+ text-align: right
+}
+.navbar-brand__img {
+ position: relative;
+ padding: 0px;
+ margin: 0;
+ width: 210px;
+ max-width: 100%;
+ display: inline-block
+}
+.navbar-social-icons {
+ display: flex;
+ justify-content: center;
+ align-items: center
+}
+.navbar-social-icons a {
+ text-align: center;
+ margin: 0 3px
+}
+.navbar-social-icons .btn-login {
+ margin-right: 1rem;
+ text-transform: uppercase;
+ color: #763a8d;
+ font-size: 1.313rem;
+ font-weight: 400
+}
+.navbar-social-icons .btn-login span {
+ vertical-align: middle;
+ position: relative;
+ top: 0;
+ transition: top .1s linear
+}
+.navbar-social-icons .btn-login img {
+ margin-right: 10px;
+ max-width: 30px;
+ height: auto
+}
+.navbar-social-icons .btn-login:hover span {
+ top: -5px
+}
+.navbar-phone {
+ flex: 0 0 15%;
+ padding-right: 1%;
+ text-align: left;
+ display: none
+}
+.navbar-phone a {
+ font-size: 1.5rem;
+ color: #7b1bce;
+ white-space: nowrap
+}
+.navbar-mobile {
+ align-items: center;
+ display: flex;
+ justify-content: flex-end
+}
+.navbar-mobile .navbar-toggler {
+ border: none;
+ outline: none
+}
+.dropdown-toggle::after {
+ display: none
+}
+.dropdown-menu {
+ margin: 0;
+ padding: 0;
+ display: none;
+ position: absolute;
+ z-index: 99;
+ min-width: 210px;
+ background-color: #fff;
+ white-space: nowrap;
+ border-radius: 4px;
+ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+ animation: fadeIn 0.4s;
+ -webkit-animation: fadeIn 0.4s;
+ -moz-animation: fadeIn 0.4s;
+ -o-animation: fadeIn 0.4s;
+ -ms-animation: fadeIn 0.4s
+}
+.dropdown-menu:before {
+ content: '';
+ display: inline-block;
+ position: absolute;
+ bottom: 100%;
+ left: 20%;
+ margin-left: -5px;
+ border-right: 10px solid transparent;
+ border-left: 10px solid transparent;
+ border-bottom: 10px solid #f5f5f5
+}
+.dropdown:hover .dropdown-menu {
+ display: flex;
+ flex-direction: column;
+ position: absolute;
+ text-align: right;
+ top: 100%;
+ right: 0;
+ left: auto;
+ border: none;
+ animation: fadeIn 0.4s;
+ -webkit-animation: fadeIn 0.4s;
+ -moz-animation: fadeIn 0.4s;
+ -o-animation: fadeIn 0.4s;
+ -ms-animation: fadeIn 0.4s;
+ background: #f5f5f5
+}
+.dropdown .dropdown-menu .dropdown-item {
+ width: 100%;
+ padding: 12px 20px;
+ font-size: 14px;
+ color: #212121;
+ border-bottom: 1px solid #f1f1f1;
+ text-decoration: none;
+ display: inline-block;
+ position: relative;
+ outline: 0;
+ transition: all 0.3s ease-in-out;
+ -webkit-transition: all 0.3s ease-in-out;
+ -moz-transition: all 0.3s ease-in-out;
+ -o-transition: all 0.3s ease-in-out;
+ -ms-transition: all 0.3s ease-in-out
+}
+.dropdown .dropdown-menu .dropdown-item:last-child {
+ border-bottom: none;
+ border-bottom-left-radius: 4px;
+ border-bottom-right-radius: 4px
+}
+.dropdown .dropdown-menu .dropdown-item:first-child {
+ border-top-left-radius: 4px;
+ border-top-right-radius: 4px
+}
+.dropdown .dropdown-item:focus,
+.dropdown .dropdown-item:hover,
+.dropdown .dropdown-item.active {
+ color: #7b1bce
+}
+.dropdown-item.active,
+.dropdown-item:active {
+ background: transparent
+}
+.fadeInUpMenu {
+ animation-name: fadeInUpMenu
+}
+.slicknav_btn {
+ border-color: #7b1bce
+}
+.slicknav_menu .slicknav_icon-bar {
+ background: #7b1bce
+}
+.navbar-toggler {
+ display: none;
+ height: auto;
+ width: auto;
+ padding: 10px
+}
+.animated-icon1,
+.animated-icon2,
+.animated-icon3 {
+ width: 30px;
+ height: 20px;
+ position: relative;
+ margin: 0px;
+ transform: rotate(0deg);
+ transition: 0.5s ease-in-out;
+ cursor: pointer
+}
+.animated-icon1 span,
+.animated-icon2 span,
+.animated-icon3 span {
+ display: block;
+ position: absolute;
+ height: 3px;
+ width: 100%;
+ border-radius: 9px;
+ opacity: 1;
+ left: 0;
+ transform: rotate(0deg);
+ transition: 0.25s ease-in-out
+}
+.animated-icon1 span {
+ background: #7b1bce
+}
+.animated-icon2 span {
+ background: #fff
+}
+.animated-icon3 span {
+ background: #f3e5f5
+}
+.animated-icon1 span:nth-child(1) {
+ top: 0px
+}
+.animated-icon1 span:nth-child(2) {
+ top: 10px
+}
+.animated-icon1 span:nth-child(3) {
+ top: 20px
+}
+.navbar-toggler:not(.collapsed) .animated-icon1 span:nth-child(1) {
+ top: 11px;
+ transform: rotate(135deg)
+}
+.navbar-toggler:not(.collapsed) .animated-icon1 span:nth-child(2) {
+ opacity: 0;
+ left: -60px
+}
+.navbar-toggler:not(.collapsed) .animated-icon1 span:nth-child(3) {
+ top: 11px;
+ transform: rotate(-135deg)
+}
+.animated-icon2 span:nth-child(1) {
+ top: 0px
+}
+.animated-icon2 span:nth-child(2),
+.animated-icon2 span:nth-child(3) {
+ top: 10px
+}
+.animated-icon2 span:nth-child(4) {
+ top: 20px
+}
+.navbar-toggler:not(.collapsed) .animated-icon2 span:nth-child(1) {
+ top: 11px;
+ width: 0%;
+ left: 50%
+}
+.navbar-toggler:not(.collapsed) .animated-icon2 span:nth-child(2) {
+ transform: rotate(45deg)
+}
+.navbar-toggler:not(.collapsed) .animated-icon2 span:nth-child(3) {
+ transform: rotate(-45deg)
+}
+.navbar-toggler:not(.collapsed) .animated-icon2 span:nth-child(4) {
+ top: 11px;
+ width: 0%;
+ left: 50%
+}
+.animated-icon3 span:nth-child(1) {
+ top: 0px;
+ transform-origin: left center
+}
+.animated-icon3 span:nth-child(2) {
+ top: 10px;
+ transform-origin: left center
+}
+.animated-icon3 span:nth-child(3) {
+ top: 20px;
+ transform-origin: left center
+}
+.navbar-toggler:not(.collapsed) .animated-icon3 span:nth-child(1) {
+ transform: rotate(45deg);
+ top: 0px;
+ left: 8px
+}
+.navbar-toggler:not(.collapsed) .animated-icon3 span:nth-child(2) {
+ width: 0%;
+ opacity: 0
+}
+.navbar-toggler:not(.collapsed) .animated-icon3 span:nth-child(3) {
+ transform: rotate(-45deg);
+ top: 21px;
+ left: 8px
+}
+.mobile-menu {
+ display: none
+}
+.slicknav_menu {
+ display: none
+}
+@media (min-width: 768px) {
+ .main-navbar.collapse,
+ .main-navbar.collapse:not(.show) {
+ display: flex
+ }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+ .bottom-menu {
+ top: 0px
+ }
+}
+@media screen and (max-width: 991px) {
+ .navbar-toggler {
+ display: block
+ }
+ .navbar-header {
+ top: 5px
+ }
+ .navbar-brand {
+ text-align: right
+ }
+ .navbar-collapse {
+ order: 5
+ }
+}
+@media (max-width: 767px) {
+ .main-navbar {
+ flex-direction: column;
+ align-items: flex-end
+ }
+ .main-navbar ul {
+ flex-direction: column;
+ align-items: flex-end;
+ padding-left: 0
+ }
+ .navbar-nav li a.nav-link {
+ padding-top: 10px;
+ padding-bottom: 10px
+ }
+ .navbar-info {
+ padding-top: 10px
+ }
+ .navbar-info a {
+ margin-top: 5px;
+ margin-bottom: 5px
+ }
+ .bottom-menu {
+ top: -20px
+ }
+ .top-nav-collapse .bottom-menu {
+ top: 0px
+ }
+ .top-nav-collapse .animated-icon2 span {
+ background-color: #e02c7f
+ }
+}
+.footer__menu {
+ padding: 3rem 0
+}
+.footer__copyright {
+ border-top: 2px solid #acacac;
+ padding: 2rem 0
+}
+.footer__copyright p {
+ font-size: 1rem;
+ color: #767676
+}
+.footer__copyright p {
+ margin-bottom: 0
+}
+.footer-logo {
+ width: 250px;
+ max-width: 60%;
+ margin: 0 auto
+}
+.footer-item__title {
+ position: relative;
+ padding: 5px
+}
+.footer-item__title h4 {
+ font-size: 2rem;
+ font-weight: 700
+}
+.footer-item__title:after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ width: 5rem;
+ height: 2px;
+ background-color: #e02c7f
+}
+.footer-item__links {
+ padding-top: 2rem
+}
+.footer-item__links a {
+ color: #767676;
+ font-size: 1.5rem;
+ line-height: 1.5;
+ display: inline-block;
+ transition: transform .2s linear
+}
+.footer-item__links a:hover {
+ color: #7b1bce;
+ transform: translateX(-10px)
+}
+.soc-icons {
+ padding-top: 3rem
+}
+.soc-icons a {
+ background-image: linear-gradient(to top, #e02c7f, #631f7d);
+ border-radius: 50%;
+ display: inline-block;
+ width: 50px;
+ height: 50px;
+ line-height: 50px;
+ text-align: center;
+ transition: all .2s linear
+}
+.soc-icons a:hover {
+ background-color: #e02c7f;
+ transform: translateY(-10px);
+ box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 10px rgba(0, 0, 0, 0.5)
+}
+@media (max-width: 767px) {
+ .footer__menu {
+ text-align: center
+ }
+ .footer-item__title:after {
+ margin: 0 auto;
+ left: 0;
+ right: 0
+ }
+}
+.background-circle {
+ width: 73%;
+ position: absolute;
+ left: 0;
+ top: 0;
+ transform: translate(-31%, 2rem)
+}
+.background-circle:before {
+ content: '';
+ position: absolute;
+ z-index: -1;
+ top: 0;
+ left: 0%;
+ right: auto;
+ bottom: auto;
+ width: 100%;
+ height: 0;
+ padding: 50% 0;
+ background: linear-gradient(to right, #e02c7f 0%, #7b1bce 100%);
+ border-radius: 50%
+}
+@media (max-width: 991px) {
+ .background-circle {
+ width: 83%
+ }
+}
+.banner {
+ position: relative
+}
+.banner:before {
+ content: '';
+ position: absolute;
+ z-index: 0;
+ top: 0;
+ left: 0%;
+ right: auto;
+ bottom: auto;
+ width: 73vw;
+ height: 73vw;
+ max-width: 100%;
+ transform: translate(-44%, -50%);
+ background: linear-gradient(to right, #e02c7f 0%, #7b1bce 100%);
+ border-radius: 50%
+}
+.page-banner {
+ height: 100%;
+ justify-content: center
+}
+.page-banner_title h1 {
+ color: #000;
+ font-size: 3.188rem;
+ font-weight: 700;
+ text-transform: uppercase
+}
+.page-banner_title p {
+ font-size: 1.875rem;
+ color: #434343
+}
+.page-banner_btn {
+ padding-top: 8%;
+ font-weight: 600
+}
+.bannerimg {
+ position: relative
+}
+.bannerimg_1 {
+ position: absolute;
+ right: 10%;
+ top: 55%;
+ max-width: 31%
+}
+.bannerimg_2 {
+ position: absolute
+}
+.bannerimg_3 {
+ position: relative;
+ top: 0rem;
+ left: 2%;
+ max-width: 80%
+}
+.bannerimg__star {
+ position: absolute;
+ left: 0%;
+ top: 25%;
+ max-width: 45%;
+ width: 500px;
+ background-color: #fff;
+ padding: 15px;
+ border-radius: 15px
+}
+.bannerimg__star p {
+ color: #434343;
+ font-size: 1.75rem;
+ font-weight: 600
+}
+.bannerimg__img {
+ width: 100%;
+ text-align: center
+}
+.bannerimg__img div {
+ position: relative;
+ top: -40px;
+ border-radius: 15px;
+ background-color: #fff;
+ display: inline-block;
+ padding: 1.2rem;
+ box-shadow: 0.9px 1.8px 126.7px 1.3px rgba(0, 0, 0, 0.15)
+}
+.bannerimg__img p {
+ color: #434343;
+ font-size: 1.5rem;
+ margin-bottom: 0
+}
+.stars {
+ width: 100%;
+ height: 30px;
+ background: url("/stores/20207/n/1624283014-1703184186301953.svg") 0 0 no-repeat, url("/stores/20207/n/1624283014-1703184186301953.svg") 30px 0 no-repeat, url("/stores/20207/n/1624283014-1703184186301953.svg") 60px 0 no-repeat, url("/stores/20207/n/1624283014-1703184186301953.svg") 90px 0 no-repeat, url("/stores/20207/n/1624283014-1703184186301953.svg") 120px 0 no-repeat
+}
+.rtl .stars {
+ transform: scale(-1, 1)
+}
+@media (max-width: 767px) {
+ .banner:before {
+ transform: translate(-38%, -21%) scale(1.57)
+ }
+ .banner .row {
+ flex-direction: row-reverse
+ }
+ .bannerimg {
+ min-height: 26rem
+ }
+ .bannerimg_1 {
+ right: 17%;
+ top: 40%;
+ max-width: 28%
+ }
+  .bannerimg_2 {
+ left: 28%;
+ top: -1%;
+ max-width: 70%;
+ }
+ .bannerimg_3 {
+ max-width: 67%;
+ top: -1rem;
+ left: 15%
+ }
+ .bannerimg__star p {
+ font-size: 1.25rem
+ }
+}
+.tabeltop-table {
+ font-size: 1.8rem;
+ text-align: center
+}
+.tabeltop-table > .row:nth-child(even) {
+ background: linear-gradient(to right, #fff 0%, #f9f9f9 30%, #f9f9f9 70%, #fff 100%)
+}
+.tabeltop-table > .row:not(:nth-last-child(1)):after {
+ content: '';
+ position: relative;
+ height: 2px;
+ width: 100%;
+ background: linear-gradient(to right, #fff 0%, #b8b8b8 30%, #b8b8b8 70%, #fff 100%);
+ margin-top: -2px
+}
+.tabeltop-table > .row > div {
+ padding-top: 12px;
+ padding-bottom: 12px
+}
+.tabeltop-table .tablehd {
+ font-size: 1.5rem;
+ text-align: left
+}
+.rtl .tabeltop-table .tablehd {
+ text-align: right
+}
+.tabeltop-table > .row.table-header {
+ align-items: center
+}
+.tabeltop-table > .row.table-header > div {
+ padding-bottom: 3rem;
+ padding-top: 2rem
+}
+.tabeltop-table > .row.table-header .bg-ylla {
+ border-top: 2px solid #d41a74;
+ border-left: 2px solid #d41a74;
+ border-right: 2px solid #d41a74;
+ border-radius: 12px 12px 0 0
+}
+.tabeltop-table > .row.table-header .bg-ylla img {
+ width: 140px
+}
+.tabeltop-table > .row.table-header img {
+ max-width: 100%
+}
+.tabeltop-table > .row .bg-ylla {
+ border-left: 2px solid #d41a74;
+ border-right: 2px solid #d41a74;
+ position: relative;
+ z-index: 1
+}
+.tabeltop-table > .row.table-bottom > div {
+ padding-bottom: 2rem
+}
+.tabeltop-table > .row.table-bottom .bg-ylla {
+ border-bottom: 2px solid #d41a74;
+ border-left: 2px solid #d41a74;
+ border-right: 2px solid #d41a74;
+ border-radius: 0 0 12px 12px
+}
+@media (max-width: 1366px) {
+ .tabeltop-table {
+ padding-top: 0
+ }
+}
+@media (max-width: 767px) {
+ .tabeltop-table > .row > div {
+ padding: 10px 1px
+ }
+}
+.advantage-item {
+ padding: 0 2rem
+}
+.advantage-item .advantage-img {
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ height: 320px;
+ margin: 0 auto
+}
+.advantage-item h3 {
+ padding-top: 1.5rem;
+ padding-bottom: 1.5rem;
+ font-size: 2.2rem
+}
+.advantage-item p {
+ font-size: 1.5rem
+}
+@media (max-width: 767px) {
+ .advantage-item {
+ padding: 2rem 0
+ }
+ .advantage-item .advantage-img {
+ height: auto;
+ max-width: 70%
+ }
+}
+.about2 {
+ position: relative;
+ padding-top: 10rem;
+ padding-bottom: 10rem
+}
+.about2 .about2-content {
+ padding: 1% 0% 1% 13rem;
+ height: 100%;
+ justify-content: flex-end
+}
+.about2 .about2-content .section-title-header {
+ margin-bottom: 1rem
+}
+.about2 .about2-content .section-title-header h2 {
+ font-size: 3rem;
+ font-weight: 600;
+ text-align: right
+}
+.about2 .about2-content .about2-text {
+ padding-bottom: 2rem
+}
+.about2 .about2-content .about2-text p {
+ font-size: 1.55rem
+}
+.about2-image {
+ position: relative;
+ margin-bottom: 3rem;
+ margin-top: 5rem
+}
+.about2-image_1 {
+ position: absolute;
+ right: -13%;
+ top: -15%;
+ max-width: 61%
+}
+.about2-image_2 {
+ position: absolute;
+ left: 10%;
+ top: 72%;
+ max-width: 46%
+}
+.about2-image_3 {
+ position: relative;
+ top: 10%;
+ left: -2%
+}
+@media (max-width: 1440px) {
+ .about2 .about2-content {
+ padding: 1% 0% 1% 10rem
+ }
+}
+@media (max-width: 767px) {
+ .about2 {
+ padding-top: 35px;
+ padding-bottom: 35px
+ }
+ .about2-image {
+ margin-top: 10rem;
+ margin-bottom: 6rem
+ }
+ .about2-image_1 {
+ right: 1%;
+ top: -14%;
+ max-width: 44%
+ }
+ .about2-image_2 {
+ left: 16%;
+ top: 64%;
+ max-width: 40%
+ }
+ .about2-image_3 {
+ top: 10%;
+ left: -2%;
+ max-width: 75%
+ }
+ .about2 .about2-content {
+ padding: 1% 5%
+ }
+ .about2 .background-circle {
+ position: relative;
+ transform: translate(-31%, 2rem) scale(1.2)
+ }
+}
+i.icon {
+ width: 30px;
+ height: 30px;
+ display: inline-block;
+ vertical-align: middle;
+ position: relative;
+ overflow: hidden
+}
+i.icon:after {
+ content: '';
+ position: absolute;
+ display: table;
+ left: 0;
+ top: 0;
+ width: 30px;
+ height: 30px;
+ transition: transform .5s linear
+}
+i.icon.icon-close:after {
+ background: url("/stores/20207/n/1624283018-1703184190654776.png") 0 no-repeat;
+ background-size: 28px
+}
+i.icon.icon-check:after {
+ background: url("/stores/20207/n/1624283018-1703184190649634.png") 0 no-repeat;
+ background-size: 28px
+}
+i.icon.icon-arr-top:after {
+ width: 40px;
+ height: 40px;
+ background: url("/stores/20207/n/1624283018-1703184190249017.png") 0 no-repeat;
+ background-size: 39px;
+ transform: rotate(90deg)
+}
+i.icon.icon-facebook,
+i.icon.icon-facebook\:regular {
+ width: 11px;
+ height: 19px;
+ background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2219%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.591.313c-1.277%200-2.3.376-3.067%201.13-.768.754-1.152%201.814-1.152%203.181v2.403H.549v3.265h2.823v8.369H6.76v-8.369h2.812l.432-3.265H6.76V4.944c0-.529.111-.927.332-1.191.222-.264.65-.396%201.285-.396h1.738V.445C9.517.357%208.676.313%207.591.313z%22%2F%3E%3C%2Fsvg%3E");
+ background-repeat: no-repeat
+}
+i.icon.icon-facebook:hover,
+i.icon.icon-facebook\:regular:hover {
+ background-color: #e02c7f;
+ background-image: none;
+ -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2219%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.591.313c-1.277%200-2.3.376-3.067%201.13-.768.754-1.152%201.814-1.152%203.181v2.403H.549v3.265h2.823v8.369H6.76v-8.369h2.812l.432-3.265H6.76V4.944c0-.529.111-.927.332-1.191.222-.264.65-.396%201.285-.396h1.738V.445C9.517.357%208.676.313%207.591.313z%22%2F%3E%3C%2Fsvg%3E");
+ -webkit-mask-repeat: no-repeat;
+ mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2219%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.591.313c-1.277%200-2.3.376-3.067%201.13-.768.754-1.152%201.814-1.152%203.181v2.403H.549v3.265h2.823v8.369H6.76v-8.369h2.812l.432-3.265H6.76V4.944c0-.529.111-.927.332-1.191.222-.264.65-.396%201.285-.396h1.738V.445C9.517.357%208.676.313%207.591.313z%22%2F%3E%3C%2Fsvg%3E")
+}
+i.icon.icon-instagram,
+i.icon.icon-instagram\:regular {
+ width: 18px;
+ height: 18px;
+ background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M15.559%2015.539a.648.648%200%2001-.468.191H3.439a.644.644%200%2001-.474-.191.642.642%200%2001-.191-.475V7.993h1.537a4.674%204.674%200%2000-.218%201.429c0%201.397.508%202.588%201.526%203.575%201.017.985%202.241%201.478%203.673%201.478.945%200%201.817-.226%202.616-.676a5.105%205.105%200%20001.897-1.839%204.845%204.845%200%2000.697-2.538c0-.495-.073-.971-.218-1.429h1.472v7.071a.636.636%200%2001-.197.475zM9.292%2012.51a3.286%203.286%200%2001-2.371-.955c-.657-.636-.986-1.405-.986-2.308%200-.901.329-1.671.986-2.308a3.29%203.29%200%20012.371-.955c.93%200%201.724.319%202.382.955.657.637.986%201.407.986%202.308%200%20.903-.329%201.672-.986%202.308-.658.637-1.452.955-2.382.955zm6.246-6.656a.73.73%200%2001-.534.218h-1.897a.726.726%200%2001-.534-.218.727.727%200%2001-.218-.536v-1.8c0-.204.072-.381.218-.529a.717.717%200%2001.534-.224h1.897a.72.72%200%2001.534.224.731.731%200%2001.218.529v1.8a.73.73%200%2001-.218.536zm1.482-4.322a2.064%202.064%200%2000-1.515-.633H3.057c-.588%200-1.093.211-1.515.633A2.073%202.073%200%2000.91%203.049v12.463c0%20.589.211%201.094.632%201.517.422.422.927.632%201.515.632h12.448c.589%200%201.094-.21%201.515-.632.421-.423.632-.928.632-1.517V3.049c0-.589-.211-1.095-.632-1.517z%22%2F%3E%3C%2Fsvg%3E");
+ background-repeat: no-repeat
+}
+i.icon.icon-instagram:hover,
+i.icon.icon-instagram\:regular:hover {
+ background-color: #e02c7f;
+ background-image: none;
+ -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M15.559%2015.539a.648.648%200%2001-.468.191H3.439a.644.644%200%2001-.474-.191.642.642%200%2001-.191-.475V7.993h1.537a4.674%204.674%200%2000-.218%201.429c0%201.397.508%202.588%201.526%203.575%201.017.985%202.241%201.478%203.673%201.478.945%200%201.817-.226%202.616-.676a5.105%205.105%200%20001.897-1.839%204.845%204.845%200%2000.697-2.538c0-.495-.073-.971-.218-1.429h1.472v7.071a.636.636%200%2001-.197.475zM9.292%2012.51a3.286%203.286%200%2001-2.371-.955c-.657-.636-.986-1.405-.986-2.308%200-.901.329-1.671.986-2.308a3.29%203.29%200%20012.371-.955c.93%200%201.724.319%202.382.955.657.637.986%201.407.986%202.308%200%20.903-.329%201.672-.986%202.308-.658.637-1.452.955-2.382.955zm6.246-6.656a.73.73%200%2001-.534.218h-1.897a.726.726%200%2001-.534-.218.727.727%200%2001-.218-.536v-1.8c0-.204.072-.381.218-.529a.717.717%200%2001.534-.224h1.897a.72.72%200%2001.534.224.731.731%200%2001.218.529v1.8a.73.73%200%2001-.218.536zm1.482-4.322a2.064%202.064%200%2000-1.515-.633H3.057c-.588%200-1.093.211-1.515.633A2.073%202.073%200%2000.91%203.049v12.463c0%20.589.211%201.094.632%201.517.422.422.927.632%201.515.632h12.448c.589%200%201.094-.21%201.515-.632.421-.423.632-.928.632-1.517V3.049c0-.589-.211-1.095-.632-1.517z%22%2F%3E%3C%2Fsvg%3E");
+ -webkit-mask-repeat: no-repeat;
+ mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M15.559%2015.539a.648.648%200%2001-.468.191H3.439a.644.644%200%2001-.474-.191.642.642%200%2001-.191-.475V7.993h1.537a4.674%204.674%200%2000-.218%201.429c0%201.397.508%202.588%201.526%203.575%201.017.985%202.241%201.478%203.673%201.478.945%200%201.817-.226%202.616-.676a5.105%205.105%200%20001.897-1.839%204.845%204.845%200%2000.697-2.538c0-.495-.073-.971-.218-1.429h1.472v7.071a.636.636%200%2001-.197.475zM9.292%2012.51a3.286%203.286%200%2001-2.371-.955c-.657-.636-.986-1.405-.986-2.308%200-.901.329-1.671.986-2.308a3.29%203.29%200%20012.371-.955c.93%200%201.724.319%202.382.955.657.637.986%201.407.986%202.308%200%20.903-.329%201.672-.986%202.308-.658.637-1.452.955-2.382.955zm6.246-6.656a.73.73%200%2001-.534.218h-1.897a.726.726%200%2001-.534-.218.727.727%200%2001-.218-.536v-1.8c0-.204.072-.381.218-.529a.717.717%200%2001.534-.224h1.897a.72.72%200%2001.534.224.731.731%200%2001.218.529v1.8a.73.73%200%2001-.218.536zm1.482-4.322a2.064%202.064%200%2000-1.515-.633H3.057c-.588%200-1.093.211-1.515.633A2.073%202.073%200%2000.91%203.049v12.463c0%20.589.211%201.094.632%201.517.422.422.927.632%201.515.632h12.448c.589%200%201.094-.21%201.515-.632.421-.423.632-.928.632-1.517V3.049c0-.589-.211-1.095-.632-1.517z%22%2F%3E%3C%2Fsvg%3E")
+}
+i.icon.icon-linkedin,
+i.icon.icon-linkedin\:regular {
+ width: 21px;
+ height: 20px;
+ background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2221%22%20height%3D%2220%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M.26%206.499v13.492h4.511V6.499H.26zM4.361.666c-.456-.44-1.062-.66-1.819-.66-.756%200-1.369.22-1.838.66C.235%201.106%200%201.662%200%202.333c0%20.663.228%201.217.683%201.662.456.444%201.057.666%201.805.666h.027c.766%200%201.383-.222%201.852-.666.47-.445.7-.999.691-1.662-.01-.671-.242-1.227-.697-1.667zm15.214%207.066c-.948-1.031-2.201-1.546-3.759-1.546-.575%200-1.096.071-1.566.212a3.57%203.57%200%2000-1.189.591%205.87%205.87%200%2000-.772.708%205.92%205.92%200%2000-.561.763h.028V6.499H7.258l.014.654c.009.435.014%201.779.014%204.03%200%202.251-.009%205.187-.028%208.808h4.498v-7.528c0-.464.05-.831.15-1.104.191-.462.481-.85.868-1.163.387-.314.868-.47%201.442-.47.784%200%201.36.27%201.729.81s.554%201.286.554%202.239v7.216h4.497v-7.733c0-1.988-.474-3.496-1.421-4.526z%22%2F%3E%3C%2Fsvg%3E");
+ background-repeat: no-repeat
+}
+i.icon.icon-linkedin:hover,
+i.icon.icon-linkedin\:regular:hover {
+ background-color: #e02c7f;
+ background-image: none;
+ -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2221%22%20height%3D%2220%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M.26%206.499v13.492h4.511V6.499H.26zM4.361.666c-.456-.44-1.062-.66-1.819-.66-.756%200-1.369.22-1.838.66C.235%201.106%200%201.662%200%202.333c0%20.663.228%201.217.683%201.662.456.444%201.057.666%201.805.666h.027c.766%200%201.383-.222%201.852-.666.47-.445.7-.999.691-1.662-.01-.671-.242-1.227-.697-1.667zm15.214%207.066c-.948-1.031-2.201-1.546-3.759-1.546-.575%200-1.096.071-1.566.212a3.57%203.57%200%2000-1.189.591%205.87%205.87%200%2000-.772.708%205.92%205.92%200%2000-.561.763h.028V6.499H7.258l.014.654c.009.435.014%201.779.014%204.03%200%202.251-.009%205.187-.028%208.808h4.498v-7.528c0-.464.05-.831.15-1.104.191-.462.481-.85.868-1.163.387-.314.868-.47%201.442-.47.784%200%201.36.27%201.729.81s.554%201.286.554%202.239v7.216h4.497v-7.733c0-1.988-.474-3.496-1.421-4.526z%22%2F%3E%3C%2Fsvg%3E");
+ -webkit-mask-repeat: no-repeat;
+ mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2221%22%20height%3D%2220%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M.26%206.499v13.492h4.511V6.499H.26zM4.361.666c-.456-.44-1.062-.66-1.819-.66-.756%200-1.369.22-1.838.66C.235%201.106%200%201.662%200%202.333c0%20.663.228%201.217.683%201.662.456.444%201.057.666%201.805.666h.027c.766%200%201.383-.222%201.852-.666.47-.445.7-.999.691-1.662-.01-.671-.242-1.227-.697-1.667zm15.214%207.066c-.948-1.031-2.201-1.546-3.759-1.546-.575%200-1.096.071-1.566.212a3.57%203.57%200%2000-1.189.591%205.87%205.87%200%2000-.772.708%205.92%205.92%200%2000-.561.763h.028V6.499H7.258l.014.654c.009.435.014%201.779.014%204.03%200%202.251-.009%205.187-.028%208.808h4.498v-7.528c0-.464.05-.831.15-1.104.191-.462.481-.85.868-1.163.387-.314.868-.47%201.442-.47.784%200%201.36.27%201.729.81s.554%201.286.554%202.239v7.216h4.497v-7.733c0-1.988-.474-3.496-1.421-4.526z%22%2F%3E%3C%2Fsvg%3E")
+}
+i.icon.icon-twitter,
+i.icon.icon-twitter\:regular {
+ width: 19px;
+ height: 16px;
+ background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2219%22%20height%3D%2216%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M16.196%202.972A3.511%203.511%200%200017.777.976a7.01%207.01%200%2001-2.283.875c-.712-.762-1.588-1.143-2.628-1.143-.994%200-1.842.353-2.544%201.059-.701.706-1.052%201.56-1.052%202.561%200%20.27.029.545.089.83a9.973%209.973%200%2001-4.137-1.116%2010.186%2010.186%200%2001-3.279-2.673%203.564%203.564%200%2000-.49%201.827c0%20.621.145%201.196.435%201.726.289.531.679.96%201.169%201.29a3.548%203.548%200%2001-1.626-.461v.046c0%20.874.273%201.642.818%202.303a3.538%203.538%200%20002.066%201.25%203.661%203.661%200%2001-.946.123c-.208%200-.435-.019-.68-.056.23.724.653%201.322%201.27%201.788a3.499%203.499%200%20002.093.723%207.015%207.015%200%2001-4.465%201.547c-.319%200-.609-.015-.869-.046%201.671%201.084%203.511%201.626%205.523%201.626a10.46%2010.46%200%20003.597-.611c1.121-.407%202.078-.953%202.873-1.636a10.917%2010.917%200%20002.054-2.36%2010.555%2010.555%200%20001.286-2.785%2010.357%2010.357%200%2000.412-3.38%207.558%207.558%200%20001.804-1.872c-.69.3-1.381.486-2.071.561z%22%2F%3E%3C%2Fsvg%3E");
+ background-repeat: no-repeat
+}
+i.icon.icon-twitter:hover,
+i.icon.icon-twitter\:regular:hover {
+ background-color: #e02c7f;
+ background-image: none;
+ -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2219%22%20height%3D%2216%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M16.196%202.972A3.511%203.511%200%200017.777.976a7.01%207.01%200%2001-2.283.875c-.712-.762-1.588-1.143-2.628-1.143-.994%200-1.842.353-2.544%201.059-.701.706-1.052%201.56-1.052%202.561%200%20.27.029.545.089.83a9.973%209.973%200%2001-4.137-1.116%2010.186%2010.186%200%2001-3.279-2.673%203.564%203.564%200%2000-.49%201.827c0%20.621.145%201.196.435%201.726.289.531.679.96%201.169%201.29a3.548%203.548%200%2001-1.626-.461v.046c0%20.874.273%201.642.818%202.303a3.538%203.538%200%20002.066%201.25%203.661%203.661%200%2001-.946.123c-.208%200-.435-.019-.68-.056.23.724.653%201.322%201.27%201.788a3.499%203.499%200%20002.093.723%207.015%207.015%200%2001-4.465%201.547c-.319%200-.609-.015-.869-.046%201.671%201.084%203.511%201.626%205.523%201.626a10.46%2010.46%200%20003.597-.611c1.121-.407%202.078-.953%202.873-1.636a10.917%2010.917%200%20002.054-2.36%2010.555%2010.555%200%20001.286-2.785%2010.357%2010.357%200%2000.412-3.38%207.558%207.558%200%20001.804-1.872c-.69.3-1.381.486-2.071.561z%22%2F%3E%3C%2Fsvg%3E");
+ -webkit-mask-repeat: no-repeat;
+ mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2219%22%20height%3D%2216%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M16.196%202.972A3.511%203.511%200%200017.777.976a7.01%207.01%200%2001-2.283.875c-.712-.762-1.588-1.143-2.628-1.143-.994%200-1.842.353-2.544%201.059-.701.706-1.052%201.56-1.052%202.561%200%20.27.029.545.089.83a9.973%209.973%200%2001-4.137-1.116%2010.186%2010.186%200%2001-3.279-2.673%203.564%203.564%200%2000-.49%201.827c0%20.621.145%201.196.435%201.726.289.531.679.96%201.169%201.29a3.548%203.548%200%2001-1.626-.461v.046c0%20.874.273%201.642.818%202.303a3.538%203.538%200%20002.066%201.25%203.661%203.661%200%2001-.946.123c-.208%200-.435-.019-.68-.056.23.724.653%201.322%201.27%201.788a3.499%203.499%200%20002.093.723%207.015%207.015%200%2001-4.465%201.547c-.319%200-.609-.015-.869-.046%201.671%201.084%203.511%201.626%205.523%201.626a10.46%2010.46%200%20003.597-.611c1.121-.407%202.078-.953%202.873-1.636a10.917%2010.917%200%20002.054-2.36%2010.555%2010.555%200%20001.286-2.785%2010.357%2010.357%200%2000.412-3.38%207.558%207.558%200%20001.804-1.872c-.69.3-1.381.486-2.071.561z%22%2F%3E%3C%2Fsvg%3E")
+}
+i.icon.icon-youtube,
+i.icon.icon-youtube\:regular {
+ width: 18px;
+ height: 22px;
+ background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2222%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M11.001%2014.448c-.186%200-.368.09-.546.27v3.696c.178.179.36.27.546.27.316%200%20.474-.274.474-.823v-2.59c0-.548-.158-.823-.474-.823zm4.032%200c-.364%200-.546.278-.546.835v.565h1.093v-.565c0-.557-.182-.835-.547-.835zM3.848%2019.592H2.634v-6.986H1.358v-1.154h3.79v1.154h-1.3v6.986zm3.498-.663c-.437.499-.85.749-1.239.749-.372%200-.607-.151-.704-.454-.065-.197-.097-.495-.097-.897v-4.8h1.08v4.469c0%20.262.004.405.013.43.024.172.109.258.255.258.218%200%20.449-.172.692-.516v-4.641h1.081v6.065H7.346v-.663zm5.101.074c-.138.45-.425.675-.863.675-.388%200-.765-.225-1.129-.675v.589H9.374v-8.14h1.081v2.664c.348-.442.724-.662%201.129-.662.438%200%20.725.229.863.687.072.213.109.618.109%201.216v2.418c0%20.597-.037%201.007-.109%201.228zm4.189-.639a1.491%201.491%200%2001-.255.663c-.291.434-.728.651-1.311.651-.559%200-.996-.209-1.312-.626-.235-.303-.352-.778-.352-1.424v-2.124c0-.646.113-1.121.34-1.424.316-.418.749-.626%201.3-.626.542%200%20.971.208%201.287.626.219.303.328.778.328%201.424v1.265h-2.174v1.067c0%20.565.186.848.559.848.267%200%20.429-.148.485-.443.016-.081.025-.331.025-.748h1.105v.159c0%20.401-.008.639-.025.712zM8.755%207.303c-.349%200-.523-.287-.523-.86V3.866c0-.566.174-.847.523-.847.348%200%20.522.281.522.847v2.577c0%20.573-.174.86-.522.86zm8.938%204.064a2.253%202.253%200%2000-.698-1.216%202.222%202.222%200%2000-1.245-.577c-1.49-.163-3.737-.246-6.74-.246-3.004%200-5.247.083-6.728.246-.478.058-.895.25-1.251.577a2.34%202.34%200%2000-.705%201.216c-.21.949-.316%202.382-.316%204.297%200%201.947.106%203.38.316%204.296.105.483.338.888.699%201.216.36.327.775.515%201.244.564%201.49.172%203.737.258%206.741.258%203.003%200%205.25-.086%206.74-.258a2.12%202.12%200%20001.239-.564%202.34%202.34%200%2000.704-1.216c.211-.949.316-2.381.316-4.296%200-1.948-.105-3.381-.316-4.297zm-12.63-8.14L4.2-.001H2.913c.227.687.49%201.452.789%202.295.381%201.13.628%201.997.741%202.603v3.327h1.215V4.897L7.127-.001H5.889l-.826%203.228zm4.979-.577c-.3-.417-.729-.626-1.287-.626-.543%200-.968.209-1.276.626-.226.303-.34.782-.34%201.436v2.149c0%20.655.114%201.137.34%201.449.308.417.733.626%201.276.626.558%200%20.987-.209%201.287-.626.227-.303.34-.786.34-1.449V4.086c0-.654-.113-1.133-.34-1.436zm3.303-.553v4.678c-.243.352-.473.528-.692.528-.146%200-.231-.09-.255-.27-.008-.017-.012-.159-.012-.43V2.097h-1.105v4.837c0%20.419.032.724.097.921.105.303.344.455.716.455.405%200%20.822-.254%201.251-.762v.676h1.106V2.097h-1.106z%22%2F%3E%3C%2Fsvg%3E");
+ background-repeat: no-repeat
+}
+i.icon.icon-youtube:hover,
+i.icon.icon-youtube\:regular:hover {
+ background-color: #e02c7f;
+ background-image: none;
+ -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2222%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M11.001%2014.448c-.186%200-.368.09-.546.27v3.696c.178.179.36.27.546.27.316%200%20.474-.274.474-.823v-2.59c0-.548-.158-.823-.474-.823zm4.032%200c-.364%200-.546.278-.546.835v.565h1.093v-.565c0-.557-.182-.835-.547-.835zM3.848%2019.592H2.634v-6.986H1.358v-1.154h3.79v1.154h-1.3v6.986zm3.498-.663c-.437.499-.85.749-1.239.749-.372%200-.607-.151-.704-.454-.065-.197-.097-.495-.097-.897v-4.8h1.08v4.469c0%20.262.004.405.013.43.024.172.109.258.255.258.218%200%20.449-.172.692-.516v-4.641h1.081v6.065H7.346v-.663zm5.101.074c-.138.45-.425.675-.863.675-.388%200-.765-.225-1.129-.675v.589H9.374v-8.14h1.081v2.664c.348-.442.724-.662%201.129-.662.438%200%20.725.229.863.687.072.213.109.618.109%201.216v2.418c0%20.597-.037%201.007-.109%201.228zm4.189-.639a1.491%201.491%200%2001-.255.663c-.291.434-.728.651-1.311.651-.559%200-.996-.209-1.312-.626-.235-.303-.352-.778-.352-1.424v-2.124c0-.646.113-1.121.34-1.424.316-.418.749-.626%201.3-.626.542%200%20.971.208%201.287.626.219.303.328.778.328%201.424v1.265h-2.174v1.067c0%20.565.186.848.559.848.267%200%20.429-.148.485-.443.016-.081.025-.331.025-.748h1.105v.159c0%20.401-.008.639-.025.712zM8.755%207.303c-.349%200-.523-.287-.523-.86V3.866c0-.566.174-.847.523-.847.348%200%20.522.281.522.847v2.577c0%20.573-.174.86-.522.86zm8.938%204.064a2.253%202.253%200%2000-.698-1.216%202.222%202.222%200%2000-1.245-.577c-1.49-.163-3.737-.246-6.74-.246-3.004%200-5.247.083-6.728.246-.478.058-.895.25-1.251.577a2.34%202.34%200%2000-.705%201.216c-.21.949-.316%202.382-.316%204.297%200%201.947.106%203.38.316%204.296.105.483.338.888.699%201.216.36.327.775.515%201.244.564%201.49.172%203.737.258%206.741.258%203.003%200%205.25-.086%206.74-.258a2.12%202.12%200%20001.239-.564%202.34%202.34%200%2000.704-1.216c.211-.949.316-2.381.316-4.296%200-1.948-.105-3.381-.316-4.297zm-12.63-8.14L4.2-.001H2.913c.227.687.49%201.452.789%202.295.381%201.13.628%201.997.741%202.603v3.327h1.215V4.897L7.127-.001H5.889l-.826%203.228zm4.979-.577c-.3-.417-.729-.626-1.287-.626-.543%200-.968.209-1.276.626-.226.303-.34.782-.34%201.436v2.149c0%20.655.114%201.137.34%201.449.308.417.733.626%201.276.626.558%200%20.987-.209%201.287-.626.227-.303.34-.786.34-1.449V4.086c0-.654-.113-1.133-.34-1.436zm3.303-.553v4.678c-.243.352-.473.528-.692.528-.146%200-.231-.09-.255-.27-.008-.017-.012-.159-.012-.43V2.097h-1.105v4.837c0%20.419.032.724.097.921.105.303.344.455.716.455.405%200%20.822-.254%201.251-.762v.676h1.106V2.097h-1.106z%22%2F%3E%3C%2Fsvg%3E");
+ -webkit-mask-repeat: no-repeat;
+ mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2222%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M11.001%2014.448c-.186%200-.368.09-.546.27v3.696c.178.179.36.27.546.27.316%200%20.474-.274.474-.823v-2.59c0-.548-.158-.823-.474-.823zm4.032%200c-.364%200-.546.278-.546.835v.565h1.093v-.565c0-.557-.182-.835-.547-.835zM3.848%2019.592H2.634v-6.986H1.358v-1.154h3.79v1.154h-1.3v6.986zm3.498-.663c-.437.499-.85.749-1.239.749-.372%200-.607-.151-.704-.454-.065-.197-.097-.495-.097-.897v-4.8h1.08v4.469c0%20.262.004.405.013.43.024.172.109.258.255.258.218%200%20.449-.172.692-.516v-4.641h1.081v6.065H7.346v-.663zm5.101.074c-.138.45-.425.675-.863.675-.388%200-.765-.225-1.129-.675v.589H9.374v-8.14h1.081v2.664c.348-.442.724-.662%201.129-.662.438%200%20.725.229.863.687.072.213.109.618.109%201.216v2.418c0%20.597-.037%201.007-.109%201.228zm4.189-.639a1.491%201.491%200%2001-.255.663c-.291.434-.728.651-1.311.651-.559%200-.996-.209-1.312-.626-.235-.303-.352-.778-.352-1.424v-2.124c0-.646.113-1.121.34-1.424.316-.418.749-.626%201.3-.626.542%200%20.971.208%201.287.626.219.303.328.778.328%201.424v1.265h-2.174v1.067c0%20.565.186.848.559.848.267%200%20.429-.148.485-.443.016-.081.025-.331.025-.748h1.105v.159c0%20.401-.008.639-.025.712zM8.755%207.303c-.349%200-.523-.287-.523-.86V3.866c0-.566.174-.847.523-.847.348%200%20.522.281.522.847v2.577c0%20.573-.174.86-.522.86zm8.938%204.064a2.253%202.253%200%2000-.698-1.216%202.222%202.222%200%2000-1.245-.577c-1.49-.163-3.737-.246-6.74-.246-3.004%200-5.247.083-6.728.246-.478.058-.895.25-1.251.577a2.34%202.34%200%2000-.705%201.216c-.21.949-.316%202.382-.316%204.297%200%201.947.106%203.38.316%204.296.105.483.338.888.699%201.216.36.327.775.515%201.244.564%201.49.172%203.737.258%206.741.258%203.003%200%205.25-.086%206.74-.258a2.12%202.12%200%20001.239-.564%202.34%202.34%200%2000.704-1.216c.211-.949.316-2.381.316-4.296%200-1.948-.105-3.381-.316-4.297zm-12.63-8.14L4.2-.001H2.913c.227.687.49%201.452.789%202.295.381%201.13.628%201.997.741%202.603v3.327h1.215V4.897L7.127-.001H5.889l-.826%203.228zm4.979-.577c-.3-.417-.729-.626-1.287-.626-.543%200-.968.209-1.276.626-.226.303-.34.782-.34%201.436v2.149c0%20.655.114%201.137.34%201.449.308.417.733.626%201.276.626.558%200%20.987-.209%201.287-.626.227-.303.34-.786.34-1.449V4.086c0-.654-.113-1.133-.34-1.436zm3.303-.553v4.678c-.243.352-.473.528-.692.528-.146%200-.231-.09-.255-.27-.008-.017-.012-.159-.012-.43V2.097h-1.105v4.837c0%20.419.032.724.097.921.105.303.344.455.716.455.405%200%20.822-.254%201.251-.762v.676h1.106V2.097h-1.106z%22%2F%3E%3C%2Fsvg%3E")
+}
+.icon-close {
+ border-radius: 50%;
+ padding: 10px;
+ display: block;
+ left: 0;
+ top: 0;
+ width: 30px;
+ height: 30px;
+ background: #fff url(/stores/20207/n/1624356741-1703261494703439.png) center center no-repeat;
+ background-size: 14px
+}
+@media (max-width: 767px) {
+ i.icon {
+ transform: scale(0.8);
+ zoom: 0.8
+ }
+}
+.pricing {
+ position: relative
+}
+.pricing .section-title-header h2 {
+ margin-bottom: 0
+}
+.pricing .price-block-wrapper {
+ color: #767676;
+ display: inline-block;
+ border-radius: 20px;
+ width: 100%;
+ padding: 2rem 1rem;
+ margin: 1rem auto;
+ max-width: 35rem;
+ text-align: left;
+ transition: box-shadow .2s linear
+}
+.rtl .pricing .price-block-wrapper {
+ text-align: right
+}
+.pricing .price-block-wrapper .colmun-title h5 {
+ color: #434343;
+ font-size: 2rem;
+ font-weight: 400;
+ text-transform: uppercase;
+ margin-bottom: 5px;
+ font-weight: 700
+}
+.pricing .price-block-wrapper .price {
+ padding-bottom: 1.8rem
+}
+.pricing .price-block-wrapper .price h2 {
+ font-size: 3.75rem;
+ font-weight: 700;
+ margin: 0;
+ color: #434343;
+ margin-bottom: 1.8rem
+}
+.pricing .price-block-wrapper .price h2 span {
+ color: inherit;
+ font-size: 1.5rem;
+ font-weight: 400
+}
+.pricing .price-block-wrapper .price p {
+ font-size: 1.5rem;
+ font-weight: 400;
+ margin-bottom: 0
+}
+.pricing .price-block-wrapper .pricing-list {
+ text-align: left
+}
+.pricing .price-block-wrapper .pricing-list ul {
+ padding-bottom: 1.8rem
+}
+.pricing .price-block-wrapper .pricing-list ul li {
+ font-size: 1.5rem;
+ font-weight: 400;
+ padding: 0.5rem 0px
+}
+.pricing .price-block-wrapper .pricing-list ul li i {
+ margin-right: 7px;
+ font-size: 12px;
+ color: #7b1bce
+}
+.rtl .pricing .price-block-wrapper .pricing-list {
+ text-align: right
+}
+.rtl .pricing .price-block-wrapper .pricing-list i {
+ margin-left: 7px
+}
+.pricing .price-block-wrapper .pricing-btn {
+ text-align: center
+}
+.pricing .price-block-wrapper .pricing-btn a {
+ font-size: 1.625rem;
+ width: 80%;
+ padding-top: 1rem;
+ padding-bottom: 1rem;
+ border-radius: 10px;
+ border-color: #e02c7f;
+ color: #e02c7f
+}
+.pricing .price-block-wrapper .pricing-btn a:hover {
+ color: #fff
+}
+.pricing .price-block-wrapper.active {
+ color: #fff;
+ background-color: #e02c7f
+}
+.pricing .price-block-wrapper.active .colmun-title h5 {
+ color: #fff
+}
+.pricing .price-block-wrapper.active .price h2 {
+ color: #fff
+}
+.pricing .price-block-wrapper.active .pricing-btn a {
+ color: #fff;
+ border-color: #fff
+}
+.pricing .price-block-wrapper:hover {
+ box-shadow: 0px 2px 10px 2px rgba(221, 221, 221, 0.73)
+}
+.price-label {
+ position: absolute;
+ left: 1rem;
+ top: 2rem;
+ z-index: 1;
+ width: 100px;
+ height: 100px;
+ max-width: 30%
+}
+.price-label__popular {
+ width: 100%;
+ height: 100%;
+ background: url(/stores/20207/n/1624283023-1703184195162511.png) 0 0/contain no-repeat
+}
+@media (max-width: 767px) {
+ .price-block-wrapper {
+ box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+ }
+}
+.carousel {
+ padding-top: 6rem
+}
+.carousel .swiper-container {
+ padding: 0 10%
+}
+.carousel .swiper-container .swiper-slide {
+ text-align: center
+}
+.carousel .swiper-container .swiper-slide img {
+ margin: 0 auto;
+ width: auto
+}
+.carousel .section-title-header {
+ margin-bottom: 0
+}
+.carousel .section-title-header .section-title {
+ text-align: left
+}
+.rtl .carousel .section-title-header .section-title {
+ text-align: right
+}
+@media (max-width: 767px) {
+ .carousel {
+ padding-top: 1rem
+ }
+ .carousel .section-title-header .section-title {
+ text-align: center
+ }
+ .rtl .carousel .section-title-header .section-title {
+ text-align: center
+ }
+}
+.carousel2 .section-title-header {
+ margin-bottom: 0
+}
+.carousel2 .carousel2-container {
+ padding-top: 3rem;
+ padding-right: 2rem;
+ padding-left: 2rem
+}
+.carousel2 .swiper-slide {
+ text-align: center
+}
+.carousel2 .swiper-slide a {
+ cursor: auto
+}
+.carousel2 .swiper-slide img {
+ margin: 0 auto;
+ width: auto
+}
+.carousel2 .swiper-button-prev,
+.carousel2 .swiper-button-next {
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ box-shadow: 0 0px 20px 2px rgba(0, 0, 0, 0.14) !important
+}
+.carousel2 .swiper-button-prev:after,
+.carousel2 .swiper-button-next:after {
+ color: #e02c7f;
+ font-size: 24px;
+ font-weight: 700
+}
+.carousel2 .swiper-button-prev:hover:after,
+.carousel2 .swiper-button-next:hover:after {
+ color: #7b1bce
+}
+.carousel2__btn {
+ padding-top: 1.5rem
+}
+.car2-text {
+ color: #767676;
+ padding-top: 1rem
+}
+.testinews__btn {
+ padding-top: 2rem
+}
+.testinews-item {
+ text-align: center;
+ height: 100%;
+ padding: 8%;
+ margin: 1rem auto;
+ border-radius: 20px;
+ box-shadow: 0 0px 20px 2px rgba(0, 0, 0, 0.14) !important
+}
+.starsicons {
+ min-height: 40px
+}
+.testinews-img {
+ height: 90px;
+ display: flex;
+ justify-content: center;
+ align-items: center
+}
+.testinews-img img {
+ max-height: 50px
+}
+.testinews-text p {
+ font-size: 1.5rem;
+ margin-bottom: 0
+}
+.stars-yellow {
+ width: 100%;
+ height: 30px;
+ background: url("/stores/20207/n/1624283014-1703184186313525.svg") center center no-repeat;
+ background-size: contain
+}
+@media (max-width: 767px) {
+ .testinews-item {
+ height: auto
+ }
+}
+.testivideo-container {
+ padding: 7rem 0
+}
+.testivideo-container .swiper-slide-prev a img {
+ filter: blur(1px)
+}
+.testivideo-container .swiper-slide-next a img {
+ filter: blur(3px)
+}
+.testivideo-container .swiper-slide-active {
+ transform: scale(1.5) !important
+}
+.testivideo-container .swiper-slide-active .btn-play {
+ display: block
+}
+.testivideo-container .swiper-slide {
+ background-position: center;
+ background-size: cover
+}
+.testivideo-container .swiper-slide a {
+ display: block;
+ width: 100%;
+ height: 100%
+}
+.testivideo-container .swiper-slide-duplicate-next,
+.testivideo-container .swiper-slide-duplicate-prev {
+ opacity: 0
+}
+.testivideo-container .swiper-slide,
+.testivideo-container .swiper-slide-shadow-left,
+.testivideo-container .swiper-slide-shadow-right,
+.testivideo-container .swiper-container-3d .swiper-slide-shadow-top {
+ border-radius: 15px !important
+}
+.testivideo-container:hover .swiper-button-prev,
+.testivideo-container:hover .swiper-button-next {
+ transform: translateX(0);
+ opacity: 1;
+ visibility: visible
+}
+.testivideo-container .swiper-button-prev,
+.testivideo-container .swiper-button-next {
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ background-color: #fff;
+ box-shadow: 0 0px 20px 2px rgba(0, 0, 0, 0.14) !important
+}
+.testivideo-container .swiper-button-prev:after,
+.testivideo-container .swiper-button-next:after {
+ color: #e02c7f;
+ font-size: 24px;
+ font-weight: 700
+}
+.testivideo-container .swiper-button-prev:hover:after,
+.testivideo-container .swiper-button-next:hover:after {
+ color: #7b1bce
+}
+.btn-play {
+ position: absolute;
+ z-index: 1;
+ left: 0;
+ right: 0;
+ bottom: 10px;
+ width: 90%;
+ height: 90%;
+ margin: 0 auto;
+ background: url(/stores/20207/n/1624283022-1703184194837098.png) center bottom/contain no-repeat;
+ display: none
+}
+@media (max-width: 991px) {
+ .testivideo-container .swiper-slide-active {
+ transform: scale(1) !important
+ }
+}
+.calltoact {
+ background: linear-gradient(to right, #e02c7f 0%, #7b1bce 100%)
+}
+.calltoact * {
+ color: #fff
+}
+.blog-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ grid-template-rows: repeat(2, 1fr);
+ grid-column-gap: 5px;
+ grid-row-gap: 25px
+}
+.blog-grid__1 {
+ grid-area: 1 / 1 / 3 / 3
+}
+.blog-grid__2 {
+ grid-area: 1 / 3 / 1 / 5
+}
+.blog-grid__3 {
+ grid-area: 2 / 3 / 2 / 4
+}
+.blog-grid__4 {
+ grid-area: 2 / 4 / 2 / 5
+}
+.blog-item {
+ position: relative;
+ overflow: hidden;
+ border-radius: 1rem
+}
+.blog-item__img img {
+ width: 100%
+}
+.blog-item__img:before {
+ content: '';
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-image: linear-gradient(to bottom, transparent 50%, #0c0c10 100%)
+}
+.blog-item__descr {
+ position: absolute;
+ z-index: 1;
+ bottom: 2rem;
+ right: 2rem
+}
+.blog-item__descr h3 {
+ font-size: 2rem;
+ font-weight: 700;
+ line-height: 0.88
+}
+.blog-grid__1 .blog-item__descr h3,
+.blog-grid__2 .blog-item__descr h3 {
+ font-size: 3rem
+}
+.blog-item__descr .meta-tags {
+ font-size: 1.25rem
+}
+.blog-grid__1 .blog-item__descr .meta-tags,
+.blog-grid__2 .blog-item__descr .meta-tags {
+ font-size: 1.5rem
+}
+.blog-item__descr * {
+ color: #fff
+}
+.blog-item__descr *:hover {
+ color: #7b1bce
+}
+@media (max-width: 767px) {
+ .blog-grid {
+ display: flex;
+ justify-content: center;
+ align-items: center
+ }
+ .blog-grid__1 .blog-item__descr h3,
+ .blog-grid__2 .blog-item__descr h3 {
+ font-size: 2rem
+ }
+ .blog-grid__1 .blog-item__descr .meta-tags,
+ .blog-grid__2 .blog-item__descr .meta-tags {
+ font-size: 1.25rem
+ }
+}
+.sideicons {
+ position: fixed;
+ z-index: 999;
+ right: 0;
+ top: 70vh
+}
+.sideicons a {
+ display: block;
+ border-top-left-radius: 25px;
+ border-bottom-left-radius: 25px;
+ width: 50px;
+ height: 50px;
+ position: relative;
+ margin: 2px 0;
+ box-shadow: 0 0px 20px 2px rgba(0, 0, 0, 0.14) !important;
+ transition: width .2s linear
+}
+.sideicons a img {
+ height: 50%;
+ position: absolute;
+ left: 12.5px;
+ top: 12.5px
+}
+.sideicons a.icon-whatsapp {
+ background-color: #0ec143
+}
+.sideicons a.icon-phone {
+ background-color: #fff
+}
+.sideicons a:hover {
+ width: 75px
+}
+@media (max-width: 767px) {
+ .sideicons a {
+ width: 40px;
+ height: 40px
+ }
+ .sideicons a img {
+ left: 10px;
+ top: 10px
+ }
+ .sideicons a:hover {
+ width: 60px
+ }
+}
+ </style>
+ <script>
+ add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/wow.min.js", 0, true, function() {
+ var wow = new WOW({
+ offset: 100,
+ mobile: true,
+ live: false,
+ animateClass: 'animate__animated'
+ //disabled for mobile
+ // mobile: false
+ });
+  wow.init();
+ var elms = document.querySelectorAll('.wow');
+ for(var elm of elms) {
+ elm.style.animationPlayState = 'running';
+ }
+ });
+  add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/jquery-min.js", 1);
+  add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/popper.min.js");
+  add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/bootstrap.min.js");
+  add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/jquery.nav.js");
+ add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/jquery.easing.min.js");
+  add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/TweenMax.min.js");
+ add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/nivo-lightbox.js");
+ add_plugin("https://sites.yalla.co.il/cdn/themes/cpa/js/swiper.min.js");
+  //add_plugin("https://yalla.co.il/2/assets/js/main.js",1);
+ </script> <script>try{ 
+String.prototype.replaceAll = function(search, replacement) {
+ var target = this;
+ return target.split(search).join(replacement);
+};
+ var font = "Rubik";
+ function inIframe () {
+ try {
+ return window.self !== window.top;
+ } catch (e) {
+ return true;
+ }
+}
+ function add_parameter_to_href(key, value) {
+ var elms = document.getElementsByTagName('a');
+ for(var index in elms) {
+ var elm = elms[index];
+ try {
+ var url = new URL(elm.href);
+ url.searchParams.set(key, value);
+ elm.href = url;
+ } catch(ex) {
+  }
+  }
+}
+ run_later(function() {
+ if(inIframe()) {
+ return; 
+ }
+  const aff_cookie = getCookie('aff');
+ const aff_param = new URLSearchParams(location.search).get('aff');
+ if(aff_param) {
+ setCookie('aff',aff_param, 30);
+ add_parameter_to_href('aff', aff_param);
+ } else if(aff_cookie) {
+ add_parameter_to_href('aff', aff_cookie);
+ }
+ });
+ run_later(function() {
+ var url_search = new URLSearchParams(location.search);
+  const keep_params = url_search.get('keep_params');
+ if(keep_params) {
+ add_parameter_to_href('keep_params',keep_params);
+ var keep_params_splited = keep_params.split(',');
+ for(var param_name of keep_params_splited) {
+ if(param_name !== '') {
+ var param_name_value = url_search.get(param_name);
+ if(param_name_value) {
+ add_parameter_to_href(param_name, param_name_value);
+ }
+ }
+ }
+ }
+});
+ run_later(function() {
+  function xxx($) {
+ 'use strict';
+  //$('#preloader').fadeOut();
+  // Margin if HEADER Fixed
+ $('#content').css('margin-top', $('.navbar-header').height() + 'px');
+ $(window).resize(function() {
+ $('#content').css('margin-top', $('.navbar-header').height() + 'px');
+ });
+  // Sticky Nav
+  //$(window).on('scroll', function() {
+ // if ($(window).scrollTop() > 80) {
+ // $('.scrolling-navbar').addClass('top-nav-collapse');
+ // } else {
+ // $('.scrolling-navbar').removeClass('top-nav-collapse');
+ // }
+ //});
+  // slicknav mobile menu active 
+ // $('.mobile-menu').slicknav({
+ // prependTo: '.navbar-mobile',
+ // parentTag: 'liner',
+ // allowParentLinks: true,
+ // duplicate: true,
+ // label: '',
+ // });
+  $('.lightbox').nivoLightbox({
+ effect: 'fadeScale',
+ keyboardNav: true,
+ theme: 'default',
+ });
+  // one page navigation
+ // $('.navbar-nav').onePageNav({
+ // currentClass: 'active'
+ // });
+  var offset = 500;
+ var duration = 500;
+  $(window).scroll(function() {
+ if ($(this).scrollTop() > offset) {
+ $('.back-to-top').fadeIn(400);
+ } else {
+ $('.back-to-top').fadeOut(400);
+ }
+ });
+  $('.back-to-top').on('click', function(event) {
+ event.preventDefault();
+ $('html, body').animate({
+ scrollTop: 0,
+ },
+ 600,
+ );
+ return false;
+ });
+  };
+  xxx(jQuery);
+  // CAROUSEL1
+ var swiper = new Swiper('.carousel1-container', {
+ slidesPerView: 4,
+ spaceBetween: 5,
+ initialSlide: 2,
+ loop: true,
+ autoplay: {
+ delay: 4000,
+ // disableOnInteraction: true,
+ },
+ breakpoints: {
+ 300: {
+ slidesPerView: 2,
+ },
+ 640: {
+ slidesPerView: 3,
+ },
+ 991: {
+ slidesPerView: 4,
+ },
+ },
+ });
+  // CAROUSEL2
+ var swiper2 = new Swiper('.carousel2-container', {
+ slidesPerView: 6,
+ spaceBetween: 30,
+ // slidesPerGroup: 3,
+ loop: true,
+ loopFillGroupWithBlank: true,
+ autoplay: true,
+ // centeredSlides: true,
+ navigation: {
+ nextEl: '.swiper-button-next',
+ prevEl: '.swiper-button-prev',
+ },
+ breakpoints: {
+ 300: {
+ slidesPerView: 2,
+ },
+ 640: {
+ slidesPerView: 3,
+ },
+ 991: {
+ slidesPerView: 6,
+ },
+ },
+ });
+  // If sliders are nor clickable:
+ $('.carousel2-container a').click(function(e) {
+ e.preventDefault();
+ });
+  // Animation of Banners
+ $.fn.parallax = function(resistance, mouse) {
+ $el = $(this);
+ TweenLite.to($el, 0.2, {
+ x: -((mouse.clientX - window.innerWidth / 2) / resistance),
+ y: -((mouse.clientY - window.innerHeight / 2) / resistance),
+ });
+ };
+  $(document).mousemove(function(e) {
+ $('.bannerimg_1').parallax(-100, e);
+ });
+ var img2 = $('.bannerimg_2');
+ var img1 = $('.bannerimg_1');
+  setTimeout(() => {
+ if (img2.hasClass('animated')) {
+ img2.addClass('move1');
+ }
+ // if( img1.hasClass('animated') ){
+ // img1.addClass('scale1');
+ // };
+ }, 0600);
+  // MODAL
+  setTimeout(function() {
+ var $videoSrc;
+ var $videos = $('.video-btn');
+ $videos.click(function(e) {
+ $videoSrc = $(this).data('src');
+ });
+  // when the modal is opened autoplay it
+ $('#myModal').on('shown.bs.modal', function(e) {
+ // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+ $('#video').attr('src', $videoSrc + '?autoplay=1&modestbranding=1&showinfo=0');
+ });
+  // stop playing the youtube video when I close the modal
+ $('#myModal').on('hide.bs.modal', function(e) {
+ // a poor man's stop video
+ $('#video').attr('src', $videoSrc);
+ });
+ }, 500);
+  // Testivideo Carousel
+  var mySwiper = new Swiper('.testivideo-container', {
+ init: false,
+ slidesPerView: 3,
+ // spaceBetween: 0,
+ effect: 'coverflow',
+ grabCursor: true,
+ loop: true,
+ speed: 800,
+ // autoplay: true,
+ centeredSlides: true,
+ coverflowEffect: {
+ rotate: 50,
+ stretch: 0,
+ depth: 400,
+ modifier: 0.6,
+ slideShadows: true,
+ },
+ navigation: {
+ nextEl: '.swiper-button-next',
+ prevEl: '.swiper-button-prev',
+ },
+ breakpoints: {
+ 300: {
+ slidesPerView: 1,
+ },
+ 640: {
+ slidesPerView: 1,
+ },
+ 991: {
+ slidesPerView: 3,
+ },
+ },
+ });
+  //mySwiper.init();
+  });
+ } catch(ex){ console.log('error in module:, error: ' + ex.message); }</script><script></script><script></script><style>/* Cookie Consent Banner Styles */
+ .cookie-consent-banner {
+ position: fixed;
+ font-family: var(--font-general), Arial;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ background: linear-gradient(135deg, #9D42BE 0%, #38009B 100%);
+ color: white;
+ padding: 20px;
+ box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.2);
+ z-index: 99999;
+ animation: slideUp_cookie 0.5s ease;
+ }
+  @keyframes slideUp_cookie {
+ from {
+ transform: translateY(100%);
+ }
+  to {
+ transform: translateY(0);
+ }
+ }
+  .cookie-consent-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-direction: row;
+ flex-wrap: wrap;
+ gap: 20px;
+ direction: rtl;
+ text-align: right;
+ }
+  .cookie-consent-text {
+ flex: 1;
+ min-width: 300px;
+ }
+  .cookie-consent-text h3 {
+ margin: 0 0 10px 0;
+ font-size: 18px;
+ }
+  .cookie-consent-text p {
+ margin: 0;
+ font-size: 14px;
+ opacity: 0.95;
+ }
+  .cookie-consent-buttons {
+ display: flex;
+ gap: 10px;
+ flex-wrap: wrap;
+  }
+  @media(max-width:520px) {
+ .cookie-consent-buttons {
+ width: 100%;
+ justify-content: flex-end; 
+  }
+ }
+  .cookie-consent-btn {
+ padding: 10px 24px;
+ border: none;
+ border-radius: 25px;
+ font-size: 14px;
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+  .cookie-consent-accept {
+ background: white;
+ color: #667eea;
+ }
+  .cookie-consent-accept:hover {
+ transform: scale(1.05);
+ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+ }
+  .cookie-consent-reject {
+ background: transparent;
+ color: white;
+ border: 2px solid white;
+ }
+  .cookie-consent-reject:hover {
+ background: white;
+ color: #764ba2;
+ }
+  .cookie-consent-settings {
+ background: rgba(255, 255, 255, 0.2);
+ color: white;
+ border: 1px solid rgba(255, 255, 255, 0.4);
+ }
+  .cookie-consent-settings:hover {
+ background: rgba(255, 255, 255, 0.3);
+ }
+  .cookie-consent-banner .demo-container {
+ max-width: 800px;
+ margin: 0 auto;
+ background: white;
+ padding: 30px;
+ border-radius: 10px;
+ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ }
+  .cookie-consent-banner .status-box {
+ background: #f0f0f0;
+ padding: 15px;
+ border-radius: 5px;
+ margin: 20px 0;
+ }
+  .blocked-scripts {
+ background: #ffe5e5;
+ padding: 15px;
+ border-radius: 5px;
+ margin: 20px 0;
+ }
+  .allowed-scripts {
+ background: #e5ffe5;
+ padding: 15px;
+ border-radius: 5px;
+ margin: 20px 0;
+ }
+  .cookie-consent-btn {
+ padding: 10px 20px;
+ margin: 5px;
+ border: none;
+ border-radius: 5px;
+ background: #667eea;
+ color: white;
+ cursor: pointer;
+ }
+  .cookie-consent-btn:hover {
+ background: #5a67d8;
+ }</style><script src="/assets/js/sites.yalla.co.il/he__24c25dc3f49d54eda9bfeb7473f52400.js?timestamp=1773057859"></script><script src="https://sites.yalla.co.il/cdn/js/lazysizes/lazysizes_1.2.10.min.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/wow.min.js"></script><style>#page-wrapper section.reset_class{content-visibility:visible;contain-intrinsic-size: visible}</style><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/jquery-min.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/popper.min.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/bootstrap.min.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/jquery.nav.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/jquery.easing.min.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/TweenMax.min.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/nivo-lightbox.js"></script><script src="https://sites.yalla.co.il/cdn/themes/cpa/js/swiper.min.js"></script><script src="https://www.googletagmanager.com/gtag/js?id=AW-1033708525"></script></head><body onload="let s=document.createElement(&quot;script&quot;);
+        s.src = &quot;/assets/js/sites.yalla.co.il/he__24c25dc3f49d54eda9bfeb7473f52400.js?timestamp=1773057859&quot;;
+        document.head.appendChild(s)"><div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
+ <div class="cookie-consent-container">
+ <div class="cookie-consent-text">
+ <h3>🍪 האתר עושה שימוש בעוגיות</h3>
+ <p>אנחנו משתמשים בקובצי Cookie כדי להתאים אישית תוכן ומודעות, לספק תכונות של מדיה חברתית ולנתח את תנועת המשתמשים שלנו. בנוסף, אנחנו משתפים מידע על אופן השימוש באתר שלנו עם השותפים שלנו מתחומי המדיה החברתית, הפרסום וניתוח הנתונים. גורמים אלה עשויים לשלב את הנתונים האלה עם מידע אחר שסיפקתם או שהם אספו בעקבות השימוש שעשיתם בשירותים שלהם. לפרטים נוספים: <a href="/privacy-policy" style="color: #7aaaff" target="_blank">מדיניות הפרטיות</a></p>
+ </div>
+ <div class="cookie-consent-buttons">
+ <button class="cookie-consent-btn cookie-consent-accept" onclick="webzie_cookie_consent.acceptAll()">
+ אני מאשר
+ </button>
+ <button class="cookie-consent-btn cookie-consent-settings" style="display:none" onclick="webzie_cookie_consent.showSettings()">
+  </button>
+  </div>
+ </div>
+ </div>
+ <script>
+  const WebzieCookieConsent = function() {
+ const CONSENT_COOKIE_NAME = 'cookie_consent';
+ const CONSENT_EXPIRY_DAYS = 365;
+ const AJAX_ENDPOINT = '/service/cookie_api/ajax.php';
+  const TRACKING_PATTERNS = [
+ 'google-analytics.com',
+ 'googletagmanager.com',
+ 'gtag/js',
+ 'ga.js',
+ 'analytics.js',
+  'connect.facebook.net',
+ 'facebook.com/tr',
+ 'fbevents.js',
+  'googleadservices.com',
+ 'googlesyndication.com',
+ 'doubleclick.net',
+  'inspectlet',
+ 'hotjar.com',
+ 'mixpanel.com',
+ 'segment.com',
+ 'amplitude.com',
+ 'clarity.ms',
+ 'pingdom.net',
+ 'newrelic.com',
+ 'nr-data.net'
+ ];
+  let blockedScripts = [];
+ let consentGiven = false;
+  function init() {
+ checkExistingConsent();
+ if (!consentGiven) {
+ blockTrackingScripts();
+ showBanner();
+ }
+ interceptScriptLoading();
+ }
+  function checkExistingConsent() {
+ const consent = getCookie(CONSENT_COOKIE_NAME);
+ if (consent) {
+ const consentData = JSON.parse(consent);
+ consentGiven = consentData.accepted;
+ if (consentGiven) {
+ loadBlockedScripts();
+ }
+ }
+ }
+  function blockTrackingScripts() {
+ document.querySelectorAll('script').forEach(script => {
+ const src = script.src || '';
+ if (isTrackingScript(src)) {
+ script.type = 'text/blocked';
+ script.setAttribute('data-original-src', src);
+ script.src = '';
+ blockedScripts.push(src);
+ console.log('Blocked script:', src);
+ }
+ });
+  document.querySelectorAll('script:not([src])').forEach(script => {
+ const content = script.innerHTML;
+ if (0 && containsTrackingCode(content)) {
+ script.type = 'text/blocked';
+ script.setAttribute('data-original-content', content);
+ console.log('Blocked inline tracking script');
+  script.innerHTML = '';
+ }
+ });
+ }
+  function interceptScriptLoading() {
+ const originalAppendChild = Element.prototype.appendChild;
+ const originalInsertBefore = Element.prototype.insertBefore;
+  Element.prototype.appendChild = function(node) {
+ if (node.tagName === 'SCRIPT' && !consentGiven) {
+ const src = node.src || '';
+ if (isTrackingScript(src)) {
+ console.log('Blocked appendChild dynamic script:', src);
+ node.type = 'text/blocked';
+ node.setAttribute('data-original-src', src);
+ node.src = '';
+ blockedScripts.push(src);
+ } 
+ }
+ return originalAppendChild.call(this, node);
+ };
+  Element.prototype.insertBefore = function(node, referenceNode) {
+ if (node.tagName === 'SCRIPT' && !consentGiven) {
+ const src = node.src || '';
+ if (isTrackingScript(src)) {
+ console.log('Blocked insertBefore dynamic script:', src);
+ node.type = 'text/blocked';
+ node.setAttribute('data-original-src', src);
+ node.src = '';
+ blockedScripts.push(src);
+ }
+ }
+ return originalInsertBefore.call(this, node, referenceNode);
+ };
+ }
+  function isTrackingScript(url) {
+ return TRACKING_PATTERNS.some(pattern => url.includes(pattern));
+ }
+  function containsTrackingCode(content) {
+ return TRACKING_PATTERNS.some(pattern => content.includes(pattern));
+ }
+  function showBanner() {
+ const banner = document.getElementById('cookie-consent-banner');
+ if (banner) {
+ banner.style.display = 'block';
+ }
+ }
+  function hideBanner() {
+ const banner = document.getElementById('cookie-consent-banner');
+ if (banner) {
+ banner.style.display = 'none';
+ }
+ }
+  function acceptAll() {
+ consentGiven = true;
+ saveConsent(true);
+ sendConsentToServer(true);
+ loadBlockedScripts();
+ hideBanner();
+ }
+  function rejectAll() {
+ consentGiven = false;
+ saveConsent(false);
+ sendConsentToServer(false);
+ hideBanner();
+ }
+  function saveConsent(accepted) {
+ const consentData = {
+ accepted: accepted,
+ timestamp: new Date().toISOString(),
+ userAgent: navigator.userAgent,
+ language: navigator.language
+ };
+ setCookie(CONSENT_COOKIE_NAME, JSON.stringify(consentData), CONSENT_EXPIRY_DAYS);
+ }
+  function sendConsentToServer(accepted) {
+ const clientData = {
+ privacy_consent: accepted,
+ timestamp: new Date().toISOString(),
+ userAgent: navigator.userAgent,
+ language: navigator.language,
+ platform: navigator.platform,
+ screenResolution: `${screen.width}x${screen.height}`,
+ timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+ referrer: document.referrer,
+ url: window.location.href
+ };
+  const formBody = Object.entries(clientData)
+ .map(([key, value]) => 
+ encodeURIComponent(key) + "=" + encodeURIComponent(value)
+ )
+ .join("&");
+  fetch(AJAX_ENDPOINT, {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/x-www-form-urlencoded',
+ },
+ body: formBody
+ })
+ .then(response => response.json())
+ .then(data => {
+ console.log('Consent sent to server:', data);
+ })
+ .catch(error => {
+ console.error('Error sending consent:', error);
+ console.log('Client data that would be sent:', clientData);
+ });
+ }
+  function loadBlockedScripts() {
+ document.querySelectorAll('script[data-original-src]').forEach(script => {
+ const src = script.getAttribute('data-original-src');
+ const newScript = document.createElement('script');
+ newScript.src = src;
+ newScript.type = 'text/javascript';
+ document.head.appendChild(newScript);
+ console.log('Loaded script:', src);
+ });
+  document.querySelectorAll('script[data-original-content]').forEach(script => {
+ const content = script.getAttribute('data-original-content');
+ const newScript = document.createElement('script');
+ newScript.type = 'text/javascript';
+ newScript.innerHTML = content;
+ document.head.appendChild(newScript);
+ console.log('Loaded inline script');
+ });
+  blockedScripts = [];
+ }
+  function deleteCookie(name) {
+ document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+ }
+  function resetConsent() {
+ deleteCookie(CONSENT_COOKIE_NAME);
+ consentGiven = false;
+ location.reload();
+ }
+  function showSettings() {
+ alert('Settings panel would go here - you can implement a detailed cookie preferences UI');
+ }
+  return {
+ init: init,
+ acceptAll: acceptAll,
+ rejectAll: rejectAll,
+ resetConsent: resetConsent,
+ showBanner: showBanner,
+ showSettings: showSettings,
+ isConsentGiven: () => consentGiven,
+ blockedScripts: blockedScripts
+ };
+ };
+  const webzie_cookie_consent = new WebzieCookieConsent();
+  if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', webzie_cookie_consent.init);
+ } else {
+ webzie_cookie_consent.init();
+ }
+</script><script></script><style>.lottie_wrapper {
+ position: relative!important;
+ display: inline-block!important;
+ animation: none!important;
+ opacity: 1!important;
+}</style> <script>try{ 
+var is_lottie_loaded = 0; 
+ function get_property_from_css(css, property) { 
+ if (css === null || css.length === 0) { 
+ return ''; 
+ } 
+ var result = ''; 
+ for (var selector of css) { 
+ var splited = selector.split('{'); 
+ if (splited.length !== 2) { 
+ continue; 
+ } 
+ var right_side = splited[1]; 
+ var all_properties = right_side.split(';'); 
+ for (var curr_property of all_properties) { 
+ var key_value_split = curr_property.split(':'); 
+ if (key_value_split.length !== 2) { 
+ continue; 
+ } 
+ if (key_value_split[0].trim() === property) { 
+ result += property + ':' + key_value_split[1].trim() + ';'; 
+  } 
+ } 
+ } 
+ return result; 
+} 
+ function get_element_css(el) { 
+ var sheets = document.styleSheets, 
+ ret = []; 
+ el.matches = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || 
+ el.msMatchesSelector || el.oMatchesSelector; 
+ for (var i in sheets) { 
+ try { 
+ var rules = sheets[i].rules || sheets[i].cssRules; 
+ }catch(ex) { 
+ continue; 
+ } 
+ for (var r in rules) { 
+ try { 
+ if (el.matches(rules[r].selectorText)) { 
+ ret.push(rules[r].cssText); 
+ } 
+ } catch(ex){continue;} 
+  } 
+ } 
+ return ret; 
+} 
+ function set_lottie_image_call(data) { 
+ let all_lottie_wait = document.querySelectorAll('.lottie_lazyload'); 
+ for(var image_el of all_lottie_wait) { 
+ image_el.classList.remove('lottie_lazyload'); 
+ var img_src = image_el.getAttribute('src'); 
+ set_lottie_image(image_el, img_src ); 
+ } 
+ } 
+ function set_lottie_image(image_el, img_src) { 
+  if(image_el.classList.contains('disable_lottie')) { 
+ return; 
+ } 
+  let split_by = '/20207/'; 
+ let splited = img_src.split(split_by); 
+ if (splited.length !== 2) { 
+ return; 
+ } 
+ let new_splited = splited[1].split('/'); 
+ new_splited[0] = 'n'; 
+ img_src = splited[0] + split_by + new_splited.join('/'); 
+  let parent = image_el.parentNode; 
+ let wrapper = document.createElement('div'); 
+ wrapper.className = image_el.className + ' lottie_wrapper'; 
+  let new_lottie_src = img_src.substr(0, img_src.length - 4) + '.json'; 
+  let new_lottie_element = document.createElement('lottie-player'); 
+ new_lottie_element.setAttribute('background', 'transparent'); 
+ new_lottie_element.setAttribute('speed', '1'); 
+ new_lottie_element.setAttribute('loop', '1'); 
+ new_lottie_element.setAttribute('autoplay', '1'); 
+ new_lottie_element.setAttribute('src', new_lottie_src); 
+  var elem_css = get_element_css(image_el); 
+  var el_width = get_property_from_css(elem_css, 'width'); 
+ var el_height = get_property_from_css(elem_css, 'height'); 
+ var el_max_width = get_property_from_css(elem_css, 'max-width'); 
+ var el_max_height = get_property_from_css(elem_css, 'max-height'); 
+  if (el_width || el_height) { 
+ new_lottie_element.style.cssText = el_width + el_max_width + el_max_height; 
+ wrapper.style.cssText = el_width + el_height + el_max_width + el_max_height; 
+ } else { 
+ let width = image_el.getAttribute('width'); 
+ let height = image_el.getAttribute('height'); 
+  new_lottie_element.setAttribute('aspect-ratio', width / height); 
+ new_lottie_element.style.width = width + 'px'; 
+  wrapper.style.width = width + 'px'; 
+ wrapper.style.height = height + 'px'; 
+ } 
+  if (parent.tagName.toLowerCase() === 'picture') { 
+ image_el.parentNode.replaceChild(new_lottie_element, image_el); 
+ return; 
+ } 
+  new_lottie_element.style.position = 'absolute'; 
+ new_lottie_element.style.top = '0'; 
+ new_lottie_element.style.left = '0'; 
+ new_lottie_element.style.zIndex = '1'; 
+  parent.replaceChild(wrapper, image_el); 
+  if (image_el.classList.contains('lazyloaded')) { 
+ image_el.classList.remove('lazyloaded') 
+ } 
+  wrapper.appendChild(image_el); 
+  image_el.style.zIndex = '2'; 
+  wrapper.appendChild(new_lottie_element); 
+  new_lottie_element.addEventListener('ready', e => { 
+ e.target.previousElementSibling.style.transition = 'opacity 0s'; 
+ e.target.previousElementSibling.style.opacity = 0; 
+ e.target.previousElementSibling.style.animation = 'none'; 
+ }); 
+} 
+ run_later(function() { 
+ let end_phrase = '-lottie.svg'; 
+ let end_length = end_phrase.length; 
+  var all_images = document.querySelectorAll('img'); 
+ var all_lottie_images_elements = []; 
+ for (var image_el of all_images) { 
+ let img_src = image_el.getAttribute('data-src'); 
+  if (img_src == null) { 
+ img_src = image_el.getAttribute('src'); 
+ if (img_src == null) { 
+ continue; 
+ } 
+ } 
+ if (img_src.substr(-end_length) === end_phrase) { 
+ all_lottie_images_elements.push(image_el); 
+ } 
+ } 
+  if (all_lottie_images_elements.length === 0) { 
+ return; 
+ } 
+  load_js('/cdn/js/lottiefiles/lottie-player.js', function() { 
+ is_lottie_loaded = 1; 
+ for (var image_el of all_lottie_images_elements) { 
+ let img_src = image_el.getAttribute('data-src'); 
+ if (img_src != null) { 
+ if (!image_el.classList.contains('lazyloaded')) { 
+ continue; 
+ } 
+  } 
+  img_src = image_el.getAttribute('src'); 
+  set_lottie_image(image_el, img_src); 
+  } 
+ }); 
+})
+ } catch(ex){ console.log('error in module:, error: ' + ex.message); }</script><meta name="google-site-verification" content="M6S3D34e14h5hN-AsZo5SHK5z9_K1plr1Ew4IA16fq8"> 
+ <script> add_plugin("https://www.googletagmanager.com/gtag/js?id=AW-1033708525"); run_later(function(){ 
+ window.dataLayer = window.dataLayer || []; 
+ function gtag(){dataLayer.push(arguments);} 
+ gtag('set', 'linker', { 
+ 'domains': ['admin.yallastore.co.il'] 
+ }); 
+  gtag('js', new Date()); 
+  gtag('config', 'AW-1033708525'); 
+}); </script>
+ 
+
+ <div id="page" style="position:relative">
+  <div id="page-wrapper" class="right rtl"><style>@media (max-width: 767px){#id_464ad3c2bffc6fe97f50ccfd1ced68ee .mobile_view_buttons{display: block !important; padding-bottom: 10px; text-align: left;}}</style> <section class="reset_class" id="id_464ad3c2bffc6fe97f50ccfd1ced68ee" style="content-visibility:visible;" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=";"><style>#id_464ad3c2bffc6fe97f50ccfd1ced68ee .main-navbar{box-shadow:none;}</style><div class="" style="">
+<header style="z-index:1;position:relative">
+  <nav class="navbar-header scrolling-navbar top-nav-collapse">
+  <div class="top-menu container-fluid width-padding">
+  <div class="secondary-menu row d-md-visible">
+ <ul class="navbar navbar-social-icons">
+ <li class="nav-link"><i class="icon icon-facebook"></i></li>
+ <li class="nav-link"><i class="icon icon-youtube"></i></li>
+ <li class="nav-link"><i class="icon icon-instagram"></i></li>
+ <li class="nav-link"><i class="icon icon-linkedin"></i></li>
+ </ul>
+ </div>
+ </div>
+  <div class="bottom-menu container-fluid width-padding">
+ <div class="row">
+ <div class="navbar-brand col-md-2 col-5" style="padding-top:15px;padding-bottom:15px;">
+ <a href="/" class="navbar-brand__img">
+ <img width="355" height="270" style="aspect-ratio: 355 / 270;" src="https://sites.yalla.co.il/stores/20207/n/1645475168-1725405770012735.png" alt="LOGO_ALT::]">
+ </a>
+ </div>
+  <div class="navbar-mobile d-md-none col-2 offset-5">
+ <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="animated-icon2">
+ <span></span><span></span><span></span><span></span>
+ </div>
+ </button>
+ </div>
+  <div class="primary-menu col-12 col-md-10">
+ <div class="main-navbar collapse navbar-collapse">
+  <ul class="navbar-nav">
+  <li class="nav-item">
+ <a class="nav-link" href="https://sites.yalla.co.il/contact"> יצירת קשר </a>
+ </li>
+  </ul>
+ <div class="navbar-info" style="text-align:right">
+ <a class="btn btn-common btn-login register_btn" style="background-color: #e7366e;margin-left: 10px;" href="https://sites.yalla.co.il/contact">
+ <span> פתיחת אתר </span>
+ </a>
+ <a class="btn btn-outline-primary btn-websites my_websites_btn" href="https://admin.yallastore.co.il/account/login.php" target="_blank">
+ <span> התחברות למערכת החדשה <img width="35" height="20" style="aspect-ratio: 355 / 270;" src="https://sites.yalla.co.il/stores/20207/n/1645475168-1725405770012735.png"> </span>
+ </a>
+ <a style="display:block" class="btn btn-outline-primary btn-websites old_yalla_admin_btn" href="https://www.yalla.co.il/yala/" target="_blank">
+ <span> התחברות למערכת הישנה <img width="50" height="15" style="aspect-ratio: 220 / 65;" src="https://sites.yalla.co.il/stores/20207/n/1649458497-1729582593576773.png"> </span>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+  </div>
+ <div class="d-none mobile_view_buttons">
+ <a class="btn btn-common btn-login register_btn" href="https://admin.yallastore.co.il/templates/">
+ <span> פתיחת אתר </span>
+ </a>
+ <a class="btn btn-outline-primary btn-websites my_websites_btn" href="https://admin.yallastore.co.il/account/login.php" target="_blank">
+ <span> התחברות למערכת החדשה <img width="35" height="20" style="aspect-ratio: 355 / 270;" src="https://sites.yalla.co.il/stores/20207/n/1645475168-1725405770012735.png"> </span>
+ </a>
+ <a style="display:block" class="btn btn-outline-primary btn-websites old_yalla_admin_btn" href="https://www.yalla.co.il/yala/" target="_blank">
+ <span> התחברות למערכת הישנה <img width="50" height="15" style="aspect-ratio: 220 / 65;" src="https://sites.yalla.co.il/stores/20207/n/1649458497-1729582593576773.png"> </span>
+ </a>
+ </div>
+  </nav>
+ </header>
+</div></div></section><style></style><style>#id_a1a251622d728ce609b0dda472993852 .section-padding-top{padding-top: 25px;}#id_a1a251622d728ce609b0dda472993852 .btn-primary{background: linear-gradient(to right,#ff3d00 0,#e20069 100%); text-shadow: 1px 1px 0px #0e0e0e;}#id_a1a251622d728ce609b0dda472993852 .bannerimg__star{top: 40%!important;}#id_a1a251622d728ce609b0dda472993852 .bannerimg__text{display:none;}#id_a1a251622d728ce609b0dda472993852 .move1{animation-name: none!important;}#id_a1a251622d728ce609b0dda472993852 .bannerimg{min-height:185px!important;}</style><style>#id_04788d6121608263769302d0d6045d85 .testinews-item{background: white;}</style><style>#id_a9e443bb9b34645f5d501a1a82195e7b .title{margin-bottom: 0.5rem; font-size: 1.5rem;}@media (min-width: 768px){#id_a9e443bb9b34645f5d501a1a82195e7b .wz_homepage_articles{grid-template-columns: repeat(2, 1fr);}}@media (max-width: 768px){#id_a9e443bb9b34645f5d501a1a82195e7b .wz_homepage_articles{grid-template-columns: repeat(1, 1fr);}}</style> <section class="reset_class" id="id_a1a251622d728ce609b0dda472993852" style="content-visibility:visible;" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=";padding-top:50px;"><style></style><div class="" style="">
+<section id="banner" class="banner section-padding-top">
+  <div class="container-fluid width-padding">
+ <div class="row">
+ <div class="col-12 col-md-5 md-order-1">
+ <div class="page-banner disp_fl_col">
+ <div class="page-banner_title">
+ <h1 class="wow animate__fadeInUp" style="animation-play-state: running; visibility: visible; animation-name: fadeInUp;">הקמת חנות וירטואלית מקצועית ב YALLA!</h1>
+ <p class="wow animate__fadeInUp" data-wow-delay="0.1s" style="animation-play-state: running; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">✓ מערכת ניהול קלה ובעברית
+<br>
+✓ תהליך הקמה מהיר ובמחיר תחרותי
+<br>
+✓ ציון Google הגבוה בעולם
+<br>
+ </p>
+  </div>
+ <div class="page-banner_btn">
+ <a class="btn btn-primary wow animate__fadeInUp" href="https://sites.yalla.co.il/contact" style="animation-play-state: running; visibility: visible; animation-name: fadeInUp;"> 
+ <span>לתאום פגישת יעוץ חינם &gt; </span>
+  </a>
+ </div>
+ </div>
+ </div>
+ <div class="col-12 col-md-7 col-lg-6 offset-lg-1">
+  <div class="top-menu container-fluid width-padding">
+  </div>
+  <div class="bannerimg">
+ <div class="bannerimg__img">
+ <img src="https://sites.yalla.co.il/stores/20207/n/1646586575-1726571164726314.svg" alt="photo" class="bannerimg_3 wow animate__fadeInDown" data-wow-delay="0.1s" style="animation-play-state: running; visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">
+  </div>
+  <div style="margin-top: 16% !important; animation-play-state: running; visibility: visible; animation-delay: 0.25s; animation-name: fadeInDown;" class="bannerimg__text bannerimg__star bannerimg_2 wow animate__fadeInDown animate__animated" data-wow-delay=".25s">
+ <p>"לא האמנו כמה זה פשוט להקים חנות, ולמכור באינטרנט"<br></p><div><b>מרים ועדן מיארה -</b></div><div>בעלי חנות "עמנואל" - למכירת מטפחות ראש מעוצבות</div><p></p>
+  </div>
+  </div>
+ </div>
+ </div>
+ </div>
+ </section>
+</div></div></section>
+ <section class="reset_class" id="id_04788d6121608263769302d0d6045d85" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=";padding-top:50px;"><style></style><div class="" style="">
+ <section id="testinews" class="testinews section-padding">
+ <div class="container-fluid width-padding">
+ <div class="row">
+  <div class="col-12 col-md-3">
+ <div class="testinews-item">
+ <div class="starsicons wow animate__fadeInDown" data-wow-delay=".2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+ <div class="stars-yellow wow animate__fadeInDown" data-wow-delay=".2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;"></div>
+ </div>
+ <div class="testinews-img">
+ <img class="img-fluid lazyloaded" src="/stores/20207/n/1646745978-1726738310671545.png" data-src="/stores/20207/n/1646745978-1726738310671545.png" alt="TheMarker">
+ </div>
+ <div class="testinews-text">
+ <p>Yalla בונה אתרים עם ביצועים מקסימליים</p>
+ </div>
+ </div>
+ </div> 
+  <div class="col-12 col-md-3">
+ <div class="testinews-item">
+ <div class="starsicons wow animate__fadeInDown" data-wow-delay=".5s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.5s; animation-name: none;">
+ <div class="stars-yellow wow animate__fadeInDown" data-wow-delay=".5s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.5s; animation-name: none;"></div>
+ </div>
+ <div class="testinews-img">
+ <img class="img-fluid lazyloaded" src="/stores/20207/n/1624283018-1703184190737664.png" data-src="/stores/20207/n/1624283018-1703184190737664.png" alt="globes">
+ </div>
+ <div class="testinews-text">
+ <p>Yalla אחת מ-5 המגמות הכי חמות של קניות באינטרנט</p>
+ </div>
+ </div>
+ </div>
+  <div class="col-12 col-md-3">
+ <div class="testinews-item">
+ <div class="starsicons wow animate__fadeInDown" data-wow-delay=".5s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.5s; animation-name: none;">
+ <div class="stars-yellow wow animate__fadeInDown" data-wow-delay=".5s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.5s; animation-name: none;"></div>
+ </div>
+ <div class="testinews-img">
+ <img class="img-fluid lazyloaded" src="/stores/20207/n/1624283018-1703184190652147.png" data-src="/stores/20207/n/1624283018-1703184190652147.png" alt="calcalist">
+ </div>
+ <div class="testinews-text">
+ <p>Yalla אחת מ-10 האתרים שכל בעל עסק חייב להכיר</p>
+ </div>
+ </div>
+ </div>
+  <div class="col-12 col-md-3">
+ <div class="testinews-item">
+ <div class="starsicons wow animate__fadeInDown" data-wow-delay=".5s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.5s; animation-name: none;">
+ <div class="stars-yellow wow animate__fadeInDown" data-wow-delay=".5s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.5s; animation-name: none;"></div>
+ </div>
+ <div class="testinews-img">
+ <img class="img-fluid lazyloaded" src="/stores/20207/n/1646586847-1726571450653166.png" data-src="/stores/20207/n/1646586847-1726571450653166.png" alt="Allmarketing">
+ </div>
+ <div class="testinews-text">
+ <p>מערכת Yalla היא פלטפורמת המכירות המובילה בישראל</p>
+ </div>
+ </div>
+ </div>
+  </div>
+ </div>
+ </section>
+ </div></div></section>
+ <section class="reset_class" id="id_747f993c73069c58068740d831ccc661" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code wz1" style=""><style></style><div class="" style=""><h2 style="text-align:center;">לקוחות מספרים (סרטונים נוספים למטה):</h2></div></div></section>
+ <section class="reset_class" id="id_15f9a3f1e281c9a9648a1adb7d1af88c" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code wz1" style=";padding-top:10px;padding-bottom:30px;"><style>#id_15f9a3f1e281c9a9648a1adb7d1af88c .container{background: #6a058d; padding: 23px 25px 19px; border-radius: 20px; box-shadow: 5px 6px 5px 0px rgb(0 0 0 / 10%) !important;}#id_15f9a3f1e281c9a9648a1adb7d1af88c iframe{border-radius: 20px;}</style><div class="" style=""><div class="container">
+ <iframe id="youtube-block-iframe_id_15f9a3f1e281c9a9648a1adb7d1af88c" title="Youtube video" width="100%" height="500" src="https://www.youtube-nocookie.com/embed/WpJcJ3g85ic" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div></div></div></section>
+ <section class="reset_class" id="id_20c1bdcfe6df3007dfcc4bb4f1bc538c" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=""><style></style><div class="" style="">
+ <section id="about2" class="about2 section-padding">
+ <div class="container-fluid width-padding">
+ <div class="row">
+ <div class="col-12 col-md-6">
+ <div class="about2-content disp_fl_col">
+ <div class="section-title-header w-100">
+ <h2 class="section-title wow animate__fadeInUp" data-wow-delay="0.1s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.1s; animation-name: none;">
+ ב YALLA פאנל ניהול שהוא כיף אמיתי
+ </h2>
+ </div>
+ <div class="about2-text wow animate__fadeInUp" data-wow-delay=".2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+ <p>
+ כל מה שראיתם באתרים הגדולים - קופונים, הנחות, תוספות לרכישה, הרשמה לתפוצה, מחיר
+ משלוח במבצע או בחינם לפי גובה הסל, סטריפים בראש האתר עם קוד קופון, פופאפ בכניסה
+ לאתר עם מבצעים, אפשרות ללקוח להתעדכן דרך המערכת אחר סטטוס ההזמנות (מבלי להתקשר
+ אליכם) ועוד ועוד.. אז כל זה יהיה בידיכם, כך שתוכלו למכור בקלות, בכיף והרבה.
+ </p>
+ </div>
+ <div class="about2-btn">
+ <a class="btn btn-common wow animate__fadeInUp" href="https://sites.yalla.co.il/contact" style="animation-play-state: running; visibility: hidden; animation-name: none;">
+ <span> לתאום שיחת יעוץ ללא התחייבות לחץ כאן </span>
+ </a>
+ </div>
+ </div>
+ </div>
+ <div class="background-circle"></div>
+ <div class="col-12 col-md-6 no-padding">
+ <div class="about2-image disp_fl_col_cen">
+ <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625621230-1704587407594063.png" alt="about3" class="about2-image_3 lazyload wow animate__fadeInUp" style="animation-play-state: running; visibility: hidden; animation-name: none;">
+  </div>
+ </div>
+ </div>
+ </div>
+  </section>
+ </div></div></section>
+ <section class="reset_class" id="id_31b9a056d95ad691552bfc55b0a66f08" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=";"><style>#id_31b9a056d95ad691552bfc55b0a66f08 .advantage-img{background: white; padding: 10px; border-radius: 20px;}</style><div class="" style="">
+ <section id="advantage" class="advantage section-padding">
+ <div class="container-fluid width-padding">
+ <div class="row">
+ <div class="col-12 col-md-6 offset-md-3" style="background: white;border-radius: 10px;padding-top: 20px;margin-bottom:20px;">
+ <div class="section-title-header text-center">
+ <h2 class="section-title wow animate__fadeInUp" data-wow-delay="0s" style="animation-play-state: running; visibility: hidden; animation-delay: 0s; animation-name: none;">
+ עם יאללה אתם תמיד בקידמה
+ </h2>
+ <p class="wow animate__fadeInDown" data-wow-delay="0.2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+ יאללה פעילה למעלה מ10 שנים במהלכן היתה פורצת דרך וחדשנית. 
+<br>
+ על גבי הפלטפורמה כבר
+ בוצעו רכישות על ידי מאות אלפי קונים.
+ </p>
+ </div>
+ </div>
+ </div>
+ <div class="row">
+ <div class="col-12 col-lg-4">
+ <div class="advantage-item">
+ <div class="advantage-img">
+ <img class="img-fluid lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283018-1703184190649522.jpeg" alt="bullets">
+ </div>
+ <div class="advantage-text">
+ <h3>Yalla מותאמת לקידום אתרים/SEO ברמה שלא הכרתם!</h3>
+ <p>
+ מיקומים יותר טובים וציוני גוגל יותר גבוהים שווים המון כסף! הם עוזרים להביא יותר
+ גולשים, וגם עוזרים להפוך יותר גולשים לקונים. מערכת Yalla מותאמת בDNA שלה לקידום
+ אתרים, וציוני ה SEO של Yalla בGoogle, גבוהים באופן ניכר ממערכות מתחרות.
+ </p>
+ </div>
+ </div>
+ </div>
+ <div class="col-12 col-lg-4">
+ <div class="advantage-item">
+ <div class="advantage-img">
+ <img class="img-fluid lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283023-1703184195562213.jpeg" alt="bullets">
+ </div>
+ <div class="advantage-text">
+ <h3>רספונסיביות מלאה - התאמה לכל מכשיר, ולכל מידת מסך!</h3>
+ <p>
+ כיום הגולשים יכולים להגיע מהסמארטפון, מטאבלט, מחשב וממגוון מכשירים. מערכת Yalla
+ מתאימה לכל סוג מכשיר, ולכל מידת מסך. המערכת יודעת להתאים את עצמה כך שתיראה באופן
+ מיטבי בסמארטפון, בטאבלטים, במחשבים ניידים, וגם במחשבי ביתי, וכל מה שבינהם.
+ </p>
+ </div>
+ </div>
+ </div>
+ <div class="col-12 col-lg-4">
+ <div class="advantage-item">
+ <div class="advantage-img">
+ <img class="img-fluid lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283016-1703184188501958.jpeg" alt="bullets">
+ </div>
+ <div class="advantage-text">
+ <h3>ניהול עצמי, סופר-פשוט ובעברית מלאה!</h3>
+ <p>לכל תכונה יש אייקון גדול בפאנל הניהול, ודרכו מנהלים את התכונה.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ </div></div></section>
+ <section class="reset_class" id="id_83b027ba0c20dbe31675d04666816171" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=""><style></style><div class="" style="">
+<section>
+ <div id="carousel" class="carousel">
+ <div class="section-title-header width-padding">
+ <h3 class="section-title wow animate__fadeInUp" data-wow-delay="0.2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">אתרים חמים מהתנור</h3>
+ </div>
+  <div class="swiper-container carousel1-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl">
+ <div class="swiper-wrapper" style="transform: translate3d(1543.5px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="2" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330967650.jpeg" data-lightbox="image-2" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330967650.jpeg" alt="Slide 2"></a>
+ </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="3" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330967826.jpeg" data-lightbox="image-3" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330967826.jpeg" alt="Slide 3"></a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330968650.jpeg" data-lightbox="image-4" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330968650.jpeg" alt="Slide 4"></a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620204-1704586331342425.jpeg" data-lightbox="image-5" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620204-1704586331342425.jpeg" alt="Slide 5"></a>
+ </div>
+ <div class="swiper-slide" data-swiper-slide-index="0" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620201-1704586328675417.jpeg" data-lightbox="image-1" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620201-1704586328675417.jpeg" alt="Slide 1"></a>
+ </div>
+ <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330666338.jpeg" data-lightbox="image-1" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330666338.jpeg" alt="Slide 1"></a>
+ </div>
+ <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330967650.jpeg" data-lightbox="image-2" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330967650.jpeg" alt="Slide 2"></a>
+ </div>
+ <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330967826.jpeg" data-lightbox="image-3" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330967826.jpeg" alt="Slide 3"></a>
+ </div>
+ <div class="swiper-slide" data-swiper-slide-index="4" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330968650.jpeg" data-lightbox="image-4" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330968650.jpeg" alt="Slide 4"></a>
+ </div>
+ <div class="swiper-slide" data-swiper-slide-index="5" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620204-1704586331342425.jpeg" data-lightbox="image-5" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620204-1704586331342425.jpeg" alt="Slide 5"></a>
+ </div>
+  <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620201-1704586328675417.jpeg" data-lightbox="image-1" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620201-1704586328675417.jpeg" alt="Slide 1"></a>
+ </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="1" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330666338.jpeg" data-lightbox="image-1" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330666338.jpeg" alt="Slide 1"></a>
+ </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="2" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330967650.jpeg" data-lightbox="image-2" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330967650.jpeg" alt="Slide 2"></a>
+ </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="3" style="width: 252.25px; margin-left: 5px;">
+ <a class="lightbox" href="/stores/20207/n/1625620203-1704586330967826.jpeg" data-lightbox="image-3" title="">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1625620203-1704586330967826.jpeg" alt="Slide 3"></a>
+ </div></div>
+  <div class="swiper-pagination"></div>
+ <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+ </div>
+ </section>
+ </div></div></section>
+ <section class="reset_class" id="id_2b63e3334367029c0ffbd2d22b347399" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=""><style></style><div class="" style="">
+ <section id="carousel2" class="carousel2 section-padding">
+ <div class="container-fluid width-padding">
+ <div class="row">
+ <div class="col-12 no-padding">
+ <div class="section-title-header">
+ <h3 class="section-title wow animate__fadeInUp" data-wow-delay="0.2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">כל התכונות שאתם צריכים כדי להצליח</h3>
+ <p class="wow animate__fadeInDown" data-wow-delay="0.2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+ ב-YALLA הכל כבר מותקן ומתאים לשימושכם, לדוגמא:
+ </p>
+ </div>
+ </div>
+ </div>
+  <div class="swiper-container carousel2-container swiper-container-initialized swiper-container-horizontal swiper-container-rtl">
+ <div class="swiper-wrapper" style="transform: translate3d(1232px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car2-img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194411688.png" alt="Slide 7">
+ <div class="car2-text">
+ <h3>דומיין</h3>
+ <p>ניתן לחבר לאתר כתובת דומיין משלך בכל סיומת שתבחר</p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194941871.png" alt="Slide 2">
+ <div class="car2-text">
+ <h3>CDN</h3>
+ <p>שימוש במערכת שרתים מבוזרים לתוכן סטטי מאפשרת זמני טעינה גבוהים מאוד</p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194745117.png" alt="Slide 3">
+ <div class="car2-text">
+ <h3>SSL/HTTPS</h3>
+ <p>כל דפי האתר מאובטחים ונגישים מכתובת קישור מאובטח SSL/HTTPS</p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194660819.png" alt="Slide 4">
+ <div class="car2-text">
+ <h3>PAYPAL</h3>
+ <p>
+ ניתן לקבל תשלומים באתרי יאללה במגוון צורות כולל פייפאל
+ </p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194577818.png" alt="Slide 5">
+ <div class="car2-text">
+ <h3>SEO</h3>
+ <p>
+אתרי יאללה מותאמים לקידום אתרים SEO ברמה מהגבוהות בעולם
+ </p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="5" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194491722.png" alt="Slide 6">
+ <div class="car2-text">
+ <h3>Google Maps</h3>
+ <p>מפות גוגל מוטמעות במערכת, ניתן לשלב אותן לדוגמא בטופס יצירת הקשר של האתר</p>
+ </div>
+ </a>
+ </div>
+ <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car2-img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194411688.png" alt="Slide 7">
+ <div class="car2-text">
+ <h3>דומיין</h3>
+ <p>ניתן לחבר לאתר כתובת דומיין משלך בכל סיומת שתבחר</p>
+ </div>
+ </a>
+ </div>
+ <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194941871.png" alt="Slide 2">
+ <div class="car2-text">
+ <h3>CDN</h3>
+ <p>שימוש במערכת שרתים מבוזרים לתוכן סטטי מאפשרת זמני טעינה גבוהים מאוד</p>
+ </div>
+ </a>
+ </div>
+ <div class="swiper-slide" data-swiper-slide-index="2" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194745117.png" alt="Slide 3">
+ <div class="car2-text">
+ <h3>SSL/HTTPS</h3>
+ <p>כל דפי האתר מאובטחים ונגישים מכתובת קישור מאובטח SSL/HTTPS</p>
+ </div>
+ </a>
+ </div>
+ <div class="swiper-slide" data-swiper-slide-index="3" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194660819.png" alt="Slide 4">
+ <div class="car2-text">
+ <h3>PAYPAL</h3>
+ <p>
+ ניתן לקבל תשלומים באתרי יאללה במגוון צורות כולל פייפאל
+ </p>
+ </div>
+ </a>
+ </div>
+ <div class="swiper-slide" data-swiper-slide-index="4" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194577818.png" alt="Slide 5">
+ <div class="car2-text">
+ <h3>SEO</h3>
+ <p>
+אתרי יאללה מותאמים לקידום אתרים SEO ברמה מהגבוהות בעולם
+ </p>
+ </div>
+ </a>
+ </div>
+ <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="5" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194491722.png" alt="Slide 6">
+ <div class="car2-text">
+ <h3>Google Maps</h3>
+ <p>מפות גוגל מוטמעות במערכת, ניתן לשלב אותן לדוגמא בטופס יצירת הקשר של האתר</p>
+ </div>
+ </a>
+ </div>
+  <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car2-img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194411688.png" alt="Slide 7">
+ <div class="car2-text">
+ <h3>דומיין</h3>
+ <p>ניתן לחבר לאתר כתובת דומיין משלך בכל סיומת שתבחר</p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194941871.png" alt="Slide 2">
+ <div class="car2-text">
+ <h3>CDN</h3>
+ <p>שימוש במערכת שרתים מבוזרים לתוכן סטטי מאפשרת זמני טעינה גבוהים מאוד</p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194745117.png" alt="Slide 3">
+ <div class="car2-text">
+ <h3>SSL/HTTPS</h3>
+ <p>כל דפי האתר מאובטחים ונגישים מכתובת קישור מאובטח SSL/HTTPS</p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194660819.png" alt="Slide 4">
+ <div class="car2-text">
+ <h3>PAYPAL</h3>
+ <p>
+ ניתן לקבל תשלומים באתרי יאללה במגוון צורות כולל פייפאל
+ </p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194577818.png" alt="Slide 5">
+ <div class="car2-text">
+ <h3>SEO</h3>
+ <p>
+אתרי יאללה מותאמים לקידום אתרים SEO ברמה מהגבוהות בעולם
+ </p>
+ </div>
+ </a>
+ </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5" style="width: 175.333px; margin-left: 30px;">
+ <a href="#">
+ <img class="car-item lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/stores/20207/n/1624283022-1703184194491722.png" alt="Slide 6">
+ <div class="car2-text">
+ <h3>Google Maps</h3>
+ <p>מפות גוגל מוטמעות במערכת, ניתן לשלב אותן לדוגמא בטופס יצירת הקשר של האתר</p>
+ </div>
+ </a>
+ </div></div>
+ <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+ <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
+  <div class="swiper-pagination"></div>
+ <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+  </div>
+ </section>
+ </div></div></section>
+ <section class="reset_class" id="id_c9f7548f2b5b21b1a5f77deb42bfe06e" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code wz1" style=";padding-top:30px;"><style></style><div class="" style=""><h2 style="text-align:center;">בעלי חנויות מספרים על יאללה:</h2></div></div></section>
+ <section class="reset_class" id="id_f6427adab13e247ad6d97b374a5f3e5b" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code wz1" style=";margin-top:50px;"><style>#id_f6427adab13e247ad6d97b374a5f3e5b .container{background: #6a058d; padding: 23px 25px 19px; border-radius: 20px; box-shadow: 5px 6px 5px 0px rgb(0 0 0 / 10%) !important;}#id_f6427adab13e247ad6d97b374a5f3e5b iframe{border-radius: 20px;}</style><div class="" style=""><div class="container">
+ <iframe id="youtube-block-iframe_id_f6427adab13e247ad6d97b374a5f3e5b" title="Youtube video" width="100%" height="500" src="https://www.youtube-nocookie.com/embed/gaasreG5oYw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div></div></div></section>
+ <section class="reset_class" id="id_da19e140451878c4bf34f30d0dd89190" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code wz1" style=";padding-top:50px;"><style>#id_da19e140451878c4bf34f30d0dd89190 .container{background: #6a058d; padding: 23px 25px 19px; border-radius: 20px; box-shadow: 5px 6px 5px 0px rgb(0 0 0 / 10%) !important;}#id_da19e140451878c4bf34f30d0dd89190 iframe{border-radius: 20px;}</style><div class="" style=""><div class="container">
+ <iframe id="youtube-block-iframe_id_da19e140451878c4bf34f30d0dd89190" title="Youtube video" width="100%" height="500" src="https://www.youtube-nocookie.com/embed/zEE-BfjRAx0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div></div></div></section>
+ <section class="reset_class" id="id_a9e443bb9b34645f5d501a1a82195e7b" style="" data-module="" data-is-loop="" data-is-admin-links="1"><div class="outline_container"></div><div class="reset_code wz1" style=";padding-top:50px;padding-bottom:50px;"><style></style><div class="" style="">
+  <div class="container-fluid mt-3">
+ <h2 class="text-center title">כתבות אחרונות מהבלוג שלנו</h2>
+  <div class="wz_homepage_articles d-grid grid-template-col-sm-2 grid-template-col-xl-4 grid-gap-3 mt-3">
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="23599">
+ <a href="https://sites.yalla.co.il/articles/23599/%D7%99%D7%90%D7%9C%D7%9C%D7%94-%D7%97%D7%AA%D7%99%D7%9E%D7%94-%D7%98%D7%95%D7%91%D7%94" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(270 / 355 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="יאללה חתימה טובה" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1645475168-1725405770012735.png">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/23599/%D7%99%D7%90%D7%9C%D7%9C%D7%94-%D7%97%D7%AA%D7%99%D7%9E%D7%94-%D7%98%D7%95%D7%91%D7%94" class="h5 card-link card-title d-block">יאללה חתימה טובה</a>
+ <p class="text-muted mb-0 card-content">קיבלתם חשבונית מ-יאללה חתימה טובה, לא בטוחים מה זה? 
+ שורה זו יכולה להתייחס לשני שירותים שונים: חתימה טובה - פנקס תיווך למתווכים (לפרטים פנו לחתימה טובה). או יאללה - בניית אתרים.אם החשבונית קשורה לבניית אתרים.</p>
+ </div>
+  </div>
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="23125">
+ <a href="https://sites.yalla.co.il/articles/23125/%D7%97%D7%A9%D7%99%D7%91%D7%95%D7%AA%D7%9F-%D7%A9%D7%9C-%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%9E%D7%95%D7%A0%D7%99%D7%98%D7%99%D7%9F-%D7%95%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA-%D7%97%D7%99%D7%95%D7%91%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%AA%D7%A8-%D7%91%D7%99%D7%AA-%D7%94%D7%A2%D7%A1%D7%A7-%D7%95%D7%9C%D7%97%D7%A0%D7%95%D7%AA-%D7%94%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98%D7%99%D7%AA" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(2000 / 3000 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="חשיבותן של בניית מוניטין והמלצות חיוביות לאתר בית העסק ולחנות האינטרנטית" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1675116790-1756487263316927.jpeg">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/23125/%D7%97%D7%A9%D7%99%D7%91%D7%95%D7%AA%D7%9F-%D7%A9%D7%9C-%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%9E%D7%95%D7%A0%D7%99%D7%98%D7%99%D7%9F-%D7%95%D7%94%D7%9E%D7%9C%D7%A6%D7%95%D7%AA-%D7%97%D7%99%D7%95%D7%91%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%AA%D7%A8-%D7%91%D7%99%D7%AA-%D7%94%D7%A2%D7%A1%D7%A7-%D7%95%D7%9C%D7%97%D7%A0%D7%95%D7%AA-%D7%94%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98%D7%99%D7%AA" class="h5 card-link card-title d-block">חשיבותן של בניית מוניטין והמלצות חיוביות לאתר בית העסק ולחנות האינטרנטית</a>
+ <p class="text-muted mb-0 card-content">הרשת מציעה לא מעט פלטפורמות נגישות ונוחות, אשר באמצעותן ניתן לייצר נוכחות בולטת עבור כל עסק ובין היתר: אתר אינטרנט, חנות אינטרנטית, דף נחיתה, עמוד מותג ברשתות החברתיות השונות ועוד.. אחרי שמבינים את החשיבות של הנוכחות ברשת, ניתן להתקדם אל השלבים הבאים – והלא פחות חשובים יצירת מוניטין והמלצות חיוביות לעסק ברשת האינטרנט.</p>
+ </div>
+  </div>
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="20065">
+ <a href="https://sites.yalla.co.il/articles/20065/%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9A-%D7%94%D7%9E%D7%9C%D7%90-%D7%9C%D7%94%D7%A7%D7%9E%D7%AA-%D7%97%D7%A0%D7%95%D7%AA-%D7%95%D7%99%D7%A8%D7%98%D7%95%D7%90%D7%9C%D7%99%D7%AA" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(439 / 659 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="המדריך המלא להקמת חנות וירטואלית" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1628683213-1707798129056875.jpeg">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/20065/%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9A-%D7%94%D7%9E%D7%9C%D7%90-%D7%9C%D7%94%D7%A7%D7%9E%D7%AA-%D7%97%D7%A0%D7%95%D7%AA-%D7%95%D7%99%D7%A8%D7%98%D7%95%D7%90%D7%9C%D7%99%D7%AA" class="h5 card-link card-title d-block">המדריך המלא להקמת חנות וירטואלית</a>
+ <p class="text-muted mb-0 card-content">בעידן הדיגיטל שהתפתח בעשור האחרון, העבירו עסקים רבים את פעילותם לרשת. כחלק מכך, התעדכנה אסטרטגיית הפעילות במגוון התחומים והענפים במשק בהתאם, ובכללה גם פעילות המכירות. כך, התפתח עולם חדש ומהפכני של מכירות, הנגיש לכל אחד, בכל מקום ובכל שעה – עולם החנויות הוירטואליות.</p>
+ </div>
+  </div>
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="20070">
+ <a href="https://sites.yalla.co.il/articles/20070/%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9A-%D7%9C%D7%97%D7%95%D7%95%D7%99%D7%99%D7%AA-%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9-%D7%91%D7%97%D7%A0%D7%95%D7%AA-%D7%94%D7%95%D7%99%D7%A8%D7%98%D7%95%D7%90%D7%9C%D7%99%D7%AA" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(788 / 1181 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="המדריך לחוויית משתמש בחנות הוירטואלית" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1628683472-1707798400939991.jpeg">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/20070/%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9A-%D7%9C%D7%97%D7%95%D7%95%D7%99%D7%99%D7%AA-%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9-%D7%91%D7%97%D7%A0%D7%95%D7%AA-%D7%94%D7%95%D7%99%D7%A8%D7%98%D7%95%D7%90%D7%9C%D7%99%D7%AA" class="h5 card-link card-title d-block">המדריך לחוויית משתמש בחנות הוירטואלית</a>
+ <p class="text-muted mb-0 card-content">בעידן הקורונה, הפך המסחר ברשת באמצעות חנויות דיגיטליות למובן מאליו ולפתרון האידיאלי עבור עסקים, להגדלת החשיפה, קהל היעד, המכירות והרווחים של העסק. עם הפיכתה של החנות הוירטואלית לנכס דיגיטלי החובה לכל עסק, נוצר גם הצורך בביצוע התאמה לקהל היעד להנעתו לפעולה וליצירת חווית משתמש. </p>
+ </div>
+  </div>
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="22888">
+ <a href="https://sites.yalla.co.il/articles/22888/%D7%90%D7%99%D7%9A-%D7%9E%D7%A4%D7%A2%D7%99%D7%9C%D7%99%D7%9D-%D7%97%D7%A9%D7%91%D7%95%D7%A0%D7%99%D7%95%D7%AA-%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%98%D7%99%D7%95%D7%AA-%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%A1%D7%9C%D7%99%D7%A7%D7%94-PAYME" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(372 / 800 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="איך מפעילים חשבוניות אוטומטיות ללקוחות סליקה PAYME" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1647457993-1727484913010927.png">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/22888/%D7%90%D7%99%D7%9A-%D7%9E%D7%A4%D7%A2%D7%99%D7%9C%D7%99%D7%9D-%D7%97%D7%A9%D7%91%D7%95%D7%A0%D7%99%D7%95%D7%AA-%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%98%D7%99%D7%95%D7%AA-%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%A1%D7%9C%D7%99%D7%A7%D7%94-PAYME" class="h5 card-link card-title d-block">איך מפעילים חשבוניות אוטומטיות ללקוחות סליקה PAYME</a>
+ <p class="text-muted mb-0 card-content">מדריך קצר להפעלת הפקת חשבוניות אוטומטיות לאחר התשלום, ללקוחות payMe</p>
+ </div>
+  </div>
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="22887">
+ <a href="https://sites.yalla.co.il/articles/22887/%D7%90%D7%99%D7%9A-%D7%9E%D7%AA%D7%A7%D7%A0%D7%99%D7%9D-3D-SECURE-%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%A1%D7%9C%D7%99%D7%A7%D7%94-PAYME" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(372 / 800 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="איך מתקנים 3D SECURE ללקוחות סליקה PAYME" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1647457711-1727484616837922.png">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/22887/%D7%90%D7%99%D7%9A-%D7%9E%D7%AA%D7%A7%D7%A0%D7%99%D7%9D-3D-SECURE-%D7%9C%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%A1%D7%9C%D7%99%D7%A7%D7%94-PAYME" class="h5 card-link card-title d-block">איך מתקנים 3D SECURE ללקוחות סליקה PAYME</a>
+ <p class="text-muted mb-0 card-content">מדריך קצר להפעלת סליקה בטוחה ומאובטחת 3D-SECURE (3DS) דרך חנות האפליקציות של סליקת PAYME</p>
+ </div>
+  </div>
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="22886">
+ <a href="https://sites.yalla.co.il/articles/22886/%D7%9E%D7%A2%D7%9B%D7%A9%D7%99%D7%95-%D7%91%D7%99%D7%90%D7%9C%D7%9C%D7%94-%D7%90%D7%A4%D7%A9%D7%A8%D7%95%D7%AA-%D7%9C-3DSECURE---%D7%A2%D7%A1%D7%A7%D7%94-%D7%9E%D7%91%D7%95%D7%98%D7%97%D7%AA-%D7%95%D7%9E%D7%90%D7%95%D7%91%D7%98%D7%97%D7%AA" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(1212 / 2000 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="מעכשיו ביאללה אפשרות ל 3DSECURE - עסקה מבוטחת ומאובטחת" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1647369120-1727391723144087.png">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/22886/%D7%9E%D7%A2%D7%9B%D7%A9%D7%99%D7%95-%D7%91%D7%99%D7%90%D7%9C%D7%9C%D7%94-%D7%90%D7%A4%D7%A9%D7%A8%D7%95%D7%AA-%D7%9C-3DSECURE---%D7%A2%D7%A1%D7%A7%D7%94-%D7%9E%D7%91%D7%95%D7%98%D7%97%D7%AA-%D7%95%D7%9E%D7%90%D7%95%D7%91%D7%98%D7%97%D7%AA" class="h5 card-link card-title d-block">מעכשיו ביאללה אפשרות ל 3DSECURE - עסקה מבוטחת ומאובטחת</a>
+ <p class="text-muted mb-0 card-content">מעכשיו ביאללה אפשרות ל 3DSECURE - עסקה מבוטחת. לקוח מכחיש עסקה? מישהו שילם באתר עם אשראי גנוב? ניסה לעקוץ? העסקה מבוטחת ואתם מקבלים את הכסף בכל מקרה.</p>
+ </div>
+  </div>
+  <div class="card card-style1 admin_link" data-admin-module="articles" data-admin-id="22835">
+ <a href="https://sites.yalla.co.il/articles/22835/%D7%9E%D7%94-%D7%96%D7%94-HTTP-3-%D7%95%D7%9E%D7%94-%D7%96%D7%94-%D7%A0%D7%95%D7%AA%D7%9F-%D7%9C%D7%A0%D7%95--" class="img img-zoom-in">
+ <div class="img_container" style="padding-top: calc(559 / 838 * 100%);">
+ <img class="img_inner w-100 lazyload" alt="מה זה HTTP/3 ומה זה נותן לנו ?" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://sites.yalla.co.il/stores/20207/zoom/1645992991-1725948746664319.png">
+ </div>
+  </a>
+  <div class="card-body">
+ <a href="https://sites.yalla.co.il/articles/22835/%D7%9E%D7%94-%D7%96%D7%94-HTTP-3-%D7%95%D7%9E%D7%94-%D7%96%D7%94-%D7%A0%D7%95%D7%AA%D7%9F-%D7%9C%D7%A0%D7%95--" class="h5 card-link card-title d-block">מה זה HTTP/3 ומה זה נותן לנו ?</a>
+ <p class="text-muted mb-0 card-content">לאחרונה השלמנו בYALLA את המעבר ל HTTP/3. באתרים במערכת החדשה – אז מה זה בכלל אומר? מה זה HTTP/3 ומה זה נותן לנו ? 
+</p>
+ </div>
+  </div>
+  </div>
+  </div>
+</div></div></section>
+ <section class="reset_class" id="id_001c9f0deb1d0a9451fa324d5365569c" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=""><style></style><div class="" style="">
+ <section id="calltoact" class="calltoact section-padding">
+ <div class="container-fluid width-padding">
+ <div class="row">
+ <div class="col-12 no-padding">
+ <div class="section-title-header">
+ <h3 class="section-title wow fadeInUp" data-wow-delay="0.2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+ הקמת אתר מכירות המקצועי בישראל
+ </h3>
+ <p class="wow fadeInDown" data-wow-delay="0.2s" style="animation-play-state: running; visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+ אלפי מוכרים כבר פתחו חנות וירטואלית ב-YALLA
+ </p>
+ </div>
+ </div>
+ <div class="calltoact_btn text-center col-12">
+ <a class="btn btn-primary2 wow fadeInUp" href="https://sites.yalla.co.il/contact" style="animation-play-state: running; visibility: hidden; animation-name: none;">
+ <span>לתאום פגישה חינם וללא התחייבות לחץ כאן &gt; </span>
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+ </div></div></section>
+ <section class="reset_class" id="id_fc30ce61583620c10640533a248cd383" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=""><style></style><div class="" style=""><div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+ <div class="modal-content">
+ <div class="modal-body">
+ <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ <span aria-hidden="true">×</span>
+ </button>
+  <div class="embed-responsive embed-responsive-16by9">
+ <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+ </div>
+ </div>
+ </div>
+ </div>
+</div></div></div></section><style>#id_95db49e90aa4dd672b6e70999d5e3838 .item_quantity_text{direction: ltr; float: var(--left);}#cartModal{z-index: 1000000000;}</style> <div class="reset_class" id="id_37c0c4ec890340aacf94fa8fb5431355" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code wz1" style=""><style></style><div class="" style=""><div class="modal fade" id="popup_modal" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-scrollable-NO" role="document">
+ <div class="modal-content">
+ <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ <span aria-hidden="true">×</span>
+ </button>
+ </div>
+ <div class="modal-body">
+ <div id="popup_modal_html"></div>
+ <iframe id="popup_modal_iframe" title="Popup Modal" sandbox="allow-downloads allow-same-origin allow-scripts allow-forms allow-top-navigation allow-modals allow-popups" frameborder="0" src="about:blank" style="display: block; width: 100%; height: 80vh; background-color: white;" onload="this.style.backgroundColor='white';"></iframe>
+ </div>
+  </div>
+ </div>
+</div></div></div></div><section class="reset_class" id="id_96d3eeb9b88c4486f7946876707e0d06" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code u100" style=""><style></style><div class="" style="">
+<section id="footer" class="footer">
+ <div class="container-fluid width-padding">
+ <div class="row footer__menu">
+ <div class="col-12 col-md-3">
+ <div class="footer-item">
+ <img class="footer-logo" src="https://sites.yalla.co.il/stores/20207/n/1640170547-1719843472383214.png" alt="LOGO YALLA">
+ <div class="soc-icons">
+ <a href="https://www.facebook.com/yalla.virtual.stores"> <img src="https://sites.yalla.co.il/stores/20207/n/1624283014-1703184186246136.svg" alt="Facebook"></a>
+ <a href=""><img src="https://sites.yalla.co.il/stores/20207/n/1624283014-1703184186299675.svg" alt="linkedin"> </a>
+ <a href=""> <img src="https://sites.yalla.co.il/stores/20207/n/1624283014-1703184186314626.svg" alt="twitter"></a>
+ <a href=""><img src="https://sites.yalla.co.il/stores/20207/n/1624283014-1703184186298396.svg" alt="instagram"> </a>
+ </div>
+ </div>
+ </div>
+  </div>
+ <div class="row footer__copyright">
+ <div class="col-12">
+ <p>כל הזכויות שמורות לחברת יאללה 2022 (c)</p>
+ </div>
+ </div>
+ </div>
+</section>
+</div></div></section>
+<div class="reset_class" id="id_95db49e90aa4dd672b6e70999d5e3838" style="" data-module="" data-is-loop="" data-is-admin-links=""><div class="outline_container"></div><div class="reset_code wz1" style=""><style></style><div class="" style="">
+<div class="modal fade modal-content-left modal-cart" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-scrollable" role="document">
+ <div class="modal-content">
+ <div class="modal-header border-bottom">
+ <h5 class="modal-title" id="cartModalLabel">העגלה שלך</h5>
+ <button class="btn btn-icon btn-sm btn-text-secondary rounded-circle" type="button" data-dismiss="modal">
+ <i class="wf wf-close"></i>
+ </button>
+ </div>
+ <div class="modal-body scrollbar-width-thin">
+ <ul id="modal_cart_items_ul" class="list-group list-group-flush"></ul>
+  </div>
+ <div class="modal-footer border-top">
+ <div class="mr-auto">
+ <em>סה"כ מחיר</em>
+ <h5 class="mb-0 text-dark font-weight-bold font-condensed" id="modal_total_cart_price"><span data-currency-symbol="">₪</span><span data-price="0" data-currency="ILS" data-currency-converted="ILS">0</span></h5>
+ </div>
+ <a href="/cart" class="btn btn-success">המשך לקניה</a>
+ </div>
+ </div>
+ </div>
+</div>
+ <div class="modal fade" id="cart_uploading_files_modal" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-scrollable-NO" role="document">
+ <div class="modal-content">
+ <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ <span aria-hidden="true">×</span>
+ </button>
+ </div>
+ <div class="modal-body">
+ <iframe id="cart_uploading_files_iframe" title="Upload files to cart modal" sandbox="allow-downloads allow-same-origin allow-scripts allow-forms allow-top-navigation allow-modals allow-popups" frameborder="0" src="about:blank" style="display: block; width: 100%; height: 80vh; background-color: white;" onload="this.style.backgroundColor='white';"></iframe>
+ </div>
+  </div>
+ </div>
+</div>
+ </div></div></div>
+ <div style="text-align: center;" id="footer_copyright"><div>
+<p style="direction:rtl;font-size: 13px;color:white;text-align: center;padding-top:11px;background: #000;padding: 8px;margin: 0;">© 2023 כל הזכויות שמורות. נבנה על ידי 
+<a href="https://www.yalla.co.il/">
+<img data-src="/stores/users/n/77664_60e49a2e31711.svg" style="width: 40px;height:22px;vertical-align: middle;" alt="בניית חנות וירטואלית" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+</a>
+<a href="https://www.yalla.co.il/" style="outline: 0;text-decoration: none;color:white;">בניית אתרים</a>
+| 
+<a href="https://www.yalla.co.il/" style="outline: 0;text-decoration: none;color:white;">בניית חנות וירטואלית</a> 
+| 
+<a href="https://www.webzie.com/" style="outline: 0;text-decoration: none;color:white;">Online store builder</a>
+| 
+<a href="https://www.webzie.com/credits" style="outline: 0;text-decoration: none;color:white;">credits</a>
+</p>
+</div></div></div></div>
+<div id="addons">
+ <div class="addon_reset" data-module-name="12507::WhatsApp-Messanger"><style>#id_89f7869de81270d15c9412d732fb96ce a.desktop{display: inherit;    transition: background-color 0.2s;}#id_89f7869de81270d15c9412d732fb96ce a.desktop svg{transition: 0.2s ease;}#id_89f7869de81270d15c9412d732fb96ce a.desktop:hover svg{transform: scale(1.1);}#id_89f7869de81270d15c9412d732fb96ce a.cellphone{display: none !important;}#id_89f7869de81270d15c9412d732fb96ce a.whatsapp{height: 70px;    width: 70px;    border-radius: 50%;    display: inline-block;    line-height: 100px;    position: fixed;    bottom: 20px;    right: 20px;    z-index: 100;    text-decoration: none;        font-weight: bold;    margin: 0;    text-align: center;    font-size: 0;}@media only screen and (max-width: 767px){#id_89f7869de81270d15c9412d732fb96ce a.cellphone{display: inherit !important;}#id_89f7869de81270d15c9412d732fb96ce a.desktop{display: none !important;}#id_89f7869de81270d15c9412d732fb96ce a.whatsapp{z-index: 100;        text-decoration: none;        color: #fff !important;        font-weight: bold;        margin: 0;        text-align: center;        border-radius: 0;        font-size: 25px;        font-size: 2.5rem;}}</style><div class="addon_reset" id="id_89f7869de81270d15c9412d732fb96ce" data-module="" data-module-name="12507::WhatsApp-Messanger" data-is-loop=""><div class="outline_container" style="display:none"></div><div class="reset_code wz1" style=""><style></style><!--1-->
+
+<!-- right -->
+
+<a class="desktop whatsapp wow fadeInLeft" data-wow-delay="1.5s" href="" onclick="open_whatsapp_window(this)" data-href="https://wa.me/9720585914357/?text=">
+<!--?xml version="1.0" ?--><svg style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+	.st0{fill:#4267B2;}
+	.st1{fill:url(#SVGID_1_);}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#C2191E;}
+	.st4{fill:#1DA1F3;}
+	.st5{fill:#FEFE00;}
+	.st6{fill:#25D366;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+	.st7{fill:#CB2027;}
+	.st8{fill:#0077B5;}
+	.st9{fill:url(#SVGID_2_);}
+	.st10{fill:url(#SVGID_3_);}
+	.st11{fill:#FF004F;}
+	.st12{fill:#00F7EF;}
+	.st13{fill:#5181B8;}
+	.st14{fill:#395976;}
+	.st15{fill:#F58220;}
+	.st16{fill:#E6162D;}
+	.st17{fill:#FF9933;}
+</style><g id="guidlines"></g><g id="FB"></g><g id="ig"></g><g id="yt"></g><g id="twitter"></g><g id="snapchat"></g><g id="WA"><g><path class="st6" d="M5,59l12-3.3c4.3,2.7,9.5,4.3,15,4.3c15.5,0,28-12.5,28-28S47.5,4,32,4S4,16.5,4,32c0,5.5,1.6,10.7,4.3,15    L5,59z"></path><path class="st2" d="M45.9,39.6c-1.9,4-5.4,4.5-5.4,4.5c-3,0.6-6.8-0.7-9.8-2.1c-4.3-2-8-5.2-10.5-9.3c-1.1-1.9-2.1-4.1-2.2-6.2    c0,0-0.4-3.5,3-6.3c0.3-0.2,0.6-0.3,1-0.3l1.5,0c0.6,0,1.2,0.4,1.4,1l2.3,5.6c0.2,0.6,0.1,1.2-0.3,1.7l-1.5,1.6    c-0.5,0.5-0.5,1.2-0.2,1.8c0.1,0.2,0.3,0.5,0.6,0.8c1.8,2.4,4.2,4.2,6.9,5.4c0.4,0.2,0.7,0.3,1,0.4c0.7,0.2,1.3-0.1,1.7-0.6    l1.2-1.8c0.3-0.5,0.9-0.8,1.5-0.7l6,0.9c0.6,0.1,1.1,0.6,1.3,1.2l0.4,1.5C46,38.9,46,39.3,45.9,39.6z"></path></g></g><g id="Pinterrest"></g><g id="Layer_9"></g><g id="Layer_10"></g><g id="Layer_11"></g><g id="Layer_12"></g><g id="Layer_13"></g><g id="Layer_14"></g><g id="Layer_15"></g><g id="Layer_16"></g><g id="Layer_17"></g></svg>
+</a>
+<a class="cellphone whatsapp" href="https://wa.me/9720585914357/?text=" target="_blank">
+  <!--?xml version="1.0" ?--><svg style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+	.st0{fill:#4267B2;}
+	.st1{fill:url(#SVGID_1_);}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#C2191E;}
+	.st4{fill:#1DA1F3;}
+	.st5{fill:#FEFE00;}
+	.st6{fill:#25D366;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+	.st7{fill:#CB2027;}
+	.st8{fill:#0077B5;}
+	.st9{fill:url(#SVGID_2_);}
+	.st10{fill:url(#SVGID_3_);}
+	.st11{fill:#FF004F;}
+	.st12{fill:#00F7EF;}
+	.st13{fill:#5181B8;}
+	.st14{fill:#395976;}
+	.st15{fill:#F58220;}
+	.st16{fill:#E6162D;}
+	.st17{fill:#FF9933;}
+</style><g id="guidlines"></g><g id="FB"></g><g id="ig"></g><g id="yt"></g><g id="twitter"></g><g id="snapchat"></g><g id="WA"><g><path class="st6" d="M5,59l12-3.3c4.3,2.7,9.5,4.3,15,4.3c15.5,0,28-12.5,28-28S47.5,4,32,4S4,16.5,4,32c0,5.5,1.6,10.7,4.3,15    L5,59z"></path><path class="st2" d="M45.9,39.6c-1.9,4-5.4,4.5-5.4,4.5c-3,0.6-6.8-0.7-9.8-2.1c-4.3-2-8-5.2-10.5-9.3c-1.1-1.9-2.1-4.1-2.2-6.2    c0,0-0.4-3.5,3-6.3c0.3-0.2,0.6-0.3,1-0.3l1.5,0c0.6,0,1.2,0.4,1.4,1l2.3,5.6c0.2,0.6,0.1,1.2-0.3,1.7l-1.5,1.6    c-0.5,0.5-0.5,1.2-0.2,1.8c0.1,0.2,0.3,0.5,0.6,0.8c1.8,2.4,4.2,4.2,6.9,5.4c0.4,0.2,0.7,0.3,1,0.4c0.7,0.2,1.3-0.1,1.7-0.6    l1.2-1.8c0.3-0.5,0.9-0.8,1.5-0.7l6,0.9c0.6,0.1,1.1,0.6,1.3,1.2l0.4,1.5C46,38.9,46,39.3,45.9,39.6z"></path></g></g><g id="Pinterrest"></g><g id="Layer_9"></g><g id="Layer_10"></g><g id="Layer_11"></g><g id="Layer_12"></g><g id="Layer_13"></g><g id="Layer_14"></g><g id="Layer_15"></g><g id="Layer_16"></g><g id="Layer_17"></g></svg> 
+
+</a></div></div><script>try{ 
+
+    function popupWindow(url, title, win, w, h) {
+        let y = win.top.outerHeight / 2 + win.top.screenY - (h / 2);
+        let x = win.top.outerWidth / 2 + win.top.screenX - (w / 2);
+        return win.open(url, title, `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${y}, left=${x}`);
+    }
+    
+    function open_whatsapp_window(elm) {
+        let href = elm.getAttribute('data-href');
+        popupWindow(href, '', window, 1000, 820);
+    }
+
+
+run_later(function() {
+    let phone_number = `9720585914357`;
+    phone_number = phone_number.replace(/[^0-9+]/g, '');
+    phone_number =  encodeURIComponent(phone_number);
+    let encoded_text = encodeURIComponent(``);
+    //phone_number = `972586102600`;
+    //encoded_text = `%D7%91%D7%A8%D7%95%D7%9B%D7%99%D7%9D%20%D7%94%D7%91%D7%90%D7%99%D7%9D%20%D7%9C%D7%A9%D7%A8%D7%95%D7%AA%20%D7%95%D7%95%D7%90%D7%98%D7%A1%D7%90%D7%A4%20%D7%A9%D7%9C%20%D7%A4%D7%A8%D7%97%D7%99%20%D7%92%D7%9F%20%D7%A2%D7%93%D7%9F%20%D7%91%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D.%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D%20%D7%91%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D%20%D7%95%D7%94%D7%A1%D7%91%D7%99%D7%91%D7%94.%D7%A0%D7%90%20%D7%A6%D7%99%D7%99%D7%A0%D7%95%20%D7%90%D7%AA%20%D7%A0%D7%95%D7%A9%D7%90%20%D7%94%D7%A4%D7%A0%D7%99%D7%94:%20%200-9%20%20%D7%95%D7%AA%D7%A2%D7%A0%D7%95%20%D7%91%D7%94%D7%A7%D7%93%D7%9D.1.%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%A4%D7%A8%D7%97%D7%99%D7%9D%20%D7%9C%D7%9E%D7%A9%D7%9C%D7%95%D7%97/%20%D7%90%D7%99%D7%A1%D7%95%D7%A3%20%D7%A2%D7%A6%D7%9E%D7%99%20%D7%9E%D7%94%D7%97%D7%A0%D7%95%D7%AA.2.%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%A2%D7%A6%D7%99%D7%A5%20%D7%9C%D7%9E%D7%A9%D7%9C%D7%95%D7%97/%20%D7%90%D7%99%D7%A1%D7%95%D7%A3%20%D7%9E%D7%94%D7%97%D7%A0%D7%95%D7%AA.3.%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%91%D7%9C%D7%95%D7%A0%D7%99%20%D7%94%D7%9C%D7%99%D7%95%D7%9D.4.%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%96%D7%A8%20%D7%9C%D7%9B%D7%9C%D7%94.5.%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%A7%D7%99%D7%A9%D7%95%D7%98%20%D7%9C%D7%A8%D7%9B%D7%91.6.%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D%20%D7%91%D7%94%D7%A8%D7%9B%D7%91%D7%94%20%D7%90%D7%99%D7%A9%D7%99%D7%AA.7.%20%D7%94%D7%96%D7%9E%D7%A0%D7%AA%20%D7%96%D7%A8%20%D7%9C%D7%A8%D7%90%D7%A9.8.%20%D7%99%D7%99%D7%A2%D7%95%D7%A5,%20%D7%94%D7%9B%D7%95%D7%95%D7%A0%D7%94,%20%D7%91%D7%99%D7%A8%D7%95%D7%A8%D7%99%D7%9D.9.%20%D7%A0%D7%A6%D7%99%D7%92%20%D7%94%D7%97%D7%A0%D7%95%D7%AA%20%D7%99%D7%97%D7%96%D7%95%D7%A8%20%D7%90%D7%9C%D7%99%D7%9B%D7%9D.0.%20%D7%91%D7%A8%D7%A6%D7%95%D7%A0%D7%99%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D.`;
+    let link = `https://wa.me/${phone_number}/?text=${encoded_text}`;
+    $('#id_89f7869de81270d15c9412d732fb96ce .whatsapp.cellphone').attr('href', link);
+    
+    let desktop_whatsapp = $('#id_89f7869de81270d15c9412d732fb96ce .whatsapp.desktop');
+    
+    
+        desktop_whatsapp.attr('data-href', link);
+        desktop_whatsapp.click(function() {
+            open_whatsapp_window(this);
+        });
+    
+    
+});
+ } catch(ex){ console.log('error in module:, error: ' + ex.message); }</script></div></div>
+ <style></style><style></style><style></style> 
+ 
+
+ </body></html>

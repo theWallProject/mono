@@ -1,0 +1,65 @@
+[2026-03-19T05:48:58.086Z] === Homepage AI Extractor: Tal Net ===
+[2026-03-19T05:48:58.086Z] Started at: 2026-03-19T05:48:58.086Z
+[2026-03-19T05:48:58.086Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773899338086_Tal_Net
+[2026-03-19T05:48:58.086Z] Company: Tal Net
+[2026-03-19T05:48:58.086Z] Website: tal-net.net
+[2026-03-19T05:48:58.086Z] cbRank: 1957592
+[2026-03-19T05:48:58.086Z] Reasons: h
+[2026-03-19T05:48:58.086Z] Fetching: https://tal-net.net
+[2026-03-19T05:48:59.319Z] Redirected: https://tal-net.net -> https://tal-net.net/
+[2026-03-19T05:48:59.322Z] Saved HTML (55218 bytes) to page.html
+[2026-03-19T05:48:59.324Z] Extracted 20 unique links from page
+[2026-03-19T05:48:59.325Z] Saved 20 links to links.json
+[2026-03-19T05:48:59.327Z] Extracted footer HTML (5687 chars)
+[2026-03-19T05:48:59.327Z] Extracted header HTML (13223 chars)
+[2026-03-19T05:48:59.330Z] Website (post-redirect): https://tal-net.net/ → origin: https://tal-net.net
+[2026-03-19T05:48:59.330Z] External links: 3 (of 20 total)
+[2026-03-19T05:48:59.331Z] ── All external links ──
+[2026-03-19T05:48:59.331Z]   EXT: https://1414.co.il
+[2026-03-19T05:48:59.331Z]   EXT: https://www.facebook.com/talnetnetworks
+[2026-03-19T05:48:59.331Z]   EXT: https://www.linkedin.com/company/talnetnetworks
+[2026-03-19T05:48:59.331Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:48:59.331Z]   UNCATEGORIZED: https://1414.co.il
+[2026-03-19T05:48:59.331Z]   REGEX: fb <- https://www.facebook.com/talnetnetworks
+[2026-03-19T05:48:59.331Z]   REGEX: li <- https://www.linkedin.com/company/talnetnetworks
+[2026-03-19T05:48:59.331Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-19T05:48:59.331Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:48:59.334Z] Saved AI prompt (3467 chars) to ai_prompt.txt
+[2026-03-19T05:48:59.335Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:48:59.337Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:49:12.815Z]   AI: First token received, streaming...
+[2026-03-19T05:49:19.024Z] AI response complete: 106 chars in 19.7s
+[2026-03-19T05:49:19.025Z] Saved AI response to ai_response.json
+[2026-03-19T05:49:19.025Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T05:49:19.025Z]   AI LINK: https://www.linkedin.com/company/talnetnetworks
+[2026-03-19T05:49:19.026Z]   AI LINK: https://www.facebook.com/talnetnetworks
+[2026-03-19T05:49:19.026Z]   AI LINK: https://1414.co.il
+[2026-03-19T05:49:19.026Z] AI returned 3 valid links
+[2026-03-19T05:49:19.026Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T05:49:19.026Z]   AI→REGEX: li <- https://www.linkedin.com/company/talnetnetworks (duplicate, skipped)
+[2026-03-19T05:49:19.026Z]   AI→REGEX: fb <- https://www.facebook.com/talnetnetworks (duplicate, skipped)
+[2026-03-19T05:49:19.027Z]   AI→URLS: https://1414.co.il
+[2026-03-19T05:49:19.028Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:49:19.028Z] Footer/header origins (3):
+[2026-03-19T05:49:19.028Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T05:49:19.028Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T05:49:19.028Z]   FOOTER/HEADER ORIGIN: https://1414.co.il
+[2026-03-19T05:49:19.028Z]   SKIP (AI claimed): https://1414.co.il
+[2026-03-19T05:49:19.028Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T05:49:19.028Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:49:19.029Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T05:49:19.029Z] ── Step 3: Final dedup ──
+[2026-03-19T05:49:19.029Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T05:49:19.029Z] ── FINAL RESULT ──
+[2026-03-19T05:49:19.029Z]   ws (1):
+[2026-03-19T05:49:19.029Z]     - https://tal-net.net
+[2026-03-19T05:49:19.029Z]   li (1):
+[2026-03-19T05:49:19.029Z]     - https://www.linkedin.com/company/talnetnetworks
+[2026-03-19T05:49:19.029Z]   fb (1):
+[2026-03-19T05:49:19.029Z]     - https://www.facebook.com/talnetnetworks
+[2026-03-19T05:49:19.030Z]   urls (1):
+[2026-03-19T05:49:19.030Z]     - https://1414.co.il
+[2026-03-19T05:49:19.030Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-19T05:49:19.034Z] Saved final result to result.json
+[2026-03-19T05:49:19.035Z] Override fields: ws, li, fb, urls
+[2026-03-19T05:49:19.035Z] Finished at: 2026-03-19T05:49:19.035Z

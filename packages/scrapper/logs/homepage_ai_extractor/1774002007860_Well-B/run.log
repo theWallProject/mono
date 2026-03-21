@@ -1,0 +1,75 @@
+[2026-03-20T10:20:07.861Z] === Homepage AI Extractor: Well-B ===
+[2026-03-20T10:20:07.861Z] Started at: 2026-03-20T10:20:07.861Z
+[2026-03-20T10:20:07.861Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774002007860_Well-B
+[2026-03-20T10:20:07.861Z] Company: Well-B
+[2026-03-20T10:20:07.861Z] Website: well-b.biz
+[2026-03-20T10:20:07.861Z] cbRank: 2874758
+[2026-03-20T10:20:07.861Z] Reasons: h
+[2026-03-20T10:20:07.862Z] Fetching: https://well-b.biz
+[2026-03-20T10:20:19.223Z] Network idle timeout — continuing with current state
+[2026-03-20T10:20:19.261Z] Redirected: https://well-b.biz -> https://www.well-b.biz/
+[2026-03-20T10:20:19.300Z] Saved HTML (1866138 bytes) to page.html
+[2026-03-20T10:20:19.304Z] Extracted 23 unique links from page
+[2026-03-20T10:20:19.304Z] Saved 23 links to links.json
+[2026-03-20T10:20:19.306Z] Extracted footer HTML (15874 chars)
+[2026-03-20T10:20:19.306Z] Extracted header HTML (6729 chars)
+[2026-03-20T10:20:19.312Z] Website (post-redirect): https://www.well-b.biz/ → origin: https://www.well-b.biz
+[2026-03-20T10:20:19.312Z]   SUBDOMAIN: app.well-b.biz (added to ws)
+[2026-03-20T10:20:19.313Z] Website subdomains found: 1
+[2026-03-20T10:20:19.313Z] External links: 4 (of 23 total)
+[2026-03-20T10:20:19.313Z] ── All external links ──
+[2026-03-20T10:20:19.313Z]   EXT: https://api.whatsapp.com/send?phone=972549820344
+[2026-03-20T10:20:19.313Z]   EXT: https://www.facebook.com/well-b-100312715675998
+[2026-03-20T10:20:19.314Z]   EXT: https://www.instagram.com/well.b.israel
+[2026-03-20T10:20:19.314Z]   EXT: https://www.linkedin.com/company/19070896/admin
+[2026-03-20T10:20:19.314Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T10:20:19.314Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972549820344
+[2026-03-20T10:20:19.314Z]   REGEX: fb <- https://www.facebook.com/well-b-100312715675998
+[2026-03-20T10:20:19.314Z]   REGEX: ig <- https://www.instagram.com/well.b.israel
+[2026-03-20T10:20:19.314Z]   REGEX: li <- https://www.linkedin.com/company/19070896/admin
+[2026-03-20T10:20:19.314Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-20T10:20:19.314Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T10:20:19.315Z] Saved AI prompt (9027 chars) to ai_prompt.txt
+[2026-03-20T10:20:19.315Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T10:20:19.319Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T10:21:10.545Z]   AI: First token received, streaming...
+[2026-03-20T10:21:22.065Z] AI response complete: 137 chars in 62.8s
+[2026-03-20T10:21:22.066Z] Saved AI response to ai_response.json
+[2026-03-20T10:21:22.066Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T10:21:22.067Z]   AI LINK: https://www.facebook.com/well-b-100312715675998
+[2026-03-20T10:21:22.067Z]   AI LINK: https://www.linkedin.com/company/19070896/admin/
+[2026-03-20T10:21:22.067Z]   AI LINK: https://www.instagram.com/well.b.israel/
+[2026-03-20T10:21:22.067Z] AI returned 3 valid links
+[2026-03-20T10:21:22.067Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T10:21:22.068Z]   AI→REGEX: fb <- https://www.facebook.com/well-b-100312715675998 (duplicate, skipped)
+[2026-03-20T10:21:22.068Z]   AI→REGEX: li <- https://www.linkedin.com/company/19070896/admin/ (duplicate, skipped)
+[2026-03-20T10:21:22.068Z]   AI→REGEX: ig <- https://www.instagram.com/well.b.israel/ (duplicate, skipped)
+[2026-03-20T10:21:22.068Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T10:21:22.068Z] Footer/header origins (5):
+[2026-03-20T10:21:22.069Z]   FOOTER/HEADER ORIGIN: https://www.well-b.biz
+[2026-03-20T10:21:22.069Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-20T10:21:22.069Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T10:21:22.069Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T10:21:22.069Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T10:21:22.069Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972549820344)
+[2026-03-20T10:21:22.069Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T10:21:22.070Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T10:21:22.070Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T10:21:22.070Z] ── Step 3: Final dedup ──
+[2026-03-20T10:21:22.070Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T10:21:22.070Z] ── FINAL RESULT ──
+[2026-03-20T10:21:22.070Z]   ws (2):
+[2026-03-20T10:21:22.070Z]     - https://app.well-b.biz
+[2026-03-20T10:21:22.070Z]     - https://www.well-b.biz
+[2026-03-20T10:21:22.071Z]   li (1):
+[2026-03-20T10:21:22.071Z]     - https://www.linkedin.com/company/19070896
+[2026-03-20T10:21:22.071Z]   fb (1):
+[2026-03-20T10:21:22.071Z]     - https://www.facebook.com/well-b-100312715675998
+[2026-03-20T10:21:22.071Z]   ig (1):
+[2026-03-20T10:21:22.071Z]     - https://www.instagram.com/well.b.israel
+[2026-03-20T10:21:22.072Z]   urls (1):
+[2026-03-20T10:21:22.072Z]     - https://api.whatsapp.com/send
+[2026-03-20T10:21:22.072Z] Summary: ws:2, fb:1, ig:1, li:1, urls:1
+[2026-03-20T10:21:22.073Z] Saved final result to result.json
+[2026-03-20T10:21:22.073Z] Override fields: ws, li, fb, ig, urls
+[2026-03-20T10:21:22.074Z] Finished at: 2026-03-20T10:21:22.073Z

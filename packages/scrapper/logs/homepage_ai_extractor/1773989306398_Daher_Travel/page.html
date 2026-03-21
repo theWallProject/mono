@@ -1,0 +1,315 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Daher Travel Ltd.</title>
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<script language="JavaScript" src="spiffyCal/spiffyCal_v2_1.js"></script>
+<script language="javascript">
+
+	HoldDate=new Date();
+//	document.write(HoldDate.getDate() + "/" + (HoldDate.getMonth()+1) + "/" + HoldDate.getYear());
+	var currDate = HoldDate.getDate() + "/" + (HoldDate.getMonth()+1) + "/" + HoldDate.getYear();
+	var inday= currDate;
+	var outday= currDate;
+	var calInday=new ctlSpiffyCalendarBox("calInday", "RegForm", "inday","btnDate1",inday,1);
+	var calOutday=new ctlSpiffyCalendarBox("calOutday", "RegForm", "outday","btnDate2",outday,1);
+	 calInday.dateFormat="MM/dd/yyyy";	 
+	 //calDate.dateFormat="dd MMM yyyy";
+	calInday.minYearChoice=1900;
+ 	calInday.maxYearChoice=2007;
+ 	calInday.setMinDate(1980, 11, 21);
+	calInday.setMaxDate(2007, 2, 20);
+	 calInday.readonly=true;
+	 calInday.useDateRange=true;	 
+	 
+	 //calOutday.writeControl();
+</script>
+
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]-->
+<link rel="File-List" href="index_files/filelist.xml">
+<!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+
+</head>
+<body bgcolor="#EEEEEE">
+<p align="center">
+<table border="0" cellpadding="0" width="740" bgcolor="#FFFFFF" cellspacing="0" background="images/bg.jpg" align="center">
+			<tbody><tr>
+				<td valign="top" colspan="3">
+				<script language="JavaScript1.2">
+
+//Fade-in image slideshow- By Dynamic Drive
+//For full source code and more DHTML scripts, visit http://www.dynamicdrive.com
+//This credit MUST stay intact for use
+
+var slideshow_width='740px' //SET IMAGE WIDTH
+var slideshow_height='100px' //SET IMAGE HEIGHT
+var pause=6000 //SET PAUSE BETWEEN SLIDE (6000=6 seconds)
+
+var fadeimages=new Array()
+// SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]="images/header_jerusalem.jpg"
+fadeimages[1]="images/header_petra.jpg"
+fadeimages[2]="images/header_cairo.jpg"
+fadeimages[3]="images/header_madrid.jpg"
+fadeimages[4]="images/header_london.jpg"
+fadeimages[5]="images/header_athens.jpg"
+fadeimages[6]="images/header_paris.jpg"
+
+////NO need to edit beyond here/////////////
+
+var preloadedimages=new Array()
+for (p=0;p<fadeimages.length;p++){
+preloadedimages[p]=new Image()
+preloadedimages[p].src=fadeimages[p]
+}
+
+var ie4=document.all
+var dom=document.getElementById
+
+if (ie4||dom)
+document.write('<div style="position:relative;width:'+slideshow_width+';height:'+slideshow_height+';overflow:hidden"><div  id="canvas0" style="position:absolute;width:'+slideshow_width+';height:'+slideshow_height+';top:0;left:0;filter:alpha(opacity=10);-moz-opacity:10"></div><div id="canvas1" style="position:absolute;width:'+slideshow_width+';height:'+slideshow_height+';top:0;left:0;filter:alpha(opacity=10);-moz-opacity:10"></div></div>')
+else
+document.write('<img name="defaultslide" src="'+fadeimages[0]+'">')
+
+var curpos=10
+var degree=10
+var curcanvas="canvas0"
+var curimageindex=0
+var nextimageindex=1
+
+
+function fadepic(){
+if (curpos<100){
+curpos+=10
+if (tempobj.filters)
+tempobj.filters.alpha.opacity=curpos
+else if (tempobj.style.MozOpacity)
+tempobj.style.MozOpacity=curpos/100
+}
+else{
+clearInterval(dropslide)
+nextcanvas=(curcanvas=="canvas0")? "canvas0" : "canvas1"
+tempobj=ie4? eval("document.all."+nextcanvas) : document.getElementById(nextcanvas)
+tempobj.innerHTML='<img src="'+fadeimages[nextimageindex]+'">'
+nextimageindex=(nextimageindex<fadeimages.length-1)? nextimageindex+1 : 0
+setTimeout("rotateimage()",pause)
+}
+}
+
+function rotateimage(){
+if (ie4||dom){
+resetit(curcanvas)
+var crossobj=tempobj=ie4? eval("document.all."+curcanvas) : document.getElementById(curcanvas)
+crossobj.style.zIndex++
+var temp='setInterval("fadepic()",50)'
+dropslide=eval(temp)
+curcanvas=(curcanvas=="canvas0")? "canvas1" : "canvas0"
+}
+else
+document.images.defaultslide.src=fadeimages[curimageindex]
+curimageindex=(curimageindex<fadeimages.length-1)? curimageindex+1 : 0
+}
+
+function resetit(what){
+curpos=10
+var crossobj=ie4? eval("document.all."+what) : document.getElementById(what)
+if (crossobj.filters)
+crossobj.filters.alpha.opacity=curpos
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=curpos/100
+}
+
+function startit(){
+var crossobj=ie4? eval("document.all."+curcanvas) : document.getElementById(curcanvas)
+crossobj.innerHTML='<img src="'+fadeimages[curimageindex]+'">'
+rotateimage()
+}
+
+if (ie4||dom)
+window.onload=startit
+else
+setInterval("rotateimage()",pause)
+
+            </script><div style="position:relative;width:740px;height:100px;overflow:hidden"><div id="canvas0" style="position: absolute; width: 740px; height: 100px; top: 0px; left: 0px; z-index: 1;"><img src="images/header_jerusalem.jpg"></div><div id="canvas1" style="position:absolute;width:740px;height:100px;top:0;left:0;filter:alpha(opacity=10);-moz-opacity:10"><img src="images/header_petra.jpg"></div></div></td>
+			</tr>
+<tr><td>
+<table border="0" cellpadding="0" width="100%" cellspacing="0">
+	<tbody><tr>
+		<td colspan="2">
+		
+		</td>
+	</tr>
+	<tr>
+		<td width="100" valign="top" height="100%">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="border-left-width: 1px; border-right-style: solid; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px" bordercolor="#EF960E">
+			<tbody><tr>
+				<td>
+				<img border="0" src="images/main_menu.gif" width="140" height="20"></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="index.shtml">Main Page</a></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="package.shtml">Holy Land Tours</a></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="egypt-jo.shtml">Egypt &amp; Jordan</a></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="cultural.shtml">Cultural Tours</a></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="trans.shtml">Transportation</a></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="accom.shtml">Accommodation</a></td>
+			</tr>
+			<tr>
+			  <td valign="top"><a class="menu" href="airtravel.shtml">Air Travel</a></td>
+  </tr>
+			<tr>
+				<td valign="top"><a class="menu" href="euro.shtml">European Outlet</a></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="other.shtml">Other Services</a></td>
+			</tr>
+			<tr>
+				<td valign="top"><a class="menu" href="contactus.shtml">Contact us</a></td>
+			</tr>
+			<tr>
+				<td valign="top">&nbsp;</td>
+			</tr>
+			<tr>
+				<td valign="top" height="100%">&nbsp;</td>
+			</tr>
+		</tbody></table>
+
+		</td>
+		<td width="640" valign="top">
+		<table border="0" cellpadding="2" width="100%" id="table3">
+			<tbody><tr>
+				<td>
+									<script language="javascript">
+				function viewhide (){
+					var finance = document.getElementById('finance').style.display;
+					//var mgt = document.getElementById('mang').style.display;
+					//if(finance == 'none' && mgt == 'none' ){
+					if(finance == 'none' ){
+						document.getElementById('finance').style.display='block';
+						//document.getElementById('mang').style.display='block';
+					}
+					else {
+						document.getElementById('finance').style.display='none';
+						//document.getElementById('mang').style.display='none';
+					}
+				}
+				</script>
+<div id="spiffycalendar" class="text" style="z-index:1; ">&nbsp;</div> 
+<div style="position: relative; width: 200px; height: 5px; z-index: 2; float: right; left: 1px; top: 2px; right: 1px; bottom: 2px; border: 1px solid #CCCCCC;" id="layer1">
+					<table width="200" border="0" cellpadding="2" bgcolor="#F5F5F5">
+						<tbody><tr>
+							<td id="nopadding" bgcolor="#FFFFFF" colspan="2" align="right">
+							<a href="#" onclick="javascript: viewhide();">
+							<img border="0" src="images/reservation.gif" align="right" hspace="0" width="200" height="40"></a></td>
+						</tr>
+						<tr>
+							<td id="finance" style="display:none;" colspan="2">	
+							<!--<form name="RegForm" method="post" action="index.shtml">-->
+<form name="RegForm" action="feedback.php" method="post">
+
+  <table border="0" cellspacing="0" cellpadding="0">
+              		
+							<!--</form>-->
+              		
+<tbody><tr><td>First Name:</td><td><input type="text" name="fname" size="20"></td></tr>
+<tr><td>Last Name:</td><td><input type="text" name="lname" size="20"></td></tr>
+<tr><td>Email address:</td><td><input type="text" name="email" size="20"></td></tr>
+<tr><td>Phone:</td><td><input type="text" name="phone" size="20"></td></tr>
+<tr><td>Mobile:</td><td><input type="text" name="mobile" size="20"></td></tr>
+<tr><td>Address:</td><td><input type="text" name="address" size="20"></td></tr>
+<tr>
+<td colspan="2">
+Request<br>
+<textarea rows="10" cols="20" name="comments"></textarea>
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+<input type="submit" value="Send ">
+</td>
+</tr>
+              
+              
+</tbody></table>
+	</form>
+</td>
+						</tr>
+						<!--<tr>
+							<td id="mang" style="display:none;">&nbsp;</td>
+						</tr>-->
+					</tbody></table>
+				</div>
+				<span class="H1">Daher Travel</span><br>
+				<span class="H2">WELCOME....... WE MEAN IT</span> 
+				<br>
+				<br>
+				<img src="images/tenyears.gif" alt="10 Years Anniversary" width="250" height="80"><br>
+
+&nbsp;By nature, as Palestinians we are warm people. If our first 
+				dealing is business like, our second is friendly and sincere. 
+				Try us once, and you become our ambassador!! This is how we 
+				developed our customer base.<br>
+				<br>
+				Our agency has about 95 years of experience in the travel 
+				industry distributed among management and staff. It goes back to 
+				1955 when our General Manager, Wassef Daher, joined Swissair. 
+				Nine years later he moved to Scandinavian Airlines (SAS). He 
+				remained with SAS until 1995 when he was offered its General 
+				Sales Agency (GSA) for the area. In this same year our agency 
+				was offered another airline, Iberia (Airlines of Spain).<br>
+				<br>
+				The agency kept its professional experienced SAS staff and hired 
+				more to keep up with the market demand. <br>
+				<br>
+				The Sales Manager, Yusef Daher, joined the agency with 10 years 
+				of experience in tourism and so started the Tourism Department.<br>
+				<br>
+				This is our 10th year. We today offer a range of services from 
+				airline tickets to full travel and tour packages in the Middle 
+				East area and Spain. <br>
+&nbsp;</td>
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td width="756" height="19" colspan="2">
+	</td></tr><tr>
+	<td width="756" height="19" colspan="2">
+		<table border="0" cellpadding="2" width="100%" class="footer">
+			<tbody><tr>
+				<td bgcolor="#F5F5F5">All rights reserved© Daher Travel Ltd.</td>
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td width="756" colspan="2" class="footer" bgcolor="#00376B" id="cell_padding_h">
+		  <a href="http://www.alqudsnet.com" target="_blank"><img src="images/designed_by_alquds_network.gif" alt="Alquds Network" width="168" height="16" border="0"></a></td>
+	</tr>
+</tbody></table>
+</td></tr></tbody></table>
+</p>
+
+
+
+
+</body></html>

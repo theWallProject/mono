@@ -1,0 +1,62 @@
+[2026-03-20T09:48:40.150Z] === Homepage AI Extractor: Elitar ===
+[2026-03-20T09:48:40.150Z] Started at: 2026-03-20T09:48:40.150Z
+[2026-03-20T09:48:40.150Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774000120149_Elitar
+[2026-03-20T09:48:40.150Z] Company: Elitar
+[2026-03-20T09:48:40.150Z] Website: elitar.com
+[2026-03-20T09:48:40.150Z] cbRank: 2855668
+[2026-03-20T09:48:40.150Z] Reasons: h
+[2026-03-20T09:48:40.150Z] Fetching: https://elitar.com
+[2026-03-20T09:48:51.923Z] Network idle timeout — continuing with current state
+[2026-03-20T09:48:51.960Z] Redirected: https://elitar.com -> https://www.elitar.com/
+[2026-03-20T09:48:51.973Z] Saved HTML (507121 bytes) to page.html
+[2026-03-20T09:48:51.976Z] Extracted 10 unique links from page
+[2026-03-20T09:48:51.976Z] Saved 10 links to links.json
+[2026-03-20T09:48:51.978Z] Extracted footer HTML (5239 chars)
+[2026-03-20T09:48:51.978Z] Extracted header HTML (6970 chars)
+[2026-03-20T09:48:51.982Z] Website (post-redirect): https://www.elitar.com/ → origin: https://www.elitar.com
+[2026-03-20T09:48:51.982Z] External links: 2 (of 10 total)
+[2026-03-20T09:48:51.982Z] ── All external links ──
+[2026-03-20T09:48:51.982Z]   EXT: https://plus.google.com/117167403531518744294/posts
+[2026-03-20T09:48:51.983Z]   EXT: https://www.facebook.com/Elitar-Electronic-262966547218881
+[2026-03-20T09:48:51.983Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T09:48:51.983Z]   UNCATEGORIZED: https://plus.google.com/117167403531518744294/posts
+[2026-03-20T09:48:51.983Z]   REGEX: fb <- https://www.facebook.com/Elitar-Electronic-262966547218881
+[2026-03-20T09:48:51.983Z] Programmatic result: ws:1, fb:1 | 1 uncategorized
+[2026-03-20T09:48:51.983Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T09:48:51.986Z] Saved AI prompt (5972 chars) to ai_prompt.txt
+[2026-03-20T09:48:51.986Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T09:48:51.990Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T09:49:25.935Z]   AI: First token received, streaming...
+[2026-03-20T09:49:44.573Z] AI response complete: 163 chars in 52.6s
+[2026-03-20T09:49:44.574Z] Saved AI response to ai_response.json
+[2026-03-20T09:49:44.574Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T09:49:44.574Z]   AI LINK: https://plus.google.com/117167403531518744294/posts
+[2026-03-20T09:49:44.575Z]   AI LINK: https://www.facebook.com/Elitar-Electronic-262966547218881/
+[2026-03-20T09:49:44.575Z]   AI LINK: https://plus.google.com/117167403531518744294/posts
+[2026-03-20T09:49:44.575Z] AI returned 3 valid links
+[2026-03-20T09:49:44.575Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T09:49:44.576Z]   AI→URLS: https://plus.google.com/117167403531518744294/posts
+[2026-03-20T09:49:44.576Z]   AI→REGEX: fb <- https://www.facebook.com/Elitar-Electronic-262966547218881/ (duplicate, skipped)
+[2026-03-20T09:49:44.576Z]   AI→URLS: https://plus.google.com/117167403531518744294/posts (duplicate, skipped)
+[2026-03-20T09:49:44.576Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T09:49:44.576Z] Footer/header origins (3):
+[2026-03-20T09:49:44.577Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T09:49:44.577Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-20T09:49:44.577Z]   FOOTER/HEADER ORIGIN: https://www.elitar.com
+[2026-03-20T09:49:44.577Z]   SKIP (AI claimed): https://plus.google.com/117167403531518744294/posts
+[2026-03-20T09:49:44.577Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T09:49:44.577Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T09:49:44.577Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T09:49:44.577Z] ── Step 3: Final dedup ──
+[2026-03-20T09:49:44.577Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T09:49:44.578Z] ── FINAL RESULT ──
+[2026-03-20T09:49:44.578Z]   ws (1):
+[2026-03-20T09:49:44.578Z]     - https://www.elitar.com
+[2026-03-20T09:49:44.578Z]   fb (1):
+[2026-03-20T09:49:44.578Z]     - https://www.facebook.com/elitar-electronic-262966547218881
+[2026-03-20T09:49:44.578Z]   urls (1):
+[2026-03-20T09:49:44.578Z]     - https://plus.google.com/117167403531518744294/posts
+[2026-03-20T09:49:44.578Z] Summary: ws:1, fb:1, urls:1
+[2026-03-20T09:49:44.579Z] Saved final result to result.json
+[2026-03-20T09:49:44.579Z] Override fields: ws, fb, urls
+[2026-03-20T09:49:44.580Z] Finished at: 2026-03-20T09:49:44.580Z

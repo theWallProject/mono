@@ -1,0 +1,64 @@
+[2026-03-19T06:54:10.851Z] === Homepage AI Extractor: Cybia ===
+[2026-03-19T06:54:10.852Z] Started at: 2026-03-19T06:54:10.852Z
+[2026-03-19T06:54:10.852Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773903250851_Cybia
+[2026-03-19T06:54:10.852Z] Company: Cybia
+[2026-03-19T06:54:10.852Z] Website: cybia.io
+[2026-03-19T06:54:10.852Z] cbRank: 1992412
+[2026-03-19T06:54:10.852Z] Reasons: h
+[2026-03-19T06:54:10.852Z] Fetching: https://cybia.io
+[2026-03-19T06:54:13.351Z] Redirected: https://cybia.io -> https://cybia.io/
+[2026-03-19T06:54:13.355Z] Saved HTML (70414 bytes) to page.html
+[2026-03-19T06:54:13.358Z] Extracted 7 unique links from page
+[2026-03-19T06:54:13.359Z] Saved 7 links to links.json
+[2026-03-19T06:54:13.361Z] Extracted footer HTML (14106 chars)
+[2026-03-19T06:54:13.362Z] Extracted header HTML (5414 chars)
+[2026-03-19T06:54:13.365Z] Website (post-redirect): https://cybia.io/ → origin: https://cybia.io
+[2026-03-19T06:54:13.365Z] External links: 3 (of 7 total)
+[2026-03-19T06:54:13.365Z] ── All external links ──
+[2026-03-19T06:54:13.365Z]   EXT: https://mobile.twitter.com/cybiasecurity
+[2026-03-19T06:54:13.366Z]   EXT: https://www.facebook.com/cybiacybersec
+[2026-03-19T06:54:13.366Z]   EXT: https://www.linkedin.com/company/cybiasec
+[2026-03-19T06:54:13.366Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T06:54:13.366Z]   REGEX: fb <- https://www.facebook.com/cybiacybersec
+[2026-03-19T06:54:13.366Z]   REGEX: li <- https://www.linkedin.com/company/cybiasec
+[2026-03-19T06:54:13.366Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T06:54:13.366Z]   SKIP (regex domain, no match): https://mobile.twitter.com/cybiasecurity
+[2026-03-19T06:54:13.366Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-19T06:54:13.366Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T06:54:13.367Z] Saved AI prompt (10361 chars) to ai_prompt.txt
+[2026-03-19T06:54:13.368Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T06:54:13.371Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T06:54:55.767Z]   AI: First token received, streaming...
+[2026-03-19T06:55:02.872Z] AI response complete: 122 chars in 49.5s
+[2026-03-19T06:55:02.874Z] Saved AI response to ai_response.json
+[2026-03-19T06:55:02.874Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T06:55:02.874Z]   AI LINK: https://www.facebook.com/cybiacybersec
+[2026-03-19T06:55:02.874Z]   AI LINK: https://www.linkedin.com/company/cybiasec/
+[2026-03-19T06:55:02.874Z]   AI LINK: https://mobile.twitter.com/cybiasecurity
+[2026-03-19T06:55:02.875Z] AI returned 3 valid links
+[2026-03-19T06:55:02.875Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T06:55:02.875Z]   AI→REGEX: fb <- https://www.facebook.com/cybiacybersec (duplicate, skipped)
+[2026-03-19T06:55:02.875Z]   AI→REGEX: li <- https://www.linkedin.com/company/cybiasec/ (duplicate, skipped)
+[2026-03-19T06:55:02.876Z]   AI→SKIP (regex domain, no match): https://mobile.twitter.com/cybiasecurity
+[2026-03-19T06:55:02.876Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T06:55:02.876Z] Footer/header origins (4):
+[2026-03-19T06:55:02.876Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T06:55:02.876Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T06:55:02.876Z]   FOOTER/HEADER ORIGIN: https://mobile.twitter.com
+[2026-03-19T06:55:02.876Z]   FOOTER/HEADER ORIGIN: https://cybia.io
+[2026-03-19T06:55:02.877Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T06:55:02.877Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T06:55:02.877Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T06:55:02.877Z] ── Step 3: Final dedup ──
+[2026-03-19T06:55:02.877Z] No urls to dedup
+[2026-03-19T06:55:02.877Z] ── FINAL RESULT ──
+[2026-03-19T06:55:02.877Z]   ws (1):
+[2026-03-19T06:55:02.877Z]     - https://cybia.io
+[2026-03-19T06:55:02.877Z]   li (1):
+[2026-03-19T06:55:02.878Z]     - https://www.linkedin.com/company/cybiasec
+[2026-03-19T06:55:02.878Z]   fb (1):
+[2026-03-19T06:55:02.878Z]     - https://www.facebook.com/cybiacybersec
+[2026-03-19T06:55:02.878Z] Summary: ws:1, fb:1, li:1
+[2026-03-19T06:55:02.879Z] Saved final result to result.json
+[2026-03-19T06:55:02.880Z] Override fields: ws, li, fb
+[2026-03-19T06:55:02.880Z] Finished at: 2026-03-19T06:55:02.880Z

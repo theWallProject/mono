@@ -1,0 +1,79 @@
+[2026-03-18T19:55:55.007Z] === Homepage AI Extractor: Mafil ===
+[2026-03-18T19:55:55.007Z] Started at: 2026-03-18T19:55:55.007Z
+[2026-03-18T19:55:55.008Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773863755007_Mafil
+[2026-03-18T19:55:55.008Z] Company: Mafil
+[2026-03-18T19:55:55.008Z] Website: mafil.co.il
+[2026-03-18T19:55:55.008Z] cbRank: 1717951
+[2026-03-18T19:55:55.008Z] Reasons: h
+[2026-03-18T19:55:55.008Z] Fetching: https://mafil.co.il
+[2026-03-18T19:56:00.998Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-18T19:56:03.934Z] Redirected: https://mafil.co.il -> https://mafil.co.il/
+[2026-03-18T19:56:03.943Z] Saved HTML (317099 bytes) to page.html
+[2026-03-18T19:56:03.946Z] Extracted 108 unique links from page
+[2026-03-18T19:56:03.947Z] Saved 108 links to links.json
+[2026-03-18T19:56:03.950Z] Extracted footer HTML (12783 chars)
+[2026-03-18T19:56:03.950Z] Extracted header HTML (55813 chars)
+[2026-03-18T19:56:03.956Z] Website (post-redirect): https://mafil.co.il/ → origin: https://mafil.co.il
+[2026-03-18T19:56:03.956Z]   SUBDOMAIN: 3dmaterials.mafil.co.il (added to ws)
+[2026-03-18T19:56:03.956Z] Website subdomains found: 1
+[2026-03-18T19:56:03.957Z] External links: 6 (of 108 total)
+[2026-03-18T19:56:03.957Z] ── All external links ──
+[2026-03-18T19:56:03.957Z]   EXT: https://policies.google.com/privacy
+[2026-03-18T19:56:03.957Z]   EXT: https://policies.google.com/terms
+[2026-03-18T19:56:03.957Z]   EXT: https://vee.co.il
+[2026-03-18T19:56:03.957Z]   EXT: https://vee.co.il/pricing
+[2026-03-18T19:56:03.957Z]   EXT: https://www.facebook.com/mafil.solutions
+[2026-03-18T19:56:03.957Z]   EXT: https://www.linkedin.com/company/973256
+[2026-03-18T19:56:03.957Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T19:56:03.958Z]   UNCATEGORIZED: https://policies.google.com/privacy
+[2026-03-18T19:56:03.958Z]   UNCATEGORIZED: https://policies.google.com/terms
+[2026-03-18T19:56:03.958Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-18T19:56:03.958Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-18T19:56:03.958Z]   REGEX: fb <- https://www.facebook.com/mafil.solutions
+[2026-03-18T19:56:03.958Z]   REGEX: li <- https://www.linkedin.com/company/973256
+[2026-03-18T19:56:03.958Z] Programmatic result: ws:2, fb:1, li:1 | 4 uncategorized
+[2026-03-18T19:56:03.958Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T19:56:03.962Z] Saved AI prompt (10127 chars) to ai_prompt.txt
+[2026-03-18T19:56:03.962Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T19:56:03.966Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T19:56:50.229Z]   AI: First token received, streaming...
+[2026-03-18T19:56:55.172Z] AI response complete: 81 chars in 51.2s
+[2026-03-18T19:56:55.173Z] Saved AI response to ai_response.json
+[2026-03-18T19:56:55.174Z] ── Parsing AI response (2 lines) ──
+[2026-03-18T19:56:55.174Z]   AI LINK: https://www.linkedin.com/company/973256
+[2026-03-18T19:56:55.174Z]   AI LINK: https://www.facebook.com/mafil.solutions/
+[2026-03-18T19:56:55.174Z] AI returned 2 valid links
+[2026-03-18T19:56:55.174Z] ── Categorizing 2 AI-returned links ──
+[2026-03-18T19:56:55.175Z]   AI→REGEX: li <- https://www.linkedin.com/company/973256 (duplicate, skipped)
+[2026-03-18T19:56:55.175Z]   AI→REGEX: fb <- https://www.facebook.com/mafil.solutions/ (duplicate, skipped)
+[2026-03-18T19:56:55.176Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T19:56:55.176Z] Footer/header origins (5):
+[2026-03-18T19:56:55.176Z]   FOOTER/HEADER ORIGIN: https://mafil.co.il
+[2026-03-18T19:56:55.176Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T19:56:55.176Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T19:56:55.177Z]   FOOTER/HEADER ORIGIN: https://policies.google.com
+[2026-03-18T19:56:55.177Z]   FOOTER/HEADER ORIGIN: https://3dmaterials.mafil.co.il
+[2026-03-18T19:56:55.177Z]   ADDED: urls <- https://policies.google.com/privacy
+[2026-03-18T19:56:55.177Z]   ADDED: urls <- https://policies.google.com/terms
+[2026-03-18T19:56:55.177Z]   SKIP (not in footer/header): https://vee.co.il
+[2026-03-18T19:56:55.177Z]   SKIP (not in footer/header): https://vee.co.il/pricing
+[2026-03-18T19:56:55.177Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-18T19:56:55.177Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T19:56:55.178Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T19:56:55.178Z] ── Step 3: Final dedup ──
+[2026-03-18T19:56:55.178Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T19:56:55.178Z] ── FINAL RESULT ──
+[2026-03-18T19:56:55.178Z]   ws (2):
+[2026-03-18T19:56:55.178Z]     - https://3dmaterials.mafil.co.il
+[2026-03-18T19:56:55.178Z]     - https://mafil.co.il
+[2026-03-18T19:56:55.178Z]   li (1):
+[2026-03-18T19:56:55.179Z]     - https://www.linkedin.com/company/973256
+[2026-03-18T19:56:55.179Z]   fb (1):
+[2026-03-18T19:56:55.179Z]     - https://www.facebook.com/mafil.solutions
+[2026-03-18T19:56:55.179Z]   urls (2):
+[2026-03-18T19:56:55.179Z]     - https://policies.google.com/privacy
+[2026-03-18T19:56:55.179Z]     - https://policies.google.com/terms
+[2026-03-18T19:56:55.179Z] Summary: ws:2, fb:1, li:1, urls:2
+[2026-03-18T19:56:55.180Z] Saved final result to result.json
+[2026-03-18T19:56:55.181Z] Override fields: ws, li, fb, urls
+[2026-03-18T19:56:55.181Z] Finished at: 2026-03-18T19:56:55.181Z

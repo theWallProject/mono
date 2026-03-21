@@ -1,0 +1,811 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Geniuses – Not just another software company</title>
+    <meta name="description" content="Software Geniuses transforms ambitious ideas into scalable, high-performance software solutions. Frontend, backend, and DevOps services from Georgia and Eastern Europe.">
+    <meta name="keywords" content="software development, frontend, backend, DevOps, React, Golang, C#, Python, Node.js, Georgia, Eastern Europe, outstaffing, dedicated teams">
+    <meta name="author" content="Software Geniuses">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.gurify.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Software Geniuses – We Engineer Your Success">
+    <meta property="og:description" content="Transforming ambitious ideas into scalable, high-performance software solutions that drive measurable business results.">
+    <meta property="og:url" content="https://www.gurify.com/">
+    <meta property="og:site_name" content="Software Geniuses">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Software Geniuses – We Engineer Your Success">
+    <meta name="twitter:description" content="Transforming ambitious ideas into scalable, high-performance software solutions that drive measurable business results.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script defer="" src="https://umami.prod.flowbin.com/script.js" data-website-id="205ff688-e48e-431f-87ba-8415cb46b69f"></script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1976d2;
+            --primary-dark: #1565c0;
+            --primary-light: #42a5f5;
+            --accent: #ffb03a;
+            --bg: #ffffff;
+            --bg-alt: #f5f5f5;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f9f9f9;
+            --text-primary: #212121;
+            --text-secondary: #424242;
+            --text-muted: #616161;
+            --border: #e0e0e0;
+            --footer-bg: #212121;
+            --footer-text: #bdbdbd;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.85;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 5rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(25, 118, 210, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: var(--primary-dark);
+            box-shadow: 0 8px 30px rgba(25, 118, 210, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Section headers */
+        .section-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(25,118,210,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            background: rgba(25,118,210,0.1);
+            color: var(--primary-dark);
+            border: 1px solid rgba(25,118,210,0.2);
+        }
+
+        /* Tech stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-category {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .tech-category h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-list span {
+            font-size: 0.9rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            background: #ffffff;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .about-text a:hover {
+            opacity: 0.8;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .highlight-item:hover {
+            border-color: var(--primary);
+        }
+
+        .highlight-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        .highlight-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-item p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.12);
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta-box {
+            background: var(--primary-dark);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+        }
+
+        .cta h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-box h2,
+        .cta-box p {
+            color: #ffffff;
+        }
+
+        .cta-box .btn-primary {
+            background: #ffffff;
+            color: var(--primary-dark);
+        }
+
+        .cta-box .btn-primary:hover {
+            background: var(--bg-alt);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--footer-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-copy {
+            color: var(--footer-text);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--primary);
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            section {
+                padding: 4rem 1.25rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">Software Geniuses</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="/careers.html">Careers</a></li>
+        <li><a href="https://www.linkedin.com/company/software-geniuses-consulting/" target="_blank" rel="noopener">Contact Us</a></li>
+    </ul>
+</nav>
+
+<main>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <h1>We Engineer Your Success</h1>
+    <p>Transforming ambitious ideas into scalable, high-performance software solutions that drive measurable business results</p>
+    <div class="hero-buttons">
+        <a href="https://www.linkedin.com/company/software-geniuses-consulting/" target="_blank" rel="noopener" class="btn btn-primary">Start Your Project</a>
+        <a href="#services" class="btn btn-secondary">Explore Services</a>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+    <div class="section-header">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">End-to-end software engineering services designed to bring your vision to life</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">⌨</div>
+            <h3>Frontend Development</h3>
+            <p>Building intuitive, high-speed user interfaces with modern frameworks. We focus on performance optimization and accessibility standards.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">PWAs</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">⚙</div>
+            <h3>Backend Development</h3>
+            <p>Architecting powerful, secure, and infinitely scalable systems with RESTful APIs, microservices, and cloud platforms.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Golang</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Node.js</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">☁</div>
+            <h3>DevOps / SRE Services</h3>
+            <p>Accelerating your time-to-market with automated CI/CD pipelines, containerization, Kubernetes, monitoring, and disaster recovery.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Kubernetes</span>
+                <span class="tech-tag">Terraform</span>
+                <span class="tech-tag">CI/CD</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack -->
+<section>
+    <div class="section-header">
+        <span class="section-label">Technology</span>
+        <h2 class="section-title">Our Tech Stack</h2>
+        <p class="section-subtitle">We leverage the best tools and technologies to deliver exceptional results</p>
+    </div>
+    <div class="tech-grid">
+        <div class="tech-category">
+            <h3>Frontend</h3>
+            <div class="tech-list">
+                <span>React</span>
+                <span>Angular</span>
+                <span>Vue.js</span>
+            </div>
+        </div>
+        <div class="tech-category">
+            <h3>Backend</h3>
+            <div class="tech-list">
+                <span>Node.js</span>
+                <span>Golang</span>
+                <span>Python</span>
+                <span>Java</span>
+                <span>C#</span>
+            </div>
+        </div>
+        <div class="tech-category">
+            <h3>Databases</h3>
+            <div class="tech-list">
+                <span>PostgreSQL</span>
+                <span>MongoDB</span>
+            </div>
+        </div>
+        <div class="tech-category">
+            <h3>Infrastructure</h3>
+            <div class="tech-list">
+                <span>Docker</span>
+                <span>Kubernetes</span>
+                <span>AWS</span>
+                <span>Azure</span>
+                <span>GCP</span>
+                <span>Terraform</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <div class="section-header">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-subtitle">The software development arm of a company that knows talent</p>
+    </div>
+    <div class="about-content">
+        <div class="about-text">
+            <p>Software Geniuses is a subsidiary of <a href="https://www.geniuses.ge" target="_blank" rel="noopener">Geniuses Recruiting</a>, an agency that helps companies find outstanding software developers, QA engineers, and tech professionals in Georgia and Eastern Europe.</p>
+            <p>Founded by a former R&amp;D Director who established and managed development centers for international communication companies across Georgia and Eastern Europe, we bring deep industry insight to every engagement. We don't just write code — we understand how high-performing tech teams are built from the ground up.</p>
+            <p>Our recruiting team brings 5+ years of tech industry experience and a proven track record with international companies and startups. This unique combination of recruiting expertise and engineering capability means we deliver not only great software, but the right people to maintain and grow it.</p>
+        </div>
+        <div class="about-highlights">
+            <div class="highlight-item">
+                <span class="highlight-icon">🌎</span>
+                <div>
+                    <h3>Georgia &amp; Eastern Europe</h3>
+                    <p>Deep talent networks across the region, built over years of hands-on recruiting and team building</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-icon">👥</span>
+                <div>
+                    <h3>End-to-End Hiring</h3>
+                    <p>From recruitment through onboarding, including EOR services for legal, payroll, tax, and benefits</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-icon">🔨</span>
+                <div>
+                    <h3>Outstaffing &amp; Dedicated Teams</h3>
+                    <p>Providing dedicated tech teams that integrate seamlessly with your existing workflows</p>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-icon">✅</span>
+                <div>
+                    <h3>Quality-First Screening</h3>
+                    <p>Rigorous candidate vetting ensures only top-tier talent reaches your doorstep</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="values-grid">
+        <div class="value-card">
+            <div class="value-icon">📚</div>
+            <h3>Deep Expertise</h3>
+            <p>Years of experience across industries, delivering solutions that work at scale</p>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">💡</div>
+            <h3>Innovation-Driven</h3>
+            <p>We stay ahead of the curve, adopting the latest technologies and best practices</p>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Client-Centric</h3>
+            <p>Your success is our priority. We build lasting partnerships, not just software</p>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">⚡</div>
+            <h3>Agile &amp; Efficient</h3>
+            <p>Rapid iteration and delivery without compromising on quality or reliability</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="cta" id="contact">
+    <div class="cta-box">
+        <h2>Ready to Build Something Great?</h2>
+        <p>Let's discuss your project and explore how we can engineer your success together.</p>
+        <a href="https://www.linkedin.com/company/software-geniuses-consulting/" target="_blank" rel="noopener" class="btn btn-primary">Get In Touch</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-copy">© 2026 Software Geniuses. All rights reserved.</div>
+        <ul class="footer-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/careers.html">Careers</a></li>
+            <li><a href="https://www.geniuses.ge" target="_blank" rel="noopener">Geniuses Recruiting</a></li>
+            <li><a href="https://www.linkedin.com/company/software-geniuses-consulting/" target="_blank" rel="noopener">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Software Geniuses",
+  "url": "https://www.gurify.com",
+  "description": "Software Geniuses transforms ambitious ideas into scalable, high-performance software solutions. A subsidiary of Geniuses Recruiting.",
+  "email": "hello@gurify.com",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Geniuses Recruiting",
+    "url": "https://www.geniuses.ge"
+  },
+  "areaServed": ["Georgia", "Eastern Europe"],
+  "knowsAbout": [
+    "Frontend Development", "Backend Development", "DevOps", "SRE",
+    "React", "Angular", "Vue.js", "Golang", "C#", "Java", "Python", "Node.js",
+    "Docker", "Kubernetes", "AWS", "Azure", "GCP", "Terraform",
+    "PostgreSQL", "MongoDB"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Software Geniuses",
+  "url": "https://www.gurify.com"
+}
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Frontend Development",
+    "provider": { "@type": "Organization", "name": "Software Geniuses" },
+    "description": "Building intuitive, high-speed user interfaces with modern frameworks including React, Angular, Vue.js, and PWAs."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Backend Development",
+    "provider": { "@type": "Organization", "name": "Software Geniuses" },
+    "description": "Architecting powerful, secure, and infinitely scalable systems with RESTful APIs, microservices, and cloud platforms."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "DevOps / SRE Services",
+    "provider": { "@type": "Organization", "name": "Software Geniuses" },
+    "description": "Accelerating time-to-market with automated CI/CD pipelines, containerization, Kubernetes, monitoring, and disaster recovery."
+  }
+]
+</script>
+
+
+</body></html>

@@ -1,0 +1,58 @@
+[2026-03-17T19:09:33.139Z] === Homepage AI Extractor: Proximo ===
+[2026-03-17T19:09:33.140Z] Started at: 2026-03-17T19:09:33.140Z
+[2026-03-17T19:09:33.140Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773774573139_Proximo
+[2026-03-17T19:09:33.140Z] Company: Proximo
+[2026-03-17T19:09:33.140Z] Website: proximo.co.il
+[2026-03-17T19:09:33.140Z] cbRank: 1269209
+[2026-03-17T19:09:33.140Z] Reasons: h
+[2026-03-17T19:09:33.140Z] Fetching: https://proximo.co.il
+[2026-03-17T19:09:44.681Z] Network idle timeout — continuing with current state
+[2026-03-17T19:09:44.714Z] Redirected: https://proximo.co.il -> https://www.proximo.co.il/
+[2026-03-17T19:09:44.718Z] Saved HTML (81895 bytes) to page.html
+[2026-03-17T19:09:44.720Z] Extracted 17 unique links from page
+[2026-03-17T19:09:44.721Z] Saved 17 links to links.json
+[2026-03-17T19:09:44.723Z] Extracted footer HTML (19852 chars)
+[2026-03-17T19:09:44.723Z] Extracted header HTML (1593 chars)
+[2026-03-17T19:09:44.726Z] Website (post-redirect): https://www.proximo.co.il/ → origin: https://www.proximo.co.il
+[2026-03-17T19:09:44.727Z] External links: 2 (of 17 total)
+[2026-03-17T19:09:44.727Z] ── All external links ──
+[2026-03-17T19:09:44.727Z]   EXT: https://www.linkedin.com/company/proximo---cfo-&-financial-services-boutique
+[2026-03-17T19:09:44.727Z]   EXT: https://www.youtube.com/@ProximoFinancialServices
+[2026-03-17T19:09:44.727Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T19:09:44.727Z]   REGEX: li <- https://www.linkedin.com/company/proximo---cfo-&-financial-services-boutique
+[2026-03-17T19:09:44.727Z]   REGEX: ytp <- https://www.youtube.com/@ProximoFinancialServices
+[2026-03-17T19:09:44.727Z] Programmatic result: ws:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-17T19:09:44.727Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T19:09:44.728Z] Saved AI prompt (9873 chars) to ai_prompt.txt
+[2026-03-17T19:09:44.728Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T19:09:44.732Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T19:10:22.497Z]   AI: First token received, streaming...
+[2026-03-17T19:10:28.761Z] AI response complete: 131 chars in 44.0s
+[2026-03-17T19:10:28.762Z] Saved AI response to ai_response.json
+[2026-03-17T19:10:28.763Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T19:10:28.763Z]   AI LINK: https://www.linkedin.com/company/proximo---cfo-&amp;-financial-services-boutique/
+[2026-03-17T19:10:28.763Z]   AI LINK: https://www.youtube.com/@ProximoFinancialServices
+[2026-03-17T19:10:28.763Z] AI returned 2 valid links
+[2026-03-17T19:10:28.763Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T19:10:28.763Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/company/proximo---cfo-&amp;-financial-services-boutique/
+[2026-03-17T19:10:28.764Z]   AI→REGEX: ytp <- https://www.youtube.com/@ProximoFinancialServices (duplicate, skipped)
+[2026-03-17T19:10:28.765Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T19:10:28.765Z] Footer/header origins (2):
+[2026-03-17T19:10:28.765Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T19:10:28.765Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T19:10:28.765Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T19:10:28.765Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T19:10:28.765Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T19:10:28.766Z] ── Step 3: Final dedup ──
+[2026-03-17T19:10:28.766Z] No urls to dedup
+[2026-03-17T19:10:28.766Z] ── FINAL RESULT ──
+[2026-03-17T19:10:28.766Z]   ws (1):
+[2026-03-17T19:10:28.766Z]     - https://www.proximo.co.il
+[2026-03-17T19:10:28.766Z]   li (1):
+[2026-03-17T19:10:28.766Z]     - https://www.linkedin.com/company/proximo---cfo-&-financial-services-boutique
+[2026-03-17T19:10:28.766Z]   ytp (1):
+[2026-03-17T19:10:28.766Z]     - https://www.youtube.com/@proximofinancialservices
+[2026-03-17T19:10:28.766Z] Summary: ws:1, li:1, ytp:1
+[2026-03-17T19:10:28.767Z] Saved final result to result.json
+[2026-03-17T19:10:28.767Z] Override fields: ws, li, ytp
+[2026-03-17T19:10:28.768Z] Finished at: 2026-03-17T19:10:28.768Z

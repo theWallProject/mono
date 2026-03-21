@@ -1,0 +1,83 @@
+[2026-03-18T21:23:46.349Z] === Homepage AI Extractor: BMK ===
+[2026-03-18T21:23:46.350Z] Started at: 2026-03-18T21:23:46.350Z
+[2026-03-18T21:23:46.350Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773869026348_BMK
+[2026-03-18T21:23:46.350Z] Company: BMK
+[2026-03-18T21:23:46.350Z] Website: bmk.co.il
+[2026-03-18T21:23:46.350Z] cbRank: 1760925
+[2026-03-18T21:23:46.350Z] Reasons: h
+[2026-03-18T21:23:46.350Z] Fetching: https://bmk.co.il
+[2026-03-18T21:23:58.649Z] Network idle timeout — continuing with current state
+[2026-03-18T21:23:58.685Z] Redirected: https://bmk.co.il -> https://www.bmk.co.il/Home
+[2026-03-18T21:23:58.690Z] Saved HTML (119376 bytes) to page.html
+[2026-03-18T21:23:58.693Z] Extracted 33 unique links from page
+[2026-03-18T21:23:58.693Z] Saved 33 links to links.json
+[2026-03-18T21:23:58.697Z] Extracted footer HTML (2939 chars)
+[2026-03-18T21:23:58.697Z] Extracted header HTML (4996 chars)
+[2026-03-18T21:23:58.700Z] Website (post-redirect): https://www.bmk.co.il/Home → origin: https://www.bmk.co.il
+[2026-03-18T21:23:58.700Z] External links: 6 (of 33 total)
+[2026-03-18T21:23:58.701Z] ── All external links ──
+[2026-03-18T21:23:58.701Z]   EXT: http://www.catom.co.il
+[2026-03-18T21:23:58.701Z]   EXT: http://www.catom.com
+[2026-03-18T21:23:58.701Z]   EXT: https://www.facebook.com/bmkisrael
+[2026-03-18T21:23:58.701Z]   EXT: https://www.instagram.com/bmk_group_
+[2026-03-18T21:23:58.701Z]   EXT: https://www.linkedin.com/company/bmk-il
+[2026-03-18T21:23:58.701Z]   EXT: https://www.youtube.com/channel/UCQQMMWWM4wE6I7JHF4a4IhA
+[2026-03-18T21:23:58.701Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T21:23:58.701Z]   UNCATEGORIZED: http://www.catom.co.il
+[2026-03-18T21:23:58.701Z]   UNCATEGORIZED: http://www.catom.com
+[2026-03-18T21:23:58.701Z]   REGEX: fb <- https://www.facebook.com/bmkisrael
+[2026-03-18T21:23:58.701Z]   REGEX: ig <- https://www.instagram.com/bmk_group_
+[2026-03-18T21:23:58.701Z]   REGEX: li <- https://www.linkedin.com/company/bmk-il
+[2026-03-18T21:23:58.701Z]   REGEX: ytc <- https://www.youtube.com/channel/UCQQMMWWM4wE6I7JHF4a4IhA
+[2026-03-18T21:23:58.702Z] Programmatic result: ws:1, fb:1, ig:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-18T21:23:58.702Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T21:23:58.705Z] Saved AI prompt (4362 chars) to ai_prompt.txt
+[2026-03-18T21:23:58.706Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T21:23:58.709Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T21:24:16.494Z]   AI: First token received, streaming...
+[2026-03-18T21:24:18.567Z] AI response complete: 43 chars in 19.9s
+[2026-03-18T21:24:18.569Z] Saved AI response to ai_response.json
+[2026-03-18T21:24:18.569Z] ── Parsing AI response (2 lines) ──
+[2026-03-18T21:24:18.569Z]   AI LINK: http://www.catom.com
+[2026-03-18T21:24:18.570Z]   AI LINK: http://www.catom.co.il
+[2026-03-18T21:24:18.570Z] AI returned 2 valid links
+[2026-03-18T21:24:18.570Z] ── Categorizing 2 AI-returned links ──
+[2026-03-18T21:24:18.570Z]   AI→URLS: http://www.catom.com
+[2026-03-18T21:24:18.570Z]   AI→URLS: http://www.catom.co.il
+[2026-03-18T21:24:18.572Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T21:24:18.572Z] Footer/header origins (6):
+[2026-03-18T21:24:18.573Z]   FOOTER/HEADER ORIGIN: http://www.catom.com
+[2026-03-18T21:24:18.573Z]   FOOTER/HEADER ORIGIN: http://www.catom.co.il
+[2026-03-18T21:24:18.573Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T21:24:18.573Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T21:24:18.573Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T21:24:18.573Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-18T21:24:18.573Z]   SKIP (AI claimed): http://www.catom.co.il
+[2026-03-18T21:24:18.574Z]   SKIP (AI claimed): http://www.catom.com
+[2026-03-18T21:24:18.574Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T21:24:18.574Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T21:24:18.574Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T21:24:18.885Z]   YOUTUBE: resolved UCQQMMWWM4wE6I7JHF4a4IhA → @bmkisrael
+[2026-03-18T21:24:18.886Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T21:24:18.886Z] ── Step 3: Final dedup ──
+[2026-03-18T21:24:18.886Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T21:24:18.886Z] ── FINAL RESULT ──
+[2026-03-18T21:24:18.886Z]   ws (1):
+[2026-03-18T21:24:18.886Z]     - https://www.bmk.co.il
+[2026-03-18T21:24:18.886Z]   li (1):
+[2026-03-18T21:24:18.886Z]     - https://www.linkedin.com/company/bmk-il
+[2026-03-18T21:24:18.886Z]   fb (1):
+[2026-03-18T21:24:18.886Z]     - https://www.facebook.com/bmkisrael
+[2026-03-18T21:24:18.886Z]   ig (1):
+[2026-03-18T21:24:18.886Z]     - https://www.instagram.com/bmk_group_
+[2026-03-18T21:24:18.886Z]   ytp (1):
+[2026-03-18T21:24:18.886Z]     - https://www.youtube.com/@bmkisrael
+[2026-03-18T21:24:18.887Z]   ytc (1):
+[2026-03-18T21:24:18.887Z]     - https://www.youtube.com/channel/UCQQMMWWM4wE6I7JHF4a4IhA
+[2026-03-18T21:24:18.887Z]   urls (2):
+[2026-03-18T21:24:18.887Z]     - http://www.catom.co.il
+[2026-03-18T21:24:18.887Z]     - http://www.catom.com
+[2026-03-18T21:24:18.887Z] Summary: ws:1, fb:1, ig:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-18T21:24:18.887Z] Saved final result to result.json
+[2026-03-18T21:24:18.888Z] Override fields: ws, li, fb, ig, ytp, ytc, urls
+[2026-03-18T21:24:18.888Z] Finished at: 2026-03-18T21:24:18.888Z

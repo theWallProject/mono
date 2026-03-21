@@ -1,0 +1,663 @@
+<!DOCTYPE html><html lang="en-US"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>foxymedia.co.il – Content format development for publishers. </title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="foxymedia.co.il » Feed" href="https://foxymedia.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="foxymedia.co.il » Comments Feed" href="https://foxymedia.co.il/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="foxymedia.co.il » Homepage Comments Feed" href="https://foxymedia.co.il/sample-page/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://foxymedia.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffoxymedia.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://foxymedia.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffoxymedia.co.il%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel="stylesheet" id="hello-elementor-css" href="https://foxymedia.co.il/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.5" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://foxymedia.co.il/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.5" media="all">
+<link rel="stylesheet" id="hello-elementor-header-footer-css" href="https://foxymedia.co.il/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.5" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://foxymedia.co.il/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.34.1" media="all">
+<style id="elementor-frontend-inline-css">
+.elementor-kit-6{--e-global-color-primary:#6EC1E4;--e-global-color-secondary:#54595F;--e-global-color-text:#7A7A7A;--e-global-color-accent:#61CE70;--e-global-typography-primary-font-family:"Roboto";--e-global-typography-primary-font-weight:600;--e-global-typography-secondary-font-family:"Roboto Slab";--e-global-typography-secondary-font-weight:400;--e-global-typography-text-font-family:"Roboto";--e-global-typography-text-font-weight:400;--e-global-typography-accent-font-family:"Roboto";--e-global-typography-accent-font-weight:500;background-image:url("https://foxymedia.co.il/wp-content/uploads/2026/01/bg-noise-1-scaled.webp");background-position:center center;background-size:auto;}.elementor-kit-6 e-page-transition{background-color:#FFBC7D;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1140px;}.e-con{--container-max-width:1140px;}.elementor-widget:not(:last-child){--kit-widget-spacing:20px;}.elementor-element{--widgets-spacing:20px 20px;--widgets-spacing-row:20px;--widgets-spacing-column:20px;}{}h1.entry-title{display:var(--page-title-display);}.site-header .site-branding{flex-direction:column;align-items:stretch;}.site-header{padding-inline-end:0px;padding-inline-start:0px;}.site-footer .site-branding{flex-direction:column;align-items:stretch;}@media(max-width:1024px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:1024px;}.e-con{--container-max-width:1024px;}}@media(max-width:767px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:767px;}.e-con{--container-max-width:767px;}}
+.elementor-2 .elementor-element.elementor-element-1ba1ff0{--display:flex;--min-height:74vh;--flex-direction:row;--container-widget-width:initial;--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;}.elementor-2 .elementor-element.elementor-element-07af1df{--display:flex;--justify-content:flex-end;}.elementor-2 .elementor-element.elementor-element-07af1df.e-con{--flex-grow:0;--flex-shrink:0;}.elementor-widget-heading .elementor-heading-title{font-family:var( --e-global-typography-primary-font-family ), Sans-serif;font-weight:var( --e-global-typography-primary-font-weight );color:var( --e-global-color-primary );}.elementor-2 .elementor-element.elementor-element-61a133e{text-align:start;}.elementor-2 .elementor-element.elementor-element-61a133e .elementor-heading-title{font-family:"Futura", Sans-serif;font-size:220px;font-weight:700;color:#242523;}.elementor-2 .elementor-element.elementor-element-5648176{--display:flex;--justify-content:flex-end;--gap:0px 0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px;--margin-left:0px;--margin-right:0px;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-widget-text-editor{font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );color:var( --e-global-color-text );}.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:var( --e-global-color-primary );}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap, .elementor-widget-text-editor.elementor-drop-cap-view-default .elementor-drop-cap{color:var( --e-global-color-primary );border-color:var( --e-global-color-primary );}.elementor-2 .elementor-element.elementor-element-c5e8140{text-align:start;font-family:"Futura", Sans-serif;font-size:17px;font-weight:400;color:#242523;}.elementor-2 .elementor-element.elementor-element-3c6460f{text-align:start;font-family:"Futura", Sans-serif;font-size:17px;font-weight:400;color:#242523;}.elementor-2 .elementor-element.elementor-element-f7e7624{--spacer-size:32px;}.elementor-widget-icon-list .elementor-icon-list-item:not(:last-child):after{border-color:var( --e-global-color-text );}.elementor-widget-icon-list .elementor-icon-list-icon i{color:var( --e-global-color-primary );}.elementor-widget-icon-list .elementor-icon-list-icon svg{fill:var( --e-global-color-primary );}.elementor-widget-icon-list .elementor-icon-list-item > .elementor-icon-list-text, .elementor-widget-icon-list .elementor-icon-list-item > a{font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );}.elementor-widget-icon-list .elementor-icon-list-text{color:var( --e-global-color-secondary );}.elementor-2 .elementor-element.elementor-element-87dd9c8 .elementor-icon-list-icon i{transition:color 0.3s;}.elementor-2 .elementor-element.elementor-element-87dd9c8 .elementor-icon-list-icon svg{transition:fill 0.3s;}.elementor-2 .elementor-element.elementor-element-87dd9c8{--e-icon-list-icon-size:14px;--icon-vertical-offset:0px;}.elementor-2 .elementor-element.elementor-element-87dd9c8 .elementor-icon-list-item > .elementor-icon-list-text, .elementor-2 .elementor-element.elementor-element-87dd9c8 .elementor-icon-list-item > a{font-family:"Futura", Sans-serif;font-size:17px;font-weight:600;}.elementor-2 .elementor-element.elementor-element-87dd9c8 .elementor-icon-list-text{color:#242523;transition:color 0.3s;}.elementor-2 .elementor-element.elementor-element-c291521{--display:flex;--min-height:175px;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;}.elementor-2 .elementor-element.elementor-element-f05c7a4{--spacer-size:10px;}.elementor-2 .elementor-element.elementor-element-3566e31{--display:flex;--min-height:0px;--flex-direction:row;--container-widget-width:initial;--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--justify-content:center;--margin-top:0px;--margin-bottom:0px;--margin-left:0px;--margin-right:0px;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-2 .elementor-element.elementor-element-3566e31:not(.elementor-motion-effects-element-type-background), .elementor-2 .elementor-element.elementor-element-3566e31 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:#242523;}.elementor-widget-media-carousel .elementor-carousel-image-overlay{font-family:var( --e-global-typography-accent-font-family ), Sans-serif;font-weight:var( --e-global-typography-accent-font-weight );}.elementor-2 .elementor-element.elementor-element-25a062b.elementor-skin-slideshow .elementor-main-swiper:not(.elementor-thumbnails-swiper){margin-bottom:14px;}.elementor-2 .elementor-element.elementor-element-25a062b .elementor-main-swiper{height:100px;width:81%;}.elementor-2 .elementor-element.elementor-element-25a062b .elementor-swiper-button{font-size:20px;}.elementor-2 .elementor-element.elementor-element-25a062b .elementor-main-swiper:not(.elementor-thumbnails-swiper) .elementor-carousel-image{background-size:auto;}.elementor-2 .elementor-element.elementor-element-d79c571{--display:flex;--min-height:100vh;--flex-direction:column;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--justify-content:center;--align-items:center;--gap:0px 0px;--row-gap:0px;--column-gap:0px;}.elementor-2 .elementor-element.elementor-element-ae91d34{text-align:center;}.elementor-2 .elementor-element.elementor-element-ae91d34 .elementor-heading-title{font-family:"Futura", Sans-serif;font-size:15px;font-weight:400;letter-spacing:6.7px;color:#242523;}.elementor-2 .elementor-element.elementor-element-d448c19{width:auto;max-width:auto;margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;padding:0px 0px 0px 0px;text-align:center;}.elementor-2 .elementor-element.elementor-element-d448c19 .elementor-heading-title{font-family:"Freestyle", Sans-serif;font-size:113px;font-weight:normal;line-height:79px;letter-spacing:0px;color:#242523;}.elementor-2 .elementor-element.elementor-element-70b594b{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + -13px) 0px;padding:0px 0px 0px 0px;text-align:center;}.elementor-2 .elementor-element.elementor-element-70b594b .elementor-heading-title{font-family:"Futura", Sans-serif;font-size:64px;font-weight:700;text-transform:uppercase;line-height:65px;color:#242523;}.elementor-2 .elementor-element.elementor-element-6f7cf38{text-align:center;}.elementor-2 .elementor-element.elementor-element-6f7cf38 .elementor-heading-title{font-family:"Futura", Sans-serif;font-size:64px;font-weight:700;text-transform:uppercase;color:#242523;}.elementor-2 .elementor-element.elementor-element-f586e92{--display:flex;--position:absolute;top:505px;}body:not(.rtl) .elementor-2 .elementor-element.elementor-element-f586e92{left:0px;}body.rtl .elementor-2 .elementor-element.elementor-element-f586e92{right:0px;}.elementor-widget-image .widget-image-caption{color:var( --e-global-color-text );font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );}.elementor-2 .elementor-element.elementor-element-5c7dfc5.elementor-element{--align-self:center;}body:not(.rtl) .elementor-2 .elementor-element.elementor-element-5c7dfc5{left:392px;}body.rtl .elementor-2 .elementor-element.elementor-element-5c7dfc5{right:392px;}.elementor-2 .elementor-element.elementor-element-5c7dfc5{top:-299px;z-index:-1;text-align:center;}.elementor-2 .elementor-element.elementor-element-5c7dfc5 img{width:59%;max-width:70%;height:83px;}.elementor-2 .elementor-element.elementor-element-7db09bb{--spacer-size:32px;}.elementor-2 .elementor-element.elementor-element-ebb9154{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;padding:0px 270px 0px 270px;text-align:center;font-family:"Futura", Sans-serif;font-weight:400;color:#242523;}.elementor-2 .elementor-element.elementor-element-043f296{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;padding:0px 270px 0px 270px;text-align:center;font-family:"Futura", Sans-serif;font-weight:400;color:#242523;}.elementor-2 .elementor-element.elementor-element-cb023f7{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;}body:not(.rtl) .elementor-2 .elementor-element.elementor-element-694e3d4{right:7px;}body.rtl .elementor-2 .elementor-element.elementor-element-694e3d4{left:7px;}.elementor-2 .elementor-element.elementor-element-694e3d4{top:-789px;}.elementor-2 .elementor-element.elementor-element-9ff45f3{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;}body:not(.rtl) .elementor-2 .elementor-element.elementor-element-62a33e6{left:74px;}body.rtl .elementor-2 .elementor-element.elementor-element-62a33e6{right:74px;}.elementor-2 .elementor-element.elementor-element-62a33e6{top:-282px;}.elementor-2 .elementor-element.elementor-element-62a33e6 img{width:57%;}:root{--page-title-display:none;}@media(min-width:768px){.elementor-2 .elementor-element.elementor-element-1ba1ff0{--content-width:1390px;}.elementor-2 .elementor-element.elementor-element-07af1df{--width:75%;}}@media(max-width:1024px){.elementor-2 .elementor-element.elementor-element-25a062b.elementor-skin-slideshow .elementor-main-swiper:not(.elementor-thumbnails-swiper){margin-bottom:10px;}}@media(max-width:767px){.elementor-2 .elementor-element.elementor-element-25a062b.elementor-skin-slideshow .elementor-main-swiper:not(.elementor-thumbnails-swiper){margin-bottom:10px;}}/* Start custom CSS *//* הגדרת המרקר הכתום */
+.text-highlight {
+    background-color: #f5b075; /* הצבע הכתום מהתמונה */
+    color: #1a1a1a; /* צבע הטקסט - שחור/כהה */
+    padding: 0px 8px; /* מרווח לצדדים של הסימון */
+    display: inline; /* גורם לרקע להיצמד למילים ולא לכל השורה */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone; /* שומר על המרווח גם כשהטקסט יורד שורה */
+    line-height: 1.6; /* רווח בין שורות שמאפשר למרקר "לנשום" */
+}/* End custom CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Futura';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://foxymedia.co.il/wp-content/uploads/2026/01/FuturaCyrillicMedium.woff') format('woff');
+}
+/* End Custom Fonts CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Freestyle';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://foxymedia.co.il/wp-content/uploads/2026/01/FreestyleScript-Regular.woff') format('woff');
+}
+/* End Custom Fonts CSS */
+.elementor-15 .elementor-element.elementor-element-f77616a{--display:flex;--flex-direction:row;--container-widget-width:initial;--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--gap:0px 0px;--row-gap:0px;--column-gap:0px;}.elementor-15 .elementor-element.elementor-element-f04a1f3{--display:flex;--min-height:0px;--flex-direction:row;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--justify-content:flex-start;--align-items:center;--gap:0px 0px;--row-gap:0px;--column-gap:0px;}.elementor-15 .elementor-element.elementor-element-f04a1f3.e-con{--flex-grow:0;--flex-shrink:0;}.elementor-widget-nav-menu .elementor-nav-menu .elementor-item{font-family:var( --e-global-typography-primary-font-family ), Sans-serif;font-weight:var( --e-global-typography-primary-font-weight );}.elementor-widget-nav-menu .elementor-nav-menu--main .elementor-item{color:var( --e-global-color-text );fill:var( --e-global-color-text );}.elementor-widget-nav-menu .elementor-nav-menu--main .elementor-item:hover,
+					.elementor-widget-nav-menu .elementor-nav-menu--main .elementor-item.elementor-item-active,
+					.elementor-widget-nav-menu .elementor-nav-menu--main .elementor-item.highlighted,
+					.elementor-widget-nav-menu .elementor-nav-menu--main .elementor-item:focus{color:var( --e-global-color-accent );fill:var( --e-global-color-accent );}.elementor-widget-nav-menu .elementor-nav-menu--main:not(.e--pointer-framed) .elementor-item:before,
+					.elementor-widget-nav-menu .elementor-nav-menu--main:not(.e--pointer-framed) .elementor-item:after{background-color:var( --e-global-color-accent );}.elementor-widget-nav-menu .e--pointer-framed .elementor-item:before,
+					.elementor-widget-nav-menu .e--pointer-framed .elementor-item:after{border-color:var( --e-global-color-accent );}.elementor-widget-nav-menu{--e-nav-menu-divider-color:var( --e-global-color-text );}.elementor-widget-nav-menu .elementor-nav-menu--dropdown .elementor-item, .elementor-widget-nav-menu .elementor-nav-menu--dropdown  .elementor-sub-item{font-family:var( --e-global-typography-accent-font-family ), Sans-serif;font-weight:var( --e-global-typography-accent-font-weight );}.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-menu-toggle{margin:0 auto;}.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu .elementor-item{font-family:"Futura", Sans-serif;font-size:16px;font-weight:500;}.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main .elementor-item{color:#242523;fill:#242523;padding-left:12px;padding-right:12px;padding-top:9px;padding-bottom:9px;}.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main .elementor-item:hover,
+					.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main .elementor-item.elementor-item-active,
+					.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main .elementor-item.highlighted,
+					.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main .elementor-item:focus{color:#ee9c61;fill:#ee9c61;}.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main:not(.e--pointer-framed) .elementor-item:before,
+					.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main:not(.e--pointer-framed) .elementor-item:after{background-color:#FFFFFF00;}.elementor-15 .elementor-element.elementor-element-2e2b8b3 .e--pointer-framed .elementor-item:before,
+					.elementor-15 .elementor-element.elementor-element-2e2b8b3 .e--pointer-framed .elementor-item:after{border-color:#FFFFFF00;}.elementor-15 .elementor-element.elementor-element-2e2b8b3{--e-nav-menu-horizontal-menu-item-margin:calc( 0px / 2 );}.elementor-15 .elementor-element.elementor-element-2e2b8b3 .elementor-nav-menu--main:not(.elementor-nav-menu--layout-horizontal) .elementor-nav-menu > li:not(:last-child){margin-bottom:0px;}.elementor-15 .elementor-element.elementor-element-679944c{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--justify-content:center;}.elementor-15 .elementor-element.elementor-element-679944c.e-con{--flex-grow:0;--flex-shrink:0;}.elementor-widget-theme-site-logo .widget-image-caption{color:var( --e-global-color-text );font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );}.elementor-15 .elementor-element.elementor-element-be67843 img{width:48%;}.elementor-15 .elementor-element.elementor-element-4d62efb{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;}.elementor-widget-mega-menu > .e-n-menu > .e-n-menu-wrapper > .e-n-menu-heading > .e-n-menu-item > .e-n-menu-title, .elementor-widget-mega-menu > .e-n-menu > .e-n-menu-wrapper > .e-n-menu-heading > .e-n-menu-item > .e-n-menu-title > .e-n-menu-title-container, .elementor-widget-mega-menu > .e-n-menu > .e-n-menu-wrapper > .e-n-menu-heading > .e-n-menu-item > .e-n-menu-title > .e-n-menu-title-container > span{font-family:var( --e-global-typography-accent-font-family ), Sans-serif;font-weight:var( --e-global-typography-accent-font-weight );}.elementor-widget-mega-menu{--n-menu-divider-color:var( --e-global-color-text );}.elementor-15 .elementor-element.elementor-element-240c4b0{--display:flex;}.elementor-15 .elementor-element.elementor-element-ace888c{--n-menu-dropdown-content-max-width:initial;--n-menu-heading-justify-content:flex-end;--n-menu-title-flex-grow:initial;--n-menu-title-justify-content:initial;--n-menu-title-justify-content-mobile:flex-end;--n-menu-heading-wrap:wrap;--n-menu-heading-overflow-x:initial;--n-menu-title-distance-from-content:0px;--n-menu-toggle-icon-wrapper-animation-duration:500ms;--n-menu-title-space-between:0px;--n-menu-title-font-size:16px;--n-menu-title-transition:300ms;--n-menu-icon-size:16px;--n-menu-toggle-icon-size:20px;--n-menu-toggle-icon-hover-duration:500ms;--n-menu-toggle-icon-distance-from-dropdown:0px;}.elementor-15 .elementor-element.elementor-element-ace888c > .e-n-menu > .e-n-menu-wrapper > .e-n-menu-heading > .e-n-menu-item > .e-n-menu-title, .elementor-15 .elementor-element.elementor-element-ace888c > .e-n-menu > .e-n-menu-wrapper > .e-n-menu-heading > .e-n-menu-item > .e-n-menu-title > .e-n-menu-title-container, .elementor-15 .elementor-element.elementor-element-ace888c > .e-n-menu > .e-n-menu-wrapper > .e-n-menu-heading > .e-n-menu-item > .e-n-menu-title > .e-n-menu-title-container > span{font-family:"Futura", Sans-serif;font-weight:500;}.elementor-15 .elementor-element.elementor-element-ace888c {--n-menu-title-color-hover:#ee9c61;}.elementor-theme-builder-content-area{height:400px;}.elementor-location-header:before, .elementor-location-footer:before{content:"";display:table;clear:both;}@media(min-width:768px){.elementor-15 .elementor-element.elementor-element-f77616a{--content-width:1390px;}.elementor-15 .elementor-element.elementor-element-f04a1f3{--width:33%;}.elementor-15 .elementor-element.elementor-element-679944c{--width:33%;}.elementor-15 .elementor-element.elementor-element-4d62efb{--width:33%;}}/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Futura';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://foxymedia.co.il/wp-content/uploads/2026/01/FuturaCyrillicMedium.woff') format('woff');
+}
+/* End Custom Fonts CSS */
+/*# sourceURL=elementor-frontend-inline-css */
+</style>
+<link rel="stylesheet" id="widget-nav-menu-css" href="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.34.0" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://foxymedia.co.il/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.34.1" media="all">
+<link rel="stylesheet" id="widget-mega-menu-css" href="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/css/widget-mega-menu.min.css?ver=3.34.0" media="all">
+<link rel="stylesheet" id="e-sticky-css" href="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.34.0" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://foxymedia.co.il/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.34.1" media="all">
+<link rel="stylesheet" id="widget-spacer-css" href="https://foxymedia.co.il/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=3.34.1" media="all">
+<link rel="stylesheet" id="widget-icon-list-css" href="https://foxymedia.co.il/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.34.1" media="all">
+<link rel="stylesheet" id="swiper-css" href="https://foxymedia.co.il/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://foxymedia.co.il/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.34.1" media="all">
+<link rel="stylesheet" id="widget-media-carousel-css" href="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/css/widget-media-carousel.min.css?ver=3.34.0" media="all">
+<link rel="stylesheet" id="widget-carousel-module-base-css" href="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/css/widget-carousel-module-base.min.css?ver=3.34.0" media="all">
+<link rel="stylesheet" id="elementor-gf-roboto-css" href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all">
+<link rel="stylesheet" id="elementor-gf-robotoslab-css" href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all">
+<script src="https://foxymedia.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://foxymedia.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://foxymedia.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://foxymedia.co.il/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://foxymedia.co.il/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="canonical" href="https://foxymedia.co.il/">
+<link rel="shortlink" href="https://foxymedia.co.il/">
+<meta name="generator" content="Elementor 3.34.1; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-internal, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://foxymedia.co.il/wp-content/uploads/2026/01/cropped-Favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="https://foxymedia.co.il/wp-content/uploads/2026/01/cropped-Favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://foxymedia.co.il/wp-content/uploads/2026/01/cropped-Favicon-180x180.png">
+<meta name="msapplication-TileImage" content="https://foxymedia.co.il/wp-content/uploads/2026/01/cropped-Favicon-270x270.png">
+<script src="https://foxymedia.co.il/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4" defer=""></script><script src="https://foxymedia.co.il/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4" defer=""></script></head>
+<body class="home wp-singular page-template page-template-elementor_header_footer page page-id-2 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor eio-default hello-elementor-default elementor-default elementor-template-full-width elementor-kit-6 elementor-page elementor-page-2 e--ua-blink e--ua-webkit" data-elementor-device-mode="desktop">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-elementor-type="header" data-elementor-id="15" class="elementor elementor-15 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-f77616a e-flex e-con-boxed e-con e-parent elementor-sticky elementor-sticky--active elementor-section--handles-inside elementor-sticky--effects e-lazyloaded" data-id="f77616a" data-element_type="container" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="position: fixed; width: 1280px; margin-top: 0px; margin-bottom: 0px; top: 0px;">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-f04a1f3 e-con-full e-flex e-con e-child" data-id="f04a1f3" data-element_type="container">
+				<div class="elementor-element elementor-element-2e2b8b3 elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="2e2b8b3" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-fade">
+				<ul id="menu-1-2e2b8b3" class="elementor-nav-menu" data-smartmenus-id="17740156061024697"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20"><a href="#" class="elementor-item elementor-item-anchor">WHO WE ARE</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21"><a href="#" class="elementor-item elementor-item-anchor">WHAT WE DO</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22"><a href="#" class="elementor-item elementor-item-anchor">OUR EGDE</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-2e2b8b3" class="elementor-nav-menu" data-smartmenus-id="177401560610354"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">WHO WE ARE</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">WHAT WE DO</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">OUR EGDE</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-679944c e-con-full e-flex e-con e-child" data-id="679944c" data-element_type="container">
+				<div class="elementor-element elementor-element-be67843 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="be67843" data-element_type="widget" data-widget_type="theme-site-logo.default">
+											<a href="https://foxymedia.co.il">
+			<img fetchpriority="high" width="796" height="132" src="https://foxymedia.co.il/wp-content/uploads/2026/01/Logo.webp" class="attachment-full size-full wp-image-17" alt="" srcset="https://foxymedia.co.il/wp-content/uploads/2026/01/Logo.webp 796w, https://foxymedia.co.il/wp-content/uploads/2026/01/Logo-300x50.png 300w, https://foxymedia.co.il/wp-content/uploads/2026/01/Logo-768x127.png 768w" sizes="(max-width: 796px) 100vw, 796px">				</a>
+											</div>
+				</div>
+		<div class="elementor-element elementor-element-4d62efb e-con-full e-flex e-con e-child" data-id="4d62efb" data-element_type="container">
+				<div class="elementor-element elementor-element-ace888c e-full_width e-n-menu-layout-horizontal e-n-menu-tablet elementor-widget elementor-widget-n-menu" data-id="ace888c" data-element_type="widget" data-settings="{&quot;menu_items&quot;:[{&quot;item_title&quot;:&quot;GET IN TOUCH&quot;,&quot;_id&quot;:&quot;d544226&quot;,&quot;item_link&quot;:{&quot;url&quot;:&quot;&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;}],&quot;item_position_horizontal&quot;:&quot;end&quot;,&quot;content_width&quot;:&quot;full_width&quot;,&quot;item_layout&quot;:&quot;horizontal&quot;,&quot;open_on&quot;:&quot;hover&quot;,&quot;horizontal_scroll&quot;:&quot;disable&quot;,&quot;breakpoint_selector&quot;:&quot;tablet&quot;,&quot;menu_item_title_distance_from_content&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;menu_item_title_distance_from_content_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;menu_item_title_distance_from_content_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="mega-menu.default">
+							<nav class="e-n-menu" data-widget-number="181" aria-label="Menu" data-touch-mode="false" data-layout="horizontal">
+					<button class="e-n-menu-toggle" id="menu-toggle-181" aria-haspopup="true" aria-expanded="false" aria-controls="menubar-181" aria-label="Menu Toggle">
+			<span class="e-n-menu-toggle-icon e-open">
+				<svg class="e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg>			</span>
+			<span class="e-n-menu-toggle-icon e-close">
+				<svg class="e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>			</span>
+		</button>
+					<div class="e-n-menu-wrapper" id="menubar-181" aria-labelledby="menu-toggle-181" style="--stretch-width: 1280px; --stretch-left: -851.59375px;">
+				<ul class="e-n-menu-heading">
+								<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1811" class="e-n-menu-title">
+					<div class="e-n-menu-title-container">												<span class="e-n-menu-title-text">
+							GET IN TOUCH						</span>
+					</div>									</div>
+							</li>
+						</ul>
+			</div>
+		</nav>
+						</div>
+				</div>
+					</div>
+				</div><div class="elementor-element elementor-element-f77616a e-flex e-con-boxed e-con e-parent elementor-sticky elementor-sticky__spacer" data-id="f77616a" data-element_type="container" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="visibility: hidden; transition: none; animation: auto ease 0s 1 normal none running none;">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-f04a1f3 e-con-full e-flex e-con e-child" data-id="f04a1f3" data-element_type="container">
+				<div class="elementor-element elementor-element-2e2b8b3 elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="2e2b8b3" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-fade">
+				<ul id="menu-1-2e2b8b3" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20"><a href="#" class="elementor-item elementor-item-anchor">WHO WE ARE</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21"><a href="#" class="elementor-item elementor-item-anchor">WHAT WE DO</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22"><a href="#" class="elementor-item elementor-item-anchor">OUR EGDE</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-2e2b8b3" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">WHO WE ARE</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">WHAT WE DO</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">OUR EGDE</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-679944c e-con-full e-flex e-con e-child" data-id="679944c" data-element_type="container">
+				<div class="elementor-element elementor-element-be67843 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="be67843" data-element_type="widget" data-widget_type="theme-site-logo.default">
+											<a href="https://foxymedia.co.il">
+			<img fetchpriority="high" width="796" height="132" src="https://foxymedia.co.il/wp-content/uploads/2026/01/Logo.webp" class="attachment-full size-full wp-image-17" alt="" srcset="https://foxymedia.co.il/wp-content/uploads/2026/01/Logo.webp 796w, https://foxymedia.co.il/wp-content/uploads/2026/01/Logo-300x50.png 300w, https://foxymedia.co.il/wp-content/uploads/2026/01/Logo-768x127.png 768w" sizes="(max-width: 796px) 100vw, 796px">				</a>
+											</div>
+				</div>
+		<div class="elementor-element elementor-element-4d62efb e-con-full e-flex e-con e-child" data-id="4d62efb" data-element_type="container">
+				<div class="elementor-element elementor-element-ace888c e-full_width e-n-menu-layout-horizontal e-n-menu-tablet elementor-widget elementor-widget-n-menu" data-id="ace888c" data-element_type="widget" data-settings="{&quot;menu_items&quot;:[{&quot;item_title&quot;:&quot;GET IN TOUCH&quot;,&quot;_id&quot;:&quot;d544226&quot;,&quot;item_link&quot;:{&quot;url&quot;:&quot;&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;}],&quot;item_position_horizontal&quot;:&quot;end&quot;,&quot;content_width&quot;:&quot;full_width&quot;,&quot;item_layout&quot;:&quot;horizontal&quot;,&quot;open_on&quot;:&quot;hover&quot;,&quot;horizontal_scroll&quot;:&quot;disable&quot;,&quot;breakpoint_selector&quot;:&quot;tablet&quot;,&quot;menu_item_title_distance_from_content&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;menu_item_title_distance_from_content_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;menu_item_title_distance_from_content_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="mega-menu.default">
+							<nav class="e-n-menu" data-widget-number="181" aria-label="Menu">
+					<button class="e-n-menu-toggle" id="menu-toggle-181" aria-haspopup="true" aria-expanded="false" aria-controls="menubar-181" aria-label="Menu Toggle">
+			<span class="e-n-menu-toggle-icon e-open">
+				<svg class="e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg>			</span>
+			<span class="e-n-menu-toggle-icon e-close">
+				<svg class="e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>			</span>
+		</button>
+					<div class="e-n-menu-wrapper" id="menubar-181" aria-labelledby="menu-toggle-181">
+				<ul class="e-n-menu-heading">
+								<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1811" class="e-n-menu-title">
+					<div class="e-n-menu-title-container">												<span class="e-n-menu-title-text">
+							GET IN TOUCH						</span>
+					</div>									</div>
+							</li>
+						</ul>
+			</div>
+		</nav>
+						</div>
+				</div>
+					</div>
+				</div>
+				</header>
+				<div data-elementor-type="wp-page" data-elementor-id="2" class="elementor elementor-2" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-1ba1ff0 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="1ba1ff0" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-07af1df e-con-full e-flex e-con e-child" data-id="07af1df" data-element_type="container">
+				<div class="elementor-element elementor-element-61a133e elementor-widget elementor-widget-heading" data-id="61a133e" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">WE ARE
+FOXY</h2>				</div>
+				</div>
+		<div class="elementor-element elementor-element-5648176 e-con-full e-flex e-con e-child" data-id="5648176" data-element_type="container">
+				<div class="elementor-element elementor-element-c5e8140 elementor-widget elementor-widget-text-editor" data-id="c5e8140" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Content format development for publishers. <span class="text-highlight">Strategic content production for brands.</span> Precise content that builds presence, differentiation, and impact</p>								</div>
+				<div class="elementor-element elementor-element-3c6460f elementor-widget elementor-widget-text-editor" data-id="3c6460f" data-element_type="widget" data-widget_type="text-editor.default">
+									<span class="text-highlight"> We develop content</span> formats and media products for leading publishers in Israel and worldwide, while producing content for brands and companies that positions them prominently in the media landscape.								</div>
+				<div class="elementor-element elementor-element-f7e7624 elementor-widget elementor-widget-spacer" data-id="f7e7624" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-87dd9c8 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="87dd9c8" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><g clip-path="url(#clip0_39_35)"><path d="M10.972 0.502986C11.0709 0.503007 11.1676 0.532343 11.2498 0.587285C11.332 0.642227 11.396 0.720309 11.4339 0.811659C11.4717 0.903008 11.4816 1.00352 11.4623 1.1005C11.443 1.19748 11.3954 1.28656 11.3255 1.35649L0.85803 11.824C0.764277 11.9179 0.637066 11.9707 0.504384 11.9708C0.371702 11.9709 0.244417 11.9182 0.150531 11.8245C0.0566444 11.7307 0.00384617 11.6035 0.00375271 11.4708C0.00365925 11.3382 0.0562763 11.2109 0.15003 11.117L10.6185 0.649985C10.6649 0.603462 10.72 0.566535 10.7807 0.541312C10.8413 0.516089 10.9063 0.503066 10.972 0.502986Z" fill="#242523"></path><path d="M2.99696 0.0045166H11.4705C11.6031 0.0045166 11.7302 0.0571947 11.824 0.150963C11.9178 0.244731 11.9705 0.371908 11.9705 0.504517V8.97852C11.9705 9.11112 11.9178 9.2383 11.824 9.33207C11.7302 9.42584 11.6031 9.47852 11.4705 9.47852C11.3379 9.47852 11.2107 9.42584 11.1169 9.33207C11.0231 9.2383 10.9705 9.11112 10.9705 8.97852V1.00452H2.99696C2.86435 1.00452 2.73717 0.951837 2.64341 0.858068C2.54964 0.7643 2.49696 0.637125 2.49696 0.504517C2.49696 0.371908 2.54964 0.244731 2.64341 0.150963C2.73717 0.0571947 2.86435 0.0045166 2.99696 0.0045166Z" fill="#242523"></path></g><defs><clipPath id="clip0_39_35"><rect width="12" height="12" fill="white" transform="matrix(-1 0 0 -1 12 12)"></rect></clipPath></defs></svg>						</span>
+										<span class="elementor-icon-list-text">GET IN TOUCH</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-c291521 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="c291521" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-f05c7a4 elementor-widget elementor-widget-spacer" data-id="f05c7a4" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-3566e31 e-con-full e-flex e-con e-parent e-lazyloaded" data-id="3566e31" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-25a062b elementor-skin-carousel elementor-widget elementor-widget-media-carousel e-widget-swiper" data-id="25a062b" data-element_type="widget" data-settings="{&quot;slides_per_view&quot;:&quot;6&quot;,&quot;lazyload&quot;:&quot;yes&quot;,&quot;space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:14,&quot;sizes&quot;:[]},&quot;skin&quot;:&quot;carousel&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;loop&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;space_between_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]}}" data-widget_type="media-carousel.default">
+										<div class="elementor-main-swiper swiper swiper-initialized swiper-horizontal swiper-pointer-events" role="region" aria-roledescription="carousel" aria-label="Slides">
+				<div class="swiper-wrapper" id="swiper-wrapper-671ac5175f072199" aria-live="off" style="cursor: grab; transition-duration: 0ms; transform: translate3d(-1051px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="4" aria-label="5 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 6" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-6.webp&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="5" aria-label="6 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 4" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-4.png&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="6" aria-label="7 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 3" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-3.png&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="7" aria-label="8 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 2" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-2.webp&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="8" aria-label="9 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 2" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-2.webp&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" role="group" aria-roledescription="slide" data-swiper-slide-index="9" aria-label="10 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 1" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-1.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide swiper-slide-active" role="group" aria-roledescription="slide" data-swiper-slide-index="0" aria-label="1 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 11" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-11.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide swiper-slide-next" role="group" aria-roledescription="slide" data-swiper-slide-index="1" aria-label="2 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 10" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-10.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide" data-swiper-slide-index="2" aria-label="3 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 9" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-9.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide" data-swiper-slide-index="3" aria-label="4 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 7" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-7.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide" data-swiper-slide-index="4" aria-label="5 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 6" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-6.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide" data-swiper-slide-index="5" aria-label="6 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 4" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-4.png&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide" data-swiper-slide-index="6" aria-label="7 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 3" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-3.png&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide" data-swiper-slide-index="7" aria-label="8 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 2" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-2.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide" data-swiper-slide-index="8" aria-label="9 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 2" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-2.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+											<div class="swiper-slide swiper-slide-duplicate-prev" role="group" aria-roledescription="slide" data-swiper-slide-index="9" aria-label="10 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 1" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-1.webp&quot;);">
+
+							
+			
+					</div>
+								</div>
+									<div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" role="group" aria-roledescription="slide" data-swiper-slide-index="0" aria-label="1 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 11" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-11.webp&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" role="group" aria-roledescription="slide" data-swiper-slide-index="1" aria-label="2 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 10" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-10.webp&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="2" aria-label="3 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 9" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-9.webp&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="3" aria-label="4 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy swiper-lazy-loaded" role="img" aria-label="1 7" style="background-image: url(&quot;https://foxymedia.co.il/wp-content/uploads/2026/01/1-7.webp&quot;);">
+
+							
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="4" aria-label="5 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy" role="img" aria-label="1 6" data-background="https://foxymedia.co.il/wp-content/uploads/2026/01/1-6.webp">
+
+							<div class="swiper-lazy-preloader"></div>
+			
+					</div>
+								</div><div class="swiper-slide swiper-slide-duplicate" role="group" aria-roledescription="slide" data-swiper-slide-index="5" aria-label="6 / 10" style="width: 161.167px; margin-right: 14px;">
+									<div class="elementor-carousel-image swiper-lazy" role="img" aria-label="1 4" data-background="https://foxymedia.co.il/wp-content/uploads/2026/01/1-4.png">
+
+							<div class="swiper-lazy-preloader"></div>
+			
+					</div>
+								</div></div>
+																					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-d79c571 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="d79c571" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-ae91d34 elementor-widget elementor-widget-heading" data-id="ae91d34" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">WHAT WE DO</h2>				</div>
+				<div class="elementor-element elementor-element-d448c19 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="d448c19" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Over 15 years</h2>				</div>
+				<div class="elementor-element elementor-element-70b594b elementor-widget elementor-widget-heading" data-id="70b594b" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">of experience across all </h2>				</div>
+				<div class="elementor-element elementor-element-6f7cf38 elementor-widget elementor-widget-heading" data-id="6f7cf38" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">types of media projects</h2>				</div>
+		<div class="elementor-element elementor-element-f586e92 e-con-full e-flex elementor-invisible e-con e-child" data-id="f586e92" data-element_type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;,&quot;animation&quot;:&quot;none&quot;}">
+				<div class="elementor-element elementor-element-5c7dfc5 elementor-absolute elementor-widget elementor-widget-image" data-id="5c7dfc5" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+															<img decoding="async" width="764" height="84" src="https://foxymedia.co.il/wp-content/uploads/2026/01/Rectangle-6.webp" class="attachment-large size-large wp-image-231" alt="" srcset="https://foxymedia.co.il/wp-content/uploads/2026/01/Rectangle-6.webp 764w, https://foxymedia.co.il/wp-content/uploads/2026/01/Rectangle-6-300x33.webp 300w" sizes="(max-width: 764px) 100vw, 764px">															</div>
+				</div>
+				<div class="elementor-element elementor-element-7db09bb elementor-widget elementor-widget-spacer" data-id="7db09bb" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-ebb9154 elementor-widget elementor-widget-text-editor" data-id="ebb9154" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>We develop and produce original formats and content for television, digital platforms, and podcasts for leading publishers, while also creating tailor-made content for brands and companies — including international campaigns that deliver strong presence and meaningful impact.</p>								</div>
+				<div class="elementor-element elementor-element-043f296 elementor-widget elementor-widget-text-editor" data-id="043f296" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>We guide every project from concept to distribution, creating content that drives engagement, sparks conversation, and delivers clear differentiation — without overstatement. The result: a strategic choice for brands seeking <strong>high-quality, game-changing content</strong></p>								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-cb023f7 e-flex e-con-boxed e-con e-parent" data-id="cb023f7" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-694e3d4 elementor-absolute elementor-widget elementor-widget-image" data-id="694e3d4" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+															<img decoding="async" width="278" height="324" src="https://foxymedia.co.il/wp-content/uploads/2026/01/1.webp" class="attachment-large size-large wp-image-252" alt="" srcset="https://foxymedia.co.il/wp-content/uploads/2026/01/1.webp 278w, https://foxymedia.co.il/wp-content/uploads/2026/01/1-257x300.webp 257w" sizes="(max-width: 278px) 100vw, 278px">															</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-9ff45f3 e-flex e-con-boxed e-con e-parent" data-id="9ff45f3" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-62a33e6 elementor-absolute elementor-widget elementor-widget-image" data-id="62a33e6" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+															<img loading="lazy" decoding="async" width="392" height="446" src="https://foxymedia.co.il/wp-content/uploads/2026/01/2.png" class="attachment-large size-large wp-image-251" alt="" srcset="https://foxymedia.co.il/wp-content/uploads/2026/01/2.png 392w, https://foxymedia.co.il/wp-content/uploads/2026/01/2-264x300.png 264w" sizes="(max-width: 392px) 100vw, 392px">															</div>
+					</div>
+				</div>
+				</div>
+		<footer id="site-footer" class="site-footer dynamic-footer footer-has-copyright">
+	<div class="footer-inner">
+		<div class="site-branding show-logo">
+							<div class="site-logo show">
+					<a href="https://foxymedia.co.il/" class="custom-logo-link" rel="home" aria-current="page"><img width="796" height="132" src="https://foxymedia.co.il/wp-content/uploads/2026/01/Logo.webp" class="custom-logo" alt="foxymedia.co.il" decoding="async" srcset="https://foxymedia.co.il/wp-content/uploads/2026/01/Logo.webp 796w, https://foxymedia.co.il/wp-content/uploads/2026/01/Logo-300x50.png 300w, https://foxymedia.co.il/wp-content/uploads/2026/01/Logo-768x127.png 768w" sizes="(max-width: 796px) 100vw, 796px"></a>				</div>
+							<p class="site-description show">
+					Content format development for publishers. 				</p>
+					</div>
+
+		
+					<div class="copyright show">
+				<p>All rights reserved</p>
+			</div>
+			</div>
+</footer>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script src="https://foxymedia.co.il/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.5" id="hello-theme-frontend-js"></script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js"></script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.34.1" id="elementor-webpack-runtime-js"></script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.34.1" id="elementor-frontend-modules-js"></script>
+<script src="https://foxymedia.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script id="elementor-frontend-js-extra">
+var PremiumSettings = {"ajaxurl":"https://foxymedia.co.il/wp-admin/admin-ajax.php","nonce":"3887795610"};
+//# sourceURL=elementor-frontend-js-extra
+</script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.34.1","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"e_pro_free_trial_popup":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"e_interactions":true,"import-export-customization":true,"mega-menu":true,"e_pro_variables":true},"urls":{"assets":"https:\/\/foxymedia.co.il\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/foxymedia.co.il\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/foxymedia.co.il\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"cdbaa5de64"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":2,"title":"foxymedia.co.il%20%E2%80%93%20Content%20format%20development%20for%20publishers.%20","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.34.1" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.34.0" id="e-sticky-js"></script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js"></script>
+<script src="https://foxymedia.co.il/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/elements-handler.min.js?ver=4.11.64" id="pa-elements-handler-js"></script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.34.0" id="elementor-pro-webpack-runtime-js"></script>
+<script src="https://foxymedia.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script src="https://foxymedia.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/foxymedia.co.il\/wp-admin\/admin-ajax.php","nonce":"4efb4c5113","urls":{"assets":"https:\/\/foxymedia.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/foxymedia.co.il\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/foxymedia.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.34.0" id="elementor-pro-frontend-js"></script>
+<script src="https://foxymedia.co.il/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.34.0" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://foxymedia.co.il/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://foxymedia.co.il/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://foxymedia.co.il/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://foxymedia.co.il/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<div id="custom-scroll-cursor">
+  <div class="cursor-content">
+    <div class="cursor-text">Scroll</div>
+    <div class="cursor-arrow">↓</div>
+  </div>
+</div>
+
+<style>
+/* הסתרת סמן ברירת המחדל */
+html, body {
+  cursor: none !important;
+}
+a, button, .elementor-button, .clickable {
+  cursor: none !important;
+}
+
+/* העיגול הראשי */
+#custom-scroll-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 110px;
+  background-color: #FFB276;
+  border-radius: 50%;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 0;
+  
+  /* מירכוז אבסולוטי של התוכן */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  will-change: transform;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+/* המיכל של הטקסט והחץ */
+.cursor-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ממרכז את הילדים בצורה אופקית */
+  justify-content: center; /* ממרכז בצורה אנכית */
+  width: 100%;
+  text-align: center;
+  color: #000000;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.cursor-text {
+  font-size: 16px;
+  line-height: 1; /* מבטל מרווחים מיותרים */
+  margin-bottom: 10px; /* רווח קטן בין המילה לחץ */
+  display: block;
+}
+
+.cursor-arrow {
+  font-size: 22px;
+  line-height: 1; /* מבטל מרווחים מיותרים שדוחפים את החץ הצידה */
+  display: block;
+  width: 100%;
+}
+
+/* מצב Hover */
+body.cursor-hover #custom-scroll-cursor {
+  width: 25px;
+  height: 25px;
+}
+body.cursor-hover .cursor-content {
+  opacity: 0;
+}
+
+/* ביטול במובייל */
+@media (max-width: 1024px) {
+  #custom-scroll-cursor { display: none !important; }
+  html, body { cursor: auto !important; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.getElementById('custom-scroll-cursor');
+  
+  const updateCursor = (e) => {
+    // הזזה חלקה עם מירכוז הסמן למרכז העיגול
+    cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    cursor.style.opacity = "1";
+  };
+
+  window.addEventListener('mousemove', updateCursor);
+
+  // זיהוי אלמנטים לחיצים
+  const handleHover = () => {
+    const targets = 'a, button, .elementor-button, .clickable, input[type="submit"]';
+    document.querySelectorAll(targets).forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  };
+
+  handleHover();
+  setTimeout(handleHover, 1000); // תמיכה באלמנטים שנטענים באיחור
+});
+</script>
+
+
+
+
+
+</body></html>
