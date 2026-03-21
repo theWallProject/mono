@@ -194,32 +194,6 @@ done
 echo ""
 
 # ========================================================================
-# Docker validation (if available)
-# ========================================================================
-if command -v docker &> /dev/null; then
-    echo "Running fastlane-supply-validate via Docker..."
-    echo ""
-
-    # Convert Windows path to Unix path for Docker (Git Bash)
-    UNIX_PATH=$(cd "$METADATA_DIR" && pwd)
-
-    if docker run --rm \
-        -v "$UNIX_PATH:/metadata" \
-        nickcmaynard/fastlane-supply-validate \
-        -fastlane-path /metadata \
-        -play-store-locales 2>/dev/null; then
-        echo -e "${GREEN}Docker validation passed!${NC}"
-    else
-        echo -e "${YELLOW}Docker validation skipped (may not be available)${NC}"
-    fi
-    echo ""
-else
-    echo -e "${YELLOW}[INFO]${NC} Docker not available - skipping fastlane-supply-validate"
-    echo "Install Docker to enable comprehensive validation."
-    echo ""
-fi
-
-# ========================================================================
 # Summary
 # ========================================================================
 echo "========================================"

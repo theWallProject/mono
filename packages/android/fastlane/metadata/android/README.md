@@ -47,5 +47,3 @@ Before publishing to Play Store, add these images:
 ## Validation
 
 Run `pnpm validate:metadata` to check all metadata meets Play Store requirements.
-
-The validation uses [fastlane-supply-validate](https://github.com/nickcmaynard/fastlane-supply-validate) via Docker.
