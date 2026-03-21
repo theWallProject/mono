@@ -94,13 +94,15 @@ pnpm clean
 
 ```bash
 # Build with version bump
-pnpm release:patch    # 1.0.0 -> 1.0.1
+pnpm release:patch    # 1.0.0-> 1.0.1
 pnpm release:minor    # 1.0.0 -> 1.1.0
 pnpm release:major    # 1.0.0 -> 2.0.0
 
 # Build without version bump
 pnpm release
 ```
+
+The script will ask whether to generate Play Store screenshots.
 
 Output:
 

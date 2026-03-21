@@ -43,20 +43,15 @@ echo ""
 
 # Parse arguments
 BUMP_TYPE=""
-SKIP_SCREENSHOTS=false
 while [[ $# -gt 0 ]]; do
     case $1 in
         --bump)
             BUMP_TYPE="$2"
             shift 2
             ;;
-        --no-screenshots)
-            SKIP_SCREENSHOTS=true
-            shift
-            ;;
         *)
             echo -e "${RED}Unknown option: $1${NC}"
-            echo "Usage: release.sh [--bump patch|minor|major] [--no-screenshots]"
+            echo "Usage: release.sh [--bump patch|minor|major]"
             exit 1
             ;;
     esac
@@ -89,17 +84,17 @@ if [ -n "$BUMP_TYPE" ]; then
     echo ""
 fi
 
-# Generate Play Store screenshots (JVM-based, no emulator needed)
-
-if [ "$SKIP_SCREENSHOTS" = false ]; then
+# Ask about screenshots
+read -p "Generate Play Store screenshots? [y/N] " -n 1 -r
+echo ""
+if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo -e "${YELLOW}Generating Play Store screenshots...${NC}"
     ./gradlew recordRoborazziDebug --tests "*.FastlaneScreenshotTest"
     echo -e "${GREEN}Screenshots generated!${NC}"
-    echo ""
 else
     echo -e "${CYAN}Skipping screenshots.${NC}"
-    echo ""
 fi
+echo ""
 
 # Read current version
 VERSION_NAME=$(grep "VERSION_NAME" version.properties | cut -d'=' -f2)
