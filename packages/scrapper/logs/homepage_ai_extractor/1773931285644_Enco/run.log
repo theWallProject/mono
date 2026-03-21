@@ -1,0 +1,64 @@
+[2026-03-19T14:41:25.645Z] === Homepage AI Extractor: Enco ===
+[2026-03-19T14:41:25.645Z] Started at: 2026-03-19T14:41:25.645Z
+[2026-03-19T14:41:25.645Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773931285644_Enco
+[2026-03-19T14:41:25.645Z] Company: Enco
+[2026-03-19T14:41:25.645Z] Website: enco.co.il
+[2026-03-19T14:41:25.645Z] cbRank: 2273686
+[2026-03-19T14:41:25.645Z] Reasons: h
+[2026-03-19T14:41:25.645Z] Fetching: https://enco.co.il
+[2026-03-19T14:41:31.495Z] Redirected: https://enco.co.il -> https://www.enco.co.il/
+[2026-03-19T14:41:31.500Z] Saved HTML (83027 bytes) to page.html
+[2026-03-19T14:41:31.503Z] Extracted 22 unique links from page
+[2026-03-19T14:41:31.504Z] Saved 22 links to links.json
+[2026-03-19T14:41:31.506Z] Extracted footer HTML (2105 chars)
+[2026-03-19T14:41:31.506Z] Extracted header HTML (3744 chars)
+[2026-03-19T14:41:31.509Z] Website (post-redirect): https://www.enco.co.il/ → origin: https://www.enco.co.il
+[2026-03-19T14:41:31.510Z] External links: 6 (of 22 total)
+[2026-03-19T14:41:31.510Z] ── All external links ──
+[2026-03-19T14:41:31.510Z]   EXT: http://cookiesandyou.com
+[2026-03-19T14:41:31.510Z]   EXT: http://www.facebook.com/ENCO.SC
+[2026-03-19T14:41:31.510Z]   EXT: http://www.linkedin.com/company/2379511
+[2026-03-19T14:41:31.510Z]   EXT: http://www.localize.co.il
+[2026-03-19T14:41:31.511Z]   EXT: http://www.youtube.com/user/ENCOSC
+[2026-03-19T14:41:31.511Z]   EXT: https://en.wikipedia.org/wiki/Israel
+[2026-03-19T14:41:31.511Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T14:41:31.511Z]   UNCATEGORIZED: http://cookiesandyou.com
+[2026-03-19T14:41:31.511Z]   REGEX: fb <- http://www.facebook.com/ENCO.SC
+[2026-03-19T14:41:31.511Z]   REGEX: li <- http://www.linkedin.com/company/2379511
+[2026-03-19T14:41:31.511Z]   UNCATEGORIZED: http://www.localize.co.il
+[2026-03-19T14:41:31.511Z]   REGEX: ytp <- http://www.youtube.com/user/ENCOSC
+[2026-03-19T14:41:31.512Z]   UNCATEGORIZED: https://en.wikipedia.org/wiki/Israel
+[2026-03-19T14:41:31.512Z] Programmatic result: ws:1, fb:1, li:1, ytp:1 | 3 uncategorized
+[2026-03-19T14:41:31.512Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T14:41:31.515Z] Saved AI prompt (3333 chars) to ai_prompt.txt
+[2026-03-19T14:41:31.515Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T14:41:31.519Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T14:41:41.683Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-19T14:41:41.683Z] AI response complete: 0 chars in 10.2s
+[2026-03-19T14:41:41.685Z] Saved AI response to ai_response.json
+[2026-03-19T14:41:41.685Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T14:41:41.685Z] AI returned 0 valid links
+[2026-03-19T14:41:41.685Z] ── Categorizing 0 AI-returned links ──
+[2026-03-19T14:41:41.686Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T14:41:41.686Z] Footer/header origins (0):
+[2026-03-19T14:41:41.687Z]   SKIP (not in footer/header): http://cookiesandyou.com
+[2026-03-19T14:41:41.687Z]   SKIP (not in footer/header): http://www.localize.co.il
+[2026-03-19T14:41:41.687Z]   SKIP (not in footer/header): https://en.wikipedia.org/wiki/Israel
+[2026-03-19T14:41:41.687Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T14:41:41.687Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T14:41:41.687Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T14:41:41.688Z] ── Step 3: Final dedup ──
+[2026-03-19T14:41:41.688Z] No urls to dedup
+[2026-03-19T14:41:41.688Z] ── FINAL RESULT ──
+[2026-03-19T14:41:41.688Z]   ws (1):
+[2026-03-19T14:41:41.688Z]     - https://www.enco.co.il
+[2026-03-19T14:41:41.688Z]   li (1):
+[2026-03-19T14:41:41.688Z]     - https://www.linkedin.com/company/2379511
+[2026-03-19T14:41:41.688Z]   fb (1):
+[2026-03-19T14:41:41.688Z]     - https://www.facebook.com/enco.sc
+[2026-03-19T14:41:41.689Z]   ytp (1):
+[2026-03-19T14:41:41.689Z]     - https://www.youtube.com/@encosc
+[2026-03-19T14:41:41.689Z] Summary: ws:1, fb:1, li:1, ytp:1
+[2026-03-19T14:41:41.690Z] Saved final result to result.json
+[2026-03-19T14:41:41.691Z] Override fields: ws, li, fb, ytp
+[2026-03-19T14:41:41.691Z] Finished at: 2026-03-19T14:41:41.691Z

@@ -1,0 +1,80 @@
+[2026-03-19T08:34:10.145Z] === Homepage AI Extractor: JVocals ===
+[2026-03-19T08:34:10.145Z] Started at: 2026-03-19T08:34:10.145Z
+[2026-03-19T08:34:10.145Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773909250144_JVocals
+[2026-03-19T08:34:10.145Z] Company: JVocals
+[2026-03-19T08:34:10.145Z] Website: jvocals.com
+[2026-03-19T08:34:10.145Z] cbRank: 2050386
+[2026-03-19T08:34:10.145Z] Reasons: h
+[2026-03-19T08:34:10.145Z] Fetching: https://jvocals.com
+[2026-03-19T08:34:21.100Z] Network idle timeout — continuing with current state
+[2026-03-19T08:34:21.135Z] Redirected: https://jvocals.com -> https://www.jvocals.com/
+[2026-03-19T08:34:21.157Z] Saved HTML (1037990 bytes) to page.html
+[2026-03-19T08:34:21.161Z] Extracted 32 unique links from page
+[2026-03-19T08:34:21.162Z] Saved 32 links to links.json
+[2026-03-19T08:34:21.164Z] Extracted footer HTML (1247 chars)
+[2026-03-19T08:34:21.164Z] Extracted header HTML (25812 chars)
+[2026-03-19T08:34:21.168Z] Website (post-redirect): https://www.jvocals.com/ → origin: https://www.jvocals.com
+[2026-03-19T08:34:21.168Z]   SUBDOMAIN: listings.jvocals.com (added to ws)
+[2026-03-19T08:34:21.169Z] Website subdomains found: 1
+[2026-03-19T08:34:21.169Z] External links: 5 (of 32 total)
+[2026-03-19T08:34:21.169Z] ── All external links ──
+[2026-03-19T08:34:21.169Z]   EXT: https://wa.me/13476349114
+[2026-03-19T08:34:21.169Z]   EXT: https://www.facebook.com/JVocals-852690445109967
+[2026-03-19T08:34:21.169Z]   EXT: https://www.instagram.com/jvocals.marketplace
+[2026-03-19T08:34:21.169Z]   EXT: https://www.linkedin.com/company/jvocals
+[2026-03-19T08:34:21.169Z]   EXT: https://www.youtube.com/channel/UC3rmu-e2t3WvosOMMbq518g
+[2026-03-19T08:34:21.169Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T08:34:21.169Z]   UNCATEGORIZED: https://wa.me/13476349114
+[2026-03-19T08:34:21.170Z]   REGEX: fb <- https://www.facebook.com/JVocals-852690445109967
+[2026-03-19T08:34:21.170Z]   REGEX: ig <- https://www.instagram.com/jvocals.marketplace
+[2026-03-19T08:34:21.170Z]   REGEX: li <- https://www.linkedin.com/company/jvocals
+[2026-03-19T08:34:21.170Z]   REGEX: ytc <- https://www.youtube.com/channel/UC3rmu-e2t3WvosOMMbq518g
+[2026-03-19T08:34:21.170Z] Programmatic result: ws:2, fb:1, ig:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-19T08:34:21.170Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T08:34:21.173Z] Saved AI prompt (2689 chars) to ai_prompt.txt
+[2026-03-19T08:34:21.173Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T08:34:21.176Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T08:34:30.623Z]   AI: First token received, streaming...
+[2026-03-19T08:34:30.855Z] AI response complete: 23 chars in 9.7s
+[2026-03-19T08:34:30.857Z] Saved AI response to ai_response.json
+[2026-03-19T08:34:30.857Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T08:34:30.857Z]   AI LINK: https://www.jvocals.com
+[2026-03-19T08:34:30.857Z] AI returned 1 valid links
+[2026-03-19T08:34:30.857Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T08:34:30.858Z]   AI→URLS: https://www.jvocals.com
+[2026-03-19T08:34:30.858Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T08:34:30.858Z] Footer/header origins (6):
+[2026-03-19T08:34:30.858Z]   FOOTER/HEADER ORIGIN: https://www.jvocals.com
+[2026-03-19T08:34:30.858Z]   FOOTER/HEADER ORIGIN: https://listings.jvocals.com
+[2026-03-19T08:34:30.859Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T08:34:30.859Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T08:34:30.859Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T08:34:30.859Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T08:34:30.859Z]   SKIP (not in footer/header): https://wa.me/13476349114
+[2026-03-19T08:34:30.859Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T08:34:30.859Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T08:34:30.860Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T08:34:31.251Z]   YOUTUBE: resolved UC3rmu-e2t3WvosOMMbq518g → @jvocals
+[2026-03-19T08:34:31.252Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T08:34:31.252Z] ── Step 3: Final dedup ──
+[2026-03-19T08:34:31.252Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T08:34:31.252Z] ── FINAL RESULT ──
+[2026-03-19T08:34:31.252Z]   ws (2):
+[2026-03-19T08:34:31.252Z]     - https://listings.jvocals.com
+[2026-03-19T08:34:31.252Z]     - https://www.jvocals.com
+[2026-03-19T08:34:31.253Z]   li (1):
+[2026-03-19T08:34:31.253Z]     - https://www.linkedin.com/company/jvocals
+[2026-03-19T08:34:31.253Z]   fb (1):
+[2026-03-19T08:34:31.253Z]     - https://www.facebook.com/jvocals-852690445109967
+[2026-03-19T08:34:31.253Z]   ig (1):
+[2026-03-19T08:34:31.253Z]     - https://www.instagram.com/jvocals.marketplace
+[2026-03-19T08:34:31.253Z]   ytp (1):
+[2026-03-19T08:34:31.253Z]     - https://www.youtube.com/@jvocals
+[2026-03-19T08:34:31.253Z]   ytc (1):
+[2026-03-19T08:34:31.253Z]     - https://www.youtube.com/channel/UC3rmu-e2t3WvosOMMbq518g
+[2026-03-19T08:34:31.253Z]   urls (1):
+[2026-03-19T08:34:31.253Z]     - https://www.jvocals.com
+[2026-03-19T08:34:31.253Z] Summary: ws:2, fb:1, ig:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-19T08:34:31.254Z] Saved final result to result.json
+[2026-03-19T08:34:31.254Z] Override fields: ws, li, fb, ig, ytp, ytc
+[2026-03-19T08:34:31.254Z] Finished at: 2026-03-19T08:34:31.254Z

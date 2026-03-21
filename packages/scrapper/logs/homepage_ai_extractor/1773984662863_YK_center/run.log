@@ -1,0 +1,66 @@
+[2026-03-20T05:31:02.863Z] === Homepage AI Extractor: YK center ===
+[2026-03-20T05:31:02.863Z] Started at: 2026-03-20T05:31:02.863Z
+[2026-03-20T05:31:02.863Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773984662863_YK_center
+[2026-03-20T05:31:02.863Z] Company: YK center
+[2026-03-20T05:31:02.864Z] Website: ykcenter.org
+[2026-03-20T05:31:02.864Z] cbRank: 2710673
+[2026-03-20T05:31:02.864Z] Reasons: h
+[2026-03-20T05:31:02.864Z] Fetching: https://ykcenter.org
+[2026-03-20T05:31:04.847Z] Redirected: https://ykcenter.org -> https://ykcenter.org/
+[2026-03-20T05:31:04.852Z] Saved HTML (87687 bytes) to page.html
+[2026-03-20T05:31:04.854Z] Extracted 26 unique links from page
+[2026-03-20T05:31:04.854Z] Saved 26 links to links.json
+[2026-03-20T05:31:04.856Z] Extracted footer HTML (1713 chars)
+[2026-03-20T05:31:04.856Z] Extracted header HTML (13579 chars)
+[2026-03-20T05:31:04.860Z] Website (post-redirect): https://ykcenter.org/ → origin: https://ykcenter.org
+[2026-03-20T05:31:04.860Z] External links: 3 (of 26 total)
+[2026-03-20T05:31:04.860Z] ── All external links ──
+[2026-03-20T05:31:04.860Z]   EXT: https://twitter.com/ykcenter
+[2026-03-20T05:31:04.860Z]   EXT: https://www.facebook.com/4Dashboard
+[2026-03-20T05:31:04.860Z]   EXT: https://www.youtube.com/user/rebootandprosperity
+[2026-03-20T05:31:04.861Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T05:31:04.861Z]   REGEX: tw <- https://twitter.com/ykcenter
+[2026-03-20T05:31:04.861Z]   REGEX: fb <- https://www.facebook.com/4Dashboard
+[2026-03-20T05:31:04.861Z]   REGEX: ytp <- https://www.youtube.com/user/rebootandprosperity
+[2026-03-20T05:31:04.861Z] Programmatic result: ws:1, tw:1, fb:1, ytp:1 | 0 uncategorized
+[2026-03-20T05:31:04.861Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T05:31:04.864Z] Saved AI prompt (3010 chars) to ai_prompt.txt
+[2026-03-20T05:31:04.864Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T05:31:04.868Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T05:31:15.214Z]   AI: First token received, streaming...
+[2026-03-20T05:31:21.096Z] AI response complete: 114 chars in 16.2s
+[2026-03-20T05:31:21.098Z] Saved AI response to ai_response.json
+[2026-03-20T05:31:21.098Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T05:31:21.098Z]   AI LINK: https://www.facebook.com/4Dashboard/
+[2026-03-20T05:31:21.098Z]   AI LINK: https://twitter.com/ykcenter
+[2026-03-20T05:31:21.098Z]   AI LINK: https://www.youtube.com/user/rebootandprosperity
+[2026-03-20T05:31:21.099Z] AI returned 3 valid links
+[2026-03-20T05:31:21.099Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T05:31:21.099Z]   AI→REGEX: fb <- https://www.facebook.com/4Dashboard/ (duplicate, skipped)
+[2026-03-20T05:31:21.099Z]   AI→REGEX: tw <- https://twitter.com/ykcenter (duplicate, skipped)
+[2026-03-20T05:31:21.099Z]   AI→REGEX: ytp <- https://www.youtube.com/user/rebootandprosperity (duplicate, skipped)
+[2026-03-20T05:31:21.100Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T05:31:21.100Z] Footer/header origins (5):
+[2026-03-20T05:31:21.100Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T05:31:21.101Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-20T05:31:21.101Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T05:31:21.101Z]   FOOTER/HEADER ORIGIN: https://ykcenter.org
+[2026-03-20T05:31:21.101Z]   FOOTER/HEADER ORIGIN: https://www.ykcenter.org
+[2026-03-20T05:31:21.101Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T05:31:21.101Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T05:31:21.101Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T05:31:21.101Z] ── Step 3: Final dedup ──
+[2026-03-20T05:31:21.101Z] No urls to dedup
+[2026-03-20T05:31:21.101Z] ── FINAL RESULT ──
+[2026-03-20T05:31:21.102Z]   ws (1):
+[2026-03-20T05:31:21.102Z]     - https://ykcenter.org
+[2026-03-20T05:31:21.102Z]   fb (1):
+[2026-03-20T05:31:21.102Z]     - https://www.facebook.com/4dashboard
+[2026-03-20T05:31:21.102Z]   tw (1):
+[2026-03-20T05:31:21.102Z]     - https://x.com/ykcenter
+[2026-03-20T05:31:21.102Z]   ytp (1):
+[2026-03-20T05:31:21.102Z]     - https://www.youtube.com/@rebootandprosperity
+[2026-03-20T05:31:21.102Z] Summary: ws:1, tw:1, fb:1, ytp:1
+[2026-03-20T05:31:21.104Z] Saved final result to result.json
+[2026-03-20T05:31:21.104Z] Override fields: ws, fb, tw, ytp
+[2026-03-20T05:31:21.104Z] Finished at: 2026-03-20T05:31:21.104Z

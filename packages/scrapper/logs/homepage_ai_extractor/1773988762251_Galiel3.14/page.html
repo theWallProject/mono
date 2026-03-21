@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+    <title>
+	Galiel 3.14 Ltd. 
+    </title>
+
+    <meta name="keywords" content="real-time database distribution, real-time database replication, database distribution, database replication, middleware, selective">
+
+    <meta name="google-site-verification" content="x3EDYcb0LskZooV755GSse6Yk92eXd3Wz3YDWXblfes">
+
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+    <meta http-equiv="content-language" content="EN">
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <link rel="stylesheet" type="text/css" href="style_print3.css" media="print">
+
+</head>
+
+
+
+<body>
+
+
+    <div class="logo">
+	<img src="LiveDistLogo.jpg">
+    </div>
+
+    <h1 id="mh1"><a id="top"></a><a href="index.html">Your</a></h1>
+    <h2>Home Page</h2>
+
+    <div id="outerContent">
+    <div id="content">
+
+    <div id="outerMain">
+    <!------------>
+
+    <div id="main">
+    <!------------>
+
+
+	<div class="path">
+
+	    Path: 
+	    Home
+	
+</div> <!-- path -->
+
+
+	<br>
+
+	<div class="mainSection">
+            <h3>
+	    	We supply middleware solutions for cost-effective,
+		efficient, selective, scalable, and near
+		<b>real-time database replication</b>. We call
+
+		it <b>database distribution</b>.
+	    </h3>
+	</div> <!-- mainSection -->
+
+	<div style="overflow:auto" align="center">
+	    <img src="LiveDistPic2.jpg">
+	</div>
+
+	<h4>
+	    What is real-time database distribution?
+	</h4>
+	<div class="mainSection">
+	    Real-time DB distribution is the creation and maintenance
+	    of dynamic partial copies of a central database on
+	    many client-machines. Each client defines its view
+	    (the portion of the database seen by the client).
+	    Updates on the database are distributed to all
+	    interested clients in near realtime performance.
+	    Clients can change their view at any time.
+	    The distributed data is delivered to application software
+	    running on the client machines. Clients can store their
+	    partial copy of the database in memory, or in a local
+	    database, or directly in user-interface components.
+	    Real-time database distribution can be considered as a
+	    generalization of real-time database replication.
+	</div>
+
+	<h4>
+	    Common problems in real-time data-distribution:
+	</h4>
+	<div class="mainSection">
+	    <ul>
+		<li>
+		    Clients have different views on the database.
+		</li>
+		<li>
+		    Network topology is constantly changing.<br>
+		    New clients can join the network and existing
+		    client can leave the network, at any time.
+		</li>
+		<li>
+		    Clients need to change their subscription.
+		</li>
+		<li>
+		    Some clients are connected over low-bandwidth communications,
+		    while others are connected over high-bandwidth communications.
+		</li>
+		<li>
+		    Data must be sent to each site only once.
+		</li>
+	    <ul>
+	</ul></ul></div>
+
+	<h4>
+	    In what ways are our products efficient?
+	</h4>
+	<div class="mainSection">
+	    Our data-distribution products send <i>binary</i> and <i>not
+	    self-describing</i> messages over the network. Only modified
+	    fields are sent through <i>http</i> connections, with very
+	    little overhead. We distribute only the <i>delta</i>, which
+	    means the log of all operations performed on the data. We
+	    do this without compromising transactional-integrity and
+	    guaranteed-delivery.
+	    <br><br>
+	    We support multi-site topology, in which each delta
+	    is sent only once to each site (and only when it is of
+	    interest to at least one client in the site).
+	    Our <i>proxy</i> servers receive incoming distribution
+	    from their mother-site and serve all clients in their
+	    local site.
+	    <br><br>
+	    We support concurrent and fast loads from our servers and
+	    our proxies to clients, with zero overhead on the database.
+	    Three kinds of loads are supported:
+	<ul>
+	    <li>
+		Full loads to new joining clients.
+	    </li>
+	    <li>
+		Partial loads to existing clients
+		when clients change their subscription.
+	    </li>
+	    <li>
+		Sync loads to clients rejoining after
+		being disconnected for a long time.
+	    </li>
+	</ul>
+	    Snapshots are downloaded to the client utilizing http streaming
+	    mechanism (Transfer-encoding = chunked). Thus, the total load time
+	    is the time required to pass the data through the communication
+	    lines, or the time required by the client to process received data
+	    (when the client is slower than the communications speed).
+	    <br><br>
+	    When a client reconnects to the distribution servers after a short
+	    disconnection period (a few minutes) no load is required, and the
+	    client can immediately resume its reception of steady-state
+	    distribution.
+	</div> <!-- mainSection -->
+
+	<h4>
+	    What is selective distribution?
+	</h4>
+	<div class="mainSection">
+	    Each entity is distributed only to clients,
+	    which are permitted to see it, and in addition
+	    choose to select it.
+	    <br><br>
+	    <u>At the server-side:</u> A list of topics (each topic is
+	    a string, whose format is a convention between the server
+	    and the clients) is attached to each hierarchical entity
+	    in the database. Business logics can assign topics to
+	    created entities, and are also allowed to update the
+	    topics-list of existing entities.
+	    <br><br>
+	    <u>Each client:</u> defines a topics-slice to express its
+	    interest in the entities selected by the slice. A client can
+	    change its subscription (topics-slice) whenever it needs to.
+	    <br><br>
+	    <u>The meaning of topics:</u>
+	    <br>
+	    Each topic belongs to one of two kinds of topics:
+	<ul>
+	    <li>
+		The name of a client or a group of clients.
+		When a topic of that kind is attached to an entity,
+		the entity is distributed to the specified client
+		or group of clients. It is assumed that each client
+		specifies in its topics-slice the client-name and the
+		names of all groups of clients it is a member of.
+	    </li>
+	    <li>
+		A name representing an attribute of the entity.
+		This enables clients to select all entities having
+		the attributes that are of interest to them.
+	    </li>
+	</ul>
+	</div> <!-- mainSection -->
+
+	<h4>
+	    How near are we to real-time database distribution?
+	</h4>
+	<div class="mainSection">
+	    The distribution products support both <i>poll-mode</i>
+	    in which each client periodically (for example once every
+	    2 seconds) polls the server for incoming distribution,
+	    and <i>push-mode</i> in which the servers push deltas
+	    to all relevant clients immediately after modifications
+	    are committed to the database. Push-mode enables the distribution
+	    of updates to all interested clients in <b>tens of milliseconds</b>
+	    following database commit time.
+	</div> <!-- mainSection -->
+
+	<h4>
+	    Scalability
+	</h4>
+	<div class="mainSection">
+	    The distribution servers run on a cluster of machines
+	    with linear scalability since each machine can
+	    service any client's request. Machines can be added to
+	    the cluster on the fly.
+
+	    <br><br>
+
+	    The distribution servers can run on multi-processor
+	    machines, and fully utilize all processors. To achieve
+	    this a very efficient locking algorithm is used, in
+	    which the internal data-structures are not read-write
+	    locked for long time-periods.
+	</div> <!-- mainSection -->
+
+	<h4>
+	    A cost effective solution
+	</h4>
+	<div class="mainSection">
+	    The distribution server machines backup
+	    each other. Each delta-server (responsible
+	    for steady-state distribution) supports hundreds
+	    of connected clients. Each cache-server (responsible
+	    for snapshot loads) can handle tens of load-requests
+	    concurrently.	    
+
+	    <br><br>
+
+	    The distribution servers (both delta-server and
+	    cache-servers) run on low-cost blade machines.
+	    The cost of each server machine is approximately $1500.
+	</div> <!-- mainSection -->
+
+    </div> <!-- main -->
+
+    </div> <!-- outerMain -->
+
+    <div id="outerSub">
+    <!----------->
+    
+<div id="sub">
+
+
+    <!----------->
+
+	<div class="subSection">
+            <h5>
+		DB to DB distribution<br>use-case:
+	    </h5>
+
+	    <br>
+
+	    <p>
+		<b><u>Many to many:</u></b><br>
+		In this model, the database is distributed over
+		a set of database servers. The products are
+		used for handling distribution between server machines.
+
+		<br><br>
+
+		<b><u>Flexible topology:</u></b><br>
+		Each database server is directly
+		connected to some other database servers,
+		and it distributes its local database to
+		all directly connected database	servers.
+
+		<br><br>
+
+		<b><u>Selective:</u></b><br>
+		Each database-server defines a topics-slice
+		per each directly connected database-server for
+	        selecting entities from the other database-server.
+
+		<br><br>
+
+		<b><u>No master:</u></b><br>
+		There is no master server. Each database server
+		is allowed to modify all entities (including their
+		topics-lists) at any time.
+
+		<br><br>
+
+		<b><u>Changing topology:</u></b><br>
+		The set of database servers which are directly
+		connected to a specific database server can change
+		at anytime. Dynamic changes of topology are possible
+		due to fast synchronizations and the
+		registration mechanism.
+	    </p>
+
+	</div> <!-- subSection -->
+
+	<div class="subSection">
+
+	    <h5>
+		A proven technology:
+	    </h5>
+	    <p>
+		Our software is used by
+		mission critical systems!
+	    </p>
+	</div> <!-- subSection -->
+
+	<div class="subSection">
+
+	    <h5>
+		Source-code included:
+	    </h5>
+	    <p>
+		We sell LiveDist(C#) and LiveDist(Java) as open-source.
+		Thus, our customers have no long run
+		dependency on us.
+	    </p>
+	</div> <!-- subSection -->
+
+	<div class="subSection">
+
+	    <h5>
+		Internals course:
+	    </h5>
+	    <p>
+		Customers who wish to self-maintain
+		LiveDist(C#) or LiveDist(Java), can order internal
+		courses for their software engineers.
+		These courses assist them to fully
+		understand the internal behavior
+		of the distribution products.
+		<br><br>
+	    </p>
+	</div> <!-- subSection -->
+
+    </div> <!-- sub -->
+
+    </div> <!-- outerSub -->
+
+    <div id="outerLocal">
+    <!------------->
+    
+<div id="local">
+
+    <!------------->
+
+	<div class="localSection">
+	    <h5>
+		DB to clients distribution<br>use-case:
+	    </h5>
+
+	    <br>
+
+	    <p>
+		<b><u>Full-load:</u></b><br>
+		When a client first joins the network,
+		it defines a topics-slice. This causes a
+		frozen snapshot of the database, containing
+		all database entities selected by the slice,
+		to be downloaded to the client
+
+		<br><br>
+
+		<b><u>Gap-closing:</u></b><br>
+		The database continues to process transactions
+		during the snapshot download period. This causes
+		a gap to open between the client and the database.
+		Following the snapshot load, the client receives
+		a burst of deltas, in order to close the gap.
+
+		<br><br>
+
+		<b><u>Steady-state:</u></b><br>
+		After closing the gap, the client enters
+		steady state, in which it receives
+		deltas whenever entities that are selected
+		by the topics-slice are inserted into,
+		updated in, or deleted from the database.
+
+		<br><br>
+
+		<b><u>Partial-load:</u></b><br>
+		The client can change its subscription, by redefining
+		its topics-slice. This causes a partial-snapshot
+		to be loaded to the client, containing all entities
+		not selected by the old slice but selected by the
+		new slice<br>
+	    </p>
+
+
+	</div> <!-- localSection -->
+
+	<br>
+
+        <div class="localSection">
+
+            <h5>
+		The distribution products:
+	    </h5>
+
+	    <p>
+		LiveDist(Java) and LiveDist(C#) are similar products,
+		running on different platforms.
+	    </p>
+
+            <p>
+		<strong>LiveDist(Java):</strong>
+		<br>
+                A Java product (J2EE). Supported databases: Oracle.
+		<br>
+		<br>
+		<strong>LiveDist(C#):</strong>
+		<br>
+		A C# product (.Net). Supported databases: SQL-Server, Oracle.
+		<br>
+		<br>
+                <a class="right" href="products.html">Read more...</a>
+	    </p>
+	</div> <!-- localSection -->
+
+
+    </div> 
+<!-- local -->
+
+    </div> <!-- outerLocal -->
+
+    <div id="outerNav">
+
+
+
+
+    <!----------->
+
+    <div id="nav">
+
+
+
+    <!----------->
+
+	<a href="index.html">Home</a>
+ |
+	<a href="products.html">Products</a>
+ |
+	<a href="aboutus.html">About us</a> |
+	<a href="contactus.html">Contact us</a>
+
+    </div> <!-- nav -->
+    </div> <!-- outerNav -->
+
+
+
+
+    <div class="toplink">
+	<a href="#top">
+	    <img src="arr_top.gif" alt="top" width="9" height="7">
+	    top
+	</a>
+    </div> <!-- toplink -->
+
+
+    </div> <!-- content -->
+
+
+    </div> <!-- outerContent -->
+
+    <div id="outerFooter">
+    <!-------------->
+    <div id="footer">
+    <!-------------->
+	<div style="float:right">
+	<a href="legalterms.html">Legal Terms</a>
+	</div>
+	Copyright © 2013 (Galiel 3.14 Ltd.)
+    </div> <!-- footer -->
+    </div> <!-- outerFooter -->
+
+
+
+
+</body></html>

@@ -1,0 +1,65 @@
+[2026-03-19T12:25:08.184Z] === Homepage AI Extractor: Industrix ===
+[2026-03-19T12:25:08.184Z] Started at: 2026-03-19T12:25:08.184Z
+[2026-03-19T12:25:08.184Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773923108183_Industrix
+[2026-03-19T12:25:08.184Z] Company: Industrix
+[2026-03-19T12:25:08.184Z] Website: industrix.co.il
+[2026-03-19T12:25:08.184Z] cbRank: 2194340
+[2026-03-19T12:25:08.184Z] Reasons: h
+[2026-03-19T12:25:08.184Z] Fetching: https://industrix.co.il
+[2026-03-19T12:25:11.141Z] Redirected: https://industrix.co.il -> https://www.industrix.co.il/
+[2026-03-19T12:25:11.158Z] Saved HTML (664811 bytes) to page.html
+[2026-03-19T12:25:11.162Z] Extracted 17 unique links from page
+[2026-03-19T12:25:11.163Z] Saved 17 links to links.json
+[2026-03-19T12:25:11.166Z] Extracted footer HTML (14948 chars)
+[2026-03-19T12:25:11.166Z] Extracted header HTML (15201 chars)
+[2026-03-19T12:25:11.170Z] Website (post-redirect): https://www.industrix.co.il/ → origin: https://www.industrix.co.il
+[2026-03-19T12:25:11.170Z] External links: 3 (of 17 total)
+[2026-03-19T12:25:11.170Z] ── All external links ──
+[2026-03-19T12:25:11.170Z]   EXT: https://www.facebook.com/industrix
+[2026-03-19T12:25:11.170Z]   EXT: https://www.linkedin.com/company/industrix
+[2026-03-19T12:25:11.170Z]   EXT: https://www.otomatic.co.il
+[2026-03-19T12:25:11.170Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T12:25:11.170Z]   REGEX: fb <- https://www.facebook.com/industrix
+[2026-03-19T12:25:11.171Z]   REGEX: li <- https://www.linkedin.com/company/industrix
+[2026-03-19T12:25:11.171Z]   UNCATEGORIZED: https://www.otomatic.co.il
+[2026-03-19T12:25:11.171Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-19T12:25:11.171Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T12:25:11.174Z] Saved AI prompt (10955 chars) to ai_prompt.txt
+[2026-03-19T12:25:11.174Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T12:25:11.177Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T12:26:21.890Z]   AI: First token received, streaming...
+[2026-03-19T12:26:25.642Z] AI response complete: 77 chars in 74.5s
+[2026-03-19T12:26:25.644Z] Saved AI response to ai_response.json
+[2026-03-19T12:26:25.644Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T12:26:25.644Z]   AI LINK: https://www.linkedin.com/company/industrix
+[2026-03-19T12:26:25.644Z]   AI LINK: https://www.facebook.com/industrix
+[2026-03-19T12:26:25.644Z] AI returned 2 valid links
+[2026-03-19T12:26:25.644Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T12:26:25.645Z]   AI→REGEX: li <- https://www.linkedin.com/company/industrix (duplicate, skipped)
+[2026-03-19T12:26:25.645Z]   AI→REGEX: fb <- https://www.facebook.com/industrix (duplicate, skipped)
+[2026-03-19T12:26:25.645Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T12:26:25.645Z] Footer/header origins (5):
+[2026-03-19T12:26:25.645Z]   FOOTER/HEADER ORIGIN: https://www.industrix.co.il
+[2026-03-19T12:26:25.646Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T12:26:25.646Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T12:26:25.646Z]   FOOTER/HEADER ORIGIN: https://www.otomatic.co.il
+[2026-03-19T12:26:25.646Z]   FOOTER/HEADER ORIGIN: http://industrix.co.il
+[2026-03-19T12:26:25.646Z]   ADDED: urls <- https://www.otomatic.co.il
+[2026-03-19T12:26:25.646Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T12:26:25.646Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T12:26:25.646Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T12:26:25.646Z] ── Step 3: Final dedup ──
+[2026-03-19T12:26:25.647Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T12:26:25.647Z] ── FINAL RESULT ──
+[2026-03-19T12:26:25.647Z]   ws (1):
+[2026-03-19T12:26:25.647Z]     - https://www.industrix.co.il
+[2026-03-19T12:26:25.647Z]   li (1):
+[2026-03-19T12:26:25.647Z]     - https://www.linkedin.com/company/industrix
+[2026-03-19T12:26:25.647Z]   fb (1):
+[2026-03-19T12:26:25.647Z]     - https://www.facebook.com/industrix
+[2026-03-19T12:26:25.647Z]   urls (1):
+[2026-03-19T12:26:25.647Z]     - https://www.otomatic.co.il
+[2026-03-19T12:26:25.647Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-19T12:26:25.649Z] Saved final result to result.json
+[2026-03-19T12:26:25.649Z] Override fields: ws, li, fb, urls
+[2026-03-19T12:26:25.649Z] Finished at: 2026-03-19T12:26:25.649Z

@@ -1,0 +1,64 @@
+[2026-03-19T15:30:07.750Z] === Homepage AI Extractor: GRAS Design ===
+[2026-03-19T15:30:07.751Z] Started at: 2026-03-19T15:30:07.751Z
+[2026-03-19T15:30:07.751Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773934207749_GRAS_Design
+[2026-03-19T15:30:07.751Z] Company: GRAS Design
+[2026-03-19T15:30:07.751Z] Website: gras.co.il
+[2026-03-19T15:30:07.751Z] cbRank: 2303366
+[2026-03-19T15:30:07.751Z] Reasons: h
+[2026-03-19T15:30:07.751Z] Fetching: https://gras.co.il
+[2026-03-19T15:30:10.601Z] Redirected: https://gras.co.il -> https://gras.co.il/
+[2026-03-19T15:30:10.607Z] Saved HTML (195846 bytes) to page.html
+[2026-03-19T15:30:10.611Z] Extracted 126 unique links from page
+[2026-03-19T15:30:10.611Z] Saved 126 links to links.json
+[2026-03-19T15:30:10.615Z] Extracted footer HTML (3928 chars)
+[2026-03-19T15:30:10.615Z] Extracted header HTML (35734 chars)
+[2026-03-19T15:30:10.619Z] Website (post-redirect): https://gras.co.il/ → origin: https://gras.co.il
+[2026-03-19T15:30:10.619Z] External links: 3 (of 126 total)
+[2026-03-19T15:30:10.619Z] ── All external links ──
+[2026-03-19T15:30:10.619Z]   EXT: http://designbygras.com
+[2026-03-19T15:30:10.619Z]   EXT: https://www.facebook.com/gras.jewelries
+[2026-03-19T15:30:10.620Z]   EXT: https://www.instagram.com/gras_design
+[2026-03-19T15:30:10.620Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T15:30:10.620Z]   UNCATEGORIZED: http://designbygras.com
+[2026-03-19T15:30:10.620Z]   REGEX: fb <- https://www.facebook.com/gras.jewelries
+[2026-03-19T15:30:10.620Z]   REGEX: ig <- https://www.instagram.com/gras_design
+[2026-03-19T15:30:10.620Z] Programmatic result: ws:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-19T15:30:10.620Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T15:30:10.624Z] Saved AI prompt (4688 chars) to ai_prompt.txt
+[2026-03-19T15:30:10.624Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T15:30:10.627Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T15:30:29.180Z]   AI: First token received, streaming...
+[2026-03-19T15:30:33.058Z] AI response complete: 78 chars in 22.4s
+[2026-03-19T15:30:33.059Z] Saved AI response to ai_response.json
+[2026-03-19T15:30:33.059Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T15:30:33.060Z]   AI LINK: https://www.facebook.com/gras.jewelries
+[2026-03-19T15:30:33.060Z]   AI LINK: https://www.instagram.com/gras_design/
+[2026-03-19T15:30:33.060Z] AI returned 2 valid links
+[2026-03-19T15:30:33.060Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T15:30:33.060Z]   AI→REGEX: fb <- https://www.facebook.com/gras.jewelries (duplicate, skipped)
+[2026-03-19T15:30:33.060Z]   AI→REGEX: ig <- https://www.instagram.com/gras_design/ (duplicate, skipped)
+[2026-03-19T15:30:33.063Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T15:30:33.064Z] Footer/header origins (4):
+[2026-03-19T15:30:33.064Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T15:30:33.064Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T15:30:33.064Z]   FOOTER/HEADER ORIGIN: https://gras.co.il
+[2026-03-19T15:30:33.064Z]   FOOTER/HEADER ORIGIN: http://designbygras.com
+[2026-03-19T15:30:33.064Z]   ADDED: urls <- http://designbygras.com
+[2026-03-19T15:30:33.064Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T15:30:33.065Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T15:30:33.065Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T15:30:33.065Z] ── Step 3: Final dedup ──
+[2026-03-19T15:30:33.065Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T15:30:33.065Z] ── FINAL RESULT ──
+[2026-03-19T15:30:33.065Z]   ws (1):
+[2026-03-19T15:30:33.066Z]     - https://gras.co.il
+[2026-03-19T15:30:33.066Z]   fb (1):
+[2026-03-19T15:30:33.066Z]     - https://www.facebook.com/gras.jewelries
+[2026-03-19T15:30:33.066Z]   ig (1):
+[2026-03-19T15:30:33.066Z]     - https://www.instagram.com/gras_design
+[2026-03-19T15:30:33.066Z]   urls (1):
+[2026-03-19T15:30:33.066Z]     - http://designbygras.com
+[2026-03-19T15:30:33.067Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-19T15:30:33.068Z] Saved final result to result.json
+[2026-03-19T15:30:33.068Z] Override fields: ws, fb, ig
+[2026-03-19T15:30:33.068Z] Finished at: 2026-03-19T15:30:33.068Z

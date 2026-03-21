@@ -1,0 +1,77 @@
+[2026-03-19T10:56:12.569Z] === Homepage AI Extractor: Asseco ===
+[2026-03-19T10:56:12.569Z] Started at: 2026-03-19T10:56:12.569Z
+[2026-03-19T10:56:12.569Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773917772569_Asseco
+[2026-03-19T10:56:12.569Z] Company: Asseco
+[2026-03-19T10:56:12.569Z] Website: asaasco.com
+[2026-03-19T10:56:12.569Z] cbRank: 2140719
+[2026-03-19T10:56:12.569Z] Reasons: h
+[2026-03-19T10:56:12.569Z] Fetching: https://asaasco.com
+[2026-03-19T10:56:14.707Z] Redirected: https://asaasco.com -> https://asaasco.com/
+[2026-03-19T10:56:14.709Z] Saved HTML (21723 bytes) to page.html
+[2026-03-19T10:56:14.712Z] Extracted 20 unique links from page
+[2026-03-19T10:56:14.712Z] Saved 20 links to links.json
+[2026-03-19T10:56:14.714Z] Extracted footer HTML (2623 chars)
+[2026-03-19T10:56:14.715Z] Extracted header HTML (6601 chars)
+[2026-03-19T10:56:14.718Z] Website (post-redirect): https://asaasco.com/ → origin: https://asaasco.com
+[2026-03-19T10:56:14.718Z] External links: 5 (of 20 total)
+[2026-03-19T10:56:14.718Z] ── All external links ──
+[2026-03-19T10:56:14.718Z]   EXT: https://wa.link/9dsp10
+[2026-03-19T10:56:14.719Z]   EXT: https://wequbex.com
+[2026-03-19T10:56:14.719Z]   EXT: https://www.facebook.com/profile.php?id=100065615344526
+[2026-03-19T10:56:14.719Z]   EXT: https://www.instagram.com/asaasco.a
+[2026-03-19T10:56:14.719Z]   EXT: https://www.youtube.com/channel/UCI054NxEhPjj915uwqbmdTg
+[2026-03-19T10:56:14.719Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T10:56:14.719Z]   UNCATEGORIZED: https://wa.link/9dsp10
+[2026-03-19T10:56:14.719Z]   UNCATEGORIZED: https://wequbex.com
+[2026-03-19T10:56:14.719Z]   REGEX: ig <- https://www.instagram.com/asaasco.a
+[2026-03-19T10:56:14.719Z]   REGEX: ytc <- https://www.youtube.com/channel/UCI054NxEhPjj915uwqbmdTg
+[2026-03-19T10:56:14.720Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T10:56:15.754Z]   RESOLVE: https://www.facebook.com/profile.php?id=100065615344526 → https://www.facebook.com/people/Asaasco/100065615344526
+[2026-03-19T10:56:15.777Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Asaasco/100065615344526 (from https://www.facebook.com/profile.php?id=100065615344526)
+[2026-03-19T10:56:15.777Z] Programmatic result: ws:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-19T10:56:15.777Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T10:56:15.781Z] Saved AI prompt (3329 chars) to ai_prompt.txt
+[2026-03-19T10:56:15.781Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T10:56:15.784Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T10:56:28.432Z]   AI: First token received, streaming...
+[2026-03-19T10:56:28.666Z] AI response complete: 20 chars in 12.9s
+[2026-03-19T10:56:28.668Z] Saved AI response to ai_response.json
+[2026-03-19T10:56:28.668Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T10:56:28.668Z]   AI LINK: https://asaasco.com/
+[2026-03-19T10:56:28.668Z] AI returned 1 valid links
+[2026-03-19T10:56:28.668Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T10:56:28.669Z]   AI→URLS: https://asaasco.com (cleaned from https://asaasco.com/)
+[2026-03-19T10:56:28.669Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T10:56:28.669Z] Footer/header origins (6):
+[2026-03-19T10:56:28.670Z]   FOOTER/HEADER ORIGIN: https://asaasco.com
+[2026-03-19T10:56:28.670Z]   FOOTER/HEADER ORIGIN: https://wa.link
+[2026-03-19T10:56:28.670Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T10:56:28.670Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T10:56:28.670Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T10:56:28.670Z]   FOOTER/HEADER ORIGIN: https://wequbex.com
+[2026-03-19T10:56:28.670Z]   ADDED: urls <- https://wa.link/9dsp10
+[2026-03-19T10:56:28.670Z]   ADDED: urls <- https://wequbex.com
+[2026-03-19T10:56:28.671Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-19T10:56:28.671Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T10:56:28.671Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T10:56:29.006Z]   YOUTUBE: resolved UCI054NxEhPjj915uwqbmdTg → @asaascoltd
+[2026-03-19T10:56:29.006Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T10:56:29.006Z] ── Step 3: Final dedup ──
+[2026-03-19T10:56:29.006Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-19T10:56:29.006Z] ── FINAL RESULT ──
+[2026-03-19T10:56:29.006Z]   ws (1):
+[2026-03-19T10:56:29.006Z]     - https://asaasco.com
+[2026-03-19T10:56:29.006Z]   ig (1):
+[2026-03-19T10:56:29.007Z]     - https://www.instagram.com/asaasco.a
+[2026-03-19T10:56:29.007Z]   ytp (1):
+[2026-03-19T10:56:29.007Z]     - https://www.youtube.com/@asaascoltd
+[2026-03-19T10:56:29.007Z]   ytc (1):
+[2026-03-19T10:56:29.007Z]     - https://www.youtube.com/channel/UCI054NxEhPjj915uwqbmdTg
+[2026-03-19T10:56:29.007Z]   urls (3):
+[2026-03-19T10:56:29.007Z]     - https://asaasco.com
+[2026-03-19T10:56:29.007Z]     - https://wa.link/9dsp10
+[2026-03-19T10:56:29.007Z]     - https://wequbex.com
+[2026-03-19T10:56:29.007Z] Summary: ws:1, ig:1, ytc:1, urls:3, ytp:1
+[2026-03-19T10:56:29.008Z] Saved final result to result.json
+[2026-03-19T10:56:29.008Z] Override fields: ws, ig, ytp, ytc, urls
+[2026-03-19T10:56:29.008Z] Finished at: 2026-03-19T10:56:29.008Z

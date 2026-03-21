@@ -1,0 +1,64 @@
+[2026-03-17T17:19:25.958Z] === Homepage AI Extractor: GTWork ===
+[2026-03-17T17:19:25.958Z] Started at: 2026-03-17T17:19:25.958Z
+[2026-03-17T17:19:25.958Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773767965958_GTWork
+[2026-03-17T17:19:25.958Z] Company: GTWork
+[2026-03-17T17:19:25.958Z] Website: gtwork.co.il
+[2026-03-17T17:19:25.958Z] cbRank: 1214166
+[2026-03-17T17:19:25.958Z] Reasons: h
+[2026-03-17T17:19:25.958Z] Fetching: https://gtwork.co.il
+[2026-03-17T17:19:36.908Z] Network idle timeout — continuing with current state
+[2026-03-17T17:19:36.938Z] Redirected: https://gtwork.co.il -> https://www.gtwork.co.il/
+[2026-03-17T17:19:36.940Z] Saved HTML (61357 bytes) to page.html
+[2026-03-17T17:19:36.943Z] Extracted 7 unique links from page
+[2026-03-17T17:19:36.944Z] Saved 7 links to links.json
+[2026-03-17T17:19:36.946Z] Extracted footer HTML (2146 chars)
+[2026-03-17T17:19:36.946Z] Extracted header HTML (7265 chars)
+[2026-03-17T17:19:36.948Z] Website (post-redirect): https://www.gtwork.co.il/ → origin: https://www.gtwork.co.il
+[2026-03-17T17:19:36.948Z] External links: 3 (of 7 total)
+[2026-03-17T17:19:36.948Z] ── All external links ──
+[2026-03-17T17:19:36.948Z]   EXT: https://apps.apple.com/il/app/go-to-work/id6477906965
+[2026-03-17T17:19:36.949Z]   EXT: https://play.google.com/store/apps/details?id=com.gotowork.mobile&pli=1
+[2026-03-17T17:19:36.949Z]   EXT: https://wa.me/972509112217
+[2026-03-17T17:19:36.949Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T17:19:36.949Z]   UNCATEGORIZED: https://apps.apple.com/il/app/go-to-work/id6477906965
+[2026-03-17T17:19:36.949Z]   REGEX: android_app_ids <- com.gotowork.mobile (from https://play.google.com/store/apps/details?id=com.gotowork.mobile&pli=1)
+[2026-03-17T17:19:36.949Z]   UNCATEGORIZED: https://wa.me/972509112217
+[2026-03-17T17:19:36.949Z] Programmatic result: ws:1, android_app_ids:1 | 2 uncategorized
+[2026-03-17T17:19:36.949Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T17:19:36.950Z] Saved AI prompt (3345 chars) to ai_prompt.txt
+[2026-03-17T17:19:36.950Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T17:19:36.953Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T17:19:51.765Z]   AI: First token received, streaming...
+[2026-03-17T17:20:01.078Z] AI response complete: 129 chars in 24.1s
+[2026-03-17T17:20:01.080Z] Saved AI response to ai_response.json
+[2026-03-17T17:20:01.080Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T17:20:01.080Z]   AI LINK: https://apps.apple.com/il/app/go-to-work/id6477906965
+[2026-03-17T17:20:01.080Z]   AI LINK: https://play.google.com/store/apps/details?id=com.gotowork.mobile&amp;pli=1
+[2026-03-17T17:20:01.081Z] AI returned 2 valid links
+[2026-03-17T17:20:01.081Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T17:20:01.081Z]   AI→URLS: https://apps.apple.com/il/app/go-to-work/id6477906965
+[2026-03-17T17:20:01.081Z]   AI→REGEX: android_app_ids <- com.gotowork.mobile (duplicate, skipped)
+[2026-03-17T17:20:01.082Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T17:20:01.082Z] Footer/header origins (3):
+[2026-03-17T17:20:01.082Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-17T17:20:01.082Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-17T17:20:01.082Z]   FOOTER/HEADER ORIGIN: https://apps.apple.com
+[2026-03-17T17:20:01.082Z]   SKIP (AI claimed): https://apps.apple.com/il/app/go-to-work/id6477906965
+[2026-03-17T17:20:01.083Z]   ADDED: urls <- https://wa.me/972509112217
+[2026-03-17T17:20:01.083Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T17:20:01.083Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T17:20:01.083Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T17:20:01.083Z] ── Step 3: Final dedup ──
+[2026-03-17T17:20:01.083Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T17:20:01.083Z] ── FINAL RESULT ──
+[2026-03-17T17:20:01.083Z]   ws (1):
+[2026-03-17T17:20:01.083Z]     - https://www.gtwork.co.il
+[2026-03-17T17:20:01.084Z]   urls (2):
+[2026-03-17T17:20:01.084Z]     - https://apps.apple.com/il/app/go-to-work/id6477906965
+[2026-03-17T17:20:01.084Z]     - https://wa.me/972509112217
+[2026-03-17T17:20:01.084Z]   android_app_ids (1):
+[2026-03-17T17:20:01.084Z]     - com.gotowork.mobile
+[2026-03-17T17:20:01.084Z] Summary: ws:1, android_app_ids:1, urls:2
+[2026-03-17T17:20:01.085Z] Saved final result to result.json
+[2026-03-17T17:20:01.086Z] Override fields: ws, urls, android_app_ids
+[2026-03-17T17:20:01.086Z] Finished at: 2026-03-17T17:20:01.086Z

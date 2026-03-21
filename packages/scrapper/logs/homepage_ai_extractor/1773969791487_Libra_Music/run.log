@@ -1,0 +1,59 @@
+[2026-03-20T01:23:11.488Z] === Homepage AI Extractor: Libra Music ===
+[2026-03-20T01:23:11.488Z] Started at: 2026-03-20T01:23:11.488Z
+[2026-03-20T01:23:11.488Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773969791487_Libra_Music
+[2026-03-20T01:23:11.488Z] Company: Libra Music
+[2026-03-20T01:23:11.488Z] Website: libramusic.co.il
+[2026-03-20T01:23:11.488Z] cbRank: 2546824
+[2026-03-20T01:23:11.488Z] Reasons: h
+[2026-03-20T01:23:11.488Z] Fetching: https://libramusic.co.il
+[2026-03-20T01:23:22.232Z] Redirected: https://libramusic.co.il -> https://www.libramusic.co.il/he/home
+[2026-03-20T01:23:22.240Z] Saved HTML (322229 bytes) to page.html
+[2026-03-20T01:23:22.243Z] Extracted 55 unique links from page
+[2026-03-20T01:23:22.244Z] Saved 55 links to links.json
+[2026-03-20T01:23:22.246Z] Extracted footer HTML (2252 chars)
+[2026-03-20T01:23:22.246Z] Extracted header HTML (3521 chars)
+[2026-03-20T01:23:22.251Z] Website (post-redirect): https://www.libramusic.co.il/he/home → origin: https://www.libramusic.co.il
+[2026-03-20T01:23:22.252Z] External links: 3 (of 55 total)
+[2026-03-20T01:23:22.252Z] ── All external links ──
+[2026-03-20T01:23:22.252Z]   EXT: http://facebook.com/libramusicevents
+[2026-03-20T01:23:22.252Z]   EXT: https://www.facebook.com/libramusicevents
+[2026-03-20T01:23:22.252Z]   EXT: https://www.folyou.co.il/he/home?ref=www.libramusic.co.il&utm_source=credit&utm_content=www.libramusic.co.il
+[2026-03-20T01:23:22.252Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T01:23:22.252Z]   REGEX: fb <- http://facebook.com/libramusicevents
+[2026-03-20T01:23:22.252Z]   REGEX: fb <- https://www.facebook.com/libramusicevents (duplicate, skipped)
+[2026-03-20T01:23:22.252Z]   UNCATEGORIZED: https://www.folyou.co.il/he/home?ref=www.libramusic.co.il&utm_source=credit&utm_content=www.libramusic.co.il
+[2026-03-20T01:23:22.253Z] Programmatic result: ws:1, fb:1 | 1 uncategorized
+[2026-03-20T01:23:22.253Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T01:23:22.256Z] Saved AI prompt (3678 chars) to ai_prompt.txt
+[2026-03-20T01:23:22.256Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T01:23:22.260Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T01:23:36.599Z]   AI: First token received, streaming...
+[2026-03-20T01:23:37.963Z] AI response complete: 41 chars in 15.7s
+[2026-03-20T01:23:37.964Z] Saved AI response to ai_response.json
+[2026-03-20T01:23:37.965Z] ── Parsing AI response (1 lines) ──
+[2026-03-20T01:23:37.965Z]   AI LINK: https://www.facebook.com/libramusicevents
+[2026-03-20T01:23:37.965Z] AI returned 1 valid links
+[2026-03-20T01:23:37.965Z] ── Categorizing 1 AI-returned links ──
+[2026-03-20T01:23:37.965Z]   AI→REGEX: fb <- https://www.facebook.com/libramusicevents (duplicate, skipped)
+[2026-03-20T01:23:37.966Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T01:23:37.966Z] Footer/header origins (3):
+[2026-03-20T01:23:37.966Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T01:23:37.966Z]   FOOTER/HEADER ORIGIN: https://www.folyou.co.il
+[2026-03-20T01:23:37.966Z]   FOOTER/HEADER ORIGIN: https://www.libramusic.co.il
+[2026-03-20T01:23:37.966Z]   ADDED: urls <- https://www.folyou.co.il/he/home (cleaned from https://www.folyou.co.il/he/home?ref=www.libramusic.co.il&utm_source=credit&utm_content=www.libramusic.co.il)
+[2026-03-20T01:23:37.966Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T01:23:37.966Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T01:23:37.967Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T01:23:37.967Z] ── Step 3: Final dedup ──
+[2026-03-20T01:23:37.967Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T01:23:37.967Z] ── FINAL RESULT ──
+[2026-03-20T01:23:37.967Z]   ws (1):
+[2026-03-20T01:23:37.967Z]     - https://www.libramusic.co.il
+[2026-03-20T01:23:37.967Z]   fb (1):
+[2026-03-20T01:23:37.967Z]     - https://www.facebook.com/libramusicevents
+[2026-03-20T01:23:37.967Z]   urls (1):
+[2026-03-20T01:23:37.967Z]     - https://www.folyou.co.il/he/home
+[2026-03-20T01:23:37.968Z] Summary: ws:1, fb:1, urls:1
+[2026-03-20T01:23:37.968Z] Saved final result to result.json
+[2026-03-20T01:23:37.969Z] Override fields: ws, fb, urls
+[2026-03-20T01:23:37.969Z] Finished at: 2026-03-20T01:23:37.969Z

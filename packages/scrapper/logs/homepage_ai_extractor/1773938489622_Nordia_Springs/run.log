@@ -1,0 +1,65 @@
+[2026-03-19T16:41:29.622Z] === Homepage AI Extractor: Nordia Springs ===
+[2026-03-19T16:41:29.622Z] Started at: 2026-03-19T16:41:29.622Z
+[2026-03-19T16:41:29.622Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773938489622_Nordia_Springs
+[2026-03-19T16:41:29.622Z] Company: Nordia Springs
+[2026-03-19T16:41:29.622Z] Website: nordia.co.il
+[2026-03-19T16:41:29.622Z] cbRank: 2348522
+[2026-03-19T16:41:29.622Z] Reasons: h
+[2026-03-19T16:41:29.622Z] Fetching: https://nordia.co.il
+[2026-03-19T16:41:34.969Z] Redirected: https://nordia.co.il -> https://www.nordia.co.il/
+[2026-03-19T16:41:34.982Z] Saved HTML (483514 bytes) to page.html
+[2026-03-19T16:41:34.986Z] Extracted 63 unique links from page
+[2026-03-19T16:41:34.986Z] Saved 63 links to links.json
+[2026-03-19T16:41:34.989Z] Extracted footer HTML (4743 chars)
+[2026-03-19T16:41:34.989Z] Extracted header HTML (7749 chars)
+[2026-03-19T16:41:34.993Z] Website (post-redirect): https://www.nordia.co.il/ → origin: https://www.nordia.co.il
+[2026-03-19T16:41:34.993Z] External links: 3 (of 63 total)
+[2026-03-19T16:41:34.993Z] ── All external links ──
+[2026-03-19T16:41:34.993Z]   EXT: http://www.catom.co.il
+[2026-03-19T16:41:34.993Z]   EXT: http://www.catom.com
+[2026-03-19T16:41:34.993Z]   EXT: https://www.youtube.com/channel/UCGfZ9focoodQMiRxlC9_s6Q
+[2026-03-19T16:41:34.993Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T16:41:34.993Z]   UNCATEGORIZED: http://www.catom.co.il
+[2026-03-19T16:41:34.994Z]   UNCATEGORIZED: http://www.catom.com
+[2026-03-19T16:41:34.994Z]   REGEX: ytc <- https://www.youtube.com/channel/UCGfZ9focoodQMiRxlC9_s6Q
+[2026-03-19T16:41:34.994Z] Programmatic result: ws:1, ytc:1 | 2 uncategorized
+[2026-03-19T16:41:34.994Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T16:41:34.995Z] Saved AI prompt (5545 chars) to ai_prompt.txt
+[2026-03-19T16:41:34.995Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T16:41:34.999Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T16:41:59.588Z]   AI: First token received, streaming...
+[2026-03-19T16:42:04.178Z] AI response complete: 56 chars in 29.2s
+[2026-03-19T16:42:04.179Z] Saved AI response to ai_response.json
+[2026-03-19T16:42:04.179Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T16:42:04.180Z]   AI LINK: https://www.youtube.com/channel/UCGfZ9focoodQMiRxlC9_s6Q
+[2026-03-19T16:42:04.180Z] AI returned 1 valid links
+[2026-03-19T16:42:04.180Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T16:42:04.180Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCGfZ9focoodQMiRxlC9_s6Q (duplicate, skipped)
+[2026-03-19T16:42:04.184Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T16:42:04.184Z] Footer/header origins (3):
+[2026-03-19T16:42:04.184Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T16:42:04.184Z]   FOOTER/HEADER ORIGIN: http://www.catom.com
+[2026-03-19T16:42:04.184Z]   FOOTER/HEADER ORIGIN: http://www.catom.co.il
+[2026-03-19T16:42:04.184Z]   ADDED: urls <- http://www.catom.co.il
+[2026-03-19T16:42:04.184Z]   ADDED: urls <- http://www.catom.com
+[2026-03-19T16:42:04.185Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-19T16:42:04.185Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T16:42:04.185Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T16:42:04.571Z]   YOUTUBE: resolved UCGfZ9focoodQMiRxlC9_s6Q → @nordiasprings8857
+[2026-03-19T16:42:04.571Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T16:42:04.571Z] ── Step 3: Final dedup ──
+[2026-03-19T16:42:04.571Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T16:42:04.572Z] ── FINAL RESULT ──
+[2026-03-19T16:42:04.572Z]   ws (1):
+[2026-03-19T16:42:04.572Z]     - https://www.nordia.co.il
+[2026-03-19T16:42:04.572Z]   ytp (1):
+[2026-03-19T16:42:04.572Z]     - https://www.youtube.com/@nordiasprings8857
+[2026-03-19T16:42:04.572Z]   ytc (1):
+[2026-03-19T16:42:04.572Z]     - https://www.youtube.com/channel/UCGfZ9focoodQMiRxlC9_s6Q
+[2026-03-19T16:42:04.572Z]   urls (2):
+[2026-03-19T16:42:04.572Z]     - http://www.catom.co.il
+[2026-03-19T16:42:04.572Z]     - http://www.catom.com
+[2026-03-19T16:42:04.572Z] Summary: ws:1, ytc:1, urls:2, ytp:1
+[2026-03-19T16:42:04.573Z] Saved final result to result.json
+[2026-03-19T16:42:04.573Z] Override fields: ws, ytp, ytc, urls
+[2026-03-19T16:42:04.573Z] Finished at: 2026-03-19T16:42:04.573Z

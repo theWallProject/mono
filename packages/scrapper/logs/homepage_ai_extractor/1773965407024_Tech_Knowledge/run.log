@@ -1,0 +1,73 @@
+[2026-03-20T00:10:07.025Z] === Homepage AI Extractor: Tech Knowledge ===
+[2026-03-20T00:10:07.025Z] Started at: 2026-03-20T00:10:07.025Z
+[2026-03-20T00:10:07.025Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773965407024_Tech_Knowledge
+[2026-03-20T00:10:07.025Z] Company: Tech Knowledge
+[2026-03-20T00:10:07.026Z] Website: tech-knowledge.co.il
+[2026-03-20T00:10:07.026Z] cbRank: 2504231
+[2026-03-20T00:10:07.026Z] Reasons: h
+[2026-03-20T00:10:07.026Z] Fetching: https://tech-knowledge.co.il
+[2026-03-20T00:10:08.850Z] Redirected: https://tech-knowledge.co.il -> https://tech-knowledge.co.il/
+[2026-03-20T00:10:08.855Z] Saved HTML (109418 bytes) to page.html
+[2026-03-20T00:10:08.859Z] Extracted 50 unique links from page
+[2026-03-20T00:10:08.860Z] Saved 50 links to links.json
+[2026-03-20T00:10:08.864Z] Extracted footer HTML (2923 chars)
+[2026-03-20T00:10:08.864Z] Extracted header HTML (6544 chars)
+[2026-03-20T00:10:08.867Z] Website (post-redirect): https://tech-knowledge.co.il/ → origin: https://tech-knowledge.co.il
+[2026-03-20T00:10:08.867Z] External links: 5 (of 50 total)
+[2026-03-20T00:10:08.867Z] ── All external links ──
+[2026-03-20T00:10:08.867Z]   EXT: http://www.head-tech.co.il
+[2026-03-20T00:10:08.867Z]   EXT: https://twitter.com/TechKnowledgeIL
+[2026-03-20T00:10:08.867Z]   EXT: https://www.fb.com/tk.israel
+[2026-03-20T00:10:08.867Z]   EXT: https://www.imaginet.co.il
+[2026-03-20T00:10:08.868Z]   EXT: https://www.linkedin.com/company/17946180
+[2026-03-20T00:10:08.868Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T00:10:08.868Z]   UNCATEGORIZED: http://www.head-tech.co.il
+[2026-03-20T00:10:08.868Z]   REGEX: tw <- https://twitter.com/TechKnowledgeIL
+[2026-03-20T00:10:08.868Z]   UNCATEGORIZED: https://www.fb.com/tk.israel
+[2026-03-20T00:10:08.868Z]   UNCATEGORIZED: https://www.imaginet.co.il
+[2026-03-20T00:10:08.868Z]   REGEX: li <- https://www.linkedin.com/company/17946180
+[2026-03-20T00:10:08.868Z] Programmatic result: ws:1, tw:1, li:1 | 3 uncategorized
+[2026-03-20T00:10:08.868Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T00:10:08.871Z] Saved AI prompt (3396 chars) to ai_prompt.txt
+[2026-03-20T00:10:08.871Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T00:10:08.874Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T00:10:22.097Z]   AI: First token received, streaming...
+[2026-03-20T00:10:25.101Z] AI response complete: 58 chars in 16.2s
+[2026-03-20T00:10:25.103Z] Saved AI response to ai_response.json
+[2026-03-20T00:10:25.103Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T00:10:25.103Z]   AI LINK: https://www.fb.com/tk.israel
+[2026-03-20T00:10:25.103Z]   AI LINK: https://tech-knowledge.co.il/
+[2026-03-20T00:10:25.103Z] AI returned 2 valid links
+[2026-03-20T00:10:25.104Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T00:10:25.104Z]   AI→URLS: https://www.fb.com/tk.israel
+[2026-03-20T00:10:25.104Z]   AI→URLS: https://tech-knowledge.co.il (cleaned from https://tech-knowledge.co.il/)
+[2026-03-20T00:10:25.105Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T00:10:25.105Z] Footer/header origins (5):
+[2026-03-20T00:10:25.105Z]   FOOTER/HEADER ORIGIN: https://tech-knowledge.co.il
+[2026-03-20T00:10:25.105Z]   FOOTER/HEADER ORIGIN: https://www.imaginet.co.il
+[2026-03-20T00:10:25.105Z]   FOOTER/HEADER ORIGIN: https://www.fb.com
+[2026-03-20T00:10:25.105Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T00:10:25.105Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-20T00:10:25.106Z]   SKIP (not in footer/header): http://www.head-tech.co.il
+[2026-03-20T00:10:25.106Z]   SKIP (AI claimed): https://www.fb.com/tk.israel
+[2026-03-20T00:10:25.106Z]   ADDED: urls <- https://www.imaginet.co.il
+[2026-03-20T00:10:25.106Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T00:10:25.106Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T00:10:25.106Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T00:10:25.106Z] ── Step 3: Final dedup ──
+[2026-03-20T00:10:25.106Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-20T00:10:25.106Z] ── FINAL RESULT ──
+[2026-03-20T00:10:25.106Z]   ws (1):
+[2026-03-20T00:10:25.107Z]     - https://tech-knowledge.co.il
+[2026-03-20T00:10:25.107Z]   li (1):
+[2026-03-20T00:10:25.107Z]     - https://www.linkedin.com/company/17946180
+[2026-03-20T00:10:25.107Z]   tw (1):
+[2026-03-20T00:10:25.107Z]     - https://x.com/techknowledgeil
+[2026-03-20T00:10:25.107Z]   urls (3):
+[2026-03-20T00:10:25.107Z]     - https://tech-knowledge.co.il
+[2026-03-20T00:10:25.108Z]     - https://www.fb.com/tk.israel
+[2026-03-20T00:10:25.108Z]     - https://www.imaginet.co.il
+[2026-03-20T00:10:25.108Z] Summary: ws:1, tw:1, li:1, urls:3
+[2026-03-20T00:10:25.109Z] Saved final result to result.json
+[2026-03-20T00:10:25.109Z] Override fields: ws, li, tw, urls
+[2026-03-20T00:10:25.110Z] Finished at: 2026-03-20T00:10:25.110Z

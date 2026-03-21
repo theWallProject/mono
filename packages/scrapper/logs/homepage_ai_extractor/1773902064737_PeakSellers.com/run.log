@@ -1,0 +1,59 @@
+[2026-03-19T06:34:24.737Z] === Homepage AI Extractor: PeakSellers.com ===
+[2026-03-19T06:34:24.737Z] Started at: 2026-03-19T06:34:24.737Z
+[2026-03-19T06:34:24.738Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773902064737_PeakSellers.com
+[2026-03-19T06:34:24.738Z] Company: PeakSellers.com
+[2026-03-19T06:34:24.738Z] Website: peaksellers.com
+[2026-03-19T06:34:24.738Z] cbRank: 1982113
+[2026-03-19T06:34:24.738Z] Reasons: h
+[2026-03-19T06:34:24.738Z] Fetching: https://peaksellers.com
+[2026-03-19T06:34:36.287Z] Network idle timeout — continuing with current state
+[2026-03-19T06:34:36.321Z] Redirected: https://peaksellers.com -> https://www.peaksellers.com/
+[2026-03-19T06:34:36.342Z] Saved HTML (951693 bytes) to page.html
+[2026-03-19T06:34:36.345Z] Extracted 11 unique links from page
+[2026-03-19T06:34:36.346Z] Saved 11 links to links.json
+[2026-03-19T06:34:36.349Z] Extracted footer HTML (1118 chars)
+[2026-03-19T06:34:36.349Z] Extracted header HTML (8927 chars)
+[2026-03-19T06:34:36.354Z] Website (post-redirect): https://www.peaksellers.com/ → origin: https://www.peaksellers.com
+[2026-03-19T06:34:36.354Z] External links: 2 (of 11 total)
+[2026-03-19T06:34:36.354Z] ── All external links ──
+[2026-03-19T06:34:36.354Z]   EXT: https://calendly.com
+[2026-03-19T06:34:36.354Z]   EXT: https://www.linkedin.com/company/peaksellers
+[2026-03-19T06:34:36.354Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T06:34:36.355Z]   UNCATEGORIZED: https://calendly.com
+[2026-03-19T06:34:36.355Z]   REGEX: li <- https://www.linkedin.com/company/peaksellers
+[2026-03-19T06:34:36.355Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-19T06:34:36.355Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T06:34:36.358Z] Saved AI prompt (2610 chars) to ai_prompt.txt
+[2026-03-19T06:34:36.358Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T06:34:36.361Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T06:34:45.233Z]   AI: First token received, streaming...
+[2026-03-19T06:34:46.358Z] AI response complete: 42 chars in 10.0s
+[2026-03-19T06:34:46.359Z] Saved AI response to ai_response.json
+[2026-03-19T06:34:46.359Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T06:34:46.360Z]   AI LINK: https://www.peaksellers.com/privacy-policy
+[2026-03-19T06:34:46.360Z] AI returned 1 valid links
+[2026-03-19T06:34:46.360Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T06:34:46.360Z]   AI→URLS: https://www.peaksellers.com/privacy-policy
+[2026-03-19T06:34:46.361Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T06:34:46.361Z] Footer/header origins (3):
+[2026-03-19T06:34:46.361Z]   FOOTER/HEADER ORIGIN: https://www.peaksellers.com
+[2026-03-19T06:34:46.361Z]   FOOTER/HEADER ORIGIN: https://peaksellers.com
+[2026-03-19T06:34:46.361Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-19T06:34:46.361Z]   ADDED: urls <- https://calendly.com
+[2026-03-19T06:34:46.362Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T06:34:46.362Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T06:34:46.362Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T06:34:46.362Z] ── Step 3: Final dedup ──
+[2026-03-19T06:34:46.362Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T06:34:46.362Z] ── FINAL RESULT ──
+[2026-03-19T06:34:46.362Z]   ws (1):
+[2026-03-19T06:34:46.363Z]     - https://www.peaksellers.com
+[2026-03-19T06:34:46.363Z]   li (1):
+[2026-03-19T06:34:46.363Z]     - https://www.linkedin.com/company/peaksellers
+[2026-03-19T06:34:46.363Z]   urls (2):
+[2026-03-19T06:34:46.363Z]     - https://calendly.com
+[2026-03-19T06:34:46.363Z]     - https://www.peaksellers.com/privacy-policy
+[2026-03-19T06:34:46.363Z] Summary: ws:1, li:1, urls:2
+[2026-03-19T06:34:46.364Z] Saved final result to result.json
+[2026-03-19T06:34:46.365Z] Override fields: ws, li, urls
+[2026-03-19T06:34:46.365Z] Finished at: 2026-03-19T06:34:46.365Z

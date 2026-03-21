@@ -1,0 +1,72 @@
+[2026-03-19T17:14:09.413Z] === Homepage AI Extractor: SNEAKERPLUG ===
+[2026-03-19T17:14:09.413Z] Started at: 2026-03-19T17:14:09.413Z
+[2026-03-19T17:14:09.413Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773940449412_SNEAKERPLUG
+[2026-03-19T17:14:09.413Z] Company: SNEAKERPLUG
+[2026-03-19T17:14:09.413Z] Website: sneakerplug.co.il
+[2026-03-19T17:14:09.413Z] cbRank: 2374063
+[2026-03-19T17:14:09.413Z] Reasons: h
+[2026-03-19T17:14:09.413Z] Fetching: https://sneakerplug.co.il
+[2026-03-19T17:14:13.164Z] Redirected: https://sneakerplug.co.il -> https://sneakerplug.co.il/
+[2026-03-19T17:14:13.210Z] Saved HTML (2229487 bytes) to page.html
+[2026-03-19T17:14:13.214Z] Extracted 83 unique links from page
+[2026-03-19T17:14:13.215Z] Saved 83 links to links.json
+[2026-03-19T17:14:13.218Z] Extracted footer HTML (12058 chars)
+[2026-03-19T17:14:13.219Z] Extracted header HTML (76014 chars)
+[2026-03-19T17:14:13.222Z] Website (post-redirect): https://sneakerplug.co.il/ → origin: https://sneakerplug.co.il
+[2026-03-19T17:14:13.222Z] External links: 5 (of 83 total)
+[2026-03-19T17:14:13.222Z] ── All external links ──
+[2026-03-19T17:14:13.222Z]   EXT: https://edenpinto.co.il
+[2026-03-19T17:14:13.222Z]   EXT: https://shoesale.co.il/?s=%D7%99%D7%99%D7%96%D7%99&post_type=product
+[2026-03-19T17:14:13.223Z]   EXT: https://shoesale.co.il/?s=jordan&post_type=product
+[2026-03-19T17:14:13.223Z]   EXT: https://wa.me/message/AW6HVT5BHDBVH1
+[2026-03-19T17:14:13.223Z]   EXT: https://www.instagram.com/sneakerplug.il
+[2026-03-19T17:14:13.223Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T17:14:13.223Z]   UNCATEGORIZED: https://edenpinto.co.il
+[2026-03-19T17:14:13.223Z]   UNCATEGORIZED: https://shoesale.co.il/?s=%D7%99%D7%99%D7%96%D7%99&post_type=product
+[2026-03-19T17:14:13.223Z]   UNCATEGORIZED: https://shoesale.co.il/?s=jordan&post_type=product
+[2026-03-19T17:14:13.223Z]   UNCATEGORIZED: https://wa.me/message/AW6HVT5BHDBVH1
+[2026-03-19T17:14:13.223Z]   REGEX: ig <- https://www.instagram.com/sneakerplug.il
+[2026-03-19T17:14:13.223Z] Programmatic result: ws:1, ig:1 | 4 uncategorized
+[2026-03-19T17:14:13.223Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T17:14:13.227Z] Saved AI prompt (7346 chars) to ai_prompt.txt
+[2026-03-19T17:14:13.227Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T17:14:13.230Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T17:14:46.664Z]   AI: First token received, streaming...
+[2026-03-19T17:14:51.966Z] AI response complete: 78 chars in 38.7s
+[2026-03-19T17:14:51.967Z] Saved AI response to ai_response.json
+[2026-03-19T17:14:51.968Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T17:14:51.968Z]   AI LINK: https://www.instagram.com/sneakerplug.il/
+[2026-03-19T17:14:51.968Z]   AI LINK: https://wa.me/message/AW6HVT5BHDBVH1
+[2026-03-19T17:14:51.968Z] AI returned 2 valid links
+[2026-03-19T17:14:51.968Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T17:14:51.969Z]   AI→REGEX: ig <- https://www.instagram.com/sneakerplug.il/ (duplicate, skipped)
+[2026-03-19T17:14:51.969Z]   AI→URLS: https://wa.me/message/AW6HVT5BHDBVH1
+[2026-03-19T17:14:51.970Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T17:14:51.970Z] Footer/header origins (5):
+[2026-03-19T17:14:51.970Z]   FOOTER/HEADER ORIGIN: https://sneakerplug.co.il
+[2026-03-19T17:14:51.970Z]   FOOTER/HEADER ORIGIN: https://shoesale.co.il
+[2026-03-19T17:14:51.971Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T17:14:51.971Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-19T17:14:51.971Z]   FOOTER/HEADER ORIGIN: https://edenpinto.co.il
+[2026-03-19T17:14:51.971Z]   ADDED: urls <- https://edenpinto.co.il
+[2026-03-19T17:14:51.971Z]   ADDED: urls <- https://shoesale.co.il (cleaned from https://shoesale.co.il/?s=%D7%99%D7%99%D7%96%D7%99&post_type=product)
+[2026-03-19T17:14:51.971Z]   SKIP (duplicate): https://shoesale.co.il
+[2026-03-19T17:14:51.971Z]   SKIP (AI claimed): https://wa.me/message/AW6HVT5BHDBVH1
+[2026-03-19T17:14:51.971Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-19T17:14:51.972Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T17:14:51.972Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T17:14:51.972Z] ── Step 3: Final dedup ──
+[2026-03-19T17:14:51.972Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-19T17:14:51.972Z] ── FINAL RESULT ──
+[2026-03-19T17:14:51.972Z]   ws (1):
+[2026-03-19T17:14:51.973Z]     - https://sneakerplug.co.il
+[2026-03-19T17:14:51.973Z]   ig (1):
+[2026-03-19T17:14:51.973Z]     - https://www.instagram.com/sneakerplug.il
+[2026-03-19T17:14:51.973Z]   urls (3):
+[2026-03-19T17:14:51.973Z]     - https://edenpinto.co.il
+[2026-03-19T17:14:51.973Z]     - https://shoesale.co.il
+[2026-03-19T17:14:51.974Z]     - https://wa.me/message/AW6HVT5BHDBVH1
+[2026-03-19T17:14:51.974Z] Summary: ws:1, ig:1, urls:3
+[2026-03-19T17:14:51.975Z] Saved final result to result.json
+[2026-03-19T17:14:51.975Z] Override fields: ws, ig, urls
+[2026-03-19T17:14:51.975Z] Finished at: 2026-03-19T17:14:51.975Z

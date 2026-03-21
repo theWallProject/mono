@@ -1,0 +1,60 @@
+[2026-03-20T03:20:47.555Z] === Homepage AI Extractor: Saliwell ===
+[2026-03-20T03:20:47.555Z] Started at: 2026-03-20T03:20:47.555Z
+[2026-03-20T03:20:47.555Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773976847555_Saliwell
+[2026-03-20T03:20:47.555Z] Company: Saliwell
+[2026-03-20T03:20:47.555Z] Website: saliwell.com
+[2026-03-20T03:20:47.555Z] cbRank: 2622476
+[2026-03-20T03:20:47.555Z] Reasons: h
+[2026-03-20T03:20:47.555Z] Fetching: https://saliwell.com
+[2026-03-20T03:20:59.171Z] Network idle timeout — continuing with current state
+[2026-03-20T03:20:59.207Z] Redirected: https://saliwell.com -> https://saliwell.com/
+[2026-03-20T03:20:59.213Z] Saved HTML (190016 bytes) to page.html
+[2026-03-20T03:20:59.216Z] Extracted 18 unique links from page
+[2026-03-20T03:20:59.217Z] Saved 18 links to links.json
+[2026-03-20T03:20:59.220Z] Extracted footer HTML (19774 chars)
+[2026-03-20T03:20:59.220Z] Extracted header HTML (23915 chars)
+[2026-03-20T03:20:59.226Z] Website (post-redirect): https://saliwell.com/ → origin: https://saliwell.com
+[2026-03-20T03:20:59.226Z] External links: 3 (of 18 total)
+[2026-03-20T03:20:59.226Z] ── All external links ──
+[2026-03-20T03:20:59.226Z]   EXT: https://www.linkedin.com/in/%D7%90%D7%A0%D7%93%D7%99-%D7%95%D7%95%D7%9C%D7%A3-5163b475
+[2026-03-20T03:20:59.226Z]   EXT: https://www.youtube.com/@saliwell-drymouthrelieftec1832
+[2026-03-20T03:20:59.227Z]   EXT: https://www.youtube.com/watch?v=sYydkomOV3U
+[2026-03-20T03:20:59.227Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T03:20:59.227Z]   REGEX: ytp <- https://www.youtube.com/@saliwell-drymouthrelieftec1832
+[2026-03-20T03:20:59.227Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-20T03:20:59.227Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/%D7%90%D7%A0%D7%93%D7%99-%D7%95%D7%95%D7%9C%D7%A3-5163b475
+[2026-03-20T03:20:59.227Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=sYydkomOV3U
+[2026-03-20T03:20:59.227Z] Programmatic result: ws:1, ytp:1 | 0 uncategorized
+[2026-03-20T03:20:59.227Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T03:20:59.231Z] Saved AI prompt (2594 chars) to ai_prompt.txt
+[2026-03-20T03:20:59.231Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T03:20:59.235Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T03:21:08.025Z]   AI: First token received, streaming...
+[2026-03-20T03:21:16.340Z] AI response complete: 103 chars in 17.1s
+[2026-03-20T03:21:16.342Z] Saved AI response to ai_response.json
+[2026-03-20T03:21:16.342Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T03:21:16.342Z]   AI LINK: https://www.linkedin.com/in/אנדי-וולף-5163b475/
+[2026-03-20T03:21:16.342Z]   AI LINK: https://www.youtube.com/@saliwell-drymouthrelieftec1832
+[2026-03-20T03:21:16.342Z] AI returned 2 valid links
+[2026-03-20T03:21:16.343Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T03:21:16.344Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/אנדי-וולף-5163b475/
+[2026-03-20T03:21:16.344Z]   AI→REGEX: ytp <- https://www.youtube.com/@saliwell-drymouthrelieftec1832 (duplicate, skipped)
+[2026-03-20T03:21:16.345Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T03:21:16.345Z] Footer/header origins (3):
+[2026-03-20T03:21:16.345Z]   FOOTER/HEADER ORIGIN: https://saliwell.com
+[2026-03-20T03:21:16.345Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T03:21:16.345Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T03:21:16.345Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T03:21:16.345Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T03:21:16.346Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T03:21:16.346Z] ── Step 3: Final dedup ──
+[2026-03-20T03:21:16.346Z] No urls to dedup
+[2026-03-20T03:21:16.346Z] ── FINAL RESULT ──
+[2026-03-20T03:21:16.346Z]   ws (1):
+[2026-03-20T03:21:16.346Z]     - https://saliwell.com
+[2026-03-20T03:21:16.346Z]   ytp (1):
+[2026-03-20T03:21:16.346Z]     - https://www.youtube.com/@saliwell-drymouthrelieftec1832
+[2026-03-20T03:21:16.347Z] Summary: ws:1, ytp:1
+[2026-03-20T03:21:16.348Z] Saved final result to result.json
+[2026-03-20T03:21:16.348Z] Override fields: ws, ytp
+[2026-03-20T03:21:16.349Z] Finished at: 2026-03-20T03:21:16.349Z

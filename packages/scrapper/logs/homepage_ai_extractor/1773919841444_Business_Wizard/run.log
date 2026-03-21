@@ -1,0 +1,67 @@
+[2026-03-19T11:30:41.445Z] === Homepage AI Extractor: Business Wizard ===
+[2026-03-19T11:30:41.445Z] Started at: 2026-03-19T11:30:41.445Z
+[2026-03-19T11:30:41.446Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773919841444_Business_Wizard
+[2026-03-19T11:30:41.446Z] Company: Business Wizard
+[2026-03-19T11:30:41.446Z] Website: bwiz.co.il
+[2026-03-19T11:30:41.446Z] cbRank: 2161394
+[2026-03-19T11:30:41.446Z] Reasons: h
+[2026-03-19T11:30:41.446Z] Fetching: https://bwiz.co.il
+[2026-03-19T11:30:43.569Z] Redirected: https://bwiz.co.il -> https://bwiz.co.il/
+[2026-03-19T11:30:43.574Z] Saved HTML (107851 bytes) to page.html
+[2026-03-19T11:30:43.577Z] Extracted 9 unique links from page
+[2026-03-19T11:30:43.577Z] Saved 9 links to links.json
+[2026-03-19T11:30:43.579Z] Extracted footer HTML (758 chars)
+[2026-03-19T11:30:43.579Z] Extracted header HTML (9087 chars)
+[2026-03-19T11:30:43.582Z] Website (post-redirect): https://bwiz.co.il/ → origin: https://bwiz.co.il
+[2026-03-19T11:30:43.583Z] External links: 4 (of 9 total)
+[2026-03-19T11:30:43.583Z] ── All external links ──
+[2026-03-19T11:30:43.583Z]   EXT: https://business.facebook.com/bwiz.co.il/?business_id=251805808623223
+[2026-03-19T11:30:43.583Z]   EXT: https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-19T11:30:43.583Z]   EXT: https://www.linkedin.com/company/business-wizard
+[2026-03-19T11:30:43.583Z]   EXT: https://www.youtube.com/channel/UC-kBZWN_w0BRWzt8BYOyy1Q
+[2026-03-19T11:30:43.583Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T11:30:43.583Z]   REGEX: fb <- https://business.facebook.com/bwiz.co.il/?business_id=251805808623223
+[2026-03-19T11:30:43.584Z]   UNCATEGORIZED: https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-19T11:30:43.584Z]   REGEX: li <- https://www.linkedin.com/company/business-wizard
+[2026-03-19T11:30:43.584Z]   REGEX: ytc <- https://www.youtube.com/channel/UC-kBZWN_w0BRWzt8BYOyy1Q
+[2026-03-19T11:30:43.584Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-19T11:30:43.584Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T11:30:43.587Z] Saved AI prompt (2150 chars) to ai_prompt.txt
+[2026-03-19T11:30:43.587Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T11:30:43.590Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T11:30:50.149Z]   AI: First token received, streaming...
+[2026-03-19T11:30:51.286Z] AI response complete: 56 chars in 7.7s
+[2026-03-19T11:30:51.287Z] Saved AI response to ai_response.json
+[2026-03-19T11:30:51.287Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T11:30:51.287Z]   AI LINK: https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-19T11:30:51.287Z] AI returned 1 valid links
+[2026-03-19T11:30:51.287Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T11:30:51.288Z]   AI→URLS: https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-19T11:30:51.288Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T11:30:51.288Z] Footer/header origins (1):
+[2026-03-19T11:30:51.289Z]   FOOTER/HEADER ORIGIN: https://bwiz.co.il
+[2026-03-19T11:30:51.289Z]   SKIP (AI claimed): https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-19T11:30:51.289Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T11:30:51.289Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T11:30:51.289Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T11:30:51.764Z]   YOUTUBE: resolved UC-kBZWN_w0BRWzt8BYOyy1Q → @thebusinesswizard
+[2026-03-19T11:30:51.764Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T11:30:51.765Z] ── Step 3: Final dedup ──
+[2026-03-19T11:30:51.765Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T11:30:51.765Z] ── FINAL RESULT ──
+[2026-03-19T11:30:51.765Z]   ws (1):
+[2026-03-19T11:30:51.765Z]     - https://bwiz.co.il
+[2026-03-19T11:30:51.765Z]   li (1):
+[2026-03-19T11:30:51.765Z]     - https://www.linkedin.com/company/business-wizard
+[2026-03-19T11:30:51.765Z]   fb (1):
+[2026-03-19T11:30:51.765Z]     - https://www.facebook.com/bwiz.co.il
+[2026-03-19T11:30:51.765Z]   ytp (1):
+[2026-03-19T11:30:51.765Z]     - https://www.youtube.com/@thebusinesswizard
+[2026-03-19T11:30:51.766Z]   ytc (1):
+[2026-03-19T11:30:51.766Z]     - https://www.youtube.com/channel/UC-kBZWN_w0BRWzt8BYOyy1Q
+[2026-03-19T11:30:51.766Z]   urls (1):
+[2026-03-19T11:30:51.766Z]     - https://pluginsmarket.com/downloads/accessibility-plugin
+[2026-03-19T11:30:51.766Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-19T11:30:51.767Z] Saved final result to result.json
+[2026-03-19T11:30:51.767Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-19T11:30:51.767Z] Finished at: 2026-03-19T11:30:51.767Z

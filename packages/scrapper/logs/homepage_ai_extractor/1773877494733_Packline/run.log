@@ -1,0 +1,68 @@
+[2026-03-18T23:44:54.734Z] === Homepage AI Extractor: Packline ===
+[2026-03-18T23:44:54.734Z] Started at: 2026-03-18T23:44:54.734Z
+[2026-03-18T23:44:54.734Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773877494733_Packline
+[2026-03-18T23:44:54.734Z] Company: Packline
+[2026-03-18T23:44:54.734Z] Website: packline.com
+[2026-03-18T23:44:54.734Z] cbRank: 1842761
+[2026-03-18T23:44:54.734Z] Reasons: h
+[2026-03-18T23:44:54.734Z] Fetching: https://packline.com
+[2026-03-18T23:44:58.284Z] Redirected: https://packline.com -> https://packline.com/
+[2026-03-18T23:44:58.289Z] Saved HTML (135974 bytes) to page.html
+[2026-03-18T23:44:58.293Z] Extracted 79 unique links from page
+[2026-03-18T23:44:58.293Z] Saved 79 links to links.json
+[2026-03-18T23:44:58.302Z] Extracted footer HTML (3631 chars)
+[2026-03-18T23:44:58.302Z] Extracted header HTML (5075 chars)
+[2026-03-18T23:44:58.308Z] Website (post-redirect): https://packline.com/ → origin: https://packline.com
+[2026-03-18T23:44:58.308Z] External links: 3 (of 79 total)
+[2026-03-18T23:44:58.308Z] ── All external links ──
+[2026-03-18T23:44:58.308Z]   EXT: https://www.facebook.com/Pack-Line-Ltd-109210434372914
+[2026-03-18T23:44:58.309Z]   EXT: https://www.linkedin.com/company/packlineltd
+[2026-03-18T23:44:58.309Z]   EXT: https://www.youtube.com/channel/UClOAyGsE2E85hfjbiNLq9Xw
+[2026-03-18T23:44:58.309Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T23:44:58.309Z]   REGEX: fb <- https://www.facebook.com/Pack-Line-Ltd-109210434372914
+[2026-03-18T23:44:58.309Z]   REGEX: li <- https://www.linkedin.com/company/packlineltd
+[2026-03-18T23:44:58.309Z]   REGEX: ytc <- https://www.youtube.com/channel/UClOAyGsE2E85hfjbiNLq9Xw
+[2026-03-18T23:44:58.309Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-18T23:44:58.309Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T23:44:58.313Z] Saved AI prompt (4824 chars) to ai_prompt.txt
+[2026-03-18T23:44:58.313Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T23:44:58.315Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T23:45:17.689Z]   AI: First token received, streaming...
+[2026-03-18T23:45:32.291Z] AI response complete: 157 chars in 34.0s
+[2026-03-18T23:45:32.293Z] Saved AI response to ai_response.json
+[2026-03-18T23:45:32.293Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T23:45:32.293Z]   AI LINK: https://www.facebook.com/Pack-Line-Ltd-109210434372914
+[2026-03-18T23:45:32.293Z]   AI LINK: https://www.youtube.com/channel/UClOAyGsE2E85hfjbiNLq9Xw
+[2026-03-18T23:45:32.293Z]   AI LINK: https://www.linkedin.com/company/packlineltd/
+[2026-03-18T23:45:32.294Z] AI returned 3 valid links
+[2026-03-18T23:45:32.294Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T23:45:32.294Z]   AI→REGEX: fb <- https://www.facebook.com/Pack-Line-Ltd-109210434372914 (duplicate, skipped)
+[2026-03-18T23:45:32.294Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UClOAyGsE2E85hfjbiNLq9Xw (duplicate, skipped)
+[2026-03-18T23:45:32.295Z]   AI→REGEX: li <- https://www.linkedin.com/company/packlineltd/ (duplicate, skipped)
+[2026-03-18T23:45:32.296Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T23:45:32.296Z] Footer/header origins (3):
+[2026-03-18T23:45:32.296Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T23:45:32.296Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T23:45:32.296Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T23:45:32.296Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T23:45:32.296Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T23:45:32.297Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T23:45:32.571Z]   YOUTUBE: resolved UClOAyGsE2E85hfjbiNLq9Xw → @packlineisrael9225
+[2026-03-18T23:45:32.571Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T23:45:32.571Z] ── Step 3: Final dedup ──
+[2026-03-18T23:45:32.572Z] No urls to dedup
+[2026-03-18T23:45:32.572Z] ── FINAL RESULT ──
+[2026-03-18T23:45:32.572Z]   ws (1):
+[2026-03-18T23:45:32.572Z]     - https://packline.com
+[2026-03-18T23:45:32.572Z]   li (1):
+[2026-03-18T23:45:32.572Z]     - https://www.linkedin.com/company/packlineltd
+[2026-03-18T23:45:32.572Z]   fb (1):
+[2026-03-18T23:45:32.572Z]     - https://www.facebook.com/pack-line-ltd-109210434372914
+[2026-03-18T23:45:32.572Z]   ytp (1):
+[2026-03-18T23:45:32.572Z]     - https://www.youtube.com/@packlineisrael9225
+[2026-03-18T23:45:32.572Z]   ytc (1):
+[2026-03-18T23:45:32.572Z]     - https://www.youtube.com/channel/UClOAyGsE2E85hfjbiNLq9Xw
+[2026-03-18T23:45:32.572Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-18T23:45:32.573Z] Saved final result to result.json
+[2026-03-18T23:45:32.574Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-18T23:45:32.574Z] Finished at: 2026-03-18T23:45:32.574Z

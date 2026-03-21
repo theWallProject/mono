@@ -1,0 +1,76 @@
+[2026-03-18T06:25:35.123Z] === Homepage AI Extractor: Webic ===
+[2026-03-18T06:25:35.123Z] Started at: 2026-03-18T06:25:35.123Z
+[2026-03-18T06:25:35.123Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773815135123_Webic
+[2026-03-18T06:25:35.123Z] Company: Webic
+[2026-03-18T06:25:35.123Z] Website: webic.co.il
+[2026-03-18T06:25:35.124Z] cbRank: 1541625
+[2026-03-18T06:25:35.124Z] Reasons: h
+[2026-03-18T06:25:35.124Z] Fetching: https://webic.co.il
+[2026-03-18T06:25:40.385Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-18T06:25:43.340Z] Redirected: https://webic.co.il -> https://webic.co.il/
+[2026-03-18T06:25:43.358Z] Saved HTML (684068 bytes) to page.html
+[2026-03-18T06:25:43.362Z] Extracted 47 unique links from page
+[2026-03-18T06:25:43.362Z] Saved 47 links to links.json
+[2026-03-18T06:25:43.365Z] No footer section found in DOM
+[2026-03-18T06:25:43.365Z] Extracted header HTML (5731 chars)
+[2026-03-18T06:25:43.370Z] Website (post-redirect): https://webic.co.il/ → origin: https://webic.co.il
+[2026-03-18T06:25:43.370Z] External links: 7 (of 47 total)
+[2026-03-18T06:25:43.370Z] ── All external links ──
+[2026-03-18T06:25:43.370Z]   EXT: https://facebook.com/webicadv
+[2026-03-18T06:25:43.370Z]   EXT: https://instagram.com/webicads
+[2026-03-18T06:25:43.370Z]   EXT: https://m.youtube.com/channel/UCsV8Zl9duMKzwMLYpyNv4SQ
+[2026-03-18T06:25:43.370Z]   EXT: https://www.facebook.com/webicadv
+[2026-03-18T06:25:43.370Z]   EXT: https://www.google.com/partners/agency?id=5041966500
+[2026-03-18T06:25:43.370Z]   EXT: https://www.linkedin.com/company/webic
+[2026-03-18T06:25:43.371Z]   EXT: https://www.youtube.com/channel/UCsV8Zl9duMKzwMLYpyNv4SQ
+[2026-03-18T06:25:43.371Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T06:25:43.371Z]   REGEX: fb <- https://facebook.com/webicadv
+[2026-03-18T06:25:43.371Z]   REGEX: ig <- https://instagram.com/webicads
+[2026-03-18T06:25:43.371Z]   REGEX: ytc <- https://m.youtube.com/channel/UCsV8Zl9duMKzwMLYpyNv4SQ
+[2026-03-18T06:25:43.371Z]   REGEX: fb <- https://www.facebook.com/webicadv (duplicate, skipped)
+[2026-03-18T06:25:43.371Z]   UNCATEGORIZED: https://www.google.com/partners/agency?id=5041966500
+[2026-03-18T06:25:43.371Z]   REGEX: li <- https://www.linkedin.com/company/webic
+[2026-03-18T06:25:43.371Z]   REGEX: ytc <- https://www.youtube.com/channel/UCsV8Zl9duMKzwMLYpyNv4SQ (duplicate, skipped)
+[2026-03-18T06:25:43.371Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1, li:1 | 1 uncategorized
+[2026-03-18T06:25:43.371Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T06:25:43.374Z] Saved AI prompt (1976 chars) to ai_prompt.txt
+[2026-03-18T06:25:43.374Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T06:25:43.378Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T06:25:49.807Z]   AI: First token received, streaming...
+[2026-03-18T06:25:53.739Z] AI response complete: 52 chars in 10.4s
+[2026-03-18T06:25:53.740Z] Saved AI response to ai_response.json
+[2026-03-18T06:25:53.740Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T06:25:53.741Z]   AI LINK: https://www.google.com/partners/agency?id=5041966500
+[2026-03-18T06:25:53.741Z] AI returned 1 valid links
+[2026-03-18T06:25:53.741Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T06:25:53.741Z]   AI→URLS: https://www.google.com/partners/agency (cleaned from https://www.google.com/partners/agency?id=5041966500)
+[2026-03-18T06:25:53.742Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T06:25:53.742Z] Footer/header origins (1):
+[2026-03-18T06:25:53.742Z]   FOOTER/HEADER ORIGIN: https://webic.co.il
+[2026-03-18T06:25:53.742Z]   SKIP (AI claimed): https://www.google.com/partners/agency?id=5041966500
+[2026-03-18T06:25:53.742Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T06:25:53.743Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T06:25:53.743Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T06:25:54.037Z]   YOUTUBE: resolved UCsV8Zl9duMKzwMLYpyNv4SQ → @webicads
+[2026-03-18T06:25:54.037Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T06:25:54.037Z] ── Step 3: Final dedup ──
+[2026-03-18T06:25:54.037Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T06:25:54.038Z] ── FINAL RESULT ──
+[2026-03-18T06:25:54.038Z]   ws (1):
+[2026-03-18T06:25:54.038Z]     - https://webic.co.il
+[2026-03-18T06:25:54.038Z]   li (1):
+[2026-03-18T06:25:54.038Z]     - https://www.linkedin.com/company/webic
+[2026-03-18T06:25:54.038Z]   fb (1):
+[2026-03-18T06:25:54.038Z]     - https://www.facebook.com/webicadv
+[2026-03-18T06:25:54.038Z]   ig (1):
+[2026-03-18T06:25:54.038Z]     - https://www.instagram.com/webicads
+[2026-03-18T06:25:54.038Z]   ytp (1):
+[2026-03-18T06:25:54.038Z]     - https://www.youtube.com/@webicads
+[2026-03-18T06:25:54.038Z]   ytc (1):
+[2026-03-18T06:25:54.038Z]     - https://www.youtube.com/channel/UCsV8Zl9duMKzwMLYpyNv4SQ
+[2026-03-18T06:25:54.038Z]   urls (1):
+[2026-03-18T06:25:54.038Z]     - https://www.google.com/partners/agency
+[2026-03-18T06:25:54.038Z] Summary: ws:1, fb:1, ig:1, ytc:1, li:1, urls:1, ytp:1
+[2026-03-18T06:25:54.039Z] Saved final result to result.json
+[2026-03-18T06:25:54.039Z] Override fields: ws, li, fb, ig, ytp, ytc, urls
+[2026-03-18T06:25:54.039Z] Finished at: 2026-03-18T06:25:54.039Z

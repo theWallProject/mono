@@ -1,0 +1,1401 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL"><head><meta charset="utf-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.4",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link data-minify="1" rel="stylesheet" href="https://euroseal.co.il/wp-content/cache/min/1/releases/v5.2.0/css/all.css?ver=1763913299" crossorigin="anonymous">
+    <link rel="icon" href="https://euroseal.co.il/wp-content/themes/euroseal/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="pingback" href="https://euroseal.co.il/xmlrpc.php">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.8 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>אטמים - חברת יורוסיל בע’’מ - אחזקה תעשייתית עם פתרונות אטימה יעילים</title><link rel="preload" data-rocket-preload="" as="image" href="https://euroseal.co.il/wp-content/uploads/2024/07/background44.png" fetchpriority="high">
+	<meta name="description" content="חברת יורוסיל בע&quot;מ מייצרת, מייבאת ומשווקת פתרונות אטימה עם מגוון רחב של אטמים איכותיים ועמידים, לצד ציפוי מתכת, הגנה קתודית, דגריזר מסיר שומנים ועוד - הכול במקום אחד. צרו קשר באתר ונשמח לתת מענה מקצועי.">
+	<link rel="canonical" href="https://euroseal.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="אטמים - חברת יורוסיל בע’’מ - אחזקה תעשייתית עם פתרונות אטימה יעילים">
+	<meta property="og:description" content="חברת יורוסיל בע&quot;מ מייצרת, מייבאת ומשווקת פתרונות אטימה עם מגוון רחב של אטמים איכותיים ועמידים, לצד ציפוי מתכת, הגנה קתודית, דגריזר מסיר שומנים ועוד - הכול במקום אחד. צרו קשר באתר ונשמח לתת מענה מקצועי.">
+	<meta property="og:url" content="https://euroseal.co.il/">
+	<meta property="og:site_name" content="יורוסיל בע&quot;מ">
+	<meta property="article:publisher" content="https://www.facebook.com/p/--100067907127185/">
+	<meta property="article:modified_time" content="2026-01-26T11:59:22+00:00">
+	<meta property="og:image" content="https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="512">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://euroseal.co.il/","url":"https://euroseal.co.il/","name":"אטמים - חברת יורוסיל בע’’מ - אחזקה תעשייתית עם פתרונות אטימה יעילים","isPartOf":{"@id":"https://euroseal.co.il/#website"},"about":{"@id":"https://euroseal.co.il/#organization"},"primaryImageOfPage":{"@id":"https://euroseal.co.il/#primaryimage"},"image":{"@id":"https://euroseal.co.il/#primaryimage"},"thumbnailUrl":"https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall.png","datePublished":"2021-05-20T10:37:12+00:00","dateModified":"2026-01-26T11:59:22+00:00","description":"חברת יורוסיל בע\"מ מייצרת, מייבאת ומשווקת פתרונות אטימה עם מגוון רחב של אטמים איכותיים ועמידים, לצד ציפוי מתכת, הגנה קתודית, דגריזר מסיר שומנים ועוד - הכול במקום אחד. צרו קשר באתר ונשמח לתת מענה מקצועי.","breadcrumb":{"@id":"https://euroseal.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://euroseal.co.il/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://euroseal.co.il/#primaryimage","url":"https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall.png","contentUrl":"https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall.png","width":512,"height":512,"caption":"אטמים"},{"@type":"BreadcrumbList","@id":"https://euroseal.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית"}]},{"@type":"WebSite","@id":"https://euroseal.co.il/#website","url":"https://euroseal.co.il/","name":"יורוסיל בע\"מ","description":"","publisher":{"@id":"https://euroseal.co.il/#organization"},"alternateName":"יורוסיל בע\"מ","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://euroseal.co.il/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"},{"@type":"Organization","@id":"https://euroseal.co.il/#organization","name":"יורוסיל בע\"מ","alternateName":"יורוסיל בע\"מ","url":"https://euroseal.co.il/","logo":{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://euroseal.co.il/#/schema/logo/image/","url":"https://euroseal.co.il/wp-content/uploads/2021/05/euroseal-logo.png","contentUrl":"https://euroseal.co.il/wp-content/uploads/2021/05/euroseal-logo.png","width":389,"height":41,"caption":"יורוסיל בע\"מ"},"image":{"@id":"https://euroseal.co.il/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/p/--100067907127185/"]}]}</script>
+	<meta name="google-site-verification" content="aeYjw5cOYSBBDiV6rU7Cj0sFzrB0j3Hgg1XsZoYuakU">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*wp_block_styles_on_demand_placeholder:69bc6ea9d5fa7*/
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link data-minify="1" rel="stylesheet" id="leos_seo-frontend-css" href="https://euroseal.co.il/wp-content/cache/min/1/wp-content/plugins/leos-seo/assets/css/frontend.css?ver=1763913300" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="bootstrap-css" href="https://euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/styles/bootstrap_app.css?ver=1763913300" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="slick-css-css" href="https://euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/plugins/slick/slick.css?ver=1763913300" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="slick-theme-css-css" href="https://euroseal.co.il/wp-content/cache/background-css/1/euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/plugins/slick/slick-theme.css?ver=1763913300&amp;wpr_t=1773963978" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="lightbox-css-css" href="https://euroseal.co.il/wp-content/cache/background-css/1/euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/plugins/lightbox/src/css/lightbox.css?ver=1763913300&amp;wpr_t=1773963978" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="app-style-css" href="https://euroseal.co.il/wp-content/cache/background-css/1/euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/styles/styles.css?ver=1763913300&amp;wpr_t=1773963978" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="primary-style-css" href="https://euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/style.css?ver=1763913300" type="text/css" media="all">
+<style id="rocket-lazyload-inline-css" type="text/css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-c49ec050-0045-450d-8b4e-b4c9f98a12ff) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/ajax/libs/popper.js/1.14.3/umd/popper.min.js?ver=1763913257" id="popper-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/themes/euroseal/node_modules/bootstrap/dist/js/bootstrap.min.js?ver=1" id="bootstrap-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/themes/euroseal/node_modules/wow.js/dist/wow.min.js?ver=1" id="wow-js" data-rocket-defer="" defer=""></script>
+<link rel="icon" href="https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall-32x32.png" sizes="32x32">
+<link rel="icon" href="https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall-180x180.png">
+<meta name="msapplication-TileImage" content="https://euroseal.co.il/wp-content/uploads/2024/07/cropped-logo-3Vsmall-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			.headers-map-toggle img {
+    height: auto;
+    left: -100px;
+    top: 10Px;
+    transform: translate(0%, 100%);
+}
+.map-nav ul li {
+    text-align: right;
+    margin: -2px;
+}
+.product-item-inside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    border: 3px solid #09008b;
+    padding: 0.7272727273rem;
+    border-radius: 20px;
+}
+.base-product-item {
+    width: 100%;
+    box-shadow: 0 0 21px 3px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 0.8181818182rem 0.6363636364rem;
+    height: 100%;
+    border-radius: 20px;
+}
+.cat-item-image {
+    margin-bottom: 0.4545454545rem;
+    border-radius: 0;
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.2);
+}
+.post-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 100%; */
+    /* border-radius: 10px; */
+    /* background-color: #f8f9fa; */
+    width: 100%;
+    box-shadow: 0 0 21px 3px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 0.8181818182rem 0.6363636364rem;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    border: 3px solid #09008b;
+    padding: 0.7272727273rem;
+    border-radius: 20px;
+}
+header ul.sub-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 99999;
+    padding: 1.3636363636rem;
+    height: auto !important;
+    align-items: stretch;
+    border-bottom-right-radius: 0.4545454545rem;
+    border-bottom-left-radius: 0.4545454545rem;
+    box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.49);
+    background-color: #8bbdf3;
+    opacity: 0;
+    pointer-events: none;
+}
+#gallery-1 img {
+    border: 2px solid #09008b;
+    width: 200px;
+    height: 200px;
+    object-fit: scale-down;
+}
+.slide-home {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 70vh;
+}
+.home-main-block .slick-dots {
+    bottom: 1rem; 
+    display: flex;
+    width: 90%;
+    right: 80px;
+    top: 80%;
+}
+.col-sm-6 {
+	flex: 0 0 50%;
+	max-width: 28%;
+}
+.top-overlay {
+    position: absolute;
+    padding: 3.1818181818rem 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-image: linear-gradient(-93deg, #040047 0%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.24) 76%, rgba(255, 255, 255, 0) 100%);
+}
+.base-title-blue {
+    font-size: 1.9909090909rem;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 1.3636363636rem;
+    margin-bottom: 0.6818181818rem;
+    color: #050053;
+    text-align: center;
+}
+.block-text-home p, .block-text-home li {
+    font-size: 1.1363636364rem;
+    line-height: 1.4090909091rem;
+    color: #0a045f;
+}
+.block-text-home h2 {
+    color: #0a045f;
+    font-weight: 700;
+}
+.base-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1.3181818182rem;
+    background-color: #e5e5e7;
+    font-size: 0.9090909091rem;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 1.1363636364rem;
+    color: #09008b;
+    font-weight: 400;
+    padding: 3px 0.5rem 3px 1.5rem;
+    transition: color, background-color 0.5s;
+}
+.base-product-item { width: 100%; box-shadow: 0 0 21px 3px rgba(0, 0, 0, 0.2); background-color: #ffffff; padding: 0; height: 100%; border-radius: 20px; }
+.col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 44%;
+    padding: 6px;
+    padding-left: 0;
+}
+.gallery-image-prod {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.top-page {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.col-sm-6 {
+    flex: 0 0 33%;
+    max-width: 44%;
+    padding: 6px;
+    padding-left: 0;
+}
+#gallery-1 img {
+    border: 2px solid #09008b;
+    width: 190px;
+    height: 172px;
+    object-fit: fill;
+}
+.main-slide-item {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(-93deg, #ffffff63 0%, rgba(255, 255, 255, 0.14) 62%, rgba(255, 255, 255, 0) 72%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4.5454545455rem 0;
+}
+
+		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><style id="wpr-lazyload-bg-container"></style><style>.base-link:hover:after{--wpr-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left-orange.png');}</style><style>.base-link:after{--wpr-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left.png');}</style><style>.base-link:hover:after{--wpr-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left-orange.png');}</style><style>.base-link:after{--wpr-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left.png');}</style><style>.more-menu{--wpr-bg-9e110c3f-1941-4613-b645-e3663198eb11: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-menu-black.png');}</style><style>.search-submit{--wpr-bg-58cb6442-a078-43ca-9824-abe7f8cc4ab8: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/search-icon.png');}</style><style>div.wpcf7 button[type=submit]:hover:after{--wpr-bg-a564b7b4-e3f9-40e4-a9c7-6c3b660c32c4: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left.png');}</style><style>div.wpcf7 button[type=submit]:after{--wpr-bg-6ccc2cbf-52d5-4ee3-8ea7-10922286e967: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left-orange.png');}</style><style>div.wpcf7 input[type=email]{--wpr-bg-22c084a3-364e-48ca-a84c-526ea67a316d: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-mail.png');}</style><style>div.wpcf7 input[type=tel]{--wpr-bg-792d855f-2c5f-41f9-9697-55ed624200d2: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-tel.png');}</style><style>div.wpcf7 input[type=text]{--wpr-bg-dc0a21d0-c80a-4934-ba51-d4598870a967: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-name.png');}</style><style>div.wpcf7 input[type=text]{--wpr-bg-dc0a21d0-c80a-4934-ba51-d4598870a967: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-name.png');}</style><style>nav#MainNav div.main_menu ul.active .back-to-menu:after,nav#MainNav div.main_menu ul li.menu-item-has-children:after{--wpr-bg-4325b786-dbe8-4012-873c-a5a5ea486c88: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/wmob-menu-arrow.svg');}</style><style id="wpr-lazyload-bg-exclusion">header .menu-item-has-children{--wpr-bg-43113d93-13fb-4ce5-bab2-91d0c01810e5: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/down-arrow-blue.png');}</style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.slick-loading .slick-list{--wpr-bg-9eb14bf2-b10e-4443-ab1b-9e793d563940: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/plugins/slick/ajax-loader.gif');}.lb-cancel{--wpr-bg-373606d6-e7af-4847-8745-ecb30b3e4504: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/plugins/lightbox/src/images/loading.gif');}.lb-nav a.lb-prev{--wpr-bg-5d712bbb-c304-43cc-ae2a-fb40e9a75e96: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/plugins/lightbox/src/images/prev.png');}.lb-nav a.lb-next{--wpr-bg-80172228-8e96-41ea-a571-3ed16c8e199f: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/plugins/lightbox/src/images/next.png');}.lb-data .lb-close{--wpr-bg-c0ee8f89-69a6-4031-a1af-a65a7cf764e6: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/plugins/lightbox/src/images/close.png');}nav#MainNav div.main_menu ul.active .back-to-menu:after,nav#MainNav div.main_menu ul li.menu-item-has-children:after{--wpr-bg-4325b786-dbe8-4012-873c-a5a5ea486c88: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/wmob-menu-arrow.svg');}div.wpcf7 select{--wpr-bg-6c0c5152-1ee4-49ab-8da7-9ff522c903cf: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/down-arrow.png');}div.wpcf7 input[type=text]{--wpr-bg-dc0a21d0-c80a-4934-ba51-d4598870a967: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-name.png');}div.wpcf7 input[type=tel]{--wpr-bg-792d855f-2c5f-41f9-9697-55ed624200d2: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-tel.png');}div.wpcf7 input[type=email]{--wpr-bg-22c084a3-364e-48ca-a84c-526ea67a316d: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-mail.png');}div.wpcf7 button[type=submit]:after{--wpr-bg-6ccc2cbf-52d5-4ee3-8ea7-10922286e967: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left-orange.png');}div.wpcf7 button[type=submit]:hover:after{--wpr-bg-a564b7b4-e3f9-40e4-a9c7-6c3b660c32c4: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left.png');}.repeat-form-wrap{--wpr-bg-2bcf6260-1847-4ee7-9245-f11908e5789d: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/img/mid-form-back.png');}.arrows-slider [dir=rtl] .slick-prev{--wpr-bg-6c950567-ef05-4e30-b6ff-fd93cde64120: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/slider-arrow-right.png');}.arrows-slider [dir=rtl] .slick-next{--wpr-bg-73c59021-e358-4ac7-afbf-a9c259fcc2bd: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/slider-arrow-left.png');}.rev-pop-trigger{--wpr-bg-b87d728b-a973-4360-bb27-fdd7c38ef374: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/plus-blue.png');}.rev-pop-trigger:hover{--wpr-bg-6fa1266b-4137-414f-a4af-6e6a82c07fae: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/plus-orange.png');}.reviews-arrows [dir=rtl] .slick-prev{--wpr-bg-b70ded2a-08dc-4920-895b-f0b129bbd683: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/sl-rev-arrow-right.png');}.reviews-arrows [dir=rtl] .slick-next{--wpr-bg-341695e4-9f9d-4615-bac6-31caf865c1a6: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/sl-rev-arrow-left.png');}.search-submit{--wpr-bg-58cb6442-a078-43ca-9824-abe7f8cc4ab8: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/search-icon.png');}.come-back{--wpr-bg-8a4037c3-9bcd-4e71-a6eb-909db888e20b: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-menu-orange.png');}.more-menu{--wpr-bg-9e110c3f-1941-4613-b645-e3663198eb11: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-menu-black.png');}#go-top{--wpr-bg-880d62ca-23f2-4091-bbea-ef9ab1309ea2: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/img/to-top-logo.png');}.block-text li:before{--wpr-bg-315f65d7-7003-4714-bc4e-9f6e43991125: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/list-icon.png');}.base-link:after{--wpr-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left.png');}.base-link:hover:after{--wpr-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/arrow-left-orange.png');}.benefit-icon-wrap,.contact-icon-wrap{--wpr-bg-df67f56f-00ad-451e-ba71-bdb1a06345aa: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/circle.png');}.file-item{--wpr-bg-4b43e3a1-a63e-4a2e-a2a2-8d7eb7525731: url('https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/file-icon.png');}.rll-youtube-player .play{--wpr-bg-c49ec050-0045-450d-8b4e-b4c9f98a12ff: url('https://euroseal.co.il/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".slick-loading .slick-list","style":".slick-loading .slick-list{--wpr-bg-9eb14bf2-b10e-4443-ab1b-9e793d563940: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/slick\/ajax-loader.gif');}","hash":"9eb14bf2-b10e-4443-ab1b-9e793d563940","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/slick\/ajax-loader.gif"},{"selector":".lb-cancel","style":".lb-cancel{--wpr-bg-373606d6-e7af-4847-8745-ecb30b3e4504: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/loading.gif');}","hash":"373606d6-e7af-4847-8745-ecb30b3e4504","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/loading.gif"},{"selector":".lb-nav a.lb-prev","style":".lb-nav a.lb-prev{--wpr-bg-5d712bbb-c304-43cc-ae2a-fb40e9a75e96: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/prev.png');}","hash":"5d712bbb-c304-43cc-ae2a-fb40e9a75e96","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/prev.png"},{"selector":".lb-nav a.lb-next","style":".lb-nav a.lb-next{--wpr-bg-80172228-8e96-41ea-a571-3ed16c8e199f: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/next.png');}","hash":"80172228-8e96-41ea-a571-3ed16c8e199f","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/next.png"},{"selector":".lb-data .lb-close","style":".lb-data .lb-close{--wpr-bg-c0ee8f89-69a6-4031-a1af-a65a7cf764e6: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/close.png');}","hash":"c0ee8f89-69a6-4031-a1af-a65a7cf764e6","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/plugins\/lightbox\/src\/images\/close.png"},{"selector":"nav#MainNav div.main_menu ul.active .back-to-menu,nav#MainNav div.main_menu ul li.menu-item-has-children","style":"nav#MainNav div.main_menu ul.active .back-to-menu:after,nav#MainNav div.main_menu ul li.menu-item-has-children:after{--wpr-bg-4325b786-dbe8-4012-873c-a5a5ea486c88: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/wmob-menu-arrow.svg');}","hash":"4325b786-dbe8-4012-873c-a5a5ea486c88","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/wmob-menu-arrow.svg"},{"selector":"div.wpcf7 select","style":"div.wpcf7 select{--wpr-bg-6c0c5152-1ee4-49ab-8da7-9ff522c903cf: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/down-arrow.png');}","hash":"6c0c5152-1ee4-49ab-8da7-9ff522c903cf","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/down-arrow.png"},{"selector":"div.wpcf7 input[type=text]","style":"div.wpcf7 input[type=text]{--wpr-bg-dc0a21d0-c80a-4934-ba51-d4598870a967: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/form-name.png');}","hash":"dc0a21d0-c80a-4934-ba51-d4598870a967","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/form-name.png"},{"selector":"div.wpcf7 input[type=tel]","style":"div.wpcf7 input[type=tel]{--wpr-bg-792d855f-2c5f-41f9-9697-55ed624200d2: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/form-tel.png');}","hash":"792d855f-2c5f-41f9-9697-55ed624200d2","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/form-tel.png"},{"selector":"div.wpcf7 input[type=email]","style":"div.wpcf7 input[type=email]{--wpr-bg-22c084a3-364e-48ca-a84c-526ea67a316d: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/form-mail.png');}","hash":"22c084a3-364e-48ca-a84c-526ea67a316d","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/form-mail.png"},{"selector":"div.wpcf7 button[type=submit]","style":"div.wpcf7 button[type=submit]:after{--wpr-bg-6ccc2cbf-52d5-4ee3-8ea7-10922286e967: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left-orange.png');}","hash":"6ccc2cbf-52d5-4ee3-8ea7-10922286e967","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left-orange.png"},{"selector":"div.wpcf7 button[type=submit]","style":"div.wpcf7 button[type=submit]:hover:after{--wpr-bg-a564b7b4-e3f9-40e4-a9c7-6c3b660c32c4: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left.png');}","hash":"a564b7b4-e3f9-40e4-a9c7-6c3b660c32c4","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left.png"},{"selector":".repeat-form-wrap","style":".repeat-form-wrap{--wpr-bg-2bcf6260-1847-4ee7-9245-f11908e5789d: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/img\/mid-form-back.png');}","hash":"2bcf6260-1847-4ee7-9245-f11908e5789d","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/img\/mid-form-back.png"},{"selector":".arrows-slider [dir=rtl] .slick-prev","style":".arrows-slider [dir=rtl] .slick-prev{--wpr-bg-6c950567-ef05-4e30-b6ff-fd93cde64120: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/slider-arrow-right.png');}","hash":"6c950567-ef05-4e30-b6ff-fd93cde64120","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/slider-arrow-right.png"},{"selector":".arrows-slider [dir=rtl] .slick-next","style":".arrows-slider [dir=rtl] .slick-next{--wpr-bg-73c59021-e358-4ac7-afbf-a9c259fcc2bd: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/slider-arrow-left.png');}","hash":"73c59021-e358-4ac7-afbf-a9c259fcc2bd","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/slider-arrow-left.png"},{"selector":".rev-pop-trigger","style":".rev-pop-trigger{--wpr-bg-b87d728b-a973-4360-bb27-fdd7c38ef374: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/plus-blue.png');}","hash":"b87d728b-a973-4360-bb27-fdd7c38ef374","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/plus-blue.png"},{"selector":".rev-pop-trigger","style":".rev-pop-trigger:hover{--wpr-bg-6fa1266b-4137-414f-a4af-6e6a82c07fae: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/plus-orange.png');}","hash":"6fa1266b-4137-414f-a4af-6e6a82c07fae","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/plus-orange.png"},{"selector":".reviews-arrows [dir=rtl] .slick-prev","style":".reviews-arrows [dir=rtl] .slick-prev{--wpr-bg-b70ded2a-08dc-4920-895b-f0b129bbd683: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/sl-rev-arrow-right.png');}","hash":"b70ded2a-08dc-4920-895b-f0b129bbd683","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/sl-rev-arrow-right.png"},{"selector":".reviews-arrows [dir=rtl] .slick-next","style":".reviews-arrows [dir=rtl] .slick-next{--wpr-bg-341695e4-9f9d-4615-bac6-31caf865c1a6: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/sl-rev-arrow-left.png');}","hash":"341695e4-9f9d-4615-bac6-31caf865c1a6","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/sl-rev-arrow-left.png"},{"selector":".search-submit","style":".search-submit{--wpr-bg-58cb6442-a078-43ca-9824-abe7f8cc4ab8: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/search-icon.png');}","hash":"58cb6442-a078-43ca-9824-abe7f8cc4ab8","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/search-icon.png"},{"selector":".come-back","style":".come-back{--wpr-bg-8a4037c3-9bcd-4e71-a6eb-909db888e20b: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-menu-orange.png');}","hash":"8a4037c3-9bcd-4e71-a6eb-909db888e20b","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-menu-orange.png"},{"selector":".more-menu","style":".more-menu{--wpr-bg-9e110c3f-1941-4613-b645-e3663198eb11: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-menu-black.png');}","hash":"9e110c3f-1941-4613-b645-e3663198eb11","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-menu-black.png"},{"selector":"#go-top","style":"#go-top{--wpr-bg-880d62ca-23f2-4091-bbea-ef9ab1309ea2: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/img\/to-top-logo.png');}","hash":"880d62ca-23f2-4091-bbea-ef9ab1309ea2","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/img\/to-top-logo.png"},{"selector":".block-text li","style":".block-text li:before{--wpr-bg-315f65d7-7003-4714-bc4e-9f6e43991125: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/list-icon.png');}","hash":"315f65d7-7003-4714-bc4e-9f6e43991125","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/list-icon.png"},{"selector":".base-link","style":".base-link:after{--wpr-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left.png');}","hash":"f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left.png"},{"selector":".base-link","style":".base-link:hover:after{--wpr-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left-orange.png');}","hash":"89f1b870-f6c2-453f-bd18-00896f2f3f37","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/arrow-left-orange.png"},{"selector":".benefit-icon-wrap,.contact-icon-wrap","style":".benefit-icon-wrap,.contact-icon-wrap{--wpr-bg-df67f56f-00ad-451e-ba71-bdb1a06345aa: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/circle.png');}","hash":"df67f56f-00ad-451e-ba71-bdb1a06345aa","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/circle.png"},{"selector":".file-item","style":".file-item{--wpr-bg-4b43e3a1-a63e-4a2e-a2a2-8d7eb7525731: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/file-icon.png');}","hash":"4b43e3a1-a63e-4a2e-a2a2-8d7eb7525731","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/file-icon.png"},{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-c49ec050-0045-450d-8b4e-b4c9f98a12ff: url('https:\/\/euroseal.co.il\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"c49ec050-0045-450d-8b4e-b4c9f98a12ff","url":"https:\/\/euroseal.co.il\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [{"selector":"header .menu-item-has-children","style":"header .menu-item-has-children{--wpr-bg-43113d93-13fb-4ce5-bab2-91d0c01810e5: url('https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/down-arrow-blue.png');}","hash":"43113d93-13fb-4ce5-bab2-91d0c01810e5","url":"https:\/\/euroseal.co.il\/wp-content\/themes\/euroseal\/assets\/icons-all\/down-arrow-blue.png"}];</script><meta name="generator" content="WP Rocket 3.20.3" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_automatic_lazy_rendering wpr_oci wpr_minify_css wpr_preload_links wpr_host_fonts_locally wpr_desktop"><link href="https://www.google.com" rel="preconnect"></head>
+<body class="rtl home wp-singular page-template page-template-views page-template-home page-template-viewshome-php page page-id-6 wp-theme-euroseal prod">
+
+
+
+<header>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+			<div class="col-xl-11 col-12 col-header">
+				<div class="row">
+					<div class="col-md-2 col-5 d-flex justify-content-start align-items-center">
+						<div class="logo">
+							<a href="/">
+								<img src="https://euroseal.co.il/wp-content/uploads/2021/05/euroseal-logo.png" alt="logo-euroseal">
+							</a>
+						</div>
+					</div>
+					<div class="col d-flex align-items-center">
+						<nav id="MainNav" class="h-100">
+							<div id="MobNavBtn">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+							<div class="main_menu h-100"><ul id="menu-header-menu" class=""><li id="menu-item-163" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item menu-item-163"><a href="https://euroseal.co.il/" aria-current="page">דף הבית</a></li>
+<li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164"><a href="https://euroseal.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/">אודותינו</a></li>
+<li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-166" data-rocket-lazy-bg-43113d93-13fb-4ce5-bab2-91d0c01810e5="excluded" data-rocket-lazy-bg-4325b786-dbe8-4012-873c-a5a5ea486c88="loaded"><a href="https://euroseal.co.il/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d/">מוצרים</a>
+<ul class="sub-menu">
+	<li id="menu-item-1066" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1066"><a href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%99%d7%9e%d7%94/">אטימה</a></li>
+	<li id="menu-item-1065" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1065"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%a1%d7%99%d7%a8%d7%99-%d7%a9%d7%95%d7%9e%d7%9f-%d7%a2%d7%9d-%d7%aa%d7%95-%d7%99%d7%a8%d7%95%d7%a7/">מסיר שומנים תעשייתי</a></li>
+	<li id="menu-item-1067" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1067"><a href="https://euroseal.co.il/product_cat/%d7%97%d7%91%d7%9c%d7%99-%d7%90%d7%98%d7%99%d7%9e%d7%94/">חבלי אטימה</a></li>
+	<li id="menu-item-1068" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1068"><a href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%9e%d7%99%d7%9d/">אטמים</a></li>
+	<li id="menu-item-1069" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1069"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%90%d7%a8%d7%95%d7%9b%d7%aa-%d7%98%d7%95%d7%95%d7%97-%d7%9e%d7%a4%d7%a0%d7%99-%d7%97%d7%9c%d7%95%d7%93%d7%94/">הגנה מפני חלודה וקורוזיה בשיטת VCI</a></li>
+	<li id="menu-item-1070" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1070"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a9%d7%97%d7%96%d7%95%d7%a8-%d7%9e%d7%aa%d7%9b%d7%95%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%99%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%a8%d7%9e%d7%99%d7%99%d7%9d/">ציפוי ושחזור מתכות, גומי ובטון</a></li>
+	<li id="menu-item-1071" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1071"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%aa%d7%95%d7%93%d7%99%d7%aa/">הגנה קתודית</a></li>
+	<li id="menu-item-1072" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1072"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%a4%d7%a8%d7%93%d7%aa-%d7%a9%d7%9e%d7%9f-%d7%9e%d7%9e%d7%99%d7%9d-%d7%a6%d7%99%d7%95%d7%93-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa/">הפרדת שמן ממים וטיפול בזיהום ימי</a></li>
+	<li id="menu-item-1074" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1074"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%92%d7%a8%d7%96%d7%95%d7%aa-%d7%9e%d7%a9%d7%9e%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%95%d7%aa-%d7%95%d7%a1%d7%95%d7%a4%d7%97%d7%99-%d7%9c%d7%97%d7%95%d7%aa/">מגרזות, משמנות אוטומטיות וסופחי לחות</a></li>
+	<li id="menu-item-1075" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1075"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%a1%d7%a4%d7%99%d7%92%d7%aa-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%9b%d7%99%d7%9e%d7%99%d7%a7%d7%9c%d7%99%d7%9d-%d7%9e%d7%96%d7%95%d7%9f-%d7%a0%d7%a4%d7%98/">ספיגת שמנים וכימיקלים</a></li>
+	<li id="menu-item-1076" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1076"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%a9%d7%90%d7%91%d7%95%d7%aa-%d7%99%d7%93%d7%a0%d7%99%d7%95%d7%aa-%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%9b%d7%9c%d7%99-%d7%a2%d7%96%d7%a8-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94/">משאבות ידניות, מכונות וכלי עזר לעבודה</a></li>
+	<li id="menu-item-1077" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1077"><a href="https://euroseal.co.il/product_cat/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/">פקקים פניאומטיים מיכלים מתנפחים</a></li>
+	<li id="menu-item-1078" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1078"><a href="https://euroseal.co.il/product_cat/%d7%a9%d7%95%d7%90%d7%91%d7%99-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/">שואבי שמנים ונוזלים</a></li>
+	<li id="menu-item-1079" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1079"><a href="https://euroseal.co.il/product_cat/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%95%d7%a1%d7%99%d7%9c%d7%99%d7%a7%d7%95%d7%a0%d7%99%d7%9d/">דבקים וסיליקונים</a></li>
+</ul>
+</li>
+<li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165"><a href="https://euroseal.co.il/%d7%9e%d7%99%d7%93%d7%a2-%d7%98%d7%9b%d7%a0%d7%99/">מידע טכני</a></li>
+<li id="menu-item-168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-168"><a href="https://euroseal.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/">צור קשר</a></li>
+</ul></div>						</nav>
+						<div class="wrap-search">
+							<form role="search" method="get" class="search-form" action="">
+	<input type="submit" class="search-submit" value="" data-rocket-lazy-bg-58cb6442-a078-43ca-9824-abe7f8cc4ab8="loaded">
+	<input id="search-input" type="search" class="search-input" placeholder="" value="" name="s" title="חפש באתר">
+</form>
+						</div>
+					</div>
+											<div class="col-md-auto col-3">
+							<a href="tel:04-8401360" class="header-tel d-flex justify-content-center align-items-center wow fadeInDown" data-wow-delay="0.2s">
+								<div class="d-flex flex-column justify-content-center align-items-center">
+																			<span class="tel-header-text mb-2">
+									התקשרו אלינו								</span>
+																		<span class="d-flex align-items-center justify-content-center">
+							<span class="tel-number">
+								04-8401360							</span>
+								<img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/header-tel.png" class="header-tel-icon">
+						</span>
+								</div>
+							</a>
+						</div>
+									</div>
+			</div>
+		</div>
+    </div>
+</header>
+<div class="pop-trigger">
+	<img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/pop-trigger.png" alt="open-popup">
+</div>
+<div class="menu-trigger">
+	<img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/menu-trigger.png" alt="open-menu">
+	<span class="side-title">מוצרים</span>
+</div>
+<section class="pop-form">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-6 col-lg-8 col-md-11 col-12 d-flex justify-content-center">
+				<div class="float-form">
+					<div class="bordered-form">
+						<span class="close-form">
+							<img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/close.png" data-lazy-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/close.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/close.png"></noscript>
+						</span>
+						<div class="row align-items-center justify-content-center">
+							<div class="col-12 form-col">
+																	<h2 class="base-title-black">מעוניינים בציוד איכותי למפעלים?</h2>
+																	<h3 class="mid-form-text text-center">אצלנו  עם מגוון חברות בינלאומיות בתחום 
+חומרי האטימה, ציפויים ואיכות הסביבה
+
+</h3>
+															</div>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-md-10 col-11">
+								
+<div class="wpcf7 no-js" id="wpcf7-f25-o1" lang="he-IL" dir="rtl" data-wpcf7-id="25">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f25-o1" method="post" class="wpcf7-form init use-floating-validation-tip" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="25"><input type="hidden" name="_wpcf7_version" value="6.1.4"><input type="hidden" name="_wpcf7_locale" value="he_IL"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f25-o1"><input type="hidden" name="_wpcf7_container_post" value="0"><input type="hidden" name="_wpcf7_posted_data_hash" value=""><input type="hidden" name="_wpcf7_recaptcha_response" value="">
+</fieldset>
+<div class="form-row d-flex justify-content-center align-items-stretch">
+	<div class="col-xl-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="שם:" value="" type="text" name="your-name" data-rocket-lazy-bg-dc0a21d0-c80a-4934-ba51-d4598870a967="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="טלפון:" value="" type="tel" name="your-phone" data-rocket-lazy-bg-792d855f-2c5f-41f9-9697-55ed624200d2="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-text wpcf7-validates-as-email" aria-invalid="false" placeholder="מייל:" value="" type="email" name="your-email" data-rocket-lazy-bg-22c084a3-364e-48ca-a84c-526ea67a316d="loaded"></span>
+		</p>
+	</div>
+	<p><span class="wpcf7-form-control-wrap" data-name="your-message"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text not-name" aria-invalid="false" placeholder="הערה:" value="" type="text" name="your-message" data-rocket-lazy-bg-dc0a21d0-c80a-4934-ba51-d4598870a967="loaded"></span>
+	</p>
+	<div class="col-xl-6 col-12">
+		<p><button type="submit" data-rocket-lazy-bg-6ccc2cbf-52d5-4ee3-8ea7-10922286e967="loaded" data-rocket-lazy-bg-a564b7b4-e3f9-40e4-a9c7-6c3b660c32c4="loaded"><br>
+תחזרו אלי בהקדם<br>
+</button>
+		</p>
+	</div>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="side-menu-back">
+	<div class="side-menu-block">
+		<div class="side-menu-title-line">
+			<img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/menu-trigger.png" alt="open-menu">
+			<span class="side-title">כל המוצרים שלנו</span>
+			<svg id="Capa_1" enable-background="new 0 0 386.667 386.667" height="512" viewBox="0 0 386.667 386.667" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m386.667 45.564-45.564-45.564-147.77 147.769-147.769-147.769-45.564 45.564 147.769 147.769-147.769 147.77 45.564 45.564 147.769-147.769 147.769 147.769 45.564-45.564-147.768-147.77z"></path></svg>
+		</div>
+		<div class="come-back"> חזרה לקטגוריות הראשיות</div>
+		<ul class="side-menu-wrap">
+			<div class="put-sub-here"></div>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a1%d7%99%d7%a8%d7%99-%d7%a9%d7%95%d7%9e%d7%9f-%d7%a2%d7%9d-%d7%aa%d7%95-%d7%99%d7%a8%d7%95%d7%a7/">
+						מסיר שומנים תעשייתי					</a>
+									</li>
+							<li class="side-menu-item parent-side-menu-item">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%99%d7%9e%d7%94/">
+						אטימה					</a>
+											<span class="more-menu" data-rocket-lazy-bg-9e110c3f-1941-4613-b645-e3663198eb11="loaded"></span>
+						<ul class="sub-side-menu">
+															<li class="side-menu-item">
+									<a class="cat-side-link" href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%99%d7%9e%d7%94/">
+										אטימה									</a>
+								</li>
+															<li class="side-menu-item">
+									<a class="cat-side-link" href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%99%d7%9e%d7%94/">
+										אטימה									</a>
+								</li>
+															<li class="side-menu-item">
+									<a class="cat-side-link" href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%99%d7%9e%d7%94/">
+										אטימה									</a>
+								</li>
+															<li class="side-menu-item">
+									<a class="cat-side-link" href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%99%d7%9e%d7%94/">
+										אטימה									</a>
+								</li>
+													</ul>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%90%d7%a8%d7%95%d7%9b%d7%aa-%d7%98%d7%95%d7%95%d7%97-%d7%9e%d7%a4%d7%a0%d7%99-%d7%97%d7%9c%d7%95%d7%93%d7%94/">
+						הגנה מפני חלודה וקורוזיה בשיטת VCI					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a9%d7%97%d7%96%d7%95%d7%a8-%d7%9e%d7%aa%d7%9b%d7%95%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%99%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%a8%d7%9e%d7%99%d7%99%d7%9d/">
+						ציפוי ושחזור מתכות, גומי ובטון					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%aa%d7%95%d7%93%d7%99%d7%aa/">
+						הגנה קתודית					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%a4%d7%a8%d7%93%d7%aa-%d7%a9%d7%9e%d7%9f-%d7%9e%d7%9e%d7%99%d7%9d-%d7%a6%d7%99%d7%95%d7%93-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa/">
+						הפרדת שמן ממים וטיפול בזיהום ימי					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%92%d7%a8%d7%96%d7%95%d7%aa-%d7%9e%d7%a9%d7%9e%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%95%d7%aa-%d7%95%d7%a1%d7%95%d7%a4%d7%97%d7%99-%d7%9c%d7%97%d7%95%d7%aa/">
+						מגרזות, משמנות אוטומטיות וסופחי לחות					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%a1%d7%a4%d7%99%d7%92%d7%aa-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%9b%d7%99%d7%9e%d7%99%d7%a7%d7%9c%d7%99%d7%9d-%d7%9e%d7%96%d7%95%d7%9f-%d7%a0%d7%a4%d7%98/">
+						ספיגת שמנים וכימיקלים					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a9%d7%90%d7%91%d7%95%d7%aa-%d7%99%d7%93%d7%a0%d7%99%d7%95%d7%aa-%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%9b%d7%9c%d7%99-%d7%a2%d7%96%d7%a8-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94/">
+						משאבות ידניות, מכונות וכלי עזר לעבודה					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/">
+						פקקים פניאומטיים מיכלים מתנפחים					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%a9%d7%95%d7%90%d7%91%d7%99-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/">
+						שואבי שמנים ונוזלים					</a>
+									</li>
+							<li class="side-menu-item ">
+					<a class="cat-side-link cat-parent" href="https://euroseal.co.il/product_cat/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%95%d7%a1%d7%99%d7%9c%d7%99%d7%a7%d7%95%d7%a0%d7%99%d7%9d/">
+						דבקים וסיליקונים					</a>
+									</li>
+					</ul>
+	</div>
+</section>
+
+
+	<section class="home-main-block">
+		<div class="main-slider" dir="rtl">
+							<div class="slide-home" style="background-image: url('https://euroseal.co.il/wp-content/uploads/2024/07/background44.png')">
+					<div class="main-slide-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-6 col-lg-7 col-md-9 col-12">
+																			<div class="block-text-home">
+											<p style="font-size: 1.5rem;"><strong>ייצור אטמים</strong></p>
+<p>ייצור כל סוגי האטמים משרטוט או דוגמא במכונת חיתוך דיגיטאלית</p>
+										</div>
+																	</div>
+							</div>
+							<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="https://euroseal.co.il/product/%d7%9e%d7%9b%d7%95%d7%a0%d7%94-%d7%9c%d7%99%d7%99%d7%a6%d7%95%d7%a8-%d7%90%d7%98%d7%9e%d7%99%d7%9d/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			למידע נוסף		</a>
+	</div>
+</div>
+						</div>
+					</div>
+				</div>
+							<div class="slide-home" style="background-image: url('https://euroseal.co.il/wp-content/uploads/2024/07/greaseMaxBackgroung.png')">
+					<div class="main-slide-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-6 col-lg-7 col-md-9 col-12">
+																			<div class="block-text-home">
+											<p style="font-size: 1.5rem;"><strong>מגרזות אוטומטיות</strong></p>
+<p>גירוז אוטומטי שומר על הציוד לשנים רבות וחוסך הוצאות תיקון יקרות</p>
+										</div>
+																	</div>
+							</div>
+							<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="https://euroseal.co.il/product/%d7%9e%d7%92%d7%a8%d7%96%d7%95%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%95%d7%aa-easylube/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			למידע נוסף		</a>
+	</div>
+</div>
+						</div>
+					</div>
+				</div>
+							<div data-bg="https://euroseal.co.il/wp-content/uploads/2024/07/backgroungGreen102.png" class="slide-home rocket-lazyload entered lazyloaded" style="background-image: url(&quot;https://euroseal.co.il/wp-content/uploads/2024/07/backgroungGreen102.png&quot;);" data-ll-status="loaded">
+					<div class="main-slide-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-6 col-lg-7 col-md-9 col-12">
+																			<div class="block-text-home">
+											<p style="font-size: 1.5rem;"><strong>בטיחות ואיכות הסביבה</strong></p>
+<p>סופגי שמנים וכימיקלים שומרים על סביבת עבודה נקיה ובטוחה</p>
+										</div>
+																	</div>
+							</div>
+							<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%a1%d7%a4%d7%99%d7%92%d7%aa-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%9b%d7%99%d7%9e%d7%99%d7%a7%d7%9c%d7%99%d7%9d-%d7%9e%d7%96%d7%95%d7%9f-%d7%a0%d7%a4%d7%98/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			למידע נוסף		</a>
+	</div>
+</div>
+						</div>
+					</div>
+				</div>
+							<div data-bg="https://euroseal.co.il/wp-content/uploads/2024/07/abanakiBackgroung4.png" class="slide-home rocket-lazyload" style="">
+					<div class="main-slide-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-6 col-lg-7 col-md-9 col-12">
+																			<div class="block-text-home">
+											<h2>סקימרים להפרדת שמן</h2>
+<p>למניעת נזקי קורוזיה וארוזיה בציוד ומכונות CNC</p>
+										</div>
+																	</div>
+							</div>
+							<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="https://euroseal.co.il/product/%d7%a1%d7%a7%d7%99%d7%9e%d7%a8%d7%99%d7%9d-%d7%9c%d7%a9%d7%99%d7%9e%d7%95%d7%a9-%d7%aa%d7%a2%d7%a9%d7%99%d7%99%d7%aa%d7%99/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			למידע נוסף		</a>
+	</div>
+</div>
+						</div>
+					</div>
+				</div>
+							<div data-bg="https://euroseal.co.il/wp-content/uploads/2024/07/backgroundResi104.png" class="slide-home rocket-lazyload" style="">
+					<div class="main-slide-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-6 col-lg-7 col-md-9 col-12">
+																			<div class="block-text-home">
+											<h2>שחזור וציפוי מתכות</h2>
+<p>מוצרים לבניה מחדש ולציפוי מתכות, כולל- משאבות מכלים, צינורות ועוד</p>
+										</div>
+																	</div>
+							</div>
+							<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a9%d7%97%d7%96%d7%95%d7%a8-%d7%9e%d7%aa%d7%9b%d7%95%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%99%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%a8%d7%9e%d7%99%d7%99%d7%9d/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			למידע נוסף		</a>
+	</div>
+</div>
+						</div>
+					</div>
+				</div>
+							<div data-bg="https://euroseal.co.il/wp-content/uploads/2024/07/desmiCleanWaterBackgroung.png" class="slide-home rocket-lazyload" style="">
+					<div class="main-slide-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-6 col-lg-7 col-md-9 col-12">
+																			<div class="block-text-home">
+											<h2>ציוד חרום למניעת זיהום ימי</h2>
+<p>חוסמים, סופגים, וסקימרים לשימוש בעת אירוע של זיהום בים ובנחלים</p>
+										</div>
+																	</div>
+							</div>
+							<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%a4%d7%a8%d7%93%d7%aa-%d7%a9%d7%9e%d7%9f-%d7%9e%d7%9e%d7%99%d7%9d-%d7%a6%d7%99%d7%95%d7%93-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			למידע נוסף		</a>
+	</div>
+</div>
+						</div>
+					</div>
+				</div>
+					</div>
+	</section>
+<section data-wpr-lazyrender="1" class="about-home">
+	<div class="container">
+		<div class="row justify-content-center align-items-center">
+							<div class="col-lg-5 col-12 about-img-col">
+					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="about-img" class="about-img" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/about-img.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/about-img.png" alt="about-img" class="about-img"></noscript>
+					<div class="absolute-year">
+						<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="year" data-lazy-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/img/year-img.png"><noscript><img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/img/year-img.png" alt="year"></noscript>
+					</div>
+				</div>
+							<div class="col-lg-7 col-12 about-content-col">
+					<div class="block-text">
+						<h2>אודות חברת יורוסיל</h2>
+<p>יורוסיל בע"מ היא החברה המובילה בישראל בייבוא, ייצור ושיווק של אטמים ומוצרי אטימה מזה כ-30 שנה. יורוסיל מתמחה באבחון ומתן פתרונות מקצועיים לכל צרכי האחזקה במפעלים בתחום האטימה, ציפויים בטיחות ואיכות הסביבה. יורוסיל היא הנציגה הבלעדית של החברות המובילות בעולם בתחומים שונים כולל תחום האטימה: K&amp;Z Germany, CF Italia. ציפויים: RESIMAC UK. בתחום הגנת הסביבה: Darcy UK, Desmi Denmark, Spill-Tackle, GemTek USA.</p>
+					</div>
+					<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="/אודות/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			קרא עוד עלינו		</a>
+	</div>
+</div>
+						<a href="/" class="logo-about">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="logo-euroseal" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/logo-2.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/logo-2.png" alt="logo-euroseal"></noscript>
+						</a>
+									</div>
+					</div>
+	</div>
+</section>
+	<section data-wpr-lazyrender="1" class="benefits-block">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-9 col-md-11 col-12">
+											<div class="row justify-content-center">
+							<div class="col mb-4">
+								<h2 class="base-title-orange">למה דווקא חברת יורוסיל?</h2>
+							</div>
+						</div>
+										<div class="row justify-content-center align-items-start">
+													<div class="col-lg-3 col-sm-6 col-12 benefit-col wow flipInY" data-wow-delay="0.0s">
+								<div class="benefit-item">
+									<div class="benefit-icon-wrap">
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="benefit-icon" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/11/25.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/11/25.png" alt="benefit-icon"></noscript>
+																			</div>
+									<p class="base-text benefit-text">
+										שנות ניסיון									</p>
+								</div>
+							</div>
+													<div class="col-lg-3 col-sm-6 col-12 benefit-col wow flipInY" data-wow-delay="0.2s">
+								<div class="benefit-item">
+									<div class="benefit-icon-wrap">
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="benefit-icon" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/why-2.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/why-2.png" alt="benefit-icon"></noscript>
+																			</div>
+									<p class="base-text benefit-text">
+										התמחות באבחון ומתן פתרון מקצועי לכל צרכי האחזקה בתחום האטימה, ציפויים ואיכות הסביבה									</p>
+								</div>
+							</div>
+													<div class="col-lg-3 col-sm-6 col-12 benefit-col wow flipInY" data-wow-delay="0.4s">
+								<div class="benefit-item">
+									<div class="benefit-icon-wrap">
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="benefit-icon" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/why-3.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/why-3.png" alt="benefit-icon"></noscript>
+																			</div>
+									<p class="base-text benefit-text">
+										ייצוג בלעדי למגוון חברות בינלאומיות ומובילות בתחום									</p>
+								</div>
+							</div>
+													<div class="col-lg-3 col-sm-6 col-12 benefit-col wow flipInY" data-wow-delay="0.6s">
+								<div class="benefit-item">
+									<div class="benefit-icon-wrap">
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="benefit-icon" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/why-4.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/why-4.png" alt="benefit-icon"></noscript>
+																			</div>
+									<p class="base-text benefit-text">
+										מתמחה בציוד התומך באיכות הסביבה									</p>
+								</div>
+							</div>
+											</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section data-wpr-lazyrender="1" class="block-part">
+		<div class="container">
+			<div class="row justify-content-center">
+					<div class="col-xl-6 col-lg8 col-md-10 col-12 mb-4">
+		<div class="block-text text-center">
+			<h2>המוצרים שלנו</h2>
+		</div>
+	</div>
+			</div>
+							<div class="row justify-content-center align-items-stretch">
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.0s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-2.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a1%d7%99%d7%a8%d7%99-%d7%a9%d7%95%d7%9e%d7%9f-%d7%a2%d7%9d-%d7%aa%d7%95-%d7%99%d7%a8%d7%95%d7%a7/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a1%d7%99%d7%a8%d7%99-%d7%a9%d7%95%d7%9e%d7%9f-%d7%a2%d7%9d-%d7%aa%d7%95-%d7%99%d7%a8%d7%95%d7%a7/">מסיר שומנים תעשייתי</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a1%d7%99%d7%a8%d7%99-%d7%a9%d7%95%d7%9e%d7%9f-%d7%a2%d7%9d-%d7%aa%d7%95-%d7%99%d7%a8%d7%95%d7%a7/">
+					
+
+				</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%a1%d7%99%d7%a8%d7%99-%d7%a9%d7%95%d7%9e%d7%9f-%d7%a2%d7%9d-%d7%aa%d7%95-%d7%99%d7%a8%d7%95%d7%a7/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.1s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2024/07/vci1-e1721809724346.jpg" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%90%d7%a8%d7%95%d7%9b%d7%aa-%d7%98%d7%95%d7%95%d7%97-%d7%9e%d7%a4%d7%a0%d7%99-%d7%97%d7%9c%d7%95%d7%93%d7%94/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%90%d7%a8%d7%95%d7%9b%d7%aa-%d7%98%d7%95%d7%95%d7%97-%d7%9e%d7%a4%d7%a0%d7%99-%d7%97%d7%9c%d7%95%d7%93%d7%94/">הגנה מפני חלודה וקורוזיה בשיטת VCI</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%90%d7%a8%d7%95%d7%9b%d7%aa-%d7%98%d7%95%d7%95%d7%97-%d7%9e%d7%a4%d7%a0%d7%99-%d7%97%d7%9c%d7%95%d7%93%d7%94/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%90%d7%a8%d7%95%d7%9b%d7%aa-%d7%98%d7%95%d7%95%d7%97-%d7%9e%d7%a4%d7%a0%d7%99-%d7%97%d7%9c%d7%95%d7%93%d7%94/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.2s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-4.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a9%d7%97%d7%96%d7%95%d7%a8-%d7%9e%d7%aa%d7%9b%d7%95%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%99%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%a8%d7%9e%d7%99%d7%99%d7%9d/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a9%d7%97%d7%96%d7%95%d7%a8-%d7%9e%d7%aa%d7%9b%d7%95%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%99%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%a8%d7%9e%d7%99%d7%99%d7%9d/">ציפוי ושחזור מתכות, גומי ובטון</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a9%d7%97%d7%96%d7%95%d7%a8-%d7%9e%d7%aa%d7%9b%d7%95%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%99%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%a8%d7%9e%d7%99%d7%99%d7%9d/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a9%d7%97%d7%96%d7%95%d7%a8-%d7%9e%d7%aa%d7%9b%d7%95%d7%aa-%d7%a6%d7%99%d7%a4%d7%95%d7%99%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%a8%d7%9e%d7%99%d7%99%d7%9d/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.3s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-5.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%aa%d7%95%d7%93%d7%99%d7%aa/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%aa%d7%95%d7%93%d7%99%d7%aa/">הגנה קתודית</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%aa%d7%95%d7%93%d7%99%d7%aa/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%aa%d7%95%d7%93%d7%99%d7%aa/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.4s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-6.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%a4%d7%a8%d7%93%d7%aa-%d7%a9%d7%9e%d7%9f-%d7%9e%d7%9e%d7%99%d7%9d-%d7%a6%d7%99%d7%95%d7%93-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%a4%d7%a8%d7%93%d7%aa-%d7%a9%d7%9e%d7%9f-%d7%9e%d7%9e%d7%99%d7%9d-%d7%a6%d7%99%d7%95%d7%93-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa/">הפרדת שמן ממים וטיפול בזיהום ימי</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%a4%d7%a8%d7%93%d7%aa-%d7%a9%d7%9e%d7%9f-%d7%9e%d7%9e%d7%99%d7%9d-%d7%a6%d7%99%d7%95%d7%93-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%a4%d7%a8%d7%93%d7%aa-%d7%a9%d7%9e%d7%9f-%d7%9e%d7%9e%d7%99%d7%9d-%d7%a6%d7%99%d7%95%d7%93-%d7%95%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.5s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-7.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%92%d7%a8%d7%96%d7%95%d7%aa-%d7%9e%d7%a9%d7%9e%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%95%d7%aa-%d7%95%d7%a1%d7%95%d7%a4%d7%97%d7%99-%d7%9c%d7%97%d7%95%d7%aa/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%92%d7%a8%d7%96%d7%95%d7%aa-%d7%9e%d7%a9%d7%9e%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%95%d7%aa-%d7%95%d7%a1%d7%95%d7%a4%d7%97%d7%99-%d7%9c%d7%97%d7%95%d7%aa/">מגרזות, משמנות אוטומטיות וסופחי לחות</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%92%d7%a8%d7%96%d7%95%d7%aa-%d7%9e%d7%a9%d7%9e%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%95%d7%aa-%d7%95%d7%a1%d7%95%d7%a4%d7%97%d7%99-%d7%9c%d7%97%d7%95%d7%aa/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%92%d7%a8%d7%96%d7%95%d7%aa-%d7%9e%d7%a9%d7%9e%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%98%d7%95%d7%9e%d7%98%d7%99%d7%95%d7%aa-%d7%95%d7%a1%d7%95%d7%a4%d7%97%d7%99-%d7%9c%d7%97%d7%95%d7%aa/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.6s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-8.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%a1%d7%a4%d7%99%d7%92%d7%aa-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%9b%d7%99%d7%9e%d7%99%d7%a7%d7%9c%d7%99%d7%9d-%d7%9e%d7%96%d7%95%d7%9f-%d7%a0%d7%a4%d7%98/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%a1%d7%a4%d7%99%d7%92%d7%aa-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%9b%d7%99%d7%9e%d7%99%d7%a7%d7%9c%d7%99%d7%9d-%d7%9e%d7%96%d7%95%d7%9f-%d7%a0%d7%a4%d7%98/">ספיגת שמנים וכימיקלים</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%a1%d7%a4%d7%99%d7%92%d7%aa-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%9b%d7%99%d7%9e%d7%99%d7%a7%d7%9c%d7%99%d7%9d-%d7%9e%d7%96%d7%95%d7%9f-%d7%a0%d7%a4%d7%98/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%a1%d7%a4%d7%99%d7%92%d7%aa-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%9b%d7%99%d7%9e%d7%99%d7%a7%d7%9c%d7%99%d7%9d-%d7%9e%d7%96%d7%95%d7%9f-%d7%a0%d7%a4%d7%98/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.7s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-9.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a9%d7%90%d7%91%d7%95%d7%aa-%d7%99%d7%93%d7%a0%d7%99%d7%95%d7%aa-%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%9b%d7%9c%d7%99-%d7%a2%d7%96%d7%a8-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a9%d7%90%d7%91%d7%95%d7%aa-%d7%99%d7%93%d7%a0%d7%99%d7%95%d7%aa-%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%9b%d7%9c%d7%99-%d7%a2%d7%96%d7%a8-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94/">משאבות ידניות, מכונות וכלי עזר לעבודה</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%9e%d7%a9%d7%90%d7%91%d7%95%d7%aa-%d7%99%d7%93%d7%a0%d7%99%d7%95%d7%aa-%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%9b%d7%9c%d7%99-%d7%a2%d7%96%d7%a8-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%9e%d7%a9%d7%90%d7%91%d7%95%d7%aa-%d7%99%d7%93%d7%a0%d7%99%d7%95%d7%aa-%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%95%d7%9b%d7%9c%d7%99-%d7%a2%d7%96%d7%a8-%d7%9c%d7%a2%d7%91%d7%95%d7%93%d7%94/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.8s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-10.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/">פקקים פניאומטיים מיכלים מתנפחים</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.9s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-11.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%a9%d7%95%d7%90%d7%91%d7%99-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%a9%d7%95%d7%90%d7%91%d7%99-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/">שואבי שמנים ונוזלים</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%a9%d7%95%d7%90%d7%91%d7%99-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%a9%d7%95%d7%90%d7%91%d7%99-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+											<div class="col-xl-3 col-lg-4 col-sm-6 col-12 post-col wow fadeIn" data-wow-delay="0.10s">
+								<div class="base-product-item">
+		<div class="product-item-inside">
+			<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category-12.png" class="post-image cat-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product_cat/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%95%d7%a1%d7%99%d7%9c%d7%99%d7%a7%d7%95%d7%a0%d7%99%d7%9d/"></a>
+			<div class="post-item-content">
+				<a class="cat-item-title" href="https://euroseal.co.il/product_cat/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%95%d7%a1%d7%99%d7%9c%d7%99%d7%a7%d7%95%d7%a0%d7%99%d7%9d/">דבקים וסיליקונים</a>
+				<p class="cat-item-desc" href="https://euroseal.co.il/product_cat/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%95%d7%a1%d7%99%d7%9c%d7%99%d7%a7%d7%95%d7%a0%d7%99%d7%9d/">
+									</p>
+			</div>
+			<a href="https://euroseal.co.il/product_cat/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%95%d7%a1%d7%99%d7%9c%d7%99%d7%a7%d7%95%d7%a0%d7%99%d7%9d/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+				עבור לקטגוריה
+			</a>
+		</div>
+	</div>
+						</div>
+									</div>
+					</div>
+	</section>
+	<div data-wpr-lazyrender="1" class="clients-block arrows-slider">
+		<div class="container h-100">
+							<div class="row justify-content-center">
+					<div class="col">
+						<h2 class="base-title-blue mb-3">בין לקוחותינו</h2>
+					</div>
+				</div>
+						<div class="row justify-content-center h-100 clients-line">
+				<div class="col-12 d-flex justify-content-center align-items-center h-100">
+					<div class="clients-slider" dir="rtl">
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/06/IDE.jpg"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/06/IDE.jpg" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/client-6.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/client-6.png" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/client-8.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/client-8.png" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/client-4.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/client-4.png" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/06/רותם-אמפרט-נגב.jpg"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/06/רותם-אמפרט-נגב.jpg" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/client-7.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/client-7.png" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/06/gihon.jpg"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/06/gihon.jpg" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/06/dexon-1.jpg"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/06/dexon-1.jpg" alt="client-logo"></noscript>
+							</div>
+													<div class="client-logo">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="client-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/06/logo.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/06/logo.png" alt="client-logo"></noscript>
+							</div>
+											</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div data-wpr-lazyrender="1" class="repeat-form-wrap">
+	<div class="container wow zoomIn">
+		<div class="row justify-content-center mb-3">
+			<div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
+					<a class="logo" href="/">
+		<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="euroseal-logo" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/logo-2.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/logo-2.png" alt="euroseal-logo"></noscript>
+	</a>
+			</div>
+		</div>
+		<div class="row align-items-center justify-content-center">
+			<div class="col-xl-7 col-lg-8 col-md-10 col-12 form-col">
+									<h4 class="base-title-black">מעוניינים בציוד איכותי למפעלים?</h4>
+									<h5 class="mid-form-text text-center">אצלנו בחברת יורוסיל עובדים עם מגוון חברות בינלאומיות בתחום 
+חומרי האטימה, ציפויים ואיכות הסביבה
+</h5>
+							</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				
+<div class="wpcf7 no-js" id="wpcf7-f27-o2" lang="he-IL" dir="rtl" data-wpcf7-id="27">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f27-o2" method="post" class="wpcf7-form init use-floating-validation-tip" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="27"><input type="hidden" name="_wpcf7_version" value="6.1.4"><input type="hidden" name="_wpcf7_locale" value="he_IL"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f27-o2"><input type="hidden" name="_wpcf7_container_post" value="0"><input type="hidden" name="_wpcf7_posted_data_hash" value=""><input type="hidden" name="_wpcf7_recaptcha_response" value="">
+</fieldset>
+<div class="form-row d-flex justify-content-center align-items-stretch">
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="שם:" value="" type="text" name="your-name" data-rocket-lazy-bg-dc0a21d0-c80a-4934-ba51-d4598870a967="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="טלפון:" value="" type="tel" name="your-phone" data-rocket-lazy-bg-792d855f-2c5f-41f9-9697-55ed624200d2="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-text wpcf7-validates-as-email" aria-invalid="false" placeholder="מייל:" value="" type="email" name="your-email" data-rocket-lazy-bg-22c084a3-364e-48ca-a84c-526ea67a316d="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-message"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text not-name" aria-invalid="false" placeholder="הערה:" value="" type="text" name="your-message" data-rocket-lazy-bg-dc0a21d0-c80a-4934-ba51-d4598870a967="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-12">
+		<p><button type="submit" data-rocket-lazy-bg-6ccc2cbf-52d5-4ee3-8ea7-10922286e967="loaded" data-rocket-lazy-bg-a564b7b4-e3f9-40e4-a9c7-6c3b660c32c4="loaded"><br>
+תחזרו אלי בהקדם<br>
+</button>
+		</p>
+	</div>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+			</div>
+		</div>
+	</div>
+</div>	<section data-wpr-lazyrender="1" class="slider-base-wrap arrows-slider">
+		<div class="container slider-container">
+			<div class="row justify-content-center align-items-center slider-row">
+				<div class="col-xl-6 col-lg-8 col-12  slider-wrap-col">
+					<div class="slider-text-wrap">
+						<div class="base-slider" dir="rtl">
+															<div>
+									<div class="block-text"><p>&nbsp;</p>
+<h4 style="font-size: 1.5rem;">נטולי אסבסט – קלינגריט</h4>
+<p>החומרים נטולי האסבסט נכנסו לשוק מוצרי האטימה לאחר שהוברר כי האסבסט גורם לסרטן ( לפי נתוני משרדי הבריאות של ארה"ב). מגוון רחב מאד של מוצרים נכנסו לתחום, בעלי עמידות שונה בלחצים וטמפרטורות, עמידות שונה בכימיקלים, צבעים ודגם. האטמים המיוצרים מסוגים אלו של החומרים נטולי האסבסט מיושמים בהצלחה גדולה במירב היישומים התעשייתיים. חומרי הגלם נטולי אסבסט מסופקים בלוחות בגדלים של 1500 X 1500 &amp; 1000 X 1500 כל הלוחות שלנו מאושרים לפי תקן הבריטי: GRADE X – GRADE Y- 7531 BS ניתן לקבל אטמים חתוכים לפי צורת בגדלים ובעוביים לפי דרישת הלקוח.</p>
+</div>
+								</div>
+													</div>
+					</div>
+				</div>
+									<div class="col-xl-6 col-lg-4 col-12 d-flex justify-content-center align-items-center slider-img-col">
+						<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="slider-img" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/slider-img-e1621547263338.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/slider-img-e1621547263338.png" class="slider-img"></noscript>
+						<div class="slider-blue-part"></div>
+					</div>
+							</div>
+		</div>
+	</section>
+	<section data-wpr-lazyrender="1" class="block-part">
+		<div class="container">
+			<div class="row justify-content-center">
+					<div class="col-xl-6 col-lg8 col-md-10 col-12 mb-4">
+		<div class="block-text text-center">
+			<p>&nbsp;</p>
+<h4 style="font-size: 1.5rem;">צפו במוצרים נוספים שלנו</h4>
+<p>&nbsp;</p>
+		</div>
+	</div>
+			</div>
+							<div class="row justify-content-center align-items-stretch">
+											<div class="col-xl col-md-4 col-sm-6 col-12 post-col post-col-home wow fadeIn" data-wow-delay="0.0s">
+								<div class="post-item product-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/6_318c3ab086de9e276f295c5df9c10e7b.jpg" class="post-image product-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%9c%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%a7%d7%94/"></a>
+		<div class="post-item-content">
+			<a class="post-item-title product-item-title" href="https://euroseal.co.il/product/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%9c%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%a7%d7%94/">דבקים לאלקטרוניקה</a>
+			<p class="base-text text-center mb-3">
+				דבקים משמשים אותנו בכל תחומי חיינו, בבית, בעבודה, ברכב, במשרד...			</p>
+		</div>
+		<a href="https://euroseal.co.il/product/%d7%93%d7%91%d7%a7%d7%99%d7%9d-%d7%9c%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%a7%d7%94/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			עבור למוצר
+		</a>
+	</div>
+						</div>
+											<div class="col-xl col-md-4 col-sm-6 col-12 post-col post-col-home wow fadeIn" data-wow-delay="0.1s">
+								<div class="post-item product-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/p15_1_a906d3a32b81a99c9ce4c07a24a17d90.jpg" class="post-image product-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product/%d7%93%d7%91%d7%a7%d7%99-%d7%a2%d7%9c-3-%d7%a9%d7%a0%d7%99%d7%95%d7%aa/"></a>
+		<div class="post-item-content">
+			<a class="post-item-title product-item-title" href="https://euroseal.co.il/product/%d7%93%d7%91%d7%a7%d7%99-%d7%a2%d7%9c-3-%d7%a9%d7%a0%d7%99%d7%95%d7%aa/">דבקי על - 3 שניות</a>
+			<p class="base-text text-center mb-3">
+				דבקי על שייכים לקטגוריה של דבקים מהירים (דבק 3 שניות),...			</p>
+		</div>
+		<a href="https://euroseal.co.il/product/%d7%93%d7%91%d7%a7%d7%99-%d7%a2%d7%9c-3-%d7%a9%d7%a0%d7%99%d7%95%d7%aa/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			עבור למוצר
+		</a>
+	</div>
+						</div>
+											<div class="col-xl col-md-4 col-sm-6 col-12 post-col post-col-home wow fadeIn" data-wow-delay="0.2s">
+								<div class="post-item product-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/aaa_2808cfe8a4671ae4b0dff1fc3bfc3026.png" class="post-image product-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product/%d7%9e%d7%a0%d7%a7%d7%94-%d7%95%d7%9e%d7%9e%d7%97%d7%96%d7%a8-%d7%a0%d7%95%d7%96%d7%9c-%d7%94%d7%a7%d7%99%d7%a8%d7%95%d7%a8/"></a>
+		<div class="post-item-content">
+			<a class="post-item-title product-item-title" href="https://euroseal.co.il/product/%d7%9e%d7%a0%d7%a7%d7%94-%d7%95%d7%9e%d7%9e%d7%97%d7%96%d7%a8-%d7%a0%d7%95%d7%96%d7%9c-%d7%94%d7%a7%d7%99%d7%a8%d7%95%d7%a8/">מנקה וממחזר נוזל הקירור</a>
+			<p class="base-text text-center mb-3">
+				מכשיר וואקום מיוחד הפועל על לחץ אויר.
+
+שואב 40 גלון של...			</p>
+		</div>
+		<a href="https://euroseal.co.il/product/%d7%9e%d7%a0%d7%a7%d7%94-%d7%95%d7%9e%d7%9e%d7%97%d7%96%d7%a8-%d7%a0%d7%95%d7%96%d7%9c-%d7%94%d7%a7%d7%99%d7%a8%d7%95%d7%a8/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			עבור למוצר
+		</a>
+	</div>
+						</div>
+											<div class="col-xl col-md-4 col-sm-6 col-12 post-col post-col-home wow fadeIn" data-wow-delay="0.3s">
+								<div class="post-item product-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/05/category_0fd2037aa4c94906544bf1aed331756a.jpg" class="post-image product-item-image rocket-lazyload" style="" href="https://euroseal.co.il/product/%d7%a9%d7%95%d7%90%d7%91-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/"></a>
+		<div class="post-item-content">
+			<a class="post-item-title product-item-title" href="https://euroseal.co.il/product/%d7%a9%d7%95%d7%90%d7%91-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/">שואב שמנים ונוזלים</a>
+			<p class="base-text text-center mb-3">
+				שואב השמן של חברת ABANAKI הוא מהטובים בתחום ומשווק ע"י...			</p>
+		</div>
+		<a href="https://euroseal.co.il/product/%d7%a9%d7%95%d7%90%d7%91-%d7%a9%d7%9e%d7%a0%d7%99%d7%9d-%d7%95%d7%a0%d7%95%d7%96%d7%9c%d7%99%d7%9d/" class="base-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			עבור למוצר
+		</a>
+	</div>
+						</div>
+									</div>
+			<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="/מוצרים/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			לכל המוצרים		</a>
+	</div>
+</div>
+		</div>
+	</section>
+	<section data-wpr-lazyrender="1" class="block-part">
+		<div class="container">
+			<div class="row justify-content-center">
+					<div class="col-xl-6 col-lg8 col-md-10 col-12 mb-4">
+		<div class="block-text text-center">
+			<h2>מידע טכני ביורוסיל</h2>
+		</div>
+	</div>
+			</div>
+							<div class="row justify-content-center align-items-stretch">
+											<div class="col-xl-3 col-sm-6 col-12 post-col wow fadeInUp" data-wow-delay="0.0s">
+								<div class="post-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/06/5-10.jpg" class="post-image rocket-lazyload" style="" href="https://euroseal.co.il/%d7%94%d7%9e%d7%a2%d7%91%d7%a8-%d7%9c%d7%90%d7%98%d7%9e%d7%99%d7%9d-%d7%97%d7%93%d7%a9%d7%99%d7%9d-%d7%95%d7%97%d7%96%d7%a7%d7%99%d7%9d-%d7%99%d7%95%d7%aa%d7%a8-%d7%91%d7%aa%d7%a2%d7%a9%d7%99%d7%99/"></a>
+		<div class="post-item-content post-card-content">
+			<a class="post-item-title" href="https://euroseal.co.il/%d7%94%d7%9e%d7%a2%d7%91%d7%a8-%d7%9c%d7%90%d7%98%d7%9e%d7%99%d7%9d-%d7%97%d7%93%d7%a9%d7%99%d7%9d-%d7%95%d7%97%d7%96%d7%a7%d7%99%d7%9d-%d7%99%d7%95%d7%aa%d7%a8-%d7%91%d7%aa%d7%a2%d7%a9%d7%99%d7%99/">המעבר לאטמים חדשים וחזקים יותר בתעשייה</a>
+			<p class="base-text text-center mb-3">
+				רוב מתכנני הצנרת והמערכות התעשיות השונות, היו רוצים להגיע למצב...			</p>
+		</div>
+		<a href="https://euroseal.co.il/%d7%94%d7%9e%d7%a2%d7%91%d7%a8-%d7%9c%d7%90%d7%98%d7%9e%d7%99%d7%9d-%d7%97%d7%93%d7%a9%d7%99%d7%9d-%d7%95%d7%97%d7%96%d7%a7%d7%99%d7%9d-%d7%99%d7%95%d7%aa%d7%a8-%d7%91%d7%aa%d7%a2%d7%a9%d7%99%d7%99/" class="base-link base-link-blue mb-3 post-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			המשך למאמר
+		</a>
+	</div>
+						</div>
+											<div class="col-xl-3 col-sm-6 col-12 post-col wow fadeInUp" data-wow-delay="0.2s">
+								<div class="post-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/06/1-22.jpg" class="post-image rocket-lazyload" style="" href="https://euroseal.co.il/%d7%92%d7%a8%d7%a4%d7%99%d7%aa/"></a>
+		<div class="post-item-content post-card-content">
+			<a class="post-item-title" href="https://euroseal.co.il/%d7%92%d7%a8%d7%a4%d7%99%d7%aa/">גרפית</a>
+			<p class="base-text text-center mb-3">
+				ייצור ושווק אטמי גרפית לפי צורה ומידה רצויים. ASA&nbsp; –...			</p>
+		</div>
+		<a href="https://euroseal.co.il/%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="base-link base-link-blue mb-3 post-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			המשך למאמר
+		</a>
+	</div>
+						</div>
+											<div class="col-xl-3 col-sm-6 col-12 post-col wow fadeInUp" data-wow-delay="0.4s">
+								<div class="post-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/06/image001.png" class="post-image rocket-lazyload" style="" href="https://euroseal.co.il/%d7%97%d7%91%d7%9c%d7%99-%d7%90%d7%98%d7%99%d7%9e%d7%94/"></a>
+		<div class="post-item-content post-card-content">
+			<a class="post-item-title" href="https://euroseal.co.il/%d7%97%d7%91%d7%9c%d7%99-%d7%90%d7%98%d7%99%d7%9e%d7%94/">חבלי אטימה</a>
+			<p class="base-text text-center mb-3">
+				חבלי אטימה משמשים לאטימה סטטית, בין ציר המערכת לבית הציר,בעיקר...			</p>
+		</div>
+		<a href="https://euroseal.co.il/%d7%97%d7%91%d7%9c%d7%99-%d7%90%d7%98%d7%99%d7%9e%d7%94/" class="base-link base-link-blue mb-3 post-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			המשך למאמר
+		</a>
+	</div>
+						</div>
+											<div class="col-xl-3 col-sm-6 col-12 post-col wow fadeInUp" data-wow-delay="0.6s">
+								<div class="post-item">
+		<a data-bg="https://euroseal.co.il/wp-content/uploads/2021/06/5-3.jpg" class="post-image rocket-lazyload" style="" href="https://euroseal.co.il/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/"></a>
+		<div class="post-item-content post-card-content">
+			<a class="post-item-title" href="https://euroseal.co.il/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/">פקקים פניאומטיים מיכלים מתנפחים</a>
+			<p class="base-text text-center mb-3">
+				כעת, ניתן לבצע את כל עבודות הצנרת ללא חשש. פקק...			</p>
+		</div>
+		<a href="https://euroseal.co.il/%d7%a4%d7%a7%d7%a7%d7%99%d7%9d-%d7%a4%d7%a0%d7%99%d7%90%d7%95%d7%9e%d7%98%d7%99%d7%99%d7%9d-%d7%9e%d7%99%d7%9b%d7%9c%d7%99%d7%9d-%d7%9e%d7%aa%d7%a0%d7%a4%d7%97%d7%99%d7%9d/" class="base-link base-link-blue mb-3 post-link" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			המשך למאמר
+		</a>
+	</div>
+						</div>
+									</div>
+			<div class="row justify-content-end my-4 link-row">
+	<div class="col-auto">
+		<a href="/מאמרים/" class="base-link base-link-blue" data-rocket-lazy-bg-f1cebe50-2f2d-46c1-8a3e-b0afe9beaa2e="loaded" data-rocket-lazy-bg-89f1b870-f6c2-453f-bd18-00896f2f3f37="loaded">
+			לכל המאמרים		</a>
+	</div>
+</div>
+		</div>
+	</section>
+	<div data-wpr-lazyrender="1" class="slider-reverse">
+			<section class="slider-base-wrap arrows-slider">
+		<div class="container slider-container">
+			<div class="row justify-content-center align-items-center slider-row">
+				<div class="col-xl-6 col-lg-8 col-12  slider-wrap-col">
+					<div class="slider-text-wrap">
+						<div class="base-slider" dir="rtl">
+															<div>
+									<div class="block-text"><p>&nbsp;</p>
+<h4 style="font-size: 1.5rem;">נטולי אסבסט – קלינגריט</h4>
+<p>החומרים נטולי האסבסט נכנסו לשוק מוצרי האטימה לאחר שהוברר כי האסבסט גורם לסרטן ( לפי נתוני משרדי הבריאות של ארה"ב). מגוון רחב מאד של מוצרים נכנסו לתחום, בעלי עמידות שונה בלחצים וטמפרטורות, עמידות שונה בכימיקלים, צבעים ודגם. האטמים המיוצרים מסוגים אלו של החומרים נטולי האסבסט מיושמים בהצלחה גדולה במירב היישומים התעשייתיים. חומרי הגלם נטולי אסבסט מסופקים בלוחות בגדלים של 1500 X 1500 &amp; 1000 X 1500 כל הלוחות שלנו מאושרים לפי תקן הבריטי: GRADE X – GRADE Y- 7531 BS ניתן לקבל אטמים חתוכים לפי צורת בגדלים ובעוביים לפי דרישת הלקוח.</p>
+</div>
+								</div>
+													</div>
+					</div>
+				</div>
+									<div class="col-xl-6 col-lg-4 col-12 d-flex justify-content-center align-items-center slider-img-col">
+						<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="slider-img" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/slider-img-e1621547263338.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/slider-img-e1621547263338.png" class="slider-img"></noscript>
+						<div class="slider-blue-part"></div>
+					</div>
+							</div>
+		</div>
+	</section>
+	</div>
+
+<footer data-wpr-lazyrender="1">
+	<div class="footer-main">
+		<a id="go-top">
+			<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="arrow" class="arrow-top" data-lazy-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/to-top-arrow.png"><noscript><img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/to-top-arrow.png" alt="arrow" class="arrow-top"></noscript>
+		</a>
+					<div class="foo-form-wrap">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-xl-9 col-lg-10 col-md-11 col-12">
+							<div class="form-col">
+																	<h4 class="base-title-blue text-center">מעוניינים בציוד איכותי לתעשייה למפעלים?</h4>
+																	<h5 class="base-text text-center mb-3">מלאו את הפרטים ונחזור אליכם במהירות</h5>
+								
+<div class="wpcf7 no-js" id="wpcf7-f26-o3" lang="he-IL" dir="rtl" data-wpcf7-id="26">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f26-o3" method="post" class="wpcf7-form init use-floating-validation-tip" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="26"><input type="hidden" name="_wpcf7_version" value="6.1.4"><input type="hidden" name="_wpcf7_locale" value="he_IL"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f26-o3"><input type="hidden" name="_wpcf7_container_post" value="0"><input type="hidden" name="_wpcf7_posted_data_hash" value=""><input type="hidden" name="_wpcf7_recaptcha_response" value="">
+</fieldset>
+<div class="form-row d-flex justify-content-center align-items-stretch">
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="שם:" value="" type="text" name="your-name" data-rocket-lazy-bg-dc0a21d0-c80a-4934-ba51-d4598870a967="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="טלפון:" value="" type="tel" name="your-phone" data-rocket-lazy-bg-792d855f-2c5f-41f9-9697-55ed624200d2="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-text wpcf7-validates-as-email" aria-invalid="false" placeholder="מייל:" value="" type="email" name="your-email" data-rocket-lazy-bg-22c084a3-364e-48ca-a84c-526ea67a316d="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-lg-3 col-md-6 col-12">
+		<p><span class="wpcf7-form-control-wrap" data-name="your-message"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text not-name" aria-invalid="false" placeholder="הערה:" value="" type="text" name="your-message" data-rocket-lazy-bg-dc0a21d0-c80a-4934-ba51-d4598870a967="loaded"></span>
+		</p>
+	</div>
+	<div class="col-xl col-12">
+		<p><button type="submit" data-rocket-lazy-bg-6ccc2cbf-52d5-4ee3-8ea7-10922286e967="loaded" data-rocket-lazy-bg-a564b7b4-e3f9-40e4-a9c7-6c3b660c32c4="loaded"><br>
+אני מעוניינ/ת בציוד<br>
+</button>
+		</p>
+	</div>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-xl-3 col-lg-auto col-12 foo-menu main-footer-menu">
+					<h4 class="foo-title">תפריט ניווט באתר</h4>
+					<div class="menu-border-top">
+						<div class="main_menu h-100 text-right"><ul id="menu-footer-menu" class="hop-hey"><li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item menu-item-223"><a href="https://euroseal.co.il/" aria-current="page">דף הבית</a></li>
+<li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="https://euroseal.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/">אודותינו</a></li>
+<li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="https://euroseal.co.il/%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d/">מוצרים</a></li>
+<li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="https://euroseal.co.il/%d7%9e%d7%99%d7%93%d7%a2-%d7%98%d7%9b%d7%a0%d7%99/">מידע טכני</a></li>
+<li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="https://euroseal.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/">צור קשר</a></li>
+<li id="menu-item-1172" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1172"><a href="https://euroseal.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/">הסדרי נגישות</a></li>
+</ul></div>					</div>
+				</div>
+				<div class="col-lg col-12 foo-menu links-footer-menu">
+					<h4 class="foo-title">מאמרים רלוונטיים</h4>
+					<div class="menu-border-top">
+						<div class="menu-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9e%d7%95%d7%91%d7%99%d7%9c%d7%99%d7%9d-container"><ul id="menu-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9e%d7%95%d7%91%d7%99%d7%9c%d7%99%d7%9d" class="hop-hey three-columns"><li id="menu-item-1142" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1142"><a href="https://euroseal.co.il/product_cat/%d7%92%d7%95%d7%9e%d7%99/">אטמי גומי</a></li>
+<li id="menu-item-1141" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1141"><a href="https://euroseal.co.il/product_cat/%d7%98%d7%a4%d7%9c%d7%95%d7%9f/">טפלון</a></li>
+<li id="menu-item-1146" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1146"><a href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%9e%d7%99%d7%9d/">אטמים</a></li>
+<li id="menu-item-1143" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1143"><a href="https://euroseal.co.il/product_cat/%d7%90%d7%98%d7%9e%d7%99%d7%9d-%d7%9e%d7%aa%d7%9b%d7%aa%d7%99%d7%99%d7%9d/">אטמים מתכתיים</a></li>
+<li id="menu-item-1145" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1145"><a href="https://euroseal.co.il/product_cat/%d7%97%d7%91%d7%9c%d7%99-%d7%90%d7%98%d7%99%d7%9e%d7%94/">חבלי אטימה</a></li>
+<li id="menu-item-1139" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1139"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%a1%d7%99%d7%a8%d7%99-%d7%a9%d7%95%d7%9e%d7%9f-%d7%a2%d7%9d-%d7%aa%d7%95-%d7%99%d7%a8%d7%95%d7%a7/">מסיר שומנים תעשייתי</a></li>
+<li id="menu-item-1144" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1144"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%90%d7%a8%d7%95%d7%9b%d7%aa-%d7%98%d7%95%d7%95%d7%97-%d7%9e%d7%a4%d7%a0%d7%99-%d7%97%d7%9c%d7%95%d7%93%d7%94/">הגנה מפני חלודה וקורוזיה בשיטת VCI</a></li>
+<li id="menu-item-1468" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1468"><a href="https://euroseal.co.il/product_cat/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%94%d7%92%d7%a0%d7%94-%d7%a7%d7%aa%d7%95%d7%93%d7%99%d7%aa/">הגנה קתודית</a></li>
+</ul></div>					</div>
+				</div>
+				<div class="col-lg-3 col-12 foo-menu contacts-footer-menu">
+					<h4 class="foo-title">צור קשר</h4>
+					<div class="menu-border-top contact-menu-foo">
+						<ul class="contact-list d-flex flex-column">
+															<li>
+									<a href="tel:04-8401360" class="contact-info-footer">
+										<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-tel.png"><noscript><img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-tel.png"></noscript>
+										<span>טלפון: 04-8401360</span>
+									</a>
+								</li>
+																						<li>
+									<a href="mailto:euroseal@bezeqint.net" class="contact-info-footer">
+										<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-mail.png"><noscript><img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/form-mail.png"></noscript>
+										<span>מייל: euroseal@bezeqint.net</span>
+									</a>
+								</li>
+																						<li>
+									<a href="https://waze.com/ul?q=רחוב קצנשטיין 3 א.ת. בלובנד, חיפה" class="contact-info-footer" target="_blank">
+										<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/geo-small.png"><noscript><img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/icons-all/geo-small.png"></noscript>
+										<span>כתובת: רחוב קצנשטיין 3 א.ת. בלובנד, חיפה</span>
+									</a>
+								</li>
+													</ul>
+													<div class="map-footer">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/map.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/map.png"></noscript>
+							</div>
+																			<a href="/" class="logo logo-footer align-self-end">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="logo-euroseal" data-lazy-src="https://euroseal.co.il/wp-content/uploads/2021/05/logo-2.png"><noscript><img src="https://euroseal.co.il/wp-content/uploads/2021/05/logo-2.png" alt="logo-euroseal"></noscript>
+							</a>
+											</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="leos">
+		<a href="https://www.leos.co.il/%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%90%D7%AA%D7%A8%D7%99%D7%9D/" title="בניית אתרים מקצועיים">
+			<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="בניית אתרים מקצועיים" data-lazy-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/img/leos_logo.png"><noscript><img src="https://euroseal.co.il/wp-content/themes/euroseal/assets/img/leos_logo.png"
+				 alt="" title="בניית אתרים מקצועיים" /></noscript>
+			<span>בניית אתרים מקצועיים</span>
+		</a>
+	</div>
+</footer>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/euroseal/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" id="leos_seo-frontend-js-extra">
+/* <![CDATA[ */
+var leos_settings = {"headers_map":["h1","h2","h3"],"slick_support":"","ajax_url":"https://euroseal.co.il/wp-admin/admin-ajax.php"};
+//# sourceURL=leos_seo-frontend-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/wp-content/plugins/leos-seo/assets/js/frontend.js?ver=1763913257" id="leos_seo-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://euroseal.co.il","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket_lazyload_css-js-extra">
+/* <![CDATA[ */
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket_lazyload_css-js-after">
+/* <![CDATA[ */
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/themes/euroseal/assets/plugins/slick/slick.min.js?ver=1" id="slick-js-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/plugins/lightbox/src/js/lightbox.js?ver=1763913257" id="lightbox-js-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/scripts/setup.js?ver=1763913257" id="app-scripts-setup-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/wp-content/themes/euroseal/assets/scripts/scripts.js?ver=1763913257" id="app-scripts-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6Ld24m8jAAAAABoE6OHRJqeTvFO-E0G4NoTMEHDL&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wpcf7-recaptcha-js-before">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {
+    "sitekey": "6Ld24m8jAAAAABoE6OHRJqeTvFO-E0G4NoTMEHDL",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1763913257" id="wpcf7-recaptcha-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+//# sourceURL=wp-i18n-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1763913257" id="swv-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="contact-form-7-js-before">
+/* <![CDATA[ */
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/euroseal.co.il\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://euroseal.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1763913257" id="contact-form-7-js" data-rocket-defer="" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://euroseal.co.il/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="Play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=[];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>
+<!-- Accessibility Code for "euroseal.co.il" -->
+<script type="rocketlazyloadscript">
+window.interdeal = {
+    "sitekey": "21471921a01e162a7670a3e16c482beb",
+    "Position": "Left",
+    "Menulang": "HE",
+    "domains": {
+        "js": "https://js.nagich.co.il/",
+        "acc": "https://access.nagich.co.il/"
+    },
+    "btnStyle": {
+        "vPosition": [
+            "80%",
+            null
+        ],
+        "scale": [
+            "0.6",
+            "0.6"
+        ],
+        "icon": {
+            "type": 11,
+            "shape": "circle",
+            "outline": true
+        }
+    }
+};
+(function(doc, head, body){
+	var coreCall             = doc.createElement('script');
+	coreCall.src             = interdeal.domains.js + 'core/4.5.7/accessibility.js';
+	coreCall.defer           = true;
+	coreCall.integrity       = 'sha512-gpqKsoeiydxhKkTxKWIuaBa2ecvqnbbrt714imvpTPiFl1hGlfoU2MlGypZqZZR8ddeQE1sJeXfMZ9XECRTo3Q==';
+	coreCall.crossOrigin     = 'anonymous';
+	coreCall.setAttribute('data-cfasync', true );
+	body? body.appendChild(coreCall) : head.appendChild(coreCall);
+})(document, document.head, document.body);
+</script>
+
+
+</body></html>

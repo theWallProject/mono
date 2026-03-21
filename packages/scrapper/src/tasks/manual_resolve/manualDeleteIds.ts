@@ -10,5 +10,6 @@ export const manualDeleteIds = [
   "katkuti",
   "watani-mall",
   "razztech",
-  "haat-delivery"
+  "haat-delivery",
+  "wego"
 ]

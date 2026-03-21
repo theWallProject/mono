@@ -1,0 +1,58 @@
+[2026-03-18T07:35:20.246Z] === Homepage AI Extractor: nRollmed ===
+[2026-03-18T07:35:20.246Z] Started at: 2026-03-18T07:35:20.246Z
+[2026-03-18T07:35:20.247Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773819320245_nRollmed
+[2026-03-18T07:35:20.247Z] Company: nRollmed
+[2026-03-18T07:35:20.247Z] Website: nrollmed.com
+[2026-03-18T07:35:20.247Z] cbRank: 1584886
+[2026-03-18T07:35:20.247Z] Reasons: h
+[2026-03-18T07:35:20.247Z] Fetching: https://nrollmed.com
+[2026-03-18T07:35:30.693Z] Network idle timeout — continuing with current state
+[2026-03-18T07:35:30.810Z] Redirected: https://nrollmed.com -> https://nrollmed.com/
+[2026-03-18T07:35:30.864Z] Saved HTML (150177 bytes) to page.html
+[2026-03-18T07:35:30.948Z] Extracted 23 unique links from page
+[2026-03-18T07:35:30.949Z] Saved 23 links to links.json
+[2026-03-18T07:35:30.954Z] Extracted footer HTML (6050 chars)
+[2026-03-18T07:35:30.954Z] Extracted header HTML (23737 chars)
+[2026-03-18T07:35:30.962Z] Website (post-redirect): https://nrollmed.com/ → origin: https://nrollmed.com
+[2026-03-18T07:35:30.963Z] External links: 2 (of 23 total)
+[2026-03-18T07:35:30.963Z] ── All external links ──
+[2026-03-18T07:35:30.963Z]   EXT: https://calendly.com/gil-pal
+[2026-03-18T07:35:30.963Z]   EXT: https://www.linkedin.com/company/nrollmed
+[2026-03-18T07:35:30.963Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T07:35:30.963Z]   UNCATEGORIZED: https://calendly.com/gil-pal
+[2026-03-18T07:35:30.964Z]   REGEX: li <- https://www.linkedin.com/company/nrollmed
+[2026-03-18T07:35:30.964Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-18T07:35:30.964Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T07:35:30.965Z] Saved AI prompt (4411 chars) to ai_prompt.txt
+[2026-03-18T07:35:30.965Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T07:35:30.969Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T07:35:48.654Z]   AI: First token received, streaming...
+[2026-03-18T07:35:50.024Z] AI response complete: 42 chars in 19.1s
+[2026-03-18T07:35:50.025Z] Saved AI response to ai_response.json
+[2026-03-18T07:35:50.025Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T07:35:50.025Z]   AI LINK: https://www.linkedin.com/company/nrollmed/
+[2026-03-18T07:35:50.026Z] AI returned 1 valid links
+[2026-03-18T07:35:50.026Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T07:35:50.026Z]   AI→REGEX: li <- https://www.linkedin.com/company/nrollmed/ (duplicate, skipped)
+[2026-03-18T07:35:50.027Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T07:35:50.027Z] Footer/header origins (3):
+[2026-03-18T07:35:50.027Z]   FOOTER/HEADER ORIGIN: https://nrollmed.com
+[2026-03-18T07:35:50.028Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T07:35:50.028Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-18T07:35:50.028Z]   ADDED: urls <- https://calendly.com/gil-pal
+[2026-03-18T07:35:50.028Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T07:35:50.028Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T07:35:50.028Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T07:35:50.028Z] ── Step 3: Final dedup ──
+[2026-03-18T07:35:50.028Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T07:35:50.028Z] ── FINAL RESULT ──
+[2026-03-18T07:35:50.029Z]   ws (1):
+[2026-03-18T07:35:50.029Z]     - https://nrollmed.com
+[2026-03-18T07:35:50.029Z]   li (1):
+[2026-03-18T07:35:50.029Z]     - https://www.linkedin.com/company/nrollmed
+[2026-03-18T07:35:50.029Z]   urls (1):
+[2026-03-18T07:35:50.029Z]     - https://calendly.com/gil-pal
+[2026-03-18T07:35:50.029Z] Summary: ws:1, li:1, urls:1
+[2026-03-18T07:35:50.030Z] Saved final result to result.json
+[2026-03-18T07:35:50.031Z] Override fields: ws, li, urls
+[2026-03-18T07:35:50.031Z] Finished at: 2026-03-18T07:35:50.031Z

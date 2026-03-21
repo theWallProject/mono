@@ -1,0 +1,60 @@
+[2026-03-20T05:45:51.283Z] === Homepage AI Extractor: Medini ===
+[2026-03-20T05:45:51.283Z] Started at: 2026-03-20T05:45:51.283Z
+[2026-03-20T05:45:51.283Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773985551282_Medini
+[2026-03-20T05:45:51.283Z] Company: Medini
+[2026-03-20T05:45:51.283Z] Website: medinisc.com
+[2026-03-20T05:45:51.283Z] cbRank: 2721094
+[2026-03-20T05:45:51.283Z] Reasons: h
+[2026-03-20T05:45:51.283Z] Fetching: https://medinisc.com
+[2026-03-20T05:45:53.918Z] Redirected: https://medinisc.com -> https://www.medinisc.com/
+[2026-03-20T05:45:53.921Z] Saved HTML (44678 bytes) to page.html
+[2026-03-20T05:45:53.924Z] Extracted 16 unique links from page
+[2026-03-20T05:45:53.924Z] Saved 16 links to links.json
+[2026-03-20T05:45:53.927Z] Extracted footer HTML (2476 chars)
+[2026-03-20T05:45:53.927Z] Extracted header HTML (2150 chars)
+[2026-03-20T05:45:53.931Z] Website (post-redirect): https://www.medinisc.com/ → origin: https://www.medinisc.com
+[2026-03-20T05:45:53.931Z] External links: 2 (of 16 total)
+[2026-03-20T05:45:53.931Z] ── All external links ──
+[2026-03-20T05:45:53.931Z]   EXT: https://www.linkedin.com/company/medini-ltd
+[2026-03-20T05:45:53.932Z]   EXT: https://www.webnoise.co.il
+[2026-03-20T05:45:53.932Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T05:45:53.932Z]   REGEX: li <- https://www.linkedin.com/company/medini-ltd
+[2026-03-20T05:45:53.932Z]   UNCATEGORIZED: https://www.webnoise.co.il
+[2026-03-20T05:45:53.932Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-20T05:45:53.932Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T05:45:53.935Z] Saved AI prompt (3226 chars) to ai_prompt.txt
+[2026-03-20T05:45:53.935Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T05:45:53.939Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T05:46:05.387Z]   AI: First token received, streaming...
+[2026-03-20T05:46:08.792Z] AI response complete: 70 chars in 14.9s
+[2026-03-20T05:46:08.793Z] Saved AI response to ai_response.json
+[2026-03-20T05:46:08.794Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T05:46:08.794Z]   AI LINK: https://www.medinisc.com/
+[2026-03-20T05:46:08.794Z]   AI LINK: https://www.linkedin.com/company/medini-ltd/
+[2026-03-20T05:46:08.794Z] AI returned 2 valid links
+[2026-03-20T05:46:08.794Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T05:46:08.795Z]   AI→URLS: https://www.medinisc.com (cleaned from https://www.medinisc.com/)
+[2026-03-20T05:46:08.795Z]   AI→REGEX: li <- https://www.linkedin.com/company/medini-ltd/ (duplicate, skipped)
+[2026-03-20T05:46:08.795Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T05:46:08.795Z] Footer/header origins (3):
+[2026-03-20T05:46:08.795Z]   FOOTER/HEADER ORIGIN: https://www.medinisc.com
+[2026-03-20T05:46:08.795Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T05:46:08.796Z]   FOOTER/HEADER ORIGIN: https://www.webnoise.co.il
+[2026-03-20T05:46:08.796Z]   ADDED: urls <- https://www.webnoise.co.il
+[2026-03-20T05:46:08.796Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T05:46:08.796Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T05:46:08.796Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T05:46:08.796Z] ── Step 3: Final dedup ──
+[2026-03-20T05:46:08.796Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T05:46:08.796Z] ── FINAL RESULT ──
+[2026-03-20T05:46:08.797Z]   ws (1):
+[2026-03-20T05:46:08.797Z]     - https://www.medinisc.com
+[2026-03-20T05:46:08.797Z]   li (1):
+[2026-03-20T05:46:08.797Z]     - https://www.linkedin.com/company/medini-ltd
+[2026-03-20T05:46:08.797Z]   urls (2):
+[2026-03-20T05:46:08.797Z]     - https://www.medinisc.com
+[2026-03-20T05:46:08.797Z]     - https://www.webnoise.co.il
+[2026-03-20T05:46:08.797Z] Summary: ws:1, li:1, urls:2
+[2026-03-20T05:46:08.799Z] Saved final result to result.json
+[2026-03-20T05:46:08.799Z] Override fields: ws, li, urls
+[2026-03-20T05:46:08.799Z] Finished at: 2026-03-20T05:46:08.799Z

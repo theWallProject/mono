@@ -1,0 +1,65 @@
+[2026-03-20T00:01:29.882Z] === Homepage AI Extractor: BashGal ===
+[2026-03-20T00:01:29.882Z] Started at: 2026-03-20T00:01:29.882Z
+[2026-03-20T00:01:29.882Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773964889882_BashGal
+[2026-03-20T00:01:29.882Z] Company: BashGal
+[2026-03-20T00:01:29.882Z] Website: bashgal.co.il
+[2026-03-20T00:01:29.882Z] cbRank: 2498246
+[2026-03-20T00:01:29.882Z] Reasons: h
+[2026-03-20T00:01:29.883Z] Fetching: https://bashgal.co.il
+[2026-03-20T00:01:35.116Z] Redirected: https://bashgal.co.il -> https://bashgal.co.il/
+[2026-03-20T00:01:35.140Z] Saved HTML (1003746 bytes) to page.html
+[2026-03-20T00:01:35.146Z] Extracted 229 unique links from page
+[2026-03-20T00:01:35.147Z] Saved 229 links to links.json
+[2026-03-20T00:01:35.151Z] Extracted footer HTML (21288 chars)
+[2026-03-20T00:01:35.151Z] Extracted header HTML (49815 chars)
+[2026-03-20T00:01:35.157Z] Website (post-redirect): https://bashgal.co.il/ → origin: https://bashgal.co.il
+[2026-03-20T00:01:35.157Z] External links: 3 (of 229 total)
+[2026-03-20T00:01:35.157Z] ── All external links ──
+[2026-03-20T00:01:35.158Z]   EXT: https://www.facebook.com/bashgalsport.sport
+[2026-03-20T00:01:35.158Z]   EXT: https://www.instagram.com/bash_gal_sport
+[2026-03-20T00:01:35.158Z]   EXT: https://www.youtube.com/user/bashgalsport
+[2026-03-20T00:01:35.158Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T00:01:35.158Z]   REGEX: fb <- https://www.facebook.com/bashgalsport.sport
+[2026-03-20T00:01:35.158Z]   REGEX: ig <- https://www.instagram.com/bash_gal_sport
+[2026-03-20T00:01:35.158Z]   REGEX: ytp <- https://www.youtube.com/user/bashgalsport
+[2026-03-20T00:01:35.158Z] Programmatic result: ws:1, fb:1, ig:1, ytp:1 | 0 uncategorized
+[2026-03-20T00:01:35.158Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T00:01:35.162Z] Saved AI prompt (7015 chars) to ai_prompt.txt
+[2026-03-20T00:01:35.162Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T00:01:35.165Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T00:02:14.620Z]   AI: First token received, streaming...
+[2026-03-20T00:02:21.710Z] AI response complete: 127 chars in 46.5s
+[2026-03-20T00:02:21.711Z] Saved AI response to ai_response.json
+[2026-03-20T00:02:21.712Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T00:02:21.712Z]   AI LINK: https://www.facebook.com/bashgalsport.sport
+[2026-03-20T00:02:21.712Z]   AI LINK: https://www.instagram.com/bash_gal_sport/
+[2026-03-20T00:02:21.712Z]   AI LINK: https://www.youtube.com/user/bashgalsport
+[2026-03-20T00:02:21.712Z] AI returned 3 valid links
+[2026-03-20T00:02:21.712Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T00:02:21.713Z]   AI→REGEX: fb <- https://www.facebook.com/bashgalsport.sport (duplicate, skipped)
+[2026-03-20T00:02:21.713Z]   AI→REGEX: ig <- https://www.instagram.com/bash_gal_sport/ (duplicate, skipped)
+[2026-03-20T00:02:21.713Z]   AI→REGEX: ytp <- https://www.youtube.com/user/bashgalsport (duplicate, skipped)
+[2026-03-20T00:02:21.718Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T00:02:21.718Z] Footer/header origins (4):
+[2026-03-20T00:02:21.718Z]   FOOTER/HEADER ORIGIN: https://bashgal.co.il
+[2026-03-20T00:02:21.718Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T00:02:21.718Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T00:02:21.718Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T00:02:21.719Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T00:02:21.719Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T00:02:21.719Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T00:02:21.719Z] ── Step 3: Final dedup ──
+[2026-03-20T00:02:21.719Z] No urls to dedup
+[2026-03-20T00:02:21.719Z] ── FINAL RESULT ──
+[2026-03-20T00:02:21.719Z]   ws (1):
+[2026-03-20T00:02:21.719Z]     - https://bashgal.co.il
+[2026-03-20T00:02:21.720Z]   fb (1):
+[2026-03-20T00:02:21.720Z]     - https://www.facebook.com/bashgalsport.sport
+[2026-03-20T00:02:21.720Z]   ig (1):
+[2026-03-20T00:02:21.720Z]     - https://www.instagram.com/bash_gal_sport
+[2026-03-20T00:02:21.720Z]   ytp (1):
+[2026-03-20T00:02:21.720Z]     - https://www.youtube.com/@bashgalsport
+[2026-03-20T00:02:21.721Z] Summary: ws:1, fb:1, ig:1, ytp:1
+[2026-03-20T00:02:21.722Z] Saved final result to result.json
+[2026-03-20T00:02:21.722Z] Override fields: ws, fb, ig, ytp
+[2026-03-20T00:02:21.723Z] Finished at: 2026-03-20T00:02:21.723Z

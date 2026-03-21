@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold-Miners — Strategic Cost Intelligence</title>
+  <meta name="description" content="Gold-Miners helps organizations understand the true cost of their operations and products by transforming financial and operational data into actionable insights.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Home-specific styles ── */
+    .intro-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .intro-visual {
+      position: relative;
+      height: 440px;
+    }
+    .intro-visual-box {
+      position: absolute;
+      border-radius: 4px;
+    }
+    .box-main {
+      width: 72%;
+      height: 80%;
+      bottom: 0; right: 0;
+      background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+    .box-accent {
+      width: 46%;
+      height: 50%;
+      top: 0; left: 0;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      opacity: 0.92;
+    }
+    .box-overlay {
+      position: absolute;
+      bottom: 1.5rem; left: -1.5rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      padding: 1.2rem 1.6rem;
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+    }
+    .box-overlay .stat-big {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .box-overlay .stat-text {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      padding: 1rem 1.5rem;
+    }
+    .chart-bar {
+      flex: 1;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px 2px 0 0;
+      transition: background 0.3s;
+    }
+    .chart-bar.gold { background: var(--gold); }
+    .chart-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Services strip */
+    .services-strip {
+      background: var(--black);
+      padding: 0;
+      overflow: hidden;
+    }
+    .services-ticker {
+      display: flex;
+      gap: 0;
+    }
+    .ticker-item {
+      white-space: nowrap;
+      padding: 1rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .ticker-item span { color: var(--gold); }
+
+    /* Clients row */
+    .clients-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      padding: 2rem 0;
+    }
+    .client-logo {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--border);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .client-logo:hover { color: var(--gold); }
+
+    /* Marquee */
+    .marquee-section { background: var(--off-white); padding: 1.5rem 0; overflow: hidden; }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 24s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .marquee-item::after {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.5rem;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 900px) {
+      .intro-split { grid-template-columns: 1fr; }
+      .intro-visual { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====================== NAVIGATION ====================== -->
+<nav class="navbar transparent" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">Gold<span>-</span>Miners</a>
+    <div class="nav-links">
+      <a class="active" href="/">Home</a>
+      <a href="/solutions">Solutions</a>
+      <a href="/technology">Technology</a>
+      <a href="/about">About</a>
+      <a class="nav-cta" href="/contact">Contact Us</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="nav-mobile" id="navMobile">
+  <a href="/">Home</a>
+  <a href="/solutions">Solutions</a>
+  <a href="/technology">Technology</a>
+  <a href="/about">About Us</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+<!-- ====================== HERO ====================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span></span>
+        Strategic Cost Intelligence
+      </div>
+      <h1>
+        Turning Operational<br>
+        Data into <em>Competitive</em><br>
+        Advantage
+      </h1>
+      <p class="hero-sub">
+        Gold-Miners helps organizations understand the true cost of their operations and products — transforming complex financial data into clear, actionable insights.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn--gold" href="/solutions">
+          Explore Solutions
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </a>
+        <a class="btn btn--outline-white" href="/contact">Schedule a Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ====================== SERVICES STRIP ====================== -->
+<div class="services-strip">
+  <div class="services-ticker">
+    <div class="ticker-item"><span>◆</span> Costing Models</div>
+    <div class="ticker-item"><span>◆</span> Profitability Analysis</div>
+    <div class="ticker-item"><span>◆</span> Management Dashboards</div>
+    <div class="ticker-item"><span>◆</span> Scenario Simulation</div>
+    <div class="ticker-item"><span>◆</span> ERP Integrations</div>
+    <div class="ticker-item"><span>◆</span> Power BI</div>
+    <div class="ticker-item"><span>◆</span> SQL Server</div>
+  </div>
+</div>
+
+<!-- ====================== STATS ====================== -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">Years of Expertise</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Core Services</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Data-Driven Approach</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">C-Suite</div>
+      <div class="stat-label">Level Expertise</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== INTRO SECTION ====================== -->
+<section class="section">
+  <div class="container">
+    <div class="intro-split">
+      <div class="reveal">
+        <div class="section-label">Who We Are</div>
+        <h2>Cost Intelligence That Drives Profitability</h2>
+        <div class="gold-line"></div>
+        <p style="margin-bottom: 1.5rem;">
+          Gold-Miners is a specialized consulting firm that bridges the gap between raw financial data and strategic business decisions. We design and deploy robust costing frameworks that reveal where value is created — and where it is lost.
+        </p>
+        <p style="margin-bottom: 2.4rem;">
+          Our team combines deep domain expertise in accounting, finance, and technology to deliver solutions that integrate seamlessly with your existing ERP infrastructure.
+        </p>
+        <a class="btn btn--outline" href="/about">
+          Our Story
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+      <div class="intro-visual reveal reveal-delay-2">
+        <div class="intro-visual-box box-accent"></div>
+        <div class="intro-visual-box box-main">
+          <div class="chart-label">Profitability by Segment</div>
+          <div class="chart-bars">
+            <div class="chart-bar" style="height:55px;"></div>
+            <div class="chart-bar gold" style="height:85px;"></div>
+            <div class="chart-bar" style="height:40px;"></div>
+            <div class="chart-bar" style="height:70px;"></div>
+            <div class="chart-bar gold" style="height:95px;"></div>
+            <div class="chart-bar" style="height:50px;"></div>
+            <div class="chart-bar" style="height:62px;"></div>
+          </div>
+        </div>
+        <div class="box-overlay">
+          <div class="stat-big">+34%</div>
+          <div class="stat-text">Margin Improvement</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SERVICES ====================== -->
+<section class="section section--pale">
+  <div class="container">
+    <div class="section-intro text-center reveal">
+      <div class="section-label">Our Solutions</div>
+      <h2>Comprehensive Cost Intelligence Services</h2>
+      <div class="gold-line gold-line--center"></div>
+      <p>Four integrated disciplines designed to give your organization complete visibility into the economics of your business.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card reveal reveal-delay-1">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="10" width="36" height="28" rx="2"></rect>
+          <path d="M6 18h36"></path>
+          <path d="M16 18v20M24 18v20M32 18v20"></path>
+        </svg>
+        <h3>Costing Models</h3>
+        <p>We engineer precise multi-dimensional costing frameworks — from activity-based costing to standard cost systems — giving leadership an accurate view of the true cost of every product, service, and customer.</p>
+        <a href="/solutions" style="display:inline-flex; align-items:center; gap:6px; margin-top:1.4rem; font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold);">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+      <div class="card reveal reveal-delay-2">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="18"></circle>
+          <path d="M24 6v18l10 6"></path>
+          <path d="M14 38l10-14"></path>
+        </svg>
+        <h3>Profitability Analysis</h3>
+        <p>Granular profitability assessments by product line, customer segment, geography, and channel. We isolate the drivers of margin erosion and identify where to concentrate strategic investment for maximum return.</p>
+        <a href="/solutions" style="display:inline-flex; align-items:center; gap:6px; margin-top:1.4rem; font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold);">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+      <div class="card reveal reveal-delay-3">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="4" y="4" width="18" height="18" rx="2"></rect>
+          <rect x="26" y="4" width="18" height="18" rx="2"></rect>
+          <rect x="4" y="26" width="18" height="18" rx="2"></rect>
+          <rect x="26" y="26" width="18" height="18" rx="2"></rect>
+        </svg>
+        <h3>Management Dashboards</h3>
+        <p>Executive-grade Power BI dashboards that translate complex financial data into intuitive visual narratives — empowering leaders to make faster, more confident decisions with real-time visibility.</p>
+        <a href="/solutions" style="display:inline-flex; align-items:center; gap:6px; margin-top:1.4rem; font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold);">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+      <div class="card reveal reveal-delay-4">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 38V22l8-8 8 8 8-10 8 8v18H8z"></path>
+          <path d="M8 38h32"></path>
+          <circle cx="16" cy="30" r="2"></circle>
+          <circle cx="24" cy="26" r="2"></circle>
+          <circle cx="32" cy="22" r="2"></circle>
+        </svg>
+        <h3>Scenario Simulation</h3>
+        <p>Dynamic financial models that stress-test your business under multiple scenarios — price changes, volume shifts, cost inflation, and strategic initiatives — so you always lead, not react.</p>
+        <a href="/solutions" style="display:inline-flex; align-items:center; gap:6px; margin-top:1.4rem; font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold);">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== MARQUEE ====================== -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Costing Models</span>
+    <span class="marquee-item">Activity-Based Costing</span>
+    <span class="marquee-item">Power BI</span>
+    <span class="marquee-item">SQL Server</span>
+    <span class="marquee-item">ERP Integration</span>
+    <span class="marquee-item">Profitability Analysis</span>
+    <span class="marquee-item">Scenario Simulation</span>
+    <span class="marquee-item">Management Dashboards</span>
+    <span class="marquee-item">Cost Allocation</span>
+    <span class="marquee-item">Financial Modelling</span>
+    <!-- Duplicated for seamless loop -->
+    <span class="marquee-item">Costing Models</span>
+    <span class="marquee-item">Activity-Based Costing</span>
+    <span class="marquee-item">Power BI</span>
+    <span class="marquee-item">SQL Server</span>
+    <span class="marquee-item">ERP Integration</span>
+    <span class="marquee-item">Profitability Analysis</span>
+    <span class="marquee-item">Scenario Simulation</span>
+    <span class="marquee-item">Management Dashboards</span>
+    <span class="marquee-item">Cost Allocation</span>
+    <span class="marquee-item">Financial Modelling</span>
+  </div>
+</div>
+
+<!-- ====================== WHY US ====================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="section-label">Why Gold-Miners</div>
+      <h2>The Intelligence That Others Miss</h2>
+      <div class="gold-line"></div>
+      <p>We go beyond standard reporting. Our methodology uncovers hidden cost drivers and margin leakage that generic ERP systems were never designed to surface.</p>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature-item reveal">
+        <div class="feature-num">01</div>
+        <div class="feature-body">
+          <h3>Deep Integration with Your ERP</h3>
+          <p>We connect directly to your SAP, Oracle, or Microsoft Dynamics environment, extracting and structuring raw transactional data to build attribution models with surgical precision.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal">
+        <div class="feature-num">02</div>
+        <div class="feature-body">
+          <h3>Board-Ready Reporting</h3>
+          <p>Every deliverable we produce is designed for executive consumption — clear, visual, and decision-ready. We translate financial complexity into strategic narrative.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal">
+        <div class="feature-num">03</div>
+        <div class="feature-body">
+          <h3>Sustainable, Self-Maintained Models</h3>
+          <p>We don't create black-box dependencies. Our models are documented, maintainable, and designed to be owned and operated by your internal team after engagement.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal">
+        <div class="feature-num">04</div>
+        <div class="feature-body">
+          <h3>Sector-Agnostic Expertise</h3>
+          <p>From financial services to manufacturing, retail to healthcare — our frameworks adapt to the specific economics, cost structures, and reporting requirements of your industry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CTA ====================== -->
+<section class="cta-section">
+  <div class="container" style="position:relative; z-index:2;">
+    <div class="reveal">
+      <div class="section-label" style="justify-content:center; color:var(--gold);">Get in Touch</div>
+      <h2>Ready to Surface Hidden Value?</h2>
+      <p>Schedule a no-obligation discovery call with our experts and learn how Gold-Miners can transform your cost intelligence capability.</p>
+      <a class="btn btn--gold" href="/contact">
+        Schedule a Discovery Call
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </a>
+      <a class="btn btn--outline-white" href="/solutions" style="margin-left:1rem;">View All Solutions</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Gold<span>-</span>Miners</div>
+        <p>Strategic Cost Intelligence — helping organizations understand the true economics of their operations through advanced costing models, profitability analysis, and management dashboards.</p>
+        <div style="font-size:0.85rem;">
+          <a href="mailto:info@gold-miners.biz" style="color:var(--gold);">info@gold-miners.biz</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="/solutions">Costing Models</a></li>
+          <li><a href="/solutions">Profitability Analysis</a></li>
+          <li><a href="/solutions">Management Dashboards</a></li>
+          <li><a href="/solutions">Scenario Simulation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/technology">Technology</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Technology</h5>
+        <ul>
+          <li><a href="/technology">SQL Server</a></li>
+          <li><a href="/technology">Power BI</a></li>
+          <li><a href="/technology">ERP Integrations</a></li>
+          <li><a href="/technology">Cost Allocation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Gold-Miners. All rights reserved.</span>
+      <div style="display:flex; gap:1.5rem;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Navbar scroll behavior ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.remove('transparent');
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+      navbar.classList.add('transparent');
+    }
+  });
+
+  // ── Mobile menu ──
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+
+  // ── Scroll reveal ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+
+</body></html>

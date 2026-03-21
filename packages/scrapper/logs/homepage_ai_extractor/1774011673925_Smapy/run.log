@@ -1,0 +1,61 @@
+[2026-03-20T13:01:13.926Z] === Homepage AI Extractor: Smapy ===
+[2026-03-20T13:01:13.926Z] Started at: 2026-03-20T13:01:13.926Z
+[2026-03-20T13:01:13.926Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774011673925_Smapy
+[2026-03-20T13:01:13.926Z] Company: Smapy
+[2026-03-20T13:01:13.926Z] Website: smapy.co.il
+[2026-03-20T13:01:13.926Z] cbRank: 2997412
+[2026-03-20T13:01:13.926Z] Reasons: h
+[2026-03-20T13:01:13.926Z] Fetching: https://smapy.co.il
+[2026-03-20T13:01:25.447Z] Network idle timeout — continuing with current state
+[2026-03-20T13:01:25.518Z] Redirected: https://smapy.co.il -> https://www.smapy.co.il/
+[2026-03-20T13:01:25.526Z] Saved HTML (196707 bytes) to page.html
+[2026-03-20T13:01:25.528Z] Extracted 19 unique links from page
+[2026-03-20T13:01:25.529Z] Saved 19 links to links.json
+[2026-03-20T13:01:25.531Z] Extracted footer HTML (3458 chars)
+[2026-03-20T13:01:25.531Z] Extracted header HTML (426 chars)
+[2026-03-20T13:01:25.534Z] Website (post-redirect): https://www.smapy.co.il/ → origin: https://www.smapy.co.il
+[2026-03-20T13:01:25.534Z] External links: 3 (of 19 total)
+[2026-03-20T13:01:25.535Z] ── All external links ──
+[2026-03-20T13:01:25.535Z]   EXT: https://wa.me/972586795579
+[2026-03-20T13:01:25.535Z]   EXT: https://www.facebook.com/smapy.co.il
+[2026-03-20T13:01:25.535Z]   EXT: https://www.linkedin.com/company/smapy-smart-insurance-policy
+[2026-03-20T13:01:25.535Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T13:01:25.535Z]   UNCATEGORIZED: https://wa.me/972586795579
+[2026-03-20T13:01:25.535Z]   REGEX: fb <- https://www.facebook.com/smapy.co.il
+[2026-03-20T13:01:25.535Z]   REGEX: li <- https://www.linkedin.com/company/smapy-smart-insurance-policy
+[2026-03-20T13:01:25.535Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-20T13:01:25.535Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T13:01:25.536Z] Saved AI prompt (4075 chars) to ai_prompt.txt
+[2026-03-20T13:01:25.536Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T13:01:25.540Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T13:01:42.367Z]   AI: First token received, streaming...
+[2026-03-20T13:01:47.425Z] AI response complete: 99 chars in 21.9s
+[2026-03-20T13:01:47.427Z] Saved AI response to ai_response.json
+[2026-03-20T13:01:47.427Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T13:01:47.427Z]   AI LINK: https://www.facebook.com/smapy.co.il
+[2026-03-20T13:01:47.427Z]   AI LINK: https://www.linkedin.com/company/smapy-smart-insurance-policy/
+[2026-03-20T13:01:47.427Z] AI returned 2 valid links
+[2026-03-20T13:01:47.427Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T13:01:47.428Z]   AI→REGEX: fb <- https://www.facebook.com/smapy.co.il (duplicate, skipped)
+[2026-03-20T13:01:47.428Z]   AI→REGEX: li <- https://www.linkedin.com/company/smapy-smart-insurance-policy/ (duplicate, skipped)
+[2026-03-20T13:01:47.429Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T13:01:47.429Z] Footer/header origins (2):
+[2026-03-20T13:01:47.430Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T13:01:47.430Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T13:01:47.430Z]   SKIP (not in footer/header): https://wa.me/972586795579
+[2026-03-20T13:01:47.430Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T13:01:47.430Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T13:01:47.430Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T13:01:47.430Z] ── Step 3: Final dedup ──
+[2026-03-20T13:01:47.430Z] No urls to dedup
+[2026-03-20T13:01:47.431Z] ── FINAL RESULT ──
+[2026-03-20T13:01:47.431Z]   ws (1):
+[2026-03-20T13:01:47.431Z]     - https://www.smapy.co.il
+[2026-03-20T13:01:47.431Z]   li (1):
+[2026-03-20T13:01:47.431Z]     - https://www.linkedin.com/company/smapy-smart-insurance-policy
+[2026-03-20T13:01:47.431Z]   fb (1):
+[2026-03-20T13:01:47.431Z]     - https://www.facebook.com/smapy.co.il
+[2026-03-20T13:01:47.431Z] Summary: ws:1, fb:1, li:1
+[2026-03-20T13:01:47.433Z] Saved final result to result.json
+[2026-03-20T13:01:47.433Z] Override fields: ws, li, fb
+[2026-03-20T13:01:47.433Z] Finished at: 2026-03-20T13:01:47.433Z

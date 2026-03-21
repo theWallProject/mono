@@ -1,0 +1,60 @@
+[2026-03-19T19:16:25.247Z] === Homepage AI Extractor: Fibrolan ===
+[2026-03-19T19:16:25.247Z] Started at: 2026-03-19T19:16:25.247Z
+[2026-03-19T19:16:25.247Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773947785247_Fibrolan
+[2026-03-19T19:16:25.247Z] Company: Fibrolan
+[2026-03-19T19:16:25.247Z] Website: fibrolan.com
+[2026-03-19T19:16:25.247Z] cbRank: 2438287
+[2026-03-19T19:16:25.247Z] Reasons: h
+[2026-03-19T19:16:25.247Z] Fetching: https://fibrolan.com
+[2026-03-19T19:16:31.316Z] Redirected: https://fibrolan.com -> https://www.fibrolan.com/
+[2026-03-19T19:16:31.320Z] Saved HTML (52961 bytes) to page.html
+[2026-03-19T19:16:31.323Z] Extracted 71 unique links from page
+[2026-03-19T19:16:31.324Z] Saved 71 links to links.json
+[2026-03-19T19:16:31.326Z] Extracted footer HTML (5142 chars)
+[2026-03-19T19:16:31.326Z] Extracted header HTML (10786 chars)
+[2026-03-19T19:16:31.331Z] Website (post-redirect): https://www.fibrolan.com/ → origin: https://www.fibrolan.com
+[2026-03-19T19:16:31.331Z] External links: 2 (of 71 total)
+[2026-03-19T19:16:31.331Z] ── All external links ──
+[2026-03-19T19:16:31.332Z]   EXT: http://www.simply-smart.com
+[2026-03-19T19:16:31.332Z]   EXT: https://www.facebook.com/Fibrolan.Ltd
+[2026-03-19T19:16:31.332Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T19:16:31.332Z]   UNCATEGORIZED: http://www.simply-smart.com
+[2026-03-19T19:16:31.332Z]   REGEX: fb <- https://www.facebook.com/Fibrolan.Ltd
+[2026-03-19T19:16:31.332Z] Programmatic result: ws:1, fb:1 | 1 uncategorized
+[2026-03-19T19:16:31.332Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T19:16:31.333Z] Saved AI prompt (5300 chars) to ai_prompt.txt
+[2026-03-19T19:16:31.334Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T19:16:31.337Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T19:16:54.045Z]   AI: First token received, streaming...
+[2026-03-19T19:16:58.000Z] AI response complete: 63 chars in 26.7s
+[2026-03-19T19:16:58.002Z] Saved AI response to ai_response.json
+[2026-03-19T19:16:58.002Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T19:16:58.002Z]   AI LINK: https://www.facebook.com/Fibrolan.Ltd
+[2026-03-19T19:16:58.002Z]   AI LINK: https://www.fibrolan.com/
+[2026-03-19T19:16:58.002Z] AI returned 2 valid links
+[2026-03-19T19:16:58.003Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T19:16:58.003Z]   AI→REGEX: fb <- https://www.facebook.com/Fibrolan.Ltd (duplicate, skipped)
+[2026-03-19T19:16:58.003Z]   AI→URLS: https://www.fibrolan.com (cleaned from https://www.fibrolan.com/)
+[2026-03-19T19:16:58.006Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T19:16:58.006Z] Footer/header origins (3):
+[2026-03-19T19:16:58.006Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T19:16:58.007Z]   FOOTER/HEADER ORIGIN: https://www.fibrolan.com
+[2026-03-19T19:16:58.007Z]   FOOTER/HEADER ORIGIN: http://www.simply-smart.com
+[2026-03-19T19:16:58.007Z]   ADDED: urls <- http://www.simply-smart.com
+[2026-03-19T19:16:58.007Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T19:16:58.007Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T19:16:58.007Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T19:16:58.008Z] ── Step 3: Final dedup ──
+[2026-03-19T19:16:58.008Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T19:16:58.008Z] ── FINAL RESULT ──
+[2026-03-19T19:16:58.008Z]   ws (1):
+[2026-03-19T19:16:58.008Z]     - https://www.fibrolan.com
+[2026-03-19T19:16:58.008Z]   fb (1):
+[2026-03-19T19:16:58.009Z]     - https://www.facebook.com/fibrolan.ltd
+[2026-03-19T19:16:58.009Z]   urls (2):
+[2026-03-19T19:16:58.009Z]     - http://www.simply-smart.com
+[2026-03-19T19:16:58.009Z]     - https://www.fibrolan.com
+[2026-03-19T19:16:58.009Z] Summary: ws:1, fb:1, urls:2
+[2026-03-19T19:16:58.010Z] Saved final result to result.json
+[2026-03-19T19:16:58.010Z] Override fields: ws, fb, urls
+[2026-03-19T19:16:58.011Z] Finished at: 2026-03-19T19:16:58.011Z

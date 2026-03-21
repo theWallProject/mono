@@ -1,0 +1,71 @@
+[2026-03-18T01:32:48.553Z] === Homepage AI Extractor: Avney Derech ===
+[2026-03-18T01:32:48.553Z] Started at: 2026-03-18T01:32:48.553Z
+[2026-03-18T01:32:48.553Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773797568552_Avney_Derech
+[2026-03-18T01:32:48.553Z] Company: Avney Derech
+[2026-03-18T01:32:48.553Z] Website: avney-derech.co.il
+[2026-03-18T01:32:48.553Z] cbRank: 1408526
+[2026-03-18T01:32:48.553Z] Reasons: h
+[2026-03-18T01:32:48.553Z] Fetching: https://avney-derech.co.il
+[2026-03-18T01:32:57.081Z] Redirected: https://avney-derech.co.il -> https://avney-derech.co.il/
+[2026-03-18T01:32:57.088Z] Saved HTML (266927 bytes) to page.html
+[2026-03-18T01:32:57.092Z] Extracted 43 unique links from page
+[2026-03-18T01:32:57.092Z] Saved 43 links to links.json
+[2026-03-18T01:32:57.095Z] Extracted footer HTML (8607 chars)
+[2026-03-18T01:32:57.095Z] Extracted header HTML (8588 chars)
+[2026-03-18T01:32:57.099Z] Website (post-redirect): https://avney-derech.co.il/ → origin: https://avney-derech.co.il
+[2026-03-18T01:32:57.099Z] External links: 4 (of 43 total)
+[2026-03-18T01:32:57.099Z] ── All external links ──
+[2026-03-18T01:32:57.099Z]   EXT: https://ad-mishtaken.co.il
+[2026-03-18T01:32:57.099Z]   EXT: https://web2.co.il
+[2026-03-18T01:32:57.100Z]   EXT: https://www.facebook.com/avneyderechnadlan
+[2026-03-18T01:32:57.100Z]   EXT: https://www.youtube.com/channel/UCX3ARGyIosvy3Phl6SeNa_A
+[2026-03-18T01:32:57.100Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T01:32:57.100Z]   UNCATEGORIZED: https://ad-mishtaken.co.il
+[2026-03-18T01:32:57.100Z]   UNCATEGORIZED: https://web2.co.il
+[2026-03-18T01:32:57.100Z]   REGEX: fb <- https://www.facebook.com/avneyderechnadlan
+[2026-03-18T01:32:57.100Z]   REGEX: ytc <- https://www.youtube.com/channel/UCX3ARGyIosvy3Phl6SeNa_A
+[2026-03-18T01:32:57.100Z] Programmatic result: ws:1, fb:1, ytc:1 | 2 uncategorized
+[2026-03-18T01:32:57.100Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T01:32:57.101Z] Saved AI prompt (7037 chars) to ai_prompt.txt
+[2026-03-18T01:32:57.102Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T01:32:57.105Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T01:33:31.026Z]   AI: First token received, streaming...
+[2026-03-18T01:33:38.219Z] AI response complete: 99 chars in 41.1s
+[2026-03-18T01:33:38.221Z] Saved AI response to ai_response.json
+[2026-03-18T01:33:38.221Z] ── Parsing AI response (2 lines) ──
+[2026-03-18T01:33:38.221Z]   AI LINK: https://www.facebook.com/avneyderechnadlan
+[2026-03-18T01:33:38.221Z]   AI LINK: https://www.youtube.com/channel/UCX3ARGyIosvy3Phl6SeNa_A
+[2026-03-18T01:33:38.221Z] AI returned 2 valid links
+[2026-03-18T01:33:38.222Z] ── Categorizing 2 AI-returned links ──
+[2026-03-18T01:33:38.222Z]   AI→REGEX: fb <- https://www.facebook.com/avneyderechnadlan (duplicate, skipped)
+[2026-03-18T01:33:38.222Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCX3ARGyIosvy3Phl6SeNa_A (duplicate, skipped)
+[2026-03-18T01:33:38.222Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T01:33:38.223Z] Footer/header origins (4):
+[2026-03-18T01:33:38.223Z]   FOOTER/HEADER ORIGIN: https://avney-derech.co.il
+[2026-03-18T01:33:38.223Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T01:33:38.223Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T01:33:38.223Z]   FOOTER/HEADER ORIGIN: https://web2.co.il
+[2026-03-18T01:33:38.223Z]   SKIP (not in footer/header): https://ad-mishtaken.co.il
+[2026-03-18T01:33:38.223Z]   ADDED: urls <- https://web2.co.il
+[2026-03-18T01:33:38.224Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T01:33:38.224Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T01:33:38.224Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T01:33:38.494Z]   YOUTUBE: resolved UCX3ARGyIosvy3Phl6SeNa_A → @%D7%90%D7%91%D7%A0%D7%99%D7%93%D7%A8%D7%9A-%D7%9B8%D7%91
+[2026-03-18T01:33:38.494Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T01:33:38.494Z] ── Step 3: Final dedup ──
+[2026-03-18T01:33:38.494Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T01:33:38.494Z] ── FINAL RESULT ──
+[2026-03-18T01:33:38.494Z]   ws (1):
+[2026-03-18T01:33:38.494Z]     - https://avney-derech.co.il
+[2026-03-18T01:33:38.494Z]   fb (1):
+[2026-03-18T01:33:38.494Z]     - https://www.facebook.com/avneyderechnadlan
+[2026-03-18T01:33:38.494Z]   ytp (1):
+[2026-03-18T01:33:38.495Z]     - https://www.youtube.com/@%D7%90%D7%91%D7%A0%D7%99%D7%93%D7%A8%D7%9A-%D7%9B8%D7%91
+[2026-03-18T01:33:38.495Z]   ytc (1):
+[2026-03-18T01:33:38.495Z]     - https://www.youtube.com/channel/UCX3ARGyIosvy3Phl6SeNa_A
+[2026-03-18T01:33:38.495Z]   urls (1):
+[2026-03-18T01:33:38.495Z]     - https://web2.co.il
+[2026-03-18T01:33:38.495Z] Summary: ws:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-18T01:33:38.496Z] Saved final result to result.json
+[2026-03-18T01:33:38.496Z] Override fields: ws, fb, ytp, ytc, urls
+[2026-03-18T01:33:38.496Z] Finished at: 2026-03-18T01:33:38.496Z

@@ -1,0 +1,61 @@
+[2026-03-18T05:12:58.524Z] === Homepage AI Extractor: Amboya ===
+[2026-03-18T05:12:58.524Z] Started at: 2026-03-18T05:12:58.524Z
+[2026-03-18T05:12:58.524Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773810778524_Amboya
+[2026-03-18T05:12:58.525Z] Company: Amboya
+[2026-03-18T05:12:58.525Z] Website: amboya.com
+[2026-03-18T05:12:58.525Z] cbRank: 1518981
+[2026-03-18T05:12:58.525Z] Reasons: h
+[2026-03-18T05:12:58.525Z] Fetching: https://amboya.com
+[2026-03-18T05:13:11.996Z] Network idle timeout — continuing with current state
+[2026-03-18T05:13:12.064Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-18T05:13:20.047Z] Redirected: https://amboya.com -> https://amboya.com/
+[2026-03-18T05:13:20.054Z] Saved HTML (268109 bytes) to page.html
+[2026-03-18T05:13:20.060Z] Extracted 553 unique links from page
+[2026-03-18T05:13:20.060Z] Saved 553 links to links.json
+[2026-03-18T05:13:20.063Z] Extracted footer HTML (422 chars)
+[2026-03-18T05:13:20.063Z] Extracted header HTML (42800 chars)
+[2026-03-18T05:13:20.069Z] Website (post-redirect): https://amboya.com/ → origin: https://amboya.com
+[2026-03-18T05:13:20.070Z] External links: 3 (of 553 total)
+[2026-03-18T05:13:20.070Z] ── All external links ──
+[2026-03-18T05:13:20.070Z]   EXT: https://api.whatsapp.com/send?phone=447467218033
+[2026-03-18T05:13:20.070Z]   EXT: https://www.facebook.com/profile.php?id=100087291971551
+[2026-03-18T05:13:20.070Z]   EXT: https://www.linkedin.com/company/amboya-investments
+[2026-03-18T05:13:20.070Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T05:13:20.070Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=447467218033
+[2026-03-18T05:13:20.071Z]   REGEX: li <- https://www.linkedin.com/company/amboya-investments
+[2026-03-18T05:13:20.071Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-18T05:13:20.638Z]   RESOLVE: no redirect for https://www.facebook.com/profile.php?id=100087291971551
+[2026-03-18T05:13:20.642Z]   SKIP (regex domain, no match): https://www.facebook.com/profile.php?id=100087291971551
+[2026-03-18T05:13:20.642Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-18T05:13:20.642Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T05:13:20.646Z] Saved AI prompt (2324 chars) to ai_prompt.txt
+[2026-03-18T05:13:20.646Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T05:13:20.650Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T05:13:29.004Z]   AI: First token received, streaming...
+[2026-03-18T05:13:29.693Z] AI response complete: 31 chars in 9.0s
+[2026-03-18T05:13:29.695Z] Saved AI response to ai_response.json
+[2026-03-18T05:13:29.695Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T05:13:29.695Z]   AI LINK: https://amboya.com/terms-of-use
+[2026-03-18T05:13:29.695Z] AI returned 1 valid links
+[2026-03-18T05:13:29.695Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T05:13:29.696Z]   AI→URLS: https://amboya.com/terms-of-use
+[2026-03-18T05:13:29.697Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T05:13:29.697Z] Footer/header origins (1):
+[2026-03-18T05:13:29.697Z]   FOOTER/HEADER ORIGIN: https://amboya.com
+[2026-03-18T05:13:29.697Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=447467218033
+[2026-03-18T05:13:29.697Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T05:13:29.698Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T05:13:29.698Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T05:13:29.698Z] ── Step 3: Final dedup ──
+[2026-03-18T05:13:29.698Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T05:13:29.698Z] ── FINAL RESULT ──
+[2026-03-18T05:13:29.698Z]   ws (1):
+[2026-03-18T05:13:29.698Z]     - https://amboya.com
+[2026-03-18T05:13:29.698Z]   li (1):
+[2026-03-18T05:13:29.699Z]     - https://www.linkedin.com/company/amboya-investments
+[2026-03-18T05:13:29.699Z]   urls (1):
+[2026-03-18T05:13:29.699Z]     - https://amboya.com/terms-of-use
+[2026-03-18T05:13:29.699Z] Summary: ws:1, li:1, urls:1
+[2026-03-18T05:13:29.700Z] Saved final result to result.json
+[2026-03-18T05:13:29.701Z] Override fields: ws, li
+[2026-03-18T05:13:29.701Z] Finished at: 2026-03-18T05:13:29.701Z

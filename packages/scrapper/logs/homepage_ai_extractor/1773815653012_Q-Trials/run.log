@@ -1,0 +1,61 @@
+[2026-03-18T06:34:13.012Z] === Homepage AI Extractor: Q-Trials ===
+[2026-03-18T06:34:13.012Z] Started at: 2026-03-18T06:34:13.012Z
+[2026-03-18T06:34:13.012Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773815653012_Q-Trials
+[2026-03-18T06:34:13.012Z] Company: Q-Trials
+[2026-03-18T06:34:13.013Z] Website: q-trials.com
+[2026-03-18T06:34:13.013Z] cbRank: 1544875
+[2026-03-18T06:34:13.013Z] Reasons: h
+[2026-03-18T06:34:13.013Z] Fetching: https://q-trials.com
+[2026-03-18T06:34:15.815Z] Redirected: https://q-trials.com -> https://www.q-trials.com/
+[2026-03-18T06:34:15.819Z] Saved HTML (126076 bytes) to page.html
+[2026-03-18T06:34:15.822Z] Extracted 11 unique links from page
+[2026-03-18T06:34:15.823Z] Saved 11 links to links.json
+[2026-03-18T06:34:15.825Z] Extracted footer HTML (6611 chars)
+[2026-03-18T06:34:15.825Z] Extracted header HTML (8293 chars)
+[2026-03-18T06:34:15.829Z] Website (post-redirect): https://www.q-trials.com/ → origin: https://www.q-trials.com
+[2026-03-18T06:34:15.830Z] External links: 3 (of 11 total)
+[2026-03-18T06:34:15.830Z] ── All external links ──
+[2026-03-18T06:34:15.830Z]   EXT: https://linkedin.com/company/q-trials-ltd.
+[2026-03-18T06:34:15.830Z]   EXT: https://www.edna-design.com
+[2026-03-18T06:34:15.830Z]   EXT: https://www.webwecan.co.il
+[2026-03-18T06:34:15.830Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T06:34:15.830Z]   REGEX: li <- https://linkedin.com/company/q-trials-ltd.
+[2026-03-18T06:34:15.830Z]   UNCATEGORIZED: https://www.edna-design.com
+[2026-03-18T06:34:15.830Z]   UNCATEGORIZED: https://www.webwecan.co.il
+[2026-03-18T06:34:15.830Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-18T06:34:15.831Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T06:34:15.834Z] Saved AI prompt (6252 chars) to ai_prompt.txt
+[2026-03-18T06:34:15.834Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T06:34:15.838Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T06:34:43.151Z]   AI: First token received, streaming...
+[2026-03-18T06:34:44.837Z] AI response complete: 42 chars in 29.0s
+[2026-03-18T06:34:44.838Z] Saved AI response to ai_response.json
+[2026-03-18T06:34:44.839Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T06:34:44.839Z]   AI LINK: https://linkedin.com/company/q-trials-ltd.
+[2026-03-18T06:34:44.839Z] AI returned 1 valid links
+[2026-03-18T06:34:44.839Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T06:34:44.839Z]   AI→REGEX: li <- https://linkedin.com/company/q-trials-ltd. (duplicate, skipped)
+[2026-03-18T06:34:44.840Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T06:34:44.840Z] Footer/header origins (3):
+[2026-03-18T06:34:44.841Z]   FOOTER/HEADER ORIGIN: https://linkedin.com
+[2026-03-18T06:34:44.841Z]   FOOTER/HEADER ORIGIN: https://www.webwecan.co.il
+[2026-03-18T06:34:44.841Z]   FOOTER/HEADER ORIGIN: https://www.edna-design.com
+[2026-03-18T06:34:44.841Z]   ADDED: urls <- https://www.edna-design.com
+[2026-03-18T06:34:44.841Z]   ADDED: urls <- https://www.webwecan.co.il
+[2026-03-18T06:34:44.841Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-18T06:34:44.841Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T06:34:44.842Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T06:34:44.842Z] ── Step 3: Final dedup ──
+[2026-03-18T06:34:44.842Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T06:34:44.842Z] ── FINAL RESULT ──
+[2026-03-18T06:34:44.842Z]   ws (1):
+[2026-03-18T06:34:44.842Z]     - https://www.q-trials.com
+[2026-03-18T06:34:44.842Z]   li (1):
+[2026-03-18T06:34:44.842Z]     - https://www.linkedin.com/company/q-trials-ltd.
+[2026-03-18T06:34:44.843Z]   urls (2):
+[2026-03-18T06:34:44.843Z]     - https://www.edna-design.com
+[2026-03-18T06:34:44.843Z]     - https://www.webwecan.co.il
+[2026-03-18T06:34:44.843Z] Summary: ws:1, li:1, urls:2
+[2026-03-18T06:34:44.844Z] Saved final result to result.json
+[2026-03-18T06:34:44.844Z] Override fields: ws, li, urls
+[2026-03-18T06:34:44.845Z] Finished at: 2026-03-18T06:34:44.845Z

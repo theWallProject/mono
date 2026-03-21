@@ -1,0 +1,59 @@
+[2026-03-19T05:08:51.791Z] === Homepage AI Extractor: Simple ===
+[2026-03-19T05:08:51.791Z] Started at: 2026-03-19T05:08:51.791Z
+[2026-03-19T05:08:51.791Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773896931791_Simple
+[2026-03-19T05:08:51.791Z] Company: Simple
+[2026-03-19T05:08:51.791Z] Website: simpledo.co.il
+[2026-03-19T05:08:51.791Z] cbRank: 1934591
+[2026-03-19T05:08:51.792Z] Reasons: h
+[2026-03-19T05:08:51.792Z] Fetching: https://simpledo.co.il
+[2026-03-19T05:08:57.351Z] Redirected: https://simpledo.co.il -> https://simpledo.co.il/
+[2026-03-19T05:08:57.355Z] Saved HTML (131179 bytes) to page.html
+[2026-03-19T05:08:57.358Z] Extracted 17 unique links from page
+[2026-03-19T05:08:57.358Z] Saved 17 links to links.json
+[2026-03-19T05:08:57.361Z] No footer section found in DOM
+[2026-03-19T05:08:57.361Z] Extracted header HTML (10888 chars)
+[2026-03-19T05:08:57.364Z] Website (post-redirect): https://simpledo.co.il/ → origin: https://simpledo.co.il
+[2026-03-19T05:08:57.364Z] External links: 3 (of 17 total)
+[2026-03-19T05:08:57.365Z] ── All external links ──
+[2026-03-19T05:08:57.365Z]   EXT: https://www.facebook.com/Simple-LTD-447462508662193
+[2026-03-19T05:08:57.365Z]   EXT: https://www.linkedin.com/company/474509
+[2026-03-19T05:08:57.365Z]   EXT: https://www.youtube.com/channel/UCwZW4jjZ4J3fDJb3Wp1fOHQ
+[2026-03-19T05:08:57.365Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:08:57.365Z]   REGEX: fb <- https://www.facebook.com/Simple-LTD-447462508662193
+[2026-03-19T05:08:57.365Z]   REGEX: li <- https://www.linkedin.com/company/474509
+[2026-03-19T05:08:57.365Z]   REGEX: ytc <- https://www.youtube.com/channel/UCwZW4jjZ4J3fDJb3Wp1fOHQ
+[2026-03-19T05:08:57.365Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-19T05:08:57.365Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:08:57.366Z] Saved AI prompt (1925 chars) to ai_prompt.txt
+[2026-03-19T05:08:57.366Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:08:57.370Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:09:02.374Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-19T05:09:02.375Z] AI response complete: 0 chars in 5.0s
+[2026-03-19T05:09:02.376Z] Saved AI response to ai_response.json
+[2026-03-19T05:09:02.376Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T05:09:02.377Z] AI returned 0 valid links
+[2026-03-19T05:09:02.377Z] ── Categorizing 0 AI-returned links ──
+[2026-03-19T05:09:02.377Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:09:02.377Z] Footer/header origins (0):
+[2026-03-19T05:09:02.378Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T05:09:02.378Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:09:02.378Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T05:09:02.629Z]   YOUTUBE: resolved UCwZW4jjZ4J3fDJb3Wp1fOHQ → @simpleltd8324
+[2026-03-19T05:09:02.630Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T05:09:02.630Z] ── Step 3: Final dedup ──
+[2026-03-19T05:09:02.630Z] No urls to dedup
+[2026-03-19T05:09:02.630Z] ── FINAL RESULT ──
+[2026-03-19T05:09:02.630Z]   ws (1):
+[2026-03-19T05:09:02.630Z]     - https://simpledo.co.il
+[2026-03-19T05:09:02.630Z]   li (1):
+[2026-03-19T05:09:02.630Z]     - https://www.linkedin.com/company/474509
+[2026-03-19T05:09:02.630Z]   fb (1):
+[2026-03-19T05:09:02.630Z]     - https://www.facebook.com/simple-ltd-447462508662193
+[2026-03-19T05:09:02.630Z]   ytp (1):
+[2026-03-19T05:09:02.630Z]     - https://www.youtube.com/@simpleltd8324
+[2026-03-19T05:09:02.630Z]   ytc (1):
+[2026-03-19T05:09:02.630Z]     - https://www.youtube.com/channel/UCwZW4jjZ4J3fDJb3Wp1fOHQ
+[2026-03-19T05:09:02.630Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-19T05:09:02.631Z] Saved final result to result.json
+[2026-03-19T05:09:02.631Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-19T05:09:02.631Z] Finished at: 2026-03-19T05:09:02.631Z

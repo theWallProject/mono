@@ -1,0 +1,69 @@
+[2026-03-20T06:18:54.503Z] === Homepage AI Extractor: MDPS ===
+[2026-03-20T06:18:54.503Z] Started at: 2026-03-20T06:18:54.503Z
+[2026-03-20T06:18:54.503Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773987534501_MDPS
+[2026-03-20T06:18:54.503Z] Company: MDPS
+[2026-03-20T06:18:54.503Z] Website: mdps.co.il
+[2026-03-20T06:18:54.503Z] cbRank: 2742333
+[2026-03-20T06:18:54.503Z] Reasons: h
+[2026-03-20T06:18:54.503Z] Fetching: https://mdps.co.il
+[2026-03-20T06:19:01.200Z] Redirected: https://mdps.co.il -> https://www.mdps.co.il/
+[2026-03-20T06:19:01.224Z] Saved HTML (888303 bytes) to page.html
+[2026-03-20T06:19:01.228Z] Extracted 30 unique links from page
+[2026-03-20T06:19:01.229Z] Saved 30 links to links.json
+[2026-03-20T06:19:01.232Z] Extracted footer HTML (955 chars)
+[2026-03-20T06:19:01.232Z] Extracted header HTML (23857 chars)
+[2026-03-20T06:19:01.235Z] Website (post-redirect): https://www.mdps.co.il/ → origin: https://www.mdps.co.il
+[2026-03-20T06:19:01.235Z] External links: 6 (of 30 total)
+[2026-03-20T06:19:01.236Z] ── All external links ──
+[2026-03-20T06:19:01.236Z]   EXT: https://calcalist360.webflow.io/articles/t-m-handasa
+[2026-03-20T06:19:01.236Z]   EXT: https://digitouch.co.il
+[2026-03-20T06:19:01.236Z]   EXT: https://uni-tech.co.il
+[2026-03-20T06:19:01.236Z]   EXT: https://wa.me/972543978147
+[2026-03-20T06:19:01.236Z]   EXT: https://www.calcalist.co.il/local_news/article/ry0dhreky
+[2026-03-20T06:19:01.236Z]   EXT: https://www.linkedin.com/company/72768866
+[2026-03-20T06:19:01.236Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T06:19:01.236Z]   UNCATEGORIZED: https://calcalist360.webflow.io/articles/t-m-handasa
+[2026-03-20T06:19:01.236Z]   UNCATEGORIZED: https://digitouch.co.il
+[2026-03-20T06:19:01.236Z]   UNCATEGORIZED: https://uni-tech.co.il
+[2026-03-20T06:19:01.236Z]   UNCATEGORIZED: https://wa.me/972543978147
+[2026-03-20T06:19:01.236Z]   UNCATEGORIZED: https://www.calcalist.co.il/local_news/article/ry0dhreky
+[2026-03-20T06:19:01.236Z]   REGEX: li <- https://www.linkedin.com/company/72768866
+[2026-03-20T06:19:01.237Z] Programmatic result: ws:1, li:1 | 5 uncategorized
+[2026-03-20T06:19:01.237Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T06:19:01.240Z] Saved AI prompt (2693 chars) to ai_prompt.txt
+[2026-03-20T06:19:01.240Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T06:19:01.244Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T06:19:11.201Z]   AI: First token received, streaming...
+[2026-03-20T06:19:12.327Z] AI response complete: 44 chars in 11.1s
+[2026-03-20T06:19:12.328Z] Saved AI response to ai_response.json
+[2026-03-20T06:19:12.328Z] ── Parsing AI response (1 lines) ──
+[2026-03-20T06:19:12.328Z]   AI LINK: https://www.mdps.co.il/accessibility-policy/
+[2026-03-20T06:19:12.329Z] AI returned 1 valid links
+[2026-03-20T06:19:12.329Z] ── Categorizing 1 AI-returned links ──
+[2026-03-20T06:19:12.329Z]   AI→URLS: https://www.mdps.co.il/accessibility-policy (cleaned from https://www.mdps.co.il/accessibility-policy/)
+[2026-03-20T06:19:12.329Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T06:19:12.330Z] Footer/header origins (2):
+[2026-03-20T06:19:12.330Z]   FOOTER/HEADER ORIGIN: https://www.mdps.co.il
+[2026-03-20T06:19:12.330Z]   FOOTER/HEADER ORIGIN: https://digitouch.co.il
+[2026-03-20T06:19:12.330Z]   SKIP (not in footer/header): https://calcalist360.webflow.io/articles/t-m-handasa
+[2026-03-20T06:19:12.330Z]   ADDED: urls <- https://digitouch.co.il
+[2026-03-20T06:19:12.330Z]   SKIP (not in footer/header): https://uni-tech.co.il
+[2026-03-20T06:19:12.331Z]   SKIP (not in footer/header): https://wa.me/972543978147
+[2026-03-20T06:19:12.331Z]   SKIP (not in footer/header): https://www.calcalist.co.il/local_news/article/ry0dhreky
+[2026-03-20T06:19:12.331Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T06:19:12.331Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T06:19:12.331Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T06:19:12.331Z] ── Step 3: Final dedup ──
+[2026-03-20T06:19:12.331Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T06:19:12.331Z] ── FINAL RESULT ──
+[2026-03-20T06:19:12.332Z]   ws (1):
+[2026-03-20T06:19:12.332Z]     - https://www.mdps.co.il
+[2026-03-20T06:19:12.332Z]   li (1):
+[2026-03-20T06:19:12.332Z]     - https://www.linkedin.com/company/72768866
+[2026-03-20T06:19:12.332Z]   urls (2):
+[2026-03-20T06:19:12.332Z]     - https://digitouch.co.il
+[2026-03-20T06:19:12.332Z]     - https://www.mdps.co.il/accessibility-policy
+[2026-03-20T06:19:12.332Z] Summary: ws:1, li:1, urls:2
+[2026-03-20T06:19:12.333Z] Saved final result to result.json
+[2026-03-20T06:19:12.334Z] Override fields: ws, li, urls
+[2026-03-20T06:19:12.334Z] Finished at: 2026-03-20T06:19:12.334Z

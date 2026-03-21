@@ -1,0 +1,479 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Home Page | Amiad Metal Technologies</title>
+<meta name="description" content="Home Page | Amiad Metal Technologies">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link href="/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" type="text/css">
+	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+
+<link type="image/png" href="http://www.amiadtech.co.il/images/icon.ico" rel="shortcut icon">
+	
+    <link href="http://www.amiadtech.co.il/css/style_en.css" rel="stylesheet" type="text/css">
+    <link href="/css/negishut_en.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-XW6ZLXY3RL&amp;cx=c&amp;_slc=1"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/scripts/bootstrap.min.js"></script>
+	
+<script type="text/javascript" src="/scripts/jquery-ui-1.10.0.custom.min.js"></script>
+			
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/scripts/html5shiv.js"></script>
+  <script src="/scripts/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/scripts/jquery.inputValue.js"></script>
+<script type="text/javascript" src="/scripts/clear_form.js"></script>
+<script type="text/javascript" src="/scripts/i18n/jquery.ui.datepicker-he.js"></script>
+<script src="/scripts/jquery.cookie.js"></script>
+<script src="/scripts/jquery.scrollTo.min.js"></script>
+
+<script src="/scripts/jquery.alerts.js" type="text/javascript"></script>
+<link href="/css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">
+
+<link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen">
+<script defer="" src="/scripts/jquery.flexslider.js"></script>
+
+<script type="text/javascript">
+
+	$(window).scroll(function() {
+		
+		 var screenTop = $(document).scrollTop();
+		 
+		 if(screen.width>=1024) {			
+				 if(screenTop > 90 )  {					  
+					$(".header").addClass('header_fix')
+					$(".header").css('height','90px')
+					$(".hp_animation").addClass('when_header_fixed')						   
+					$(".top_logo").hide();
+					$('.navbar-brand img').css('opacity', 1)						
+				 }
+				 else if(screenTop <= 90) {			
+					$(".header").removeClass('header_fix')			
+					$(".header").css('height','200px')			   
+					$(".hp_animation").removeClass('when_header_fixed')			
+					$(".top_logo").show();
+					$('.navbar-brand img').css('opacity', 0)	
+				 }
+		}
+		
+	})
+
+	$(function() {
+	
+	    $("img").addClass('img-responsive'); //!!!!!!!!!!!!!!!!!!!
+
+	    $("table").wrap("<div class='table-responsive'></div>");
+
+	    $.ajaxSetup({
+	        data: {
+	        	csrf_test_name: $.cookie('csrf_cookie_name')
+	        }
+	    });
+
+	    // $('[data-toggle="popover"]').popover();
+	    // $('[data-toggle="tooltip"]').tooltip()
+
+	    $('.dropdown').hover(
+				function() {
+				  $(this).find('.dropdown-menu').first().stop(true, true).delay(250).slideDown();
+				}, function() {
+				  $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp()
+			    }
+		);
+		
+	    $("#to_top").click(function() {			
+	  		 $.scrollTo("0", 800 );		    
+	    })
+	    
+	    $('.flexslider').flexslider({
+		    animation: "fade",
+		    controlNav: true,
+		    directionNav: false,
+		    randomize: true,
+		    slideshowSpeed: 4000
+	    });
+
+	    $('.flexslider1').flexslider({
+		    animation: "fade",
+		    controlNav: false,
+		    directionNav: false,
+		    randomize: true,
+		    slideshowSpeed: 4000
+	    });
+	    
+
+	    $("#frm_contact").submit(function() {
+			
+			var name=jQuery.trim($("#name").val());			
+			var phone=jQuery.trim($("#phone").val());
+
+			var filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+			var email=jQuery.trim($("#email").val())
+         
+	        if(name=="") {
+	           	           alert("Please enter your full name");
+	           $("#name").focus();
+	           return false; 
+	        } 
+	      		      		        		        	        		        
+	        else if(phone=="") {
+	           		       alert("Please enter your phone number");
+		       $("#phone").focus();
+		       return false; 
+		    }    
+	        	        
+	        else if(!filter.test(email)) {
+	        					alert('האימייל שגוי');
+	            $("#email").focus();
+				return false;
+		    }	 
+	 		    
+	        else {
+
+	       
+
+	        }
+		
+
+	   });
+
+	  		
+	});	
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82050824-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+
+	<a class="skip-main" href="#main_content">Main Content</a>
+
+   <script src="/scripts/negishut.js"></script>
+   
+   
+   
+   <div class="keyboard_navigation" "="">
+     <div class="content">
+     
+           <ul class="list-unstyled">
+     
+	     		<li><a href="#main_content">Main Content</a></li>
+	     			     		
+	     		<li><a href="#navigation">Main Navigation</a></li>
+	     			     		
+	     		<li><a href="/About_en">Company profile</a></li>
+	     		
+	     		<li><a href="/Contact_en">Contact Us</a></li>
+	     		 
+	      </ul>
+     
+     </div>   
+   </div>
+   
+   
+  
+   <a href="#" class="toogle_accessibility_tool_bar" title="סרגל נגישות" role="link">
+	 <span class="sr-only">Open Accessibilty Toolbar</span>
+	 <span class="fa fa-universal-access" aria-hidden="true"></span>
+   </a>
+  
+   <div class="negishut_toolbar">
+           	
+	    <ul class="list-unstyled">
+	    
+	        <li class="title"><strong>Accessibilty Tools</strong></li>
+	         
+	        <li id="li_increase_text"><a class="negishut_link" href="#" id="increase_text">Increase Text</a></li>
+	    	
+	        <li id="li_decrease_text"><a class="negishut_link" href="#" id="decrease_text">Decrease Text</a></li>
+	        
+	        <li id="li_keyboard_navigation"><a class="negishut_link" href="#" id="keyboard_navigation">Keyboard Navigation</a></li>
+	    
+	    	<li id="li_add_grayscale"><a class="negishut_link" href="#" id="add_grayscale">GrayScale</a></li>
+	    	
+	    	<li id="li_add_black"><a class="negishut_link" href="#" id="add_black">BlackScale</a></li>
+	    	
+	    	<li id="li_add_light_background"><a class="negishut_link" href="#" id="add_light_background">Light Background</a></li>
+	    	
+	    	<li id="li_readable_font"><a class="negishut_link" href="#" id="readable_font">Readable Font</a></li>
+	    	
+	    	<li id="li_add_underline"><a class="negishut_link" href="#" id="add_underline">Links Underline</a></li>
+	    	
+	    	<li id="li_cancel_accesibility"><a class="negishut_link" href="#" id="cancel_accesibility">Cancel Accessibility</a></li>
+	    
+	    </ul>	
+	
+	</div>
+
+
+
+	<script>
+	 $(function() {
+		 
+	   
+	   
+	   
+	   
+	   
+	           
+	   
+	 })
+	</script>	
+	
+	
+<div class="header">
+    
+       	<nav class="navbar navbar-default" role="navigation">
+       	   <div class="container">
+       	          
+       	              <div class="top_logo text-center hidden-xs hidden-sm">
+       	                <a href="/"><img alt="logo" src="/images/logo_en.png" class="img-responsive"></a>	   	
+       	              </div>
+       	              
+								 
+					  <!-- Brand and toggle get grouped for better mobile display -->
+					  <div class="navbar-header">		
+					    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="menu_mobile fa fa-bars" aria-hidden="true"></span>
+					     </button>
+					     <a class="navbar-brand" href="/"><img alt="logo" src="/images/logo_en.png" class="img-responsive"></a>	   			    	    
+					  </div>
+					  <!--  /end brand and toggle -->
+					  
+					  <!-- Collect the nav links, forms, and other content for toggling -->
+					  <div class="collapse navbar-collapse" id="navbar-collapse-1">
+					      <ul class="nav navbar-nav">
+					      
+					        					        <li><a id="mnu_about" href="/About_en">Company Profile</a></li>
+					        
+					        					        <li><a id="mnu_tech" href="/Technology_en">Production Technologies</a></li>
+					        
+					        					        <li><a id="mnu_qa" href="/Qa_en">QA</a></li>              
+					        
+					        					        <li class="dropdown">
+					            <a id="mnu_products" class="dropdown-toggle" data-toggle="dropdown">Gallery</a>
+					            <ul class="dropdown-menu">
+					             <li><a href="/Products_en/1">Company's Products</a></li><li><a href="/Products_en/6">The Company</a></li>					            </ul>
+					        </li>                       
+					          
+					        					        <li><a id="mnu_contact" href="/Contact_en">Contact Us </a></li>         
+					        
+					        					        					        <li><a id="mnu_contact" href="/He">עברית</a></li>      
+					        
+					        <li><a href="tel:+972-4-8210641"><span class="icon-phone" aria-hidden="true"></span>  +972-4-8210641</a></li>  		              	
+						      
+		                 </ul>		          
+				     </div><!-- /.navbar-collapse -->			
+				
+				
+						 
+		   </div>												
+		 </nav>	
+
+</div>  
+    <div class="hp_animation">
+  <div class="container">
+  
+           <div class="about_amiad text-center">
+                              <div class="title2">AMIAD Metal Technologies Ltd.</div>
+                <!--<div class="title1"></div>-->
+                <!--<a href="/Products_en" class="btn btn_products"></a>-->
+           </div>
+           
+           
+           <div class="flexslider">
+		     <ul class="slides"><li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;" class="flex-active-slide" data-thumb-alt="">
+				       <div class="clearfix">
+				         				         <div class="col-md-2 text-left txt">Technological excellence</div>			
+				         <div class="col-md-10 img"><img alt="" src="/images/pictures/hp/hp_img_header4.png" class="img-responsive" draggable="false"></div>	
+				       </div>
+				    </li><li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" data-thumb-alt="">
+				       <div class="clearfix">
+				         				         <div class="col-md-2 text-left txt">Advanced capabilities</div>			
+				         <div class="col-md-10 img"><img alt="" src="/images/pictures/hp/hp_img_header1.png" class="img-responsive" draggable="false"></div>	
+				       </div>
+				    </li><li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" data-thumb-alt="">
+				       <div class="clearfix">
+				         				         <div class="col-md-2 text-left txt">High accuracy level</div>			
+				         <div class="col-md-10 img"><img alt="" src="/images/pictures/hp/hp_img_header2.png" class="img-responsive" draggable="false"></div>	
+				       </div>
+				    </li><li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" data-thumb-alt="">
+				       <div class="clearfix">
+				         				         <div class="col-md-2 text-left txt">Trained professional team</div>			
+				         <div class="col-md-10 img"><img alt="" src="/images/pictures/hp/hp_img_header3.png" class="img-responsive" draggable="false"></div>	
+				       </div>
+				    </li></ul>
+            <ol class="flex-control-nav flex-control-paging"><li><a href="#" class="flex-active">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li></ol></div>  
+  
+  </div>
+</div>
+    <div class="hp_about">
+  <div class="clearfix">
+  
+     <div class="col-md-4 no_side_padding">
+          <div class="side_image">
+             <div class="profile_text">
+               <span>AMIAD<br>Metal<br>Technologies</span>
+             </div>
+          </div>
+     </div>
+  
+     <div class="col-md-6 col-sm-8 no_side_padding">
+     
+         <div class="page_content">
+           <h2 dir="ltr">AMIAD Metal Technologies believe that the customer is our strategic partner and are committed to full transparency, aimed at creating long-term relationship</h2>
+
+<p dir="ltr">With concentration in C.N.C. machining, AMT manufactures highly accurate precision parts.</p>
+<!--<div style="float: right; margin: 15px 0 20px 20px;"><iframe allowfullscreen="" frameborder="0" height="253" src="https://www.youtube.com/embed/U-G-XW8yMQs?rel=0&amp;showinfo=0" width="450"></iframe></div>-->
+
+<p dir="ltr">Advance manufacturing technologies comply with strict adherence to the highest quality requirements, <!--which also include AS 9100, -->allow us to provide top quality products to diverse industries.</p>         
+	       <div class="more_info_container cleafix">
+	           <div class="col-md-10 no_side_padding">
+	               	               <a href="/About_en" class="btn more_info">More Info</a>
+	           </div>
+	       </div>
+         
+         </div>
+            
+     </div>
+     
+      <div class="col-md-2 no_side_padding hidden-xs hidden-sm">
+     
+     </div>  
+  
+  </div>
+</div>    
+    <div class="hp_about_second">
+ <div class="container">
+ 
+  <div class="clearfix">
+    
+	    <div class="col-md-6 no_side_padding boxes">
+	    
+	  	    <div class="qa clearfix">
+	  	       <div class="content">
+	  	           <div class="col-md-1 col-xs-2"><span class="icon-checkmark ico" aria-hidden="true"></span></div>
+	  	           <div class="col-md-11 col-xs-10">
+	  	              	  	              <div class="title">Quality Assurance</div>
+	  	              <div class="description">
+	  	                  	  	                  <p>From incoming raw material to shipment of the finished product, each step is controlled to meet the highest standards.</p>
+	  	              </div>
+	  	              	  	              <a href="/Qa_en" class="btn more_info">More Info</a>
+	  	           </div>
+	  	       </div>  	      
+	  	    </div>
+	  	    
+	  	    <div class="tech clearfix">
+	  	       <div class="content">
+	  	           <div class="col-md-1 col-xs-2"><span class="icon-cogs ico" aria-hidden="true"></span></div>
+	  	           <div class="col-md-11 col-xs-10">
+	  	              	  	              <div class="title">Production Technologies</div>
+	  	              <div class="description">
+	  	                  	  	                  <p>AMIAD Metal Technologies uses state-of-the-art advanced production technologies and a computerized manufacturing floor, providing customers with a professional, high quality and cost saving product.</p>
+	  	              </div>
+	  	              	  	              <a href="/Technology_en" class="btn more_info">More Info</a>
+	  	           </div>
+	  	       </div>  	      
+	  	    </div>  	    
+	  	    
+	  	</div>
+	  	
+	  	<div class="col-md-6 col-xs-12 no_side_padding pic">
+	  	    <img alt="" src="/images/hp_img_catalog.jpg" class="img-responsive">
+					<!--
+	  	    <div class="layer clearfix">
+	  	        <div class="col-md-1 col-xs-2">
+	  	         <span class="icon-book ico_catalog"  aria-hidden="true"></span>
+	  	        </div>
+	  	        <div class="col-md-9 col-xs-10">
+	  	            	  	           <div class="title">Company Catalog</div>
+	  	           <div class="description">
+	  	                  	  	                  <p>The company catalog is available for download.</p>
+	  	           </div>
+	  	           	  	           <a href="/assets/userfiles/files/Amiad_brochure.pdf" class="btn catalog_more_info" target="_blank">Show Catalog</a>
+	  	        </div>
+	  	    
+	  	    </div>
+					-->
+	  	</div>
+	  	
+	</div>	  
+	  
+  </div>
+</div>
+    <footer>
+ <div class="container">
+
+    <div class="col-md-1 hidden-xs hidden-sm"></div>
+
+    
+    <div class="col-md-2 col-xs-6">
+    	<ul class="list-unstyled">
+    	       	       	   <li><a href="/En">Homepage</a></li>
+    	       	   <li><a href="/About_en">Company Profile</a></li>
+    	       	   <li><a href="/Technology_en">Production Technologies</a></li>
+    	       	   <li><a href="/Qa_en">Quality Assurance</a></li>
+             	   <li><a href="/Contact_en">Contact Us</a></li>
+    	</ul>    
+    </div>
+    
+    <div class="col-md-2 col-xs-6">
+        <ul class="list-unstyled">
+        
+                              
+           <li><a href="/Products_en/1">Company's Products Gallery </a></li><li><a href="/Products_en/6">The Company Gallery </a></li>    	       	   <li><a href="/assets/userfiles/files/suppliers_quality_requirements.pdf" target="_blank">SQR</a></li>
+    	       	   <li><a href="/He">עברית</a></li>
+    	</ul>
+    </div>
+    
+    
+    <div class="clearfix hidden-md hidden-lg"></div>
+        
+    <div class="col-md-3 col-xs-6 footer_logos">
+       <!--<img src="/images/logo_AS9100.png" alt="logo AS9100">
+        &nbsp;&nbsp;&nbsp;-->
+       <img src="/images/logo_iQnet.png" alt="logo iqnet" class="img-responsive">
+    </div>
+    
+    <div class="col-md-3 col-xs-6 text-left footer_contact_details" style="direction:ltr;">
+      <ul class="list-unstyled contact">
+        <li><a href="tel:048210641"><span class="icon-phone ico_footer" aria-hidden="true"></span> +972-4-8210641</a></li>
+    	<li><a href="tel:04-8207963"><span class="icon-fax ico_footer" aria-hidden="true"></span> +972-4-8207963</a></li>
+    	<li><a href="mailto:info@amiadtech.co.il"><span class="icon-paper-plane ico_footer" aria-hidden="true"></span> info@amiadtech.co.il</a></li>
+      </ul>
+    </div>
+    
+
+    <div class="col-md-1 hidden-xs hidden-sm"></div>
+    
+  </div>
+</footer>
+
+<div class="credit clearfix">
+   <div class="container">
+     <div class="col-md-4 hidden-xs hidden-sm"></div>
+     <div class="col-md-4 text-center" id="to_top"><span class="icon-arrow-up-circle ico_to_top" aria-hidden="true"></span></div>
+     <div class="col-md-4 text-left footer_logo"><a target="_blank" href="http:/www.revision.co.il"><img src="/images/logo_revision.png" class="img-responsive"></a></div>
+   </div>
+</div>
+
+</body></html>

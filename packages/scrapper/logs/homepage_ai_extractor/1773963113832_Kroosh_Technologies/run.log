@@ -1,0 +1,74 @@
+[2026-03-19T23:31:53.833Z] === Homepage AI Extractor: Kroosh Technologies ===
+[2026-03-19T23:31:53.833Z] Started at: 2026-03-19T23:31:53.833Z
+[2026-03-19T23:31:53.833Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773963113832_Kroosh_Technologies
+[2026-03-19T23:31:53.833Z] Company: Kroosh Technologies
+[2026-03-19T23:31:53.833Z] Website: kroosh.com
+[2026-03-19T23:31:53.833Z] cbRank: 2478032
+[2026-03-19T23:31:53.833Z] Reasons: h
+[2026-03-19T23:31:53.833Z] Fetching: https://kroosh.com
+[2026-03-19T23:32:01.926Z] Redirected: https://kroosh.com -> https://kroosh.com/
+[2026-03-19T23:32:01.933Z] Saved HTML (149367 bytes) to page.html
+[2026-03-19T23:32:01.936Z] Extracted 24 unique links from page
+[2026-03-19T23:32:01.936Z] Saved 24 links to links.json
+[2026-03-19T23:32:01.938Z] Extracted footer HTML (6800 chars)
+[2026-03-19T23:32:01.938Z] Extracted header HTML (2646 chars)
+[2026-03-19T23:32:01.942Z] Website (post-redirect): https://kroosh.com/ → origin: https://kroosh.com
+[2026-03-19T23:32:01.942Z] External links: 5 (of 24 total)
+[2026-03-19T23:32:01.942Z] ── All external links ──
+[2026-03-19T23:32:01.942Z]   EXT: http://www.mashzavod1.ru
+[2026-03-19T23:32:01.942Z]   EXT: https://tisys.ru
+[2026-03-19T23:32:01.942Z]   EXT: https://www.linkedin.com/company/kroosh-technologies-ltd
+[2026-03-19T23:32:01.942Z]   EXT: https://www.vtcenter.ru
+[2026-03-19T23:32:01.942Z]   EXT: https://www.youtube.com/@KROOSHscreenersENG
+[2026-03-19T23:32:01.942Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T23:32:01.943Z]   UNCATEGORIZED: http://www.mashzavod1.ru
+[2026-03-19T23:32:01.943Z]   UNCATEGORIZED: https://tisys.ru
+[2026-03-19T23:32:01.943Z]   REGEX: li <- https://www.linkedin.com/company/kroosh-technologies-ltd
+[2026-03-19T23:32:01.943Z]   UNCATEGORIZED: https://www.vtcenter.ru
+[2026-03-19T23:32:01.943Z]   REGEX: ytp <- https://www.youtube.com/@KROOSHscreenersENG
+[2026-03-19T23:32:01.943Z] Programmatic result: ws:1, li:1, ytp:1 | 3 uncategorized
+[2026-03-19T23:32:01.943Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T23:32:01.946Z] Saved AI prompt (4217 chars) to ai_prompt.txt
+[2026-03-19T23:32:01.947Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T23:32:01.950Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T23:32:18.914Z]   AI: First token received, streaming...
+[2026-03-19T23:32:24.443Z] AI response complete: 101 chars in 22.5s
+[2026-03-19T23:32:24.444Z] Saved AI response to ai_response.json
+[2026-03-19T23:32:24.444Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T23:32:24.445Z]   AI LINK: https://www.youtube.com/@KROOSHscreenersENG
+[2026-03-19T23:32:24.445Z]   AI LINK: https://www.linkedin.com/company/kroosh-technologies-ltd/
+[2026-03-19T23:32:24.445Z] AI returned 2 valid links
+[2026-03-19T23:32:24.445Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T23:32:24.445Z]   AI→REGEX: ytp <- https://www.youtube.com/@KROOSHscreenersENG (duplicate, skipped)
+[2026-03-19T23:32:24.445Z]   AI→REGEX: li <- https://www.linkedin.com/company/kroosh-technologies-ltd/ (duplicate, skipped)
+[2026-03-19T23:32:24.447Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T23:32:24.447Z] Footer/header origins (6):
+[2026-03-19T23:32:24.447Z]   FOOTER/HEADER ORIGIN: https://tisys.ru
+[2026-03-19T23:32:24.447Z]   FOOTER/HEADER ORIGIN: https://www.vtcenter.ru
+[2026-03-19T23:32:24.447Z]   FOOTER/HEADER ORIGIN: http://www.mashzavod1.ru
+[2026-03-19T23:32:24.447Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T23:32:24.447Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T23:32:24.447Z]   FOOTER/HEADER ORIGIN: http://kroosh.com
+[2026-03-19T23:32:24.448Z]   ADDED: urls <- http://www.mashzavod1.ru
+[2026-03-19T23:32:24.448Z]   ADDED: urls <- https://tisys.ru
+[2026-03-19T23:32:24.448Z]   ADDED: urls <- https://www.vtcenter.ru
+[2026-03-19T23:32:24.448Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-19T23:32:24.448Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T23:32:24.449Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T23:32:24.449Z] ── Step 3: Final dedup ──
+[2026-03-19T23:32:24.449Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-19T23:32:24.449Z] ── FINAL RESULT ──
+[2026-03-19T23:32:24.449Z]   ws (1):
+[2026-03-19T23:32:24.449Z]     - https://kroosh.com
+[2026-03-19T23:32:24.450Z]   li (1):
+[2026-03-19T23:32:24.450Z]     - https://www.linkedin.com/company/kroosh-technologies-ltd
+[2026-03-19T23:32:24.450Z]   ytp (1):
+[2026-03-19T23:32:24.450Z]     - https://www.youtube.com/@krooshscreenerseng
+[2026-03-19T23:32:24.450Z]   urls (3):
+[2026-03-19T23:32:24.450Z]     - http://www.mashzavod1.ru
+[2026-03-19T23:32:24.450Z]     - https://tisys.ru
+[2026-03-19T23:32:24.451Z]     - https://www.vtcenter.ru
+[2026-03-19T23:32:24.451Z] Summary: ws:1, li:1, ytp:1, urls:3
+[2026-03-19T23:32:24.452Z] Saved final result to result.json
+[2026-03-19T23:32:24.453Z] Override fields: ws, li, ytp, urls
+[2026-03-19T23:32:24.453Z] Finished at: 2026-03-19T23:32:24.453Z

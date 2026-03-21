@@ -1,0 +1,71 @@
+[2026-03-18T04:16:11.514Z] === Homepage AI Extractor: Cidev ===
+[2026-03-18T04:16:11.514Z] Started at: 2026-03-18T04:16:11.514Z
+[2026-03-18T04:16:11.514Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773807371513_Cidev
+[2026-03-18T04:16:11.514Z] Company: Cidev
+[2026-03-18T04:16:11.514Z] Website: cidevgroup.com
+[2026-03-18T04:16:11.514Z] cbRank: 1491168
+[2026-03-18T04:16:11.514Z] Reasons: h
+[2026-03-18T04:16:11.514Z] Fetching: https://cidevgroup.com
+[2026-03-18T04:16:22.673Z] Network idle timeout — continuing with current state
+[2026-03-18T04:16:22.705Z] Redirected: https://cidevgroup.com -> https://cidevgroup.com/
+[2026-03-18T04:16:22.719Z] Saved HTML (552111 bytes) to page.html
+[2026-03-18T04:16:22.723Z] Extracted 35 unique links from page
+[2026-03-18T04:16:22.723Z] Saved 35 links to links.json
+[2026-03-18T04:16:22.725Z] Extracted footer HTML (3738 chars)
+[2026-03-18T04:16:22.725Z] Extracted header HTML (7550 chars)
+[2026-03-18T04:16:22.730Z] Website (post-redirect): https://cidevgroup.com/ → origin: https://cidevgroup.com
+[2026-03-18T04:16:22.730Z] External links: 5 (of 35 total)
+[2026-03-18T04:16:22.730Z] ── All external links ──
+[2026-03-18T04:16:22.730Z]   EXT: https://ewise.co.il
+[2026-03-18T04:16:22.730Z]   EXT: https://www.enable.co.il
+[2026-03-18T04:16:22.730Z]   EXT: https://www.facebook.com/--CIDEV-GROUP-824518050950384/?ref=bookmarks
+[2026-03-18T04:16:22.730Z]   EXT: https://www.linkedin.com/company/1272348
+[2026-03-18T04:16:22.730Z]   EXT: https://www.upress.co.il
+[2026-03-18T04:16:22.730Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T04:16:22.731Z]   UNCATEGORIZED: https://ewise.co.il
+[2026-03-18T04:16:22.731Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-18T04:16:22.731Z]   REGEX: fb <- https://www.facebook.com/--CIDEV-GROUP-824518050950384/?ref=bookmarks
+[2026-03-18T04:16:22.731Z]   REGEX: li <- https://www.linkedin.com/company/1272348
+[2026-03-18T04:16:22.731Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-18T04:16:22.731Z] Programmatic result: ws:1, fb:1, li:1 | 3 uncategorized
+[2026-03-18T04:16:22.731Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T04:16:22.734Z] Saved AI prompt (4041 chars) to ai_prompt.txt
+[2026-03-18T04:16:22.735Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T04:16:22.740Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T04:16:38.933Z]   AI: First token received, streaming...
+[2026-03-18T04:16:48.737Z] AI response complete: 110 chars in 26.0s
+[2026-03-18T04:16:48.738Z] Saved AI response to ai_response.json
+[2026-03-18T04:16:48.738Z] ── Parsing AI response (2 lines) ──
+[2026-03-18T04:16:48.738Z]   AI LINK: https://www.facebook.com/--CIDEV-GROUP-824518050950384/?ref=bookmarks
+[2026-03-18T04:16:48.739Z]   AI LINK: https://www.linkedin.com/company/1272348
+[2026-03-18T04:16:48.739Z] AI returned 2 valid links
+[2026-03-18T04:16:48.739Z] ── Categorizing 2 AI-returned links ──
+[2026-03-18T04:16:48.739Z]   AI→REGEX: fb <- https://www.facebook.com/--CIDEV-GROUP-824518050950384/?ref=bookmarks (duplicate, skipped)
+[2026-03-18T04:16:48.739Z]   AI→REGEX: li <- https://www.linkedin.com/company/1272348 (duplicate, skipped)
+[2026-03-18T04:16:48.740Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T04:16:48.740Z] Footer/header origins (4):
+[2026-03-18T04:16:48.740Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T04:16:48.740Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T04:16:48.740Z]   FOOTER/HEADER ORIGIN: https://cidevgroup.com
+[2026-03-18T04:16:48.740Z]   FOOTER/HEADER ORIGIN: https://ewise.co.il
+[2026-03-18T04:16:48.741Z]   ADDED: urls <- https://ewise.co.il
+[2026-03-18T04:16:48.741Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-18T04:16:48.741Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-18T04:16:48.741Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T04:16:48.741Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T04:16:48.741Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T04:16:48.741Z] ── Step 3: Final dedup ──
+[2026-03-18T04:16:48.742Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T04:16:48.742Z] ── FINAL RESULT ──
+[2026-03-18T04:16:48.742Z]   ws (1):
+[2026-03-18T04:16:48.742Z]     - https://cidevgroup.com
+[2026-03-18T04:16:48.742Z]   li (1):
+[2026-03-18T04:16:48.742Z]     - https://www.linkedin.com/company/1272348
+[2026-03-18T04:16:48.742Z]   fb (1):
+[2026-03-18T04:16:48.742Z]     - https://www.facebook.com/--cidev-group-824518050950384
+[2026-03-18T04:16:48.743Z]   urls (1):
+[2026-03-18T04:16:48.743Z]     - https://ewise.co.il
+[2026-03-18T04:16:48.743Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-18T04:16:48.744Z] Saved final result to result.json
+[2026-03-18T04:16:48.744Z] Override fields: ws, li, fb, urls
+[2026-03-18T04:16:48.745Z] Finished at: 2026-03-18T04:16:48.745Z

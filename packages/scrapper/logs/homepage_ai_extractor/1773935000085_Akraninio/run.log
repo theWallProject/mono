@@ -1,0 +1,71 @@
+[2026-03-19T15:43:20.085Z] === Homepage AI Extractor: Akraninio ===
+[2026-03-19T15:43:20.085Z] Started at: 2026-03-19T15:43:20.085Z
+[2026-03-19T15:43:20.085Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773935000085_Akraninio
+[2026-03-19T15:43:20.086Z] Company: Akraninio
+[2026-03-19T15:43:20.086Z] Website: srn.co.il
+[2026-03-19T15:43:20.086Z] cbRank: 2314724
+[2026-03-19T15:43:20.086Z] Reasons: h
+[2026-03-19T15:43:20.086Z] Fetching: https://srn.co.il
+[2026-03-19T15:43:33.747Z] Redirected: https://srn.co.il -> https://srn.co.il/
+[2026-03-19T15:43:33.753Z] Saved HTML (187183 bytes) to page.html
+[2026-03-19T15:43:33.756Z] Extracted 50 unique links from page
+[2026-03-19T15:43:33.756Z] Saved 50 links to links.json
+[2026-03-19T15:43:33.760Z] Extracted footer HTML (52551 chars)
+[2026-03-19T15:43:33.760Z] Extracted header HTML (24569 chars)
+[2026-03-19T15:43:33.765Z] Website (post-redirect): https://srn.co.il/ → origin: https://srn.co.il
+[2026-03-19T15:43:33.766Z] External links: 4 (of 50 total)
+[2026-03-19T15:43:33.766Z] ── All external links ──
+[2026-03-19T15:43:33.766Z]   EXT: https://wa.me/972534470004
+[2026-03-19T15:43:33.766Z]   EXT: https://www.facebook.com/akraninio.events
+[2026-03-19T15:43:33.766Z]   EXT: https://www.instagram.com/akraninioevents?igsh=MTI3cTF1OGh1Ymk4Yg==
+[2026-03-19T15:43:33.766Z]   EXT: https://www.linkedin.com/company/akraninio-ltd
+[2026-03-19T15:43:33.766Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T15:43:33.766Z]   UNCATEGORIZED: https://wa.me/972534470004
+[2026-03-19T15:43:33.767Z]   REGEX: fb <- https://www.facebook.com/akraninio.events
+[2026-03-19T15:43:33.767Z]   REGEX: ig <- https://www.instagram.com/akraninioevents?igsh=MTI3cTF1OGh1Ymk4Yg==
+[2026-03-19T15:43:33.767Z]   REGEX: li <- https://www.linkedin.com/company/akraninio-ltd
+[2026-03-19T15:43:33.767Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-19T15:43:33.767Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T15:43:33.770Z] Saved AI prompt (9051 chars) to ai_prompt.txt
+[2026-03-19T15:43:33.771Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T15:43:33.774Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T15:45:01.153Z]   AI: First token received, streaming...
+[2026-03-19T15:45:13.736Z] AI response complete: 157 chars in 100.0s
+[2026-03-19T15:45:13.738Z] Saved AI response to ai_response.json
+[2026-03-19T15:45:13.738Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T15:45:13.739Z]   AI LINK: https://www.facebook.com/akraninio.events
+[2026-03-19T15:45:13.739Z]   AI LINK: https://www.linkedin.com/company/akraninio-ltd/
+[2026-03-19T15:45:13.739Z]   AI LINK: https://www.instagram.com/akraninioevents?igsh=MTI3cTF1OGh1Ymk4Yg==
+[2026-03-19T15:45:13.739Z] AI returned 3 valid links
+[2026-03-19T15:45:13.739Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T15:45:13.740Z]   AI→REGEX: fb <- https://www.facebook.com/akraninio.events (duplicate, skipped)
+[2026-03-19T15:45:13.740Z]   AI→REGEX: li <- https://www.linkedin.com/company/akraninio-ltd/ (duplicate, skipped)
+[2026-03-19T15:45:13.740Z]   AI→REGEX: ig <- https://www.instagram.com/akraninioevents?igsh=MTI3cTF1OGh1Ymk4Yg== (duplicate, skipped)
+[2026-03-19T15:45:13.741Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T15:45:13.741Z] Footer/header origins (5):
+[2026-03-19T15:45:13.741Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T15:45:13.741Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T15:45:13.742Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T15:45:13.742Z]   FOOTER/HEADER ORIGIN: https://srn.co.il
+[2026-03-19T15:45:13.742Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-19T15:45:13.742Z]   ADDED: urls <- https://wa.me/972534470004
+[2026-03-19T15:45:13.742Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T15:45:13.742Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T15:45:13.742Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T15:45:13.743Z] ── Step 3: Final dedup ──
+[2026-03-19T15:45:13.743Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T15:45:13.743Z] ── FINAL RESULT ──
+[2026-03-19T15:45:13.743Z]   ws (1):
+[2026-03-19T15:45:13.743Z]     - https://srn.co.il
+[2026-03-19T15:45:13.744Z]   li (1):
+[2026-03-19T15:45:13.744Z]     - https://www.linkedin.com/company/akraninio-ltd
+[2026-03-19T15:45:13.744Z]   fb (1):
+[2026-03-19T15:45:13.744Z]     - https://www.facebook.com/akraninio.events
+[2026-03-19T15:45:13.744Z]   ig (1):
+[2026-03-19T15:45:13.744Z]     - https://www.instagram.com/akraninioevents
+[2026-03-19T15:45:13.744Z]   urls (1):
+[2026-03-19T15:45:13.744Z]     - https://wa.me/972534470004
+[2026-03-19T15:45:13.745Z] Summary: ws:1, fb:1, ig:1, li:1, urls:1
+[2026-03-19T15:45:13.746Z] Saved final result to result.json
+[2026-03-19T15:45:13.746Z] Override fields: ws, li, fb, ig, urls
+[2026-03-19T15:45:13.746Z] Finished at: 2026-03-19T15:45:13.746Z

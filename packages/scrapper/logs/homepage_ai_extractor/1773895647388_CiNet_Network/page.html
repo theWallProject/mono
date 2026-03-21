@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Cinet Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2a4a;
+    --gold: #c9a84c;
+    --light-gold: #e8d5a3;
+    --off-white: #f7f5f0;
+    --text-dark: #222;
+    --text-mid: #555;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    transition: background .3s;
+  }
+  nav .logo img { height: 56px; }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul li a {
+    text-decoration: none;
+    font-size: 14px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--navy);
+    transition: color .2s;
+  }
+  nav ul li a:hover { color: var(--gold); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-toggle span { width: 26px; height: 2px; background: var(--navy); display: block; transition: .3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    background: var(--navy);
+    text-align: center;
+  }
+  #hero .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://static.wixstatic.com/media/11062b_50d6614af66743168f5e7c6542a0e401~mv2.jpg/v1/fill/w_1400,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_50d6614af66743168f5e7c6542a0e401~mv2.jpg');
+    background-size: cover; background-position: center;
+    filter: brightness(0.45);
+  }
+  #hero .hero-content {
+    position: relative; z-index: 2;
+    max-width: 780px; padding: 40px 24px;
+    animation: fadeUp .9s ease both;
+  }
+  #hero .tagline {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px; letter-spacing: 3.5px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 20px;
+  }
+  #hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 62px); font-weight: 700;
+    color: var(--white); line-height: 1.18;
+    margin-bottom: 28px;
+  }
+  #hero p {
+    font-size: 18px; color: rgba(255,255,255,.82); line-height: 1.7;
+    margin-bottom: 40px; font-weight: 300;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold); color: var(--navy);
+    padding: 15px 42px; border-radius: 2px;
+    font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 13px;
+    text-decoration: none; transition: background .2s, transform .2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary:hover { background: var(--light-gold); transform: translateY(-2px); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 90px 60px; }
+  .section-label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px; font-weight: 700;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px); font-weight: 700;
+    color: var(--navy); line-height: 1.2; margin-bottom: 24px;
+  }
+  .section-body {
+    font-size: 16px; line-height: 1.85; color: var(--text-mid); max-width: 640px;
+  }
+
+  /* ── MISSION ── */
+  #mission {
+    background: var(--off-white);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  #mission .mission-img img {
+    width: 100%; border-radius: 2px;
+    box-shadow: 12px 12px 0 var(--light-gold);
+  }
+
+  /* ── NETWORK ── */
+  #network {
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  #network h2.section-title { color: var(--white); }
+  #network .section-body { color: rgba(255,255,255,.78); max-width: 100%; }
+  #network .net-img img {
+    width: 100%; border-radius: 2px;
+    box-shadow: -12px 12px 0 rgba(201,168,76,.4);
+  }
+
+  /* ── MEMBERSHIP BANNER ── */
+  #membership-banner {
+    padding: 0; min-height: 420px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #membership-banner .banner-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://static.wixstatic.com/media/11062b_916e6674cff64736acbf49ae13678e99~mv2.jpeg/v1/fill/w_1400,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_916e6674cff64736acbf49ae13678e99~mv2.jpeg');
+    background-size: cover; background-position: center;
+    filter: brightness(.38);
+  }
+  #membership-banner .banner-content {
+    position: relative; z-index: 2; text-align: center; padding: 80px 24px;
+  }
+  #membership-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px,4vw,48px); color: var(--white); margin-bottom: 10px;
+  }
+  #membership-banner .gold-line {
+    width: 60px; height: 3px; background: var(--gold); margin: 18px auto 0;
+  }
+
+  /* ── MEMBERSHIP CARDS ── */
+  #membership-cards {
+    background: var(--off-white);
+    padding-top: 60px; padding-bottom: 90px;
+  }
+  #membership-cards .cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .mem-card {
+    background: var(--white); padding: 36px 28px;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    border-radius: 2px; transition: transform .25s, box-shadow .25s;
+  }
+  .mem-card:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(0,0,0,.12); }
+  .mem-card .icon { font-size: 32px; margin-bottom: 14px; }
+  .mem-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--navy); margin-bottom: 12px;
+  }
+  .mem-card p { font-size: 14px; line-height: 1.75; color: var(--text-mid); }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  #about .about-img img {
+    width: 100%; border-radius: 2px;
+    box-shadow: 12px 12px 0 var(--light-gold);
+  }
+
+  /* ── CONTACT BG BAND ── */
+  #contact-banner {
+    padding: 0; min-height: 380px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #contact-banner .banner-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://static.wixstatic.com/media/11062b_a6d154bfda6d4921baa3cdf6b615a9db~mv2_d_5184_3456_s_4_2.jpg/v1/fill/w_1400,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_a6d154bfda6d4921baa3cdf6b615a9db~mv2_d_5184_3456_s_4_2.jpg');
+    background-size: cover; background-position: center;
+    filter: brightness(.35);
+  }
+  #contact-banner .banner-content {
+    position: relative; z-index: 2; text-align: center; padding: 60px 24px;
+    max-width: 640px;
+  }
+  #contact-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px,3.5vw,44px); color: var(--white); margin-bottom: 16px;
+  }
+  #contact-banner p { font-size: 16px; color: rgba(255,255,255,.78); line-height: 1.7; }
+  #contact-banner .gold-line { width: 60px; height: 3px; background: var(--gold); margin: 20px auto 0; }
+
+  /* ── CONTACT FORM ── */
+  #contact {
+    background: var(--off-white); padding: 80px 60px;
+  }
+  #contact .form-wrapper {
+    max-width: 680px; margin: 0 auto;
+  }
+  #contact h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: var(--navy);
+    text-align: center; margin-bottom: 36px;
+  }
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+  }
+  .form-grid .full { grid-column: 1 / -1; }
+  #contact input, #contact select, #contact textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #ddd; border-radius: 2px;
+    font-family: 'Lato', sans-serif; font-size: 14px; color: var(--text-dark);
+    background: var(--white); transition: border .2s;
+    outline: none;
+  }
+  #contact input:focus, #contact select:focus, #contact textarea:focus {
+    border-color: var(--gold);
+  }
+  #contact textarea { resize: vertical; min-height: 120px; }
+  #contact .submit-wrap { text-align: center; margin-top: 24px; }
+  .btn-submit {
+    background: var(--navy); color: var(--white);
+    padding: 14px 50px; border: none; border-radius: 2px;
+    font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; transition: background .2s, transform .2s;
+  }
+  .btn-submit:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+  .form-success {
+    display: none; text-align: center; padding: 28px;
+    background: #e8f5e9; color: #2e7d32;
+    border-radius: 4px; font-size: 16px; font-weight: 700;
+    margin-top: 20px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,.7);
+    padding: 48px 60px 32px;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+    text-align: center;
+  }
+  footer img { height: 52px; opacity: .9; }
+  footer .footer-links {
+    display: flex; gap: 28px; flex-wrap: wrap; justify-content: center;
+  }
+  footer .footer-links a {
+    color: rgba(255,255,255,.6); text-decoration: none;
+    font-size: 13px; transition: color .2s;
+  }
+  footer .footer-links a:hover { color: var(--gold); }
+  footer .footer-contact a {
+    color: var(--gold); text-decoration: none; font-size: 14px;
+    transition: color .2s;
+  }
+  footer .footer-contact a:hover { color: var(--light-gold); }
+  footer .footer-contact { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; align-items: center; }
+  footer .sep { color: rgba(255,255,255,.3); }
+  footer .copyright { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 8px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 20px 24px; box-shadow: 0 8px 24px rgba(0,0,0,.1); gap: 18px; }
+    nav ul.open { display: flex; }
+    .nav-toggle { display: flex; }
+    section { padding: 60px 24px; }
+    #mission, #network, #about { grid-template-columns: 1fr; }
+    #network .net-img { order: -1; }
+    #contact { padding: 60px 24px; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { padding: 40px 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">
+    <a href="#hero">
+      <img src="https://static.wixstatic.com/media/9e866b_1a23e95edb034e65a950142fcaba34e1~mv2.png/v1/fill/w_170,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-cinet.png" alt="CiNet Logo">
+    </a>
+  </div>
+  <ul id="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#mission">Our Mission</a></li>
+    <li><a href="#network">Network</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="tagline">CEOs Helping CEOs Succeed</p>
+    <h1>We understand the challenges facing CEOs because we have faced them ourselves.</h1>
+    <p>With CiNet – you are never alone.</p>
+    <a href="#contact" class="btn-primary">Contact Us</a>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="mission-text reveal">
+    <p class="section-label">Who We Are</p>
+    <h2 class="section-title">Our Mission</h2>
+    <p class="section-body">
+      At CiNet, we aim to significantly improve the success and lives of Tech CEOs, their families and their companies. We achieve this through curated network opportunities, high-impact development meetings, and by building a strong ecosystem of best-in-class professionals that support our network members in critical decisions and in complex situations.
+    </p>
+    <br>
+    <p class="section-body">
+      Our goal is to leverage each other's success stories and provide our members with unparalleled support, knowledge, and tools to navigate challenges and achieve their aspirations.
+    </p>
+  </div>
+  <div class="mission-img reveal">
+    <img src="https://static.wixstatic.com/media/db2581_85ba24c9cdfa4c25b6d1ecb54ce0eec0~mv2.png/v1/fill/w_400,h_320,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/db2581_85ba24c9cdfa4c25b6d1ecb54ce0eec0~mv2.png" alt="CiNet Mission">
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section id="network">
+  <div class="net-img reveal">
+    <img src="https://static.wixstatic.com/media/11062b_ee8a5f600989446481a11c0323546c63~mv2.jpg/v1/fill/w_649,h_412,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_ee8a5f600989446481a11c0323546c63~mv2.jpg" alt="CiNet Network">
+  </div>
+  <div class="reveal">
+    <p class="section-label">Community</p>
+    <h2 class="section-title">The CiNet Network</h2>
+    <p class="section-body">
+      At CiNet, the interests of our network members always come first. We are dedicated to helping you achieve your goals faster, and with superior results. Every initiative we undertake is driven by our commitment to finding the most effective ways to provide you with the tools, resources, environment, and most importantly, the people you need to succeed.
+    </p>
+    <br>
+    <p class="section-body">
+      Being a part of CiNet means joining an elite group of successful individuals—leaders of Israel's fastest-growing and most innovative tech companies. Our members are committed to partnering and collaborating with one another to elevate their success on all levels - in their businesses, as well as in their personal and family lives.
+    </p>
+  </div>
+</section>
+
+<!-- NETWORK CARDS -->
+<section id="membership-cards">
+  <div class="cards-grid">
+    <div class="mem-card reveal">
+      <div class="icon">🤝</div>
+      <h4>Network</h4>
+      <p>You are part of a network comprised of Tech CEOs, who are here to share and support each other. We make sure you are never alone.</p>
+    </div>
+    <div class="mem-card reveal">
+      <div class="icon">📈</div>
+      <h4>Development</h4>
+      <p>We help you grow as a leader professionally and personally through CiNet Meetings and targeted development programs.</p>
+    </div>
+    <div class="mem-card reveal">
+      <div class="icon">💡</div>
+      <h4>Experience Sharing</h4>
+      <p>Whatever your needs are — our CiNet staff will put you in touch with other CEOs in the network who can provide the best answers.</p>
+    </div>
+    <div class="mem-card reveal">
+      <div class="icon">⚡</div>
+      <h4>Scale</h4>
+      <p>We provide your company an economy-of-scale equivalent to many thousands of employees in critical services and solutions (Benefits, Travel, etc.).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <p class="section-label">Leadership</p>
+    <h2 class="section-title">About Us</h2>
+    <p class="section-body">
+      The CiNet network was founded and is chaired by <strong>Yishai Amir</strong>, an experienced executive with a proven track record of leadership and growth. Yishai previously served as a Senior Vice President at HP in the US where he led large-scale global businesses and organizations.
+    </p>
+    <br>
+    <p class="section-body">
+      Later he served as the CEO of Landa Corporation, a high-growth tech company with over 600 employees. As a CEO, Yishai recognized the critical need for such a network that could provide leaders like himself with opportunities to share experiences, access best practices, and gain support for both business and personal challenges. This insight became the driving force behind CiNet — a network built by a CEO, for CEOs.
+    </p>
+  </div>
+  <div class="about-img reveal">
+    <img src="https://static.wixstatic.com/media/9e866b_eafd459ac633455fb6a6e815c153a8ef~mv2.webp/v1/fill/w_319,h_324,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/yishai.webp" alt="Yishai Amir">
+  </div>
+</section>
+
+<!-- CONTACT BANNER -->
+<div id="contact-banner">
+  <div class="banner-bg"></div>
+  <div class="banner-content reveal">
+    <h2>Contact Us</h2>
+    <p>Get in touch with us to explore how CiNet can help you grow yourself to grow the business.</p>
+    <div class="gold-line"></div>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+  <div class="form-wrapper">
+    <div class="form-grid" id="contactForm">
+      <input type="text" placeholder="First name" id="firstName" required="">
+      <input type="text" placeholder="Last name" id="lastName" required="">
+      <input type="email" placeholder="Email" id="email" required="">
+      <input type="text" placeholder="Company" id="company">
+      <input type="text" placeholder="Your Position" id="position">
+      <input type="text" placeholder="Number of Employees" id="employees">
+      <textarea class="full" placeholder="Write a message" id="message" rows="5"></textarea>
+      <div class="full submit-wrap">
+        <button class="btn-submit" onclick="submitForm()">Submit</button>
+      </div>
+    </div>
+    <div class="form-success" id="formSuccess">
+      ✅ Thanks for submitting! We will contact you ASAP.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://static.wixstatic.com/media/9e866b_fcd6605ac3ce463b84248c0ee44d9c75~mv2.png/v1/fill/w_169,h_67,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-footer.png" alt="CiNet Footer Logo">
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#mission">Our Mission</a>
+    <a href="#network">Network</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:yishai@cgnite.com">yishai@cgnite.com</a>
+    <span class="sep">|</span>
+    <a href="tel:+972-35365367">+972-35365367</a>
+  </div>
+  <p class="copyright">© cinet.org.il - All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Form submit
+  function submitForm() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!firstName || !email) {
+      alert('Please fill in at least your first name and email.');
+      return;
+    }
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // Navbar shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.boxShadow =
+      window.scrollY > 10 ? '0 4px 20px rgba(0,0,0,0.13)' : '0 2px 16px rgba(0,0,0,0.08)';
+  });
+</script>
+
+</body></html>

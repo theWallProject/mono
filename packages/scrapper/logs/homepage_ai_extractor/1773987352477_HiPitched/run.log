@@ -1,0 +1,59 @@
+[2026-03-20T06:15:52.478Z] === Homepage AI Extractor: HiPitched ===
+[2026-03-20T06:15:52.478Z] Started at: 2026-03-20T06:15:52.478Z
+[2026-03-20T06:15:52.478Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773987352477_HiPitched
+[2026-03-20T06:15:52.478Z] Company: HiPitched
+[2026-03-20T06:15:52.478Z] Website: hipitched.com
+[2026-03-20T06:15:52.478Z] cbRank: 2740411
+[2026-03-20T06:15:52.478Z] Reasons: h
+[2026-03-20T06:15:52.479Z] Fetching: https://hipitched.com
+[2026-03-20T06:16:00.067Z] Redirected: https://hipitched.com -> https://www.hipitched.com/
+[2026-03-20T06:16:00.072Z] Saved HTML (99521 bytes) to page.html
+[2026-03-20T06:16:00.074Z] Extracted 18 unique links from page
+[2026-03-20T06:16:00.075Z] Saved 18 links to links.json
+[2026-03-20T06:16:00.077Z] Extracted footer HTML (2179 chars)
+[2026-03-20T06:16:00.077Z] Extracted header HTML (1823 chars)
+[2026-03-20T06:16:00.081Z] Website (post-redirect): https://www.hipitched.com/ → origin: https://www.hipitched.com
+[2026-03-20T06:16:00.082Z] External links: 3 (of 18 total)
+[2026-03-20T06:16:00.082Z] ── All external links ──
+[2026-03-20T06:16:00.082Z]   EXT: https://www.instagram.com/hipitched_agency
+[2026-03-20T06:16:00.082Z]   EXT: https://www.iubenda.com/en/cookie-solution?utm_source=cs&utm_medium=web&utm_campaign=csbr2
+[2026-03-20T06:16:00.082Z]   EXT: https://www.linkedin.com/in/avitaleusgeld
+[2026-03-20T06:16:00.082Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T06:16:00.082Z]   REGEX: ig <- https://www.instagram.com/hipitched_agency
+[2026-03-20T06:16:00.082Z]   UNCATEGORIZED: https://www.iubenda.com/en/cookie-solution?utm_source=cs&utm_medium=web&utm_campaign=csbr2
+[2026-03-20T06:16:00.082Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-20T06:16:00.083Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/avitaleusgeld
+[2026-03-20T06:16:00.083Z] Programmatic result: ws:1, ig:1 | 1 uncategorized
+[2026-03-20T06:16:00.083Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T06:16:00.086Z] Saved AI prompt (3384 chars) to ai_prompt.txt
+[2026-03-20T06:16:00.086Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T06:16:00.089Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T06:16:14.117Z]   AI: First token received, streaming...
+[2026-03-20T06:16:18.621Z] AI response complete: 86 chars in 18.5s
+[2026-03-20T06:16:18.622Z] Saved AI response to ai_response.json
+[2026-03-20T06:16:18.622Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T06:16:18.622Z]   AI LINK: https://www.linkedin.com/in/avitaleusgeld/
+[2026-03-20T06:16:18.623Z]   AI LINK: https://www.instagram.com/hipitched_agency/
+[2026-03-20T06:16:18.623Z] AI returned 2 valid links
+[2026-03-20T06:16:18.623Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T06:16:18.623Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/avitaleusgeld/
+[2026-03-20T06:16:18.623Z]   AI→REGEX: ig <- https://www.instagram.com/hipitched_agency/ (duplicate, skipped)
+[2026-03-20T06:16:18.624Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T06:16:18.624Z] Footer/header origins (2):
+[2026-03-20T06:16:18.624Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T06:16:18.625Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T06:16:18.625Z]   SKIP (not in footer/header): https://www.iubenda.com/en/cookie-solution?utm_source=cs&utm_medium=web&utm_campaign=csbr2
+[2026-03-20T06:16:18.625Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T06:16:18.625Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T06:16:18.625Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T06:16:18.625Z] ── Step 3: Final dedup ──
+[2026-03-20T06:16:18.625Z] No urls to dedup
+[2026-03-20T06:16:18.626Z] ── FINAL RESULT ──
+[2026-03-20T06:16:18.626Z]   ws (1):
+[2026-03-20T06:16:18.626Z]     - https://www.hipitched.com
+[2026-03-20T06:16:18.626Z]   ig (1):
+[2026-03-20T06:16:18.626Z]     - https://www.instagram.com/hipitched_agency
+[2026-03-20T06:16:18.626Z] Summary: ws:1, ig:1
+[2026-03-20T06:16:18.627Z] Saved final result to result.json
+[2026-03-20T06:16:18.627Z] Override fields: ws, ig
+[2026-03-20T06:16:18.627Z] Finished at: 2026-03-20T06:16:18.627Z

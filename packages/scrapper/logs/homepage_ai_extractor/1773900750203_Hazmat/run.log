@@ -1,0 +1,66 @@
+[2026-03-19T06:12:30.204Z] === Homepage AI Extractor: Hazmat ===
+[2026-03-19T06:12:30.204Z] Started at: 2026-03-19T06:12:30.204Z
+[2026-03-19T06:12:30.204Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773900750203_Hazmat
+[2026-03-19T06:12:30.204Z] Company: Hazmat
+[2026-03-19T06:12:30.204Z] Website: hazmat.co.il
+[2026-03-19T06:12:30.205Z] cbRank: 1968714
+[2026-03-19T06:12:30.205Z] Reasons: h
+[2026-03-19T06:12:30.205Z] Fetching: https://hazmat.co.il
+[2026-03-19T06:12:34.484Z] Redirected: https://hazmat.co.il -> https://www.hazmat.co.il/
+[2026-03-19T06:12:34.489Z] Saved HTML (124338 bytes) to page.html
+[2026-03-19T06:12:34.493Z] Extracted 32 unique links from page
+[2026-03-19T06:12:34.493Z] Saved 32 links to links.json
+[2026-03-19T06:12:34.496Z] Extracted footer HTML (1618 chars)
+[2026-03-19T06:12:34.496Z] Extracted header HTML (11464 chars)
+[2026-03-19T06:12:34.501Z] Website (post-redirect): https://www.hazmat.co.il/ → origin: https://www.hazmat.co.il
+[2026-03-19T06:12:34.501Z] External links: 4 (of 32 total)
+[2026-03-19T06:12:34.501Z] ── All external links ──
+[2026-03-19T06:12:34.501Z]   EXT: http://web.gb-plugins.com
+[2026-03-19T06:12:34.501Z]   EXT: https://twitter.com/hashtag/hazmat
+[2026-03-19T06:12:34.501Z]   EXT: https://www.google.co.il/maps/search/%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%94+23+,+%D7%A4%D7%90%D7%A8%D7%A7+%D7%90%D7%A4%D7%A7+%E2%80%AD/@32.1085498,34.9855856,14z/data=!3m1!4b1
+[2026-03-19T06:12:34.501Z]   EXT: https://www.linkedin.com/company/-hazmat
+[2026-03-19T06:12:34.501Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T06:12:34.502Z]   UNCATEGORIZED: http://web.gb-plugins.com
+[2026-03-19T06:12:34.502Z]   UNCATEGORIZED: https://www.google.co.il/maps/search/%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%94+23+,+%D7%A4%D7%90%D7%A8%D7%A7+%D7%90%D7%A4%D7%A7+%E2%80%AD/@32.1085498,34.9855856,14z/data=!3m1!4b1
+[2026-03-19T06:12:34.502Z]   REGEX: li <- https://www.linkedin.com/company/-hazmat
+[2026-03-19T06:12:34.502Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T06:12:34.502Z]   SKIP (regex domain, no match): https://twitter.com/hashtag/hazmat
+[2026-03-19T06:12:34.502Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-19T06:12:34.502Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T06:12:34.505Z] Saved AI prompt (3116 chars) to ai_prompt.txt
+[2026-03-19T06:12:34.505Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T06:12:34.510Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T06:12:45.425Z]   AI: First token received, streaming...
+[2026-03-19T06:12:52.621Z] AI response complete: 111 chars in 18.1s
+[2026-03-19T06:12:52.622Z] Saved AI response to ai_response.json
+[2026-03-19T06:12:52.623Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T06:12:52.623Z]   AI IGNORED (not a URL): www.facebook.com/HazmatLTD/?fref=nf
+[2026-03-19T06:12:52.623Z]   AI LINK: https://twitter.com/hashtag/hazmat
+[2026-03-19T06:12:52.623Z]   AI LINK: https://www.linkedin.com/company/-hazmat
+[2026-03-19T06:12:52.623Z] AI returned 2 valid links
+[2026-03-19T06:12:52.623Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T06:12:52.624Z]   AI→SKIP (regex domain, no match): https://twitter.com/hashtag/hazmat
+[2026-03-19T06:12:52.624Z]   AI→REGEX: li <- https://www.linkedin.com/company/-hazmat (duplicate, skipped)
+[2026-03-19T06:12:52.625Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T06:12:52.625Z] Footer/header origins (3):
+[2026-03-19T06:12:52.625Z]   FOOTER/HEADER ORIGIN: http://web.gb-plugins.com
+[2026-03-19T06:12:52.625Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-19T06:12:52.625Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T06:12:52.625Z]   ADDED: urls <- http://web.gb-plugins.com
+[2026-03-19T06:12:52.625Z]   SKIP (not in footer/header): https://www.google.co.il/maps/search/%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%94+23+,+%D7%A4%D7%90%D7%A8%D7%A7+%D7%90%D7%A4%D7%A7+%E2%80%AD/@32.1085498,34.9855856,14z/data=!3m1!4b1
+[2026-03-19T06:12:52.626Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T06:12:52.626Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T06:12:52.626Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T06:12:52.626Z] ── Step 3: Final dedup ──
+[2026-03-19T06:12:52.626Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T06:12:52.626Z] ── FINAL RESULT ──
+[2026-03-19T06:12:52.626Z]   ws (1):
+[2026-03-19T06:12:52.626Z]     - https://www.hazmat.co.il
+[2026-03-19T06:12:52.626Z]   li (1):
+[2026-03-19T06:12:52.626Z]     - https://www.linkedin.com/company/-hazmat
+[2026-03-19T06:12:52.627Z]   urls (1):
+[2026-03-19T06:12:52.627Z]     - http://web.gb-plugins.com
+[2026-03-19T06:12:52.627Z] Summary: ws:1, li:1, urls:1
+[2026-03-19T06:12:52.628Z] Saved final result to result.json
+[2026-03-19T06:12:52.628Z] Override fields: ws, li, urls
+[2026-03-19T06:12:52.629Z] Finished at: 2026-03-19T06:12:52.629Z

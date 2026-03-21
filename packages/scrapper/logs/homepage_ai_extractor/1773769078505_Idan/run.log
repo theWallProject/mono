@@ -1,0 +1,76 @@
+[2026-03-17T17:37:58.505Z] === Homepage AI Extractor: Idan ===
+[2026-03-17T17:37:58.505Z] Started at: 2026-03-17T17:37:58.505Z
+[2026-03-17T17:37:58.505Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773769078505_Idan
+[2026-03-17T17:37:58.505Z] Company: Idan
+[2026-03-17T17:37:58.505Z] Website: idan.com
+[2026-03-17T17:37:58.505Z] cbRank: 1225072
+[2026-03-17T17:37:58.505Z] Reasons: h
+[2026-03-17T17:37:58.506Z] Fetching: https://idan.com
+[2026-03-17T17:38:01.514Z] Redirected: https://idan.com -> https://idan.com/
+[2026-03-17T17:38:01.519Z] Saved HTML (113715 bytes) to page.html
+[2026-03-17T17:38:01.521Z] Extracted 15 unique links from page
+[2026-03-17T17:38:01.522Z] Saved 15 links to links.json
+[2026-03-17T17:38:01.524Z] Extracted footer HTML (12964 chars)
+[2026-03-17T17:38:01.524Z] Extracted header HTML (9173 chars)
+[2026-03-17T17:38:01.526Z] Website (post-redirect): https://idan.com/ → origin: https://idan.com
+[2026-03-17T17:38:01.526Z] External links: 4 (of 15 total)
+[2026-03-17T17:38:01.526Z] ── All external links ──
+[2026-03-17T17:38:01.526Z]   EXT: https://noadim.com
+[2026-03-17T17:38:01.527Z]   EXT: https://ul.waze.com/ul?place=ChIJteZzOEC0AhURFLrtnK5aQzo&ll=31.96802540%2C34.79752690&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location
+[2026-03-17T17:38:01.527Z]   EXT: https://wa.me/+97235583166
+[2026-03-17T17:38:01.527Z]   EXT: https://www.youtube.com/channel/UCTqZLjBwr5WoyJkop0fPfjg/featured
+[2026-03-17T17:38:01.527Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T17:38:01.527Z]   UNCATEGORIZED: https://noadim.com
+[2026-03-17T17:38:01.527Z]   UNCATEGORIZED: https://ul.waze.com/ul?place=ChIJteZzOEC0AhURFLrtnK5aQzo&ll=31.96802540%2C34.79752690&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location
+[2026-03-17T17:38:01.527Z]   UNCATEGORIZED: https://wa.me/+97235583166
+[2026-03-17T17:38:01.527Z]   REGEX: ytc <- https://www.youtube.com/channel/UCTqZLjBwr5WoyJkop0fPfjg/featured
+[2026-03-17T17:38:01.527Z] Programmatic result: ws:1, ytc:1 | 3 uncategorized
+[2026-03-17T17:38:01.527Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T17:38:01.528Z] Saved AI prompt (6662 chars) to ai_prompt.txt
+[2026-03-17T17:38:01.528Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T17:38:01.531Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T17:38:31.353Z]   AI: First token received, streaming...
+[2026-03-17T17:38:41.934Z] AI response complete: 110 chars in 40.4s
+[2026-03-17T17:38:41.936Z] Saved AI response to ai_response.json
+[2026-03-17T17:38:41.936Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T17:38:41.936Z]   AI LINK: https://idan.com/
+[2026-03-17T17:38:41.936Z]   AI LINK: https://www.youtube.com/channel/UCTqZLjBwr5WoyJkop0fPfjg/featured
+[2026-03-17T17:38:41.937Z]   AI LINK: https://wa.me/+97235583166
+[2026-03-17T17:38:41.937Z] AI returned 3 valid links
+[2026-03-17T17:38:41.937Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T17:38:41.937Z]   AI→URLS: https://idan.com (cleaned from https://idan.com/)
+[2026-03-17T17:38:41.938Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCTqZLjBwr5WoyJkop0fPfjg/featured (duplicate, skipped)
+[2026-03-17T17:38:41.938Z]   AI→URLS: https://wa.me/+97235583166
+[2026-03-17T17:38:41.938Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T17:38:41.939Z] Footer/header origins (5):
+[2026-03-17T17:38:41.939Z]   FOOTER/HEADER ORIGIN: https://idan.com
+[2026-03-17T17:38:41.939Z]   FOOTER/HEADER ORIGIN: https://ul.waze.com
+[2026-03-17T17:38:41.939Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T17:38:41.939Z]   FOOTER/HEADER ORIGIN: https://noadim.com
+[2026-03-17T17:38:41.939Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-17T17:38:41.939Z]   ADDED: urls <- https://noadim.com
+[2026-03-17T17:38:41.940Z]   ADDED: urls <- https://ul.waze.com/ul (cleaned from https://ul.waze.com/ul?place=ChIJteZzOEC0AhURFLrtnK5aQzo&ll=31.96802540%2C34.79752690&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location)
+[2026-03-17T17:38:41.940Z]   SKIP (AI claimed): https://wa.me/+97235583166
+[2026-03-17T17:38:41.940Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-17T17:38:41.940Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T17:38:41.940Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T17:38:42.369Z]   YOUTUBE: resolved UCTqZLjBwr5WoyJkop0fPfjg → @idancomputers1996
+[2026-03-17T17:38:42.370Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T17:38:42.370Z] ── Step 3: Final dedup ──
+[2026-03-17T17:38:42.370Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-17T17:38:42.370Z] ── FINAL RESULT ──
+[2026-03-17T17:38:42.370Z]   ws (1):
+[2026-03-17T17:38:42.370Z]     - https://idan.com
+[2026-03-17T17:38:42.370Z]   ytp (1):
+[2026-03-17T17:38:42.370Z]     - https://www.youtube.com/@idancomputers1996
+[2026-03-17T17:38:42.370Z]   ytc (1):
+[2026-03-17T17:38:42.370Z]     - https://www.youtube.com/channel/UCTqZLjBwr5WoyJkop0fPfjg
+[2026-03-17T17:38:42.371Z]   urls (4):
+[2026-03-17T17:38:42.371Z]     - https://idan.com
+[2026-03-17T17:38:42.371Z]     - https://noadim.com
+[2026-03-17T17:38:42.371Z]     - https://ul.waze.com/ul
+[2026-03-17T17:38:42.371Z]     - https://wa.me/+97235583166
+[2026-03-17T17:38:42.371Z] Summary: ws:1, ytc:1, urls:4, ytp:1
+[2026-03-17T17:38:42.371Z] Saved final result to result.json
+[2026-03-17T17:38:42.372Z] Override fields: ws, ytp, ytc, urls
+[2026-03-17T17:38:42.372Z] Finished at: 2026-03-17T17:38:42.372Z

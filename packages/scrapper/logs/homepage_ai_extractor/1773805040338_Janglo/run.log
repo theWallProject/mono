@@ -1,0 +1,78 @@
+[2026-03-18T03:37:20.338Z] === Homepage AI Extractor: Janglo ===
+[2026-03-18T03:37:20.338Z] Started at: 2026-03-18T03:37:20.338Z
+[2026-03-18T03:37:20.339Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773805040338_Janglo
+[2026-03-18T03:37:20.339Z] Company: Janglo
+[2026-03-18T03:37:20.339Z] Website: janglo.net
+[2026-03-18T03:37:20.339Z] cbRank: 1471883
+[2026-03-18T03:37:20.339Z] Reasons: h
+[2026-03-18T03:37:20.339Z] Fetching: https://janglo.net
+[2026-03-18T03:37:22.530Z] Redirected: https://janglo.net -> https://www.janglo.net/
+[2026-03-18T03:37:22.540Z] Saved HTML (386221 bytes) to page.html
+[2026-03-18T03:37:22.544Z] Extracted 153 unique links from page
+[2026-03-18T03:37:22.544Z] Saved 153 links to links.json
+[2026-03-18T03:37:22.546Z] Extracted footer HTML (4124 chars)
+[2026-03-18T03:37:22.547Z] Extracted header HTML (10826 chars)
+[2026-03-18T03:37:22.550Z] Website (post-redirect): https://www.janglo.net/ → origin: https://www.janglo.net
+[2026-03-18T03:37:22.550Z] External links: 6 (of 153 total)
+[2026-03-18T03:37:22.550Z] ── All external links ──
+[2026-03-18T03:37:22.550Z]   EXT: https://api.whatsapp.com/send?phone=97229993938
+[2026-03-18T03:37:22.550Z]   EXT: https://twitter.com/janglo?lang=en
+[2026-03-18T03:37:22.550Z]   EXT: https://www.facebook.com/JangloIsrael
+[2026-03-18T03:37:22.550Z]   EXT: https://www.facebook.com/JangloNews
+[2026-03-18T03:37:22.550Z]   EXT: https://www.instagram.com/janglo_il
+[2026-03-18T03:37:22.550Z]   EXT: https://www.linkedin.com/company/janglo
+[2026-03-18T03:37:22.550Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T03:37:22.551Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=97229993938
+[2026-03-18T03:37:22.551Z]   REGEX: tw <- https://twitter.com/janglo?lang=en
+[2026-03-18T03:37:22.551Z]   REGEX: fb <- https://www.facebook.com/JangloIsrael
+[2026-03-18T03:37:22.551Z]   REGEX: fb <- https://www.facebook.com/JangloNews
+[2026-03-18T03:37:22.551Z]   REGEX: ig <- https://www.instagram.com/janglo_il
+[2026-03-18T03:37:22.551Z]   REGEX: li <- https://www.linkedin.com/company/janglo
+[2026-03-18T03:37:22.551Z] Programmatic result: ws:1, tw:1, fb:2, ig:1, li:1 | 1 uncategorized
+[2026-03-18T03:37:22.551Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T03:37:22.554Z] Saved AI prompt (4075 chars) to ai_prompt.txt
+[2026-03-18T03:37:22.554Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T03:37:22.558Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T03:37:37.888Z]   AI: First token received, streaming...
+[2026-03-18T03:37:46.067Z] AI response complete: 148 chars in 23.5s
+[2026-03-18T03:37:46.069Z] Saved AI response to ai_response.json
+[2026-03-18T03:37:46.069Z] ── Parsing AI response (4 lines) ──
+[2026-03-18T03:37:46.069Z]   AI LINK: https://www.facebook.com/JangloIsrael
+[2026-03-18T03:37:46.069Z]   AI LINK: https://twitter.com/janglo?lang=en
+[2026-03-18T03:37:46.069Z]   AI LINK: https://www.linkedin.com/company/janglo
+[2026-03-18T03:37:46.070Z]   AI LINK: https://www.instagram.com/janglo_il
+[2026-03-18T03:37:46.070Z] AI returned 4 valid links
+[2026-03-18T03:37:46.070Z] ── Categorizing 4 AI-returned links ──
+[2026-03-18T03:37:46.070Z]   AI→REGEX: fb <- https://www.facebook.com/JangloIsrael (duplicate, skipped)
+[2026-03-18T03:37:46.070Z]   AI→REGEX: tw <- https://twitter.com/janglo?lang=en (duplicate, skipped)
+[2026-03-18T03:37:46.071Z]   AI→REGEX: li <- https://www.linkedin.com/company/janglo (duplicate, skipped)
+[2026-03-18T03:37:46.071Z]   AI→REGEX: ig <- https://www.instagram.com/janglo_il (duplicate, skipped)
+[2026-03-18T03:37:46.073Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T03:37:46.073Z] Footer/header origins (5):
+[2026-03-18T03:37:46.073Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T03:37:46.073Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-18T03:37:46.073Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T03:37:46.073Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-18T03:37:46.074Z]   FOOTER/HEADER ORIGIN: https://www.janglo.net
+[2026-03-18T03:37:46.074Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=97229993938
+[2026-03-18T03:37:46.074Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T03:37:46.074Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T03:37:46.074Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T03:37:46.074Z] ── Step 3: Final dedup ──
+[2026-03-18T03:37:46.074Z] No urls to dedup
+[2026-03-18T03:37:46.074Z] ── FINAL RESULT ──
+[2026-03-18T03:37:46.074Z]   ws (1):
+[2026-03-18T03:37:46.075Z]     - https://www.janglo.net
+[2026-03-18T03:37:46.075Z]   li (1):
+[2026-03-18T03:37:46.075Z]     - https://www.linkedin.com/company/janglo
+[2026-03-18T03:37:46.075Z]   fb (2):
+[2026-03-18T03:37:46.075Z]     - https://www.facebook.com/jangloisrael
+[2026-03-18T03:37:46.075Z]     - https://www.facebook.com/janglonews
+[2026-03-18T03:37:46.076Z]   tw (1):
+[2026-03-18T03:37:46.076Z]     - https://x.com/janglo
+[2026-03-18T03:37:46.076Z]   ig (1):
+[2026-03-18T03:37:46.076Z]     - https://www.instagram.com/janglo_il
+[2026-03-18T03:37:46.076Z] Summary: ws:1, tw:1, fb:2, ig:1, li:1
+[2026-03-18T03:37:46.077Z] Saved final result to result.json
+[2026-03-18T03:37:46.077Z] Override fields: ws, li, fb, tw, ig
+[2026-03-18T03:37:46.078Z] Finished at: 2026-03-18T03:37:46.078Z

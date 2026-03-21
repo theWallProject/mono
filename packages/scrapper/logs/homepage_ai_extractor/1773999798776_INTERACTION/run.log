@@ -1,0 +1,70 @@
+[2026-03-20T09:43:18.776Z] === Homepage AI Extractor: INTERACTION ===
+[2026-03-20T09:43:18.776Z] Started at: 2026-03-20T09:43:18.776Z
+[2026-03-20T09:43:18.776Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773999798776_INTERACTION
+[2026-03-20T09:43:18.776Z] Company: INTERACTION
+[2026-03-20T09:43:18.776Z] Website: interaction.co.il
+[2026-03-20T09:43:18.776Z] cbRank: 2852253
+[2026-03-20T09:43:18.777Z] Reasons: h
+[2026-03-20T09:43:18.777Z] Fetching: https://interaction.co.il
+[2026-03-20T09:43:27.364Z] Redirected: https://interaction.co.il -> https://interaction.co.il/
+[2026-03-20T09:43:27.371Z] Saved HTML (247131 bytes) to page.html
+[2026-03-20T09:43:27.374Z] Extracted 14 unique links from page
+[2026-03-20T09:43:27.374Z] Saved 14 links to links.json
+[2026-03-20T09:43:27.377Z] Extracted footer HTML (6576 chars)
+[2026-03-20T09:43:27.377Z] Extracted header HTML (6002 chars)
+[2026-03-20T09:43:27.381Z] Website (post-redirect): https://interaction.co.il/ → origin: https://interaction.co.il
+[2026-03-20T09:43:27.381Z] External links: 5 (of 14 total)
+[2026-03-20T09:43:27.382Z] ── All external links ──
+[2026-03-20T09:43:27.382Z]   EXT: https://acdigital.co.il
+[2026-03-20T09:43:27.382Z]   EXT: https://amitmoreno.com
+[2026-03-20T09:43:27.382Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-20T09:43:27.382Z]   EXT: https://www.instagram.com/interactiontlv
+[2026-03-20T09:43:27.382Z]   EXT: https://www.linkedin.com/company/interaction-acdg/posts/?feedView=all
+[2026-03-20T09:43:27.382Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T09:43:27.382Z]   UNCATEGORIZED: https://acdigital.co.il
+[2026-03-20T09:43:27.383Z]   UNCATEGORIZED: https://amitmoreno.com
+[2026-03-20T09:43:27.383Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-20T09:43:27.383Z]   REGEX: ig <- https://www.instagram.com/interactiontlv
+[2026-03-20T09:43:27.383Z]   REGEX: li <- https://www.linkedin.com/company/interaction-acdg/posts/?feedView=all
+[2026-03-20T09:43:27.383Z] Programmatic result: ws:1, ig:1, li:1 | 3 uncategorized
+[2026-03-20T09:43:27.383Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T09:43:27.386Z] Saved AI prompt (6680 chars) to ai_prompt.txt
+[2026-03-20T09:43:27.387Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T09:43:27.390Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T09:43:50.862Z]   AI: First token received, streaming...
+[2026-03-20T09:43:55.680Z] AI response complete: 111 chars in 28.3s
+[2026-03-20T09:43:55.681Z] Saved AI response to ai_response.json
+[2026-03-20T09:43:55.681Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T09:43:55.682Z]   AI LINK: https://www.instagram.com/interactiontlv/
+[2026-03-20T09:43:55.682Z]   AI LINK: https://www.linkedin.com/company/interaction-acdg/posts/?feedView=all
+[2026-03-20T09:43:55.682Z] AI returned 2 valid links
+[2026-03-20T09:43:55.682Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T09:43:55.682Z]   AI→REGEX: ig <- https://www.instagram.com/interactiontlv/ (duplicate, skipped)
+[2026-03-20T09:43:55.682Z]   AI→REGEX: li <- https://www.linkedin.com/company/interaction-acdg/posts/?feedView=all (duplicate, skipped)
+[2026-03-20T09:43:55.683Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T09:43:55.683Z] Footer/header origins (4):
+[2026-03-20T09:43:55.683Z]   FOOTER/HEADER ORIGIN: https://interaction.co.il
+[2026-03-20T09:43:55.683Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T09:43:55.683Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T09:43:55.683Z]   FOOTER/HEADER ORIGIN: https://acdigital.co.il
+[2026-03-20T09:43:55.684Z]   ADDED: urls <- https://acdigital.co.il
+[2026-03-20T09:43:55.684Z]   SKIP (not in footer/header): https://amitmoreno.com
+[2026-03-20T09:43:55.684Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-20T09:43:55.684Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T09:43:55.684Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T09:43:55.684Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T09:43:55.684Z] ── Step 3: Final dedup ──
+[2026-03-20T09:43:55.684Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T09:43:55.685Z] ── FINAL RESULT ──
+[2026-03-20T09:43:55.685Z]   ws (1):
+[2026-03-20T09:43:55.685Z]     - https://interaction.co.il
+[2026-03-20T09:43:55.685Z]   li (1):
+[2026-03-20T09:43:55.685Z]     - https://www.linkedin.com/company/interaction-acdg
+[2026-03-20T09:43:55.685Z]   ig (1):
+[2026-03-20T09:43:55.685Z]     - https://www.instagram.com/interactiontlv
+[2026-03-20T09:43:55.685Z]   urls (1):
+[2026-03-20T09:43:55.686Z]     - https://acdigital.co.il
+[2026-03-20T09:43:55.686Z] Summary: ws:1, ig:1, li:1, urls:1
+[2026-03-20T09:43:55.687Z] Saved final result to result.json
+[2026-03-20T09:43:55.687Z] Override fields: ws, li, ig, urls
+[2026-03-20T09:43:55.687Z] Finished at: 2026-03-20T09:43:55.687Z

@@ -1,0 +1,2649 @@
+<!DOCTYPE html><html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths skrollr skrollr-desktop" dir="rtl" lang="he-IL"><!--<![endif]--><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-obDEicORg1BccYuEfFig6FFh0s3Ho2B7lr6lAHLJGwZTVRSgTgfEKmrfdJ2g/NkT"></script><script async="" type="text/plain" data-blocked="web3d-consent" data-category="analytics" data-orig-type="text/javascript" data-src="https://www.googletagmanager.com/gtm.js?id=GTM-KT5FCBD"></script><script>
+(function() {
+    "use strict";
+    
+    // Получаем оригинальный descriptor ДО создания блокировки
+    var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");
+    var originalCookieGetter = originalCookieDescriptor ? originalCookieDescriptor.get : function() {
+        return Object.getOwnPropertyDescriptor(Document.prototype, "cookie").get.call(document);
+    };
+    
+    // Функция проверки согласия (используем оригинальный getter, чтобы обойти блокировку)
+    function hasConsent() {
+        try {
+            // Используем оригинальный getter, чтобы получить реальные куки
+            var allCookies = originalCookieGetter.call(document);
+            var consentCookie = allCookies.match(/(^|;)\s*w3d_consent=([^;]*)/);
+            if (!consentCookie) return false;
+            
+            var consent = JSON.parse(decodeURIComponent(consentCookie[2]));
+            return consent && (consent.analytics == 1 || consent.marketing == 1);
+        } catch(e) {
+            return false;
+        }
+    }
+    
+    // Если согласие уже дано - не блокируем
+    if (hasConsent()) {
+        console.log("✅ Consent: Cookies are ACTIVE (consent given)");
+        return; // Выходим из скрипта блокировки
+    }
+    
+    // БЕЛЫЙ СПИСОК: только эти куки разрешены
+    var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+    var blockerActive = true;
+    
+    // Логируем, что блокировка активна
+    console.log("🚫 Consent: Cookies are BLOCKED (waiting for consent)");
+    
+    function isCookieAllowed(cookieName) {
+        // Если блокировка отключена - разрешаем все
+        if (!blockerActive) return true;
+        
+        for (var i = 0; i < allowedCookies.length; i++) {
+            if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    function isRemovalAttempt(value) {
+        var lower = value.toLowerCase();
+        return lower.indexOf("expires=") !== -1 || lower.indexOf("max-age=0") !== -1;
+    }
+    
+    // СТАНДАРТНЫЙ ПЕРЕХВАТ: Object.defineProperty для document.cookie (самый частый и безопасный способ)
+    if (originalCookieDescriptor) {
+        try {
+            // Проверяем, можно ли переопределить свойство (не было ли оно уже переопределено)
+            var currentDescriptor = Object.getOwnPropertyDescriptor(document, "cookie");
+            if (currentDescriptor && currentDescriptor.configurable !== false) {
+                Object.defineProperty(document, "cookie", {
+                    configurable: true,
+                    set: function(value) {
+                        // Проверяем согласие перед каждой установкой куки
+                        if (hasConsent()) {
+                            if (blockerActive) {
+                                disableBlocker();
+                            }
+                            // Используем оригинальный setter напрямую
+                            return originalCookieDescriptor.set.call(document, value);
+                        }
+                        
+                        var cookieName = value.split("=")[0].trim();
+                        if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                            // Блокируем куку (логирование отдельных куки убрано для чистоты консоли)
+                            return;
+                        }
+                        return originalCookieDescriptor.set.call(document, value);
+                    },
+                    get: function() {
+                        return originalCookieDescriptor.get.call(document);
+                    }
+                });
+            }
+        } catch(e) {
+            // Если свойство уже переопределено или неконфигурируемо - это нормально
+        }
+    }
+    
+    // Функция полного отключения блокировки
+    var cleanupInterval = null;
+    var consentCheckInterval = null;
+    var eventHandlers = [];
+    
+    function disableBlocker() {
+        if (!blockerActive) return; // Уже отключено
+        
+        blockerActive = false;
+        console.log("✅ Consent: Cookies are now ACTIVE (consent detected)");
+        
+        // Восстанавливаем оригинальный document.cookie
+        if (originalCookieDescriptor) {
+            try {
+                Object.defineProperty(document, "cookie", originalCookieDescriptor);
+            } catch(e) {
+                // Если не удалось восстановить - это нормально, возможно уже восстановлено
+            }
+        }
+        
+        // Останавливаем все интервалы
+        if (cleanupInterval) {
+            clearInterval(cleanupInterval);
+            cleanupInterval = null;
+        }
+        if (consentCheckInterval) {
+            clearInterval(consentCheckInterval);
+            consentCheckInterval = null;
+        }
+        
+        // Удаляем все обработчики событий
+        eventHandlers.forEach(function(handler) {
+            try {
+                document.removeEventListener(handler.event, handler.fn, true);
+                window.removeEventListener(handler.event, handler.fn, true);
+            } catch(e) {}
+        });
+        eventHandlers = [];
+    }
+    
+    // ПРОСТАЯ очистка: удаляем уже установленные блокируемые куки
+    function cleanupCookies() {
+        // Если согласие дано - отключаем блокировку полностью
+        if (hasConsent()) {
+            disableBlocker();
+            return;
+        }
+        
+        // Если блокировка отключена - не делаем ничего
+        if (!blockerActive) return;
+        
+        try {
+            var allCookiesStr = originalCookieGetter.call(document);
+            if (!allCookiesStr) return;
+            
+            var allCookies = allCookiesStr.split(";");
+            var hostname = window.location.hostname;
+            var expireDate = "Thu, 01 Jan 1970 00:00:00 UTC";
+            
+            for (var i = 0; i < allCookies.length; i++) {
+                var cookie = allCookies[i].trim();
+                if (cookie) {
+                    var cookieName = cookie.split("=")[0].trim();
+                    if (!isCookieAllowed(cookieName)) {
+                        // Используем оригинальный setter напрямую, чтобы обойти наш перехват
+                        if (originalCookieDescriptor && originalCookieDescriptor.set) {
+                            originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/");
+                            originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/; domain=" + hostname);
+                            if (hostname.indexOf(".") > 0) {
+                                originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/; domain=." + hostname.split(".").slice(-2).join("."));
+                            }
+                        } else {
+                            document.cookie = cookieName + "=; expires=" + expireDate + "; path=/";
+                            document.cookie = cookieName + "=; expires=" + expireDate + "; path=/; domain=" + hostname;
+                            if (hostname.indexOf(".") > 0) {
+                                document.cookie = cookieName + "=; expires=" + expireDate + "; path=/; domain=." + hostname.split(".").slice(-2).join(".");
+                            }
+                        }
+                    }
+                }
+            }
+        } catch(e) {
+            // Тихая обработка ошибок
+        }
+    }
+    
+    // Проверяем согласие сразу - если дано, не запускаем блокировку
+    if (hasConsent()) {
+        disableBlocker();
+        return; // Выходим - блокировка не нужна
+    }
+    
+    // Очищаем сразу и периодически (оптимальная частота для перехвата)
+    cleanupCookies();
+    
+    // Запускаем интервалы только если блокировка активна
+    if (blockerActive) {
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 50);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 100);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 200);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 500);
+        
+        cleanupInterval = setInterval(function() {
+            if (!blockerActive || hasConsent()) {
+                if (hasConsent()) disableBlocker();
+                if (cleanupInterval) {
+                    clearInterval(cleanupInterval);
+                    cleanupInterval = null;
+                }
+                return;
+            }
+            cleanupCookies();
+        }, 500);
+        
+        // Также очищаем при важных событиях
+        var cleanupHandler = function() {
+            if (blockerActive && !hasConsent()) cleanupCookies();
+        };
+        
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", cleanupHandler, true);
+            eventHandlers.push({event: "DOMContentLoaded", fn: cleanupHandler});
+        }
+        window.addEventListener("load", cleanupHandler, true);
+        eventHandlers.push({event: "load", fn: cleanupHandler});
+        
+        // Слушаем изменения в куке согласия
+        var lastConsentCheck = Date.now();
+        consentCheckInterval = setInterval(function() {
+            if (Date.now() - lastConsentCheck > 1000) {
+                lastConsentCheck = Date.now();
+                if (hasConsent()) {
+                    disableBlocker();
+                }
+            }
+        }, 1000);
+    }
+})();
+</script>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="MKpwndA-Ff8kaUDFxB7SaKhX5vtFO923grXzUNW4TpA">
+	<title>אוביטקס - מערכות איטום מתקדמות - איטום מבנים, איטום גבישי, איטום בטון</title>
+	<script>window.isRemovalAttempt = window.isRemovalAttempt || function(){ return false; };</script><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <!-- КРИТИЧЕСКИЙ ПЕРЕХВАТ: блокируем куки ДО загрузки других скриптов -->
+    <script>
+        (function() {
+            'use strict';
+            // БЕЛЫЙ СПИСОК куки (синхронизирован с PHP)
+            var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+            var blockerActive = true;
+
+            function isCookieAllowed(cookieName) {
+                for (var i = 0; i < allowedCookies.length; i++) {
+                    if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function isRemovalAttempt(value) {
+                var lower = value.toLowerCase();
+                return lower.indexOf("expires=") !== -1 || lower.indexOf("max-age=0") !== -1;
+            }
+
+            // Выводим сообщение о блокировке максимум один раз
+            var blockedCookieNoticeShown = false;
+
+            function logBlockedCookie(name) {
+                if (blockedCookieNoticeShown) return;
+                blockedCookieNoticeShown = true;
+            }
+
+            // Перехватываем document.cookie СРАЗУ, до загрузки других скриптов
+            var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+
+            // Проверяем, не было ли свойство уже переопределено
+            var currentDescriptor = Object.getOwnPropertyDescriptor(document, 'cookie');
+            if (currentDescriptor && currentDescriptor.configurable === false) {
+                // Свойство уже переопределено и неконфигурируемо - пропускаем
+                return;
+            }
+
+            try {
+                if (!originalCookieDescriptor) {
+                    // Fallback для старых браузеров
+                    var cookieStore = {};
+                    Object.defineProperty(document, 'cookie', {
+                        configurable: true,
+                        get: function() {
+                            var allowed = [];
+                            for (var name in cookieStore) {
+                                if (isCookieAllowed(name)) {
+                                    allowed.push(name + '=' + cookieStore[name]);
+                                }
+                            }
+                            return allowed.join('; ');
+                        },
+                        set: function(value) {
+                            var cookieName = value.split('=')[0].trim();
+                            if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                                logBlockedCookie(cookieName);
+                                return;
+                            }
+                            cookieStore[cookieName] = value.split('=').slice(1).join('=');
+                        }
+                    });
+                } else {
+                    Object.defineProperty(document, 'cookie', {
+                        configurable: true,
+                        set: function(value) {
+                            var cookieName = value.split('=')[0].trim();
+                            if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                                logBlockedCookie(cookieName);
+                                return;
+                            }
+                            return originalCookieDescriptor.set.call(document, value);
+                        },
+                        get: function() {
+                            return originalCookieDescriptor.get.call(document);
+                        }
+                    });
+                }
+            } catch (e) {
+                // Если свойство уже переопределено - это нормально, просто пропускаем
+            }
+
+            // ОЧИСТКА: удаляем уже установленные куки, которые не в белом списке
+            // Используем оригинальный getter для получения всех cookies
+            function cleanupCookies() {
+                try {
+                    var allCookiesStr = originalCookieDescriptor ? originalCookieDescriptor.get.call(document) : document.cookie;
+                    if (!allCookiesStr) return;
+
+                    var allCookies = allCookiesStr.split(';');
+                    var hostname = window.location.hostname;
+                    var domainParts = hostname.split('.');
+                    var expireDate = 'Thu, 01 Jan 1970 00:00:00 UTC';
+                    var removed = false;
+
+                    for (var i = 0; i < allCookies.length; i++) {
+                        var cookie = allCookies[i].trim();
+                        if (cookie) {
+                            var cookieName = cookie.split('=')[0].trim();
+                            if (!isCookieAllowed(cookieName)) {
+                                // Пытаемся удалить куку разными способами (разные path и domain)
+                                // Используем оригинальный setter напрямую, чтобы обойти наш перехват
+                                if (originalCookieDescriptor && originalCookieDescriptor.set) {
+                                    originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/');
+                                    originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/; domain=' + hostname);
+                                    if (domainParts.length > 1) {
+                                        originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/; domain=.' + domainParts.slice(-2).join('.'));
+                                    }
+                                } else {
+                                    document.cookie = cookieName + '=; expires=' + expireDate + '; path=/';
+                                    document.cookie = cookieName + '=; expires=' + expireDate + '; path=/; domain=' + hostname;
+                                    if (domainParts.length > 1) {
+                                        document.cookie = cookieName + '=; expires=' + expireDate + '; path=/; domain=.' + domainParts.slice(-2).join('.');
+                                    }
+                                }
+                                removed = true;
+                            }
+                        }
+                    }
+                    if (removed) {}
+                } catch (e) {
+                    // Тихая обработка ошибок
+                }
+            }
+
+            // Очищаем сразу и периодически
+            cleanupCookies();
+            setTimeout(cleanupCookies, 10);
+            setTimeout(cleanupCookies, 100);
+            setTimeout(cleanupCookies, 500);
+        })();
+    </script>
+    <script id="w3d-consent-blocker-v2">
+        (function() {
+            'use strict';
+
+            // Паттерны из PHP
+            var criticalPatterns = ["wp-includes\/js\/","wp-admin\/js\/","jquery","wp-polyfill","wp-i18n","wp-hooks","wp-api","regenerator-runtime","wp-element","wp-components","lodash","moment","react","elementor","\/elementor\/","elementor-frontend","elementor-webpack","swiper","divi-","et-builder","fusion-","vc_","js_composer","beaver-builder","oxygen-","bricks-","woocommerce","wc-","contact-form-7","wpcf7","cf7","gravity","ninja-forms","wpforms","formidable","wp-rocket","autoptimize","litespeed","w3tc","cache","yoast","rank-math","all-in-one-seo","slick","owl.carousel","aos","animate","parallax","isotope","masonry","lightbox","magnific","fancybox","fonts.googleapis.com","fonts.gstatic.com","fontawesome","font-awesome","cdnjs.cloudflare.com\/ajax\/libs\/","unpkg.com","jsdelivr.net","w3d-cb-banner","web3d_consent","w3dConsentUpdated","recaptcha","hcaptcha","turnstile"];
+            var trackingPatterns = ["google-analytics.com\/analytics.js","google-analytics.com\/ga.js","googletagmanager.com\/gtag\/js","googletagmanager.com\/gtm.js","doubleclick.net","googlesyndication.com","googleadservices.com","mc.yandex.ru","yandex.ru\/metrika","hotjar.com","mouseflow.com","crazyegg.com","clarity.ms","fullstory.com","logrocket.com","connect.facebook.net","facebook.net\/signals","snap.licdn.com","ads.linkedin.com","static.ads-twitter.com","analytics.tiktok.com","pinterest.com\/ct\/","adnxs.com","adsrvr.org","criteo.com","outbrain.com","taboola.com"];
+            var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+            var blockerActive = true;
+
+            function hasConsent() {
+                try {
+                    var cookies = document.cookie || '';
+                    var match = cookies.match(/(^|;)\\s*w3d_consent=([^;]*)/);
+                    if (!match) return false;
+                    var consent = JSON.parse(decodeURIComponent(match[2]));
+                    var hasConsentValue = consent && (consent.analytics == 1 || consent.marketing == 1);
+                    if (hasConsentValue && blockerActive) {
+                        blockerActive = false;
+                    }
+                    return hasConsentValue;
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            // Проверяем consent сразу при загрузке
+            if (hasConsent()) {
+                blockerActive = false;
+
+                // Автоматически восстанавливаем заблокированные скрипты
+                function quickReleaseScripts() {
+                    var scripts = document.querySelectorAll('script[type="text/plain"][data-category]');
+                    var released = 0;
+                    scripts.forEach(function(script) {
+                        var category = script.getAttribute('data-category');
+                        var consent = hasConsent();
+                        if (!consent) return;
+
+                        try {
+                            var cookies = document.cookie || '';
+                            var match = cookies.match(/(^|;)\\s*w3d_consent=([^;]*)/);
+                            if (!match) return;
+                            var consentData = JSON.parse(decodeURIComponent(match[2]));
+                            var allowAnalytics = consentData && Number(consentData.analytics) === 1;
+                            var allowMarketing = consentData && Number(consentData.marketing) === 1;
+
+                            if ((category === 'analytics' && !allowAnalytics) ||
+                                (category === 'marketing' && !allowMarketing)) {
+                                return;
+                            }
+
+                            var newScript = document.createElement('script');
+                            var scriptType = script.getAttribute('data-orig-type') || 'text/javascript';
+                            newScript.type = scriptType;
+                            var dataSrc = script.getAttribute('data-src');
+                            if (dataSrc) {
+                                newScript.src = dataSrc;
+                            } else {
+                                newScript.innerHTML = script.innerHTML;
+                            }
+                            script.parentNode.insertBefore(newScript, script.nextSibling);
+                            script.remove();
+                            released++;
+                        } catch (e) {
+                            // Silent error handling
+                        }
+                    });
+                }
+
+                // Восстанавливаем сразу и после DOM готов
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', quickReleaseScripts);
+                } else {
+                    setTimeout(quickReleaseScripts, 50);
+                }
+            }
+
+            function isCritical(src) {
+                if (!src) return false;
+                src = src.toLowerCase();
+                for (var i = 0; i < criticalPatterns.length; i++) {
+                    if (src.indexOf(criticalPatterns[i].toLowerCase()) !== -1) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function isTracking(src) {
+                if (!src) return false;
+                src = src.toLowerCase();
+                for (var i = 0; i < trackingPatterns.length; i++) {
+                    if (src.indexOf(trackingPatterns[i].toLowerCase()) !== -1) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            var marketingHintPatterns = [
+                'doubleclick.net',
+                'googlesyndication.com',
+                'googleadservices.com',
+                'connect.facebook.net',
+                'fbevents.js',
+                'analytics.tiktok.com',
+                'ads.linkedin.com',
+                'snap.licdn.com',
+                'adsrvr.org',
+                'adnxs.com'
+            ];
+
+            function getTrackingCategory(src) {
+                if (!src) return 'analytics';
+                src = src.toLowerCase();
+                for (var i = 0; i < marketingHintPatterns.length; i++) {
+                    if (src.indexOf(marketingHintPatterns[i]) !== -1) {
+                        return 'marketing';
+                    }
+                }
+                return 'analytics';
+            }
+
+            var scriptProto = window.HTMLScriptElement ? HTMLScriptElement.prototype : null;
+            var originalScriptSetAttribute = scriptProto ? scriptProto.setAttribute : null;
+
+            function blockScriptElement(el, src) {
+                if (!el || el.tagName !== 'SCRIPT') return;
+                if (el.getAttribute && el.getAttribute('data-blocked') === 'web3d-consent') return;
+
+                if (hasConsent() || !blockerActive) {
+                    if (src) {
+                        try {
+                            el.src = src;
+                        } catch (e) {
+                            el.setAttribute('src', src);
+                        }
+                    }
+                    return;
+                }
+
+                var category = getTrackingCategory(src || '');
+                var originalType = el.getAttribute ? (el.getAttribute('type') || 'text/javascript') : 'text/javascript';
+
+                try {
+                    if (originalScriptSetAttribute) {
+                        originalScriptSetAttribute.call(el, 'type', 'text/plain');
+                        originalScriptSetAttribute.call(el, 'data-blocked', 'web3d-consent');
+                        originalScriptSetAttribute.call(el, 'data-category', category);
+                        originalScriptSetAttribute.call(el, 'data-orig-type', originalType);
+                        if (src) {
+                            originalScriptSetAttribute.call(el, 'data-src', src);
+                        }
+                    } else {
+                        el.type = 'text/plain';
+                        el.setAttribute('data-blocked', 'web3d-consent');
+                        el.setAttribute('data-category', category);
+                        el.setAttribute('data-orig-type', originalType);
+                        if (src) el.setAttribute('data-src', src);
+                    }
+                } catch (e) {
+                    // fallback
+                    el.type = 'text/plain';
+                    el.setAttribute('data-blocked', 'web3d-consent');
+                    el.setAttribute('data-category', category);
+                    el.setAttribute('data-orig-type', originalType);
+                    if (src) el.setAttribute('data-src', src);
+                }
+                el.text = '';
+            }
+
+            // Сообщаем о блокировке куки максимум один раз
+            var blockedCookieNoticeShown = false;
+
+            function logBlockedCookie(name) {
+                if (blockedCookieNoticeShown) return;
+                blockedCookieNoticeShown = true;
+            }
+
+            // ========== БЛОКИРОВКА ВСЕХ COOKIES (кроме белого списка) ==========
+            var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+            if (!originalCookieDescriptor || !originalCookieDescriptor.set) {
+                return; // Не можем перехватить
+            }
+
+            // Проверяем, не было ли свойство уже переопределено
+            var currentDescriptor = Object.getOwnPropertyDescriptor(document, 'cookie');
+            if (currentDescriptor && currentDescriptor.configurable === false) {
+                // Свойство уже переопределено и неконфигурируемо - пропускаем
+                return;
+            }
+
+            // БЕЛЫЙ СПИСОК: синхронизирован с серверным (из PHP)
+            // allowedCookies уже определен выше из PHP
+
+            // Функция проверки, разрешена ли кука
+            function isCookieAllowed(cookieName) {
+                for (var i = 0; i < allowedCookies.length; i++) {
+                    if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            try {
+                Object.defineProperty(document, 'cookie', {
+                    configurable: true,
+                    set: function(value) {
+                        if (!blockerActive || hasConsent()) {
+                            blockerActive = false;
+                            return originalCookieDescriptor.set.call(document, value);
+                        }
+                        var cookieName = value.split('=')[0].trim();
+
+                        // Блокируем ВСЕ куки, кроме белого списка
+                        if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                            logBlockedCookie(cookieName);
+                            return;
+                        }
+
+                        return originalCookieDescriptor.set.call(document, value);
+                    },
+                    get: function() {
+                        return originalCookieDescriptor.get.call(document);
+                    }
+                });
+            } catch (e) {
+                // Если свойство уже переопределено - это нормально, просто пропускаем
+            }
+
+            // ========== БЛОКИРОВКА ВНЕШНИХ СКРИПТОВ ==========
+            var originalCreate = document.createElement;
+            document.createElement = function(tag) {
+                var el = originalCreate.call(document, tag);
+
+                if (tag.toLowerCase() === 'script') {
+                    var origSetAttr = el.setAttribute.bind(el);
+
+                    el.setAttribute = function(name, value) {
+                        if (name === 'src' && typeof value === 'string') {
+                            if (!blockerActive || hasConsent()) {
+                                return origSetAttr(name, value);
+                            }
+                            // Критические - разрешаем
+                            if (isCritical(value)) {
+                                return origSetAttr(name, value);
+                            }
+
+                            // Tracking - блокируем
+                            if (isTracking(value)) {
+                                blockScriptElement(el, value);
+                                return;
+                            }
+                        }
+                        return origSetAttr(name, value);
+                    };
+                }
+
+                return el;
+            };
+
+            if (scriptProto && originalScriptSetAttribute) {
+                scriptProto.setAttribute = function(name, value) {
+                    if (!blockerActive || hasConsent()) {
+                        return originalScriptSetAttribute.call(this, name, value);
+                    }
+                    if (
+                        name &&
+                        name.toLowerCase() === 'src' &&
+                        typeof value === 'string' &&
+                        !isCritical(value) &&
+                        isTracking(value)
+                    ) {
+                        blockScriptElement(this, value);
+                        return;
+                    }
+                    return originalScriptSetAttribute.call(this, name, value);
+                };
+            }
+
+            if (scriptProto) {
+                var scriptSrcDescriptor = Object.getOwnPropertyDescriptor(scriptProto, 'src');
+                if (scriptSrcDescriptor && scriptSrcDescriptor.set && scriptSrcDescriptor.configurable !== false) {
+                    Object.defineProperty(scriptProto, 'src', {
+                        configurable: true,
+                        get: scriptSrcDescriptor.get,
+                        set: function(value) {
+                            if (!blockerActive || hasConsent()) {
+                                return scriptSrcDescriptor.set.call(this, value);
+                            }
+                            if (typeof value === 'string' && !isCritical(value) && isTracking(value)) {
+                                blockScriptElement(this, value);
+                                return value;
+                            }
+                            return scriptSrcDescriptor.set.call(this, value);
+                        }
+                    });
+                }
+            }
+
+            // ========== БЛОКИРОВКА INLINE СКРИПТОВ ==========
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.tagName !== 'SCRIPT') return;
+                        if (node.type === 'text/plain') return;
+                        if (node.getAttribute('data-blocked')) return;
+
+                        var src = node.src || '';
+                        var content = node.textContent || node.innerHTML || '';
+
+                        // Пропускаем пустые
+                        if (!src && content.length < 20) return;
+
+                        // Критические - разрешаем
+                        if (isCritical(src) || isCritical(content)) {
+                            return;
+                        }
+
+                        // Проверяем inline tracking код
+                        var trackingInlinePatterns = [
+                            /gtag\s*\(\s*['"]config['"]/,
+                            /gtag\s*\(\s*['"]event['"]/,
+                            /ga\s*\(\s*['"]create['"]/,
+                            /GoogleAnalyticsObject/,
+                            /fbq\s*\(\s*['"]init['"]/,
+                            /fbq\s*\(\s*['"]track['"]/,
+                            /_linkedin_data_partner_id/,
+                            /ttq\.load/,
+                            /ym\s*\(\s*\d+/,
+                            /dataLayer\.push/
+                        ];
+
+                        var isTrackingInline = false;
+                        for (var i = 0; i < trackingInlinePatterns.length; i++) {
+                            if (trackingInlinePatterns[i].test(content)) {
+                                isTrackingInline = true;
+                                break;
+                            }
+                        }
+
+                        if (isTrackingInline || isTracking(src)) {
+                            var originalType = node.getAttribute('type') || 'text/javascript';
+                            node.type = 'text/plain';
+                            node.setAttribute('data-blocked', 'web3d-consent');
+                            node.setAttribute('data-category', 'analytics');
+                            node.setAttribute('data-orig-type', originalType);
+                            if (src) node.setAttribute('data-src', src);
+                            node.textContent = '';
+                        }
+                    });
+                });
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true
+            });
+
+            // ========== БЛОКИРОВКА document.write ==========
+            var origWrite = document.write;
+            document.write = function(content) {
+                if (typeof content === 'string' && content.length > 0) {
+                    for (var i = 0; i < trackingPatterns.length; i++) {
+                        if (content.indexOf(trackingPatterns[i]) !== -1) {
+                            return;
+                        }
+                    }
+                }
+                return origWrite.call(document, content);
+            };
+
+
+        })();
+    </script>
+
+	<!-- This site is optimized with the Yoast SEO plugin v25.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="אוביטקס מערכות איטום מתקדמות מבצעת איטום גבישי, איטום בהזרקות, איטום מבנים ומקלטים באמצעות טכנולוגיות וחומרי איטום מתקדמים.">
+	<link rel="canonical" href="https://obitex.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="אוביטקס - מערכות איטום מתקדמות - איטום מבנים, איטום גבישי, איטום בטון">
+	<meta property="og:description" content="אוביטקס מערכות איטום מתקדמות מבצעת איטום גבישי, איטום בהזרקות, איטום מבנים ומקלטים באמצעות טכנולוגיות וחומרי איטום מתקדמים.">
+	<meta property="og:url" content="https://obitex.co.il/">
+	<meta property="og:site_name" content="אוביטקס">
+	<meta property="article:publisher" content="https://www.facebook.com/%d7%96%d7%99%d7%99%d7%a4%d7%a7%d7%a1-%d7%90%d7%99%d7%98%d7%95%d7%9d-%d7%92%d7%91%d7%99%d7%a9%d7%99-%d7%9c%d7%91%d7%98%d7%95%d7%9f-576839615823550/">
+	<meta property="article:modified_time" content="2025-02-27T06:25:05+00:00">
+	<meta property="og:image" content="https://obitex.co.il/wp-content/uploads/2018/04/saving.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://obitex.co.il/","url":"https://obitex.co.il/","name":"אוביטקס - מערכות איטום מתקדמות - איטום מבנים, איטום גבישי, איטום בטון","isPartOf":{"@id":"https://obitex.co.il/#website"},"about":{"@id":"https://obitex.co.il/#organization"},"primaryImageOfPage":{"@id":"https://obitex.co.il/#primaryimage"},"image":{"@id":"https://obitex.co.il/#primaryimage"},"thumbnailUrl":"https://obitex.co.il/wp-content/uploads/2018/04/saving.png","datePublished":"2018-04-08T09:13:09+00:00","dateModified":"2025-02-27T06:25:05+00:00","description":"אוביטקס מערכות איטום מתקדמות מבצעת איטום גבישי, איטום בהזרקות, איטום מבנים ומקלטים באמצעות טכנולוגיות וחומרי איטום מתקדמים.","breadcrumb":{"@id":"https://obitex.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://obitex.co.il/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://obitex.co.il/#primaryimage","url":"https://obitex.co.il/wp-content/uploads/2018/04/saving.png","contentUrl":"https://obitex.co.il/wp-content/uploads/2018/04/saving.png"},{"@type":"BreadcrumbList","@id":"https://obitex.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://obitex.co.il/#website","url":"https://obitex.co.il/","name":"אוביטקס","description":"מערכות איטום מתקדמות","publisher":{"@id":"https://obitex.co.il/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://obitex.co.il/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"},{"@type":"Organization","@id":"https://obitex.co.il/#organization","name":"obitex מערכות איטום מתקדמות","url":"https://obitex.co.il/","logo":{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://obitex.co.il/#/schema/logo/image/","url":"https://obitex.co.il/wp-content/uploads/2018/04/logo.png","contentUrl":"https://obitex.co.il/wp-content/uploads/2018/04/logo.png","width":314,"height":144,"caption":"obitex מערכות איטום מתקדמות"},"image":{"@id":"https://obitex.co.il/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/זייפקס-איטום-גבישי-לבטון-576839615823550/","https://www.youtube.com/channel/UCgu-IM1uZyy_n_5M1YyZp2Q"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="אוביטקס « פיד‏" href="https://obitex.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="אוביטקס « פיד תגובות‏" href="https://obitex.co.il/comments/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/obitex.co.il\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel="stylesheet" id="jquery.prettyphoto-css" href="https://obitex.co.il/wp-content/plugins/wp-video-lightbox/css/prettyPhoto.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="video-lightbox-css" href="https://obitex.co.il/wp-content/plugins/wp-video-lightbox/wp-video-lightbox.css?ver=6.6.2" type="text/css" media="all">
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-rtl-css" href="https://obitex.co.il/wp-includes/css/dist/block-library/style-rtl.min.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="mediaelement-css" href="https://obitex.co.il/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17" type="text/css" media="all">
+<link rel="stylesheet" id="wp-mediaelement-css" href="https://obitex.co.il/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="view_editor_gutenberg_frontend_assets-css" href="https://obitex.co.il/wp-content/plugins/wp-views/public/css/views-frontend.css?ver=3.6.16" type="text/css" media="all">
+<style id="view_editor_gutenberg_frontend_assets-inline-css" type="text/css">
+.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item a {color: #444;background-color: #fff;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:focus {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #eee;}
+.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item a {color: #444;background-color: #fff;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:focus {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item a {color: #444;background-color: #eeeeee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:focus {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #e5e5e5;}
+.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item a {color: #444;background-color: #fff;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:focus {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item a {color: #444;background-color: #eeeeee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:focus {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item {border-color: #0099cc;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item a {color: #444;background-color: #cbddeb;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue a:focus {color: #000;background-color: #95bedd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #95bedd;}
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="awd-style-css" href="https://obitex.co.il/wp-content/plugins/aryo-widget-device/assets/css/style.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="https://obitex.co.il/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.0.6" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-rtl-css" href="https://obitex.co.il/wp-content/plugins/contact-form-7/includes/css/styles-rtl.css?ver=6.0.6" type="text/css" media="all">
+<link rel="stylesheet" id="swiper-css" href="https://obitex.co.il/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5" type="text/css" media="all">
+<link rel="stylesheet" id="slick-css" href="https://obitex.co.il/wp-content/themes/atlanta-child/css/slick.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="slick-theme-css" href="https://obitex.co.il/wp-content/themes/atlanta-child/css/slick-theme.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="fancybox-css" href="https://obitex.co.il/wp-content/plugins/easy-fancybox/fancybox/1.5.4/jquery.fancybox.min.css?ver=6.6.2" type="text/css" media="screen">
+<link rel="stylesheet" id="pojo-css-framework-css" href="https://obitex.co.il/wp-content/themes/atlanta/assets/bootstrap/css/bootstrap.min.css?ver=3.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-v4shim-css" href="https://obitex.co.il/wp-content/plugins/wp-views/vendor/toolset/toolset-common/res/lib/font-awesome/css/v4-shims.css?ver=5.13.0" type="text/css" media="screen">
+<link rel="stylesheet" id="font-awesome-css" href="https://obitex.co.il/wp-content/plugins/wp-views/vendor/toolset/toolset-common/res/lib/font-awesome/css/all.css?ver=5.13.0" type="text/css" media="screen">
+<link rel="stylesheet" id="photoswipe-css" href="https://obitex.co.il/wp-content/plugins/pojo-lightbox/assets/photoswipe/photoswipe.min.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="photoswipe-skin-css" href="https://obitex.co.il/wp-content/plugins/pojo-lightbox/assets/photoswipe/default-skin/default-skin.min.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-builder-animation-css" href="https://obitex.co.il/wp-content/plugins/pojo-builder-animation/assets/css/styles.css?ver=6.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-base-style-css" href="https://obitex.co.il/wp-content/themes/atlanta/core/assets/css/style.min.css?ver=1.8.1" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-style-css" href="https://obitex.co.il/wp-content/themes/atlanta-child/assets/css/style.css?ver=1.8.1" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-base-style-rtl-css" href="https://obitex.co.il/wp-content/themes/atlanta/core/assets/css/rtl.min.css?ver=1.8.1" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-style-rtl-css" href="https://obitex.co.il/wp-content/themes/atlanta-child/assets/css/rtl.css?ver=1.8.1" type="text/css" media="all">
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/wp-views/vendor/toolset/common-es/public/toolset-common-es-frontend.js?ver=172000" id="toolset-common-es-frontend-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/wp-video-lightbox/js/jquery.prettyPhoto.js?ver=3.1.6" id="jquery.prettyphoto-js"></script>
+<script type="text/javascript" id="video-lightbox-js-extra">
+/* <![CDATA[ */
+var vlpp_vars = {"prettyPhoto_rel":"wp-video-lightbox","animation_speed":"fast","slideshow":"5000","autoplay_slideshow":"false","opacity":"0.80","show_title":"true","allow_resize":"true","allow_expand":"true","default_width":"640","default_height":"480","counter_separator_label":"\/","theme":"facebook","horizontal_padding":"20","hideflash":"false","wmode":"opaque","autoplay":"true","modal":"false","deeplinking":"false","overlay_gallery":"true","overlay_gallery_max":"30","keyboard_shortcuts":"true","ie6_fallback":"true"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/wp-video-lightbox/js/video-lightbox.js?ver=3.1.6" id="video-lightbox-js"></script>
+<script type="text/javascript" async="" src="https://obitex.co.il/wp-content/plugins/burst-statistics/helpers/timeme/timeme.min.js?ver=1.7.2" id="burst-timeme-js"></script>
+<script type="text/javascript" id="burst-js-extra">
+/* <![CDATA[ */
+var burst = {"cookie_retention_days":"30","beacon_url":"https:\/\/obitex.co.il\/wp-content\/plugins\/burst-statistics\/endpoint.php","options":{"beacon_enabled":1,"enable_cookieless_tracking":0,"enable_turbo_mode":0,"do_not_track":0,"track_url_change":0},"goals":[],"goals_script_url":"https:\/\/obitex.co.il\/wp-content\/plugins\/burst-statistics\/\/assets\/js\/build\/burst-goals.js?v=1.7.2"};
+/* ]]> */
+</script>
+<script type="text/javascript" async="" src="https://obitex.co.il/wp-content/plugins/burst-statistics/assets/js/build/burst.min.js?ver=1.7.2" id="burst-js"></script>
+<link rel="https://api.w.org/" href="https://obitex.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://obitex.co.il/wp-json/wp/v2/pages/56"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://obitex.co.il/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.2">
+<link rel="shortlink" href="https://obitex.co.il/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://obitex.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fobitex.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://obitex.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fobitex.co.il%2F&amp;format=xml">
+<script>
+            WP_VIDEO_LIGHTBOX_VERSION="1.9.12";
+            WP_VID_LIGHTBOX_URL="https://obitex.co.il/wp-content/plugins/wp-video-lightbox";
+                        function wpvl_paramReplace(name, string, value) {
+                // Find the param with regex
+                // Grab the first character in the returned string (should be ? or &)
+                // Replace our href string with our new value, passing on the name and delimeter
+
+                var re = new RegExp("[\?&]" + name + "=([^&#]*)");
+                var matches = re.exec(string);
+                var newString;
+
+                if (matches === null) {
+                    // if there are no params, append the parameter
+                    newString = string + '?' + name + '=' + value;
+                } else {
+                    var delimeter = matches[0].charAt(0);
+                    newString = string.replace(re, delimeter + name + "=" + value);
+                }
+                return newString;
+            }
+            </script><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic|Roboto+Slab:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic|Karla:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic|Neuton:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;subset=hebrew"><style type="text/css">div.logo-text a{color: #666666; font-family: 'Open Sans', Arial, sans-serif; font-weight: normal; font-size: 30px;line-height: 1em;}.logo-img a > img{width: auto;}body{background-color: rgba(255, 255, 255, 1);background-position: top center;background-repeat: repeat;background-size: auto;background-attachment: scroll;color: #474747; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: normal; font-size: 20px;line-height: 1.5em;}#top-bar{background-color: #eeeeee;color: #5b5b5b; font-family: 'Roboto Slab', Arial, sans-serif; font-weight: normal; font-size: 12px;line-height: 40px;}#top-bar a{color: #888888;}#top-bar a:hover{color: #1c57ff;}#header, .sticky-header{background-color: rgba(255, 255, 255, 1);background-position: center bottom;background-repeat: repeat-x;background-size: auto;background-attachment: scroll;}.sf-menu a, .mobile-menu a{color: #474747; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: 400; font-size: 18px;}.sf-menu a:hover,.sf-menu li.active a, .sf-menu li.current-menu-item > a,.sf-menu .sfHover > a,.sf-menu .sfHover > li.current-menu-item > a,.sf-menu li.current-menu-ancestor > a,.mobile-menu a:hover,.mobile-menu li.current-menu-item > a{color: #474747;}.nav-main .sf-menu .sub-menu{background-color: #ffffff;}.nav-main .sf-menu .sub-menu li:hover{background-color: #ffffff;}.nav-main .sf-menu .sub-menu li a{color: #474747; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: 400; font-size: 18px;text-transform: none;line-height: 2em;}.nav-main .sf-menu .sub-menu li:hover > a,.nav-main .sf-menu .sub-menu li.current-menu-item > a{color: #474747;}a, .entry-meta:after,.sd-title:after,.title-comments:after,.title-respond:after,.pb-widget-title:after,.widget-title:after{color: #2a9edd;}a:hover{color: #1c57ff;}::selection{color: #ffffff;background: #1c57ff;}::-moz-selection{color: #ffffff;background: #1c57ff;}h1{color: #ffffff; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 48px;text-transform: none;line-height: 1.5em;}h2{color: #2a9edd; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 31px;text-transform: none;line-height: 1.5em;}h3{color: #2a9edd; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 22px;text-transform: none;letter-spacing: -0.5px;line-height: 1.5em;}h4{color: #1c57ff; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 21px;text-transform: none;letter-spacing: -1.5px;line-height: 1.5em;}h5{color: #ffffff; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 16px;text-transform: none;letter-spacing: -0.5px;line-height: 2em;}h6{color: #7a7a7a; font-family: 'Open Sans', Arial, sans-serif; font-weight: bold; font-size: 18px;text-transform: uppercase;line-height: 2.5em;}#page-header.page-header-style-custom_bg{background-image: url("https://obitex.co.il/wp-content/uploads/2018/04/head-bg.jpg");background-color: rgba(243, 243, 243, 1);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;}#page-header{height: auto;line-height: auto;color: #ffffff; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 48px;text-transform: capitalize;}#page-header div.breadcrumbs, #page-header div.breadcrumbs a{color: #636363; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: normal; font-size: 12px;text-transform: none;letter-spacing: 0px;font-style: normal;}#sidebar{color: #606060; font-family: 'Roboto Slab', Arial, sans-serif; font-weight: normal; font-size: 13px;line-height: 1.5em;}#sidebar a{color: #606060;}#sidebar a:hover{color: #1c57ff;}#sidebar .widget-title{color: #1c57ff; font-family: 'Karla', Arial, sans-serif; font-weight: bold; font-size: 17px;text-transform: none;letter-spacing: -1px;line-height: 2em;}#footer{background-color: #3A3A3A;color: #9e9e9e; font-family: 'Roboto Slab', Arial, sans-serif; font-weight: normal; font-size: 13px;line-height: 1.5em;}#footer a{color: #7c7c7c;}#footer a:hover{color: #1c57ff;}#sidebar-footer .widget-title{color: #ffffff; font-family: 'Karla', Arial, sans-serif; font-weight: bold; font-size: 17px;text-transform: none;letter-spacing: -0.5px;line-height: 2.3em;}#copyright{background-color: #3a3a3a;color: #7c7c7c; font-family: 'Roboto Slab', Arial, sans-serif; font-weight: normal; font-size: 12px;letter-spacing: 0px;font-style: normal;line-height: 60px;}#copyright a{color: #7c7c7c;}#copyright a:hover{color: #1c57ff;}#outer-slidebar #outer-slidebar-overlay{background-color: #1c57ff;}#outer-slidebar{color: #ffffff; font-family: 'Neuton', Arial, sans-serif; font-weight: normal; font-size: 15px;line-height: 1.5em;}#outer-slidebar a{color: #f2f2f2;}#outer-slidebar a:hover{color: #ffffff;}#outer-slidebar .widget-title{color: #ffffff; font-family: 'Karla', Arial, sans-serif; font-weight: bold; font-size: 21px;letter-spacing: -1px;line-height: 2.5em;}#pojo-scroll-up{width: 50px;height: 50px;line-height: 50px;background-color: rgba(51, 51, 51, 0.6);background-position: top center;background-repeat: repeat;background-size: auto;background-attachment: scroll;}#pojo-scroll-up a{color: #eeeeee;}.sf-menu a, .menu-no-found,.sf-menu li.pojo-menu-search,.search-header{line-height: 68px;}.sf-menu li:hover ul, .sf-menu li.sfHover ul{top: 68px;}#top-bar ul.social-links li a .social-icon:before{line-height: 40px;height: 40px;width: 40px;}.navbar-toggle{border-color: #474747;}.icon-bar{background-color: #474747;}.sf-menu li.active, .sf-menu li:hover, .sf-menu li.current-menu-item, .sf-menu li.current-menu-parent, .sf-menu li.current-menu-ancestor, .sf-menu li.current_page_item, .sf-menu li.current_page_paren, .sf-menu li.current_page_ancestor{border-color: #474747;}#sidebar .menu li a:hover, #sidebar .sub-menu li a:hover, #sidebar .sub-page-menu li a:hover, #sidebar .menu li.current_page_item > a, #sidebar .sub-menu li.current_page_item > a, #sidebar .sub-page-menu li.current_page_item > a, #sidebar .menu li.current-menu-item > a, #sidebar .sub-menu li.current-menu-item > a, #sidebar .sub-page-menu li.current-menu-item > a{border-color: #2a9edd;}.category-filters a{color: #2a9edd;}.category-filters a:hover,.category-filters a.active{color: #1c57ff;border-top-color: #1c57ff;}#outer-slidebar #outer-slidebar-toggle a{border-right-color: #1c57ff;color: #ffffff;}.rtl #outer-slidebar #outer-slidebar-toggle a{border-left-color: #1c57ff;}.p {
+margin-top: -52px;
+}
+
+</style>
+		<meta name="generator" content="Elementor 3.24.5; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style> <script> window.addEventListener("load",function(){ var c={script:false,link:false}; function ls(s) { if(!['script','link'].includes(s)||c[s]){return;}c[s]=true; var d=document,f=d.getElementsByTagName(s)[0],j=d.createElement(s); if(s==='script'){j.async=true;j.src='https://obitex.co.il/wp-content/plugins/wp-views/vendor/toolset/blocks/public/js/frontend.js?v=1.6.13';}else{ j.rel='stylesheet';j.href='https://obitex.co.il/wp-content/plugins/wp-views/vendor/toolset/blocks/public/css/style.css?v=1.6.13';} f.parentNode.insertBefore(j, f); }; function ex(){ls('script');ls('link')} window.addEventListener("scroll", ex, {once: true}); if (('IntersectionObserver' in window) && ('IntersectionObserverEntry' in window) && ('intersectionRatio' in window.IntersectionObserverEntry.prototype)) { var i = 0, fb = document.querySelectorAll("[class^='tb-']"), o = new IntersectionObserver(es => { es.forEach(e => { o.unobserve(e.target); if (e.intersectionRatio > 0) { ex();o.disconnect();}else{ i++;if(fb.length>i){o.observe(fb[i])}} }) }); if (fb.length) { o.observe(fb[i]) } } }) </script>
+	<noscript>
+		<link rel="stylesheet" href="https://obitex.co.il/wp-content/plugins/wp-views/vendor/toolset/blocks/public/css/style.css">
+	</noscript>			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://obitex.co.il/wp-content/uploads/2018/04/cropped-obitex-logo-stiky-32x32.png" sizes="32x32">
+<link rel="icon" href="https://obitex.co.il/wp-content/uploads/2018/04/cropped-obitex-logo-stiky-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://obitex.co.il/wp-content/uploads/2018/04/cropped-obitex-logo-stiky-180x180.png">
+<meta name="msapplication-TileImage" content="https://obitex.co.il/wp-content/uploads/2018/04/cropped-obitex-logo-stiky-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			.column-cf-bottom .wpcf7-form-control-wrap input[type='checkbox'] {
+    height: 15px !important;
+}
+.wpcf7-list-item input[type='checkbox'] {
+    height: 15px !important;
+}
+.section {
+    font-size: 20px;
+    line-height: 1.5;
+}
+.wpcf7 input[type="url"], .wpcf7 input[type="email"], .wpcf7 input[type="tel"] {
+    direction: rtl;
+}		</style>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<script src="https://kit.fontawesome.com/ac84f9b9b6.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118173594-1" type="text/plain" data-blocked="web3d-consent" data-category="analytics">/* Blocked by Web3D Consent */</script>
+<script type="text/plain" data-blocked="web3d-consent" data-category="analytics">/* Blocked by Web3D Consent */</script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KT5FCBD');</script>
+    <!-- End Google Tag Manager -->
+
+
+<style>/* ----------------------------------------- *//* View slug: areas-of-activity-for-home - start *//* ----------------------------------------- */.home-areas-activity .area-img-box {    overflow: hidden;    height: 200px;    display: flex;    align-items: center;    justify-content: center;}/* ----------------------------------------- *//* View slug: areas-of-activity-for-home - end *//* ----------------------------------------- */<!--[if IE 7]><style>.wpv-pagination { *zoom: 1; }</style><![endif]--></style><script src="https://obitex.co.il/wp-includes/js/wp-emoji-release.min.js?ver=6.6.2" defer=""></script><style type="text/css" id="pojo-size-sections"></style></head>
+<body class="rtl home page-template-default page page-id-56 layout-section pojo-title-bar views-template--- elementor-default elementor-kit-1208 format-page-builder">
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KT5FCBD"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+<a class="show_popup" rel="reg_form" href="#">
+	צור קשר
+	<img src="/wp-content/themes/atlanta-child/assets/images/contact-fixed.png">
+</a>
+<div id="contact_form_pop" class="popup reg_form">
+<div class="popup-overlay"></div>
+	<a class="close" href="#">Close</a>
+	<h2>צור קשר</h2>
+	
+<div class="wpcf7 js" id="wpcf7-f8-o1" lang="en-US" dir="ltr" data-wpcf7-id="8">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f8-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="8">
+<input type="hidden" name="_wpcf7_version" value="6.0.6">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f8-o1">
+<input type="hidden" name="_wpcf7_container_post" value="0">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+<input type="hidden" name="_wpcf7_recaptcha_response" value="0cAFcWeA72ocpPcTV7Db_b5VIb2qbpcaY_5QpTaeBf9nxOj9jaxvDAf1d_odxl0jxzl_lIaKVMl-hITyIaVaIsAr026xseRI-Lshz6eCbiZCvzH63kKXg2y3_ggVozMaD5H5fRruUrTYOuCd28tx0gTVt624G2FfacDnYUgmsQWuLRUiSyGLuSdjGXPOKhpI05mvWJ1VYKCiERsq_TDD1cV7NP9DM34nDczMuSmI4wUhJgDQiZpA1q0QIEzXwcmsWTmfiGHH1_yifIYa-CeUvj_WhycbAe-7kkbWwF5Vg-Ym-ZdlZuZMU31P052OA7okpyO7BEzlSjUtX5a7IrBSw4yZOWsfWKzEMGR7X32712xoEJgFNvXE-OKuPxFWYKhEIYwwsR4RyTPLV1JTniwF5BZvdqb6DSC0uFbrphFw8qKqwZI3Sx7n6BpInbADf1Khxs0z7X5mVbowUSbWNdpVs3dhxcRhf_KFAT7KY6FbpATEvjBpiCt9pA31erxzOSevXkmW5uxDnum5VdOq8z1J92ESoltHOnlEna7ebupMZmZGwT8xxgMrlnL0PIk55019SscwzT4iNJIHnODMksx9BBrIxapK6EzmIhY1C6ptDBoQEsAYJSZOWYhKGsbVk3Pm02vWbkHzCTU5HmUuWKR1iVwKMDq17zqXkkZreE6eQiR1U9AdRRpjuRRdxBLjTUUx_MVDG3SZGzru24F9i7KxODIN_eFCO0Jj-o2Pp8VYDtFLyv4rwvXcIOdSWuHUBB5uvFWWOcd7InfY1O9bdoTuBR00obmdaEE84mybD_UHn6fipLrazqzX5SPJLM3Pl6MsqZLq-x7C5diRpJVdWEpXQD_XZ2fVJW4p3q0Xo3NDYyXB6yAwJKIZHGO9StGPskqZWOmh-VgpqReal8s_ms5kCOm1wgxWB1VrTIOyf2jYJk6oubUlZHl6e7WXI8IiVP6cylb1sTZZYl3_eXAEoUzC9HvXS3JqqhJnRVCmSRmKkhDmjmIdZTZrnbVJcNp_BvKlMLKfl2suvrSpDo">
+</div>
+<p><span class="wpcf7-form-control-wrap" data-name="text-618"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="שם" value="" type="text" name="text-618"></span><span class="wpcf7-form-control-wrap" data-name="tel-883"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" aria-invalid="false" placeholder="טלפון" value="" type="tel" name="tel-883"></span><span class="wpcf7-form-control-wrap" data-name="email-689"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="מייל" value="" type="email" name="email-689"></span><span class="wpcf7-form-control-wrap" data-name="textarea-754"><textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="מהות הפניה" name="textarea-754"></textarea></span>
+<span id="wpcf7-69b98a97abf1e-wrapper" class="wpcf7-form-control-wrap my-hobby-wrap" style="display:none !important; visibility:hidden !important;"><label for="wpcf7-69b98a97abf1e-field" class="hp-message">Please leave this field empty.</label><input id="wpcf7-69b98a97abf1e-field" class="wpcf7-form-control wpcf7-text" type="text" name="my-hobby" value="" size="40" tabindex="-1" autocomplete="new-password"></span>
+</p>
+
+<!--web3d-consent-start-->
+<div id="web3d-consent-8" class="web3d-consent-text">
+	<p><span class="wpcf7-form-control-wrap" data-name="privacy_consent"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="privacy_consent" value="1" aria-invalid="false"><span class="wpcf7-list-item-label">אני מאשר/ת כי קראתי והבנתי את <a href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" style="text-decoration:underline;" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a> וכי אני מסכים/ה לה</span></label></span></span></span>
+	</p>
+</div>
+<style id="web3d-consent-style-8">#web3d-consent-8 a { text-decoration: none !important; text-decoration-color: transparent !important; }
+/* Consent block base styling */
+.web3d-consent-text {
+ line-height: 1.6;
+ margin: 12px 0;
+}
+
+.web3d-consent-text a {
+ font-weight: 600;
+}
+
+.web3d-consent-text .web3d-consent-helper {
+ display: block;
+ font-size: 12px;
+ opacity: 0.8;
+ margin-top: 6px;
+}
+</style><!--web3d-consent-end-->
+<p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="שלח" disabled=""><span class="wpcf7-spinner"></span>
+</p><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>
+<!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em>
+	<a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+	<a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+</p><![endif]-->
+
+
+<div id="container" class="wide">
+	
+			<header id="header" class="logo-right" role="banner">
+			<div class="container">
+				<div class="logo">
+										<div class="logo-img">
+						<a class="xypex-link" href="/brand/xypex/"></a>
+						<a href="https://obitex.co.il/" rel="home"><picture class="logo-img-primary">
+<source type="image/webp" srcset="https://obitex.co.il/wp-content/uploads/2023/06/bi-logo.png.webp">
+<img src="https://obitex.co.il/wp-content/uploads/2023/06/bi-logo.png" alt="אוביטקס">
+</picture>
+</a>					</div>
+										
+										<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">תפריט</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+									</div>
+				<section id="pojo_social_links-2" class="widget widget_pojo_social_links"><div class="widget-inner"><ul class="social-links"><li class="social-facebook"><a href="https://www.facebook.com/ObitexLTD" class="pojo-tooltip" data-placement="bottom" title="" target="_blank" data-original-title="Facebook"><span class="social-icon"></span><span class="sr-only">Facebook</span></a></li><li class="social-youtube"><a href="https://www.youtube.com/@obitex-6318" class="pojo-tooltip" data-placement="bottom" title="" target="_blank" data-original-title="YouTube"><span class="social-icon"></span><span class="sr-only">YouTube</span></a></li><li class="social-linkedin"><a href="https://www.linkedin.com/company/obitex-ltd/about/" class="pojo-tooltip" data-placement="bottom" title="" target="_blank" data-original-title="LinkedIn"><span class="social-icon"></span><span class="sr-only">LinkedIn</span></a></li><li class="social-instagram"><a href="https://www.instagram.com/obitex.israel/" class="pojo-tooltip" data-placement="bottom" title="" target="_blank" data-original-title="Instagram"><span class="social-icon"></span><span class="sr-only">Instagram</span></a></li></ul></div></section>				<nav class="nav-main" role="navigation">
+					<div class="navbar-collapse collapse">
+													<ul id="menu-%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99-15-10-2023" class="sf-menu hidden-xs sf-js-enabled"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-56 current_page_item active menu-%d7%a8%d7%90%d7%a9%d7%99 first-item menu-item-1310"><a href="https://obitex.co.il/"><span>ראשי</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-%d7%90%d7%95%d7%93%d7%95%d7%aa menu-item-1313"><a href="https://obitex.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="sf-with-ul"><span>אודות</span><span class="sf-sub-indicator"> »</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%97%d7%95%d7%aa%d7%9d-%d7%94%d7%90%d7%9e%d7%99%d7%a0%d7%95%d7%aa-%d7%a9%d7%9c-%d7%93%d7%9f-%d7%90%d7%a0%d7%93-%d7%91%d7%a8%d7%93%d7%a1%d7%98%d7%a8%d7%99%d7%98 menu-item-1312"><a href="https://obitex.co.il/%d7%97%d7%95%d7%aa%d7%9d-%d7%94%d7%90%d7%9e%d7%99%d7%a0%d7%95%d7%aa-%d7%a9%d7%9c-%d7%93%d7%9f-%d7%90%d7%a0%d7%93-%d7%91%d7%a8%d7%93%d7%a1%d7%98%d7%a8%d7%99%d7%98/"><span>חותם האמינות של דן אנד ברדסטריט</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-dbs-credibility-mark menu-item-1311"><a href="https://obitex.co.il/dbs-credibility-mark/"><span>D&amp;B’s Credibility Mark</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%90%d7%a0%d7%97%d7%a0%d7%95-%d7%a4%d7%94-%d7%91%d7%a9%d7%91%d7%99%d7%9c%d7%9b%d7%9d menu-item-1314"><a href="https://obitex.co.il/%d7%90%d7%a0%d7%97%d7%a0%d7%95-%d7%a4%d7%94-%d7%91%d7%a9%d7%91%d7%99%d7%9c%d7%9b%d7%9d/"><span>אנחנו פה בשבילכם</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%95%d7%9b%d7%aa%d7%91%d7%95%d7%aa menu-item-1319"><a href="https://obitex.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%95%d7%9b%d7%aa%d7%91%d7%95%d7%aa/"><span>מאמרים וכתבות</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d menu-item-1320"><a href="https://obitex.co.il/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d/"><span>פרויקטים</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8 menu-item-1321"><a href="https://obitex.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/"><span>צור קשר</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa menu-item-1447"><a href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/"><span>מדיניות פרטיות</span></a></li>
+</ul><ul id="menu-%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99-15-10-2024" class="mobile-menu visible-xs"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-56 current_page_item active first-item menu-item-1310"><a href="https://obitex.co.il/"><span>ראשי</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1313"><a href="https://obitex.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/"><span>אודות</span></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1312"><a href="https://obitex.co.il/%d7%97%d7%95%d7%aa%d7%9d-%d7%94%d7%90%d7%9e%d7%99%d7%a0%d7%95%d7%aa-%d7%a9%d7%9c-%d7%93%d7%9f-%d7%90%d7%a0%d7%93-%d7%91%d7%a8%d7%93%d7%a1%d7%98%d7%a8%d7%99%d7%98/"><span>חותם האמינות של דן אנד ברדסטריט</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1311"><a href="https://obitex.co.il/dbs-credibility-mark/"><span>D&amp;B’s Credibility Mark</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1314"><a href="https://obitex.co.il/%d7%90%d7%a0%d7%97%d7%a0%d7%95-%d7%a4%d7%94-%d7%91%d7%a9%d7%91%d7%99%d7%9c%d7%9b%d7%9d/"><span>אנחנו פה בשבילכם</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1319"><a href="https://obitex.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%95%d7%9b%d7%aa%d7%91%d7%95%d7%aa/"><span>מאמרים וכתבות</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1320"><a href="https://obitex.co.il/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d/"><span>פרויקטים</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1321"><a href="https://obitex.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/"><span>צור קשר</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1447"><a href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/"><span>מדיניות פרטיות</span></a></li>
+</ul>											</div>
+				</nav><!--/#nav-menu -->
+			</div><!-- /.container -->
+		</header>
+					<div class="sticky-header logo-right">
+				<div class="container">
+					<div class="logo">
+													<div class="logo-img">
+								<a href="https://obitex.co.il/" rel="home"><img src="https://obitex.co.il/wp-content/uploads/2018/04/obitex-logo-stiky.png" alt="אוביטקס" class="logo-img-secondary"></a>
+							</div>
+						
+												<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">תפריט</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+											</div>
+					<nav class="nav-main" role="navigation">
+						<div class="navbar-collapse collapse">
+															<ul id="menu-%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99-15-10-2025" class="sf-menu hidden-xs sf-js-enabled"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-56 current_page_item active first-item menu-item-1310"><a href="https://obitex.co.il/"><span>ראשי</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1313"><a href="https://obitex.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="sf-with-ul"><span>אודות</span><span class="sf-sub-indicator"> »</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1312"><a href="https://obitex.co.il/%d7%97%d7%95%d7%aa%d7%9d-%d7%94%d7%90%d7%9e%d7%99%d7%a0%d7%95%d7%aa-%d7%a9%d7%9c-%d7%93%d7%9f-%d7%90%d7%a0%d7%93-%d7%91%d7%a8%d7%93%d7%a1%d7%98%d7%a8%d7%99%d7%98/"><span>חותם האמינות של דן אנד ברדסטריט</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1311"><a href="https://obitex.co.il/dbs-credibility-mark/"><span>D&amp;B’s Credibility Mark</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1314"><a href="https://obitex.co.il/%d7%90%d7%a0%d7%97%d7%a0%d7%95-%d7%a4%d7%94-%d7%91%d7%a9%d7%91%d7%99%d7%9c%d7%9b%d7%9d/"><span>אנחנו פה בשבילכם</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1319"><a href="https://obitex.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%95%d7%9b%d7%aa%d7%91%d7%95%d7%aa/"><span>מאמרים וכתבות</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1320"><a href="https://obitex.co.il/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d/"><span>פרויקטים</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1321"><a href="https://obitex.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/"><span>צור קשר</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1447"><a href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/"><span>מדיניות פרטיות</span></a></li>
+</ul><ul id="menu-%d7%aa%d7%a4%d7%a8%d7%99%d7%98-%d7%a8%d7%90%d7%a9%d7%99-15-10-2026" class="mobile-menu visible-xs"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-56 current_page_item active first-item menu-item-1310"><a href="https://obitex.co.il/"><span>ראשי</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1313"><a href="https://obitex.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/"><span>אודות</span></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1312"><a href="https://obitex.co.il/%d7%97%d7%95%d7%aa%d7%9d-%d7%94%d7%90%d7%9e%d7%99%d7%a0%d7%95%d7%aa-%d7%a9%d7%9c-%d7%93%d7%9f-%d7%90%d7%a0%d7%93-%d7%91%d7%a8%d7%93%d7%a1%d7%98%d7%a8%d7%99%d7%98/"><span>חותם האמינות של דן אנד ברדסטריט</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1311"><a href="https://obitex.co.il/dbs-credibility-mark/"><span>D&amp;B’s Credibility Mark</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1314"><a href="https://obitex.co.il/%d7%90%d7%a0%d7%97%d7%a0%d7%95-%d7%a4%d7%94-%d7%91%d7%a9%d7%91%d7%99%d7%9c%d7%9b%d7%9d/"><span>אנחנו פה בשבילכם</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1319"><a href="https://obitex.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%95%d7%9b%d7%aa%d7%91%d7%95%d7%aa/"><span>מאמרים וכתבות</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1320"><a href="https://obitex.co.il/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d/"><span>פרויקטים</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1321"><a href="https://obitex.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/"><span>צור קשר</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1447"><a href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/"><span>מדיניות פרטיות</span></a></li>
+</ul>													</div>
+					</nav><!--/#nav-menu -->
+				</div><!-- /.container -->
+			</div>
+			<div class="sticky-header-running"></div>
+			
+				<div id="page-header" class="page-header-style-custom_bg">
+	<div class="page-header-title container">
+					<div class="title-primary pull-left">
+				<h1>ראשי</h1>
+			</div>
+					</div><!-- /.page-header-title -->
+</div><!-- /#page-header -->
+		<div id="primary">
+			<div class="container">
+				<div id="content" class="row">		<section id="main" role="main">
+			<article id="post-56" class="post-56 page type-page status-publish hentry">
+									<div class="entry-content">
+							<section id="home-s1" class="section" style="background-image:url(&quot;https://obitex.co.il/wp-content/uploads/2023/10/home-s1-bg-1.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:center center;background-attachment:scroll" data-anchor-target="#home-s1">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-6 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h2>אוביטקס - חברת הנדסה לתכנון, ביצוע, ניהול ופיקוח בתחום האיטום התת קרקעי</h2></div>
+														</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="home-s2" class="section" style="background-image:url(&quot;https://obitex.co.il/wp-content/uploads/2023/07/obitex-home3-bg-1.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:center center;background-attachment:scroll" data-anchor-target="#home-s2">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget">
+
+
+<div id="wpv-view-layout-96" class="js-wpv-view-layout js-wpv-layout-responsive js-wpv-view-layout-96" data-viewnumber="96" data-pagination="{&quot;id&quot;:&quot;96&quot;,&quot;query&quot;:&quot;normal&quot;,&quot;type&quot;:&quot;disabled&quot;,&quot;effect&quot;:&quot;fade&quot;,&quot;duration&quot;:500,&quot;speed&quot;:5,&quot;pause_on_hover&quot;:&quot;disabled&quot;,&quot;stop_rollover&quot;:&quot;false&quot;,&quot;cache_pages&quot;:&quot;enabled&quot;,&quot;preload_images&quot;:&quot;enabled&quot;,&quot;preload_pages&quot;:&quot;enabled&quot;,&quot;preload_reach&quot;:1,&quot;spinner&quot;:&quot;builtin&quot;,&quot;spinner_image&quot;:&quot;https://obitex.co.il/wp-content/plugins/wp-views/embedded/res/img/ajax-loader.gif&quot;,&quot;callback_next&quot;:&quot;&quot;,&quot;manage_history&quot;:&quot;disabled&quot;,&quot;has_controls_in_form&quot;:&quot;disabled&quot;,&quot;infinite_tolerance&quot;:&quot;0&quot;,&quot;max_pages&quot;:1,&quot;page&quot;:1,&quot;base_permalink&quot;:&quot;/?wpv_view_count=96&amp;wpv_paged=WPV_PAGE_NUM&quot;,&quot;loop&quot;:{&quot;type&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;data&quot;:[],&quot;id&quot;:0}}" data-permalink="/?wpv_view_count=96">
+
+	
+	
+		
+          <a href="https://obitex.co.il/areas-of-activity/%d7%90%d7%99%d7%98%d7%95%d7%9d-%d7%95%d7%a9%d7%99%d7%a7%d7%95%d7%9d-%d7%aa%d7%a9%d7%aa%d7%99%d7%95%d7%aa/" class="home-areas-activity" title="קישור לתשתיות">
+            <div class="area-img-box"><h3>תשתיות</h3>
+            <img decoding="async" src="https://obitex.co.il/wp-content/uploads/2018/04/תשתית-crop.jpg" alt="איטום ושיקום תשתיות"></div>
+            <p>פתרונות איטום ושיקום בתשתיות ומגה פרויקטים ביניהם מאגרים, מעברים תת קרקעיים ומנהרות רכבת ישראל.</p>
+
+          </a>
+		
+          <a href="https://obitex.co.il/areas-of-activity/%d7%91%d7%a0%d7%99%d7%94-%d7%a8%d7%95%d7%95%d7%99%d7%94-%d7%95%d7%9e%d7%a1%d7%97%d7%a8%d7%99%d7%aa/" class="home-areas-activity" title="קישור לבניה רוויה ומסחרית">
+            <div class="area-img-box"><h3>בניה רוויה ומסחרית</h3>
+            <picture decoding="async">
+<source type="image/webp" srcset="https://obitex.co.il/wp-content/uploads/2023/07/תמונה-ראשית-עמוד-תחום-בנייה-רוויה-מסחרית.jpg.webp">
+<img decoding="async" src="https://obitex.co.il/wp-content/uploads/2023/07/תמונה-ראשית-עמוד-תחום-בנייה-רוויה-מסחרית.jpg" alt="תמונה-ראשית-עמוד-תחום-בנייה-רוויה-מסחרית">
+</picture>
+</div>
+            <p>מערכות איטום תת קרקעיות בבנייה חדשה ובפתרונות לבנייה קיימת בחניונים, פירים, יסודות, קירות מיישרים, קירות סלאריים ובמבנים במי תהום.</p>
+
+          </a>
+		
+          <a href="https://obitex.co.il/areas-of-activity/%d7%91%d7%a0%d7%99%d7%94-%d7%a4%d7%a8%d7%98%d7%99%d7%aa/" class="home-areas-activity" title="קישור לבניה פרטית">
+            <div class="area-img-box"><h3>בניה פרטית</h3>
+            <picture decoding="async">
+<source type="image/webp" srcset="https://obitex.co.il/wp-content/uploads/2018/04/2222תמונה-ראשית-בבנייה-פרטית.jpg.webp">
+<img decoding="async" src="https://obitex.co.il/wp-content/uploads/2018/04/2222תמונה-ראשית-בבנייה-פרטית.jpg" alt="2222תמונה-ראשית-בבנייה-פרטית">
+</picture>
+</div>
+            <p>איטום ושיקום בבניה הפרטית בהתאמה אישית הכוללים תכנון, בקרה וביצוע ממרתפים ומקלטים תת קרקעיים ועד לבריכות שחייה.</p>
+
+          </a>
+		
+	
+	
+	
+</div>
+</div>
+														</div>
+											</div>
+																			</div>
+								</div>
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="home-s3" class="section" style="background-image:url(&quot;https://obitex.co.il/wp-content/uploads/2023/10/obitex-home4-bg.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:top center" data-anchor-target="#home-s3">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><div class="embed"><iframe width="990" height="570" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/7tsmFzpmuUM?si=w22bbG86WeRsz3p6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>
+														</div>
+											</div>
+																			</div>
+								</div>
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<h2 style="text-align:right">יתרונות חברת אוביטקס</h2>												</div>
+											</div>
+																					<div class="column-3 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-image-text"><img src="https://obitex.co.il/wp-content/uploads/2018/04/saving.png" alt="אוביטקס פתרונות איטום מתקדמים" class="image-text-thumbnail aligncenter"><div class="image-text-body text-align-center"><h3 class="image-text-title">אחריות </h3><p class="image-text-description">אנו אחראים לתכנון, ביצוע, פיקוח ובקרה צמודים לאורך כל הדרך בסיום מספקים תעודת אחריות מקיפה וארוכת טווח!</p></div></div>												</div>
+											</div>
+																					<div class="column-3 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-image-text"><img src="https://obitex.co.il/wp-content/uploads/2018/04/resistance.png" alt="אוביטקס פתרונות איטום מתקדמים" class="image-text-thumbnail aligncenter"><div class="image-text-body text-align-center"><h3 class="image-text-title">חסכון</h3><p class="image-text-description">מבטל את שלב ההכנות לאיטום והאיטום עצמו, מה שמאפשר חסכון ישיר בעלות האיטום עצמו וחסכון עקיף בעזרת צמצום לוחות זמנים.</p></div></div>												</div>
+											</div>
+																					<div class="column-3 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-image-text"><img src="https://obitex.co.il/wp-content/uploads/2018/04/strength.png" alt="אוביטקס פתרונות איטום מתקדמים" class="image-text-thumbnail aligncenter"><div class="image-text-body text-align-center"><h3 class="image-text-title">עמידות</h3><p class="image-text-description">אנו מציעים מערכות איטום העמידות בתנאי קיצון, לחץ הידרוסטטי גבוה וסביבה אגרסיבית כדוגמת- כימיקלים, מלחים, חומצות וכדומה.</p></div></div>												</div>
+											</div>
+																					<div class="column-3 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-image-text"><img src="https://obitex.co.il/wp-content/uploads/2018/04/guarantee.png" alt="אוביטקס פתרונות איטום מתקדמים" class="image-text-thumbnail aligncenter"><div class="image-text-body text-align-center"><h3 class="image-text-title">אקטיביות</h3><p class="image-text-description">כאשר מבצעים איטום קריסטלי, ניתן לקבל מערכת פעילה ואקטיבית בכל נוכחות מים עתידית גם לאחר שנים רבות על ידי היווצרות גבישים לא מסיסים לאורך נקבוביות ונימי הבטון.</p></div></div>												</div>
+											</div>
+																			</div>
+								</div>
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<h5 class="pb-widget-title"><span>פתרונות איטום שלילי, שיקום בטונים ומערכות איטום נוזלות</span></h5>		<div class="textwidget"><p>החברה מתמחה באבחון, ייעוץ, תכנון וביצוע פתרונות איטום ושיקום. אנו מתגאים ביכולת מתן פתרונות איטום מתקדמים בכל מקום בהם אחרים כשלו! כחלק מיכולות החברה: פתרונות איטום גבישי לבעיות מורכבות ביותר, שיקום מערכות איטום שכשלו, איטום בהזרקות, ייצוב קרקעות בשיטת הזרקות מסך, פתרונות מידיים לתסחיפי קרקע ועוד. <br><br><br></p></div>
+														</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="home-s4" class="section" style="background-image:url(&quot;https://obitex.co.il/wp-content/uploads/2023/10/obitex-home5-bg-min-1.png&quot;)" data-anchor-target="#home-s4">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-6 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="widget-image align-none"><img src="https://obitex.co.il/wp-content/uploads/2018/04/car.png" alt="אוביטקס פתרונות איטום מתקדמים, משאית בטון"></div>												</div>
+											</div>
+																			</div>
+								</div>
+															<div class="column-6 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<h2 style="text-align:center">איטום שלילי ברמת הבעיה</h2>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-image-text"><a href="/uses/נזילות-במרתפים-ואלמנטים-תת-קרקעיים/"><img src="https://obitex.co.il/wp-content/uploads/2018/04/car-icon.png" alt="אוביטקס פתרונות איטום מתקדמים" class="image-text-thumbnail alignright"></a><div class="image-text-body"><h3 class="image-text-title"><a href="/uses/נזילות-במרתפים-ואלמנטים-תת-קרקעיים/">מרתפים וחניונים נוזלים</a></h3></div></div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-image-text"><a href="/uses/תיקון-נזילות-בבריכות-ומאגרים-מבטון/"><img src="https://obitex.co.il/wp-content/uploads/2018/04/Engineering-icon.png" alt="אוביטקס פתרונות איטום מתקדמים" class="image-text-thumbnail alignright"></a><div class="image-text-body"><h3 class="image-text-title"><a href="/uses/תיקון-נזילות-בבריכות-ומאגרים-מבטון/">בריכות פירים ומאגרים נוזלים</a></h3></div></div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-image-text"><a href="/uses/נזילות-בצנרת-חודרת/"><img src="https://obitex.co.il/wp-content/uploads/2018/04/home-icon.png" alt="אוביטקס פתרונות איטום מתקדמים" class="image-text-thumbnail alignright"></a><div class="image-text-body"><h3 class="image-text-title"><a href="/uses/נזילות-בצנרת-חודרת/">נזילות סביב צנרות חודרות</a></h3></div></div>												</div>
+											</div>
+																					<div class="column-12 widget-column btn-no-border">
+												<div class="pb-widget-inner">
+													<div class="pojo-button-wrap pojo-button-left">
+				<a class="button size-medium" style="background-color:rgba(255,255,255,1);color:#ffffff" href="/areas-of-activity/תיקונים/">
+					<span class="pojo-button-text">עוד על איטום שלילי</span>
+				</a>
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="home-s5" class="section" style="padding-bottom:40px" data-anchor-target="#home-s5">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-3 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:20px;margin-bottom:20px;width:100%">
+				<hr style="border-color:#999999;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+															<div class="column-6 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><div class="embed"><iframe src="https://www.youtube.com/embed/WXlJyQFI5Yo" width="990" height="570" allowfullscreen="allowfullscreen"></iframe></div></div>
+														</div>
+											</div>
+																			</div>
+								</div>
+															<div class="column-3 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:20px;margin-bottom:20px;width:100%">
+				<hr style="border-color:#999999;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="all-project-strip" class="section" style="background-image:url(&quot;https://obitex.co.il/wp-content/uploads/2018/04/obitex-home6-bg.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:center center" data-anchor-target="#all-project-strip">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:20px;margin-bottom:20px;width:100%">
+				<hr style="border-color:#999999;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget">
+
+
+<div id="wpv-view-layout-155" class="js-wpv-view-layout js-wpv-layout-responsive js-wpv-view-layout-155" data-viewnumber="155" data-pagination="{&quot;id&quot;:&quot;155&quot;,&quot;query&quot;:&quot;normal&quot;,&quot;type&quot;:&quot;disabled&quot;,&quot;effect&quot;:&quot;fade&quot;,&quot;duration&quot;:500,&quot;speed&quot;:5,&quot;pause_on_hover&quot;:&quot;disabled&quot;,&quot;stop_rollover&quot;:&quot;false&quot;,&quot;cache_pages&quot;:&quot;enabled&quot;,&quot;preload_images&quot;:&quot;enabled&quot;,&quot;preload_pages&quot;:&quot;enabled&quot;,&quot;preload_reach&quot;:1,&quot;spinner&quot;:&quot;builtin&quot;,&quot;spinner_image&quot;:&quot;https://obitex.co.il/wp-content/plugins/wp-views/embedded/res/img/ajax-loader.gif&quot;,&quot;callback_next&quot;:&quot;&quot;,&quot;manage_history&quot;:&quot;disabled&quot;,&quot;has_controls_in_form&quot;:&quot;disabled&quot;,&quot;infinite_tolerance&quot;:&quot;0&quot;,&quot;max_pages&quot;:0,&quot;page&quot;:1,&quot;base_permalink&quot;:&quot;/uses/%D7%90%D7%99%D7%98%D7%95%D7%9D-%D7%A4%D7%99%D7%A8%D7%99%D7%9D-%D7%95%D7%9E%D7%90%D7%92%D7%A8%D7%99%D7%9D/?wpv_view_count=155&amp;wpv_paged=WPV_PAGE_NUM&quot;,&quot;loop&quot;:{&quot;type&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;data&quot;:[],&quot;id&quot;:0}}" data-permalink="/uses/%D7%90%D7%99%D7%98%D7%95%D7%9D-%D7%A4%D7%99%D7%A8%D7%99%D7%9D-%D7%95%D7%9E%D7%90%D7%92%D7%A8%D7%99%D7%9D/?wpv_view_count=155">
+
+	
+	
+<h2>פרויקטים</h2>
+<div class="autoplay-3 slick-initialized slick-slider slick-dotted"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
+		
+          <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 10530px; transform: translate3d(1170px, 0px, 0px);"><a href="https://obitex.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-%d7%a7%d7%9e%d7%a4%d7%95%d7%a1-%d7%99%d7%a8%d7%95%d7%a9%d7%9c%d7%99%d7%9d-%d7%9c%d7%90%d7%95%d7%9e%d7%a0%d7%95%d7%99%d7%95%d7%aa/" class="project-box slick-slide slick-cloned" title="קישור לפרויקט קמפוס ירושלים לאומנויות" data-slick-index="-3" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/jjeru-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>פרויקט קמפוס ירושלים לאומנויות</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a8%d7%a6%d7%99%d7%a3-%d7%a8%d7%95%d7%96%d7%a0%d7%a4%d7%9c%d7%93-3-%d7%97%d7%99%d7%a4%d7%94/" class="project-box slick-slide slick-cloned" title="קישור לרציף רוזנפלד 3 , חיפה" data-slick-index="-2" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/rosenfeld-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>רציף רוזנפלד 3 , חיפה</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91-%d7%a8%d7%a7%d7%a0%d7%90%d7%98%d7%99-1/" class="project-box slick-slide slick-cloned" title="קישור לתל אביב – רקנאטי 1" data-slick-index="-1" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/ricanti-2-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>תל אביב – רקנאטי 1</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-%d7%90%d7%99%d7%98%d7%95%d7%9d-%d7%94%d7%a8%d7%a6%d7%9c-136-%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91/" class="project-box slick-slide slick-current slick-active" title="קישור לפרויקט הרצל 136, ת”א" data-slick-index="0" aria-hidden="false" style="width: 340px;" tabindex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2020/10/הרצל-136-1-e1605655083408-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>פרויקט הרצל 136, ת”א</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a7%d7%a8%d7%9f-%d7%94%d7%99%d7%a1%d7%95%d7%93/" class="project-box slick-slide slick-active" title="קישור לקרן היסוד" data-slick-index="1" aria-hidden="false" style="width: 340px;" tabindex="0" role="tabpanel" id="slick-slide01">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/08/C-keren-yesod-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>קרן היסוד</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%95%d7%99%d7%9c%d7%94-%d7%a8%d7%95%d7%98%d7%a9%d7%99%d7%9c%d7%93/" class="project-box slick-slide slick-active" title="קישור לוילה רוטשילד" data-slick-index="2" aria-hidden="false" style="width: 340px;" tabindex="0" role="tabpanel" id="slick-slide02">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/08/ruthchild-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>וילה רוטשילד</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%9e%d7%92%d7%93%d7%9c%d7%99-%d7%90%d7%97%d7%93-%d7%94%d7%a2%d7%9d-%d7%97%d7%93%d7%a8%d7%94/" class="project-box slick-slide" title="קישור למגדלי אחד העם – חדרה" data-slick-index="3" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide03" aria-describedby="slick-slide-control01">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/08/admin-ajax-crop-340x320_center_center-1-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>מגדלי אחד העם – חדרה</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%9e%d7%97%d7%99%d7%a8-%d7%9c%d7%9e%d7%a9%d7%aa%d7%9b%d7%9f-%d7%a9%d7%9b%d7%95%d7%a0%d7%aa-%d7%94%d7%90%d7%95%d7%9e%d7%a0%d7%99%d7%9d-%d7%a7%d7%a8%d7%99%d7%aa-%d7%9e%d7%95%d7%a6%d7%a7%d7%99%d7%9f/" class="project-box slick-slide" title="קישור למחיר למשתכן שכונת האומנים קרית מוצקין" data-slick-index="4" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide04">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/09/IMG_3404-scaled-wpv_340x320_center_center.jpg" alt="אתר בניה, איטום בטון, בניית יסודות,"></div>
+            <h3>מחיר למשתכן שכונת האומנים קרית מוצקין</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%9e%d7%a0%d7%94%d7%a8%d7%95%d7%aa-%d7%a8%d7%9b%d7%91%d7%aa-%d7%99%d7%a9%d7%a8%d7%90%d7%9c-%d7%94%d7%a7%d7%95-%d7%94%d7%9e%d7%94%d7%99%d7%a8-%d7%9c%d7%99%d7%a8%d7%95%d7%a9%d7%9c%d7%99%d7%9d/" class="project-box slick-slide" title="קישור למנהרות רכבת ישראל הקו המהיר לירושלים" data-slick-index="5" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide05">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/09/2-4-wpv_340x320_center_center.jpeg" alt="מנהרה, איטום בטון, יציקת בטון, איטום תשתיות"></div>
+            <h3>מנהרות רכבת ישראל הקו המהיר לירושלים</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a9%d7%aa%d7%99%d7%aa-%d7%a7%d7%a8%d7%99%d7%99%d7%aa-%d7%9e%d7%95%d7%a6%d7%a7%d7%99%d7%9f/" class="project-box slick-slide" title="קישור לשתית קריית מוצקין" data-slick-index="6" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide06" aria-describedby="slick-slide-control02">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/prooject1-slide2-wpv_340x320_center_center.jpg" alt="אתר בניה, איטום בטון, בניית יסודות,"></div>
+            <h3>שתית קריית מוצקין</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a0%d7%95%d7%a4%d7%99-%d7%97%d7%a8%d7%9e%d7%95%d7%9f/" class="project-box slick-slide" title="קישור לנופי חרמון" data-slick-index="7" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide07">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/נופי-חרמון-wpv_340x320_center_center.jpeg" alt="נופי חרמון, איטום מרתפים, איטום בטון, פתרונות איטום"></div>
+            <h3>נופי חרמון</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%92%d7%91%d7%a1%d7%95-%d7%9b%d7%a8%d7%9e%d7%99-%d7%92%d7%aa-%d7%9e%d7%a8%d7%9c%d7%95-%d7%a2%d7%9c-%d7%94%d7%a4%d7%90%d7%a8%d7%a7/" class="project-box slick-slide" title="קישור לגבסו כרמי גת מרלו על הפארק" data-slick-index="8" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide08">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/10-scaled-wpv_340x320_center_center.jpg" alt="אתר בניה, איטום בטון, בניית יסודות,"></div>
+            <h3>גבסו כרמי גת מרלו על הפארק</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-%d7%a7%d7%9e%d7%a4%d7%95%d7%a1-%d7%99%d7%a8%d7%95%d7%a9%d7%9c%d7%99%d7%9d-%d7%9c%d7%90%d7%95%d7%9e%d7%a0%d7%95%d7%99%d7%95%d7%aa/" class="project-box slick-slide" title="קישור לפרויקט קמפוס ירושלים לאומנויות" data-slick-index="9" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide09" aria-describedby="slick-slide-control03">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/jjeru-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>פרויקט קמפוס ירושלים לאומנויות</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a8%d7%a6%d7%99%d7%a3-%d7%a8%d7%95%d7%96%d7%a0%d7%a4%d7%9c%d7%93-3-%d7%97%d7%99%d7%a4%d7%94/" class="project-box slick-slide" title="קישור לרציף רוזנפלד 3 , חיפה" data-slick-index="10" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide010">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/rosenfeld-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>רציף רוזנפלד 3 , חיפה</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91-%d7%a8%d7%a7%d7%a0%d7%90%d7%98%d7%99-1/" class="project-box slick-slide" title="קישור לתל אביב – רקנאטי 1" data-slick-index="11" aria-hidden="true" style="width: 340px;" tabindex="-1" role="tabpanel" id="slick-slide011">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/ricanti-2-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>תל אביב – רקנאטי 1</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-%d7%90%d7%99%d7%98%d7%95%d7%9d-%d7%94%d7%a8%d7%a6%d7%9c-136-%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91/" class="project-box slick-slide slick-cloned" title="קישור לפרויקט הרצל 136, ת”א" data-slick-index="12" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2020/10/הרצל-136-1-e1605655083408-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>פרויקט הרצל 136, ת”א</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a7%d7%a8%d7%9f-%d7%94%d7%99%d7%a1%d7%95%d7%93/" class="project-box slick-slide slick-cloned" title="קישור לקרן היסוד" data-slick-index="13" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/08/C-keren-yesod-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>קרן היסוד</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%95%d7%99%d7%9c%d7%94-%d7%a8%d7%95%d7%98%d7%a9%d7%99%d7%9c%d7%93/" class="project-box slick-slide slick-cloned" title="קישור לוילה רוטשילד" data-slick-index="14" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/08/ruthchild-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>וילה רוטשילד</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%9e%d7%92%d7%93%d7%9c%d7%99-%d7%90%d7%97%d7%93-%d7%94%d7%a2%d7%9d-%d7%97%d7%93%d7%a8%d7%94/" class="project-box slick-slide slick-cloned" title="קישור למגדלי אחד העם – חדרה" data-slick-index="15" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/08/admin-ajax-crop-340x320_center_center-1-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>מגדלי אחד העם – חדרה</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%9e%d7%97%d7%99%d7%a8-%d7%9c%d7%9e%d7%a9%d7%aa%d7%9b%d7%9f-%d7%a9%d7%9b%d7%95%d7%a0%d7%aa-%d7%94%d7%90%d7%95%d7%9e%d7%a0%d7%99%d7%9d-%d7%a7%d7%a8%d7%99%d7%aa-%d7%9e%d7%95%d7%a6%d7%a7%d7%99%d7%9f/" class="project-box slick-slide slick-cloned" title="קישור למחיר למשתכן שכונת האומנים קרית מוצקין" data-slick-index="16" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/09/IMG_3404-scaled-wpv_340x320_center_center.jpg" alt="אתר בניה, איטום בטון, בניית יסודות,"></div>
+            <h3>מחיר למשתכן שכונת האומנים קרית מוצקין</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%9e%d7%a0%d7%94%d7%a8%d7%95%d7%aa-%d7%a8%d7%9b%d7%91%d7%aa-%d7%99%d7%a9%d7%a8%d7%90%d7%9c-%d7%94%d7%a7%d7%95-%d7%94%d7%9e%d7%94%d7%99%d7%a8-%d7%9c%d7%99%d7%a8%d7%95%d7%a9%d7%9c%d7%99%d7%9d/" class="project-box slick-slide slick-cloned" title="קישור למנהרות רכבת ישראל הקו המהיר לירושלים" data-slick-index="17" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/09/2-4-wpv_340x320_center_center.jpeg" alt="מנהרה, איטום בטון, יציקת בטון, איטום תשתיות"></div>
+            <h3>מנהרות רכבת ישראל הקו המהיר לירושלים</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a9%d7%aa%d7%99%d7%aa-%d7%a7%d7%a8%d7%99%d7%99%d7%aa-%d7%9e%d7%95%d7%a6%d7%a7%d7%99%d7%9f/" class="project-box slick-slide slick-cloned" title="קישור לשתית קריית מוצקין" data-slick-index="18" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/prooject1-slide2-wpv_340x320_center_center.jpg" alt="אתר בניה, איטום בטון, בניית יסודות,"></div>
+            <h3>שתית קריית מוצקין</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a0%d7%95%d7%a4%d7%99-%d7%97%d7%a8%d7%9e%d7%95%d7%9f/" class="project-box slick-slide slick-cloned" title="קישור לנופי חרמון" data-slick-index="19" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/נופי-חרמון-wpv_340x320_center_center.jpeg" alt="נופי חרמון, איטום מרתפים, איטום בטון, פתרונות איטום"></div>
+            <h3>נופי חרמון</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%92%d7%91%d7%a1%d7%95-%d7%9b%d7%a8%d7%9e%d7%99-%d7%92%d7%aa-%d7%9e%d7%a8%d7%9c%d7%95-%d7%a2%d7%9c-%d7%94%d7%a4%d7%90%d7%a8%d7%a7/" class="project-box slick-slide slick-cloned" title="קישור לגבסו כרמי גת מרלו על הפארק" data-slick-index="20" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/10-scaled-wpv_340x320_center_center.jpg" alt="אתר בניה, איטום בטון, בניית יסודות,"></div>
+            <h3>גבסו כרמי גת מרלו על הפארק</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98-%d7%a7%d7%9e%d7%a4%d7%95%d7%a1-%d7%99%d7%a8%d7%95%d7%a9%d7%9c%d7%99%d7%9d-%d7%9c%d7%90%d7%95%d7%9e%d7%a0%d7%95%d7%99%d7%95%d7%aa/" class="project-box slick-slide slick-cloned" title="קישור לפרויקט קמפוס ירושלים לאומנויות" data-slick-index="21" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/jjeru-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>פרויקט קמפוס ירושלים לאומנויות</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%a8%d7%a6%d7%99%d7%a3-%d7%a8%d7%95%d7%96%d7%a0%d7%a4%d7%9c%d7%93-3-%d7%97%d7%99%d7%a4%d7%94/" class="project-box slick-slide slick-cloned" title="קישור לרציף רוזנפלד 3 , חיפה" data-slick-index="22" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/rosenfeld-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>רציף רוזנפלד 3 , חיפה</h3>
+          </a><a href="https://obitex.co.il/projects/%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91-%d7%a8%d7%a7%d7%a0%d7%90%d7%98%d7%99-1/" class="project-box slick-slide slick-cloned" title="קישור לתל אביב – רקנאטי 1" data-slick-index="23" id="" aria-hidden="true" style="width: 340px;" tabindex="-1">
+            <div class="f-img-box"><img src="https://obitex.co.il/wp-content/uploads/2018/04/ricanti-2-wpv_340x320_center_center.jpg" alt=""></div>
+            <h3>תל אביב – רקנאטי 1</h3>
+          </a></div></div>
+		
+          
+		
+          
+		
+          
+		
+          
+		
+          
+		
+          
+		
+          
+		
+          
+		
+          
+		
+          
+		
+          
+		
+  <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button><ul class="slick-dots" style="" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 4" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide03" aria-label="2 of 4" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide06" aria-label="3 of 4" tabindex="-1">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control03" aria-controls="slick-slide09" aria-label="4 of 4" tabindex="-1">4</button></li></ul></div>
+	
+	
+	
+</div>
+</div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget">
+<div class="wpcf7 js" id="wpcf7-f160-p56-o2" lang="en-US" dir="ltr" data-wpcf7-id="160">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f160-p56-o2" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="160">
+<input type="hidden" name="_wpcf7_version" value="6.0.6">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f160-p56-o2">
+<input type="hidden" name="_wpcf7_container_post" value="56">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+<input type="hidden" name="_wpcf7_recaptcha_response" value="0cAFcWeA72ocpPcTV7Db_b5VIb2qbpcaY_5QpTaeBf9nxOj9jaxvDAf1d_odxl0jxzl_lIaKVMl-hITyIaVaIsAr026xseRI-Lshz6eCbiZCvzH63kKXg2y3_ggVozMaD5H5fRruUrTYOuCd28tx0gTVt624G2FfacDnYUgmsQWuLRUiSyGLuSdjGXPOKhpI05mvWJ1VYKCiERsq_TDD1cV7NP9DM34nDczMuSmI4wUhJgDQiZpA1q0QIEzXwcmsWTmfiGHH1_yifIYa-CeUvj_WhycbAe-7kkbWwF5Vg-Ym-ZdlZuZMU31P052OA7okpyO7BEzlSjUtX5a7IrBSw4yZOWsfWKzEMGR7X32712xoEJgFNvXE-OKuPxFWYKhEIYwwsR4RyTPLV1JTniwF5BZvdqb6DSC0uFbrphFw8qKqwZI3Sx7n6BpInbADf1Khxs0z7X5mVbowUSbWNdpVs3dhxcRhf_KFAT7KY6FbpATEvjBpiCt9pA31erxzOSevXkmW5uxDnum5VdOq8z1J92ESoltHOnlEna7ebupMZmZGwT8xxgMrlnL0PIk55019SscwzT4iNJIHnODMksx9BBrIxapK6EzmIhY1C6ptDBoQEsAYJSZOWYhKGsbVk3Pm02vWbkHzCTU5HmUuWKR1iVwKMDq17zqXkkZreE6eQiR1U9AdRRpjuRRdxBLjTUUx_MVDG3SZGzru24F9i7KxODIN_eFCO0Jj-o2Pp8VYDtFLyv4rwvXcIOdSWuHUBB5uvFWWOcd7InfY1O9bdoTuBR00obmdaEE84mybD_UHn6fipLrazqzX5SPJLM3Pl6MsqZLq-x7C5diRpJVdWEpXQD_XZ2fVJW4p3q0Xo3NDYyXB6yAwJKIZHGO9StGPskqZWOmh-VgpqReal8s_ms5kCOm1wgxWB1VrTIOyf2jYJk6oubUlZHl6e7WXI8IiVP6cylb1sTZZYl3_eXAEoUzC9HvXS3JqqhJnRVCmSRmKkhDmjmIdZTZrnbVJcNp_BvKlMLKfl2suvrSpDo">
+</div>
+<h2>צור קשר
+</h2>
+<p><span class="wpcf7-form-control-wrap" data-name="text-618"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="שם" value="" type="text" name="text-618"></span><span class="wpcf7-form-control-wrap" data-name="tel-883"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="טלפון" value="" type="tel" name="tel-883"></span><span class="wpcf7-form-control-wrap" data-name="email-689"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="מייל" value="" type="email" name="email-689"></span><br>
+<span class="wpcf7-form-control-wrap" data-name="text-754"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="מהות הפניה" value="" type="text" name="text-754"></span>
+</p>
+
+<!--web3d-consent-start-->
+<div id="web3d-consent-160" class="web3d-consent-text">
+	<p><span class="wpcf7-form-control-wrap" data-name="privacy_consent"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="privacy_consent" value="1" aria-invalid="false"><span class="wpcf7-list-item-label">אני מאשר/ת כי קראתי והבנתי את <a style="text-decoration: underline" href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a> וכי אני מסכים/ה לה</span></label></span></span></span>
+	</p>
+</div>
+<style id="web3d-consent-style-160">#web3d-consent-160 { color: #ffffff !important; }
+#web3d-consent-160 a { color: #0062ff !important; text-decoration: underline !important; text-decoration-color: #0062ff !important; }
+/* Consent block base styling */
+.web3d-consent-text {
+ line-height: 1.6;
+ margin: 12px 0;
+}
+
+.web3d-consent-text a {
+ font-weight: 600;
+}
+
+.web3d-consent-text .web3d-consent-helper {
+ display: block;
+ font-size: 12px;
+ opacity: 0.8;
+ margin-top: 6px;
+}
+</style><!--web3d-consent-end-->
+<p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="שלח" disabled=""><span class="wpcf7-spinner"></span><span id="wpcf7-69b98a982b648-wrapper" class="wpcf7-form-control-wrap my-hobby-wrap" style="display:none !important; visibility:hidden !important;"><label for="wpcf7-69b98a982b648-field" class="hp-message">Please leave this field empty.</label><input id="wpcf7-69b98a982b648-field" class="wpcf7-form-control wpcf7-text" type="text" name="my-hobby" value="" size="40" tabindex="-1" autocomplete="new-password"></span>
+</p>
+<p>&nbsp;
+</p>
+<p><a href="https://www.dunsguide.co.il/business?duns=531846195" target="_blank" rel="noopener"><picture class="aligncenter wp-image-1222 size-full">
+<source type="image/webp" srcset="https://obitex.co.il/wp-content/uploads/2023/09/image003.png.webp">
+<img src="https://obitex.co.il/wp-content/uploads/2023/09/image003.png" alt="" width="179" height="148">
+</picture>
+</a>
+</p>
+<h3 style="text-align: center;"><a href="/חותם-האמינות-של-דן-אנד-ברדסטריט/">חותם האמינות של דן אנד ברדסטריט</a>
+</h3>
+<h3 style="text-align: center;"><a href="/dbs-credibility-mark/">D&amp;B's Credibility Mark</a>
+</h3>
+<style>
+:is(.page-id-1229, .page-id-1224) #top-footer .columns.widget-columns {
+ display:none!important;
+}
+
+/*inside cf7 builder*/
+span.wpcf7-form-control-wrap input {
+ margin-top:13px;
+}
+form > p > a > picture {width:fit-content!important;}
+</style><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>
+														</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					</div>
+			<footer>
+							</footer>
+		</article>
+					</section><!-- section#main -->
+				</div><!-- #content -->
+		</div><!-- .container -->
+	</div><!-- #primary -->
+
+				<footer id="footer">
+						
+		</footer>
+				<section id="top-footer">
+  <div class="container">
+    
+<div class="columns widget-columns" style="display: inline-block;">
+<div class="column-8 widget-column">
+<div class="pb-widget-inner">
+<div class="textwidget"><img decoding="async" src="/wp-content/uploads/2018/04/obitex-logo-about.png" alt="obitex" width="273" height="42">
+סאל אובטיקס הנדסה מתמחה בביצוע מערכות איטום תת קרקעיות. לחברה שילוב ייחודי של אנשי מקצוע מהנדסים אזרחיים, הנדסאים, אנשי שטח ואוטמים מורשים כולם מן השורה הראשונה, יחד עם שימוש בטכנולוגיות וחומרים מוכחים מהטובים בעולם וניסיון עשיר ומוכח בטווח רחב של פרויקטים מאתגרים ביניהם תשתיות ומגה פרוקטים מקנים איטום ברמה הגבוהה ביותר. 
+<a href="/אודות/">קרא עוד</a></div>
+</div>
+</div>
+<div class="column-12 widget-column">
+<div class="pb-widget-inner">
+<div class="widget-image align-none"><img decoding="async" src="/wp-content/uploads/2018/04/obitex-home-about.jpg" alt=""></div></div>
+</div>
+</div>
+    
+<div class="column-cf-bottom widget-column ">
+<div class="pb-widget-inner">
+<div class="textwidget">
+<div class="wpcf7 js" id="wpcf7-f160-o3" lang="en-US" dir="ltr" data-wpcf7-id="160">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f160-o3" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="160">
+<input type="hidden" name="_wpcf7_version" value="6.0.6">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f160-o3">
+<input type="hidden" name="_wpcf7_container_post" value="0">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+<input type="hidden" name="_wpcf7_recaptcha_response" value="0cAFcWeA72ocpPcTV7Db_b5VIb2qbpcaY_5QpTaeBf9nxOj9jaxvDAf1d_odxl0jxzl_lIaKVMl-hITyIaVaIsAr026xseRI-Lshz6eCbiZCvzH63kKXg2y3_ggVozMaD5H5fRruUrTYOuCd28tx0gTVt624G2FfacDnYUgmsQWuLRUiSyGLuSdjGXPOKhpI05mvWJ1VYKCiERsq_TDD1cV7NP9DM34nDczMuSmI4wUhJgDQiZpA1q0QIEzXwcmsWTmfiGHH1_yifIYa-CeUvj_WhycbAe-7kkbWwF5Vg-Ym-ZdlZuZMU31P052OA7okpyO7BEzlSjUtX5a7IrBSw4yZOWsfWKzEMGR7X32712xoEJgFNvXE-OKuPxFWYKhEIYwwsR4RyTPLV1JTniwF5BZvdqb6DSC0uFbrphFw8qKqwZI3Sx7n6BpInbADf1Khxs0z7X5mVbowUSbWNdpVs3dhxcRhf_KFAT7KY6FbpATEvjBpiCt9pA31erxzOSevXkmW5uxDnum5VdOq8z1J92ESoltHOnlEna7ebupMZmZGwT8xxgMrlnL0PIk55019SscwzT4iNJIHnODMksx9BBrIxapK6EzmIhY1C6ptDBoQEsAYJSZOWYhKGsbVk3Pm02vWbkHzCTU5HmUuWKR1iVwKMDq17zqXkkZreE6eQiR1U9AdRRpjuRRdxBLjTUUx_MVDG3SZGzru24F9i7KxODIN_eFCO0Jj-o2Pp8VYDtFLyv4rwvXcIOdSWuHUBB5uvFWWOcd7InfY1O9bdoTuBR00obmdaEE84mybD_UHn6fipLrazqzX5SPJLM3Pl6MsqZLq-x7C5diRpJVdWEpXQD_XZ2fVJW4p3q0Xo3NDYyXB6yAwJKIZHGO9StGPskqZWOmh-VgpqReal8s_ms5kCOm1wgxWB1VrTIOyf2jYJk6oubUlZHl6e7WXI8IiVP6cylb1sTZZYl3_eXAEoUzC9HvXS3JqqhJnRVCmSRmKkhDmjmIdZTZrnbVJcNp_BvKlMLKfl2suvrSpDo">
+</div>
+<h2>צור קשר
+</h2>
+<p><span class="wpcf7-form-control-wrap" data-name="text-618"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="שם" value="" type="text" name="text-618"></span><span class="wpcf7-form-control-wrap" data-name="tel-883"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="טלפון" value="" type="tel" name="tel-883"></span><span class="wpcf7-form-control-wrap" data-name="email-689"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="מייל" value="" type="email" name="email-689"></span><br>
+<span class="wpcf7-form-control-wrap" data-name="text-754"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="מהות הפניה" value="" type="text" name="text-754"></span>
+</p>
+
+<!--web3d-consent-start-->
+<div id="web3d-consent-160" class="web3d-consent-text">
+	<p><span class="wpcf7-form-control-wrap" data-name="privacy_consent"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="privacy_consent" value="1" aria-invalid="false"><span class="wpcf7-list-item-label">אני מאשר/ת כי קראתי והבנתי את <a style="text-decoration: underline" href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a> וכי אני מסכים/ה לה</span></label></span></span></span>
+	</p>
+</div>
+<style id="web3d-consent-style-160">#web3d-consent-160 { color: #ffffff !important; }
+#web3d-consent-160 a { color: #0062ff !important; text-decoration: underline !important; text-decoration-color: #0062ff !important; }
+/* Consent block base styling */
+.web3d-consent-text {
+ line-height: 1.6;
+ margin: 12px 0;
+}
+
+.web3d-consent-text a {
+ font-weight: 600;
+}
+
+.web3d-consent-text .web3d-consent-helper {
+ display: block;
+ font-size: 12px;
+ opacity: 0.8;
+ margin-top: 6px;
+}
+</style><!--web3d-consent-end-->
+<p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="שלח" disabled=""><span class="wpcf7-spinner"></span><span id="wpcf7-69b98a9846cb2-wrapper" class="wpcf7-form-control-wrap my-hobby-wrap" style="display:none !important; visibility:hidden !important;"><label for="wpcf7-69b98a9846cb2-field" class="hp-message">Please leave this field empty.</label><input id="wpcf7-69b98a9846cb2-field" class="wpcf7-form-control wpcf7-text" type="text" name="my-hobby" value="" size="40" tabindex="-1" autocomplete="new-password"></span>
+</p>
+<p>&nbsp;
+</p>
+<p><a href="https://www.dunsguide.co.il/business?duns=531846195" target="_blank" rel="noopener"><picture decoding="async" class="aligncenter wp-image-1222 size-full">
+<source type="image/webp" srcset="https://obitex.co.il/wp-content/uploads/2023/09/image003.png.webp">
+<img decoding="async" src="https://obitex.co.il/wp-content/uploads/2023/09/image003.png" alt="" width="179" height="148">
+</picture>
+</a>
+</p>
+<h3 style="text-align: center;"><a href="/חותם-האמינות-של-דן-אנד-ברדסטריט/">חותם האמינות של דן אנד ברדסטריט</a>
+</h3>
+<h3 style="text-align: center;"><a href="/dbs-credibility-mark/">D&amp;B's Credibility Mark</a>
+</h3>
+<style>
+:is(.page-id-1229, .page-id-1224) #top-footer .columns.widget-columns {
+ display:none!important;
+}
+
+/*inside cf7 builder*/
+span.wpcf7-form-control-wrap input {
+ margin-top:13px;
+}
+form > p > a > picture {width:fit-content!important;}
+</style><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>
+  
+</div>
+</div>
+    
+</div>
+</section>
+			
+		<section id="cf-bottom">
+			<div id="col-vf">
+				<div class="copyright">כל הזכויות שמורות 2026 © | <a href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/">מדיניות פרטיות
+</a></div>
+				<div class="social-top"><section id="pojo_social_links-3" class="widget widget_pojo_social_links"><div class="widget-inner"><ul class="social-links"><li class="social-facebook"><a href="https://www.facebook.com/ObitexLTD" class="pojo-tooltip" data-placement="top" title="" target="_blank" data-original-title="Facebook"><span class="social-icon"></span><span class="sr-only">Facebook</span></a></li><li class="social-youtube"><a href="https://www.youtube.com/@obitex-6318" class="pojo-tooltip" data-placement="top" title="" target="_blank" data-original-title="YouTube"><span class="social-icon"></span><span class="sr-only">YouTube</span></a></li><li class="social-linkedin"><a href="https://www.linkedin.com/company/obitex-ltd/about/" class="pojo-tooltip" data-placement="top" title="" target="_blank" data-original-title="LinkedIn"><span class="social-icon"></span><span class="sr-only">LinkedIn</span></a></li><li class="social-instagram"><a href="https://www.instagram.com/obitex.israel/" class="pojo-tooltip" data-placement="top" title="" target="_blank" data-original-title="Instagram"><span class="social-icon"></span><span class="sr-only">Instagram</span></a></li></ul></div></section></div>
+				<div class="credit"><a target="_blank" href="https://web3d.co.il/" role="link">Created By <img src="/wp-content/themes/atlanta-child/assets/images/web3d.png" alt="web3d.co.il" width="74"></a></div>
+			</div>
+		</section>
+		
+		<a href="https://api.whatsapp.com/send/?phone=%2B972548960571&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank">
+          <div class="whatsapp-button">
+            <img src="https://www.obitex.co.il/wp-content/uploads/2023/08/whatsapp.png" alt="WhatsApp" style="width:100%; height:auto;">
+          </div>
+        </a>
+
+
+		
+</div><!-- #container -->
+<script>
+    document.addEventListener( 'wpcf7mailsent', function( event ) {
+        location = '/תודה/';
+    }, false );
+
+</script>
+
+<script type="text/javascript">
+const wpvViewHead = document.getElementsByTagName( "head" )[ 0 ];
+const wpvViewExtraCss = document.createElement( "style" );
+wpvViewExtraCss.textContent = '/* ----------------------------------------- *//* View slug: areas-of-activity-for-home - start *//* ----------------------------------------- */.home-areas-activity .area-img-box {    overflow: hidden;    height: 200px;    display: flex;    align-items: center;    justify-content: center;}/* ----------------------------------------- *//* View slug: areas-of-activity-for-home - end *//* ----------------------------------------- */<!--[if IE 7]><style>.wpv-pagination { *zoom: 1; }</style><![endif]-->';
+wpvViewHead.appendChild( wpvViewExtraCss );
+</script>
+			<script>
+				const registerAllyAction = () => {
+					if ( ! window?.ElementorProFrontendConfig || ! window?.elementorFrontend?.utils?.urlActions ) {
+						return;
+					}
+
+					elementorFrontend.utils.urlActions.addAction( 'allyWidget:open', () => {
+						if (window?.ea11yWidget?.widget?.open) {
+							return window.ea11yWidget.widget.isOpen()
+								? window.ea11yWidget.widget.close()
+								: window.ea11yWidget.widget.open();
+						}
+					} );
+				};
+
+				const waitingLimit = 30;
+				let retryCounter = 0;
+
+				const waitForElementorPro = () => {
+					return new Promise( ( resolve ) => {
+						const intervalId = setInterval( () => {
+							if ( retryCounter === waitingLimit ) {
+								resolve( null );
+							}
+
+							retryCounter++;
+
+							if ( window.elementorFrontend && window?.elementorFrontend?.utils?.urlActions ) {
+								clearInterval( intervalId );
+								resolve( window.elementorFrontend );
+							}
+								}, 100 ); // Check every 100 milliseconds for availability of elementorFrontend
+					});
+				};
+
+				waitForElementorPro().then( () => { registerAllyAction(); });
+			</script>
+					<div id="pojo-scroll-up" class="pojo-scroll-up-right" data-offset="50" data-duration="750" style="font-size: 36px;border-radius: 50%">
+			<div class="pojo-scroll-up-inner">
+				<a class="pojo-scroll-up-button" href="javascript:void(0);" title="גלילה לראש העמוד">
+					<span class="fa fa-angle-up"></span><span class="sr-only">גלילה לראש העמוד</span>
+				</a>
+			</div>
+		</div>
+					<script type="text/javascript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+					<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="pswp__bg"></div>
+			<div class="pswp__scroll-wrap">
+				<div class="pswp__container">
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+					<div class="pswp__item"></div>
+				</div>
+				<div class="pswp__ui pswp__ui--hidden">
+					<div class="pswp__top-bar">
+						<div class="pswp__counter"></div>
+						<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+						<button class="pswp__button pswp__button--share" title="Share"></button>
+						<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+						<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+						<div class="pswp__preloader">
+							<div class="pswp__preloader__icn">
+								<div class="pswp__preloader__cut">
+									<div class="pswp__preloader__donut"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+						<div class="pswp__share-tooltip"></div>
+					</div>
+
+					<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+					</button>
+					<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+					</button>
+					<div class="pswp__caption">
+						<div class="pswp__caption__center"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.0.6" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-before">
+/* <![CDATA[ */
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/obitex.co.il\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    }
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.0.6" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/themes/atlanta-child/js/slick.min.js?ver=1" id="slick-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/themes/atlanta-child/js/main.js?ver=2" id="main-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/themes/atlanta-child/js/swiper.js?ver=3" id="swiper-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/themes/atlanta-child/js/custom.js?ver=4" id="custom-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/pojo-forms/assets/js/app.min.js?ver=6.6.2" id="pojo-forms-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/easy-fancybox/vendor/purify.min.js?ver=6.6.2" id="fancybox-purify-js"></script>
+<script type="text/javascript" id="jquery-fancybox-js-extra">
+/* <![CDATA[ */
+var efb_i18n = {"close":"Close","next":"Next","prev":"Previous","startSlideshow":"Start slideshow","toggleSize":"Toggle size"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/easy-fancybox/fancybox/1.5.4/jquery.fancybox.min.js?ver=6.6.2" id="jquery-fancybox-js"></script>
+<script type="text/javascript" id="jquery-fancybox-js-after">
+/* <![CDATA[ */
+var fb_timeout, fb_opts={'autoScale':true,'showCloseButton':true,'margin':20,'pixelRatio':'false','centerOnScroll':true,'enableEscapeButton':true,'overlayShow':true,'hideOnOverlayClick':true,'minVpHeight':320,'disableCoreLightbox':'true','enableBlockControls':'true','fancybox_openBlockControls':'true' };
+if(typeof easy_fancybox_handler==='undefined'){
+var easy_fancybox_handler=function(){
+jQuery([".nolightbox","a.wp-block-file__button","a.pin-it-button","a[href*='pinterest.com\/pin\/create']","a[href*='facebook.com\/share']","a[href*='twitter.com\/share']"].join(',')).addClass('nofancybox');
+jQuery('a.fancybox-close').on('click',function(e){e.preventDefault();jQuery.fancybox.close()});
+/* IMG */
+						var unlinkedImageBlocks=jQuery(".wp-block-image > img:not(.nofancybox,figure.nofancybox>img)");
+						unlinkedImageBlocks.wrap(function() {
+							var href = jQuery( this ).attr( "src" );
+							return "<a href='" + href + "'></a>";
+						});
+var fb_IMG_select=jQuery('a[href*=".jpg" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".jpg" i]:not(.nofancybox),a[href*=".jpeg" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".jpeg" i]:not(.nofancybox),a[href*=".png" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".png" i]:not(.nofancybox),a[href*=".webp" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".webp" i]:not(.nofancybox)');
+fb_IMG_select.addClass('fancybox image');
+var fb_IMG_sections=jQuery('.gallery,.wp-block-gallery,.tiled-gallery,.wp-block-jetpack-tiled-gallery,.ngg-galleryoverview,.ngg-imagebrowser,.nextgen_pro_blog_gallery,.nextgen_pro_film,.nextgen_pro_horizontal_filmstrip,.ngg-pro-masonry-wrapper,.ngg-pro-mosaic-container,.nextgen_pro_sidescroll,.nextgen_pro_slideshow,.nextgen_pro_thumbnail_grid,.tiled-gallery');
+fb_IMG_sections.each(function(){jQuery(this).find(fb_IMG_select).attr('rel','gallery-'+fb_IMG_sections.index(this));});
+jQuery('a.fancybox,area.fancybox,.fancybox>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'transition':'elastic','transitionIn':'elastic','easingIn':'easeOutBack','transitionOut':'elastic','easingOut':'easeInBack','opacity':false,'hideOnContentClick':false,'titleShow':true,'titlePosition':'over','titleFromAlt':true,'showNavArrows':true,'enableKeyboardNav':true,'cyclic':false,'mouseWheel':'true'}))});
+/* Inline */
+jQuery('a.fancybox-inline,area.fancybox-inline,.fancybox-inline>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'type':'inline','autoDimensions':true,'scrolling':'no','easingIn':'easeOutBack','easingOut':'easeInBack','opacity':false,'hideOnContentClick':false,'titleShow':false}))});
+/* YouTube */
+jQuery('a[href*="youtu.be/" i],area[href*="youtu.be/" i],a[href*="youtube.com/" i],area[href*="youtube.com/" i]' ).filter(function(){return this.href.match(/\/(?:youtu\.be|watch\?|embed\/)/);}).not('.nofancybox,li.nofancybox>a').addClass('fancybox-youtube');
+jQuery('a.fancybox-youtube,area.fancybox-youtube,.fancybox-youtube>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'type':'iframe','width':640,'height':360,'keepRatio':1,'aspectRatio':1,'titleShow':false,'titlePosition':'float','titleFromAlt':true,'onStart':function(a,i,o){var splitOn=a[i].href.indexOf("?");var urlParms=(splitOn>-1)?a[i].href.substring(splitOn):"";o.allowfullscreen=(urlParms.indexOf("fs=0")>-1)?false:true;o.href=a[i].href.replace(/https?:\/\/(?:www\.)?youtu(?:\.be\/([^\?]+)\??|be\.com\/watch\?(.*(?=v=))v=([^&]+))(.*)/gi,"https://www.youtube.com/embed/$1$3?$2$4&autoplay=1");}}))});
+/* Vimeo */
+jQuery('a[href*="vimeo.com/" i],area[href*="vimeo.com/" i]' ).filter(function(){return this.href.match(/\/(?:[0-9]+|video\/)/);}).not('.nofancybox,li.nofancybox>a').addClass('fancybox-vimeo');
+jQuery('a.fancybox-vimeo,area.fancybox-vimeo,.fancybox-vimeo>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'type':'iframe','width':500,'height':281,'keepRatio':1,'aspectRatio':1,'titleShow':false,'titlePosition':'float','titleFromAlt':true,'onStart':function(a,i,o){var splitOn=a[i].href.indexOf("?");var urlParms=(splitOn>-1)?a[i].href.substring(splitOn):"";o.allowfullscreen=(urlParms.indexOf("fullscreen=0")>-1)?false:true;o.href=a[i].href.replace(/https?:\/\/(?:www\.)?vimeo\.com\/([0-9]+)\??(.*)/gi,"https://player.vimeo.com/video/$1?$2&autoplay=1");}}))});
+/* Dailymotion */
+jQuery('a[href*="dailymotion.com/" i],area[href*="dailymotion.com/" i]' ).filter(function(){return this.href.match(/\/video\//);}).not('.nofancybox,li.nofancybox>a').addClass('fancybox-dailymotion');
+jQuery('a.fancybox-dailymotion,area.fancybox-dailymotion,.fancybox-dailymotion>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'type':'iframe','width':560,'height':315,'keepRatio':1,'aspectRatio':1,'titleShow':false,'titlePosition':'float','titleFromAlt':true,'onStart':function(a,i,o){var splitOn=a[i].href.indexOf("?");var urlParms=(splitOn>-1)?a[i].href.substring(splitOn):"";o.allowfullscreen=(urlParms.indexOf("fullscreen=0")>-1)?false:true;o.href=a[i].href.replace(/^https?:\/\/(?:www\.)?dailymotion.com\/video\/([^\?]+)(.*)/gi,"https://www.dailymotion.com/embed/video/$1?$2&autoplay=1");}}))});
+/* iFrame */
+jQuery('a.fancybox-iframe,area.fancybox-iframe,.fancybox-iframe>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'type':'iframe','width':'70%','height':'90%','titleShow':false,'titlePosition':'float','titleFromAlt':true,'allowfullscreen':false}))});
+};};
+jQuery(easy_fancybox_handler);jQuery(document).on('post-load',easy_fancybox_handler);
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/easy-fancybox/vendor/jquery.easing.min.js?ver=1.4.1" id="jquery-easing-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/easy-fancybox/vendor/jquery.mousewheel.min.js?ver=3.1.13" id="jquery-mousewheel-js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6Lf8ZuQZAAAAAPNfEFlhvs3hsgAlrfSX5l9ItyJE&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-before">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {
+    "sitekey": "6Lf8ZuQZAAAAAPNfEFlhvs3hsgAlrfSX5l9ItyJE",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.0.6" id="wpcf7-recaptcha-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/themes/atlanta/assets/bootstrap/js/bootstrap.min.js?ver=3.0.0" id="pojo-plugins-js"></script>
+<script type="text/javascript" id="pojo-scripts-js-extra">
+/* <![CDATA[ */
+var Pojo = {"ajaxurl":"https:\/\/obitex.co.il\/wp-admin\/admin-ajax.php","css_framework_type":"bootstrap","superfish_args":{"delay":150,"animation":{"opacity":"show","height":"show"},"speed":"fast"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/themes/atlanta/assets/js/frontend.min.js?ver=1.8.1" id="pojo-scripts-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/themes/atlanta/core/assets/masterslider/masterslider.min.js?ver=2.9.5" id="masterslider-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/pojo-lightbox/assets/photoswipe/photoswipe.min.js?ver=4.1.2" id="photoswipe-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/pojo-lightbox/assets/photoswipe/photoswipe-ui-default.min.js?ver=4.1.2" id="photoswipe-ui-js"></script>
+<script type="text/javascript" id="pojo-lightbox-app-js-extra">
+/* <![CDATA[ */
+var PojoLightboxOptions = {"script_type":"photoswipe","smartphone":"","woocommerce":"","lightbox_args":{"loop":true,"closeOnScroll":true,"closeOnVerticalDrag":true,"escKey":true,"arrowKeys":true,"history":true,"captionEl":true,"closeEl":true,"fullscreenEl":true,"zoomEl":true,"counterEl":true,"arrowEl":true,"shareEl":true}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/pojo-lightbox/assets/js/app.min.js?ver=6.6.2" id="pojo-lightbox-app-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/pojo-builder-animation/assets/js/scripts.min.js?ver=6.6.2" id="pojo-builder-animation-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/pojo-news-ticker/assets/js/app.min.js?ver=6.6.2" id="pojo-news-ticker-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.3" id="jquery-ui-datepicker-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.3" id="jquery-ui-mouse-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/jquery/ui/slider.min.js?ver=1.13.3" id="jquery-ui-slider-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/jquery/jquery.ui.touch-punch.js?ver=0.2.2" id="jquery-touch-punch-js"></script>
+<script type="text/javascript" id="mediaelement-core-js-before">
+/* <![CDATA[ */
+var mejsL10n = {"language":"he","strings":{"mejs.download-file":"\u05d4\u05d5\u05e8\u05d3 \u05e7\u05d5\u05d1\u05e5","mejs.install-flash":"\u05d0\u05ea\u05d4 \u05de\u05e9\u05ea\u05de\u05e9 \u05d1\u05d3\u05e4\u05d3\u05e4\u05df \u05dc\u05dc\u05d0 \u05e0\u05d2\u05df \u05e4\u05dc\u05d0\u05e9 \u05e4\u05e2\u05d9\u05dc \u05d0\u05d5 \u05de\u05d5\u05ea\u05e7\u05df. \u05d0\u05e0\u05d0 \u05d4\u05e4\u05e2\u05dc \u05d0\u05ea \u05ea\u05d5\u05e1\u05e3 \u05d4\u05e4\u05dc\u05d0\u05e9 \u05d0\u05d5 \u05d4\u05d5\u05e8\u05d3 \u05d0\u05ea \u05d4\u05d2\u05e8\u05e1\u05d4 \u05d4\u05e2\u05d3\u05db\u05e0\u05d9\u05ea \u05e9\u05dc\u05d5 \u05de\u05d4\u05db\u05ea\u05d5\u05d1\u05ea https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","mejs.play":"\u05e0\u05d2\u05df","mejs.pause":"\u05d4\u05e9\u05d4\u05d9\u05d9\u05d4","mejs.time-slider":"\u05e1\u05e8\u05d2\u05dc \u05d4\u05ea\u05e7\u05d3\u05de\u05d5\u05ea","mejs.time-help-text":"\u05d4\u05e9\u05ea\u05de\u05e9 \u05d1\u05de\u05e7\u05e9 \u05e9\u05de\u05d0\u05dc\/\u05d9\u05de\u05d9\u05df \u05dc\u05d4\u05ea\u05e7\u05d3\u05dd \u05e9\u05e0\u05d9\u05d4 \u05d0\u05d7\u05ea, \u05de\u05e7\u05e9 \u05dc\u05de\u05e2\u05dc\u05d4\/\u05dc\u05de\u05d8\u05d4 \u05dc\u05d4\u05ea\u05e7\u05d3\u05dd \u05e2\u05e9\u05e8 \u05e9\u05e0\u05d9\u05d5\u05ea.","mejs.live-broadcast":"\u05e9\u05d9\u05d3\u05d5\u05e8 \u05d7\u05d9","mejs.volume-help-text":"\u05d4\u05e9\u05ea\u05de\u05e9 \u05d1\u05de\u05e7\u05e9 \u05dc\u05de\u05e2\u05dc\u05d4\/\u05dc\u05de\u05d8\u05d4 \u05db\u05d3\u05d9 \u05dc\u05d4\u05d2\u05d1\u05d9\u05e8 \u05d0\u05d5 \u05dc\u05d4\u05e0\u05de\u05d9\u05da \u05e2\u05d5\u05e6\u05de\u05ea \u05e9\u05de\u05e2.","mejs.unmute":"\u05d1\u05d8\u05dc \u05d4\u05e9\u05ea\u05e7\u05d4","mejs.mute":"\u05dc\u05d4\u05e9\u05ea\u05d9\u05e7","mejs.volume-slider":"\u05e2\u05d5\u05e6\u05de\u05ea \u05e9\u05de\u05e2","mejs.video-player":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","mejs.audio-player":"\u05e0\u05d2\u05df \u05d0\u05d5\u05d3\u05d9\u05d5","mejs.captions-subtitles":"\u05db\u05ea\u05d5\u05d1\u05d9\u05d5\u05ea","mejs.captions-chapters":"\u05e4\u05e8\u05e7\u05d9\u05dd","mejs.none":"\u05dc\u05dc\u05d0","mejs.afrikaans":"\u05d0\u05e4\u05e8\u05d9\u05e7\u05e0\u05e1","mejs.albanian":"\u05d0\u05dc\u05d1\u05e0\u05d9\u05ea","mejs.arabic":"\u05e2\u05e8\u05d1\u05d9\u05ea","mejs.belarusian":"\u05d1\u05dc\u05e8\u05d5\u05e1\u05d9\u05ea","mejs.bulgarian":"\u05d1\u05d5\u05dc\u05d2\u05e8\u05d9\u05ea","mejs.catalan":"\u05e7\u05d8\u05dc\u05d5\u05e0\u05d9\u05ea","mejs.chinese":"\u05e1\u05d9\u05e0\u05d9\u05ea","mejs.chinese-simplified":"\u05e1\u05d9\u05e0\u05d9\u05ea (\u05de\u05d5\u05e4\u05e9\u05d8\u05ea)","mejs.chinese-traditional":"\u05e1\u05d9\u05e0\u05d9\u05ea (\u05de\u05e1\u05d5\u05e8\u05ea\u05d9\u05ea)","mejs.croatian":"\u05e7\u05e8\u05d5\u05d0\u05d8\u05d9\u05ea","mejs.czech":"\u05e6'\u05db\u05d9\u05ea","mejs.danish":"\u05d3\u05e0\u05d9\u05ea","mejs.dutch":"\u05d4\u05d5\u05dc\u05e0\u05d3\u05d9\u05ea","mejs.english":"\u05d0\u05e0\u05d2\u05dc\u05d9\u05ea","mejs.estonian":"\u05d0\u05e1\u05d8\u05d5\u05e0\u05d9\u05ea","mejs.filipino":"\u05e4\u05d9\u05dc\u05d9\u05e4\u05d9\u05e0\u05d9\u05ea","mejs.finnish":"\u05e4\u05d9\u05e0\u05d9\u05ea","mejs.french":"\u05e6\u05e8\u05e4\u05ea\u05d9\u05ea","mejs.galician":"\u05d2\u05dc\u05d9\u05e6\u05d9\u05d0\u05e0\u05d9\u05ea","mejs.german":"\u05d2\u05e8\u05de\u05e0\u05d9\u05ea","mejs.greek":"\u05d9\u05d5\u05d5\u05e0\u05d9\u05ea","mejs.haitian-creole":"\u05e7\u05e8\u05d9\u05d0\u05d5\u05dc\u05d9\u05ea \u05d4\u05d0\u05d9\u05d8\u05d9","mejs.hebrew":"\u05e2\u05d1\u05e8\u05d9\u05ea","mejs.hindi":"\u05d4\u05d9\u05e0\u05d3\u05d9\u05ea","mejs.hungarian":"\u05d4\u05d5\u05e0\u05d2\u05e8\u05d9\u05ea","mejs.icelandic":"\u05d0\u05d9\u05e1\u05dc\u05e0\u05d3\u05d9\u05ea","mejs.indonesian":"\u05d0\u05d9\u05e0\u05d3\u05d5\u05e0\u05d6\u05d9\u05ea","mejs.irish":"\u05d0\u05d9\u05e8\u05d9\u05ea","mejs.italian":"\u05d0\u05d9\u05d8\u05dc\u05e7\u05d9\u05ea","mejs.japanese":"\u05d9\u05e4\u05e0\u05d9\u05ea","mejs.korean":"\u05e7\u05d5\u05e8\u05d0\u05e0\u05d9\u05ea","mejs.latvian":"\u05dc\u05d8\u05d1\u05d9\u05ea","mejs.lithuanian":"\u05dc\u05d9\u05d8\u05d0\u05d9\u05ea","mejs.macedonian":"\u05de\u05e7\u05d3\u05d5\u05e0\u05d9\u05ea","mejs.malay":"\u05de\u05d0\u05dc\u05d9","mejs.maltese":"\u05de\u05dc\u05d8\u05d6\u05d9\u05ea","mejs.norwegian":"\u05e0\u05d5\u05e8\u05d1\u05d2\u05d9\u05ea","mejs.persian":"\u05e4\u05e8\u05e1\u05d9\u05ea","mejs.polish":"\u05e4\u05d5\u05dc\u05e0\u05d9\u05ea","mejs.portuguese":"\u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea","mejs.romanian":"\u05e8\u05d5\u05de\u05e0\u05d9\u05ea","mejs.russian":"\u05e8\u05d5\u05e1\u05d9\u05ea","mejs.serbian":"\u05e1\u05e8\u05d1\u05d9\u05ea","mejs.slovak":"\u05e1\u05dc\u05d5\u05d1\u05e7\u05d9\u05ea","mejs.slovenian":"\u05e1\u05dc\u05d5\u05d1\u05e0\u05d9\u05ea","mejs.spanish":"\u05e1\u05e4\u05e8\u05d3\u05d9\u05ea","mejs.swahili":"\u05e1\u05d5\u05d5\u05d0\u05d4\u05d9\u05dc\u05d9\u05ea","mejs.swedish":"\u05e9\u05d1\u05d3\u05d9\u05ea","mejs.tagalog":"\u05d8\u05d2\u05dc\u05d5\u05d2","mejs.thai":"\u05ea\u05d0\u05d9\u05dc\u05e0\u05d3\u05d9\u05ea","mejs.turkish":"\u05d8\u05d5\u05e8\u05e7\u05d9\u05ea","mejs.ukrainian":"\u05d0\u05d5\u05e7\u05e8\u05d0\u05d9\u05e0\u05d9\u05ea","mejs.vietnamese":"\u05d5\u05d9\u05d0\u05d8\u05e0\u05de\u05d9\u05ea","mejs.welsh":"\u05d5\u05d5\u05dc\u05e9\u05d9\u05ea","mejs.yiddish":"\u05d9\u05d9\u05d3\u05d9\u05e9"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17" id="mediaelement-core-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.6.2" id="mediaelement-migrate-js"></script>
+<script type="text/javascript" id="mediaelement-js-extra">
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive","audioShortcodeLibrary":"mediaelement","videoShortcodeLibrary":"mediaelement"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.6.2" id="wp-mediaelement-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/underscore.min.js?ver=1.13.4" id="underscore-js"></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/wp-util.min.js?ver=6.6.2" id="wp-util-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/backbone.min.js?ver=1.5.0" id="backbone-js"></script>
+<script type="text/javascript" src="https://obitex.co.il/wp-includes/js/mediaelement/wp-playlist.min.js?ver=6.6.2" id="wp-playlist-js"></script>
+<script type="text/javascript" id="views-blocks-frontend-js-extra">
+/* <![CDATA[ */
+var wpv_pagination_local = {"front_ajaxurl":"https:\/\/obitex.co.il\/wp-admin\/admin-ajax.php","calendar_image":"https:\/\/obitex.co.il\/wp-content\/plugins\/wp-views\/embedded\/res\/img\/calendar.gif","calendar_text":"Select date","datepicker_min_date":null,"datepicker_max_date":null,"datepicker_min_year":"1582","datepicker_max_year":"3000","resize_debounce_tolerance":"100","datepicker_style_url":"https:\/\/obitex.co.il\/wp-content\/plugins\/wp-views\/vendor\/toolset\/toolset-common\/toolset-forms\/css\/wpt-jquery-ui\/jquery-ui-1.11.4.custom.css","wpmlLang":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://obitex.co.il/wp-content/plugins/wp-views/public/js/views-frontend.js?ver=3.6.16" id="views-blocks-frontend-js"></script>
+
+<script type="text/javascript">
+//-----------------------------------------
+// View slug: all-project-carusel - start
+//-----------------------------------------
+jQuery(document).ready(function($){
+     $('.autoplay-3').slick({
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  //autoplay: true,
+  dots: true,
+  rtl: true,
+  //autoplaySpeed: 3500000,
+       responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+ });
+
+//-----------------------------------------
+// View slug: all-project-carusel - end
+//-----------------------------------------
+</script>
+<style id="w3d-cb-style">/* Banner container */
+.w3d-cb-banner {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 730px;
+  width: 95%;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px 24px;
+  z-index: 2147483647;
+  box-sizing: border-box;
+}
+
+.w3d-cb-banner.slide-enter {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateX(-50%) translateY(100%); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* Header */
+.w3d-cb-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.w3d-cb-title-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1;
+}
+
+.w3d-cb-cookie-icon {
+  width: 1.6em;
+  height: 1.6em;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.w3d-cb-cookie-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.w3d-cb-cookie-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.w3d-cb-logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.w3d-cb-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: #000000;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+h3.w3d-cb-title {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+.w3d-cb-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  font-size: unset;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  color: #666;
+}
+
+.w3d-cb-close:hover {
+  color: #ffffff;
+}
+
+/* Message */
+.w3d-cb-message {
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.w3d-cb-message a {
+  color: #0073aa;
+  text-decoration: underline;
+}
+
+.w3d-cb-message a:hover {
+  color: #005177;
+}
+
+/* Categories */
+.w3d-cb-categories {
+  margin: 16px 0;
+}
+
+.w3d-cb-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.w3d-cb-category:last-child {
+  border-bottom: none;
+}
+
+.w3d-cb-category-label {
+  font-size: 14px;
+  color: #000000;
+}
+
+/* Toggle Switch */
+.w3d-cb-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.w3d-cb-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.w3d-cb-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.w3d-cb-slider:before {
+  position: absolute;
+  content: \"\";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider {
+  background-color: #4CAF50;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider:before {
+  transform: translateX(24px);
+}
+
+/* Buttons */
+#w3d-cb-banner .w3d-cb-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+#w3d-cb-banner .w3d-cb-btn {
+  padding: 10px 20px;
+  border: 2px solid #0073aa;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 120px;
+}
+
+#w3d-cb-banner .w3d-cb-btn-accept {
+  background: var(--w3d-accept-bg, #0073aa);
+  border-color: var(--w3d-accept-border, #005177);
+  color: var(--w3d-accept-text, #ffffff);
+}
+
+#w3d-cb-banner .w3d-cb-btn-accept:hover {
+  opacity: 0.9;
+}
+
+#w3d-cb-banner .w3d-cb-btn-deny {
+  background: var(--w3d-deny-bg, transparent);
+  border-color: var(--w3d-deny-border, #0073aa);
+  color: var(--w3d-deny-text, #0073aa);
+}
+
+#w3d-cb-banner .w3d-cb-btn-deny:hover {
+  opacity: 0.8;
+}
+
+#w3d-cb-banner .w3d-cb-btn-save {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: #ffffff;
+}
+
+#w3d-cb-banner .w3d-cb-btn-save:hover {
+  background: #45a049;
+  border-color: #45a049;
+}
+
+#w3d-cb-banner .w3d-cb-btn-view {
+  background: transparent;
+  color: #666;
+  border-color: #999;
+  font-size: 13px;
+  flex-basis: 100%;
+  margin-top: 4px;
+}
+
+#w3d-cb-banner .w3d-cb-btn-view:hover {
+  background: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 425px) {
+  .w3d-cb-banner {
+    width: 100%;
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  #w3d-cb-banner .w3d-cb-buttons {
+    flex-direction: column;
+  }
+
+  #w3d-cb-banner .w3d-cb-btn {
+    width: 100%;
+  }
+}
+
+/* Color Overrides from Settings */
+:root {
+  --w3d-bg: #ffffff;
+  --w3d-border: #ffffff;
+  --w3d-text: #000000;
+  --w3d-link: #0cacde;
+  --w3d-link-underline: #0cacde;
+  --w3d-toggle-active: #4CAF50;
+  --w3d-toggle-inactive: #ccc;
+  --w3d-accept-bg: #0cacde;
+  --w3d-accept-border: #0cacde;
+  --w3d-accept-text: #ffffff;
+  --w3d-deny-bg: #e5e5e5;
+  --w3d-deny-border: #e5e5e5;
+  --w3d-deny-text: #000000;
+}
+
+.w3d-cb-banner {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.w3d-cb-title {
+  color: #000000 !important;
+}
+
+.w3d-cb-message {
+  color: #000000 !important;
+}
+
+.w3d-cb-message a {
+  color: #0cacde !important;
+  text-decoration-color: #0cacde !important;
+}
+
+.w3d-cb-message a:hover {
+  color: #0cacde !important;
+  text-decoration-color: #0cacde !important;
+}
+
+.w3d-cb-category-label {
+  color: #000000 !important;
+}
+
+.w3d-cb-slider {
+  background-color: #ccc !important;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider {
+  background-color: #4CAF50 !important;
+}
+
+.w3d-cb-btn-accept {
+  background: #0cacde !important;
+  border-color: #0cacde !important;
+  color: #ffffff !important;
+}
+
+.w3d-cb-btn-deny {
+  background: #e5e5e5 !important;
+  border-color: #e5e5e5 !important;
+  color: #000000 !important;
+}
+</style>    <div id="w3d-cb-banner" class="w3d-cb-banner" style="display: block !important;">
+        <div class="w3d-cb-header">
+                        <div class="w3d-cb-title-wrap">
+                <h3 class="w3d-cb-title">ניהול הסכמה</h3>
+                                    <span class="w3d-cb-cookie-icon" aria-hidden="true">
+                        <img src="https://obitex.co.il/wp-content/plugins/consent-13-v2/assets/cookie-icon.png" alt="" role="presentation" decoding="async">                    </span>
+                            </div>
+                    </div>
+
+        <div class="w3d-cb-message">האתר שלנו משתמש בעוגיות לצורך תפעול תקין, שיפור חוויית השימוש, ניתוח סטטיסטי והצגת פרסומות מותאמות אישית. תוכלו לבחור אם לאפשר את כל סוגי העוגיות או לדחות אותן. למידע נוסף: <a href="https://obitex.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" target="_blank" rel="noopener noreferrer">מדיניות פרטיות</a></div>
+
+        
+        <div class="w3d-cb-buttons" id="w3d-cb-simple-buttons">
+            <button type="button" class="w3d-cb-btn w3d-cb-btn-accept" id="w3d-cb-accept">לקבל</button>
+            <button type="button" class="w3d-cb-btn w3d-cb-btn-deny" id="w3d-cb-deny">לדחות</button>
+                    </div>
+
+            </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            var COOKIE_NAME = 'w3d_consent';
+            var COOKIE_DAYS = 365;
+            var SHOW_CATEGORIES = false;
+            var initialized = false;
+
+            function getCookie(name) {
+                var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+                return v ? decodeURIComponent(v[2]) : null;
+            }
+
+            function setCookie(name, value, days) {
+                var d = new Date();
+                d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+                document.cookie = name + "=" + encodeURIComponent(value) + ";path=/;expires=" + d.toGMTString() + ";SameSite=Lax";
+            }
+
+            function getStoredConsentData() {
+                var stored = getCookie(COOKIE_NAME);
+                if (!stored) return null;
+                try {
+                    return JSON.parse(stored);
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            function isConsentExpired(consentData) {
+                // Проверяем, истек ли срок действия согласия (прошло ли больше года)
+                if (!consentData || !consentData.timestamp) return true;
+
+                var now = Date.now();
+                var consentTime = parseInt(consentData.timestamp, 10);
+                var daysSinceConsent = (now - consentTime) / (1000 * 60 * 60 * 24); // миллисекунды в дни
+
+                // Если прошло больше года (365 дней), согласие истекло
+                return daysSinceConsent > COOKIE_DAYS;
+            }
+
+            function hasStoredConsent() {
+                var parsed = getStoredConsentData();
+                if (!parsed) return false;
+
+                // Проверяем срок действия
+                if (isConsentExpired(parsed)) {
+                    // Удаляем истекшее cookie
+                    setCookie(COOKIE_NAME, '', -1);
+                    return false;
+                }
+
+                return typeof parsed.functional !== 'undefined' ||
+                    typeof parsed.analytics !== 'undefined' ||
+                    typeof parsed.marketing !== 'undefined';
+            }
+
+            function hasAnalyticsConsent() {
+                var parsed = getStoredConsentData();
+                return !!(parsed && Number(parsed.analytics) === 1);
+            }
+
+            function hasMarketingConsent() {
+                var parsed = getStoredConsentData();
+                return !!(parsed && Number(parsed.marketing) === 1);
+            }
+
+            function restoreBlockedIframe(wrapper) {
+                if (!wrapper || wrapper.getAttribute('data-restored') === '1') return;
+                var encoded = wrapper.getAttribute('data-orig');
+                if (!encoded) return;
+
+                var decoded = '';
+                try {
+                    decoded = atob(encoded);
+                } catch (e) {
+                    return;
+                }
+
+                if (!decoded) return;
+
+                var container = document.createElement('div');
+                container.innerHTML = decoded.trim();
+                var iframe = container.firstElementChild;
+                if (!iframe) return;
+
+                wrapper.parentNode.replaceChild(iframe, wrapper);
+                wrapper.setAttribute('data-restored', '1');
+            }
+
+            function restoreBlockedEmbeds() {
+                document.querySelectorAll('.w3d-blocked-iframe[data-orig]').forEach(function(wrapper) {
+                    restoreBlockedIframe(wrapper);
+                });
+            }
+
+            function releaseBlockedScripts(consent) {
+                consent = consent || getStoredConsentData();
+                if (!consent) return;
+
+                var allowAnalytics = Number(consent.analytics) === 1;
+                var allowMarketing = Number(consent.marketing) === 1;
+
+                if (!allowAnalytics && !allowMarketing) return;
+
+                var scriptsFound = 0;
+                var scriptsRestored = [];
+                document.querySelectorAll('script[type="text/plain"][data-category]').forEach(function(script) {
+                    var category = script.getAttribute('data-category');
+                    if (
+                        (category === 'analytics' && !allowAnalytics) ||
+                        (category === 'marketing' && !allowMarketing)
+                    ) {
+                        return;
+                    }
+                    scriptsFound++;
+
+                    var newScript = document.createElement('script');
+                    var scriptType = script.getAttribute('data-orig-type') || script.getAttribute('type') || 'text/javascript';
+                    newScript.type = scriptType;
+                    var dataSrc = script.getAttribute('data-src');
+                    if (dataSrc) {
+                        newScript.src = dataSrc;
+                    } else {
+                        var inlineContent = script.innerHTML || script.textContent || '';
+                        if (inlineContent.length > 0) {
+                            newScript.innerHTML = inlineContent;
+                        } else {
+                            return;
+                        }
+                    }
+
+                    scriptsRestored.push({
+                        src: dataSrc || 'inline',
+                        category: category,
+                        type: scriptType
+                    });
+                    script.parentNode.insertBefore(newScript, script.nextSibling);
+                    script.remove();
+                });
+
+                if (allowMarketing) {
+                    restoreBlockedEmbeds();
+                }
+            }
+
+            window.w3dUnblockIframe = function(triggerEl) {
+                var wrapper = null;
+                if (triggerEl) {
+                    if (triggerEl.closest) {
+                        wrapper = triggerEl.closest('.w3d-blocked-iframe');
+                    } else {
+                        var node = triggerEl;
+                        while (node && node !== document.body) {
+                            if (node.classList && node.classList.contains('w3d-blocked-iframe')) {
+                                wrapper = node;
+                                break;
+                            }
+                            node = node.parentNode;
+                        }
+                    }
+                }
+                if (!wrapper) return;
+
+                if (!hasMarketingConsent()) {
+                    showBanner();
+                    if (SHOW_CATEGORIES) {
+                        var categories = document.getElementById('w3d-cb-categories');
+                        var simple = document.getElementById('w3d-cb-simple-buttons');
+                        var advanced = document.getElementById('w3d-cb-advanced-buttons');
+                        if (categories) categories.style.display = 'block';
+                        if (simple) simple.style.display = 'none';
+                        if (advanced) advanced.style.display = 'flex';
+                    }
+                    return;
+                }
+
+                restoreBlockedIframe(wrapper);
+            };
+
+            function showBanner() {
+                var banner = document.getElementById('w3d-cb-banner');
+                if (banner) {
+                    banner.style.removeProperty('display');
+                    banner.style.setProperty('display', 'block', 'important');
+                }
+            }
+
+            function hideBanner() {
+                var banner = document.getElementById('w3d-cb-banner');
+                if (banner) {
+                    banner.style.setProperty('display', 'none', 'important');
+                }
+            }
+
+            function saveConsent(functional, analytics, marketing) {
+                var consent = {
+                    functional: functional ? 1 : 0,
+                    analytics: analytics ? 1 : 0,
+                    marketing: marketing ? 1 : 0,
+                    timestamp: Date.now()
+                };
+
+                setCookie(COOKIE_NAME, JSON.stringify(consent), COOKIE_DAYS);
+
+                hideBanner();
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://obitex.co.il/wp-admin/admin-ajax.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send('action=web3d_save_consent_log&consent=' + encodeURIComponent(JSON.stringify(consent)));
+
+                // Разблокируем скрипты и перезагружаем
+                if (analytics || marketing) {
+                    setTimeout(function() {
+                        releaseBlockedScripts(consent);
+
+                        setTimeout(function() {
+                            if (typeof gtag !== 'undefined') {
+                                try {
+                                    gtag('consent', 'update', {
+                                        'analytics_storage': analytics ? 'granted' : 'denied',
+                                        'ad_storage': marketing ? 'granted' : 'denied'
+                                    });
+                                } catch (e) {
+                                    // Silent error handling
+                                }
+                            }
+
+                            setTimeout(function() {
+                                location.reload();
+                            }, 800);
+                        }, 300);
+                    }, 200);
+                }
+
+                if (!analytics && !marketing && typeof gtag !== 'undefined') {
+                    gtag('consent', 'update', {
+                        'analytics_storage': 'denied',
+                        'ad_storage': 'denied'
+                    });
+                }
+            }
+
+            function initBanner() {
+                if (initialized) return;
+
+                var banner = document.getElementById('w3d-cb-banner');
+                if (!banner) return;
+
+                var existingConsent = getStoredConsentData();
+
+                // Проверяем срок действия согласия (прошло ли больше года)
+                var isExpired = existingConsent ? isConsentExpired(existingConsent) : true;
+
+                if (isExpired && existingConsent) {
+                    // Согласие истекло (прошло больше года) - удаляем cookie
+                    setCookie(COOKIE_NAME, '', -1);
+                    existingConsent = null;
+                }
+
+                // Показываем баннер, только если пользователь ещё не принял решение (ни принял, ни отклонил)
+                // Или если согласие истекло (прошло больше года)
+                if (existingConsent && !isExpired && hasStoredConsent()) {
+                    // Согласие уже дано и не истекло - скрываем баннер
+                    hideBanner();
+                    if (existingConsent.analytics || existingConsent.marketing) {
+                        setTimeout(function() {
+                            releaseBlockedScripts(existingConsent);
+                        }, 300);
+                    }
+                    initialized = true;
+                    return;
+                }
+
+                // Согласие не дано или истекло (прошло больше года) - показываем баннер снова
+                showBanner();
+
+                // Event handlers
+                document.getElementById('w3d-cb-accept').onclick = function() {
+                    saveConsent(true, true, true);
+                };
+
+                document.getElementById('w3d-cb-deny').onclick = function() {
+                    saveConsent(true, false, false);
+                };
+
+                if (document.getElementById('w3d-cb-close')) {
+                    document.getElementById('w3d-cb-close').onclick = function() {
+                        // Просто скрываем баннер без сохранения согласия
+                        hideBanner();
+                    };
+                }
+
+                if (SHOW_CATEGORIES) {
+                    document.getElementById('w3d-cb-view').onclick = function() {
+                        document.getElementById('w3d-cb-categories').style.display = 'block';
+                        document.getElementById('w3d-cb-simple-buttons').style.display = 'none';
+                        document.getElementById('w3d-cb-advanced-buttons').style.display = 'flex';
+                    };
+
+                    document.getElementById('w3d-cb-save').onclick = function() {
+                        var analytics = document.getElementById('w3d-cb-analytics').checked;
+                        var marketing = document.getElementById('w3d-cb-marketing').checked;
+                        saveConsent(true, analytics, marketing);
+                    };
+                }
+
+                initialized = true;
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initBanner);
+            } else {
+                initBanner();
+            }
+        })();
+    </script>
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-c04hegsu5imh" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lf8ZuQZAAAAAPNfEFlhvs3hsgAlrfSX5l9ItyJE&amp;co=aHR0cHM6Ly9vYml0ZXguY28uaWw6NDQz&amp;hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=zeb9eom8fyx"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><div id="fancybox-tmp"></div><div id="fancybox-loading" title="Cancel"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap" role="dialog" aria-hidden="true" aria-labelledby="fancybox-title" tabindex="-1"><div id="fancybox-outer"><div id="fancybox-content"></div><a id="fancybox-close" href="javascript:;" title="Close" class="fancy-ico" tabindex="1"><span></span></a><a id="fancybox-next" href="javascript:;" title="Next" class="fancy-ico" tabindex="2"><span></span></a><a id="fancybox-prev" href="javascript:;" title="Previous" class="fancy-ico" tabindex="3"><span></span></a><div id="fancybox-title-wrap"></div></div></div></body></html>

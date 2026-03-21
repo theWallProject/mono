@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="ja"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AloneSoft</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Meiryo', sans-serif;
+      background: #404080;
+      color: #EEE;
+    }
+    header {
+      background: #36366b;
+      padding: 0.5em 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+    }
+    nav a {
+      color: #EEE;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    nav a.active, nav a:hover {
+      background: #5555aa;
+    }
+    main {
+      max-width: 900px;
+      margin: 2em auto;
+      background: rgba(30,30,60,0.97);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      padding: 2em 1em;
+      min-height: 60vh;
+    }
+    .asset-list, .xbox-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+    .asset-list img, .xbox-list img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      background: #222;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      margin-bottom: 0.5em;
+    }
+    @media (max-width: 600px) {
+      .asset-list img, .xbox-list img {
+        max-width: 100px;
+      }
+      main {
+        padding: 1em 0.5em;
+      }
+      nav {
+        gap: 0.5em;
+      }
+    }
+  </style>
+<script charset="utf-8" src="https://platform.twitter.com/js/timeline.e108540dddc96e4b707f5cf259a582d7.js"></script></head>
+<body>
+  <header>
+    <nav>
+      <a href="#top" class="active" onclick="showPage('top', event)">TOP</a>
+      <a href="#twitter" onclick="showPage('twitter', event)">X</a>
+      <a href="#info" onclick="showPage('info', event)">INFO</a>
+      <a href="#contact" onclick="showPage('contact', event)">CONTACT</a>
+    </nav>
+  </header>
+  <main id="content">
+    <!-- TOPページ（デフォルト表示） -->
+    <section id="page-top">
+      <h1 style="text-align:center; font-size:2.5em; margin-bottom:0.6em;">Unity Asset</h1>
+      <div class="asset-list">
+        <a href="VeryAnimation/index.html"><img src="VeryAnimation/VeryAnimation_title.jpg" alt="VeryAnimation"></a>
+        <a href="VoxelImporter/index.html"><img src="VoxelImporter/voxelimporter_title.jpg" alt="VoxelImporter"></a>
+      </div>
+      <h1 style="text-align:center; font-size:2.5em; margin-bottom:0.6em;">XBOX Live Indie Games</h1>
+      <div class="xbox-list">
+        <a href="AvatarDairansen/index.html"><img src="AvatarDairansen/Avatar-Dairansen-Package.JPG" alt="AvatarDairansen"></a>
+        <a href="AvatarRunning/index.html"><img src="AvatarRunning/Avatar Running Package.JPG" alt="AvatarRunning"></a>
+        <a href="AvatarClimbing/index.html"><img src="AvatarClimbing/Avatar Climbing Package.JPG" alt="AvatarClimbing"></a>
+        <a href="AvatarRunning2/index.html"><img src="AvatarRunning2/AvatarRunning2Package.JPG" alt="AvatarRunning2"></a>
+      </div>
+    </section>
+    <!-- X(Twitter) -->
+    <section id="page-twitter" style="display:none; text-align:center;">
+      <h2>X(Twitter)</h2>
+      <a class="twitter-timeline" data-height="500" href="https://x.com/AlSoSupport?ref_src=twsrc%5Etfw" data-twitter-extracted-i1773865099145576175="true">Posts by @AlSoSupport</a> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </section>
+    <!-- INFO -->
+    <section id="page-info" style="display:none; text-align:center;">
+      <h2>INFO</h2>
+      <img src="snap0000.png" alt="icon" style="width:120px;height:120px;border-radius:50%;background:#222;box-shadow:0 2px 6px rgba(0,0,0,0.12);margin-bottom:1em;">
+      <p style="font-size:1.1em;">フリーランスのゲームプログラマです。Unityのアセットの販売や個人でインディーズゲームを開発しています。</p>
+    </section>
+    <!-- CONTACT -->
+    <section id="page-contact" style="display:none; text-align:center;">
+      <h2>CONTACT</h2>
+      <p>なにかご用件ありましたら下記のメールアドレスまでお願いします。</p>
+      <img src="contact.png" alt="contact" style="width:80%;max-width:512px;height:auto;">
+    </section>
+  </main>
+  <script>
+    function showPage(page, event) {
+      event.preventDefault();
+      // メニューのactive切り替え
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      document.querySelector('nav a[href="#'+page+'"]').classList.add('active');
+      // セクション切り替え
+      ['top','twitter','info','contact'].forEach(function(p) {
+        document.getElementById('page-'+p).style.display = (p===page) ? '' : 'none';
+      });
+    }
+    // 初期表示
+    window.addEventListener('DOMContentLoaded', function(){
+      showPage('top', {preventDefault:()=>{}});
+    });
+  </script>
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.2f70fb173b9000da126c79afe2098f02.html?origin=https%3A%2F%2Falonesoft.sakura.ne.jp" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe"></iframe></body></html>

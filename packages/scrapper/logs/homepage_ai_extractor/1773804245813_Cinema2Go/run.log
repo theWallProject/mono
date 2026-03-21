@@ -1,0 +1,65 @@
+[2026-03-18T03:24:05.813Z] === Homepage AI Extractor: Cinema2Go ===
+[2026-03-18T03:24:05.813Z] Started at: 2026-03-18T03:24:05.813Z
+[2026-03-18T03:24:05.814Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773804245813_Cinema2Go
+[2026-03-18T03:24:05.814Z] Company: Cinema2Go
+[2026-03-18T03:24:05.814Z] Website: cinema2go.biz
+[2026-03-18T03:24:05.814Z] cbRank: 1465870
+[2026-03-18T03:24:05.814Z] Reasons: h
+[2026-03-18T03:24:05.814Z] Fetching: https://cinema2go.biz
+[2026-03-18T03:24:16.459Z] Network idle timeout — continuing with current state
+[2026-03-18T03:24:16.493Z] Redirected: https://cinema2go.biz -> https://www.cinema2go.biz/
+[2026-03-18T03:24:16.504Z] Saved HTML (455712 bytes) to page.html
+[2026-03-18T03:24:16.507Z] Extracted 22 unique links from page
+[2026-03-18T03:24:16.507Z] Saved 22 links to links.json
+[2026-03-18T03:24:16.509Z] Extracted footer HTML (3572 chars)
+[2026-03-18T03:24:16.509Z] Extracted header HTML (698 chars)
+[2026-03-18T03:24:16.512Z] Website (post-redirect): https://www.cinema2go.biz/ → origin: https://www.cinema2go.biz
+[2026-03-18T03:24:16.513Z] External links: 3 (of 22 total)
+[2026-03-18T03:24:16.513Z] ── All external links ──
+[2026-03-18T03:24:16.513Z]   EXT: https://twitter.com/C2G_MoGo
+[2026-03-18T03:24:16.513Z]   EXT: https://www.facebook.com/Cinema2Go/?fref=ts
+[2026-03-18T03:24:16.513Z]   EXT: https://www.youtube.com/watch?v=2awWtxL9E7g&feature=youtu.be
+[2026-03-18T03:24:16.513Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T03:24:16.513Z]   REGEX: tw <- https://twitter.com/C2G_MoGo
+[2026-03-18T03:24:16.513Z]   REGEX: fb <- https://www.facebook.com/Cinema2Go/?fref=ts
+[2026-03-18T03:24:16.514Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-18T03:24:16.514Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=2awWtxL9E7g&feature=youtu.be
+[2026-03-18T03:24:16.514Z] Programmatic result: ws:1, tw:1, fb:1 | 0 uncategorized
+[2026-03-18T03:24:16.514Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T03:24:16.514Z] Saved AI prompt (4952 chars) to ai_prompt.txt
+[2026-03-18T03:24:16.515Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T03:24:16.518Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T03:24:42.066Z]   AI: First token received, streaming...
+[2026-03-18T03:24:52.597Z] AI response complete: 137 chars in 36.1s
+[2026-03-18T03:24:52.599Z] Saved AI response to ai_response.json
+[2026-03-18T03:24:52.599Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T03:24:52.599Z]   AI LINK: https://www.facebook.com/Cinema2Go/?fref=ts
+[2026-03-18T03:24:52.599Z]   AI LINK: https://twitter.com/C2G_MoGo
+[2026-03-18T03:24:52.600Z]   AI LINK: https://www.youtube.com/watch?v=2awWtxL9E7g&amp;feature=youtu.be
+[2026-03-18T03:24:52.600Z] AI returned 3 valid links
+[2026-03-18T03:24:52.600Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T03:24:52.600Z]   AI→REGEX: fb <- https://www.facebook.com/Cinema2Go/?fref=ts (duplicate, skipped)
+[2026-03-18T03:24:52.600Z]   AI→REGEX: tw <- https://twitter.com/C2G_MoGo (duplicate, skipped)
+[2026-03-18T03:24:52.601Z]   AI→SKIP (regex domain, no match): https://www.youtube.com/watch?v=2awWtxL9E7g&amp;feature=youtu.be
+[2026-03-18T03:24:52.601Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T03:24:52.601Z] Footer/header origins (4):
+[2026-03-18T03:24:52.601Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T03:24:52.601Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-18T03:24:52.601Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T03:24:52.601Z]   FOOTER/HEADER ORIGIN: https://www.cinema2go.biz
+[2026-03-18T03:24:52.601Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T03:24:52.601Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T03:24:52.602Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T03:24:52.602Z] ── Step 3: Final dedup ──
+[2026-03-18T03:24:52.602Z] No urls to dedup
+[2026-03-18T03:24:52.602Z] ── FINAL RESULT ──
+[2026-03-18T03:24:52.602Z]   ws (1):
+[2026-03-18T03:24:52.602Z]     - https://www.cinema2go.biz
+[2026-03-18T03:24:52.602Z]   fb (1):
+[2026-03-18T03:24:52.602Z]     - https://www.facebook.com/cinema2go
+[2026-03-18T03:24:52.602Z]   tw (1):
+[2026-03-18T03:24:52.602Z]     - https://x.com/c2g_mogo
+[2026-03-18T03:24:52.603Z] Summary: ws:1, tw:1, fb:1
+[2026-03-18T03:24:52.604Z] Saved final result to result.json
+[2026-03-18T03:24:52.604Z] Override fields: ws, fb, tw
+[2026-03-18T03:24:52.604Z] Finished at: 2026-03-18T03:24:52.604Z

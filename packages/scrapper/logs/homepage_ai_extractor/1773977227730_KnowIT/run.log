@@ -1,0 +1,71 @@
+[2026-03-20T03:27:07.731Z] === Homepage AI Extractor: KnowIT ===
+[2026-03-20T03:27:07.731Z] Started at: 2026-03-20T03:27:07.731Z
+[2026-03-20T03:27:07.731Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773977227730_KnowIT
+[2026-03-20T03:27:07.731Z] Company: KnowIT
+[2026-03-20T03:27:07.731Z] Website: knowit.cloud
+[2026-03-20T03:27:07.731Z] cbRank: 2630162
+[2026-03-20T03:27:07.731Z] Reasons: h
+[2026-03-20T03:27:07.731Z] Fetching: https://knowit.cloud
+[2026-03-20T03:27:14.051Z] Redirected: https://knowit.cloud -> https://www.knowit.cloud/
+[2026-03-20T03:27:14.058Z] Saved HTML (310001 bytes) to page.html
+[2026-03-20T03:27:14.061Z] Extracted 8 unique links from page
+[2026-03-20T03:27:14.062Z] Saved 8 links to links.json
+[2026-03-20T03:27:14.064Z] Extracted footer HTML (2079 chars)
+[2026-03-20T03:27:14.064Z] Extracted header HTML (1606 chars)
+[2026-03-20T03:27:14.068Z] Website (post-redirect): https://www.knowit.cloud/ → origin: https://www.knowit.cloud
+[2026-03-20T03:27:14.068Z]   SUBDOMAIN: c.knowit.cloud (added to ws)
+[2026-03-20T03:27:14.068Z] Website subdomains found: 1
+[2026-03-20T03:27:14.068Z] External links: 3 (of 8 total)
+[2026-03-20T03:27:14.069Z] ── All external links ──
+[2026-03-20T03:27:14.069Z]   EXT: https://apptodate.co.il
+[2026-03-20T03:27:14.069Z]   EXT: https://www.facebook.com/Knowitonline-220284755011721/?hc_ref=SEARCH&fref=nf
+[2026-03-20T03:27:14.069Z]   EXT: https://www.linkedin.com/company/knowit-online/about
+[2026-03-20T03:27:14.069Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T03:27:14.069Z]   UNCATEGORIZED: https://apptodate.co.il
+[2026-03-20T03:27:14.069Z]   REGEX: fb <- https://www.facebook.com/Knowitonline-220284755011721/?hc_ref=SEARCH&fref=nf
+[2026-03-20T03:27:14.069Z]   REGEX: li <- https://www.linkedin.com/company/knowit-online/about
+[2026-03-20T03:27:14.069Z] Programmatic result: ws:2, fb:1, li:1 | 1 uncategorized
+[2026-03-20T03:27:14.069Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T03:27:14.070Z] Saved AI prompt (3329 chars) to ai_prompt.txt
+[2026-03-20T03:27:14.070Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T03:27:14.073Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T03:27:27.092Z]   AI: First token received, streaming...
+[2026-03-20T03:27:38.639Z] AI response complete: 160 chars in 24.6s
+[2026-03-20T03:27:38.640Z] Saved AI response to ai_response.json
+[2026-03-20T03:27:38.640Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T03:27:38.641Z]   AI LINK: https://www.knowit.cloud/
+[2026-03-20T03:27:38.641Z]   AI LINK: https://www.facebook.com/Knowitonline-220284755011721/?hc_ref=SEARCH&amp;fref=nf
+[2026-03-20T03:27:38.641Z]   AI LINK: https://www.linkedin.com/company/knowit-online/about/
+[2026-03-20T03:27:38.641Z] AI returned 3 valid links
+[2026-03-20T03:27:38.641Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T03:27:38.642Z]   AI→URLS: https://www.knowit.cloud (cleaned from https://www.knowit.cloud/)
+[2026-03-20T03:27:38.642Z]   AI→SKIP (regex domain, no match): https://www.facebook.com/Knowitonline-220284755011721/?hc_ref=SEARCH&amp;fref=nf
+[2026-03-20T03:27:38.642Z]   AI→REGEX: li <- https://www.linkedin.com/company/knowit-online/about/ (duplicate, skipped)
+[2026-03-20T03:27:38.642Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T03:27:38.643Z] Footer/header origins (5):
+[2026-03-20T03:27:38.643Z]   FOOTER/HEADER ORIGIN: https://www.knowit.cloud
+[2026-03-20T03:27:38.643Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T03:27:38.643Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T03:27:38.643Z]   FOOTER/HEADER ORIGIN: https://apptodate.co.il
+[2026-03-20T03:27:38.644Z]   FOOTER/HEADER ORIGIN: https://c.knowit.cloud
+[2026-03-20T03:27:38.644Z]   ADDED: urls <- https://apptodate.co.il
+[2026-03-20T03:27:38.644Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T03:27:38.644Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T03:27:38.644Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T03:27:38.644Z] ── Step 3: Final dedup ──
+[2026-03-20T03:27:38.644Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T03:27:38.645Z] ── FINAL RESULT ──
+[2026-03-20T03:27:38.645Z]   ws (2):
+[2026-03-20T03:27:38.645Z]     - https://c.knowit.cloud
+[2026-03-20T03:27:38.645Z]     - https://www.knowit.cloud
+[2026-03-20T03:27:38.645Z]   li (1):
+[2026-03-20T03:27:38.645Z]     - https://www.linkedin.com/company/knowit-online
+[2026-03-20T03:27:38.646Z]   fb (1):
+[2026-03-20T03:27:38.646Z]     - https://www.facebook.com/knowitonline-220284755011721
+[2026-03-20T03:27:38.646Z]   urls (2):
+[2026-03-20T03:27:38.646Z]     - https://apptodate.co.il
+[2026-03-20T03:27:38.646Z]     - https://www.knowit.cloud
+[2026-03-20T03:27:38.646Z] Summary: ws:2, fb:1, li:1, urls:2
+[2026-03-20T03:27:38.647Z] Saved final result to result.json
+[2026-03-20T03:27:38.648Z] Override fields: ws, li, fb, urls
+[2026-03-20T03:27:38.648Z] Finished at: 2026-03-20T03:27:38.648Z

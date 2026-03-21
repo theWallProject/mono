@@ -1,0 +1,1155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+    <meta charset="utf-8">
+    <meta content="True" name="HandheldFriendly">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+    <title>
+             באזזר הפצת משלוחים | buzzr
+    </title>
+       
+ <meta name="description" content="באזזר שליחויות ממציאה מחדש את עולם המשלוחים ללקוחות הפרטיים. מציעה חוויית שירות ייחודית עם יכולת לתאם חלונות פיזור קצרים בשעות הערב ושליטה מלאה. שרות פשוט חווייתי ומשתלם">
+ <meta name="keywords" content="באזזר,בזזר,בזר,משלוח,הפצה, buzzr, buzr, buzzer, buzer, סחר אלקטרוני,קניות באינטרנט,אי קומרס, ecommerce, e-commerce, שליחות, שליחויות, חברת שליחים, שליח, שליחים, משלוחים, הפצה , משלוח, חברת משלוחים, חברות שליחויות, שרותי שליחים, שירות שליחים, חברת שליחים, חברות שילוח, משלוח חבילות, שירותי הפצה, שליחות, שירותי שליחים, שילוח מהיר, משלוח מהיר, שירותי הפצה, שילוח, שלוח, הפצה, שליח צמוד, מישלוחים, משלוח בעיר,חברות שליחויות,מגוון שליחויות">
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://buzzr.biz/Scripts/galleria/dist/themes/classic/galleria.classic.css" id="galleria-theme-classic"><link href="/Css/jquery-ui-1.10.4.custom.min.css?cdv=11" type="text/css" rel="stylesheet"><link href="/Css/overrideFull.css?cdv=11" type="text/css" rel="stylesheet">
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-64FSZNPFC9&amp;cx=c&amp;_slc=1"></script><script async="" type="text/javascript" id="glassix-whatsapp-widget-script" src="https://cdn.glassix.com/clients/whatsapp.widget.1.2.min.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__iw.js" crossorigin="anonymous" integrity="sha384-70ufmXq5nuLl1yrFTO3RfY+DVj0lAHYeSX0dYQsGzUKocfrs74msaYEnsDQqXSk0"></script><script src="/Scripts/jquery-2.0.3.min.js?cdv=11" type="text/javascript"></script><script src="/Scripts/jquery.unobtrusive-ajax.min.js?cdv=11" type="text/javascript"></script><script src="/Scripts/jquery.tools.min.js?cdv=11" type="text/javascript"></script><script src="/Scripts/jquery.tmpl.js?cdv=11" type="text/javascript"></script><script src="/Scripts/jquery.main.js?cdv=11" type="text/javascript"></script><script src="/Scripts/custom.js?cdv=11" type="text/javascript"></script><script src="/Scripts/jquery.validate.min.js?cdv=11" type="text/javascript"></script><script src="/Scripts/jquery.validate.unobtrusive.min.js?cdv=11" type="text/javascript"></script><script src="/Scripts/ie.js?cdv=11" type="text/javascript"></script><script src="/Scripts/datepicker_localization.js?cdv=11" type="text/javascript"></script><script src="/Scripts/galleria/dist/galleria.min.js?cdv=11" type="text/javascript"></script><script src="/Scripts/galleria/dist/themes/classic/galleria.classic.min.js?cdv=11" type="text/javascript"></script>
+
+    
+    
+    <script>
+
+    $(function () {
+        checkParams();
+
+        var shipmentid = "";
+        var clientemail = "";
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                $("#btnSearch").click();
+                e.preventDefault();
+            }
+        });
+
+        $("#btnSearch").click(function () {
+
+            if ($("#hdnShipmentid").val() == "") {
+
+                if ($("#txtField").val() != "") {
+                    //change parameter:
+                    shipmentid = $("#txtField").val();
+                    $("#hdnShipmentid").val($("#txtField").val());
+                    $("#txtField").val("");
+                    $('#txtField').attr('placeholder', $("#placeholderEmail").val());
+                }
+            }
+            else {
+                $('#txtField').blur();
+                //loader:
+                $('.ajax-loader').css({
+                    height: $('.ajax-loader').parent().height(),
+                    width: $('.ajax-loader').parent().width()
+                });
+                $('.ajax-loader').show();
+                //send to server:
+
+                clientemail = $("#txtField").val();
+
+
+                    document.location = 'https://tracking.buzzr.biz/#/tracking/'+shipmentid+'/'+clientemail
+
+            }
+        });
+
+            });
+            function checkParams(){
+
+                var tmpArr = window.location.href.split('?');
+                var prms = "";
+                var login="";
+                if (tmpArr.length > 1) {
+                    prms = tmpArr[1];
+                }
+
+                var sURLVariables = prms.split('&');
+                for (var i = 0; i < sURLVariables.length; i++) {
+                    var sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] == 'login' && sParameterName[1] == '0') {
+
+                        $("#popupSupport").find(".subhead").html('<p>לא ניתן לעשות<br /> את הפעולה הזו עכשיו<br />לכל שאלה, אנא צור קשר<br /> עם מרכז השירות שלנו: <br /> <a href="tel:077-2209998" class="buzzrCS">077-2209998</a> <a id="tivTaamCS" href="tel:1-800-290-000" class="hide">1-800-290-000</a></p>');
+                $("#asupport").click();
+                break;
+            }
+        }
+
+    }
+
+    function imNotARobot(){
+        $('.g-recaptcha div:first').css('border', '');
+    }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=iw"></script>
+
+    <script src="/Scripts/buzzrlast.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-52091531-1', 'auto');
+        ga('send', 'pageview');
+
+        var AddAntiForgeryToken = function (data) {
+            data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
+            console.log(data);
+            return data;
+        };
+    </script>
+
+    <style>
+        .galleria {
+            width: 700px;
+            height: 400px;
+            background: #000;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modal-content {
+            width: 730px;
+        }
+    </style>
+
+<style type="text/css">#fancybox-overlay{position:fixed;top:0;left:0;}</style><style type="text/css">.js-slide-hidden{position:absolute !important;left:-9999px !important;top:-9999px !important;display:block !important}</style><style type="text/css">.jcf-unselectable{-moz-user-select:none;-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-user-select:none;user-select:none;}</style><style>/*Widget Button*/
+.glassix-whatsapp-widget {
+    position: fixed;
+    bottom: 30px;
+    height: 56px;
+    width: 56px;
+    background-color: #25D366;
+    z-index: 2147482999 !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.16);
+    font-family: Helvetica, Arial, sans-serif, "Noto Color Emoji", "Apple Color Emoji", "Segoe MDL2 Assets", "Segoe UI Emoji", "Segoe UI Symbol";
+    opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in 1s 1 normal forwards; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeIn 1s ease-in 1s 1 normal forwards; /* Firefox < 16 */
+    -ms-animation: fadeIn 1s ease-in 1s 1 normal forwards; /* Internet Explorer */
+    -o-animation: fadeIn 1s ease-in 1s 1 normal forwards; /* Opera < 12.1 */
+    animation: fadeIn 1s ease-in 1s 1 normal forwards;
+    transition: bottom 1s;
+}
+
+.glassix-website-demo #glassix-whatsapp-wrapper .glassix-whatsapp-widget {
+    position: absolute !important;
+    z-index: 4 !important;
+}
+
+.glassix-whatsapp-widget .glassix-whatsapp-widget-icon {
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 60%;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.glassix-whatsapp-widget .glassix-whatsapp-widget-icon svg {
+    display: block;
+}
+
+
+    .glassix-whatsapp-widget .glassix-whatsapp-widget-icon.glassix-icon-disappear {
+        animation: glassix-icon-disappear 0.15s forwards;
+        animation-timing-function: linear;
+    }
+
+    .glassix-whatsapp-widget .glassix-whatsapp-widget-icon.glassix-icon-appear {
+        animation: glassix-icon-appear 0.15s forwards;
+        animation-timing-function: linear;
+    }
+
+.glassix-whatsapp-widget .glassix-widget-popup-text.glassix-slide-down {
+    animation: glassix-slide-down 0.3s forwards;
+    animation-timing-function: linear;
+}
+
+.glassix-whatsapp-widget .glassix-widget-popup-text.glassix-slide-up {
+    animation: glassix-slide-up 0.3s forwards;
+    animation-timing-function: linear;
+}
+
+.glassix-whatsapp-widget .glassix-widget-popup-text {
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 10px;
+    -moz-box-shadow: 0px 0px 4px 0px rgb(0,0,0,0.2);
+    -webkit-box-shadow: 0px 0px 4px 0px rgb(0,0,0,0.2);
+    box-shadow: 0px 0px 4px 0px rgb(0,0,0,0.2);
+    max-width: 250px;
+    min-width: 120px;
+    width: intrinsic; /* Safari/WebKit uses a non-standard name */
+    width: -moz-max-content; /* Firefox/Gecko */
+    width: -webkit-max-content; /* Chrome */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    color: #1d2129;
+    padding: 12px;
+}
+
+.glassix-whatsapp-widget .glassix-widget-pointer.left {
+    transform: translateX(6px) rotate( 45deg );
+    -webkit-transform: translateX(6px) rotate( 45deg );
+    -moz-transform: translateX(6px) rotate( 45deg );
+    -o-transform: translateX(6px) rotate( 45deg );
+    -ms-transform: translateX(6px) rotate( 45deg );
+    -moz-box-shadow: rgb(0,0,0,0.2) -2px 2px 4px 0px;
+    -webkit-box-shadow: rgb(0,0,0,0.2) -2px 2px 4px 0px;
+    box-shadow: rgb(0,0,0,0.2) -2px 2px 4px 0px;
+}
+
+.glassix-whatsapp-widget .glassix-widget-pointer {
+    transform: translateX(-6px) rotate( 45deg );
+    -webkit-transform: translateX(-6px) rotate( 45deg );
+    -moz-transform: translateX(-6px) rotate( 45deg );
+    -o-transform: translateX(-6px) rotate( 45deg );
+    -ms-transform: translateX(-6px) rotate( 45deg );
+    -moz-box-shadow: rgb(0,0,0,0.2) 2px -2px 4px 0px;
+    -webkit-box-shadow: rgb(0,0,0,0.2) 2px -2px 4px 0px;
+    box-shadow: rgb(0,0,0,0.2) 2px -2px 4px 0px;
+    display: block;
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    bottom: 10px;
+    background-color: #fff;
+}
+
+.glassix-whatsapp-widget .glassix-close-bubble {
+    position: absolute;
+    top: 5px;
+    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 1px 6px;
+    line-height: 1;
+}
+
+.glassix-whatsapp-widget .glassix-widget-popup-text:hover .glassix-close-bubble {
+    display: block;
+}
+/*Chat Container*/
+.glassix-whatsapp-container {
+    width: 360px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 106px;
+    -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.16);
+    z-index: 2147482999 !important;
+    border-radius: 15px;
+    font-family: Helvetica, Arial, sans-serif, "Noto Color Emoji", "Apple Color Emoji", "Segoe MDL2 Assets", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.glassix-website-demo #glassix-whatsapp-wrapper .glassix-whatsapp-container {
+    position: absolute !important;
+    z-index: 4 !important;
+}
+
+.glassix-whatsapp-container.glassix-slide-down {
+    animation: glassix-slide-down 0.25s forwards;
+    animation-timing-function: linear;
+}
+
+.glassix-whatsapp-container.glassix-slide-up {
+    animation: glassix-slide-up 0.25s forwards;
+    animation-timing-function: linear;
+}
+
+/*Header*/
+
+.glassix-whatsapp-container .glassix-whatsapp-header {
+    max-height: 100px;
+    border-radius: 16px 16px 10px 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 22px 16px;
+    color: #fff;
+    background: url(https://cdn.glassix.com/content/images/svg-pattern-2.svg), linear-gradient(65.68deg, #075E54 19.27%, #25D366 100%);
+    background-size: cover;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+    .glassix-whatsapp-container .glassix-whatsapp-header .glassix-whatsapp-header-title {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29px;
+        padding-bottom: 16px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: break-word;
+        color: #fff !important;
+    }
+
+    .glassix-whatsapp-container .glassix-whatsapp-header .glassix-whatsapp-header-subtitle {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 23px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+/*Body*/
+
+    .glassix-whatsapp-container .glassix-whatsapp-body .glassix-whatsapp-powered-by-logo {
+        height: 16px;
+        width: 82px;
+        border-radius: 0;
+    }
+
+    .glassix-whatsapp-container .glassix-whatsapp-body .glassix-whatsapp-powered-by {
+        font-size: 12px;
+        text-decoration: none;
+        color: #fff;
+        direction: ltr;
+        font-family: inherit;
+        background: #24408E;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0 0 16px 16px;
+        padding: 7px 16px;
+        box-sizing: border-box;
+    }
+
+
+    /*Row*/
+
+    .glassix-whatsapp-container .glassix-whatsapp-body .glassix-whatsapp-number {
+        background-color: rgba(25, 118, 210, 0.08);
+        margin-bottom: 16px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        padding: 8px 16px;
+        font-size: 20px;
+        gap: 16px;
+        font-family: 'Fira Sans', sans-serif;
+    }
+
+        .glassix-whatsapp-container .glassix-whatsapp-body .glassix-whatsapp-number:hover {
+            transition-duration: 0.3s;
+            background-color: rgba(25, 118, 210, 0.06);
+            -moz-box-shadow: 0 7px 15px 1px rgba(55, 62, 70, 0.07);
+            -webkit-box-shadow: 0 7px 15px 1px rgba(55, 62, 70, 0.07);
+            box-shadow: 0 7px 15px 1px rgba(55, 62, 70, 0.07);
+        }
+
+        .glassix-whatsapp-container .glassix-whatsapp-body .glassix-whatsapp-number .glassix-whatsapp-number-name {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.87);
+            word-break: break-word;
+            max-width: 220px;
+            line-height: 32px;
+        }
+
+        .glassix-whatsapp-container .glassix-whatsapp-body .glassix-whatsapp-number .glassix-whatsapp-number-subtitle {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.87);
+            font-size: 14px;
+            line-height: 22px;
+            word-break: break-word;
+            max-width: 220px;
+        }
+
+@media screen and (max-width: 410px) {
+    .glassix-whatsapp-container {
+        max-width: 350px;
+        width: calc(100% - 60px);
+    }
+}
+
+
+
+@keyframes glassix-icon-disappear {
+    0% {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform-origin: center;
+        opacity: 1.0;
+    }
+
+    50% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform-origin: center;
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform-origin: center;
+        opacity: 0.0;
+    }
+}
+
+@keyframes glassix-icon-appear {
+    0% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform-origin: center;
+        opacity: 0.0;
+    }
+
+    50% {
+        transform: rotate(270deg);
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        transform-origin: center;
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform-origin: center;
+        opacity: 1.0;
+    }
+}
+
+@keyframes glassix-slide-down {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        opacity: 1.0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+        z-index: -99999;
+        visibility: hidden;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes glassix-slide-down {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        opacity: 1.0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+        z-index: -99999;
+        visibility: hidden;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes glassix-slide-down {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        opacity: 1.0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+        z-index: -99999;
+        visibility: hidden;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes glassix-slide-down {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        opacity: 1.0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+        z-index: -99999;
+        visibility: hidden;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes glassix-slide-down {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        opacity: 1.0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+        z-index: -99999;
+        visibility: hidden;
+    }
+}
+
+@keyframes glassix-slide-up {
+    0% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        opacity: 1.0;
+    }
+}
+
+@-moz-keyframes glassix-slide-up {
+    0% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        opacity: 1.0;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes glassix-slide-up {
+    0% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        opacity: 1.0;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes glassix-slide-up {
+    0% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        opacity: 1.0;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes glassix-slide-up {
+    0% {
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        opacity: 1.0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+</style></head>
+<body class="home dir-rtl" style="">
+    <form id="__AjaxAntiForgeryForm" action="#" method="post" novalidate="novalidate"><input name="__RequestVerificationToken" type="hidden" value="DIWLpp7YImaWOiYRlGWft2XBme-rr9da6Mhc0WHGFeLwI2HoGa9N5ugj46M-UOnsBpS2fI1mp3M8UcMioGq_geldXB1e_wc1P1umF-xcaqE0T71rVEzMbMrlz1ugNfeZpRpH3n49RSWx1Ebu0z2J8JE4FpSdOMbasc3HVzhBi_c1"></form>
+    <div id="wrapper">
+        <header id="header">
+            
+
+<div class="holder">
+				<strong class="logo"><a href="/" title="דף הבית">Buzzr</a></strong>
+				<div class="header-frame">
+
+                    <div class="phoneNav">
+  <span>חייג למרכז שירות</span><br>
+  <span>0772209900</span>
+        </div>
+					<nav id="nav">
+						<a class="opener" href="javascript:void(0);">opener</a>
+                        <ul class="slide js-slide-hidden">
+
+                                        <li class=""><a href="/עלינו/">עלינו</a></li>
+                                        <li class=""><a href="/בוא-להיות-שותף/">לקוחות</a></li>
+                                        <li class=""><a href="/מחפש-עבודה/">דרושים</a></li>
+                        </ul>
+					</nav>
+				</div>
+			</div>
+
+
+            
+        </header>
+
+        
+
+        
+    <input type="hidden" id="sendFormCounter" value="0">
+    <div class="main-page">
+        <div class="slider-intro">
+            <div class="ajax-loader"></div>
+            <div class="form-area">
+                    <span class="bg-hand">hand</span>                <form class="search-form" novalidate="novalidate">
+                    <fieldset>
+                        <input type="search" placeholder="הקלד את מספר המשלוח" id="txtField" value="">
+                        <input type="button" value="search" id="btnSearch">
+                        <input type="hidden" id="hdnShipmentid" value="">
+                        <input type="hidden" id="placeholderEmail" value="הכנס מספר טלפון כולל קידומת">
+                    </fieldset>
+                    <fieldset style="left: 16px; position: relative; margin-top: 23px; display:none; " id="reCap">
+                        <div class="g-recaptcha" data-sitekey="6Lck-hQUAAAAAAsukSsVKFGtdDqUeqAFjUms7Onl" data-theme="light" data-callback="imNotARobot"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-7yftf8i27sdv" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lck-hQUAAAAAAsukSsVKFGtdDqUeqAFjUms7Onl&amp;co=aHR0cHM6Ly9idXp6ci5iaXo6NDQz&amp;hl=iw&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;theme=light&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=kvntwp9qis0k"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+                    </fieldset>
+                </form>
+            </div>
+            <section class="slider gallery-js-ready autorotation-active">
+                
+
+
+<div class="slideset" id="bg" style="height: 527px;">
+
+                     <div class="slide active" style="display: block;">
+
+
+                                           <span><img src="/media/1015/img11.jpg" alt="Img11" title="" class="img" style="width: 1424px; height: 527px; top: 0px; left: -72px;"></span>
+
+
+
+						<div class="caption-area">
+							<div class="caption">
+								<p>עם buzzr, 
+                                    <span>המשלוח זה חלק מהכיף</span>
+								</p>
+							</div>
+
+
+
+
+                                           <span><img src="/media/1018/img19.png" alt="Img19" title="" class="alignright" style="width: 1280px; height: 633.243px; top: -53.1214px; left: 0px;"></span>
+
+							
+						</div>
+					</div>
+                     <div class="slide" style="display: block; opacity: 0;">
+
+
+                                           <span><img src="/media/1016/img12.jpg" alt="Img12" title="" class="img" style="width: 1424px; height: 527px; top: 0px; left: -72px;"></span>
+
+
+
+						<div class="caption-area">
+							<div class="caption">
+								<p>
+                                    <span>אנחנו מתאימים את עצמנו לזמן שלך</span>
+								</p>
+							</div>
+
+
+
+
+                                           <span><img src="/media/1019/img20.png" alt="Img20" title="" class="img-slide2" style="width: 1280px; height: 913.538px; top: -193.269px; left: 0px;"></span>
+
+							
+						</div>
+					</div>
+                     <div class="slide" style="display: block; opacity: 0;">
+
+
+                                           <span><img src="/media/1017/img13.jpg" alt="Img13" title="" class="img" style="width: 1424px; height: 527px; top: 0px; left: -72px;"></span>
+
+
+
+						<div class="caption-area">
+							<div class="caption">
+								<p>
+                                    <span>שמים אותך במרכז</span>
+								</p>
+							</div>
+
+
+
+
+                                           <span><img src="/media/1053/מר_לקוח2.png" alt="מר לקוח (1)" title="" class="slide3-img" style="width: 1606.71px; height: 527px; top: 0px; left: -163.354px;"></span>
+
+							
+						</div>
+					</div>
+
+				</div>
+            </section>
+        </div>
+        <div class="threecolumns">
+            	             	<section class="column">
+
+                            <img src="/media/1010/img6.png" alt="מתי שנח לכם" class="">
+
+				<h1>
+                   מתי שנח לכם
+                    
+				</h1>
+				<p dir="RTL">בערב, אחרי העבודה – בחרו את הזמן שמתאים לכם ואנחנו כבר נודיע בדיוק מתי המשלוח יגיע</p>
+			</section>
+             	<section class="column">
+
+                            <img src="/media/1011/img7.png" alt="בשליטה מלאה" class="">
+
+				<h1>
+                   בשליטה מלאה
+                    
+				</h1>
+				<p style="direction: rtl;">אפליקציה ייחודית וידידותית מאפשרת לכם לעקוב אונליין אחרי המיקום המדויק של המשלוח</p>
+			</section>
+             	<section class="column">
+
+                            <img src="/media/1012/img8.png" alt="בידיים טובות" class="">
+
+				<h1>
+                   בידיים טובות
+                    
+				</h1>
+				<p style="direction: rtl;">buzzr היא האנשים שמרכיבים אותה. מודל העסקה ייחודי מאפשר לנו לבחור אנשים איכותיים ומקצועיים ששמים אתכם במרכז</p>
+			</section>
+
+     
+	
+	
+            
+   
+        </div>
+        <div class="partner-area">
+
+
+            <a href="/מחפש-עבודה/" class="job-box">
+                <h2>רוצים להצטרף לצוות ?</h2>
+                <div class="text-section">
+                    <p>אם יש בכם התלהבות, מסירות ורצון להתקדם בחברה בינלאומית, שירותית ומהפכנית – נשמח להכיר אתכם</p>
+                </div>
+                <span class="customer"></span>
+                    <img src="/media/1013/buzzr_worker1-hp.png" alt="רוצים להצטרף לצוות ?" class="img-job">
+                &lt;
+                &lt;
+            </a>
+
+
+            <a href="/בוא-להיות-שותף/" class="partner-box">
+                <div class="text-block">
+                    <h2>מחפשים פתרון ?</h2>
+                    <div class="text-section">
+                        <p>בואו לגלות כיצד ניתן ליצור פלטפורמת הפצה איכותית ללקוחות פרטיים, לקצר זמני אספקה ולראות בסוף הדרך לקוח מרוצה</p>
+                    </div>
+                    <span class="customer">מר לקוח</span>
+                </div>
+                <div class="img-area">
+                        <img src="/media/1054/img15_1.png" alt="מחפשים פתרון ?" class="partner-img">
+
+
+                </div>
+                <div class="text-box">
+                    <span class="customer">מר לקוח</span>
+                    <h2>מחפשים פתרון ?</h2>
+                    <p>בואו לגלות כיצד ניתן ליצור פלטפורמת הפצה איכותית ללקוחות פרטיים, לקצר זמני אספקה ולראות בסוף הדרך לקוח מרוצה</p>
+                </div>
+            </a>
+
+        </div>
+        <ul class="info-list">
+            	             <li>
+				<span>
+                    מתי שנח לכם
+                     
+
+				</span>
+                            <img src="/media/1010/img6.png" alt="מתי שנח לכם" class="">
+
+			</li>
+             <li>
+				<span>
+                    בשליטה מלאה
+                     
+
+				</span>
+                            <img src="/media/1011/img7.png" alt="בשליטה מלאה" class="">
+
+			</li>
+             <li>
+				<span>
+                    בידיים טובות
+                     
+
+				</span>
+                            <img src="/media/1012/img8.png" alt="בידיים טובות" class="">
+
+			</li>
+
+     
+        </ul>
+
+        <footer id="footer">
+            
+
+<div class="footer-holder">
+
+				<section class="info">
+				<a href="tel:0772209900" class="btn-call">חייג למרכז שירות</a>
+				<a href="#" class="btn-sign">הירשם למעקב מהיר</a>
+				</section>
+
+
+				<div class="footer-frame">
+
+					<nav class="nav add">
+
+
+<ul>                                        <li>
+                                        <a href="/תנאי-שימוש/" title="">תקנון</a>
+                                        </li>
+                                        <li>
+                                        <a href="/tracker/" title="">איתור משלוח</a>
+                                        </li>
+</ul><ul>                                        <li>
+                                        <a href="/" title=""> עמוד הבית</a>
+                                        </li>
+
+					</ul></nav>
+					<nav class="nav">
+						<ul>
+                                        <li>
+                                        <a href="/תנאי-שימוש/" title="">תקנון</a>
+                                        </li>
+                                        <li>
+                                        <a href="/tracker/" title="">איתור משלוח</a>
+                                        </li>
+                                        <li>
+                                        <a href="/" title=""> עמוד הבית</a>
+                                        </li>
+                            
+                           <li>
+                               
+                    
+                                <ul class="languages">
+                                                     <li class="active">
+                                                        <a href="javascript:void(0);" title="">he</a>
+                                                    </li>
+                                                     <li class="">
+                                                        <a href="https://www.buzzr.biz/en/" title="">en</a>
+                                                    </li>
+
+
+                                </ul>
+                    
+                            </li>
+						</ul>
+					</nav>
+
+
+					<ul class="social-networks">
+						<li><a href="http://twitter.com/" target="_blank">twitter</a></li>
+						<li class="facebook"><a href="https://www.facebook.com/pages/Buzzr-%D7%91%D7%90%D7%96%D7%96%D7%A8/288534914657389" target="_blank">facebook</a></li>
+						<li class="youtube"><a href="https://www.youtube.com/playlist?list=PLkfTOaIcepa6ugqKPHrjadbaqmGgzcp_2" target="_blank">youtube</a></li>
+					</ul>
+					<span class="btn-holder">
+						<a class="btn-buzz" href="#">buzz us</a>
+					</span>
+
+				</div>
+			
+</div>
+<div class="assoc-buzzr"></div>
+
+            
+        </footer>
+
+        <div class="popup-holder">
+            
+<a id="asupport" class="btn-sent" rel="lightbox" style="display:none" data-rel="lightbox" href="#popupSupport">אישור</a>
+ <div class="thank-popup" id="popupSupport"> 
+				<strong class="subhead">
+                    <p>לא ניתן לעשות<br> את הפעולה הזו עכשיו<br>לכל שאלה, אנא צור קשר<br> עם מרכז השירות שלנו:&nbsp;<br> <a href="tel:077-2209998" class="buzzrCS">077-2209998</a> <a id="tivTaamCS" href="tel:1-800-290-000" class="hide">1-800-290-000</a></p>
+                    
+     </strong>
+				<a href="javascript:void(0);" class="linkBtn" onclick="jQuery.fancybox.close();">אישור</a>
+ </div>
+
+        </div>
+        <input type="hidden" id="langMonthPrefix" value="ל">
+    </div>
+  <script>
+    var stringifiedOptions = `{"numbers":[{"number":"972559457347","name":"שירות לקוחות","subtitle":"למידע והתכתבות עם נציג יש ללחוץ כאן"}],"left":false,"ltr":false,"popupText":"שלום, במה נוכל לעזור?","title":"BUZZR 👋","subTitle":""}`;
+    var glassixWidgetOptions = JSON.parse(stringifiedOptions.replace(/\n/g, '\\n'));
+    !function (t) { var e = function () { window.requirejs && !window.whatsAppWidgetClient && (requirejs.config({ paths: { GlassixWhatsAppWidgetClient: "https://cdn.glassix.com/clients/whatsapp.widget.1.2.min.js" } }), require(["GlassixWhatsAppWidgetClient"], function (t) { window.whatsAppWidgetClient = new t(window.glassixWidgetOptions), whatsAppWidgetClient.attach() })), window.GlassixWhatsAppWidgetClient && "function" == typeof window.GlassixWhatsAppWidgetClient ? (window.whatsAppWidgetClient = new GlassixWhatsAppWidgetClient(t), whatsAppWidgetClient.attach()) : i() }, i = function () { a.onload = e, a.src = "https://cdn.glassix.net/clients/whatsapp.widget.1.2.min.js", s && s.parentElement && s.parentElement.removeChild(s), n.parentNode.insertBefore(a, n) }, n = document.getElementsByTagName("script")[0], s = document.createElement("script"); s.async = !0, s.type = "text/javascript", s.crossorigin = "anonymous", s.id = "glassix-whatsapp-widget-script"; var a = s.cloneNode(); s.onload = e, s.src = "https://cdn.glassix.com/clients/whatsapp.widget.1.2.min.js", !document.getElementById(s.id) && document.body && (n.parentNode.insertBefore(s, n), s.onerror = i) }(glassixWidgetOptions);
+    </script>
+    <!-- End of Glassix WhatsApp Widget -->
+
+</div><iframe id="font-resize-frame-565" class="font-resize-helper" style="width: 100em; height: 10px; position: absolute; border-width: 0px; top: -9999px; left: -9999px;"></iframe><div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="glassix-whatsapp-widget-container"><div id="glassix-whatsapp-wrapper" style="direction: rtl; text-align: right;"><div class="glassix-whatsapp-widget" style="right: 30px;"><div class="glassix-whatsapp-widget-icon"><svg width="35pt" height="35pt" viewBox="0 0 35 35" version="1.1" transform="scale(1)"><g id="surface1"><path d="M 15.191406 0.289062 C 8.882812 1.242188 3.742188 5.296875 1.457031 11.121094 C -0.285156 15.5625 -0.0507812 20.644531 2.082031 24.945312 L 2.582031 25.949219 L 1.375 30.324219 C 0.714844 32.734375 0.183594 34.71875 0.207031 34.734375 C 0.226562 34.75 2.265625 34.238281 4.75 33.59375 L 9.265625 32.417969 L 10.183594 32.847656 C 14.949219 35.066406 20.433594 35.042969 25.125 32.773438 C 27.316406 31.714844 29.292969 30.167969 30.898438 28.257812 C 33.714844 24.914062 35.167969 20.421875 34.832031 16.09375 C 34.359375 9.929688 30.726562 4.566406 25.207031 1.894531 C 23.640625 1.132812 22.332031 0.710938 20.5 0.363281 C 19.507812 0.183594 16.234375 0.132812 15.191406 0.289062 Z M 20.101562 3.21875 C 21.449219 3.449219 22.75 3.890625 24.082031 4.558594 C 25.574219 5.3125 26.582031 6.039062 27.75 7.199219 C 30.425781 9.855469 31.824219 13.066406 31.976562 16.839844 C 32.089844 19.972656 31.199219 22.945312 29.332031 25.59375 C 28.535156 26.734375 26.839844 28.371094 25.667969 29.140625 C 23.207031 30.773438 20.890625 31.507812 18 31.582031 C 15.050781 31.664062 12.875 31.109375 10.035156 29.53125 L 9.691406 29.339844 L 7.058594 30.027344 C 5.617188 30.40625 4.390625 30.707031 4.351562 30.6875 C 4.308594 30.671875 4.589844 29.523438 4.976562 28.132812 C 5.351562 26.742188 5.667969 25.558594 5.667969 25.492188 C 5.667969 25.425781 5.523438 25.152344 5.339844 24.871094 C 3.074219 21.304688 2.550781 16.679688 3.957031 12.660156 C 5.375 8.636719 8.464844 5.46875 12.5 3.921875 C 13.640625 3.484375 14.800781 3.226562 16.5 3.027344 C 17.125 2.953125 19.175781 3.0625 20.101562 3.21875 Z M 20.101562 3.21875 " style="stroke: none; fill-rule: nonzero; fill: rgb(255, 255, 255); fill-opacity: 1;"></path><path d="M 11.042969 9.449219 C 10.433594 9.613281 9.507812 10.714844 9.074219 11.789062 C 8.898438 12.230469 8.882812 12.417969 8.882812 13.445312 C 8.882812 14.578125 8.890625 14.621094 9.183594 15.421875 C 10.042969 17.707031 12.640625 20.882812 15.214844 22.804688 C 16.589844 23.828125 17.808594 24.433594 19.890625 25.128906 C 21.714844 25.734375 22.917969 25.714844 24.25 25.0625 C 25.207031 24.589844 25.898438 23.902344 26.117188 23.210938 C 26.324219 22.554688 26.390625 21.5625 26.242188 21.378906 C 26.007812 21.097656 22.457031 19.445312 22.089844 19.445312 C 21.808594 19.445312 21.824219 19.429688 20.992188 20.46875 C 20.214844 21.429688 19.964844 21.679688 19.742188 21.679688 C 19.410156 21.679688 17.949219 20.96875 17.074219 20.394531 C 16.632812 20.097656 15.957031 19.570312 15.582031 19.222656 C 14.484375 18.195312 13.25 16.515625 13.25 16.042969 C 13.25 15.902344 13.417969 15.648438 13.757812 15.257812 C 14.292969 14.652344 14.667969 14.023438 14.667969 13.734375 C 14.667969 13.570312 13.484375 10.632812 13.167969 10.011719 C 13.082031 9.855469 12.949219 9.664062 12.867188 9.589844 C 12.667969 9.417969 11.5 9.324219 11.042969 9.449219 Z M 11.042969 9.449219 " style="stroke: none; fill-rule: nonzero; fill: rgb(255, 255, 255); fill-opacity: 1;"></path></g></svg></div><div class="glassix-widget-popup-text" style="right: 76px;"><span class="glassix-widget-pointer" style="right: -10px;"></span><span>שלום, במה נוכל לעזור?</span><button class="glassix-close-bubble" tabindex="0" type="button" aria-label="close" style="left: 5px;"><svg width="10px" height="10px" viewBox="0 0 14 14" style="overflow: visible;"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-419.000000, -413.000000)"><g transform="translate(164.000000, 396.000000)"><g><g transform="translate(250.000000, 12.000000)"><g><g><rect opacity="0.200000003" x="0" y="0" width="24" height="24"></rect><g transform="translate(4.000000, 4.000000)" fill="#737376"><rect transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) " x="7" y="-1" width="2" height="18" rx="1"></rect><rect transform="translate(8.000000, 8.000000) rotate(135.000000) translate(-8.000000, -8.000000) " x="7" y="-1" width="2" height="18" rx="1"></rect></g></g></g></g></g></g></g></g></svg></button></div></div><div class="glassix-whatsapp-container glassix-slide-down" style="visibility: hidden; right: 30px;"><div class="glassix-whatsapp-header"><div><div class="glassix-whatsapp-header-title">BUZZR 👋</div><div class="glassix-whatsapp-header-subtitle"></div></div></div><div class="glassix-whatsapp-body"><div style="overflow: auto; max-height: 450px; padding: 16px;"><a title="972559457347" class="glassix-whatsapp-number" href="https://api.whatsapp.com/send?phone=972559457347" target="_blank" style="border-right: 2px solid rgb(37, 211, 102); margin-bottom: 0px;"><div class="glassix-card-logo-wrapper"><div><svg width="35pt" height="35pt" viewBox="0 0 35 35" version="1.1" transform="scale(0.7)"><g id="surface1"><path d="M 15.191406 0.289062 C 8.882812 1.242188 3.742188 5.296875 1.457031 11.121094 C -0.285156 15.5625 -0.0507812 20.644531 2.082031 24.945312 L 2.582031 25.949219 L 1.375 30.324219 C 0.714844 32.734375 0.183594 34.71875 0.207031 34.734375 C 0.226562 34.75 2.265625 34.238281 4.75 33.59375 L 9.265625 32.417969 L 10.183594 32.847656 C 14.949219 35.066406 20.433594 35.042969 25.125 32.773438 C 27.316406 31.714844 29.292969 30.167969 30.898438 28.257812 C 33.714844 24.914062 35.167969 20.421875 34.832031 16.09375 C 34.359375 9.929688 30.726562 4.566406 25.207031 1.894531 C 23.640625 1.132812 22.332031 0.710938 20.5 0.363281 C 19.507812 0.183594 16.234375 0.132812 15.191406 0.289062 Z M 20.101562 3.21875 C 21.449219 3.449219 22.75 3.890625 24.082031 4.558594 C 25.574219 5.3125 26.582031 6.039062 27.75 7.199219 C 30.425781 9.855469 31.824219 13.066406 31.976562 16.839844 C 32.089844 19.972656 31.199219 22.945312 29.332031 25.59375 C 28.535156 26.734375 26.839844 28.371094 25.667969 29.140625 C 23.207031 30.773438 20.890625 31.507812 18 31.582031 C 15.050781 31.664062 12.875 31.109375 10.035156 29.53125 L 9.691406 29.339844 L 7.058594 30.027344 C 5.617188 30.40625 4.390625 30.707031 4.351562 30.6875 C 4.308594 30.671875 4.589844 29.523438 4.976562 28.132812 C 5.351562 26.742188 5.667969 25.558594 5.667969 25.492188 C 5.667969 25.425781 5.523438 25.152344 5.339844 24.871094 C 3.074219 21.304688 2.550781 16.679688 3.957031 12.660156 C 5.375 8.636719 8.464844 5.46875 12.5 3.921875 C 13.640625 3.484375 14.800781 3.226562 16.5 3.027344 C 17.125 2.953125 19.175781 3.0625 20.101562 3.21875 Z M 20.101562 3.21875 " style="stroke: none; fill-rule: nonzero; fill: rgb(37, 211, 102); fill-opacity: 1;"></path><path d="M 11.042969 9.449219 C 10.433594 9.613281 9.507812 10.714844 9.074219 11.789062 C 8.898438 12.230469 8.882812 12.417969 8.882812 13.445312 C 8.882812 14.578125 8.890625 14.621094 9.183594 15.421875 C 10.042969 17.707031 12.640625 20.882812 15.214844 22.804688 C 16.589844 23.828125 17.808594 24.433594 19.890625 25.128906 C 21.714844 25.734375 22.917969 25.714844 24.25 25.0625 C 25.207031 24.589844 25.898438 23.902344 26.117188 23.210938 C 26.324219 22.554688 26.390625 21.5625 26.242188 21.378906 C 26.007812 21.097656 22.457031 19.445312 22.089844 19.445312 C 21.808594 19.445312 21.824219 19.429688 20.992188 20.46875 C 20.214844 21.429688 19.964844 21.679688 19.742188 21.679688 C 19.410156 21.679688 17.949219 20.96875 17.074219 20.394531 C 16.632812 20.097656 15.957031 19.570312 15.582031 19.222656 C 14.484375 18.195312 13.25 16.515625 13.25 16.042969 C 13.25 15.902344 13.417969 15.648438 13.757812 15.257812 C 14.292969 14.652344 14.667969 14.023438 14.667969 13.734375 C 14.667969 13.570312 13.484375 10.632812 13.167969 10.011719 C 13.082031 9.855469 12.949219 9.664062 12.867188 9.589844 C 12.667969 9.417969 11.5 9.324219 11.042969 9.449219 Z M 11.042969 9.449219 " style="stroke: none; fill-rule: nonzero; fill: rgb(37, 211, 102); fill-opacity: 1;"></path></g></svg></div></div><div><div class="glassix-whatsapp-number-name">שירות לקוחות</div><div class="glassix-whatsapp-number-subtitle">למידע והתכתבות עם נציג יש ללחוץ כאן</div></div></a></div><a class="glassix-whatsapp-powered-by" href="https://www.glassix.com/whatsapp-widget-for-website?utm_source=buzzr.biz&amp;utm_medium=web_whatsapp_widget&amp;utm_campaign=whatsapp_widget_referral" target="_blank"><span>Powered by</span><img alt="Glassix" src="https://cdn.glassix.com/content/logo/logo_white_font.svg" class="glassix-whatsapp-powered-by-logo" style="opacity: 1;"></a></div></div></div></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="התוקף של אתגר reCAPTCHA יפוג בעוד שתי דקות" name="c-7yftf8i27sdv" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=iw&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;k=6Lck-hQUAAAAAAsukSsVKFGtdDqUeqAFjUms7Onl&amp;bft=0dAFcWeA7anrMYZG02AKkyOYT4p9Hfsp27JyaY_K2_e0PK8Cbwt6Pa0EBgmF7JMny8cZJ7plyRJuxmDsH5qIInxApvb91nrdQ-Ew" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

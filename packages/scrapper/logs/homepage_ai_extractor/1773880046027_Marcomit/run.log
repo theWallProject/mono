@@ -1,0 +1,73 @@
+[2026-03-19T00:27:26.027Z] === Homepage AI Extractor: Marcomit ===
+[2026-03-19T00:27:26.027Z] Started at: 2026-03-19T00:27:26.027Z
+[2026-03-19T00:27:26.027Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773880046027_Marcomit
+[2026-03-19T00:27:26.027Z] Company: Marcomit
+[2026-03-19T00:27:26.027Z] Website: mar-comit.com
+[2026-03-19T00:27:26.027Z] cbRank: 1860957
+[2026-03-19T00:27:26.027Z] Reasons: h
+[2026-03-19T00:27:26.027Z] Fetching: https://mar-comit.com
+[2026-03-19T00:27:29.505Z] Redirected: https://mar-comit.com -> https://mar-comit.com/
+[2026-03-19T00:27:29.518Z] Saved HTML (558357 bytes) to page.html
+[2026-03-19T00:27:29.522Z] Extracted 50 unique links from page
+[2026-03-19T00:27:29.522Z] Saved 50 links to links.json
+[2026-03-19T00:27:29.524Z] Extracted footer HTML (1889 chars)
+[2026-03-19T00:27:29.524Z] Extracted header HTML (3530 chars)
+[2026-03-19T00:27:29.527Z] Website (post-redirect): https://mar-comit.com/ → origin: https://mar-comit.com
+[2026-03-19T00:27:29.528Z] External links: 5 (of 50 total)
+[2026-03-19T00:27:29.528Z] ── All external links ──
+[2026-03-19T00:27:29.528Z]   EXT: https://www.enable.co.il
+[2026-03-19T00:27:29.528Z]   EXT: https://www.instagram.com/mar_comit
+[2026-03-19T00:27:29.528Z]   EXT: https://www.linkedin.com/company/marcomit
+[2026-03-19T00:27:29.528Z]   EXT: https://www.upress.co.il
+[2026-03-19T00:27:29.528Z]   EXT: https://www.youtube.com/channel/UCOclHdqtYaS8Y32WhpxQKNA
+[2026-03-19T00:27:29.528Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T00:27:29.529Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-19T00:27:29.529Z]   REGEX: ig <- https://www.instagram.com/mar_comit
+[2026-03-19T00:27:29.529Z]   REGEX: li <- https://www.linkedin.com/company/marcomit
+[2026-03-19T00:27:29.529Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-19T00:27:29.529Z]   REGEX: ytc <- https://www.youtube.com/channel/UCOclHdqtYaS8Y32WhpxQKNA
+[2026-03-19T00:27:29.530Z] Programmatic result: ws:1, ig:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-19T00:27:29.530Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T00:27:29.533Z] Saved AI prompt (3116 chars) to ai_prompt.txt
+[2026-03-19T00:27:29.533Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T00:27:29.536Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T00:27:40.758Z]   AI: First token received, streaming...
+[2026-03-19T00:27:41.226Z] AI response complete: 22 chars in 11.7s
+[2026-03-19T00:27:41.228Z] Saved AI response to ai_response.json
+[2026-03-19T00:27:41.228Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T00:27:41.228Z]   AI LINK: https://mar-comit.com/
+[2026-03-19T00:27:41.228Z] AI returned 1 valid links
+[2026-03-19T00:27:41.228Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T00:27:41.229Z]   AI→URLS: https://mar-comit.com (cleaned from https://mar-comit.com/)
+[2026-03-19T00:27:41.229Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T00:27:41.229Z] Footer/header origins (4):
+[2026-03-19T00:27:41.229Z]   FOOTER/HEADER ORIGIN: https://mar-comit.com
+[2026-03-19T00:27:41.229Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T00:27:41.229Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T00:27:41.229Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T00:27:41.229Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-19T00:27:41.230Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-19T00:27:41.230Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T00:27:41.230Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T00:27:41.230Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T00:27:41.488Z]   YOUTUBE: resolved UCOclHdqtYaS8Y32WhpxQKNA → @mar-comit4916
+[2026-03-19T00:27:41.488Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T00:27:41.488Z] ── Step 3: Final dedup ──
+[2026-03-19T00:27:41.488Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T00:27:41.488Z] ── FINAL RESULT ──
+[2026-03-19T00:27:41.488Z]   ws (1):
+[2026-03-19T00:27:41.488Z]     - https://mar-comit.com
+[2026-03-19T00:27:41.488Z]   li (1):
+[2026-03-19T00:27:41.488Z]     - https://www.linkedin.com/company/marcomit
+[2026-03-19T00:27:41.488Z]   ig (1):
+[2026-03-19T00:27:41.488Z]     - https://www.instagram.com/mar_comit
+[2026-03-19T00:27:41.488Z]   ytp (1):
+[2026-03-19T00:27:41.488Z]     - https://www.youtube.com/@mar-comit4916
+[2026-03-19T00:27:41.488Z]   ytc (1):
+[2026-03-19T00:27:41.488Z]     - https://www.youtube.com/channel/UCOclHdqtYaS8Y32WhpxQKNA
+[2026-03-19T00:27:41.489Z]   urls (1):
+[2026-03-19T00:27:41.489Z]     - https://mar-comit.com
+[2026-03-19T00:27:41.489Z] Summary: ws:1, ig:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-19T00:27:41.489Z] Saved final result to result.json
+[2026-03-19T00:27:41.489Z] Override fields: ws, li, ig, ytp, ytc
+[2026-03-19T00:27:41.490Z] Finished at: 2026-03-19T00:27:41.490Z

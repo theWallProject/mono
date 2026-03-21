@@ -1,0 +1,73 @@
+[2026-03-18T17:12:12.176Z] === Homepage AI Extractor: Pixoner ===
+[2026-03-18T17:12:12.176Z] Started at: 2026-03-18T17:12:12.176Z
+[2026-03-18T17:12:12.176Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773853932176_Pixoner
+[2026-03-18T17:12:12.176Z] Company: Pixoner
+[2026-03-18T17:12:12.176Z] Website: pixoner.com
+[2026-03-18T17:12:12.176Z] cbRank: 1634928
+[2026-03-18T17:12:12.176Z] Reasons: h
+[2026-03-18T17:12:12.176Z] Fetching: https://pixoner.com
+[2026-03-18T17:12:14.237Z] Redirected: https://pixoner.com -> https://pixoner.com/
+[2026-03-18T17:12:14.241Z] Saved HTML (55507 bytes) to page.html
+[2026-03-18T17:12:14.244Z] Extracted 38 unique links from page
+[2026-03-18T17:12:14.245Z] Saved 38 links to links.json
+[2026-03-18T17:12:14.248Z] Extracted footer HTML (8235 chars)
+[2026-03-18T17:12:14.248Z] Extracted header HTML (5660 chars)
+[2026-03-18T17:12:14.253Z] Website (post-redirect): https://pixoner.com/ → origin: https://pixoner.com
+[2026-03-18T17:12:14.253Z]   SUBDOMAIN: my.pixoner.com (added to ws)
+[2026-03-18T17:12:14.253Z] Website subdomains found: 1
+[2026-03-18T17:12:14.253Z] External links: 4 (of 38 total)
+[2026-03-18T17:12:14.253Z] ── All external links ──
+[2026-03-18T17:12:14.253Z]   EXT: https://wa.me/972522422799
+[2026-03-18T17:12:14.253Z]   EXT: https://www.facebook.com/Pixoner
+[2026-03-18T17:12:14.253Z]   EXT: https://www.facebook.com/Pixoner-180880072521235
+[2026-03-18T17:12:14.253Z]   EXT: https://www.linkedin.com/company/pixoner
+[2026-03-18T17:12:14.254Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T17:12:14.254Z]   UNCATEGORIZED: https://wa.me/972522422799
+[2026-03-18T17:12:14.254Z]   REGEX: fb <- https://www.facebook.com/Pixoner
+[2026-03-18T17:12:14.254Z]   REGEX: fb <- https://www.facebook.com/Pixoner-180880072521235
+[2026-03-18T17:12:14.254Z]   REGEX: li <- https://www.linkedin.com/company/pixoner
+[2026-03-18T17:12:14.254Z] Programmatic result: ws:2, fb:2, li:1 | 1 uncategorized
+[2026-03-18T17:12:14.254Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T17:12:14.257Z] Saved AI prompt (4757 chars) to ai_prompt.txt
+[2026-03-18T17:12:14.257Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T17:12:14.260Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T17:12:33.292Z]   AI: First token received, streaming...
+[2026-03-18T17:12:46.562Z] AI response complete: 152 chars in 32.3s
+[2026-03-18T17:12:46.563Z] Saved AI response to ai_response.json
+[2026-03-18T17:12:46.564Z] ── Parsing AI response (4 lines) ──
+[2026-03-18T17:12:46.564Z]   AI LINK: https://www.linkedin.com/company/pixoner/
+[2026-03-18T17:12:46.564Z]   AI LINK: https://www.facebook.com/Pixoner/
+[2026-03-18T17:12:46.564Z]   AI LINK: https://wa.me/972522422799
+[2026-03-18T17:12:46.564Z]   AI LINK: https://www.facebook.com/Pixoner-180880072521235/
+[2026-03-18T17:12:46.564Z] AI returned 4 valid links
+[2026-03-18T17:12:46.565Z] ── Categorizing 4 AI-returned links ──
+[2026-03-18T17:12:46.565Z]   AI→REGEX: li <- https://www.linkedin.com/company/pixoner/ (duplicate, skipped)
+[2026-03-18T17:12:46.565Z]   AI→REGEX: fb <- https://www.facebook.com/Pixoner/ (duplicate, skipped)
+[2026-03-18T17:12:46.565Z]   AI→URLS: https://wa.me/972522422799
+[2026-03-18T17:12:46.566Z]   AI→REGEX: fb <- https://www.facebook.com/Pixoner-180880072521235/ (duplicate, skipped)
+[2026-03-18T17:12:46.568Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T17:12:46.568Z] Footer/header origins (3):
+[2026-03-18T17:12:46.568Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T17:12:46.568Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T17:12:46.569Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-18T17:12:46.569Z]   SKIP (AI claimed): https://wa.me/972522422799
+[2026-03-18T17:12:46.569Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T17:12:46.569Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T17:12:46.569Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T17:12:46.569Z] ── Step 3: Final dedup ──
+[2026-03-18T17:12:46.570Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T17:12:46.570Z] ── FINAL RESULT ──
+[2026-03-18T17:12:46.570Z]   ws (2):
+[2026-03-18T17:12:46.570Z]     - https://my.pixoner.com
+[2026-03-18T17:12:46.570Z]     - https://pixoner.com
+[2026-03-18T17:12:46.571Z]   li (1):
+[2026-03-18T17:12:46.571Z]     - https://www.linkedin.com/company/pixoner
+[2026-03-18T17:12:46.571Z]   fb (2):
+[2026-03-18T17:12:46.571Z]     - https://www.facebook.com/pixoner
+[2026-03-18T17:12:46.571Z]     - https://www.facebook.com/pixoner-180880072521235
+[2026-03-18T17:12:46.571Z]   urls (1):
+[2026-03-18T17:12:46.571Z]     - https://wa.me/972522422799
+[2026-03-18T17:12:46.571Z] Summary: ws:2, fb:2, li:1, urls:1
+[2026-03-18T17:12:46.572Z] Saved final result to result.json
+[2026-03-18T17:12:46.573Z] Override fields: ws, li, fb, urls
+[2026-03-18T17:12:46.573Z] Finished at: 2026-03-18T17:12:46.573Z

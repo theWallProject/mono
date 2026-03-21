@@ -1,0 +1,71 @@
+[2026-03-18T22:50:53.576Z] === Homepage AI Extractor: Geomage ===
+[2026-03-18T22:50:53.577Z] Started at: 2026-03-18T22:50:53.577Z
+[2026-03-18T22:50:53.577Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773874253576_Geomage
+[2026-03-18T22:50:53.577Z] Company: Geomage
+[2026-03-18T22:50:53.577Z] Website: geomage.com
+[2026-03-18T22:50:53.577Z] cbRank: 1822477
+[2026-03-18T22:50:53.577Z] Reasons: h
+[2026-03-18T22:50:53.577Z] Fetching: https://geomage.com
+[2026-03-18T22:50:54.692Z] Redirected: https://geomage.com -> https://www.geomage.com/
+[2026-03-18T22:50:54.695Z] Saved HTML (46157 bytes) to page.html
+[2026-03-18T22:50:54.698Z] Extracted 18 unique links from page
+[2026-03-18T22:50:54.698Z] Saved 18 links to links.json
+[2026-03-18T22:50:54.703Z] Extracted footer HTML (1835 chars)
+[2026-03-18T22:50:54.704Z] Extracted header HTML (2533 chars)
+[2026-03-18T22:50:54.707Z] Website (post-redirect): https://www.geomage.com/ → origin: https://www.geomage.com
+[2026-03-18T22:50:54.707Z] External links: 4 (of 18 total)
+[2026-03-18T22:50:54.707Z] ── All external links ──
+[2026-03-18T22:50:54.707Z]   EXT: https://wa.me/972584241225
+[2026-03-18T22:50:54.707Z]   EXT: https://www.facebook.com/Geomage
+[2026-03-18T22:50:54.707Z]   EXT: https://www.linkedin.com/company/geomage
+[2026-03-18T22:50:54.707Z]   EXT: https://www.youtube.com/channel/UCBSA17Lr2RykeBMOutWQWWQ
+[2026-03-18T22:50:54.708Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T22:50:54.708Z]   UNCATEGORIZED: https://wa.me/972584241225
+[2026-03-18T22:50:54.708Z]   REGEX: fb <- https://www.facebook.com/Geomage
+[2026-03-18T22:50:54.708Z]   REGEX: li <- https://www.linkedin.com/company/geomage
+[2026-03-18T22:50:54.708Z]   REGEX: ytc <- https://www.youtube.com/channel/UCBSA17Lr2RykeBMOutWQWWQ
+[2026-03-18T22:50:54.708Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-18T22:50:54.708Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T22:50:54.709Z] Saved AI prompt (2957 chars) to ai_prompt.txt
+[2026-03-18T22:50:54.709Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T22:50:54.713Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T22:51:05.149Z]   AI: First token received, streaming...
+[2026-03-18T22:51:13.959Z] AI response complete: 132 chars in 19.3s
+[2026-03-18T22:51:13.960Z] Saved AI response to ai_response.json
+[2026-03-18T22:51:13.961Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T22:51:13.961Z]   AI LINK: https://www.linkedin.com/company/geomage/
+[2026-03-18T22:51:13.961Z]   AI LINK: https://www.facebook.com/Geomage/
+[2026-03-18T22:51:13.961Z]   AI LINK: https://www.youtube.com/channel/UCBSA17Lr2RykeBMOutWQWWQ
+[2026-03-18T22:51:13.961Z] AI returned 3 valid links
+[2026-03-18T22:51:13.961Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T22:51:13.962Z]   AI→REGEX: li <- https://www.linkedin.com/company/geomage/ (duplicate, skipped)
+[2026-03-18T22:51:13.962Z]   AI→REGEX: fb <- https://www.facebook.com/Geomage/ (duplicate, skipped)
+[2026-03-18T22:51:13.962Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCBSA17Lr2RykeBMOutWQWWQ (duplicate, skipped)
+[2026-03-18T22:51:13.963Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T22:51:13.963Z] Footer/header origins (3):
+[2026-03-18T22:51:13.963Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T22:51:13.963Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T22:51:13.963Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T22:51:13.964Z]   SKIP (not in footer/header): https://wa.me/972584241225
+[2026-03-18T22:51:13.964Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T22:51:13.964Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T22:51:13.964Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T22:51:14.238Z]   YOUTUBE: resolved UCBSA17Lr2RykeBMOutWQWWQ → @Geomage
+[2026-03-18T22:51:14.239Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T22:51:14.239Z] ── Step 3: Final dedup ──
+[2026-03-18T22:51:14.239Z] No urls to dedup
+[2026-03-18T22:51:14.239Z] ── FINAL RESULT ──
+[2026-03-18T22:51:14.239Z]   ws (1):
+[2026-03-18T22:51:14.239Z]     - https://www.geomage.com
+[2026-03-18T22:51:14.239Z]   li (1):
+[2026-03-18T22:51:14.239Z]     - https://www.linkedin.com/company/geomage
+[2026-03-18T22:51:14.239Z]   fb (1):
+[2026-03-18T22:51:14.239Z]     - https://www.facebook.com/geomage
+[2026-03-18T22:51:14.239Z]   ytp (1):
+[2026-03-18T22:51:14.239Z]     - https://www.youtube.com/@Geomage
+[2026-03-18T22:51:14.239Z]   ytc (1):
+[2026-03-18T22:51:14.239Z]     - https://www.youtube.com/channel/UCBSA17Lr2RykeBMOutWQWWQ
+[2026-03-18T22:51:14.240Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-18T22:51:14.240Z] Saved final result to result.json
+[2026-03-18T22:51:14.240Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-18T22:51:14.240Z] Finished at: 2026-03-18T22:51:14.240Z

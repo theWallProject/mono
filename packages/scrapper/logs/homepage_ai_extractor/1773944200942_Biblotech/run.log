@@ -1,0 +1,60 @@
+[2026-03-19T18:16:40.943Z] === Homepage AI Extractor: Biblotech ===
+[2026-03-19T18:16:40.943Z] Started at: 2026-03-19T18:16:40.943Z
+[2026-03-19T18:16:40.944Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773944200942_Biblotech
+[2026-03-19T18:16:40.944Z] Company: Biblotech
+[2026-03-19T18:16:40.944Z] Website: biblotech.com
+[2026-03-19T18:16:40.944Z] cbRank: 2415562
+[2026-03-19T18:16:40.944Z] Reasons: h
+[2026-03-19T18:16:40.944Z] Fetching: https://biblotech.com
+[2026-03-19T18:16:51.930Z] Network idle timeout — continuing with current state
+[2026-03-19T18:16:51.965Z] Redirected: https://biblotech.com -> https://biblotech.com/
+[2026-03-19T18:16:51.968Z] Saved HTML (44811 bytes) to page.html
+[2026-03-19T18:16:51.971Z] Extracted 21 unique links from page
+[2026-03-19T18:16:51.971Z] Saved 21 links to links.json
+[2026-03-19T18:16:51.973Z] No footer section found in DOM
+[2026-03-19T18:16:51.973Z] Extracted header HTML (3775 chars)
+[2026-03-19T18:16:51.980Z] Website (post-redirect): https://biblotech.com/ → origin: https://biblotech.com
+[2026-03-19T18:16:51.981Z] External links: 3 (of 21 total)
+[2026-03-19T18:16:51.981Z] ── All external links ──
+[2026-03-19T18:16:51.981Z]   EXT: https://api.whatsapp.com/send?phone=+972543164886&text=
+[2026-03-19T18:16:51.981Z]   EXT: https://instagram.com/biblotech.ltd
+[2026-03-19T18:16:51.981Z]   EXT: https://www.facebook.com/biblotech
+[2026-03-19T18:16:51.981Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T18:16:51.981Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=+972543164886&text=
+[2026-03-19T18:16:51.981Z]   REGEX: ig <- https://instagram.com/biblotech.ltd
+[2026-03-19T18:16:51.982Z]   REGEX: fb <- https://www.facebook.com/biblotech
+[2026-03-19T18:16:51.982Z] Programmatic result: ws:1, ig:1, fb:1 | 1 uncategorized
+[2026-03-19T18:16:51.982Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T18:16:51.985Z] Saved AI prompt (1991 chars) to ai_prompt.txt
+[2026-03-19T18:16:51.985Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T18:16:51.988Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T18:16:57.407Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-19T18:16:57.408Z] AI response complete: 0 chars in 5.4s
+[2026-03-19T18:16:57.408Z] Saved AI response to ai_response.json
+[2026-03-19T18:16:57.408Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T18:16:57.409Z] AI returned 0 valid links
+[2026-03-19T18:16:57.409Z] ── Categorizing 0 AI-returned links ──
+[2026-03-19T18:16:57.409Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T18:16:57.409Z] Footer/header origins (3):
+[2026-03-19T18:16:57.409Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T18:16:57.409Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-19T18:16:57.409Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-19T18:16:57.409Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=+972543164886&text=)
+[2026-03-19T18:16:57.409Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T18:16:57.409Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T18:16:57.409Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T18:16:57.410Z] ── Step 3: Final dedup ──
+[2026-03-19T18:16:57.410Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T18:16:57.410Z] ── FINAL RESULT ──
+[2026-03-19T18:16:57.410Z]   ws (1):
+[2026-03-19T18:16:57.410Z]     - https://biblotech.com
+[2026-03-19T18:16:57.410Z]   fb (1):
+[2026-03-19T18:16:57.410Z]     - https://www.facebook.com/biblotech
+[2026-03-19T18:16:57.410Z]   ig (1):
+[2026-03-19T18:16:57.410Z]     - https://www.instagram.com/biblotech.ltd
+[2026-03-19T18:16:57.410Z]   urls (1):
+[2026-03-19T18:16:57.410Z]     - https://api.whatsapp.com/send
+[2026-03-19T18:16:57.410Z] Summary: ws:1, ig:1, fb:1, urls:1
+[2026-03-19T18:16:57.410Z] Saved final result to result.json
+[2026-03-19T18:16:57.411Z] Override fields: ws, fb, ig, urls
+[2026-03-19T18:16:57.411Z] Finished at: 2026-03-19T18:16:57.411Z

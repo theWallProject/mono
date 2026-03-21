@@ -1,0 +1,3146 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="he-IL"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link href="scripts/font-awesome/css/all.min.css" rel="stylesheet"><link href="scripts/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="scripts/bootstrap-3.3.5/css/bootstrap-rtl.min.css"><link href="scripts/bootstrap-3.3.5/css/xl.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+    <script src="JS/JScript.js" type="text/javascript"></script>
+    <script type="text/javascript" src="JS/jquery/jquery-1.11.2.min.js"></script>
+
+    <script src="scripts/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"><link href="css/theme_default/theme.css" rel="stylesheet" type="text/css"><link href="css/localization/rtl.css" rel="stylesheet" type="text/css"><link href="scripts/logateaccessibility/logateaccessibility.css" rel="stylesheet">    
+ <script src="scripts/logateaccessibility/logateaccessibility.js"></script> 
+
+
+    <title>
+	ניצת הדובדבן-חנות טבע-בית טבע
+</title>
+
+
+    <style>
+        .affix {
+            top: 0px;
+            position: fixed;
+            z-index: 3000000;
+            background-color: #111111;
+            left: 425px;
+            color: #ffffff;
+   -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+
+-webkit-box-shadow: 0px 5px 5px 0px rgba(204,204,204,1);
+-moz-box-shadow: 0px 5px 5px 0px rgba(204,204,204,1);
+box-shadow: 0px 5px 5px 0px rgba(204,204,204,1);
+        }
+
+        .scrolltotop {
+            display: none;
+            position: fixed;
+            left: 20px;
+            bottom: 5px;
+            z-index: 102000000;
+        }
+
+    </style>
+
+
+
+
+
+    <!-- auto complete -->
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+  .ui-autocomplete-loading {
+    background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+  }
+
+  .ui-autocomplete {
+    min-height: 150px;
+    max-height: 500px;
+    overflow: auto;
+  }
+
+
+  </style>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+ 
+    <script>
+        $(function () {
+            $("[rel=autocomplete2222]").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "autosuggestproducts.ashx",
+                        data: {
+                            term: request.term
+                        },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 2,
+                select: function (event, ui) {
+                    if (ui.item) {
+                        //document.location.href = "productslist.aspx?wsearch=" + encodeURIComponent(ui.item.value);
+                        document.location.href = "productinfo.aspx?prodid=" + ui.item.id;
+                    }
+                }
+            });
+
+
+
+
+
+
+
+            function monkeyPatchAutocomplete() {
+
+                // Don't really need to save the old fn, 
+                // but I could chain if I wanted to
+                var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+                $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+                    var re = new RegExp("^" + this.term, "i");
+                    var re = new RegExp("" + this.term, "i");
+                    var t = item.label.replace(re, "<span style='font-weight:bold;color:Blue;'>" + this.term + "</span>");
+                    return $("<li></li>")
+                        .data("item.autocomplete", item)
+                        .append("<a>" + t + "</a>")
+                        .appendTo(ul);
+                };
+            }
+            monkeyPatchAutocomplete();
+
+            var cache = {};
+            $("[rel=autocomplete2]").autocomplete({
+                source: function (request, response) {
+                    var term = request.term;
+                    if (term in cache) {
+                        response(JSON.parse(cache[term]));
+                        return;
+                    }
+                    $.ajax({
+                        url: "autosuggestproducts.ashx",
+                        data: { term: request.term },
+                        success: function (data) {
+                            cache[term] = data;
+                            response(JSON.parse(data));
+                        },
+                        error: function () {
+                            response([]);
+                        }
+                    });
+                },
+                minLength: 3,
+                select: function (event, ui) {
+                    if (ui.item) {
+                        //document.location.href = "productslist.aspx?wsearch=" + encodeURIComponent(ui.item.value);
+                        document.location.href = "productinfo.aspx?prodid=" + ui.item.id;
+                    }
+                }
+            });
+
+
+
+            $(document).on('click', '#searchbox_searchbutton', function () {
+                if ($("#searchbox_innerwsearch").val() == '') {
+                    alert('אנא הזן מילת חיפוש');
+                    return false;
+                }
+            });
+            $(document).on('click', '#searchbox2_searchbutton', function () {
+                if ($("#searchbox2_innerwsearch").val() == '') {
+                    alert('אנא הזן מילת חיפוש');
+                    return false;
+                }
+            });
+
+
+
+
+        });
+      </script>
+
+<style>
+.ui-autocomplete { position: absolute; cursor: default;z-index:30000000 !important;}  
+.divprodfilters #searchbox_searchprodfilter label {font-weight:normal; margin:0px 2px 0px 15px; display: inline-block;  vertical-align: middle; color:#000000;}
+.divprodfilters input { display: inline-block;  vertical-align: middle; margin-bottom:3px}
+</style>
+
+
+    <!-- search -->
+
+<style>
+@media (max-width: 768px)
+{
+#glassix-widget-launcher-container {right:10px !important; bottom:10px !important}
+
+.ui-menu .ui-menu-item-wrapper {
+    font-size: 14px;
+}
+
+
+}
+</style>
+
+     <!-- '------ Google apr 2025 ---------- -->
+
+    <!-- '------ Google apr 2025 ---------- -->
+
+
+
+<meta name="keywords" content="תוספי תזונה,אוכל אורגני,אורגני,אוכל טבעוני,מזון טבעוני, טבעונות, מוצרי בריאות,מזון בריא,פירות וירקות אורגניים,פירות יבשים אורגניים, ויטמינים, סולגאר,סופהרב,אלטמן,תחליפי בשר,ללא גלוטן,ללא סוכר,ויטאריז,חלב אורז שקדים,משקה אורז,תחליפי חלב"><meta name="description" content="ניצת הדובדבן רשת בתי טבע בפריסה ארצית"></head>
+<body><a href="#" id="logate-accessibility-open" role="button" tabindex="0" aria-label="פתח תפריט נגישות"><i class="fa fa-wheelchair"></i></a><div id="logate-accessibility" class="logate-accessibility-container"><div class="acctoolbartitle"><span>נגישות</span><a href="#" style="float:left; font-size:14px;" id="logate-accessibility-close" tabindex="0"><i class="fa fa-times"></i> סגור סרגל נגישות</a></div><ul><li><a href="#" role="button" tabindex="0" id="acc-contrast-high"><i class="fa fa-adjust" aria-hidden="true"></i> ניגודיות כהה</a></li><li><a href="#" role="button" tabindex="0" id="acc-contrast-low"><i class="fa fa-adjust fa-rotate-180" aria-hidden="true"></i> ניגודיות בהירה</a></li><li><a href="#" role="button" tabindex="0" id="acc-font-large"><i class="fa fa-font"></i><i class="fa fa-plus" aria-hidden="true"></i> הגדלת גופן</a></li><li><a href="#" role="button" tabindex="0" id="acc-font-small"><i class="fa fa-font"></i><i class="fa fa-minus" aria-hidden="true"></i> הקטנת גופן</a></li><li><a href="#" role="button" tabindex="0" id="acc-font-face-normal"><i class="fa fa-font" aria-hidden="true"></i> גופן קריא</a></li><li><a href="#" role="button" tabindex="0" id="acc-monochrome"><i class="fa fa-low-vision" aria-hidden="true"></i> מונוכרום</a></li><li><a href="#" role="button" tabindex="0" id="acc-linkbold"><i class="fa fa-link" aria-hidden="true"></i> הדגשת קישורים</a></li><li><a href="#" role="button" tabindex="0" id="acc-reset"><i class="fa fa-ban" aria-hidden="true"></i> אפס הגדרות נגישות</a></li><li><a href="#maincontent"><i class="fa fa-angle-down" aria-hidden="true"></i> דלג לתוכן מרכזי</a></li><li><a href="https://www.nizat.com/%D7%94%D7%A6%D7%94%D7%A8%D7%AA-%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA-%D7%A0%D7%99%D7%A6%D7%AA-%D7%94%D7%93%D7%95%D7%91%D7%93%D7%91%D7%9F-p282" role="button" tabindex="0"><i class="fa fa-commenting" aria-hidden="true"></i> הצהרת נגישות</a></li></ul></div>
+
+
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Check to see if the window is top if not then display button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('#scrollToTop').fadeIn();
+                } else {
+                    $('#scrollToTop').fadeOut();
+                }
+
+            });
+
+
+
+
+        });
+
+        function scrollToTop() {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+            return false;
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+    <form method="post" action="./" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE4ODg3OTQ1NTAPZBYCZg9kFgRmD2QWBgIKDxYCHgRUZXh0BZUBPGxpbmsgaHJlZj0iY3NzL3RoZW1lX2RlZmF1bHQvdGhlbWUuY3NzIiByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiAvPjxsaW5rIGhyZWY9ImNzcy9sb2NhbGl6YXRpb24vcnRsLmNzcyIgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgLz5kAhQPFgQeBG5hbWUFCGtleXdvcmRzHgdjb250ZW50Ba0D16rXldeh16TXmSDXqteW15XXoNeULNeQ15XXm9ecINeQ15XXqNeS16DXmSzXkNeV16jXkteg15ks15DXldeb15wg15jXkdei15XXoNeZLNee15bXldefINeY15HXoteV16DXmSwg15jXkdei15XXoNeV16osINee15XXpteo15kg15HXqNeZ15DXldeqLNee15bXldefINeR16jXmdeQLNek15nXqNeV16og15XXmdeo16fXldeqINeQ15XXqNeS16DXmdeZ150s16TXmdeo15XXqiDXmdeR16nXmdedINeQ15XXqNeS16DXmdeZ150sINeV15nXmNee15nXoNeZ150sINeh15XXnNeS15DXqCzXodeV16TXlNeo15Es15DXnNeY157XnyzXqteX15zXmdek15kg15HXqdeoLNec15zXkCDXktec15XXmNefLNec15zXkCDXodeV15vXqCzXldeZ15jXkNeo15nXlizXl9ec15Eg15DXldeo15Yg16nXp9eT15nXnSzXntep16fXlCDXkNeV16jXlizXqteX15zXmdek15kg15fXnNeRZAIVDxYEHwEFC2Rlc2NyaXB0aW9uHwIFRNeg15nXpteqINeU15PXldeR15PXkdefINeo16nXqiDXkdeq15kg15jXkdeiINeR16TXqNeZ16HXlCDXkNeo16bXmdeqZAIBD2QWGAIFDw8WAh8ABQEwZGQCBw9kFggCAQ8PFgIfAGVkZAIDDxYCHgdWaXNpYmxlaGQCBQ8WAh8DaGQCBw8WBB4EaHJlZgUBIx4JaW5uZXJodG1sBSfXkNeZ15bXldeoINeQ15nXqdeZL9eb16DXmdeh15Qg15zXkNeq16hkAhMPDxYCHwAFCteb16DXmdeh15RkZAIdDw8WAh8DaGQWAgIBDw8WAh8DaGRkAh8PZBYCAgEPZBYCAgEPZBYEAgEPDxYCHwNoZGQCAw8WBB8ABf+jATxkaXYgaWQ9InNpZGViYXIxX3NpZGViYXJtZW51MV9wbmxjYXRlZ29yaWVzIj4NCgkNCg0KDQo8ZGl2IGNsYXNzPSJzdWJtZW51Ij48L2Rpdj4NCjxhc2lkZT4NCiAgPGRpdiBjbGFzcz0ic2Nyb2xsLWJ1dHRvbiB1cCIgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyOyBiYWNrZ3JvdW5kLWNvbG9yOiNjY2NjY2M7IG9wYWNpdHk6MC44OyAiPg0KICAgIDxpIGNsYXNzPSJmYSBmYS1hbmdsZS11cCBmYS0zeCI+PC9pPg0KICA8L2Rpdj4NCiAgPGRpdiBjbGFzcz0ic2Nyb2xsLWJ1dHRvbiBkb3duIiBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXI7IGJhY2tncm91bmQtY29sb3I6I2NjY2NjYzsgb3BhY2l0eTowLjg7ICI+DQogICAgPGkgY2xhc3M9ImZhIGZhLWFuZ2xlLWRvd24gZmEtM3giPjwvaT4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9InNjcm9sbCI+DQogICAgICA8bmF2Pg0KICAgICAgICAgIA0KDQogICAgICAgIDxkaXYgY2xhc3M9InBhcmVudCIgcmVsPSJzaWRlYmFybWVudXBhcmVudHMiIHN0eWxlPSJiYWNrZ3JvdW5kLUltYWdlOnVybCgnUHJvZHVjdHNJbWFnZXMvQ2F0c0ltYWdlcy9pY29ucy9QODI1MjA0LnBuZycpIiBkYXRhLWljb24xPSdQODI1MjA0LnBuZycgZGF0YS1pY29uMj0nSTQ1Mzk3My5wbmcnPtee15DXqNeW15kg157Xqteg15Q8dWw+PGxpPjxkaXYgc3R5bGU9J3BhZGRpbmctdG9wOjI4cHg7IHBhZGRpbmctcmlnaHQ6MzdweDsnPjxhIGhyZWY9J9ee15DXqNeW15kt157Xqteg15Qt15zXl9eSLWMyNzknPtee15DXqNeW15kg157Xqteg15Q8L2E+PC9kaXY+PGRpdiBzdHlsZT0iaGVpZ2h0OjNweDsgd2lkdGg6MTAwJTsgYm9yZGVyOiBzb2xpZCAxcHggIzk3OTc5NzsgIGJhY2tncm91bmQtY29sb3I6ICM3Yzk1MjE7IG1hcmdpbi10b3A6MTVweDsiPjwvZGl2PjwvbGk+PGxpPjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee15DXqNeW15nXnS3XnNeX15LXmS3Xqtep16jXmS1jMjgwJyBzdHlsZT0nJz7XnteQ16jXlteZ1508L2E+PC9kaXY+PC9kaXY+PC9saT48L3VsPjwvZGl2Pg0KICAgICAgIA0KDQogICAgDQoNCiAgICAgICAgPGRpdiBjbGFzcz0icGFyZW50IiByZWw9InNpZGViYXJtZW51cGFyZW50cyIgc3R5bGU9ImJhY2tncm91bmQtSW1hZ2U6dXJsKCdQcm9kdWN0c0ltYWdlcy9DYXRzSW1hZ2VzL2ljb25zL0I0OTMwNjYucG5nJykiIGRhdGEtaWNvbjE9J0I0OTMwNjYucG5nJyBkYXRhLWljb24yPSdNNDEzMDQ4LnBuZyc+16TXmdeo15XXqiDXmdeR16nXmdedINeV15DXkteV15bXmdedPHVsPjxsaT48ZGl2IHN0eWxlPSdwYWRkaW5nLXRvcDoyOHB4OyBwYWRkaW5nLXJpZ2h0OjM3cHg7Jz48YSBocmVmPSfXpNeZ16jXldeqLdeZ15HXqdeZ150t15XXkNeS15XXlteZ150t15DXldeo15LXoNeZ15nXnS3XoNeZ16bXqi3XlNeT15XXkdeT15HXny1jMTYnPtek15nXqNeV16og15nXkdep15nXnSDXldeQ15LXldeW15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSJoZWlnaHQ6M3B4OyB3aWR0aDoxMDAlOyBib3JkZXI6IHNvbGlkIDFweCAjOTc5Nzk3OyAgYmFja2dyb3VuZC1jb2xvcjogIzdjOTUyMTsgbWFyZ2luLXRvcDoxNXB4OyI+PC9kaXY+PC9saT48bGk+PGRpdiBzdHlsZT0nZmxvYXQ6cmlnaHQ7IHdpZHRoOjIyMHB4OyBwYWRkaW5nOjI4cHggMzdweCAwcHggMHB4OyBoZWlnaHQ6MjQ4cHg7Jz4NCjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15DXkteV15bXmdedLdeV16nXp9eT15nXnS1jNDAnIHN0eWxlPScnPteQ15LXldeW15nXnSDXldep16fXk9eZ1508L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXlteo16LXmdedLdeV15LXqNei15nXoNeZ150t15DXldeo15LXoNeZ15nXnS1jNDEnIHN0eWxlPScnPteW16jXoteZ150g15XXkteo16LXmdeg15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ek15nXqNeV16ot15nXkdep15nXnS3XkNeV16jXkteg15nXmdedLWM0Micgc3R5bGU9Jyc+16TXmdeo15XXqiDXmdeR16nXmdedPC9hPjwvZGl2PjwvZGl2PjwvbGk+PC91bD48L2Rpdj4NCiAgICAgICANCg0KICAgIA0KDQogICAgICAgIDxkaXYgY2xhc3M9InBhcmVudCIgcmVsPSJzaWRlYmFybWVudXBhcmVudHMiIHN0eWxlPSJiYWNrZ3JvdW5kLUltYWdlOnVybCgnUHJvZHVjdHNJbWFnZXMvQ2F0c0ltYWdlcy9pY29ucy9TOTU3NTI4LnBuZycpIiBkYXRhLWljb24xPSdTOTU3NTI4LnBuZycgZGF0YS1pY29uMj0nUzk1NzUyOC5wbmcnPteZ16jXp9eg15nXlDx1bD48bGk+PGRpdiBzdHlsZT0ncGFkZGluZy10b3A6MjhweDsgcGFkZGluZy1yaWdodDozN3B4Oyc+PGEgaHJlZj0n16TXmdeo15XXqi3XldeZ16jXp9eV16ot15DXldeo15LXoNeZ15nXnS3XoNeZ16bXqi3XlNeT15XXkdeT15HXny1jMic+15nXqNen16DXmdeUPC9hPjwvZGl2PjxkaXYgc3R5bGU9ImhlaWdodDozcHg7IHdpZHRoOjEwMCU7IGJvcmRlcjogc29saWQgMXB4ICM5Nzk3OTc7ICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2M5NTIxOyBtYXJnaW4tdG9wOjE1cHg7Ij48L2Rpdj48L2xpPjxsaT48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXpNeZ16jXldeqLdeQ15XXqNeS16DXmdeZ150tYzI3JyBzdHlsZT0nJz7XpNeZ16jXldeqPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15nXqNen15XXqi3XkNeV16jXkteg15nXmdedLWMyOCcgc3R5bGU9Jyc+15nXqNen15XXqjwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eZ16jXlden15nXnS3XkNeV16jXkteg15nXmdedLdei16nXkdeZLdeq15nXkdeV15wtYzEzNycgc3R5bGU9Jyc+15nXqNeV16fXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16DXkdeY15nXnS1jMTAxJyBzdHlsZT0nJz7XoNeR15jXmdedIDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eW16jXoteZ150t15DXldeo15LXoNeZ15nXnS1jMjgyJyBzdHlsZT0nJz7Xlteo16LXmdedINeQ15XXqNeS16DXmdeZ1508L2E+PC9kaXY+PC9kaXY+PC9saT48L3VsPjwvZGl2Pg0KICAgICAgIA0KDQogICAgDQoNCiAgICAgICAgPGRpdiBjbGFzcz0icGFyZW50IiByZWw9InNpZGViYXJtZW51cGFyZW50cyIgc3R5bGU9ImJhY2tncm91bmQtSW1hZ2U6dXJsKCdQcm9kdWN0c0ltYWdlcy9DYXRzSW1hZ2VzL2ljb25zL1I1MTU1MjYucG5nJykiIGRhdGEtaWNvbjE9J1I1MTU1MjYucG5nJyBkYXRhLWljb24yPSdSNTE1NTI2LnBuZyc+15PXkteg15nXnSwg16fXmNeg15nXldeqINeV16TXodeY15XXqjx1bD48bGk+PGRpdiBzdHlsZT0ncGFkZGluZy10b3A6MjhweDsgcGFkZGluZy1yaWdodDozN3B4Oyc+PGEgaHJlZj0n15PXkteg15nXnS3Xlden15jXoNeZ15XXqi1jMTUnPteT15LXoNeZ150sINen15jXoNeZ15XXqiDXldek16HXmNeV16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0iaGVpZ2h0OjNweDsgd2lkdGg6MTAwJTsgYm9yZGVyOiBzb2xpZCAxcHggIzk3OTc5NzsgIGJhY2tncm91bmQtY29sb3I6ICM3Yzk1MjE7IG1hcmdpbi10b3A6MTVweDsiPjwvZGl2PjwvbGk+PGxpPjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eT15LXoNeZ150t15DXldeo15LXoNeZ15nXnS1jNDMnIHN0eWxlPScnPteT15LXoNeZ1508L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXp9eY16DXmdeV16otYzQ0JyBzdHlsZT0nJz7Xp9eY16DXmdeV16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXqtei16jXldeR15XXqi3Xk9eS16DXmdedLdeV16fXmNeg15nXldeqLWM0NScgc3R5bGU9Jyc+16rXoteo15XXkdeV16og15PXkteg15nXnSDXlden15jXoNeZ15XXqjwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ek16HXmNeULC3XkNeY16jXmdeV16ot15XXpNeq15nXqteZ150tYzI2Mycgc3R5bGU9Jyc+16TXodeY15QsINeQ15jXqNeZ15XXqiDXldek16rXmdeq15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ek16HXmNeULC3XkNeY16jXmdeV16ot15XXpNeq15nXqteZ150t15zXoNee16DXoteZ150t157Xktec15XXmNefLWMyNjQnIHN0eWxlPScnPtek16HXmNeULCDXkNeY16jXmdeV16og15XXpNeq15nXqteZ150g15zXoNee16DXoteZ150g157Xktec15XXmNefPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16jXmNeR15nXnS1jMjY1JyBzdHlsZT0nJz7XqNeY15HXmdedPC9hPjwvZGl2PjwvZGl2PjwvbGk+PC91bD48L2Rpdj4NCiAgICAgICANCg0KICAgIA0KDQogICAgICAgIDxkaXYgY2xhc3M9InBhcmVudCIgcmVsPSJzaWRlYmFybWVudXBhcmVudHMiIHN0eWxlPSJiYWNrZ3JvdW5kLUltYWdlOnVybCgnUHJvZHVjdHNJbWFnZXMvQ2F0c0ltYWdlcy9pY29ucy9FNzUzMzUwLnBuZycpIiBkYXRhLWljb24xPSdFNzUzMzUwLnBuZycgZGF0YS1pY29uMj0nRTc1MzM1MC5wbmcnPteX15XXnteo15kg15HXmdep15XXnCDXldeQ16TXmdeZ15Q8dWw+PGxpPjxkaXYgc3R5bGU9J3BhZGRpbmctdG9wOjI4cHg7IHBhZGRpbmctcmlnaHQ6MzdweDsnPjxhIGhyZWY9J9eX15XXnteo15kt15HXmdep15XXnC3XldeQ16TXmdeZ15QtYzcnPteX15XXnteo15kg15HXmdep15XXnCDXldeQ16TXmdeZ15Q8L2E+PC9kaXY+PGRpdiBzdHlsZT0iaGVpZ2h0OjNweDsgd2lkdGg6MTAwJTsgYm9yZGVyOiBzb2xpZCAxcHggIzk3OTc5NzsgIGJhY2tncm91bmQtY29sb3I6ICM3Yzk1MjE7IG1hcmdpbi10b3A6MTVweDsiPjwvZGl2PjwvbGk+PGxpPjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9en157Xl9eZ150tYzE5JyBzdHlsZT0nJz7Xp9ee15c8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXp9ee15fXmdedLdeV16rXoteo15XXkdeV16ot15zXoNee16DXoteZ150t157Xktec15XXmNefLWMxMDQnIHN0eWxlPScnPten157Xl9eZ150g15XXqtei16jXldeR15XXqiDXnNeg157XoNei15nXnSDXnteS15zXldeY1588L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXl9eV157XpS1jMTk4JyBzdHlsZT0nJz7Xl9eV157XpTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ep157Xny3XlteZ16otYzI1NCcgc3R5bGU9Jyc+16nXnteg15kg15bXmdeqPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16nXnteg15kt16fXlden15XXoS1jMjU1JyBzdHlsZT0nJz7Xqdee16DXmSDXlteo16LXmdedICDXkNeS15XXlteZ150g15XXoteV15M8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnteV16bXqNeZ150t15zXkNek15nXmdeULdeV15HXmdep15XXnC1jMTI0JyBzdHlsZT0nJz7XnteV16bXqNeZ150g15zXkNek15nXmdeUINeV15HXmdep15XXnDwvYT48L2Rpdj48L2Rpdj48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7OyBoZWlnaHQ6MjQ4cHg7Jz4NCjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16HXldeb16gt15XXqteX15zXmdek15nXlS1jMTEnIHN0eWxlPScnPteh15XXm9eoINeV16rXl9ec15nXpNeZ15U8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXntec15ct15XXqteR15zXmdeg15nXnS1jMzknIHN0eWxlPScnPtee15zXlyDXldeq15HXnNeZ16DXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16fXp9eQ15UtYzE4NScgc3R5bGU9Jyc+157Xldem16jXmSDXp9en15DXlTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9en15XXp9eV16Et15zXodeV15LXmdeVLWMxNzQnIHN0eWxlPScnPtee15XXpteo15kg16fXlden15XXoTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee16jXp9eZ150t16rXkdep15nXnNeZ150t15XXqteV16HXpNeV16otYzI1OScgc3R5bGU9Jyc+157XqNen15nXnSDXqteR16nXmdec15nXnSDXldeq15XXodek15XXqjwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eh15nXqNeV16QtLT4t157XmdeZ16TXnCwt15DXkteR15Qt15XXp9eV16fXldehLWMxOTUnIHN0eWxlPScnPteh15nXqNeV16QgLSDXnteZ15nXpNecINeQ15LXkdeUINeV16fXlden15XXoTwvYT48L2Rpdj48L2Rpdj48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7OyBoZWlnaHQ6MjQ4cHg7Jz4NCjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16rXntem15nXldeqLdeY16LXnS3Xldeo15nXly1jMjExJyBzdHlsZT0nJz7Xqtee16bXmdeV16og15jXotedINeV16jXmdeXPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15TXnteY15HXly3XlNeQ16HXmdeZ16rXmS1jMjY2JyBzdHlsZT0nJz7XlNee15jXkdeXINeU15DXodeZ15nXqteZPC9hPjwvZGl2PjwvZGl2PjwvbGk+PC91bD48L2Rpdj4NCiAgICAgICANCg0KICAgIA0KDQogICAgICAgIDxkaXYgY2xhc3M9InBhcmVudCIgcmVsPSJzaWRlYmFybWVudXBhcmVudHMiIHN0eWxlPSJiYWNrZ3JvdW5kLUltYWdlOnVybCgnUHJvZHVjdHNJbWFnZXMvQ2F0c0ltYWdlcy9pY29ucy9JNTQwMTI0LnBuZycpIiBkYXRhLWljb24xPSdJNTQwMTI0LnBuZycgZGF0YS1pY29uMj0nSTU0MDEyNC5wbmcnPtec15fXnteZ150g15XXnteQ16TXmdedPHVsPjxsaT48ZGl2IHN0eWxlPSdwYWRkaW5nLXRvcDoyOHB4OyBwYWRkaW5nLXJpZ2h0OjM3cHg7Jz48YSBocmVmPSfXnNeX157XmdedLdeV157XkNek15nXnS1jMzUnPtec15fXnteZ150g15XXnteQ16TXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9ImhlaWdodDozcHg7IHdpZHRoOjEwMCU7IGJvcmRlcjogc29saWQgMXB4ICM5Nzk3OTc7ICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2M5NTIxOyBtYXJnaW4tdG9wOjE1cHg7Ij48L2Rpdj48L2xpPjxsaT48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnNeX157XmdedLWM2OCcgc3R5bGU9Jyc+15zXl9ee15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ec15zXkC3Xktec15XXmNefLWM2NScgc3R5bGU9Jyc+15zXl9ee15nXnSDXnNeg157XoNei15nXnSDXnteS15zXldeY1588L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnNeX150t157Xldeg15HXmC1jNjknIHN0eWxlPScnPtec15fXnSDXnteV16DXkdeYIC8g16fXpNeV15A8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXkdeV16jXp9ehLdeV16TXmdem15QtYzI0NScgc3R5bGU9Jyc+16TXmdem15QsINeR15XXqNen16Eg15XXnteQ16TXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16TXqNeZ15vXmdeV16otYzM2JyBzdHlsZT0nJz7XpNeo15nXm9eZ15XXqiAsINen16jXp9eo15nXnSDXldei15XXkteZ15XXqiDXntec15XXl9eV16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXoteV15LXldeqLdeV16LXldeS15nXldeqLWMyNTInIHN0eWxlPScnPtei15XXkteV16og15XXoteV15LXmdeV16o8L2E+PC9kaXY+PC9kaXY+PGRpdiBzdHlsZT0nZmxvYXQ6cmlnaHQ7IHdpZHRoOjIyMHB4OyBwYWRkaW5nOjI4cHggMzdweCAwcHggMHB4OzsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ei15XXkteV16ot15XXoteV15LXmdeV16ot15zXoNee16DXoteZ150t157Xktec15XXmNefLWMyNTMnIHN0eWxlPScnPtei15XXkteV16og15XXoteV15LXmdeV16og15zXoNee16DXoteZ150g157Xktec15XXmNefPC9hPjwvZGl2PjwvZGl2PjwvbGk+PC91bD48L2Rpdj4NCiAgICAgICANCg0KICAgIA0KDQogICAgICAgIDxkaXYgY2xhc3M9InBhcmVudCIgcmVsPSJzaWRlYmFybWVudXBhcmVudHMiIHN0eWxlPSJiYWNrZ3JvdW5kLUltYWdlOnVybCgnUHJvZHVjdHNJbWFnZXMvQ2F0c0ltYWdlcy9pY29ucy9ZMjMzNDIyLnBuZycpIiBkYXRhLWljb24xPSdZMjMzNDIyLnBuZycgZGF0YS1pY29uMj0nWTIzMzQyMi5wbmcnPtee157XqNeX15nXnSwg16nXmdee15XXqNeZ150sINeh15zXmDx1bD48bGk+PGRpdiBzdHlsZT0ncGFkZGluZy10b3A6MjhweDsgcGFkZGluZy1yaWdodDozN3B4Oyc+PGEgaHJlZj0n16nXmdee15XXqNeZ150sLdeo15jXkdeZ150t15XXqNeh16fXmdedLWMyNic+157Xnteo15fXmdedLCDXqdeZ157Xldeo15nXnSwg16HXnNeY15nXnSDXldeo15jXkdeZ1508L2E+PC9kaXY+PGRpdiBzdHlsZT0iaGVpZ2h0OjNweDsgd2lkdGg6MTAwJTsgYm9yZGVyOiBzb2xpZCAxcHggIzk3OTc5NzsgIGJhY2tncm91bmQtY29sb3I6ICM3Yzk1MjE7IG1hcmdpbi10b3A6MTVweDsiPjwvZGl2PjwvbGk+PGxpPjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eT15HXqSwt16HXmdec15DXny3Xldee15XXpteo15kt15vXldeV16jXqi1jMjU3JyBzdHlsZT0nJz7Xk9eR16ksINeh15nXnNeQ158g15XXnteV16bXqNeZINeb15XXldeo16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnteV16bXqNeZLdee15bXldefLdec16rXmdeg15XXpy3Xldec15nXnNeTLWMxMjMnIHN0eWxlPScnPteo16HXp9eZ150g15XXodee15XXmNeZ15Y8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXntee16jXl9eZ150t15jXkdei15nXmdedLdee16rXlden15nXnS1jMjU2JyBzdHlsZT0nJz7Xntee16jXl9eZ150g15jXkdei15nXmdedINee16rXlden15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eY15fXmdeg15QtYzI1OCcgc3R5bGU9Jyc+15jXl9eZ16DXlDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eh15zXmNeZ150t157Xldeb16DXmdedLWMyNCcgc3R5bGU9Jyc+157Xnteo15fXmdedINeV16jXmNeR15nXnSDXnNeh15zXmCDXldec16HXoNeT15XXldeZ16U8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXqdeZ157Xldeo15kt16TXmNeo15nXldeqLC3XlteZ16rXmdedLdeV15fXnteV16bXmdedLWM4NCcgc3R5bGU9Jyc+16nXmdee15XXqNeZ1508L2E+PC9kaXY+PC9kaXY+PC9saT48L3VsPjwvZGl2Pg0KICAgICAgIA0KDQogICAgDQoNCiAgICAgICAgPGRpdiBjbGFzcz0icGFyZW50IiByZWw9InNpZGViYXJtZW51cGFyZW50cyIgc3R5bGU9ImJhY2tncm91bmQtSW1hZ2U6dXJsKCdQcm9kdWN0c0ltYWdlcy9DYXRzSW1hZ2VzL2ljb25zL041MzkyNjkucG5nJykiIGRhdGEtaWNvbjE9J041MzkyNjkucG5nJyBkYXRhLWljb24yPSdONTM5MjY5LnBuZyc+15PXkteg15kg15HXlden16gg15XXl9eY15nXpNeZ1508dWw+PGxpPjxkaXYgc3R5bGU9J3BhZGRpbmctdG9wOjI4cHg7IHBhZGRpbmctcmlnaHQ6MzdweDsnPjxhIGhyZWY9J9ee157Xqten15nXnS3XldeX15jXmdek15nXnS1jNzYnPteT15LXoNeZINeR15XXp9eoINeV15fXmNeZ16TXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9ImhlaWdodDozcHg7IHdpZHRoOjEwMCU7IGJvcmRlcjogc29saWQgMXB4ICM5Nzk3OTc7ICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2M5NTIxOyBtYXJnaW4tdG9wOjE1cHg7Ij48L2Rpdj48L2xpPjxsaT48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXkteo16DXldec15QsLden15XXqNeg16TXnNen16EsLdee15XXltec15kt15XXk9eZ15nXodeV16otYzI2Nycgc3R5bGU9Jyc+15LXqNeg15XXnNeULCDXp9eV16jXoNek15zXp9ehLCDXnteV15bXnNeZINeV15PXmdeZ16HXldeqPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15fXmNeZ16TXmS3XkdeV15jXoNeZ150sLdek15XXpNen15XXqNefLNep15XXntep15XXnS3Xldem15nXpNehLWMyOScgc3R5bGU9Jyc+15fXmNeZ16TXmSDXkNeg16jXkteZ15Q8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXl9eY15nXpNeZ150t157XnNeV15fXmdedLWMxNTEnIHN0eWxlPScnPteX15jXmdek15nXnSDXntec15XXl9eZ1508L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXqdeV16fXldec15MtYzk1JyBzdHlsZT0nJz7XqdeV16fXldec15MgLSDXp9en15DXlSDXldeX16jXldeR15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eh15XXm9eo15nXldeqLdeV157XodeY15nXp9eZ150tYzk2JyBzdHlsZT0nJz7XodeV15vXqNeZ15XXqiDXldee16HXmNeZ16fXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15fXnNeV15XXlC1jOTcnIHN0eWxlPScnPteX15zXldeV15Q8L2E+PC9kaXY+PC9kaXY+PC9saT48L3VsPjwvZGl2Pg0KICAgICAgIA0KDQogICAgDQoNCiAgICAgICAgPGRpdiBjbGFzcz0icGFyZW50IiByZWw9InNpZGViYXJtZW51cGFyZW50cyIgc3R5bGU9ImJhY2tncm91bmQtSW1hZ2U6dXJsKCdQcm9kdWN0c0ltYWdlcy9DYXRzSW1hZ2VzL2ljb25zL0g2MzY4ODAucG5nJykiIGRhdGEtaWNvbjE9J0g2MzY4ODAucG5nJyBkYXRhLWljb24yPSdINjM2ODgwLnBuZyc+157Xqden15DXldeqPHVsPjxsaT48ZGl2IHN0eWxlPSdwYWRkaW5nLXRvcDoyOHB4OyBwYWRkaW5nLXJpZ2h0OjM3cHg7Jz48YSBocmVmPSfXntep16fXkNeV16otYzc1Jz7Xntep16fXkNeV16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0iaGVpZ2h0OjNweDsgd2lkdGg6MTAwJTsgYm9yZGVyOiBzb2xpZCAxcHggIzk3OTc5NzsgIGJhY2tncm91bmQtY29sb3I6ICM3Yzk1MjE7IG1hcmdpbi10b3A6MTVweDsiPjwvZGl2PjwvbGk+PGxpPjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eQ15HXp9eV16ot15fXnNeR15XXny3Xldep15nXmden15nXnS1jMjY4JyBzdHlsZT0nJz7XkNeR16fXldeqINeX15zXkdeV158g15XXqdeZ15nXp9eZ1508L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnteZLden15XXp9eV16EtYzE5Nycgc3R5bGU9Jyc+157XmSDXp9eV16fXldehIDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee16nXp9eQ15XXqi3XodeV15nXlCwt15DXldeo15YsLdep16fXk9eZ150t15XXqdeZ15HXldec16ot16nXldei15wtYzIwJyBzdHlsZT0nJz7XqteX15zXmdek15kg15fXnNeRINem157Xl9eZ15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee15nXpteZ150t15jXkdei15nXmdedLdec16nXqteZ15nXlC1jMzcnIHN0eWxlPScnPtee15nXpteZ150g15jXkdei15nXmdedINec16nXqteZ15nXlDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eX15zXmdeY15XXqi3Xldee15XXpteo15kt16rXlC1jMTAnIHN0eWxlPScnPteX15zXmdeY15XXqiDXldee15XXpteo15kg16rXlDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9en16TXlC3Xldeq15fXnNeZ16TXmdeVLWM5JyBzdHlsZT0nJz7Xp9ek15Qg15XXqteX15zXmdek15nXlTwvYT48L2Rpdj48L2Rpdj48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7OyBoZWlnaHQ6MjQ4cHg7Jz4NCjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15HXmdeo15QtYzkxJyBzdHlsZT0nJz7XkdeZ16jXlCwg16nXmdeb16gg15XXmdeZ1588L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXqteo15vXmdeW15nXnS3Xldeo15vXlteZ150tYzIyOScgc3R5bGU9Jyc+16rXqNeb15nXlteZ150g15XXqNeb15bXmdedPC9hPjwvZGl2PjwvZGl2PjwvbGk+PC91bD48L2Rpdj4NCiAgICAgICANCg0KICAgIA0KDQogICAgICAgIDxkaXYgY2xhc3M9InBhcmVudCIgcmVsPSJzaWRlYmFybWVudXBhcmVudHMiIHN0eWxlPSJiYWNrZ3JvdW5kLUltYWdlOnVybCgnUHJvZHVjdHNJbWFnZXMvQ2F0c0ltYWdlcy9pY29ucy9QMzA1MzY3LnBuZycpIiBkYXRhLWljb24xPSdQMzA1MzY3LnBuZycgZGF0YS1pY29uMj0nUDMwNTM2Ny5wbmcnPteU16fXpNeQ15Qg15XXp9eZ16jXldeoPHVsPjxsaT48ZGl2IHN0eWxlPSdwYWRkaW5nLXRvcDoyOHB4OyBwYWRkaW5nLXJpZ2h0OjM3cHg7Jz48YSBocmVmPSfXnten16jXqC1jNDYnPteU16fXpNeQ15Qg15XXp9eZ16jXldeoPC9hPjwvZGl2PjxkaXYgc3R5bGU9ImhlaWdodDozcHg7IHdpZHRoOjEwMCU7IGJvcmRlcjogc29saWQgMXB4ICM5Nzk3OTc7ICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2M5NTIxOyBtYXJnaW4tdG9wOjE1cHg7Ij48L2Rpdj48L2xpPjxsaT48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXmNeV16TXlS1jMTc4JyBzdHlsZT0nJz7XmNeV16TXlSDXldeY157XpNeUPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n157Xqden15DXldeqLdeQ15XXqNeWLC3XodeV15nXlC3Xldep16fXk9eZ150tYzQnIHN0eWxlPScnPteS15HXmdeg15XXqiAvINeg16fXoNeZ16cg15jXkdei15XXoNeZ15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9en15nXoNeV15fXmdedLdeV157XoteT16DXmdedLWMxNjEnIHN0eWxlPScnPten15nXoNeV15fXmdedINeV157XoteT16DXmdedINeY15nXkdei15XXoNeZ15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ep157XoNeqLdeY15HXoteV16DXmdeqLdec15HXmdep15XXnC3XldeQ16TXmdeZ15QtYzIxMicgc3R5bGU9Jyc+16nXnteg16og16bXmdee15fXmdeqINec15HXmdep15XXnCDXldeQ16TXmdeZ15QgPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n157Xldem16jXmS3XoteZ15bXmdedLWM0OScgc3R5bGU9Jyc+157Xldem16jXmSDXoteZ15bXmdedINeV15HXp9eoPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15HXmdem15nXnS1jNDcnIHN0eWxlPScnPteR15nXpteZ1508L2E+PC9kaXY+PC9kaXY+PGRpdiBzdHlsZT0nZmxvYXQ6cmlnaHQ7IHdpZHRoOjIyMHB4OyBwYWRkaW5nOjI4cHggMzdweCAwcHggMHB4OzsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eZ15XXkteV16jXmC1jMTc3JyBzdHlsZT0nJz7Xl9ec15Eg15XXmdeV15LXldeo15g8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXktec15nXk9eV16ot16bXnteX15nXldeqLdeV16nXnNeS15XXoNeZ150tYzI3MCcgc3R5bGU9Jyc+15LXnNeZ15PXldeqINem157Xl9eZ15XXqiDXldep15zXkteV16DXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15DXldeb15wt15jXkdei15XXoNeZLdec15TXm9eg15Qt157XlNeZ16jXlC1jMjc0JyBzdHlsZT0nJz7XkNeV15vXnCDXmNeR16LXldeg15kg15zXlNeb16DXlCDXnteU15nXqNeUPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16TXmdeo15XXqi0t15nXqNen15XXqi0t15DXpteV16otLS3Xp9ek15XXkNeZ150tYzI3MScgc3R5bGU9Jyc+16TXmdeo15XXqiAvINeZ16jXp9eV16ogLyDXkNem15XXqiAtINen16TXldeQ15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ei15XXpNeV16ot15DXldeo15LXoNeZ15nXnS1jMjcyJyBzdHlsZT0nJz7XoteV16TXldeqINeV15PXkteZ150g15DXldeo15LXoNeZ15nXnTwvYT48L2Rpdj48L2Rpdj48L2xpPjwvdWw+PC9kaXY+DQogICAgICAgDQoNCiAgICANCg0KICAgICAgICA8ZGl2IGNsYXNzPSJwYXJlbnQiIHJlbD0ic2lkZWJhcm1lbnVwYXJlbnRzIiBzdHlsZT0iYmFja2dyb3VuZC1JbWFnZTp1cmwoJ1Byb2R1Y3RzSW1hZ2VzL0NhdHNJbWFnZXMvaWNvbnMvRjUwMTU0OS5wbmcnKSIgZGF0YS1pY29uMT0nRjUwMTU0OS5wbmcnIGRhdGEtaWNvbjI9J0Y1MDE1NDkucG5nJz7Xp9eV16HXnteY15nXp9eUINeV16jXl9em15Q8dWw+PGxpPjxkaXYgc3R5bGU9J3BhZGRpbmctdG9wOjI4cHg7IHBhZGRpbmctcmlnaHQ6MzdweDsnPjxhIGhyZWY9J9ee16jXp9eX16ot15XXp9eV16HXnteY15nXp9eULWM4OSc+16fXldeh157XmNeZ16fXlCDXldeo15fXpteUPC9hPjwvZGl2PjxkaXYgc3R5bGU9ImhlaWdodDozcHg7IHdpZHRoOjEwMCU7IGJvcmRlcjogc29saWQgMXB4ICM5Nzk3OTc7ICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2M5NTIxOyBtYXJnaW4tdG9wOjE1cHg7Ij48L2Rpdj48L2xpPjxsaT48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXkNeZ16TXldeoLWMyNDknIHN0eWxlPScnPteQ15nXpNeV16g8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXlNeS16DXlC3XnteU16nXntepLdec15vXnC3XlNee16nXpNeX15QtYzE2Nicgc3R5bGU9Jyc+15TXkteg15Qg157XlNep157XqSA8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXp9eo150t15XXqdee158t15LXldejLWMyMjAnIHN0eWxlPScnPteY15nXpNeV15cg16LXldeoINeU16TXoNeZ150g15XXlNeS15XXozwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eU15nXkteZ15nXoNeqLdeU16TXlC3XldeU16nXmdeg15nXmdedLWMxMDAnIHN0eWxlPScnPteU15nXkteZ15nXoNeqINeU16TXlCDXldeU16nXmdeg15nXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16nXntek15Ut15XXnteo15vXmi1jMjE2JyBzdHlsZT0nJz7Xqdee16TXlSwg157XqNeb15og15XXodeR15XXoNeZ1508L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnteV16bXqNeZLdeY15nXpNeV15ct15zXkteR16gtYzEyNicgc3R5bGU9Jyc+157Xldem16jXmSDXmNeZ16TXldeXINec15LXkdeoPC9hPjwvZGl2PjwvZGl2PjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDs7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXqdee16DXmdedLdeQ16rXqNeZ15nXnS3XldeR16nXnteZ150tYzEwNScgc3R5bGU9Jyc+16nXnteg15nXnSDXkNeq16jXmdeZ150g15XXkdep157XmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n15PXmdeQ15XXqNeT15XXqNeg15gtYzIxNycgc3R5bGU9Jyc+15PXkNeV15PXldeo16DXmDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eU15LXmdeZ16DXlC3XoNep15nXqi1jMTAzJyBzdHlsZT0nJz7XlNeS15nXmdeg15Qg16DXqdeZ16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXqteb16nXmdeo15nXnS3XnNep15nXoteoLWM5OCcgc3R5bGU9Jyc+15jXmdek15XXlyDXlNep15nXoteoIDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee15XXpteo15kt15jXmdek15XXly3XnNeQ150tYzIxNCcgc3R5bGU9Jyc+157Xldem16jXmSDXmNeZ16TXldeXINec15DXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee15XXpteo15kt15jXmdek15XXly3XnNeq15nXoNeV16ct15XXnNeZ15zXky1jMTIyJyBzdHlsZT0nJz7Xl9eZ16rXldec15nXnSDXldee15XXpteo15kg15jXmdek15XXlyDXnNeq15nXoNeV16c8L2E+PC9kaXY+PC9kaXY+PC9saT48L3VsPjwvZGl2Pg0KICAgICAgIA0KDQogICAgDQoNCiAgICAgICAgPGRpdiBjbGFzcz0icGFyZW50IiByZWw9InNpZGViYXJtZW51cGFyZW50cyIgc3R5bGU9ImJhY2tncm91bmQtSW1hZ2U6dXJsKCdQcm9kdWN0c0ltYWdlcy9DYXRzSW1hZ2VzL2ljb25zL081Mzk1OTAucG5nJykiIGRhdGEtaWNvbjE9J081Mzk1OTAucG5nJyBkYXRhLWljb24yPSdPNTM5NTkwLnBuZyc+16rXldeh16TXmSDXqteW15XXoNeUPHVsPjxsaT48ZGl2IHN0eWxlPSdwYWRkaW5nLXRvcDoyOHB4OyBwYWRkaW5nLXJpZ2h0OjM3cHg7Jz48YSBocmVmPSfXqteV16HXpNeZLdeq15bXldeg15QsLdeV15nXmNee15nXoNeZ150tYzEwNic+16rXldeh16TXmSDXqteW15XXoNeUPC9hPjwvZGl2PjxkaXYgc3R5bGU9ImhlaWdodDozcHg7IHdpZHRoOjEwMCU7IGJvcmRlcjogc29saWQgMXB4ICM5Nzk3OTc7ICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2M5NTIxOyBtYXJnaW4tdG9wOjE1cHg7Ij48L2Rpdj48L2xpPjxsaT48ZGl2IHN0eWxlPSdmbG9hdDpyaWdodDsgd2lkdGg6MjIwcHg7IHBhZGRpbmc6MjhweCAzN3B4IDBweCAwcHg7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXqteV16HXpNeZLdek15jXqNeZ15XXqi1jMjgzJyBzdHlsZT0nJz7XqteV16HXpNeZINek15jXqNeZ15XXqjwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eh15XXpNeoLdek15XXky1jMjQxJyBzdHlsZT0nJz7XodeV16TXqCDXpNeV15M8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXp9eV15zXktefLdeV15HXmdeV15jXmS1jMjc2JyBzdHlsZT0nJz7Xp9eV15zXktefINeV15HXmdeV15jXmTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ek16jXldeR15nXldeY15nXp9eULWMxMDcnIHN0eWxlPScnPtek16jXldeR15nXldeY15nXp9eUINeV16LXmdeb15XXnDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eq15XXodek15kt15DXldee15LXlC0zLWMxMjUnIHN0eWxlPScnPteQ15XXnteS15QgMzwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eb15XXqNeb15XXnS1jMjQyJyBzdHlsZT0nJz7Xm9eV16jXm9eV1508L2E+PC9kaXY+PC9kaXY+PGRpdiBzdHlsZT0nZmxvYXQ6cmlnaHQ7IHdpZHRoOjIyMHB4OyBwYWRkaW5nOjI4cHggMzdweCAwcHggMHB4OzsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee15nXoNeo15zXmdedLWMxMDknIHN0eWxlPScnPtee15nXoNeo15zXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16rXldeh16TXmS3XqteW15XXoNeULWMxMTAnIHN0eWxlPScnPteq15XXodek15kg16rXlteV16DXlDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eV15nXmNee15nXoNeZ150tYzEwOCcgc3R5bGU9Jyc+15XXmdeY157Xmdeg15nXnTwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eX15XXqNejLdeV16LXldeg15XXqi3Xntei15HXqC1jMTEyJyBzdHlsZT0nJz7Xl9eV16jXoyDXldei15XXoNeV16og157XoteR16g8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXmdec15PXmdedLWMxNjQnIHN0eWxlPScnPteZ15zXk9eZ150gPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16DXqdeZ150tYzE1NScgc3R5bGU9Jyc+16DXqdeZ150gPC9hPjwvZGl2PjwvZGl2PjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDs7IGhlaWdodDoyNDhweDsnPg0KPGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnNeS15HXqC1jMTcxJyBzdHlsZT0nJz7XkteR16jXmdedPC9hPjwvZGl2PjwvZGl2PjwvbGk+PC91bD48L2Rpdj4NCiAgICAgICANCg0KICAgIA0KDQogICAgICAgIDxkaXYgY2xhc3M9InBhcmVudCIgcmVsPSJzaWRlYmFybWVudXBhcmVudHMiIHN0eWxlPSJiYWNrZ3JvdW5kLUltYWdlOnVybCgnUHJvZHVjdHNJbWFnZXMvQ2F0c0ltYWdlcy9pY29ucy9FMjIwOTI1LnBuZycpIiBkYXRhLWljb24xPSdFMjIwOTI1LnBuZycgZGF0YS1pY29uMj0nRTIyMDkyNS5wbmcnPteQ16fXldec15XXkteZINec15HXmdeqPHVsPjxsaT48ZGl2IHN0eWxlPSdwYWRkaW5nLXRvcDoyOHB4OyBwYWRkaW5nLXJpZ2h0OjM3cHg7Jz48YSBocmVmPSfXl9eV157XqNeZLdeg15nXp9eV15kt15XXlNeT15HXqNeULWMxOCc+15DXp9eV15zXldeS15kg15zXkdeZ16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0iaGVpZ2h0OjNweDsgd2lkdGg6MTAwJTsgYm9yZGVyOiBzb2xpZCAxcHggIzk3OTc5NzsgIGJhY2tncm91bmQtY29sb3I6ICM3Yzk1MjE7IG1hcmdpbi10b3A6MTVweDsiPjwvZGl2PjwvbGk+PGxpPjxkaXYgc3R5bGU9J2Zsb2F0OnJpZ2h0OyB3aWR0aDoyMjBweDsgcGFkZGluZzoyOHB4IDM3cHggMHB4IDBweDsgaGVpZ2h0OjI0OHB4Oyc+DQo8ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9ee15XXpteo15nXnS3XnNeb15HXmdeh15QtYzU0JyBzdHlsZT0nJz7XnteV16bXqNeZ150g15zXm9eR15nXodeUPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16nXmNeZ16TXlC3XldeU15PXl9eqLdeb15zXmdedLWM1NScgc3R5bGU9Jyc+16nXmNeZ16TXlCDXldeU15PXl9eqINeb15zXmdedPC9hPjwvZGl2PjxkaXYgc3R5bGU9J21hcmdpbi1ib3R0b206N3B4Oyc+PGEgaHJlZj0n16jXptek15QsLdeX15zXldeg15XXqi3Xldee16nXmNeX15nXnS1jNTInIHN0eWxlPScnPteo16bXpNeULCDXl9ec15XXoNeV16og15XXntep15jXl9eZ1508L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXlNeT15HXqNeULdeV15jXmdeU15XXqC3XkNeV15XXmdeoLWM1Mycgc3R5bGU9Jyc+15TXk9eR16jXlCDXldeY15nXlNeV16gg15DXldeV15nXqDwvYT48L2Rpdj48ZGl2IHN0eWxlPSdtYXJnaW4tYm90dG9tOjdweDsnPjxhIGhyZWY9J9eX15Mt16TXotee15ksLdeg15nXmdeo15XXqi3XkNek15nXmdeULS3Xm9eh16MsLdep16fXmdeV16otYzI2MCcgc3R5bGU9Jyc+15fXkyDXpNei157XmSwg16DXmdeZ16jXldeqINeQ16TXmdeZ15QgLyDXm9eh16MsINep16fXmdeV16o8L2E+PC9kaXY+PGRpdiBzdHlsZT0nbWFyZ2luLWJvdHRvbTo3cHg7Jz48YSBocmVmPSfXnteV16bXqNeZ150t157Xqdec15nXnteZ150tYzI2OScgc3R5bGU9Jyc+157Xldem16jXmdedINee16nXnNeZ157XmdedPC9hPjwvZGl2PjwvZGl2PjwvbGk+PC91bD48L2Rpdj4NCiAgICAgICANCg0KICAgIA0KICAgIDwvbmF2Pg0KICA8L2Rpdj4NCjwvYXNpZGU+DQogICAgDQoNCiAgICANCjwvZGl2Ph8DZ2QCIQ9kFgICAQ9kFggCAQ9kFgICAQ8WAh4LXyFJdGVtQ291bnQCBxYOZg9kFgICAQ8PFgQeCEltYWdlVXJsBSJwcm9kdWN0c2ltYWdlcy9iYW5uZXJzL1A1MDg2MjkuanBnHg1BbHRlcm5hdGVUZXh0BSjXkdeQ16DXqCDXnteR16bXoiAg15nXnteZ150g157XqteV15fXmdedFgQeB29uY2xpY2sFnAFsb2NhdGlvbi5ocmVmPSdodHRwczovL3d3dy5uaXphdC5jb20vJWQ3JWE5JWQ3JWEyJWQ3JTk1JWQ3JWFhLSVkNyVhNCVkNyVhMiVkNyU5OSVkNyU5YyVkNyU5NSVkNyVhYS0tLSVkNyVhOSVkNyU5MCVkNyU5MiVkNyVhYS0lZDclOTQlZDclOTAlZDclYTglZDclOTktcDY3MCceBXN0eWxlBRl3aWR0aDo4NTBweDtoZWlnaHQ6MjUwcHg7ZAIBD2QWAgIBDw8WBB8HBSJwcm9kdWN0c2ltYWdlcy9iYW5uZXJzL0wzMTU3MjguanBnHwgFINeR15DXoNeoINee15HXpteiICDXkNen15Ug15zXkNeRFgQfCQV0bG9jYXRpb24uaHJlZj0naHR0cHM6Ly93d3cubml6YXQuY29tL3Byb2R1Y3RzbGlzdC5hc3B4P3dzZWFyY2g9JWQ3JTkwJWQ3JWE3JWQ3JTk1JTIwJWQ3JTljJWQ3JTkwJWQ3JTkxJnByb2RmaWx0ZXJzPScfCgUZd2lkdGg6ODUwcHg7aGVpZ2h0OjI1MHB4O2QCAg9kFgICAQ8PFgQfBwUicHJvZHVjdHNpbWFnZXMvYmFubmVycy9ENDUwNjMxLmpwZx8IBSzXkdeQ16DXqCDXnteR16bXoiAg15LXkNeV15PXlCDXkNeV16jXkteg15nXqhYEHwkFVmxvY2F0aW9uLmhyZWY9J2h0dHBzOi8vd3d3Lm5pemF0LmNvbS9wcm9kdWN0c2xpc3QuYXNweD9tYW51ZmFjdHVyZXI9VGhlK09yZ2FuaWMrRGFpcnknHwoFGXdpZHRoOjg1MHB4O2hlaWdodDoyNTBweDtkAgMPZBYCAgEPDxYEHwcFInByb2R1Y3RzaW1hZ2VzL2Jhbm5lcnMvRjUyMTE4Ny5qcGcfCAUf15HXkNeg16gg157Xkdem16IgINeQ16fXldeh15DXpBYEHwkFcWxvY2F0aW9uLmhyZWY9J2h0dHBzOi8vd3d3Lm5pemF0LmNvbS9wcm9kdWN0c2xpc3QuYXNweD93c2VhcmNoPSVkNyU5MCVkNyVhNyVkNyU5NSVkNyVhMSVkNyU5MCVkNyVhNCZwcm9kZmlsdGVycz0nHwoFGXdpZHRoOjg1MHB4O2hlaWdodDoyNTBweDtkAgQPZBYCAgEPDxYEHwcFInByb2R1Y3RzaW1hZ2VzL2Jhbm5lcnMvQzE0MjA1Mi5qcGcfCAUg15HXkNeg16gg157Xkdem16IgINeS15nXmSDXpNeo15kWBB8JBUtsb2NhdGlvbi5ocmVmPSdodHRwczovL3d3dy5uaXphdC5jb20vcHJvZHVjdHNsaXN0LmFzcHg/bWFudWZhY3R1cmVyPUcrRlJFRScfCgUZd2lkdGg6ODUwcHg7aGVpZ2h0OjI1MHB4O2QCBQ9kFgICAQ8PFgQfBwUicHJvZHVjdHNpbWFnZXMvYmFubmVycy9QODUxMDk4LmpwZx8IBR3XkdeQ16DXqCDXnteR16bXoiAg15TXldeR16DXqBYEHwkFS2xvY2F0aW9uLmhyZWY9J2h0dHBzOi8vd3d3Lm5pemF0LmNvbS9wcm9kdWN0c2xpc3QuYXNweD9tYW51ZmFjdHVyZXI9SHVibmVyJx8KBRl3aWR0aDo4NTBweDtoZWlnaHQ6MjUwcHg7ZAIGD2QWAgIBDw8WBB8HBSJwcm9kdWN0c2ltYWdlcy9iYW5uZXJzL1A1Mzk5ODYuanBnHwgFHdeR15DXoNeoINee15HXpteiICDXldeV15zXk9eUFgQfCQVLbG9jYXRpb24uaHJlZj0naHR0cHM6Ly93d3cubml6YXQuY29tL3Byb2R1Y3RzbGlzdC5hc3B4P21hbnVmYWN0dXJlcj1XZWxlZGEnHwoFGXdpZHRoOjg1MHB4O2hlaWdodDoyNTBweDtkAgsPDxYCHwAFFtee15HXptei15kg15TXl9eV15PXqSBkZAINDw8WAh4LTmF2aWdhdGVVcmwFF9ee15HXptei15kt157Xldei15PXldefZBYCZg8PFgIfAAUV15zXm9ecINeU157Xkdem16LXmdedZGQCDw8PFgIfAAUg157Xkdem16LXmdedINee16jXpSDXoteTLTEwLjQuMjZkZAIjDw8WAh8ABdUGPHVsPg0KCTxsaT48YSBocmVmPSLXodeg15nXpNeZLdeg15nXpteqLdeU15PXldeR15PXkdefLXAxNjIiIHN0eWxlPSJsaW5lLWhlaWdodDogMjAuOHB4OyI+15DXldeT15XXqjwvYT48L2xpPg0KCTxsaT48YSBocmVmPSJodHRwczovL3d3dy5uaXphdC5jb20vQWJ1dC11cy1wMjk4Ij5BYm91dCB1czwvYT48L2xpPg0KCTxsaT48YSBocmVmPSJzbmlmaW0uYXNweCI+16HXoNeZ16TXmdedPC9hPjwvbGk+DQoJPGxpPjxhIGhyZWY9Imh0dHBzOi8vd3d3Lm5pemF0LmNvbS9yZWcuYXNweD9zPTIiIHN0eWxlPSJsaW5lLWhlaWdodDogMjAuOHB4OyI+15TXqNep157XlCDXnNeQ16rXqDwvYT48L2xpPg0KCTxsaT48YSBocmVmPSJodHRwczovL3d3dy5uaXphdC5jb20vJUQ3JTkwJUQ3JTk5JUQ3JTk2JUQ3JTk1JUQ3JUE4JUQ3JTk5LSVENyU5NyVENyU5QyVENyU5NSVENyVBNyVENyU5NC1wMjIyIj7XkNeW15XXqNeZINeX15zXlden15Qg15XXntep15zXldeX15nXnTwvYT48L2xpPg0KCTxsaT48YSBocmVmPSJodHRwczovL3d3dy5uaXphdC5jb20vJUQ3JTlCJUQ3JUE4JUQ3JTk4JUQ3JTk5JUQ3JUExLSVENyU5RSVENyU5NSVENyVBMiVENyU5MyVENyU5NSVENyU5Ri0lRDclQTAlRDclOTklRDclQTYlRDclQUEtJUQ3JTk0JUQ3JTkzJUQ3JTk1JUQ3JTkxJUQ3JTkzJUQ3JTkxJUQ3JTlGLSVENyU5NCVENyU5QiVENyVBOCVENyU5OCVENyU5OSVENyVBMS0lRDclQTklRDclOUUlRDclOTclRDclOTYlRDclOTklRDclQTgtJUQ3JTlDJUQ3JTlBLSVENyU5QiVENyVBMSVENyVBMy1pMSI+15TXpteY16jXpNeV16og15zXnteV16LXk9eV158g16DXmdem16og15TXk9eV15HXk9eR1588L2E+PC9saT4NCjwvdWw+DQoNCmRkAiUPDxYCHwAF0wYNCjx1bD4NCgk8bGk+PGEgaHJlZj0i16bXldeoLden16nXqCIgc3R5bGU9ImxpbmUtaGVpZ2h0OiAyMC44cHg7Ij7XpteV16gg16fXqdeoL9eR15nXmNeV15wg15TXltee16DXlDwvYT48L2xpPg0KCTxsaT48YSBocmVmPSJodHRwczovL2JpdC5seS8zTUp4cWpiIj7Xk9eo15XXqdeZ150g15EmIzM5O9eg15nXpteqINeU15PXldeR15PXkdefJiMzOTs8L2E+PC9saT4NCgk8bGk+PGEgaHJlZj0iaHR0cDovL3d3dy5uaXphdC5jb20vJUQ3JUFBJUQ3JUE3JUQ3JUEwJUQ3JTk1JUQ3JTlGLXA0Ij7Xqten16DXldefPC9hPjwvbGk+DQoJPGxpPjxhIGhyZWY9Imh0dHBzOi8vd3d3Lm5pemF0LmNvbS8lRDclOTQlRDclQTYlRDclOTQlRDclQTglRDclQUEtJUQ3JUEwJUQ3JTkyJUQ3JTk5JUQ3JUE5JUQ3JTk1JUQ3JUFBLSVENyVBMCVENyU5OSVENyVBNiVENyVBQS0lRDclOTQlRDclOTMlRDclOTUlRDclOTElRDclOTMlRDclOTElRDclOUYtcDI4MiI+15TXpteU16jXqiDXoNeS15nXqdeV16o8L2E+PC9saT4NCjwvdWw+DQoNCjxwPjxpbWcgYWx0PSLXlNeh16DXmdejINee15XXoNeS16kg15zXoNeb15nXnSIgc3JjPSIvdXNlcmZpbGVzL2ltYWdlcy9OTiUyODElMjkuanBnIiBzdHlsZT0iaGVpZ2h0OjM1cHg7IHdpZHRoOjM1cHgiIHRpdGxlPSLXnteV16DXktepINec16DXm9eZ150iIC8+Jm5ic3A7PGltZyBhbHQ9Itee16LXqNeb16og16LXlteoINec16nXnteZ16LXlCIgc3JjPSIvdXNlcmZpbGVzL2ltYWdlcy9IJTI4NCUyOS5qcGciIHN0eWxlPSJoZWlnaHQ6MzJweDsgd2lkdGg6MzVweCIgdGl0bGU9Itee16LXqNeb16og16LXlteoINec16nXnteZ16LXlCIgLz48L3A+DQoNCjxwPiZuYnNwOzwvcD4NCmRkAicPDxYCHwAFPDxhIGhyZWY9J21haWx0bzpzZXJ2aWNlQG5pemF0LmNvLmlsJz5zZXJ2aWNlQG5pemF0LmNvLmlsPC9hPmRkAikPDxYCHwAFdTxhIGhyZWY9J3RlbDog16nXmdeo15XXqiDXnNen15XXl9eV16ov15XXldeY16HXkNekIDAyLTU0NzM1ODQgJz4g16nXmdeo15XXqiDXnNen15XXl9eV16ov15XXldeY16HXkNekIDAyLTU0NzM1ODQgPC9hPmRkAisPDxYGHwsFKWh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9uaXphdC5oYWR1dmRldmFuHgZUYXJnZXQFBl9ibGFuax8ABSU8aSBjbGFzcz0iZmFiIGZhLWZhY2Vib29rIGZhLTJ4Ij48L2k+ZGQCMw8PFgIfAAUy16DXkdeg15Qg16Ii15kgQCDXnNeV15LXmdeZ15gg15jXm9eg15XXnNeV15LXmdeV16pkZGQ4NYXVs/PtTsL4bp1n0ez7XqM2O0/3JjYKe0XsYC0aTQ==">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=2uoaaZH7v4RkWpgH2ngdrXQscgVdtcs6CS7KFNAZdBO4sg_MRP1GXHx8ZPKWbD48GUnbiL3q3rxrBdQFSk7Et-oqY52PdFMyo9uXzkDQ9Xo1&amp;t=638465130520000000" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=3gaUL9tCq4DS_PWjr5lW_OQOYatUXFZOInIMEtZHpqL-JQmrzxOhq7V8xJpcvSjJrorbx5o5G60gBrsXZ45xB93ZzGsvuZwMbKuZ9yWHxLs1&amp;t=638465130520000000" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAieoaiQrkPsWgfD+aBBNIbVoV4S80dBRsK1JMhGPMDALdIbbUNqAFRnel7D6I4852MAXrbPsToFF1o3j73hA02kAVOcBEdoDmgvObVyye53W7me7mMGn73h7Jz1wq3C83YWQ9YGradoTEsrE3yCatZXSQr3r322fOrM11NS9JsC/lkwCAOhKCtlpdKarGN4rB5T9wTcyHBJZfcdpcTbHU7f">
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('body').setaccessibility({
+            accurl: 'https://www.nizat.com/%D7%94%D7%A6%D7%94%D7%A8%D7%AA-%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA-%D7%A0%D7%99%D7%A6%D7%AA-%D7%94%D7%93%D7%95%D7%91%D7%93%D7%91%D7%9F-p282'
+        });
+    });
+	</script>
+
+<div class="modal fade" id="modalpopup" tabindex="-1" role="dialog" aria-labelledby="modalpopuplabel" style="z-index:99999999999">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">שימו לב!</h4>
+            </div>
+            <div class="modal-body">
+
+לקוחות יקרים,<br>
+נשמח לראותכם בזמן ה-SALE בחנויות ולתת לכם את השירות הטוב ביותר. <br>
+איסופים עצמיים בתקופה זו לא יהיו זמינים.<br>
+               
+
+
+
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">סגור</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        
+
+<link rel="stylesheet" href="scripts/floatlabel/floatlabel.css">
+
+
+<script>
+    /**
+     * Vertically center Bootstrap 3 modals so they aren't always stuck at the top
+     */
+    $(function () {
+        function reposition() {
+            var modal = $(this),
+                dialog = modal.find('.modal-dialog');
+            modal.css('display', 'block');
+
+            // Dividing by two centers the modal exactly, but dividing by three 
+            // or four works better for larger screens.
+            dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 2));
+        }
+        // Reposition when a modal is shown
+        $('.modal').on('show.bs.modal', reposition);
+        // Reposition when the window is resized
+        $(window).on('resize', function () {
+            $('.modal:visible').each(reposition);
+        });
+    });
+
+</script>
+
+
+<!--
+        <script type="text/javascript" src="cities.ashx"></script>
+-->
+
+        <script>
+            $(function () {
+                $("[rel=autocompletecity]").autocomplete({
+                    source: "cities.ashx",
+                    minLength: 2
+                });
+
+
+                $('.alphaonly').bind('keyup blur', function () {
+                    var node = $(this);
+                    var val = node.val();
+                    node.val(node.val().replace(/[a-zA-Z]/g, ''));
+
+                    if (val.search(/[a-zA-Z]+/) >= 0) {
+                       alert("אנא הזן תווים בעברית בלבד");
+                    }
+                }
+                );
+
+
+                $('.checkcity').on("click", function () {
+                    var city;
+                    city = $('.txtcity').val();
+
+                    $.ajax({
+                        url: "tools.ashx",
+                        type: 'get',
+                        data: "wtd=checkcity&city=" + city,
+                        success: function (data) {
+                            if (data == 1) {
+                                $('#pnlcheckcity').hide('slow');
+                                $('#pnlkef').show('slow');
+                            }
+                            if (data == 0) {
+                                $('#pnlcheckcity').hide('slow');
+                                $('#pnllokef').show('slow');
+                            }
+                        },
+                        beforeSend: function () {
+                            $('[rel=loading2]').show();
+                        },
+                        complete: function () {
+                            // $("#divtopcart").load("cart-ajax.aspx?rnd=" + new Date().getTime());
+                            $('[rel=loading2]').hide();
+                            //modalpopup.close();
+
+
+                        }
+                    });
+
+                    });
+
+            });
+
+
+
+
+        </script>
+
+
+
+
+  <!-- Modal -->
+<div id="checkcity1_paneldefaultbutton" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'checkcity1_btncheckcity')">
+	
+  <div class="modal fade" id="modalcheckcity" role="dialog" style="direction:rtl; z-index:3000000">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body" style="padding:40px 50px;">
+
+            <div id="pnlcheckcity">
+            <div class="row">
+                
+                <div class="col-xs-8">
+            <div style="color: #313131;font-size: 25px;">היי! איזה כיף שבאת! </div>
+            <div style="margin:30px 0px">
+ אין לנו אפשרות
+לדעת אם אנחנו מגיעים לאיזור שלך
+אל דאגה! אפשר לבדוק את זה בקלות
+            </div>
+
+                    <div>
+                        <div id="checkcity1_ValidationSummary1" class="alert alert-danger" aria-live="assertive" aria-atomic="true" style="display:none;">
+
+	</div>
+                    </div>
+                    <div>
+                        <span id="checkcity1_ValidationSummary2" class="aspNetDisabled" aria-live="assertive" aria-atomic="true" style="display:block"></span>
+                    </div>
+
+
+                    <label class="form-group has-float-label">
+                        <input name="ctl00$checkcity1$txtcity" type="text" id="checkcity1_txtcity" class="alphaonly txtcity form-control textboxborderbottom ui-autocomplete-input" placeholder="* עיר/ישוב" rel="autocompletecity" style="width:300px !important; margin-top:15px; " autocomplete="off">
+                        <span>
+                            עיר/ישוב
+                        </span>
+                        </label>
+
+                            <span id="checkcity1_RequiredFieldcheckcity" style="color:Red;display:none;"></span>
+
+
+
+                                                    
+             <input type="submit" name="ctl00$checkcity1$btncheckcity" value="מגיעים אליי?" onclick="return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$checkcity1$btncheckcity&quot;, &quot;&quot;, true, &quot;checkcity&quot;, &quot;&quot;, false, false))" id="checkcity1_btncheckcity" title="כפתור בדיקה אם יש משלוחים לאזורך" class="btn sitebtn checkcity" style="width:100%; border-radius:40px;font-size:18px">
+
+
+
+                    <div>
+
+                        <div style="margin-top:15px;">
+                            <input type="submit" name="ctl00$checkcity1$btnpickup" value="אני אוסף בעצמי" id="checkcity1_btnpickup" class="btn sitebtn" style="border-radius:40px; font-size:18px; width:100%; background-color:unset; color:#313131; border:1px solid #313131">
+                        </div>
+
+                        <img rel="loading2" src="images/transparentloading.gif" style="position:absolute; left:50%; top:50%; display:none">
+                    </div>
+                </div>
+
+                <div class="col-xs-4">
+                    <img src="images/group-11.png" class="img-responsive" alt="">
+                </div>
+
+            </div>
+                </div>
+
+            <div id="pnlkef" style="display:none">
+
+            <div class="row">
+                
+                <div class="col-xs-8">
+            <div style="margin:30px 0px; width:190px; font-size:25px; color:#313131">
+יש! אנחנו מגיעים 
+                <br>
+לאיזור שלך
+            </div>
+
+                    <div>
+                        <a href="javascript:location.href='';" class="btn sitebtn" style="width:300px;border-radius:40px; font-size:18px">אז בוא נתחיל בקניה</a>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-4">
+                    <img src="images/group-13.png" class="img-responsive" alt=" מגיעים לאזור שלך">
+                </div>
+
+            </div>
+                </div>
+
+            <div id="pnllokef" style="display:none">
+
+            <div class="row">
+                
+                <div class="col-xs-8">
+            <div style="color: #313131;font-size: 25px;">ממש מתנצלים!</div>
+            <div style="margin:30px 0px; width:190px;">
+אנחנו לא מגיעים לאיזור שלך…
+ניתן לבדוק ברשימת הסניפים 
+מה הסניף הכי קרוב אליך
+
+            </div>
+
+                    <div>
+                        <a href="snifim.aspx" class="btn sitebtn" style="width:300px;border-radius:40px;font-size:18px">לרשימת הסניפים</a>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-4">
+                    <img src="images/group-12.png" class="img-responsive" alt="לא מגיעים לאזור שלך">
+                </div>
+
+            </div>
+
+                </div>
+
+
+        </div>
+      <div class="modal-footer">                     
+          <a href="javascript:location.href='';" class="btn sitebtn" style="width:100px;border-radius:40px; font-size:18px; background-color:unset; color:#313131; border:1px solid #313131">ביטול</a>
+      </div>
+      </div>
+      
+    </div>
+  </div> 
+    
+</div>
+
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('.tivonitshop').click(function () {
+                    $.ajax({
+                        url: "setfilter.ashx",
+                        type: "POST",
+                        data: "f=4",
+                        success: function (data, textStatus, jqXHR) {
+                            //data - response from server                    
+                            location.reload();
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                        }
+                    });
+                });
+            });
+        </script>
+
+
+
+
+        <!-- mobile -->
+
+
+
+        <div class="hidden-md hidden-lg hidden-sm">
+
+
+
+            <style>
+                #slide-panel {
+                    width: 100%;
+                    height: 100vh;
+                    padding: 0px;
+                    background: #F9F9F9;
+                    max-width: 100%;
+                    position: fixed;
+                    right: 0px;
+                    top: 0px;
+                    display: none;
+                    z-index: 10000000;
+                }
+            </style>
+
+            <div id="slide-panel">
+
+        <div class="header">
+            <span id="coteret" class="coteret">תפריט ניצת הדובדבן</span>
+            <i class="fa fa-times fa-lg" style="cursor:pointer; color:#ffffff; position:absolute; left:10px; top:10px;" id="closepanel"></i>
+        </div>
+
+
+                <div class="list-group" style="width: 100%;">
+                    <a href="default.aspx" class="list-group-item">דף הבית <i class="fa fa-home pull-left fa-lg"></i></a>
+                    <a href="categories.aspx" class="list-group-item">מחלקות <i class="fa fa-th-list pull-left fa-lg"></i></a>
+                    <a href="productslist.aspx?saletype=hotsales" class="list-group-item" style="color:#A61D22; font-weight:bold;"><span style="font-size:20px">חדש על המדף</span> <i class="fas fa-glass-cheers pull-left fa-2x"></i></a>
+                    <a href="מבצעי-מועדון" class="list-group-item">מבצעים <i class="fa fa-star pull-left fa-lg"></i></a>
+                    <a href="contactus.aspx" class="list-group-item">צור קשר | ביטול הזמנה <i class="fa fa-envelope pull-left fa-lg"></i></a>
+                    <a href="#" class="list-group-item opensidebar">כניסה/אזור אישי <i class="fa fa-user pull-left fa-lg"></i></a>
+                    <a href="snifim.aspx" class="list-group-item">סניפים <i class="fa fa-map-marker pull-left fa-lg"></i></a>
+                    <a href="מתכונים" class="list-group-item">מתכונים <i class="fa fa-angle-left pull-left fa-lg"></i></a>
+                    <a href="מאמרים" class="list-group-item">מאמרים <i class="fa fa-angle-left pull-left fa-lg"></i></a>
+                    <a href="מטפלים" class="list-group-item">מטפלים <i class="fa fa-angle-left pull-left fa-lg"></i></a>
+                    <a href="מגזינים-ניצת-הדובדבן-p550" class="list-group-item" target="_blank">מגזין <i class="fa fa-angle-left pull-left fa-lg"></i></a>
+
+                    
+                </div>
+
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $('#baricon').on('click', function () {
+                        var panel = $('#slide-panel');
+                        //panel.animate({ width: 'toggle' }, 300);
+                        panel.show("slide", { direction: "left" }, 200);
+                    });
+
+                    $(document).mouseup(function (e) {
+                        var panel = $('#slide-panel');
+                        if (!panel.is(e.target) && panel.has(e.target).length === 0) {
+                            panel.hide("slide", { direction: "left" }, 200);
+                        }
+                    });
+
+
+                    $('#mobilecarticon , .opensidebar').on('click', function () {
+                        var panel = $('.sidenav');
+                        //panel.show("1000")
+                        panel.show("slide", { direction: "left" }, 200);
+
+                        panel = $('#slide-panel');
+                        panel.hide("slide", { direction: "left" }, 200);
+
+
+                    });
+
+
+                    $('#closepanel').on('click', function () {
+                        var panel = $('#slide-panel');
+                        panel.hide("slide", { direction: "left" }, 200);
+                    });
+
+
+                    $('#closeleftbar').on('click', function () {
+                        var panel = $('.sidenav');
+                        //panel.show("1000")
+                        panel.hide("slide", { direction: "left" }, 200);
+                    });
+
+
+
+
+                    
+
+                    
+
+                });
+
+
+            </script>
+
+            <div style="background-color:#ffffff;">
+            <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                <div class="" style="padding-top:16px;" id="baricon">
+                   <img src="images/group-2.png" style="" alt="תפריט">                 
+                </div>
+                </div>
+
+<div class="col-xs-5 text-center">
+    <a href="/"><img src="images/logomobile.png" style="margin:auto; padding-top:13px;" alt="לוגו ניצת הדובדבן" class="img-responsive"></a>
+</div>
+
+                <div class="col-xs-4" style="padding-left:0px !important;">
+                <div class="" style="width:100%; height:56px; background-image:url('images/rectangle-copy.png'); background-repeat:no-repeat" id="mobilecarticon">
+                    <img src="images/combined-shape.png" alt="סל קניות" style="position:absolute; left:12px; top:18px">
+                    <span id="mobilecartqty" class="cart_anchor mobilecartqty">0</span>
+                </div>
+
+
+                <div style="position:absolute; top:10px; left:70px;">
+                    <div id="divuser" style="text-align: right; z-index: 99999999999; padding-top:15px;">
+                        <div class="dropdown" style="cursor: pointer; margin-top: -5px">
+                            <div class="dropdown-toggle fav-color toplogin" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-user fa-lg"></i>
+                                <span id="lblupdateuserdetails2"></span>
+                                <i class="fa fa-angle-down "></i>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="text-align: right; padding: 5px; box-sizing: border-box; border-box; border: 0px; border-radius: 0px">
+                                
+                                
+                                <a href="#" id="divuserlink3" class="headerlogin opensidebar" style="display: block">איזור אישי/כניסה לאתר</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                
+
+            </div>
+</div>
+                </div>
+
+
+
+
+            <div style="width:100%; position:relative">
+                
+
+
+
+
+                <div style="position:absolute; top:0px; left:55px;">
+                    <div style="padding-top: 5px; text-align: left">
+                        <!--<a href="https://translate.google.co.il/translate?sl=iw&tl=en&js=y&prev=_t&hl=iw&ie=UTF-8&u=www.nizat.com&edit-text=&act=url" class="headerlinks">English</a>-->
+                        <a href="productslist.aspx?saletype=hotsales" class="headerlinks">חדש על המדף</a>
+                        <a href="מבצעי-מועדון" class="headerlinks" style="">מבצעים</a>
+
+                        <a href="snifim.aspx" class="headerlinks">סניפים</a>
+                        <a href="צור-קשר" class="headerlinks">צור קשר/ביטול הזמנה</a>
+                        <a href="הצהרת-נגישות-ניצת-הדובדבן-p282" class="headerlinks">נגישות</a>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            
+<style>
+.Rectangle-Copy-2 {
+  margin: 0px 0 0;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+}
+</style>
+
+                                <div style="text-align: center; background-color:#ffffff;" class="Rectangle-Copy-2">
+                                    <div id="searchbox2_p" validationgroup="mainsearch" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'searchbox2_searchbutton')">
+	
+<div style="position:relative;">
+        <div class="input-group" style="border:3px solid #9593a0">            
+            <input name="ctl00$searchbox2$innerwsearch" type="text" id="searchbox2_innerwsearch" class="no-border searchbox ui-autocomplete-input" placeholder="איזה מוצר/מותג אתם מחפשים?" rel="autocomplete2" style="" autocomplete="off">            
+
+
+            <div class="input-group-btn">                
+                <a id="searchbox2_searchbutton" class="btn" href="javascript:__doPostBack('ctl00$searchbox2$searchbutton','')" style="border:0px;">
+                <img src="images/searchicon.jpg" alt="חפש">
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+
+    
+</div>
+    
+</div>   
+
+
+
+ 
+    <!-- end search -->
+
+                                </div>
+
+
+            
+
+
+
+
+
+        </div>
+        <!-- end mobile -->
+
+
+
+
+
+
+        <div class="main">
+
+            
+
+            <div>
+
+                <div class="hidden-xs hidden-sm">
+
+<div data-spy="affix" data-offset-top="140" style="background-color:#ffffff" class="affix-top">
+
+                    <div class="row">
+                        <div style="background-image: url('images/headerbg.jpg'); height: 140px; padding-left: 20px;">
+                            <div style="float: right; width: 40%">
+                                <a href="/">
+                                    <img src="images/headerright.jpg" style="margin-right:15px;" alt="לוגו ניצת הדובדבן קישור לדף הבית"></a>
+                            </div>
+                            <div style="float: right; width: 60%">
+
+                                <div style="padding-top: 25px; text-align: left; padding-left:15px; height:48px">
+
+<style>
+ul.headerdesktop {
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  float:left; 
+  height:48px;
+}
+
+ul.headerdesktop li {
+  float: right;
+}
+</style>
+                                    <ul class="headerdesktop">
+                                        <!--<li><a href="https://translate.google.co.il/translate?sl=iw&tl=en&js=y&prev=_t&hl=iw&ie=UTF-8&u=www.nizat.com&edit-text=&act=url" class="headerlinks">English</a></li>-->
+                                        <li><a href="productslist.aspx?saletype=hotsales" class="headerlinks" style="font-weight:bold">חדש על המדף</a></li>
+                                        <li><a href="מבצעי-מועדון" class="headerlinks" style="margin-left:10px; font-weight:bold; padding-right:15px">מבצעים</a></li>
+                                        <li><a href="snifim.aspx" class="headerlinks">סניפים</a></li>
+                                        <li><a href="צור-קשר" class="headerlinks">צור קשר/ביטול הזמנה</a></li>
+                                        <li><a href="/%D7%93%D7%A8%D7%95%D7%A9%D7%99%D7%9D-%D7%91%D7%A0%D7%99%D7%A6%D7%AA-%D7%94%D7%93%D7%95%D7%91%D7%93%D7%91%D7%9F-p540" class="headerlinks" style="color:#B2161A; font-weight:bold">דרושים</a></li>
+                                        <li><a href="הצהרת-נגישות-ניצת-הדובדבן-p282" class="headerlinks">נגישות</a></li>
+                                    </ul>
+                                    
+                                    
+                                    
+                                    
+                                    
+
+                                </div>
+
+
+                                <div style="padding-top: 40px; text-align: left">
+                                    <div id="searchbox_p" validationgroup="mainsearch" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'searchbox_searchbutton')">
+	
+<div style="position:relative;">
+        <div class="input-group" style="border:3px solid #9593a0">            
+            <input name="ctl00$searchbox$innerwsearch" type="text" id="searchbox_innerwsearch" class="no-border searchbox ui-autocomplete-input" placeholder="איזה מוצר/מותג אתם מחפשים?" rel="autocomplete2" style="" autocomplete="off">            
+
+
+            <div class="input-group-btn">                
+                <a id="searchbox_searchbutton" class="btn" href="javascript:__doPostBack('ctl00$searchbox$searchbutton','')" style="border:0px;">
+                <img src="images/searchicon.jpg" alt="חפש">
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+
+    
+</div>
+    
+</div>   
+
+
+
+ 
+    <!-- end search -->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+    </div>
+
+
+
+                    <!--
+    <div data-spy="affix1111111" data-offset-top="450">  
+    <div style="background-color:#99B53C; width:100%">
+    <div class="container">
+    
+
+
+    <div style="background-color:#99B53C">
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+            
+            
+
+            <a id="hplpay" class="topstrip" href="basket.aspx">לתשלום</a>
+
+            <a id="hpltopsignin" class="topstrip" href="reg.aspx">כניסה</a>
+            <a id="snifim" class="topstrip" href="snifim.aspx">סניפים</a>
+            <a class="cart_anchor" style="width:1px; height:1px; position:absolute; right:20px; top:20px"></a>
+        </div>
+
+
+
+<div class="col-lg-6 col-md-4">
+<div style="padding-top:15px;">    
+
+</div>
+</div>
+
+<div class="col-lg-2 col-md-2 text-center">
+    <div style="background-color:#708A1D; height:100%; display:block; line-height:65px;">
+        <img id="tivonitshop" class="tivonitshop" src="images/tivonit.jpg" style="border:0px; cursor:pointer" />
+    </div>
+</div>
+
+
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    -->
+
+
+
+                    <!--
+    <div class="container">
+    <div style="padding-top:10px;"></div>
+    <div class="row">
+<div class="col-md-12">
+<a href="/">
+                        <img alt="" src="images/strip.jpg" style="border: 0px" class="img-responsive" /></a>
+</div>
+        </div>
+    <div style="padding-top:10px;"></div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div style="width:100%; text-align:center; background-color:#EDF2EB; padding:6px 0px">
+            <a id="sales" class="matkonim red" href="%d7%9e%d7%91%d7%a6%d7%a2%d7%99-%d7%9e%d7%95%d7%a2%d7%93%d7%95%d7%9f">מבצעים</a>            
+            <a id="toeng" class="matkonim" href="https://translate.google.co.il/translate?sl=iw&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=iw&amp;ie=UTF-8&amp;u=www.nizat.com&amp;edit-text=&amp;act=url">English</a>
+        </div>
+    </div>
+</div>
+
+        </div>
+    -->
+
+
+
+
+
+
+
+
+                </div>
+
+
+                
+
+
+                <!-- main content -->
+
+                    <div class="main-content" style="position: relative; width: 100%">
+                        <div id="sidebar" class="sidebar" style="">
+                            
+
+
+<div class="hidden-xs">
+<div style="margin-bottom:20px; display:none">
+    <a href="mishlochim.aspx" style="border:0px;"><img src="images/mishlohim.jpg" alt="" class="img-responsive" style="border-bottom:1px solid #BA0D13"></a>
+</div>
+
+
+                            
+
+
+
+
+<script>
+    $(document).ready(function ()
+    {
+        $("[rel=sidebarmenuparents]").hover(function () {
+            var a, b, c;
+            a = $(this).css("background-Image");
+            b = $(this).attr("data-icon1");
+            c = $(this).attr("data-icon2");
+            if (c != undefined) {
+                $(this).css("background-Image", "url('ProductsImages/CatsImages/icons/" + c + "')");
+            }
+
+            var offset = $(this).offset();
+            var windowheight = $(window).height();
+            var scrollTop = $(window).scrollTop();
+
+            //console.log('windowheight=' + windowheight + ' offset:' + offset.top + ' scrollTop:' + scrollTop);
+
+            /*
+            var x = (windowheight + scrollTop) - 360 - offset.top;
+
+             if (x  < 0 )
+            {
+                 $('.sidebarmenu ul li ul').css('top', x - 30 + 'px');
+            }
+            else {
+                 $('.sidebarmenu ul li ul').css('top', 0);
+            }
+            */
+           // console.log(x);
+
+        });
+
+        $("[rel=sidebarmenuparents]").mouseout(function () {
+            var a, b, c;
+            a = $(this).css("background-Image");
+            b = $(this).attr("data-icon1");
+            c = $(this).attr("data-icon2");
+            if (b != undefined) {
+                $(this).css("background-Image", "url('ProductsImages/CatsImages/icons/" + b + "')");
+            }
+        });
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+aside{
+  position:fixed;
+  top: 142px;
+  right: 0;
+  bottom: 0;
+  width: 120px;
+  background: #ffffff;
+  overflow: hidden;
+  border:1px solid #E9E9E9;
+}
+.scroll{
+  position: absolute;
+  right: -20px;
+  height: 100%;
+  width: 160px;
+  padding: 0 20px;
+  background: #ffffff;
+  overflow-y: auto;
+}
+aside .scroll-button{
+  position: absolute;
+  top: 0;
+  right: 10%;
+  z-index: 1;
+  width: 80%;
+  display: none;
+}
+aside .scroll-button.down{
+  top: auto;
+  bottom: 0;
+}
+nav .parent{
+  height: 100px;
+  display: block;
+  user-select: none;
+  cursor: pointer;
+  width:120px;
+  text-align:center;
+  padding-right:5px;
+  padding-left:5px;
+}
+nav .parent:hover{
+        background-color: #6C8C00;
+        color: #ffffff;
+        text-decoration: none
+
+}
+nav .parent + .parent {
+  border-top: 1px solid #E9E9E9;
+}
+nav .parent ul{
+  display: none;
+}
+
+
+.submenu{
+  position: fixed;
+  right: 120px;
+  width: 680px;
+  background: #ffffff;
+  display: none;
+  min-height: 100px;
+  height:360px;
+  z-index:9999999999;
+  box-shadow: 0 2px 5px 0 rgb(204,204,204);
+}
+.submenu ul{
+    list-style:none;
+    padding:0px;
+    margin:0px;
+}
+
+/*
+.submenu ul li:first-child{
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+    */
+
+.submenu ul li:first-child a{
+    font-size:30px;
+    color:#6C8C00;
+    text-decoration:underline
+}
+
+.submenu-overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: grey;
+  z-index: -1;
+}
+nav div.parent {padding-top:46px;  background-position-y:top; background-position-x:center; background-repeat:no-repeat; background-size:66px; font-size:14px;}
+
+</style>
+
+<script>
+    $(function () {
+        var buttonUp = $('.scroll-button.up'),
+          buttonDown = $('.scroll-button.down'),
+          scroll = $('aside .scroll'),
+          submenu = $('.submenu'),
+          menuItems = $('aside .parent'),
+          scrollTop = scroll.scrollTop(),
+          scrollInnerHeight = scroll.innerHeight(),
+          scrollHeight = scroll[0].scrollHeight,
+          scrollEdge = scrollTop + scrollInnerHeight,
+          animationSpeed = 200,
+          linkHeight = scroll.find('nav .parent:first').height(),
+          isSubmenuShown = false,
+              registered = false
+
+        scroll.scroll(onScroll);
+        scroll.trigger('scroll');
+        menuItems.click(showSubMenu);
+
+        function showSubMenu(e) {
+            e.stopPropagation();
+            isSubmenuShown = true
+
+            var item = $(e.target);
+            var top = item.offset().top - $(window).scrollTop();
+            var ul = item.find('ul').clone();
+            var windowscrollTop = $(window).scrollTop();
+
+
+            submenu
+              .css({
+                  top: top + 'px'
+              })
+              .show()
+
+            if (ul)
+                submenu.html(ul)
+
+            var windowHeight = $(window).height();
+            
+            var height = submenu.height();
+            var offset = windowHeight - height - top;
+
+            console.log("windowHeight=" + windowHeight + " height=" + height + " top=" + top + " offset=" + offset);
+
+            if (offset < 0) {
+                top += offset;
+                submenu.css({
+                    top: top + 'px'
+                })
+            }
+
+            registerClickOutside();
+        }
+
+        function registerClickOutside() {
+            if (registered)
+                return;
+            document.addEventListener('click', checkClickOutside);
+            registered = true;
+        }
+
+        function checkClickOutside(event) {
+            var isClickInside = submenu[0].contains(event.target);
+            if (!isClickInside && isSubmenuShown) {
+                hideSubMenu();
+                document.removeEventListener('click', checkClickOutside);
+                registered = false;
+            }
+        }
+
+        function hideSubMenu() {
+            isSubmenuShown = false
+            submenu.html('').hide()
+        }
+
+        function onScroll() {
+            hideSubMenu();
+            scrollTop = scroll.scrollTop();
+            scrollInnerHeight = scroll.innerHeight();
+            scrollHeight = scroll[0].scrollHeight;
+            scrollEdge = scrollTop + scrollInnerHeight;
+
+            if (scrollTop > 0)
+                buttonUp.show()
+            else
+                buttonUp.hide()
+
+            if (scrollEdge >= scrollHeight)
+                buttonDown.hide()
+            else
+                buttonDown.show()
+        }
+
+        buttonUp.click(function () {
+            var top = scrollTop - linkHeight;
+            top = top > 0 ? top : 0;
+            scroll.stop().animate({
+                scrollTop: top
+            }, animationSpeed);
+        })
+
+        buttonDown.click(function () {
+            var top = scrollTop + linkHeight;
+            top = top >= scrollHeight ? scrollHeight : top;
+            scroll.stop().animate({
+                scrollTop: top
+            }, animationSpeed);
+        })
+
+    })
+
+</script>
+
+<div style="width:132px; height:1px;"></div>
+
+
+
+
+
+
+
+
+
+<div id="sidebar1_sidebarmenu1_pnlcategories">
+	
+
+
+<div class="submenu" style="display: none;"></div>
+<aside>
+  <div class="scroll-button up" style="text-align: center; background-color: rgb(204, 204, 204); opacity: 0.8; display: none;">
+    <i class="fa fa-angle-up fa-3x"></i>
+  </div>
+  <div class="scroll-button down" style="text-align: center; background-color: rgb(204, 204, 204); opacity: 0.8; display: block;">
+    <i class="fa fa-angle-down fa-3x"></i>
+  </div>
+  <div class="scroll">
+      <nav>
+          
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/P825204.png')" data-icon1="P825204.png" data-icon2="I453973.png">מארזי מתנה<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="מארזי-מתנה-לחג-c279">מארזי מתנה</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="מארזים-לחגי-תשרי-c280" style="">מארזים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/B493066.png')" data-icon1="B493066.png" data-icon2="M413048.png">פירות יבשים ואגוזים<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="פירות-יבשים-ואגוזים-אורגניים-ניצת-הדובדבן-c16">פירות יבשים ואגוזים</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="אגוזים-ושקדים-c40" style="">אגוזים ושקדים</a></div><div style="margin-bottom:7px;"><a href="זרעים-וגרעינים-אורגניים-c41" style="">זרעים וגרעינים</a></div><div style="margin-bottom:7px;"><a href="פירות-יבשים-אורגניים-c42" style="">פירות יבשים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/S957528.png')" data-icon1="S957528.png" data-icon2="S957528.png">ירקניה<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="פירות-וירקות-אורגניים-ניצת-הדובדבן-c2">ירקניה</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="פירות-אורגניים-c27" style="">פירות</a></div><div style="margin-bottom:7px;"><a href="ירקות-אורגניים-c28" style="">ירקות</a></div><div style="margin-bottom:7px;"><a href="ירוקים-אורגניים-עשבי-תיבול-c137" style="">ירוקים</a></div><div style="margin-bottom:7px;"><a href="נבטים-c101" style="">נבטים </a></div><div style="margin-bottom:7px;"><a href="זרעים-אורגניים-c282" style="">זרעים אורגניים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/R515526.png')" data-icon1="R515526.png" data-icon2="R515526.png">דגנים, קטניות ופסטות<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="דגנים-וקטניות-c15">דגנים, קטניות ופסטות</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="דגנים-אורגניים-c43" style="">דגנים</a></div><div style="margin-bottom:7px;"><a href="קטניות-c44" style="">קטניות</a></div><div style="margin-bottom:7px;"><a href="תערובות-דגנים-וקטניות-c45" style="">תערובות דגנים וקטניות</a></div><div style="margin-bottom:7px;"><a href="פסטה,-אטריות-ופתיתים-c263" style="">פסטה, אטריות ופתיתים</a></div><div style="margin-bottom:7px;"><a href="פסטה,-אטריות-ופתיתים-לנמנעים-מגלוטן-c264" style="">פסטה, אטריות ופתיתים לנמנעים מגלוטן</a></div><div style="margin-bottom:7px;"><a href="רטבים-c265" style="">רטבים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/E753350.png')" data-icon1="E753350.png" data-icon2="E753350.png">חומרי בישול ואפייה<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="חומרי-בישול-ואפייה-c7">חומרי בישול ואפייה</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="קמחים-c19" style="">קמח</a></div><div style="margin-bottom:7px;"><a href="קמחים-ותערובות-לנמנעים-מגלוטן-c104" style="">קמחים ותערובות לנמנעים מגלוטן</a></div><div style="margin-bottom:7px;"><a href="חומץ-c198" style="">חומץ</a></div><div style="margin-bottom:7px;"><a href="שמן-זית-c254" style="">שמני זית</a></div><div style="margin-bottom:7px;"><a href="שמני-קוקוס-c255" style="">שמני זרעים  אגוזים ועוד</a></div><div style="margin-bottom:7px;"><a href="מוצרים-לאפייה-ובישול-c124" style="">מוצרים לאפייה ובישול</a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="סוכר-ותחליפיו-c11" style="">סוכר ותחליפיו</a></div><div style="margin-bottom:7px;"><a href="מלח-ותבלינים-c39" style="">מלח ותבלינים</a></div><div style="margin-bottom:7px;"><a href="קקאו-c185" style="">מוצרי קקאו</a></div><div style="margin-bottom:7px;"><a href="קוקוס-לסוגיו-c174" style="">מוצרי קוקוס</a></div><div style="margin-bottom:7px;"><a href="מרקים-תבשילים-ותוספות-c259" style="">מרקים תבשילים ותוספות</a></div><div style="margin-bottom:7px;"><a href="סירופ--&gt;-מייפל,-אגבה-וקוקוס-c195" style="">סירופ - מייפל אגבה וקוקוס</a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="תמציות-טעם-וריח-c211" style="">תמציות טעם וריח</a></div><div style="margin-bottom:7px;"><a href="המטבח-האסייתי-c266" style="">המטבח האסייתי</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/I540124.png')" data-icon1="I540124.png" data-icon2="I540124.png">לחמים ומאפים<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="לחמים-ומאפים-c35">לחמים ומאפים</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="לחמים-c68" style="">לחמים</a></div><div style="margin-bottom:7px;"><a href="ללא-גלוטן-c65" style="">לחמים לנמנעים מגלוטן</a></div><div style="margin-bottom:7px;"><a href="לחם-מונבט-c69" style="">לחם מונבט / קפוא</a></div><div style="margin-bottom:7px;"><a href="בורקס-ופיצה-c245" style="">פיצה, בורקס ומאפים</a></div><div style="margin-bottom:7px;"><a href="פריכיות-c36" style="">פריכיות , קרקרים ועוגיות מלוחות</a></div><div style="margin-bottom:7px;"><a href="עוגות-ועוגיות-c252" style="">עוגות ועוגיות</a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="עוגות-ועוגיות-לנמנעים-מגלוטן-c253" style="">עוגות ועוגיות לנמנעים מגלוטן</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/Y233422.png')" data-icon1="Y233422.png" data-icon2="Y233422.png">ממרחים, שימורים, סלט<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="שימורים,-רטבים-ורסקים-c26">ממרחים, שימורים, סלטים ורטבים</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="דבש,-סילאן-ומוצרי-כוורת-c257" style="">דבש, סילאן ומוצרי כוורת</a></div><div style="margin-bottom:7px;"><a href="מוצרי-מזון-לתינוק-ולילד-c123" style="">רסקים וסמוטיז</a></div><div style="margin-bottom:7px;"><a href="ממרחים-טבעיים-מתוקים-c256" style="">ממרחים טבעיים מתוקים</a></div><div style="margin-bottom:7px;"><a href="טחינה-c258" style="">טחינה</a></div><div style="margin-bottom:7px;"><a href="סלטים-מוכנים-c24" style="">ממרחים ורטבים לסלט ולסנדוויץ</a></div><div style="margin-bottom:7px;"><a href="שימורי-פטריות,-זיתים-וחמוצים-c84" style="">שימורים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/N539269.png')" data-icon1="N539269.png" data-icon2="N539269.png">דגני בוקר וחטיפים<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="ממתקים-וחטיפים-c76">דגני בוקר וחטיפים</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="גרנולה,-קורנפלקס,-מוזלי-ודייסות-c267" style="">גרנולה, קורנפלקס, מוזלי ודייסות</a></div><div style="margin-bottom:7px;"><a href="חטיפי-בוטנים,-פופקורן,שומשום-וציפס-c29" style="">חטיפי אנרגיה</a></div><div style="margin-bottom:7px;"><a href="חטיפים-מלוחים-c151" style="">חטיפים מלוחים</a></div><div style="margin-bottom:7px;"><a href="שוקולד-c95" style="">שוקולד - קקאו וחרובים</a></div><div style="margin-bottom:7px;"><a href="סוכריות-ומסטיקים-c96" style="">סוכריות ומסטיקים</a></div><div style="margin-bottom:7px;"><a href="חלווה-c97" style="">חלווה</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/H636880.png')" data-icon1="H636880.png" data-icon2="H636880.png">משקאות<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="משקאות-c75">משקאות</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="אבקות-חלבון-ושייקים-c268" style="">אבקות חלבון ושייקים</a></div><div style="margin-bottom:7px;"><a href="מי-קוקוס-c197" style="">מי קוקוס </a></div><div style="margin-bottom:7px;"><a href="משקאות-סויה,-אורז,-שקדים-ושיבולת-שועל-c20" style="">תחליפי חלב צמחיים</a></div><div style="margin-bottom:7px;"><a href="מיצים-טבעיים-לשתייה-c37" style="">מיצים טבעיים לשתייה</a></div><div style="margin-bottom:7px;"><a href="חליטות-ומוצרי-תה-c10" style="">חליטות ומוצרי תה</a></div><div style="margin-bottom:7px;"><a href="קפה-ותחליפיו-c9" style="">קפה ותחליפיו</a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="בירה-c91" style="">בירה, שיכר ויין</a></div><div style="margin-bottom:7px;"><a href="תרכיזים-ורכזים-c229" style="">תרכיזים ורכזים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/P305367.png')" data-icon1="P305367.png" data-icon2="P305367.png">הקפאה וקירור<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="מקרר-c46">הקפאה וקירור</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="טופו-c178" style="">טופו וטמפה</a></div><div style="margin-bottom:7px;"><a href="משקאות-אורז,-סויה-ושקדים-c4" style="">גבינות / נקניק טבעוניים</a></div><div style="margin-bottom:7px;"><a href="קינוחים-ומעדנים-c161" style="">קינוחים ומעדנים טיבעוניים</a></div><div style="margin-bottom:7px;"><a href="שמנת-טבעונית-לבישול-ואפייה-c212" style="">שמנת צימחית לבישול ואפייה </a></div><div style="margin-bottom:7px;"><a href="מוצרי-עיזים-c49" style="">מוצרי עיזים ובקר</a></div><div style="margin-bottom:7px;"><a href="ביצים-c47" style="">ביצים</a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="יוגורט-c177" style="">חלב ויוגורט</a></div><div style="margin-bottom:7px;"><a href="גלידות-צמחיות-ושלגונים-c270" style="">גלידות צמחיות ושלגונים</a></div><div style="margin-bottom:7px;"><a href="אוכל-טבעוני-להכנה-מהירה-c274" style="">אוכל טבעוני להכנה מהירה</a></div><div style="margin-bottom:7px;"><a href="פירות--ירקות--אצות---קפואים-c271" style="">פירות / ירקות / אצות - קפואים</a></div><div style="margin-bottom:7px;"><a href="עופות-אורגניים-c272" style="">עופות ודגים אורגניים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/F501549.png')" data-icon1="F501549.png" data-icon2="F501549.png">קוסמטיקה ורחצה<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="מרקחת-וקוסמטיקה-c89">קוסמטיקה ורחצה</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="איפור-c249" style="">איפור</a></div><div style="margin-bottom:7px;"><a href="הגנה-מהשמש-לכל-המשפחה-c166" style="">הגנה מהשמש </a></div><div style="margin-bottom:7px;"><a href="קרם-ושמן-גוף-c220" style="">טיפוח עור הפנים והגוף</a></div><div style="margin-bottom:7px;"><a href="היגיינת-הפה-והשיניים-c100" style="">היגיינת הפה והשיניים</a></div><div style="margin-bottom:7px;"><a href="שמפו-ומרכך-c216" style="">שמפו, מרכך וסבונים</a></div><div style="margin-bottom:7px;"><a href="מוצרי-טיפוח-לגבר-c126" style="">מוצרי טיפוח לגבר</a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="שמנים-אתריים-ובשמים-c105" style="">שמנים אתריים ובשמים</a></div><div style="margin-bottom:7px;"><a href="דיאורדורנט-c217" style="">דאודורנט</a></div><div style="margin-bottom:7px;"><a href="הגיינה-נשית-c103" style="">הגיינה נשית</a></div><div style="margin-bottom:7px;"><a href="תכשירים-לשיער-c98" style="">טיפוח השיער </a></div><div style="margin-bottom:7px;"><a href="מוצרי-טיפוח-לאם-c214" style="">מוצרי טיפוח לאם</a></div><div style="margin-bottom:7px;"><a href="מוצרי-טיפוח-לתינוק-ולילד-c122" style="">חיתולים ומוצרי טיפוח לתינוק</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/O539590.png')" data-icon1="O539590.png" data-icon2="O539590.png">תוספי תזונה<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="תוספי-תזונה,-ויטמינים-c106">תוספי תזונה</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="תוספי-פטריות-c283" style="">תוספי פטריות</a></div><div style="margin-bottom:7px;"><a href="סופר-פוד-c241" style="">סופר פוד</a></div><div style="margin-bottom:7px;"><a href="קולגן-וביוטי-c276" style="">קולגן וביוטי</a></div><div style="margin-bottom:7px;"><a href="פרוביוטיקה-c107" style="">פרוביוטיקה ועיכול</a></div><div style="margin-bottom:7px;"><a href="תוספי-אומגה-3-c125" style="">אומגה 3</a></div><div style="margin-bottom:7px;"><a href="כורכום-c242" style="">כורכום</a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="מינרלים-c109" style="">מינרלים</a></div><div style="margin-bottom:7px;"><a href="תוספי-תזונה-c110" style="">תוספי תזונה</a></div><div style="margin-bottom:7px;"><a href="ויטמינים-c108" style="">ויטמינים</a></div><div style="margin-bottom:7px;"><a href="חורף-ועונות-מעבר-c112" style="">חורף ועונות מעבר</a></div><div style="margin-bottom:7px;"><a href="ילדים-c164" style="">ילדים </a></div><div style="margin-bottom:7px;"><a href="נשים-c155" style="">נשים </a></div></div><div style="float:right; width:220px; padding:28px 37px 0px 0px;; height:248px;">
+<div style="margin-bottom:7px;"><a href="לגבר-c171" style="">גברים</a></div></div></li></ul></div>
+       
+
+    
+
+        <div class="parent" rel="sidebarmenuparents" style="background-Image:url('ProductsImages/CatsImages/icons/E220925.png')" data-icon1="E220925.png" data-icon2="E220925.png">אקולוגי לבית<ul><li><div style="padding-top:28px; padding-right:37px;"><a href="חומרי-ניקוי-והדברה-c18">אקולוגי לבית</a></div><div style="height:3px; width:100%; border: solid 1px #979797;  background-color: #7c9521; margin-top:15px;"></div></li><li><div style="float:right; width:220px; padding:28px 37px 0px 0px; height:248px;">
+<div style="margin-bottom:7px;"><a href="מוצרים-לכביסה-c54" style="">מוצרים לכביסה</a></div><div style="margin-bottom:7px;"><a href="שטיפה-והדחת-כלים-c55" style="">שטיפה והדחת כלים</a></div><div style="margin-bottom:7px;"><a href="רצפה,-חלונות-ומשטחים-c52" style="">רצפה, חלונות ומשטחים</a></div><div style="margin-bottom:7px;"><a href="הדברה-וטיהור-אוויר-c53" style="">הדברה וטיהור אוויר</a></div><div style="margin-bottom:7px;"><a href="חד-פעמי,-ניירות-אפייה--כסף,-שקיות-c260" style="">חד פעמי, ניירות אפייה / כסף, שקיות</a></div><div style="margin-bottom:7px;"><a href="מוצרים-משלימים-c269" style="">מוצרים משלימים</a></div></div></li></ul></div>
+       
+
+    
+    </nav>
+  </div>
+</aside>
+    
+
+    
+</div>
+
+</div>
+
+
+
+                        </div>
+                       <a name="maincontent" id="maincontent"></a>
+                        <div id="content" class="content">
+
+                            <div class="container-fluid">
+                            
+
+
+    <div style="margin-right:-15px; margin-left:-15px;">
+
+
+<script src="scripts/jssorslider/jssor.slider.mini.js"></script>
+
+
+<script>
+
+    jQuery(document).ready(function ($) {
+
+        var _SlideshowTransitions = [
+        //Fade
+            {$Duration: 1200, $Opacity: 2 }
+            , { $Duration: 600, $Delay: 80, $Cols: 10, $Opacity: 2 }
+            , { $Duration: 1000, $Delay: 30, $Cols: 8, $Rows: 4, $Clip: 15, $Formation: $JssorSlideshowFormations$.$FormationStraightStairs, $Assembly: 2050, $Easing: $JssorEasing$.$EaseInQuad }
+            , { $Duration: 500, $Delay: 30, $Cols: 8, $Rows: 4, $Clip: 15, $Formation: $JssorSlideshowFormations$.$FormationZigZag, $Assembly: 260, $Easing: $JssorEasing$.$EaseInQuad }
+            , { $Duration: 1000, $Delay: 80, $Cols: 8, $Rows: 4, $Clip: 15, $SlideOut: true, $Easing: $JssorEasing$.$EaseOutQuad },
+            , { $Duration: 1200, $Cols: 8, $Rows: 4, $Clip: 15, $During: { $Top: [0.5, 0.5], $Clip: [0, 0.5] }, $FlyDirection: 8, $Formation: $JssorSlideshowFormations$.$FormationStraight, $ChessMode: { $Column: 12 }, $ScaleClip: 0.5 }
+
+            ];
+
+        var options = {
+            $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+            $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+            $AutoPlayInterval: 3000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+            $PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, default value is 1
+
+            $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+            $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+            $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+            $SlideWidth: 1370,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+            $SlideHeight: 350,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+            $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+            $DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+            $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+            $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+            $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+            $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+            $SlideshowOptions: {                                //[Optional] Options to specify and enable slideshow or not
+                $Class: $JssorSlideshowRunner$,                 //[Required] Class to create instance of slideshow
+                $Transitions: _SlideshowTransitions,            //[Required] An array of slideshow transitions to play slideshow
+                $TransitionsOrder: 1,                           //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
+                $ShowLink: true                                    //[Optional] Whether to bring slide link on top of the slider when slideshow is running, default value is false
+            },
+
+            $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+                $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+                $ChanceToShow: 0,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                $SpacingX: 10,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+                $SpacingY: 10,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+                $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+            },
+
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+            }
+        };
+        var jssor_slider1_banners = new $JssorSlider$("banners_container", options);
+
+        //responsive code begin
+        //you can remove responsive code if you don't want the slider scales while window resizes
+        function ScaleSlider() {
+            var parentWidth = jssor_slider1_banners.$Elmt.parentNode.clientWidth;
+            if (parentWidth)
+                jssor_slider1_banners.$SetScaleWidth(Math.min(parentWidth, 1370));
+            else
+                window.setTimeout(ScaleSlider, 30);
+        }
+
+        ScaleSlider();
+
+        if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
+            $(window).bind('resize', ScaleSlider);
+        }
+
+
+        //if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
+        //    $(window).bind("orientationchange", ScaleSlider);
+        //}
+        //responsive code end
+    });
+</script>
+    <!-- Jssor Slider Begin -->
+    <!-- You can move inline styles to css file or css block. -->
+    <div id="banners_container" style="position: relative; top: 0px; left: 0px; width: 728px; height: 185.985px; overflow: hidden; border: 0px solid rgb(255, 255, 255); margin-bottom: 0px;" jssor-slider="true">
+
+        <!-- Loading Screen -->
+        
+
+        <!-- Slides Container -->
+
+
+            
+          
+                        
+
+
+        
+
+        <!-- Bullet Navigator Skin Begin -->
+        
+        <!-- bullet navigator container -->
+        
+        <!-- Bullet Navigator Skin End -->
+        <!-- Arrow Navigator Skin Begin -->
+        
+        <!-- Arrow Left -->
+        
+        <!-- Arrow Right -->
+        
+        <!-- Arrow Navigator Skin End -->
+        
+    <div style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; transform-origin: 0px 0px; transform: scale(0.531387);"><div class="" style="position: relative; top: 0px; left: 0px; width: 1370px; height: 350px; overflow: visible; border: 0px solid rgb(255, 255, 255); margin-bottom: 0px; display: block;"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div><div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1370px; height: 350px; overflow: hidden; z-index: 0;"><div style="position: absolute; z-index: 0; pointer-events: none; left: 0px; top: 0px; display: none;"></div></div><div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1370px; height: 350px; overflow: hidden; z-index: 0;"><div style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute; background-color: rgb(0, 0, 0); opacity: 0; display: none;"></div>
+
+
+   <div style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute; overflow: hidden;"><img id="ContentPlaceHolder1_bannerslide_rptbanners_slideimage1_0" u="image" onclick="location.href='https://www.nizat.com/%d7%a9%d7%a2%d7%95%d7%aa-%d7%a4%d7%a2%d7%99%d7%9c%d7%95%d7%aa---%d7%a9%d7%90%d7%92%d7%aa-%d7%94%d7%90%d7%a8%d7%99-p670'" src="productsimages/banners/P508629.jpg" alt="באנר מבצע  ימים מתוחים" style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute;" border="0"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div></div>     
+
+   <div style="width: 1370px; height: 350px; top: 0px; left: 1370px; position: absolute; overflow: hidden;"><img id="ContentPlaceHolder1_bannerslide_rptbanners_slideimage1_1" u="image" onclick="location.href='https://www.nizat.com/productslist.aspx?wsearch=%d7%90%d7%a7%d7%95%20%d7%9c%d7%90%d7%91&amp;prodfilters='" src="productsimages/banners/L315728.jpg" alt="באנר מבצע  אקו לאב" style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute;" border="0"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div></div>     
+
+   <div style="width: 1370px; height: 350px; top: 0px; left: -1370px; position: absolute; overflow: hidden;"><img id="ContentPlaceHolder1_bannerslide_rptbanners_slideimage1_2" u="image" onclick="location.href='https://www.nizat.com/productslist.aspx?manufacturer=The+Organic+Dairy'" src="productsimages/banners/D450631.jpg" alt="באנר מבצע  גאודה אורגנית" style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute;" border="0"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div></div>     
+
+   <div style="width: 1370px; height: 350px; top: 0px; left: -1370px; position: absolute; overflow: hidden;"><img id="ContentPlaceHolder1_bannerslide_rptbanners_slideimage1_3" u="image" onclick="location.href='https://www.nizat.com/productslist.aspx?wsearch=%d7%90%d7%a7%d7%95%d7%a1%d7%90%d7%a4&amp;prodfilters='" src="productsimages/banners/F521187.jpg" alt="באנר מבצע  אקוסאפ" style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute;" border="0"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div></div>     
+
+   <div style="width: 1370px; height: 350px; top: 0px; left: -1370px; position: absolute; overflow: hidden;"><img id="ContentPlaceHolder1_bannerslide_rptbanners_slideimage1_4" u="image" onclick="location.href='https://www.nizat.com/productslist.aspx?manufacturer=G+FREE'" src="productsimages/banners/C142052.jpg" alt="באנר מבצע  גיי פרי" style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute;" border="0"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div></div>     
+
+   <div style="width: 1370px; height: 350px; top: 0px; left: -1370px; position: absolute; overflow: hidden;"><img id="ContentPlaceHolder1_bannerslide_rptbanners_slideimage1_5" u="image" onclick="location.href='https://www.nizat.com/productslist.aspx?manufacturer=Hubner'" src="productsimages/banners/P851098.jpg" alt="באנר מבצע  הובנר" style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute;" border="0"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div></div>     
+
+   <div style="width: 1370px; height: 350px; top: 0px; left: -1370px; position: absolute; overflow: hidden;"><img id="ContentPlaceHolder1_bannerslide_rptbanners_slideimage1_6" u="image" onclick="location.href='https://www.nizat.com/productslist.aspx?manufacturer=Weleda'" src="productsimages/banners/P539986.jpg" alt="באנר מבצע  וולדה" style="width: 1370px; height: 350px; top: 0px; left: 0px; position: absolute;" border="0"><div u="loading" style="position: absolute; top: 0px; left: 0px; width: 1370px; height: 350px; z-index: 1000; display: none;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(scripts/jssorslider/img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div></div>     
+
+
+            </div><style>
+            /* jssor slider bullet navigator skin 05 css */
+            /*
+            .jssorb05 div           (normal)
+            .jssorb05 div:hover     (normal mouseover)
+            .jssorb05 .av           (active)
+            .jssorb05 .av:hover     (active mouseover)
+            .jssorb05 .dn           (mousedown)
+            */
+            .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+                background: url(scripts/jssorslider/img/b05.png) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+
+            .jssorb05 div {
+                background-position: -7px -7px;
+            }
+
+                .jssorb05 div:hover, .jssorb05 .av:hover {
+                    background-position: -37px -7px;
+                }
+
+            .jssorb05 .av {
+                background-position: -67px -7px;
+            }
+
+            .jssorb05 .dn, .jssorb05 .dn:hover {
+                background-position: -97px -7px;
+            }
+        </style><div u="navigator" class="jssorb05" style="position: absolute; bottom: 16px; right: 6px; width: 172px; height: 16px; left: 599px; display: none;">
+            <!-- bullet navigator item prototype -->
+            
+        <div u="prototype" style="position: absolute; width: 16px; height: 16px; left: 0px; top: 0px;" class="av"></div><div u="prototype" style="position: absolute; width: 16px; height: 16px; left: 26px; top: 0px;"></div><div u="prototype" style="position: absolute; width: 16px; height: 16px; left: 52px; top: 0px;"></div><div u="prototype" style="position: absolute; width: 16px; height: 16px; left: 78px; top: 0px;"></div><div u="prototype" style="position: absolute; width: 16px; height: 16px; left: 104px; top: 0px;"></div><div u="prototype" style="position: absolute; width: 16px; height: 16px; left: 130px; top: 0px;"></div><div u="prototype" style="position: absolute; width: 16px; height: 16px; left: 156px; top: 0px;"></div></div><style>
+            /* jssor slider arrow navigator skin 12 css */
+            /*
+            .jssora12l              (normal)
+            .jssora12r              (normal)
+            .jssora12l:hover        (normal mouseover)
+            .jssora12r:hover        (normal mouseover)
+            .jssora12ldn            (mousedown)
+            .jssora12rdn            (mousedown)
+            */
+            .jssora12l, .jssora12r, .jssora12ldn, .jssora12rdn {
+                position: absolute;
+                cursor: pointer;
+                display: block;
+                background: url(scripts/jssorslider/img/a12.png) no-repeat;
+                overflow: hidden;
+            }
+
+            .jssora12l {
+                background-position: -16px -37px;
+            }
+
+            .jssora12r {
+                background-position: -75px -37px;
+            }
+
+            .jssora12l:hover {
+                background-position: -136px -37px;
+            }
+
+            .jssora12r:hover {
+                background-position: -195px -37px;
+            }
+
+            .jssora12ldn {
+                background-position: -256px -37px;
+            }
+
+            .jssora12rdn {
+                background-position: -250px -37px;
+            }
+        </style><span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 168px; left: 0px;">
+        </span><span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 168px; right: 0px">
+        </span></div></div></div>
+    <!-- Jssor Slider End -->
+
+    
+        </div>
+
+    <div class="hidden-md hidden-lg hidden-xl">
+
+
+<style>
+  .nav-links-mobile {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 15px 10px;
+  }
+
+  .nav-links-mobile a {
+    flex: 1;
+    text-align: center;
+    background-color: #9abd00;
+    color: white;
+    padding: 6px 0;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-links-mobile a:hover {
+    background-color: #6c8113;
+  }
+</style>
+
+<div class="nav-links-mobile">
+  <a href="categories.aspx">מחלקות</a>
+  <a href="productslist.aspx?saletype=hotsales">חדש על המדף</a>
+  <a href="magazine.aspx" target="_blank">ספריית המגזינים</a>
+</div>
+
+
+</div>
+
+<div class="hidden-xs hidden-sm">
+    <div style="padding-top:15px;"></div>
+<div class="row">
+
+    <div class="col-xs-3"><a id="ContentPlaceHolder1_leshonitmagazin" class="matkonim matkonim col-xs-3" href="%d7%9e%d7%92%d7%96%d7%99%d7%a0%d7%99%d7%9d-%d7%a0%d7%99%d7%a6%d7%aa-%d7%94%d7%93%d7%95%d7%91%d7%93%d7%91%d7%9f-p550" target="_blank">
+        <img src="images/Magazine.png" class="img-responsive" style="float:right">
+        <span style="float:right; padding-right:0px;">ספריית מגזינים</span>
+        <i class="fa fa-angle-left fa-2x" style="float:left; padding-top:15px; padding-left:15px;"></i>
+
+                          </a></div>
+
+    <div class="col-xs-3">
+    <a id="ContentPlaceHolder1_matkonim" class="matkonim" href="%d7%9e%d7%aa%d7%9b%d7%95%d7%a0%d7%99%d7%9d">
+        <img src="images/recipe-copy.png" class="img-responsive" style="float:right">
+        <span style="float:right; padding-right:20px;">מתכונים</span>
+        <i class="fa fa-angle-left fa-2x" style="float:left; padding-top:15px; padding-left:15px;"></i>
+    </a>
+
+    </div>
+    <div class="col-xs-3"><a id="ContentPlaceHolder1_mamarim" class="matkonim matkonim col-xs-3" href="%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d">
+        <img src="images/article-copy.png" class="img-responsive" style="float:right">
+        <span style="float:right; padding-right:20px;">מאמרים</span>
+        <i class="fa fa-angle-left fa-2x" style="float:left; padding-top:15px; padding-left:15px;"></i>
+
+                          </a></div>
+    <div class="col-xs-3"><a id="ContentPlaceHolder1_metaplim" class="matkonim matkonim col-xs-3" href="%d7%9e%d7%98%d7%a4%d7%9c%d7%99%d7%9d">
+        <img src="images/therapist-copy.png" class="img-responsive" style="float:right">
+        <span style="float:right; padding-right:20px;">מטפלים</span>
+        <i class="fa fa-angle-left fa-2x" style="float:left; padding-top:15px; padding-left:15px;"></i>
+
+                          </a></div>
+
+
+    
+    
+</div>
+
+</div>
+
+
+
+    <div style="margin:20px 0px">
+<div class="row">
+<div class="col-xs-8">
+    
+    </div>
+<div class="col-xs-4">
+<div style="text-align:left; display:none">
+    <a id="ContentPlaceHolder1_hplshowallproducts" href="%d7%9e%d7%91%d7%a6%d7%a2%d7%99-%d7%9e%d7%95%d7%a2%d7%93%d7%95%d7%9f"><span id="ContentPlaceHolder1_lblshowallproducts" class="toallmivtzamonth">לכל המבצעים</span></a></div>
+    </div>
+    </div>
+        </div>
+
+<div style="margin-bottom:30px;">
+    <h2 style="font-size:24px; color:#000000">
+       <span id="ContentPlaceHolder1_lblInfoPageTitle">מבצעים מרץ עד-10.4.26</span>
+        </h2>
+    <br>
+    <img src="images/headline-stripe.png" alt="מבצעי החודש שלנו">
+</div>
+
+
+
+
+
+
+<div class="productsgrid">
+
+    
+            <div class="row">                
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_0" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_0" href="productslist.aspx?offerid=3119"><img id="ContentPlaceHolder1_sales_rpt_itemimage_0" class="img-responsive" src="ProductsImages/thumbs/O344720_101120219506_247_180.jpg" alt="מבצע נתחי סויה בסגנון שווארמה - עתיד ירוק" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_0" class="productcubesalename" style="">נתחי סויה בסגנון שווארמה - עתיד ירוק</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_0" class="productcubesaledesc" style="">ב-20.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_0" class="btnsales" href="productslist.aspx?offerid=3119" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_1" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_1" href="productslist.aspx?offerid=3120"><img id="ContentPlaceHolder1_sales_rpt_itemimage_1" class="img-responsive" src="ProductsImages/thumbs/H805855_4122025113743_247_180.jpg" alt="מבצע חזה עוף טבעוני (סדרת המסעדות) - עתיד ירוק" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_1" class="productcubesalename" style="">חזה עוף טבעוני (סדרת המסעדות) - עתיד ירוק</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_1" class="productcubesaledesc" style="">ב-31.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_1" class="btnsales" href="productslist.aspx?offerid=3120" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_2" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_2" href="productslist.aspx?offerid=3180"><img id="ContentPlaceHolder1_sales_rpt_itemimage_2" class="img-responsive" src="ProductsImages/salesImages/thumbs/N698189_247_180.jpg" alt="מבצע גבינה צהובה/ גאודה אורגנית - The Organic Dairy" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_2" class="productcubesalename" style="">גבינה צהובה/ גאודה אורגנית - The Organic Dairy</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_2" class="productcubesaledesc" style="">2 ב - 40 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_2" class="btnsales" href="productslist.aspx?offerid=3180" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_3" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_3" href="productslist.aspx?offerid=3005"><img id="ContentPlaceHolder1_sales_rpt_itemimage_3" class="img-responsive" src="ProductsImages/salesImages/thumbs/G486825_247_180.jpg" alt="מבצע לחברי מועדון :coco xim" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_3" class="productcubesalename" style="">לחברי מועדון :coco xim</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_3" class="productcubesaledesc" style="">חברי מועדון:השני ב50% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_3" class="btnsales" href="productslist.aspx?offerid=3005" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_4" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_4" href="productslist.aspx?offerid=3124"><img id="ContentPlaceHolder1_sales_rpt_itemimage_4" class="img-responsive" src="ProductsImages/salesImages/thumbs/W149163_247_180.jpg" alt="מבצע קמחים ללא גלוטן - עתיד ירוק" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_4" class="productcubesalename" style="">קמחים ללא גלוטן - עתיד ירוק</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_4" class="productcubesaledesc" style="">ב25% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_4" class="btnsales" href="productslist.aspx?offerid=3124" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_5" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_5" href="productslist.aspx?offerid=3150"><img id="ContentPlaceHolder1_sales_rpt_itemimage_5" class="img-responsive" src="ProductsImages/salesImages/thumbs/K350960_247_180.jpg" alt="מבצע קמחים - ג`י פרי" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_5" class="productcubesalename" style="">קמחים - ג`י פרי</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_5" class="productcubesaledesc" style="">ב - 17.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_5" class="btnsales" href="productslist.aspx?offerid=3150" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_6" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_6" href="productslist.aspx?offerid=3167"><img id="ContentPlaceHolder1_sales_rpt_itemimage_6" class="img-responsive" src="ProductsImages/thumbs/W614602_28102024104434_247_180.jpg" alt="מבצע שקית הפלא של בני - משמרת טריות" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_6" class="productcubesalename" style="">שקית הפלא של בני - משמרת טריות</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_6" class="productcubesaledesc" style="">ב - 29.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_6" class="btnsales" href="productslist.aspx?offerid=3167" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_7" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_7" href="productslist.aspx?offerid=3172"><img id="ContentPlaceHolder1_sales_rpt_itemimage_7" class="img-responsive" src="ProductsImages/salesImages/thumbs/N589074_247_180.jpg" alt="מבצע פסטות תירס - לה ונציאן*" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_7" class="productcubesalename" style="">פסטות תירס - לה ונציאן*</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_7" class="productcubesaledesc" style="">ב - 12.9 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_7" class="btnsales" href="productslist.aspx?offerid=3172" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_8" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_8" href="productslist.aspx?offerid=3122"><img id="ContentPlaceHolder1_sales_rpt_itemimage_8" class="img-responsive" src="ProductsImages/salesImages/thumbs/O399514_247_180.jpg" alt="מבצע ממרחי אגוזי נמר 300 גרם - שליז" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_8" class="productcubesalename" style="">ממרחי אגוזי נמר 300 גרם - שליז</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_8" class="productcubesaledesc" style="">2 ב- 49 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_8" class="btnsales" href="productslist.aspx?offerid=3122" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_9" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_9" href="productslist.aspx?offerid=3115"><img id="ContentPlaceHolder1_sales_rpt_itemimage_9" class="img-responsive" src="ProductsImages/thumbs/H374154_3042024124251_247_180.jpg" alt="מבצע נתחי פילה סלמון אורגני קפוא נורבגי" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_9" class="productcubesalename" style="">נתחי פילה סלמון אורגני קפוא נורבגי</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_9" class="productcubesaledesc" style="">ב-39.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_9" class="btnsales" href="productslist.aspx?offerid=3115" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_10" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_10" href="productslist.aspx?offerid=3116"><img id="ContentPlaceHolder1_sales_rpt_itemimage_10" class="img-responsive" src="ProductsImages/salesImages/thumbs/P120003_247_180.jpg" alt="מבצע דגים מהגליל כנרת קפוא חי בריא - משק מלמד" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_10" class="productcubesalename" style="">דגים מהגליל כנרת קפוא חי בריא - משק מלמד</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_10" class="productcubesaledesc" style="">ב20% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_10" class="btnsales" href="productslist.aspx?offerid=3116" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_11" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_11" href="productslist.aspx?offerid=3117"><img id="ContentPlaceHolder1_sales_rpt_itemimage_11" class="img-responsive" src="ProductsImages/salesImages/thumbs/P242577_247_180.jpg" alt="מבצע עופות קפואים אורגניים - משק מלמד" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_11" class="productcubesalename" style="">עופות קפואים אורגניים - משק מלמד</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_11" class="productcubesaledesc" style="">ב20%הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_11" class="btnsales" href="productslist.aspx?offerid=3117" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_12" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_12" href="productslist.aspx?offerid=3001"><img id="ContentPlaceHolder1_sales_rpt_itemimage_12" class="img-responsive" src="ProductsImages/salesImages/thumbs/S159524_247_180.jpg" alt="מבצע לחברי מועדון : וולדה" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_12" class="productcubesalename" style="">לחברי מועדון : וולדה</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_12" class="productcubesaledesc" style="">חברי מועדון:השני ב50% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_12" class="btnsales" href="productslist.aspx?offerid=3001" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_13" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_13" href="productslist.aspx?offerid=3105"><img id="ContentPlaceHolder1_sales_rpt_itemimage_13" class="img-responsive" src="ProductsImages/salesImages/thumbs/T319161_247_180.jpg" alt="מבצע צבע לשיער - נטורטינט" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_13" class="productcubesalename" style="">צבע לשיער - נטורטינט</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_13" class="productcubesaledesc" style="">3 ב-129.90</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_13" class="btnsales" href="productslist.aspx?offerid=3105" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_14" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_14" href="productslist.aspx?offerid=3106"><img id="ContentPlaceHolder1_sales_rpt_itemimage_14" class="img-responsive" src="ProductsImages/salesImages/thumbs/C589989_247_180.jpg" alt="מבצע שמפו/מרכך/סבון נוזלי 1 ליטר- אקו לאב*" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_14" class="productcubesalename" style="">שמפו/מרכך/סבון נוזלי 1 ליטר- אקו לאב*</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_14" class="productcubesaledesc" style="">השני ב30% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_14" class="btnsales" href="productslist.aspx?offerid=3106" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_15" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_15" href="productslist.aspx?offerid=3110"><img id="ContentPlaceHolder1_sales_rpt_itemimage_15" class="img-responsive" src="ProductsImages/salesImages/thumbs/I369881_247_180.jpg" alt="מבצע מוצרי טיפוח הפנים - לבידו" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_15" class="productcubesalename" style="">מוצרי טיפוח הפנים - לבידו</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_15" class="productcubesaledesc" style="">ב30% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_15" class="btnsales" href="productslist.aspx?offerid=3110" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_16" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_16" href="productslist.aspx?offerid=3111"><img id="ContentPlaceHolder1_sales_rpt_itemimage_16" class="img-responsive" src="ProductsImages/salesImages/thumbs/O987527_247_180.jpg" alt="מבצע סדרת טיפוח הגוף- לבידו" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_16" class="productcubesalename" style="">סדרת טיפוח הגוף- לבידו</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_16" class="productcubesaledesc" style="">1+2 מתנה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_16" class="btnsales" href="productslist.aspx?offerid=3111" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_17" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_17" href="productslist.aspx?offerid=3141"><img id="ContentPlaceHolder1_sales_rpt_itemimage_17" class="img-responsive" src="ProductsImages/thumbs/O523278_2712021215818_247_180.jpg" alt="מבצע ערוגות" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_17" class="productcubesalename" style="">ערוגות</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_17" class="productcubesaledesc" style="">ב20% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_17" class="btnsales" href="productslist.aspx?offerid=3141" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_18" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_18" href="productslist.aspx?offerid=3143"><img id="ContentPlaceHolder1_sales_rpt_itemimage_18" class="img-responsive" src="ProductsImages/salesImages/thumbs/J240182_247_180.jpg" alt="מבצע ג`ייסון" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_18" class="productcubesalename" style="">ג`ייסון</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_18" class="productcubesaledesc" style="">ב35% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_18" class="btnsales" href="productslist.aspx?offerid=3143" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_19" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_19" href="productslist.aspx?offerid=3002"><img id="ContentPlaceHolder1_sales_rpt_itemimage_19" class="img-responsive" src="ProductsImages/thumbs/T688073_412202411528_247_180.jpg" alt="מבצע לחברי מועדון : סופהרב*" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_19" class="productcubesalename" style="">לחברי מועדון : סופהרב*</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_19" class="productcubesaledesc" style="">חברי מועדון:השני ב50% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_19" class="btnsales" href="productslist.aspx?offerid=3002" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_20" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_20" href="productslist.aspx?offerid=3003"><img id="ContentPlaceHolder1_sales_rpt_itemimage_20" class="img-responsive" src="ProductsImages/salesImages/thumbs/P35119_247_180.jpg" alt="מבצע לחברי מועדון :הובנר" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_20" class="productcubesalename" style="">לחברי מועדון :הובנר</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_20" class="productcubesaledesc" style="">חברי מועדון:השני ב50% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_20" class="btnsales" href="productslist.aspx?offerid=3003" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_21" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_21" href="productslist.aspx?offerid=3101"><img id="ContentPlaceHolder1_sales_rpt_itemimage_21" class="img-responsive" src="ProductsImages/salesImages/thumbs/H590005_247_180.jpg" alt="מבצע נווה פארמה" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_21" class="productcubesalename" style="">נווה פארמה</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_21" class="productcubesaledesc" style="">ב20% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_21" class="btnsales" href="productslist.aspx?offerid=3101" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_22" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_22" href="productslist.aspx?offerid=3107"><img id="ContentPlaceHolder1_sales_rpt_itemimage_22" class="img-responsive" src="ProductsImages/salesImages/thumbs/E145699_247_180.jpg" alt="מבצע מוצרי טיפוח לפנים - אקו לאב" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_22" class="productcubesalename" style="">מוצרי טיפוח לפנים - אקו לאב</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_22" class="productcubesaledesc" style="">ב50% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_22" class="btnsales" href="productslist.aspx?offerid=3107" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_23" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_23" href="productslist.aspx?offerid=3187"><img id="ContentPlaceHolder1_sales_rpt_itemimage_23" class="img-responsive" src="ProductsImages/salesImages/thumbs/T905587_247_180.jpg" alt="מבצע אקו סאפ" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_23" class="productcubesalename" style="">אקו סאפ</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_23" class="productcubesaledesc" style="">ב10% הנחה</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_23" class="btnsales" href="productslist.aspx?offerid=3187" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_24" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_24" href="productslist.aspx?offerid=3192"><img id="ContentPlaceHolder1_sales_rpt_itemimage_24" class="img-responsive" src="ProductsImages/thumbs/B546990_1172024132631_247_180.png" alt="מבצע נוזל לניקוי כללי ומשטחים למון גראס וג`ינג`ר -אקוור" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_24" class="productcubesalename" style="">נוזל לניקוי כללי ומשטחים למון גראס וג`ינג`ר -אקוור</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_24" class="productcubesaledesc" style="">ב - 17.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_24" class="btnsales" href="productslist.aspx?offerid=3192" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_25" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_25" href="productslist.aspx?offerid=3193"><img id="ContentPlaceHolder1_sales_rpt_itemimage_25" class="img-responsive" src="ProductsImages/salesImages/thumbs/R579110_247_180.jpg" alt="מבצע נוזל לניקוי אסלות - אקוור" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_25" class="productcubesalename" style="">נוזל לניקוי אסלות - אקוור</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_25" class="productcubesaledesc" style="">ב - 16.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_25" class="btnsales" href="productslist.aspx?offerid=3193" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-6">
+                
+                <div id="ContentPlaceHolder1_sales_rpt_hplcobe_26" class="salescontainer">
+
+                <div style="width: 100%; overflow: hidden; text-align:center; vertical-align:top; position:relative;">
+                    <a id="ContentPlaceHolder1_sales_rpt_itemimagelink_26" href="productslist.aspx?offerid=3194"><img id="ContentPlaceHolder1_sales_rpt_itemimage_26" class="img-responsive" src="ProductsImages/salesImages/thumbs/B865700_247_180.jpg" alt="מבצע תרסיס לניקוי משטחים/ אמבטיה/חלונות-אקוור" style="margin:auto;"></a>
+                </div>  
+
+
+                    <div style="overflow: hidden;width:100%; text-align:center; height:70px; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemname_26" class="productcubesalename" style="">תרסיס לניקוי משטחים/ אמבטיה/חלונות-אקוור</span>
+                        </div>
+
+
+
+                    <div style="height: 80px;width:100%; text-align:center; margin-top:15px; padding:0px 15px">
+                        <span id="ContentPlaceHolder1_sales_rpt_itemshortdesc_26" class="productcubesaledesc" style="">ב - 22.90 ₪</span>
+                        </div>
+
+
+
+
+                        <div style=" width:100%; height:40px; margin-top:10px;">                    
+                     <a id="ContentPlaceHolder1_sales_rpt_itemmore_26" class="btnsales" href="productslist.aspx?offerid=3194" style="">לפרטי המבצע</a>
+                        </div>
+
+
+
+                    </div>
+                    
+                </div>
+        
+           </div>
+        
+
+</div>
+
+    <div style="margin-bottom:20px">
+<div style="text-align:center; padding-top:16px">
+<a href="מבצעי-מועדון"><span class="toallmivtzamonth">לכל המבצעים</span></a>
+</div>
+        </div>
+
+
+<div style="margin-bottom:30px; position:relative">
+    <h2 style="font-size:24px; color:#000000">
+    מתוך המגזין שלנו
+        </h2>
+    <br>
+    <img src="images/headline-stripe.png" alt="מתוך המגזין שלנו">
+
+
+    <a href="מתכונים" style="color:#7c9521; text-decoration:underline; float:left">לאתר המגזין</a>
+
+</div>
+
+<div class="row">
+<div class="col-md-12">
+
+
+
+<div class="productsgrid">
+    
+            <div class="row">                
+        
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                <div class="magazincontainer">
+                    <div style="width:100%; height:210px; overflow:hidden">
+                    
+                        </div>
+
+                    <div style="padding:30px 15px;">
+                    <div style="height:70px; overflow:hidden"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplsidebarinfopageschildes_0" style="color:#313131; font-size:24px;">שעות פעילות - שאגת הארי </span></div>
+
+                    <div style="width:100%; height:85px; overflow:hidden; padding-top:15px;"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_lblshortdesc_0" style="color:#313131"><p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</span></div>
+                    <div style="margin:20px 0px; text-align:left">
+                        <a id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplinfopage_0" title="לקריאת המאמר שעות פעילות - שאגת הארי " href="%d7%a9%d7%a2%d7%95%d7%aa-%d7%a4%d7%a2%d7%99%d7%9c%d7%95%d7%aa---%d7%a9%d7%90%d7%92%d7%aa-%d7%94%d7%90%d7%a8%d7%99-p670" style="color:#7c9521;">לקריאת המאמר <i class="far fa-arrow-alt-circle-left fa-lg"></i></a></div>
+                        </div>
+
+                    
+                </div>
+                
+                </div>
+        
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                <div class="magazincontainer">
+                    <div style="width:100%; height:210px; overflow:hidden">
+                    <img id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_infopageimage_1" class="img-responsive" src="ProductsImages/infopages/K273125.png" style="padding:10px 0px">
+                        </div>
+
+                    <div style="padding:30px 15px;">
+                    <div style="height:70px; overflow:hidden"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplsidebarinfopageschildes_1" style="color:#313131; font-size:24px;">נא להכיר - קפיר בהכנה ביתית</span></div>
+
+                    <div style="width:100%; height:85px; overflow:hidden; padding-top:15px;"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_lblshortdesc_1" style="color:#313131"><p style="text-align: center;">&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&amp;</p></span></div>
+                    <div style="margin:20px 0px; text-align:left">
+                        <a id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplinfopage_1" title="לקריאת המאמר נא להכיר - קפיר בהכנה ביתית" href="%d7%a7%d7%a4%d7%99%d7%a8-p668" style="color:#7c9521;">לקריאת המאמר <i class="far fa-arrow-alt-circle-left fa-lg"></i></a></div>
+                        </div>
+
+                    
+                </div>
+                
+                </div>
+        
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                <div class="magazincontainer">
+                    <div style="width:100%; height:210px; overflow:hidden">
+                    <img id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_infopageimage_2" class="img-responsive" src="ProductsImages/infopages/Q162209.jpg" style="padding:10px 0px">
+                        </div>
+
+                    <div style="padding:30px 15px;">
+                    <div style="height:70px; overflow:hidden"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplsidebarinfopageschildes_2" style="color:#313131; font-size:24px;">היום במטבח: ממרח קשיו</span></div>
+
+                    <div style="width:100%; height:85px; overflow:hidden; padding-top:15px;"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_lblshortdesc_2" style="color:#313131"><p>כשנכנסים למטבח עם צנצנת של ממרח קשיו,<br>
+מתחילים להבין כמה אפשרויות קולינריות מדהימות מסתתרות</p></span></div>
+                    <div style="margin:20px 0px; text-align:left">
+                        <a id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplinfopage_2" title="לקריאת המאמר היום במטבח: ממרח קשיו" href="%d7%94%d7%99%d7%95%d7%9d-%d7%91%d7%9e%d7%98%d7%91%d7%97:-%d7%9e%d7%9e%d7%a8%d7%97-%d7%a7%d7%a9%d7%99%d7%95-p664" style="color:#7c9521;">לקריאת המאמר <i class="far fa-arrow-alt-circle-left fa-lg"></i></a></div>
+                        </div>
+
+                    
+                </div>
+                
+                </div>
+        
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                <div class="magazincontainer">
+                    <div style="width:100%; height:210px; overflow:hidden">
+                    <img id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_infopageimage_3" class="img-responsive" src="ProductsImages/infopages/S962121.jpg" style="padding:10px 0px">
+                        </div>
+
+                    <div style="padding:30px 15px;">
+                    <div style="height:70px; overflow:hidden"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplsidebarinfopageschildes_3" style="color:#313131; font-size:24px;">הביצות שהתחפשו</span></div>
+
+                    <div style="width:100%; height:85px; overflow:hidden; padding-top:15px;"><span id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_lblshortdesc_3" style="color:#313131"><p>בעידן שבו רבים מאיתנו מחפשים אלטרנטיבות בריאות, סביבתיות ואתיות למוצרים מן החי -</p>
+
+<p>נותרה </p></span></div>
+                    <div style="margin:20px 0px; text-align:left">
+                        <a id="ContentPlaceHolder1_magazin_rptsidebarinfopageschildes_hplinfopage_3" title="לקריאת המאמר הביצות שהתחפשו" href="%d7%94%d7%91%d7%99%d7%a6%d7%95%d7%aa-%d7%a9%d7%94%d7%aa%d7%97%d7%a4%d7%a9%d7%95-p663" style="color:#7c9521;">לקריאת המאמר <i class="far fa-arrow-alt-circle-left fa-lg"></i></a></div>
+                        </div>
+
+                    
+                </div>
+                
+                </div>
+        
+           </div>
+        
+    </div>
+    
+</div>
+</div>
+
+
+<div style="margin-bottom:30px; position:relative">
+    <h1 style="font-size:24px; color:#000000">
+    ניצת הדובדבן - רשת בתי טבע
+        </h1>
+    <br>
+    <img src="images/headline-stripe.png" alt="ניצת הדובדבן - רשת בתי טבע">
+</div>
+
+
+
+
+
+
+                                </div>
+
+                            <div style="margin-top:50px; display:block"></div>
+
+                        </div>
+
+                        
+
+                    </div>
+
+                
+
+                <!-- / main content -->
+            </div>
+            
+
+                
+
+
+
+
+            
+
+
+
+
+            
+
+            <div class="container-fluid">
+
+            <div class="footer-content" style="margin-top:100px;">
+
+                
+                <div class="row">
+
+                    
+
+                    <div class="col-xs-12 col-sm-12 col-md-2" style="max-width:142px"></div>
+
+
+
+                    <div class="col-xs-12 col-sm-12 col-md-2">
+                        <div>
+                            <span id="lblfootertext" class="footerseotext"><ul>
+	<li><a href="סניפי-ניצת-הדובדבן-p162" style="line-height: 20.8px;">אודות</a></li>
+	<li><a href="https://www.nizat.com/Abut-us-p298">About us</a></li>
+	<li><a href="snifim.aspx">סניפים</a></li>
+	<li><a href="https://www.nizat.com/reg.aspx?s=2" style="line-height: 20.8px;">הרשמה לאתר</a></li>
+	<li><a href="https://www.nizat.com/%D7%90%D7%99%D7%96%D7%95%D7%A8%D7%99-%D7%97%D7%9C%D7%95%D7%A7%D7%94-p222">אזורי חלוקה ומשלוחים</a></li>
+	<li><a href="https://www.nizat.com/%D7%9B%D7%A8%D7%98%D7%99%D7%A1-%D7%9E%D7%95%D7%A2%D7%93%D7%95%D7%9F-%D7%A0%D7%99%D7%A6%D7%AA-%D7%94%D7%93%D7%95%D7%91%D7%93%D7%91%D7%9F-%D7%94%D7%9B%D7%A8%D7%98%D7%99%D7%A1-%D7%A9%D7%9E%D7%97%D7%96%D7%99%D7%A8-%D7%9C%D7%9A-%D7%9B%D7%A1%D7%A3-i1">הצטרפות למועדון ניצת הדובדבן</a></li>
+</ul>
+
+</span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-2">
+                        <div>
+                            <span id="lblfootertext2" class="footerseotext">
+<ul>
+	<li><a href="צור-קשר" style="line-height: 20.8px;">צור קשר/ביטול הזמנה</a></li>
+	<li><a href="https://bit.ly/3MJxqjb">דרושים ב'ניצת הדובדבן'</a></li>
+	<li><a href="http://www.nizat.com/%D7%AA%D7%A7%D7%A0%D7%95%D7%9F-p4">תקנון</a></li>
+	<li><a href="https://www.nizat.com/%D7%94%D7%A6%D7%94%D7%A8%D7%AA-%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA-%D7%A0%D7%99%D7%A6%D7%AA-%D7%94%D7%93%D7%95%D7%91%D7%93%D7%91%D7%9F-p282">הצהרת נגישות</a></li>
+</ul>
+
+<p><img alt="הסניף מונגש לנכים" src="/userfiles/images/NN%281%29.jpg" style="height:35px; width:35px" title="מונגש לנכים">&nbsp;<img alt="מערכת עזר לשמיעה" src="/userfiles/images/H%284%29.jpg" style="height:32px; width:35px" title="מערכת עזר לשמיעה"></p>
+
+<p>&nbsp;</p>
+</span>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-xs-12 col-sm-12 col-md-3">
+                        <!--
+    <div>
+     <span id="footerlblmail"><a href='mailto:service@nizat.co.il'>service@nizat.co.il</a></span>
+    </div>
+    <div>
+    <span id="footerlblphone"><a href='tel: שירות לקוחות/ווטסאפ 02-5473584 '> שירות לקוחות/ווטסאפ 02-5473584 </a></span>
+    </div>
+    -->
+
+                        <div>
+                            <ul style="padding:0px; margin:0px">
+                                <li>
+שירות לקוחות ארצי, 
+שרות משלוחים
+ותמיכה טכנית באתר
+ <a href="tel:02-5473584">02-5473584 </a> 
+
+                            <a href="https://wa.me/97225473584" style="color:#58AE03;" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+                                    </li>
+
+                                <li>
+שעות פעילות 09:00- 16:00 
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-xs-12 col-sm-12 col-md-3 text-left">
+
+
+
+                        <div style="margin-bottom: 40px">
+
+                            <a id="hplfacebook" title="פייסבוק קישור לאתר חיצוני" href="https://www.facebook.com/nizat.haduvdevan" target="_blank" style="color: #7E950F; font-weight: bold"><i class="fab fa-facebook fa-2x"></i></a>
+                            <a id="HyperLink1" title="אינסטגראם קישור לאתר חיצוני" href="https://www.instagram.com/nizat_haduvdevan/" target="_blank" style="padding-right: 20px; padding-left: 20px;">
+            <i class="fab fa-instagram fa-2x" style="color:#7E950F"></i>
+                            </a>
+                            <!--
+                            <a id="HyperLink3" title="טוויטר קישור לאתר חיצוני" href="#" target="_blank" style="color: #000000; font-weight: bold">
+            <i class="fab fa-twitter fa-2x" style="color:#7E950F"></i>
+                            </a>
+                            -->
+
+
+
+                        </div>
+
+                        <div>
+                            <img class="img-responsive" src="images/cc.jpg" alt="אתר מאובטח" style="float:left"></div>
+                    </div>
+
+                </div>
+            </div>
+
+                </div>
+
+
+            <div class="container-fluid">
+            <div style="text-align: center">
+                <span id="lblpoweredby" class="poweredby">נבנה ע"י @ לוגייט טכנולוגיות</span></div>
+
+            <div style="width: 100%; text-align: left">
+                <img src="images/footer.jpg" class="img-responsive" alt="image footer" style="float: left">
+            </div>
+
+
+
+            
+
+                </div>
+
+
+    </div>
+
+
+
+
+    <div class="sidenav" style="z-index:10">
+        <i class="fa fa-times fa-2x hidden-md hidden-lg hidden-xl" style="cursor:pointer; color:#ffffff; position:absolute; left:10px; top:10px; z-index:9999999999999999" id="closeleftbar"></i>
+        
+
+
+<script>
+
+        function loadiframepage(pagename)
+        {
+            var $iframe = $('#leftbariframe');
+            if ($iframe.length) {
+                $iframe.attr('src', pagename);
+            }
+            return true;
+        }
+
+        function clearloading()
+        {
+            $("#imgloading").hide();
+        }
+
+</script>
+
+
+<div id="leftbar" style="position:relative;">
+
+
+
+        <div class="iframecontainer" id="imgloading" style="display: none;">
+        <div class="header">
+            <span id="leftbar1_coteret" class="coteret">העגלה שלי</span>
+        </div>
+
+            <img src="images/transparentloading.gif" alt="טוען, אנא המתן" style="position:absolute; left:40%; top:200px;">
+
+            </div>
+
+    
+
+<iframe src="leftbarstart.aspx" class="leftbariframe" id="leftbariframe" onload="clearloading();"></iframe>
+
+
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("checkcity1_ValidationSummary1"));
+var Page_Validators =  new Array(document.getElementById("checkcity1_RequiredFieldcheckcity"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var checkcity1_ValidationSummary1 = document.all ? document.all["checkcity1_ValidationSummary1"] : document.getElementById("checkcity1_ValidationSummary1");
+checkcity1_ValidationSummary1.validationGroup = "checkcity";
+var checkcity1_RequiredFieldcheckcity = document.all ? document.all["checkcity1_RequiredFieldcheckcity"] : document.getElementById("checkcity1_RequiredFieldcheckcity");
+checkcity1_RequiredFieldcheckcity.controltovalidate = "checkcity1_txtcity";
+checkcity1_RequiredFieldcheckcity.errormessage = "אנא הזן את שם העיר";
+checkcity1_RequiredFieldcheckcity.display = "None";
+checkcity1_RequiredFieldcheckcity.validationGroup = "checkcity";
+checkcity1_RequiredFieldcheckcity.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+checkcity1_RequiredFieldcheckcity.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+
+
+
+        <a href="javascript:scrollToTop()" class="scrolltotop" style="display:none;" id="scrollToTop"><img src="images/goup.png" alt="חזרה לראש העמוד" style="width:50px"></a>
+
+
+<script>
+
+    /*
+    $("#glassix-widget").ready(function () {
+        // widgetClient.setWidgetVisiblity(false);
+        console.log('in');
+        $("#glassix-widget-launcher-container").hide();
+
+    });
+    */
+    
+
+</script>
+
+   
+
+
+<div id="cookie-banner" dir="rtl" style="position: fixed; inset: auto 0px 0px; z-index: 99999; display: block; box-sizing: border-box; padding: 16px; background: rgb(115, 138, 8); color: rgb(255, 255, 255); font: 14px / 1.4 system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Arial, sans-serif; box-shadow: rgba(0, 0, 0, 0.25) 0px -6px 20px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    
+    <!-- תצוגה ראשית -->
+    <div id="cookie-main" style="display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap">
+      <span style="margin:4px 0; flex:1; min-width:300px">
+        האתר משתמש בעוגיות (Cookies) לשיפור חוויית הגלישה, תוכן מותאם אישית ולמדידה סטטיסטית. 
+        <a href="/תקנון-p4" target="_blank" rel="noopener" style="color:#9adcfb; text-decoration:underline">מדיניות פרטיות</a>
+      </span>
+      <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap">
+        <button id="cookie-customize" type="button" style="white-space:nowrap; border:1px solid #9adcfb; border-radius:6px; padding:8px 12px; background:transparent; color:#9adcfb; cursor:pointer; font-size:13px">
+          התאמה אישית
+        </button>
+        <button id="cookie-reject" type="button" style="white-space:nowrap; border:1px solid #fff; border-radius:6px; padding:8px 12px; background:transparent; color:#fff; cursor:pointer; font-size:13px">
+          דחה הכל
+        </button>
+        <button id="cookie-accept-all" type="button" style="white-space:nowrap; border:0; border-radius:6px; padding:8px 14px; background:orange; color:#fff; cursor:pointer; font-weight:600">
+          אשר הכל
+        </button>
+      </div>
+    </div>
+
+    <!-- תצוגת התאמה אישית -->
+    <div id="cookie-settings" style="display:none; padding-top:16px">
+      <h3 style="margin:0 0 16px 0; font-size:16px; color:#fff">הגדרות עוגיות</h3>
+      
+      <div style="display:grid; gap:12px">
+        <div style="padding:12px; background:rgba(255,255,255,0.1); border-radius:6px">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px">
+            <strong>עוגיות חובה</strong>
+            <span style="background:#4CAF50; color:white; padding:4px 8px; border-radius:12px; font-size:12px">מופעל</span>
+          </div>
+          <small style="color:#ddd">עוגיות הכרחיות לתפעול האתר - לא ניתן לביטול</small>
+        </div>
+
+        <div style="padding:12px; background:rgba(255,255,255,0.1); border-radius:6px">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px">
+            <strong>עוגיות ניתוח ומדידה</strong>
+            <label style="position:relative; display:inline-block; width:50px; height:24px">
+              <input type="checkbox" id="analytics-cookies" style="opacity:0; width:0; height:0">
+              <span class="toggle-slider" style="position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background:#ccc; border-radius:12px; transition:.3s"></span>
+              <span class="toggle-button" style="position: absolute; content: &quot;&quot;; height: 18px; width: 18px; right: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.3s; transform: translateX(0px);"></span>
+            </label>
+          </div>
+          <small style="color:#ddd">Google Analytics ומערכות מדידה אחרות</small>
+        </div>
+
+        <div style="padding:12px; background:rgba(255,255,255,0.1); border-radius:6px">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px">
+            <strong>עוגיות פרסום ושיווק</strong>
+            <label style="position:relative; display:inline-block; width:50px; height:24px">
+              <input type="checkbox" id="marketing-cookies" style="opacity:0; width:0; height:0">
+              <span class="toggle-slider" style="position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background:#ccc; border-radius:12px; transition:.3s"></span>
+              <span class="toggle-button" style="position: absolute; content: &quot;&quot;; height: 18px; width: 18px; right: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.3s; transform: translateX(0px);"></span>
+            </label>
+          </div>
+          <small style="color:#ddd">Facebook Pixel, Google Ads ופרסומות מותאמות</small>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:16px">
+        <button id="cookie-back" type="button" style="border:1px solid #9adcfb; border-radius:6px; padding:8px 12px; background:transparent; color:#9adcfb; cursor:pointer">
+          חזור
+        </button>
+        <button id="cookie-save" type="button" style="border:0; border-radius:6px; padding:8px 14px; background:orange; color:#fff; cursor:pointer; font-weight:600">
+          שמור העדפות
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script async="" type="text/javascript" src="scripts/cookiebanner/cookiebanner.js"></script>
+
+
+
+
+
+
+
+
+
+<ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><ul id="ui-id-3" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

@@ -1,0 +1,61 @@
+[2026-03-19T07:07:56.366Z] === Homepage AI Extractor: Dataforce ===
+[2026-03-19T07:07:56.366Z] Started at: 2026-03-19T07:07:56.366Z
+[2026-03-19T07:07:56.366Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773904076365_Dataforce
+[2026-03-19T07:07:56.366Z] Company: Dataforce
+[2026-03-19T07:07:56.366Z] Website: dataforce-solutions.com
+[2026-03-19T07:07:56.366Z] cbRank: 2000811
+[2026-03-19T07:07:56.366Z] Reasons: h
+[2026-03-19T07:07:56.366Z] Fetching: https://dataforce-solutions.com
+[2026-03-19T07:08:07.037Z] Network idle timeout — continuing with current state
+[2026-03-19T07:08:07.070Z] Redirected: https://dataforce-solutions.com -> https://www.dataforce-solutions.com/
+[2026-03-19T07:08:07.086Z] Saved HTML (684768 bytes) to page.html
+[2026-03-19T07:08:07.089Z] Extracted 19 unique links from page
+[2026-03-19T07:08:07.089Z] Saved 19 links to links.json
+[2026-03-19T07:08:07.091Z] Extracted footer HTML (1602 chars)
+[2026-03-19T07:08:07.092Z] Extracted header HTML (19253 chars)
+[2026-03-19T07:08:07.095Z] Website (post-redirect): https://www.dataforce-solutions.com/ → origin: https://www.dataforce-solutions.com
+[2026-03-19T07:08:07.096Z] External links: 4 (of 19 total)
+[2026-03-19T07:08:07.096Z] ── All external links ──
+[2026-03-19T07:08:07.096Z]   EXT: https://www.adaptiveplanning.com
+[2026-03-19T07:08:07.096Z]   EXT: https://www.linkedin.com/company/dataforce-ltd/about
+[2026-03-19T07:08:07.096Z]   EXT: https://www.qlik.com/us
+[2026-03-19T07:08:07.096Z]   EXT: https://www.qlik.com/us/products/qlik-sense
+[2026-03-19T07:08:07.096Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T07:08:07.097Z]   UNCATEGORIZED: https://www.adaptiveplanning.com
+[2026-03-19T07:08:07.097Z]   REGEX: li <- https://www.linkedin.com/company/dataforce-ltd/about
+[2026-03-19T07:08:07.097Z]   UNCATEGORIZED: https://www.qlik.com/us
+[2026-03-19T07:08:07.097Z]   UNCATEGORIZED: https://www.qlik.com/us/products/qlik-sense
+[2026-03-19T07:08:07.097Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-19T07:08:07.097Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T07:08:07.101Z] Saved AI prompt (3273 chars) to ai_prompt.txt
+[2026-03-19T07:08:07.101Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T07:08:07.104Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T07:08:20.662Z]   AI: First token received, streaming...
+[2026-03-19T07:08:22.492Z] AI response complete: 53 chars in 15.4s
+[2026-03-19T07:08:22.494Z] Saved AI response to ai_response.json
+[2026-03-19T07:08:22.494Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T07:08:22.494Z]   AI LINK: https://www.linkedin.com/company/dataforce-ltd/about/
+[2026-03-19T07:08:22.495Z] AI returned 1 valid links
+[2026-03-19T07:08:22.495Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T07:08:22.495Z]   AI→REGEX: li <- https://www.linkedin.com/company/dataforce-ltd/about/ (duplicate, skipped)
+[2026-03-19T07:08:22.495Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T07:08:22.495Z] Footer/header origins (2):
+[2026-03-19T07:08:22.496Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T07:08:22.496Z]   FOOTER/HEADER ORIGIN: https://www.dataforce-solutions.com
+[2026-03-19T07:08:22.496Z]   SKIP (not in footer/header): https://www.adaptiveplanning.com
+[2026-03-19T07:08:22.496Z]   SKIP (not in footer/header): https://www.qlik.com/us
+[2026-03-19T07:08:22.496Z]   SKIP (not in footer/header): https://www.qlik.com/us/products/qlik-sense
+[2026-03-19T07:08:22.496Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T07:08:22.496Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T07:08:22.496Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T07:08:22.497Z] ── Step 3: Final dedup ──
+[2026-03-19T07:08:22.497Z] No urls to dedup
+[2026-03-19T07:08:22.497Z] ── FINAL RESULT ──
+[2026-03-19T07:08:22.497Z]   ws (1):
+[2026-03-19T07:08:22.497Z]     - https://www.dataforce-solutions.com
+[2026-03-19T07:08:22.497Z]   li (1):
+[2026-03-19T07:08:22.497Z]     - https://www.linkedin.com/company/dataforce-ltd
+[2026-03-19T07:08:22.497Z] Summary: ws:1, li:1
+[2026-03-19T07:08:22.498Z] Saved final result to result.json
+[2026-03-19T07:08:22.499Z] Override fields: ws, li
+[2026-03-19T07:08:22.499Z] Finished at: 2026-03-19T07:08:22.499Z

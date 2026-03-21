@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Brif — Just talk. We’ll take it from here.</title>
+  <meta name="description" content="Brif turns messy speech into clear, professional communication you can send. Just talk. We’ll take it from here.">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Brif — Just talk. We’ll take it from here.">
+  <meta property="og:description" content="Speak freely—even if it’s messy. Brif turns your words into a clear, professional message you can send.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brif.us/">
+
+  <!-- Basic styling (single-file, fast, minimal) -->
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#f4f4f5;
+      --muted:#a1a1aa;
+      --card:#111218;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#ffffff;
+        --fg:#0b0c10;
+        --muted:#52525b;
+        --card:#ffffff;
+        --border:rgba(0,0,0,.10);
+        --shadow: 0 18px 50px rgba(0,0,0,.08);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 700px at 20% 10%, rgba(99,102,241,.18), transparent 60%),
+                  radial-gradient(900px 650px at 80% 30%, rgba(16,185,129,.14), transparent 55%),
+                  var(--bg);
+      color:var(--fg);
+      line-height:1.35;
+    }
+    a{color:inherit}
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+    }
+    .card{
+      width:min(860px, 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4.2vw, 44px);
+      backdrop-filter: blur(8px);
+    }
+    header{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      font-weight:700;
+      letter-spacing:-0.02em;
+      font-size:22px;
+    }
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--border);
+      padding:8px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    h1{
+      margin:0 0 14px 0;
+      font-size: clamp(34px, 5.2vw, 54px);
+      letter-spacing:-0.03em;
+      line-height:1.05;
+    }
+    .sub{
+      margin:0 0 18px 0;
+      font-size: clamp(16px, 2.1vw, 20px);
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .body{
+      margin:0 0 18px 0;
+      font-size: 16px;
+      max-width: 70ch;
+    }
+    .bullets{
+      margin: 18px 0 26px 0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .bullets li{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .ctaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      margin-top: 10px;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.08);
+      color:var(--fg);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 600;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .06s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{ background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.22); }
+    .btn:active{ transform: translateY(1px); }
+    .btnPrimary{
+      background: rgba(99,102,241,.22);
+      border-color: rgba(99,102,241,.35);
+    }
+    .btnPrimary:hover{
+      background: rgba(99,102,241,.28);
+      border-color: rgba(99,102,241,.48);
+    }
+    .note{
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+    footer{
+      margin-top: 26px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      flex-wrap:wrap;
+    }
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card" role="region" aria-label="Brif landing page">
+      <header>
+        <div class="brand">Brif.</div>
+        <div class="pill">Early access</div>
+      </header>
+
+      <h1>Just talk. We’ll take it from here.</h1>
+
+      <p class="sub">
+        Speak freely—even if it’s messy. Brif turns your words into a clear, professional message you can send.
+      </p>
+
+      <p class="body">
+        No prompts. No templates. <span class="mono">Review. Approve. Done.</span>
+      </p>
+
+      <ul class="bullets" aria-label="Key points">
+        <li>Voice-first</li>
+        <li>Minimal questions</li>
+        <li>Drafts by default</li>
+        <li>You stay in control</li>
+      </ul>
+
+      <div class="ctaRow">
+        <!-- Replace the href with your signup form link (Google Form / Tally / Mailchimp / etc.) -->
+        <a class="btn btnPrimary" href="mailto:hello@brif.us?subject=Brif%20early%20access&amp;body=Hi%2C%20please%20add%20me%20to%20the%20Brif%20early%20access%20list.%0A%0AName%3A%0AUse%20case%3A%0A" aria-label="Request early access">
+          Request early access
+        </a>
+        <a class="btn" href="mailto:hello@brif.us?subject=Brif%20question" aria-label="Contact Brif">
+          Contact
+        </a>
+        <p class="note">Email only. No spam.</p>
+      </div>
+
+      <footer>
+        <div>© <span id="year">2026</span> Brif</div>
+        <div class="mono">brif.us</div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+
+```0
+</body></html>

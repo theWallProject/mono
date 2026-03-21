@@ -1,0 +1,59 @@
+[2026-03-20T02:42:18.037Z] === Homepage AI Extractor: The Negev Pharmacy ===
+[2026-03-20T02:42:18.037Z] Started at: 2026-03-20T02:42:18.037Z
+[2026-03-20T02:42:18.037Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773974538036_The_Negev_Pharmacy
+[2026-03-20T02:42:18.037Z] Company: The Negev Pharmacy
+[2026-03-20T02:42:18.037Z] Website: hanegev.co.il
+[2026-03-20T02:42:18.037Z] cbRank: 2597749
+[2026-03-20T02:42:18.037Z] Reasons: h
+[2026-03-20T02:42:18.037Z] Fetching: https://hanegev.co.il
+[2026-03-20T02:42:25.916Z] Redirected: https://hanegev.co.il -> https://www.hanegev.co.il/
+[2026-03-20T02:42:25.924Z] Saved HTML (256378 bytes) to page.html
+[2026-03-20T02:42:25.934Z] Extracted 310 unique links from page
+[2026-03-20T02:42:25.935Z] Saved 310 links to links.json
+[2026-03-20T02:42:25.941Z] Extracted footer HTML (4941 chars)
+[2026-03-20T02:42:25.941Z] Extracted header HTML (97118 chars)
+[2026-03-20T02:42:25.944Z] Website (post-redirect): https://www.hanegev.co.il/ → origin: https://www.hanegev.co.il
+[2026-03-20T02:42:25.945Z] External links: 3 (of 310 total)
+[2026-03-20T02:42:25.945Z] ── All external links ──
+[2026-03-20T02:42:25.945Z]   EXT: https://hanegev.allpharm.co.il/app/mobile/products-sale/orderOpen
+[2026-03-20T02:42:25.945Z]   EXT: https://www.facebook.com/pharmacy.hanegev
+[2026-03-20T02:42:25.945Z]   EXT: https://www.nopcommerce.com
+[2026-03-20T02:42:25.945Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T02:42:25.946Z]   UNCATEGORIZED: https://hanegev.allpharm.co.il/app/mobile/products-sale/orderOpen
+[2026-03-20T02:42:25.946Z]   REGEX: fb <- https://www.facebook.com/pharmacy.hanegev
+[2026-03-20T02:42:25.946Z]   UNCATEGORIZED: https://www.nopcommerce.com
+[2026-03-20T02:42:25.946Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-20T02:42:25.946Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T02:42:25.949Z] Saved AI prompt (6231 chars) to ai_prompt.txt
+[2026-03-20T02:42:25.949Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T02:42:25.954Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T02:43:00.224Z]   AI: First token received, streaming...
+[2026-03-20T02:43:02.113Z] AI response complete: 42 chars in 36.2s
+[2026-03-20T02:43:02.114Z] Saved AI response to ai_response.json
+[2026-03-20T02:43:02.114Z] ── Parsing AI response (1 lines) ──
+[2026-03-20T02:43:02.115Z]   AI LINK: https://www.facebook.com/pharmacy.hanegev/
+[2026-03-20T02:43:02.115Z] AI returned 1 valid links
+[2026-03-20T02:43:02.115Z] ── Categorizing 1 AI-returned links ──
+[2026-03-20T02:43:02.115Z]   AI→REGEX: fb <- https://www.facebook.com/pharmacy.hanegev/ (duplicate, skipped)
+[2026-03-20T02:43:02.132Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T02:43:02.133Z] Footer/header origins (2):
+[2026-03-20T02:43:02.133Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T02:43:02.133Z]   FOOTER/HEADER ORIGIN: https://hanegev.allpharm.co.il
+[2026-03-20T02:43:02.133Z]   ADDED: urls <- https://hanegev.allpharm.co.il/app/mobile/products-sale/orderOpen
+[2026-03-20T02:43:02.133Z]   SKIP (not in footer/header): https://www.nopcommerce.com
+[2026-03-20T02:43:02.134Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T02:43:02.134Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T02:43:02.134Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T02:43:02.134Z] ── Step 3: Final dedup ──
+[2026-03-20T02:43:02.134Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-20T02:43:02.135Z] ── FINAL RESULT ──
+[2026-03-20T02:43:02.135Z]   ws (1):
+[2026-03-20T02:43:02.135Z]     - https://www.hanegev.co.il
+[2026-03-20T02:43:02.135Z]   fb (1):
+[2026-03-20T02:43:02.135Z]     - https://www.facebook.com/pharmacy.hanegev
+[2026-03-20T02:43:02.135Z]   urls (1):
+[2026-03-20T02:43:02.135Z]     - https://hanegev.allpharm.co.il/app/mobile/products-sale/orderOpen
+[2026-03-20T02:43:02.136Z] Summary: ws:1, fb:1, urls:1
+[2026-03-20T02:43:02.137Z] Saved final result to result.json
+[2026-03-20T02:43:02.137Z] Override fields: ws, fb, urls
+[2026-03-20T02:43:02.137Z] Finished at: 2026-03-20T02:43:02.137Z

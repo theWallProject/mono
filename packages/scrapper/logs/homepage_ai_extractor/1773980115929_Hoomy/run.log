@@ -1,0 +1,70 @@
+[2026-03-20T04:15:15.929Z] === Homepage AI Extractor: Hoomy ===
+[2026-03-20T04:15:15.929Z] Started at: 2026-03-20T04:15:15.929Z
+[2026-03-20T04:15:15.929Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773980115929_Hoomy
+[2026-03-20T04:15:15.929Z] Company: Hoomy
+[2026-03-20T04:15:15.929Z] Website: hoomy.co.il
+[2026-03-20T04:15:15.929Z] cbRank: 2657150
+[2026-03-20T04:15:15.929Z] Reasons: h
+[2026-03-20T04:15:15.930Z] Fetching: https://hoomy.co.il
+[2026-03-20T04:15:28.352Z] Network idle timeout — continuing with current state
+[2026-03-20T04:15:28.399Z] Redirected: https://hoomy.co.il -> https://www.hoomy.co.il/
+[2026-03-20T04:15:28.445Z] Saved HTML (2051327 bytes) to page.html
+[2026-03-20T04:15:28.450Z] Extracted 60 unique links from page
+[2026-03-20T04:15:28.450Z] Saved 60 links to links.json
+[2026-03-20T04:15:28.454Z] Extracted footer HTML (57104 chars)
+[2026-03-20T04:15:28.454Z] Extracted header HTML (14610 chars)
+[2026-03-20T04:15:28.461Z] Website (post-redirect): https://www.hoomy.co.il/ → origin: https://www.hoomy.co.il
+[2026-03-20T04:15:28.461Z] External links: 4 (of 60 total)
+[2026-03-20T04:15:28.461Z] ── All external links ──
+[2026-03-20T04:15:28.461Z]   EXT: https://wa.me/message/W27UE5ITMAPKE1
+[2026-03-20T04:15:28.461Z]   EXT: https://www.facebook.com/hoomy.co.il
+[2026-03-20T04:15:28.461Z]   EXT: https://www.facebook.com/hoomy.co.il/reviews/?ref=page_internal
+[2026-03-20T04:15:28.461Z]   EXT: https://www.instagram.com/hoomy.co.il
+[2026-03-20T04:15:28.461Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T04:15:28.462Z]   UNCATEGORIZED: https://wa.me/message/W27UE5ITMAPKE1
+[2026-03-20T04:15:28.462Z]   REGEX: fb <- https://www.facebook.com/hoomy.co.il
+[2026-03-20T04:15:28.462Z]   REGEX: fb <- https://www.facebook.com/hoomy.co.il/reviews/?ref=page_internal (duplicate, skipped)
+[2026-03-20T04:15:28.462Z]   REGEX: ig <- https://www.instagram.com/hoomy.co.il
+[2026-03-20T04:15:28.462Z] Programmatic result: ws:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-20T04:15:28.462Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T04:15:28.464Z] Saved AI prompt (5196 chars) to ai_prompt.txt
+[2026-03-20T04:15:28.464Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T04:15:28.468Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T04:15:57.728Z]   AI: First token received, streaming...
+[2026-03-20T04:16:03.625Z] AI response complete: 100 chars in 35.2s
+[2026-03-20T04:16:03.626Z] Saved AI response to ai_response.json
+[2026-03-20T04:16:03.626Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T04:16:03.627Z]   AI LINK: https://www.hoomy.co.il
+[2026-03-20T04:16:03.627Z]   AI LINK: https://www.facebook.com/hoomy.co.il/
+[2026-03-20T04:16:03.627Z]   AI LINK: https://www.instagram.com/hoomy.co.il/
+[2026-03-20T04:16:03.627Z] AI returned 3 valid links
+[2026-03-20T04:16:03.627Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T04:16:03.628Z]   AI→URLS: https://www.hoomy.co.il
+[2026-03-20T04:16:03.628Z]   AI→REGEX: fb <- https://www.facebook.com/hoomy.co.il/ (duplicate, skipped)
+[2026-03-20T04:16:03.628Z]   AI→REGEX: ig <- https://www.instagram.com/hoomy.co.il/ (duplicate, skipped)
+[2026-03-20T04:16:03.629Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T04:16:03.629Z] Footer/header origins (4):
+[2026-03-20T04:16:03.629Z]   FOOTER/HEADER ORIGIN: https://www.hoomy.co.il
+[2026-03-20T04:16:03.629Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-20T04:16:03.629Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T04:16:03.629Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T04:16:03.629Z]   ADDED: urls <- https://wa.me/message/W27UE5ITMAPKE1
+[2026-03-20T04:16:03.629Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T04:16:03.629Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T04:16:03.630Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T04:16:03.630Z] ── Step 3: Final dedup ──
+[2026-03-20T04:16:03.630Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T04:16:03.630Z] ── FINAL RESULT ──
+[2026-03-20T04:16:03.630Z]   ws (1):
+[2026-03-20T04:16:03.630Z]     - https://www.hoomy.co.il
+[2026-03-20T04:16:03.630Z]   fb (1):
+[2026-03-20T04:16:03.630Z]     - https://www.facebook.com/hoomy.co.il
+[2026-03-20T04:16:03.630Z]   ig (1):
+[2026-03-20T04:16:03.631Z]     - https://www.instagram.com/hoomy.co.il
+[2026-03-20T04:16:03.631Z]   urls (2):
+[2026-03-20T04:16:03.631Z]     - https://wa.me/message/W27UE5ITMAPKE1
+[2026-03-20T04:16:03.631Z]     - https://www.hoomy.co.il
+[2026-03-20T04:16:03.631Z] Summary: ws:1, fb:1, ig:1, urls:2
+[2026-03-20T04:16:03.632Z] Saved final result to result.json
+[2026-03-20T04:16:03.633Z] Override fields: ws, fb, ig, urls
+[2026-03-20T04:16:03.633Z] Finished at: 2026-03-20T04:16:03.633Z

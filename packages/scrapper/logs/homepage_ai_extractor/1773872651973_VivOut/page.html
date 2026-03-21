@@ -1,0 +1,910 @@
+<!DOCTYPE html><html lang="en" dir="rtl"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+   <link rel="icon" href="https://vivout.co.il/public/main/assets/imgs/favicon.png">
+     <meta property="og:image" content="https://vivout.co.il/public/main/assets/imgs/favicon.png" "="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+    <script src="https://connect.facebook.net/signals/config/481855897584939?v=2.9.280&amp;r=stable&amp;domain=vivout.co.il&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://vivout.co.il/public/main/assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <title>vivout</title>
+       <script type="text/javascript">
+    //   function googleTranslateElementInit() {
+    //   new google.translate.TranslateElement({
+    // pageLanguage: 'en',
+    //     //   includedLanguages: 'ar,de,es,fr,hi,ja,ko,pt,ru,zh-CN',
+    //     //   layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    // }, 'google_translate_element');
+    // }
+    
+   
+   /* function googleTranslateElementInit() {
+  //new google.translate.TranslateElement({pageLanguage: 'en',autoDetect: false}, 'google_translate_element');
+  new google.translate.TranslateElement({
+  pageLanguage: 'en',
+  includedLanguages: 'de,nl,en,es,it,fr',
+autoDisplay: false
+
+      
+      
+      
+  }, 'google_translate_element');
+
+  var $googleDiv = $("#google_translate_element .skiptranslate");
+  var $googleDivChild = $("#google_translate_element .skiptranslate div");
+  $googleDivChild.next().remove();
+
+  $googleDiv.contents().filter(function(){
+  	return this.nodeType === 3 && $.trim(this.nodeValue) !== '';
+  }).remove();
+
+}*/
+
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+  //  pageLanguage: 'en', // set the page language to English
+   // includedLanguages: 'all', // include all languages in the language drop-down
+  //  layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // use the simple language drop-down layout
+ // includedLanguages: 'af,am,ar,as,ay,az,be,bg,bho,bm,bn,bs,ca,ceb,co,cs,da,doi,dv,ee,en,eo,et,eu,hr,hy,my,nl,ny,sq,zh-CN,zh-TW',
+    autoDisplay: false
+  }, 'google_translate_element');
+
+  // Modify the language drop-down text to only display English
+//   var $languageSelect = $('.goog-te-combo');
+//   $languageSelect.find('option').each(function() {
+//     var langCode = $(this).val();
+//     console.log(langCode);
+    
+//     if (langCode !== 'en') {
+//       $(this).text('English');
+//     }
+//   });
+//  $languageSelect.val('en'); // set the default language to English
+
+  // Remove unnecessary elements from the Google Translate widget
+  var $googleDiv = $("#google_translate_element .skiptranslate");
+  var $googleDivChild = $("#google_translate_element .skiptranslate div");
+  $googleDivChild.next().remove();
+  $googleDiv.contents().filter(function() {
+    return this.nodeType === 3 && $.trim(this.nodeValue) !== '';
+  }).remove();
+}
+
+
+
+
+   </script>
+   <!--<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
+   
+   
+   <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '481855897584939');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=481855897584939&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+  
+<script type="text/javascript" class="flasher-js">(function() {    var rootScript = 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js';    var FLASHER_FLASH_BAG_PLACE_HOLDER = {};    var options = mergeOptions([], FLASHER_FLASH_BAG_PLACE_HOLDER);    function mergeOptions(first, second) {        return {            context: merge(first.context || {}, second.context || {}),            envelopes: merge(first.envelopes || [], second.envelopes || []),            options: merge(first.options || {}, second.options || {}),            scripts: merge(first.scripts || [], second.scripts || []),            styles: merge(first.styles || [], second.styles || []),        };    }    function merge(first, second) {        if (Array.isArray(first) && Array.isArray(second)) {            return first.concat(second).filter(function(item, index, array) {                return array.indexOf(item) === index;            });        }        return Object.assign({}, first, second);    }    function renderOptions(options) {        if(!window.hasOwnProperty('flasher')) {            console.error('Flasher is not loaded');            return;        }        requestAnimationFrame(function () {            window.flasher.render(options);        });    }    function render(options) {        if ('loading' !== document.readyState) {            renderOptions(options);            return;        }        document.addEventListener('DOMContentLoaded', function() {            renderOptions(options);        });    }    if (1 === document.querySelectorAll('script.flasher-js').length) {        document.addEventListener('flasher:render', function (event) {            render(event.detail);        });    }    if (window.hasOwnProperty('flasher') || !rootScript || document.querySelector('script[src="' + rootScript + '"]')) {        render(options);    } else {        var tag = document.createElement('script');        tag.setAttribute('src', rootScript);        tag.setAttribute('type', 'text/javascript');        tag.onload = function () {            render(options);        };        document.head.appendChild(tag);    }})();</script><script src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js" type="text/javascript"></script>
+
+ 
+  <style>
+       div#goog-gt- {
+    display: none !important;
+}
+   </style>
+  <style>
+    
+    .select2-selection__rendered {
+      line-height: 31px !important;
+  }
+  .select2-container{
+    margin-top: 9px !important;
+  }
+  .select2-container .select2-selection--single {
+      height: 39px !important;
+  }
+  .select2-selection__arrow {
+      height: 38px !important;
+  }
+    .error{
+        color:red;
+    }
+    .error-msg{
+        color: red;
+    }
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+  </style>
+
+  <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.relative{position:relative}.z-10{z-index:10}.col-span-11{grid-column:span 11 / span 11}.col-span-2{grid-column:span 2 / span 2}.col-span-3{grid-column:span 3 / span 3}.m-7{margin:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.my-2{margin-top:0.5rem;margin-bottom:0.5rem}.mb-10{margin-bottom:2.5rem}.ml-0{margin-left:0px}.ml-2{margin-left:0.5rem}.ml-3{margin-left:0.75rem}.mr-0{margin-right:0px}.mr-2{margin-right:0.5rem}.mt-0{margin-top:0px}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-3{margin-top:0.75rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.w-10\/12{width:83.333333%}.w-11\/12{width:91.666667%}.w-4\/12{width:33.333333%}.w-7\/12{width:58.333333%}.w-full{width:100%}.w-max{width:max-content}.min-w-max{min-width:max-content}.-rotate-6{--tw-rotate:-6deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.border-2{border-width:2px}.border-4{border-width:4px}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-pink-300{--tw-border-opacity:1;border-color:rgb(249 168 212 / var(--tw-border-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-0{padding:0px}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0{padding-top:0px;padding-bottom:0px}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pb-0{padding-bottom:0px}.pb-10{padding-bottom:2.5rem}.pl-2{padding-left:0.5rem}.pr-2{padding-right:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}@media (min-width: 640px){.sm\:ml-0{margin-left:0px}.sm\:px-4{padding-left:1rem;padding-right:1rem}}@media (min-width: 768px){.md\:order-1{order:1}.md\:order-2{order:2}.md\:mx-0{margin-left:0px;margin-right:0px}.md\:ml-0{margin-left:0px}.md\:mr-0{margin-right:0px}.md\:mt-0{margin-top:0px}.md\:mt-10{margin-top:2.5rem}.md\:mt-2{margin-top:0.5rem}.md\:mt-5{margin-top:1.25rem}.md\:mt-8{margin-top:2rem}.md\:block{display:block}.md\:flex{display:flex}.md\:w-1\/4{width:25%}.md\:w-11\/12{width:91.666667%}.md\:w-2\/12{width:16.666667%}.md\:w-3\/4{width:75%}.md\:w-56{width:14rem}.md\:w-auto{width:auto}.md\:w-full{width:100%}.md\:flex-row{flex-direction:row}.md\:space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.md\:space-x-5 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.25rem * var(--tw-space-x-reverse));margin-left:calc(1.25rem * calc(1 - var(--tw-space-x-reverse)))}.md\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}.md\:rounded-none{border-radius:0px}.md\:border-0{border-width:0px}.md\:bg-transparent{background-color:transparent}.md\:p-0{padding:0px}.md\:p-6{padding:1.5rem}.md\:px-3{padding-left:0.75rem;padding-right:0.75rem}.md\:pt-0{padding-top:0px}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:font-bold{font-weight:700}.md\:font-medium{font-weight:500}.md\:font-normal{font-weight:400}.md\:hover\:bg-transparent:hover{background-color:transparent}.md\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}}@media (min-width: 1024px){.lg\:w-11\/12{width:91.666667%}}@media (min-width: 1280px){.xl\:w-9\/12{width:75%}}@media (prefers-color-scheme: dark){.dark\:border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.dark\:bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.dark\:hover\:bg-transparent:hover{background-color:transparent}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}}@media (min-width: 768px){@media (prefers-color-scheme: dark){.md\:dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.md\:dark\:hover\:bg-transparent:hover{background-color:transparent}.md\:dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}}}</style><style type="text/css">.fl-main-container{position:fixed;transition:all 1s ease-in-out;width:24em;z-index:99999}@media only screen and (max-width:480px){.fl-main-container{left:.5em;right:.5em;width:auto}}.fl-main-container[data-position^=top-]{top:.5em}.fl-main-container[data-position^=bottom-]{bottom:.5em}.fl-main-container[data-position$=-right]{right:.5em}.fl-main-container[data-position$=-right] .fl-container{transform:translateX(110%)}.fl-main-container[data-position$=-left]{left:.5em}.fl-main-container[data-position$=-left] .fl-container{transform:translateX(-110%)}.fl-main-container[data-position$=-center]{left:50%;transform:translateX(-50%)}.fl-main-container[data-position=top-center] .fl-container{transform:translateY(-100vh)}.fl-main-container[data-position=bottom-center] .fl-container{transform:translateY(100vh)}.fl-main-container .fl-container{transition:transform .3s ease-in-out}.fl-main-container .fl-container.fl-show{transform:translate(0)}.fl-main-container .fl-container .fl-progress-bar{display:flex;height:.125em;margin-left:-1px}.fl-main-container .fl-container.fl-rtl{direction:rtl}.fl-main-container .fl-container.fl-rtl .fl-progress-bar{margin-left:auto;margin-right:-1px}.fl-main-container .fl-container.fl-success .fl-icon{background-color:#059669}.fl-main-container .fl-container.fl-success .fl-progress-bar{background-color:#6dface}.fl-main-container .fl-container.fl-success .fl-progress-bar .fl-progress{background-color:#059669}.fl-main-container .fl-container.fl-flasher.fl-success{border-left:.8em solid #059669}.fl-main-container .fl-container.fl-flasher.fl-success.fl-rtl{border-left:none;border-right:.8em solid #059669}.fl-main-container .fl-container.fl-flasher.fl-success:not(.fl-rtl){border-left:.8em solid #059669;border-right:none}.fl-main-container .fl-container.fl-flasher.fl-success .fl-title{color:#059669}.fl-main-container .fl-container.fl-info .fl-icon{background-color:#2563eb}.fl-main-container .fl-container.fl-info .fl-progress-bar{background-color:#e0e9fc}.fl-main-container .fl-container.fl-info .fl-progress-bar .fl-progress{background-color:#2563eb}.fl-main-container .fl-container.fl-flasher.fl-info{border-left:.8em solid #2563eb}.fl-main-container .fl-container.fl-flasher.fl-info.fl-rtl{border-left:none;border-right:.8em solid #2563eb}.fl-main-container .fl-container.fl-flasher.fl-info:not(.fl-rtl){border-left:.8em solid #2563eb;border-right:none}.fl-main-container .fl-container.fl-flasher.fl-info .fl-title{color:#2563eb}.fl-main-container .fl-container.fl-warning .fl-icon{background-color:#d97706}.fl-main-container .fl-container.fl-warning .fl-progress-bar{background-color:#fdd8ae}.fl-main-container .fl-container.fl-warning .fl-progress-bar .fl-progress{background-color:#d97706}.fl-main-container .fl-container.fl-flasher.fl-warning{border-left:.8em solid #d97706}.fl-main-container .fl-container.fl-flasher.fl-warning.fl-rtl{border-left:none;border-right:.8em solid #d97706}.fl-main-container .fl-container.fl-flasher.fl-warning:not(.fl-rtl){border-left:.8em solid #d97706;border-right:none}.fl-main-container .fl-container.fl-flasher.fl-warning .fl-title{color:#d97706}.fl-main-container .fl-container.fl-error .fl-icon{background-color:#dc2626}.fl-main-container .fl-container.fl-error .fl-progress-bar{background-color:#f8d6d6}.fl-main-container .fl-container.fl-error .fl-progress-bar .fl-progress{background-color:#dc2626}.fl-main-container .fl-container.fl-flasher.fl-error{border-left:.8em solid #dc2626}.fl-main-container .fl-container.fl-flasher.fl-error.fl-rtl{border-left:none;border-right:.8em solid #dc2626}.fl-main-container .fl-container.fl-flasher.fl-error:not(.fl-rtl){border-left:.8em solid #dc2626;border-right:none}.fl-main-container .fl-container.fl-flasher.fl-error .fl-title{color:#dc2626}.fl-main-container .fl-container .fl-icon{border-radius:50%;box-sizing:border-box;color:#fff;display:inline-block;height:1em;margin:0;min-height:1em;min-width:1em;position:relative;transition:all 1s;width:1em}.fl-main-container .fl-container .fl-icon:after,.fl-main-container .fl-container .fl-icon:before{border-width:0;box-sizing:border-box;content:"";position:absolute;transition:all 1s}.fl-main-container .fl-container.fl-success .fl-icon:after,.fl-main-container .fl-container.fl-success .fl-icon:before{background-color:currentColor;border-radius:.1em;height:.6em;left:.35em;top:.6em;transform:rotate(-135deg);transform-origin:.08em .08em;width:.16em}.fl-main-container .fl-container.fl-success .fl-icon:after{height:.16em;width:.4em}.fl-main-container .fl-container.fl-info .fl-icon:after,.fl-main-container .fl-container.fl-info .fl-icon:before{background-color:currentColor;border-radius:.03em;left:50%;transform:translateX(-50%);width:.15em}.fl-main-container .fl-container.fl-info .fl-icon:before{height:.38em;top:.4em}.fl-main-container .fl-container.fl-info .fl-icon:after{box-shadow:-.06em .19em,-.06em .44em,.06em .44em;height:.13em;top:.21em}.fl-main-container .fl-container.fl-warning .fl-icon:after,.fl-main-container .fl-container.fl-warning .fl-icon:before{background-color:currentColor;border-radius:.03em;left:50%;transform:translateX(-50%);width:.15em}.fl-main-container .fl-container.fl-warning .fl-icon:before{height:.38em;top:.21em}.fl-main-container .fl-container.fl-warning .fl-icon:after{height:.13em;top:.65em}.fl-main-container .fl-container.fl-error .fl-icon:after,.fl-main-container .fl-container.fl-error .fl-icon:before{background-color:currentColor;border-radius:.1em;height:.7em;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-135deg);width:.16em}.fl-main-container .fl-container.fl-error .fl-icon:after{transform:translate(-50%,-50%) rotate(-45deg)}.fl-main-container .fl-container.fl-flasher{background-color:#fff;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);color:#4b5563;cursor:pointer;line-height:1.5;margin-top:.5em;word-break:break-word}.fl-main-container .fl-container.fl-flasher.fl-rtl{border-radius:0 .375em .375em 0}.fl-main-container .fl-container.fl-flasher:not(.fl-rtl){border-radius:.375em 0 0 .375em}.fl-main-container .fl-container.fl-flasher .fl-content{align-items:center;display:flex;padding:.75em}.fl-main-container .fl-container.fl-flasher .fl-icon{font-size:2.5em}.fl-main-container .fl-container.fl-flasher .fl-message,.fl-main-container .fl-container.fl-flasher .fl-title{display:block;line-height:1.25em;margin-left:1em;margin-right:1em}.fl-main-container .fl-container.fl-flasher .fl-message:first-letter,.fl-main-container .fl-container.fl-flasher .fl-title:first-letter{text-transform:uppercase}.fl-main-container .fl-container.fl-flasher .fl-title{font-size:1em;font-weight:700}.fl-main-container .fl-container.fl-flasher .fl-message{font-size:.875em;margin-top:.25em}</style></head><body>
+     
+    <div class="loading" id="loading" style="display: none">Loading…</div>
+    
+    
+    
+    
+     <nav class="header border-gray-200 px-2 sm:px-4 py-0 dark:bg-gray-900">
+       <div class="container flex flex-wrap items-center justify-between mx-auto">
+           <div class="logo w-4/12 md:w-2/12">
+               <a href="https://vivout.co.il/home" class="flex items-center w-10/12">
+                   <img class="w-full m-7 ml-0" src="https://vivout.co.il/public/main/assets/imgs/site logo.png" alt="">
+               </a>
+           </div>
+           <div class="flex items-center justify-end hidden md:order-2 w-7/12 md:w-2/12">
+              
+           </div>
+           <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+               <ul class="flex flex-col p-4 mt-4 rounded-lg bg-transparent md:flex-row md:space-x-5 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700" style="align-items:center">
+                   <li>
+                       <a href="https://vivout.co.il/home" class="block py-2 pl-2 fj_new_btn pr-2 font-semibold text-xl text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-transparent dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page"> <span class="eng" style="display: none;">Home</span><span class="heb">בית  &nbsp;&nbsp;</span></a>
+                   </li>
+
+                   <li>
+                       <a href="/events" class="block py-2 pl-2 pr-2 fj_new_btn font-semibold text-xl text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-transparent dark:hover:text-white md:dark:hover:bg-transparent">
+                            <span class="eng" style="display: none;">Search Meeting</span><span class="heb"> חפש פגישה </span></a>
+                   </li>
+                   <li>
+                       <a href="https://vivout.co.il/create-event" class="block py-2 pl-2 pr-2 fj_new_btn font-semibold text-xl text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-transparent dark:hover:text-white md:dark:hover:bg-transparent">
+                            <span class="eng" style="display: none;">Create Meeting</span><span class="heb"> צור פגישה </span></a>
+                   </li>
+                   <li>
+                       <a href="https://vivout.co.il/people" class="block py-2 pl-2 pr-2 fj_new_btn font-semibold text-xl text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-white dark:hover:bg-transparent dark:hover:text-white md:dark:hover:bg-transparent">
+                           <span class="eng" style="display: none;"> Search Friends</span><span class="heb">חפש חברים</span></a>
+                   </li>
+               </ul>
+           </div>
+           <div class="items-center justify-end  md:flex md:w-auto md:order-1 ">
+                 <div id="google_translate_element" class="">
+              <select id="languageSelect" class="p-1 br-10 rounded-lg p-1 pl-2 br-10 h-10 rounded-lg">
+                    <option value="rtl">Hebrew</option>
+                  <option value="ltr">English</option>
+                 
+                </select>
+        </div>
+         
+              
+               
+               
+               
+           </div>
+       </div>
+
+   </nav>
+    
+    
+    
+<!--    <nav class="header border-gray-200 px-2 sm:px-4 py-0 dark:bg-gray-900">-->
+<!--  <div class="container flex flex-wrap items-center justify-between mx-auto">-->
+<!--    <div class="logo w-4/12 md:w-2/12">-->
+<!--      <a href="https://vivout.co.il/home" class="flex items-center w-10/12">-->
+<!--        <img class="w-full" src="https://vivout.co.il/public/main/assets/imgs/site logo.png" alt=""  style="margin-left: 0;"/>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--    <div class="translate-dropdown flex items-center justify-center w-8/12 md:w-10/12">-->
+<!--      <div class="flex items-center w-full justify-end">-->
+<!--      <div id="google_translate_element" class="">-->
+<!--              <select id="languageSelect" class="p-1 br-10 rounded-lg p-1 pl-2 br-10 h-10 rounded-lg">-->
+<!--                  <option value="ltr">English</option>-->
+<!--                  <option value="rtl">Hebrew</option>-->
+<!--                </select>-->
+<!--        </div>-->
+         
+<!--      </div>-->
+<!--    </div>-->
+    
+    
+ 
+    
+<!--  </div>-->
+<!--</nav>-->
+
+    <!-- header section ends-->
+
+    <style>
+  /*.bg-light-op{*/
+  /*      min-height:80vh !important;*/
+  /*  }*/
+    @media (max-width: 567px) {
+    /*    .bg-light-op{*/
+    /*    min-height:unset !important;*/
+    /*}*/
+    .text-base {
+    font-size: 0.5rem !important;
+  
+}
+    }
+    
+    
+        
+    
+</style>
+<div class="landing-bg-image bg-light-op">
+    <div class="flex flex-col md:flex-row bg-light-op mx-auto">
+      <div class="relative w-full md:w-3/4">
+        <div class="relative page-top-padding header-padding">
+          <div class="home relative">
+                            <a target="_blank" href="">
+                    <img class="ads-side-img w-10/12 mx-auto  md:mx-0" src="https://vivout.info/public/uploads/events/667030b98175b.jpeg">
+                    </a>
+                            <div class="bg-light-op2 w-full md:w-11/12       lg:w-11/12 xl:w-9/12 md:px-3 pb-10 min-h-70vh relative">
+                  <div class="bg-light-btn1 md:mt-2  md:block text-center bg-tspnt md:bg-transparent p-0 ml-3 mt-0 pt-3 pb-0 md:p-0 eng" style="float:right;display:none">
+                <div class="main-btn">
+                  <a href="https://vivout.co.il/login" class="btn-sign-in-shadow bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm home-btn px-6 block text-center mr-2 md:mr-0">Login your account</a>
+                </div>
+                <div class="main-btn md:mt-5">
+                  <a href="https://vivout.co.il/register" class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 home-btn block text-center mr-0 md:mr-0">Sign-up for free</a>
+                </div>
+              </div>
+              <div class="c-shadow rounded-3xl border-4 border-pink-300 w-max transform -rotate-6 mb-10 z-10 ml-3 sm:ml-0 eng" style="display:none">
+                <div class="p-1 w-max">
+                  <div class="md:text-3xl text-maroon md:p-6 p-2 bg-white rounded-3xl border-2 border-pink-300 w-max text-base md:font-normal font-bold">
+                    Free registration and use
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+                <div class="bg-light-btn1 md:mt-2  md:block text-center bg-tspnt md:bg-transparent p-4 ml-3 mt-0 pt-3 pb-0 md:p-0 heb" style="float: left;">
+                <div class="main-btn">
+                  <a href="https://vivout.co.il/login" class="btn-sign-in-shadow bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm home-btn px-6 block text-center mr-2 md:mr-0">התחבר לחשבון קיים</a>
+                </div>
+                <div class="main-btn md:mt-5">
+                  <a href="https://vivout.co.il/register" class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 home-btn block text-center mr-0 md:mr-0">צור חשבון חדש בחינם</a>
+                </div>
+              </div>
+              
+              <div class="c-shadow rounded-3xl border-4 border-pink-300 w-max transform -rotate-6 mb-10 z-10 ml-3 sm:ml-0 heb" style="">
+  <div class="p-1 w-max">
+    <div class="md:text-3xl text-maroon md:p-6 p-2 bg-white rounded-3xl border-2 border-pink-300 w-max text-base md:font-normal font-bold">
+      הרשמה ושימוש חינם
+    </div>
+    
+   
+  </div>
+</div>
+              
+              
+              
+              
+              
+          
+              
+              
+              <div class="md:mt-8 mt-5 pt-3 md:pt-0 w-11/12 md:w-full">
+                             
+                  
+                  
+                  <div>
+    <div class="flex grid grid-cols-12 p-2 py-2 bg-maroon my-2 open-modal5">
+        <!--<a href="https://vivout.co.il/event/eyJpdiI6ImFwT21CUmhHOE1jZ05ZelRSRXpUUlE9PSIsInZhbHVlIjoiSlBIc3JuTW04ZzZjY0JzVU9JMUZLQT09IiwibWFjIjoiMmIzNmYxY2M2NDlhNDRlODMxZTU3MDk2M2JjNGJiMWUwZTE4OTUyNmNjNzE0NzQzMTFmY2MyNWUyNzkwYTc0NiIsInRhZyI6IiJ9"-->
+        <!--    class="bg-maroon col-span-11 text-white w-full block rounded-md md:rounded-none">-->
+             <!--<a href="https://vivout.co.il/eventbl/eyJpdiI6IlVjcWxHRzg3ODZNR0lHUk5kdnBrWGc9PSIsInZhbHVlIjoiN3RZZXJ6cXNCYmhRb2RkWURpay90dz09IiwibWFjIjoiYTI1MTIyYjQ5ZjNhNDVjYTZjMDllYmM1M2ZjOWFmMmZjODFhMjRiZWNhYWU5YTEwZWQ0ODNmOGE3YmU2ZjU3ZCIsInRhZyI6IiJ9"-->
+              <a href="https://vivout.co.il/eventbl/eyJpdiI6Ink5QXFXWFZ5bXU2SGtSYzZhTXhabEE9PSIsInZhbHVlIjoiTjMyeG95QmE5aGJsK0cxSXRPd2gzdz09IiwibWFjIjoiMjY3ZjNlMjljNGFmZTI0YmRlMGI1NTY5MGY3NmFhNTdlYzczYjM2ZjNmMGFlNzI0ZTczNjE1Y2UyMGI5Mjk5NyIsInRhZyI6IiJ9" class="bg-maroon col-span-11 text-white w-full block rounded-md md:rounded-none">
+            <div class="grid grid-cols-7  font-semibold text-xs md:text-base md:font-bold ">
+                <div class="col-span-2 truncate">
+                    04.07,09:30
+                </div>
+                <div class="col-span-3 ml-2 md:ml-0 truncate notranslate">טיול ביער ראש העין</div>
+                <div class="col-span-2 ml-2 md:ml-0 truncate notranslate">מאיר</div>
+               
+            </div>
+        </a>
+      
+         
+    </div>
+</div>
+                
+
+              </div>
+            
+            
+            
+            <div class="bg-light-btn md:mt-10 mt-10 md:block text-center bg-tspnt md:bg-transparent p-4 md:p-0 bg-light-btnfj">
+    <div class="main-btn1 main-btn11 flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
+        <a href="https://apps.apple.com/pk/app/vivout/id6444943376" target="_blank" class="download-btn flex items-center justify-center">
+            <img src="https://vivout.co.il/public/main/assets/imgs/appstore.png" alt="App Store">
+        </a>
+        <a href="https://vivout.co.il/public/main/assets/app-debug_2.apk" target="_blank" class="download-btn btn-sign-in-shadow bg-maroon text-white py-3 rounded-2xl flex items-center justify-center" style=" color:black;   box-shadow: unset;height:50px;background: linear-gradient(158deg, #f7d882, #d2b95e) !important;">
+            <span class="eng aaas" style="display: none;">Download Android App</span>
+            <span class="heb aaas">הורד אפליקציית אנדרואיד</span>
+        </a>
+    </div>
+</div>
+<style>
+    .download-btn {
+   width: 184px;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 6px !important; /* Ensures a consistent rounded look */
+}
+
+.download-btn img {
+    max-width: 100%; /* Ensures the image scales within the button */
+    max-height: 100%; /* Ensures the image fits within the set height */
+}
+
+.aaas {
+    font-size: 1rem; /* Consistent font size */
+    white-space: nowrap;
+}
+</style>
+
+            
+            
+            <!--  <div class="bg-light-btn  md:mt-16 mt-0 md:block text-center bg-tspnt md:bg-transparent hidden p-4 md:p-0">-->
+          <!--  <div class="bg-light-btn md:mt-10 mt-10 md:block text-center bg-tspnt md:bg-transparent p-4 md:p-0 bg-light-btnfj">-->
+          <!--          <div class="main-btn1 main-btn11">-->
+          <!--             <a href="https://apps.apple.com/pk/app/vivout/id6444943376" target="_blank"><img src="https://vivout.co.il/public/main/assets/imgs/appstore.png" ></a>-->
+          <!--<a href="https://vivout.co.il/public/main/assets/app-debug.apk" target="_blank" -->
+          <!--class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 flex items-center justify-center" style="margin: 12px;">-->
+          <!--    <span class="eng">Download Android App</span>-->
+          <!--    <span class="heb">הורד אפליקציית אנדרואיד</span>-->
+          <!--    </a>-->
+          <!--    </div></div>-->
+              
+              
+                
+                       
+                      <!--<a href="https://play.google.com/store/apps/details?id=com.comvivout.viv&pcampaignid=web_share" target="_blank"><img src="https://vivout.co.il/public/main/assets/imgs/anrdoid.png" ></a>-->
+                
+                
+                
+                  <!--<a
+                    href="https://vivout.co.il/login"
+                    class="btn-sign-in-shadow bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm home-btn px-6 block text-center"
+                    >cccvcv</a
+                  >-->
+                <!--</div>-->
+               <!-- <div class="main-btn">
+                  <a
+                    href="https://vivout.co.il/login"
+                    class="btn-sign-in-shadow bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm home-btn px-6 block text-center"
+                    >Log in to an existing account</a
+                  >
+                </div>
+                <div class="main-btn md:mt-5">
+                  <a
+                    href="https://vivout.co.il/register"
+                    class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 home-btn block text-center mr-8 md:mr-0"
+                    >Sign-up for free</a
+                  >
+                </div>-->
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="block md:w-1/4 px-5">
+                
+                                                <div class="w-full">
+                                    <a target="_blank" href="">
+                                    <img class="ads-footer-img mx-auto" src="https://vivout.info/public/uploads/events/6630810e7ea2e.">
+                                        </a>
+                                </div>
+                                                            <div class="w-full">
+                                    <a target="_blank" href="">
+                                    <img class="ads-footer-img mx-auto" src="https://vivout.info/public/uploads/events/6630810e7ebf1.">
+                                        </a>
+                                </div>
+                                     </div>
+    </div>
+  </div>
+  <style>
+      .mt-10.z-0.md\:inline.hidden {
+    display: block !important;
+    
+}
+.mt-10.z-0.md\:inline.hidden .my-0 {
+    margin-bottom: 10px !important;
+}
+.bg-light-op, .bg-light-op-login {
+    background-color: hsla(0, 0%, 100%, 0.7) !important;
+}
+ 
+   .bg-light-btnfj {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    }
+
+    .main-btn11 {
+        display: flex;
+      
+    }
+
+    .main-btn11 a {
+        margin: 5px; /* Adjust as needed */
+    }
+ .main-btn11 a img
+ {
+     
+     margin:0 !important;
+ }
+  </style>
+  
+  
+  <style>
+    
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        text-align: center;
+    }
+
+ 
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+  <div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <p class="eng" style="display: none;">
+        To enjoy the advantage, you need to sign-in/sign-up<br>
+Signup and use is free<br>
+Don't be left out<br>
+Sign-up problem?: +972525051722<br>
+        
+    </p>
+    <p class="heb">
+      
+      כדי ליהנות מהיתרונות, עליך להירשם / היכנס
+<br>ההרשמה והשימוש בחינם
+<br>אל תישאר בחוץ
+ <br>+בעיה בהרשמה? :  972525051722
+        
+    </p>
+    <br>
+  <a href="https://vivout.co.il/register" class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 heb">צור חשבון חדש בחינם</a>
+                    
+    <a href="https://vivout.co.il/register" class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 eng" style="display: none;">Sign-up for free</a><br>
+                    <br>
+                    <br>
+                      <a href="https://vivout.co.il/login" class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 heb">  עבור חברים רשומים </a>
+                    
+    <a href="https://vivout.co.il/login" class="btn-sign-in-shadow mt-2 bg-maroon text-white py-3 md:w-56 min-w-max rounded-2xl md:text-xl text-sm px-6 eng" style="display: none;">Already memebr</a>
+  </div>
+</div>
+ <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Function to open the modal
+    function openModal() {
+        modal.style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Close the modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    // Get all elements with the "open-modal" class
+    var elements = document.getElementsByClassName("open-modal");
+
+    // Attach click event listeners to elements with the "open-modal" class
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener("click", openModal);
+    }
+</script>
+
+  
+    
+    <!-- footer section starts -->
+    <footer class="footer">
+              <div class="footer_navbar mt-3">
+        <a href="/contact-us" class="text-decoration-none"><span class="eng" style="display: none;">contact us </span><span class="heb">צור קשר</span> </a>
+        <a href="/store" class="text-decoration-none">  <span class="eng" style="display: none;">Sales Page</span><span class="heb">דף מכירה</span></a>
+        <a href="/about-us" class="text-decoration-none"> <span class="eng" style="display: none;">about us </span><span class="heb">עלינו</span></a>
+        <a href="/terms" class="text-decoration-none">  <span class="eng" style="display: none;">terms of use</span><span class="heb">תנאי שימוש</span></a>
+        <a href="/privacy-policy" class="text-decoration-none"> <span class="eng" style="display: none;">privacy policy </span><span class="heb">מדיניות הפרטיות</span></a>
+         <a href="/guideline" class="text-decoration-none"> <span class="eng" style="display: none;">Guidelines </span><span class="heb">הנחיות</span></a>
+        
+      </div>
+    <!--  <p class="text-center  text-white text-sm py-2 pr-4">Designed with ðŸ’— by <a href="https://bvtpk.com/">Bright Vision Technologies</a>-->
+    <!--</p>-->
+    </footer>
+    <script>
+      $('.select2').select2();
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $( function() {
+                $( ".datepicker" ).datepicker({
+            dateFormat: "dd-mm-yy",
+            changeMonth: true,
+            changeYear: true,
+            maxDate: '0',
+            yearRange: "-83:+0"
+        });
+          } );
+        });
+        
+   function sortOptions() {
+         var allOptions = $(".goog-te-combo option");
+         console.log(allOptions);
+         allOptions.sort(function (op1, op2) {
+            var text1 = $(op1).text().toLowerCase();
+            var text2 = $(op2).text().toLowerCase();
+            return (text1 < text2) ? -1 : 1;
+         });
+         allOptions.appendTo("select .goog-te-combo");
+      }
+        
+       
+
+
+$('body').on('change', '.goog-te-combo', function () {
+  foo();
+});
+
+
+
+  var options = $('#city option');
+var arr = options.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
+arr.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
+options.each(function(i, o) {
+  o.value = arr[i].v;
+  $(o).text(arr[i].t);
+});
+
+
+        </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  
+  
+    <style type="text/css">
+        .skiptranslate.goog-te-gadget span
+        {
+          display: none !important;
+        }
+        body
+        {
+          top: 0px !important;
+        }
+        iframe#\:1\.container {
+          display: none !important;
+      }
+   
+.goog-te-gadget{
+    color: transparent !important;
+}
+select.goog-te-combo {
+    padding: 10px 10px !important;
+    border-radius: 12px !important;
+    color: #822844 !important;
+}
+.skiptranslate .goog-te-gadget
+{
+    display: flex !important;
+    align-items: center !important;
+}
+.ts-control
+{
+    overflow-y:scroll !important;
+}
+div#goog-gt-tt {
+    display: none !important;
+    }
+    
+<!--nav.header ul.flex.flex-col.p-4.mt-4.rounded-lg.bg-transparent li a-->
+<!--  {-->
+<!--        padding: 4px !important;-->
+<!--    border: 1px solid !important;-->
+<!--    border-radius:15px !important;-->
+
+<!--}-->
+
+      </style>
+      
+      
+      <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<script>
+$(document).ready(function() {
+    // Function to update the direction based on local storage
+    function updateDirection() {
+        var selectedDirection = localStorage.getItem('direction');
+        if (selectedDirection) {
+            currentDirection = selectedDirection;
+            if (selectedDirection === 'rtl') {
+                $('.heb').show();
+                $('.eng').hide();
+              
+            } else {
+                $('.eng').show();
+                $('.heb').hide();
+               
+            }
+           
+            $("html").attr("dir", currentDirection);
+            $("nav").attr("dir", 'ltr');
+
+            // Set the selected option in the <select> element
+            $("#languageSelect").val(selectedDirection);
+        }
+         else
+        {
+              var currentDirection = "rtl"; // Default to left-to-right
+              $("html").attr("dir", currentDirection);
+                 $('.eng').hide();
+                 $('.heb').show();
+        }
+        
+        
+        
+        
+    }
+
+  
+
+    // Set the initial direction and selected option based on local storage or default
+    updateDirection();
+
+    // Change direction based on language selection
+    $("#languageSelect").change(function() {
+        var selectedValue = $(this).val();
+        if (selectedValue === "rtl") {
+            currentDirection = "rtl";
+            $('.heb').show();
+            $('.eng').hide();
+             var customMessage = 'זהו שדה חובה';
+            
+        } else if (selectedValue === "ltr") {
+            currentDirection = "ltr";
+            $('.eng').show();
+            $('.heb').hide();
+             var customMessage = 'This Field is Required';
+        }
+        $("html").attr("dir", currentDirection);
+        
+        
+         $('.fj_validation').each(function() {
+        $(this).on('invalid', function() {
+            this.setCustomValidity(customMessage);
+        });
+
+            $(this).on('input', function() {
+                this.setCustomValidity('');
+            });
+        }); 
+
+        // Save the selected direction to local storage
+        localStorage.setItem('direction', currentDirection);
+    });
+});
+
+
+</script>
+<!--<a href="https://api.whatsapp.com/send?phone=972525051722">-->
+<!--<a href="https://api.whatsapp.com/send?phone=972525051722">-->
+    
+<!-- <div class="sticky-icon">-->
+     
+<!--  <img src="https://vivout.co.il/public/main/assets/imgs/wtap.png" alt="Sticky Icon">-->
+<!--</div>-->
+
+<style>
+    .sticky-icon {
+  position: fixed;
+  bottom: 50px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  z-index: 999; /* Ensure it's above other content */
+ 
+}
+
+.sticky-icon img {
+  width: 75px; /* Adjust size as needed */
+  height: auto;
+  margin:0px !important;
+}
+img.ads-side-img
+{
+    width: auto !important;
+    margin: 10px auto !important;
+    height: 200px !important;
+}
+@media screen and (max-width: 600px) {
+
+.sticky-icon img {
+  width: 50px;
+}
+}
+
+.fj_new_btn{
+    display: inline-block;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    color: white;
+    background-color: #831843;
+    border: 4px solid white !important;
+    border-radius: 30px !important;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease !important;
+    }
+    .fj_new_btn:hover
+    {  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
+    }
+</style>
+      
+
+</body></html>

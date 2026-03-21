@@ -1,0 +1,72 @@
+[2026-03-18T21:51:32.578Z] === Homepage AI Extractor: Bgate ===
+[2026-03-18T21:51:32.578Z] Started at: 2026-03-18T21:51:32.578Z
+[2026-03-18T21:51:32.578Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773870692578_Bgate
+[2026-03-18T21:51:32.578Z] Company: Bgate
+[2026-03-18T21:51:32.578Z] Website: bgate-erp.com
+[2026-03-18T21:51:32.578Z] cbRank: 1774190
+[2026-03-18T21:51:32.578Z] Reasons: h
+[2026-03-18T21:51:32.578Z] Fetching: https://bgate-erp.com
+[2026-03-18T21:51:59.723Z] Redirected: https://bgate-erp.com -> https://www.bgate-erp.com/
+[2026-03-18T21:51:59.730Z] Saved HTML (264828 bytes) to page.html
+[2026-03-18T21:51:59.734Z] Extracted 50 unique links from page
+[2026-03-18T21:51:59.736Z] Saved 50 links to links.json
+[2026-03-18T21:51:59.739Z] Extracted footer HTML (23119 chars)
+[2026-03-18T21:51:59.739Z] Extracted header HTML (47298 chars)
+[2026-03-18T21:51:59.743Z] Website (post-redirect): https://www.bgate-erp.com/ → origin: https://www.bgate-erp.com
+[2026-03-18T21:51:59.744Z] External links: 4 (of 50 total)
+[2026-03-18T21:51:59.744Z] ── All external links ──
+[2026-03-18T21:51:59.744Z]   EXT: https://il.linkedin.com/company/bgate-software-soltuions
+[2026-03-18T21:51:59.744Z]   EXT: https://www.barosh.co.il
+[2026-03-18T21:51:59.744Z]   EXT: https://www.facebook.com/Bgate-ERP-354486344741063
+[2026-03-18T21:51:59.744Z]   EXT: https://www.youtube.com/user/BGateERP/featured
+[2026-03-18T21:51:59.744Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T21:51:59.745Z]   REGEX: li <- https://il.linkedin.com/company/bgate-software-soltuions
+[2026-03-18T21:51:59.745Z]   UNCATEGORIZED: https://www.barosh.co.il
+[2026-03-18T21:51:59.745Z]   REGEX: fb <- https://www.facebook.com/Bgate-ERP-354486344741063
+[2026-03-18T21:51:59.745Z]   REGEX: ytp <- https://www.youtube.com/user/BGateERP/featured
+[2026-03-18T21:51:59.745Z] Programmatic result: ws:1, li:1, fb:1, ytp:1 | 1 uncategorized
+[2026-03-18T21:51:59.745Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T21:51:59.775Z] Saved AI prompt (2935 chars) to ai_prompt.txt
+[2026-03-18T21:51:59.775Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T21:51:59.779Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T21:52:12.876Z]   AI: First token received, streaming...
+[2026-03-18T21:52:22.235Z] AI response complete: 125 chars in 22.5s
+[2026-03-18T21:52:22.236Z] Saved AI response to ai_response.json
+[2026-03-18T21:52:22.236Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T21:52:22.237Z]   AI LINK: https://www.bgate-erp.com/
+[2026-03-18T21:52:22.237Z]   AI LINK: https://www.facebook.com/Bgate-ERP-354486344741063/
+[2026-03-18T21:52:22.237Z]   AI LINK: https://www.youtube.com/user/BGateERP/featured
+[2026-03-18T21:52:22.237Z] AI returned 3 valid links
+[2026-03-18T21:52:22.237Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T21:52:22.238Z]   AI→URLS: https://www.bgate-erp.com (cleaned from https://www.bgate-erp.com/)
+[2026-03-18T21:52:22.238Z]   AI→REGEX: fb <- https://www.facebook.com/Bgate-ERP-354486344741063/ (duplicate, skipped)
+[2026-03-18T21:52:22.238Z]   AI→REGEX: ytp <- https://www.youtube.com/user/BGateERP/featured (duplicate, skipped)
+[2026-03-18T21:52:22.240Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T21:52:22.240Z] Footer/header origins (5):
+[2026-03-18T21:52:22.240Z]   FOOTER/HEADER ORIGIN: https://www.bgate-erp.com
+[2026-03-18T21:52:22.240Z]   FOOTER/HEADER ORIGIN: https://www.barosh.co.il
+[2026-03-18T21:52:22.240Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T21:52:22.241Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T21:52:22.241Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-18T21:52:22.241Z]   ADDED: urls <- https://www.barosh.co.il
+[2026-03-18T21:52:22.241Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T21:52:22.241Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T21:52:22.241Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T21:52:22.242Z] ── Step 3: Final dedup ──
+[2026-03-18T21:52:22.242Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T21:52:22.242Z] ── FINAL RESULT ──
+[2026-03-18T21:52:22.242Z]   ws (1):
+[2026-03-18T21:52:22.242Z]     - https://www.bgate-erp.com
+[2026-03-18T21:52:22.242Z]   li (1):
+[2026-03-18T21:52:22.243Z]     - https://www.linkedin.com/company/bgate-software-soltuions
+[2026-03-18T21:52:22.243Z]   fb (1):
+[2026-03-18T21:52:22.243Z]     - https://www.facebook.com/bgate-erp-354486344741063
+[2026-03-18T21:52:22.243Z]   ytp (1):
+[2026-03-18T21:52:22.243Z]     - https://www.youtube.com/@bgateerp
+[2026-03-18T21:52:22.243Z]   urls (2):
+[2026-03-18T21:52:22.243Z]     - https://www.barosh.co.il
+[2026-03-18T21:52:22.243Z]     - https://www.bgate-erp.com
+[2026-03-18T21:52:22.244Z] Summary: ws:1, li:1, fb:1, ytp:1, urls:2
+[2026-03-18T21:52:22.245Z] Saved final result to result.json
+[2026-03-18T21:52:22.245Z] Override fields: ws, li, fb, ytp, urls
+[2026-03-18T21:52:22.245Z] Finished at: 2026-03-18T21:52:22.245Z

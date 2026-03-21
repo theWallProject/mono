@@ -1,0 +1,66 @@
+[2026-03-19T05:59:19.717Z] === Homepage AI Extractor: AFCON SWS ===
+[2026-03-19T05:59:19.718Z] Started at: 2026-03-19T05:59:19.718Z
+[2026-03-19T05:59:19.718Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773899959717_AFCON_SWS
+[2026-03-19T05:59:19.718Z] Company: AFCON SWS
+[2026-03-19T05:59:19.718Z] Website: afconsws.com
+[2026-03-19T05:59:19.718Z] cbRank: 1962840
+[2026-03-19T05:59:19.718Z] Reasons: h
+[2026-03-19T05:59:19.718Z] Fetching: https://afconsws.com
+[2026-03-19T05:59:22.579Z] Redirected: https://afconsws.com -> https://afconsws.com/
+[2026-03-19T05:59:22.583Z] Saved HTML (112071 bytes) to page.html
+[2026-03-19T05:59:22.586Z] Extracted 33 unique links from page
+[2026-03-19T05:59:22.586Z] Saved 33 links to links.json
+[2026-03-19T05:59:22.589Z] Extracted footer HTML (1955 chars)
+[2026-03-19T05:59:22.589Z] Extracted header HTML (904 chars)
+[2026-03-19T05:59:22.594Z] Website (post-redirect): https://afconsws.com/ → origin: https://afconsws.com
+[2026-03-19T05:59:22.594Z] External links: 3 (of 33 total)
+[2026-03-19T05:59:22.594Z] ── All external links ──
+[2026-03-19T05:59:22.595Z]   EXT: http://www.facebook.com/afconsws
+[2026-03-19T05:59:22.595Z]   EXT: http://www.linkedin.com/company/afcon-software-solutions
+[2026-03-19T05:59:22.595Z]   EXT: https://www.youtube.com/channel/UC_5Alf50hg9grgqthpPCSOw
+[2026-03-19T05:59:22.595Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:59:22.595Z]   REGEX: fb <- http://www.facebook.com/afconsws
+[2026-03-19T05:59:22.595Z]   REGEX: li <- http://www.linkedin.com/company/afcon-software-solutions
+[2026-03-19T05:59:22.595Z]   REGEX: ytc <- https://www.youtube.com/channel/UC_5Alf50hg9grgqthpPCSOw
+[2026-03-19T05:59:22.596Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-19T05:59:22.596Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:59:22.599Z] Saved AI prompt (3234 chars) to ai_prompt.txt
+[2026-03-19T05:59:22.599Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:59:22.602Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:59:33.568Z]   AI: First token received, streaming...
+[2026-03-19T05:59:38.122Z] AI response complete: 90 chars in 15.5s
+[2026-03-19T05:59:38.123Z] Saved AI response to ai_response.json
+[2026-03-19T05:59:38.124Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T05:59:38.124Z]   AI LINK: http://www.facebook.com/afconsws/
+[2026-03-19T05:59:38.124Z]   AI LINK: http://www.linkedin.com/company/afcon-software-solutions
+[2026-03-19T05:59:38.124Z] AI returned 2 valid links
+[2026-03-19T05:59:38.124Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T05:59:38.125Z]   AI→REGEX: fb <- http://www.facebook.com/afconsws/ (duplicate, skipped)
+[2026-03-19T05:59:38.125Z]   AI→REGEX: li <- http://www.linkedin.com/company/afcon-software-solutions (duplicate, skipped)
+[2026-03-19T05:59:38.125Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:59:38.125Z] Footer/header origins (3):
+[2026-03-19T05:59:38.125Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-19T05:59:38.125Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-19T05:59:38.126Z]   FOOTER/HEADER ORIGIN: https://afconsws.com
+[2026-03-19T05:59:38.126Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T05:59:38.126Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:59:38.126Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T05:59:38.419Z]   YOUTUBE: resolved UC_5Alf50hg9grgqthpPCSOw → @afconsws-afconsoftwaresolu4443
+[2026-03-19T05:59:38.419Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T05:59:38.419Z] ── Step 3: Final dedup ──
+[2026-03-19T05:59:38.419Z] No urls to dedup
+[2026-03-19T05:59:38.419Z] ── FINAL RESULT ──
+[2026-03-19T05:59:38.419Z]   ws (1):
+[2026-03-19T05:59:38.419Z]     - https://afconsws.com
+[2026-03-19T05:59:38.419Z]   li (1):
+[2026-03-19T05:59:38.419Z]     - https://www.linkedin.com/company/afcon-software-solutions
+[2026-03-19T05:59:38.419Z]   fb (1):
+[2026-03-19T05:59:38.419Z]     - https://www.facebook.com/afconsws
+[2026-03-19T05:59:38.419Z]   ytp (1):
+[2026-03-19T05:59:38.419Z]     - https://www.youtube.com/@afconsws-afconsoftwaresolu4443
+[2026-03-19T05:59:38.420Z]   ytc (1):
+[2026-03-19T05:59:38.420Z]     - https://www.youtube.com/channel/UC_5Alf50hg9grgqthpPCSOw
+[2026-03-19T05:59:38.420Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-19T05:59:38.420Z] Saved final result to result.json
+[2026-03-19T05:59:38.420Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-19T05:59:38.420Z] Finished at: 2026-03-19T05:59:38.420Z

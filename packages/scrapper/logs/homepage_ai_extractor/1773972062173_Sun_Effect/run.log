@@ -1,0 +1,65 @@
+[2026-03-20T02:01:02.173Z] === Homepage AI Extractor: Sun Effect ===
+[2026-03-20T02:01:02.173Z] Started at: 2026-03-20T02:01:02.173Z
+[2026-03-20T02:01:02.174Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773972062173_Sun_Effect
+[2026-03-20T02:01:02.174Z] Company: Sun Effect
+[2026-03-20T02:01:02.174Z] Website: suneffect.co.il
+[2026-03-20T02:01:02.174Z] cbRank: 2572758
+[2026-03-20T02:01:02.174Z] Reasons: h
+[2026-03-20T02:01:02.174Z] Fetching: https://suneffect.co.il
+[2026-03-20T02:01:13.393Z] Network idle timeout — continuing with current state
+[2026-03-20T02:01:13.433Z] Redirected: https://suneffect.co.il -> https://www.suneffect.co.il/
+[2026-03-20T02:01:13.451Z] Saved HTML (694999 bytes) to page.html
+[2026-03-20T02:01:13.454Z] Extracted 7 unique links from page
+[2026-03-20T02:01:13.455Z] Saved 7 links to links.json
+[2026-03-20T02:01:13.458Z] Extracted footer HTML (12587 chars)
+[2026-03-20T02:01:13.458Z] Extracted header HTML (12051 chars)
+[2026-03-20T02:01:13.462Z] Website (post-redirect): https://www.suneffect.co.il/ → origin: https://www.suneffect.co.il
+[2026-03-20T02:01:13.462Z] External links: 3 (of 7 total)
+[2026-03-20T02:01:13.462Z] ── All external links ──
+[2026-03-20T02:01:13.462Z]   EXT: http://lin.co.il
+[2026-03-20T02:01:13.462Z]   EXT: http://wa.me/972549090702
+[2026-03-20T02:01:13.462Z]   EXT: https://www.facebook.com/suneffect.co.il/?ti=as
+[2026-03-20T02:01:13.462Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T02:01:13.462Z]   UNCATEGORIZED: http://lin.co.il
+[2026-03-20T02:01:13.462Z]   UNCATEGORIZED: http://wa.me/972549090702
+[2026-03-20T02:01:13.462Z]   REGEX: fb <- https://www.facebook.com/suneffect.co.il/?ti=as
+[2026-03-20T02:01:13.463Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-20T02:01:13.463Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T02:01:13.466Z] Saved AI prompt (8184 chars) to ai_prompt.txt
+[2026-03-20T02:01:13.466Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T02:01:13.470Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T02:01:54.372Z]   AI: First token received, streaming...
+[2026-03-20T02:02:01.128Z] AI response complete: 73 chars in 47.7s
+[2026-03-20T02:02:01.129Z] Saved AI response to ai_response.json
+[2026-03-20T02:02:01.130Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T02:02:01.130Z]   AI LINK: https://www.facebook.com/suneffect.co.il/?ti=as
+[2026-03-20T02:02:01.130Z]   AI LINK: http://wa.me/972549090702
+[2026-03-20T02:02:01.130Z] AI returned 2 valid links
+[2026-03-20T02:02:01.130Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T02:02:01.130Z]   AI→REGEX: fb <- https://www.facebook.com/suneffect.co.il/?ti=as (duplicate, skipped)
+[2026-03-20T02:02:01.131Z]   AI→URLS: http://wa.me/972549090702
+[2026-03-20T02:02:01.131Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T02:02:01.131Z] Footer/header origins (4):
+[2026-03-20T02:02:01.131Z]   FOOTER/HEADER ORIGIN: http://wa.me
+[2026-03-20T02:02:01.131Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T02:02:01.131Z]   FOOTER/HEADER ORIGIN: http://lin.co.il
+[2026-03-20T02:02:01.131Z]   FOOTER/HEADER ORIGIN: https://www.suneffect.co.il
+[2026-03-20T02:02:01.132Z]   ADDED: urls <- http://lin.co.il
+[2026-03-20T02:02:01.132Z]   SKIP (AI claimed): http://wa.me/972549090702
+[2026-03-20T02:02:01.132Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T02:02:01.132Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T02:02:01.132Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T02:02:01.132Z] ── Step 3: Final dedup ──
+[2026-03-20T02:02:01.133Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T02:02:01.133Z] ── FINAL RESULT ──
+[2026-03-20T02:02:01.133Z]   ws (1):
+[2026-03-20T02:02:01.133Z]     - https://www.suneffect.co.il
+[2026-03-20T02:02:01.133Z]   fb (1):
+[2026-03-20T02:02:01.133Z]     - https://www.facebook.com/suneffect.co.il
+[2026-03-20T02:02:01.133Z]   urls (2):
+[2026-03-20T02:02:01.133Z]     - http://lin.co.il
+[2026-03-20T02:02:01.134Z]     - http://wa.me/972549090702
+[2026-03-20T02:02:01.134Z] Summary: ws:1, fb:1, urls:2
+[2026-03-20T02:02:01.135Z] Saved final result to result.json
+[2026-03-20T02:02:01.135Z] Override fields: ws, fb, urls
+[2026-03-20T02:02:01.135Z] Finished at: 2026-03-20T02:02:01.135Z

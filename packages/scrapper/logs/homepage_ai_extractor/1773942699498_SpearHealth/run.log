@@ -1,0 +1,58 @@
+[2026-03-19T17:51:39.498Z] === Homepage AI Extractor: SpearHealth ===
+[2026-03-19T17:51:39.498Z] Started at: 2026-03-19T17:51:39.498Z
+[2026-03-19T17:51:39.498Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773942699498_SpearHealth
+[2026-03-19T17:51:39.498Z] Company: SpearHealth
+[2026-03-19T17:51:39.498Z] Website: spearhealth.org
+[2026-03-19T17:51:39.498Z] cbRank: 2395314
+[2026-03-19T17:51:39.498Z] Reasons: h
+[2026-03-19T17:51:39.499Z] Fetching: https://spearhealth.org
+[2026-03-19T17:51:50.228Z] Network idle timeout — continuing with current state
+[2026-03-19T17:51:50.264Z] Redirected: https://spearhealth.org -> https://www.spearhealth.org/
+[2026-03-19T17:51:50.295Z] Saved HTML (1388764 bytes) to page.html
+[2026-03-19T17:51:50.298Z] Extracted 9 unique links from page
+[2026-03-19T17:51:50.299Z] Saved 9 links to links.json
+[2026-03-19T17:51:50.301Z] Extracted footer HTML (2543 chars)
+[2026-03-19T17:51:50.301Z] Extracted header HTML (6610 chars)
+[2026-03-19T17:51:50.305Z] Website (post-redirect): https://www.spearhealth.org/ → origin: https://www.spearhealth.org
+[2026-03-19T17:51:50.306Z] External links: 3 (of 9 total)
+[2026-03-19T17:51:50.306Z] ── All external links ──
+[2026-03-19T17:51:50.306Z]   EXT: https://anydesk.com/en/downloads/thank-you?dv=win_exe
+[2026-03-19T17:51:50.306Z]   EXT: https://equality.co.il
+[2026-03-19T17:51:50.306Z]   EXT: https://www.linkedin.com/company/spearhealth/?originalSubdomain=il
+[2026-03-19T17:51:50.306Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T17:51:50.307Z]   UNCATEGORIZED: https://anydesk.com/en/downloads/thank-you?dv=win_exe
+[2026-03-19T17:51:50.307Z]   UNCATEGORIZED: https://equality.co.il
+[2026-03-19T17:51:50.307Z]   REGEX: li <- https://www.linkedin.com/company/spearhealth/?originalSubdomain=il
+[2026-03-19T17:51:50.307Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-19T17:51:50.307Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T17:51:50.310Z] Saved AI prompt (3616 chars) to ai_prompt.txt
+[2026-03-19T17:51:50.310Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T17:51:50.314Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T17:52:04.499Z]   AI: First token received, streaming...
+[2026-03-19T17:52:07.045Z] AI response complete: 66 chars in 16.7s
+[2026-03-19T17:52:07.047Z] Saved AI response to ai_response.json
+[2026-03-19T17:52:07.047Z] ── Parsing AI response (1 lines) ──
+[2026-03-19T17:52:07.047Z]   AI LINK: https://www.linkedin.com/company/spearhealth/?originalSubdomain=il
+[2026-03-19T17:52:07.048Z] AI returned 1 valid links
+[2026-03-19T17:52:07.048Z] ── Categorizing 1 AI-returned links ──
+[2026-03-19T17:52:07.048Z]   AI→REGEX: li <- https://www.linkedin.com/company/spearhealth/?originalSubdomain=il (duplicate, skipped)
+[2026-03-19T17:52:07.048Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T17:52:07.048Z] Footer/header origins (2):
+[2026-03-19T17:52:07.049Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T17:52:07.049Z]   FOOTER/HEADER ORIGIN: https://www.spearhealth.org
+[2026-03-19T17:52:07.049Z]   SKIP (not in footer/header): https://anydesk.com/en/downloads/thank-you?dv=win_exe
+[2026-03-19T17:52:07.049Z]   SKIP (not in footer/header): https://equality.co.il
+[2026-03-19T17:52:07.049Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T17:52:07.049Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T17:52:07.049Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T17:52:07.050Z] ── Step 3: Final dedup ──
+[2026-03-19T17:52:07.050Z] No urls to dedup
+[2026-03-19T17:52:07.050Z] ── FINAL RESULT ──
+[2026-03-19T17:52:07.050Z]   ws (1):
+[2026-03-19T17:52:07.050Z]     - https://www.spearhealth.org
+[2026-03-19T17:52:07.050Z]   li (1):
+[2026-03-19T17:52:07.050Z]     - https://www.linkedin.com/company/spearhealth
+[2026-03-19T17:52:07.050Z] Summary: ws:1, li:1
+[2026-03-19T17:52:07.051Z] Saved final result to result.json
+[2026-03-19T17:52:07.052Z] Override fields: ws, li
+[2026-03-19T17:52:07.052Z] Finished at: 2026-03-19T17:52:07.052Z

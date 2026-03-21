@@ -1,0 +1,66 @@
+[2026-03-18T08:06:02.298Z] === Homepage AI Extractor: Engineering Software Lab ===
+[2026-03-18T08:06:02.298Z] Started at: 2026-03-18T08:06:02.298Z
+[2026-03-18T08:06:02.298Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773821162298_Engineering_Software_Lab
+[2026-03-18T08:06:02.298Z] Company: Engineering Software Lab
+[2026-03-18T08:06:02.298Z] Website: eswlab.com
+[2026-03-18T08:06:02.298Z] cbRank: 1598031
+[2026-03-18T08:06:02.298Z] Reasons: h
+[2026-03-18T08:06:02.298Z] Fetching: https://eswlab.com
+[2026-03-18T08:06:04.380Z] Redirected: https://eswlab.com -> https://eswlab.com/
+[2026-03-18T08:06:04.388Z] Saved HTML (407709 bytes) to page.html
+[2026-03-18T08:06:04.392Z] Extracted 130 unique links from page
+[2026-03-18T08:06:04.393Z] Saved 130 links to links.json
+[2026-03-18T08:06:04.397Z] Extracted footer HTML (84900 chars)
+[2026-03-18T08:06:04.397Z] Extracted header HTML (85980 chars)
+[2026-03-18T08:06:04.401Z] Website (post-redirect): https://eswlab.com/ → origin: https://eswlab.com
+[2026-03-18T08:06:04.401Z] External links: 3 (of 130 total)
+[2026-03-18T08:06:04.401Z] ── All external links ──
+[2026-03-18T08:06:04.401Z]   EXT: https://www.facebook.com/profile.php?id=100083442314907
+[2026-03-18T08:06:04.401Z]   EXT: https://www.linkedin.com/company/engineering-software-lab-esl-
+[2026-03-18T08:06:04.401Z]   EXT: https://www.youtube.com/@engineeringsoftwarelab7329
+[2026-03-18T08:06:04.401Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T08:06:04.401Z]   REGEX: li <- https://www.linkedin.com/company/engineering-software-lab-esl-
+[2026-03-18T08:06:04.402Z]   REGEX: ytp <- https://www.youtube.com/@engineeringsoftwarelab7329
+[2026-03-18T08:06:04.402Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-18T08:06:05.581Z]   RESOLVE: https://www.facebook.com/profile.php?id=100083442314907 → https://www.facebook.com/people/ESL-Engineering-Software-Lab/100083442314907
+[2026-03-18T08:06:05.586Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/ESL-Engineering-Software-Lab/100083442314907 (from https://www.facebook.com/profile.php?id=100083442314907)
+[2026-03-18T08:06:05.586Z] Programmatic result: ws:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-18T08:06:05.586Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T08:06:05.590Z] Saved AI prompt (9851 chars) to ai_prompt.txt
+[2026-03-18T08:06:05.590Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T08:06:05.593Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T08:06:41.059Z]   AI: First token received, streaming...
+[2026-03-18T08:06:52.527Z] AI response complete: 170 chars in 46.9s
+[2026-03-18T08:06:52.529Z] Saved AI response to ai_response.json
+[2026-03-18T08:06:52.529Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T08:06:52.529Z]   AI LINK: https://www.linkedin.com/company/engineering-software-lab-esl-
+[2026-03-18T08:06:52.530Z]   AI LINK: https://www.youtube.com/@engineeringsoftwarelab7329
+[2026-03-18T08:06:52.530Z]   AI LINK: https://www.facebook.com/profile.php?id=100083442314907
+[2026-03-18T08:06:52.530Z] AI returned 3 valid links
+[2026-03-18T08:06:52.530Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T08:06:52.530Z]   AI→REGEX: li <- https://www.linkedin.com/company/engineering-software-lab-esl- (duplicate, skipped)
+[2026-03-18T08:06:52.530Z]   AI→REGEX: ytp <- https://www.youtube.com/@engineeringsoftwarelab7329 (duplicate, skipped)
+[2026-03-18T08:06:53.417Z]   RESOLVE: https://www.facebook.com/profile.php?id=100083442314907 → https://www.facebook.com/people/ESL-Engineering-Software-Lab/100083442314907
+[2026-03-18T08:06:53.428Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/ESL-Engineering-Software-Lab/100083442314907 (from https://www.facebook.com/profile.php?id=100083442314907)
+[2026-03-18T08:06:53.428Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T08:06:53.428Z] Footer/header origins (4):
+[2026-03-18T08:06:53.429Z]   FOOTER/HEADER ORIGIN: https://eswlab.com
+[2026-03-18T08:06:53.429Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T08:06:53.429Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T08:06:53.429Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T08:06:53.429Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T08:06:53.429Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T08:06:53.429Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T08:06:53.429Z] ── Step 3: Final dedup ──
+[2026-03-18T08:06:53.429Z] No urls to dedup
+[2026-03-18T08:06:53.429Z] ── FINAL RESULT ──
+[2026-03-18T08:06:53.429Z]   ws (1):
+[2026-03-18T08:06:53.429Z]     - https://eswlab.com
+[2026-03-18T08:06:53.429Z]   li (1):
+[2026-03-18T08:06:53.429Z]     - https://www.linkedin.com/company/engineering-software-lab-esl-
+[2026-03-18T08:06:53.429Z]   ytp (1):
+[2026-03-18T08:06:53.429Z]     - https://www.youtube.com/@engineeringsoftwarelab7329
+[2026-03-18T08:06:53.429Z] Summary: ws:1, li:1, ytp:1
+[2026-03-18T08:06:53.430Z] Saved final result to result.json
+[2026-03-18T08:06:53.430Z] Override fields: ws, li, ytp
+[2026-03-18T08:06:53.430Z] Finished at: 2026-03-18T08:06:53.430Z

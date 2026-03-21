@@ -1,0 +1,610 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.5.1",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this._interceptClickListeners(this),window.addEventListener("pageshow",e=>{this.persisted=e.persisted,this.everythingLoaded&&this._triggerLastFunctions()}),document.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(e){if(document.hidden){e._triggerListener();return}this.triggerEvents.forEach(t=>window.addEventListener(t,e.userEventHandler,{passive:!0})),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(e=>window.removeEventListener(e,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._disableOtherEventListeners(e.target,!0),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._disableOtherEventListeners(e.target,!1),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._disableOtherEventListeners(e.target,!1),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))})}_interceptClickListeners(e){EventTarget.prototype.addEventListenerBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(t,i,r){"click"!==t||e.windowLoaded||i===e.clickHandler||e.interceptedClickListeners.push({target:this,func:i,options:r}),(this||window).addEventListenerBase(t,i,r)}}_disableOtherEventListeners(e,t){this.interceptedClickListeners.forEach(i=>{i.target===e&&(t?e.removeEventListener("click",i.func,i.options):e.addEventListener("click",i.func,i.options))}),e.parentNode!==document.documentElement&&this._disableOtherEventListeners(e.parentNode,t)}_waitForPendingClicks(){return new Promise(e=>{this._isClickPending?this._pendingClickFinished=e:e()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(e,t,i){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(i,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(t=>{let i=t.getAttribute("data-rocket-src");if(i&&0!==i.indexOf("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{let r=new URL(i).origin;r!==location.origin&&e.push({src:r,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}catch(n){}}}),e=[...new Map(e.map(e=>[JSON.stringify(e),e])).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(e){console.error(e)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{e.hasAttribute("data-rocket-src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)})}async _transformScript(e){if(await this._littleBreath(),!0===e.noModule&&"noModule"in HTMLScriptElement.prototype){e.setAttribute("data-rocket-status","skipped");return}return new Promise(t=>{let i;function r(){(i||e).setAttribute("data-rocket-status","executed"),t()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)i=document.createElement("script"),[...e.attributes].forEach(e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),"data-rocket-src"===t&&(t="src"),i.setAttribute(t,e.nodeValue))}),e.text&&(i.text=e.text),i.hasAttribute("src")?(i.addEventListener("load",r),i.addEventListener("error",function(){i.setAttribute("data-rocket-status","failed"),t()}),setTimeout(()=>{i.isConnected||t()},1)):(i.text=e.text,r()),e.parentNode.replaceChild(i,e);else{let n=e.getAttribute("data-rocket-type"),s=e.getAttribute("data-rocket-src");n?(e.type=n,e.removeAttribute("data-rocket-type")):e.removeAttribute("type"),e.addEventListener("load",r),e.addEventListener("error",function(){e.setAttribute("data-rocket-status","failed"),t()}),s?(e.removeAttribute("data-rocket-src"),e.src=s):e.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(e.text)))}}catch(a){e.setAttribute("data-rocket-status","failed"),t()}})}async _loadScriptsFromList(e){let t=e.shift();return t&&t.isConnected?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var i=document.createDocumentFragment();e.forEach(e=>{let r=e.getAttribute&&e.getAttribute("data-rocket-src")||e.src;if(r){let n=document.createElement("link");n.href=r,n.rel=t,"preconnect"!==t&&(n.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),e.crossOrigin&&(n.crossOrigin=e.crossOrigin),e.integrity&&(n.integrity=e.integrity),i.appendChild(n),this.trash.push(n)}}),document.head.appendChild(i)}_delayEventListeners(e){let t={};function i(i,r){return t[r].eventsToRewrite.indexOf(i)>=0&&!e.everythingLoaded?"rocket-"+i:i}function r(e,r){var n;!t[n=e]&&(t[n]={originalFunctions:{add:n.addEventListener,remove:n.removeEventListener},eventsToRewrite:[]},n.addEventListener=function(){arguments[0]=i(arguments[0],n),t[n].originalFunctions.add.apply(n,arguments)},n.removeEventListener=function(){arguments[0]=i(arguments[0],n),t[n].originalFunctions.remove.apply(n,arguments)}),t[e].eventsToRewrite.push(r)}function n(t,i){let r=t[i];t[i]=null,Object.defineProperty(t,i,{get:()=>r||function(){},set(n){e.everythingLoaded?r=n:t["rocket"+i]=r=n}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t;function i(t){return e.everythingLoaded?t:t.split(" ").map(e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e).join(" ")}function r(r){if(r&&r.fn&&!e.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(t){return e.domReadyFired?t.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>t.bind(document)(r)),r([])};let n=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let t=arguments[0][e];delete arguments[0][e],arguments[0][i(e)]=t})),n.apply(this,arguments),this},e.allJQueries.push(r)}t=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>t,set(e){r(e)}})}async _pendingWebpackRequests(e){let t=document.querySelector("script[data-webpack]");async function i(){return new Promise(e=>{t.addEventListener("load",e),t.addEventListener("error",e)})}t&&(await i(),await e._requestAnimFrame(),await e._pendingWebpackRequests(e))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async _triggerWindowLoad(){await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(e=>e(window).trigger("rocket-jquery-load")),await this._littleBreath();let e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}_triggerLastFunctions(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}_handleDocumentWrite(){let e=new Map;document.write=document.writeln=function(t){let i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+t);let r=document.createRange(),n=i.parentElement,s=e.get(i);void 0===s&&(s=i.nextSibling,e.set(i,s));let a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(e=>setTimeout(e)):new Promise(e=>requestAnimationFrame(e))}_emptyTrash(){this.trash.forEach(e=>e.remove())}static run(){let e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	<!-- Meta Tags -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta name="google-site-verification" content="D4HolOt8hfbfpA70W5tiZPjs64ce9TfE9BMU5AAEXz0">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    
+    <link rel="alternate" type="application/rss+xml" title="Nesbad RSS Feed" href="https://nesbad.com/feed/">
+    <link rel="pingback" href="https://nesbad.com/xmlrpc.php">    
+    
+    <!-- Site Title -->
+    <title>Nesbad דף הבית - Nesbad</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Alef%3A400&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef%3A400&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef%3A400&#038;display=swap" /></noscript>
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.1.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<link rel="canonical" href="https://nesbad.com/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="דף הבית - Nesbad">
+	<meta property="og:url" content="https://nesbad.com/">
+	<meta property="og:site_name" content="Nesbad">
+	<meta property="article:modified_time" content="2026-03-17T14:08:24+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://nesbad.com/","url":"https://nesbad.com/","name":"דף הבית - Nesbad","isPartOf":{"@id":"https://nesbad.com/#website"},"datePublished":"2020-12-02T06:29:52+00:00","dateModified":"2026-03-17T14:08:24+00:00","breadcrumb":{"@id":"https://nesbad.com/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://nesbad.com/"]}]},{"@type":"BreadcrumbList","@id":"https://nesbad.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית"}]},{"@type":"WebSite","@id":"https://nesbad.com/#website","url":"https://nesbad.com/","name":"Nesbad","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://nesbad.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"}]}</script>
+	<meta name="google-site-verification" content="YV2rNwJMB2eoj5Ia31_PQmZ4Mlj1Y7I147DydFn4BSc">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//unpkg.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://nesbad.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnesbad.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://nesbad.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnesbad.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="fancybox-css" href="https://nesbad.com/wp-content/cache/min/1/wp-content/themes/nesbad/assets/js/fancybox/fancybox.css?ver=1773754692" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="owl-css" href="https://nesbad.com/wp-content/cache/min/1/wp-content/themes/nesbad/assets/js/owl/owl.css?ver=1773754692" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="aos-css" href="https://nesbad.com/wp-content/cache/min/1/aos@2.3.1/dist/aos.css?ver=1773754692" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="style-css" href="https://nesbad.com/wp-content/cache/min/1/wp-content/themes/nesbad/style.css?ver=1773754692" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://nesbad.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://nesbad.com/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://nesbad.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="shortlink" href="https://nesbad.com/">
+<meta name="generator" content="Powered by Slider Revolution 6.6.20 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TWHWP9P2');</script>
+<!-- End Google Tag Manager --><link rel="icon" href="https://nesbad.com/wp-content/uploads/2020/12/favicon.png.webp" sizes="32x32">
+<link rel="icon" href="https://nesbad.com/wp-content/uploads/2020/12/favicon.png.webp" sizes="192x192">
+<link rel="apple-touch-icon" href="https://nesbad.com/wp-content/uploads/2020/12/favicon.png.webp">
+<meta name="msapplication-TileImage" content="https://nesbad.com/wp-content/uploads/2020/12/favicon.png">
+<script type="rocketlazyloadscript">function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) || (e.l=="fullwidth" || e.layout=="fullwidth") ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);
+					if(e.layout==="fullscreen" || e.l==="fullscreen")
+						newh = Math.max(e.mh,window.RSIH);
+					else{
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el!==null && el) el.style.height = newh+"px";
+					el = document.getElementById(e.c+"_wrapper");
+					if (el!==null && el) {
+						el.style.height = newh+"px";
+						el.style.display = "block";
+					}
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}
+			//});
+		  };</script>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<!-- Google tag (gtag.js) -->
+    <script type="rocketlazyloadscript" async="" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-FGMFM159CG"></script>
+    <script type="rocketlazyloadscript">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FGMFM159CG');
+    </script>
+<link data-minify="1" rel="stylesheet" id="rs-plugin-settings-css" href="https://nesbad.com/wp-content/cache/min/1/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=1773754692" type="text/css" media="all">
+<style id="rs-plugin-settings-inline-css" type="text/css">
+		#rev_slider_2_1_wrapper .ares.tp-bullets{}#rev_slider_2_1_wrapper .ares.tp-bullets:before{content:' ';position:absolute;width:100%;height:100%;background:transparent;padding:10px;margin-left:-10px;margin-top:-10px;box-sizing:content-box}#rev_slider_2_1_wrapper .ares .tp-bullet{width:13px;height:13px;position:absolute;background:#e5e5e5;border-radius:50%;cursor:pointer;box-sizing:content-box}#rev_slider_2_1_wrapper .ares .tp-bullet.rs-touchhover,#rev_slider_2_1_wrapper .ares .tp-bullet.selected{background:#ffffff}#rev_slider_2_1_wrapper .ares .tp-bullet-title{position:absolute; color:#888888; font-size:12px; padding:0px 10px; font-weight:600; right:27px; top:-4px;  background:rgba(255,255,255,0.75); visibility:hidden; transform:translatex(-20px); -webkit-transform:translatex(-20px); transition:transform 0.3s; -webkit-transition:transform 0.3s; line-height:20px; white-space:nowrap}#rev_slider_2_1_wrapper .ares .tp-bullet-title:after{width:0px;height:0px;border-style:solid;border-width:10px 0 10px 10px;border-color:transparent transparent transparent rgba(255,255,255,0.75);content:' ';  position:absolute;  right:-10px;top:0px}#rev_slider_2_1_wrapper .ares .tp-bullet.rs-touchhover .tp-bullet-title{visibility:visible;  transform:translatex(0px); -webkit-transform:translatex(0px)}#rev_slider_2_1_wrapper .ares .tp-bullet.selected.rs-touchhover .tp-bullet-title{background:#ffffff}#rev_slider_2_1_wrapper .ares .tp-bullet.selected.rs-touchhover .tp-bullet-title:after{border-color:transparent transparent transparent #ffffff}#rev_slider_2_1_wrapper .ares.tp-bullets.rs-touchhover .tp-bullet-title{visibility:hidden}#rev_slider_2_1_wrapper .ares.tp-bullets.rs-touchhover .tp-bullet.rs-touchhover .tp-bullet-title{visibility:visible;  transform:translateX(0px) translatey(0px); -webkit-transform:translateX(0px) translatey(0px)}#rev_slider_2_1_wrapper .ares.nav-dir-vertical.nav-pos-hor-left .tp-bullet-title{right:auto; left:27px; transform:translatex(20px); -webkit-transform:translatex(20px)}#rev_slider_2_1_wrapper .ares.nav-dir-vertical.nav-pos-hor-left .tp-bullet-title:after{border-width:10px 10px 10px 0 !important; border-color:transparent rgba(255,255,255,0.75) transparent transparent; right:auto !important; left:-10px !important}#rev_slider_2_1_wrapper .ares.nav-dir-vertical.nav-pos-hor-left .tp-bullet.selected.rs-touchhover .tp-bullet-title:after{border-color:transparent #ffffff transparent transparent !important}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet-title,#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet-title{top:-35px; left:50%; right:auto; transform:translateX(-50%) translateY(-10px);-webkit-transform:translateX(-50%) translateY(-10px)}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet-title:after,#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet-title:after{border-width:10px 10px 0px 10px; border-color:rgba(255,255,255,0.75) transparent transparent transparent; right:auto; left:50%; margin-left:-10px; top:auto; bottom:-10px}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet.selected.rs-touchhover .tp-bullet-title:after,#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet.selected.rs-touchhover .tp-bullet-title:after{border-color:#ffffff transparent transparent transparent}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet.rs-touchhover .tp-bullet-title,#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet.rs-touchhover .tp-bullet-title{transform:translateX(-50%) translatey(0px); -webkit-transform:translateX(-50%) translatey(0px)}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet-title{top:25px; left:50%; right:auto; transform:translateX(-50%) translateY(10px);-webkit-transform:translateX(-50%) translateY(10px)}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet-title:after{border-width:0 10px 10px 10px; border-color:transparent transparent rgba(255,255,255,0.75) transparent; right:auto; left:50%; margin-left:-10px; bottom:auto; top:-10px}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet.selected.rs-touchhover .tp-bullet-title:after{border-color:transparent transparent #ffffff transparent}#rev_slider_2_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet.rs-touchhover .tp-bullet-title{transform:translateX(-50%) translatey(0px); -webkit-transform:translateX(-50%) translatey(0px)}
+/*# sourceURL=rs-plugin-settings-inline-css */
+</style>
+
+<link href="https://www.googletagmanager.com" rel="preconnect"></head>
+
+<body class="rtl home wp-singular page-template page-template-page-home page-template-page-home-php page page-id-2 wp-theme-nesbad">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWHWP9P2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- WRAPPER ALL -->
+<div id="wrapper">
+   
+	<div class="hdrcontact">
+	<div class="wrap">
+		<a href="tel:035583630">03-5583630</a> | <a href="mailto:info@nesbad.co.il">info@nesbad.co.il</a>
+	</div>
+	</div>
+   
+	<!-- HEADER -->
+	<header>
+	<div class="wrap">
+		<div class="flex vcenter reverse">
+			<div class="logo">
+								<a href="https://nesbad.com"><img alt="Nesbad" src="https://nesbad.com/wp-content/uploads/2020/12/nlogo.png.webp" data-lazy-src="https://nesbad.com/wp-content/uploads/2020/12/nlogo.png.webp" data-ll-status="loaded" class="entered lazyloaded"><noscript><img alt="Nesbad" src="https://nesbad.com/wp-content/uploads/2020/12/nlogo.png.webp" /></noscript></a>
+							</div>
+			
+			<div class="flex vcenter">
+				<div class="tglmenu"><span></span> <span></span> <span></span></div>
+			
+				<div class="hmenu">
+					<ul id="menu-header" class="menu"><li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-11"><a href="https://nesbad.com/" aria-current="page">דף הבית</a></li>
+<li id="menu-item-12" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12"><a href="https://nesbad.com/%d7%a4%d7%a8%d7%95%d7%a4%d7%99%d7%9c-%d7%97%d7%91%d7%a8%d7%94/">אודות</a></li>
+<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/">מכונות אריזה</a>
+<ul class="sub-menu">
+	<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%9e%d7%95%d7%a6%d7%a8/">לפי סוג מוצר</a></li>
+	<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%90%d7%a8%d7%99%d7%96%d7%94/">לפי סוג אריזה</a></li>
+	<li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%99%d7%a6%d7%a8%d7%9f/">לפי יצרן</a></li>
+</ul>
+</li>
+<li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-34"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/">שירות ותמיכה</a>
+<ul class="sub-menu">
+	<li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/%d7%94%d7%93%d7%a8%d7%9b%d7%95%d7%aa/">הדרכות</a></li>
+	<li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa/">שירות לקוחות</a></li>
+	<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/%d7%97%d7%9c%d7%a7%d7%99-%d7%97%d7%99%d7%9c%d7%95%d7%a3/">חלקי חילוף</a></li>
+</ul>
+</li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://nesbad.com/%d7%97%d7%93%d7%a9%d7%95%d7%aa-%d7%9b%d7%aa%d7%91%d7%95%d7%aa-%d7%aa%d7%a2%d7%a8%d7%95%d7%9b%d7%95%d7%aa/">חדשות</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="https://nesbad.com/%d7%91%d7%99%d7%9f-%d7%9c%d7%a7%d7%95%d7%97%d7%aa%d7%99%d7%a0%d7%95/">בין לקוחתינו</a></li>
+<li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37"><a href="https://nesbad.com/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/">צור קשר</a></li>
+</ul>				</div>
+			</div>	
+		</div>
+	</div>
+    </header>
+    <!-- /HEADER --> 		
+	
+			<!-- START home page eng new REVOLUTION SLIDER 6.6.20 --><p class="rs-p-wp-fix"></p>
+			<rs-module-wrap id="rev_slider_2_1_wrapper" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+				<rs-module id="rev_slider_2_1" class=" rs-ov-hidden" style="" data-version="6.6.20">
+					<rs-slides style="overflow: hidden; position: absolute;">
+						<rs-slide style="position: absolute;" data-key="rs-2" data-title="hommus" data-anim="adpr:false;">
+							<img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="hommus" title="דף הבית" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/transparent.png" data-bg="c:#d1d1d1;" data-no-retina="">
+<!--
+							--><rs-layer id="slider-2-slide-2-layer-1" data-type="image" data-rsp_ch="on" data-xy="x:c;y:m;" data-text="s:20,20,20,20;l:22;" data-dim="w:['2268px','2268px','2268px','2268px'];h:500px,666px,700px,1000px;" data-frame_0="x:right;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;sp:1220;sR:10;" data-frame_999="o:0;tp:600;e:nothing;st:12800;sp:760;sR:11570;" style="z-index:5;background-color:rgba(12,12,12,1);"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2017/03/shutterstock_477955510-1.jpg" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-11" data-type="text" data-color="rgba(249, 249, 249, 1)" data-rsp_ch="on" data-xy="x:c;xo:-13px,9px,120px,0;yo:41px,30px,8px,4px;" data-text="w:normal;s:60,40,40,44;l:55,42,42,55;a:center;" data-dim="w:764px,522px,522px,583px;h:112px,auto,auto,auto;" data-frame_0="y:top;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;sp:800;sR:10;" data-frame_999="o:0;tp:600;e:nothing;st:12800;sp:630;sR:11990;" style="z-index:6;font-family:'';">כולם אוהבים חומוס... 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-9" data-type="image" data-rsp_ch="on" data-xy="x:l,l,l,c;xo:-6px,-7px,-14px,-216px;y:m;yo:3px,-9px,-49px,42px;" data-text="l:22;" data-dim="w:336,336,336,300px;h:300px,300px,300px,268px;" data-frame_0="x:left;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:1140;sp:1000;sR:1140;" data-frame_999="o:0;tp:600;e:nothing;st:12820;sp:800;sR:10680;" style="z-index:7;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2017/03/shutterstock_529681984.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-18" data-type="image" data-rsp_ch="on" data-xy="x:l,l,l,c;xo:-5px,-5px,-10px,-214px;y:m;yo:5px,-7px,-46px,43px;" data-text="l:22;" data-dim="w:336,336px,336px,300px;h:300px,300px,300px,268px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:3500;sp:1300;sR:3500;" data-frame_999="o:0;tp:600;e:nothing;st:12840;sp:1090;sR:8040;" style="z-index:8;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2017/03/shutterstock_529681984B.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-15" data-type="text" data-color="rgba(255, 255, 255, 1)" data-rsp_ch="on" data-xy="x:c;xo:-10px,12px,131px,-6px;yo:136px,77px,60px,65px;" data-text="w:normal;s:45,28,28,35;l:50,55,55,55;fw:500;a:center;" data-dim="w:850px,741px,741px,741px;h:118px,auto,auto,auto;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:2460;sp:800;sR:2460;" data-frame_999="o:0;tp:600;e:nothing;st:12800;sp:800;sR:9540;" style="z-index:9;font-family:'';">ואנחנו יודעים לארוז אותו
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-16" data-type="text" data-color="rgba(255, 255, 255, 1)" data-rsp_ch="on" data-xy="x:c;xo:0,36px,141px,66px;yo:194px,142px,125px,156px;" data-text="w:normal;s:25,20,23,23;l:30,22,24,24;a:center;" data-dim="w:593px,390px,453px,345px;h:auto,118px,126px,154px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:4870;sp:510;sR:4870;" data-frame_999="o:0;tp:600;e:nothing;st:12810;sp:800;sR:7430;" style="z-index:10;font-family:'';">נסו את סדרת המכונות שלנו למילוי ואטימה של גביעים.
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-10" data-type="image" data-rsp_ch="on" data-xy="xo:1014px,749px,241px,236px;yo:162px,91px,198px,270px;" data-text="l:22;" data-dim="w:250px,200px,200px,200px;h:250px,200px,200px,200px;" data-frame_0="y:bottom;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:5670;sp:900;sR:5670;" data-frame_999="o:0;tp:600;e:nothing;st:12830;sp:1170;sR:6260;" style="z-index:11;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2019/05/m2.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-19" data-type="image" data-rsp_ch="on" data-xy="x:l,l,l,c;xo:1178px,631px,397px,125px;y:t,t,t,m;yo:77px,176px,203px,128px;" data-text="l:22;" data-dim="w:250px,200px,200px,200px;h:250px,200px,200px,200px;" data-frame_0="x:right;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:6630;sp:820;sR:6630;" data-frame_999="o:0;tp:600;e:nothing;st:12810;sp:1190;sR:5360;" style="z-index:12;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2019/05/m1.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-20" data-type="image" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:1019px,774px,268px,266px;y:t,t,m,m;yo:-17px,-60px,104px,81px;" data-text="l:22;" data-dim="w:250px,200px,200px,200px;h:250px,200px,200px,200px;" data-frame_0="y:top;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:7480;sp:690;sR:7480;" data-frame_999="o:0;tp:600;e:nothing;st:12830;sp:1170;sR:4660;" style="z-index:13;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2019/05/m3.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-2-layer-17" class="rev-btn" data-type="button" data-color="rgba(249, 249, 249, 1)" data-xy="x:c;xo:1px,-3px,-242px,-223px;y:m;yo:113px,75px,146px,206px;" data-text="s:14,14,14,10;l:14,14,14,10;" data-actions="o:click;a:simplelink;target:_self;url:https://nesbad.com/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%9e%d7%95%d7%a6%d7%a8/%d7%97%d7%95%d7%9e%d7%95%d7%a1/;" data-rsp_bd="off" data-margin="t:0,0,0px,0px;" data-padding="t:10,10,5,5;r:30,30,5,5;b:10,10,5,5;l:30,30,5,5;" data-border="bos:solid;boc:rgba(255, 255, 255, 1);bow:1,1,1,1;bor:3px,3px,3px,3px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:5730;sp:670;sR:5730;" data-frame_999="o:0;tp:600;e:nothing;st:12810;sp:840;sR:6410;" data-frame_hover="c:#4c2700;bgc:#fcfcfc;boc:#fcfcfc;bor:3px,3px,3px,3px;bos:solid;bow:1,1,1,1;oX:50;oY:50;sp:0;e:none;" style="z-index:14;background-color:rgba(10,10,10,1);font-family:'Alef';cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">למידע נוסף 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-3" data-title="spinner 24" data-anim="adpr:false;">
+							<img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="spinner 24" title="דף הבית" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/transparent.png" data-bg="c:#000000;" data-no-retina="">
+<!--
+							--><rs-layer id="slider-2-slide-3-layer-11" data-type="text" data-rsp_ch="on" data-xy="x:c;xo:0,-6px,-6px,-4px;yo:46px,2px,2px,22px;" data-text="w:normal;s:50,40,40,40;l:50,42,42,40;a:center;" data-dim="w:764px,764px,764px,629px;h:112px,112px,112px,auto;" data-frame_0="y:top;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;sp:800;sR:10;" data-frame_999="o:0;tp:600;e:nothing;st:12800;sp:630;sR:11990;" style="z-index:5;font-family:'';">יצרן של מוצרי קוסמטיקה במגוון אריזות?
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-3-layer-9" data-type="image" data-rsp_ch="on" data-xy="x:l,l,l,c;xo:-402px,-101px,-154px,-274px;y:t,t,t,m;yo:-74px,85px,142px,145px;" data-text="l:22;" data-dim="w:800px,440px,440px,500px;h:532px,322,322px,365px;" data-frame_0="x:left;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:900;sp:640;sR:900;" data-frame_999="o:0;tp:600;e:nothing;st:12820;sp:800;sR:11280;" style="z-index:6;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2017/03/shutterstock_512144125low-e1558349199833.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-3-layer-15" data-type="text" data-color="#fdb813||#fdb813||#fdb813||#ffcc00" data-rsp_ch="on" data-xy="x:c;xo:0,-2px,0,-114px;yo:150px,80px,84px,113px;" data-text="w:normal;s:30,30,30,35;l:55;a:center;" data-dim="w:741px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:1550;sp:800;sR:1550;" data-frame_999="o:0;tp:600;e:nothing;st:12800;sp:800;sR:10450;" style="z-index:7;font-family:'';">אתה צריך
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-3-layer-14" data-type="text" data-rsp_ch="on" data-xy="x:c;xo:1px,-1px,0,-112px;yo:196px,123px,125px,165px;" data-text="w:normal;s:50,45,45,45;l:55;a:center;" data-dim="w:741px;" data-frame_0="y:top;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:2310;sp:800;sR:2310;" data-frame_999="o:0;tp:600;e:nothing;st:12790;sp:800;sR:9680;" style="z-index:8;font-family:'Arial Black', 'Gadget', 'sans-serif';"> SPINNER 24
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-3-layer-10" data-type="image" data-rsp_ch="on" data-xy="xo:1034px,691px,519px,392px;yo:27px,44px,120px,153px;" data-text="w:normal,nowrap,nowrap,nowrap;l:22,22,22,22;" data-dim="w:350px,300px,257px,330px;h:350px,303px,260px,334px;" data-frame_0="y:bottom;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:3120;sp:670;sR:3120;" data-frame_999="o:0;tp:600;e:nothing;st:12810;sp:700;sR:9020;" style="z-index:9;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.it/wp-content/uploads/2019/05/spinner24n.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-3-layer-16" data-type="text" data-color="#fdb813||#fdb813||#fdb813||#ffcc00" data-rsp_ch="on" data-xy="x:c;xo:1px,6px,0,-110px;yo:260px,184px,190px,223px;" data-text="w:normal;s:20,20,20,19;l:22;a:center;" data-dim="w:520px,418px,337px,330px;h:61px,auto,72px,74px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:3800;sp:510;sR:3800;" data-frame_999="o:0;tp:600;e:nothing;st:12810;sp:800;sR:8500;" style="z-index:10;font-family:'';">מכונת מילוי ופיקוק ורסטילית למגוון רחב של אריזות.
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-3-layer-17" class="rev-btn" data-type="button" data-color="#fdb813" data-xy="x:c;xo:-6px,-3px,1px,150px;y:m;yo:118px,96px,90px,178px;" data-text="s:14,14,14,10;l:14,14,14,10;" data-actions="o:click;a:simplelink;target:_self;url:https://nesbad.com/portfolio-items/spinner-24/;" data-rsp_bd="off" data-margin="t:0,0,0,0px;" data-padding="t:10,10,10,5;r:30,30,30,5;b:10,10,10,5;l:30,30,30,5;" data-border="bos:solid;boc:#fdb813;bow:1,1,1,1;bor:3px,3px,3px,3px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:4320;sp:260;sR:4320;" data-frame_999="o:0;tp:600;e:nothing;st:12810;sp:840;sR:8230;" data-frame_hover="c:#fcfcfc;bgc:#0a0000;boc:#f9f9f9;bor:3px,3px,3px,3px;bos:solid;bow:1,1,1,1;oX:50;oY:50;sp:0;e:none;" style="z-index:11;background-color:rgba(10,10,10,1);font-family:'Alef';cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">למידע נוסף 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-5" data-title="hdm" data-anim="adpr:false;">
+							<img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="hdm" title="דף הבית" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/transparent.png" data-bg="c:#fdb813;" data-no-retina="">
+<!--
+							--><rs-layer id="slider-2-slide-5-layer-25" data-type="image" data-rsp_ch="on" data-xy="x:c;xo:533px,509px,387px,311px;y:m;yo:-7px,-11px,2px,-75px;" data-text="w:normal,nowrap,nowrap,nowrap;l:22;a:inherit;" data-dim="w:['291px','291px','291px','291px'];h:['293px','293px','293px','293px'];" data-frame_0="tp:600;" data-frame_1="tp:600;st:190;sR:190;" data-frame_999="o:0;tp:600;st:w;sR:14810;" style="z-index:5;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.com/wp-content/uploads/2019/10/shutterstock_1450321307.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-11" data-type="text" data-color="#000000" data-rsp_ch="on" data-xy="x:c;xo:3px,-6px,3px,-86px;yo:45px,2px,22px,29px;" data-text="w:normal;s:32,40,27,32;l:36,42,38,40;a:center;" data-dim="w:776px,764px,764px,436px;h:auto,112px,112px,auto;" data-frame_0="y:top;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:300;sp:800;sR:300;" data-frame_999="o:0;tp:600;e:nothing;st:15210;sp:630;sR:14110;" style="z-index:6;font-family:'';">החברה הסינית הגדולה והמתקדמת בעולם לייצור משקלים קומבינטורים
+עם עשרות התקנות מוצלחות בארץ 
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-23" class="tp-shape tp-shapewrapper" data-type="shape" data-rsp_ch="on" data-xy="xo:53px,-3px,0,-38px;y:m;yo:-11px,66px,76px,150px;" data-text="a:inherit;" data-dim="w:285px,285px,260px,260px;h:285px,285px,260px,260px;" data-border="bor:200px,200px,200px,200px;" data-frame_0="o:1;tp:600;" data-frame_1="tp:600;st:840;sR:840;" data-frame_999="tp:600;st:w;sR:14160;" style="z-index:7;background-color:#ffffff;"> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-9" data-type="image" data-rsp_ch="on" data-xy="x:l,l,l,c;xo:71px,11px,25px,-253px;y:t,t,t,m;yo:97px,119px,182px,146px;" data-text="s:20,20,20,20;l:22;" data-dim="w:253px,250px,200px,200px;h:230px,227px,182px,182;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:1010;sR:1010;" data-frame_999="o:0;tp:600;e:nothing;st:15230;sp:800;sR:13920;" style="z-index:8;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.com/wp-content/uploads/2020/05/high-speed-3-layers-18x3-multi-weigher.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-19" data-type="image" data-rsp_ch="on" data-xy="x:c;xo:76px,0,0,-3px;yo:159px,137px,129px,231px;" data-text="l:22;a:inherit;" data-dim="w:292px,300px,300px,300px;h:90px,76px,76px,76px;" data-frame_0="tp:600;" data-frame_1="tp:600;st:1340;sp:1000;sR:1340;" data-frame_999="o:0;tp:600;st:15240;sp:1000;sR:12900;" style="z-index:9;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.com/wp-content/uploads/2019/10/hdm2.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-16" data-type="text" data-color="#000000" data-rsp_ch="on" data-xy="x:c;xo:-150px,1px,4px,0;yo:187px,213px,225px,320px;" data-text="w:normal;s:33,20,20,19;l:33,22,22,22;a:center;" data-dim="w:703px,418px,480px,506px;h:auto,auto,auto,108px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:2320;sp:510;sR:2320;" data-frame_999="o:0;tp:600;e:nothing;st:15240;sp:800;sR:12410;" style="z-index:10;font-family:'';">בישראל 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-21" data-type="text" data-color="#000000" data-rsp_ch="on" data-xy="x:c;xo:0,0,-1px,0;yo:261px,242px,283px,387px;" data-text="w:normal;s:24,20,20,19;l:33,22,22,22;a:center;" data-dim="w:703px,293px,258px,239px;h:auto,48px,auto,113px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:2850;sp:510;sR:2850;" data-frame_999="o:0;tp:600;e:nothing;st:15240;sp:800;sR:11880;" style="z-index:11;font-family:'';">במחירים ואיכות ללא תחרות.
+בבלעדיות חברת נסבאד
+ 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-10" data-type="image" data-rsp_ch="on" data-xy="xo:1081px,662px,559px,523px;y:m,t,t,t;yo:-8px,104px,208px,317px;" data-text="l:22,22,22,22;" data-dim="w:308px,270px,200px,200px;h:285px,250,185,185;" data-frame_0="y:bottom;o:1;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:3360;sp:670;sR:3360;" data-frame_999="o:0;tp:600;e:nothing;st:15250;sp:700;sR:11220;" style="z-index:12;"><img src="//nesbad.com/wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" class="tp-rs-img rs-lazyload" data-lazyload="//nesbad.com/wp-content/uploads/2020/05/multiweigher-long.png" data-no-retina=""> 
+							</rs-layer><!--
+
+							--><rs-layer id="slider-2-slide-5-layer-17" class="rev-btn" data-type="button" data-color="#000000" data-xy="x:c;xo:0,4px,7px,3px;y:m;yo:120px,141px,160px,211px;" data-text="s:14,14,14,10;l:14,14,14,10;" data-actions="o:click;a:simplelink;target:_self;url:https://nesbad.com/%d7%9c%d7%a4%d7%99-%d7%99%d7%a6%d7%a8%d7%9f/mespack/;" data-rsp_bd="off" data-margin="t:0,0,0,0px;" data-padding="t:10,10,10,5;r:30,30,30,5;b:10,10,10,5;l:30,30,30,5;" data-border="bos:solid;boc:#000000;bow:1,1,1,1;bor:3px,3px,3px,3px;" data-frame_0="tp:600;" data-frame_1="tp:600;e:power2.inOut;st:3950;sp:260;sR:3950;" data-frame_999="o:0;tp:600;e:nothing;st:15230;sp:840;sR:11020;" data-frame_hover="c:#000;bgc:#ffcc00;boc:#000;bor:3px,3px,3px,3px;bos:solid;bow:1,1,1,1;oX:50;oY:50;sp:0;e:none;" style="z-index:13;background-color:rgba(255,255,255,0);font-family:'Alef';cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">למידע נוסף 
+							</rs-layer><!--
+-->						</rs-slide>
+					</rs-slides>
+				</rs-module>
+				<script type="rocketlazyloadscript">
+					setREVStartSize({c: 'rev_slider_2_1',rl:[1240,1024,778,480],el:[450,450,600,600],gw:[1400,1024,778,720],gh:[450,450,600,600],type:'standard',justify:'',layout:'fullwidth',mh:"0"});if (window.RS_MODULES!==undefined && window.RS_MODULES.modules!==undefined && window.RS_MODULES.modules["revslider21"]!==undefined) {window.RS_MODULES.modules["revslider21"].once = false;window.revapi2 = undefined;if (window.RS_MODULES.checkMinimal!==undefined) window.RS_MODULES.checkMinimal()}
+				</script>
+			</rs-module-wrap>
+			<!-- END REVOLUTION SLIDER -->
+		
+	<div class="machinewrap">
+	<div class="wrap">		
+		<div class="secdesc">
+			<h3 class="sectitle">מכונות אריזה</h3> 
+			<p>ניתן לחפש מכונות אריזה בקלות בעזרת אחת מהקטגוריות: יצרן /סוג אריזה /סוג מוצר , כדי למצוא מכונות אריזה שמתאימה לצורכיכם</p>	
+		</div>
+		
+		<div class="mlist flex">
+				<div class="item">
+			<div class="thumb"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%9e%d7%95%d7%a6%d7%a8/"><img src="https://nesbad.com/wp-content/uploads/2020/12/pack2-600x505-1.jpg.webp" alt="image" data-lazy-src="https://nesbad.com/wp-content/uploads/2020/12/pack2-600x505-1.jpg.webp" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://nesbad.com/wp-content/uploads/2020/12/pack2-600x505-1.jpg.webp" alt="image"></noscript></a></div>
+			<h4>לפי סוג מוצר</h4>
+			<a class="rmore" href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%9e%d7%95%d7%a6%d7%a8/">לפרטים נוספים</a>
+		</div>
+				<div class="item">
+			<div class="thumb"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%90%d7%a8%d7%99%d7%96%d7%94/"><img src="https://nesbad.com/wp-content/uploads/2026/03/חפוש-לפי-אריזה.jpg.webp" alt="image" data-lazy-src="https://nesbad.com/wp-content/uploads/2026/03/חפוש-לפי-אריזה.jpg.webp" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://nesbad.com/wp-content/uploads/2026/03/חפוש-לפי-אריזה.jpg.webp" alt="image"></noscript></a></div>
+			<h4>לפי סוג אריזה</h4>
+			<a class="rmore" href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%90%d7%a8%d7%99%d7%96%d7%94/">לפרטים נוספים</a>
+		</div>
+				<div class="item">
+			<div class="thumb"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%99%d7%a6%d7%a8%d7%9f/"><img src="https://nesbad.com/wp-content/uploads/2026/03/חיפוש-לפי-יצרן.jpg.webp" alt="image" data-lazy-src="https://nesbad.com/wp-content/uploads/2026/03/חיפוש-לפי-יצרן.jpg.webp" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://nesbad.com/wp-content/uploads/2026/03/חיפוש-לפי-יצרן.jpg.webp" alt="image"></noscript></a></div>
+			<h4>לפי יצרן</h4>
+			<a class="rmore" href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%99%d7%a6%d7%a8%d7%9f/">לפרטים נוספים</a>
+		</div>
+				</div>
+	</div>
+	</div>
+	<!-- end -->
+	
+	<div class="reasonwrap">	
+		<div class="wrap">
+		<div class="secdesc">
+			<h3 class="sectitle">5 סיבות לבחור בנסבאד</h3> 
+		</div>
+		</div>
+		
+		<div class="reason">
+						<div class="item" style="background: url(https://nesbad.com/wp-content/uploads/2020/12/bg1.jpg) no-repeat center center fixed; background-size: cover;">
+			<div class="wrap">
+				<div class="flex vcenter">
+					<div class="num">
+						1					</div>
+					<div class="txt">
+						<h4>30 שנות נסיון בתכנון וייצור מכונות אריזה אוטומטיות</h4>
+						<p>כשאנחנו ב- nesbad ניגשים לפרוייקט חדש אנו מביאים איתנו ניסיון עצום של 30 שנים בתכנון וייצור מכונות אריזה אוטומטיות.<br>
+ידע זה הביא אותנו לייצר מאות מכונות בכל רחבי העולם למפעלים בתחומי המזון הקוסמטיקה והפארמה.<br>
+כשאתם בוחרים במכונות אריזה נסבאד, אתם בוחרים ראשית בנסיון ובידע שלנו להתאים לכם את המכונה הטובה ביותר עבורכם.</p>
+					</div>
+				</div>
+			</div>
+			</div>
+						<div class="item" style="background: url(https://nesbad.com/wp-content/uploads/2020/12/bg2.jpg) no-repeat center center fixed; background-size: cover;">
+			<div class="wrap">
+				<div class="flex vcenter">
+					<div class="num">
+						2					</div>
+					<div class="txt">
+						<h4>הון אנושי</h4>
+						<p>החל מצוות המשרד והמכירות ועד לצוות ההנדסה והשירות הטכני, כולנו ב- nesbad פועלים מתוך תחושת שליחות<br>
+להשיג עבורכם את התוצאות הטובות ביותר בזמן הקצר ביותר. הניסיון הרב שלנו מאפשר לנו להיות יעילים וממוקדים בכל האספקטים<br>
+הנוגעים לייצור / ייבוא מכונת אריזה מתאימה עבורכם. וכל זאת עם חיוך,סבלנות ותודעת שירות גבוהה.</p>
+					</div>
+				</div>
+			</div>
+			</div>
+						<div class="item" style="background: url(https://nesbad.com/wp-content/uploads/2020/12/bg3.jpg) no-repeat center center fixed; background-size: cover;">
+			<div class="wrap">
+				<div class="flex vcenter">
+					<div class="num">
+						3					</div>
+					<div class="txt">
+						<h4>הרבה יותר מיצרני מכונות אריזה אוטומטיות</h4>
+						<p>פרט למכונות אריזה אוטומטיות אותם אנו מייצרים, חברת nesbad הינה הנציגה הבלעדית בארץ של מיטב חברות עולמיות בתחום מיכון לשקילה ואריזה מסוגים שונים,<br>
+וזאת על מנת להגדיל את סל המוצרים עבור לקוחותינו לתת להם מענה כולל לכל צורכיהם תחת קורת גג אחת.</p>
+					</div>
+				</div>
+			</div>
+			</div>
+						<div class="item" style="background: url(https://nesbad.com/wp-content/uploads/2020/12/bg4.jpg) no-repeat center center fixed; background-size: cover;">
+			<div class="wrap">
+				<div class="flex vcenter">
+					<div class="num">
+						4					</div>
+					<div class="txt">
+						<h4>אחריות ושירות</h4>
+						<p>אנו מונעים לפי התפיסה שההצלחה של לקוחותינו היא ההצלחה המלאה שלנו ולכן עקרון מתן שירות מהיר,יעיל ובלתי מתפשר הינו<br>
+הערך החשוב ביותר עליו מבוססת חברתנו. כשאתם רוכשים מכונות אריזה אצלנו, יש מי שידאג לכם גם מעבר לתקופת האחריות.</p>
+					</div>
+				</div>
+			</div>
+			</div>
+						<div class="item" style="background: url(https://nesbad.com/wp-content/uploads/2020/12/bg5.jpg) no-repeat center center fixed; background-size: cover;">
+			<div class="wrap">
+				<div class="flex vcenter">
+					<div class="num">
+						5					</div>
+					<div class="txt">
+						<h4>עם הפנים קדימה</h4>
+						<p>אנחנו נמצאים בחיפוש מתמיד אחר הטכנולוגיה הבאה שתזניק את המוצרים שלנו קדימה אל העתיד ותייעל ללקוחותינו את תהליך האריזה.<br>
+חיפוש מתמיד זה הביא אותנו להקים מפעל חדש לייצור מכונות אריזה המשלב מרכז מחקר ופיתוח בבולוניה שבאיטליה<br>
+אזור זה מכונה בפי יודעי דבר "עמק האריזות העולמי" והוא מאפשר לנו ליצור קשרים ולעבוד בשיתוף עם החברות החשובות בעולם<br>
+וזאת על מנת להביא לכם את מיטב החדשנות בתחום.</p>
+					</div>
+				</div>
+			</div>
+			</div>
+					</div>
+	</div>
+	<!-- end -->
+	
+	<div class="blogwrap" id="blog">
+	<div class="wrap">
+		<div class="secdesc bdr2">
+			<h3 class="sectitle">חדשות ותערוכות</h3> 
+		</div>
+		
+		<div class="blogpost flex">
+								</div>	
+	</div>
+	</div>
+	<!-- end -->
+	
+	<footer>
+	<div class="wrap">
+		<div class="foottop flex reverse">		
+			<div class="lft">		
+				<div class="flogo">
+										<a href="https://nesbad.com"><img alt="Nesbad" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://nesbad.com/wp-content/uploads/2020/12/nlogo.png.webp"><noscript><img alt="Nesbad" src="https://nesbad.com/wp-content/uploads/2020/12/nlogo.png.webp" /></noscript></a>
+									</div>
+				
+				<div class="fsocial">
+					<a href="https://www.facebook.com/Nesbad-Industries-Ltd-239701559558719/" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.youtube.com/user/nesbad1" target="_blank"><i class="fa fa-youtube-play"></i></a>
+				</div>
+				
+				<div class="address"><h4>נסבאד תעשיות בע״מ</h4>
+<p>רח׳ מרכבה 1, חולון 58851<br>
+טלפון: <a href="tel:035583630">03-5583630</a><br>
+פקס: 03-5584043<br>
+אימייל: <a href="mailto:info@nesbad.co.il">info@nesbad.co.il</a></p>
+</div>
+			</div>
+			
+			<div class="rgt flex">
+				<div class="fmenu">
+				<ul id="menu-footer1" class="ftrmenu"><li id="menu-item-539" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-539"><a href="https://nesbad.com/" aria-current="page">דף הבית</a></li>
+<li id="menu-item-540" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-540"><a href="https://nesbad.com/%d7%a4%d7%a8%d7%95%d7%a4%d7%99%d7%9c-%d7%97%d7%91%d7%a8%d7%94/">אודות</a></li>
+</ul>				</div>		
+				
+				<div class="fmenu">
+				<ul id="menu-footer2" class="ftrmenu"><li id="menu-item-541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-541"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/">שירות ותמיכה</a></li>
+<li id="menu-item-542" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-542"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/%d7%97%d7%9c%d7%a7%d7%99-%d7%97%d7%99%d7%9c%d7%95%d7%a3/">חלקי חילוף</a></li>
+<li id="menu-item-543" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-543"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa/">שירות לקוחות</a></li>
+<li id="menu-item-544" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-544"><a href="https://nesbad.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%aa%d7%9e%d7%99%d7%9b%d7%94/%d7%94%d7%93%d7%a8%d7%9b%d7%95%d7%aa/">הדרכות</a></li>
+</ul>				</div>		
+				
+				<div class="fmenu">
+				<ul id="menu-footer3" class="ftrmenu"><li id="menu-item-545" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/">מכונות אריזה</a></li>
+<li id="menu-item-546" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-546"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%99%d7%a6%d7%a8%d7%9f/">לפי יצרן</a></li>
+<li id="menu-item-547" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-547"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%90%d7%a8%d7%99%d7%96%d7%94/">לפי סוג אריזה</a></li>
+<li id="menu-item-548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-548"><a href="https://nesbad.com/%d7%9e%d7%9b%d7%95%d7%a0%d7%95%d7%aa-%d7%90%d7%a8%d7%99%d7%96%d7%94/%d7%9c%d7%a4%d7%99-%d7%a1%d7%95%d7%92-%d7%9e%d7%95%d7%a6%d7%a8/">לפי סוג מוצר</a></li>
+</ul>				</div>		
+				
+				<div class="fmenu">
+				<ul id="menu-footer4" class="ftrmenu"><li id="menu-item-550" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-550"><a href="https://nesbad.com/%d7%91%d7%99%d7%9f-%d7%9c%d7%a7%d7%95%d7%97%d7%aa%d7%99%d7%a0%d7%95/">בין לקוחתינו</a></li>
+<li id="menu-item-549" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-549"><a href="https://nesbad.com/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/">צור קשר</a></li>
+</ul>				</div>		
+			</div>
+		</div>		
+	</div>
+	<div class="copyright">Copyright 2026 Nesbad LTD | All Rights Reserved</div>	
+	</footer>			
+    <!-- end -->
+	
+		
+</div>
+<!-- end -->
+
+
+		<script type="rocketlazyloadscript">
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = true;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/nesbad/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+
+<script type="rocketlazyloadscript">
+		if(typeof revslider_showDoubleJqueryError === "undefined") {function revslider_showDoubleJqueryError(sliderID) {console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");console.log("To fix this, you can:");console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");console.log("2. Find the double jQuery.js inclusion and remove it");return "Double Included jQuery Library";}}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.6.20" defer="" async="" id="tp-tools-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.6.20" defer="" async="" id="revmin-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-content/cache/min/1/wp-content/themes/nesbad/assets/js/fancybox/fancybox.js?ver=1773754692" id="fancybox-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-content/themes/nesbad/assets/js/isotope-docs.min.js?ver=6.9.4" id="isotope-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-content/cache/min/1/wp-content/themes/nesbad/assets/js/owl/owl.js?ver=1773754692" id="owl-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-content/cache/min/1/aos@2.3.1/dist/aos.js?ver=1773754692" id="aos-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://nesbad.com/wp-content/cache/min/1/wp-content/themes/nesbad/assets/js/all.js?ver=1773754692" id="all-js" defer=""></script>
+<script type="rocketlazyloadscript" id="rs-initialisation-scripts">
+		var	tpj = jQuery;
+
+		var	revapi2;
+
+		if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+		if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+		RS_MODULES.modules["revslider21"] = {once: RS_MODULES.modules["revslider21"]!==undefined ? RS_MODULES.modules["revslider21"].once : undefined, init:function() {
+			window.revapi2 = window.revapi2===undefined || window.revapi2===null || window.revapi2.length===0  ? document.getElementById("rev_slider_2_1") : window.revapi2;
+			if(window.revapi2 === null || window.revapi2 === undefined || window.revapi2.length==0) { window.revapi2initTry = window.revapi2initTry ===undefined ? 0 : window.revapi2initTry+1; if (window.revapi2initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider21"].init()}); return;}
+			window.revapi2 = jQuery(window.revapi2);
+			if(window.revapi2.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_2_1"); return;}
+			revapi2.revolutionInit({
+					revapi:"revapi2",
+					DPR:"dpr",
+					duration:15300,
+					visibilityLevels:"1240,1024,778,480",
+					gridwidth:"1400,1024,778,720",
+					gridheight:"450,450,600,600",
+					lazyType:"smart",
+					spinner:"spinner0",
+					perspective:600,
+					perspectiveType:"local",
+					editorheight:"450,450,600,600",
+					responsiveLevels:"1240,1024,778,480",
+					shuffle:true,
+					progressBar:{disableProgressBar:true},
+					navigation: {
+						mouseScrollNavigation:false,
+						wheelCallDelay:1000,
+						onHoverStop:false,
+						bullets: {
+							enable:true,
+							tmp:"<span class=\"tp-bullet-title\">{{title}}</span>",
+							style:"ares",
+							v_offset:10,
+							space:4
+						}
+					},
+					viewPort: {
+						global:true,
+						globalDist:"-200px",
+						enable:false,
+						visible_area:"20%"
+					},
+					fallbacks: {
+						allowHTML5AutoPlayOnAndroid:true
+					},
+			});
+			
+		}} // End of RevInitScript
+
+		if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
+	</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://nesbad.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+function validateEmail($email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  return emailReg.test( $email );
+}
+jQuery.fn.ForceNumericOnly =
+function()
+{
+    return this.each(function()
+    {
+        jQuery(this).keydown(function(e)
+        {
+            var key = e.charCode || e.keyCode || 0;
+            // allow backspace, tab, delete, enter, arrows, numbers and keypad numbers ONLY
+            // home, end, period, and numpad decimal
+            return (
+                key == 8 || 
+                key == 9 ||
+                key == 13 ||
+                key == 46 ||
+                key == 110 ||
+                key == 190 ||
+                (key >= 35 && key <= 40) ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+        });
+    });
+};
+jQuery(document).ready(function($){	
+	jQuery('#telephone').ForceNumericOnly();
+});
+</script> 
+
+
+</body></html>

@@ -1,0 +1,73 @@
+[2026-03-18T07:06:40.080Z] === Homepage AI Extractor: Inspir Labs ===
+[2026-03-18T07:06:40.080Z] Started at: 2026-03-18T07:06:40.080Z
+[2026-03-18T07:06:40.080Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773817600079_Inspir_Labs
+[2026-03-18T07:06:40.080Z] Company: Inspir Labs
+[2026-03-18T07:06:40.080Z] Website: inspirlabs.com
+[2026-03-18T07:06:40.080Z] cbRank: 1567282
+[2026-03-18T07:06:40.080Z] Reasons: h
+[2026-03-18T07:06:40.080Z] Fetching: https://inspirlabs.com
+[2026-03-18T07:06:50.857Z] Network idle timeout — continuing with current state
+[2026-03-18T07:06:50.894Z] Redirected: https://inspirlabs.com -> https://www.inspirlabs.com/
+[2026-03-18T07:06:50.906Z] Saved HTML (524943 bytes) to page.html
+[2026-03-18T07:06:50.909Z] Extracted 17 unique links from page
+[2026-03-18T07:06:50.909Z] Saved 17 links to links.json
+[2026-03-18T07:06:50.911Z] Extracted footer HTML (8486 chars)
+[2026-03-18T07:06:50.911Z] Extracted header HTML (9285 chars)
+[2026-03-18T07:06:50.916Z] Website (post-redirect): https://www.inspirlabs.com/ → origin: https://www.inspirlabs.com
+[2026-03-18T07:06:50.916Z] External links: 4 (of 17 total)
+[2026-03-18T07:06:50.916Z] ── All external links ──
+[2026-03-18T07:06:50.916Z]   EXT: https://efrator.com
+[2026-03-18T07:06:50.917Z]   EXT: https://www.linkedin.com/company/inspir-labs-ltd
+[2026-03-18T07:06:50.917Z]   EXT: https://www.medical-jpn.jp/hub/en-gb.html
+[2026-03-18T07:06:50.917Z]   EXT: https://www.youtube.com/channel/UCBAtLLjvoi0UWQwYowTCVpw
+[2026-03-18T07:06:50.917Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T07:06:50.917Z]   UNCATEGORIZED: https://efrator.com
+[2026-03-18T07:06:50.917Z]   REGEX: li <- https://www.linkedin.com/company/inspir-labs-ltd
+[2026-03-18T07:06:50.917Z]   UNCATEGORIZED: https://www.medical-jpn.jp/hub/en-gb.html
+[2026-03-18T07:06:50.917Z]   REGEX: ytc <- https://www.youtube.com/channel/UCBAtLLjvoi0UWQwYowTCVpw
+[2026-03-18T07:06:50.917Z] Programmatic result: ws:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-18T07:06:50.917Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T07:06:50.918Z] Saved AI prompt (8494 chars) to ai_prompt.txt
+[2026-03-18T07:06:50.918Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T07:06:50.922Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T07:07:35.326Z]   AI: First token received, streaming...
+[2026-03-18T07:07:45.064Z] AI response complete: 133 chars in 54.1s
+[2026-03-18T07:07:45.065Z] Saved AI response to ai_response.json
+[2026-03-18T07:07:45.066Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T07:07:45.066Z]   AI LINK: https://www.inspirlabs.com
+[2026-03-18T07:07:45.066Z]   AI LINK: https://www.linkedin.com/company/inspir-labs-ltd/
+[2026-03-18T07:07:45.066Z]   AI LINK: https://www.youtube.com/channel/UCBAtLLjvoi0UWQwYowTCVpw
+[2026-03-18T07:07:45.066Z] AI returned 3 valid links
+[2026-03-18T07:07:45.067Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T07:07:45.067Z]   AI→URLS: https://www.inspirlabs.com
+[2026-03-18T07:07:45.067Z]   AI→REGEX: li <- https://www.linkedin.com/company/inspir-labs-ltd/ (duplicate, skipped)
+[2026-03-18T07:07:45.067Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCBAtLLjvoi0UWQwYowTCVpw (duplicate, skipped)
+[2026-03-18T07:07:45.068Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T07:07:45.068Z] Footer/header origins (4):
+[2026-03-18T07:07:45.068Z]   FOOTER/HEADER ORIGIN: https://www.inspirlabs.com
+[2026-03-18T07:07:45.068Z]   FOOTER/HEADER ORIGIN: https://efrator.com
+[2026-03-18T07:07:45.068Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-18T07:07:45.068Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T07:07:45.069Z]   ADDED: urls <- https://efrator.com
+[2026-03-18T07:07:45.069Z]   SKIP (not in footer/header): https://www.medical-jpn.jp/hub/en-gb.html
+[2026-03-18T07:07:45.069Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T07:07:45.069Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T07:07:45.069Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T07:07:45.358Z]   YOUTUBE: UCBAtLLjvoi0UWQwYowTCVpw has no @handle (from https://www.youtube.com/channel/UCBAtLLjvoi0UWQwYowTCVpw)
+[2026-03-18T07:07:45.358Z]   YOUTUBE: no new ytp URLs resolved
+[2026-03-18T07:07:45.358Z] ── Step 3: Final dedup ──
+[2026-03-18T07:07:45.358Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T07:07:45.358Z] ── FINAL RESULT ──
+[2026-03-18T07:07:45.358Z]   ws (1):
+[2026-03-18T07:07:45.358Z]     - https://www.inspirlabs.com
+[2026-03-18T07:07:45.358Z]   li (1):
+[2026-03-18T07:07:45.358Z]     - https://www.linkedin.com/company/inspir-labs-ltd
+[2026-03-18T07:07:45.359Z]   ytc (1):
+[2026-03-18T07:07:45.359Z]     - https://www.youtube.com/channel/UCBAtLLjvoi0UWQwYowTCVpw
+[2026-03-18T07:07:45.359Z]   urls (2):
+[2026-03-18T07:07:45.359Z]     - https://efrator.com
+[2026-03-18T07:07:45.359Z]     - https://www.inspirlabs.com
+[2026-03-18T07:07:45.359Z] Summary: ws:1, li:1, ytc:1, urls:2
+[2026-03-18T07:07:45.359Z] Saved final result to result.json
+[2026-03-18T07:07:45.360Z] Override fields: ws, li, ytc, urls
+[2026-03-18T07:07:45.360Z] Finished at: 2026-03-18T07:07:45.360Z

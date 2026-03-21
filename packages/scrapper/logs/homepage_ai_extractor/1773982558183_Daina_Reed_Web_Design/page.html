@@ -1,0 +1,510 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daina Reed - Digital Generalist</title>
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text x='15' y='58' font-family='Arial Black,sans-serif' font-size='48' font-weight='900' fill='%23FEFCF8' transform='rotate(-5 15 58)'&gt;D&lt;/text&gt;&lt;text x='52' y='72' font-family='Arial Black,sans-serif' font-size='50' font-weight='900' fill='%23FEFCF8' transform='rotate(5 52 72)'&gt;R&lt;/text&gt;&lt;/svg&gt;">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Special+Elite&amp;family=Righteous&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #2c1111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0 80px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* Font cycling animation */
+        @keyframes cycleFonts1 {
+            0%, 100% { font-family: 'Righteous', cursive; }
+            20% { font-family: 'Bebas Neue', sans-serif; }
+            40% { font-family: 'Special Elite', monospace; }
+            60% { font-family: 'Permanent Marker', cursive; }
+            80% { font-family: 'Fugaz One', cursive; }
+        }
+
+        @keyframes cycleFonts2 {
+            0%, 100% { font-family: 'Bebas Neue', sans-serif; }
+            20% { font-family: 'Righteous', cursive; }
+            40% { font-family: 'Fugaz One', cursive; }
+            60% { font-family: 'Special Elite', monospace; }
+            80% { font-family: 'Permanent Marker', cursive; }
+        }
+
+        @keyframes cycleFonts3 {
+            0%, 100% { font-family: 'Special Elite', monospace; }
+            20% { font-family: 'Fugaz One', cursive; }
+            40% { font-family: 'Righteous', cursive; }
+            60% { font-family: 'Bebas Neue', sans-serif; }
+            80% { font-family: 'Permanent Marker', cursive; }
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tagline {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #F8F4ED;
+            margin-top: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Primary CTAs - Large playful stickers */
+        .primary-ctas {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            gap: 0px;
+            justify-content: center;
+            margin: 50px auto 80px;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .primary-cta {
+            flex: 1;
+            max-width: 380px;
+            padding: 36px 32px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-6px) rotate(calc(var(--rotation) * 1.15)) scale(1.06);
+            box-shadow: 
+                0 12px 32px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            z-index: 10;
+        }
+
+        .primary-cta:active {
+            transform: translateY(-3px) rotate(var(--rotation)) scale(1.02);
+        }
+
+        .primary-cta-services {
+            background: linear-gradient(135deg, #AE8CEE 0%, #8C9BEE 100%);
+            border-radius: 36px 32px 38px 30px;
+            transform: rotate(-5deg);
+            --rotation: -5deg;
+            margin-right: -15px;
+            z-index: 2;
+        }
+
+        .primary-cta-hire {
+            background: linear-gradient(135deg, #F38C71 0%, #E77B96 100%);
+            border-radius: 32px 38px 30px 36px;
+            transform: rotate(5deg);
+            --rotation: 5deg;
+            margin-left: -15px;
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .cta-text {
+            display: contents;
+        }
+
+        .cta-emoji {
+            font-size: 64px;
+            margin-bottom: 16px;
+            display: block;
+            line-height: 1;
+        }
+
+        .cta-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #2E2E2E;
+            margin-bottom: 12px;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .cta-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(46, 46, 46, 0.75);
+            line-height: 1.4;
+            display: block;
+        }
+
+        /* Portfolio section */
+        .portfolio-section {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .portfolio-label {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #F7ECE9;
+            opacity: 0.6;
+            margin-bottom: 24px;
+        }
+
+        /* Main hero text - DAINA REED - matching final-logo.html exactly */
+        .line {
+            display: block;
+            white-space: nowrap;
+            line-height: 0.85;
+        }
+
+        .line:first-child {
+            margin-bottom: -25px;
+        }
+
+        .letter {
+            display: inline-block;
+            line-height: 1;
+            color: #FEFCF8;
+            transition: transform 0.3s ease;
+        }
+
+        .letter:hover {
+            transform: scale(1.08) rotate(calc(var(--rotation) * 1.3));
+        }
+
+        /* DAINA - First line - matching final-logo.html with colors */
+        .line:nth-child(1) .letter:nth-child(1) { 
+            font-family: 'Righteous', cursive; 
+            font-size: 175px; 
+            color: #AE8CEE;
+            transform: rotate(-3deg); 
+            --rotation: -3deg;
+            animation: cycleFonts1 2s ease-in-out 0s 1 forwards;
+        }
+        .line:nth-child(1) .letter:nth-child(2) { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 166px; 
+            color: #8C9BEE;
+            transform: rotate(2deg); 
+            --rotation: 2deg;
+            animation: cycleFonts2 2s ease-in-out 0.1s 1 forwards;
+        }
+        .line:nth-child(1) .letter:nth-child(3) { 
+            font-family: 'Special Elite', monospace; 
+            font-size: 159px; 
+            color: #F38C71;
+            transform: rotate(-4deg); 
+            --rotation: -4deg;
+            animation: cycleFonts3 2s ease-in-out 0.2s 1 forwards;
+        }
+        .line:nth-child(1) .letter:nth-child(4) { 
+            font-family: 'Righteous', cursive; 
+            font-size: 171px; 
+            color: #E77B96;
+            transform: rotate(3deg); 
+            --rotation: 3deg;
+            animation: cycleFonts1 2s ease-in-out 0.3s 1 forwards;
+        }
+        .line:nth-child(1) .letter:nth-child(5) { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 159px; 
+            color: #D887C7;
+            transform: rotate(-2deg); 
+            --rotation: -2deg;
+            animation: cycleFonts2 2s ease-in-out 0.4s 1 forwards;
+        }
+
+        /* REED - Second line - matching final-logo.html with colors */
+        .line:nth-child(2) .letter:nth-child(1) { 
+            font-family: 'Righteous', cursive; 
+            font-size: 184px; 
+            color: #F38C71;
+            transform: rotate(3deg); 
+            --rotation: 3deg;
+            animation: cycleFonts1 2s ease-in-out 0.5s 1 forwards;
+        }
+        .line:nth-child(2) .letter:nth-child(2) { 
+            font-family: 'Special Elite', monospace; 
+            font-size: 154px; 
+            color: #E77B96;
+            transform: rotate(-2deg); 
+            --rotation: -2deg;
+            animation: cycleFonts3 2s ease-in-out 0.6s 1 forwards;
+        }
+        .line:nth-child(2) .letter:nth-child(3) { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 175px; 
+            color: #D887C7;
+            transform: rotate(4deg); 
+            --rotation: 4deg;
+            animation: cycleFonts2 2s ease-in-out 0.7s 1 forwards;
+        }
+        .line:nth-child(2) .letter:nth-child(4) { 
+            font-family: 'Righteous', cursive; 
+            font-size: 175px; 
+            color: #AE8CEE;
+            transform: rotate(-3deg); 
+            --rotation: -3deg;
+            animation: cycleFonts1 2s ease-in-out 0.8s 1 forwards;
+        }
+
+        /* Sticker CTAs - now secondary portfolio links */
+        .stickers {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .sticker {
+            padding: 12px 24px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #2E2E2E;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .sticker:hover {
+            transform: translateY(-2px) rotate(calc(var(--rotation) * 1.05)) scale(1.03);
+            box-shadow: 
+                0 6px 16px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .sticker:active {
+            transform: translateY(-1px) rotate(var(--rotation)) scale(0.98);
+        }
+
+        .sticker-pitchdecks {
+            background: linear-gradient(135deg, #AE8CEE 0%, #8C9BEE 100%);
+            border-radius: 28px 32px 25px 30px;
+            transform: rotate(4deg);
+            --rotation: 4deg;
+        }
+
+        .sticker-brand {
+            background: linear-gradient(135deg, #E77B96 0%, #D887C7 100%);
+            border-radius: 30px 25px 30px 28px;
+            transform: rotate(-5deg);
+            --rotation: -5deg;
+        }
+
+        .sticker-websites {
+            background: linear-gradient(135deg, #D887C7 0%, #AE8CEE 100%);
+            border-radius: 35px;
+            transform: rotate(-3deg);
+            --rotation: -3deg;
+        }
+
+        .sticker-marketing {
+            background: linear-gradient(135deg, #F38C71 0%, #E77B96 100%);
+            border-radius: 30px 28px 32px 26px;
+            transform: rotate(3deg);
+            --rotation: 3deg;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .letter { font-size: 115px !important; }
+            .line:first-child { margin-bottom: -18px; }
+            .primary-ctas {
+                max-width: 700px;
+                gap: 0px;
+            }
+            .primary-cta {
+                padding: 28px 24px;
+            }
+            .primary-cta-services {
+                margin-right: -10px;
+            }
+            .primary-cta-hire {
+                margin-left: -10px;
+            }
+            .cta-emoji { font-size: 52px; }
+            .cta-title { font-size: 21px; }
+            .cta-subtitle { font-size: 14px; }
+            .sticker {
+                font-size: 13px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .letter { 
+                font-size: 23vw !important; 
+            }
+            .line:first-child { margin-bottom: -3.5vw; }
+            .hero-text { 
+                margin-bottom: 30px;
+                width: 100%;
+                padding: 0 0px;
+            }
+            .tagline {
+                font-size: 14px;
+                margin-top: 30px;
+                padding: 0 20px;
+                margin-bottom: 20px;
+            }
+            .primary-ctas {
+                flex-direction: column;
+                gap: 16px;
+                margin: 40px auto 60px;
+                max-width: 340px;
+            }
+            .primary-cta {
+                max-width: 100%;
+                padding: 20px;
+            }
+            .primary-cta-services {
+                margin-right: 0;
+                transform: rotate(-3deg);
+            }
+            .primary-cta-hire {
+                margin-left: 0;
+                transform: rotate(3deg);
+            }
+            .cta-content {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                text-align: left;
+            }
+            .cta-text {
+                display: block;
+                flex: 1;
+            }
+            .cta-emoji { 
+                font-size: 44px; 
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            .cta-title { 
+                font-size: 18px;
+                margin-bottom: 4px;
+            }
+            .cta-subtitle { font-size: 14px; }
+            .stickers {
+                gap: 12px;
+            }
+            .sticker {
+                font-size: 12px;
+                padding: 10px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter { 
+                font-size: 22vw !important; 
+            }
+            .line:first-child { margin-bottom: -3.5vw; }
+            .tagline {
+                font-size: 14px;
+                margin-top: 25px;
+            }
+            .primary-ctas {
+                margin: 30px auto 50px;
+                gap: 14px;
+            }
+            .primary-cta {
+                padding: 18px;
+            }
+            .cta-emoji { font-size: 40px; }
+            .cta-title { 
+                font-size: 17px;
+                margin-bottom: 4px;
+            }
+            .cta-subtitle { font-size: 14px; }
+            .sticker {
+                font-size: 11px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-text">
+        <span class="line">
+            <span class="letter">D</span><span class="letter">A</span><span class="letter">I</span><span class="letter">N</span><span class="letter">A</span>
+        </span>
+        <span class="line">
+            <span class="letter">R</span><span class="letter">E</span><span class="letter">E</span><span class="letter">D</span>
+        </span>
+        <p class="tagline">Designing since 2000. That's 25 years of range.<br>Seen every trend cycle, now building with AI while others catch up.</p>
+    </div>
+
+    <!-- Primary CTAs -->
+    <div class="primary-ctas">
+        <a href="https://sprint.dainareed.com" target="_blank" class="primary-cta primary-cta-services">
+            <div class="cta-content">
+                <span class="cta-emoji">⚡</span>
+                <div class="cta-text">
+                    <span class="cta-title">Hire me for a project</span>
+                    <span class="cta-subtitle">Fixed-price sprints. Brand, website, or product design in 2-3 weeks.</span>
+                </div>
+            </div>
+        </a>
+        <a href="https://productdesign.dainareed.com" target="_blank" class="primary-cta primary-cta-hire">
+            <div class="cta-content">
+                <span class="cta-emoji">👋</span>
+                <div class="cta-text">
+                    <span class="cta-title">Product Design Portfolio</span>
+                    <span class="cta-subtitle">10+ years building products. Open to founding roles and strategic contracts.</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Portfolio Examples -->
+    <div class="portfolio-section">
+        <div class="portfolio-label">Past lives &amp; proof of range</div>
+        <div class="stickers">
+            <a href="https://www.dropbox.com/scl/fi/7oknf6yxat418c1j4a1sk/PresentationPitch-Deck-Design.paper?rlkey=a0nadzum2cwbw07u1m3xemq1x&amp;dl=0" target="_blank" class="sticker sticker-pitchdecks">Pitch Decks</a>
+            <a href="https://pigs-own-rbj.craft.me/p6WNbiQ2YUf60T" target="_blank" class="sticker sticker-brand">Brand Design</a>
+            <a href="https://pigs-own-rbj.craft.me/rgwAcaqYU7PvvB" target="_blank" class="sticker sticker-websites">Web Design</a>
+            <a href="https://pigs-own-rbj.craft.me/0JEt5M5gRW7LQ9" target="_blank" class="sticker sticker-marketing">Marketing Materials</a>
+        </div>
+    </div>
+
+
+</body></html>

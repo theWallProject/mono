@@ -1,0 +1,79 @@
+[2026-03-19T04:41:17.718Z] === Homepage AI Extractor: Neviot ===
+[2026-03-19T04:41:17.718Z] Started at: 2026-03-19T04:41:17.718Z
+[2026-03-19T04:41:17.718Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773895277718_Neviot
+[2026-03-19T04:41:17.719Z] Company: Neviot
+[2026-03-19T04:41:17.719Z] Website: neviot.co.il
+[2026-03-19T04:41:17.719Z] cbRank: 1916378
+[2026-03-19T04:41:17.719Z] Reasons: h
+[2026-03-19T04:41:17.719Z] Fetching: https://neviot.co.il
+[2026-03-19T04:41:21.522Z] Redirected: https://neviot.co.il -> https://neviot.co.il/
+[2026-03-19T04:41:21.526Z] Saved HTML (84637 bytes) to page.html
+[2026-03-19T04:41:21.529Z] Extracted 27 unique links from page
+[2026-03-19T04:41:21.530Z] Saved 27 links to links.json
+[2026-03-19T04:41:21.532Z] Extracted footer HTML (4909 chars)
+[2026-03-19T04:41:21.532Z] Extracted header HTML (6791 chars)
+[2026-03-19T04:41:21.535Z] Website (post-redirect): https://neviot.co.il/ → origin: https://neviot.co.il
+[2026-03-19T04:41:21.536Z] External links: 6 (of 27 total)
+[2026-03-19T04:41:21.536Z] ── All external links ──
+[2026-03-19T04:41:21.536Z]   EXT: https://wa.me/972529996200
+[2026-03-19T04:41:21.536Z]   EXT: https://www.facebook.com/NeviotPlus.IL
+[2026-03-19T04:41:21.536Z]   EXT: https://www.google.com
+[2026-03-19T04:41:21.536Z]   EXT: https://www.instagram.com/neviot_il
+[2026-03-19T04:41:21.537Z]   EXT: https://www.neviotglobal.com/en/home
+[2026-03-19T04:41:21.537Z]   EXT: https://www.youtube.com/@NeviotIL
+[2026-03-19T04:41:21.537Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T04:41:21.537Z]   UNCATEGORIZED: https://wa.me/972529996200
+[2026-03-19T04:41:21.537Z]   REGEX: fb <- https://www.facebook.com/NeviotPlus.IL
+[2026-03-19T04:41:21.537Z]   UNCATEGORIZED: https://www.google.com
+[2026-03-19T04:41:21.537Z]   REGEX: ig <- https://www.instagram.com/neviot_il
+[2026-03-19T04:41:21.537Z]   UNCATEGORIZED: https://www.neviotglobal.com/en/home
+[2026-03-19T04:41:21.537Z]   REGEX: ytp <- https://www.youtube.com/@NeviotIL
+[2026-03-19T04:41:21.537Z] Programmatic result: ws:1, fb:1, ig:1, ytp:1 | 3 uncategorized
+[2026-03-19T04:41:21.537Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T04:41:21.540Z] Saved AI prompt (5535 chars) to ai_prompt.txt
+[2026-03-19T04:41:21.541Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T04:41:21.544Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T04:41:50.230Z]   AI: First token received, streaming...
+[2026-03-19T04:41:56.488Z] AI response complete: 112 chars in 34.9s
+[2026-03-19T04:41:56.489Z] Saved AI response to ai_response.json
+[2026-03-19T04:41:56.490Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T04:41:56.490Z]   AI LINK: https://www.neviotglobal.com/en/home
+[2026-03-19T04:41:56.490Z]   AI LINK: https://www.facebook.com/NeviotPlus.IL
+[2026-03-19T04:41:56.490Z]   AI LINK: https://www.instagram.com/neviot_il/
+[2026-03-19T04:41:56.490Z] AI returned 3 valid links
+[2026-03-19T04:41:56.491Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T04:41:56.491Z]   AI→URLS: https://www.neviotglobal.com/en/home
+[2026-03-19T04:41:56.491Z]   AI→REGEX: fb <- https://www.facebook.com/NeviotPlus.IL (duplicate, skipped)
+[2026-03-19T04:41:56.491Z]   AI→REGEX: ig <- https://www.instagram.com/neviot_il/ (duplicate, skipped)
+[2026-03-19T04:41:56.492Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T04:41:56.492Z] Footer/header origins (6):
+[2026-03-19T04:41:56.492Z]   FOOTER/HEADER ORIGIN: https://www.neviot.co.il
+[2026-03-19T04:41:56.492Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T04:41:56.492Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T04:41:56.492Z]   FOOTER/HEADER ORIGIN: https://www.neviotglobal.com
+[2026-03-19T04:41:56.492Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-19T04:41:56.492Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T04:41:56.493Z]   ADDED: urls <- https://wa.me/972529996200
+[2026-03-19T04:41:56.493Z]   SKIP (not in footer/header): https://www.google.com
+[2026-03-19T04:41:56.493Z]   SKIP (AI claimed): https://www.neviotglobal.com/en/home
+[2026-03-19T04:41:56.493Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T04:41:56.493Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T04:41:56.493Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T04:41:56.493Z] ── Step 3: Final dedup ──
+[2026-03-19T04:41:56.493Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T04:41:56.494Z] ── FINAL RESULT ──
+[2026-03-19T04:41:56.494Z]   ws (1):
+[2026-03-19T04:41:56.494Z]     - https://neviot.co.il
+[2026-03-19T04:41:56.494Z]   fb (1):
+[2026-03-19T04:41:56.494Z]     - https://www.facebook.com/neviotplus.il
+[2026-03-19T04:41:56.494Z]   ig (1):
+[2026-03-19T04:41:56.495Z]     - https://www.instagram.com/neviot_il
+[2026-03-19T04:41:56.495Z]   ytp (1):
+[2026-03-19T04:41:56.495Z]     - https://www.youtube.com/@neviotil
+[2026-03-19T04:41:56.495Z]   urls (2):
+[2026-03-19T04:41:56.495Z]     - https://wa.me/972529996200
+[2026-03-19T04:41:56.495Z]     - https://www.neviotglobal.com/en/home
+[2026-03-19T04:41:56.495Z] Summary: ws:1, fb:1, ig:1, ytp:1, urls:2
+[2026-03-19T04:41:56.496Z] Saved final result to result.json
+[2026-03-19T04:41:56.497Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-19T04:41:56.497Z] Finished at: 2026-03-19T04:41:56.497Z

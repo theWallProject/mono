@@ -1,0 +1,60 @@
+[2026-03-19T18:24:49.385Z] === Homepage AI Extractor: Ecolog ===
+[2026-03-19T18:24:49.385Z] Started at: 2026-03-19T18:24:49.385Z
+[2026-03-19T18:24:49.385Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773944689385_Ecolog
+[2026-03-19T18:24:49.385Z] Company: Ecolog
+[2026-03-19T18:24:49.385Z] Website: ecolog.co.il
+[2026-03-19T18:24:49.385Z] cbRank: 2422582
+[2026-03-19T18:24:49.385Z] Reasons: h
+[2026-03-19T18:24:49.386Z] Fetching: https://ecolog.co.il
+[2026-03-19T18:24:57.110Z] Redirected: https://ecolog.co.il -> https://www.ecolog.co.il/
+[2026-03-19T18:24:57.116Z] Saved HTML (143398 bytes) to page.html
+[2026-03-19T18:24:57.119Z] Extracted 46 unique links from page
+[2026-03-19T18:24:57.120Z] Saved 46 links to links.json
+[2026-03-19T18:24:57.123Z] Extracted footer HTML (23101 chars)
+[2026-03-19T18:24:57.123Z] Extracted header HTML (21573 chars)
+[2026-03-19T18:24:57.128Z] Website (post-redirect): https://www.ecolog.co.il/ → origin: https://www.ecolog.co.il
+[2026-03-19T18:24:57.128Z] External links: 3 (of 46 total)
+[2026-03-19T18:24:57.128Z] ── All external links ──
+[2026-03-19T18:24:57.128Z]   EXT: https://www.facebook.com/ecologeng100
+[2026-03-19T18:24:57.128Z]   EXT: https://www.linkedin.com/company/ecolog/?viewAsMember=true
+[2026-03-19T18:24:57.129Z]   EXT: https://www.linkedin.com/company/ecolog/mycompany/?viewAsMember=true
+[2026-03-19T18:24:57.129Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T18:24:57.129Z]   REGEX: fb <- https://www.facebook.com/ecologeng100
+[2026-03-19T18:24:57.129Z]   REGEX: li <- https://www.linkedin.com/company/ecolog/?viewAsMember=true
+[2026-03-19T18:24:57.129Z]   REGEX: li <- https://www.linkedin.com/company/ecolog/mycompany/?viewAsMember=true (duplicate, skipped)
+[2026-03-19T18:24:57.129Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-19T18:24:57.129Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T18:24:57.159Z] Saved AI prompt (3162 chars) to ai_prompt.txt
+[2026-03-19T18:24:57.159Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T18:24:57.162Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T18:25:12.396Z]   AI: First token received, streaming...
+[2026-03-19T18:25:17.599Z] AI response complete: 106 chars in 20.4s
+[2026-03-19T18:25:17.601Z] Saved AI response to ai_response.json
+[2026-03-19T18:25:17.601Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T18:25:17.601Z]   AI LINK: https://www.facebook.com/ecologeng100
+[2026-03-19T18:25:17.601Z]   AI LINK: https://www.linkedin.com/company/ecolog/mycompany/?viewAsMember=true
+[2026-03-19T18:25:17.601Z] AI returned 2 valid links
+[2026-03-19T18:25:17.602Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T18:25:17.602Z]   AI→REGEX: fb <- https://www.facebook.com/ecologeng100 (duplicate, skipped)
+[2026-03-19T18:25:17.602Z]   AI→REGEX: li <- https://www.linkedin.com/company/ecolog/mycompany/?viewAsMember=true (duplicate, skipped)
+[2026-03-19T18:25:17.603Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T18:25:17.603Z] Footer/header origins (3):
+[2026-03-19T18:25:17.603Z]   FOOTER/HEADER ORIGIN: https://www.ecolog.co.il
+[2026-03-19T18:25:17.603Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T18:25:17.604Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T18:25:17.604Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T18:25:17.604Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T18:25:17.604Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T18:25:17.604Z] ── Step 3: Final dedup ──
+[2026-03-19T18:25:17.604Z] No urls to dedup
+[2026-03-19T18:25:17.604Z] ── FINAL RESULT ──
+[2026-03-19T18:25:17.605Z]   ws (1):
+[2026-03-19T18:25:17.605Z]     - https://www.ecolog.co.il
+[2026-03-19T18:25:17.605Z]   li (1):
+[2026-03-19T18:25:17.605Z]     - https://www.linkedin.com/company/ecolog
+[2026-03-19T18:25:17.605Z]   fb (1):
+[2026-03-19T18:25:17.605Z]     - https://www.facebook.com/ecologeng100
+[2026-03-19T18:25:17.605Z] Summary: ws:1, fb:1, li:1
+[2026-03-19T18:25:17.606Z] Saved final result to result.json
+[2026-03-19T18:25:17.607Z] Override fields: ws, li, fb
+[2026-03-19T18:25:17.607Z] Finished at: 2026-03-19T18:25:17.607Z

@@ -1,0 +1,59 @@
+[2026-03-20T02:32:33.175Z] === Homepage AI Extractor: Tendermind ===
+[2026-03-20T02:32:33.176Z] Started at: 2026-03-20T02:32:33.176Z
+[2026-03-20T02:32:33.176Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773973953175_Tendermind
+[2026-03-20T02:32:33.176Z] Company: Tendermind
+[2026-03-20T02:32:33.176Z] Website: tendermind.ai
+[2026-03-20T02:32:33.176Z] cbRank: 2591299
+[2026-03-20T02:32:33.176Z] Reasons: h
+[2026-03-20T02:32:33.176Z] Fetching: https://tendermind.ai
+[2026-03-20T02:32:43.929Z] Network idle timeout — continuing with current state
+[2026-03-20T02:32:43.962Z] Redirected: https://tendermind.ai -> https://www.tendermind.ai/
+[2026-03-20T02:32:43.976Z] Saved HTML (607027 bytes) to page.html
+[2026-03-20T02:32:43.978Z] Extracted 10 unique links from page
+[2026-03-20T02:32:43.979Z] Saved 10 links to links.json
+[2026-03-20T02:32:43.981Z] Extracted footer HTML (10809 chars)
+[2026-03-20T02:32:43.981Z] Extracted header HTML (5687 chars)
+[2026-03-20T02:32:43.984Z] Website (post-redirect): https://www.tendermind.ai/ → origin: https://www.tendermind.ai
+[2026-03-20T02:32:43.985Z] External links: 2 (of 10 total)
+[2026-03-20T02:32:43.985Z] ── All external links ──
+[2026-03-20T02:32:43.985Z]   EXT: https://www.facebook.com/tendermindapp
+[2026-03-20T02:32:43.985Z]   EXT: https://www.linkedin.com/company/tendermind
+[2026-03-20T02:32:43.985Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T02:32:43.985Z]   REGEX: fb <- https://www.facebook.com/tendermindapp
+[2026-03-20T02:32:43.985Z]   REGEX: li <- https://www.linkedin.com/company/tendermind
+[2026-03-20T02:32:43.985Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-20T02:32:43.985Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T02:32:43.988Z] Saved AI prompt (6537 chars) to ai_prompt.txt
+[2026-03-20T02:32:43.989Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T02:32:43.992Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T02:33:13.086Z]   AI: First token received, streaming...
+[2026-03-20T02:33:16.659Z] AI response complete: 82 chars in 32.7s
+[2026-03-20T02:33:16.660Z] Saved AI response to ai_response.json
+[2026-03-20T02:33:16.661Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T02:33:16.661Z]   AI LINK: https://www.linkedin.com/company/tendermind
+[2026-03-20T02:33:16.661Z]   AI LINK: https://www.facebook.com/tendermindapp
+[2026-03-20T02:33:16.661Z] AI returned 2 valid links
+[2026-03-20T02:33:16.661Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T02:33:16.661Z]   AI→REGEX: li <- https://www.linkedin.com/company/tendermind (duplicate, skipped)
+[2026-03-20T02:33:16.662Z]   AI→REGEX: fb <- https://www.facebook.com/tendermindapp (duplicate, skipped)
+[2026-03-20T02:33:16.662Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T02:33:16.662Z] Footer/header origins (3):
+[2026-03-20T02:33:16.662Z]   FOOTER/HEADER ORIGIN: https://www.tendermind.ai
+[2026-03-20T02:33:16.662Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T02:33:16.662Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T02:33:16.662Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T02:33:16.663Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T02:33:16.663Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T02:33:16.663Z] ── Step 3: Final dedup ──
+[2026-03-20T02:33:16.663Z] No urls to dedup
+[2026-03-20T02:33:16.663Z] ── FINAL RESULT ──
+[2026-03-20T02:33:16.663Z]   ws (1):
+[2026-03-20T02:33:16.663Z]     - https://www.tendermind.ai
+[2026-03-20T02:33:16.663Z]   li (1):
+[2026-03-20T02:33:16.663Z]     - https://www.linkedin.com/company/tendermind
+[2026-03-20T02:33:16.663Z]   fb (1):
+[2026-03-20T02:33:16.664Z]     - https://www.facebook.com/tendermindapp
+[2026-03-20T02:33:16.664Z] Summary: ws:1, fb:1, li:1
+[2026-03-20T02:33:16.665Z] Saved final result to result.json
+[2026-03-20T02:33:16.665Z] Override fields: ws, li, fb
+[2026-03-20T02:33:16.665Z] Finished at: 2026-03-20T02:33:16.665Z

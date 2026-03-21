@@ -1,0 +1,60 @@
+[2026-03-19T18:04:00.764Z] === Homepage AI Extractor: Beatman ===
+[2026-03-19T18:04:00.764Z] Started at: 2026-03-19T18:04:00.764Z
+[2026-03-19T18:04:00.764Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773943440763_Beatman
+[2026-03-19T18:04:00.764Z] Company: Beatman
+[2026-03-19T18:04:00.764Z] Website: beatman.co.il
+[2026-03-19T18:04:00.764Z] cbRank: 2405805
+[2026-03-19T18:04:00.764Z] Reasons: h
+[2026-03-19T18:04:00.764Z] Fetching: https://beatman.co.il
+[2026-03-19T18:04:04.244Z] Redirected: https://beatman.co.il -> https://www.beatman.co.il/
+[2026-03-19T18:04:04.246Z] Saved HTML (26731 bytes) to page.html
+[2026-03-19T18:04:04.249Z] Extracted 25 unique links from page
+[2026-03-19T18:04:04.250Z] Saved 25 links to links.json
+[2026-03-19T18:04:04.252Z] Extracted footer HTML (1272 chars)
+[2026-03-19T18:04:04.252Z] Extracted header HTML (3223 chars)
+[2026-03-19T18:04:04.256Z] Website (post-redirect): https://www.beatman.co.il/ → origin: https://www.beatman.co.il
+[2026-03-19T18:04:04.256Z] External links: 3 (of 25 total)
+[2026-03-19T18:04:04.256Z] ── All external links ──
+[2026-03-19T18:04:04.256Z]   EXT: https://beatman.atlassian.net/servicedesk/customer/portal/15/create/157
+[2026-03-19T18:04:04.256Z]   EXT: https://twitter.com/ibeatman
+[2026-03-19T18:04:04.256Z]   EXT: https://www.facebook.com/ibeatman?fref=tsn
+[2026-03-19T18:04:04.256Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T18:04:04.257Z]   UNCATEGORIZED: https://beatman.atlassian.net/servicedesk/customer/portal/15/create/157
+[2026-03-19T18:04:04.257Z]   REGEX: tw <- https://twitter.com/ibeatman
+[2026-03-19T18:04:04.257Z]   REGEX: fb <- https://www.facebook.com/ibeatman?fref=tsn
+[2026-03-19T18:04:04.257Z] Programmatic result: ws:1, tw:1, fb:1 | 1 uncategorized
+[2026-03-19T18:04:04.257Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T18:04:04.258Z] Saved AI prompt (2951 chars) to ai_prompt.txt
+[2026-03-19T18:04:04.258Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T18:04:04.262Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T18:04:14.598Z]   AI: First token received, streaming...
+[2026-03-19T18:04:18.907Z] AI response complete: 71 chars in 14.6s
+[2026-03-19T18:04:18.908Z] Saved AI response to ai_response.json
+[2026-03-19T18:04:18.908Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T18:04:18.909Z]   AI LINK: https://www.facebook.com/ibeatman?fref=tsn
+[2026-03-19T18:04:18.909Z]   AI LINK: https://twitter.com/ibeatman
+[2026-03-19T18:04:18.909Z] AI returned 2 valid links
+[2026-03-19T18:04:18.909Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T18:04:18.909Z]   AI→REGEX: fb <- https://www.facebook.com/ibeatman?fref=tsn (duplicate, skipped)
+[2026-03-19T18:04:18.910Z]   AI→REGEX: tw <- https://twitter.com/ibeatman (duplicate, skipped)
+[2026-03-19T18:04:18.911Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T18:04:18.911Z] Footer/header origins (2):
+[2026-03-19T18:04:18.911Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T18:04:18.911Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-19T18:04:18.911Z]   SKIP (not in footer/header): https://beatman.atlassian.net/servicedesk/customer/portal/15/create/157
+[2026-03-19T18:04:18.911Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T18:04:18.912Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T18:04:18.912Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T18:04:18.912Z] ── Step 3: Final dedup ──
+[2026-03-19T18:04:18.912Z] No urls to dedup
+[2026-03-19T18:04:18.912Z] ── FINAL RESULT ──
+[2026-03-19T18:04:18.912Z]   ws (1):
+[2026-03-19T18:04:18.912Z]     - https://www.beatman.co.il
+[2026-03-19T18:04:18.912Z]   fb (1):
+[2026-03-19T18:04:18.913Z]     - https://www.facebook.com/ibeatman
+[2026-03-19T18:04:18.913Z]   tw (1):
+[2026-03-19T18:04:18.913Z]     - https://x.com/ibeatman
+[2026-03-19T18:04:18.913Z] Summary: ws:1, tw:1, fb:1
+[2026-03-19T18:04:18.914Z] Saved final result to result.json
+[2026-03-19T18:04:18.914Z] Override fields: ws, fb, tw
+[2026-03-19T18:04:18.915Z] Finished at: 2026-03-19T18:04:18.915Z

@@ -1,0 +1,60 @@
+[2026-03-18T03:55:00.292Z] === Homepage AI Extractor: WOPA ===
+[2026-03-18T03:55:00.292Z] Started at: 2026-03-18T03:55:00.292Z
+[2026-03-18T03:55:00.292Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773806100292_WOPA
+[2026-03-18T03:55:00.292Z] Company: WOPA
+[2026-03-18T03:55:00.292Z] Website: wopa.space
+[2026-03-18T03:55:00.292Z] cbRank: 1480756
+[2026-03-18T03:55:00.292Z] Reasons: h
+[2026-03-18T03:55:00.292Z] Fetching: https://wopa.space
+[2026-03-18T03:55:02.252Z] Redirected: https://wopa.space -> https://wopa.space/
+[2026-03-18T03:55:02.307Z] Saved HTML (245951 bytes) to page.html
+[2026-03-18T03:55:02.398Z] Extracted 19 unique links from page
+[2026-03-18T03:55:02.400Z] Saved 19 links to links.json
+[2026-03-18T03:55:02.447Z] Extracted footer HTML (25 chars)
+[2026-03-18T03:55:02.447Z] Extracted header HTML (6469 chars)
+[2026-03-18T03:55:02.454Z] Website (post-redirect): https://wopa.space/ → origin: https://wopa.space
+[2026-03-18T03:55:02.455Z] External links: 4 (of 19 total)
+[2026-03-18T03:55:02.455Z] ── All external links ──
+[2026-03-18T03:55:02.455Z]   EXT: https://ul.waze.com/ul?utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location
+[2026-03-18T03:55:02.455Z]   EXT: https://waze.com/ul/hsv8z1u6ew
+[2026-03-18T03:55:02.455Z]   EXT: https://www.facebook.com/wopa.community
+[2026-03-18T03:55:02.455Z]   EXT: https://www.wisy.co.il
+[2026-03-18T03:55:02.455Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T03:55:02.455Z]   UNCATEGORIZED: https://ul.waze.com/ul?utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location
+[2026-03-18T03:55:02.455Z]   UNCATEGORIZED: https://waze.com/ul/hsv8z1u6ew
+[2026-03-18T03:55:02.456Z]   REGEX: fb <- https://www.facebook.com/wopa.community
+[2026-03-18T03:55:02.456Z]   UNCATEGORIZED: https://www.wisy.co.il
+[2026-03-18T03:55:02.456Z] Programmatic result: ws:1, fb:1 | 3 uncategorized
+[2026-03-18T03:55:02.456Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T03:55:02.459Z] Saved AI prompt (2081 chars) to ai_prompt.txt
+[2026-03-18T03:55:02.459Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T03:55:02.463Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T03:55:08.029Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-18T03:55:08.030Z] AI response complete: 0 chars in 5.6s
+[2026-03-18T03:55:08.031Z] Saved AI response to ai_response.json
+[2026-03-18T03:55:08.032Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T03:55:08.032Z] AI returned 0 valid links
+[2026-03-18T03:55:08.032Z] ── Categorizing 0 AI-returned links ──
+[2026-03-18T03:55:08.032Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T03:55:08.032Z] Footer/header origins (2):
+[2026-03-18T03:55:08.033Z]   FOOTER/HEADER ORIGIN: https://wopa.space
+[2026-03-18T03:55:08.033Z]   FOOTER/HEADER ORIGIN: https://waze.com
+[2026-03-18T03:55:08.033Z]   SKIP (not in footer/header): https://ul.waze.com/ul?utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location
+[2026-03-18T03:55:08.033Z]   ADDED: urls <- https://waze.com/ul/hsv8z1u6ew
+[2026-03-18T03:55:08.033Z]   SKIP (not in footer/header): https://www.wisy.co.il
+[2026-03-18T03:55:08.033Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T03:55:08.033Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T03:55:08.034Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T03:55:08.034Z] ── Step 3: Final dedup ──
+[2026-03-18T03:55:08.034Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T03:55:08.034Z] ── FINAL RESULT ──
+[2026-03-18T03:55:08.034Z]   ws (1):
+[2026-03-18T03:55:08.034Z]     - https://wopa.space
+[2026-03-18T03:55:08.034Z]   fb (1):
+[2026-03-18T03:55:08.034Z]     - https://www.facebook.com/wopa.community
+[2026-03-18T03:55:08.034Z]   urls (1):
+[2026-03-18T03:55:08.035Z]     - https://waze.com/ul/hsv8z1u6ew
+[2026-03-18T03:55:08.035Z] Summary: ws:1, fb:1, urls:1
+[2026-03-18T03:55:08.036Z] Saved final result to result.json
+[2026-03-18T03:55:08.036Z] Override fields: ws, fb, urls
+[2026-03-18T03:55:08.036Z] Finished at: 2026-03-18T03:55:08.036Z

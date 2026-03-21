@@ -1,0 +1,68 @@
+[2026-03-17T19:17:14.664Z] === Homepage AI Extractor: Ravona ===
+[2026-03-17T19:17:14.664Z] Started at: 2026-03-17T19:17:14.664Z
+[2026-03-17T19:17:14.664Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773775034663_Ravona
+[2026-03-17T19:17:14.665Z] Company: Ravona
+[2026-03-17T19:17:14.665Z] Website: aravona.com
+[2026-03-17T19:17:14.665Z] cbRank: 1271512
+[2026-03-17T19:17:14.665Z] Reasons: h
+[2026-03-17T19:17:14.665Z] Fetching: https://aravona.com
+[2026-03-17T19:17:25.487Z] Network idle timeout — continuing with current state
+[2026-03-17T19:17:25.625Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-17T19:17:30.703Z] Redirected: https://aravona.com -> https://aravona.com/
+[2026-03-17T19:17:30.710Z] Saved HTML (270807 bytes) to page.html
+[2026-03-17T19:17:30.714Z] Extracted 20 unique links from page
+[2026-03-17T19:17:30.714Z] Saved 20 links to links.json
+[2026-03-17T19:17:30.717Z] Extracted footer HTML (13226 chars)
+[2026-03-17T19:17:30.717Z] Extracted header HTML (23519 chars)
+[2026-03-17T19:17:30.720Z] Website (post-redirect): https://aravona.com/ → origin: https://aravona.com
+[2026-03-17T19:17:30.720Z] External links: 3 (of 20 total)
+[2026-03-17T19:17:30.720Z] ── All external links ──
+[2026-03-17T19:17:30.720Z]   EXT: https://twitter.com/ARavona
+[2026-03-17T19:17:30.720Z]   EXT: https://www.facebook.com/profile.php?id=100063648407311
+[2026-03-17T19:17:30.720Z]   EXT: https://www.linkedin.com/company/ravona
+[2026-03-17T19:17:30.720Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T19:17:30.721Z]   REGEX: tw <- https://twitter.com/ARavona
+[2026-03-17T19:17:30.721Z]   REGEX: li <- https://www.linkedin.com/company/ravona
+[2026-03-17T19:17:30.721Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T19:17:31.908Z]   RESOLVE: https://www.facebook.com/profile.php?id=100063648407311 → https://www.facebook.com/people/A-Ravona-Glove-BoxesIsolators/100063648407311
+[2026-03-17T19:17:31.913Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/A-Ravona-Glove-BoxesIsolators/100063648407311 (from https://www.facebook.com/profile.php?id=100063648407311)
+[2026-03-17T19:17:31.913Z] Programmatic result: ws:1, tw:1, li:1 | 0 uncategorized
+[2026-03-17T19:17:31.913Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T19:17:31.914Z] Saved AI prompt (7089 chars) to ai_prompt.txt
+[2026-03-17T19:17:31.914Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T19:17:31.918Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T19:18:01.589Z]   AI: First token received, streaming...
+[2026-03-17T19:18:10.972Z] AI response complete: 124 chars in 39.1s
+[2026-03-17T19:18:10.973Z] Saved AI response to ai_response.json
+[2026-03-17T19:18:10.973Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T19:18:10.974Z]   AI LINK: https://www.facebook.com/profile.php?id=100063648407311
+[2026-03-17T19:18:10.974Z]   AI LINK: https://twitter.com/ARavona
+[2026-03-17T19:18:10.974Z]   AI LINK: https://www.linkedin.com/company/ravona/
+[2026-03-17T19:18:10.974Z] AI returned 3 valid links
+[2026-03-17T19:18:10.974Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T19:18:11.901Z]   RESOLVE: https://www.facebook.com/profile.php?id=100063648407311 → https://www.facebook.com/people/A-Ravona-Glove-BoxesIsolators/100063648407311
+[2026-03-17T19:18:11.914Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/A-Ravona-Glove-BoxesIsolators/100063648407311 (from https://www.facebook.com/profile.php?id=100063648407311)
+[2026-03-17T19:18:11.914Z]   AI→REGEX: tw <- https://twitter.com/ARavona (duplicate, skipped)
+[2026-03-17T19:18:11.914Z]   AI→REGEX: li <- https://www.linkedin.com/company/ravona/ (duplicate, skipped)
+[2026-03-17T19:18:11.914Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T19:18:11.914Z] Footer/header origins (4):
+[2026-03-17T19:18:11.914Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T19:18:11.914Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-17T19:18:11.915Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T19:18:11.915Z]   FOOTER/HEADER ORIGIN: https://aravona.com
+[2026-03-17T19:18:11.915Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T19:18:11.915Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T19:18:11.915Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T19:18:11.915Z] ── Step 3: Final dedup ──
+[2026-03-17T19:18:11.915Z] No urls to dedup
+[2026-03-17T19:18:11.915Z] ── FINAL RESULT ──
+[2026-03-17T19:18:11.915Z]   ws (1):
+[2026-03-17T19:18:11.915Z]     - https://aravona.com
+[2026-03-17T19:18:11.915Z]   li (1):
+[2026-03-17T19:18:11.915Z]     - https://www.linkedin.com/company/ravona
+[2026-03-17T19:18:11.915Z]   tw (1):
+[2026-03-17T19:18:11.915Z]     - https://x.com/aravona
+[2026-03-17T19:18:11.915Z] Summary: ws:1, tw:1, li:1
+[2026-03-17T19:18:11.916Z] Saved final result to result.json
+[2026-03-17T19:18:11.916Z] Override fields: ws, li, tw
+[2026-03-17T19:18:11.916Z] Finished at: 2026-03-17T19:18:11.916Z

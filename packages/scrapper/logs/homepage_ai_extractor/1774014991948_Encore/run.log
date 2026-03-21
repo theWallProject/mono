@@ -1,0 +1,60 @@
+[2026-03-20T13:56:31.949Z] === Homepage AI Extractor: Encore ===
+[2026-03-20T13:56:31.949Z] Started at: 2026-03-20T13:56:31.949Z
+[2026-03-20T13:56:31.949Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774014991948_Encore
+[2026-03-20T13:56:31.949Z] Company: Encore
+[2026-03-20T13:56:31.949Z] Website: encore-etc.com
+[2026-03-20T13:56:31.949Z] cbRank: 3038568
+[2026-03-20T13:56:31.949Z] Reasons: h
+[2026-03-20T13:56:31.949Z] Fetching: https://encore-etc.com
+[2026-03-20T13:56:36.835Z] Redirected: https://encore-etc.com -> https://www.encore-etc.com/
+[2026-03-20T13:56:36.838Z] Saved HTML (64616 bytes) to page.html
+[2026-03-20T13:56:36.840Z] Extracted 53 unique links from page
+[2026-03-20T13:56:36.840Z] Saved 53 links to links.json
+[2026-03-20T13:56:36.843Z] Extracted footer HTML (518 chars)
+[2026-03-20T13:56:36.843Z] Extracted header HTML (8290 chars)
+[2026-03-20T13:56:36.848Z] Website (post-redirect): https://www.encore-etc.com/ → origin: https://www.encore-etc.com
+[2026-03-20T13:56:36.848Z] External links: 4 (of 53 total)
+[2026-03-20T13:56:36.848Z] ── All external links ──
+[2026-03-20T13:56:36.848Z]   EXT: http://facebook.com/https://www.facebook.com/encoreetc
+[2026-03-20T13:56:36.848Z]   EXT: http://youtube.com/https://youtube.com/encoreetc
+[2026-03-20T13:56:36.849Z]   EXT: https://www.facebook.com/encoreetc
+[2026-03-20T13:56:36.849Z]   EXT: https://www.youtube.com/user/EncoreETC
+[2026-03-20T13:56:36.849Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T13:56:36.849Z]   REGEX: fb <- http://facebook.com/https://www.facebook.com/encoreetc
+[2026-03-20T13:56:36.849Z]   REGEX: ytp <- http://youtube.com/https://youtube.com/encoreetc
+[2026-03-20T13:56:36.849Z]   REGEX: fb <- https://www.facebook.com/encoreetc
+[2026-03-20T13:56:36.850Z]   REGEX: ytp <- https://www.youtube.com/user/EncoreETC
+[2026-03-20T13:56:36.850Z] Programmatic result: ws:1, fb:2, ytp:2 | 0 uncategorized
+[2026-03-20T13:56:36.850Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T13:56:36.851Z] Saved AI prompt (2126 chars) to ai_prompt.txt
+[2026-03-20T13:56:36.851Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T13:56:36.855Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T13:56:42.775Z]   AI: AI returned empty response (263 raw bytes) — model produced no tokens
+[2026-03-20T13:56:42.775Z] AI response complete: 0 chars in 5.9s
+[2026-03-20T13:56:42.776Z] Saved AI response to ai_response.json
+[2026-03-20T13:56:42.776Z] ── Parsing AI response (1 lines) ──
+[2026-03-20T13:56:42.777Z] AI returned 0 valid links
+[2026-03-20T13:56:42.777Z] ── Categorizing 0 AI-returned links ──
+[2026-03-20T13:56:42.777Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T13:56:42.777Z] Footer/header origins (3):
+[2026-03-20T13:56:42.777Z]   FOOTER/HEADER ORIGIN: https://www.encore-etc.com
+[2026-03-20T13:56:42.778Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T13:56:42.778Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-20T13:56:42.778Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-20T13:56:42.778Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T13:56:42.778Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T13:56:42.778Z] ── Step 3: Final dedup ──
+[2026-03-20T13:56:42.778Z] No urls to dedup
+[2026-03-20T13:56:42.778Z] ── FINAL RESULT ──
+[2026-03-20T13:56:42.779Z]   ws (1):
+[2026-03-20T13:56:42.779Z]     - https://www.encore-etc.com
+[2026-03-20T13:56:42.779Z]   fb (2):
+[2026-03-20T13:56:42.779Z]     - https://www.facebook.com/encoreetc
+[2026-03-20T13:56:42.779Z]     - https://www.facebook.com/https:
+[2026-03-20T13:56:42.779Z]   ytp (2):
+[2026-03-20T13:56:42.779Z]     - https://www.youtube.com/@encoreetc
+[2026-03-20T13:56:42.779Z]     - https://www.youtube.com/@https:
+[2026-03-20T13:56:42.779Z] Summary: ws:1, fb:2, ytp:2
+[2026-03-20T13:56:42.780Z] Saved final result to result.json
+[2026-03-20T13:56:42.781Z] Override fields: ws, fb, ytp
+[2026-03-20T13:56:42.781Z] Finished at: 2026-03-20T13:56:42.781Z

@@ -1,0 +1,95 @@
+[2026-03-19T14:55:48.938Z] === Homepage AI Extractor: Uri Alon Lab ===
+[2026-03-19T14:55:48.938Z] Started at: 2026-03-19T14:55:48.938Z
+[2026-03-19T14:55:48.938Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773932148938_Uri_Alon_Lab
+[2026-03-19T14:55:48.938Z] Company: Uri Alon Lab
+[2026-03-19T14:55:48.938Z] Website: weizmann.ac.il
+[2026-03-19T14:55:48.939Z] cbRank: 2284646
+[2026-03-19T14:55:48.939Z] Reasons: h
+[2026-03-19T14:55:48.939Z] Fetching: https://weizmann.ac.il
+[2026-03-19T14:55:54.394Z] Redirected: https://weizmann.ac.il -> https://www.weizmann.ac.il/pages/
+[2026-03-19T14:55:54.399Z] Saved HTML (98216 bytes) to page.html
+[2026-03-19T14:55:54.402Z] Extracted 82 unique links from page
+[2026-03-19T14:55:54.403Z] Saved 82 links to links.json
+[2026-03-19T14:55:54.405Z] Extracted footer HTML (1790 chars)
+[2026-03-19T14:55:54.405Z] Extracted header HTML (16520 chars)
+[2026-03-19T14:55:54.408Z] Website (post-redirect): https://www.weizmann.ac.il/pages/ → origin: https://www.weizmann.ac.il
+[2026-03-19T14:55:54.409Z]   SUBDOMAIN: davidson.weizmann.ac.il (added to ws)
+[2026-03-19T14:55:54.409Z]   SUBDOMAIN: wis-wander.weizmann.ac.il (added to ws)
+[2026-03-19T14:55:54.409Z]   SUBDOMAIN: erez.weizmann.ac.il (added to ws)
+[2026-03-19T14:55:54.409Z]   SUBDOMAIN: info.weizmann.ac.il (added to ws)
+[2026-03-19T14:55:54.409Z]   SUBDOMAIN: longitude.weizmann.ac.il (added to ws)
+[2026-03-19T14:55:54.409Z]   SUBDOMAIN: map.weizmann.ac.il (added to ws)
+[2026-03-19T14:55:54.409Z]   SUBDOMAIN: outlook.weizmann.ac.il (added to ws)
+[2026-03-19T14:55:54.410Z] Website subdomains found: 7
+[2026-03-19T14:55:54.410Z] External links: 6 (of 82 total)
+[2026-03-19T14:55:54.410Z] ── All external links ──
+[2026-03-19T14:55:54.410Z]   EXT: http://wise.org.il
+[2026-03-19T14:55:54.410Z]   EXT: http://www.yedarnd.com
+[2026-03-19T14:55:54.410Z]   EXT: https://twitter.com/weizmannscience
+[2026-03-19T14:55:54.410Z]   EXT: https://www.facebook.com/WeizmannInstituteOfScience
+[2026-03-19T14:55:54.410Z]   EXT: https://www.linkedin.com/school/weizmann-institute-of-science
+[2026-03-19T14:55:54.410Z]   EXT: https://www.youtube.com/user/WeizmannInstitute
+[2026-03-19T14:55:54.410Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T14:55:54.410Z]   UNCATEGORIZED: http://wise.org.il
+[2026-03-19T14:55:54.411Z]   UNCATEGORIZED: http://www.yedarnd.com
+[2026-03-19T14:55:54.411Z]   REGEX: tw <- https://twitter.com/weizmannscience
+[2026-03-19T14:55:54.411Z]   REGEX: fb <- https://www.facebook.com/WeizmannInstituteOfScience
+[2026-03-19T14:55:54.411Z]   REGEX: ytp <- https://www.youtube.com/user/WeizmannInstitute
+[2026-03-19T14:55:54.411Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T14:55:54.411Z]   SKIP (regex domain, no match): https://www.linkedin.com/school/weizmann-institute-of-science
+[2026-03-19T14:55:54.411Z] Programmatic result: ws:8, tw:1, fb:1, ytp:1 | 2 uncategorized
+[2026-03-19T14:55:54.411Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T14:55:54.412Z] Saved AI prompt (3427 chars) to ai_prompt.txt
+[2026-03-19T14:55:54.412Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T14:55:54.415Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T14:56:06.412Z]   AI: First token received, streaming...
+[2026-03-19T14:56:17.139Z] AI response complete: 197 chars in 22.7s
+[2026-03-19T14:56:17.141Z] Saved AI response to ai_response.json
+[2026-03-19T14:56:17.141Z] ── Parsing AI response (4 lines) ──
+[2026-03-19T14:56:17.141Z]   AI LINK: https://www.facebook.com/WeizmannInstituteOfScience
+[2026-03-19T14:56:17.141Z]   AI LINK: https://www.linkedin.com/school/weizmann-institute-of-science/
+[2026-03-19T14:56:17.141Z]   AI LINK: https://twitter.com/weizmannscience
+[2026-03-19T14:56:17.142Z]   AI LINK: https://www.youtube.com/user/WeizmannInstitute
+[2026-03-19T14:56:17.142Z] AI returned 4 valid links
+[2026-03-19T14:56:17.142Z] ── Categorizing 4 AI-returned links ──
+[2026-03-19T14:56:17.142Z]   AI→REGEX: fb <- https://www.facebook.com/WeizmannInstituteOfScience (duplicate, skipped)
+[2026-03-19T14:56:17.142Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/school/weizmann-institute-of-science/
+[2026-03-19T14:56:17.142Z]   AI→REGEX: tw <- https://twitter.com/weizmannscience (duplicate, skipped)
+[2026-03-19T14:56:17.143Z]   AI→REGEX: ytp <- https://www.youtube.com/user/WeizmannInstitute (duplicate, skipped)
+[2026-03-19T14:56:17.143Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T14:56:17.144Z] Footer/header origins (8):
+[2026-03-19T14:56:17.144Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T14:56:17.144Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T14:56:17.144Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-19T14:56:17.144Z]   FOOTER/HEADER ORIGIN: https://rss.com
+[2026-03-19T14:56:17.144Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T14:56:17.144Z]   FOOTER/HEADER ORIGIN: https://www.weizmann.ac.il
+[2026-03-19T14:56:17.145Z]   FOOTER/HEADER ORIGIN: https://wis-wander.weizmann.ac.il
+[2026-03-19T14:56:17.145Z]   FOOTER/HEADER ORIGIN: https://info.weizmann.ac.il
+[2026-03-19T14:56:17.145Z]   SKIP (not in footer/header): http://wise.org.il
+[2026-03-19T14:56:17.145Z]   SKIP (not in footer/header): http://www.yedarnd.com
+[2026-03-19T14:56:17.145Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T14:56:17.145Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T14:56:17.145Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T14:56:17.145Z] ── Step 3: Final dedup ──
+[2026-03-19T14:56:17.146Z] No urls to dedup
+[2026-03-19T14:56:17.146Z] ── FINAL RESULT ──
+[2026-03-19T14:56:17.146Z]   ws (8):
+[2026-03-19T14:56:17.146Z]     - https://davidson.weizmann.ac.il
+[2026-03-19T14:56:17.146Z]     - https://erez.weizmann.ac.il
+[2026-03-19T14:56:17.147Z]     - https://info.weizmann.ac.il
+[2026-03-19T14:56:17.147Z]     - https://longitude.weizmann.ac.il
+[2026-03-19T14:56:17.147Z]     - https://map.weizmann.ac.il
+[2026-03-19T14:56:17.147Z]     - https://outlook.weizmann.ac.il
+[2026-03-19T14:56:17.147Z]     - https://wis-wander.weizmann.ac.il
+[2026-03-19T14:56:17.147Z]     - https://www.weizmann.ac.il
+[2026-03-19T14:56:17.147Z]   fb (1):
+[2026-03-19T14:56:17.147Z]     - https://www.facebook.com/weizmanninstituteofscience
+[2026-03-19T14:56:17.148Z]   tw (1):
+[2026-03-19T14:56:17.148Z]     - https://x.com/weizmannscience
+[2026-03-19T14:56:17.148Z]   ytp (1):
+[2026-03-19T14:56:17.148Z]     - https://www.youtube.com/@weizmanninstitute
+[2026-03-19T14:56:17.148Z] Summary: ws:8, tw:1, fb:1, ytp:1
+[2026-03-19T14:56:17.149Z] Saved final result to result.json
+[2026-03-19T14:56:17.150Z] Override fields: ws, fb, tw, ytp
+[2026-03-19T14:56:17.150Z] Finished at: 2026-03-19T14:56:17.150Z

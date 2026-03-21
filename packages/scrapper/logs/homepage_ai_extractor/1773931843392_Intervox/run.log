@@ -1,0 +1,62 @@
+[2026-03-19T14:50:43.392Z] === Homepage AI Extractor: Intervox ===
+[2026-03-19T14:50:43.392Z] Started at: 2026-03-19T14:50:43.392Z
+[2026-03-19T14:50:43.392Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773931843392_Intervox
+[2026-03-19T14:50:43.392Z] Company: Intervox
+[2026-03-19T14:50:43.392Z] Website: inter-vox.com
+[2026-03-19T14:50:43.392Z] cbRank: 2279757
+[2026-03-19T14:50:43.392Z] Reasons: h
+[2026-03-19T14:50:43.392Z] Fetching: https://inter-vox.com
+[2026-03-19T14:50:45.121Z] Redirected: https://inter-vox.com -> https://inter-vox.com/
+[2026-03-19T14:50:45.126Z] Saved HTML (161575 bytes) to page.html
+[2026-03-19T14:50:45.129Z] Extracted 23 unique links from page
+[2026-03-19T14:50:45.129Z] Saved 23 links to links.json
+[2026-03-19T14:50:45.132Z] Extracted footer HTML (13195 chars)
+[2026-03-19T14:50:45.132Z] Extracted header HTML (20441 chars)
+[2026-03-19T14:50:45.135Z] Website (post-redirect): https://inter-vox.com/ → origin: https://inter-vox.com
+[2026-03-19T14:50:45.136Z] External links: 2 (of 23 total)
+[2026-03-19T14:50:45.136Z] ── All external links ──
+[2026-03-19T14:50:45.136Z]   EXT: https://il.linkedin.com/company/intervox-security-systems
+[2026-03-19T14:50:45.136Z]   EXT: https://www.youtube.com/channel/UC85LZIOI38tAj5qefXFu7cg
+[2026-03-19T14:50:45.136Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T14:50:45.136Z]   REGEX: li <- https://il.linkedin.com/company/intervox-security-systems
+[2026-03-19T14:50:45.136Z]   REGEX: ytc <- https://www.youtube.com/channel/UC85LZIOI38tAj5qefXFu7cg
+[2026-03-19T14:50:45.137Z] Programmatic result: ws:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-19T14:50:45.137Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T14:50:45.140Z] Saved AI prompt (7607 chars) to ai_prompt.txt
+[2026-03-19T14:50:45.140Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T14:50:45.143Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T14:51:15.000Z]   AI: First token received, streaming...
+[2026-03-19T14:51:22.905Z] AI response complete: 114 chars in 37.8s
+[2026-03-19T14:51:22.907Z] Saved AI response to ai_response.json
+[2026-03-19T14:51:22.907Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T14:51:22.907Z]   AI LINK: https://il.linkedin.com/company/intervox-security-systems
+[2026-03-19T14:51:22.907Z]   AI LINK: https://www.youtube.com/channel/UC85LZIOI38tAj5qefXFu7cg
+[2026-03-19T14:51:22.908Z] AI returned 2 valid links
+[2026-03-19T14:51:22.908Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T14:51:22.908Z]   AI→REGEX: li <- https://il.linkedin.com/company/intervox-security-systems (duplicate, skipped)
+[2026-03-19T14:51:22.908Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC85LZIOI38tAj5qefXFu7cg (duplicate, skipped)
+[2026-03-19T14:51:22.909Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T14:51:22.909Z] Footer/header origins (3):
+[2026-03-19T14:51:22.909Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-19T14:51:22.909Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T14:51:22.910Z]   FOOTER/HEADER ORIGIN: https://inter-vox.com
+[2026-03-19T14:51:22.910Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T14:51:22.910Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T14:51:22.910Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T14:51:23.435Z]   YOUTUBE: resolved UC85LZIOI38tAj5qefXFu7cg → @IntervoxLtd
+[2026-03-19T14:51:23.435Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T14:51:23.435Z] ── Step 3: Final dedup ──
+[2026-03-19T14:51:23.435Z] No urls to dedup
+[2026-03-19T14:51:23.435Z] ── FINAL RESULT ──
+[2026-03-19T14:51:23.435Z]   ws (1):
+[2026-03-19T14:51:23.435Z]     - https://inter-vox.com
+[2026-03-19T14:51:23.435Z]   li (1):
+[2026-03-19T14:51:23.435Z]     - https://www.linkedin.com/company/intervox-security-systems
+[2026-03-19T14:51:23.435Z]   ytp (1):
+[2026-03-19T14:51:23.435Z]     - https://www.youtube.com/@IntervoxLtd
+[2026-03-19T14:51:23.435Z]   ytc (1):
+[2026-03-19T14:51:23.435Z]     - https://www.youtube.com/channel/UC85LZIOI38tAj5qefXFu7cg
+[2026-03-19T14:51:23.436Z] Summary: ws:1, li:1, ytc:1, ytp:1
+[2026-03-19T14:51:23.436Z] Saved final result to result.json
+[2026-03-19T14:51:23.436Z] Override fields: ws, li, ytp, ytc
+[2026-03-19T14:51:23.436Z] Finished at: 2026-03-19T14:51:23.436Z

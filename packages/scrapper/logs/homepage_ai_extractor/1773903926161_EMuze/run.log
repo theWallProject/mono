@@ -1,0 +1,82 @@
+[2026-03-19T07:05:26.162Z] === Homepage AI Extractor: EMuze ===
+[2026-03-19T07:05:26.163Z] Started at: 2026-03-19T07:05:26.163Z
+[2026-03-19T07:05:26.163Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773903926161_EMuze
+[2026-03-19T07:05:26.163Z] Company: EMuze
+[2026-03-19T07:05:26.163Z] Website: emuzev.com
+[2026-03-19T07:05:26.163Z] cbRank: 2000526
+[2026-03-19T07:05:26.163Z] Reasons: h
+[2026-03-19T07:05:26.163Z] Fetching: https://emuzev.com
+[2026-03-19T07:05:36.811Z] Network idle timeout — continuing with current state
+[2026-03-19T07:05:36.845Z] Redirected: https://emuzev.com -> https://www.emuzev.com/
+[2026-03-19T07:05:36.897Z] Saved HTML (632458 bytes) to page.html
+[2026-03-19T07:05:36.950Z] Extracted 11 unique links from page
+[2026-03-19T07:05:36.951Z] Saved 11 links to links.json
+[2026-03-19T07:05:37.017Z] Extracted footer HTML (4525 chars)
+[2026-03-19T07:05:37.017Z] Extracted header HTML (4811 chars)
+[2026-03-19T07:05:37.087Z] Website (post-redirect): https://www.emuzev.com/ → origin: https://www.emuzev.com
+[2026-03-19T07:05:37.087Z] External links: 7 (of 11 total)
+[2026-03-19T07:05:37.087Z] ── All external links ──
+[2026-03-19T07:05:37.087Z]   EXT: http://fiverr.com/ITAPIEX
+[2026-03-19T07:05:37.088Z]   EXT: http://www.facebook.com/wix
+[2026-03-19T07:05:37.088Z]   EXT: http://www.twitter.com/wix
+[2026-03-19T07:05:37.088Z]   EXT: https://www.facebook.com/RoadixEV
+[2026-03-19T07:05:37.088Z]   EXT: https://www.instagram.com/wix
+[2026-03-19T07:05:37.088Z]   EXT: https://www.youtube.com/user/Wix
+[2026-03-19T07:05:37.088Z]   EXT: https://www.youtube.com/watch?v=zSnTPn7SHs0&t=14s
+[2026-03-19T07:05:37.088Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T07:05:37.088Z]   UNCATEGORIZED: http://fiverr.com/ITAPIEX
+[2026-03-19T07:05:37.088Z]   REGEX: fb <- http://www.facebook.com/wix
+[2026-03-19T07:05:37.089Z]   REGEX: tw <- http://www.twitter.com/wix
+[2026-03-19T07:05:37.089Z]   REGEX: fb <- https://www.facebook.com/RoadixEV
+[2026-03-19T07:05:37.089Z]   REGEX: ig <- https://www.instagram.com/wix
+[2026-03-19T07:05:37.089Z]   REGEX: ytp <- https://www.youtube.com/user/Wix
+[2026-03-19T07:05:37.089Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T07:05:37.089Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=zSnTPn7SHs0&t=14s
+[2026-03-19T07:05:37.089Z] Programmatic result: ws:1, fb:2, tw:1, ig:1, ytp:1 | 1 uncategorized
+[2026-03-19T07:05:37.089Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T07:05:37.090Z] Saved AI prompt (5703 chars) to ai_prompt.txt
+[2026-03-19T07:05:37.090Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T07:05:37.095Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T07:06:07.867Z]   AI: First token received, streaming...
+[2026-03-19T07:06:12.585Z] AI response complete: 87 chars in 35.5s
+[2026-03-19T07:06:12.587Z] Saved AI response to ai_response.json
+[2026-03-19T07:06:12.587Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T07:06:12.587Z]   AI LINK: http://www.facebook.com/wix
+[2026-03-19T07:06:12.588Z]   AI LINK: http://www.twitter.com/wix
+[2026-03-19T07:06:12.588Z]   AI LINK: https://www.youtube.com/user/Wix
+[2026-03-19T07:06:12.588Z] AI returned 3 valid links
+[2026-03-19T07:06:12.588Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T07:06:12.588Z]   AI→REGEX: fb <- http://www.facebook.com/wix (duplicate, skipped)
+[2026-03-19T07:06:12.589Z]   AI→REGEX: tw <- http://www.twitter.com/wix (duplicate, skipped)
+[2026-03-19T07:06:12.589Z]   AI→REGEX: ytp <- https://www.youtube.com/user/Wix (duplicate, skipped)
+[2026-03-19T07:06:12.589Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T07:06:12.589Z] Footer/header origins (5):
+[2026-03-19T07:06:12.589Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-19T07:06:12.589Z]   FOOTER/HEADER ORIGIN: http://www.twitter.com
+[2026-03-19T07:06:12.589Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T07:06:12.590Z]   FOOTER/HEADER ORIGIN: http://fiverr.com
+[2026-03-19T07:06:12.590Z]   FOOTER/HEADER ORIGIN: https://www.emuzev.com
+[2026-03-19T07:06:12.590Z]   ADDED: urls <- http://fiverr.com/ITAPIEX
+[2026-03-19T07:06:12.590Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-19T07:06:12.590Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T07:06:12.590Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T07:06:12.590Z] ── Step 3: Final dedup ──
+[2026-03-19T07:06:12.591Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T07:06:12.591Z] ── FINAL RESULT ──
+[2026-03-19T07:06:12.591Z]   ws (1):
+[2026-03-19T07:06:12.591Z]     - https://www.emuzev.com
+[2026-03-19T07:06:12.591Z]   fb (2):
+[2026-03-19T07:06:12.591Z]     - https://www.facebook.com/roadixev
+[2026-03-19T07:06:12.592Z]     - https://www.facebook.com/wix
+[2026-03-19T07:06:12.592Z]   tw (1):
+[2026-03-19T07:06:12.592Z]     - https://x.com/wix
+[2026-03-19T07:06:12.592Z]   ig (1):
+[2026-03-19T07:06:12.592Z]     - https://www.instagram.com/wix
+[2026-03-19T07:06:12.592Z]   ytp (1):
+[2026-03-19T07:06:12.593Z]     - https://www.youtube.com/@wix
+[2026-03-19T07:06:12.593Z]   urls (1):
+[2026-03-19T07:06:12.593Z]     - http://fiverr.com/ITAPIEX
+[2026-03-19T07:06:12.593Z] Summary: ws:1, fb:2, tw:1, ig:1, ytp:1, urls:1
+[2026-03-19T07:06:12.594Z] Saved final result to result.json
+[2026-03-19T07:06:12.595Z] Override fields: ws, fb, tw, ig, ytp, urls
+[2026-03-19T07:06:12.595Z] Finished at: 2026-03-19T07:06:12.595Z

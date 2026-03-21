@@ -1,0 +1,1255 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL" class=""><head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="https://m-i.co.il/wp-content/themes/mi/dist/images/favicon.png?v=0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v25.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>סוכנות פרסום | מיתוג | קריאייטיב | MI</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Assistant%3A300%2C400%2C600%2C700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A300%2C400%2C600%2C700&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A300%2C400%2C600%2C700&#038;display=swap" /></noscript>
+	<meta name="description" content="MI היא סוכנות פרסום זריזה וטכנולוגית המתמחה במיתוג ופרסום.&nbsp;בתפריט: החל מפתרונות קריאייטיבים תפורים לפי מידה ועד לאסטרטגיית תקשורת שיווקית כוללת.&nbsp;">
+	<link rel="canonical" href="https://m-i.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="[:he]סוכנות פרסום | מיתוג | קריאייטיב | MI [:en]MI } Let's Be Brands | Advertising &amp; Branding AgencyMI } Let's Be Brands | Advertising &amp; Branding Agency[:]">
+	<meta property="og:description" content="{:he}MI היא סוכנות פרסום זריזה וטכנולוגית המתמחה במיתוג ופרסום.&nbsp;בתפריט: החל מפתרונות קריאייטיבים תפורים לפי מידה ועד לאסטרטגיית תקשורת שיווקית כוללת.&nbsp;{:en}MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.MI Creative lab is&nbsp;the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book &amp; #publishing under one roof.{:}">
+	<meta property="og:url" content="https://m-i.co.il/">
+	<meta property="og:site_name" content="MI } Let's Be Brands">
+	<meta property="article:modified_time" content="2024-08-04T14:46:17+00:00">
+	<meta property="og:image" content="https://m-i.co.il/wp-content/uploads/2017/12/Main_Visual_05.gif">
+	<meta property="og:image:width" content="539">
+	<meta property="og:image:height" content="294">
+	<meta property="og:image:type" content="image/gif">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://m-i.co.il/","url":"https://m-i.co.il/","name":"[:he]סוכנות פרסום | מיתוג | קריאייטיב | MI [:en]MI } Let's Be Brands | Advertising & Branding AgencyMI } Let's Be Brands | Advertising & Branding Agency[:]","isPartOf":{"@id":"https://m-i.co.il/#website"},"primaryImageOfPage":{"@id":"https://m-i.co.il/#primaryimage"},"image":{"@id":"https://m-i.co.il/#primaryimage"},"thumbnailUrl":"https://m-i.co.il/wp-content/uploads/2017/12/Main_Visual_05.gif","datePublished":"2014-10-11T13:55:26+00:00","dateModified":"2024-08-04T14:46:17+00:00","description":"{:he}MI היא סוכנות פרסום זריזה וטכנולוגית המתמחה במיתוג ופרסום. בתפריט: החל מפתרונות קריאייטיבים תפורים לפי מידה ועד לאסטרטגיית תקשורת שיווקית כוללת. {:en}MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.MI Creative lab is the Total design company offering #graphic design, #websites, #interfaces, #packaging, #brand book & #publishing under one roof.{:}","breadcrumb":{"@id":"https://m-i.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://m-i.co.il/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://m-i.co.il/#primaryimage","url":"https://m-i.co.il/wp-content/uploads/2017/12/Main_Visual_05.gif","contentUrl":"https://m-i.co.il/wp-content/uploads/2017/12/Main_Visual_05.gif","width":539,"height":294,"caption":"MI מעבדה קריאייטיבית למיתוג ופרסום."},{"@type":"BreadcrumbList","@id":"https://m-i.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://m-i.co.il/#website","url":"https://m-i.co.il/","name":"MI } Let's Be Brands","description":"מעבדות קריאייטיב למיתוג ופרסום אסטרטגי","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://m-i.co.il/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel="stylesheet" id="wp-block-library-rtl-css" href="https://m-i.co.il/wp-includes/css/dist/block-library/style-rtl.min.css?ver=6.9.1" type="text/css" media="all">
+
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="contact-form-7-css" href="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1722774361" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="contact-form-7-rtl-css" href="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles-rtl.css?ver=1722774361" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="twenty20-css" href="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/twenty20/assets/css/twenty20.css?ver=1722774361" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="wpcf7-redirect-script-frontend-css" href="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/wpcf7-redirect/build/assets/frontend-script.css?ver=1746064858" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="js_composer_front-css" href="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=1722774361" type="text/css" media="all">
+
+<link rel="stylesheet" id="css/static-css" href="https://m-i.co.il/wp-content/themes/mi/static/assets/mi.min.css?ver=1" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="css/main-css" href="https://m-i.co.il/wp-content/cache/min/1/wp-content/themes/mi/dist/styles/main-f40712a71d.css?ver=1722774361" type="text/css" media="all">
+<link rel="shortlink" href="https://m-i.co.il/">
+<meta name="google-site-verification" content="eMpwZrJ_hdBJi_kLKD3t7RV-FdbbTYDHjkSSyBLgLiw">
+
+<meta name="p:domain_verify" content="8caece5510fc8f6494bd7f5ac53a7dad">
+
+
+<style>.async-hide { opacity: 0 !important} </style>
+<script type="rocketlazyloadscript">(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-MP7ZHTS':true});</script>
+
+
+<!-- Facebook Pixel Code -->
+<script type="rocketlazyloadscript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1299073410174296');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1299073410174296&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TS4PG8R');</script>
+<!-- End Google Tag Manager -->
+
+
+<script type="rocketlazyloadscript" id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/d82faa73e3a6b8bb351185d3f/346136382abf4e91dc69764c7.js");</script>
+<meta name="generator" content="qTranslate-X 3.4.6.8">
+		<script>
+			document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );
+		</script>
+				<style>
+			.no-js img.lazyload { display: none; }
+			figure.wp-block-image img.lazyloading { min-width: 150px; }
+							.lazyload, .lazyloading { opacity: 0; }
+				.lazyloaded {
+					opacity: 1;
+					transition: opacity 400ms;
+					transition-delay: 0ms;
+				}
+					</style>
+		
+<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js?v=next');
+</script>
+<!-- End Meta Pixel Code -->
+
+      <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+        var url = window.location.origin + '?ob=open-bridge';
+        fbq('set', 'openbridge', '1299073410174296', url);
+      </script>
+    <script type="rocketlazyloadscript" data-rocket-type="text/javascript">fbq('init', '1299073410174296', {}, {
+    "agent": "wordpress-6.9.1-3.0.16"
+})</script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    fbq('track', 'PageView', []);
+  </script>
+<!-- Meta Pixel Code -->
+<noscript>
+<img height="1" width="1" style="display:none" alt="fbpx"
+src="https://www.facebook.com/tr?id=1299073410174296&ev=PageView&noscript=1" />
+</noscript>
+<!-- End Meta Pixel Code -->
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://m-i.co.il/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><link rel="icon" href="https://m-i.co.il/wp-content/uploads/2017/11/cropped-MI-LOGO-BOX-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://m-i.co.il/wp-content/uploads/2017/11/cropped-MI-LOGO-BOX-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://m-i.co.il/wp-content/uploads/2017/11/cropped-MI-LOGO-BOX-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://m-i.co.il/wp-content/uploads/2017/11/cropped-MI-LOGO-BOX-1-270x270.png">
+<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1532596598830{margin-top: -10px !important;margin-right: -2px !important;margin-left: -2px !important;}.vc_custom_1532596726419{margin-top: -10px !important;margin-bottom: -10px !important;}.vc_custom_1533798808347{margin-bottom: -100px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+<body class="rtl home wp-singular page-template-default page page-id-2 page-parent wp-theme-mi wpb-js-composer js-comp-ver-5.4.5 vc_responsive">
+<header class="header container-fluid">
+    <div class="header__wrap">
+        <div class="header__wrap-col">
+            <a href="https://m-i.co.il" class="header__logo">
+                <img alt="" width="118" height="22" data-src="https://m-i.co.il/wp-content/themes/mi/dist/images/mi-logo.svg" class="header__logo-image lazyloaded" src="https://m-i.co.il/wp-content/themes/mi/dist/images/mi-logo.svg"><noscript><img src="https://m-i.co.il/wp-content/themes/mi/dist/images/mi-logo.svg" alt="" width="118" height="22" class="header__logo-image" /></noscript>
+            </a>
+        </div>
+        <div class="header__wrap-col">
+            <div class="header__drop">
+                <div class="header__drop-inner">
+                    <div class="header__drop-wrap">
+                        <ul class="header__socials">
+                            <li class="header__socials-item">
+                                <a rel="nofollow" href="https://www.facebook.com/MIBranding/" target="_blank" class="header__socials-link">
+                                    <img alt="" width="12" height="12" data-src="https://m-i.co.il/wp-content/themes/mi/dist/images/facebook-icon.svg" class="header__socials-image lazyloaded" src="https://m-i.co.il/wp-content/themes/mi/dist/images/facebook-icon.svg"><noscript><img src="https://m-i.co.il/wp-content/themes/mi/dist/images/facebook-icon.svg" alt="" width="12" height="12" class="header__socials-image" /></noscript>
+                                </a>
+                            </li>
+                            <li class="header__socials-item">
+                                <a rel="nofollow" href="https://www.instagram.com/milbb" target="_blank" class="header__socials-link">
+                                    <img alt="" width="12" height="12" data-src="https://m-i.co.il/wp-content/themes/mi/dist/images/instagram-icon.svg" class="header__socials-image lazyloaded" src="https://m-i.co.il/wp-content/themes/mi/dist/images/instagram-icon.svg"><noscript><img src="https://m-i.co.il/wp-content/themes/mi/dist/images/instagram-icon.svg" alt="" width="12" height="12" class="header__socials-image" /></noscript>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <nav class="header__menu">
+                        <ul id="menu-primary-menu" class="menu"><li id="menu-item-2333" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2333"><a href="https://m-i.co.il/contact/" title="כנסו וצרו איתנו קשר">צור קשר</a></li>
+<li id="menu-item-2423" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2423"><a href="https://m-i.co.il/minews/">MI News</a></li>
+<li id="menu-item-2336" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2336"><a href="https://m-i.co.il/customers/" title="חברות שפגשנו בדרך">לקוחות</a></li>
+<li id="menu-item-2338" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2338"><a href="https://m-i.co.il/services/" title="ללמוד על השירותים שאנו מספקים">השירותים שלנו</a></li>
+<li id="menu-item-2339" class="menu-item menu-item-type-post_type_archive menu-item-object-project menu-item-2339"><a href="https://m-i.co.il/projects/" title="עבודות שעשינו">פרוייקטים</a></li>
+<li id="menu-item-2337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2337"><a href="https://m-i.co.il/%d7%91%d7%99%d7%aa/about/" title="מה מרכיב אותנו">אודות</a></li>
+<li id="menu-item-2593" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-2593"><a href="https://m-i.co.il/" aria-current="page" title="חזרה לעמוד הראשי">בית</a></li>
+</ul>                    </nav>
+
+                </div>
+            </div>
+        </div>
+        <div class="header__toggle">
+            <div class="header__toggle-icon header__toggle-icon_1"></div>
+            <div class="header__toggle-icon header__toggle-icon_2"></div>
+            <div class="header__toggle-icon header__toggle-icon_3"></div>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+    <div class="promo">
+        <div class="promo__image">
+            <img width="539" height="294" alt="סוכנות פרסום | מיתוג | דיגיטל" decoding="async" fetchpriority="high" data-src="https://m-i.co.il/wp-content/uploads/2017/12/Main_Visual_05.gif" class="promo__image-i wp-post-image lazyloaded" src="https://m-i.co.il/wp-content/uploads/2017/12/Main_Visual_05.gif"><noscript><img width="539" height="294" src="https://m-i.co.il/wp-content/uploads/2017/12/Main_Visual_05.gif" class="promo__image-i wp-post-image" alt="סוכנות פרסום | מיתוג | דיגיטל" decoding="async" fetchpriority="high" /></noscript>        </div>
+    </div>
+</div><div class="container">
+    <div class="promo__content">
+        <div class="promo__text"><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1532596598830"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h2 style="text-align: center;"><strong>MI היא סוכנות פרסום זריזה וטכנולוגית המתמחה במיתוג ופרסום</strong></h2>
+<h4 style="text-align: center;">בתפריט: החל מפתרונות קריאייטיבים תפורים לפי מידה ועד לאסטרטגיית תקשורת שיווקית כוללת.<br>
+MI&nbsp;הוקמה&nbsp;ב-2010 על ידי מקס ליטבק, לאחר שמילא תפקידים בכירים&nbsp;במשרדי פרסום מובילים.</h4>
+
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1532596726419"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h5>פרוייקטים אחרונים:</h5>
+
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1533798808347"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h2><span style="color: #ffffff;">חברת מיתוג ופרסום סוכנות פרסום</span></h2>
+
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"></div></div></div></div>
+</div>
+    </div>
+</div>
+<div class="tiles tiles_bg-grey">
+    <div class="tiles__wrap">
+    <div data-id="2394" class="tiles__item tiles__item_wide cat-6 cat-23 cat-162 cat-118 cat-9">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2017/10/Posts_And_Site_Man_Mini_Cookies_projects_03-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%9f-%d7%9e%d7%99%d7%a0%d7%99-%d7%a2%d7%95%d7%92%d7%99%d7%95%d7%aa/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     אריזות מיני עוגיות בריאות                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     מן Togo                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%a8%d7%99%d7%96%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אריזות</a></li>
+                    </ul>
+    </div>
+</div><div data-id="3568" class="tiles__item cat-6 cat-23 cat-162 cat-118 cat-158 cat-9 cat-8 cat-253 cat-159">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/05/Enter-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9c%d7%a1%d7%93%d7%a8%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%9d-%d7%9c%d7%94%d7%92%d7%a0%d7%94-%d7%9e%d7%a4%d7%a0%d7%99-%d7%a1%d7%99%d7%99%d7%91%d7%a8/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג לסדרת מוצרים להגנה מפני סייבר                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     Cyber Box | Tactic Labs                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%a8%d7%99%d7%96%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אריזות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="btn btn-white btn-xs tile-box__tags-link">קריאייטיב</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/naming/" class="btn btn-white btn-xs tile-box__tags-link">שיום</a></li>
+                    </ul>
+    </div>
+</div><div data-id="3945" class="tiles__item tiles__item_wide cat-246 cat-6 cat-160 cat-136 cat-162 cat-118 cat-158 cat-9 cat-8 cat-157 cat-253 cat-251">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/07/Enter-1-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9-%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג מחדש | פיתוח שפה מותגית ופרסומית                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     Green Wall                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="btn btn-white btn-xs tile-box__tags-link">קריאייטיב</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%9e%d7%95%d7%93%d7%a2%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">מודעות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%90%d7%95%d7%a4%d7%9c%d7%99%d7%99%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">קמפיין אופליין</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%a8%d7%98-%d7%aa%d7%93%d7%9e%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">סרט תדמית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a9%d7%99%d7%9c%d7%95%d7%98-%d7%97%d7%95%d7%a6%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">שילוט חוצות</a></li>
+                    </ul>
+    </div>
+</div><div data-id="3640" class="tiles__item cat-6 cat-118 cat-158">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/05/Enter-7-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%97%d7%91%d7%a8%d7%94-%d7%94%d7%9e%d7%90%d7%a8%d7%92%d7%a0%d7%aa-%d7%aa%d7%a2%d7%a8%d7%95%d7%9b%d7%95%d7%aa-%d7%91%d7%98%d7%97%d7%95%d7%a0%d7%99%d7%95%d7%aa/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג חברה לתערוכות בטחוניות                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     ISDEF                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                    </ul>
+    </div>
+</div><div data-id="2382" class="tiles__item cat-149 cat-7 cat-142 cat-168 cat-170 cat-8 cat-253">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2017/10/projects-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%a9%d7%9e%d7%a8%d7%99%d7%aa-%d7%90%d7%aa%d7%a8-%d7%97%d7%93%d7%a9/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     אתר מתכונים חדש                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     שמרית                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">נכסים דיגטליים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אתרים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="btn btn-white btn-xs tile-box__tags-link">קריאייטיב</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9e%d7%9e%d7%a9%d7%a7%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב ממשקים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%90%d7%aa%d7%a8/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח אתר</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%9e%d7%95%d7%93-%d7%a0%d7%97%d7%99%d7%aa%d7%94/" class="btn btn-white btn-xs tile-box__tags-link">עמוד נחיתה</a></li>
+                    </ul>
+    </div>
+</div><div data-id="1725" class="tiles__item tiles__item_wide cat-150 cat-161 cat-11 cat-246 cat-6 cat-237 cat-149 cat-160 cat-155 cat-23 cat-7 cat-162 cat-118 cat-142 cat-164 cat-158 cat-9 cat-8 cat-154 cat-157 cat-156 cat-264">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2016/03/Posts_And_Site_Pizza_Prego_Projects_03-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9-%d7%9c%d7%a4%d7%99%d7%a6%d7%94-%d7%a4%d7%a8%d7%92%d7%95/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג מחדש לפיצה פרגו                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     פיצה פרגו                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">נכסים דיגטליים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אתרים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%a8%d7%99%d7%96%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אריזות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/ui-ux-%d7%9e%d7%95%d7%91%d7%99%d7%99%d7%9c-%d7%97%d7%95%d7%95%d7%99%d7%aa-%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">אפליקציות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%94/" class="btn btn-white btn-xs tile-box__tags-link">אסטרטגיה</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9e%d7%9e%d7%a9%d7%a7%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב ממשקים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%9e%d7%95%d7%93%d7%a2%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">מודעות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%94/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%99%d7%aa-%d7%9e%d7%93%d7%99%d7%94/" class="btn btn-white btn-xs tile-box__tags-link">אסטרטגיית מדיה</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג מחדש</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%90%d7%95%d7%a4%d7%9c%d7%99%d7%99%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">קמפיין אופליין</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c/" class="btn btn-white btn-xs tile-box__tags-link">קמפיין דיגיטל</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9e%d7%aa%d7%97%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב מתחם</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">קד״מ</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a1%d7%a8%d7%98-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">סרט פרסומת</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%a8%d7%9b%d7%91%d7%99%d7%9d-%d7%95%d7%9e%d7%a9%d7%90%d7%99%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">רכבים ומשאיות</a></li>
+                    </ul>
+    </div>
+</div><div data-id="3650" class="tiles__item cat-135 cat-6 cat-160 cat-162 cat-118 cat-158 cat-8 cat-157 cat-253">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/05/Enter-8-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%a4%d7%a8%d7%95%d7%91%d7%95%d7%a0%d7%95/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     פרובונו                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     נכה, לא חצי בן אדם                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="btn btn-white btn-xs tile-box__tags-link">קריאייטיב</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%90%d7%95%d7%a4%d7%9c%d7%99%d7%99%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">קמפיין אופליין</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/%d7%9b%d7%a0%d7%a1%d7%99%d7%9d-%d7%95%d7%aa%d7%a2%d7%a8%d7%95%d7%9b%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">כנסים ותערוכות</a></li>
+                    </ul>
+    </div>
+</div><div data-id="3910" class="tiles__item tiles__item_wide cat-135 cat-246 cat-6 cat-162 cat-164 cat-158 cat-9 cat-8 cat-154 cat-253 cat-252">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/07/Enter-4-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9c%d7%9b%d7%a0%d7%a1-%d7%94%d7%a8%d7%99%d7%90%d7%94-%d7%94%d7%99%d7%a8%d7%95%d7%a7%d7%94-%d7%a9%d7%9c%d7%9a-%d7%91%d7%a2%d7%99%d7%a8/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג לכנס | הריאה הירוקה שלך בעיר                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     Green Wall                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="btn btn-white btn-xs tile-box__tags-link">קריאייטיב</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%9e%d7%95%d7%93%d7%a2%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">מודעות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9e%d7%aa%d7%97%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב מתחם</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/%d7%9b%d7%a0%d7%a1%d7%99%d7%9d-%d7%95%d7%aa%d7%a2%d7%a8%d7%95%d7%9b%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">כנסים ותערוכות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a9%d7%a4%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">שפה פרסומית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a7%d7%99%d7%93%d7%95%d7%9d-%d7%9e%d7%9b%d7%99%d7%a8%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">קד״מ</a></li>
+                    </ul>
+    </div>
+</div><div data-id="2370" class="tiles__item cat-11 cat-6 cat-149 cat-7 cat-162 cat-9 cat-8 cat-253">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2017/10/LA1008_Posts_And_Site_Projects_03-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9c%d7%91%d7%99%d7%90-%d7%91%d7%99%d7%98%d7%95%d7%97/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג כולל                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     לביא | עושים צעד בטוח                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">נכסים דיגטליים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אתרים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/ui-ux-%d7%9e%d7%95%d7%91%d7%99%d7%99%d7%9c-%d7%97%d7%95%d7%95%d7%99%d7%aa-%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">אפליקציות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="btn btn-white btn-xs tile-box__tags-link">קריאייטיב</a></li>
+                    </ul>
+    </div>
+</div><div data-id="2401" class="tiles__item tiles__item_wide cat-6 cat-23 cat-162 cat-9">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2017/10/Posts_And_Site_Man_El-Al_Coated_project_03_03-901x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%b3%d7%9e%d7%9f%d7%b3-%d7%a9%d7%aa%d7%b4%d7%a4-%d7%a2%d7%9d-%d7%97%d7%91%d7%a8%d7%aa-%d7%b3%d7%90%d7%9c-%d7%a2%d7%9c%d7%b3/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     שיתוף פעולה בשמים                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     אלעל | מן                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%a8%d7%99%d7%96%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אריזות</a></li>
+                    </ul>
+    </div>
+</div><div data-id="4308" class="tiles__item tiles__item_wide cat-6 cat-23 cat-118 cat-158 cat-159">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/08/Banner_Wakai-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%95%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9c%d7%a1%d7%93%d7%a8%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%a7%d7%95%d7%a1%d7%9e%d7%98%d7%99%d7%a7%d7%94/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     עיצוב ומיתוג לסדרת מוצרי קוסמטיקה                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     Wakai | Yafit Elimelech                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%a8%d7%99%d7%96%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אריזות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/naming/" class="btn btn-white btn-xs tile-box__tags-link">שיום</a></li>
+                    </ul>
+    </div>
+</div><div data-id="3579" class="tiles__item cat-11 cat-6 cat-149 cat-160 cat-162 cat-118 cat-142 cat-158 cat-9">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/05/Enter-1-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%95%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג ופיתוח שפה גרפית                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     נתיב                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">נכסים דיגטליים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/ui-ux-%d7%9e%d7%95%d7%91%d7%99%d7%99%d7%9c-%d7%97%d7%95%d7%95%d7%99%d7%aa-%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">אפליקציות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9e%d7%9e%d7%a9%d7%a7%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב ממשקים</a></li>
+                    </ul>
+    </div>
+</div><div data-id="2751" class="tiles__item tiles__item_wide cat-11 cat-6 cat-149 cat-160 cat-7 cat-162 cat-163 cat-170 cat-158">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2017/09/Posts_And_Site_Man_presentation_Projects_03-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/man-wafers-and-cookies-website/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     עיצוב אתר קטלוגי                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     MAN | Wafers and Cookies                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">נכסים דיגטליים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב אתרים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/ui-ux-%d7%9e%d7%95%d7%91%d7%99%d7%99%d7%9c-%d7%97%d7%95%d7%95%d7%99%d7%aa-%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">אפליקציות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a7%d7%98%d7%9c%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב קטלוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%90%d7%aa%d7%a8/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח אתר</a></li>
+                    </ul>
+    </div>
+</div><div data-id="3969" class="tiles__item cat-246 cat-162 cat-9 cat-8 cat-157 cat-253 cat-252">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/07/Enter-2-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%a9%d7%a4%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%99%d7%aa-%d7%9c%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%98%d7%99%d7%a4%d7%95%d7%97/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     גיבוש שפה פרסומית למוצרי טיפוח                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     פרסום למרכז קוסמטי רפואי | Yafit Elimelech                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%a8%d7%99%d7%90%d7%99%d7%99%d7%98%d7%99%d7%91/" class="btn btn-white btn-xs tile-box__tags-link">קריאייטיב</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%9e%d7%95%d7%93%d7%a2%d7%95%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">מודעות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%90%d7%95%d7%a4%d7%9c%d7%99%d7%99%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">קמפיין אופליין</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/%d7%a9%d7%a4%d7%94-%d7%a4%d7%a8%d7%a1%d7%95%d7%9e%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">שפה פרסומית</a></li>
+                    </ul>
+    </div>
+</div><div data-id="748" class="tiles__item tiles__item_wide cat-150 cat-11 cat-6 cat-149 cat-160 cat-162 cat-118 cat-169 cat-9 cat-159">
+    <div class="tile-box tile-box_wide">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2015/04/Posts_And_Site_Vigo_03-1-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%97%d7%91%d7%a8%d7%aa-%d7%a1%d7%98%d7%90%d7%a8%d7%98%d7%90%d7%a4-vigo-%d7%9e%d7%a7%d7%91%d7%95%d7%a6%d7%aa-%d7%99%d7%a4%d7%a2%d7%aa/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג חברת סטארטאפ                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     Vigo | מקבוצת יפעת                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/print/" class="btn btn-white btn-xs tile-box__tags-link">פרינט</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">נכסים דיגטליים</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a0%d7%9b%d7%a1%d7%99%d7%9d-%d7%93%d7%99%d7%92%d7%98%d7%9c%d7%99%d7%99%d7%9d/ui-ux-%d7%9e%d7%95%d7%91%d7%99%d7%99%d7%9c-%d7%97%d7%95%d7%95%d7%99%d7%aa-%d7%9e%d7%a9%d7%aa%d7%9e%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">אפליקציות</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%94/" class="btn btn-white btn-xs tile-box__tags-link">אסטרטגיה</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/naming/" class="btn btn-white btn-xs tile-box__tags-link">שיום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9e%d7%a6%d7%92%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב מצגת</a></li>
+                    </ul>
+    </div>
+</div><div data-id="4118" class="tiles__item cat-6 cat-237 cat-160 cat-162 cat-118 cat-163 cat-158 cat-159">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/07/Enter22-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9-%d7%9c%d7%97%d7%91%d7%a8%d7%aa-%d7%a7%d7%95%d7%a1%d7%9e%d7%98%d7%99%d7%a7%d7%94/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג מחדש לחברת קוסמטיקה                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     Promedics                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב גרפי</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/naming/" class="btn btn-white btn-xs tile-box__tags-link">שיום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%92%d7%a8%d7%a4%d7%99/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%a7%d7%98%d7%9c%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב קטלוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג מחדש</a></li>
+                    </ul>
+    </div>
+</div><div data-id="4033" class="tiles__item cat-6 cat-237 cat-160 cat-118 cat-158 cat-8 cat-156">
+    <div class="tile-box ">
+        <div class="tile-box__bg">
+            <div style="background-image:url('https://m-i.co.il/wp-content/uploads/2018/07/Enter2-1-1080x756.jpg');" class="tile-box__bg-inner"></div>
+        </div>
+        <a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%94%d7%a9%d7%9b%d7%a8%d7%aa-%d7%a8%d7%9b%d7%91/" class="tile-box__link">
+            <span class="tile-box__link-inner">
+                 <span class="tile-box__title" style="color:#fff">
+                     מיתוג חברה להשכרת רכב                </span>
+                 <span class="tile-box__subtitle" style="color:#fff">
+                     Suncar                </span>
+            </span>
+        </a>
+        <ul class="tile-box__tags">
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95/" class="btn btn-white btn-xs tile-box__tags-link">עיצוב לוגו</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%92%d7%a8%d7%a4%d7%99%d7%aa/" class="btn btn-white btn-xs tile-box__tags-link">פיתוח שפה מותגית</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" class="btn btn-white btn-xs tile-box__tags-link">פרסום</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%a1%d7%9c%d7%95%d7%92%d7%9f/" class="btn btn-white btn-xs tile-box__tags-link">סלוגן</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%9e%d7%99%d7%aa%d7%95%d7%92/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9/" class="btn btn-white btn-xs tile-box__tags-link">מיתוג מחדש</a></li>
+                            <li class="tile-box__tags-item"><a href="https://m-i.co.il/projects/%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%93%d7%99%d7%92%d7%99%d7%98%d7%9c/" class="btn btn-white btn-xs tile-box__tags-link">קמפיין דיגיטל</a></li>
+                    </ul>
+    </div>
+</div></div>
+<div class="tiles__footer">
+            <a href="https://m-i.co.il/projects/" class="tiles__more">לעוד פרוייקטים</a>
+    </div>
+</div>
+<div class="content-separator content-separator_grey"></div>
+<div class="section-content">
+    <div class="container">
+        <div class="text-wrap">
+
+                    <h2 class="text-wrap__title">השירותים שלנו</h2>
+            <div class="text-wrap__text text-wrap__services promo__text"><p></p>
+<div dir="auto">פתרונות קריאייטיבים תפורים לפי מידה,&nbsp;מיתוג, פיתוח שפה מותגית, פיתוח שפה פרסומית, עיצוב אריזות, עיצוב גרפי,&nbsp;פרסום אוף ליין וקד"מ,&nbsp;פרסום דיגיטלי,&nbsp;תוכן שיווקי,&nbsp;עיצוב ממשק משתמש לאתרי אינטרנט ואפליקציות.</div>
+<p></p></div>
+            </div>
+            <ul class="services-nav">
+        
+            <li class="services-nav__item">
+                <div class="services-nav__icon">
+                    <a href="https://m-i.co.il/service/%d7%9e%d7%97%d7%a7%d7%a8-%d7%95%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/">
+                        <img data-src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-1.svg" class="services-box__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-1.svg" class="services-box__image-i"></noscript>                    </a>
+                </div>
+                <a href="https://m-i.co.il/service/%d7%9e%d7%97%d7%a7%d7%a8-%d7%95%d7%90%d7%a1%d7%98%d7%a8%d7%98%d7%92%d7%99%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/" class="services-nav__label">מחקר <br>ואסטרטגיה מותגית</a>
+            </li>
+        
+            <li class="services-nav__item">
+                <div class="services-nav__icon">
+                    <a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/">
+                        <img data-src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-2.svg" class="services-box__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-2.svg" class="services-box__image-i"></noscript>                    </a>
+                </div>
+                <a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/" class="services-nav__label">מיתוג ופיתוח <br>שפה מותגית כוללת</a>
+            </li>
+        
+            <li class="services-nav__item">
+                <div class="services-nav__icon">
+                    <a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%95%d7%90%d7%a4%d7%9c%d7%99%d7%a7%d7%a6%d7%99%d7%95%d7%aa/">
+                        <img data-src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-4.svg" class="services-box__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-4.svg" class="services-box__image-i"></noscript>                    </a>
+                </div>
+                <a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%95%d7%90%d7%a4%d7%9c%d7%99%d7%a7%d7%a6%d7%99%d7%95%d7%aa/" class="services-nav__label">תכנות ופיתוח <br>נכסים דיגיטליים</a>
+            </li>
+        
+            <li class="services-nav__item">
+                <div class="services-nav__icon">
+                    <a href="https://m-i.co.il/service/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%93%d7%99%d7%94-%d7%a4%d7%9c%d7%a0%d7%a0%d7%99%d7%a0%d7%92-%d7%95%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%95%d7%aa/">
+                        <img data-src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-3.svg" class="services-box__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/uploads/2018/01/service-b-icon-3.svg" class="services-box__image-i"></noscript>                    </a>
+                </div>
+                <a href="https://m-i.co.il/service/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%93%d7%99%d7%94-%d7%a4%d7%9c%d7%a0%d7%a0%d7%99%d7%a0%d7%92-%d7%95%d7%a8%d7%a9%d7%aa%d7%95%d7%aa-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%95%d7%aa/" class="services-nav__label">פרסום, מדיה פלננינג <br>וניהול קמפיינים</a>
+            </li>
+                </ul>
+    </div>
+
+</div>
+
+<div class="content-separator"></div>
+<div class="section-content section-content_no-b-offset section-content_grey">
+    <div class="container">
+        <div class="text-wrap">
+            <h2 class="text-wrap__title">בין לקוחותינו</h2>
+            <div class="text-wrap__text">לקוחותינו מגיעים מקשת רחבה של תחומים, החל מתחום המזון, ביגוד, ספורט ואף מתחום הביטחון.
+                <br>אנו מלווים את לקוחותינו ודואגים לשמור על קשר רציף עם המותג בכדי לגדול ולצמוח ביחד.</div>
+        </div>
+        
+<div class="clients">
+    <div class="clients__list">
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/rokahman/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Man.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Man.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%a9%d7%9e%d7%a8%d7%99%d7%aa/">
+                        <img width="146" height="131" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/08/clients-logos_White_Back_2שמרית.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="146" height="131" src="https://m-i.co.il/wp-content/uploads/2018/08/clients-logos_White_Back_2שמרית.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/green-wall/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/12/clients-logos_White_Back_Green_Wall.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/12/clients-logos_White_Back_Green_Wall.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/comparts/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Comparts.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Comparts.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%95%d7%99%d7%92%d7%95-vigo/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Vigo.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Vigo.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/suncar/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/07/clients-logos_White_Back_Suncar-69.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/07/clients-logos_White_Back_Suncar-69.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/avnon-group/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Avnon_Entrprises.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Avnon_Entrprises.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%a4%d7%99%d7%a6%d7%94-%d7%a4%d7%a8%d7%92%d7%95/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Pizza_Prego.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Pizza_Prego.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/tar-ideal-concepts/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Tar.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Tar.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/daily/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Daily.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Daily.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%a0%d7%aa%d7%99%d7%91/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Nativ.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Nativ.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%a0%d7%9b%d7%94-%d7%9c%d7%90-%d7%97%d7%a6%d7%99-%d7%91%d7%9f-%d7%90%d7%93%d7%9d/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_נכה-לא-חצי-בן-אדם.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_נכה-לא-חצי-בן-אדם.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/isdef/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_ISDEF.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_ISDEF.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/tactic-labs/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Tactical-Labs.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Tactical-Labs.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%90%d7%a9%d7%a8%d7%90-%d7%a2%d7%a8%d7%91%d7%95%d7%aa-%d7%9c%d7%99%d7%a6%d7%95%d7%90-%d7%91%d7%98%d7%95%d7%97/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Ashra.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Ashra.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/advantech/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Advantech.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Advantech.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/green-mountain-biotech/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Green_Mountain_Biotech.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Green_Mountain_Biotech.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/scalabil-it/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Scalabil.it_.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Scalabil.it_.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/vertical-field/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Vertical_Field.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Vertical_Field.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/baby-sitter/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Baby_Sitter.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Baby_Sitter.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%9c%d7%91%d7%99%d7%90/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Lavie-Insurens.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Lavie-Insurens.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/5stars/">
+                        <img width="287" height="259" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/08/clients-logos_White_Back_5Stars.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="287" height="259" src="https://m-i.co.il/wp-content/uploads/2018/08/clients-logos_White_Back_5Stars.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/alfabiotech/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Alpha_Bio_tech.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Alpha_Bio_tech.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%9e%d7%a9%d7%a8%d7%93-%d7%94%d7%90%d7%a0%d7%a8%d7%92%d7%99%d7%94-%d7%95%d7%94%d7%9e%d7%99%d7%9d/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Ministry-of-Energy.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/05/Customers_White_Back_Ministry-of-Energy.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/cymbio/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Cymbio.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Cymbio.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%a8%d7%91-%d7%91%d7%a8%d7%99%d7%97-%d7%9e%d7%95%d7%98%d7%95%d7%a8%d7%a1/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Rav_Bariach_Motors.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Rav_Bariach_Motors.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/burn-money/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Burn_Money.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Burn_Money.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/ella-sun-resort/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Ella_Sun_Rezort.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Ella_Sun_Rezort.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/leaders/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Leaders.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Leaders.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%a4%d7%99%d7%a1-%d7%90%d7%95%d7%a3-%d7%a7%d7%99%d7%99%d7%a7/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Piece_of_cake.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Piece_of_cake.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/we-group/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_WE_Group.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_WE_Group.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/argol/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Argol_Heb.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Argol_Heb.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%94%d7%90%d7%95%d7%a4%d7%94-%d7%9e%d7%91%d7%92%d7%93%d7%93/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Haofe.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Haofe.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%9e%d7%a6%d7%b3%d7%a4%d7%95%d7%99%d7%a0%d7%98/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Matchpoint.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2017/11/Customers_White_Back_Matchpoint.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/%d7%90%d7%92%d7%9d-%d7%94%d7%95%d7%a6%d7%90%d7%94-%d7%9c%d7%90%d7%95%d7%a8/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/07/clients-logos_White_Back_אגם-הוצאה-לאור.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/07/clients-logos_White_Back_אגם-הוצאה-לאור.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+                    <div class="clients__list-item">
+                <div class="clients__image">
+                    <a href="https://m-i.co.il/client/yafit-elimelech/">
+                        <img width="289" height="261" alt="" decoding="async" data-src="https://m-i.co.il/wp-content/uploads/2018/07/clients-logos_White_Back_Yafit-Elimelech.png" class="clients__image-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img width="289" height="261" src="https://m-i.co.il/wp-content/uploads/2018/07/clients-logos_White_Back_Yafit-Elimelech.png" class="clients__image-i" alt="" decoding="async" /></noscript>                    </a>
+                </div>
+            </div>
+            </div>
+    <a href="#modal-contact" data-toggle="modal" class="clients__more">להצטרפות</a>
+</div>
+    </div>
+</div>
+
+
+<div class="content-separator content-separator_grey"></div>
+
+<div class="section-content">
+    <div class="container">
+        <div class="text-wrap">
+            <h2 class="text-wrap__title">הבלוג שלנו</h2>
+            <div class="text-wrap__text">פוסטים נבחרים מתוך בלוג החדשות שלנו
+                <br>הבלוג מכיל מידע שימושי על עולם העיצוב והדיגיטל</div>
+        </div>
+    </div>
+    <div class="posts-list">
+        <div class="container">
+            <div class="posts-list__wrap">
+                                    <div class="posts-list__wrap-item">
+                        <a href="https://m-i.co.il/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9/" class="post-card">
+                            <span style="background-image:url(https://m-i.co.il/wp-content/uploads/2017/09/Posts_And_Site_Man_presentation_Projects_03.jpg);" class="post-card__image"></span>
+                            <span class="post-card__content">
+                            <span class="post-card__date">
+                                <span class="post-card__date-label">פורסם בתאריך:</span>
+                                <span class="post-card__date-value">05/10/17</span>
+                                <span class="post-card__date-separator">|</span>
+                                <span class="post-card__date-label">בשעה:</span>
+                                <span class="post-card__date-value">20:40</span>
+                            </span>
+                            <span class="post-card__title">מיתוג מחדש</span>
+                            <span class="post-card__text"><p>כדאיות מיתוג מחדש חברת MI מספקת שירותי מיתוג מקיפים עבור קשת רחבה של לקוחות בעלי צרכים שונים ומגוונים.&nbsp;מיתוג…</p>
+</span>
+                        </span>
+                        </a>
+                    </div>
+                                    <div class="posts-list__wrap-item">
+                        <a href="https://m-i.co.il/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%9c%d7%95%d7%92%d7%95-%d7%9c%d7%97%d7%91%d7%a8%d7%94/" class="post-card">
+                            <span style="background-image:url(https://m-i.co.il/wp-content/uploads/2015/04/Posts_And_Site_Vigo_03-1.jpg);" class="post-card__image"></span>
+                            <span class="post-card__content">
+                            <span class="post-card__date">
+                                <span class="post-card__date-label">פורסם בתאריך:</span>
+                                <span class="post-card__date-value">05/12/16</span>
+                                <span class="post-card__date-separator">|</span>
+                                <span class="post-card__date-label">בשעה:</span>
+                                <span class="post-card__date-value">20:28</span>
+                            </span>
+                            <span class="post-card__title">עיצוב לוגו לחברה</span>
+                            <span class="post-card__text"><p>עיצוב לוגו ופיתוח שפה תדמיתית לחברה כאשר אנו עוסקים במיתוג חברות ובעיצוב הקונספט החזותי שלהן, אחד האלמנטים הבסיסיים…</p>
+</span>
+                        </span>
+                        </a>
+                    </div>
+                                    <div class="posts-list__wrap-item">
+                        <a href="https://m-i.co.il/%d7%a2%d7%99%d7%a6%d7%95%d7%91-%d7%aa%d7%93%d7%9e%d7%99%d7%aa/" class="post-card">
+                            <span style="background-image:url(https://m-i.co.il/wp-content/uploads/2015/08/Posts_And_Site_Vertical_Field_03.jpg);" class="post-card__image"></span>
+                            <span class="post-card__content">
+                            <span class="post-card__date">
+                                <span class="post-card__date-label">פורסם בתאריך:</span>
+                                <span class="post-card__date-value">05/12/15</span>
+                                <span class="post-card__date-separator">|</span>
+                                <span class="post-card__date-label">בשעה:</span>
+                                <span class="post-card__date-value">20:43</span>
+                            </span>
+                            <span class="post-card__title">עיצוב תדמית</span>
+                            <span class="post-card__text"><p>עיצוב תדמית אפקטיבית וחיובית לעסק לנו בחברת MI יש את הידע, כוח האדם והכלים הנדרשים עבור עיצוב תדמית…</p>
+</span>
+                        </span>
+                        </a>
+                    </div>
+                            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="more-control"><a href="https://m-i.co.il/minews/" class="more-control__link">לעוד כתבות בבלוג</a>
+        </div>
+    </div>
+</div></main>
+
+<footer class="footer ">
+    <div class="content-separator content-separator_white"></div>
+    <div class="footer__inner">
+        <div class="container">
+            <div class="footer__subscribe">
+                <div class="subscribe">
+                   
+<div class="wpcf7 no-js" id="wpcf7-f13-o1" lang="he-IL" dir="rtl" data-wpcf7-id="13">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/?utm_medium=referral&amp;utm_source=themanifest.com#wpcf7-f13-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="13"><input type="hidden" name="_wpcf7_version" value="6.1"><input type="hidden" name="_wpcf7_locale" value="he_IL"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f13-o1"><input type="hidden" name="_wpcf7_container_post" value="0"><input type="hidden" name="_wpcf7_posted_data_hash" value="">
+</fieldset>
+<div class="subscribe__title">
+	<p>מתאים לכם לקבל את הניוזלטר שלנו?
+	</p>
+</div>
+<div class="subscribe__form">
+	<div class="form-group">
+		<div class="subscribe__form-wrap">
+			<p><span class="wpcf7-form-control-wrap" data-name="email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email subscribe__form-field" aria-required="true" aria-invalid="false" placeholder="כתובת הדוא&quot;ל שלך" value="" type="email" name="email"></span><br>
+<input class="wpcf7-form-control wpcf7-submit has-spinner btn" type="submit" value="הירשם">
+			</p>
+		</div>
+	</div>
+</div>
+<div class="subscribe__success">
+	<p>אתה רשום כמנוי בהצלחה
+	</p>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+                </div>
+            </div>
+            <nav class="footer__menu">
+                <h2 class="sr-only">תפריט תחתון</h2>
+                <div class="footer__menu-list">
+                    <div class="footer__menu-item nav_menu-2 widget_nav_menu"><div class="footer__menu-title">מה אנחנו עושים</div><div class="menu-services-container"><ul id="menu-services" class="menu"><li id="menu-item-3397" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-3397"><a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/">פיתוח שפה גרפית</a></li>
+<li id="menu-item-3399" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-3399"><a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/">עיצוב אריזות</a></li>
+<li id="menu-item-3396" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-3396"><a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/">מיתוג חברה</a></li>
+<li id="menu-item-3393" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-3393"><a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%a9%d7%a4%d7%94-%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%aa/">מיתוג עסקי</a></li>
+<li id="menu-item-3394" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-3394"><a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%95%d7%90%d7%a4%d7%9c%d7%99%d7%a7%d7%a6%d7%99%d7%95%d7%aa/">עיצוב אתר תדמיתי</a></li>
+<li id="menu-item-3398" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-3398"><a href="https://m-i.co.il/service/%d7%a4%d7%99%d7%aa%d7%95%d7%97-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%95%d7%90%d7%a4%d7%9c%d7%99%d7%a7%d7%a6%d7%99%d7%95%d7%aa/">בניית אתר מכירתי</a></li>
+</ul></div></div><div class="footer__menu-item nav_menu-3 widget_nav_menu"><div class="footer__menu-title">פרויקטים אחרונים</div><div class="menu-%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d-%d7%90%d7%97%d7%a8%d7%95%d7%a0%d7%99%d7%9d-container"><ul id="menu-%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d-%d7%90%d7%97%d7%a8%d7%95%d7%a0%d7%99%d7%9d" class="menu"><li id="menu-item-2814" class="menu-item menu-item-type-post_type menu-item-object-project menu-item-2814"><a href="https://m-i.co.il/project/tar-%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9/">מיתוג קבוצת Avnon</a></li>
+<li id="menu-item-2817" class="menu-item menu-item-type-post_type menu-item-object-project menu-item-2817"><a href="https://m-i.co.il/project/%d7%b3%d7%9e%d7%9f%d7%b3-%d7%a9%d7%aa%d7%b4%d7%a4-%d7%a2%d7%9d-%d7%97%d7%91%d7%a8%d7%aa-%d7%b3%d7%90%d7%9c-%d7%a2%d7%9c%d7%b3/">שיתוף פעולה בשמים</a></li>
+<li id="menu-item-2812" class="menu-item menu-item-type-post_type menu-item-object-project menu-item-2812"><a href="https://m-i.co.il/project/%d7%a9%d7%9e%d7%a8%d7%99%d7%aa-%d7%90%d7%aa%d7%a8-%d7%97%d7%93%d7%a9/">אתר מתכונים חדש</a></li>
+<li id="menu-item-2815" class="menu-item menu-item-type-post_type menu-item-object-project menu-item-2815"><a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%9e%d7%97%d7%93%d7%a9-%d7%9c%d7%a4%d7%99%d7%a6%d7%94-%d7%a4%d7%a8%d7%92%d7%95/">מיתוג פיצה פרגו</a></li>
+<li id="menu-item-2816" class="menu-item menu-item-type-post_type menu-item-object-project menu-item-2816"><a href="https://m-i.co.il/project/%d7%9e%d7%99%d7%aa%d7%95%d7%92-%d7%a2%d7%91%d7%95%d7%a8-%d7%97%d7%91%d7%a8%d7%aa-%d7%b3%d7%a7%d7%95%d7%9e%d7%a4%d7%a8%d7%98%d7%a1%d7%b3/">מיתוג Comparts</a></li>
+<li id="menu-item-2813" class="menu-item menu-item-type-post_type menu-item-object-project menu-item-2813"><a href="https://m-i.co.il/project/%d7%9c%d7%91%d7%99%d7%90-%d7%91%d7%99%d7%98%d7%95%d7%97/">מיתוג כולל</a></li>
+</ul></div></div><div class="footer__menu-item nav_menu-4 widget_nav_menu"><div class="footer__menu-title">לקוחות עיקריים</div><div class="menu-%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa-%d7%a2%d7%99%d7%a7%d7%a8%d7%99%d7%99%d7%9d-container"><ul id="menu-%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa-%d7%a2%d7%99%d7%a7%d7%a8%d7%99%d7%99%d7%9d" class="menu"><li id="menu-item-2811" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2811"><a href="https://m-i.co.il/customers/">מן ופלים ועוגיות</a></li>
+<li id="menu-item-2822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2822"><a href="https://m-i.co.il/customers/">Avnon Group</a></li>
+<li id="menu-item-2821" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2821"><a href="https://m-i.co.il/customers/">פיצה פרגו</a></li>
+<li id="menu-item-2823" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2823"><a href="https://m-i.co.il/customers/">מקבוצת יפעת Vigo</a></li>
+<li id="menu-item-2820" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2820"><a href="https://m-i.co.il/customers/">Green Wall</a></li>
+<li id="menu-item-2819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2819"><a href="https://m-i.co.il/customers/">אשרא – בסס״ח</a></li>
+</ul></div></div><div class="footer__menu-item nav_menu-5 widget_nav_menu"><div class="footer__menu-title">MI Site</div><div class="menu-footer-container"><ul id="menu-footer" class="menu"><li id="menu-item-2787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2787"><a href="https://m-i.co.il/%d7%91%d7%99%d7%aa/about/">המרכיב שלך להצלחה מותגית</a></li>
+<li id="menu-item-3820" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3820"><a href="https://m-i.co.il/customers/">הלקוחות שלנו</a></li>
+<li id="menu-item-2786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2786"><a href="https://m-i.co.il/services/">השירותים שלנו</a></li>
+<li id="menu-item-2789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="https://m-i.co.il/minews/">בלוג חדשות מי</a></li>
+<li id="menu-item-3400" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3400"><a href="https://www.facebook.com/MIBranding/">Mi Facebook</a></li>
+<li id="menu-item-3401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3401"><a href="https://www.instagram.com/milbb/">Mi Instagram</a></li>
+</ul></div></div>                </div>
+            </nav>
+            <div class="footer__bottom">
+                <div class="footer__bottom-wrap">
+                    <a href="https://m-i.co.il" class="footer__logo">
+                        <img alt="" width="118" height="22" data-src="https://m-i.co.il/wp-content/themes/mi/dist/images/mi-logo.svg" class="footer__logo-image lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/themes/mi/dist/images/mi-logo.svg" alt="" width="118" height="22" class="footer__logo-image" /></noscript>
+                    </a>
+                    <div class="footer__copyright">Copyright © 2026 Mi Litvak - All rights reserved worldwide</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<a href="#modal-contact" data-toggle="modal" class="chat-link"><span>פנה אלינו</span></a>
+<div class="modals">
+    <div id="modal-contact" tabindex="-1" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button data-dismiss="modal" type="button" class="modal-close close"></button>
+                <div class="contact-box">
+                    <div class="contact-box__content">
+                        
+<div class="wpcf7 no-js" id="wpcf7-f2436-o2" lang="en-US" dir="ltr" data-wpcf7-id="2436">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/?utm_medium=referral&amp;utm_source=themanifest.com#wpcf7-f2436-o2" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="2436"><input type="hidden" name="_wpcf7_version" value="6.1"><input type="hidden" name="_wpcf7_locale" value="en_US"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2436-o2"><input type="hidden" name="_wpcf7_container_post" value="0"><input type="hidden" name="_wpcf7_posted_data_hash" value="">
+</fieldset>
+<div class="form-group">
+	<p><span class="wpcf7-form-control-wrap" data-name="name1"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" id="field-contacts-name-2" aria-required="true" aria-invalid="false" value="" type="text" name="name1"></span><br>
+<label for="field-contacts-name-2" class="control-label"><sup>*</sup>שם</label>
+	</p>
+</div>
+<div class="form-group">
+	<p><span class="wpcf7-form-control-wrap" data-name="email1"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email form-control" id="field-contacts-email-2" aria-required="true" aria-invalid="false" value="" type="email" name="email1"></span><br>
+<label for="field-contacts-email-2" class="control-label"><sup>*</sup>אימייל</label>
+	</p>
+</div>
+<div class="form-group">
+	<p><span class="wpcf7-form-control-wrap" data-name="phone1"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel form-control" id="field-contacts-phone-2" aria-required="true" aria-invalid="false" value="" type="tel" name="phone1"></span><br>
+<label for="field-contacts-phone-2" class="control-label"><sup>*</sup>טלפון</label>
+	</p>
+	<div class="error-message">
+		<p>שדה חובה
+		</p>
+	</div>
+</div>
+<div class="form-group">
+	<p><span class="wpcf7-form-control-wrap" data-name="message1"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" id="field-contacts-message-2" aria-required="true" aria-invalid="false" value="" type="text" name="message1"></span><br>
+<label for="field-contacts-message-2" class="control-label">הודעה</label>
+	</p>
+</div>
+<div class="form-group">
+	<div class="checkbox">
+		<p><span class="wpcf7-form-control-wrap" data-name="subscribe"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><label><input type="checkbox" name="subscribe[]" value="אני מעוניין לקבל עדכונים בדוא״ל וניוזלטר" checked="checked"><span class="wpcf7-list-item-label">אני מעוניין לקבל עדכונים בדוא״ל וניוזלטר</span></label></span></span></span>
+		</p>
+	</div>
+</div>
+<div class="contacts__form-footer">
+	<p><input class="wpcf7-form-control wpcf7-submit has-spinner btn" type="submit" value="שלח">
+	</p>
+</div>
+<div class="contacts__success">
+	<p>הבקשה שלך נשלחה בהצלחה
+	</p>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+                    </div>
+                    <div class="contact-box__aside">
+                        <div class="contact-box__title">בואו נתחיל לדבר</div>
+                        <div class="contact-box__text">מלאו את הטופס ושלחו אלינו, ואנו נדאג לחזור אליכם בהקדם.</div>
+                        <div class="contact-box__address">
+                            <div class="contact-box__address-item">
+                                <div class="contact-box__address-icon">
+                                    <img alt="" width="14" data-src="https://m-i.co.il/wp-content/themes/mi/dist/images/icon-phone.svg" class="contact-box__address-icon-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/themes/mi/dist/images/icon-phone.svg" alt="" width="14" class="contact-box__address-icon-i" /></noscript>
+                                </div><a href="callto:+97237575000">+972 3 7575 000</a>
+                            </div>
+                            <div class="contact-box__address-item">
+                                <div class="contact-box__address-icon">
+                                    <img alt="" width="14" data-src="https://m-i.co.il/wp-content/themes/mi/dist/images/icon-email.svg" class="contact-box__address-icon-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/themes/mi/dist/images/icon-email.svg" alt="" width="14" class="contact-box__address-icon-i" /></noscript>
+                                </div><a href="mailto:info@m-i.co.il">info@m-i.co.il</a>
+                            </div>
+                            <div class="contact-box__address-item">
+                                <div class="contact-box__address-icon">
+                                    <img alt="" width="14" data-src="https://m-i.co.il/wp-content/themes/mi/dist/images/icon-pin.svg" class="contact-box__address-icon-i lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://m-i.co.il/wp-content/themes/mi/dist/images/icon-pin.svg" alt="" width="14" class="contact-box__address-icon-i" /></noscript>
+                                </div>מנחם בגין 14, רמת גן</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/cache/min/1/ajax/libs/jquery/1.11.0/jquery.min.js?ver=1722774361" id="jquery-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+//# sourceURL=wp-i18n-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1722774361" id="swv-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="contact-form-7-js-before">
+/* <![CDATA[ */
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/m-i.co.il\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1722774361" id="contact-form-7-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/twenty20/assets/js/jquery.event.move.js?ver=1722774361" id="twenty20-eventmove-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/twenty20/assets/js/jquery.twenty20.js?ver=1722774361" id="twenty20-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="twenty20-js-after">window.addEventListener('DOMContentLoaded', function() {
+/* <![CDATA[ */
+    jQuery(function($) {
+      // Re-init any uninitialized containers
+      function checkUninitialized() {
+        $(".twentytwenty-container:not([data-twenty20-init])").each(function() {
+          var $container = $(this);
+          if($container.find("img").length === 2) {
+            $container.trigger("twenty20-init");
+          }
+        });
+      }
+      
+      // Check periodically for the first few seconds
+      var checkInterval = setInterval(checkUninitialized, 500);
+      setTimeout(function() {
+        clearInterval(checkInterval);
+      }, 5000);
+    });
+  
+//# sourceURL=twenty20-js-after
+/* ]]> */
+});</script>
+<script type="text/javascript" id="wpcf7-redirect-script-js-extra">
+/* <![CDATA[ */
+var wpcf7r = {"ajax_url":"https://m-i.co.il/wp-admin/admin-ajax.php"};
+//# sourceURL=wpcf7-redirect-script-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/cache/min/1/wp-content/plugins/wpcf7-redirect/build/assets/frontend-script.js?ver=1746064858" id="wpcf7-redirect-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/(.+/)?feed/?.+/?|/(?:.+/)?embed/|/(index\\.php/)?wp\\-json(/.*|$)|/wp-admin/|/logout/|/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https://m-i.co.il","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://m-i.co.il/wp-content/plugins/wp-smush-pro/app/assets/js/smush-lazy-load.min.js?ver=3.9.0" id="smush-lazy-load-js" defer=""></script>
+<script type="text/javascript" id="sage/core-js-extra">
+/* <![CDATA[ */
+var settings = {"ajax_url":"https://m-i.co.il/wp-admin/admin-ajax.php","theme_uri":"https://m-i.co.il/wp-content/themes/mi"};
+//# sourceURL=sage%2Fcore-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/cache/min/1/wp-content/themes/mi/dist/scripts/main-1be4ee3598.js?ver=1722774362" id="sage/core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://m-i.co.il/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.4.5" id="wpb_composer_front_js-js" defer=""></script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/mi/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+    <!-- Meta Pixel Event Code -->
+    <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+        if( "fb_pxl_code" in event.detail.apiResponse){
+          eval(event.detail.apiResponse.fb_pxl_code);
+        }
+      }, false );
+    </script>
+    <!-- End Meta Pixel Event Code -->
+    <div id="fb-pxl-ajax-code"></div>
+
+
+</body></html>

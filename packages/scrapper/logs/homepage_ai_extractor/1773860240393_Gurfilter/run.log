@@ -1,0 +1,70 @@
+[2026-03-18T18:57:20.394Z] === Homepage AI Extractor: Gurfilter ===
+[2026-03-18T18:57:20.394Z] Started at: 2026-03-18T18:57:20.394Z
+[2026-03-18T18:57:20.394Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773860240393_Gurfilter
+[2026-03-18T18:57:20.394Z] Company: Gurfilter
+[2026-03-18T18:57:20.394Z] Website: gurfilter.com
+[2026-03-18T18:57:20.394Z] cbRank: 1695974
+[2026-03-18T18:57:20.394Z] Reasons: h
+[2026-03-18T18:57:20.394Z] Fetching: https://gurfilter.com
+[2026-03-18T18:57:24.272Z] Redirected: https://gurfilter.com -> https://gurfilter.com/
+[2026-03-18T18:57:24.279Z] Saved HTML (168178 bytes) to page.html
+[2026-03-18T18:57:24.283Z] Extracted 74 unique links from page
+[2026-03-18T18:57:24.284Z] Saved 74 links to links.json
+[2026-03-18T18:57:24.286Z] Extracted footer HTML (8415 chars)
+[2026-03-18T18:57:24.286Z] Extracted header HTML (2596 chars)
+[2026-03-18T18:57:24.289Z] Website (post-redirect): https://gurfilter.com/ → origin: https://gurfilter.com
+[2026-03-18T18:57:24.289Z] External links: 4 (of 74 total)
+[2026-03-18T18:57:24.289Z] ── All external links ──
+[2026-03-18T18:57:24.289Z]   EXT: http://www.negishim.org
+[2026-03-18T18:57:24.289Z]   EXT: https://www.instagram.com/gurfilter
+[2026-03-18T18:57:24.290Z]   EXT: https://www.youtube.com/channel/UCP1cBdDzDKfE2OUKiDxcUjQ
+[2026-03-18T18:57:24.290Z]   EXT: https://www.zoko.co.il/en
+[2026-03-18T18:57:24.290Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T18:57:24.290Z]   UNCATEGORIZED: http://www.negishim.org
+[2026-03-18T18:57:24.290Z]   REGEX: ig <- https://www.instagram.com/gurfilter
+[2026-03-18T18:57:24.290Z]   REGEX: ytc <- https://www.youtube.com/channel/UCP1cBdDzDKfE2OUKiDxcUjQ
+[2026-03-18T18:57:24.291Z]   UNCATEGORIZED: https://www.zoko.co.il/en
+[2026-03-18T18:57:24.291Z] Programmatic result: ws:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-18T18:57:24.291Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T18:57:24.294Z] Saved AI prompt (6550 chars) to ai_prompt.txt
+[2026-03-18T18:57:24.294Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T18:57:24.298Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T18:57:51.137Z]   AI: First token received, streaming...
+[2026-03-18T18:57:58.558Z] AI response complete: 93 chars in 34.3s
+[2026-03-18T18:57:58.560Z] Saved AI response to ai_response.json
+[2026-03-18T18:57:58.560Z] ── Parsing AI response (2 lines) ──
+[2026-03-18T18:57:58.560Z]   AI LINK: https://www.youtube.com/channel/UCP1cBdDzDKfE2OUKiDxcUjQ
+[2026-03-18T18:57:58.560Z]   AI LINK: https://www.instagram.com/gurfilter/
+[2026-03-18T18:57:58.560Z] AI returned 2 valid links
+[2026-03-18T18:57:58.561Z] ── Categorizing 2 AI-returned links ──
+[2026-03-18T18:57:58.561Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCP1cBdDzDKfE2OUKiDxcUjQ (duplicate, skipped)
+[2026-03-18T18:57:58.561Z]   AI→REGEX: ig <- https://www.instagram.com/gurfilter/ (duplicate, skipped)
+[2026-03-18T18:57:58.562Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T18:57:58.562Z] Footer/header origins (3):
+[2026-03-18T18:57:58.562Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T18:57:58.563Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-18T18:57:58.563Z]   FOOTER/HEADER ORIGIN: https://www.zoko.co.il
+[2026-03-18T18:57:58.563Z]   SKIP (not in footer/header): http://www.negishim.org
+[2026-03-18T18:57:58.563Z]   ADDED: urls <- https://www.zoko.co.il/en
+[2026-03-18T18:57:58.563Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T18:57:58.563Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T18:57:58.563Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T18:57:58.975Z]   YOUTUBE: resolved UCP1cBdDzDKfE2OUKiDxcUjQ → @gurfilter3635
+[2026-03-18T18:57:58.975Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T18:57:58.975Z] ── Step 3: Final dedup ──
+[2026-03-18T18:57:58.975Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T18:57:58.975Z] ── FINAL RESULT ──
+[2026-03-18T18:57:58.976Z]   ws (1):
+[2026-03-18T18:57:58.976Z]     - https://gurfilter.com
+[2026-03-18T18:57:58.976Z]   ig (1):
+[2026-03-18T18:57:58.976Z]     - https://www.instagram.com/gurfilter
+[2026-03-18T18:57:58.976Z]   ytp (1):
+[2026-03-18T18:57:58.976Z]     - https://www.youtube.com/@gurfilter3635
+[2026-03-18T18:57:58.976Z]   ytc (1):
+[2026-03-18T18:57:58.976Z]     - https://www.youtube.com/channel/UCP1cBdDzDKfE2OUKiDxcUjQ
+[2026-03-18T18:57:58.976Z]   urls (1):
+[2026-03-18T18:57:58.976Z]     - https://www.zoko.co.il/en
+[2026-03-18T18:57:58.976Z] Summary: ws:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-18T18:57:58.977Z] Saved final result to result.json
+[2026-03-18T18:57:58.977Z] Override fields: ws, ig, ytp, ytc, urls
+[2026-03-18T18:57:58.977Z] Finished at: 2026-03-18T18:57:58.977Z

@@ -1,0 +1,68 @@
+[2026-03-20T11:50:58.064Z] === Homepage AI Extractor: IP Computers ===
+[2026-03-20T11:50:58.065Z] Started at: 2026-03-20T11:50:58.065Z
+[2026-03-20T11:50:58.065Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774007458063_IP_Computers
+[2026-03-20T11:50:58.065Z] Company: IP Computers
+[2026-03-20T11:50:58.065Z] Website: ipcomp.co.il
+[2026-03-20T11:50:58.065Z] cbRank: 2941096
+[2026-03-20T11:50:58.065Z] Reasons: h
+[2026-03-20T11:50:58.065Z] Fetching: https://ipcomp.co.il
+[2026-03-20T11:51:00.891Z] Redirected: https://ipcomp.co.il -> https://ipcomp.co.il/
+[2026-03-20T11:51:00.897Z] Saved HTML (198798 bytes) to page.html
+[2026-03-20T11:51:00.900Z] Extracted 46 unique links from page
+[2026-03-20T11:51:00.901Z] Saved 46 links to links.json
+[2026-03-20T11:51:00.904Z] Extracted footer HTML (26115 chars)
+[2026-03-20T11:51:00.904Z] Extracted header HTML (12145 chars)
+[2026-03-20T11:51:00.907Z] Website (post-redirect): https://ipcomp.co.il/ → origin: https://ipcomp.co.il
+[2026-03-20T11:51:00.908Z] External links: 4 (of 46 total)
+[2026-03-20T11:51:00.908Z] ── All external links ──
+[2026-03-20T11:51:00.908Z]   EXT: https://109.co.il/login
+[2026-03-20T11:51:00.908Z]   EXT: https://api.whatsapp.com/send/?phone=972525277773
+[2026-03-20T11:51:00.908Z]   EXT: https://www.facebook.com/ipcomp.co.il
+[2026-03-20T11:51:00.908Z]   EXT: https://www.linkedin.com/in/ipcomp
+[2026-03-20T11:51:00.908Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T11:51:00.909Z]   UNCATEGORIZED: https://109.co.il/login
+[2026-03-20T11:51:00.909Z]   UNCATEGORIZED: https://api.whatsapp.com/send/?phone=972525277773
+[2026-03-20T11:51:00.909Z]   REGEX: fb <- https://www.facebook.com/ipcomp.co.il
+[2026-03-20T11:51:00.909Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-20T11:51:00.909Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/ipcomp
+[2026-03-20T11:51:00.909Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-20T11:51:00.909Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T11:51:00.911Z] Saved AI prompt (7050 chars) to ai_prompt.txt
+[2026-03-20T11:51:00.911Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T11:51:00.915Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T11:51:58.616Z]   AI: First token received, streaming...
+[2026-03-20T11:52:01.865Z] AI response complete: 73 chars in 61.0s
+[2026-03-20T11:52:01.866Z] Saved AI response to ai_response.json
+[2026-03-20T11:52:01.866Z] ── Parsing AI response (2 lines) ──
+[2026-03-20T11:52:01.866Z]   AI LINK: https://www.linkedin.com/in/ipcomp/
+[2026-03-20T11:52:01.867Z]   AI LINK: https://www.facebook.com/ipcomp.co.il
+[2026-03-20T11:52:01.867Z] AI returned 2 valid links
+[2026-03-20T11:52:01.867Z] ── Categorizing 2 AI-returned links ──
+[2026-03-20T11:52:01.867Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/ipcomp/
+[2026-03-20T11:52:01.867Z]   AI→REGEX: fb <- https://www.facebook.com/ipcomp.co.il (duplicate, skipped)
+[2026-03-20T11:52:01.868Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T11:52:01.868Z] Footer/header origins (5):
+[2026-03-20T11:52:01.868Z]   FOOTER/HEADER ORIGIN: https://ipcomp.co.il
+[2026-03-20T11:52:01.869Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T11:52:01.869Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T11:52:01.869Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-20T11:52:01.869Z]   FOOTER/HEADER ORIGIN: https://109.co.il
+[2026-03-20T11:52:01.869Z]   ADDED: urls <- https://109.co.il/login
+[2026-03-20T11:52:01.869Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send/?phone=972525277773)
+[2026-03-20T11:52:01.869Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-20T11:52:01.869Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T11:52:01.870Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T11:52:01.870Z] ── Step 3: Final dedup ──
+[2026-03-20T11:52:01.870Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T11:52:01.870Z] ── FINAL RESULT ──
+[2026-03-20T11:52:01.870Z]   ws (1):
+[2026-03-20T11:52:01.870Z]     - https://ipcomp.co.il
+[2026-03-20T11:52:01.870Z]   fb (1):
+[2026-03-20T11:52:01.870Z]     - https://www.facebook.com/ipcomp.co.il
+[2026-03-20T11:52:01.870Z]   urls (2):
+[2026-03-20T11:52:01.870Z]     - https://109.co.il/login
+[2026-03-20T11:52:01.871Z]     - https://api.whatsapp.com/send
+[2026-03-20T11:52:01.871Z] Summary: ws:1, fb:1, urls:2
+[2026-03-20T11:52:01.872Z] Saved final result to result.json
+[2026-03-20T11:52:01.872Z] Override fields: ws, fb, urls
+[2026-03-20T11:52:01.872Z] Finished at: 2026-03-20T11:52:01.872Z

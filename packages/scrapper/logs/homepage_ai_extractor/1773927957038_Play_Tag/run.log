@@ -1,0 +1,88 @@
+[2026-03-19T13:45:57.038Z] === Homepage AI Extractor: Play Tag ===
+[2026-03-19T13:45:57.038Z] Started at: 2026-03-19T13:45:57.038Z
+[2026-03-19T13:45:57.038Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773927957038_Play_Tag
+[2026-03-19T13:45:57.039Z] Company: Play Tag
+[2026-03-19T13:45:57.039Z] Website: playtag.ai
+[2026-03-19T13:45:57.039Z] cbRank: 2233155
+[2026-03-19T13:45:57.039Z] Reasons: h
+[2026-03-19T13:45:57.039Z] Fetching: https://playtag.ai
+[2026-03-19T13:46:10.579Z] Network idle timeout — continuing with current state
+[2026-03-19T13:46:10.612Z] Redirected: https://playtag.ai -> https://playtag.ai/
+[2026-03-19T13:46:10.615Z] Saved HTML (40896 bytes) to page.html
+[2026-03-19T13:46:10.617Z] Extracted 19 unique links from page
+[2026-03-19T13:46:10.618Z] Saved 19 links to links.json
+[2026-03-19T13:46:10.620Z] Extracted footer HTML (2602 chars)
+[2026-03-19T13:46:10.620Z] Extracted header HTML (2067 chars)
+[2026-03-19T13:46:10.623Z] Website (post-redirect): https://playtag.ai/ → origin: https://playtag.ai
+[2026-03-19T13:46:10.624Z]   SUBDOMAIN: storyline.playtag.ai (added to ws)
+[2026-03-19T13:46:10.624Z] Website subdomains found: 1
+[2026-03-19T13:46:10.624Z] External links: 6 (of 19 total)
+[2026-03-19T13:46:10.624Z] ── All external links ──
+[2026-03-19T13:46:10.624Z]   EXT: https://apps.apple.com/us/app/storyline-ai-insight/id6445879562
+[2026-03-19T13:46:10.624Z]   EXT: https://blog.naver.com/playtagai
+[2026-03-19T13:46:10.624Z]   EXT: https://pf.kakao.com/_hjPHb
+[2026-03-19T13:46:10.624Z]   EXT: https://play.google.com/store/apps/details?id=com.playtag.storyline&hl=en
+[2026-03-19T13:46:10.624Z]   EXT: https://www.linkedin.com/company/playtagai
+[2026-03-19T13:46:10.624Z]   EXT: https://www.youtube.com/channel/UCLsLCQqFwAg73j2XH0ipNLg
+[2026-03-19T13:46:10.624Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T13:46:10.625Z]   UNCATEGORIZED: https://apps.apple.com/us/app/storyline-ai-insight/id6445879562
+[2026-03-19T13:46:10.625Z]   UNCATEGORIZED: https://blog.naver.com/playtagai
+[2026-03-19T13:46:10.625Z]   UNCATEGORIZED: https://pf.kakao.com/_hjPHb
+[2026-03-19T13:46:10.625Z]   REGEX: android_app_ids <- com.playtag.storyline (from https://play.google.com/store/apps/details?id=com.playtag.storyline&hl=en)
+[2026-03-19T13:46:10.625Z]   REGEX: li <- https://www.linkedin.com/company/playtagai
+[2026-03-19T13:46:10.625Z]   REGEX: ytc <- https://www.youtube.com/channel/UCLsLCQqFwAg73j2XH0ipNLg
+[2026-03-19T13:46:10.625Z] Programmatic result: ws:2, android_app_ids:1, li:1, ytc:1 | 3 uncategorized
+[2026-03-19T13:46:10.625Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T13:46:10.628Z] Saved AI prompt (3412 chars) to ai_prompt.txt
+[2026-03-19T13:46:10.629Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T13:46:10.633Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T13:46:23.386Z]   AI: First token received, streaming...
+[2026-03-19T13:46:35.610Z] AI response complete: 161 chars in 25.0s
+[2026-03-19T13:46:35.611Z] Saved AI response to ai_response.json
+[2026-03-19T13:46:35.611Z] ── Parsing AI response (4 lines) ──
+[2026-03-19T13:46:35.612Z]   AI LINK: https://www.linkedin.com/company/playtagai/
+[2026-03-19T13:46:35.612Z]   AI LINK: https://www.youtube.com/channel/UCLsLCQqFwAg73j2XH0ipNLg
+[2026-03-19T13:46:35.612Z]   AI LINK: https://blog.naver.com/playtagai
+[2026-03-19T13:46:35.612Z]   AI LINK: https://pf.kakao.com/_hjPHb
+[2026-03-19T13:46:35.612Z] AI returned 4 valid links
+[2026-03-19T13:46:35.612Z] ── Categorizing 4 AI-returned links ──
+[2026-03-19T13:46:35.612Z]   AI→REGEX: li <- https://www.linkedin.com/company/playtagai/ (duplicate, skipped)
+[2026-03-19T13:46:35.613Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCLsLCQqFwAg73j2XH0ipNLg (duplicate, skipped)
+[2026-03-19T13:46:35.613Z]   AI→URLS: https://blog.naver.com/playtagai
+[2026-03-19T13:46:35.613Z]   AI→URLS: https://pf.kakao.com/_hjPHb
+[2026-03-19T13:46:35.614Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T13:46:35.614Z] Footer/header origins (5):
+[2026-03-19T13:46:35.615Z]   FOOTER/HEADER ORIGIN: https://pf.kakao.com
+[2026-03-19T13:46:35.615Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T13:46:35.615Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-19T13:46:35.615Z]   FOOTER/HEADER ORIGIN: https://blog.naver.com
+[2026-03-19T13:46:35.615Z]   FOOTER/HEADER ORIGIN: https://storyline.playtag.ai
+[2026-03-19T13:46:35.615Z]   SKIP (not in footer/header): https://apps.apple.com/us/app/storyline-ai-insight/id6445879562
+[2026-03-19T13:46:35.615Z]   SKIP (AI claimed): https://blog.naver.com/playtagai
+[2026-03-19T13:46:35.616Z]   SKIP (AI claimed): https://pf.kakao.com/_hjPHb
+[2026-03-19T13:46:35.616Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T13:46:35.616Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T13:46:35.616Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-19T13:46:36.149Z]   YOUTUBE: resolved UCLsLCQqFwAg73j2XH0ipNLg → @PLAYTAG-zy4gn
+[2026-03-19T13:46:36.149Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-19T13:46:36.150Z] ── Step 3: Final dedup ──
+[2026-03-19T13:46:36.150Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-19T13:46:36.150Z] ── FINAL RESULT ──
+[2026-03-19T13:46:36.150Z]   ws (2):
+[2026-03-19T13:46:36.150Z]     - https://playtag.ai
+[2026-03-19T13:46:36.150Z]     - https://storyline.playtag.ai
+[2026-03-19T13:46:36.150Z]   li (1):
+[2026-03-19T13:46:36.150Z]     - https://www.linkedin.com/company/playtagai
+[2026-03-19T13:46:36.150Z]   ytp (1):
+[2026-03-19T13:46:36.150Z]     - https://www.youtube.com/@PLAYTAG-zy4gn
+[2026-03-19T13:46:36.150Z]   ytc (1):
+[2026-03-19T13:46:36.150Z]     - https://www.youtube.com/channel/UCLsLCQqFwAg73j2XH0ipNLg
+[2026-03-19T13:46:36.150Z]   urls (2):
+[2026-03-19T13:46:36.150Z]     - https://blog.naver.com/playtagai
+[2026-03-19T13:46:36.151Z]     - https://pf.kakao.com/_hjPHb
+[2026-03-19T13:46:36.151Z]   android_app_ids (1):
+[2026-03-19T13:46:36.151Z]     - com.playtag.storyline
+[2026-03-19T13:46:36.151Z] Summary: ws:2, android_app_ids:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-19T13:46:36.151Z] Saved final result to result.json
+[2026-03-19T13:46:36.152Z] Override fields: ws, li, ytp, ytc, urls, android_app_ids
+[2026-03-19T13:46:36.152Z] Finished at: 2026-03-19T13:46:36.152Z

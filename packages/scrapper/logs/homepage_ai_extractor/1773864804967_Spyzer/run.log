@@ -1,0 +1,70 @@
+[2026-03-18T20:13:24.967Z] === Homepage AI Extractor: Spyzer ===
+[2026-03-18T20:13:24.967Z] Started at: 2026-03-18T20:13:24.967Z
+[2026-03-18T20:13:24.967Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773864804967_Spyzer
+[2026-03-18T20:13:24.967Z] Company: Spyzer
+[2026-03-18T20:13:24.967Z] Website: spyzer.net
+[2026-03-18T20:13:24.967Z] cbRank: 1727865
+[2026-03-18T20:13:24.967Z] Reasons: h
+[2026-03-18T20:13:24.967Z] Fetching: https://spyzer.net
+[2026-03-18T20:13:29.691Z] Redirected: https://spyzer.net -> https://spyzer.net/
+[2026-03-18T20:13:29.694Z] Saved HTML (33341 bytes) to page.html
+[2026-03-18T20:13:29.697Z] Extracted 16 unique links from page
+[2026-03-18T20:13:29.698Z] Saved 16 links to links.json
+[2026-03-18T20:13:29.701Z] Extracted footer HTML (879 chars)
+[2026-03-18T20:13:29.701Z] Extracted header HTML (6284 chars)
+[2026-03-18T20:13:29.704Z] Website (post-redirect): https://spyzer.net/ → origin: https://spyzer.net
+[2026-03-18T20:13:29.704Z] External links: 4 (of 16 total)
+[2026-03-18T20:13:29.704Z] ── All external links ──
+[2026-03-18T20:13:29.704Z]   EXT: http://cell-phones-tracker.net/spy/recover_pass
+[2026-03-18T20:13:29.704Z]   EXT: https://m.facebook.com/spyzer.net
+[2026-03-18T20:13:29.704Z]   EXT: https://mobile.twitter.com/spyzermarketing
+[2026-03-18T20:13:29.704Z]   EXT: https://plus.google.com/100320671611131832324/posts
+[2026-03-18T20:13:29.705Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T20:13:29.705Z]   UNCATEGORIZED: http://cell-phones-tracker.net/spy/recover_pass
+[2026-03-18T20:13:29.705Z]   REGEX: fb <- https://m.facebook.com/spyzer.net
+[2026-03-18T20:13:29.705Z]   UNCATEGORIZED: https://plus.google.com/100320671611131832324/posts
+[2026-03-18T20:13:29.705Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-18T20:13:29.705Z]   SKIP (regex domain, no match): https://mobile.twitter.com/spyzermarketing
+[2026-03-18T20:13:29.705Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-18T20:13:29.705Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T20:13:29.708Z] Saved AI prompt (2630 chars) to ai_prompt.txt
+[2026-03-18T20:13:29.708Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T20:13:29.712Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T20:13:39.377Z]   AI: First token received, streaming...
+[2026-03-18T20:13:49.317Z] AI response complete: 128 chars in 19.6s
+[2026-03-18T20:13:49.319Z] Saved AI response to ai_response.json
+[2026-03-18T20:13:49.319Z] ── Parsing AI response (3 lines) ──
+[2026-03-18T20:13:49.319Z]   AI LINK: https://plus.google.com/100320671611131832324/posts
+[2026-03-18T20:13:49.320Z]   AI LINK: https://mobile.twitter.com/spyzermarketing
+[2026-03-18T20:13:49.320Z]   AI LINK: https://m.facebook.com/spyzer.net
+[2026-03-18T20:13:49.320Z] AI returned 3 valid links
+[2026-03-18T20:13:49.320Z] ── Categorizing 3 AI-returned links ──
+[2026-03-18T20:13:49.320Z]   AI→URLS: https://plus.google.com/100320671611131832324/posts
+[2026-03-18T20:13:49.321Z]   AI→SKIP (regex domain, no match): https://mobile.twitter.com/spyzermarketing
+[2026-03-18T20:13:49.321Z]   AI→REGEX: fb <- https://m.facebook.com/spyzer.net (duplicate, skipped)
+[2026-03-18T20:13:49.321Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T20:13:49.322Z] Footer/header origins (5):
+[2026-03-18T20:13:49.322Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-18T20:13:49.322Z]   FOOTER/HEADER ORIGIN: https://mobile.twitter.com
+[2026-03-18T20:13:49.322Z]   FOOTER/HEADER ORIGIN: https://m.facebook.com
+[2026-03-18T20:13:49.322Z]   FOOTER/HEADER ORIGIN: http://cell-phones-tracker.net
+[2026-03-18T20:13:49.322Z]   FOOTER/HEADER ORIGIN: https://spyzer.net
+[2026-03-18T20:13:49.322Z]   ADDED: urls <- http://cell-phones-tracker.net/spy/recover_pass
+[2026-03-18T20:13:49.322Z]   SKIP (AI claimed): https://plus.google.com/100320671611131832324/posts
+[2026-03-18T20:13:49.323Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-18T20:13:49.323Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T20:13:49.323Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-18T20:13:49.323Z] ── Step 3: Final dedup ──
+[2026-03-18T20:13:49.323Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-18T20:13:49.323Z] ── FINAL RESULT ──
+[2026-03-18T20:13:49.323Z]   ws (1):
+[2026-03-18T20:13:49.323Z]     - https://spyzer.net
+[2026-03-18T20:13:49.324Z]   fb (1):
+[2026-03-18T20:13:49.324Z]     - https://www.facebook.com/spyzer.net
+[2026-03-18T20:13:49.324Z]   urls (2):
+[2026-03-18T20:13:49.324Z]     - http://cell-phones-tracker.net/spy/recover_pass
+[2026-03-18T20:13:49.324Z]     - https://plus.google.com/100320671611131832324/posts
+[2026-03-18T20:13:49.324Z] Summary: ws:1, fb:1, urls:2
+[2026-03-18T20:13:49.325Z] Saved final result to result.json
+[2026-03-18T20:13:49.326Z] Override fields: ws, fb, urls
+[2026-03-18T20:13:49.326Z] Finished at: 2026-03-18T20:13:49.326Z

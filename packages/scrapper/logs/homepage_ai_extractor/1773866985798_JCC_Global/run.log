@@ -1,0 +1,63 @@
+[2026-03-18T20:49:45.799Z] === Homepage AI Extractor: JCC Global ===
+[2026-03-18T20:49:45.799Z] Started at: 2026-03-18T20:49:45.799Z
+[2026-03-18T20:49:45.799Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773866985798_JCC_Global
+[2026-03-18T20:49:45.799Z] Company: JCC Global
+[2026-03-18T20:49:45.799Z] Website: jccglobal.org
+[2026-03-18T20:49:45.799Z] cbRank: 1747096
+[2026-03-18T20:49:45.799Z] Reasons: h
+[2026-03-18T20:49:45.799Z] Fetching: https://jccglobal.org
+[2026-03-18T20:49:56.547Z] Network idle timeout — continuing with current state
+[2026-03-18T20:49:56.585Z] Redirected: https://jccglobal.org -> https://www.jccglobal.org/
+[2026-03-18T20:49:56.620Z] Saved HTML (1656194 bytes) to page.html
+[2026-03-18T20:49:56.623Z] Extracted 14 unique links from page
+[2026-03-18T20:49:56.623Z] Saved 14 links to links.json
+[2026-03-18T20:49:56.626Z] Extracted footer HTML (903 chars)
+[2026-03-18T20:49:56.626Z] Extracted header HTML (13010 chars)
+[2026-03-18T20:49:56.632Z] Website (post-redirect): https://www.jccglobal.org/ → origin: https://www.jccglobal.org
+[2026-03-18T20:49:56.632Z] External links: 2 (of 14 total)
+[2026-03-18T20:49:56.632Z] ── All external links ──
+[2026-03-18T20:49:56.632Z]   EXT: https://www.facebook.com/jccglobal
+[2026-03-18T20:49:56.632Z]   EXT: https://www.youtube.com/channel/UCC-j7dA-nyw9f7U0lMFZmzA
+[2026-03-18T20:49:56.632Z] ── Step 1: Programmatic categorization ──
+[2026-03-18T20:49:56.633Z]   REGEX: fb <- https://www.facebook.com/jccglobal
+[2026-03-18T20:49:56.633Z]   REGEX: ytc <- https://www.youtube.com/channel/UCC-j7dA-nyw9f7U0lMFZmzA
+[2026-03-18T20:49:56.633Z] Programmatic result: ws:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-18T20:49:56.633Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-18T20:49:56.636Z] Saved AI prompt (2451 chars) to ai_prompt.txt
+[2026-03-18T20:49:56.637Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-18T20:49:56.641Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-18T20:50:05.052Z]   AI: First token received, streaming...
+[2026-03-18T20:50:05.271Z] AI response complete: 25 chars in 8.6s
+[2026-03-18T20:50:05.273Z] Saved AI response to ai_response.json
+[2026-03-18T20:50:05.273Z] ── Parsing AI response (1 lines) ──
+[2026-03-18T20:50:05.273Z]   AI LINK: https://www.jccglobal.org
+[2026-03-18T20:50:05.274Z] AI returned 1 valid links
+[2026-03-18T20:50:05.274Z] ── Categorizing 1 AI-returned links ──
+[2026-03-18T20:50:05.274Z]   AI→URLS: https://www.jccglobal.org
+[2026-03-18T20:50:05.275Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-18T20:50:05.275Z] Footer/header origins (3):
+[2026-03-18T20:50:05.275Z]   FOOTER/HEADER ORIGIN: https://www.jccglobal.org
+[2026-03-18T20:50:05.275Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-18T20:50:05.275Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-18T20:50:05.275Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-18T20:50:05.276Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-18T20:50:05.276Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-18T20:50:05.657Z]   YOUTUBE: resolved UCC-j7dA-nyw9f7U0lMFZmzA → @jcc.global
+[2026-03-18T20:50:05.657Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-18T20:50:05.657Z] ── Step 3: Final dedup ──
+[2026-03-18T20:50:05.657Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-18T20:50:05.657Z] ── FINAL RESULT ──
+[2026-03-18T20:50:05.657Z]   ws (1):
+[2026-03-18T20:50:05.657Z]     - https://www.jccglobal.org
+[2026-03-18T20:50:05.657Z]   fb (1):
+[2026-03-18T20:50:05.657Z]     - https://www.facebook.com/jccglobal
+[2026-03-18T20:50:05.657Z]   ytp (1):
+[2026-03-18T20:50:05.657Z]     - https://www.youtube.com/@jcc.global
+[2026-03-18T20:50:05.658Z]   ytc (1):
+[2026-03-18T20:50:05.658Z]     - https://www.youtube.com/channel/UCC-j7dA-nyw9f7U0lMFZmzA
+[2026-03-18T20:50:05.658Z]   urls (1):
+[2026-03-18T20:50:05.658Z]     - https://www.jccglobal.org
+[2026-03-18T20:50:05.658Z] Summary: ws:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-18T20:50:05.659Z] Saved final result to result.json
+[2026-03-18T20:50:05.659Z] Override fields: ws, fb, ytp, ytc
+[2026-03-18T20:50:05.659Z] Finished at: 2026-03-18T20:50:05.659Z

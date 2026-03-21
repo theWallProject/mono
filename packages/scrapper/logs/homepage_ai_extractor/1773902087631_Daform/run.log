@@ -1,0 +1,79 @@
+[2026-03-19T06:34:47.632Z] === Homepage AI Extractor: Daform ===
+[2026-03-19T06:34:47.632Z] Started at: 2026-03-19T06:34:47.632Z
+[2026-03-19T06:34:47.632Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773902087631_Daform
+[2026-03-19T06:34:47.632Z] Company: Daform
+[2026-03-19T06:34:47.632Z] Website: daform.co
+[2026-03-19T06:34:47.632Z] cbRank: 1982256
+[2026-03-19T06:34:47.632Z] Reasons: h
+[2026-03-19T06:34:47.632Z] Fetching: https://daform.co
+[2026-03-19T06:34:49.255Z] Redirected: https://daform.co -> https://daform.co/
+[2026-03-19T06:34:49.258Z] Saved HTML (66937 bytes) to page.html
+[2026-03-19T06:34:49.260Z] Extracted 14 unique links from page
+[2026-03-19T06:34:49.261Z] Saved 14 links to links.json
+[2026-03-19T06:34:49.269Z] Extracted footer HTML (1641 chars)
+[2026-03-19T06:34:49.269Z] Extracted header HTML (3418 chars)
+[2026-03-19T06:34:49.272Z] Website (post-redirect): https://daform.co/ → origin: https://daform.co
+[2026-03-19T06:34:49.272Z]   SUBDOMAIN: account.daform.co (added to ws)
+[2026-03-19T06:34:49.272Z]   SUBDOMAIN: demo.daform.co (added to ws)
+[2026-03-19T06:34:49.272Z] Website subdomains found: 2
+[2026-03-19T06:34:49.272Z] External links: 7 (of 14 total)
+[2026-03-19T06:34:49.272Z] ── All external links ──
+[2026-03-19T06:34:49.272Z]   EXT: https://moovit.com
+[2026-03-19T06:34:49.273Z]   EXT: https://reporto.co.il
+[2026-03-19T06:34:49.273Z]   EXT: https://www.facebook.com/daformofficial
+[2026-03-19T06:34:49.273Z]   EXT: https://www.ibi.co.il
+[2026-03-19T06:34:49.273Z]   EXT: https://www.linkedin.com/company/daform
+[2026-03-19T06:34:49.273Z]   EXT: https://www.precise.co.il
+[2026-03-19T06:34:49.273Z]   EXT: https://yavo.app
+[2026-03-19T06:34:49.273Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T06:34:49.273Z]   UNCATEGORIZED: https://moovit.com
+[2026-03-19T06:34:49.273Z]   UNCATEGORIZED: https://reporto.co.il
+[2026-03-19T06:34:49.273Z]   REGEX: fb <- https://www.facebook.com/daformofficial
+[2026-03-19T06:34:49.273Z]   UNCATEGORIZED: https://www.ibi.co.il
+[2026-03-19T06:34:49.273Z]   REGEX: li <- https://www.linkedin.com/company/daform
+[2026-03-19T06:34:49.273Z]   UNCATEGORIZED: https://www.precise.co.il
+[2026-03-19T06:34:49.273Z]   UNCATEGORIZED: https://yavo.app
+[2026-03-19T06:34:49.273Z] Programmatic result: ws:3, fb:1, li:1 | 5 uncategorized
+[2026-03-19T06:34:49.274Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T06:34:49.275Z] Saved AI prompt (3514 chars) to ai_prompt.txt
+[2026-03-19T06:34:49.275Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T06:34:49.277Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T06:35:02.298Z]   AI: First token received, streaming...
+[2026-03-19T06:35:05.730Z] AI response complete: 80 chars in 16.5s
+[2026-03-19T06:35:05.731Z] Saved AI response to ai_response.json
+[2026-03-19T06:35:05.731Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T06:35:05.732Z]   AI LINK: https://www.linkedin.com/company/daform/
+[2026-03-19T06:35:05.732Z]   AI LINK: https://www.facebook.com/daformofficial
+[2026-03-19T06:35:05.732Z] AI returned 2 valid links
+[2026-03-19T06:35:05.732Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T06:35:05.732Z]   AI→REGEX: li <- https://www.linkedin.com/company/daform/ (duplicate, skipped)
+[2026-03-19T06:35:05.733Z]   AI→REGEX: fb <- https://www.facebook.com/daformofficial (duplicate, skipped)
+[2026-03-19T06:35:05.733Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T06:35:05.733Z] Footer/header origins (4):
+[2026-03-19T06:35:05.733Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T06:35:05.734Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T06:35:05.734Z]   FOOTER/HEADER ORIGIN: https://daform.co
+[2026-03-19T06:35:05.734Z]   FOOTER/HEADER ORIGIN: https://account.daform.co
+[2026-03-19T06:35:05.734Z]   SKIP (not in footer/header): https://moovit.com
+[2026-03-19T06:35:05.734Z]   SKIP (not in footer/header): https://reporto.co.il
+[2026-03-19T06:35:05.734Z]   SKIP (not in footer/header): https://www.ibi.co.il
+[2026-03-19T06:35:05.734Z]   SKIP (not in footer/header): https://www.precise.co.il
+[2026-03-19T06:35:05.735Z]   SKIP (not in footer/header): https://yavo.app
+[2026-03-19T06:35:05.735Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T06:35:05.735Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T06:35:05.735Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T06:35:05.735Z] ── Step 3: Final dedup ──
+[2026-03-19T06:35:05.735Z] No urls to dedup
+[2026-03-19T06:35:05.735Z] ── FINAL RESULT ──
+[2026-03-19T06:35:05.736Z]   ws (3):
+[2026-03-19T06:35:05.736Z]     - https://account.daform.co
+[2026-03-19T06:35:05.736Z]     - https://daform.co
+[2026-03-19T06:35:05.736Z]     - https://demo.daform.co
+[2026-03-19T06:35:05.736Z]   li (1):
+[2026-03-19T06:35:05.737Z]     - https://www.linkedin.com/company/daform
+[2026-03-19T06:35:05.737Z]   fb (1):
+[2026-03-19T06:35:05.737Z]     - https://www.facebook.com/daformofficial
+[2026-03-19T06:35:05.737Z] Summary: ws:3, fb:1, li:1
+[2026-03-19T06:35:05.738Z] Saved final result to result.json
+[2026-03-19T06:35:05.739Z] Override fields: ws, li, fb
+[2026-03-19T06:35:05.739Z] Finished at: 2026-03-19T06:35:05.739Z

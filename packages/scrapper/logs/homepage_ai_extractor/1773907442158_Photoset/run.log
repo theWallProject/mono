@@ -1,0 +1,60 @@
+[2026-03-19T08:04:02.158Z] === Homepage AI Extractor: Photoset ===
+[2026-03-19T08:04:02.158Z] Started at: 2026-03-19T08:04:02.158Z
+[2026-03-19T08:04:02.158Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773907442158_Photoset
+[2026-03-19T08:04:02.158Z] Company: Photoset
+[2026-03-19T08:04:02.158Z] Website: photoset.co.il
+[2026-03-19T08:04:02.158Z] cbRank: 2037107
+[2026-03-19T08:04:02.158Z] Reasons: h
+[2026-03-19T08:04:02.158Z] Fetching: https://photoset.co.il
+[2026-03-19T08:04:12.936Z] Network idle timeout — continuing with current state
+[2026-03-19T08:04:12.970Z] Redirected: https://photoset.co.il -> https://www.photoset.co.il/
+[2026-03-19T08:04:13.008Z] Saved HTML (1831514 bytes) to page.html
+[2026-03-19T08:04:13.011Z] Extracted 6 unique links from page
+[2026-03-19T08:04:13.012Z] Saved 6 links to links.json
+[2026-03-19T08:04:13.014Z] Extracted footer HTML (6038 chars)
+[2026-03-19T08:04:13.014Z] Extracted header HTML (383 chars)
+[2026-03-19T08:04:13.017Z] Website (post-redirect): https://www.photoset.co.il/ → origin: https://www.photoset.co.il
+[2026-03-19T08:04:13.017Z] External links: 3 (of 6 total)
+[2026-03-19T08:04:13.018Z] ── All external links ──
+[2026-03-19T08:04:13.018Z]   EXT: https://instagram.com/thephotoset?utm_medium=copy_link
+[2026-03-19T08:04:13.018Z]   EXT: https://www.facebook.com/photoset.co.il
+[2026-03-19T08:04:13.018Z]   EXT: https://www.instagram.com/thephotoset
+[2026-03-19T08:04:13.018Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T08:04:13.018Z]   REGEX: ig <- https://instagram.com/thephotoset?utm_medium=copy_link
+[2026-03-19T08:04:13.018Z]   REGEX: fb <- https://www.facebook.com/photoset.co.il
+[2026-03-19T08:04:13.019Z]   REGEX: ig <- https://www.instagram.com/thephotoset (duplicate, skipped)
+[2026-03-19T08:04:13.019Z] Programmatic result: ws:1, ig:1, fb:1 | 0 uncategorized
+[2026-03-19T08:04:13.019Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T08:04:13.022Z] Saved AI prompt (5127 chars) to ai_prompt.txt
+[2026-03-19T08:04:13.022Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T08:04:13.026Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T08:04:36.378Z]   AI: First token received, streaming...
+[2026-03-19T08:04:40.046Z] AI response complete: 78 chars in 27.0s
+[2026-03-19T08:04:40.048Z] Saved AI response to ai_response.json
+[2026-03-19T08:04:40.048Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T08:04:40.048Z]   AI LINK: https://www.facebook.com/photoset.co.il
+[2026-03-19T08:04:40.048Z]   AI LINK: https://www.instagram.com/thephotoset/
+[2026-03-19T08:04:40.048Z] AI returned 2 valid links
+[2026-03-19T08:04:40.049Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T08:04:40.049Z]   AI→REGEX: fb <- https://www.facebook.com/photoset.co.il (duplicate, skipped)
+[2026-03-19T08:04:40.049Z]   AI→REGEX: ig <- https://www.instagram.com/thephotoset/ (duplicate, skipped)
+[2026-03-19T08:04:40.049Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T08:04:40.049Z] Footer/header origins (2):
+[2026-03-19T08:04:40.050Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T08:04:40.050Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T08:04:40.050Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T08:04:40.050Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T08:04:40.050Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T08:04:40.050Z] ── Step 3: Final dedup ──
+[2026-03-19T08:04:40.050Z] No urls to dedup
+[2026-03-19T08:04:40.051Z] ── FINAL RESULT ──
+[2026-03-19T08:04:40.051Z]   ws (1):
+[2026-03-19T08:04:40.051Z]     - https://www.photoset.co.il
+[2026-03-19T08:04:40.051Z]   fb (1):
+[2026-03-19T08:04:40.051Z]     - https://www.facebook.com/photoset.co.il
+[2026-03-19T08:04:40.051Z]   ig (1):
+[2026-03-19T08:04:40.051Z]     - https://www.instagram.com/thephotoset
+[2026-03-19T08:04:40.052Z] Summary: ws:1, ig:1, fb:1
+[2026-03-19T08:04:40.053Z] Saved final result to result.json
+[2026-03-19T08:04:40.053Z] Override fields: ws, fb, ig
+[2026-03-19T08:04:40.053Z] Finished at: 2026-03-19T08:04:40.053Z

@@ -1,0 +1,1376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>פיתוח ויישום פרויקטים לחברות וארגונים - מטיס איי טי</title>
+<meta name="description" content="מטיס איי טי הינה חברה צעירה ונמרצת עם למעלה מ-10 שנות ניסיון בהטמעת יישומי פריוריטי. לחברה ניסיון מול חברות מובילות במשק ועמידה בכל האתגרים">
+<meta name="keywords" content="מטיס איי טי">	
+	
+<!-- write your code here -->
+
+	
+	
+	
+<style>
+
+body{margin:0; padding:0; background:#F0F7F7; direction:rtl;overflow-x: hidden;}
+
+	.mtopbutton{width:20%; cursor: pointer; margin:0 auto; border-radius:3px; direction:rtl; background:#E4B34F; color: #462E15; text-align:center; font-size:28px; padding:2px;}
+	.mtopbutton3{width:20%; cursor: pointer; margin:0 auto; border-radius:3px; direction:rtl; background:#E4B34F; color: #462E15; text-align:center; font-size:28px; padding:2px;}
+	.mtopbutton2{width:98%; height:96%; margin:1% auto; border-radius:3px; direction:rtl; background:#FFD262; color: #462E15; padding:10px 20px; text-align:center; font-size:28px;}
+	.mtopbutton2:hover{width:98%; height:96%; margin:1% auto; border-radius:3px; direction:rtl; background:#FFE08C; color: #462E15; padding:10px 20px; text-align:center; font-size:28px;}
+	.metiscont1{width:29.3%; height:350px; float:right;  margin:0 2%;}
+	.metistopcont{width:100%; float:right; margin:2em 0 0 0; color:#89D6F3; text-align:center; font-size:42px;}
+	.metistopcont2{width:100%; float:right; margin:1em 0 0 0; direction:rtl; color:#FFFFFF; text-align:center; font-size:28px;}
+	.metiscust{float:left; height:auto; width:16%; margin:0 0.2%; padding:40px 0;}
+	.metislogocust{width: auto}
+	.metispage{width:70%; height:auto; float:right; text-align:center; margin:0 15%;}
+	
+	.metispageconthelp{width:100%; font-weight:300; float:right; margin:2em 0 0 0; color:#424A4F; text-align:center; font-size:36px;}
+	.metispageconthelp2{width:100%; font-weight:400;  float:right; margin:0.5em 0 0 0; direction:rtl; color:#424A4F; text-align:center; font-size:1.4rem}
+	
+	
+	.blogpage1{width:48%; margin: 0 1% 75px 1%; float: right}
+	.blogpage2{width: 25%; text-align: center; float: right; margin: 0.5em 0;  padding: 10px 20px; border: 1px solid #4FBDC2; color: #4FBDC2}
+	
+	
+	
+	
+	@media screen and (max-width:760px) {
+		
+	
+		
+	.mtopbutton{width:70%; cursor: pointer; margin:55px auto 0 auto; border-radius:3px; direction:rtl; background:#E4B34F; color: #462E15; text-align:center; font-size:28px; padding:2px;}
+	.mtopbutton3{width:90%; cursor: pointer; margin:0 auto; border-radius:3px; direction:rtl; background:#E4B34F; color: #462E15; text-align:center; font-size:28px; padding:2px;}
+	.metiscont1{width:90%; height:auto; float:right;  margin:0 5% 3em 5%;}
+	.metistopcont{width:90%; float:right; margin:2em 5% 0 0; color:#89D6F3; text-align:center; font-size:32px;}
+	.metistopcont2{width:100%; float:right; margin:1em 0 0 0; direction:rtl; color:#FFFFFF; text-align:center; font-size:21px;}
+	.metiscust{float:left; height:auto; width:31%; margin:0 1%; padding:40px 0;}
+	.metislogocust{width: 90%;}
+	.metispage{width:90%; height:auto; float:right; text-align:center; margin:0 5%;}
+	.metispageconthelp{width:100%; font-weight:300; float:right; margin:2em 0 0 0; color:#424A4F; text-align:center; font-size:28px;}
+		.metispageconthelp2{width:100%; font-weight:400;  float:right; margin:0.5em 0 0 0; direction:rtl; color:#424A4F; text-align:center; font-size:18px}
+		
+		
+		.blogpage1{width:100%; margin: 0 0 75px 0; float: right}
+		.blogpage2{width: 50%; text-align: center; float: right; margin: 0.5em 0;  padding: 10px 20px; border: 1px solid #4FBDC2; color: #4FBDC2}
+		
+	}
+	
+	
+</style>
+
+
+</head>
+
+<body onload="init();">
+
+
+
+
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  		
+	 <link rel="shortcut icon" href="https://static.wixstatic.com/media/ce4a1c_05f9a9b612874a5197134701b092fa24%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/ce4a1c_05f9a9b612874a5197134701b092fa24%7Emv2.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/ce4a1c_05f9a9b612874a5197134701b092fa24%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/ce4a1c_05f9a9b612874a5197134701b092fa24%7Emv2.png" type="image/png">
+    
+    
+			
+      <link rel="stylesheet" href="https://www.metis-it.co.il/header2/css/components.css">
+      <link rel="stylesheet" href="https://www.metis-it.co.il/header2/css/responsee.css">
+      <link rel="stylesheet" href="https://www.metis-it.co.il/header2/owl-carousel/owl.carousel.css">
+      <link rel="stylesheet" href="https://www.metis-it.co.il/header2/owl-carousel/owl.theme.css">
+      <!-- CUSTOM STYLE -->
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400,800&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <script>
+		!window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+	</script><script src="jquery-1.4.3.min.js"></script>
+      <script type="text/javascript" src="https://www.metis-it.co.il/header2/js/jquery-ui.min.js"></script>    
+      <script type="text/javascript" src="https://www.metis-it.co.il/header2/js/modernizr.js"></script>
+      <script type="text/javascript" src="https://www.metis-it.co.il/header2/js/responsee.js"></script>
+
+<script type="text/javascript" src="https://www.metis-it.co.il/header2/js/jquery.min.js"></script>
+	<script>
+		!window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+	</script>
+	<script type="text/javascript" src="jquery.fancybox-1.3.4/jquery.fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="jquery.fancybox-1.3.4/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.fancybox-1.3.4/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			*   Examples - images
+			*/
+
+			$("a#example1").fancybox();
+
+			$("a#example2").fancybox({
+				'overlayShow'	: false,
+				'transitionIn'	: 'elastic',
+				'transitionOut'	: 'elastic'
+			});
+
+			$("a#example3").fancybox({
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none'	
+			});
+
+			$("a#example4").fancybox({
+				'opacity'		: true,
+				'overlayShow'	: false,
+				'transitionIn'	: 'elastic',
+				'transitionOut'	: 'none'
+			});
+
+			$("a#example5").fancybox();
+
+			$("a#example6").fancybox({
+				'titlePosition'		: 'outside',
+				'overlayColor'		: '#000',
+				'overlayOpacity'	: 0.9
+			});
+
+			$("a#example7").fancybox({
+				'titlePosition'	: 'inside'
+			});
+
+			$("a#example8").fancybox({
+				'titlePosition'	: 'over'
+			});
+
+			$("a[rel=example_group]").fancybox({
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'titlePosition' 	: 'over',
+				'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+					return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+				}
+			});
+
+			/*
+			*   Examples - various
+			*/
+
+			$("#various1").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+
+			$("#various2").fancybox();
+
+			$("#various3").fancybox({
+				'width'				: '75%',
+				'height'			: '75%',
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe'
+			});
+
+			$("#various4").fancybox({
+				'padding'			: 0,
+				'autoScale'			: false,
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+		});
+	</script>
+
+
+
+	  
+	  
+
+<style>
+	  
+	@font-face{
+			font-family:'almoni-dl';
+			font-weight:300; /*(light)*/
+			font-style: normal;
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-300.eot'); 
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-300.eot?#iefix') format('embedded-opentype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-300.ttf') format('truetype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-300.woff') format('woff');
+		}
+		@font-face{
+			font-family:'almoni-dl';
+			font-weight:400; /*(regular)*/
+			font-style: normal;
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-400.eot'); 
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-400.eot?#iefix') format('embedded-opentype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-400.ttf') format('truetype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-400.woff') format('woff');
+		}
+		@font-face{
+			font-family:'almoni-dl';
+			font-weight:700; /*(bold)*/
+			font-style: normal;
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-700.eot'); 
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-700.eot?#iefix') format('embedded-opentype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-700.ttf') format('truetype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-700.woff') format('woff');
+		}
+		@font-face{
+			font-family:'almoni-dl';
+			font-weight:900; /*(black)*/
+			font-style: normal;
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-900.eot'); 
+			src: url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-900.eot?#iefix') format('embedded-opentype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-900.ttf') format('truetype'), 
+				url('https://www.metis-it.co.il/font_files/almoni-dl-aaa-900.woff') format('woff');
+		}
+	
+	
+	
+	
+	
+	
+  
+	body{padding:0; margin:0;font-family:'almoni-dl';}  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  .pulse2 {
+  width: 70px;
+  height: 70px;
+  border: 5px solid #CC0000;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 70px;
+  background-color: #CC0000;
+  z-index: 10000;
+  position: fixed;
+  bottom:50px;
+  left:50px;
+  
+  color:#FFFFFF;
+  text-align:center;
+}
+
+.dot {
+  border: 10px solid #CC0000;
+  background: transparent;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 110px;
+  bottom:30px;
+  height: 110px;
+  width:110px;
+  -webkit-animation: pulse 3s ease-out;
+  -moz-animation: pulse 3s ease-out;
+  animation: pulse 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  position: fixed;
+  
+ 
+  left:30px;
+  z-index: 1;
+  opacity: 0;
+}
+
+@-moz-keyframes pulse {
+ 0% {
+    -moz-transform: scale(0);
+    opacity: 0.0;
+ }
+ 25% {
+    -moz-transform: scale(0);
+    opacity: 0.1;
+ }
+ 50% {
+    -moz-transform: scale(0.1);
+    opacity: 0.3;
+ }
+ 75% {
+    -moz-transform: scale(0.5);
+    opacity: 0.5;
+ }
+ 100% {
+    -moz-transform: scale(1);
+    opacity: 0.0;
+ }
+}
+
+@-webkit-keyframes "pulse" {
+ 0% {
+    -webkit-transform: scale(0);
+    opacity: 0.0;
+ }
+ 25% {
+    -webkit-transform: scale(0);
+    opacity: 0.3;
+ }
+ 50% {
+    -webkit-transform: scale(0.1);
+    opacity: 0.6;
+ }
+ 75% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.7;
+ }
+ 90% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.8;
+ }
+ 100% {
+    -webkit-transform: scale(1);
+    opacity: 0.0;
+ }
+}
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+.header-1{width:700px; float:right; height:36px; background:#fff;}
+
+.mobile-icon{display:none;}
+
+.mobile-icon-2{display:none;}
+
+.mobile-icon-3{display:none;}
+
+
+ul {list-style: none;padding: 0px; z-index:999999; margin: 0px; text-align:right; direction:rtl; font-family:   'almoni-dl', sans-serif; font-weight:400; font-size:18px}
+  ul li {font-family:'almoni-dl'; color:#3F707A;}
+  li ul {display: none; color:#3F707A; background:#fff; padding:25px; border-radius:0px; margin:0px -25px 0 0; text-align:center}
+  ul li a { text-decoration:none; color:#3F707A; margin:10px 0;}
+  ul li a:hover {color:#3F707A;}
+  ul li ul li{margin:0 0 10px 0;}
+  ul li ul li a:hover { background: #3B6D76; color: #FFFFFF}
+  li:hover ul {display: block; position: absolute;}
+  li:hover li {float: none;}
+  li:hover a {}
+   li a {padding:4px 7px;}
+  
+  #drop-nav li ul li {border-top: 0px;}
+    .pulse {
+	animation-name: pulse_animation;
+	animation-duration: 3000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	display:none;
+}
+
+	  
+	  
+	  .banner-contact{height:auto; position:fixed; display:block; bottom:0; float:left; left:20px; width:200px;}
+	  .search-bar-hp{float:right; background:#231F20; height:120px; width:100%; display:block; z-index:9999999}
+	  
+	   .search-bar-mobile{float:right; background:#231F20; height:auto; width:100%; display:none}
+	  
+	  .logo-header{margin-top:0px; width:11.66%; float:right; display:block}
+	  .phone-call{float:left; width:15%; height:55px;display:block}
+	  .nav-hp{direction:rtl;  font-family:   'arial', sans-serif; font-weight:400; font-size:14px; text-align:right}
+	  .logo-mobile-hp{display:none}
+		.contact-form-new{width:300px; display:none; height:auto; float:left; margin-left:15%}
+		.slide-golden-1{display:block}
+		.slide-golden-2{display:none}
+		.resp-head{display:none}
+		
+		.waze-responsive{margin:0 0 0 -150px; float:left;  z-index:999999999; height:300px; width:200px; position:fixed; display:none}
+
+.phone-responsive{margin:0 0 0 -0px; float:left;  z-index:999999999; height:50px; width:50px; position:fixed; left:0; bottom:-35px; display:none; background:#002d4c; border-radius:0 30px 30px 0}
+ul li ul li a{color:#000}
+	  
+	  .topagebtn{height:40px; width:40px; position:fixed; z-index:99999999; border-radius:8px; float:right; bottom:125px; right:10px; background:rgba(241,27,23,0.8)}
+	  .header_pc{width:1170px; margin:auto; height:99px; background:#FFFFFF; display:block}
+	  .hp_title{font-size:28px; font-weight:400; color:#1b154a; text-align:center}
+	  
+	  .top_header{width:100%; z-index:999; position:fixed; float:right; height:auto; background:#FFFFFF; height:147px; display:block}
+	  .top_header_2{width:100%; float:right; height:auto; background:#FFFFFF; height:147px; display:block}
+	  .topmobile{width:100%; height:52px; float:right; display:none}
+	
+	
+	
+	
+	.metisheader{height:66px; display: block; float:right; width:100%; background:#FFFFFF; text-align:center}
+	  
+	.whatsapplink{height:70px; cursor: pointer}
+	.whatsapplink:hover{height:80px;}
+	
+	
+	
+	  @media screen and (max-width:760px) {
+	  
+	  
+ .metisheader{height:56px; display: none; float:right; width:100%; background:#FFFFFF; text-align:center}	  
+	  
+.contact-form-1{float:right; width:100%; min-height:10px; text-align:center}
+.contact-form-2{width:100%; margin-top:15px; float:left}
+.contact-form-3{width:100%; float:right; margin:15px 0 0 0;}
+
+
+.mobile-icon{float:left; left:0; position:fixed; width:50px; background: #000000; z-index:999999999; margin:-10px 0 0 -10px; bottom:180px; height:50px;display:block; border-radius:0 30px 30px 0;}
+
+.mobile-icon-2{float:left; left:0; position:fixed; width:50px; background: #000000; z-index:999999999; margin:-10px 0 0 -10px; bottom:125px; height:50px;display:block; border-radius:0 30px 30px 0;}
+
+.mobile-icon-3{float:right; right:0; position:fixed; width:50px; background:#000000; z-index:999999999; margin:0 -10px -10px 0; bottom:90px; height:50px;display:block; border-radius:30px 0 0 30px;}
+		
+		
+.footer-2{width:100%; margin:0 auto}
+.footer-cube{float: right; width:48%; margin:0 1% 30px 1%}
+.footer-cube-2{float:right; clear:both; width:96%; margin:30px 3% 10px 3%}
+
+.header-1{width:100%; float:right; height:220px; background:#354458; display:none}
+
+ul {list-style: none;padding: 0px; width:100%; z-index:999999; margin: 0px; text-align:right; direction:rtl; font-family:   'almoni-dl', sans-serif; font-weight:400; font-size:18px}
+  ul li {font-family:'almoni-dl';}
+  li ul {display: none; background:#002d4c; width:100%; float:right; padding:2px; position: absolute; border-radius:0; margin:0px 0 0 0; right:0; text-align:center}
+  ul li a { text-decoration:none; color:#828282; margin:10px 0;}
+  ul li a:hover {}
+  li:hover ul {display: block; position: absolute;}
+  li:hover li {float: none;}
+  li:hover a {}
+  li:hover li a:hover {background: #000;}
+  #drop-nav li ul li {border-top: 0px;}
+    .pulse {
+	animation-name: pulse_animation;
+	animation-duration: 3000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	display:none;
+}
+	  
+	  
+	  
+	  .banner-contact{height:auto; position:fixed; bottom:0; float:left; left:20px; width:200px; display:none}
+	 .search-bar-hp{float:right; background:#231F20; height:120px; width:100%; display:none}
+	 
+	  .search-bar-mobile{float:right; background: url(http://www.metis-it.co.il/images/mobile-search.jpg); height:auto; min-height:400px; width:100%; display:none}
+	 
+	 
+	 .cover-hp{height:400px; width:100%;background:url(http://www.metis-it.co.il/images/golden-cover.jpg); background-size:cover; display:none }
+	  .logo-header{margin-top:7px; width:11.66%; float:left; display:none}
+	   .phone-call{float:left; width:25%; height:55px;display:none}
+	    .nav-hp{direction:rtl; width:100%;  font-size:16px; text-align:right}
+		.logo-mobile-hp{display:block}
+.contact-form-new{width:100%; display:none; height:auto; float:right; margin-left:0}
+		.resp-head{display:block; top:0; float:right}
+		.top-nav li a{margin:0; text-align:right}
+		.top-nav li ul li{text-align:right}
+		.cover-1{margin-top:0}
+		.waze-responsive{margin:0 0 0 -150px; float:left;  z-index:999999999; height:300px; width:200px; position:fixed; left:0;z-index:999999999; bottom:-15px; display:none;}
+.phone-responsive{margin:0 0 0 5px; float:left;  z-index:999999999; height:50px; width:50px; position:fixed; left:0;z-index:999999999; border:2px solid #FFFFFF; bottom:15px; display:block; background:#65BC54; border-radius:30px 30px 30px 30px}
+
+.topagebtn{height:40px; width:40px; position:fixed; z-index:99999999; border-radius:8px; float:right; bottom:125px; right:10px; background:rgba(241,27,23,0.8)}
+	   .header_pc{width:1170px; margin:auto; height:99px; background:#FFFFFF; display:none} 
+	   
+	   
+	   
+	   
+	   	  .pulse2 {
+  width: 70px;
+  height: 70px;
+  border: 5px solid #CC0000;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 70px;
+  background-color: #CC0000;
+  z-index: 10000;
+  position: fixed;
+  bottom:30px;
+  left:30px;
+  
+  color:#FFFFFF;
+  text-align:center;
+}
+
+.dot {
+  border: 10px solid #CC0000;
+  background: transparent;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 110px;
+  bottom:10px;
+  height: 110px;
+  width:110px;
+  -webkit-animation: pulse 3s ease-out;
+  -moz-animation: pulse 3s ease-out;
+  animation: pulse 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  position: fixed;
+  
+ 
+  left:10px;
+  z-index: 1;
+  opacity: 0;
+}
+	   
+	   .hp_title{font-size:26px; font-weight:400; color:#1b154a; text-align:center}
+	   
+	   .top_header{width:100%; position:fixed; float:right; height:auto; background:#FFFFFF; height:147px; display:none}
+	   .top_header_2{width:100%; position:fixed; float:right; height:auto; background:#FFFFFF; height:147px; display:none}
+	   .topmobile{width:100%; height:0px; float:right; display:block}
+		  
+		  
+		  
+		  
+		 
+		  
+		  
+		  
+	   
+	  }
+	  
+	
+	
+	
+	
+	
+	  </style>
+	  
+
+	
+
+	  
+
+
+<div class="metisheader">
+<div style="width:1170px; margin:0 auto;">
+
+<div style="height:66px;width:auto; float:right">
+<a href="https://www.metis-it.co.il/"><img style="float:right; height:42px;  margin:12px 10px 0 0" src="https://www.metis-it.co.il/images/metis-logo.png"></a></div>
+<div style="height:36px; margin:15px 30px 0 0; width:700px; float:right">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="height:80px; width:200px; float:left; position:fixed; bottom:20px; left:20px;">
+<a class="whatapp_share" href="https://api.whatsapp.com/send?phone=972543554463"><img class="whatsapplink" src="https://www.metis-it.co.il/images/Whatsapp-chat-icon.png"></a></div>
+<div class="header-1">
+<div style="width:700px; margin:auto; height:36px;">
+<!-- LOGO -->
+
+
+<!-- END LOGO -->
+<!-- MENU -->
+
+<div style="float:right; height:36px; width:auto;  margin-right:0 auto; width:700px;">
+<ul style="color:#FFFFFF; float:right; margin:0">
+
+<li style="list-style-type:none; float:right; padding:7px 10px;"><a title="אודות" style="color:#778283;font-weight:400; text-decoration:none; font-size:19px;" href="https://www.metis-it.co.il/about.php">אודות</a></li>
+
+
+<!-- 1 -->
+<li style="list-style-type:none; float:right; padding:6px 10px;"><a title="שירותים" style="color:#4FBDC2;font-weight:700; text-decoration:none; font-size:19px;" href="#">שירותים</a>
+<ul>
+		
+ <li><a style="font-size:18px;  text-align:left" title="Priority" href="https://www.metis-it.co.il/category/priority">Priority</a></li>
+ <li><a style="font-size:18px; text-align:left" title="Negevsoft" href="https://www.metis-it.co.il/category/negevsoft">Negevsoft</a></li>
+ <li><a style="font-size:18px;  text-align:left" title="Power BI" href="https://www.metis-it.co.il/category/powerbi">Power BI</a></li>
+
+ 
+ 
+ 
+
+
+</ul>
+</li>
+<!-- 1 -->
+
+<li style="list-style-type:none; float:right; padding:7px 10px;"><a title="לקוחות" style="color:#778283;font-weight:400; text-decoration:none; font-size:19px;" href="https://www.metis-it.co.il/customers.php">לקוחות</a></li>
+
+<li style="list-style-type:none; float:right; padding:7px 10px;"><a title="בלוג" style="color:#778283;font-weight:400; text-decoration:none; font-size:19px;" href="https://www.metis-it.co.il/blog.php">בלוג</a></li>
+	
+	
+	<li style="list-style-type:none; float:right; padding:7px 10px;"><a title="בלוג" style="color:#778283;font-weight:400; text-decoration:none; font-size:19px;" href="https://www.metis-it.co.il/management.php">הנהלה</a></li>
+
+<li style="list-style-type:none; float:right; padding:7px 10px;"><a title="צור קשר" style="color:#778283;font-weight:400; text-decoration:none; font-size:19px;" href="https://www.metis-it.co.il/contact-us.php">צור קשר</a></li>
+
+</ul>
+
+<!-- 1 -->
+
+
+
+
+</div>
+
+
+
+<!-- END MENU -->
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<a title="" style="color:#778283;font-weight:400; text-decoration:none; font-size:19px;" href="#">
+<div style="float:left">
+<img style="height:30px; margin-top:18px; float:right" src="https://www.metis-it.co.il/images/coffee.svg">
+<div style="float:right; height:auto; width:auto; color:#FFFFFF; text-decoration:none; padding:7px 12px; margin:18px 10px 0 10px; background:#4FBDC2">שנקבע לקפה ?</div>
+</div>
+</a>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- START RESPONSIVE HEADER -->
+     <div style="width:100%; overflow: hidden;float:right; height:54px; z-index:9999; clear:both" id="all-content" class="resp-head">
+         <!-- TOP NAV WITH LOGO -->
+         <header style="height:54px;">
+            <nav style="height:54px;">
+               <div class="line">
+                  <div class="logo-header">
+                     <a href="https://www.metis-it.co.il/"><img style="height: 40px; margin-top: 7px;" src="https://www.metis-it.co.il/images/metis-logo.png" border="0"></a>
+					 </div>
+                  <div style="z-index:9; text-align:right; margin-right:0%" class="top-nav s-12 l-10 right">
+				   <a style="text-decoration:none; height:54px; border:none" href="tel:054-3554463
+"><img style="float:left; height:30px; margin:12px 0 0 15px" src="https://www.metis-it.co.il/images/svgphone.svg" border="0"></a>
+				   
+				   
+				   <div style="float:right; position:absolute; height:52px; width:50%; text-align:center;  margin:1px 25%;"><a href="https://www.metis-it.co.il/"><img src="https://www.metis-it.co.il/images/metis-logo.png" border="0" style="height:30px; margin-top: 12px"></a></div>
+				   
+				   
+				   
+                   
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<style>
+
+body{height:100%; width:100%; margin:0; padding:0;}
+html{height:100%; width:100%}
+
+#panel, .flip {
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  margin: auto;
+}
+
+#panel {
+  display: none;
+}
+
+.clsbtn{height:auto; z-index:1; font-size:36px; text-align:center; width:25px; background:transparent; float:right; position:fixed; top:20px; right:35px; cursor:pointer; border-radius:4px; padding:9px 6px;}
+.openbtn{height:33px; z-index:9999; width:35px; background:transparent; margin:3px auto;  cursor:pointer; border-radius:4px; padding:9px 6px; border:1px solid  #999999;}
+
+
+.linkbut1{position:fixed;  z-index:2000; height:40px; width:150px; float:right; top:-250px; right:0; transition:all 0.3s ease;}
+.linkbut1:hover{position:fixed;  height:40px;  top:0; width:150px;transition:all 0.3s ease;float:right;  right:0;}
+.linkbut2{height:40px; width:60px; float:right; border-radius:8px 8px 0 0; bottom:0; background: #242F41}
+.linkbut3{height:300px; font-size:16px; text-align:center; width:100%; float:right; border-radius:0 0 0 8px; margin:0 0 -40px 0;background: #242F41}
+
+@media screen and (max-width: 700px) {
+
+.linkbut1{position:fixed; top:-250px; right:0; height:40px; width:150px; float:right; transition:all 0.3s ease;}
+.linkbut1:hover{position:fixed; top:0;   height:40px; width:150px;transition:all 0.3s ease;float:left;}
+
+.clsbtn{height:auto; z-index:1; font-size:24px; width:25px; background:transparent; float:right; position:fixed; top:6px; right:10px; cursor:pointer; border-radius:4px; padding:9px 6px;}
+.openbtn{height:35px; z-index:9999; width:35px; background:transparent; cursor:pointer; border-radius:4px; padding:9px 6px 0 6px; border:1px solid  #3E6F79;}
+.headlink{text-decoration:none; color:#fff}
+.headlink:hover{text-decoration:none; color:#4FBDC2}
+	
+	.headlink2{text-decoration:none; color:#fff; font-size: 18px;}
+.headlink:hover{text-decoration:none; color:#D9D9D9}
+
+}
+
+
+</style>
+
+
+
+
+
+<div id="panel" style="width:100%;z-index:10000; position:fixed; float:right; height:100%; right:0; top:0; background:rgba(36,47,65,0.95);">
+
+<div class="clsbtn" onclick="myFunctiontophead2()">
+<div style="height:auto; width:100%; text-align:center; margin:0;">X</div>
+
+
+</div>
+
+<div style="width:90%; margin:1em 5%; font-size:28px; height:90%; float:right">
+
+
+<div style="margin:15px 0 10px 0; width:100%; float:right;"><a class="headlink" href="https://www.metis-it.co.il/">דף הבית</a></div>
+<div style="margin:15px 0 10px 0; width:100%; float:right;"><a class="headlink" href="https://www.metis-it.co.il/about.php">אודות</a></div>
+<div style="margin:15px 0 10px 0; width:100%; float:right;"><a class="headlink" href="https://www.metis-it.co.il/management.php">הנהלה</a></div>
+	<div style="margin:15px 0 10px 0; width:100%; float:right;"><a class="headlink" href="https://www.metis-it.co.il/customers.php">לקוחות</a></div>
+	<div style="margin:15px 0 10px 0; width:100%; float:right;"><a class="headlink" href="https://www.metis-it.co.il/blog.php">בלוג</a></div>
+	<div style="margin:15px 0 10px 0; width:100%; float:right;"><a class="headlink" href="https://www.metis-it.co.il/contact-us.php">צור קשר</a></div>
+<div style="float: right; width: 100%; height: 1px; margin: 15px 0 0 0; background: #fff"></div>
+	
+	<div style="margin:15px 0.5% 10px 0.5%; padding: 10px 0; background: #4FBDC2; width:32%; float:right;"><a class="headlink2" href="https://www.metis-it.co.il/category/negevsoft">NEGEVSOFT</a></div>
+	<div style="margin:15px 0.5% 10px 0.5%; padding: 10px 0; background: #4FBDC2; width:32%; float:right;"><a class="headlink2" href="https://www.metis-it.co.il/category/priority">Priority</a></div>
+	<div style="margin:15px 0.5% 10px 0.5%; padding: 10px 0; background: #4FBDC2; width:32%; float:right;"><a class="headlink2" href="https://www.metis-it.co.il/category/powerbi">Power BI</a></div>
+
+</div>
+
+</div>
+
+
+
+<script>
+function myFunctiontophead() {
+  document.getElementById("panel").style.display = "block";
+}
+
+function myFunctiontophead2() {
+  document.getElementById("panel").style.display = "none";
+}
+
+</script>
+
+	<div style="float: right; margin: 6px">
+<div class="openbtn" onclick="myFunctiontophead()">
+
+<div style="height:2px; width:90%; float:right; margin:0 5% 0 0; background:#3E6F79"></div>
+<div style="height:2px; width:90%; float:right; background:#3E6F79; margin:4px 5% 0 0;"></div>
+<div style="height:2px; width:90%; float:right; background:#3E6F79; margin:4px 5% 0 0;"></div>
+</div>
+</div>
+
+
+                  </div>
+			  
+            </div></nav>
+			
+         </header>
+		 
+		 </div>
+<div class="topmobile"></div>
+         <!-- FOOTER -->
+
+
+<!-- END RESPONSIVE HEADER -->
+<div style="height:420px; width:100%; background: url(images/0223b88d-8fc0-4ac5-b_1200x629.png); background-size:cover; overflow:hidden; background-position:center center">
+<div style="height:100%; width:100%; float:right; background:rgba(0,0,0,0.5)">
+
+
+<div class="metistopcont">טכנולוגיות ERP למכשירים ניידים
+ומגוון פתרונות IT מתקדמים</div>
+<div class="metistopcont2">הצלחת הלקוח היא ההצלחה שלנו!</div>
+<div style="width:100%; float:right; margin:2em 0 0 0; direction:rtl; color:#FFFFFF; text-align:center; font-size:21px; font-weight:700">
+
+<div class="mtopbutton">
+<a style="text-decoration: none; color: #462E15" href="https://www.metis-it.co.il/category/negevsoft"><div class="mtopbutton2">לפרטים נוספים</div></a></div>
+
+</div>
+</div>
+</div>
+
+
+<div style="height:auto; width:100%; overflow: hidden;background:#dfeeee; text-align:center; float:right">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {background: #DFEEEE}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 75%;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+
+
+
+<div class="slideshow-container">
+
+<div class="mySlides fade" style="display: block;">
+ 
+  <img src="images/indexcust1.jpg" style="width:100%">
+ 
+</div>
+
+<div class="mySlides fade" style="display: none;">
+  
+  <img src="images/indexcust2.jpg" style="width:100%">
+ 
+</div>
+
+<div class="mySlides fade" style="display: none;">
+ 
+  <img src="images/indexcust3.jpg" style="width:100%">
+ 
+</div>
+
+</div>
+
+<div style="text-align:center; display: none">
+  <span class="dot active"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="height:auto; width:100%; padding:1em 0; background:#F0F7F7; text-align:center; float:right">
+
+<div class="metispage">
+
+
+<div class="metispageconthelp">הכל מתחיל ונגמר בשליטה</div>
+<div class="metispageconthelp2">שילוב המערכות שאנו מציעים יעזור לכם לשלוט ולקבל החלטות טובות יותר, וכמובן לנהל את הארגון ביד רמה!</div>
+
+
+
+<div style="width:100%; color:#424A5A; height:auto; float:right; text-align:center; margin:5em 0;">
+
+
+<div class="metiscont1">
+<div style="width:100%; float:right; height:80px"><img src="https://static.wixstatic.com/media/fd7c9a_c1b8452cdcc64ce2b59ca22a546c89f9~mv2.png" style="height:80px"></div>
+<div style="width:100%; margin-top:15px; font-weight:700; height:30px; font-size:21px; float:right;">PRIORITY</div>
+<div style="width:100%; margin-top:15px;  font-size:17px; line-height:21px;  float:right; height:200px">
+Priority הינה תוכנת ה-ERP המובילה בישראל עם התקנות אצל אלפי לקוחות.<br><br>
+המערכת נותנת מענה כללי לניהול כל מחלקות הארגון החל מרכש, דרך ייצור ועד משאבי אנוש. מתאימה לארגונים מכל הגדלים ומכל סוגי התעשיות השונים.
+<a href="https://www.metis-it.co.il/category/priority" style="width:100%; text-decoration: underline; color: #50BEC2; margin-top:15px; text-align: center; float:right; height:auto">לפרטים נוספים</a>
+</div>
+
+<div style="width:100%; margin-top:15px;float:right; height:32px"><img src="images/metis-logo.png" style="height:32px"></div>
+
+
+</div>
+
+<div class="metiscont1">
+<div style="width:100%; float:right; height:80px"><img src="https://static.wixstatic.com/media/fd7c9a_6c50726e8ded49089763fa83999ea746~mv2.png" style="height:80px"></div>
+<div style="width:100%;  margin-top:15px; font-weight:700; height:30px; font-size:21px; float:right;">NEGEVSOFT</div>
+<div style="width:100%; margin-top:15px;  font-size:17px; line-height:21px;  float:right; height:180px">
+
+Mobile4ERP מבית נגבסופט הינה הפתרון המתקדם ביותר להנגשת ה Priority למכשירים ניידים.<br><br>
+
+​
+
+המערכת מגיעה עם פתרונות מוכנים לכל המודולים
+
+ב-Priority, כמו כן, בעזרת כלי פיתוח מתקדמים ניתן להתאים כל תהליך למכשיר הנייד.
+	<a href="https://www.metis-it.co.il/category/negevsoft" style="width:100%; text-decoration: underline; color: #50BEC2; margin-top:15px; text-align: center; float:right; height:auto">לפרטים נוספים</a>
+</div>
+<div style="width:100%;margin-top:15px; float:right; height:32px"><img src="images/metis-logo.png" style="height:32px"></div>
+</div>
+
+<div class="metiscont1">
+<div style="width:100%; float:right; height:80px"><img src="https://static.wixstatic.com/media/fd7c9a_60ee81f3523d4f0bbc5dbd217164fd5f~mv2.png" style="height:80px"></div>
+<div style="width:100%; margin-top:15px ;font-weight:700; height:30px; font-size:21px; float:right;">POWER BI
+</div>
+<div style="width:100%; margin-top:15px; font-size:17px; line-height:21px; float:right; height:200px">
+בעזרת הכלים הוויזואליים של פתרון זה ניתן לייצר דו"חות ו-Dashboards אשר יעזרו לכל מנהל לקבל החלטות טובות יותר.
+	<a href="https://www.metis-it.co.il/category/powerbi" style="width:100%; text-decoration: underline; color: #50BEC2; margin-top:15px; text-align: center; float:right; height:auto">לפרטים נוספים</a>
+</div>
+	
+	
+	
+<div style="width:100%; margin-top:15px; float:right; height:32px"><img src="images/metis-logo.png" style="height:32px"></div>
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div style="height:auto; display:none; width:100%; padding:3em 0; background:#F0F7F7; text-align:center; float:right">
+<img src="images/why-metis.png">
+</div>
+	
+	
+<div style="height:auto;  width:80%; padding:3em 0; margin: 0 10%; background:#DFEEEE;  float:right">
+	
+	
+				<!-- PNIM TOHEN -->
+				
+				 				<div class="blogpage1">
+				<div style="width: 100%; height: 195px; overflow: hidden; display:V ; font-weight: 400; line-height: 24px; font-size: 17px; margin:0; float:right; ">
+				<img alt="מהי מערכת ERP ? ואיזה מערכת ERP מומלצת ?" style="width: 100%;" src="https://www.metis-it.co.il/upload/original/erp.jpg">
+				</div>
+				<h1 style="width: 100%; font-size: 26px;font-weight: 700; margin: 0.5em 0 0 0 ; float:right; ">מהי מערכת ERP ? ואיזה מערכת ERP מומלצת ?</h1>
+			
+				<div style="width: 100%; font-weight: 400; line-height: 24px; height: 45px; overflow: hidden; font-size: 17px; margin: 0.5em 0; float:right; ">
+				מערכת ERP או בשמה המלא Enterprise Resource Planning System היא מערכת לניהול ארגונים המשמשת לעיבוד נתונים מהיר ומטפלת בכל המחלקות בארגון תחת קורת גג אחת וכמקשה אחת. מערכות ה ERP הוקמו על מנת לתת מענה לארגונים גדולים כמו משרדים ממשלתיים, בתי חולים, חברות גדולות ועם הזמן גם חברות קטנות התחילו להשתמש במערכות ERP למיניהן. 
+
+במערכת ה ERP קיימת אפשרות הטמעה ויישום של מודולים המותאמים אישית לצרכי הארגון ובכך למנוע סרבול והתעסקות עם כל מיני אופציות שאין בהם צורך כלל. מערכות ה ERP נותנות מענה לכל מחלקות הארגון כדוגמת: ניהול כספים והנהלת חשבונות, לוגיסטיקה ומחסנים, משאבי אנוש ועובדים, שיווק וסוכני שטח, ייעול ועוד.
+
+בשוק קיימות מגוון גדול של מערכות ERP כדוגמת SAP, אורקל, מיקרוסופט, QAD, פריוריטי ועוד. מערכת ERP מומלצת היא מערכת שהצליחה לייעל את הארגון בלפחות עשרות אחוזים ובכך לייצר שליטה ובקרה מלאה על כל מחלקה וקטגוריה.
+				</div>
+					
+					<a style="color: #4FBDC2; text-decoration: none" href="https://www.metis-it.co.il/blog/erp"><div class="blogpage2">קרא את הפוסט</div></a>
+				
+				
+				
+				</div>
+								<div class="blogpage1">
+				<div style="width: 100%; height: 195px; overflow: hidden; display:V ; font-weight: 400; line-height: 24px; font-size: 17px; margin:0; float:right; ">
+				<img alt="אפליקצית שיווק" style="width: 100%;" src="https://www.metis-it.co.il/upload/original/app-market.jpg">
+				</div>
+				<h1 style="width: 100%; font-size: 26px;font-weight: 700; margin: 0.5em 0 0 0 ; float:right; ">אפליקצית שיווק</h1>
+			
+				<div style="width: 100%; font-weight: 400; line-height: 24px; height: 45px; overflow: hidden; font-size: 17px; margin: 0.5em 0; float:right; ">
+				אפליקצית שיווק				</div>
+					
+					<a style="color: #4FBDC2; text-decoration: none" href="https://www.metis-it.co.il/blog/marketing-app"><div class="blogpage2">קרא את הפוסט</div></a>
+				
+				
+				
+				</div>
+								<div class="blogpage1">
+				<div style="width: 100%; height: 195px; overflow: hidden; display:V ; font-weight: 400; line-height: 24px; font-size: 17px; margin:0; float:right; ">
+				<img alt="אפליקצית מכירות" style="width: 100%;" src="https://www.metis-it.co.il/upload/original/app-seller.jpg">
+				</div>
+				<h1 style="width: 100%; font-size: 26px;font-weight: 700; margin: 0.5em 0 0 0 ; float:right; ">אפליקצית מכירות</h1>
+			
+				<div style="width: 100%; font-weight: 400; line-height: 24px; height: 45px; overflow: hidden; font-size: 17px; margin: 0.5em 0; float:right; ">
+				אפליקצית מכירות				</div>
+					
+					<a style="color: #4FBDC2; text-decoration: none" href="https://www.metis-it.co.il/blog/sales-app"><div class="blogpage2">קרא את הפוסט</div></a>
+				
+				
+				
+				</div>
+								<div class="blogpage1">
+				<div style="width: 100%; height: 195px; overflow: hidden; display:V ; font-weight: 400; line-height: 24px; font-size: 17px; margin:0; float:right; ">
+				<img alt="אפליקצית הפצה" style="width: 100%;" src="https://www.metis-it.co.il/upload/original/app-distribution.jpg">
+				</div>
+				<h1 style="width: 100%; font-size: 26px;font-weight: 700; margin: 0.5em 0 0 0 ; float:right; ">אפליקצית הפצה</h1>
+			
+				<div style="width: 100%; font-weight: 400; line-height: 24px; height: 45px; overflow: hidden; font-size: 17px; margin: 0.5em 0; float:right; ">
+				אם אתם מחפשים אפליקצית הפצה שתהפוך את מערך ההפצה מול המחסנאים ומול בקרת הארגון אנחנו הכתובת בשבילכם. מטיס איי טי תשמח ליישם עבורכם את המערכת שתנהל בקלות וביעילות את הארגון שלכם ותהפוך אותו למקום שנעים ונוח יותר לעבוד בו. אפליקצית ההפצה שאנו מציעים כוללת את כל הפרמטרים הבסיסיים במערך ההפצה ובמידת הצורך נדאג להתאים עבורכם גם מודולים מותאמים אישית.
+
+עם הכלים של מערך ההפצה שאנו מציעים ועם אפליקציה כל כך מתקדמת, מערך ההפצה שלכם יעבוד באופן מושלם. כאשר כל אחד מבעלי התפקידים מעדכן את שרשרת ההפצה כמו שצריך מערך ההצפה יעבוד ב-100% ללא תקלות וללא אובדן מידע חשוב. אפליקצית הפצה היא בהחלט מצרך חובה לארגונים שמכבדים את עצמם ורוצים הרבה יותר לארגון.				</div>
+					
+					<a style="color: #4FBDC2; text-decoration: none" href="https://www.metis-it.co.il/blog/distribution-app"><div class="blogpage2">קרא את הפוסט</div></a>
+				
+				
+				
+				</div>
+								<!-- END PNIM TOHEN -->
+
+</div>
+
+	<div style="height:auto; min-height: 300px; height: auto;  width:80%; padding:3em 0; margin: 0 10%; background:#DFEEEE;  float:right">
+			<h2 style="margin: 15px 0; text-align: center; width:100%; font-weight:700; float:right;color:#424A4F; text-align:center; font-size:36px;">כתבו עלינו</h2>
+		
+		
+		<div style="width: 100%; text-align: center;">
+		<a style="color:#424A4F; text-decoration: underline; font-size: 18px;" href="https://www.pc.co.il/featured/316076/">מטיס IT הטמיעה אפליקציה מבית נגבסופט לעובדי שטח של לומוס גלובל / PC מגזין</a>
+		
+		</div>
+		
+	</div>
+
+
+
+
+<meta charset="utf-8">
+<style>
+	
+	body{margin: 0; padding: 0}
+	.metisfooter1{width: 50%;height: auto; margin: 100px 25%; float: right}
+	.metisfooter2{width: 50%; height: auto; float: right}
+	.metisfooter3{width: 36%; margin-right: 7%; margin-top: 0; height: auto; float: right}
+	
+	@media screen and (max-width:760px) {
+	
+	.metisfooter1{width: 80%;height: auto; margin: 100px 10%; float: right}
+	.metisfooter2{width: 100%; height: auto; float: right}
+	.metisfooter3{width: 100%; margin-right: 0; margin-top: 80px; height: auto; float: right}
+		
+		
+	}
+	
+	</style>
+	
+	
+	
+
+
+
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	
+	
+<!-- write your code here -->
+
+	
+	
+	
+<style>
+
+body{margin:0; padding:0; background:#F0F7F7; direction:rtl;overflow-x: hidden;}
+
+	.thebottom{width: 100%; float: right; display: none;position: fixed; bottom: 0; height: 100px; background: #000000}
+	.thebottom2{float:left; width: 150px; height: 150px; background: #E2E55D; border-radius:150px;  margin: -50px 0 0 10%}
+	
+	@media screen and (max-width:760px) {
+		
+	
+	.thebottom{width: 100%; float: right;display: block; position: fixed; bottom: 0; height: 40px; background: #3E6F79}	
+.thebottom2{float:left; width: 30%; height: 150px; background: #3E6F79; border-radius:190px;  margin: -30px 0 0 3%}
+.thebottom3{float:left; width: 30%; height: 150px; background: #3E6F79; border-radius:190px;  margin: -30px 0 0 3%}		
+.thebottom4{float:left; width: 30%; height: 150px; background: #3E6F79; border-radius:190px;  margin: -30px 0 0 3%}	
+		.thebottom5{float:left; width: 50%; height: auto; background: #fff; border-radius:190px;  margin: 15px 0 0 25%}
+	}
+	
+	
+</style>
+
+
+
+
+
+
+<div id="thebottom" class="thebottom">
+<div class="thebottom2">
+	<a href="tel: +972543554463"><img style="width: 30%; float: left; margin: 20px 0 0 35%" src="https://www.metis-it.co.il/phone-call.svg"></a>
+	</div>
+	<div class="thebottom3">
+	<a href="whats-mes.php"><img style="width: 30%; float: left; margin: 20px 0 0 35%" src="https://www.metis-it.co.il/whatsapp.svg">
+	</a></div><a href="whats-mes.php">
+	</a><div class="thebottom4"><a href="whats-mes.php">
+		
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<style>
+
+body{height:100%; width:100%; margin:0; padding:0;}
+html{height:100%; width:100%}
+
+#panel2, .flip {
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  margin: auto;
+}
+
+#panel2 {
+  display: none;
+}
+
+
+
+@media screen and (max-width: 700px) {
+
+.linkbut1{position:fixed; top:-250px; right:0; height:40px; width:150px; float:right; transition:all 0.3s ease;}
+.linkbut1:hover{position:fixed; top:0;   height:40px; width:150px;transition:all 0.3s ease;float:left;}
+
+.clsbtn2{height:auto; z-index:1; font-size:24px; width:25px; background:transparent; float:right; position:fixed; top:120px; right:15px; cursor:pointer; border-radius:4px; padding:9px 6px;}
+.openbtn2{height:auto; z-index:9999; width:auto; background:transparent; cursor:pointer;}
+.headlink{text-decoration:none; color:#fff}
+.headlink:hover{text-decoration:none; color:#4FBDC2}
+	
+	.headlink2{text-decoration:none; color:#fff; font-size: 18px;}
+.headlink:hover{text-decoration:none; color:#D9D9D9}
+
+}
+
+
+</style>
+
+
+
+
+
+</a><div id="panel2" style="width:100%;z-index:100000; position:fixed; float:right; height:60%; right:0; top:100px; background:rgba(36,47,65,0.95);"><a href="whats-mes.php">
+
+</a><div class="clsbtn2" onclick="myFunctiontophead4()"><a href="whats-mes.php">
+</a><a href="#" style="height:auto; color: #fff; font-weight: 900;width:100%; text-align:center; margin:0;">X</a>
+
+
+</div>
+
+<div style="width:90%; margin:1em 5%; font-size:28px; height:90%; float:right">
+
+
+
+</div>
+
+</div>
+
+
+
+<script>
+function myFunctiontophead3() {
+  document.getElementById("panel2").style.display = "block";
+}
+
+function myFunctiontophead4() {
+  document.getElementById("panel2").style.display = "none";
+}
+
+</script>
+
+	<div style="float: right; margin: 6px">
+<div class="openbtn2" onclick="myFunctiontophead3()">
+
+<img style="width: 30%; float: left; margin: 20px 0 0 35%" src="https://www.metis-it.co.il/message.svg">
+	
+</div>
+</div>
+
+
+	</div>
+
+	
+
+	
+
+
+	
+	
+	<div style="background: #262730; font-weight: 300;float: right; color: #ABABAB; text-align: center; width: 100%; ">
+	
+	<div class="metisfooter1">
+		
+		
+		
+		<div class="metisfooter2">
+		<div style="width: 100%; min-height: 5px; height: auto; margin: 0 0 15px 0;">
+			
+			<img style="height: 50px" src="https://www.metis-it.co.il/images/footerlocation.svg">
+			</div>
+			
+			
+			<div style="width: 100%; min-height: 4px; height: auto; margin: 0 0 15px 0;">
+			
+			<div style="height: 3px; width: 6%; background: #ABABAB; float: right; margin: 0 47%"></div>
+			</div>
+			
+			
+			<div style="width: 100%; font-size: 21px; min-height: 5px; height: auto; margin: 0 0 15px 0;">שמרו על קשר</div>
+			
+			<div style="width: 100%; font-size: 36px; min-height: 5px; height: auto; margin: 0 0 15px 0;">054.3554463</div>
+			
+			<div style="width: 100%; font-size: 16px; min-height: 5px; height: auto; margin: 0 0 15px 0;">תרשיש 15 פארק תעשיה , קיסריה</div>
+			
+			<div style="width: 100%; min-height: 5px; height: auto; margin: 0 0 15px 0;">
+			
+			<a href="https://www.linkedin.com/company/metis-it-il/about/" target="_blank"><img style="height: 35px" src="https://www.metis-it.co.il/images/linkedin.svg"></a>
+			</div>
+			
+			<div style="width: 100%; min-height: 5px; height: auto; margin: 0 0 1em 0;">למטיס איי.טי בע"מ © כל הזכויות שמורות</div>
+			
+		
+		
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="metisfooter3">
+		
+		
+		<div style="width: 100%; min-height: 5px; height: auto; margin: 0 0 15px 0;">
+			
+			<img style="height: 50px" src="https://www.metis-it.co.il/images/interface.svg">
+			</div>
+			
+			<div style="width: 100%; min-height: 4px; height: auto; margin: 0 0 15px 0;">
+			
+			<div style="height: 3px; width: 6%; background: #ABABAB; float: right; margin: 0 47%"></div>
+			</div>
+			
+			<div style="width: 100%; font-size: 21px; min-height: 5px; height: auto; margin: 0 0 15px 0;">יש לכם שאלה ?</div>
+			
+			<div style="width: 100%; font-size: 18px; min-height: 5px; height: auto; margin: 0 0 15px 0;">השאירו הודעה ואנו נחזור אליכם בהקדם</div>
+			
+			<div style="width: 100%; font-size: 16px; min-height: 5px; height: auto; margin: 0 0 15px 0;">
+			
+			<div style="width: 50%; float: right;border-bottom: 1px solid #ABABAB"><input style="padding: 10px 0; border: none; background: transparent; float: right" placeholder="שם"></div>
+				<div style="width: 48%; float: right; margin-right: 2%; border-bottom: 1px solid #ABABAB"><input style="padding: 10px 0; border: none; background: transparent; float: right" placeholder="טלפון"></div>
+				<div style="width: 100%; margin-top: 10px; float: right; border-bottom: 1px solid #ABABAB"><input style="padding: 10px 0; border: none; background: transparent; float: right" placeholder="תוכן ההודעה"></div>
+				
+				<div style="width: 100%; margin-top: 10px; padding: 10px 0; color: #262730; font-size: 32px; font-weight: 700;float: right; background: #4FBDC2 ">שלח</div>
+			
+			
+			
+			</div>
+			
+		
+		
+		
+		
+		</div>
+		
+		
+		</div>
+	
+	
+	
+	</div>
+	
+
+
+
+
+</div><div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div></body></html>

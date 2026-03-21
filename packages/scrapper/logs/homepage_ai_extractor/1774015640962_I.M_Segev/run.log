@@ -1,0 +1,86 @@
+[2026-03-20T14:07:20.962Z] === Homepage AI Extractor: I.M Segev ===
+[2026-03-20T14:07:20.962Z] Started at: 2026-03-20T14:07:20.962Z
+[2026-03-20T14:07:20.962Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774015640962_I.M_Segev
+[2026-03-20T14:07:20.962Z] Company: I.M Segev
+[2026-03-20T14:07:20.962Z] Website: imsegev.co.il
+[2026-03-20T14:07:20.962Z] cbRank: 3046617
+[2026-03-20T14:07:20.962Z] Reasons: h
+[2026-03-20T14:07:20.962Z] Fetching: https://imsegev.co.il
+[2026-03-20T14:07:33.018Z] Network idle timeout — continuing with current state
+[2026-03-20T14:07:33.053Z] Redirected: https://imsegev.co.il -> https://www.imsegev.co.il/
+[2026-03-20T14:07:33.059Z] Saved HTML (148577 bytes) to page.html
+[2026-03-20T14:07:33.062Z] Extracted 63 unique links from page
+[2026-03-20T14:07:33.063Z] Saved 63 links to links.json
+[2026-03-20T14:07:33.065Z] Extracted footer HTML (8319 chars)
+[2026-03-20T14:07:33.065Z] Extracted header HTML (25008 chars)
+[2026-03-20T14:07:33.070Z] Website (post-redirect): https://www.imsegev.co.il/ → origin: https://www.imsegev.co.il
+[2026-03-20T14:07:33.071Z] External links: 7 (of 63 total)
+[2026-03-20T14:07:33.071Z] ── All external links ──
+[2026-03-20T14:07:33.071Z]   EXT: https://online.flippingbook.com/view/618388983
+[2026-03-20T14:07:33.071Z]   EXT: https://online.flippingbook.com/view/618388983/?utm_source=il-fp
+[2026-03-20T14:07:33.071Z]   EXT: https://online.publuu.com/560376/1281496
+[2026-03-20T14:07:33.071Z]   EXT: https://www.facebook.com/profile.php?id=100063522700743
+[2026-03-20T14:07:33.071Z]   EXT: https://www.instagram.com/imsegev
+[2026-03-20T14:07:33.071Z]   EXT: https://www.linkedin.com/company/im-segev/mycompany
+[2026-03-20T14:07:33.071Z]   EXT: https://www.pinterest.com/all_around_you
+[2026-03-20T14:07:33.071Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T14:07:33.071Z]   UNCATEGORIZED: https://online.flippingbook.com/view/618388983
+[2026-03-20T14:07:33.071Z]   UNCATEGORIZED: https://online.flippingbook.com/view/618388983/?utm_source=il-fp
+[2026-03-20T14:07:33.071Z]   UNCATEGORIZED: https://online.publuu.com/560376/1281496
+[2026-03-20T14:07:33.071Z]   REGEX: ig <- https://www.instagram.com/imsegev
+[2026-03-20T14:07:33.072Z]   REGEX: li <- https://www.linkedin.com/company/im-segev/mycompany
+[2026-03-20T14:07:33.072Z]   UNCATEGORIZED: https://www.pinterest.com/all_around_you
+[2026-03-20T14:07:33.072Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-20T14:07:34.300Z]   RESOLVE: https://www.facebook.com/profile.php?id=100063522700743 → https://www.facebook.com/people/IM-segev/100063522700743
+[2026-03-20T14:07:34.304Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/IM-segev/100063522700743 (from https://www.facebook.com/profile.php?id=100063522700743)
+[2026-03-20T14:07:34.304Z] Programmatic result: ws:1, ig:1, li:1 | 4 uncategorized
+[2026-03-20T14:07:34.304Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T14:07:34.305Z] Saved AI prompt (9160 chars) to ai_prompt.txt
+[2026-03-20T14:07:34.305Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T14:07:34.309Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T14:08:28.844Z]   AI: First token received, streaming...
+[2026-03-20T14:08:41.852Z] AI response complete: 185 chars in 67.5s
+[2026-03-20T14:08:41.853Z] Saved AI response to ai_response.json
+[2026-03-20T14:08:41.853Z] ── Parsing AI response (4 lines) ──
+[2026-03-20T14:08:41.854Z]   AI LINK: https://www.instagram.com/imsegev/
+[2026-03-20T14:08:41.854Z]   AI LINK: https://www.linkedin.com/company/im-segev/mycompany/
+[2026-03-20T14:08:41.854Z]   AI LINK: https://www.pinterest.com/all_around_you/
+[2026-03-20T14:08:41.854Z]   AI LINK: https://www.facebook.com/profile.php?id=100063522700743
+[2026-03-20T14:08:41.854Z] AI returned 4 valid links
+[2026-03-20T14:08:41.854Z] ── Categorizing 4 AI-returned links ──
+[2026-03-20T14:08:41.854Z]   AI→REGEX: ig <- https://www.instagram.com/imsegev/ (duplicate, skipped)
+[2026-03-20T14:08:41.855Z]   AI→REGEX: li <- https://www.linkedin.com/company/im-segev/mycompany/ (duplicate, skipped)
+[2026-03-20T14:08:41.855Z]   AI→URLS: https://www.pinterest.com/all_around_you (cleaned from https://www.pinterest.com/all_around_you/)
+[2026-03-20T14:08:42.788Z]   RESOLVE: https://www.facebook.com/profile.php?id=100063522700743 → https://www.facebook.com/people/IM-segev/100063522700743
+[2026-03-20T14:08:42.792Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/IM-segev/100063522700743 (from https://www.facebook.com/profile.php?id=100063522700743)
+[2026-03-20T14:08:42.793Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T14:08:42.793Z] Footer/header origins (6):
+[2026-03-20T14:08:42.793Z]   FOOTER/HEADER ORIGIN: https://www.imsegev.co.il
+[2026-03-20T14:08:42.793Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-20T14:08:42.793Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-20T14:08:42.793Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-20T14:08:42.793Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T14:08:42.793Z]   FOOTER/HEADER ORIGIN: https://online.flippingbook.com
+[2026-03-20T14:08:42.793Z]   ADDED: urls <- https://online.flippingbook.com/view/618388983
+[2026-03-20T14:08:42.793Z]   SKIP (duplicate): https://online.flippingbook.com/view/618388983
+[2026-03-20T14:08:42.793Z]   SKIP (not in footer/header): https://online.publuu.com/560376/1281496
+[2026-03-20T14:08:42.794Z]   SKIP (AI claimed): https://www.pinterest.com/all_around_you
+[2026-03-20T14:08:42.794Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-20T14:08:42.794Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T14:08:42.794Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T14:08:42.794Z] ── Step 3: Final dedup ──
+[2026-03-20T14:08:42.794Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T14:08:42.794Z] ── FINAL RESULT ──
+[2026-03-20T14:08:42.794Z]   ws (1):
+[2026-03-20T14:08:42.794Z]     - https://www.imsegev.co.il
+[2026-03-20T14:08:42.794Z]   li (1):
+[2026-03-20T14:08:42.794Z]     - https://www.linkedin.com/company/im-segev
+[2026-03-20T14:08:42.794Z]   ig (1):
+[2026-03-20T14:08:42.794Z]     - https://www.instagram.com/imsegev
+[2026-03-20T14:08:42.794Z]   urls (2):
+[2026-03-20T14:08:42.794Z]     - https://online.flippingbook.com/view/618388983
+[2026-03-20T14:08:42.794Z]     - https://www.pinterest.com/all_around_you
+[2026-03-20T14:08:42.795Z] Summary: ws:1, ig:1, li:1, urls:2
+[2026-03-20T14:08:42.795Z] Saved final result to result.json
+[2026-03-20T14:08:42.795Z] Override fields: ws, li, ig, urls
+[2026-03-20T14:08:42.795Z] Finished at: 2026-03-20T14:08:42.795Z

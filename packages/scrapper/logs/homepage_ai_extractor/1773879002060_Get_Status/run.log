@@ -1,0 +1,72 @@
+[2026-03-19T00:10:02.060Z] === Homepage AI Extractor: Get Status ===
+[2026-03-19T00:10:02.060Z] Started at: 2026-03-19T00:10:02.060Z
+[2026-03-19T00:10:02.060Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773879002060_Get_Status
+[2026-03-19T00:10:02.060Z] Company: Get Status
+[2026-03-19T00:10:02.060Z] Website: getstatus.online
+[2026-03-19T00:10:02.061Z] cbRank: 1853609
+[2026-03-19T00:10:02.061Z] Reasons: h
+[2026-03-19T00:10:02.061Z] Fetching: https://getstatus.online
+[2026-03-19T00:10:09.601Z] Redirected: https://getstatus.online -> https://search.getstatus.online/he
+[2026-03-19T00:10:09.612Z] Saved HTML (322242 bytes) to page.html
+[2026-03-19T00:10:09.615Z] Extracted 48 unique links from page
+[2026-03-19T00:10:09.615Z] Saved 48 links to links.json
+[2026-03-19T00:10:09.617Z] Extracted footer HTML (10902 chars)
+[2026-03-19T00:10:09.617Z] Extracted header HTML (4716 chars)
+[2026-03-19T00:10:09.622Z] Website (post-redirect): https://search.getstatus.online/he → origin: https://search.getstatus.online
+[2026-03-19T00:10:09.622Z]   SUBDOMAIN: getstatus.online (added to ws)
+[2026-03-19T00:10:09.623Z]   SUBDOMAIN: app.getstatus.online (added to ws)
+[2026-03-19T00:10:09.623Z] Website subdomains found: 2
+[2026-03-19T00:10:09.623Z] External links: 3 (of 48 total)
+[2026-03-19T00:10:09.623Z] ── All external links ──
+[2026-03-19T00:10:09.623Z]   EXT: https://www.facebook.com/getStatus.online
+[2026-03-19T00:10:09.623Z]   EXT: https://www.instagram.com/getstatus.online
+[2026-03-19T00:10:09.623Z]   EXT: https://www.linkedin.com/company/10407529/admin/feed/posts
+[2026-03-19T00:10:09.623Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T00:10:09.623Z]   REGEX: fb <- https://www.facebook.com/getStatus.online
+[2026-03-19T00:10:09.623Z]   REGEX: ig <- https://www.instagram.com/getstatus.online
+[2026-03-19T00:10:09.623Z]   REGEX: li <- https://www.linkedin.com/company/10407529/admin/feed/posts
+[2026-03-19T00:10:09.623Z] Programmatic result: ws:3, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-19T00:10:09.623Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T00:10:09.625Z] Saved AI prompt (4160 chars) to ai_prompt.txt
+[2026-03-19T00:10:09.625Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T00:10:09.628Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T00:10:25.721Z]   AI: First token received, streaming...
+[2026-03-19T00:10:33.147Z] AI response complete: 144 chars in 23.5s
+[2026-03-19T00:10:33.149Z] Saved AI response to ai_response.json
+[2026-03-19T00:10:33.149Z] ── Parsing AI response (3 lines) ──
+[2026-03-19T00:10:33.149Z]   AI LINK: https://www.instagram.com/getstatus.online
+[2026-03-19T00:10:33.149Z]   AI LINK: https://www.linkedin.com/company/10407529/admin/feed/posts/
+[2026-03-19T00:10:33.149Z]   AI LINK: https://www.facebook.com/getStatus.online
+[2026-03-19T00:10:33.150Z] AI returned 3 valid links
+[2026-03-19T00:10:33.150Z] ── Categorizing 3 AI-returned links ──
+[2026-03-19T00:10:33.150Z]   AI→REGEX: ig <- https://www.instagram.com/getstatus.online (duplicate, skipped)
+[2026-03-19T00:10:33.150Z]   AI→REGEX: li <- https://www.linkedin.com/company/10407529/admin/feed/posts/ (duplicate, skipped)
+[2026-03-19T00:10:33.150Z]   AI→REGEX: fb <- https://www.facebook.com/getStatus.online (duplicate, skipped)
+[2026-03-19T00:10:33.151Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T00:10:33.151Z] Footer/header origins (6):
+[2026-03-19T00:10:33.152Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-19T00:10:33.152Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-19T00:10:33.152Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T00:10:33.152Z]   FOOTER/HEADER ORIGIN: https://www.getstatus.online
+[2026-03-19T00:10:33.152Z]   FOOTER/HEADER ORIGIN: http://www.getstatus.online
+[2026-03-19T00:10:33.152Z]   FOOTER/HEADER ORIGIN: https://app.getstatus.online
+[2026-03-19T00:10:33.152Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T00:10:33.152Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T00:10:33.153Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T00:10:33.153Z] ── Step 3: Final dedup ──
+[2026-03-19T00:10:33.153Z] No urls to dedup
+[2026-03-19T00:10:33.153Z] ── FINAL RESULT ──
+[2026-03-19T00:10:33.153Z]   ws (3):
+[2026-03-19T00:10:33.153Z]     - https://app.getstatus.online
+[2026-03-19T00:10:33.153Z]     - https://getstatus.online
+[2026-03-19T00:10:33.153Z]     - https://search.getstatus.online
+[2026-03-19T00:10:33.154Z]   li (1):
+[2026-03-19T00:10:33.154Z]     - https://www.linkedin.com/company/10407529
+[2026-03-19T00:10:33.154Z]   fb (1):
+[2026-03-19T00:10:33.154Z]     - https://www.facebook.com/getstatus.online
+[2026-03-19T00:10:33.154Z]   ig (1):
+[2026-03-19T00:10:33.154Z]     - https://www.instagram.com/getstatus.online
+[2026-03-19T00:10:33.155Z] Summary: ws:3, fb:1, ig:1, li:1
+[2026-03-19T00:10:33.156Z] Saved final result to result.json
+[2026-03-19T00:10:33.156Z] Override fields: ws, li, fb, ig
+[2026-03-19T00:10:33.156Z] Finished at: 2026-03-19T00:10:33.156Z

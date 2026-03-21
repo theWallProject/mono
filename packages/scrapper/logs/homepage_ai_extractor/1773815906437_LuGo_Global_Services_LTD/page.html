@@ -1,0 +1,1685 @@
+<!DOCTYPE html><html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="en"><head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;display=swap">
+
+  <style>
+ 
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap');
+
+#cursor {
+  display: inline-block;
+  margin-left: 3px;
+  color: #7274FF;
+  font-weight: bold;
+  animation: cursorBlink 0.8s steps(1) infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.typewriter {
+  white-space: normal;
+  word-break: break-word;
+  font-family: Nunito;
+  color: #364154;
+  font-size: 18px;
+}
+
+
+
+.typewriterJs {
+  font-family: Nunito;
+  font-size: 18px;
+  color: #364154;
+  white-space: normal;      /* ALLOW WRAPPING */
+  word-break: break-word;
+  display: inline-block;
+}
+
+
+
+
+@media(max-width: 576px) {
+	
+  .AI-Left-BOX.left-box {	
+    margin-top: -80px !important;
+ }
+
+
+  .difficulty-pill {
+    margin-left: 0px !important;
+    margin-right: 4px; /* small space */
+    padding: 0 14px !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    border-radius: 20px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .typewriter {
+    white-space: normal !important;
+    width: 100% !important;      /* allow wrapping */
+  }
+     
+  .typewriter span {
+    position: static !important; /* allow natural flow */
+    display: inline;
+  }
+}
+
+
+
+
+.big-title {
+  font-size: clamp(52px, 8vw, 72px) !important;
+}
+
+
+
+ 
+ .fix-button {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+}
+
+@media (min-width: 1200px) {
+  .left-box {
+    margin-left: -70px !important;
+  }
+}
+
+  .hero-area {
+  position: relative;
+  z-index: 1;
+}
+
+.partner-area {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  .trusted-clients-text {
+    display: none;
+  }
+}
+
+
+@keyframes fallIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0px); /* overshoot */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.text-box-1, .text-box-2 {
+  animation: fallIn 5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.single-product {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+}
+
+.single-product.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.single-product {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  /* optional: add perspective for smoother scaling */
+  transform-origin: center;
+}
+
+.single-product.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 💡 Hover effect */
+.single-product:hover {
+  transform: translateY(-5px) scale(1.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 2;
+}
+
+  </style>
+<!-- script>
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('.lugoh-header');
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script> -->
+
+
+  	<!-- Google Tag Manager -->
+
+
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-PE1FZS7317&amp;cx=c&amp;gtm=4e63h0h2"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-11419663076&amp;cx=c&amp;gtm=4e63h0h2"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5BZCRT2W"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5BZCRT2W');</script>
+<!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PE1FZS7317"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-11419663076">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11419663076');
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PE1FZS7317');
+  
+     
+</script>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Title-->
+        <meta name="keywords" content="coding tests, java coding tests, c++ coding test. programming coding tests, skills assessment, online testing, online quizzes, evaluate candidates, technical skills,  screen assessment">
+			<meta name="description" content="LuGo-Test offers coding and technical skills testing services to optimize your company's recruitment process">
+			<title>LuGo-Test - Coding Interview Platform - Test your candidate's coding and technical skills in more than 300 different technologies</title>
+
+	
+     <!-- Favicon-->
+        <link rel="icon" href="https://storage.googleapis.com/lugo-test-com-media-bucket/img/favicon.ico" type="image/png">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;display=swap" rel="stylesheet"> 
+
+
+		<link rel="stylesheet" href="css/headerLayout.css">
+    <!-- Bootstrap -->
+		<link rel="stylesheet" href="https://storage.googleapis.com/lugo-test-com-media-bucket/assets/css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="https://storage.googleapis.com/lugo-test-com-media-bucket/assets/css/responsive.css">
+	
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/lugo-test-com-media-bucket/css/animate.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/lugo-test-com-media-bucket/css/owl.carousel.min.css">
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/lugo-test-com-media-bucket/css/slick.css">
+    <!-- Back To Top CSS -->
+    
+    <!-- Uicons -->
+    <link rel="stylesheet" href="css/uicons.css">
+    <!-- Icofont -->
+    <link rel="stylesheet" href="css/icofont.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/lugo-test-com-media-bucket/css/style.css">
+    
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script async="" type="text/javascript" src="https://cdn.livechatinc.com/tracking.js"></script></head>
+  <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BZCRT2W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!--[if IE]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+
+
+
+    <!-- Back to top start -->
+    <div class="progress-wrap">
+      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+      </svg>
+    </div>
+    <!-- Back to top end -->
+
+    <!-- Mobile Menu Modal -->
+    <div class="modal mobile-menu-modal offcanvas-modal fade" id="offcanvas-modal">
+      <div class="modal-dialog offcanvas-dialog">
+        <div class="modal-content">
+          <div class="modal-header offcanvas-header">
+            <!-- offcanvas-logo-start -->
+            <div class="offcanvas-logo">
+              <a href="#"><img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/logo.svg" alt="#"></a>
+            </div>
+            <!-- offcanvas-logo-end -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <i class="icofont-close-line"></i>
+            </button>
+          </div>
+          <div class="mobile-menu-modal-main-body">
+            <!-- offcanvas-menu start -->
+            <nav id="offcanvas-menu" class="offcanvas-menu">
+              <ul id="mobile-nav" class="list-none offcanvas-men-list">
+                <li class="active">
+                  </li><li><a href="#product">Product</a></li>
+<li><a href="/pricing.html">Pricing</a></li>
+                  <li><a href="#clients">Clients</a></li>
+                  
+                <li><a href="/tests-library">Tests Library</a></li>          
+                <!-- li><a href="about.html">About</a></li -->
+				        <!--<li><a href="/index.php/blog/">Blog</a></li>   -->
+                <li><a href="https://support.lugo-test.com/support/solutions">Support</a></li>                
+              </ul>
+            </nav>
+            <!-- offcanvas-menu end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Mobile Menu Modal -->
+	
+
+    <!-- Header Fixed Area  -->
+	
+	<!-- Header Section -->
+	<header class="lugoh-header">
+  <div class="lugoh-header-wrapper">
+    <!-- Logo -->
+    <div class="lugoh-logo">
+      <a href="/">
+        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/logo.svg" alt="Logo">
+      </a>
+    </div>
+
+    <!-- Center Menu -->
+    <nav class="lugoh-menu">
+      <ul class="lugoh-menu-list">
+        <li><a href="#product">Product</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="/tests-library">Tests Library</a></li>        
+        <!-- li><a href="about.html">About</a></li -->
+        <!-- <li><a href="/index.php/blog/">Blog</a></li> -->
+      </ul>
+    </nav>
+
+    <!-- Right Section -->
+    <div class="lugoh-right">
+      <a class="lugoh-support-link" href="https://support.lugo-test.com/support/solutions">Support</a>
+      <div class="header-button">
+              <a href="https://app.lugo-test.com/users/login" class="lugo-btn  login-l-btn-class">Login</a>
+            </div>
+
+      <!-- Mobile Menu -->
+      <button type="button" class="lugoh-mobile-menu-button" data-bs-toggle="modal" data-bs-target="#offcanvas-modal">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+
+	
+	<!-- 
+    <header class="header-area">
+      <div class="container">
+        <div class="header-inner">
+          <div class="header-logo">
+            <a href="/"><img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/logo.svg" alt="#" /></a>
+          </div>
+          <div class="header-menu">
+            <nav class="navigation">
+              <ul class="header-menu-list">
+                                                    <li><a href="#product">Product</a></li>
+<li><a href="/pricing.html">Pricing</a></li>
+
+                  <li><a href="#clients">Clients</a></li>
+                  
+                <li><a href="/tests-library">Tests Library</a></li>
+                <li><a href="/test.html">Demo Test</a></li>          
+                <li><a href="about.html">About</a></li>
+				        <li><a href="/index.php/blog/">Blog</a></li>   
+
+                <li><a href="https://support.lugo-test.com/support/solutions">Support</a></li>        
+              </ul>
+            </nav>
+          </div>
+          <div class="header-mobile-button">
+            <div class="header-button">
+              <a href="https://lugo-test.cloudforce.com/" class="lugo-btn  login-l-btn-class">Login</a>
+            </div>
+            <!-- Mobile Menu Button 
+            <button
+              type="button"
+              class="mobile-menu-offcanvas-toggler"
+              data-bs-toggle="modal"
+              data-bs-target="#offcanvas-modal"
+            >
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </button>
+            <!-- End Mobile Menu Button 
+          </div>
+        </div>
+      </div>
+    </header> -->
+    <!-- End Header Fixed Area -->
+
+    <!-- Header Area 
+    <header class="header-show" id="active-sticky">
+      <div class="container">
+        <div class="header-inner">
+          <div class="header-logo">
+            <a href="/"><img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/logo.svg" alt="#" /></a>
+          </div>
+          <div class="header-menu">
+            <nav class="navigation">
+              <ul class="header-menu-list">
+                                                    <li><a href="#product">Product</a></li>
+<li><a href="/pricing.html">Pricing</a></li>
+                  <li><a href="#clients">Clients</a></li>
+                  
+                <li><a href="/tests-library">Tests Library</a></li>
+<li><a href="/test.html">Demo Test</a></li>          
+                <li><a href="about.html">About</a></li>
+				        <li><a href="/index.php/blog/">Blog</a></li>   
+				        
+                <li><a href="https://support.lugo-test.com/support/solutions">Support</a></li>              
+              </ul>
+            </nav>
+          </div>
+          <div class="header-mobile-button">
+            <div class="header-button">
+              <a href="https://lugo-test.cloudforce.com/" class="lugo-btn login-l-btn-class">Login</a>
+            </div>
+            <!-- Mobile Menu Button 
+            <button
+              type="button"
+              class="mobile-menu-offcanvas-toggler"
+              data-bs-toggle="modal"
+              data-bs-target="#offcanvas-modal"
+            >
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </button>
+            <!-- End Mobile Menu Button 
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Hero Area -->
+    <section class="hero-area">
+      <div class="container" style="max-width:1400px !important">
+        <div class="row align-items-center">
+          <div class="col-lg-12 col-xl-5 col-12">
+            <div class="hero-content">
+              <h1 class="hero-cont-title">
+                Hire the best <br>
+                tech candidates, faster.
+              </h1>
+              <p class="hero-cont-text">
+                Efficient, accurate, and fair <br>assessments for your hiring
+                needs
+              </p>
+              <div class="hero-cont-button">
+                <a href="https://app.lugo-test.com/users/register/" class="lugo-btn login-btn-class">Start Today</a>
+                <a href="https://www.lugo-test.com/about.html" style="text-transform: none;" class="lugo-btn secondary login-btn-class">Book a Demo</a>				
+              </div>
+
+              <div class="hero-bottom d-none d-sm-none d-md-block">
+               <div class="hero-bottom-content">
+                  <div class="hero-bottom-rattings">
+                   <div class="top-text" style="cursor: pointer; display: flex; justify-content: center; align-items: center; white-space: nowrap;">
+    <a style="display: flex; align-items: center; font-size: 14px; font-weight: 600; white-space: nowrap;" href="https://www.g2.com/products/lugo-test/reviews" target="_blank">
+        Read our reviews on 
+        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/reviews.png" alt="" style="margin-left: 5px;">
+    </a>
+</div>
+
+                 <ul class="hero-ratting-list" style="list-style: none; padding: 0; margin: 0; white-space: nowrap;">
+    <li style="display: inline-block; margin-right: 5px;">
+        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/star-icon.svg" alt="#">
+    </li>
+    <li style="display: inline-block; margin-right: 5px;">
+        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/star-icon.svg" alt="#">
+    </li>
+    <li style="display: inline-block; margin-right: 5px;">
+        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/star-icon.svg" alt="#">
+    </li>
+    <li style="display: inline-block; margin-right: 5px;">
+        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/star-icon.svg" alt="#">
+    </li>
+    <li style="display: inline-block;">
+        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/star-icon.svg" alt="#">
+    </li>
+</ul>
+
+                    <p class="hero-ratting-text">
+                      <span>5.0</span> out of <span>5</span>
+                    </p>
+                  </div>
+                <div class="hero-bottom-banner-img" style="display: flex; align-items: center; justify-content: center;">
+					<img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/TechnicalSkillsScreening_BestSupport_QualityOfSupport.svg" alt="#" style="margin-right: 10px;">
+					<img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/TechnicalSkillsScreening_HighPerformer_HighPerformer.svg" alt="#" style="margin-right: 10px;">
+					<img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/users-love-us.png" alt="#">
+				</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-xl-7 col-12">
+            <div class="hero-image">
+              <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/hero-img.png" alt="#">
+              <div class="text-box text-box-1" style="cursor:pointer;">
+                <a style="font-weight:600;transition: color 0.1s ease;" href="/test.html">Demo Test</a>
+              </div>
+              <div class="text-box text-box-2" style="cursor:pointer">			  
+                <a style="font-weight:600;transition: color 0.1s ease;" href="/index.php/2023/07/09/enhancing-fairness-and-accuracy-with-our-chatgpt-free-coding-assessment-service/">No-AI Tools</a>
+              </div>
+              <!-- div class="text-box text-box-3" style="cursor:pointer" onclick="window.open('/index.php/2021/08/12/screenshots-based-test/', '_blank')">Screenshots + AI</div> -->
+              <div class="text-box text-box-4">
+                <ul>
+                  <li class=""><a style="font-weight:600 !important" href="/test/Frontend-Assessment">Frontend</a></li>
+                  <li class="active"><a style="font-weight:600 !important" href="/test/Backend-Assessment">Backend</a></li>
+                  <li><a style="font-weight:600 !important" href="/test/Full-Stack-Node.js-React-Coding-Assessment">Fullstack</a></li>
+                  <li><a style="font-weight:600 !important" href="/test/BI-SQL-Coding-Assessment">Data Analyst</a></li>
+                  <li><a style="font-weight:600 !important" href="/test/DevOps-Assessment">DevOps</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="hero-mobile-img">
+              <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/hero-img.png" alt="#">
+              <div class="text-box text-box-1">
+                <a style="font-weight:600;transition: color 0.1s ease;" href="/test.html">Demo Test</a>
+              </div>
+              <div class="text-box text-box-2">
+                <a style="font-weight:600;font-weight:600;transition: color 0.1s ease;" href="/index.php/2023/07/09/enhancing-fairness-and-accuracy-with-our-chatgpt-free-coding-assessment-service/">No-AI Tools</a>
+              </div>
+              <!-- div class="text-box text-box-3" style="cursor:pointer" onclick="window.open('/index.php/2021/08/12/screenshots-based-test/', '_blank')">Screenshots + AI</a></div -->
+              <span class="mobileTopWrapper">
+              <div class="text-box text-box-4">
+                <ul>
+                  <li class="active"><a style="font-weight:600 !important" href="/test/Frontend-Assessment">Frontend</a></li>
+                  <li><a style="font-weight:600 !important" href="/test/Backend-Assessment">Backend</a></li>
+                  <li><a style="font-weight:600 !important" href="/test/Full-Stack-Node.js-React-Coding-Assessment">Fullstack</a></li>
+                  <li><a style="font-weight:600 !important" href="/test/BI-SQL-Coding-Assessment">Data Analyst</a></li>
+                  <li><a style="font-weight:600 !important" href="/test/DevOps-Assessment">DevOps</a></li>
+
+                </ul>
+              </div>
+
+              <div class="hero-bottom d-md-none">
+                <div class="hero-bottom-content">
+                  <div>
+                    <div class="top-text" style="cursor: pointer"><a style="font-size: 14px;font-weight: 600;" href="https://www.g2.com/products/lugo-test/reviews" target="_blank">Read our reviews on <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/reviews.png" alt=""></a></div>
+                    
+                    <p class="hero-ratting-text">
+                      <span>5.0</span> out of <span>5</span>
+                    </p>
+                  </div>
+                  <div class="hero-bottom-banner-img">
+                    <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/hero-images/medal.svg" alt="#">
+					<img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/bestsupportg2.svg" alt="#">
+                  </div>
+                </div>
+              </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero Area -->
+	
+	<section class="partner-area" style="background-color:white;padding: 30px">
+      <div class="container" style="max-width:1500px !important">
+		<div class="row">
+			<div class="trusted-clients-text offset-md-5 col-5" style="padding-bottom:20px;font-size:19px;color:#808080">
+				Some Of Our Trusted Clients
+			</div>
+		</div>
+        <div class="row">
+          <div class="col-12">
+            <div class="partner-slider owl-carousel owl-theme owl-loaded">
+              
+              
+              
+              
+              
+			                
+              
+
+            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1418.67px, 0px, 0px); transition: 0.5s; width: 3850.67px;"><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/amdocs-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/elbit-systems-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/idGrH89pNG_1751355823360.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/nippon-telegraph-and-telephone-ntt-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/solaredge-logo 2.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/western-digital-seeklogo 2.svg" alt="#">
+              </a></div><div class="owl-item" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="10" height="50" src="img/partner-images/Sapiens Logo svg.svg" alt="#">
+              </a></div><div class="owl-item active" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/amdocs-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item active" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/elbit-systems-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item active" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/idGrH89pNG_1751355823360.svg" alt="#">
+              </a></div><div class="owl-item active" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/nippon-telegraph-and-telephone-ntt-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item active" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/solaredge-logo 2.svg" alt="#">
+              </a></div><div class="owl-item active" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/western-digital-seeklogo 2.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="10" height="50" src="img/partner-images/Sapiens Logo svg.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/amdocs-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/elbit-systems-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/idGrH89pNG_1751355823360.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/nippon-telegraph-and-telephone-ntt-seeklogo 1.svg" alt="#">
+              </a></div><div class="owl-item cloned" style="width: 182.667px; margin-right: 20px;"><a href="#" class="partner-single">
+                <img width="30" height="100" src="img/partner-images/solaredge-logo 2.svg" alt="#">
+              </a></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style="display: none;"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Area 
+    <section class="partner-area">
+      <div class="container" style="max-width:1400px !important">
+        <div class="row">
+          <div class="col-12">
+            <div class="partner-slider">
+              <a href="#" class="partner-single">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/partner-images/partner-1.png" alt="#" />
+              </a>
+              <a href="#" class="partner-single">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/partner-images/partner-2.png" alt="#" />
+              </a>
+              <a href="#" class="partner-single">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/partner-images/partner-3.png" alt="#" />
+              </a>
+              <a href="#" class="partner-single">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/partner-images/partner-4.png" alt="#" />
+              </a>
+              <a href="#" class="partner-single">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/partner-images/partner-5.png" alt="#" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- End Client Area -->
+
+    <!-- Assessments Area -->
+    <section class="assessments-area section-padding">
+      <div class="container" id="product" style="padding-bottom:20px;padding-top:-80px;max-width:1400px !important">	  
+        <div class="row">
+          <div class="col-12">
+            <div class="accessments-slider slick-initialized slick-slider slick-dotted"><button class="Prev slick-arrow" style=""><i class="fi fi-rs-angle-left" aria-hidden="true"></i></button>
+              <!-- Single Assessments -->
+              <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 5024px;"><div class="single-accessments slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" style="width: 1256px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 700ms;">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-12">
+                    <div class="single-accessments-img" style="position: relative;;background-image:url(https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-images/circles-bg.png);background-repeat: no-repeat; background-size: auto;">
+                      <div style="width: 90%;"> 
+                        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-6.png" alt="#" style="border-radius: 5px;"> 
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-5 col-12">
+                    <div class="single-accessments-content">
+                      <div class="single-accessments-content-top">
+                        <h1 class="single-accessments-cont-title">
+                          Assessments
+                        </h1>
+                        <p class="single-accessments-cont-text">
+                          Coding challenges, technical questions, and AI based open-ended questions
+                        </p>
+                        <p class="single-accessments-cont-sub-text">
+                          Select and customize your tests for any
+                          role to find the best candidates.
+                        </p>
+                      </div>
+                      <div class="single-accessments-content-bottom">
+                        <ul class="single-accessments-cont-list">
+                          <li>
+                            <i class="fi fi-rr-check"></i>Coding challenges in 20+ programming languages 
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Technical questions in 300+ technologies, including R&amp;D, DevOps, IT, QA and more.
+							
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Video screening interviews
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><div class="single-accessments slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01" style="width: 1256px; position: relative; left: -1256px; top: 0px; z-index: 999; opacity: 1;">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-12">
+                    <div class="single-accessments-img" style="position: relative;;background-image:url(https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-images/circles-bg.png);background-repeat: no-repeat; background-size: auto;">
+                      <div style="width: 90%;"> 
+                        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-5.png" alt="#" style="border-radius: 5px;"> 
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-5 col-12">
+                    <div class="single-accessments-content">
+                      <div class="single-accessments-content-top">
+                        <h1 class="single-accessments-cont-title">
+                          Assessments
+                        </h1>
+                        <p class="single-accessments-cont-text">
+                          Coding challenges, technical questions, and AI based open-ended questions
+                        </p>
+                        <p class="single-accessments-cont-sub-text">
+                          Select and customize your tests for any
+                          role to find the best candidates.
+                        </p>
+                      </div>
+                      <div class="single-accessments-content-bottom">
+                        <ul class="single-accessments-cont-list">
+                          <li>
+                            <i class="fi fi-rr-check"></i>Coding challenges in 20+ programming languages 
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Technical questions in 300+ technologies, including R&amp;D, DevOps, IT, QA and more.
+							
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Video screening interviews
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><div class="single-accessments slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide02" aria-describedby="slick-slide-control02" style="width: 1256px; position: relative; left: -2512px; top: 0px; z-index: 998; opacity: 0;">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-12">
+                    <div class="single-accessments-img" style="position: relative;;background-image:url(https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-images/circles-bg.png);background-repeat: no-repeat; background-size: auto;">
+                      <div style="width: 90%;"> 
+                        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-images/testApp.png" alt="#" style="border-radius: 5px;"> 
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-5 col-12">
+                    <div class="single-accessments-content">
+                      <div class="single-accessments-content-top">
+                        <h1 class="single-accessments-cont-title">
+                          Assessments
+                        </h1>
+                        <p class="single-accessments-cont-text">
+                          Coding challenges, technical questions, and AI based open-ended questions
+                        </p>
+                        <p class="single-accessments-cont-sub-text">
+                          Select and customize your tests for any
+                          role to find the best candidates.
+                        </p>
+                      </div>
+                      <div class="single-accessments-content-bottom">
+                        <ul class="single-accessments-cont-list">
+                          <li>
+                            <i class="fi fi-rr-check"></i>Coding challenges in 20+ programming languages 
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Technical questions in 300+ technologies, including R&amp;D, DevOps, IT, QA and more.
+							
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Video screening interviews
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><div class="single-accessments slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide03" aria-describedby="slick-slide-control03" style="width: 1256px; position: relative; left: -3768px; top: 0px; z-index: 998; opacity: 0;">
+                <div class="row align-items-center">
+                  <div class="col-lg-7 col-12">
+                    <div class="single-accessments-img" style="position: relative;;background-image:url(https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-images/circles-bg.png);background-repeat: no-repeat; background-size: auto;">
+                      <div style="width: 90%;"> 
+                        <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-7.png" alt="#" style="border-radius: 5px;"> 
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-5 col-12">
+                    <div class="single-accessments-content">
+                      <div class="single-accessments-content-top">
+                        <h1 class="single-accessments-cont-title">
+                          Assessments
+                        </h1>
+                        <p class="single-accessments-cont-text">
+                          Coding challenges, technical questions, and AI based open-ended questions
+                        </p>
+                        <p class="single-accessments-cont-sub-text">
+                          Select and customize your tests for any
+                          role to find the best candidates.
+                        </p>
+                      </div>
+                      <div class="single-accessments-content-bottom">
+                        <ul class="single-accessments-cont-list">
+                          <li>
+                            <i class="fi fi-rr-check"></i>Coding challenges in 20+ programming languages 
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Technical questions in 300+ technologies, including R&amp;D, DevOps, IT, QA and more.
+							
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Video screening interviews
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div></div></div>
+              <!-- End Single Assessments -->
+              <!-- Single Assessments -->
+              
+              <!-- End Single Assessments -->
+              <!-- Single Assessments -->
+              
+              <!-- End Single Assessments -->
+              <!-- Single Assessments -->
+              
+              <!-- End Single Assessments -->
+            <button class="Next slick-arrow" style=""><i class="fi fi-rs-angle-right" aria-hidden="true"></i></button><ul class="slick-dots" style="" role="tablist"><li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 4" tabindex="-1">1</button></li><li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 4" tabindex="0" aria-selected="true">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 4" tabindex="-1">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control03" aria-controls="slick-slide03" aria-label="4 of 4" tabindex="-1">4</button></li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Assessments Area -->
+	
+	    <!-- AI Question Builder -->
+	
+  <section class="section-padding" style="background: linear-gradient(180deg, #FFFFFF 0%, #F6F4FE 100%);">
+  <div class="container" id="product" style="padding-top:20px;max-width:1400px !important;">
+    <div class="row justify-content-center">
+
+      <!-- LEFT SPACER (DESKTOP ONLY) -->
+      <div class="d-none d-lg-block col-lg-1"></div>
+
+      <!-- LEFT COLUMN -->
+      <div class="col-12 col-md-6 col-lg-5 mb-5 mb-md-0">
+        <div class="AI-Left-BOX left-box" style="
+          margin-top:140px;          
+          background:white;
+          width:100%;                    /* responsive */
+          max-width:655px;               /* keep design */
+          height:auto;                   /* responsive */
+          padding:32px;
+          display:flex;
+          flex-direction:column;
+          align-items:flex-start;
+          border-radius:28px;
+          border:1px solid rgba(255,255,255,0.19);
+          box-shadow:0 0 37.3px rgba(96,91,255,0.08);
+        ">
+
+          <div style="display:flex; align-items:center;">
+            <img src="images/AI-Icon.svg">
+            <span style="font-family:Nunito; font-weight:700; font-size:22px; padding-left:10px;">
+              AI Questions Builder
+            </span>
+          </div>
+
+          <div style="border:1px solid  #e1dcfd;border-radius:12px;width:100%;max-width:573px;height:91px;background:#edeffe;color:#364154;font-family:Nunito;margin-top:32px;padding:20px;">
+			<div class="typewriter">
+				<span id="typewriterText">JavaScript Promises, async/wait, and e</span>
+				<span id="cursor">|</span>
+			</div>
+          </div>
+
+          <span style="margin-top:14px;color:#4A5565;font-family:Nunito;font-size:16px;font-weight:500;line-height:35px;">
+            Difficulty Level
+          </span>
+
+          <div style="margin-top:14px;display:flex;align-items:center;flex-wrap:wrap;">
+            <span class="difficulty-pill" style="color:#565A64;display:inline-flex;padding:0 25px;align-items:center;gap:10px;border-radius:30px;border:0.86px solid #DFDAFC;background:#F4F5FF;font-family:Nunito;font-size:16px;font-weight:500;line-height:30px;">
+              Junior
+            </span>
+
+            <span class="difficulty-pill" style="margin-left:14px;border-radius:30px;border:0.86px solid #8149FF;background:#EBE7FF;box-shadow:0 0 6px rgba(203,175,255,0.32);display:inline-flex;padding:0 25px;align-items:center;gap:10px;color:#7348EF;font-family:Nunito;font-size:16px;font-weight:500;line-height:30px;">
+              Senior
+            </span>
+
+            <span class="difficulty-pill" style="margin-left:14px;color:#565A64;display:inline-flex;padding:0 25px;align-items:center;gap:10px;border-radius:30px;border:0.86px solid #DFDAFC;background:#F4F5FF;font-family:Nunito;font-size:16px;font-weight:500;line-height:30px;">
+              Expert
+            </span>
+          </div>
+
+          <span style="margin-top:30px;display:flex;width:100%;max-width:580px;height:47px;padding:7px 14px;justify-content:center;align-items:center;border-radius:8px;background:linear-gradient(96deg,#3861FF 10%,#8E7DFF 70%);box-shadow:-1px 1px 4.5px rgba(0,0,0,0.20);">
+            <div style="display:flex;align-items:center;color:white;">
+              <img src="images/AIPencil.svg">
+              <span style="padding-left:10px">Generate with AI</span>
+            </div>
+          </span>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-12 col-md-6 col-lg-5">
+        <div>
+          <span style="display:inline-flex;padding:4px 12px;align-items:center;gap:9px;border-radius:30px;border:0.86px solid #4164FF;background:rgba(255,255,255,0.06);">
+            <img src="images/lucide_stars.svg">
+            <span style="background:linear-gradient(91deg,#4164FF 0.5%,#8645FF 83%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:Nunito;font-size:18px;font-weight:700;">
+              New AI Feature
+            </span>
+          </span>
+
+          <span class="big-title" style="padding-top:40px;display:block;color:#101827;font-family:'Darker Grotesque';font-size:72px;font-weight:700;">
+            AI-Powered
+          </span>
+          <span class="big-title" style="padding-top:40px;display:block;color:#101827;font-family:'Darker Grotesque';font-size:72px;font-weight:700;">
+            Question Builder
+          </span>
+		  
+		  <div style="padding-top:60px;color: #22262D;font-family: Nunito;font-size: 18px;font-style: normal;font-weight: 600;line-height: 26px; /* 144.444% */text-transform: capitalize;">
+		  AI generates multiple questions by difficulty in seconds. Write one prompt and get comprehensive interview questions from Junior to Expert level.
+		  </div>
+		  
+		  <div style="padding-top:70px;color: #22262D;font-family: Nunito;font-size: 18px;font-style: normal;font-weight: 600;line-height: 26px; /* 144.444% */text-transform: capitalize;">
+		  <img src="images/customizeable.svg"><span style="padding-left:10px">Customizable - Tailor questions to your needs</span>
+		  </div>
+		  <div style="padding-top:40px;color: #22262D;font-family: Nunito;font-size: 18px;font-style: normal;font-weight: 600;line-height: 26px; /* 144.444% */text-transform: capitalize;">
+		  <img src="images/timesaver.svg"><span style="padding-left:10px">Time Saver - Cut hours of manual question writing.</span>
+		  </div>
+		  <div style="padding-top:40px;color: #22262D;font-family: Nunito;font-size: 18px;font-style: normal;font-weight: 600;line-height: 26px; /* 144.444% */text-transform: capitalize;">
+		  <img src="images/alllevels.svg"><span style="padding-left:10px">All Levels – From beginner to expert</span>
+		  </div>
+		  
+             <div class="fix-button product-section-bottom-button" style="margin-right: 0 !important;padding-top:40px">
+              <a href="https://app.lugo-test.com/users/register/" class="lugo-btn login-btn-class" style="margin-right: 0 !important;">Start Today</a>
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+	
+	<!-- End Question Builder -->
+    <!-- Interviews Area -->
+    <section class="interviews-area assessments-area section-padding">
+      <div class="container" style="max-width:1400px !important">
+        <div class="row">
+          <div class="col-12">
+            <div class="interviews-slider accessments-slider slick-initialized slick-slider slick-dotted"><button class="Prev slick-arrow" style=""><i class="fi fi-rs-angle-left" aria-hidden="true"></i></button>
+              <!-- Single Interviews -->
+              <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2512px;"><div class="single-accessments single-interviews slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide10" aria-describedby="slick-slide-control10" style="width: 1256px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 700ms;">
+                <div class="row align-items-center">
+                  <div class="col-lg-5 col-12">
+                    <div class="single-accessments-content single-interviews-content">
+                      <div class="single-accessments-content-top">
+                        <h1 class="single-accessments-cont-title">
+                          Interviews
+                        </h1>
+                        <p class="single-accessments-cont-text">
+                          
+						  Live Coding Tests with Shared IDE, Rich Whiteboard and Video/Audio. 
+
+                        </p>
+                        <p class="single-accessments-cont-sub-text">
+                           Code with your applicant throughout the duration of the interview, screen interviewees easily—from any location.
+                        </p>
+                      </div>
+                      <div class="single-accessments-content-bottom">
+                        <ul class="single-accessments-cont-list">
+                          <li>
+                            <i class="fi fi-rr-check"></i>Coding challenges in 20+ programming languages
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>
+							Whiteboard with rich toolbox, snapshots, preloaded designs, comments, ATS integration.
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Custom coding challenges in any programming language
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 col-12 order-class">
+
+
+                    <div class="single-accessments-img single-interviews-img" style="position: relative;;background-image:url(https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-images/circles-bg.png);background-repeat: no-repeat; background-size: auto;">
+                      <div style="width: 100%;"> 
+                      <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/interviews-images/interviews-1.png" alt="#" style="border-radius: 5px;">
+                      </div>
+                    </div>
+
+
+                    
+                  </div>
+                </div>
+              </div><div class="single-accessments single-interviews slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide11" aria-describedby="slick-slide-control11" style="width: 1256px; position: relative; left: -1256px; top: 0px; z-index: 999; opacity: 1;">
+                <div class="row align-items-center">
+                  <div class="col-lg-5 col-12">
+                    <div class="single-accessments-content single-interviews-content">
+                      <div class="single-accessments-content-top">
+                        <h1 class="single-accessments-cont-title">
+                          Interviews
+                        </h1>
+                        <p class="single-accessments-cont-text">
+                          Live coding IDE with frameworks, video, and whiteboard
+                        </p>
+                        <p class="single-accessments-cont-sub-text">
+                          Collaboratively interview candidates using our
+                          real-time code editor, spreadsheets, Jupyter
+                          Notebooks, and whiteboarding.
+                        </p>
+                      </div>
+                      <div class="single-accessments-content-bottom">
+                        <ul class="single-accessments-cont-list">
+                          <li>
+                            <i class="fi fi-rr-check"></i>Front-end &amp; back-end
+                            frameworks with file directories
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Private notes,
+                            scorecards, &amp; interview playback
+                          </li>
+                          <li>
+                            <i class="fi fi-rr-check"></i>Custom questions,
+                            intervew templates, &amp; full terminal access
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 col-12 order-class">
+                    <div class="single-accessments-img single-interviews-img" style="position: relative;;background-image:url(https://storage.googleapis.com/lugo-test-com-media-bucket/img/assessments-images/circles-bg.png);background-repeat: no-repeat; background-size: auto;">
+                      <div style="width: 100%;"> 
+                      <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/interviews-images/whiteboard2.png" alt="#" style="border-radius: 5px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div></div></div>
+              <!-- End Single Interviews -->
+              <!-- Single Interviews -->
+              
+              <!-- End Single Interviews -->
+              <!-- Single Interviews -->
+              
+          <button class="Next slick-arrow" style=""><i class="fi fi-rs-angle-right" aria-hidden="true"></i></button><ul class="slick-dots" style="" role="tablist"><li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control10" aria-controls="slick-slide10" aria-label="1 of 2" tabindex="-1">1</button></li><li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control11" aria-controls="slick-slide11" aria-label="2 of 2" tabindex="0" aria-selected="true">2</button></li></ul></div>
+        </div>
+      </div>
+    </div></section>
+    <!-- End Interviews Area -->
+
+    <!-- Peoduct Area -->
+    <section class="product-area">
+      <div class="container" style="max-width:1400px !important">
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-12">
+            <div class="section-head">
+              <h1 class="section-head-title">Why LuGo-Test?</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/product-icon/product-1.svg" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">Coding Challenges</h3>
+                <p class="product-cont-text m-0">
+                  Use coding challenges to see how applicants write, compile, and run code. Browse their compilation history. See how applicants think.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/product-icon/product-2.svg" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">300+ Technologies</h3>
+                <p class="product-cont-text m-0">
+                  Our questions repository contains more than 300 technologies.
+                  Create a test by choosing the questions that best fit your job
+                  position needs.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/product-icon/product-3.svg" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">Themed Tests</h3>
+                <p class="product-cont-text m-0">
+                  With themed tests, companies can implement their unique website design and product theme into our testing app. <a href="/index.php/2021/12/14/introducing-themed-tests/" class="single-expertise-btn">Read more</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/nochatgpt.png" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">No-AI Tools</h3>
+                <p class="product-cont-text m-0">
+                  Our test application detects if candidates are using any AI tools and disqualifies them if they do (after a warning).
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/product-icon/product-5.svg" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">Screenshots+AI</h3>
+                <p class="product-cont-text m-0">
+                  During the test, the test app takes screenshots to verify the applicant does not copy the answers from the web. We use AI to show the risks.
+				   <a href="/index.php/2021/08/12/screenshots-based-test/" class="single-expertise-btn">Read more</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/product-icon/product-6.svg" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">Webcam based</h3>
+                <p class="product-cont-text m-0">
+                  Verify your applicant is the only one taking the test. We use
+                  face detection to verify a human face is detected; the service
+                  will send a profile image report after the test is submitted.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/product-icon/product-7.svg" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">live coding test</h3>
+                <p class="product-cont-text m-0">
+                  You can create, schedule, and code with your applicant throughout the interview, allowing you to screen interviewees quickly—from any location.
+ <a href="/index.php/2022/07/08/live-coding-tests/" class="single-expertise-btn">Read more</a>
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+          <!-- Single Product -->
+          <div class="col-lg-4 col-xl-3 col-md-6 col-12">
+            <div class="single-product">
+              <div class="product-icon">
+                <img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/product-icon/product-8.svg" alt="#">
+              </div>
+              <div class="product-content">
+                <h3 class="product-cont-title">Video screening</h3>
+                <p class="product-cont-text m-0">
+                  Video screening interviews provide a better understanding of the candidate's personality and how they may fit into the company culture.
+				  
+				  
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Product -->
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="product-section-bottom-button">
+              <a href="https://app.lugo-test.com/users/register/" class="lugo-btn login-btn-class">Start Today</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Peoduct Area -->
+    <!-- Testimonial Area -->
+    <section id="clients" class="testimonial-area">
+      <div class="container" style="max-width:1400px !important">
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-12">
+            <div class="section-head">
+              <h1 class="section-head-title">
+                what our clients are saying about us
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12">
+            <div class="testimonial-slider">
+              <div class="testimonial-slider2 testimonial-slider-top slick-initialized slick-slider"><button class="Prev slick-arrow" style=""><i class="fi fi-rs-angle-left" aria-hidden="true"></i></button>
+                <!-- Single Image Slider -->
+                <div class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" style="opacity: 1; width: 3008px; transform: translate3d(-564px, 0px, 0px);"><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="-4" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+					<img src="assets/img/testimonials/avigail.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/vered.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="-2" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/talkoronel.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned slick-active" data-slick-index="-1" id="" aria-hidden="false" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/avigail.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-current slick-active slick-center" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 188px;">
+                  <img src="assets/img/testimonials/vered.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="0" style="width: 188px;">
+                  <img src="assets/img/testimonials/talkoronel.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide" data-slick-index="2" aria-hidden="true" tabindex="0" style="width: 188px;">
+					<img src="assets/img/testimonials/avigail.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/vered.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/talkoronel.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/avigail.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="6" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/vered.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="7" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/talkoronel.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned slick-center" data-slick-index="8" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+					<img src="assets/img/testimonials/avigail.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="9" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/vered.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="10" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/talkoronel.png" alt="#">
+                </div><div class="testimonial-single-image slick-slide slick-cloned" data-slick-index="11" id="" aria-hidden="true" tabindex="-1" style="width: 188px;">
+                  <img src="assets/img/testimonials/avigail.png" alt="#">
+                </div></div></div>
+                <!-- Single Image Slider -->
+                
+                <!-- Single Image Slider -->
+                
+                <!-- Single Image Slider -->
+                
+                <!-- Single Image Slider -->
+                
+                <!-- Single Image Slider -->
+                
+              <button class="Next slick-arrow" style=""><i class="fi fi-rs-angle-right" aria-hidden="true"></i></button></div>
+              <div class="testimonial-slider1 testimonial-slider-content slick-initialized slick-slider slick-dotted">
+                <!-- Single Slider Content -->
+                <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2490px;"><div class="testimonial-slider-single-content slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide20" aria-describedby="slick-slide-control20" style="width: 830px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+                                  <h3 class="testimonial-client-name">Vered Barak</h3>
+                  <span class="testimonial-client-tag">Global Director Of Talent Acquisition at Rapyd</span>
+                  <p class="testimonial-client-text">
+                   We use LuGo-Test to locate the most promising candidates for development positions. The service eases the recruitment stress and significantly reduces the time it takes to find qualified candidates to join Rapyd's team.
+                  </p>
+
+				</div><div class="testimonial-slider-single-content slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide21" aria-describedby="slick-slide-control21" style="width: 830px; position: relative; left: -830px; top: 0px; z-index: 998; opacity: 0;">
+                  <h3 class="testimonial-client-name">Tal Koronel</h3>
+                  <span class="testimonial-client-tag">Recruitment and Career Manager at Rafael</span>
+                  <p class="testimonial-client-text">
+                    I have been working with LuGo-Test for years. I am constantly getting excellent customer service, always with a smile. 
+The testing service assists me in cutting recruitment time and reducing managers interviewing time by using the service as a first step in the recruitment process. The testing service includes many technology topics, and it is very intuitive and easy to use. In Rafael, managers get their users to create tests and assign them to candidates. 
+I warmly recommend using LuGo-Test!
+                  </p>
+                </div><div class="testimonial-slider-single-content slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide22" aria-describedby="slick-slide-control22" style="width: 830px; position: relative; left: -1660px; top: 0px; z-index: 998; opacity: 0;">
+                  <h3 class="testimonial-client-name">Avigail Godinger</h3>
+                  <span class="testimonial-client-tag">  Recruitment Manager at MalamTeam</span>
+                  <p class="testimonial-client-text">
+                    An excellent tool for assessing technical skills and coding abilities.
+					By utilizing Lugo-Test to evaluate applicants' IT and development skills, we were able to assess their problem-solving abilities and coding proficiency. This helped us narrow down the pool of candidates and save time by only interviewing the most qualified ones.
+                  </p>
+                </div></div></div>
+                <!-- Single Slider Content -->
+                
+                <!-- Single Slider Content -->
+                
+              <ul class="slick-dots" style="" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control20" aria-controls="slick-slide20" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control21" aria-controls="slick-slide21" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control22" aria-controls="slick-slide22" aria-label="3 of 3" tabindex="-1">3</button></li></ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Testimonial Area -->
+
+    <!-- Expertise Area -->
+    <section class="expertise-area">
+      <div class="container" style="max-width:1400px !important">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-head" style="margin-bottom: 0;">
+              <h1 class="section-head-title">
+                Technologies and Features
+              </h1>
+              <br>
+              <br>
+              <div id="searchWrapper" style="display: flex;justify-content: end;">
+              <div style="display: flex;align-items: center;justify-content: start;margin-right: 20px;
+              background: white;border-radius: 30px;width: 100vw;max-width: 627px;padding: 10px 5px;">
+                <svg style="width: 20px;height: 20px;display: block;margin: 0px 15px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(0, 0, 0, 0.54)" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                </svg>
+                <input class="index-search" placeholder="Search Tests" type="text" id="search">
+              </div>
+              <button style="margin-left: 25px;padding: 12px 51px;" class="lugo-btn" id="searchBtn">Search</button>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- div class="col-lg-8 offset-lg-4 col-md-8 offset-md-4 col-12" >
+            <div class="expertise-searchbar">
+              <form action="#" method="post">
+                <div class="form-group">
+                  <div class="form-group-input">
+                    <i class="fi fi-rs-search"></i>
+                    <input type="search" placeholder="search test" required />
+                  </div>
+                  <div class="form-group-button">
+                    <button type="submit" class="lugo-btn">search</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div -->
+          <!-- Single Expertise -->
+          <div class="col-lg-4 col-12">
+            <div class="single-expertise">
+              <h4 class="single-expertise-title">Coding Challenges</h4>
+              <ul class="single-expertise-list">
+                <li>C</li>
+				<li>C#</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>C++</li>
+				<li>PHP</li>
+				<li>Go</li>
+				<li>Kotlin</li>
+                <li>Node</li>
+				<li>Angular</li>
+                <li>React</li>
+              </ul>
+              <a href="/tests-library" class="single-expertise-btn">show more</a>
+			  
+            </div>
+          </div>
+          <!-- Single Expertise -->
+          <div class="col-lg-4 col-12">
+            <div class="single-expertise">
+              <h4 class="single-expertise-title">Web and Mobile Development</h4>
+              <ul class="single-expertise-list">
+                <li>HTML5</li>
+                <li>JavaScript</li>
+                <li>Angular</li>
+                <li>React</li>
+                <li>Bootstrap</li>
+                <li>CSS3</li>
+				<li>TypeScript</li>
+				<li>jQuery</li>
+				<li>Vue.js</li>
+				
+              </ul>
+              <a href="/tests-library" class="single-expertise-btn">show more</a>
+            </div>
+          </div>
+          <!-- Single Expertise -->
+          <div class="col-lg-4 col-12">
+            <div class="single-expertise">
+              <h4 class="single-expertise-title">Devops, Cloud &amp; Big Data</h4>
+              <ul class="single-expertise-list">
+                <li>Jenkins</li>
+                <li>Kubernetes</li>
+                <li>AWS</li>
+                <li>Docker</li>
+                <li>ELASTIC SEARCH</li>
+                <li>REDIS</li>
+              </ul>
+              <a href="/tests-library" class="single-expertise-btn">show more</a>
+            </div>
+          </div>
+          <!-- Single Expertise -->
+          <div class="col-lg-6 col-12">
+            <div class="single-expertise big-card">
+              <h4 class="single-expertise-title">IT &amp; Virtualization</h4>
+              <ul class="single-expertise-list">
+                <li>Computer Networks</li>
+                <li>NetApp</li>
+                <li> Exchange </li>
+                <li>VMware vCenter</li>
+                <li> VMware ESXI</li>
+                <li> Apache</li>
+                <li>Windows Server</li>
+                <li>Linux</li>
+              </ul>
+              <a href="/tests-library" class="single-expertise-btn">show more</a>
+            </div>
+          </div>
+          <!-- Single Expertise -->
+          <div class="col-lg-6 col-12">
+            <div class="single-expertise big-card">
+              <h4 class="single-expertise-title">
+                Programing Languages &amp; Quality Assurence
+              </h4>
+              <ul class="single-expertise-list">
+                <li>Go</li>
+                <li>Ruby</li>
+                <li>Cobol</li>
+                <li>Selenium</li>
+                <li>QA</li>
+                <li>Perl</li>
+                <li>Objective C</li>
+                <li>Load Runner</li>
+                <li>Mainframe</li>
+                <li>Redux</li>
+				<li>Apex &amp; Visualforce</li>
+				<li>CICS</li>
+              </ul>
+              <a href="/tests-library" class="single-expertise-btn">show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Expertise Area -->
+	
+	<!-- New Footer Area -->
+<div class="footer">
+    <div class="container">
+        <div class="logo-buttons-and">
+            <div class="group">
+                <div class="frame">
+                    <div class="div">
+                        <img src="./img/logofooter.png">
+                        <div class="text-wrapper">Lugo-Test</div>
+                        <div class="rectangle-wrapper"><div class="rectangle"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="group-wrapper">
+                    <div class="frame-wrapper">
+                        <div class="div-wrapper">
+                            <a href="https://app.lugo-test.com/users/register/" class="text-wrapper-2">Start today</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="secondary-button">
+                    <a href="https://www.lugo-test.com/about.html" class="text-wrapper-3">Book a Demo</a>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://twitter.com/lugotest" class="instagram"><img class="SVG" src="img/x.svg"></a>
+                <a href="https://www.facebook.com/people/LuGo-Test-Applicants-Technical-Skills-Testing/100063737194624/?locale=pa_IN" class="facebook"><img class="img" src="img/facebook.svg"></a>
+                <a href="https://il.linkedin.com/company/lugo-test" class="twitter"><div class="ph-twitter-logo-fill"></div></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="links">
+                <a href="#product" class="text-wrapper-4">Product</a>
+                <a href="/pricing.html" class="text-wrapper-5">Pricing</a>
+                <a href="#clients" class="text-wrapper-5">Clients</a>
+                <a href="/tests-library" class="text-wrapper-5">Test Library</a>
+                <a href="/test.html" class="text-wrapper-5">Demo Test</a>
+            </div>
+            <div class="links">
+                <a href="about.html" class="text-wrapper-4">About Us</a>
+                <a href="https://support.lugo-test.com/support/solutions" class="text-wrapper-5">Contact</a>
+                <a href="partners.html" class="text-wrapper-5">Partners</a>
+                <a href="/index.php/blog/" class="text-wrapper-5">Blog</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-line"></div>
+    <div class="container-2">
+        <p class="text-wrapper-6">© Copyright 2025, LuGo-Test Technologies LTD.</p>
+        <div class="links-2">
+            <a href="UserAgreement.html" class="text-wrapper-6">Terms of Service</a>
+            <a href="privacy.htm" class="text-wrapper-6">Privacy Policy</a>
+        </div>
+    </div>
+</div>
+<!-- End New Footer Area -->
+
+
+    <!-- Footer Area 
+    <footer class="footer-area">
+      <div class="container" style="max-width:1400px !important">
+        <div class="row">
+          <div class="col-12">
+            <div class="footer-inner">
+              <div class="footer-top">
+                <div class="footer-logo">
+                  <a href="#"><img src="https://storage.googleapis.com/lugo-test-com-media-bucket/img/logo.svg" alt="#" /></a>
+                </div>
+                <ul style="font-size: 16px;" class="footer-navigation">
+                  <li><a href="#product">Product</a></li>
+<li><a href="/pricing.html">Pricing</a></li>
+                  <li><a href="#clients">Clients</a></li>
+                  <li><a href="/tests-library">Tests Library</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="/index.php/blog/">Blog</a></li>   
+                  
+                  <li><a href="partners.html">Partners</a></li>		  				  		  
+                </ul>
+                <div class="footer-navigation-button">
+                  <a href="#startTodayModal" class="lugo-btn login-btn-class" >Start Today</a>
+                </div>
+              </div>
+              <p class="footer-copyright-text">
+                &copy; Copyright 2023,LuGo-Test Technologies LTD. |
+				      <a style="font-size:15px;text-transform:none !important" target="_blank" href="privacy.htm">Privacy</a> |
+			       <a style="font-size:15px;text-transform:none !important" target="_blank" href="UserAgreement.html">Legal stuff</a>
+              </p>
+			  
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer Area -->
+
+    <!-- Jquery JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script type="text/javascript" id="" charset="">window.__lc=window.__lc||{};window.__lc.license=16641339;
+(function(e,f,c){function d(a){return b._h?b._h.apply(null,a):b._q.push(a)}var b={_q:[],_h:null,_v:"2.0",on:function(){d(["on",c.call(arguments)])},once:function(){d(["once",c.call(arguments)])},off:function(){d(["off",c.call(arguments)])},get:function(){if(!b._h)throw Error("[LiveChatWidget] You can't use getters before load.");return d(["get",c.call(arguments)])},call:function(){d(["call",c.call(arguments)])},init:function(){var a=f.createElement("script");a.async=!0;a.type="text/javascript";a.src=
+"https://cdn.livechatinc.com/tracking.js";f.head.appendChild(a)}};!e.__lc.asyncInit&&b.init();e.LiveChatWidget=e.LiveChatWidget||b})(window,document,[].slice);</script>
+<noscript><a href="https://www.livechat.com/chat-with/16641339/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+<script type="text/javascript" id="" charset="">window[function(d,e){for(var b="",c=0;c<d.length;c++){var a=d[c].charCodeAt();a-=e;a+=61;a!=c;a%=94;4<e;a+=33;b==b;b+=String.fromCharCode(a)}return b}(atob("dWRrLywnIn4xZiI2"),27)]="935657a3c11711061472";var zi=document.createElement("script");zi.type="text/javascript";zi.async=!0;zi.src=function(d,e){for(var b="",c=0;c<d.length;c++){var a=d[c].charCodeAt();a!=c;b==b;3<e;a-=e;a+=61;a%=94;a+=33;b+=String.fromCharCode(a)}return b}(atob("PEhIREdsYWE+R2BOPV9HN0Y9REhHYDdDQWFOPV9INTtgPkc\x3d"),50);
+"complete"===document.readyState?document.body.appendChild(zi):window.addEventListener("load",function(){document.body.appendChild(zi)});</script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.1.min.js" integrity="sha256-UnTxHm+zKuDPLfufgEMnKGXDl6fEIjtM+n1Q6lL73ok=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Modernizer JS -->
+    <script src="https://storage.googleapis.com/lugo-test-com-media-bucket/js/modernizer.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://storage.googleapis.com/lugo-test-com-media-bucket/js/owl.carousel.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="https://storage.googleapis.com/lugo-test-com-media-bucket/js/slick.min.js"></script>
+    <!-- Back To Top JS -->
+    <script src="https://storage.googleapis.com/lugo-test-com-media-bucket/js/backToTop.js"></script>
+    <!-- Wow JS -->
+    <script src="https://storage.googleapis.com/lugo-test-com-media-bucket/js/wow.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/active.js"></script>
+	<script src="https://storage.googleapis.com/lugo-test-com-media-bucket/js/main1.js"></script>
+	
+	
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const products = document.querySelectorAll(".single-product");
+  if (!products.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  }, { threshold: 0.3 }); // triggers when 30% visible
+
+  products.forEach(product => observer.observe(product));
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".text-box-4 ul li");
+    let current = 0;
+
+    setInterval(() => {
+      // remove active class from current
+      items[current].classList.remove("active");
+
+      // move to next (loop back if needed)
+      current = (current + 1) % items.length;
+
+      // add active class to next
+      items[current].classList.add("active");
+    }, 3000); // change every 3 seconds
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const sentences = [
+    "JavaScript Promises, async/wait, and error handling",
+    "Java Streams, parallel tasks, multithread locks overview",
+    "Python decorators, context managers, and async features",
+    "C# async tasks, LINQ queries, and advanced memory control",
+    "Go routines, channels, sync control, and parallel patterns",
+    "Rust borrowing rules, ownership checks, and lifetimes demo"
+  ];
+
+  const el = document.getElementById("typewriterText");
+  const cursor = document.querySelector(".cursor");
+
+  let index = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  const typingSpeed = 50;     // typing speed per character
+  const deleteSpeed = 35;     // deletion speed
+  const delayBetween = 1200;  // pause before deleting
+  const delayNext = 500;      // pause before typing next sentence
+
+  function typeLoop() {
+    const sentence = sentences[index];
+
+    if (!deleting) {
+      // typing
+      el.textContent = sentence.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === sentence.length) {
+        // fully typed — hold
+        setTimeout(() => deleting = true, delayBetween);
+      }
+
+    } else {
+      // deleting
+      el.textContent = sentence.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        // move to next sentence
+        deleting = false;
+        index = (index + 1) % sentences.length;
+        setTimeout(() => {}, delayNext);
+      }
+    }
+
+    const nextTime = deleting ? deleteSpeed : typingSpeed;
+    setTimeout(typeLoop, nextTime);
+  }
+
+  typeLoop();
+});
+</script>
+  
+
+<script type="text/javascript" async="" src="https://js.zi-scripts.com/zi-tag.js"></script><script type="text/javascript" charset="utf-8" async="" src="blob:https://www.lugo-test.com/1beb457e-eb6c-4ff3-b007-7af47c6c4f28"></script></body></html>

@@ -1,0 +1,66 @@
+[2026-03-19T05:31:43.910Z] === Homepage AI Extractor: Magnes ===
+[2026-03-19T05:31:43.910Z] Started at: 2026-03-19T05:31:43.910Z
+[2026-03-19T05:31:43.910Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773898303909_Magnes
+[2026-03-19T05:31:43.910Z] Company: Magnes
+[2026-03-19T05:31:43.910Z] Website: magnespress.co.il
+[2026-03-19T05:31:43.910Z] cbRank: 1949555
+[2026-03-19T05:31:43.910Z] Reasons: h
+[2026-03-19T05:31:43.910Z] Fetching: https://magnespress.co.il
+[2026-03-19T05:31:48.478Z] Redirected: https://magnespress.co.il -> https://www.magnespress.co.il/
+[2026-03-19T05:31:48.494Z] Saved HTML (451983 bytes) to page.html
+[2026-03-19T05:31:48.501Z] Extracted 339 unique links from page
+[2026-03-19T05:31:48.502Z] Saved 339 links to links.json
+[2026-03-19T05:31:48.505Z] Extracted footer HTML (4937 chars)
+[2026-03-19T05:31:48.505Z] Extracted header HTML (52110 chars)
+[2026-03-19T05:31:48.509Z] Website (post-redirect): https://www.magnespress.co.il/ → origin: https://www.magnespress.co.il
+[2026-03-19T05:31:48.510Z] External links: 4 (of 339 total)
+[2026-03-19T05:31:48.510Z] ── All external links ──
+[2026-03-19T05:31:48.510Z]   EXT: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-19T05:31:48.510Z]   EXT: https://apps.apple.com/us/app/magnes-reader/id1462258983
+[2026-03-19T05:31:48.510Z]   EXT: https://play.google.com/store/apps/details?id=com.cdisys.magnes_reader
+[2026-03-19T05:31:48.510Z]   EXT: https://www.facebook.com
+[2026-03-19T05:31:48.510Z] ── Step 1: Programmatic categorization ──
+[2026-03-19T05:31:48.510Z]   UNCATEGORIZED: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-19T05:31:48.510Z]   UNCATEGORIZED: https://apps.apple.com/us/app/magnes-reader/id1462258983
+[2026-03-19T05:31:48.511Z]   REGEX: android_app_ids <- com.cdisys.magnes_reader (from https://play.google.com/store/apps/details?id=com.cdisys.magnes_reader)
+[2026-03-19T05:31:48.511Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-19T05:31:48.511Z]   SKIP (regex domain, no match): https://www.facebook.com
+[2026-03-19T05:31:48.511Z] Programmatic result: ws:1, android_app_ids:1 | 2 uncategorized
+[2026-03-19T05:31:48.511Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-19T05:31:48.514Z] Saved AI prompt (5742 chars) to ai_prompt.txt
+[2026-03-19T05:31:48.514Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-19T05:31:48.518Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-19T05:32:12.201Z]   AI: First token received, streaming...
+[2026-03-19T05:32:20.427Z] AI response complete: 127 chars in 31.9s
+[2026-03-19T05:32:20.429Z] Saved AI response to ai_response.json
+[2026-03-19T05:32:20.429Z] ── Parsing AI response (2 lines) ──
+[2026-03-19T05:32:20.429Z]   AI LINK: https://apps.apple.com/us/app/magnes-reader/id1462258983
+[2026-03-19T05:32:20.430Z]   AI LINK: https://play.google.com/store/apps/details?id=com.cdisys.magnes_reader
+[2026-03-19T05:32:20.430Z] AI returned 2 valid links
+[2026-03-19T05:32:20.430Z] ── Categorizing 2 AI-returned links ──
+[2026-03-19T05:32:20.430Z]   AI→URLS: https://apps.apple.com/us/app/magnes-reader/id1462258983
+[2026-03-19T05:32:20.430Z]   AI→REGEX: android_app_ids <- com.cdisys.magnes_reader (duplicate, skipped)
+[2026-03-19T05:32:20.435Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-19T05:32:20.435Z] Footer/header origins (4):
+[2026-03-19T05:32:20.435Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-19T05:32:20.435Z]   FOOTER/HEADER ORIGIN: https://apps.apple.com
+[2026-03-19T05:32:20.435Z]   FOOTER/HEADER ORIGIN: https://www.magnespress.co.il
+[2026-03-19T05:32:20.435Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-19T05:32:20.435Z]   SKIP (not in footer/header): https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-19T05:32:20.436Z]   SKIP (AI claimed): https://apps.apple.com/us/app/magnes-reader/id1462258983
+[2026-03-19T05:32:20.436Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-19T05:32:20.436Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-19T05:32:20.436Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-19T05:32:20.437Z] ── Step 3: Final dedup ──
+[2026-03-19T05:32:20.437Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-19T05:32:20.437Z] ── FINAL RESULT ──
+[2026-03-19T05:32:20.437Z]   ws (1):
+[2026-03-19T05:32:20.437Z]     - https://www.magnespress.co.il
+[2026-03-19T05:32:20.437Z]   urls (1):
+[2026-03-19T05:32:20.438Z]     - https://apps.apple.com/us/app/magnes-reader/id1462258983
+[2026-03-19T05:32:20.438Z]   android_app_ids (1):
+[2026-03-19T05:32:20.438Z]     - com.cdisys.magnes_reader
+[2026-03-19T05:32:20.438Z] Summary: ws:1, android_app_ids:1, urls:1
+[2026-03-19T05:32:20.439Z] Saved final result to result.json
+[2026-03-19T05:32:20.440Z] Override fields: ws, urls, android_app_ids
+[2026-03-19T05:32:20.440Z] Finished at: 2026-03-19T05:32:20.440Z

@@ -1,0 +1,235 @@
+<html><head><title>Netmask.IT!</title></head>
+
+<body><table border="0" background="/strip.jpg" width="668"><tbody><tr><td height="42"></td></tr><tr><td height="26" colspan="2"><a href="/"><img src="/name.gif" border="0" alt="Netmask.IT! Home Page"></a></td></tr><tr><td width="6"></td><td height="15"><a href="/Company/"><img src="/Company.gif" height="15" alt="Company" border="0"></a><img src="/sep.gif"><a href="/Products/"><img src="/Products.gif" border="0" height="15" alt="Products&amp;Technology"></a><img src="/sep.gif"><a href="/News/"><img src="/News.gif" height="15" alt="News" border="0"></a><img src="/sep.gif"><a href="/Investors/"><img src="/Investors.gif" height="15" alt="Investors" border="0"></a><img src="/sep.gif"><a href="http://elmar.co.il/"><img src="/Looking.gif" height="15" alt="Looking for elmar.co.il?" border="0"></a><img src="/sep.gif"><a href="/Contact/"><img src="/Contact.gif" height="15" alt="Contact Us" border="0"></a></td></tr><tr><td height="1"></td></tr><tr></tr></tbody></table>
+<table cellpadding="0" cellspacing="0" vspace="0" border="0" width="668"><tbody><tr height="0">
+  <td width="102"></td>
+  <td width="48"></td>
+  <td width="84"></td>
+  <td width="181"></td>
+  <td width="111"></td>
+  <td width="142"></td>
+</tr><tr>
+  <td valign="bottom"><img src="machin1.jpg" width="94" hspace="0" vspace="0"></td>
+  <td bgcolor="#ffffff" colspan="4" align="center"><h2><font color="red">Everything You Always Wanted to Change in a Website or Software, and didn't Know was Possible</font></h2></td>
+  <td align="right">
+<table cellspacing="0" cellpadding="0" valign="top"> <tbody> <tr><td height="8"></td><td></td></tr><tr>
+<td bgcolor="#000080" width="133" align="center"><font color="#ffffff" face="arial,helvetica"><b>What's New</b></font></td>
+<td bgcolor="#000080" valign="bottom" align="left" width="13"><img src="http://netmask.it/plato/slc2.gif"></td>
+</tr></tbody></table>
+
+<!--div style="border-left-width: 1; border-color: #000000"-->
+
+<!--table cellspacing=0 cellpadding=0 width=100%><tr>
+<td bgcolor=#000080><img src="/slc180.gif" height=16 width=13 align=bottom><font color=#ffffff face="arial,helvetica"><b>What's New</b></font></td>
+</tr></table-->
+<script language="JavaScript1.2">
+
+/*
+Pausing updown message scroller- 
+� Dynamic Drive (www.dynamicdrive.com)
+For full source code, installation instructions,
+Terms Of Use, visit http://www.dynamicdrive.com
+*/
+
+//configure the below five variables to change the style of the scroller
+var scrollerwidth=document.all? '146px' : '145px'
+var scrollerheight='127px'
+var scrollerbgcolor='white'
+//set below to '' if you don't wish to use a background image
+var scrollerbackground=''
+
+//configure the below variable to change the contents of the scroller
+var messages=new Array()
+/*
+messages[0]="<b><font color=#9F1416>Our Website is Up!</font><br><font size=-2>Oct 8, 2003</b></font><br><font size=-1 face='arial,helvetica'>After a long waiting, the website of Netmask is finally on air;<br>Surf and enjoy!</font>"
+messages[1]="<b><font color=#9F1416>Product Released</font><br><font size=-2>Oct 7, 2003</b></font><br><font size=-1 face='arial,helvetica'>Netmask's flagship product, <a href=/Products/Netmask><i>Netmask</i>.IT!</a>, has been finally released.<br><a href=/Products/Netmask>Read More...</a></font>"
+messages[2]="<b><font color=#9F1416>Patent Approved</font><br><font size=-2>Sep 30, 2003</b></font><br><font size=-1 face='arial,helvetica'>US 6,601,108, a new patent owned by Netmask, was approved.<br><a href=/Investors/patents.html>Read More...</a></font>"
+*/
+messages[0]="<b><font color=#9F1416>Product Released</font><br><font size=-2>June 6, 2011</b></font><br><font size=-1 face='arial,helvetica'>Netmask's flagship product, <a href=/Products/Netmask><i>Netmask</i>.IT!</a>, has been finally released.<br><a href=/Products/Netmask>Read More...</a></font>"
+messages[1]="<b><font color=#9F1416>Patent Approved</font><br><font size=-2>May 31, 2011</b></font><br><font size=-1 face='arial,helvetica'>Our third patent was approved. More about it soon...</font>"
+
+///////Do not edit pass this line///////////////////////
+
+var ie=document.all
+var dom=document.getElementById
+
+if (messages.length>2)
+i=2
+else
+i=0
+
+function move1(whichlayer){
+tlayer=eval(whichlayer)
+if (tlayer.top>0&&tlayer.top<=3){
+tlayer.top=0
+setTimeout("move1(tlayer)",2000)
+setTimeout("move2(document.main.document.second)",2000)
+return
+}
+if (tlayer.top>=tlayer.document.height*-1){
+tlayer.top-=3
+setTimeout("move1(tlayer)",50)
+}
+else{
+tlayer.top=parseInt(scrollerheight)
+tlayer.document.write(messages[i])
+tlayer.document.close()
+if (i==messages.length-1)
+i=0
+else
+i++
+}
+}
+
+function move2(whichlayer){
+tlayer2=eval(whichlayer)
+if (tlayer2.top>0&&tlayer2.top<=3){
+tlayer2.top=0
+setTimeout("move2(tlayer2)",2000)
+setTimeout("move1(document.main.document.first)",2000)
+return
+}
+if (tlayer2.top>=tlayer2.document.height*-1){
+tlayer2.top-=3
+setTimeout("move2(tlayer2)",50)
+}
+else{
+tlayer2.top=parseInt(scrollerheight)
+tlayer2.document.write(messages[i])
+tlayer2.document.close()
+if (i==messages.length-1)
+i=0
+else
+i++
+}
+}
+
+function move3(whichdiv){
+tdiv=eval(whichdiv)
+if (parseInt(tdiv.style.top)>0&&parseInt(tdiv.style.top)<=3){
+tdiv.style.top=0+"px"
+setTimeout("move3(tdiv)",2000)
+setTimeout("move4(second2_obj)",2000)
+return
+}
+if (parseInt(tdiv.style.top)>=tdiv.offsetHeight*-1){
+tdiv.style.top=parseInt(tdiv.style.top)-3+"px"
+setTimeout("move3(tdiv)",50)
+}
+else{
+tdiv.style.top=parseInt(scrollerheight)
+tdiv.innerHTML=messages[i]
+if (i==messages.length-1)
+i=0
+else
+i++
+}
+}
+
+function move4(whichdiv){
+tdiv2=eval(whichdiv)
+if (parseInt(tdiv2.style.top)>0&&parseInt(tdiv2.style.top)<=3){
+tdiv2.style.top=0+"px"
+setTimeout("move4(tdiv2)",2000)
+setTimeout("move3(first2_obj)",2000)
+return
+}
+if (parseInt(tdiv2.style.top)>=tdiv2.offsetHeight*-1){
+tdiv2.style.top=parseInt(tdiv2.style.top)-3+"px"
+setTimeout("move4(second2_obj)",50)
+}
+else{
+tdiv2.style.top=parseInt(scrollerheight)
+tdiv2.innerHTML=messages[i]
+if (i==messages.length-1)
+i=0
+else
+i++
+}
+}
+
+function startscroll(){
+if (ie||dom){
+first2_obj=ie? first2 : document.getElementById("first2")
+second2_obj=ie? second2 : document.getElementById("second2")
+move3(first2_obj)
+second2_obj.style.top=scrollerheight
+second2_obj.style.visibility='visible'
+}
+else if (document.layers){
+document.main.visibility='show'
+move1(document.main.document.first)
+document.main.document.second.top=parseInt(scrollerheight)+3
+document.main.document.second.visibility='show'
+}
+}
+
+window.onload=startscroll
+
+</script>
+
+<ilayer id="main" width="&amp;{scrollerwidth};" height="&amp;{scrollerheight};" bgcolor="&amp;{scrollerbgcolor};" background="&amp;{scrollerbackground};" visibility="hide">
+<layer id="first" left="0" top="1" width="&amp;{scrollerwidth};">
+<script language="JavaScript1.2">
+if (document.layers)
+document.write(messages[0])
+</script>
+</layer>
+<layer id="second" left="0" top="0" width="&amp;{scrollerwidth};" visibility="hide">
+<script language="JavaScript1.2">
+if (document.layers)
+document.write(messages[dyndetermine=(messages.length==1)? 0 : 1])
+</script>
+</layer>
+</ilayer>
+
+<script language="JavaScript1.2">
+if (ie||dom){
+document.writeln('<div align=left id="main2" style="border-left-style: solid; border-left-width: 1; border-left-color: #000080; position:relative;width:'+scrollerwidth+';height:'+scrollerheight+';overflow:hidden;background-color:'+scrollerbgcolor+' ;background-image:url('+scrollerbackground+')">')
+document.writeln('<div style="margin-left: 4; position:absolute;width:'+scrollerwidth+';height:'+scrollerheight+';clip:rect(0 '+scrollerwidth+' '+scrollerheight+' 0);left:0px;top:0px">')
+document.writeln('<div id="first2" style="position:absolute;width:'+scrollerwidth+';left:0px;top:1px;">')
+document.write(messages[0])
+document.writeln('</div>')
+document.writeln('<div id="second2" style="position:absolute;width:'+scrollerwidth+';left:0px;top:0px;visibility:hidden">')
+document.write(messages[dyndetermine=(messages.length==1)? 0 : 1])
+document.writeln('</div>')
+document.writeln('</div>')
+document.writeln('</div>')
+}
+</script><div align="left" id="main2" style="border-left-style: solid; border-left-width: 1; border-left-color: #000080; position:relative;width:145px;height:127px;overflow:hidden;background-color:white ;background-image:url()">
+<div style="margin-left: 4; position:absolute;width:145px;height:127px;clip:rect(0 145px 127px 0);left:0px;top:0px">
+<div id="first2" style="position: absolute; width: 145px; left: 0px; top: 0px;">
+<b><font color="#9F1416">Product Released</font><br><font size="-2">June 6, 2011</font></b><br><font size="-1" face="arial,helvetica">Netmask's flagship product, <a href="/Products/Netmask"><i>Netmask</i>.IT!</a>, has been finally released.<br><a href="/Products/Netmask">Read More...</a></font></div>
+<div id="second2" style="position: absolute; width: 145px; left: 0px; top: 127px; visibility: visible;">
+<b><font color="#9F1416">Patent Approved</font><br><font size="-2">May 31, 2011</font></b><br><font size="-1" face="arial,helvetica">Our third patent was approved. More about it soon...</font></div>
+</div>
+</div>
+
+
+<!--/div-->
+
+</td>
+</tr><tr>
+  <td colspan="2"><img src="machin2.jpg"></td>
+  <td bgcolor="#ececf6" colspan="4"><font color="#000080"><b>Mission Impossible:</b> You are the local distributer of the most amazing software product developed since the invention of sliced bread. Too bad that no one will purchase it without support for the local language. You don't have access to the source code, and even if you did, the sources are unintelligible; what can you do???</font></td>
+</tr><tr height="77">
+  <td colspan="3" height="77" width="234" valign="top"><img src="machin3.jpg"></td>
+  <td colspan="3" bgcolor="#ffffff" nowrap=""><font color="#000080"><h2>&nbsp;Do it with <img align="absmiddle" src="/Netmask_sml.gif">&nbsp;</h2></font></td>
+</tr><tr>
+  <td bgcolor="#ececf6" colspan="6"><font color="#000080"><b>Mission Impossible:</b> Finally, you have got support for the local language. However, your most promising customer insists that his logo will appear in all the application screens and the photo of the CEO should appear at the main application screen. This simply can not be done inside the application you are selling.; will you loose your key customer???</font></td>
+</tr><tr>
+  <td colspan="6" nowrap="" valign="baseline" align="center" bgcolor="#ffffff"><font color="#000080"><h2>&nbsp;Do it with <img align="absmiddle" src="/Netmask_sml.gif"></h2></font></td>
+</tr><tr>
+  <td colspan="2" rowspan="2" valign="top"><img src="wo.jpg"><!--table cellspacing=0 cellpadding=0 width=100%><tr><td bgcolor=#000080><img src="/slc.gif" height=16 width=13 align=top><font color=#ffffff face="arial,helvetica"><b>Our Website is Up!</b></font></td></tr><tr><td align=center><font size=-1><b>Oct. 8, 2003</b></font></td></tr><tr><td>After a long waiting, the website of Netmask is finally on air;<br>Surf and enjoy!</td></tr><tr><td height=7></td></tr><tr><td bgcolor=#000080><img src="/slc.gif" height=16 width=13 align=top><font color=#ffffff face="arial,helvetica"><b>Product Released</b></font></td></tr><tr><td align=center><font size=-1><b>Oct. 7, 2003</b></font></td></tr><tr><td>Netmask's flagship product, <a href="/Products/Netmask"><i>Netmask</i>.IT!</a>, has been finally released.<br><a href="/Products/Netmask">Read More...</a></td></tr></table--></td>
+  <td bgcolor="#ececf6" colspan="2" style="padding-left: 10px"><font color="#000080"><b>Mission Impossible:</b> A small customer, with a service contract, located at the far side of the country, calls you daily with problems. Some are user problems and some are actual bugs. Each call wastes hours of travel to the client's site, just to identify the problem in minutes. You would love to do all this troubleshooting without leaving your office; are you doomed to spend your time on the road???</font></td>
+  <td colspan="2" rowspan="3" align="right"><img src="magician.jpg"></td>
+</tr><tr>
+  <td colspan="2" valign="baseline" align="center" bgcolor="#ffffff" nowrap=""><font color="#000080"><h2>&nbsp;Do it with <img align="absmiddle" src="/Netmask_sml.gif"></h2></font></td>
+</tr></tbody></table>
+<hr>
+<a href="/Company/">Company</a> | <a href="/Products/">Products&amp;Technology</a> | <a href="/News/">News</a> | <a href="/Investors/">Investors</a> | <a href="http://elmar.co.il/">Looking for elmar.co.il?</a> | <a href="/Contact/">Contact Us</a><hr><center>
+Copyright © 2003 <i><a href="/">Netmask (El-Mar) Internet Technologies Ltd</a></i>. All rights reserved
+<br><i>Netmask</i>.IT!<sub>®</sub> is a registered trademark of <i><a href="/">Netmask (El-Mar) Internet Technologies Ltd.</a></i>
+<br><a href="mailto:webmaster@netmask.it">Write</a> to the <a href="mailto:webmaster@netmask.it">Webmaster</a>
+</center>
+</body></html>

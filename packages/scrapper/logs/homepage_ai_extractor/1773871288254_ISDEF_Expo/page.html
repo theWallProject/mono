@@ -1,0 +1,1388 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+	<!-- This site is optimized with the Yoast SEO plugin v25.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Homepage - ISDEF 2023 Israel</title>
+	<link rel="canonical" href="https://isdefexpo.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Homepage - ISDEF 2023 Israel">
+	<meta property="og:description" content="Food Sec&amp;Tech Israel The International Food Security Summit Tel Aviv &amp; The Galilee Agro FoodTech Valley June 27, 28, 29 – 2023 From Innovation to Action Summit |&nbsp;&nbsp;&nbsp;&nbsp;27-29.06.2023 Food Sec&amp;Tech Israel The international Food Security Summit THE RIGHT PLACE • THE RIGHT TIME • THE RIGHT PEOPLE ISDEF provides maximum exposure to both the domestic […]">
+	<meta property="og:url" content="https://isdefexpo.com/">
+	<meta property="og:site_name" content="ISDEF 2023 Israel">
+	<meta property="article:modified_time" content="2023-07-04T07:04:15+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://isdefexpo.com/","url":"https://isdefexpo.com/","name":"Homepage - ISDEF 2023 Israel","isPartOf":{"@id":"https://isdefexpo.com/#website"},"about":{"@id":"https://isdefexpo.com/#organization"},"datePublished":"2023-01-30T08:48:21+00:00","dateModified":"2023-07-04T07:04:15+00:00","breadcrumb":{"@id":"https://isdefexpo.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://isdefexpo.com/"]}]},{"@type":"BreadcrumbList","@id":"https://isdefexpo.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://isdefexpo.com/#website","url":"https://isdefexpo.com/","name":"ISDEF 2023 Israel","description":"Israel Defence &amp; HLS EXPO","publisher":{"@id":"https://isdefexpo.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://isdefexpo.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://isdefexpo.com/#organization","name":"ISDEF","url":"https://isdefexpo.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://isdefexpo.com/#/schema/logo/image/","url":"https://isdefexpo.com/wp-content/uploads/2019/08/isdef-logo-header.jpg","contentUrl":"https://isdefexpo.com/wp-content/uploads/2019/08/isdef-logo-header.jpg","width":196,"height":190,"caption":"ISDEF"},"image":{"@id":"https://isdefexpo.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//js-eu1.hs-scripts.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="alternate" type="application/rss+xml" title="ISDEF 2023 Israel » Feed" href="https://isdefexpo.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="ISDEF 2023 Israel » Comments Feed" href="https://isdefexpo.com/comments/feed/">
+<!-- WP Fusion --><style type="text/css">.woocommerce .product .variations option:disabled { display: none; } </style><link data-minify="1" rel="stylesheet" id="dce-animations-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/dynamic-content-for-elementor/assets/css/animations.css?ver=1734659531" media="all">
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel="stylesheet" id="sigijh-front_css-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/just-highlight/css/style.css?ver=1734659531" media="all">
+<link data-minify="1" rel="stylesheet" id="woocommerce-layout-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=1734659531" media="all">
+<link data-minify="1" rel="stylesheet" id="woocommerce-smallscreen-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=1734659531" media="only screen and (max-width: 768px)">
+<link data-minify="1" rel="stylesheet" id="woocommerce-general-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=1734659531" media="all">
+<style id="woocommerce-inline-inline-css">
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel="stylesheet" id="wpah-front-styles-css" href="https://isdefexpo.com/wp-content/plugins/wp-accessibility-helper/assets/css/wp-accessibility-helper.min.css?ver=0.5.9.4" media="all">
+<link data-minify="1" rel="stylesheet" id="brands-styles-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/brands.css?ver=1743089821" media="all">
+<link rel="stylesheet" id="hello-elementor-css" href="https://isdefexpo.com/wp-content/themes/hello-elementor/style.min.css?ver=2.7.1" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://isdefexpo.com/wp-content/themes/hello-elementor/theme.min.css?ver=2.7.1" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://isdefexpo.com/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1734659522" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://isdefexpo.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://isdefexpo.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-nav-menu-css" href="https://isdefexpo.com/wp-content/uploads/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1734659522" media="all">
+<link rel="stylesheet" id="e-sticky-css" href="https://isdefexpo.com/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.27.7" media="all">
+<link rel="stylesheet" id="widget-icon-list-css" href="https://isdefexpo.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css?ver=1734659522" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1734659531" media="all">
+<link rel="stylesheet" id="elementor-post-1885-css" href="https://isdefexpo.com/wp-content/uploads/elementor/css/post-1885.css?ver=1734659522" media="all">
+<link data-minify="1" rel="stylesheet" id="dashicons-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1734659531" media="all">
+<link rel="stylesheet" id="elementor-post-18772-css" href="https://isdefexpo.com/wp-content/uploads/elementor/css/post-18772.css?ver=1734659523" media="all">
+<link rel="stylesheet" id="elementor-post-19065-css" href="https://isdefexpo.com/wp-content/uploads/elementor/css/post-19065.css?ver=1734659523" media="all">
+<link rel="stylesheet" id="elementor-post-209-css" href="https://isdefexpo.com/wp-content/uploads/elementor/css/post-209.css?ver=1734659523" media="all">
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://isdefexpo.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<link data-minify="1" rel="stylesheet" id="elementor-gf-local-assistant-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/assistant.css?ver=1742497273" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-gf-local-roboto-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1742497273" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-gf-local-barlowcondensed-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/barlowcondensed.css?ver=1742497274" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://isdefexpo.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-fa-solid-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1734659531" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.9.8.2" id="jquery-blockui-js" defer="" data-wp-strategy="defer"></script>
+<script id="wc-add-to-cart-js-extra">
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/isdefexpo.com\/checkout\/","is_cart":"","cart_redirect_after_add":"yes"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=9.8.2" id="wc-add-to-cart-js" defer="" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.9.8.2" id="js-cookie-js" defer="" data-wp-strategy="defer"></script>
+<script id="woocommerce-js-extra">
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_password_show":"Show password","i18n_password_hide":"Hide password"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=9.8.2" id="woocommerce-js" defer="" data-wp-strategy="defer"></script>
+<link rel="https://api.w.org/" href="https://isdefexpo.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://isdefexpo.com/wp-json/wp/v2/pages/18772"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://isdefexpo.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.8.1">
+<meta name="generator" content="WooCommerce 9.8.2">
+<link rel="shortlink" href="https://isdefexpo.com/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://isdefexpo.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fisdefexpo.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://isdefexpo.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fisdefexpo.com%2F&amp;format=xml">
+<meta name="generator" content="Site Kit by Google 1.151.0">			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.6-->
+			<script type="rocketlazyloadscript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+				<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Elementor 3.29.1; features: additional_custom_breakpoints, e_local_google_fonts; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+_linkedin_partner_id = "3681316";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3681316&fmt=gif" />
+</noscript>
+<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3300867643546691');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3300867643546691&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			
+<!-- Google Tag Manager snippet added by Site Kit -->
+<script type="rocketlazyloadscript">
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-MTSK8RV' );
+			
+</script>
+
+<!-- End Google Tag Manager snippet added by Site Kit -->
+<meta name="generator" content="Powered by Slider Revolution 6.6.12 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<link rel="icon" href="https://isdefexpo.com/wp-content/uploads/2022/04/ISDEF-favicon-100x100.png" sizes="32x32">
+<link rel="icon" href="https://isdefexpo.com/wp-content/uploads/2022/04/ISDEF-favicon-300x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://isdefexpo.com/wp-content/uploads/2022/04/ISDEF-favicon-300x300.png">
+<meta name="msapplication-TileImage" content="https://isdefexpo.com/wp-content/uploads/2022/04/ISDEF-favicon-300x300.png">
+<script type="rocketlazyloadscript">function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) || (e.l=="fullwidth" || e.layout=="fullwidth") ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);
+					if(e.layout==="fullscreen" || e.l==="fullscreen")
+						newh = Math.max(e.mh,window.RSIH);
+					else{
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el!==null && el) el.style.height = newh+"px";
+					el = document.getElementById(e.c+"_wrapper");
+					if (el!==null && el) {
+						el.style.height = newh+"px";
+						el.style.display = "block";
+					}
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}
+			//});
+		  };</script>
+		<style id="wp-custom-css">
+			::selection {
+	background:#AE0721;
+	color:#fff;
+}
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.0;}
+}
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+	  40% {transform: translate3d(0,40%,0) scale3d(1,1,1);}
+		  70% {transform: translate3d(0,70%,0) scale3d(1,1,1);}
+  100% {transform: translate3d(0,100%,0) scale3d(1,1,1);}
+}
+@-webkit-keyframes scaling {
+from {-webkit-transform: scale(0.95);}
+to   {-webkit-transform: scale(1.1);}
+}
+@keyframes move {
+  from { top: -250px; left: -250px; }
+  to   { top: 150px; left: 30px; }
+}
+
+.grecaptcha-badge { visibility: hidden; }
+
+body #wp_access_helper_container button.aicon_link {
+position:fixed;}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt
+{
+    background-color: #B51B27;
+}
+
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+	 background-color: #000;
+}
+
+header.he-two {
+	direction: rtl;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+<body class="home wp-singular page-template page-template-elementor_header_footer page page-id-18772 wp-custom-logo wp-theme-hello-elementor wp-child-theme-avnongroup theme-hello-elementor woocommerce-no-js unknown wp-accessibility-helper accessibility-contrast_mode_on wah_fstype_rem accessibility-remove-styles-setup accessibility-underline-setup accessibility-location-left elementor-default elementor-template-full-width elementor-kit-1885 elementor-page elementor-page-18772 elementor-page-432">
+
+		<!-- Google Tag Manager (noscript) snippet added by Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTSK8RV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
+		
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<div data-elementor-type="header" data-elementor-id="19065" class="elementor elementor-19065 elementor-location-header" data-elementor-post-type="elementor_library">
+					<div class="elementor-section elementor-top-section elementor-element elementor-element-685a04c elementor-section-full_width elementor-section-height-min-height elementor-section-content-middle elementor-hidden-tablet elementor-hidden-mobile elementor-section-height-default elementor-section-items-middle" data-id="685a04c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-125ac58" data-id="125ac58" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-88c74e2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="88c74e2" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-e56d85b" data-id="e56d85b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a693c9f elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="a693c9f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">UPCOMING EXHIBITIONS:</div>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="make-column-clickable-elementor elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-03fc684" style="cursor: pointer;" data-column-clickable="https://isdefexpo.com/category/bangkok-2023/" data-column-clickable-blank="_self" data-id="03fc684" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="make-column-clickable-elementor elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5724707" style="cursor: pointer;" data-column-clickable="https://isdefexpo.com/category/foodtech-2023/" data-column-clickable-blank="_self" data-id="5724707" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-05cfb0a dce_masking-none elementor-widget elementor-widget-image" data-id="05cfb0a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="204" height="26" src="https://isdefexpo.com/wp-content/uploads/2023/01/Foodsec.-Logo.svg" class="attachment-full size-full wp-image-19083 entered lazyloaded" alt="" data-lazy-src="https://isdefexpo.com/wp-content/uploads/2023/01/Foodsec.-Logo.svg" data-ll-status="loaded"><noscript><img width="204" height="26" src="https://isdefexpo.com/wp-content/uploads/2023/01/Foodsec.-Logo.svg" class="attachment-full size-full wp-image-19083" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-9f193ac elementor-section-full_width elementor-section-height-min-height elementor-section-content-middle elementor-hidden-desktop elementor-section-height-default elementor-section-items-middle" data-id="9f193ac" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-363285a" data-id="363285a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-b0f99a3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b0f99a3" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9c50203" data-id="9c50203" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2d6c380 elementor-widget elementor-widget-heading" data-id="2d6c380" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">UPCOMING EXHIBITIONS:</div>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="make-column-clickable-elementor elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ef41b36" style="cursor: pointer;" data-column-clickable="https://isdefexpo.com/category/foodtech-2023/" data-column-clickable-blank="_self" data-id="ef41b36" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-703ac92 dce_masking-none elementor-widget elementor-widget-image" data-id="703ac92" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="204" height="26" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20204%2026'%3E%3C/svg%3E" class="attachment-full size-full wp-image-19083" alt="" data-lazy-src="https://isdefexpo.com/wp-content/uploads/2023/01/Foodsec.-Logo.svg"><noscript><img width="204" height="26" src="https://isdefexpo.com/wp-content/uploads/2023/01/Foodsec.-Logo.svg" class="attachment-full size-full wp-image-19083" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-3645af2 elementor-section-full_width elementor-section-height-min-height elementor-section-content-middle elementor-hidden-desktop elementor-section-height-default elementor-section-items-middle" data-id="3645af2" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-370e1c1" data-id="370e1c1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-section elementor-inner-section elementor-element elementor-element-0199400 elementor-section-full_width elementor-section-content-middle elementor-section-height-default elementor-section-height-default" data-id="0199400" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-de2193d" data-id="de2193d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1700a79 dce_masking-none elementor-widget elementor-widget-image" data-id="1700a79" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://isdefexpo.com/">
+							<img width="60" height="48" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2048'%3E%3C/svg%3E" class="attachment-full size-full wp-image-19097" alt="" data-lazy-src="https://isdefexpo.com/wp-content/uploads/2023/01/Isdef-Logo-–-2.svg"><noscript><img width="60" height="48" src="https://isdefexpo.com/wp-content/uploads/2023/01/Isdef-Logo-–-2.svg" class="attachment-full size-full wp-image-19097" alt="" /></noscript>								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-e6687e5" data-id="e6687e5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4f95092 elementor-nav-menu__align-end elementor-nav-menu--stretch elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="4f95092" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-fade">
+				<ul id="menu-1-4f95092" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-18772 current_page_item menu-item-19058"><a href="https://isdefexpo.com/" aria-current="page" class="elementor-item elementor-item-active">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19059"><a href="https://isdefexpo.com/about-isdef/" class="elementor-item">About ISDEF</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19060"><a href="https://isdefexpo.com/past-highlights/" class="elementor-item">Past Highlights</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19061"><a href="https://isdefexpo.com/contact/" class="elementor-item">Contact us</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-4f95092" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-18772 current_page_item menu-item-19058"><a href="https://isdefexpo.com/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19059"><a href="https://isdefexpo.com/about-isdef/" class="elementor-item" tabindex="-1">About ISDEF</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19060"><a href="https://isdefexpo.com/past-highlights/" class="elementor-item" tabindex="-1">Past Highlights</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19061"><a href="https://isdefexpo.com/contact/" class="elementor-item" tabindex="-1">Contact us</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</div>
+					</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-7b97f03 elementor-section-full_width elementor-section-height-min-height elementor-section-content-middle elementor-hidden-tablet elementor-hidden-mobile elementor-section-height-default elementor-section-items-middle" data-id="7b97f03" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-39c7550" data-id="39c7550" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-section elementor-inner-section elementor-element elementor-element-a25841c elementor-section-full_width elementor-section-content-middle elementor-section-height-default elementor-section-height-default" data-id="a25841c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-1357ad1" data-id="1357ad1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e80ba4b dce_masking-none elementor-widget elementor-widget-image" data-id="e80ba4b" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://isdefexpo.com/">
+							<img width="60" height="48" src="https://isdefexpo.com/wp-content/uploads/2023/01/Isdef-Logo-–-2.svg" class="attachment-full size-full wp-image-19097 entered lazyloaded" alt="" data-lazy-src="https://isdefexpo.com/wp-content/uploads/2023/01/Isdef-Logo-–-2.svg" data-ll-status="loaded"><noscript><img width="60" height="48" src="https://isdefexpo.com/wp-content/uploads/2023/01/Isdef-Logo-–-2.svg" class="attachment-full size-full wp-image-19097" alt="" /></noscript>								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-363f699" data-id="363f699" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1716af9 elementor-nav-menu__align-start elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="1716af9" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-fade">
+				<ul id="menu-1-1716af9" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-18772 current_page_item menu-item-19058"><a href="https://isdefexpo.com/" aria-current="page" class="elementor-item elementor-item-active">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19059"><a href="https://isdefexpo.com/about-isdef/" class="elementor-item">About ISDEF</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19060"><a href="https://isdefexpo.com/past-highlights/" class="elementor-item">Past Highlights</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19061"><a href="https://isdefexpo.com/contact/" class="elementor-item">Contact us</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-1716af9" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-18772 current_page_item menu-item-19058"><a href="https://isdefexpo.com/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19059"><a href="https://isdefexpo.com/about-isdef/" class="elementor-item" tabindex="-1">About ISDEF</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19060"><a href="https://isdefexpo.com/past-highlights/" class="elementor-item" tabindex="-1">Past Highlights</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19061"><a href="https://isdefexpo.com/contact/" class="elementor-item" tabindex="-1">Contact us</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</div>
+					</div>
+		</div>
+					</div>
+		</div>
+				</div>
+		<div data-elementor-type="wp-page" data-elementor-id="18772" class="elementor elementor-18772" data-elementor-post-type="page">
+						<div data-dce-background-image-url="https://isdefexpo.com/wp-content/uploads/2023/03/Food-SecTech-image-v3-min.jpg" class="elementor-section elementor-top-section elementor-element elementor-element-bfbf527 elementor-section-full_width elementor-section-height-full elementor-section-items-top elementor-section-content-top topblock elementor-hidden-tablet elementor-hidden-mobile elementor-hidden-desktop elementor-section-height-default" data-id="bfbf527" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7360720" data-id="7360720" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5a66312 elementor-widget elementor-widget-heading" data-id="5a66312" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">Food Sec<font color="#427901">&amp;</font>Tech Israel</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-91c7c17 elementor-widget elementor-widget-heading" data-id="91c7c17" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">The International Food Security Summit</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-f672267 elementor-widget elementor-widget-heading" data-id="f672267" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Tel Aviv &amp; The Galilee Agro FoodTech Valley</h2>				</div>
+				</div>
+				<div class="elementor-section elementor-inner-section elementor-element elementor-element-50020e6 elementor-section-full_width elementor-section-content-top elementor-section-height-default elementor-section-height-default" data-id="50020e6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-6aad9d9 dividerboxmain" data-id="6aad9d9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8ace367 elementor-widget elementor-widget-heading" data-id="8ace367" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">June 27, 28, 29 - 2023</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-element elementor-element-d859efc elementor-widget elementor-widget-heading" data-id="d859efc" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">From Innovation to Action</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-2392552 elementor-align-left elementor-widget elementor-widget-button" data-id="2392552" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://isdefexpo.com/category/foodtech-2023/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Summit</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-06adf88 elementor-section-full_width elementor-section-content-top elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-section-height-default elementor-section-height-default" data-id="06adf88" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-narrow">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9246393" data-id="9246393" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-section elementor-inner-section elementor-element elementor-element-634d69e elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="634d69e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="make-column-clickable-elementor elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-cb1cdcb boxtwo" style="cursor: pointer;" data-column-clickable="https://isdefexpo.com/category/foodtech-2023/" data-column-clickable-blank="_self" data-dce-background-overlay-color="#000000" data-dce-background-overlay-hover-color="#050404" data-dce-background-image-url="https://isdefexpo.com/wp-content/uploads/2023/01/hover-state-min.jpg" data-id="cb1cdcb" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-3e4792a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3e4792a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-abca04b foodsecimg" data-id="abca04b" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-787189d" data-id="787189d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2a5b59f elementor-widget elementor-widget-heading" data-id="2a5b59f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">|&nbsp;&nbsp;&nbsp;&nbsp;27-29.06.2023</p>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-95f1b78 elementor-widget elementor-widget-heading" data-id="95f1b78" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">Food Sec&amp;Tech Israel</p>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7c59978 elementor-widget elementor-widget-heading" data-id="7c59978" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">The international Food Security Summit</p>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</div>
+					</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-934f5e0 elementor-section-full_width elementor-section-height-min-height elementor-section-items-top elementor-section-content-top elementor-hidden-tablet elementor-hidden-mobile elementor-section-height-default" data-id="934f5e0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/www.youtube.com\/watch?v=tJyNBHurVZo&quot;,&quot;background_video_start&quot;:0,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
+								<div class="elementor-background-video-container">
+													<div class="elementor-background-video-embed"></div>
+												</div>
+								<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4759602" data-id="4759602" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-822ab9a elementor-section-full_width elementor-section-height-min-height elementor-section-items-top elementor-section-content-top elementor-hidden-desktop elementor-section-height-default" data-id="822ab9a" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/www.youtube.com\/watch?v=ea7pbB4McSM&quot;,&quot;background_video_start&quot;:0,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
+								<div class="elementor-background-video-container">
+													<div class="elementor-background-video-embed"></div>
+												</div>
+								<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e3ca52a" data-id="e3ca52a" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-b7d455d elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b7d455d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-16bc756" data-id="16bc756" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-02db744 elementor-widget elementor-widget-heading" data-id="02db744" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">THE RIGHT PLACE • THE RIGHT TIME • THE RIGHT PEOPLE</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-fad0c0b elementor-widget elementor-widget-heading" data-id="fad0c0b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">ISDEF provides maximum exposure to both the domestic and international markets. In addition, ISDEF provides a very unique opportunity to interact directly with high ranking delegations and key industry players from around the world in an optimal setting.</div>				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-8c1d7fa elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8c1d7fa" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8f14a86" data-id="8f14a86" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2c81c75 elementor-view-default elementor-widget elementor-widget-icon" data-id="2c81c75" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="119.602" height="96.137" viewBox="0 0 119.602 96.137"><g id="leg_name_black" data-name="leg+name black" transform="translate(-55.605)"><g id="Group_5" data-name="Group 5" transform="translate(55.605)"><g id="Group_4" data-name="Group 4"><path id="Path_20" data-name="Path 20" d="M136.252,55.011,146.1,70.885,97.908,139.4c-9.524,13.177-20.958,12.815-36.442,10.47,4.913-.483,10.308-3.845,17.687-14.053Z" transform="translate(-45.08 -55.011)" fill="#ae0721"></path><path id="Path_21" data-name="Path 21" d="M120.4,126.854c-9.524,13.177-20.96,12.815-36.442,10.47,4.922-.484,10.318-3.857,17.7-14.054l36.855-50.9,9.906,16.036Z" transform="translate(-28.811 -42.452)" fill="#ae0721"></path><path id="Path_22" data-name="Path 22" d="M87.093,113.787a14.424,14.424,0,0,0,7.278-3.161,39.392,39.392,0,0,1-6.856-7.45l-1.47,2.085a32.107,32.107,0,0,1-6.623,6.925c.11.06.231.131.341.191a12.932,12.932,0,0,0,7.33,1.41" transform="translate(-32.09 -20.168)" fill="#1b2125"></path><path id="Path_23" data-name="Path 23" d="M62.941,119.39A8.162,8.162,0,0,0,68.2,120.6c2.788-.283,5.577-1.63,8.546-4.188a53.4,53.4,0,0,1-5.013-6.051L59.719,93.751l-7.761,12.583,4.751,6.906a23.758,23.758,0,0,0,6.232,6.151" transform="translate(-51.958 -26.986)" fill="#1b2125"></path><path id="Path_24" data-name="Path 24" d="M87.833,103.719l-18.09-25L61.811,91.579,79.367,115.7Z" transform="translate(-44.83 -37.857)" fill="#1b2125"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-3ca4580 elementor-widget elementor-widget-heading" data-id="3ca4580" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">15,000</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-205ccab elementor-widget elementor-widget-heading" data-id="205ccab" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">attendees</div>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-393266f" data-id="393266f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fd06307 elementor-view-default elementor-widget elementor-widget-icon" data-id="fd06307" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="119.602" height="96.137" viewBox="0 0 119.602 96.137"><g id="leg_name_black" data-name="leg+name black" transform="translate(-55.605)"><g id="Group_5" data-name="Group 5" transform="translate(55.605)"><g id="Group_4" data-name="Group 4"><path id="Path_20" data-name="Path 20" d="M136.252,55.011,146.1,70.885,97.908,139.4c-9.524,13.177-20.958,12.815-36.442,10.47,4.913-.483,10.308-3.845,17.687-14.053Z" transform="translate(-45.08 -55.011)" fill="#ae0721"></path><path id="Path_21" data-name="Path 21" d="M120.4,126.854c-9.524,13.177-20.96,12.815-36.442,10.47,4.922-.484,10.318-3.857,17.7-14.054l36.855-50.9,9.906,16.036Z" transform="translate(-28.811 -42.452)" fill="#ae0721"></path><path id="Path_22" data-name="Path 22" d="M87.093,113.787a14.424,14.424,0,0,0,7.278-3.161,39.392,39.392,0,0,1-6.856-7.45l-1.47,2.085a32.107,32.107,0,0,1-6.623,6.925c.11.06.231.131.341.191a12.932,12.932,0,0,0,7.33,1.41" transform="translate(-32.09 -20.168)" fill="#1b2125"></path><path id="Path_23" data-name="Path 23" d="M62.941,119.39A8.162,8.162,0,0,0,68.2,120.6c2.788-.283,5.577-1.63,8.546-4.188a53.4,53.4,0,0,1-5.013-6.051L59.719,93.751l-7.761,12.583,4.751,6.906a23.758,23.758,0,0,0,6.232,6.151" transform="translate(-51.958 -26.986)" fill="#1b2125"></path><path id="Path_24" data-name="Path 24" d="M87.833,103.719l-18.09-25L61.811,91.579,79.367,115.7Z" transform="translate(-44.83 -37.857)" fill="#1b2125"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-3cacfa5 elementor-widget elementor-widget-heading" data-id="3cacfa5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">300</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-8a24915 elementor-widget elementor-widget-heading" data-id="8a24915" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">companies</div>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-0002c6b" data-id="0002c6b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-eb75474 elementor-view-default elementor-widget elementor-widget-icon" data-id="eb75474" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="119.602" height="96.137" viewBox="0 0 119.602 96.137"><g id="leg_name_black" data-name="leg+name black" transform="translate(-55.605)"><g id="Group_5" data-name="Group 5" transform="translate(55.605)"><g id="Group_4" data-name="Group 4"><path id="Path_20" data-name="Path 20" d="M136.252,55.011,146.1,70.885,97.908,139.4c-9.524,13.177-20.958,12.815-36.442,10.47,4.913-.483,10.308-3.845,17.687-14.053Z" transform="translate(-45.08 -55.011)" fill="#ae0721"></path><path id="Path_21" data-name="Path 21" d="M120.4,126.854c-9.524,13.177-20.96,12.815-36.442,10.47,4.922-.484,10.318-3.857,17.7-14.054l36.855-50.9,9.906,16.036Z" transform="translate(-28.811 -42.452)" fill="#ae0721"></path><path id="Path_22" data-name="Path 22" d="M87.093,113.787a14.424,14.424,0,0,0,7.278-3.161,39.392,39.392,0,0,1-6.856-7.45l-1.47,2.085a32.107,32.107,0,0,1-6.623,6.925c.11.06.231.131.341.191a12.932,12.932,0,0,0,7.33,1.41" transform="translate(-32.09 -20.168)" fill="#1b2125"></path><path id="Path_23" data-name="Path 23" d="M62.941,119.39A8.162,8.162,0,0,0,68.2,120.6c2.788-.283,5.577-1.63,8.546-4.188a53.4,53.4,0,0,1-5.013-6.051L59.719,93.751l-7.761,12.583,4.751,6.906a23.758,23.758,0,0,0,6.232,6.151" transform="translate(-51.958 -26.986)" fill="#1b2125"></path><path id="Path_24" data-name="Path 24" d="M87.833,103.719l-18.09-25L61.811,91.579,79.367,115.7Z" transform="translate(-44.83 -37.857)" fill="#1b2125"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-c359885 elementor-widget elementor-widget-heading" data-id="c359885" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">90</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-0c5458e elementor-widget elementor-widget-heading" data-id="0c5458e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">countries worldwide</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-64081a0 elementor-widget elementor-widget-heading" data-id="64081a0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">SEE YOU SOON AT OUR NEXT EVENTS!</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</div>
+				<div class="elementor-section elementor-top-section elementor-element elementor-element-05db5db elementor-hidden-desktop elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="05db5db" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5728070" data-id="5728070" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f0524d4 elementor-widget elementor-widget-heading" data-id="f0524d4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">THE RIGHT PLACE • THE RIGHT TIME • THE RIGHT PEOPLE</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-de9f4cf elementor-widget elementor-widget-heading" data-id="de9f4cf" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">ISDEF provides maximum exposure to both the domestic and international markets. In addition, ISDEF provides a very unique opportunity to interact directly with high ranking delegations and key industry players from around the world in an optimal setting.</div>				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-b5336d3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b5336d3" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3b33d8a" data-id="3b33d8a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e1f918d elementor-view-default elementor-widget elementor-widget-icon" data-id="e1f918d" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="119.602" height="96.137" viewBox="0 0 119.602 96.137"><g id="leg_name_black" data-name="leg+name black" transform="translate(-55.605)"><g id="Group_5" data-name="Group 5" transform="translate(55.605)"><g id="Group_4" data-name="Group 4"><path id="Path_20" data-name="Path 20" d="M136.252,55.011,146.1,70.885,97.908,139.4c-9.524,13.177-20.958,12.815-36.442,10.47,4.913-.483,10.308-3.845,17.687-14.053Z" transform="translate(-45.08 -55.011)" fill="#ae0721"></path><path id="Path_21" data-name="Path 21" d="M120.4,126.854c-9.524,13.177-20.96,12.815-36.442,10.47,4.922-.484,10.318-3.857,17.7-14.054l36.855-50.9,9.906,16.036Z" transform="translate(-28.811 -42.452)" fill="#ae0721"></path><path id="Path_22" data-name="Path 22" d="M87.093,113.787a14.424,14.424,0,0,0,7.278-3.161,39.392,39.392,0,0,1-6.856-7.45l-1.47,2.085a32.107,32.107,0,0,1-6.623,6.925c.11.06.231.131.341.191a12.932,12.932,0,0,0,7.33,1.41" transform="translate(-32.09 -20.168)" fill="#1b2125"></path><path id="Path_23" data-name="Path 23" d="M62.941,119.39A8.162,8.162,0,0,0,68.2,120.6c2.788-.283,5.577-1.63,8.546-4.188a53.4,53.4,0,0,1-5.013-6.051L59.719,93.751l-7.761,12.583,4.751,6.906a23.758,23.758,0,0,0,6.232,6.151" transform="translate(-51.958 -26.986)" fill="#1b2125"></path><path id="Path_24" data-name="Path 24" d="M87.833,103.719l-18.09-25L61.811,91.579,79.367,115.7Z" transform="translate(-44.83 -37.857)" fill="#1b2125"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d6b1a01 elementor-widget elementor-widget-heading" data-id="d6b1a01" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">15,000</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-fcf1a59 elementor-widget elementor-widget-heading" data-id="fcf1a59" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">people visited</div>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d0258bf" data-id="d0258bf" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ea3edb8 elementor-view-default elementor-widget elementor-widget-icon" data-id="ea3edb8" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="119.602" height="96.137" viewBox="0 0 119.602 96.137"><g id="leg_name_black" data-name="leg+name black" transform="translate(-55.605)"><g id="Group_5" data-name="Group 5" transform="translate(55.605)"><g id="Group_4" data-name="Group 4"><path id="Path_20" data-name="Path 20" d="M136.252,55.011,146.1,70.885,97.908,139.4c-9.524,13.177-20.958,12.815-36.442,10.47,4.913-.483,10.308-3.845,17.687-14.053Z" transform="translate(-45.08 -55.011)" fill="#ae0721"></path><path id="Path_21" data-name="Path 21" d="M120.4,126.854c-9.524,13.177-20.96,12.815-36.442,10.47,4.922-.484,10.318-3.857,17.7-14.054l36.855-50.9,9.906,16.036Z" transform="translate(-28.811 -42.452)" fill="#ae0721"></path><path id="Path_22" data-name="Path 22" d="M87.093,113.787a14.424,14.424,0,0,0,7.278-3.161,39.392,39.392,0,0,1-6.856-7.45l-1.47,2.085a32.107,32.107,0,0,1-6.623,6.925c.11.06.231.131.341.191a12.932,12.932,0,0,0,7.33,1.41" transform="translate(-32.09 -20.168)" fill="#1b2125"></path><path id="Path_23" data-name="Path 23" d="M62.941,119.39A8.162,8.162,0,0,0,68.2,120.6c2.788-.283,5.577-1.63,8.546-4.188a53.4,53.4,0,0,1-5.013-6.051L59.719,93.751l-7.761,12.583,4.751,6.906a23.758,23.758,0,0,0,6.232,6.151" transform="translate(-51.958 -26.986)" fill="#1b2125"></path><path id="Path_24" data-name="Path 24" d="M87.833,103.719l-18.09-25L61.811,91.579,79.367,115.7Z" transform="translate(-44.83 -37.857)" fill="#1b2125"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-8920bd6 elementor-widget elementor-widget-heading" data-id="8920bd6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">300</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-023042c elementor-widget elementor-widget-heading" data-id="023042c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">companies</div>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-f87f5ce" data-id="f87f5ce" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a85df4a elementor-view-default elementor-widget elementor-widget-icon" data-id="a85df4a" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="119.602" height="96.137" viewBox="0 0 119.602 96.137"><g id="leg_name_black" data-name="leg+name black" transform="translate(-55.605)"><g id="Group_5" data-name="Group 5" transform="translate(55.605)"><g id="Group_4" data-name="Group 4"><path id="Path_20" data-name="Path 20" d="M136.252,55.011,146.1,70.885,97.908,139.4c-9.524,13.177-20.958,12.815-36.442,10.47,4.913-.483,10.308-3.845,17.687-14.053Z" transform="translate(-45.08 -55.011)" fill="#ae0721"></path><path id="Path_21" data-name="Path 21" d="M120.4,126.854c-9.524,13.177-20.96,12.815-36.442,10.47,4.922-.484,10.318-3.857,17.7-14.054l36.855-50.9,9.906,16.036Z" transform="translate(-28.811 -42.452)" fill="#ae0721"></path><path id="Path_22" data-name="Path 22" d="M87.093,113.787a14.424,14.424,0,0,0,7.278-3.161,39.392,39.392,0,0,1-6.856-7.45l-1.47,2.085a32.107,32.107,0,0,1-6.623,6.925c.11.06.231.131.341.191a12.932,12.932,0,0,0,7.33,1.41" transform="translate(-32.09 -20.168)" fill="#1b2125"></path><path id="Path_23" data-name="Path 23" d="M62.941,119.39A8.162,8.162,0,0,0,68.2,120.6c2.788-.283,5.577-1.63,8.546-4.188a53.4,53.4,0,0,1-5.013-6.051L59.719,93.751l-7.761,12.583,4.751,6.906a23.758,23.758,0,0,0,6.232,6.151" transform="translate(-51.958 -26.986)" fill="#1b2125"></path><path id="Path_24" data-name="Path 24" d="M87.833,103.719l-18.09-25L61.811,91.579,79.367,115.7Z" transform="translate(-44.83 -37.857)" fill="#1b2125"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ba9491d elementor-widget elementor-widget-heading" data-id="ba9491d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">90</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-6390b6e elementor-widget elementor-widget-heading" data-id="6390b6e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">countries worldwide</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-78f9fd4 elementor-widget elementor-widget-heading" data-id="78f9fd4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">SEE YOU SOON AT OUR EVENTS!</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</div>
+				</div>		<footer data-elementor-type="footer" data-elementor-id="209" class="elementor elementor-209 elementor-location-footer" data-elementor-post-type="elementor_library">
+					<section data-dce-background-color="#FFFFFF4D" class="elementor-section elementor-top-section elementor-element elementor-element-2c77dd9 elementor-section-content-middle elementor-hidden-mobile isdefff elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2c77dd9" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-33e0c7b" data-id="33e0c7b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-287c386 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="287c386" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://isdefexpo.com">
+			<img width="170" height="139" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20170%20139'%3E%3C/svg%3E" class="attachment-full size-full wp-image-5889" alt="ISDEF" data-lazy-src="https://isdefexpo.com/wp-content/uploads/2021/12/logo-ISDEF.svg"><noscript><img width="170" height="139" src="https://isdefexpo.com/wp-content/uploads/2021/12/logo-ISDEF.svg" class="attachment-full size-full wp-image-5889" alt="ISDEF" /></noscript>				</a>
+											</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-a910f96 elementor-hidden-mobile" data-id="a910f96" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7d159df elementor-nav-menu__align-justify elementor-nav-menu--stretch elementor-nav-menu--dropdown-mobile elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="7d159df" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-7d159df" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4599"><a href="https://isdefexpo.com/about-isdef/" class="elementor-item">About ISDEF</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4637"><a href="https://isdefexpo.com/past-highlights/" class="elementor-item">Past Highlights</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4601"><a href="https://isdefexpo.com/contact/" class="elementor-item">Contact Us</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4602"><a href="https://isdefexpo.com/category/isdef-2022/" class="elementor-item">ISDEF 2022</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12724"><a href="https://isdefexpo.com/privacy-policy/" class="elementor-item">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-11112"><a rel="privacy-policy" href="https://isdefexpo.com/terms-of-use/" class="elementor-item">Terms of Use (תקנון)</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-7d159df" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4599"><a href="https://isdefexpo.com/about-isdef/" class="elementor-item" tabindex="-1">About ISDEF</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4637"><a href="https://isdefexpo.com/past-highlights/" class="elementor-item" tabindex="-1">Past Highlights</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4601"><a href="https://isdefexpo.com/contact/" class="elementor-item" tabindex="-1">Contact Us</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4602"><a href="https://isdefexpo.com/category/isdef-2022/" class="elementor-item" tabindex="-1">ISDEF 2022</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12724"><a href="https://isdefexpo.com/privacy-policy/" class="elementor-item" tabindex="-1">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-11112"><a rel="privacy-policy" href="https://isdefexpo.com/terms-of-use/" class="elementor-item" tabindex="-1">Terms of Use (תקנון)</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section data-dce-background-color="#FFFFFF" class="elementor-section elementor-top-section elementor-element elementor-element-000dd42 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="000dd42" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6e3ad46" data-id="6e3ad46" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-e82003f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e82003f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-e20e619 elementor-hidden-mobile" data-id="e20e619" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-aaa7e68" data-id="aaa7e68" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f005fee elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="f005fee" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+										<span class="elementor-icon-list-text">Follow us</span>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.linkedin.com/company/israel-defence/" target="_blank" rel="nofollow">
+
+												<span class="elementor-icon-list-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" id="Icon_metro-linkedin" data-name="Icon metro-linkedin" width="26.975" height="26.975" viewBox="0 0 26.975 26.975"><path id="Icon_metro-linkedin-2" data-name="Icon metro-linkedin" d="M25.015,1.928H7.1A4.544,4.544,0,0,0,2.571,6.459V24.372A4.544,4.544,0,0,0,7.1,28.9H25.015a4.544,4.544,0,0,0,4.531-4.531V6.459a4.544,4.544,0,0,0-4.531-4.531ZM12.686,23.845H9.314v-11.8h3.372v11.8ZM11,10.358a1.686,1.686,0,1,1,1.686-1.686A1.686,1.686,0,0,1,11,10.358ZM24.488,23.845H21.116V17.1a1.686,1.686,0,1,0-3.372,0v6.744H14.372v-11.8h3.372v2.093c.7-.955,1.758-2.093,2.95-2.093a4.021,4.021,0,0,1,3.793,4.215v7.587Z" transform="translate(-2.571 -1.928)" opacity="0.56"></path></svg>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.facebook.com/ISDEFexpo" target="_blank" rel="nofollow">
+
+												<span class="elementor-icon-list-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="26.975" height="26.975" viewBox="0 0 26.975 26.975"><g id="Icon_metro-facebook" data-name="Icon metro-facebook" style="mix-blend-mode: normal;isolation: isolate"><path id="Icon_metro-facebook-2" data-name="Icon metro-facebook" d="M25.05,1.928H7.066a4.5,4.5,0,0,0-4.5,4.5V24.407a4.5,4.5,0,0,0,4.5,4.5h8.992V17.1H12.686V13.73h3.372V11.2a4.215,4.215,0,0,1,4.215-4.215h4.215v3.372H20.273a.843.843,0,0,0-.843.843V13.73h4.636L23.223,17.1H19.43V28.9h5.62a4.5,4.5,0,0,0,4.5-4.5V6.424a4.5,4.5,0,0,0-4.5-4.5Z" transform="translate(-2.571 -1.928)" opacity="0.56"></path></g></svg>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.youtube.com/user/ISDEF2013" target="_blank" rel="nofollow">
+
+												<span class="elementor-icon-list-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" id="Icon_metro-youtube-play" data-name="Icon metro-youtube-play" width="37.764" height="26.975" viewBox="0 0 37.764 26.975"><path id="Icon_metro-youtube-play-2" data-name="Icon metro-youtube-play" d="M29.545,20.1a1.213,1.213,0,0,0-.632-1.138l-10.79-6.744a1.27,1.27,0,0,0-1.37-.042,1.255,1.255,0,0,0-.7,1.18V26.841a1.255,1.255,0,0,0,.7,1.18,1.458,1.458,0,0,0,.653.169,1.2,1.2,0,0,0,.717-.211l10.79-6.744a1.213,1.213,0,0,0,.632-1.138Zm10.79,0q0,2.023-.021,3.161t-.179,2.877a23.311,23.311,0,0,1-.474,3.108,4.93,4.93,0,0,1-1.454,2.592,4.444,4.444,0,0,1-2.613,1.222,138.16,138.16,0,0,1-14.141.527,138.16,138.16,0,0,1-14.141-.527,4.492,4.492,0,0,1-2.624-1.222,4.9,4.9,0,0,1-1.465-2.592,26.086,26.086,0,0,1-.453-3.108q-.158-1.739-.179-2.877T2.571,20.1q0-2.023.021-3.161t.179-2.877a23.311,23.311,0,0,1,.474-3.108A4.93,4.93,0,0,1,4.7,8.36,4.444,4.444,0,0,1,7.312,7.137,138.161,138.161,0,0,1,21.453,6.61a138.159,138.159,0,0,1,14.14.527A4.492,4.492,0,0,1,38.217,8.36a4.9,4.9,0,0,1,1.465,2.592,26.086,26.086,0,0,1,.453,3.108q.158,1.739.179,2.877T40.335,20.1Z" transform="translate(-2.571 -6.61)" opacity="0.56"></path></svg>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-eca97de" data-id="eca97de" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-206e804 elementor-widget elementor-widget-heading" data-id="206e804" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default"><a href="https://isdefexpo.com/subscribe-to-newsletter/">Subscribe to our newsletter</a></div>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-238f685" data-id="238f685" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-dcf2113 elementor-widget elementor-widget-heading" data-id="dcf2113" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">ISDEF the International Defense HLS | Military | Security | Police | CBRN | Cyber Exhibition in Israel, Copyright ©</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</footer>
+		
+
+		<script type="rocketlazyloadscript">
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = true;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/avnongroup\/*","\/wp-content\/themes\/hello-elementor\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+
+<div id="wp_access_helper_container" class="accessability_container dark_theme">
+	<!-- WP Accessibility Helper (WAH) - https://wordpress.org/plugins/wp-accessibility-helper/ -->
+	<!-- Official plugin website - https://accessibility-helper.co.il -->
+		<button type="button" class="wahout aicon_link" accesskey="z" aria-label="Accessibility Helper sidebar" title="Accessibility Helper sidebar">
+		<picture class="aicon_image">
+<source type="image/webp" data-lazy-srcset="https://isdefexpo.com/wp-content/uploads/2021/11/acessibility-icon.png.webp" srcset="https://isdefexpo.com/wp-content/uploads/2021/11/acessibility-icon.png.webp">
+<img src="https://isdefexpo.com/wp-content/uploads/2021/11/acessibility-icon.png" alt="Accessibility" data-lazy-src="https://isdefexpo.com/wp-content/uploads/2021/11/acessibility-icon.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://isdefexpo.com/wp-content/uploads/2021/11/acessibility-icon.png" alt="Accessibility"/></noscript>
+</picture>
+
+	</button>
+
+
+	<div id="access_container" aria-hidden="true">
+		<button tabindex="-1" type="button" class="close_container wahout" accesskey="x" aria-label="Close button" title="Close button">
+			Close button		</button>
+
+		<div class="access_container_inner">
+			<div class="a_module wah_font_resize">
+
+            <div class="a_module_title">Font Resize</div>
+
+            <div class="a_module_exe font_resizer">
+
+                <button type="button" class="wah-action-button smaller wahout" title="smaller font size" aria-label="smaller font size">A-</button>
+
+                <button type="button" class="wah-action-button larger wahout" title="larger font size" aria-label="larger font size">A+</button>
+
+            </div>
+
+        </div><div class="a_module wah_keyboard_navigation">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-keyboard-navigation" aria-label="Keyboard navigation" title="Keyboard navigation">Keyboard navigation</button>
+
+            </div>
+
+        </div><div class="a_module wah_underline_links">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-underline-links" aria-label="Underline links" title="Underline links">Underline links</button>
+
+            </div>
+
+        </div><div class="a_module wah_highlight_links">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-highlight-links" aria-label="Highlight Links" title="Highlight Links">Highlight Links</button>
+
+            </div>
+
+        </div><div class="a_module wah_clear_cookies">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-clear-cookies" aria-label="Clear cookies" title="Clear cookies">Clear cookies</button>
+
+            </div>
+
+        </div><div class="a_module wah_greyscale">
+
+            <div class="a_module_exe">
+
+                <button type="button" id="greyscale" class="greyscale wah-action-button wahout wah-call-greyscale" aria-label="Images Greyscale" title="Images Greyscale">Images Greyscale</button>
+
+            </div>
+
+        </div><div class="a_module wah_invert">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-invert" aria-label="Invert Colors" title="Invert Colors">Invert Colors</button>
+
+            </div>
+
+        </div><div class="a_module wah_remove_animations">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-remove-animations" aria-label="Remove Animations" title="Remove Animations">Remove Animations</button>
+
+            </div>
+
+        </div><div class="a_module wah_remove_styles">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-remove-styles" aria-label="Remove styles" title="Remove styles">Remove styles</button>
+
+            </div>
+
+        </div>			
+	<button type="button" title="Close sidebar" class="wah-skip close-wah-sidebar">
+
+		Close button
+	</button>
+
+			</div>
+	</div>
+
+	
+
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+
+
+
+	
+
+
+	
+
+
+		var removeLinkTitles = 1;
+
+
+
+	
+
+
+	
+
+
+	
+
+
+	
+
+
+	
+
+
+	
+
+
+	
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style media="screen">#access_container {font-family:Arial, Helvetica, sans-serif;}</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	<style media="screen" type="text/css">
+
+
+
+		body #wp_access_helper_container button.aicon_link {
+
+
+
+			
+
+
+			
+
+
+			
+
+
+				left:0px !important;
+
+
+
+			
+
+
+			
+
+
+				bottom:55px !important;
+
+
+
+			
+
+
+		}
+
+
+
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="wah-free-credits">
+
+		<div class="wah-free-credits-inner">
+
+			<a href="https://accessibility-helper.co.il/" target="_blank" title="Accessibility by WP Accessibility Helper Team">Accessibility by WAH</a>
+
+		</div>
+
+	</div>
+
+		<!-- WP Accessibility Helper. Created by Alex Volkov. -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <nav class="wah-skiplinks-menu">
+
+
+
+
+
+
+
+
+
+
+    <!-- WP Accessibility Helper - Skiplinks Menu -->
+
+
+
+
+
+
+
+
+
+
+    <div class="wah-skipper"><ul>
+<li class="page_item page-item-16912"><a href="https://isdefexpo.com/about-food-sectech/">About Food Sec&amp;Tech</a></li>
+<li class="page_item page-item-4262"><a href="https://isdefexpo.com/about-isdef/">About ISDEF</a></li>
+<li class="page_item page-item-2271"><a href="https://isdefexpo.com/about/">About ISDEF 2022</a></li>
+<li class="page_item page-item-12736"><a href="https://isdefexpo.com/about-israel-pavilion/">About Israel Pavilion</a></li>
+<li class="page_item page-item-20776"><a href="https://isdefexpo.com/accommodation/">Accommodation</a></li>
+<li class="page_item page-item-3552 page_item_has_children"><a href="https://isdefexpo.com/become-a-visitor/">Become a visitor</a>
+<ul class="children">
+	<li class="page_item page-item-4339"><a href="https://isdefexpo.com/become-a-visitor/thank-you/">Become a Visitor \ Thank You</a></li>
+	<li class="page_item page-item-6569 page_item_has_children"><a href="https://isdefexpo.com/become-a-visitor/discover-israel/">DISCOVER ISRAEL</a>
+	<ul class="children">
+		<li class="page_item page-item-6768"><a href="https://isdefexpo.com/become-a-visitor/discover-israel/sdef-2022-ahdud-thank-you-discover-israel/">ISDEF 2022 / Thank You Page</a></li>
+	</ul>
+</li>
+	<li class="page_item page-item-11899"><a href="https://isdefexpo.com/become-a-visitor/isdef-bias-thankyou/">ISDEF BIAS 2022 / Thank You</a></li>
+</ul>
+</li>
+<li class="page_item page-item-10729"><a href="https://isdefexpo.com/cart/">Cart</a></li>
+<li class="page_item page-item-10730"><a href="https://isdefexpo.com/checkout/">Checkout</a></li>
+<li class="page_item page-item-12744"><a href="https://isdefexpo.com/contact-us-bias/">Contact</a></li>
+<li class="page_item page-item-696"><a href="https://isdefexpo.com/contact/">Contact us</a></li>
+<li class="page_item page-item-20572"><a href="https://isdefexpo.com/foodsectech-2023-contact-us/">Contact Us FoodSec&amp;Tech 2023</a></li>
+<li class="page_item page-item-3556"><a href="https://isdefexpo.com/covid-19/">Covid-19</a></li>
+<li class="page_item page-item-3331"><a href="https://isdefexpo.com/crisis-management-conference/">Crisis Management Conference</a></li>
+<li class="page_item page-item-2454"><a href="https://isdefexpo.com/delegations-vip/">Delegations &amp; VIP’S</a></li>
+<li class="page_item page-item-10874"><a href="https://isdefexpo.com/english/">English</a></li>
+<li class="page_item page-item-12738"><a href="https://isdefexpo.com/exhibitor-pricing/">Exhibitor Pricing</a></li>
+<li class="page_item page-item-20940"><a href="https://isdefexpo.com/exhibitor-pricing-foodsectech-2023/">Exhibitor Pricing</a></li>
+<li class="page_item page-item-2563"><a href="https://isdefexpo.com/exhibitor-registration/">Exhibitor Registration</a></li>
+<li class="page_item page-item-3564 page_item_has_children"><a href="https://isdefexpo.com/exhibitor-sign-up/">Exhibitor Registration</a>
+<ul class="children">
+	<li class="page_item page-item-3566 page_item_has_children"><a href="https://isdefexpo.com/exhibitor-sign-up/download-contract/">Exhibitor Registration | Download Contract</a>
+	<ul class="children">
+		<li class="page_item page-item-4003"><a href="https://isdefexpo.com/exhibitor-sign-up/download-contract/thank-you-download-contract/">Thank You Download Contract</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="page_item page-item-3568 page_item_has_children"><a href="https://isdefexpo.com/upload-contract/">Exhibitor Registration | Upload Contract</a>
+<ul class="children">
+	<li class="page_item page-item-3570"><a href="https://isdefexpo.com/upload-contract/thank-you-for-upload/">Thank You For Upload</a></li>
+</ul>
+</li>
+<li class="page_item page-item-23298"><a href="https://isdefexpo.com/exhibitors/">Exhibitors</a></li>
+<li class="page_item page-item-16989"><a href="https://isdefexpo.com/food-sectech-thank-you/">Food Sec&amp;Tech Thank You</a></li>
+<li class="page_item page-item-20866"><a href="https://isdefexpo.com/formal-delegations-2/">Formal delegations</a></li>
+<li class="page_item page-item-64"><a href="https://isdefexpo.com/home/">Home</a></li>
+<li class="page_item page-item-18772 current_page_item"><a href="https://isdefexpo.com/" aria-current="page">Homepage</a></li>
+<li class="page_item page-item-10864"><a href="https://isdefexpo.com/homepage/">Homepage</a></li>
+<li class="page_item page-item-21069"><a href="https://isdefexpo.com/info-for-guests/">Info for Guests</a></li>
+<li class="page_item page-item-24720"><a href="https://isdefexpo.com/innovation-arena/">Innovation Arena</a></li>
+<li class="page_item page-item-588"><a href="https://isdefexpo.com/isdef-2015-highlights/">ISDEF 2015 Highlights</a></li>
+<li class="page_item page-item-559"><a href="https://isdefexpo.com/isdef-2017-highlights/">ISDEF 2017 Highlights</a></li>
+<li class="page_item page-item-548"><a href="https://isdefexpo.com/isdef-japan-highlights/">ISDEF 2018 Japan Highlights</a></li>
+<li class="page_item page-item-1572"><a href="https://isdefexpo.com/isdef-2019-highlights/">ISDEF 2019 Highlights</a></li>
+<li class="page_item page-item-3558 page_item_has_children"><a href="https://isdefexpo.com/contact-us/">ISDEF 2022 Contact Us</a>
+<ul class="children">
+	<li class="page_item page-item-3560"><a href="https://isdefexpo.com/contact-us/thank-you-2022/">Write Us / Thank You</a></li>
+</ul>
+</li>
+<li class="page_item page-item-4869"><a href="https://isdefexpo.com/thank_you/">ISDEF 2023 / Thank You</a></li>
+<li class="page_item page-item-7390"><a href="https://isdefexpo.com/home-new/">ISDEF Expo</a></li>
+<li class="page_item page-item-2378"><a href="https://isdefexpo.com/board-of-advisors/">Meet our board of advisors</a></li>
+<li class="page_item page-item-10731"><a href="https://isdefexpo.com/my-account/">My account</a></li>
+<li class="page_item page-item-2555"><a href="https://isdefexpo.com/national-pavilions-2019/">National Pavilions</a></li>
+<li class="page_item page-item-22234"><a href="https://isdefexpo.com/one-day-participation-27-6-2023-rabin-center/">One day participation – 27.6.2023 (Rabin Center)</a></li>
+<li class="page_item page-item-22241"><a href="https://isdefexpo.com/one-day-participation-28-6-2023-tel-hai/">One day participation – 28.6.2023 (Tel-Hai)</a></li>
+<li class="page_item page-item-22246"><a href="https://isdefexpo.com/one-day-participation-29-6-2023-tel-hai/">One day participation – 29.6.2023 (Tel-Hai)</a></li>
+<li class="page_item page-item-11225"><a href="https://isdefexpo.com/oops/">Oops…</a></li>
+<li class="page_item page-item-10154"><a href="https://isdefexpo.com/articles-2/">Opinion Articles</a></li>
+<li class="page_item page-item-12740"><a href="https://isdefexpo.com/our-exhibitors/">Our Exhibitors</a></li>
+<li class="page_item page-item-17026"><a href="https://isdefexpo.com/partners/">Our Partners</a></li>
+<li class="page_item page-item-4614"><a href="https://isdefexpo.com/past-highlights/">Past Highlights</a></li>
+<li class="page_item page-item-4644"><a href="https://isdefexpo.com/pdf-download/">pdf download</a></li>
+<li class="page_item page-item-12721"><a href="https://isdefexpo.com/privacy-policy/">Privacy Policy</a></li>
+<li class="page_item page-item-20152"><a href="https://isdefexpo.com/program/">Program</a></li>
+<li class="page_item page-item-23922"><a href="https://isdefexpo.com/promising-start-up/">Promising Start Up</a></li>
+<li class="page_item page-item-22055"><a href="https://isdefexpo.com/registration-foodsec-associate/">Registration FoodSec Associate</a></li>
+<li class="page_item page-item-22035"><a href="https://isdefexpo.com/registration-foodsec-senior/">Registration FoodSec Senior</a></li>
+<li class="page_item page-item-22063"><a href="https://isdefexpo.com/registration-foodsec-student/">Registration FoodSec Student</a></li>
+<li class="page_item page-item-21852"><a href="https://isdefexpo.com/registration-info/">Registration Info</a></li>
+<li class="page_item page-item-10728"><a href="https://isdefexpo.com/shop/">Shop</a></li>
+<li class="page_item page-item-20837"><a href="https://isdefexpo.com/foodsectech-2023-speakers/">Speakers</a></li>
+<li class="page_item page-item-2847"><a href="https://isdefexpo.com/sponsorship-brochure/">Sponsorship Brochure</a></li>
+<li class="page_item page-item-6279"><a href="https://isdefexpo.com/startup-avenue/">StartUp Avenue</a></li>
+<li class="page_item page-item-20486"><a href="https://isdefexpo.com/steering-committee-foodsectech-2023/">Steering Committee</a></li>
+<li class="page_item page-item-9375"><a href="https://isdefexpo.com/subscribe-to-newsletter/">Subscribe to our newsletter</a></li>
+<li class="page_item page-item-11098"><a href="https://isdefexpo.com/terms-of-use/">Terms of Use and Privacy Policy</a></li>
+<li class="page_item page-item-21489"><a href="https://isdefexpo.com/test-slider/">test slider</a></li>
+<li class="page_item page-item-3242"><a href="https://isdefexpo.com/thank-you/">Thank for your appeal</a></li>
+<li class="page_item page-item-7852"><a href="https://isdefexpo.com/thank-you-emergency/">Thank You</a></li>
+<li class="page_item page-item-22485"><a href="https://isdefexpo.com/thank-you-for-contacting-us/">Thank you</a></li>
+<li class="page_item page-item-1203"><a href="https://isdefexpo.com/visitor-registration/">Visitor Registration</a></li>
+<li class="page_item page-item-20369"><a href="https://isdefexpo.com/visitors-attendees-profile/">Visitor’s/Attendees Profile</a></li>
+<li class="page_item page-item-20642"><a href="https://isdefexpo.com/want-to-attend-foodsectech-2023/">Want To Attend FoodSec&amp;Tech 2023</a></li>
+<li class="page_item page-item-12734"><a href="https://isdefexpo.com/want-to-exhibit/">Want to exhibit</a></li>
+<li class="page_item page-item-20651"><a href="https://isdefexpo.com/want-to-exhibit-foodsectech-2023/">Want To Exhibit FoodSec&amp;Tech 2023</a></li>
+<li class="page_item page-item-17310"><a href="https://isdefexpo.com/why-visit-food-sec-and-tech-2023/">Why Attend FOOD Sec&amp;Tech Summit</a></li>
+<li class="page_item page-item-17160"><a href="https://isdefexpo.com/why-exhibit-food-sec-and-tech-2023/">Why Exhibit FOOD SEC&amp;TECH 2023</a></li>
+<li class="page_item page-item-11219"><a href="https://isdefexpo.com/your-order-has-been-completed/">Your order has been completed</a></li>
+<li class="page_item page-item-9774"><a href="https://isdefexpo.com/emergency-exhibitor/">הרשמה למציג</a></li>
+<li class="page_item page-item-10163"><a href="https://isdefexpo.com/emergency-articles/">כתבות, מאמרים ומידע מקצועי לאנשי החירום והביטחון בישראל</a></li>
+<li class="page_item page-item-9688"><a href="https://isdefexpo.com/emergency-visitor/">מעוניינים לבקר</a></li>
+<li class="page_item page-item-11378 page_item_has_children"><a href="https://isdefexpo.com/emergency-visitor-tickets/">מעוניינים לבקר / כרטיסים</a>
+<ul class="children">
+	<li class="page_item page-item-11857"><a href="https://isdefexpo.com/emergency-visitor-tickets/emergency-registred/">ביקור בתערוכה (ללא השתתפות בכנס)</a></li>
+</ul>
+</li>
+<li class="page_item page-item-10532"><a href="https://isdefexpo.com/contact-us-emergency/">צור קשר כנס חירום</a></li>
+<li class="page_item page-item-9589"><a href="https://isdefexpo.com/agenda/">תכנית הכנס</a></li>
+</ul></div>
+
+
+
+
+
+
+
+
+
+
+    <!-- WP Accessibility Helper - Skiplinks Menu -->
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+				<script type="rocketlazyloadscript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link data-minify="1" rel="stylesheet" id="wc-blocks-style-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=1743089821" media="all">
+<link rel="stylesheet" id="dce-style-css" href="https://isdefexpo.com/wp-content/plugins/dynamic-content-for-elementor/assets/css/style.min.css?ver=2.10.4" media="all">
+<link rel="stylesheet" id="dce-dynamic-visibility-css" href="https://isdefexpo.com/wp-content/plugins/dynamic-content-for-elementor/assets/css/dynamic-visibility.min.css?ver=2.10.4" media="all">
+<link data-minify="1" rel="stylesheet" id="rs-plugin-settings-css" href="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=1734659531" media="all">
+<style id="rs-plugin-settings-inline-css">
+#rs-demo-id {}
+</style>
+<script id="sigijh-front_js-js-extra">
+var optionsValues = {"colorSelect":"#b51b27","animationSpeed":"Normal","animationActive":"Yes","animationScroll":"Yes"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/just-highlight/js/animation.js?ver=1726999031" id="sigijh-front_js-js" defer=""></script>
+<script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"home","leadinPluginVersion":"11.3.6"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://isdefexpo.com/wp-content/cache/min/1/25292846.js?ver=1726999031" id="leadin-script-loader-js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.6.12" defer="" async="" id="tp-tools-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.6.12" defer="" async="" id="revmin-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/wp-accessibility-helper/assets/js/wp-accessibility-helper.min.js?ver=1.0.0" id="wp-accessibility-helper-js" defer=""></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/category\/bangkok-2023\/|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/checkout\/??(.*)|\/cart\/?|\/my-account\/??(.*)|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/isdefexpo.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.27.7" id="e-sticky-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.8.2" id="sourcebuster-js-js" defer=""></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/isdefexpo.com\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.8.2" id="wc-order-attribution-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.29.1" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.29.1" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1150,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1149,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},
+"hasCustomBreakpoints":true},"version":"3.29.1","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"e_local_google_fonts":true,"theme_builder_v2":true,"landing-pages":true,"editor_v2":true,"home_screen":true,"cloud-library":true,"e_opt_in_v4_page":true},"urls":{"assets":"https:\/\/isdefexpo.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/isdefexpo.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/isdefexpo.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"524d043306"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[],"dynamicooo":[]},"kit":{"viewport_tablet":1149,"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","woocommerce_notices_elements":[]},"post":{"id":18772,"title":"Homepage%20-%20ISDEF%202023%20Israel","excerpt":"","featuredImage":false}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.29.1" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/make-column-clickable-elementor/assets/js/make-column-clickable.js?ver=1726999031" id="make-column-clickable-elementor-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://isdefexpo.com/wp-content/cache/min/1/wp-content/plugins/events-tracker-for-elementor/frontend/js/app.js?ver=1726999031" id="events_tracker_for_elementor_app-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.27.7" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/isdefexpo.com\/wp-admin\/admin-ajax.php","nonce":"ae2dc52f64","urls":{"assets":"https:\/\/isdefexpo.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/isdefexpo.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},
+"woocommerce":{"menu_cart":{"cart_page_url":"https:\/\/isdefexpo.com\/cart\/","checkout_page_url":"https:\/\/isdefexpo.com\/checkout\/","fragments_nonce":"e8f76fc9eb"}},
+"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/isdefexpo.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.27.7" id="elementor-pro-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://isdefexpo.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.27.7" id="pro-elements-handlers-js" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://isdefexpo.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

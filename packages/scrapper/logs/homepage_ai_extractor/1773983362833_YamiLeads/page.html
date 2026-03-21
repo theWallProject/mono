@@ -1,0 +1,431 @@
+<!DOCTYPE html><html lang="en"><head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-SCC88LKRKP&amp;cx=c&amp;gtm=4e63i0"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KPVZJJN"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-177792427-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-177792427-1');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KPVZJJN');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Affiliates marketing cpa network offers brand verticals offer affiliate revenue cpl cps commission.">
+  <meta name="keywords" content="Yamileads, Affiliates, Advertisers, Dating ">
+
+
+  <title>YamiLeads</title>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPVZJJN" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <script>
+
+    function register(userInput, offerId, callback, errorCallback) {
+      window.getQueryStringParams = () => {
+        const qp = {};
+        const params = window.location.search.substr(1).split('&')
+
+        for (var i = 0; i < params.length; i++) {
+          var p = params[i].split('=', 2);
+          if (p[0]) {
+            if (p.length == 1)
+              qp[p[0]] = "";
+            else
+              qp[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+          }
+        }
+
+        return qp;
+      }
+
+      function genRand(min, max, decimalPlaces) {
+        var rand = Math.random() * (max - min) + min;
+        var power = Math.pow(10, decimalPlaces);
+        return Math.floor(rand * power) / power;
+      }
+
+      function genRandId_lettersAndNumbers(length) {
+        let allCharOptions = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let result = '';
+        for (let i = 0; i < length; i++) {
+          result += allCharOptions[genRand(0, allCharOptions.length, 0)];
+        }
+        return result;
+      }
+
+      console.log('userInput=' + JSON.stringify(userInput, null, 2));
+      var queryParams = window.getQueryStringParams();
+      let cid = "";
+      if (queryParams.cid) {
+        cid = queryParams.cid
+      } else if (sessionStorage.getItem('cid')) {
+        cid = sessionStorage.getItem('cid');
+      } else {
+        cid = 'selfmade_' + genRandId_lettersAndNumbers(24);
+        sessionStorage.setItem('cid', cid);
+      }
+      var body = {
+        ...userInput,
+        cid: cid,
+        offerid: offerId,
+        ...queryParams,
+      };
+
+      var url = 'https://magicformulamad.herokuapp.com/register';
+      // url='http://localhost:5000/register';
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            console.log("data=" + JSON.stringify(data, null, 2));
+            return callback(xhr.responseText);
+          } else {
+            console.log("Error " + xhr.status + "!\n" + JSON.stringify(JSON.parse(xhr.response), null, 2));
+            return errorCallback({ status: xhr.status, msg: xhr.responseText });
+          }
+        }
+      }
+      xhr.send(JSON.stringify(body));
+    }
+
+    // Integration with page
+    function submitForm() {
+      try {
+        // Disable button + gather input
+        document.getElementById('btnSubmit').disabled = true;
+        let userInput = {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          email: document.getElementById('email').value,
+          skype: document.getElementById('skype').value,
+          message: document.getElementById('message').value,
+        }
+
+        return register(userInput, 'yamileads_contactus', (data) => {
+          // Delete values, enable button, inform user
+          document.getElementById('firstName').value = "";
+          document.getElementById('lastName').value = "";
+          document.getElementById('email').value = "";
+          document.getElementById('skype').value = "";
+          document.getElementById('message').value = "";
+          document.getElementById('btnSubmit').disabled = false;
+          alert('Sent successfully!');
+        }, (e) => {
+          // Enable button, inform user
+          document.getElementById('btnSubmit').disabled = false;
+          alert("Error 4" + e.status + "!");
+        });
+      } catch (e) {
+        // Enable button, inform user
+        document.getElementById('btnSubmit').disabled = false;
+        alert(e);
+      }
+    }
+  </script>
+  <header id="top">
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-expand-lg navbar navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img src="images/logo.png"></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse1">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse1">
+          <div class="navbar-nav">
+            <a href="#whyus" class="nav-item nav-link">WHY US</a>
+            <a href="#benefit" class="nav-item nav-link">BENEFITS</a>
+            <a href="#affadv" class="nav-item nav-link">AFFILIATES</a>
+            <a href="#affadv" class="nav-item nav-link">ADVERTISERS</a>
+            <a href="#contact" class="nav-item nav-link">CONTACT US</a>
+          </div>
+
+          <form class="form-inline ml-auto login">
+
+            <a href="https://yamileads.affise.com/signin" class="button headerbtn">LOGIN</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="cl"></div>
+  <section id="banner">
+    <div class="banner-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <h2>TASTE THE PROFIT</h2>
+            <a class="btn btn-lg signup" href="https://yamileads.affise.com/signup">SIGN UP</a>
+            <div class="container">
+              <div class="row">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/#main-slider-->
+
+
+  <div class="row toprow">
+    <div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 affiliate1">
+      <a href="https://yamileads.affise.com/signup">
+        <div class="become">
+          <img src="images/affiliate.png">
+        </div>
+
+      </a>
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 affiliate1 text-right">
+      <a href="https://yamileads.affise.com/signup">
+        <div class="become1">
+          <img src="images/advertiser.png">
+        </div>
+
+      </a>
+    </div>
+  </div>
+  <!-- aboutus -->
+  <section id="aboutus">
+    <div class="container">
+      <h1 class="wow fadeInDown" style="visibility: hidden; animation-name: none;">ABOUT US</h1>
+      <p class="ani wow fadeInUp" style="visibility: hidden; animation-name: none;">YamiLeads is a new and fast growing network. Founded in January 2020, we had the
+        desire to take our 10 years of experience as affiliates and turn it into something bigger. In this constantly
+        dynamic field we are inspired by our partners to continuously learn and grow. </p>
+    </div>
+  </section>
+
+
+  <!-- whyus -->
+  <section id="whyus">
+    <div class="container">
+      <h1 class="wow fadeInDown" style="visibility: hidden; animation-name: none;">WHY US</h1>
+      <p class="ani wow fadeInUp" style="visibility: hidden; animation-name: none;">With over 10 years of experience working as affiliates we "know how it feels". You
+        will be provided with the exact tools needed to build your way to success. We understand media buying and
+        believe in this basic but important rule: the better payouts you get the more quality traffic you will provide.
+        Our Motto is Win-Win, if you profit we profit.</p>
+    </div>
+  </section>
+
+
+
+  <!-- benefit -->
+  <section id="benefit">
+    <div class="container">
+      <h1 class="wow fadeInDown" style="visibility: hidden; animation-name: none;">OUR BENEFITS</h1>
+      <div class="row wow fadeInUp" style="visibility: hidden; animation-name: none;">
+        <div class="col-sm-0 col-xl-1 col-lg-1"></div>
+        <div class="col-sm-6 col-xl-5 col-lg-5 bx">
+          <div class="box">
+            <div class="boximg">
+              <img src="images/icons/1.png">
+            </div>
+            <h5>Exclusive in-house offers</h5>
+            <p>We know how to create sales, just send traffic. Our top geo's are: BR, AR, MX, DE, FR, ES, FI, NO, DK,
+              SE, IT, UK, IE, AU, CA, BE, NL, CH, GR, TR, RU, ZA, AT, and more.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-5 col-lg-5 bx">
+          <div class="box report">
+            <div class="boximg">
+              <img src="images/icons/2.png">
+            </div>
+            <h5>Reporting</h5>
+            <p>Our Clear and transparent reporting system allows you to reach all your goals and we will always be there
+              to help you set up even the most complex campaigns.</p>
+          </div>
+        </div>
+        <div class="col-sm-0  col-xl-1 col-lg-1"></div>
+      </div> <br>
+
+
+      <div class="row wow fadeInUp" style="visibility: hidden; animation-name: none;">
+        <div class="col-sm-0 col-xl-1 col-lg-1"></div>
+        <div class="col-sm-6 col-xl-5 col-lg-5 bx">
+          <div class="box">
+            <div class="boximg">
+              <img src="images/icons/3.png">
+            </div>
+            <h5>Support</h5>
+            <p>We supply a personal approach to each client 24/7.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-5 col-lg-5 bx">
+          <div class="box">
+            <div class="boximg">
+              <img src="images/icons/4.png">
+            </div>
+            <h5>Flexible Payment Terms</h5>
+            <p>We understand the importance of proper and on time payment. We are interested in a long-term partnership
+              and are ready to provide you with the most convenient payment methods.</p>
+          </div>
+        </div>
+        <div class="col-sm-0 col-xl-1 col-lg-1"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- affiliateadvertiser -->
+  <section id="affadv">
+    <div class="container">
+
+      <div class="row wow fadeInUp" style="visibility: hidden; animation-name: none;">
+        <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6">
+          <div class="affiliate">
+            <div class="afftxt">
+              <h4>AFFILIATES</h4>
+              <p>Do you have traffic? </p>
+              <img src="images/downarr1.png">
+            </div>
+            <div class="affcircle">
+              <img src="images/circle.png">
+              <span class="affpara">
+                <p>Come and try our offers! We aspire to bring you always fresh and best-converting top offers. We work
+                  with CPA/CPL models and via API only with trusted publishers/advertisers.</p>
+              </span>
+              <a href="https://yamileads.affise.com/signup"><span class="affbtn"><button class="btn">Become an
+                    Affiliate</button></span></a>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6">
+          <div class="advertiser">
+            <div class="advtxt">
+              <h4>ADVERTISERS</h4>
+              <p>Do you need traffic?</p>
+              <img src="images/downarr1.png">
+            </div>
+            <img src="images/circle1.png">
+            <span class="advpara">
+              <p>We select each of our Publishers carefully with no tolerance for fraud traffic. We also have in-house
+                technology to assist in fraud-detection and redirect the users to the right offers and sites. Place your
+                offers and get the profit.</p>
+            </span>
+            <a href="https://yamileads.affise.com/signup"><span class="advbtn"><button type="submit" class="btn">Become
+                  an Advertiser</button></span></a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+     <br>
+
+
+
+    
+  </section>
+
+  <!-- contact -->
+
+  <section id="contact">
+    <div class="container">
+      <h1 class="wow fadeInDown" style="visibility: hidden; animation-name: none;">CONTACT US</h1>
+      <form class="contct" onsubmit="submitForm();return false">
+        <div class="row">
+          <div class="col-sm-6 wow bounceInLeft hoverer" style="visibility: hidden; animation-name: none;">
+            <div class="form-group1">
+              <label for="firstName">FIRST NAME *</label>
+              <input type="name" class="form-control" id="firstName" placeholder="First name" required="">
+            </div>
+            <div class="form-group1">
+              <label for="lastName">LAST NAME *</label>
+              <input type="name" class="form-control" id="lastName" placeholder="Last Name" required="">
+            </div>
+            <div class="form-group1">
+              <label for="email">EMAIL *</label>
+              <input type="email" class="form-control" id="email" placeholder="Email" required="">
+            </div>
+            <div class="form-group1">
+              <label for="skype">SKYPE ID *</label>
+              <input type="ID" class="form-control" id="skype" placeholder="Username or Email">
+            </div>
+
+          </div>
+
+          <div class="col-sm-6 wow bounceInRight hoverer" style="visibility: hidden; animation-name: none;">
+            <div class="form-group1">
+              <label for="message">LEAVE US A MESSAGE</label>
+              <textarea id="message" rows="8" class="form-control txtarea" placeholder="How can we help?" required=""></textarea>
+            </div>
+            <button id="btnSubmit" type="submit" class="btn submit">SUBMIT</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+
+  <!-- contact -->
+
+  <section id="footer">
+    <div class="container">
+      <p><a class="footer_link" href="terms-and-conditions">Terms and Conditions</a> | <a class="footer_link" href="terms-of-use">Terms of Use</a> | <a class="footer_link" href="privacy-policy">Privacy Policy</a>
+        <span class="yamicom"> @2020 by YamiLeads.com</span>
+      </p>
+    </div>
+  </section>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/custom.js"></script>
+
+<script>
+  $('.nav-item.nav-link').on('click', function () {
+    $('.nav-item.nav-link').removeClass('selected');
+    $(this).addClass('selected');
+  });
+</script>
+
+</body></html>

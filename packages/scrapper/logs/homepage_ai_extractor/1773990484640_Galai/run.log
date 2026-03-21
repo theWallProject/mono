@@ -1,0 +1,70 @@
+[2026-03-20T07:08:04.641Z] === Homepage AI Extractor: Galai ===
+[2026-03-20T07:08:04.641Z] Started at: 2026-03-20T07:08:04.641Z
+[2026-03-20T07:08:04.641Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773990484640_Galai
+[2026-03-20T07:08:04.641Z] Company: Galai
+[2026-03-20T07:08:04.641Z] Website: galaipr.com
+[2026-03-20T07:08:04.641Z] cbRank: 2770034
+[2026-03-20T07:08:04.641Z] Reasons: h
+[2026-03-20T07:08:04.641Z] Fetching: https://galaipr.com
+[2026-03-20T07:08:07.216Z] Redirected: https://galaipr.com -> https://galaipr.com/
+[2026-03-20T07:08:07.218Z] Saved HTML (32758 bytes) to page.html
+[2026-03-20T07:08:07.221Z] Extracted 19 unique links from page
+[2026-03-20T07:08:07.221Z] Saved 19 links to links.json
+[2026-03-20T07:08:07.223Z] Extracted footer HTML (5211 chars)
+[2026-03-20T07:08:07.223Z] Extracted header HTML (3784 chars)
+[2026-03-20T07:08:07.226Z] Website (post-redirect): https://galaipr.com/ → origin: https://galaipr.com
+[2026-03-20T07:08:07.227Z] External links: 3 (of 19 total)
+[2026-03-20T07:08:07.227Z] ── All external links ──
+[2026-03-20T07:08:07.227Z]   EXT: https://www.facebook.com/galaipr
+[2026-03-20T07:08:07.227Z]   EXT: https://www.waze.com/en-GB/live-map/directions/il/tel-aviv-district/%D7%A8%D7%92/derech-menachem-begin-18?to=place.ChIJhW16osBLHRUR54_RIE08ITI
+[2026-03-20T07:08:07.227Z]   EXT: https://youtu.be/eF4DPMZzNBk
+[2026-03-20T07:08:07.227Z] ── Step 1: Programmatic categorization ──
+[2026-03-20T07:08:07.228Z]   REGEX: fb <- https://www.facebook.com/galaipr
+[2026-03-20T07:08:07.228Z]   UNCATEGORIZED: https://www.waze.com/en-GB/live-map/directions/il/tel-aviv-district/%D7%A8%D7%92/derech-menachem-begin-18?to=place.ChIJhW16osBLHRUR54_RIE08ITI
+[2026-03-20T07:08:07.228Z]   UNCATEGORIZED: https://youtu.be/eF4DPMZzNBk
+[2026-03-20T07:08:07.228Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-20T07:08:07.228Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-20T07:08:07.231Z] Saved AI prompt (5630 chars) to ai_prompt.txt
+[2026-03-20T07:08:07.232Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-20T07:08:07.235Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-20T07:08:33.578Z]   AI: First token received, streaming...
+[2026-03-20T07:08:39.356Z] AI response complete: 98 chars in 32.1s
+[2026-03-20T07:08:39.358Z] Saved AI response to ai_response.json
+[2026-03-20T07:08:39.358Z] ── Parsing AI response (3 lines) ──
+[2026-03-20T07:08:39.358Z]   AI LINK: https://www.facebook.com/galaipr
+[2026-03-20T07:08:39.358Z]   AI LINK: https://www.instagram.com/galaipr
+[2026-03-20T07:08:39.358Z]   AI LINK: https://www.youtube.com/galaipr
+[2026-03-20T07:08:39.358Z] AI returned 3 valid links
+[2026-03-20T07:08:39.359Z] ── Categorizing 3 AI-returned links ──
+[2026-03-20T07:08:39.359Z]   AI→REGEX: fb <- https://www.facebook.com/galaipr (duplicate, skipped)
+[2026-03-20T07:08:39.359Z]   AI→REGEX: ig <- https://www.instagram.com/galaipr
+[2026-03-20T07:08:39.359Z]   AI→REGEX: ytp <- https://www.youtube.com/galaipr
+[2026-03-20T07:08:39.360Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-20T07:08:39.360Z] Footer/header origins (4):
+[2026-03-20T07:08:39.360Z]   FOOTER/HEADER ORIGIN: https://galaipr.com
+[2026-03-20T07:08:39.360Z]   FOOTER/HEADER ORIGIN: https://www.waze.com
+[2026-03-20T07:08:39.360Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-20T07:08:39.360Z]   FOOTER/HEADER ORIGIN: https://youtu.be
+[2026-03-20T07:08:39.360Z]   ADDED: urls <- https://www.waze.com/en-GB/live-map/directions/il/tel-aviv-district/%D7%A8%D7%92/derech-menachem-begin-18 (cleaned from https://www.waze.com/en-GB/live-map/directions/il/tel-aviv-district/%D7%A8%D7%92/derech-menachem-begin-18?to=place.ChIJhW16osBLHRUR54_RIE08ITI)
+[2026-03-20T07:08:39.361Z]   ADDED: urls <- https://youtu.be/eF4DPMZzNBk
+[2026-03-20T07:08:39.361Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-20T07:08:39.361Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-20T07:08:39.361Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-20T07:08:39.361Z] ── Step 3: Final dedup ──
+[2026-03-20T07:08:39.361Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-20T07:08:39.361Z] ── FINAL RESULT ──
+[2026-03-20T07:08:39.361Z]   ws (1):
+[2026-03-20T07:08:39.362Z]     - https://galaipr.com
+[2026-03-20T07:08:39.362Z]   fb (1):
+[2026-03-20T07:08:39.362Z]     - https://www.facebook.com/galaipr
+[2026-03-20T07:08:39.362Z]   ig (1):
+[2026-03-20T07:08:39.362Z]     - https://www.instagram.com/galaipr
+[2026-03-20T07:08:39.362Z]   ytp (1):
+[2026-03-20T07:08:39.362Z]     - https://www.youtube.com/@galaipr
+[2026-03-20T07:08:39.362Z]   urls (2):
+[2026-03-20T07:08:39.363Z]     - https://www.waze.com/en-GB/live-map/directions/il/tel-aviv-district/%D7%A8%D7%92/derech-menachem-begin-18
+[2026-03-20T07:08:39.363Z]     - https://youtu.be/eF4DPMZzNBk
+[2026-03-20T07:08:39.363Z] Summary: ws:1, fb:1, ig:1, ytp:1, urls:2
+[2026-03-20T07:08:39.364Z] Saved final result to result.json
+[2026-03-20T07:08:39.364Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-20T07:08:39.365Z] Finished at: 2026-03-20T07:08:39.365Z
