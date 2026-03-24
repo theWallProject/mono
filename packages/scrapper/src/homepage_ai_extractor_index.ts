@@ -127,6 +127,7 @@ const handleBatchMode = async (): Promise<void> => {
     log("No companies left to process.")
     log(`  Total entries scanned: ${stats.total}`)
     log(`  Hints skipped: ${stats.hints}`)
+    log(`  BDS entries skipped: ${stats.bds}`)
     log(`  In retry list: ${stats.retryList}`)
     log(`  Already processed: ${stats.alreadyProcessed}`)
     log("\nUse 'Retry' mode to re-process failed companies, or add new entries to the database.")
@@ -136,6 +137,7 @@ const handleBatchMode = async (): Promise<void> => {
   log(`${count} companies available for batch processing.`)
   log(`  Total entries scanned: ${stats.total}`)
   log(`  Hints skipped: ${stats.hints}`)
+  log(`  BDS entries skipped: ${stats.bds}`)
   log(`  In retry list: ${stats.retryList}`)
   log(`  Already processed: ${stats.alreadyProcessed}\n`)
 
