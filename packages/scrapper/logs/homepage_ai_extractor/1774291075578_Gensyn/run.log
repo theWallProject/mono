@@ -1,0 +1,85 @@
+[2026-03-23T18:37:55.579Z] === Homepage AI Extractor: Gensyn ===
+[2026-03-23T18:37:55.579Z] Started at: 2026-03-23T18:37:55.579Z
+[2026-03-23T18:37:55.579Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774291075578_Gensyn
+[2026-03-23T18:37:55.579Z] Company: Gensyn
+[2026-03-23T18:37:55.579Z] Website: gensyn.ai
+[2026-03-23T18:37:55.579Z] cbRank: 5382
+[2026-03-23T18:37:55.579Z] Reasons: i
+[2026-03-23T18:37:55.579Z] Fetching: https://gensyn.ai
+[2026-03-23T18:37:57.172Z] Redirected: https://gensyn.ai -> https://www.gensyn.ai/
+[2026-03-23T18:37:57.174Z] Saved HTML (25060 bytes) to page.html
+[2026-03-23T18:37:57.176Z] Extracted 17 unique links from page
+[2026-03-23T18:37:57.176Z] Saved 17 links to links.json
+[2026-03-23T18:37:57.188Z] Extracted footer HTML (4931 chars)
+[2026-03-23T18:37:57.188Z] Extracted header HTML (2511 chars)
+[2026-03-23T18:37:57.191Z] Website (post-redirect): https://www.gensyn.ai/ → origin: https://www.gensyn.ai
+[2026-03-23T18:37:57.191Z]   SUBDOMAIN: brand.gensyn.ai (added to ws)
+[2026-03-23T18:37:57.191Z] Website subdomains found: 1
+[2026-03-23T18:37:57.191Z] External links: 5 (of 17 total)
+[2026-03-23T18:37:57.191Z] ── All external links ──
+[2026-03-23T18:37:57.191Z]   EXT: https://discord.com/invite/gensyn
+[2026-03-23T18:37:57.191Z]   EXT: https://gensyn.network
+[2026-03-23T18:37:57.191Z]   EXT: https://sale.gensyn.network
+[2026-03-23T18:37:57.192Z]   EXT: https://www.youtube.com/@gensynai
+[2026-03-23T18:37:57.192Z]   EXT: https://x.com/gensynai
+[2026-03-23T18:37:57.192Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T18:37:57.192Z]   UNCATEGORIZED: https://discord.com/invite/gensyn
+[2026-03-23T18:37:57.192Z]   UNCATEGORIZED: https://gensyn.network
+[2026-03-23T18:37:57.192Z]   UNCATEGORIZED: https://sale.gensyn.network
+[2026-03-23T18:37:57.192Z]   REGEX: ytp <- https://www.youtube.com/@gensynai
+[2026-03-23T18:37:57.192Z]   REGEX: tw <- https://x.com/gensynai
+[2026-03-23T18:37:57.192Z] Programmatic result: ws:2, ytp:1, tw:1 | 3 uncategorized
+[2026-03-23T18:37:57.192Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T18:37:57.193Z] Saved AI prompt (2954 chars) to ai_prompt.txt
+[2026-03-23T18:37:57.193Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T18:37:57.198Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T18:38:06.905Z]   AI: First token received, streaming...
+[2026-03-23T18:38:17.495Z] AI response complete: 166 chars in 20.3s
+[2026-03-23T18:38:17.496Z] Saved AI response to ai_response.json
+[2026-03-23T18:38:17.497Z] ── Parsing AI response (6 lines) ──
+[2026-03-23T18:38:17.497Z]   AI LINK: https://discord.com/invite/gensyn
+[2026-03-23T18:38:17.497Z]   AI LINK: https://gensyn.network
+[2026-03-23T18:38:17.497Z]   AI LINK: https://sale.gensyn.network
+[2026-03-23T18:38:17.497Z]   AI LINK: https://brand.gensyn.ai/
+[2026-03-23T18:38:17.497Z]   AI LINK: https://x.com/gensynai
+[2026-03-23T18:38:17.497Z]   AI LINK: https://www.youtube.com/@gensynai
+[2026-03-23T18:38:17.497Z] AI returned 6 valid links
+[2026-03-23T18:38:17.497Z] ── Categorizing 6 AI-returned links ──
+[2026-03-23T18:38:17.498Z]   AI→URLS: https://discord.com/invite/gensyn
+[2026-03-23T18:38:17.498Z]   AI→URLS: https://gensyn.network
+[2026-03-23T18:38:17.498Z]   AI→URLS: https://sale.gensyn.network
+[2026-03-23T18:38:17.498Z]   AI→URLS: https://brand.gensyn.ai (cleaned from https://brand.gensyn.ai/)
+[2026-03-23T18:38:17.498Z]   AI→REGEX: tw <- https://x.com/gensynai (duplicate, skipped)
+[2026-03-23T18:38:17.498Z]   AI→REGEX: ytp <- https://www.youtube.com/@gensynai (duplicate, skipped)
+[2026-03-23T18:38:17.499Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T18:38:17.499Z] Footer/header origins (5):
+[2026-03-23T18:38:17.499Z]   FOOTER/HEADER ORIGIN: https://gensyn.network
+[2026-03-23T18:38:17.499Z]   FOOTER/HEADER ORIGIN: https://brand.gensyn.ai
+[2026-03-23T18:38:17.499Z]   FOOTER/HEADER ORIGIN: https://discord.com
+[2026-03-23T18:38:17.499Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T18:38:17.500Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T18:38:17.500Z]   SKIP (AI claimed): https://discord.com/invite/gensyn
+[2026-03-23T18:38:17.500Z]   SKIP (AI claimed): https://gensyn.network
+[2026-03-23T18:38:17.500Z]   SKIP (AI claimed): https://sale.gensyn.network
+[2026-03-23T18:38:17.500Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T18:38:17.500Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T18:38:17.500Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T18:38:17.500Z] ── Step 3: Final dedup ──
+[2026-03-23T18:38:17.500Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-23T18:38:17.500Z] ── FINAL RESULT ──
+[2026-03-23T18:38:17.500Z]   ws (2):
+[2026-03-23T18:38:17.500Z]     - https://brand.gensyn.ai
+[2026-03-23T18:38:17.500Z]     - https://www.gensyn.ai
+[2026-03-23T18:38:17.501Z]   tw (1):
+[2026-03-23T18:38:17.501Z]     - https://x.com/gensynai
+[2026-03-23T18:38:17.501Z]   ytp (1):
+[2026-03-23T18:38:17.501Z]     - https://www.youtube.com/@gensynai
+[2026-03-23T18:38:17.501Z]   urls (4):
+[2026-03-23T18:38:17.501Z]     - https://brand.gensyn.ai
+[2026-03-23T18:38:17.501Z]     - https://discord.com/invite/gensyn
+[2026-03-23T18:38:17.501Z]     - https://gensyn.network
+[2026-03-23T18:38:17.501Z]     - https://sale.gensyn.network
+[2026-03-23T18:38:17.501Z] Summary: ws:2, ytp:1, tw:1, urls:4
+[2026-03-23T18:38:17.502Z] Saved final result to result.json
+[2026-03-23T18:38:17.502Z] Override fields: ws, tw, ytp, urls
+[2026-03-23T18:38:17.502Z] Finished at: 2026-03-23T18:38:17.502Z

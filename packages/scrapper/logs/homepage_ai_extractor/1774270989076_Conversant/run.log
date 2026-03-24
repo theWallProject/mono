@@ -1,0 +1,63 @@
+[2026-03-23T13:03:09.077Z] === Homepage AI Extractor: Conversant ===
+[2026-03-23T13:03:09.077Z] Started at: 2026-03-23T13:03:09.077Z
+[2026-03-23T13:03:09.077Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774270989076_Conversant
+[2026-03-23T13:03:09.077Z] Company: Conversant
+[2026-03-23T13:03:09.077Z] Website: conversant.com
+[2026-03-23T13:03:09.077Z] cbRank: 588464
+[2026-03-23T13:03:09.077Z] Reasons: f
+[2026-03-23T13:03:09.077Z] Fetching: https://conversant.com
+[2026-03-23T13:03:15.754Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-23T13:03:18.663Z] Redirected: https://conversant.com -> https://www.conversant.com/
+[2026-03-23T13:03:18.677Z] Saved HTML (398667 bytes) to page.html
+[2026-03-23T13:03:18.681Z] Extracted 39 unique links from page
+[2026-03-23T13:03:18.681Z] Saved 39 links to links.json
+[2026-03-23T13:03:18.685Z] Extracted footer HTML (44711 chars)
+[2026-03-23T13:03:18.685Z] Extracted header HTML (21001 chars)
+[2026-03-23T13:03:18.689Z] Website (post-redirect): https://www.conversant.com/ → origin: https://www.conversant.com
+[2026-03-23T13:03:18.689Z] External links: 2 (of 39 total)
+[2026-03-23T13:03:18.689Z] ── All external links ──
+[2026-03-23T13:03:18.689Z]   EXT: https://www.linkedin.com/company/conversant
+[2026-03-23T13:03:18.689Z]   EXT: https://www.youtube.com/channel/UCfBcUIqPLlSzW06DrSgMfsQ
+[2026-03-23T13:03:18.689Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T13:03:18.689Z]   REGEX: li <- https://www.linkedin.com/company/conversant
+[2026-03-23T13:03:18.689Z]   REGEX: ytc <- https://www.youtube.com/channel/UCfBcUIqPLlSzW06DrSgMfsQ
+[2026-03-23T13:03:18.689Z] Programmatic result: ws:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-23T13:03:18.689Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T13:03:18.693Z] Saved AI prompt (3082 chars) to ai_prompt.txt
+[2026-03-23T13:03:18.693Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T13:03:18.698Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T13:03:29.324Z]   AI: First token received, streaming...
+[2026-03-23T13:03:36.597Z] AI response complete: 101 chars in 17.9s
+[2026-03-23T13:03:36.602Z] Saved AI response to ai_response.json
+[2026-03-23T13:03:36.602Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T13:03:36.602Z]   AI LINK: https://www.linkedin.com/company/conversant/
+[2026-03-23T13:03:36.602Z]   AI LINK: https://www.youtube.com/channel/UCfBcUIqPLlSzW06DrSgMfsQ
+[2026-03-23T13:03:36.603Z] AI returned 2 valid links
+[2026-03-23T13:03:36.603Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T13:03:36.603Z]   AI→REGEX: li <- https://www.linkedin.com/company/conversant/ (duplicate, skipped)
+[2026-03-23T13:03:36.603Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCfBcUIqPLlSzW06DrSgMfsQ (duplicate, skipped)
+[2026-03-23T13:03:36.604Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T13:03:36.604Z] Footer/header origins (3):
+[2026-03-23T13:03:36.605Z]   FOOTER/HEADER ORIGIN: https://www.conversant.com
+[2026-03-23T13:03:36.605Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T13:03:36.605Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T13:03:36.605Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T13:03:36.605Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T13:03:36.605Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T13:03:36.944Z]   YOUTUBE: resolved UCfBcUIqPLlSzW06DrSgMfsQ → @conversantsolutionsllc
+[2026-03-23T13:03:36.944Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T13:03:36.944Z] ── Step 3: Final dedup ──
+[2026-03-23T13:03:36.944Z] No urls to dedup
+[2026-03-23T13:03:36.944Z] ── FINAL RESULT ──
+[2026-03-23T13:03:36.944Z]   ws (1):
+[2026-03-23T13:03:36.944Z]     - https://www.conversant.com
+[2026-03-23T13:03:36.945Z]   li (1):
+[2026-03-23T13:03:36.945Z]     - https://www.linkedin.com/company/conversant
+[2026-03-23T13:03:36.945Z]   ytp (1):
+[2026-03-23T13:03:36.945Z]     - https://www.youtube.com/@conversantsolutionsllc
+[2026-03-23T13:03:36.945Z]   ytc (1):
+[2026-03-23T13:03:36.945Z]     - https://www.youtube.com/channel/UCfBcUIqPLlSzW06DrSgMfsQ
+[2026-03-23T13:03:36.945Z] Summary: ws:1, li:1, ytc:1, ytp:1
+[2026-03-23T13:03:36.949Z] Saved final result to result.json
+[2026-03-23T13:03:36.949Z] Override fields: ws, li, ytp, ytc
+[2026-03-23T13:03:36.949Z] Finished at: 2026-03-23T13:03:36.949Z

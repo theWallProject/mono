@@ -1,0 +1,63 @@
+[2026-03-23T21:00:06.731Z] === Homepage AI Extractor: Antaris ===
+[2026-03-23T21:00:06.731Z] Started at: 2026-03-23T21:00:06.731Z
+[2026-03-23T21:00:06.731Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774299606731_Antaris
+[2026-03-23T21:00:06.731Z] Company: Antaris
+[2026-03-23T21:00:06.731Z] Website: antaris.space
+[2026-03-23T21:00:06.731Z] cbRank: 18539
+[2026-03-23T21:00:06.731Z] Reasons: i
+[2026-03-23T21:00:06.731Z] Fetching: https://antaris.space
+[2026-03-23T21:00:08.642Z] Redirected: https://antaris.space -> https://www.antaris.space/
+[2026-03-23T21:00:08.651Z] Saved HTML (403655 bytes) to page.html
+[2026-03-23T21:00:08.654Z] Extracted 28 unique links from page
+[2026-03-23T21:00:08.655Z] Saved 28 links to links.json
+[2026-03-23T21:00:08.658Z] Extracted footer HTML (29097 chars)
+[2026-03-23T21:00:08.658Z] Extracted header HTML (51545 chars)
+[2026-03-23T21:00:08.662Z] Website (post-redirect): https://www.antaris.space/ → origin: https://www.antaris.space
+[2026-03-23T21:00:08.662Z] External links: 3 (of 28 total)
+[2026-03-23T21:00:08.662Z] ── All external links ──
+[2026-03-23T21:00:08.662Z]   EXT: https://twitter.com/antarissoftware
+[2026-03-23T21:00:08.662Z]   EXT: https://www.linkedin.com/company/antaris-space
+[2026-03-23T21:00:08.662Z]   EXT: https://www.satshow.com
+[2026-03-23T21:00:08.662Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:00:08.662Z]   REGEX: tw <- https://twitter.com/antarissoftware
+[2026-03-23T21:00:08.662Z]   REGEX: li <- https://www.linkedin.com/company/antaris-space
+[2026-03-23T21:00:08.662Z]   UNCATEGORIZED: https://www.satshow.com
+[2026-03-23T21:00:08.663Z] Programmatic result: ws:1, tw:1, li:1 | 1 uncategorized
+[2026-03-23T21:00:08.663Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:00:08.664Z] Saved AI prompt (2139 chars) to ai_prompt.txt
+[2026-03-23T21:00:08.664Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:00:08.667Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:00:15.352Z]   AI: First token received, streaming...
+[2026-03-23T21:00:18.762Z] AI response complete: 83 chars in 10.1s
+[2026-03-23T21:00:18.763Z] Saved AI response to ai_response.json
+[2026-03-23T21:00:18.763Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T21:00:18.764Z]   AI LINK: https://www.linkedin.com/company/antaris-space/
+[2026-03-23T21:00:18.764Z]   AI LINK: https://twitter.com/antarissoftware
+[2026-03-23T21:00:18.764Z] AI returned 2 valid links
+[2026-03-23T21:00:18.764Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T21:00:18.765Z]   AI→REGEX: li <- https://www.linkedin.com/company/antaris-space/ (duplicate, skipped)
+[2026-03-23T21:00:18.765Z]   AI→REGEX: tw <- https://twitter.com/antarissoftware (duplicate, skipped)
+[2026-03-23T21:00:18.767Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:00:18.768Z] Footer/header origins (3):
+[2026-03-23T21:00:18.768Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:00:18.768Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T21:00:18.768Z]   FOOTER/HEADER ORIGIN: https://www.satshow.com
+[2026-03-23T21:00:18.768Z]   ADDED: urls <- https://www.satshow.com
+[2026-03-23T21:00:18.768Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T21:00:18.768Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:00:18.768Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:00:18.768Z] ── Step 3: Final dedup ──
+[2026-03-23T21:00:18.768Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T21:00:18.768Z] ── FINAL RESULT ──
+[2026-03-23T21:00:18.768Z]   ws (1):
+[2026-03-23T21:00:18.768Z]     - https://www.antaris.space
+[2026-03-23T21:00:18.769Z]   li (1):
+[2026-03-23T21:00:18.769Z]     - https://www.linkedin.com/company/antaris-space
+[2026-03-23T21:00:18.769Z]   tw (1):
+[2026-03-23T21:00:18.769Z]     - https://x.com/antarissoftware
+[2026-03-23T21:00:18.769Z]   urls (1):
+[2026-03-23T21:00:18.769Z]     - https://www.satshow.com
+[2026-03-23T21:00:18.769Z] Summary: ws:1, tw:1, li:1, urls:1
+[2026-03-23T21:00:18.770Z] Saved final result to result.json
+[2026-03-23T21:00:18.770Z] Override fields: ws, li, tw, urls
+[2026-03-23T21:00:18.770Z] Finished at: 2026-03-23T21:00:18.770Z

@@ -1,0 +1,83 @@
+[2026-03-23T23:14:52.141Z] === Homepage AI Extractor: PatientPartner ===
+[2026-03-23T23:14:52.141Z] Started at: 2026-03-23T23:14:52.141Z
+[2026-03-23T23:14:52.141Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774307692140_PatientPartner
+[2026-03-23T23:14:52.141Z] Company: PatientPartner
+[2026-03-23T23:14:52.141Z] Website: patientpartner.com
+[2026-03-23T23:14:52.141Z] cbRank: 39474
+[2026-03-23T23:14:52.141Z] Reasons: i
+[2026-03-23T23:14:52.141Z] Fetching: https://patientpartner.com
+[2026-03-23T23:14:55.087Z] Redirected: https://patientpartner.com -> https://www.patientpartner.com/
+[2026-03-23T23:14:55.097Z] Saved HTML (358909 bytes) to page.html
+[2026-03-23T23:14:55.100Z] Extracted 33 unique links from page
+[2026-03-23T23:14:55.101Z] Saved 33 links to links.json
+[2026-03-23T23:14:55.105Z] Extracted footer HTML (27256 chars)
+[2026-03-23T23:14:55.105Z] Extracted header HTML (50678 chars)
+[2026-03-23T23:14:55.108Z] Website (post-redirect): https://www.patientpartner.com/ → origin: https://www.patientpartner.com
+[2026-03-23T23:14:55.108Z]   SUBDOMAIN: patient.patientpartner.com (added to ws)
+[2026-03-23T23:14:55.108Z] Website subdomains found: 1
+[2026-03-23T23:14:55.108Z] External links: 5 (of 33 total)
+[2026-03-23T23:14:55.109Z] ── All external links ──
+[2026-03-23T23:14:55.109Z]   EXT: https://www.facebook.com/PatientPartner1
+[2026-03-23T23:14:55.109Z]   EXT: https://www.instagram.com/patient_partner
+[2026-03-23T23:14:55.109Z]   EXT: https://www.linkedin.com/company/patientpartner
+[2026-03-23T23:14:55.109Z]   EXT: https://www.youtube.com/@PatientPartner
+[2026-03-23T23:14:55.109Z]   EXT: https://x.com/patientpartner1
+[2026-03-23T23:14:55.109Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:14:55.109Z]   REGEX: fb <- https://www.facebook.com/PatientPartner1
+[2026-03-23T23:14:55.109Z]   REGEX: ig <- https://www.instagram.com/patient_partner
+[2026-03-23T23:14:55.109Z]   REGEX: li <- https://www.linkedin.com/company/patientpartner
+[2026-03-23T23:14:55.109Z]   REGEX: ytp <- https://www.youtube.com/@PatientPartner
+[2026-03-23T23:14:55.109Z]   REGEX: tw <- https://x.com/patientpartner1
+[2026-03-23T23:14:55.109Z] Programmatic result: ws:2, fb:1, ig:1, li:1, ytp:1, tw:1 | 0 uncategorized
+[2026-03-23T23:14:55.110Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:14:55.113Z] Saved AI prompt (2793 chars) to ai_prompt.txt
+[2026-03-23T23:14:55.113Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:14:55.117Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:15:03.892Z]   AI: First token received, streaming...
+[2026-03-23T23:15:13.449Z]   AI streaming: 202 chars received (18.3s elapsed)
+[2026-03-23T23:15:13.450Z] AI response complete: 202 chars in 18.3s
+[2026-03-23T23:15:13.451Z] Saved AI response to ai_response.json
+[2026-03-23T23:15:13.451Z] ── Parsing AI response (5 lines) ──
+[2026-03-23T23:15:13.451Z]   AI LINK: https://www.facebook.com/PatientPartner1/
+[2026-03-23T23:15:13.451Z]   AI LINK: https://x.com/patientpartner1
+[2026-03-23T23:15:13.451Z]   AI LINK: https://www.instagram.com/patient_partner/
+[2026-03-23T23:15:13.451Z]   AI LINK: https://www.linkedin.com/company/patientpartner
+[2026-03-23T23:15:13.451Z]   AI LINK: https://www.youtube.com/@PatientPartner
+[2026-03-23T23:15:13.452Z] AI returned 5 valid links
+[2026-03-23T23:15:13.452Z] ── Categorizing 5 AI-returned links ──
+[2026-03-23T23:15:13.452Z]   AI→REGEX: fb <- https://www.facebook.com/PatientPartner1/ (duplicate, skipped)
+[2026-03-23T23:15:13.452Z]   AI→REGEX: tw <- https://x.com/patientpartner1 (duplicate, skipped)
+[2026-03-23T23:15:13.453Z]   AI→REGEX: ig <- https://www.instagram.com/patient_partner/ (duplicate, skipped)
+[2026-03-23T23:15:13.453Z]   AI→REGEX: li <- https://www.linkedin.com/company/patientpartner (duplicate, skipped)
+[2026-03-23T23:15:13.453Z]   AI→REGEX: ytp <- https://www.youtube.com/@PatientPartner (duplicate, skipped)
+[2026-03-23T23:15:13.454Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:15:13.455Z] Footer/header origins (6):
+[2026-03-23T23:15:13.455Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T23:15:13.455Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T23:15:13.455Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T23:15:13.455Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:15:13.455Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T23:15:13.455Z]   FOOTER/HEADER ORIGIN: https://patient.patientpartner.com
+[2026-03-23T23:15:13.455Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:15:13.455Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:15:13.455Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:15:13.456Z] ── Step 3: Final dedup ──
+[2026-03-23T23:15:13.456Z] No urls to dedup
+[2026-03-23T23:15:13.456Z] ── FINAL RESULT ──
+[2026-03-23T23:15:13.456Z]   ws (2):
+[2026-03-23T23:15:13.456Z]     - https://patient.patientpartner.com
+[2026-03-23T23:15:13.456Z]     - https://www.patientpartner.com
+[2026-03-23T23:15:13.456Z]   li (1):
+[2026-03-23T23:15:13.456Z]     - https://www.linkedin.com/company/patientpartner
+[2026-03-23T23:15:13.456Z]   fb (1):
+[2026-03-23T23:15:13.456Z]     - https://www.facebook.com/patientpartner1
+[2026-03-23T23:15:13.456Z]   tw (1):
+[2026-03-23T23:15:13.456Z]     - https://x.com/patientpartner1
+[2026-03-23T23:15:13.456Z]   ig (1):
+[2026-03-23T23:15:13.457Z]     - https://www.instagram.com/patient_partner
+[2026-03-23T23:15:13.457Z]   ytp (1):
+[2026-03-23T23:15:13.457Z]     - https://www.youtube.com/@patientpartner
+[2026-03-23T23:15:13.457Z] Summary: ws:2, fb:1, ig:1, li:1, ytp:1, tw:1
+[2026-03-23T23:15:13.458Z] Saved final result to result.json
+[2026-03-23T23:15:13.458Z] Override fields: ws, li, fb, tw, ig, ytp
+[2026-03-23T23:15:13.458Z] Finished at: 2026-03-23T23:15:13.458Z

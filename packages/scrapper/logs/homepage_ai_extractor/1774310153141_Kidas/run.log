@@ -1,0 +1,64 @@
+[2026-03-23T23:55:53.141Z] === Homepage AI Extractor: Kidas ===
+[2026-03-23T23:55:53.142Z] Started at: 2026-03-23T23:55:53.142Z
+[2026-03-23T23:55:53.142Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774310153141_Kidas
+[2026-03-23T23:55:53.142Z] Company: Kidas
+[2026-03-23T23:55:53.142Z] Website: getkidas.com
+[2026-03-23T23:55:53.142Z] cbRank: 50073
+[2026-03-23T23:55:53.142Z] Reasons: i
+[2026-03-23T23:55:53.142Z] Fetching: https://getkidas.com
+[2026-03-23T23:55:58.085Z] Redirected: https://getkidas.com -> https://getkidas.com/
+[2026-03-23T23:55:58.088Z] Saved HTML (34935 bytes) to page.html
+[2026-03-23T23:55:58.090Z] Extracted 13 unique links from page
+[2026-03-23T23:55:58.090Z] Saved 13 links to links.json
+[2026-03-23T23:55:58.093Z] Extracted footer HTML (2571 chars)
+[2026-03-23T23:55:58.093Z] Extracted header HTML (9060 chars)
+[2026-03-23T23:55:58.097Z] Website (post-redirect): https://getkidas.com/ → origin: https://getkidas.com
+[2026-03-23T23:55:58.097Z]   SUBDOMAIN: discord.getkidas.com (added to ws)
+[2026-03-23T23:55:58.097Z]   SUBDOMAIN: gaming.getkidas.com (added to ws)
+[2026-03-23T23:55:58.097Z] Website subdomains found: 2
+[2026-03-23T23:55:58.097Z] External links: 1 (of 13 total)
+[2026-03-23T23:55:58.097Z] ── All external links ──
+[2026-03-23T23:55:58.097Z]   EXT: https://www.linkedin.com/company/kidas
+[2026-03-23T23:55:58.097Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:55:58.097Z]   REGEX: li <- https://www.linkedin.com/company/kidas
+[2026-03-23T23:55:58.097Z] Programmatic result: ws:3, li:1 | 0 uncategorized
+[2026-03-23T23:55:58.097Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:55:58.098Z] Saved AI prompt (3523 chars) to ai_prompt.txt
+[2026-03-23T23:55:58.098Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:55:58.102Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:56:10.710Z]   AI: First token received, streaming...
+[2026-03-23T23:56:15.914Z] AI response complete: 104 chars in 17.8s
+[2026-03-23T23:56:15.915Z] Saved AI response to ai_response.json
+[2026-03-23T23:56:15.916Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T23:56:15.916Z]   AI LINK: https://www.linkedin.com/company/kidas/
+[2026-03-23T23:56:15.916Z]   AI LINK: https://gaming.getkidas.com/login/
+[2026-03-23T23:56:15.916Z]   AI LINK: https://discord.getkidas.com/
+[2026-03-23T23:56:15.916Z] AI returned 3 valid links
+[2026-03-23T23:56:15.916Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T23:56:15.916Z]   AI→REGEX: li <- https://www.linkedin.com/company/kidas/ (duplicate, skipped)
+[2026-03-23T23:56:15.917Z]   AI→URLS: https://gaming.getkidas.com/login (cleaned from https://gaming.getkidas.com/login/)
+[2026-03-23T23:56:15.917Z]   AI→URLS: https://discord.getkidas.com (cleaned from https://discord.getkidas.com/)
+[2026-03-23T23:56:15.918Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:56:15.918Z] Footer/header origins (3):
+[2026-03-23T23:56:15.918Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:56:15.918Z]   FOOTER/HEADER ORIGIN: https://gaming.getkidas.com
+[2026-03-23T23:56:15.918Z]   FOOTER/HEADER ORIGIN: https://discord.getkidas.com
+[2026-03-23T23:56:15.918Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:56:15.918Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:56:15.918Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:56:15.918Z] ── Step 3: Final dedup ──
+[2026-03-23T23:56:15.918Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T23:56:15.918Z] ── FINAL RESULT ──
+[2026-03-23T23:56:15.918Z]   ws (3):
+[2026-03-23T23:56:15.919Z]     - https://discord.getkidas.com
+[2026-03-23T23:56:15.919Z]     - https://gaming.getkidas.com
+[2026-03-23T23:56:15.919Z]     - https://getkidas.com
+[2026-03-23T23:56:15.919Z]   li (1):
+[2026-03-23T23:56:15.919Z]     - https://www.linkedin.com/company/kidas
+[2026-03-23T23:56:15.919Z]   urls (2):
+[2026-03-23T23:56:15.919Z]     - https://discord.getkidas.com
+[2026-03-23T23:56:15.919Z]     - https://gaming.getkidas.com/login
+[2026-03-23T23:56:15.919Z] Summary: ws:3, li:1, urls:2
+[2026-03-23T23:56:15.920Z] Saved final result to result.json
+[2026-03-23T23:56:15.920Z] Override fields: ws, li
+[2026-03-23T23:56:15.920Z] Finished at: 2026-03-23T23:56:15.920Z

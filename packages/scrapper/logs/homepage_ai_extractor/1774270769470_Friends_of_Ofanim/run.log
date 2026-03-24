@@ -1,0 +1,70 @@
+[2026-03-23T12:59:29.471Z] === Homepage AI Extractor: Friends of Ofanim ===
+[2026-03-23T12:59:29.471Z] Started at: 2026-03-23T12:59:29.471Z
+[2026-03-23T12:59:29.471Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774270769470_Friends_of_Ofanim
+[2026-03-23T12:59:29.471Z] Company: Friends of Ofanim
+[2026-03-23T12:59:29.471Z] Website: friendsofofanim.org
+[2026-03-23T12:59:29.471Z] cbRank: 582673
+[2026-03-23T12:59:29.471Z] Reasons: f
+[2026-03-23T12:59:29.471Z] Fetching: https://friendsofofanim.org
+[2026-03-23T12:59:41.167Z] Network idle timeout — continuing with current state
+[2026-03-23T12:59:41.200Z] Redirected: https://friendsofofanim.org -> https://www.friendsofofanim.org/
+[2026-03-23T12:59:41.219Z] Saved HTML (853426 bytes) to page.html
+[2026-03-23T12:59:41.221Z] Extracted 21 unique links from page
+[2026-03-23T12:59:41.225Z] Saved 21 links to links.json
+[2026-03-23T12:59:41.226Z] Extracted footer HTML (9756 chars)
+[2026-03-23T12:59:41.226Z] Extracted header HTML (9391 chars)
+[2026-03-23T12:59:41.230Z] Website (post-redirect): https://www.friendsofofanim.org/ → origin: https://www.friendsofofanim.org
+[2026-03-23T12:59:41.230Z] External links: 4 (of 21 total)
+[2026-03-23T12:59:41.230Z] ── All external links ──
+[2026-03-23T12:59:41.230Z]   EXT: https://ofanim.org.il
+[2026-03-23T12:59:41.230Z]   EXT: https://www.facebook.com/ofanimfriends
+[2026-03-23T12:59:41.230Z]   EXT: https://www.instagram.com/friends_of_ofanim/?hl=en
+[2026-03-23T12:59:41.230Z]   EXT: https://youtu.be/lgU6uVxhznc
+[2026-03-23T12:59:41.230Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T12:59:41.231Z]   UNCATEGORIZED: https://ofanim.org.il
+[2026-03-23T12:59:41.231Z]   REGEX: fb <- https://www.facebook.com/ofanimfriends
+[2026-03-23T12:59:41.232Z]   REGEX: ig <- https://www.instagram.com/friends_of_ofanim/?hl=en
+[2026-03-23T12:59:41.232Z]   UNCATEGORIZED: https://youtu.be/lgU6uVxhznc
+[2026-03-23T12:59:41.232Z] Programmatic result: ws:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-23T12:59:41.232Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T12:59:41.233Z] Saved AI prompt (8259 chars) to ai_prompt.txt
+[2026-03-23T12:59:41.233Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T12:59:41.237Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T13:00:25.186Z]   AI: First token received, streaming...
+[2026-03-23T13:00:31.257Z] AI response complete: 113 chars in 50.0s
+[2026-03-23T13:00:31.258Z] Saved AI response to ai_response.json
+[2026-03-23T13:00:31.259Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T13:00:31.259Z]   AI LINK: https://www.facebook.com/ofanimfriends/
+[2026-03-23T13:00:31.259Z]   AI LINK: https://www.instagram.com/friends_of_ofanim/?hl=en
+[2026-03-23T13:00:31.259Z]   AI LINK: https://ofanim.org.il/
+[2026-03-23T13:00:31.259Z] AI returned 3 valid links
+[2026-03-23T13:00:31.259Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T13:00:31.259Z]   AI→REGEX: fb <- https://www.facebook.com/ofanimfriends/ (duplicate, skipped)
+[2026-03-23T13:00:31.259Z]   AI→REGEX: ig <- https://www.instagram.com/friends_of_ofanim/?hl=en (duplicate, skipped)
+[2026-03-23T13:00:31.259Z]   AI→URLS: https://ofanim.org.il (cleaned from https://ofanim.org.il/)
+[2026-03-23T13:00:31.260Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T13:00:31.260Z] Footer/header origins (4):
+[2026-03-23T13:00:31.260Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T13:00:31.260Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T13:00:31.260Z]   FOOTER/HEADER ORIGIN: https://ofanim.org.il
+[2026-03-23T13:00:31.260Z]   FOOTER/HEADER ORIGIN: https://www.friendsofofanim.org
+[2026-03-23T13:00:31.260Z]   SKIP (AI claimed): https://ofanim.org.il
+[2026-03-23T13:00:31.260Z]   SKIP (not in footer/header): https://youtu.be/lgU6uVxhznc
+[2026-03-23T13:00:31.260Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T13:00:31.260Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T13:00:31.260Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T13:00:31.260Z] ── Step 3: Final dedup ──
+[2026-03-23T13:00:31.260Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T13:00:31.260Z] ── FINAL RESULT ──
+[2026-03-23T13:00:31.261Z]   ws (1):
+[2026-03-23T13:00:31.261Z]     - https://www.friendsofofanim.org
+[2026-03-23T13:00:31.261Z]   fb (1):
+[2026-03-23T13:00:31.261Z]     - https://www.facebook.com/ofanimfriends
+[2026-03-23T13:00:31.261Z]   ig (1):
+[2026-03-23T13:00:31.261Z]     - https://www.instagram.com/friends_of_ofanim
+[2026-03-23T13:00:31.261Z]   urls (1):
+[2026-03-23T13:00:31.261Z]     - https://ofanim.org.il
+[2026-03-23T13:00:31.261Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-23T13:00:31.262Z] Saved final result to result.json
+[2026-03-23T13:00:31.262Z] Override fields: ws, fb, ig
+[2026-03-23T13:00:31.262Z] Finished at: 2026-03-23T13:00:31.262Z

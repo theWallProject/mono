@@ -1,0 +1,73 @@
+[2026-03-21T14:58:12.007Z] === Homepage AI Extractor: Orad ===
+[2026-03-21T14:58:12.007Z] Started at: 2026-03-21T14:58:12.007Z
+[2026-03-21T14:58:12.007Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774105092007_Orad
+[2026-03-21T14:58:12.007Z] Company: Orad
+[2026-03-21T14:58:12.007Z] Website: orad.cc
+[2026-03-21T14:58:12.007Z] cbRank: 3479577
+[2026-03-21T14:58:12.008Z] Reasons: h
+[2026-03-21T14:58:12.008Z] Fetching: https://orad.cc
+[2026-03-21T14:58:16.498Z] Redirected: https://orad.cc -> https://orad.cc/
+[2026-03-21T14:58:16.511Z] Saved HTML (506827 bytes) to page.html
+[2026-03-21T14:58:16.515Z] Extracted 56 unique links from page
+[2026-03-21T14:58:16.516Z] Saved 56 links to links.json
+[2026-03-21T14:58:16.519Z] Extracted footer HTML (21109 chars)
+[2026-03-21T14:58:16.519Z] Extracted header HTML (55308 chars)
+[2026-03-21T14:58:16.522Z] Website (post-redirect): https://orad.cc/ → origin: https://orad.cc
+[2026-03-21T14:58:16.522Z] External links: 4 (of 56 total)
+[2026-03-21T14:58:16.522Z] ── All external links ──
+[2026-03-21T14:58:16.522Z]   EXT: https://scoopsites.co.il
+[2026-03-21T14:58:16.522Z]   EXT: https://waze.com/ul/hsv8wpujnp
+[2026-03-21T14:58:16.522Z]   EXT: https://www.linkedin.com/company/orad-ltd
+[2026-03-21T14:58:16.522Z]   EXT: https://www.youtube.com/channel/UCJtqHxRd1jXo17ElhTKvayQ
+[2026-03-21T14:58:16.522Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:58:16.523Z]   UNCATEGORIZED: https://scoopsites.co.il
+[2026-03-21T14:58:16.524Z]   UNCATEGORIZED: https://waze.com/ul/hsv8wpujnp
+[2026-03-21T14:58:16.524Z]   REGEX: li <- https://www.linkedin.com/company/orad-ltd
+[2026-03-21T14:58:16.524Z]   REGEX: ytc <- https://www.youtube.com/channel/UCJtqHxRd1jXo17ElhTKvayQ
+[2026-03-21T14:58:16.524Z] Programmatic result: ws:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-21T14:58:16.524Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:58:16.525Z] Saved AI prompt (8284 chars) to ai_prompt.txt
+[2026-03-21T14:58:16.525Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:58:16.529Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:59:00.100Z]   AI: First token received, streaming...
+[2026-03-21T14:59:08.311Z] AI response complete: 99 chars in 51.8s
+[2026-03-21T14:59:08.312Z] Saved AI response to ai_response.json
+[2026-03-21T14:59:08.312Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T14:59:08.312Z]   AI LINK: https://www.youtube.com/channel/UCJtqHxRd1jXo17ElhTKvayQ
+[2026-03-21T14:59:08.313Z]   AI LINK: https://www.linkedin.com/company/orad-ltd/
+[2026-03-21T14:59:08.313Z] AI returned 2 valid links
+[2026-03-21T14:59:08.313Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T14:59:08.313Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCJtqHxRd1jXo17ElhTKvayQ (duplicate, skipped)
+[2026-03-21T14:59:08.313Z]   AI→REGEX: li <- https://www.linkedin.com/company/orad-ltd/ (duplicate, skipped)
+[2026-03-21T14:59:08.314Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:59:08.314Z] Footer/header origins (5):
+[2026-03-21T14:59:08.315Z]   FOOTER/HEADER ORIGIN: https://orad.cc
+[2026-03-21T14:59:08.315Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T14:59:08.315Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T14:59:08.315Z]   FOOTER/HEADER ORIGIN: https://waze.com
+[2026-03-21T14:59:08.315Z]   FOOTER/HEADER ORIGIN: https://scoopsites.co.il
+[2026-03-21T14:59:08.315Z]   ADDED: urls <- https://scoopsites.co.il
+[2026-03-21T14:59:08.315Z]   ADDED: urls <- https://waze.com/ul/hsv8wpujnp
+[2026-03-21T14:59:08.315Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-21T14:59:08.315Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:59:08.316Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T14:59:08.641Z]   YOUTUBE: resolved UCJtqHxRd1jXo17ElhTKvayQ → @oradgroup2101
+[2026-03-21T14:59:08.642Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T14:59:08.642Z] ── Step 3: Final dedup ──
+[2026-03-21T14:59:08.642Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T14:59:08.642Z] ── FINAL RESULT ──
+[2026-03-21T14:59:08.642Z]   ws (1):
+[2026-03-21T14:59:08.642Z]     - https://orad.cc
+[2026-03-21T14:59:08.642Z]   li (1):
+[2026-03-21T14:59:08.642Z]     - https://www.linkedin.com/company/orad-ltd
+[2026-03-21T14:59:08.643Z]   ytp (1):
+[2026-03-21T14:59:08.643Z]     - https://www.youtube.com/@oradgroup2101
+[2026-03-21T14:59:08.643Z]   ytc (1):
+[2026-03-21T14:59:08.643Z]     - https://www.youtube.com/channel/UCJtqHxRd1jXo17ElhTKvayQ
+[2026-03-21T14:59:08.643Z]   urls (2):
+[2026-03-21T14:59:08.643Z]     - https://scoopsites.co.il
+[2026-03-21T14:59:08.643Z]     - https://waze.com/ul/hsv8wpujnp
+[2026-03-21T14:59:08.643Z] Summary: ws:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-21T14:59:08.644Z] Saved final result to result.json
+[2026-03-21T14:59:08.644Z] Override fields: ws, li, ytp, ytc, urls
+[2026-03-21T14:59:08.644Z] Finished at: 2026-03-21T14:59:08.644Z

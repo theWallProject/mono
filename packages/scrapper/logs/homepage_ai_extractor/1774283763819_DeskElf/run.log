@@ -1,0 +1,62 @@
+[2026-03-23T16:36:03.819Z] === Homepage AI Extractor: DeskElf ===
+[2026-03-23T16:36:03.819Z] Started at: 2026-03-23T16:36:03.819Z
+[2026-03-23T16:36:03.819Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774283763819_DeskElf
+[2026-03-23T16:36:03.819Z] Company: DeskElf
+[2026-03-23T16:36:03.819Z] Website: deskelf.com
+[2026-03-23T16:36:03.819Z] cbRank: 2721706
+[2026-03-23T16:36:03.819Z] Reasons: f
+[2026-03-23T16:36:03.819Z] Fetching: https://deskelf.com
+[2026-03-23T16:36:05.913Z] Redirected: https://deskelf.com -> https://deskelf.com/
+[2026-03-23T16:36:05.915Z] Saved HTML (3820 bytes) to page.html
+[2026-03-23T16:36:05.917Z] Extracted 4 unique links from page
+[2026-03-23T16:36:05.918Z] Saved 4 links to links.json
+[2026-03-23T16:36:05.920Z] Extracted footer HTML (238 chars)
+[2026-03-23T16:36:05.920Z] Extracted header HTML (121 chars)
+[2026-03-23T16:36:05.923Z] Website (post-redirect): https://deskelf.com/ → origin: https://deskelf.com
+[2026-03-23T16:36:05.923Z] External links: 4 (of 4 total)
+[2026-03-23T16:36:05.923Z] ── All external links ──
+[2026-03-23T16:36:05.923Z]   EXT: http://facebook.com/deskelfHQ
+[2026-03-23T16:36:05.923Z]   EXT: http://twitter.com/avizuber
+[2026-03-23T16:36:05.923Z]   EXT: http://twitter.com/deskelf
+[2026-03-23T16:36:05.923Z]   EXT: http://twitter.com/nadavreis
+[2026-03-23T16:36:05.923Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T16:36:05.923Z]   REGEX: fb <- http://facebook.com/deskelfHQ
+[2026-03-23T16:36:05.924Z]   REGEX: tw <- http://twitter.com/avizuber
+[2026-03-23T16:36:05.924Z]   REGEX: tw <- http://twitter.com/deskelf
+[2026-03-23T16:36:05.924Z]   REGEX: tw <- http://twitter.com/nadavreis
+[2026-03-23T16:36:05.924Z] Programmatic result: ws:1, fb:1, tw:3 | 0 uncategorized
+[2026-03-23T16:36:05.924Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T16:36:05.925Z] Saved AI prompt (2117 chars) to ai_prompt.txt
+[2026-03-23T16:36:05.925Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T16:36:05.929Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T16:36:13.026Z]   AI: First token received, streaming...
+[2026-03-23T16:36:16.170Z] AI response complete: 56 chars in 10.2s
+[2026-03-23T16:36:16.172Z] Saved AI response to ai_response.json
+[2026-03-23T16:36:16.172Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T16:36:16.172Z]   AI LINK: http://twitter.com/avizuber
+[2026-03-23T16:36:16.172Z]   AI LINK: http://twitter.com/nadavreis
+[2026-03-23T16:36:16.172Z] AI returned 2 valid links
+[2026-03-23T16:36:16.172Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T16:36:16.172Z]   AI→REGEX: tw <- http://twitter.com/avizuber (duplicate, skipped)
+[2026-03-23T16:36:16.173Z]   AI→REGEX: tw <- http://twitter.com/nadavreis (duplicate, skipped)
+[2026-03-23T16:36:16.173Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T16:36:16.173Z] Footer/header origins (1):
+[2026-03-23T16:36:16.173Z]   FOOTER/HEADER ORIGIN: http://twitter.com
+[2026-03-23T16:36:16.173Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T16:36:16.173Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T16:36:16.173Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T16:36:16.173Z] ── Step 3: Final dedup ──
+[2026-03-23T16:36:16.173Z] No urls to dedup
+[2026-03-23T16:36:16.173Z] ── FINAL RESULT ──
+[2026-03-23T16:36:16.173Z]   ws (1):
+[2026-03-23T16:36:16.173Z]     - https://deskelf.com
+[2026-03-23T16:36:16.173Z]   fb (1):
+[2026-03-23T16:36:16.173Z]     - https://www.facebook.com/deskelfhq
+[2026-03-23T16:36:16.174Z]   tw (3):
+[2026-03-23T16:36:16.174Z]     - https://x.com/avizuber
+[2026-03-23T16:36:16.174Z]     - https://x.com/deskelf
+[2026-03-23T16:36:16.174Z]     - https://x.com/nadavreis
+[2026-03-23T16:36:16.174Z] Summary: ws:1, fb:1, tw:3
+[2026-03-23T16:36:16.175Z] Saved final result to result.json
+[2026-03-23T16:36:16.175Z] Override fields: ws, fb, tw
+[2026-03-23T16:36:16.175Z] Finished at: 2026-03-23T16:36:16.175Z

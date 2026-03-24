@@ -1,0 +1,1446 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="pointer skrollr skrollr-desktop"><head>
+    <style id="customRules"></style><meta charset="utf-8">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script async="" src="//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js"></script><script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'https://www.energixrenewables.com/',
+
+        AccountUUID: 'c58b4c436e8047adba82e8091128d7be',
+
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: '9b555e4f',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Mon Jun 30 14:24:01 UTC 2025',
+        ExternalUid: null,
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: 'bc9d39d76f4944dbae6386cb9777de7e',
+        InitialPageId: '1177690938',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: '73b7e2618fc94184ad3f5b4597bee133',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '500000',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'en',
+        currentLocale: 'en',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: -1,
+            NavbarLiveHomePage: 'https://www.energixrenewables.com/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: true,
+        planID: '7',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'en',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 6;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Injecting site-wide to the head -->
+
+
+
+
+<!-- End Injecting site-wide to the head -->
+
+<!-- Inject secured cdn script -->
+
+
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<!-- Add manifest -->
+<!-- End PWA settings -->
+
+
+
+<link rel="canonical" href="https://www.energixrenewables.com/">
+
+<meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Home
+</title>
+
+<!--Add favorites icons-->
+
+<link rel="icon" type="image/x-icon" href="https://irp.cdn-website.com/9b555e4f/site_favicon_16_1693516718936.ico">
+
+<!-- End favorite icons -->
+<link rel="preconnect" href="https://lirp.cdn-website.com/">
+
+
+
+<!-- render the required CSS and JS in the head section -->
+<script id="d-js-dmapi">
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+
+<!-- loadCSS function header.jsp-->
+
+
+
+
+
+
+<script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+
+
+<script data-role="deferred-init" type="text/javascript">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    
+
+</style>
+<style id="cssVariables" type="text/css">
+    :root {
+  --color_1: rgba(10, 93, 150, 1);
+  --color_2: rgba(51, 178, 127, 1);
+  --color_3: rgba(243, 187, 76, 1);
+  --color_4: rgba(163, 227, 255, 1);
+  --color_5: rgba(162, 213, 178, 1);
+  --color_6: rgba(63, 63, 63, 1);
+  --color_7: rgba(236, 236, 236, 1);
+  --color_8: rgba(251, 253, 252, 1);
+}
+</style>
+
+
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended] {
+    visibility: hidden;
+  }
+
+</style>
+
+
+
+<style id="criticalCss">
+    @charset "UTF-8";.videobgframe,.videobgwrapper{position:absolute;height:100%}.videobgwrapper,[dmtemplateid*=amburger] .dmLayoutWrapper{overflow:hidden}*,.dmPopup,:after,:before{box-sizing:border-box}@font-face{font-family:FontAwesome;font-display:block;src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?v=6);src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?#iefix&v=6) format("embedded-opentype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.woff?v=6) format("woff"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.ttf?v=6) format("truetype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.svg#fontawesomeregular?v=6) format("svg");font-weight:400;font-style:normal}@font-face{font-family:Quicksand;font-style:normal;font-weight:300 700;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/quicksand/v36/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:200 1000;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/nunitosans/v18/pe0TMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp7t1R-s.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Nunito Sans';font-style:italic;font-weight:200 1000;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/nunitosans/v18/pe0RMImSLYBIv1o4X1M8cce4OdVisMz5nZRqy6cmmmU3t2FQWEAEOvV9wNvrwlNstMKW3Y6K5WMwd-laLQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}.videobgwrapper{z-index:0;width:100%;top:0;left:0;border-radius:inherit}.videobgframe{width:101%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}:root{--color_1:rgba(10, 93, 150, 1);--color_2:rgba(51, 178, 127, 1);--color_3:rgba(243, 187, 76, 1);--color_4:rgba(163, 227, 255, 1);--color_5:rgba(162, 213, 178, 1);--color_6:rgba(63, 63, 63, 1);--color_7:rgba(236, 236, 236, 1);--color_8:rgba(251, 253, 252, 1)}.dmInner{min-height:100vh!important;position:relative}.dmPopupMask{position:fixed;margin:0;display:none;width:10px;z-index:1000000999;top:0;left:0}#dmRoot .dmPopup{display:block}.dmPopup{text-align:left;position:fixed;top:10px;left:0;width:93%;z-index:1000009999!important;background:#f5f5f5;overflow-y:auto;height:100%;display:block}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}.imageWidget a,.text-align-center{text-align:center}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{display:block;font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow .dmRespColsWrapper{display:flex}.align-center{margin-left:auto;margin-right:auto}body.fix-mobile-scrolling{overflow:initial}#dmRoot{text-decoration-skip-ink:none}[data-flex-id]{position:relative}[data-flex-id][data-layout-section]{min-height:32px}.flex-widgets-container{display:none}@media (min-width:1025px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnMedium{display:none!important}#dmRoot.responsiveTablet #dm [data-responsive-name=ResponsiveDesktopTopTabletHamburger] .site_content{margin-top:0!important}:root{--btn-text-font-size:16px}}@media (min-width:768px) and (max-width:1024px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer #hamburger-header-container~#stickyHeaderSpacer,#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnLarge{display:none!important}}@media (max-width:767px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer #hamburger-header-container~#stickyHeaderSpacer,#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnLarge{display:none!important}}.video-ssr .videobgframe{object-fit:cover}[data-layout-grid]{display:-ms-grid;display:grid;justify-content:start;align-items:start;-ms-grid-columns:minmax(0,1fr);grid-template-columns:minmax(0,1fr);-ms-grid-rows:minmax(8px,max-content);grid-template-rows:minmax(8px,-webkit-max-content);grid-template-rows:minmax(8px,max-content)}[data-layout-grid]>.flex-element.group{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;justify-self:center;align-self:start;order:0;max-width:1200px}[data-layout-grid]>.flex-element.group>.flex-element.group{align-items:flex-start;align-self:stretch}.flex-element.group,.flex-element.inner-grid,[data-layout-grid],[data-layout-grid]>.flex-element.group,[data-layout-grid]>.flex-element.group>.flex-element.group{background-size:cover;background-repeat:no-repeat;background-position:50% 50%;position:relative}.flex-element.group,[data-layout-grid]>.flex-element.group>.flex-element.group{max-width:100%;display:flex;flex-direction:column;justify-content:center}.flex-element.inner-grid{display:-ms-grid;display:grid;justify-content:start;align-items:start;column-gap:0;row-gap:0;width:50%;-ms-grid-columns:minmax(0,1fr);grid-template-columns:minmax(0,1fr)}.flex-element.widget-wrapper{position:relative;min-width:10px;min-height:10px}#dm [data-flex-id] .widget-wrapper>[data-element-type]{width:100%;height:100%;margin:0;padding:0}[data-flex-id] .flex-element.grid>.flex-element,[data-flex-id] .flex-element.inner-grid>.flex-element{-ms-grid-column:1;grid-column-start:1;-ms-grid-column-span:1;grid-column-end:span 1;-ms-grid-row:1;grid-row-start:1;-ms-grid-row-span:1;grid-row-end:span 1}@media (min-width:768px) and (max-width:1024px){[data-hidden-on-tablet]{display:none!important}:root{--btn-text-font-size:16px}}@media (min-width:1025px) and (max-width:1399px){[data-hidden-on-desktop]{display:none!important}}body{-webkit-overflow-scrolling:touch}:not(.runtime-module-container) .layout-drawer,:not(.runtime-module-container) .layout-drawer-hamburger,:not(.runtime-module-container) .layout-drawer-overlay{visibility:hidden}:not(.runtime-module-container) .layout-drawer{position:fixed;transform:translate(-100%,-100%)}:not(.runtime-module-container) .layout-drawer-overlay{opacity:0}.runtime-module-container{width:100%}.runtime-module-container[dmtemplateid*=amburger] #site_content,.runtime-module-container[dmtemplateid*=amburger] .dmInner{position:static}.runtime-module-container[dmtemplateid*=amburger] #site_content .site_content{position:relative}.runtime-module-container[dmtemplateid*=amburger] .dmLayoutWrapper{background-color:transparent}.runtime-module-container .hamburger-header-container{position:fixed;z-index:2;top:0;left:0;width:100%}.runtime-module-container .hamburger-header-container .hamburger-header{min-height:43px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-hamburger,.runtime-module-container .layout-drawer-overlay{visibility:visible}.runtime-module-container[dmtemplateid*=amburger] .site_content{margin-top:59px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-overlay{height:100%;position:fixed;top:0;left:0}.runtime-module-container .layout-drawer{background-color:#fff;width:75vw;transform:translate(-100%,0);overflow:auto;-webkit-overflow-scrolling:auto;z-index:13;display:flex;flex-direction:column}.runtime-module-container .layout-drawer .dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:0}.runtime-module-container .layout-drawer[data-origin=top]{min-height:20vh;min-width:40vw;max-height:100%;height:auto;width:100%;transform:translate(0,-100%)}.runtime-module-container .layout-drawer-overlay{width:100vw;background-color:rgba(0,0,0,.4);opacity:0;z-index:6}body:not([data-flex-site]) .layout-drawer .dmRespRow:not(:first-of-type):not(:last-of-type){flex:1 1 auto}.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:18px;margin-left:env(safe-area-inset-left);padding:17px 11px;z-index:14;width:52px;height:52px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:18px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}@media (max-width:767px){.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:10px;margin-left:env(safe-area-inset-left);padding:13px 9px;z-index:14;width:40px;height:40px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:10px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}}.hamburger-reverse .layout-drawer-hamburger{left:auto;right:10px;margin-right:env(safe-area-inset-right)}@media (min-width:768px){.hamburger-reverse .layout-drawer-hamburger{right:18px}}#dm-outer-wrapper #hamburger-header-container #hamburger-header .dmRespCol{display:flex;flex-direction:column;justify-content:center}img,video{display:inline-block}nav,section{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}button{font-family:inherit;font-size:100%;margin:0;line-height:normal;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:' ';display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}@media screen and (min-width:1200px){.rows-1200 .dmRespRow:not(.fullBleedMode) .dmRespColsWrapper{max-width:1200px}}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmDesktopBody .dmRespRow .large-2{position:relative;width:16.66667%}.dmDesktopBody .dmRespRow .large-8{position:relative;width:66.66667%}.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}.socialHubIcon,[class*=' dm-common-icons-'],[class*=' dm-social-icons-']{font-family:dm-social-icons!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.dm-social-icons-facebook:before{content:'\ea90'}.dm-social-icons-twitter:before{content:'\ea96'}[class*=' dm-common-icons-']{font-family:dm-common-icons!important}.dm-common-icons-close:before{content:'\e901'}[class*=' icon-']{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased;display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}[class*=' icon-']:before{text-decoration:none;display:inline-block;speak:none}a [class*=' icon-']{display:inline}.icon-linkedin:before{content:'\f0e1'}.icon-angle-right:before{content:'\f105'}.icon-angle-down:before{content:'\f107'}.dmInner{min-width:768px!important;font-size:16px;background:#fff;color:#666}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}[data-video-bg]{min-height:100px}.imageWidget{position:relative}.imageWidget a{font-style:italic}#dm div.dmContent h1,#dm div.dmNewParagraph p{direction:ltr;font-style:normal;text-decoration:none}.imageWidget img[width][height]{height:auto}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-left{text-align:left!important}.dmNewParagraph[data-version] h1,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}.socialHubIcon{display:flex!important;align-items:center;justify-content:center}.socialHubIcon svg{fill:currentColor;width:80%;height:80%}.dmHeader,.imageWidget:not(.displayNone) img,body{width:100%}img[width][height]{height:auto}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h1,ul{margin-left:0;margin-right:0}#dm video{max-width:100%!important;display:block;margin:10px auto}.dmInner *{-webkit-font-smoothing:antialiased}span.oneIcon:before{display:inline-block}a,img,li,ul{vertical-align:top}#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#463939;outline:0;vertical-align:inherit}.dmInner ul:not(.defaultList){padding:0}.dmHeader{background:#68ccd1;color:#666;text-align:center;position:relative;max-width:100%}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container .nav-item-text::before,.dmNewParagraph{text-align:left}DIV.dmBody{padding:0;clear:both}.dmContent{margin:0;padding:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmRespCol>[dmle_extension]:not(:first-child){margin-top:10px}.dmLargeBody .imageWidget:not(.displayNone){display:inline-block;max-width:100%}#dm .dmRespColsWrapper,.dmStandardDesktop{display:block}.dmNewParagraph{margin:8px 0;padding:2px 0}.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}#dmFirstContainer .dmRespRowsWrapper:after,#dmFirstContainer .dmRespRowsWrapper:before{content:"";display:table}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.dmStandardDesktop{margin:0 auto}.dmSocialHub{clear:both}#dm .dmSocialHub a{display:inline-block;text-decoration:none;margin:0;vertical-align:bottom}.dmSocialHub>div{text-align:inherit}a span.socialHubIcon{width:36px;height:36px;font-size:31px;display:inline-block;text-align:center;margin-right:0;margin-bottom:5px;line-height:36px;box-sizing:content-box;background-image:none!important}.socialHubIcon.style5{color:#fff}#dm .dmSocialHub .socialHubWrapper{display:inline-block;max-width:100%}body{background-color:#eee}.main-navigation.unifiednav{-js-display:flex;display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{-js-display:flex;display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{-js-display:flex;display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{-js-display:flex;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{opacity:1}.main-navigation.unifiednav.effect-bottom2{padding:calc(12px - .2em - 2px) 15px}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{transform:scaleX(0);border-top-width:2px}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after{margin-top:.2em}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{margin-bottom:.2em;border-top-color:transparent}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{transform:scaleX(1)}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{transform-origin:left}.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav .unifiednav__container[data-depth='1']{min-width:100%}.main-navigation.unifiednav .unifiednav__container[data-depth]{position:absolute;top:0;left:0;flex-direction:column;opacity:0;z-index:100;background-color:#faf9f9}.main-navigation.unifiednav .unifiednav__container[data-depth='0']{top:100%;transform:translateY(-10px)}.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container[data-depth='0']{left:15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap .unifiednav__container>.unifiednav__item-wrap{flex-direction:column}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{padding:15px 30px 15px 15px;margin:0}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{content:''!important;width:100%;height:0;color:#ececec;align-self:center;border:0 solid currentColor}.main-navigation.unifiednav[layout-sub=submenu_horizontal_1] .unifiednav__container[data-depth]{color:#999}.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container[data-depth='1']{transform:translateX(-10%) translateY(0);left:100%}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{display:initial;padding-left:10px;margin-left:0}.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item_has-sub-nav .icon{transform:rotate(0)}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{justify-content:inherit}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]{background-color:transparent}#dm .main-navigation.unifiednav[layout-sub=submenu_horizontal_1] .unifiednav__container[data-depth]{background-color:#faf9f9}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{color:#d1d1d1}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container{flex-direction:column;flex:1 1 100%}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{padding:8px 0;margin:0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{padding-left:15px}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:initial}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap{flex-direction:column}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth]{opacity:1;position:static;transform:translate(0)}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{justify-content:inherit;padding:8px 1em;margin:0;font-size:.8em}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item.unifiednav__item_has-sub-nav .icon::before{transform-origin:center;transform:rotate(90deg)}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth] .unifiednav__container[data-depth]{padding-left:12px}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{content:''!important;width:100%;height:0;color:#d1d1d1;align-self:flex-start;border:0 solid currentColor}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_2] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:5px 0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_2] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{padding:8px 12px}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][data-show-vertical-sub-items=HIDE] .unifiednav__container[data-depth]{transform-origin:top;height:auto;overflow:hidden}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][data-show-vertical-sub-items=HIDE]>.unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth]{opacity:0;max-height:0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][data-show-vertical-sub-items=HIDE]>.unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__item.dmNavItemSelected>.nav-item-text .icon::before{transform:rotate(180deg)}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container{flex-wrap:wrap;justify-content:inherit}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{content:''}.dmRoot:not(.dmTabletBody):not(.dmMobileBody) #dm .main-navigation.unifiednav:not([data-nav-structure=SPLIT]) .unifiednav__container[data-depth='1']{max-height:65vh;overflow-y:auto}.dmRoot:not(.dmTabletBody):not(.dmMobileBody) #dm .main-navigation.unifiednav:not([data-nav-structure=SPLIT]) .unifiednav__container[data-depth='1'] .unifiednav__item-wrap{flex-shrink:0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{display:inline-block;padding-right:0}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmStandardDesktop .dmHeader{background-color:#68ccd1;max-width:100%}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:100px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed):empty{min-height:1px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column{min-height:100px}#dm div.dmRespCol>*{line-height:normal}#dm div.dmInner{line-height:initial}#dm div.dmInner h1{font-family:Montserrat,"Montserrat Fallback"}#dm DIV.dmInner{background-repeat:no-repeat;background-image:url(https://irt-cdn.multiscreensite.com/ce0bb35f932b47bb809d0e37905542ba/dms3rep/multi/site_background_education-2087x1173.jpg);background-size:cover;background-position:50% 0}#dm div.dmOuter div.dmInner{background-position:center center;background-repeat:repeat;background-size:auto}#dm div.dmInner,#dm div.dmInner .dmRespCol{font-weight:300;color:rgba(147,147,147,1);color:var(--color_6);font-family:'Nunito Sans';font-size:16px}.dmLargeBody .dmBody .dmRespRowsWrapper{background-color:transparent}#dm div.dmNewParagraph p{color:var(--color_6);font-family:"Nunito Sans";font-weight:300;line-height:1.7}#dm div.dmContent h1{color:#3f3f3f;font-family:Quicksand,"Quicksand Fallback";font-weight:400;letter-spacing:-.05em;line-height:initial;font-size:72px}#dm div.dmContent .dmNewParagraph[data-version] h1{text-decoration:inherit}#dm div.dmContent .dmNewParagraph[data-version] h1 *{text-decoration:none}#dm DIV.dmOuter DIV.dmInner{background-image:none;background-color:var(--color_8)}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:15px}}#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:14px!important}#dm .p_hfcontainer div.u_1285929724 img,#dm .p_hfcontainer div.u_1923160809 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer .u_1670813867.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1670813867.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:14px!important}#dm .p_hfcontainer .u_1285929724{width:100%!important}#dm .p_hfcontainer div.u_1672845341 .socialHubIcon{color:var(--color_2)!important;border-color:var(--color_2)!important}#dm .p_hfcontainer nav.u_1670813867.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after{border-top-width:1px!important;border-top-style:solid!important;border-top-color:var(--color_2)!important}#dm .p_hfcontainer .u_1923160809{width:100%!important}#dm .p_hfcontainer nav.u_1670813867.main-navigation.unifiednav .unifiednav__container[data-depth]{background-color:var(--color_8)!important}#dm .p_hfcontainer .u_1670813867.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{margin:0!important;padding:15px!important}#dm .p_hfcontainer nav.u_1670813867.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{border-top-color:var(--color_4)!important;border-top-width:1px!important;border-top-style:solid!important}#dm .p_hfcontainer nav.u_1670813867.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{color:var(--color_6)!important;font-size:14px!important}#dm .p_hfcontainer nav.u_1670813867.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container[data-depth]{box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important}#dm .p_hfcontainer .u_1670813867.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{margin:0!important;padding:0 10px!important}#dm .dmInner div.u_hcontainer,#dm .p_hfcontainer div.u_1705692124{left:0!important;position:relative!important;margin:0 auto!important}#dm .p_hfcontainer .u_1670813867.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1670813867.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:14px!important}#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{background-color:var(--color_8)!important;box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important;border-bottom-style:solid!important;border-bottom-color:rgba(239,239,239,1)!important;border-bottom-width:0!important}#dm .p_hfcontainer nav.u_1389313332{color:#fff!important}#dm .p_hfcontainer .u_1389313332.main-navigation.unifiednav:not([image]) .unifiednav__container[data-depth="0"]{top:calc(100% - 22px - 0px)!important}#dm .p_hfcontainer .u_1389313332.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{text-align:left!important;padding-top:22px!important;padding-bottom:22px!important;justify-content:flex-start!important}#dm .p_hfcontainer .u_1389313332.main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{align-self:flex-start!important}#dm .p_hfcontainer .u_1389313332.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{justify-content:flex-start!important;padding-top:15px!important;padding-bottom:15px!important;text-align:LEFT!important}#dm .p_hfcontainer nav.u_1389313332.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected{font-weight:400!important;color:var(--color_6)!important}#dm .p_hfcontainer nav.u_1389313332.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{color:var(--color_6)!important;font-weight:300!important;font-family:'Nunito Sans'!important}#dm .p_hfcontainer nav.u_1389313332.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after{border-top-width:1px!important;border-top-style:solid!important;border-top-color:var(--color_2)!important}#dm .p_hfcontainer nav.u_1389313332.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{font-weight:400!important;color:var(--color_2)!important}#dm .p_hfcontainer div.u_1639775894 .socialHubIcon{color:var(--color_8)!important;border-color:var(--color_8)!important}#dm .p_hfcontainer .u_1484009939{width:100%!important}#dm .p_hfcontainer div.u_1769620316{background-color:var(--color_8)!important}#dm .dmInner div.u_hcontainer{float:none!important;top:0!important;width:100%!important;height:auto!important;max-width:100%!important;min-width:0!important;text-align:center!important;padding:25px 0 20px!important}#dm .dmInner div.dmHeader.u_hcontainer{padding-bottom:20px!important;padding-top:25px!important}#dm .p_hfcontainer div.u_1705692124{float:none!important;top:0!important;width:100%!important;height:auto!important;max-width:none!important;min-width:0!important;text-align:center!important;padding:15px 40px!important}#dm .p_hfcontainer div.u_1923160809,#dm .p_hfcontainer nav.u_1670813867{left:0!important;position:relative!important;min-width:25px!important;text-align:center!important;float:none!important}#dm .p_hfcontainer div.u_1655486006{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}[dmtemplateid=Hamburger].runtime-module-container .layout-drawer-hamburger{top:20.5px!important}[dmtemplateid=Hamburger] .site_content{margin-top:93px!important}.stickyHeaderSpacer{height:111.97px!important}@media (min-width:1025px){.responsiveTablet .stickyHeaderSpacer{height:73px!important}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet [dmtemplateid=Hamburger].runtime-module-container .layout-drawer-hamburger{top:10.81px!important}.responsiveTablet [dmtemplateid=Hamburger] .site_content{margin-top:73.62px!important}}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding-top:12px!important;padding-bottom:12px!important}.fHeader #hcontainer.dmHeader[freeheader=true]{padding-top:initial!important;padding-bottom:initial!important}#dm .p_hfcontainer div.u_1496652054{padding:0!important}#dm .p_hfcontainer .u_1672845341 .socialHubInnerDiv a{margin-right:8px!important}#dm .p_hfcontainer nav.u_1670813867{top:0!important;width:100%!important;height:auto!important;max-width:calc(100% - 0px)!important;justify-content:flex-start!important;align-items:stretch!important;padding:6.8px 15px!important;margin:0!important}#dm .p_hfcontainer div.u_1923160809{top:0!important;width:175px!important;max-width:100%!important;display:block!important;height:auto!important;padding:0!important;margin:0 722.22px 0 0!important}#dm .p_hfcontainer div.u_1285929724,#dm .p_hfcontainer div.u_1672845341{display:block!important;min-width:0!important;top:0!important;left:0!important;position:relative!important;height:auto!important}[dmtemplateid=Hamburger] .layout-drawer-hamburger.hamburger-on-header{color:var(--color_2)!important;background-color:rgba(0,0,0,0)!important}#dm .p_hfcontainer div#hamburger-drawer.layout-drawer,#dm .p_hfcontainer div#hamburger-header{background-color:var(--color_8)!important}#dm .p_hfcontainer div.u_1141235344{width:auto!important;padding:0 25px!important;margin:0!important}#dm .p_hfcontainer div.u_1285929724{float:none!important;width:175px!important;max-width:100%!important;text-align:center!important;padding:0!important;margin:-1px auto 0 0!important}#dm .p_hfcontainer div.u_1672845341{float:none!important;width:248.5px!important;max-width:100%!important;text-align:right!important;padding:4px 0 0!important;margin:7px 0 0 auto!important}#dm .p_hfcontainer div#hamburger-header{box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important;border-style:solid!important;border-width:0!important;border-color:rgba(239,239,239,1)!important;margin:0!important;padding:0!important}#dm .p_hfcontainer nav.u_1670813867.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{font-size:14px!important}#dm .dmInner div.fHeader.dmHeaderContainer #hcontainer.dmHeader[freeheader=true]{margin:0!important;padding:15px 0!important}div[dmtemplateid=Hamburger] .layout-drawer-overlay{background-color:rgba(255,255,255,.4)!important}#dm .p_hfcontainer #hamburger-drawer.layout-drawer[data-origin=top]:not([data-auto-height]){height:100%!important}#dm .p_hfcontainer div.u_1906644311{padding:0!important;margin:0!important}#dm .p_hfcontainer div.u_1762021488{margin-top:0!important;padding:0!important}#dm .p_hfcontainer .u_1639775894 .socialHubIcon{width:40px!important;height:40px!important;font-size:26.67px!important;line-height:40px!important}#dm .p_hfcontainer .u_1639775894 .socialHubIcon:after{width:48px!important;height:40px!important}#dm .p_hfcontainer nav.u_1389313332{float:none!important;top:0!important;left:0!important;width:100%!important;position:relative!important;height:auto!important;max-width:calc(100% - 0px)!important;justify-content:center!important;align-items:stretch!important;min-width:25px!important;text-align:start!important;padding:0!important;margin:0 auto!important}#dm .p_hfcontainer div.u_1484009939,#dm .p_hfcontainer div.u_1639775894{display:block!important;top:0!important;left:0!important;position:relative!important;max-width:100%!important;text-align:center!important}#dm .p_hfcontainer .u_1639775894 .socialHubInnerDiv a{margin-right:23px!important}#dm .p_hfcontainer div.u_1769620316{padding-top:90px!important;margin-top:0!important;padding-right:50px!important;padding-left:50px!important}#dm .p_hfcontainer nav.u_1389313332.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{font-size:24px!important}#dm .p_hfcontainer nav.u_1389313332.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{font-size:18px!important}#dm .p_hfcontainer div.u_1639775894{float:none!important;width:calc(100% - 0px)!important;height:auto!important;min-width:25px!important;padding:0!important;margin:0 auto!important}#dm .p_hfcontainer div.u_1930716232{background-image:linear-gradient(90deg,rgba(10,93,150,1) 0,rgba(51,178,127,1) 100%)!important;background-origin:border-box!important;width:auto!important;padding:50px!important;margin:0!important}#dm .p_hfcontainer div.u_1484009939{width:300px!important;height:74px!important;float:none!important;min-width:0!important;padding:0 0 100px!important;margin:0 572px 0 0!important}#dm .p_hfcontainer .u_1672845341.dmSocialHub .socialHubInnerDiv a:not(:last-child){margin-right:5px!important}#dm .p_hfcontainer .u_1672845341 .socialHubIcon{width:27px!important;height:27px!important;font-size:18px!important;line-height:27px!important}#dm .p_hfcontainer .u_1672845341 .socialHubIcon:after{width:35px!important;height:27px!important}#dm .p_hfcontainer div.u_1214912393{padding-left:10px!important}#dm .p_hfcontainer div.u_1339975338{padding-left:0!important}#dm .d-page-1716942098 DIV.dmInner{background-repeat:no-repeat!important;background-size:cover!important;background-attachment:fixed!important;background-position:50% 50%!important}@media all{#\31 72513d5,#\37 535a5ce{background-size:cover;display:flex;background-position:50% 50%;column-gap:4%;row-gap:24px;background-repeat:no-repeat;width:100%}#\31 72513d5,#widget_2tr{position:relative;max-width:100%}:root{--btn-text-direction:ltr;--btn-border-r-color:var(--btn-border-color);--btn-border-l-color:var(--btn-border-color);--btn-border-b-width:var(--btn-border-width);--btn-border-width:1px;--btn-border-radius:10px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-border-color:rgba(0, 0, 0, 0);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-bg-image:linear-gradient(90deg, rgba(10, 93, 150, 1) 0%, rgba(51, 178, 127, 1) 100%);--background-origin:border-box;--btn-border-b-color:var(--btn-border-color);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:var(--btn-border-color);--btn-text-align:center;--btn-text-color:rgba(255, 255, 255, 1);--btn-text-decoration:none;--btn-text-font-weight:bold;--btn-text-font-family:Quicksand,"Quicksand Fallback";--btn-icon-color:rgb(247, 247, 247);--btn-icon-fill:rgb(247, 247, 247);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:rgba(255, 255, 255, 1);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:var(--color_2);--btn-hover-text-color:var(--color_2);--btn-hover-text-font-weight:var(--btn-text-font-weight);--btn-hover-text-decoration:var(--btn-text-decoration);--btn-hover-text-font-style:var(--btn-text-font-style)}#\31 72513d5{align-self:stretch;min-height:8px;flex-direction:column;justify-content:flex-start;align-items:flex-start;min-width:4%}#\39 ad50b0d{background-repeat:no-repeat;background-size:cover;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(8px,max-content);display:grid;justify-content:start;background-position:50% 50%;align-items:start;position:relative;background-color:rgba(0,0,0,0)}#\37 535a5ce{align-self:start;min-height:400px;flex-direction:row;max-width:none;justify-content:flex-start;align-items:center;position:relative;justify-self:center;order:0;padding:75px 2% 50px}#widget_2tr{width:80.21%;height:auto;min-width:10px;min-height:10px;align-self:auto;margin:0;grid-area:auto/auto/auto/auto}}@media (min-width:768px) and (max-width:1024px){#\37 535a5ce{padding-left:2%;padding-right:2%}#widget_2tr{width:100%}#\39 ad50b0d{background-color:rgba(0,0,0,0)}}@media (min-width:1400px){#widget_2tr.flex-element.widget-wrapper>[data-element-type]{padding-left:0;padding-right:0}#widget_2tr{width:66.19%}#\39 ad50b0d{background-color:rgba(0,0,0,0)}}@media (max-width:767px){#\31 72513d5{width:100%;min-height:150px;align-items:center;padding:0}#\37 535a5ce{min-height:unset;flex-direction:column;padding:50px 2% 25px}#widget_2tr.flex-element.widget-wrapper>[data-element-type]{padding-left:0;padding-right:0}#widget_2tr{width:100%}#\39 ad50b0d{background-color:rgba(0,0,0,0)}}@media all{#\34 1c74260,#edccd13f{align-self:stretch;min-height:8px;column-gap:4%;row-gap:24px;min-width:4%}#\38 8563d3f,#innergrid_lf0{background-position:50% 50%;display:grid}#\34 1c74260,#ab338979,#edccd13f,#group_uqd{background-size:cover;background-repeat:no-repeat;display:flex}#group_uqd,#widget_5uf{position:relative;align-self:start;max-width:100%;order:0;width:100%;height:auto}#\34 1c74260{background-position:50% 50%;flex-direction:column;max-width:100%;width:38.56%;justify-content:flex-start;align-items:flex-start;position:relative;background-color:rgba(255,255,255,1);background-image:none}#\38 8563d3f{background-repeat:no-repeat;background-size:cover;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(8px,max-content);justify-content:start;align-items:start;position:relative}#ab338979{align-self:start;min-height:500px;background-position:50% 50%;column-gap:4%;row-gap:24px;flex-direction:row;max-width:none;width:100%;justify-content:flex-start;align-items:center;position:relative;justify-self:center;order:0;padding-right:2%;padding-bottom:100px}#edccd13f{background-position:50% 50%;flex-direction:column;max-width:100%;width:57.37685887708649%;justify-content:center;align-items:flex-start;position:relative;margin-bottom:100px}#innergrid_lf0{background-size:cover;background-repeat:no-repeat;justify-content:start;align-items:start;position:relative;grid-template-columns:repeat(1,minmax(0,1fr));grid-template-rows:minmax(212.5px,max-content) minmax(212.5px,max-content);column-gap:0;row-gap:25px;width:100%;max-width:100%;background-color:rgba(0,0,0,0);justify-self:auto;align-self:auto;order:0;grid-area:auto/auto/auto/auto}#widget_5uf{min-width:10px;min-height:10px;justify-self:start}#group_uqd{background-position:100% 50%;flex-direction:column;justify-content:space-around;align-items:center;justify-self:start;min-height:100%;background-color:var(--color_1);background-image:url(https://lirp.cdn-website.com/9b555e4f/dms3rep/multi/opt/HOME+PAGE-1920w.jpeg);grid-area:2/1/span 1/span 1}}@media (min-width:768px) and (max-width:1024px){#ab338979{padding-left:2%;padding-right:2%}#\34 1c74260{width:47.1%}#innergrid_lf0{background-color:rgba(0,0,0,0)}#group_uqd{background-color:var(--color_1);background-position:100% 50%}#edccd13f{width:48.67856209150327%}}@media (min-width:1400px){#innergrid_lf0{background-color:rgba(0,0,0,0)}#widget_5uf{width:85%}#group_uqd{background-color:var(--color_1);background-position:100% 50%}}@media (max-width:767px){#\34 1c74260,#edccd13f{width:100%;min-height:240px}#\34 1c74260{align-items:center;margin-top:25px}#ab338979{min-height:unset;flex-direction:column;padding-left:1.9981554959785524%;padding-right:2%;padding-bottom:25px;row-gap:40px}#edccd13f{align-items:center;margin-bottom:25px}#innergrid_lf0{background-color:rgba(0,0,0,0);row-gap:50px;grid-template-rows:minmax(200px,max-content) minmax(200px,max-content)}#group_uqd{background-color:var(--color_1);background-position:100% 50%}}@media (min-width:468px) and (max-width:767px){#\39 ad50b0d,#innergrid_lf0{background-color:rgba(0,0,0,0)}#group_uqd{background-color:var(--color_1);background-position:100% 50%}}.font-size-72,.size-72{font-size:72px!important}.font-size-18,.size-18{font-size:18px!important}#\31 025921079,#\31 443378276,#\31 469945078,#\31 655486006,#\31 72513d5,#\34 1c74260,#ab338979,#edccd13f,#group_uqd,#hamburger-drawer{order:0}#\31 025921079,#\31 443378276,#\31 469945078,#ab338979{flex-direction:row}#\31 346817288,#\31 389313332,#\31 469942216,#\31 643587324,#\31 645715154,#\31 670813867,#\31 778556260,#\31 837774478,#\31 953627953,#\37 535a5ce{order:0;flex-direction:row} #dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder:not(.photo-gallery-done) {display: none;} @media (max-width:767px){ [data-hidden-on-mobile] {display:none!important}}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+
+    
+</style>
+
+
+
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Roboto Fallback";
+  src: local('Arial');
+  ascent-override: 92.6709%;
+  descent-override: 24.3871%;
+  size-adjust: 100.1106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Montserrat Fallback";
+  src: local('Arial');
+  ascent-override: 84.9466%;
+  descent-override: 22.0264%;
+  size-adjust: 113.954%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Poppins Fallback";
+  src: local('Arial');
+  ascent-override: 92.326%;
+  descent-override: 30.7753%;
+  line-gap-override: 8.793%;
+  size-adjust: 113.7274%;
+}@font-face {
+  font-family: "Quicksand Fallback";
+  src: local('Arial');
+  ascent-override: 94.9261%;
+  descent-override: 23.7315%;
+  size-adjust: 105.3451%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Epilogue Fallback";
+  src: local('Arial');
+  ascent-override: 70.2338%;
+  descent-override: 20.8923%;
+  size-adjust: 112.4814%;
+  line-gap-override: 0%;
+ }
+</style>
+
+
+<!-- End render the required css and JS in the head section -->
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.energixrenewables.com/">
+
+  <!-- Google tag (gtag.js) -->  <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-16638798558">
+
+
+
+
+  
+
+  
+
+  </script>
+  <script>
+
+
+
+
+
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+ 
+  gtag('config', 'AW-16638798558');
+
+
+  
+
+  
+
+  </script>
+
+  <meta name="twitter:card" content="summary">
+
+
+
+
+<!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+<script src="https://static.cdn-website.com/libs/bower-skrollr/skrollr.min.js"></script></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home" class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody responsiveTablet pcCustomScrollbar d1SiteBody dmBodyNoIscroll" style="padding:0;margin:0;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class="dmwr">
+    
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+         <div dmwrapped="true" id="1901957768" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="Hamburger" data-responsive-name="ResponsiveDesktopTopTabletHamburger" class="runtime-module-container dm-bfs dm-layout-home hasAnimations rows-1200 hamburger-reverse hasStickyHeader dmPageBody d-page-1716942098 inputs-css-clean dmFreeHeader" id="dm-outer-wrapper" data-page-class="1716942098" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div id="site_content"> <div class="p_hfcontainer showOnMedium"> <div id="hamburger-drawer" class="hamburger-drawer layout-drawer" layout="5ff40d2f36ae4e5ea1bc96b2e2fcf67e===header" data-origin="top" aria-hidden="true" inert=""> <div class="u_1762021488 dmRespRow" style="text-align: center;" id="1762021488"> <div class="dmRespColsWrapper" id="1025921079"> <div class="u_1906644311 dmRespCol small-12 medium-12 large-12 empty-column" id="1906644311"></div> 
+</div> 
+</div> 
+ <div class="u_1769620316 dmRespRow middleDrawerRow" style="text-align: center;" id="1769620316"> <div class="dmRespColsWrapper" id="1778556260"> <div class="dmRespCol small-12 u_1035589126 medium-12 large-12" id="1035589126"> <div class="u_1484009939 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1484009939" editablewidget="true"><img src="https://lirp.cdn-website.com/9b555e4f/dms3rep/multi/opt/Energix+Renewables+Logo-1920w.png" alt="" id="1338329879" class="" data-dm-image-path="https://irp.cdn-website.com/9b555e4f/dms3rep/multi/Energix+Renewables+Logo.png" width="650" height="162" onerror="handleImageLoadError(this)"></div> 
+ <nav class="u_1389313332 effect-bottom2 main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="vertical_nav_layout_2" layout-sub="" data-show-vertical-sub-items="HIDE" id="1389313332" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-logo-src="" alt="" data-nav-structure="VERTICAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item dmUDNavigationItem_00 currentPage dmNavItemSelected" target="" data-target-page-alias="" aria-current="page" data-auto="selected-page" tabindex="0"> <span class="nav-item-text " data-link-text="
+         Home
+        " data-auto="page-text-style">Home<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/about" class="unifiednav__item dmUDNavigationItem_010101725468 unifiednav__item_has-sub-nav" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         About
+        " data-auto="page-text-style">About<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/projects" class="unifiednav__item dmUDNavigationItem_010101842831" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Projects" data-auto="page-text-style">Projects<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/about#OurMission" class="unifiednav__item dmUDNavigationItem_010101308350" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Our Mission" data-auto="page-text-style">Our Mission<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/values" class="unifiednav__item dmUDNavigationItem_010101114467" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Our Values" data-auto="page-text-style">Our Values<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/energix-group" class="unifiednav__item dmUDNavigationItem_010101730172" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Energix group" data-auto="page-text-style">Energix group<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/our-impact" class="unifiednav__item dmUDNavigationItem_010101604890 unifiednav__item_has-sub-nav" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="Our Impact" data-auto="page-text-style">Our Impact<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/esg" class="unifiednav__item dmUDNavigationItem_010101541742" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="ESG" data-auto="page-text-style">ESG<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/community-members-" class="unifiednav__item dmUDNavigationItem_010101120340" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Community Benefits" data-auto="page-text-style">Community Benefits<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/landowners-" class="unifiednav__item dmUDNavigationItem_010101760035 unifiednav__item_has-sub-nav" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="Landowners" data-auto="page-text-style">Landowners<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/community-partners-" class="unifiednav__item dmUDNavigationItem_010101627280" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Partnerships" data-auto="page-text-style">Partnerships<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/landowners-#Landowners_anch" class="unifiednav__item dmUDNavigationItem_010101706205 unifiednav__item_has-sub-nav" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Landowners" data-auto="page-text-style">Landowners<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="1" data-auto="sub-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="2"> <a href="/landowners-#LandownerBenefits" class="unifiednav__item dmUDNavigationItem_010101329308" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Landowner Benefits" data-auto="page-text-style">Landowner Benefits<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="2"> <a href="/landowners-#LandownerTestimonials" class="unifiednav__item dmUDNavigationItem_010101401557" target="" data-target-page-alias="" tabindex="-1"> <span class="nav-item-text " data-link-text="Landowner Testimonials" data-auto="page-text-style">Landowner Testimonials<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/media8d94544e" class="unifiednav__item dmUDNavigationItem_010101307217" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="News" data-auto="page-text-style">News<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/learn-more-" class="unifiednav__item dmUDNavigationItem_010101859848" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="Panel Technology" data-auto="page-text-style">Panel Technology<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/careers-" class="unifiednav__item dmUDNavigationItem_010101507318" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="Careers" data-auto="page-text-style">Careers<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/contact-" class="unifiednav__item dmUDNavigationItem_010101441259" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="Contact" data-auto="page-text-style">Contact<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/faqs" class="unifiednav__item dmUDNavigationItem_010101882120" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="FAQs" data-auto="page-text-style">FAQs<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1930716232" style="text-align: center;" id="1930716232"> <div class="dmRespColsWrapper" id="1645715154"> <div class="u_1677635007 dmRespCol small-12 medium-12 large-12" id="1677635007"> <div class="u_1639775894 align-center text-align-center dmSocialHub gapSpacing" id="1639775894" dmle_extension="social_hub" data-element-type="social_hub" wr="true" networks="" icon="true" surround="true" adwords=""> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="https://www.linkedin.com/company/energixrenewables" target="_blank" dm_dont_rewrite_url="true" aria-label="linkedin" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Linkedin')"> <span class="dmSocialLinkedin icon-linkedin oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://www.facebook.com/energixUS" target="_blank" dm_dont_rewrite_url="true" aria-label="facebook" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Facebook')"> <span class="dmSocialFacebook dm-social-icons-facebook oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://twitter.com/Energix_US" target="_blank" dm_dont_rewrite_url="true" aria-label="twitter" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Twitter')"> <span class="dmSocialTwitter dm-social-icons-twitter oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="layout-drawer-overlay" id="layout-drawer-overlay"></div> 
+</div> 
+ <div class="site_content"> <div id="hamburger-header-container" class="showOnMedium hamburger-header-container p_hfcontainer"> <div id="hamburger-header" class="hamburger-header p_hfcontainer" layout="44dc38f951e9489490b055748e10ba9f===header"> <div class="u_1705692124 dmRespRow" style="text-align: center;" id="1705692124"> <div class="dmRespColsWrapper" id="1469942216"> <div class="dmRespCol small-12 u_1655486006 medium-12 large-12" id="1655486006"> <div class="u_1923160809 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1923160809" editablewidget="true"> <a href="/" id="1573522578" file="false"><img src="https://lirp.cdn-website.com/9b555e4f/dms3rep/multi/opt/Energix+Renewables+Logo-1920w.png" id="1761992403" class="" data-dm-image-path="https://irp.cdn-website.com/9b555e4f/dms3rep/multi/Energix+Renewables+Logo.png" width="650" height="162" onerror="handleImageLoadError(this)"></a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <button class="showOnMedium layout-drawer-hamburger hamburger-on-header" id="layout-drawer-hamburger" aria-label="menu" aria-controls="hamburger-drawer" aria-expanded="false"> <span class="hamburger__slice"></span> 
+ <span class="hamburger__slice"></span> 
+ <span class="hamburger__slice"></span> 
+</button> 
+ <div class="dmHeaderContainer fHeader d-header-wrapper showOnLarge"> <div id="hcontainer" class="u_hcontainer dmHeader p_hfcontainer" freeheader="true" headerlayout="b58ba5b5703b4cd7b5f5f7951565dc87===horizontal-layout-5" layout="78f5c343822e4eb3aac27f4ad5d13812===header"> <div dm:templateorder="85" class="dmHeaderResp dmHeaderStack noSwitch" id="1709005236"> <div class="dmRespRow dmDefaultListContentRow u_1141235344 fullBleedChanged fullBleedMode" style="text-align:center" id="1141235344"> <div class="dmRespColsWrapper" id="1469945078"> <div class="u_1496652054 small-12 dmRespCol large-2 medium-2" id="1496652054"> <div class="u_1285929724 imageWidget align-center" data-widget-type="image" id="1285929724" data-element-type="image" editablewidget="true"> <a href="/" id="1151872232"><img src="https://lirp.cdn-website.com/9b555e4f/dms3rep/multi/opt/Energix+Renewables+Logo-210w.png" id="1098438256" class="" data-dm-image-path="https://irp.cdn-website.com/9b555e4f/dms3rep/multi/Energix+Renewables+Logo.png" width="650" height="162" onerror="handleImageLoadError(this)"></a> 
+</div> 
+</div> 
+ <div class="u_1214912393 dmRespCol small-12 large-8 medium-8" id="1214912393"> <nav class="u_1670813867 effect-bottom2 main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_1" layout-sub="submenu_horizontal_1" data-show-vertical-sub-items="HOVER" id="1670813867" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-nav-structure="HORIZONTAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/community-partners-" class="unifiednav__item unifiednav__item_has-sub-nav" target="" data-target-page-alias="community-partners-" tabindex="0"> <span class="nav-item-text " data-link-text="Partnerships" data-auto="page-text-style">Partnerships<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages" style=""> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/projects" class="unifiednav__item" target="" data-target-page-alias="projects" tabindex="-1"> <span class="nav-item-text " data-link-text="Projects" data-auto="page-text-style">Projects<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/about#OurMission" class="unifiednav__item" target="" data-target-page-alias="about#OurMission" tabindex="-1"> <span class="nav-item-text " data-link-text="Our Mission" data-auto="page-text-style">Our Mission<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/values" class="unifiednav__item" target="" data-target-page-alias="values" tabindex="-1"> <span class="nav-item-text " data-link-text="Our Values" data-auto="page-text-style">Our Values<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/energix-group" class="unifiednav__item" target="" data-target-page-alias="energix-group" tabindex="-1"> <span class="nav-item-text " data-link-text="Energix group" data-auto="page-text-style">Energix group<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/our-impact" class="unifiednav__item unifiednav__item_has-sub-nav" target="" data-target-page-alias="our-impact" tabindex="0"> <span class="nav-item-text " data-link-text="Our Impact" data-auto="page-text-style">Our Impact<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages" style=""> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/esg" class="unifiednav__item" target="" data-target-page-alias="esg" tabindex="-1"> <span class="nav-item-text " data-link-text="ESG" data-auto="page-text-style">ESG<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/community-members-" class="unifiednav__item" target="" data-target-page-alias="community-members-" tabindex="-1"> <span class="nav-item-text " data-link-text="Community Benefits" data-auto="page-text-style">Community Benefits<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="#" class="unifiednav__item unifiednav__item_has-sub-nav" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="Stakeholders" data-auto="page-text-style">Stakeholders<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages" style=""> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/community-partners-" class="unifiednav__item" target="" data-target-page-alias="community-partners-" tabindex="-1"> <span class="nav-item-text " data-link-text="Partnerships" data-auto="page-text-style">Partnerships<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/landowners-" class="unifiednav__item unifiednav__item_has-sub-nav" target="" data-target-page-alias="landowners-" tabindex="-1"> <span class="nav-item-text " data-link-text="Landowners" data-auto="page-text-style">Landowners<span class="icon icon-angle-right"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="1" data-auto="sub-pages" style=""> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="2"> <a href="/landowners-#LandownerBenefits" class="unifiednav__item" target="" data-target-page-alias="landowners-#LandownerBenefits" tabindex="-1"> <span class="nav-item-text " data-link-text="Landowner Benefits" data-auto="page-text-style">Landowner Benefits<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="2"> <a href="/landowners-#LandownerTestimonials" class="unifiednav__item" target="" data-target-page-alias="landowners-#LandownerTestimonials" tabindex="-1"> <span class="nav-item-text " data-link-text="Landowner Testimonials" data-auto="page-text-style">Landowner Testimonials<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/media8d94544e" class="unifiednav__item" target="" data-target-page-alias="media8d94544e" tabindex="0"> <span class="nav-item-text " data-link-text="News" data-auto="page-text-style">News<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" data-sub-nav-menu="true" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="#" class="unifiednav__item unifiednav__item_has-sub-nav" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="Learn More" data-auto="page-text-style">Learn More<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages" style=""> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="1"> <a href="/learn-more-" class="unifiednav__item" target="" data-target-page-alias="learn-more-" tabindex="-1"> <span class="nav-item-text " data-link-text="Panel Technology" data-auto="page-text-style">Panel Technology<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/faqs" class="unifiednav__item" target="" data-target-page-alias="faqs" tabindex="0"> <span class="nav-item-text " data-link-text="FAQs" data-auto="page-text-style">FAQs<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/careers-" class="unifiednav__item" target="" data-target-page-alias="careers-" tabindex="0"> <span class="nav-item-text " data-link-text="Careers" data-auto="page-text-style">Careers<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/contact-" class="unifiednav__item" target="" data-target-page-alias="contact-" tabindex="0"> <span class="nav-item-text " data-link-text="Contact" data-auto="page-text-style">Contact<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+ <div class="u_1339975338 dmRespCol small-12 large-2 medium-2" id="1339975338"> <div class="u_1672845341 align-center text-align-center dmSocialHub gapSpacing" id="1672845341" dmle_extension="social_hub" data-element-type="social_hub" extractelementdata="true" wr="true" networks="" icon="true" surround="true" adwords=""> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="https://www.linkedin.com/company/energixus/" target="_blank" dm_dont_rewrite_url="true" aria-label="linkedin" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Linkedin')"> <span class="dmSocialLinkedin icon-linkedin oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://www.facebook.com/EnergixRenewables" target="_blank" dm_dont_rewrite_url="true" aria-label="facebook" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Facebook')"> <span class="dmSocialFacebook dm-social-icons-facebook oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://twitter.com/Energix_US" target="_blank" dm_dont_rewrite_url="true" aria-label="twitter" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Twitter')"> <span class="dmSocialTwitter dm-social-icons-twitter oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://energix-group.com/" target="_blank" dm_dont_rewrite_url="true" aria-label="Social network" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Custom1')"> <span class="dmSocialCustom1 oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"> <path d="M50,15.7c-18.9,0-34.3,15.4-34.3,34.3S31.1,84.3,50,84.3c18.9,0,34.3-15.4,34.3-34.3S68.9,15.7,50,15.7z M82,48.9H67.7
+	c-0.1-6-1.5-11.7-3.8-16.9c3-1.3,5.7-3.1,8.2-5.2C78,32.4,81.7,40.2,82,48.9z M51.1,19c4.1,3.2,7.4,7.2,9.8,11.9
+	c-3.1,1.1-6.4,1.8-9.8,1.9V19z M53.5,18.1c6.4,0.7,12.3,3.3,17,7.2c-2.3,1.9-4.8,3.5-7.5,4.7C60.6,25.5,57.4,21.4,53.5,18.1z
+	 M48.9,19v13.7c-3.4-0.1-6.6-0.8-9.8-1.9C41.5,26.3,44.8,22.2,48.9,19z M37.1,30c-2.7-1.2-5.2-2.8-7.5-4.7c4.7-3.9,10.6-6.5,17-7.2
+	C42.6,21.4,39.4,25.5,37.1,30z M48.9,35v13.9H34.5c0.1-5.7,1.4-11.1,3.6-16C41.6,34.2,45.2,34.9,48.9,35z M48.9,51.1v14.8
+	c-3.6,0.1-7.1,0.8-10.4,2c-2.4-5.1-3.8-10.8-3.9-16.7H48.9z M48.9,68.1V81c-3.8-3-7-6.8-9.4-11.1C42.5,68.8,45.7,68.2,48.9,68.1z
+	 M46.5,81.9c-6.2-0.7-11.8-3.1-16.5-6.8c2.3-1.8,4.7-3.3,7.4-4.4C39.8,74.9,42.8,78.8,46.5,81.9z M51.1,81V68.1
+	c3.2,0.1,6.4,0.7,9.4,1.8C58.1,74.2,54.9,78,51.1,81z M62.6,70.6c2.6,1.1,5.1,2.6,7.4,4.4c-4.6,3.7-10.3,6.1-16.4,6.8
+	C57.2,78.8,60.2,74.9,62.6,70.6z M51.1,65.9V51.1h14.3c-0.2,6-1.5,11.7-3.9,16.7C58.2,66.7,54.7,66,51.1,65.9z M51.1,48.9V35
+	c3.7-0.1,7.3-0.8,10.7-2.1c2.2,4.9,3.5,10.3,3.6,16H51.1z M27.9,26.8c2.5,2.1,5.3,3.9,8.2,5.2c-2.3,5.2-3.6,10.9-3.8,16.9H18
+	C18.3,40.2,22,32.4,27.9,26.8z M18,51.1h14.3c0.2,6.3,1.6,12.2,4.1,17.6c-2.9,1.3-5.6,2.9-8.1,4.9C22.2,68,18.3,60,18,51.1z
+	 M71.6,73.6c-2.5-2-5.2-3.7-8.1-4.9c2.5-5.3,3.9-11.3,4.1-17.6H82C81.7,60,77.8,68,71.6,73.6z"></path> 
+</svg> 
+</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent" role="main"> <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl dmRespRowsWrapperSize1" id="1716942098"> <div data-layout-section="" data-auto="flex-section" id="1400734065" data-flex-id="cb969a66"> <div class="flex-widgets-container" id="1527768565"></div> 
+ <section id="117aead0" class="flex-element section" data-auto="flex-element-section"> <div id="9ad50b0d" class="flex-element grid" data-auto="flex-element-grid" data-layout-grid=""> <div id="7535a5ce" class="flex-element group" data-auto="flex-element-group"> <div id="172513d5" class="flex-element group" data-auto="flex-element-group"> <div id="widget_2tr" class="flex-element widget-wrapper" data-auto="flex-element-widget-wrapper" data-widget-type="paragraph" data-external-id="1157582218"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1157582218" style=""> <h1 style="letter-spacing: -0.05em; line-height: 1.2;" class="size-72 m-size-32"><span style="font-weight:500;display:unset;font-family:Quicksand, 'Quicksand Fallback';" class="font-size-72 m-font-size-32" m-font-size-set="true">Our Vision:</span><span class="font-size-72 m-font-size-32" style="font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';"> <span style="font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';" class="font-size-72 m-font-size-32" m-font-size-set="true">A Breakthrough</span> 
+</span><span style="color:var(--color_2);font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';" class="font-size-72 m-font-size-32" m-font-size-set="true">Green Utility</span><span class="font-size-72 m-font-size-32" style="font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';"><span style="font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';" class="font-size-72 m-font-size-32" m-font-size-set="true">, Committed To Our Future On The</span> 
+</span><span style="color:var(--color_1);font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';" class="font-size-72 m-font-size-32" m-font-size-set="true">Planet.</span></h1> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</section> 
+</div> 
+ <div data-layout-section="" data-auto="flex-section" id="1857645817" data-flex-id="4e3dd127"> <div class="flex-widgets-container" id="1167379084"></div> 
+ <section id="bcb47b25" class="flex-element section" data-auto="flex-element-section"> <div id="88563d3f" class="flex-element grid" data-auto="flex-element-grid" data-layout-grid=""> <div id="ab338979" class="flex-element group" data-auto="flex-element-group"> <div id="41c74260" class="flex-element group hasExtraLayerOverlay relativePos" data-auto="flex-element-group" data-video-bg-url="https://vid.cdn-website.com/9b555e4f/videos/FA7ZQckARdS6W0RCfx12_Untitled-v.mp4" data-video-bg-mobile="true" data-video-bg="eyJzcmMiOiJodHRwczovL3ZpZC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvdmlkZW9zL0ZBN1pRY2tBUmRTNlcwUkNmeDEyX1VudGl0bGVkLXYubXA0IiwiaWQiOiJodHRwczovL3ZpZC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvdmlkZW9zL0ZBN1pRY2tBUmRTNlcwUkNmeDEyX1VudGl0bGVkLXYubXA0IiwicHJvdmlkZXIiOiJjZG4iLCJlbWJlZCI6Imh0dHBzOi8vdmlkLmNkbi13ZWJzaXRlLmNvbS85YjU1NWU0Zi92aWRlb3MvRkE3WlFja0FSZFM2VzBSQ2Z4MTJfVW50aXRsZWQtdi5tcDQiLCJyYXRpbyI6MC41NjI1LCJ0aHVtYm5haWwiOiJodHRwczovL2lycC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvZG1zM3JlcC9tdWx0aS9GQTdaUWNrQVJkUzZXMFJDZngxMl9VbnRpdGxlZC52Mi4wMDAwMDAwLmpwZyIsInN1cHBvcnRCZ09uTW9iaWxlIjp0cnVlLCJzdXBwb3J0QmdMb29wIjp0cnVlLCJ2aWRlb1VybCI6Imh0dHBzOi8vdmlkLmNkbi13ZWJzaXRlLmNvbS85YjU1NWU0Zi92aWRlb3MvRkE3WlFja0FSZFM2VzBSQ2Z4MTJfVW50aXRsZWQtdi5tcDQiLCJwb3N0ZXIiOiJodHRwczovL2lycC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvZG1zM3JlcC9tdWx0aS9GQTdaUWNrQVJkUzZXMFJDZngxMl9VbnRpdGxlZC52Mi4wMDAwMDAwLmpwZyJ9" data-video-init="true"> <div class="videobgwrapper video-ssr" data-ratio="0.5625"> <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="videobgframe" poster="https://lirp.cdn-website.com/9b555e4f/dms3rep/multi/opt/FA7ZQckARdS6W0RCfx12_Untitled.v2.0000000-1920w.jpg" src="https://vid.cdn-website.com/9b555e4f/videos/FA7ZQckARdS6W0RCfx12_Untitled-v.mp4" style="object-position: 50% 50%" id="videobgframe-41c74260"></video> 
+</div> 
+ <div class="bgExtraLayerOverlay"></div> 
+</div> 
+ <div id="edccd13f" class="flex-element group" data-auto="flex-element-group"> <div id="innergrid_lf0" class="flex-element inner-grid" data-auto="flex-element-inner-grid"> <div id="widget_5uf" class="flex-element widget-wrapper" data-auto="flex-element-widget-wrapper" data-widget-type="paragraph" data-external-id="1216977605"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1216977605" style=""><p class="m-size-18 text-align-left size-18" style=""><span class="m-font-size-18 font-size-18" m-font-size-set="true" style="font-weight:600;display:unset;font-family:'Nunito Sans';">Energix Renewables</span><span single-space="true" class="m-font-size-18 font-size-18" style="display: unset;"> <span class="m-font-size-18 font-size-18" style="display: unset;"></span> 
+</span><span class="m-font-size-18 font-size-18" style="display: unset;" m-font-size-set="true">is an independent power producer (IPP) that develops, constructs, owns and operates renewable energy projects across the United States. Headquartered in Arlington, Virginia, Energix Renewables is one of the leading solar energy producers in the Mid-Atlantic.</span></p></div> 
+</div> 
+ <div id="group_uqd" class="flex-element group" data-auto="flex-element-group"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</section> 
+</div> 
+ <div class="dmRespRow u_1909880278" id="1909880278"> <div class="dmRespColsWrapper" id="1443378276"> <div class="u_1080723002 dmRespCol small-12 medium-12 large-12" id="1080723002"> <div class="u_1341301439 dmRespRow" id="1341301439" mode="1"> <div class="dmRespColsWrapper" id="1643587324"> <div class="u_1174474054 dmRespCol small-12 large-4 medium-4 running-animation-JM0YGZO6" id="1174474054" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJ2aWV3cG9ydCIsImFuaW1hdGlvbiI6Inpvb21JbkNvbWJvIiwicmV2ZXJzZSI6ZmFsc2UsImludGVuc2l0eSI6MC40LCJ2aWV3cG9ydFRocmVzaG9sZHMiOnsidG9wIjoiMjglIiwiYm90dG9tIjoiMzYlIn0sImRlbGF5IjowLCJkdXJhdGlvbiI6MSwiZGlyIjoiaW4tcGxhY2UifX0=" style="opacity: 1; transform: scale(1, 1); visibility: visible !important;"> <div class="u_1885174737 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1885174737" style="text-align: left;" data-dashlane-rid="2d46ff6bb4f4cd89"> <h2 class="text-align-center"><span style="display: initial; color: var(--color_2);">17</span></h2> 
+</div> 
+ <div class="u_1268497393 dmDividerWrapper clearfix" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1268497393"><hr class="dmDivider" style="border-width:2px; border-top-style:solid; color:grey;" id="1349454225"></div> 
+ <div class="u_1204296019 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1204296019" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center"><span style="display: initial;">operational projects</span></p></div> 
+</div> 
+ <div class="u_1595097394 dmRespCol small-12 large-4 medium-4 running-animation-JM3EDTTZ" id="1595097394" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJ2aWV3cG9ydCIsImFuaW1hdGlvbiI6Inpvb21JbiIsImludGVuc2l0eSI6MC40LCJyZXZlcnNlIjpmYWxzZSwidmlld3BvcnRUaHJlc2hvbGRzIjp7InRvcCI6IjI4JSIsImJvdHRvbSI6IjM2JSJ9fX0=" style="opacity: 1; transform: scale(1, 1); visibility: visible !important;"> <div class="u_1027376194 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1027376194" style="text-align: left; transition: none 0s ease 0s;"> <h2 class="text-align-center size-56 m-size-45"><span style="color: var(--color_2); display: initial;" class="font-size-56 m-font-size-45">&nbsp;$1.5 Billion +</span></h2> 
+</div> 
+ <div class="u_1492136821 dmDividerWrapper clearfix" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1492136821"><hr class="dmDivider" style="border-width:2px; border-top-style:solid; color:grey;" id="1739974729"></div> 
+ <div class="u_1774500753 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1774500753" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="text-align-center"><span style="display: initial;">invested in the United States</span></p></div> 
+</div> 
+ <div class="u_1716685161 dmRespCol small-12 large-4 medium-4 running-animation-JM4HZ3UV" id="1716685161" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJ2aWV3cG9ydCIsImFuaW1hdGlvbiI6Inpvb21JbiIsImludGVuc2l0eSI6MC40LCJyZXZlcnNlIjpmYWxzZSwidmlld3BvcnRUaHJlc2hvbGRzIjp7InRvcCI6IjI4JSIsImJvdHRvbSI6IjM2JSJ9fX0=" style="opacity: 1; transform: scale(1, 1); visibility: visible !important;"> <div class="u_1753464054 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1753464054" style="text-align: left; transition: none 0s ease 0s;"> <h2 class="text-align-center"><span style="display: initial; color: var(--color_2);">&nbsp;&gt; 100K</span></h2> 
+</div> 
+ <div class="u_1232821010 dmDividerWrapper clearfix" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1232821010"><hr class="dmDivider" style="border-width:2px; border-top-style:solid; color:grey;" id="1408691226"></div> 
+ <div class="u_1114166682 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1114166682" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="text-align-center"><span style="display: initial;">homes powered</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1725138600 dmRespRow" id="1725138600" mode="1" data-anim-desktop="none" style="visibility: visible !important;"> <div class="dmRespColsWrapper" id="1346817288"> <div class="u_1459453418 dmRespCol small-12 large-4 medium-4 running-animation-JM5BEK36" id="1459453418" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJ2aWV3cG9ydCIsImFuaW1hdGlvbiI6Inpvb21JbkNvbWJvIiwicmV2ZXJzZSI6ZmFsc2UsImludGVuc2l0eSI6MC40LCJ2aWV3cG9ydFRocmVzaG9sZHMiOnsidG9wIjoiNTQlIiwiYm90dG9tIjoiMjMlIn0sImRlbGF5IjowLCJkdXJhdGlvbiI6MSwiZGlyIjoiaW4tcGxhY2UifX0=" style="opacity: 1; transform: scale(1, 1); visibility: visible !important;"> <div class="u_1128954148 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1128954148" style="text-align: left; transition: none 0s ease 0s; display: block;" data-dashlane-rid="5be79444bc45ea53" data-dashlane-classification="identity"> <h2 class="text-align-center"><span class="" style="display: initial; color: var(--color_2);"><span style="display: initial; color: var(--color_2);">681</span> 
+</span><span style="display: initial; color: var(--color_2);" class="font-size-32 m-font-size-26">MW</span></h2> 
+</div> 
+ <div class="u_1292835020 dmDividerWrapper clearfix" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1292835020"><hr class="dmDivider" style="border-width:2px; border-top-style:solid; color:grey;" id="1609911817"></div> 
+ <div class="u_1864559224 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1864559224" style="transition: none 0s ease 0s; text-align: left;"><p class="text-align-center"><span style="display: initial;">in commercial operations</span></p></div> 
+</div> 
+ <div class="u_1253926360 dmRespCol small-12 large-4 medium-4 running-animation-JM6YGLV7" id="1253926360" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJ2aWV3cG9ydCIsImFuaW1hdGlvbiI6Inpvb21JbiIsImludGVuc2l0eSI6MC40LCJyZXZlcnNlIjpmYWxzZSwidmlld3BvcnRUaHJlc2hvbGRzIjp7InRvcCI6IjU0JSIsImJvdHRvbSI6IjIzJSJ9fX0=" style="opacity: 1; transform: scale(1, 1); visibility: visible !important;"> <div class="u_1052866929 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1052866929" style="text-align: left;"> <h2 class="text-align-center"><span class="" style="color: var(--color_2); display: initial;"><span style="color: var(--color_2); display: initial;">+6.5</span> 
+</span><span style="color: var(--color_2); display: initial;" class="m-font-size-26 font-size-32">GW</span></h2> 
+</div> 
+ <div class="u_1750016674 dmDividerWrapper clearfix" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1750016674"><hr class="dmDivider" style="border-width:2px; border-top-style:solid; color:grey;" id="1942111731"></div> 
+ <div class="u_1120605635 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1120605635" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="text-align-center"><span style="display: initial;">in development pipeline</span></p></div> 
+</div> 
+ <div class="u_1512572041 dmRespCol small-12 large-4 medium-4 running-animation-JM8YR3OF" id="1512572041" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJ2aWV3cG9ydCIsImFuaW1hdGlvbiI6Inpvb21JbiIsImludGVuc2l0eSI6MC40LCJyZXZlcnNlIjpmYWxzZSwidmlld3BvcnRUaHJlc2hvbGRzIjp7InRvcCI6IjU0JSIsImJvdHRvbSI6IjIzJSJ9fX0=" style="opacity: 1; transform: scale(1, 1); visibility: visible !important;"> <div class="u_1781820101 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1781820101" style="text-align: left;"> <h2 class="text-align-center"><span class="" style="display: initial; color: var(--color_2);"><span style="display: initial; color: var(--color_2);">413</span> 
+</span><span style="display: initial; color: var(--color_2);" class="font-size-32 m-font-size-26">GWH</span></h2> 
+</div> 
+ <div class="u_1279950185 dmDividerWrapper clearfix" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1279950185"><hr class="dmDivider" style="border-width:2px; border-top-style:solid; color:grey;" id="1404933746"></div> 
+ <div class="u_1264559819 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1264559819" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="text-align-center"><span style="display: initial;">of regional fossil fuels displaced</span></p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1935236279 dmRespRow mobile-columns-reversed" style="text-align: center;" id="1935236279"> <div class="dmRespColsWrapper" id="1953627953"> <div class="u_1467843437 dmRespCol small-12 large-8 medium-8 hasExtraLayerOverlay relativePos" id="1467843437" data-video-bg="eyJzcmMiOiJodHRwczovL3ZpZC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvdmlkZW9zL1JFT3U1ZWlLVFBtTVBsSEQzb2FIX0RKSV8wMDAzX2VkaXQzLXYubXA0IiwiaWQiOiJodHRwczovL3ZpZC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvdmlkZW9zL1JFT3U1ZWlLVFBtTVBsSEQzb2FIX0RKSV8wMDAzX2VkaXQzLXYubXA0IiwicHJvdmlkZXIiOiJjZG4iLCJlbWJlZCI6Imh0dHBzOi8vdmlkLmNkbi13ZWJzaXRlLmNvbS85YjU1NWU0Zi92aWRlb3MvUkVPdTVlaUtUUG1NUGxIRDNvYUhfREpJXzAwMDNfZWRpdDMtdi5tcDQiLCJyYXRpbyI6MC41NjI1LCJ0aHVtYm5haWwiOiJodHRwczovL2lycC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvZG1zM3JlcC9tdWx0aS9SRU91NWVpS1RQbU1QbEhEM29hSF9ESklfMDAwM19lZGl0My52Mi4wMDAwMDAwLmpwZyIsInN1cHBvcnRCZ09uTW9iaWxlIjp0cnVlLCJzdXBwb3J0QmdMb29wIjp0cnVlLCJwb3N0ZXIiOiJodHRwczovL2lycC5jZG4td2Vic2l0ZS5jb20vOWI1NTVlNGYvZG1zM3JlcC9tdWx0aS9SRU91NWVpS1RQbU1QbEhEM29hSF9ESklfMDAwM19lZGl0My52Mi4wMDAwMDAwLmpwZyJ9" data-video-bg-mobile="true" data-video-init="true"> <div class="videobgwrapper video-ssr" data-ratio="0.5625"> <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="videobgframe" poster="https://lirp.cdn-website.com/9b555e4f/dms3rep/multi/opt/REOu5eiKTPmMPlHD3oaH_DJI_0003_edit3.v2.0000000-1920w.jpg" src="https://vid.cdn-website.com/9b555e4f/videos/REOu5eiKTPmMPlHD3oaH_DJI_0003_edit3-v.mp4" style="object-position: 50% 50%" id="videobgframe-1467843437"></video> 
+</div> 
+ <div class="bgExtraLayerOverlay"></div> 
+ <div data-element-type="spacer" class="dmSpacer u_1037098335" id="1037098335"></div> 
+</div> 
+ <div class="u_1477098839 dmRespCol small-12 large-4 medium-4" id="1477098839"> <div class="u_1693424852 dmNewParagraph" id="1693424852" style="transition: none; display: block;" data-version="5"><p class="size-18 m-size-18"><span style="font-weight:600;display:initial;font-family:'Nunito Sans';" class="font-size-18 m-font-size-18" m-font-size-set="true">Energix Renewables</span><span class="font-size-18 m-font-size-18" style="display: initial;"> <span style="display: initial;" class="font-size-18 m-font-size-18" m-font-size-set="true">is a long-term partner for the communities in which we operate. We develop, construct, own and operate projects throughout their entire lifecycle, which makes us a reliable partner through every step of the process and a unique partner in the market.</span></span></p></div></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="u_fcontainer f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1943048428"> <div class="u_1348443530 dmRespRow fullBleedChanged fullBleedMode" style="text-align: center;" id="1348443530"> <div class="dmRespColsWrapper" id="1837774478"> <div class="u_1480516258 dmRespCol small-12 large-4 medium-4" id="1480516258"> <div class="u_1422873148 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1422873148" editablewidget="true"><img src="https://lirp.cdn-website.com/9b555e4f/dms3rep/multi/opt/Energix+Renewables+Logo_white-276w.png" id="1560280782" class="" data-dm-image-path="https://irp.cdn-website.com/9b555e4f/dms3rep/multi/Energix+Renewables+Logo_white.png" width="650" height="162" onerror="handleImageLoadError(this)"></div> 
+</div> 
+ <div class="u_1013500553 dmRespCol small-12 large-3 medium-3" id="1013500553"> <div class="u_1952851578 dmNewParagraph" id="1952851578" data-element-type="paragraph" style="transition: none 0s ease 0s; text-align: left; display: block;" data-version="5"><p class="m-size-12 size-14"><span style="display: initial; color: var(--color_8);" class="m-font-size-12 font-size-14" m-font-size-set="true">Energix US, LLC</span></p><p class="m-size-12 size-14"><span style="display: initial; color: var(--color_8);" class="m-font-size-12 font-size-14" m-font-size-set="true">1201 Wilson Blvd.</span></p><p class="m-size-12 size-14"><span style="display: initial; color: var(--color_8);" class="m-font-size-12 font-size-14" m-font-size-set="true">Suite 2200</span></p><p class="m-size-12 size-14"><span style="display: initial; color: var(--color_8);" class="m-font-size-12 font-size-14" m-font-size-set="true">Arlington, Virginia 22209</span></p></div></div> 
+ <div class="u_1579051338 dmRespCol small-12 large-3 medium-3" id="1579051338"> <div class="u_1671715610 dmNewParagraph" id="1671715610" data-element-type="paragraph" style="line-height:initial;" data-version="5"> <h5><span style="display: initial; color: var(--color_8);">Contact Us</span></h5> 
+</div> <div class="u_1939217968 dmNewParagraph" id="1939217968" style="display:block;line-height:initial;" data-element-type="paragraph" data-version="5"><p class="m-size-11 size-14"><span class="font-size-14 m-font-size-11" m-font-size-set="true" style="color: var(--color_8); display: initial;">(703) 373-7345 (phone)</span></p><p class="m-size-11 size-14"><span class="font-size-14 m-font-size-11" m-font-size-set="true" style="color: var(--color_8); display: initial;">(703) 373-7346 (fax)</span></p><p class="m-size-11 size-14" style="line-height: 1.5;"><span class="font-size-14 m-font-size-11" m-font-size-set="true" style="color: var(--color_8); display: initial;">info@energixrenewables.com</span></p><p style="line-height: 1.5;" class="size-14 m-size-11"><span class="font-size-14 m-font-size-11" style="display: initial; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);">Media inquiries : bianca.ruffin@energixrenewables.com</span></p><p style="line-height: 1.5;"><span style="display: initial; color: rgb(255, 255, 255);">(703) 472-7664</span></p></div></div> 
+ <div class="u_1803877166 dmRespCol small-12 large-2 medium-2" id="1803877166"> <div class="u_1393105257 align-center text-align-center dmSocialHub gapSpacing" id="1393105257" dmle_extension="social_hub" data-element-type="social_hub" wr="true" networks="" icon="true" surround="true" adwords=""> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="https://www.linkedin.com/company/energixus/" target="_blank" dm_dont_rewrite_url="true" aria-label="linkedin" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Linkedin')"> <span class="dmSocialLinkedin icon-linkedin oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://www.facebook.com/EnergixRenewables" target="_blank" dm_dont_rewrite_url="true" aria-label="facebook" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Facebook')"> <span class="dmSocialFacebook dm-social-icons-facebook oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://twitter.com/Energix_US" target="_blank" dm_dont_rewrite_url="true" aria-label="twitter" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Twitter')"> <span class="dmSocialTwitter dm-social-icons-twitter oneIcon socialHubIcon style5" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- loadCSS function fonts.jsp-->
+
+
+
+<link rel="stylesheet" href="https://irp.cdn-website.com/fonts/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Quicksand:ital,wght@0,300..700;1,300..700&amp;family=Epilogue:ital,wght@0,100..900;1,100..900&amp;family=Nunito+Sans:ital,wght@0,200..1000;1,200..1000&amp;subset=latin-ext&amp;display=swap" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link rel="stylesheet" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static.cdn-website.com/mnlt/production/6290/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" type="text/css">
+
+<!-- End of RT CSS Include -->
+
+<link rel="stylesheet" href="https://irp.cdn-website.com/WIDGET_CSS/af488b32635c84b76c687ae52f336499.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="https://irp.cdn-website.com/9b555e4f/files/9b555e4f_withFlex_1.min.css?v=46" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style id="additionalGlobalCss" type="text/css">
+</style>
+
+<!-- Page CSS -->
+<link rel="stylesheet" href="https://irp.cdn-website.com/9b555e4f/files/9b555e4f_home_withFlex_1.min.css?v=46" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-72, .size-72, .size-72 > font { font-size: 72px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-56, .size-56, .size-56 > font { font-size: 56px !important; }.font-size-32, .size-32, .size-32 > font { font-size: 32px !important; }.font-size-14, .size-14, .size-14 > font { font-size: 14px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_6290";
+    var build = "2026-03-19T11_48_29";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2026-03-19T11_48_29";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+<!-- Load jQuery -->
+<script type="text/javascript" id="d-js-jquery" src="https://static.cdn-website.com/libs/jquery/jquery-3.7.0.min.js"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+
+<!-- HEAD RT JS Include -->
+<script id="d-js-params">
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/6290';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/6290';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+    rtCommonProps["booking.cal.api.domain"] = 'api.cal.com';
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =false;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["flex.animation.design.panel.layout"] =true;
+    rtFlags["runtime.cwv.report.cls.enabled"] =false;
+    rtFlags["runtime.cwv.report.lcp.enabled"] =false;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["contact.form.custom.errors.enabled"] =false;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+    rtFlags["runtime.ssr.runtime.filter-sort.newFilterSortWidgetWithOptions.enabled"] =true;
+    rtFlags["runtime.ssr.ssrSlider.jumpThreshold.enabled"] =true;
+</script>
+<script src="https://static.cdn-website.com/mnlt/production/6290/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js" id="d-js-core"></script>
+<!-- End of HEAD RT JS Include -->
+<script src="https://static.cdn-website.com/mnlt/production/6290/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js"></script>
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript">
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: '9b555e4f'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+   
+
+
+<div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root" data-locale="en"></div>
+<!-- Alias: 9b555e4f -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+
+
+</body></html>

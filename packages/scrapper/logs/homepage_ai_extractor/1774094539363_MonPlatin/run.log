@@ -1,0 +1,71 @@
+[2026-03-21T12:02:19.364Z] === Homepage AI Extractor: MonPlatin ===
+[2026-03-21T12:02:19.364Z] Started at: 2026-03-21T12:02:19.364Z
+[2026-03-21T12:02:19.364Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774094539363_MonPlatin
+[2026-03-21T12:02:19.364Z] Company: MonPlatin
+[2026-03-21T12:02:19.364Z] Website: monplatin.com
+[2026-03-21T12:02:19.364Z] cbRank: 3324205
+[2026-03-21T12:02:19.364Z] Reasons: h
+[2026-03-21T12:02:19.364Z] Fetching: https://monplatin.com
+[2026-03-21T12:02:32.136Z] Network idle timeout — continuing with current state
+[2026-03-21T12:02:32.173Z] Redirected: https://monplatin.com -> https://monplatin.com/
+[2026-03-21T12:02:32.178Z] Saved HTML (133509 bytes) to page.html
+[2026-03-21T12:02:32.181Z] Extracted 138 unique links from page
+[2026-03-21T12:02:32.182Z] Saved 138 links to links.json
+[2026-03-21T12:02:32.184Z] Extracted footer HTML (20359 chars)
+[2026-03-21T12:02:32.184Z] Extracted header HTML (12720 chars)
+[2026-03-21T12:02:32.188Z] Website (post-redirect): https://monplatin.com/ → origin: https://monplatin.com
+[2026-03-21T12:02:32.188Z]   SUBDOMAIN: he.monplatin.com (added to ws)
+[2026-03-21T12:02:32.188Z]   SUBDOMAIN: ru.monplatin.com (added to ws)
+[2026-03-21T12:02:32.188Z] Website subdomains found: 2
+[2026-03-21T12:02:32.188Z] External links: 4 (of 138 total)
+[2026-03-21T12:02:32.188Z] ── All external links ──
+[2026-03-21T12:02:32.188Z]   EXT: http://www.sivan-group.net/?module=category&item_id=10
+[2026-03-21T12:02:32.189Z]   EXT: https://www.facebook.com/MonPlatinIsrael
+[2026-03-21T12:02:32.189Z]   EXT: https://www.instagram.com/monplatin_il
+[2026-03-21T12:02:32.189Z]   EXT: https://www.youtube.com/user/monplatinbroadcast
+[2026-03-21T12:02:32.189Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T12:02:32.189Z]   UNCATEGORIZED: http://www.sivan-group.net/?module=category&item_id=10
+[2026-03-21T12:02:32.189Z]   REGEX: fb <- https://www.facebook.com/MonPlatinIsrael
+[2026-03-21T12:02:32.189Z]   REGEX: ig <- https://www.instagram.com/monplatin_il
+[2026-03-21T12:02:32.189Z]   REGEX: ytp <- https://www.youtube.com/user/monplatinbroadcast
+[2026-03-21T12:02:32.189Z] Programmatic result: ws:3, fb:1, ig:1, ytp:1 | 1 uncategorized
+[2026-03-21T12:02:32.189Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T12:02:32.191Z] Saved AI prompt (10759 chars) to ai_prompt.txt
+[2026-03-21T12:02:32.191Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T12:02:32.195Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T12:03:26.695Z]   AI: First token received, streaming...
+[2026-03-21T12:03:29.596Z] AI response complete: 54 chars in 57.4s
+[2026-03-21T12:03:29.598Z] Saved AI response to ai_response.json
+[2026-03-21T12:03:29.598Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T12:03:29.598Z]   AI LINK: http://www.sivan-group.net/?module=category&item_id=10
+[2026-03-21T12:03:29.599Z] AI returned 1 valid links
+[2026-03-21T12:03:29.599Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T12:03:29.599Z]   AI→URLS: http://www.sivan-group.net (cleaned from http://www.sivan-group.net/?module=category&item_id=10)
+[2026-03-21T12:03:29.601Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T12:03:29.601Z] Footer/header origins (3):
+[2026-03-21T12:03:29.601Z]   FOOTER/HEADER ORIGIN: http://he.monplatin.com
+[2026-03-21T12:03:29.601Z]   FOOTER/HEADER ORIGIN: http://ru.monplatin.com
+[2026-03-21T12:03:29.601Z]   FOOTER/HEADER ORIGIN: http://www.monplatin.com
+[2026-03-21T12:03:29.601Z]   SKIP (AI claimed): http://www.sivan-group.net/?module=category&item_id=10
+[2026-03-21T12:03:29.601Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T12:03:29.601Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T12:03:29.601Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T12:03:29.601Z] ── Step 3: Final dedup ──
+[2026-03-21T12:03:29.601Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T12:03:29.601Z] ── FINAL RESULT ──
+[2026-03-21T12:03:29.601Z]   ws (3):
+[2026-03-21T12:03:29.601Z]     - https://he.monplatin.com
+[2026-03-21T12:03:29.602Z]     - https://monplatin.com
+[2026-03-21T12:03:29.602Z]     - https://ru.monplatin.com
+[2026-03-21T12:03:29.602Z]   fb (1):
+[2026-03-21T12:03:29.602Z]     - https://www.facebook.com/monplatinisrael
+[2026-03-21T12:03:29.602Z]   ig (1):
+[2026-03-21T12:03:29.602Z]     - https://www.instagram.com/monplatin_il
+[2026-03-21T12:03:29.602Z]   ytp (1):
+[2026-03-21T12:03:29.602Z]     - https://www.youtube.com/@monplatinbroadcast
+[2026-03-21T12:03:29.602Z]   urls (1):
+[2026-03-21T12:03:29.602Z]     - http://www.sivan-group.net
+[2026-03-21T12:03:29.602Z] Summary: ws:3, fb:1, ig:1, ytp:1, urls:1
+[2026-03-21T12:03:29.603Z] Saved final result to result.json
+[2026-03-21T12:03:29.603Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-21T12:03:29.603Z] Finished at: 2026-03-21T12:03:29.603Z

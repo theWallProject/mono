@@ -1,0 +1,632 @@
+<!DOCTYPE html><html lang="en"><head>
+        <title>Israel Tech Gate | Technology Scouting, Investment Deal Flow &amp; Open Innovation in Israel</title>
+        <meta name="keywords" content="Technology scouting, Israel Technology scouting, Investment deal flow, technology search, tech search, start-up scouting, Israel market access, technology scanning capabilities, strategic partnerships, innovations search, innovations scouting, innovations scouting in Israel, open innovation, open innovation Israel, business development, business development Israel, venture creation, startup fundraising">
+		<meta name="description" content="We create a bridge between investors, global enterprises, and breakthrough Israeli technologies to enable strategic growth through partnership and innovation.">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="canonical" href="https://www.israeltechgate.com/">
+        
+        <!-- Google Web Font Embed -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
+        
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template -->
+        <link href="js/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+        <link href="css/IsraelTechGate_style.css" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script src="https://www.wufoo.com/scripts/embed/form.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T02M14992B"></script>
+	<script>
+  	  window.dataLayer = window.dataLayer || [];
+  	  function gtag(){dataLayer.push(arguments);}
+  	  gtag('js', new Date());
+
+  	  gtag('config', 'G-T02M14992B');
+	</script>
+
+    <script>        
+    function submitToAPI(e) {
+       e.preventDefault();
+       var URL = "https://zht17d900f.execute-api.us-east-1.amazonaws.com/default/IsraelTechGareEmailFunction";
+        
+       var Namere = /[A-Za-z]{1}[A-Za-z]/;
+        if (!Namere.test($("#name-input").val())) {
+            alert ("Name can not less than 2 char");
+            return;
+        }
+        if ($("#email-input").val()=="") {
+            alert ("Please enter your email id");
+            return;
+        }
+        var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+        if (!reeamil.test($("#email-input").val())) {
+            alert ("Please enter valid email address");
+            return;
+        }
+        var name = $("#name-input").val();
+        var sub = $("#subject-input").val();
+        var email = $("#email-input").val();
+        var sourc = $("#source-input").val();
+        var desc = $("#description-input").val();
+        
+        var data = {
+            name : name,
+            sub : sub,
+            email : email,
+            sourc: sourc,
+            desc : desc
+        };
+
+        $.ajax({
+            type: "POST",
+            url : "https://zht17d900f.execute-api.us-east-1.amazonaws.com/default/IsraelTechGareEmailFunction",
+            dataType: "json",
+            crossDomain: "true",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+         
+            success: function () {
+                // clear form and show a success message
+                alert("E-mail sent. Thank you!");
+                document.getElementById("contact-form").reset();
+                location.reload();
+            },
+        
+            error: function () {
+                // show an error message
+                alert("There was an issue with sending the e-mail, please try again.");
+            }
+        });
+    }
+    </script>
+    </head>
+    
+    <body style="">
+
+        <!--   
+        <div class="IsraelTechGate-top-bar" id="IsraelTechGate-top">
+            <div class="container">
+                <div class="subheader">
+                    <div id="phone" class="pull-left">
+                            <img src="images/phone.png" alt="phone"/>
+                            090-080-0110
+                    </div>
+                    <div id="email" class="pull-right">
+                            <img src="images/email.png" alt="email"/>
+                            info@company.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+        <div class="IsraelTechGate-top-menu stuckMenu">
+            <div class="container">
+                <!-- Static navbar -->
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="navbar-default">
+	                        <a href="#" class="navbar-brand"><img src="images/Israel-Tech-Gate-Logo_small.png" alt="Israel Tech Gate" title="Israel Tech Gate" style="vertical-align: bottom"></a>
+                        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        		<span class="sr-only">Toggle navigation</span>
+                        		<span class="icon-bar"></span>
+                        		<span class="icon-bar"></span>
+                        		<span class="icon-bar"></span>
+                        	</button>
+                        </div>
+                        <div class="navbar-collapse collapse" id="IsraelTechGate-nav-bar">
+                            <ul class="nav navbar-nav navbar-right subheader" style="margin-top: 25px;">
+                                <li class="active"><a href="#IsraelTechGate-carousel">WELCOME</a></li>
+                                <li><a href="#IsraelTechGate-welcome">WHY ISRAEL?</a></li>
+                                <li><a href="#IsraelTechGate-blog">OUR SERVICES</a></li>
+                                <li><a href="#IsraelTechGate-service">FOCUS SECTORS</a></li>
+                                <li><a href="#IsraelTechGate-about">ABOUT US</a></li>
+                                <li><a href="#IsraelTechGate-contact">CONTACT</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div><!--/.container-fluid -->
+                </div><!--/.navbar -->
+            </div> <!-- /container -->
+        </div>
+        
+        <div>
+            <!-- Carousel -->
+            <div id="IsraelTechGate-carousel" class="carousel slide" data-ride="carousel">
+                         <div class="item">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                	<h1 style="text-align: CENTER">WELCOME TO YOUR GATEWAY TO INNOVATION IN ISRAEL</h1>
+                                    <p>We create a bridge between investors, global enterprises, and breakthrough Israeli technologies to enable strategic growth through partnership and innovation. </p>
+                                    <br class="clearfix">
+                                    <!--<p><a class="btn btn-lg btn-orange" href="#" role="button">Read More</a></p>-->
+									<div class="text-center"><a href="#"><img src="images/israeltechgate_logo_large.png" alt="Israel Tech Gate" title="Israel Tech Gate"></a></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div><!-- /#IsraelTechGate-carousel -->
+        
+
+        <div id="IsraelTechGate-welcome">
+            <div class="container">
+                <div class="IsraelTechGate-slogan">
+                    <span class="IsraelTechGate-txt_darkgrey">Why </span><span class="txt_orange" style="font-weight: 700">Israel?</span>
+                    <p class="IsraelTechGate-slogan-text">Israel is a home to one of the most highly educated, entrepreneurial and multicultural workforces in the world, international R&amp;D centres, cutting-edge technologies, products and services that impact lives and markets around the globe. Israel’s thriving startup industry and a flourishing business ecosystem have truly earned Israel the title of Startup Nation.</p>
+                </div>	
+                <div class="row" style="margin-top:20px;">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-1">
+                                <img src="images/quote.png" alt="icon">
+                        </div>
+                        <div class="col-md-7 tweet_txt">
+                                <br class="clearfix">
+                                <h4>The innovation going on in Israel is critical to the future of the technology business.</h4>
+                                <br class="clearfix">
+                                <h4 style="text-align: right">Bill Gates</h4>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                 </div><!-- /.row -->
+                 <br class="clearfix">
+                 <div class="IsraelTechGate-because">
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="IsraelTechGate-service-item">
+                            <div class="text-center">
+                                <img src="images/globe_ITG.png" alt="icon">
+				<br class="clearfix">
+                                <span class="IsraelTechGate-service-item-header">THRIVING ENTREPRENEURIAL SPIRIT</span>
+                            </div>
+                            <ul> 
+								<li>Israel invests heavily in education and research, spending <span style="color:#E39300; font-weight:bold">4.38%</span> of its GDP into R&amp;D, the highest percentage in the world [1].</li> 
+                            	<li>Israel is ranked <span style="color:#E39300; font-weight:bold">3rd</span> in the world for the quality of its scientific institutions [2].</li> 
+                            	<li>Israel is ranked <span style="color:#E39300; font-weight:bold">1st</span> in the world for innovative capacity and 1st in the world for entrepreneurship [3]. Israel has the highest concentration of high-tech companies in the world, apart from Silicon Valley.</li> 
+                            </ul>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="IsraelTechGate-service-item">
+                            <div class="text-center">
+                                <img src="images/globe_ITG.png" alt="icon">
+				<br class="clearfix">
+                                <span class="IsraelTechGate-service-item-header">PIONEERING TECHNOLOGIES</span>
+                            </div>
+                            <ul> 
+								<li>Israel is ranked <span style="color:#E39300; font-weight:bold">1st</span> in the world for its central bank policy and 4th for the resilience of its economy [5].</li> 
+                            	<li>Israel is ranked 6th for investor protection out of 148 economies [6].</li> 
+								<li>In 2009, as most of the world experienced economic crisis, Israel saw a 1.1% GDP growth and by the third quarter of 2013 had already leaped to <span style="color:#E39300; font-weight:bold">4.9%</span> [7]. </li> 
+                            </ul>
+                            <br class="clearfix">
+                        </div> 
+                        <div class="clearfix"></div>                       
+                    </div>
+               </div><!--row-->
+               <div class="row">    
+                    <div class="col-md-6">
+                        <div class="IsraelTechGate-service-item">
+                            <div class="text-center">
+                                <img src="images/globe_ITG.png" alt="icon">
+				<br class="clearfix">
+                                <span class="IsraelTechGate-service-item-header">RESILIENT ECONOMY and GOVERNMENT SUPPORT</span>
+                            </div>
+                            <ul> 
+								<li>The close ties between academia, industry, and government enable scientific innovation to be swiftly translated into profitable business initiatives. Israel reaches <span style="color:#E39300; font-weight:bold">$25B</span> in technological exports annually [4].</li> 
+								<li>With <span style="color:#E39300; font-weight:bold">1000+</span> of innovation startups per year Israel is leading the future of business in: Media &amp; Internet, Cyber Security, WaterTech, AgriTech, Health &amp; Life Sciences, FinTech and other sectors.</li> 
+								<li>In 2015 Israeli startups generated <span style="color:#E39300; font-weight:bold">$7.2B</span> in M&amp;A. </li> 
+                            </ul>
+                            <br class="clearfix">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="IsraelTechGate-service-item">
+                            <div class="text-center">
+                                <img src="images/globe_ITG.png" alt="icon">
+				<br class="clearfix">
+                                <span class="IsraelTechGate-service-item-header">INVESTMENT OPPORTUNITIES</span>
+                            </div>
+                            <ul> 
+								<li><span style="color:#E39300; font-weight:bold">300+</span> multinational companies such as Microsoft, Motorola, Google, Apple, Facebook, Berkshire-Hathaway, Intel, HP, Siemens, GE, IBM, Toshiba and Cisco use Israel as an international hub for their innovation, operations and investment.</li> 
+								<li>Israel's flourishing venture capital market totals <span style="color:#E39300; font-weight:bold">$1B</span> [4]. Israel is ranked 9th for venture capital availability out of 148 economies [6].</li> 
+                            	<li>State of Israel encourages international and local investment by offering grants and tax related benefits. </li> 
+                            </ul>
+                            <br class="clearfix">
+                        </div> 
+                        <div class="clearfix"></div>                       
+                    </div>
+                </div><!--row--> 
+                <div class="col-md-6">
+                	<p>Sources:</p>
+					<p>[1] OECD Science, Technology and Industry Scoreboard 2013</p>
+					<p>[2] WEF Global Competitiveness Yearbook, 2014-2015</p>
+					<p>[3] IMD Global Competitiveness Yearbook 2014</p>
+				</div>
+				<div class="col-md-6">
+					<p>[4] MIT Technological Review</p>
+					<p>[5] IMD 2013</p>
+					<p>[6] WEF 2014-2015</p>
+					<p>[7] Israeli Ministry of Finance</p>
+				</div><!--IsraelTechGate-because-->
+           	    <div class="clearfix"></div>  
+            </div><!--container-->
+        </div> <!--IsraelTechGate-welcome-->
+        
+        <div id="IsraelTechGate-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="IsraelTechGate-line-header" style="margin-top: 50px">
+                        <div class="text-center">
+							<p class="span_blog" style="font-size: 42px">OUR <strong>SERVICES</strong></p>
+                            <hr class="team_hr">
+                        </div>
+                    </div>
+                </div>                
+                <div class="IsraelTechGate-blog-intro">
+                    <p>Our services include, but are not limited to, searching for potential partners and breakthrough technologies based on the client’s specific goal, screening opportunities and facilitating the deal process. We also offer an in-depth analysis of the Israeli startup landscape for investment opportunities, providing our clients with the hands-on interface to their partners in Israel.</p>
+                </div>
+                
+                <div class="blog_box">
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-2">
+                                    <img class="img-responsive" src="images/globe_ITG.png" alt="IsraelTechGate">
+                            </li>
+                            <li class="col-md-10">
+                                <div class="pull-left">
+                                    <span class="blog_header">BUSINESS DEVELOPMENT, SCOUTING and OPEN INNOVATION</span><br>
+                                </div>
+                                <div class="pull-right"> </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                    On behalf of our clients, we search for potential partners, investment opportunities and breakthrough technologies based on the client’s specific goal, screening opportunities and facilitating the deal process.
+                                </p>
+                            </li>
+                        </ul>
+                    </div> <!-- /.blog_post 1 -->
+                    
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-2">
+                                    <img class="img-responsive" src="images/globe_ITG.png" alt="IsraelTechGate">
+                            </li>
+                            <li class="col-md-10">
+                                <div class="pull-left">
+                                    <span class="blog_header">VENTURE CREATION &amp; FUNDRAISING</span><br>
+                                </div>
+                                <div class="pull-right"> </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                    We team up with entrepreneurs to jointly build and fund exciting high-tech companies, contributing our business experience, track record, rich network with Venture Capital investors, and extensive experience in fundraising.
+                                </p>
+                            </li>
+                        </ul>
+                    </div> <!-- /.blog_post 2 -->   
+                    
+                    <div class="IsraelTechGate_clear"></div>
+                    
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-2">
+                                <img class="img-responsive" src="images/globe_ITG.png" alt="IsraelTechGate">
+                            </li>
+                            <li class="col-md-10">
+                                <div class="pull-left">
+                                    <span class="blog_header">INVESTMENT DEAL FLOW</span><br>
+                                </div>
+                                <div class="pull-right"> </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                        We provide our financial/strategic investor clients with deal flow of Israeli investment opportunities tailored to their investment criteria.
+                                </p>
+                            </li>
+                        </ul>	
+                    </div><!-- /.blog_post 3 -->
+                    
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-2">
+                                    <img class="img-responsive" src="images/globe_ITG.png" alt="IsraelTechGate">
+                            </li>
+                            <li class="col-md-10">
+                                <div class="pull-left">
+                                    <span class="blog_header">SPONSORED RESEARCH</span><br>
+                                </div>
+                                <div class="pull-right"> </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                    We identify leading Israeli researchers who are capable of addressing your specific technological challenges.
+                                </p>
+                            </li>
+                        </ul>
+                    </div> <!-- /.blog_post 4 -->
+                    
+                    <div class="IsraelTechGate_clear"></div>
+                    
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-2">
+                                    <img class="img-responsive" src="images/globe_ITG.png" alt="IsraelTechGate">
+                            </li>
+                            <li class="col-md-10">
+                                <div class="pull-left">
+                                    <span class="blog_header">MERGERS &amp; ACQUISITIONS</span><br>
+                                </div>
+                                <div class="pull-right"> </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                    We assist our clients in identifying potential candidates for M&amp;A in Israel.
+                                </p>
+                            </li>
+                        </ul>
+                    </div> <!-- /.blog_post 5 -->     
+
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-2">
+                                <img class="img-responsive" src="images/globe_ITG.png" alt="IsraelTechGate">
+                            </li>
+                            <li class="col-md-10">
+                                <div class="pull-left">
+                                    <span class="blog_header">STRATEGIC PARTNERSHIPS</span><br>
+                                </div>
+                                <div class="pull-right"> </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                        We assist our clients in identifying potential Israeli candidates for strategic partnerships.
+                                </p>
+                            </li>
+                        </ul>	
+                    </div><!-- /.blog_post 6 -->
+                                      
+                </div>
+            </div>
+        </div>       
+        
+        <div id="IsraelTechGate-service">
+            <div class="container">
+               <div class="row">
+                    <div class="IsraelTechGate-line-header" style="margin-top: 40px">
+                        <div class="text-center">
+							<p class="span_blog" style="font-size: 42px"><strong>FOCUS</strong> SECTORS</p>
+                            <hr class="team_hr">
+                        </div>
+                    </div>
+                </div> 
+                <div class="IsraelTechGate-service-text">
+                    <p>We specialize in Financial Technologies (FinTech), Artificial Intelligence, Cyber Security, Internet of Things, Biotech &amp; Medical Technologies, FoodTech, Digital Marketing, Energy &amp; Cleantech, Telecommunications, Digital Advertising, Autonomous Vehicles, Retail Technologies, Manufacturing Technologies as well as other Information Technology sectors.</p>
+                    <br class="clearfix">
+                    <div class="member-thumb">
+                		<img src="images/Techologic-Fields.png" class="img-responsive" alt="Israel Tech Gate">
+                	</div>  
+                </div>                       
+            </div>
+        </div>
+        
+         <div class="IsraelTechGate-tweets">
+           <div class="tweet-overlay">
+            <div class="container">
+                <div class="row" style="margin-top:20px;">
+                        <div class="col-md-2">
+                        </div>                        
+                        <div class="col-md-1">
+                                <img src="images/quote.png" alt="icon">
+                        </div>
+                        <div class="col-md-7 tweet_txt">
+                                <br class="clearfix">
+                                <span>Israel is a wellspring of knowledge and skill as well as a fascinating place offering unlimited opportunity.</span>
+                                <br>
+                                <span class="twitter_user">LI Ka-shing</span>
+                        </div>                        
+                        <div class="col-md-2">
+                        </div>					
+                 </div><!-- /.row -->
+            </div><!-- /.container -->
+            </div><!-- /.tweet-overlay -->
+        </div>
+
+        <div class="IsraelTechGate-team" id="IsraelTechGate-about">
+            <div class="container">
+                <div class="row">              
+                    <div class="IsraelTechGate-line-header" style="margin-top: 50px">
+                        <div class="text-center">
+							<p class="span_blog" style="font-size: 42px">WHY <strong>US</strong></p>
+                            <hr class="team_hr">
+                        </div>
+                    </div>               
+                	<div class="IsraelTechGate-team-intro">
+                    	<p>Our team combines deep industry understanding and technology expertise, gained through management and engineering positions at Israel's leading industrial companies, as well as significant venture capital investment experience. Our clients benefit from the first-hand access to relevant solutions and opportunities through the company’s extensive network in local industrial, technological, academic and investment communities.</p> 
+                		<br class="clearfix">
+						<h2><span style="font-weight: 400">OUR</span> LEADERSHIP</h2>
+               		</div> 
+                </div><!--row-->
+                <div class="clearfix"> </div>
+                <div class="IsraelTechGate-team-intro">   
+                    <ul class="row row_team">
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/eran_yarkoni.jpg" class="img-responsive" alt="Eran Yarkoni">
+                                    <div class="thumb-overlay">
+                                        <a rel="nofollow" href="https://www.linkedin.com/in/yarkoni" class="external-link" target="_blank"><span class="social-icon-linkedin"></span></a>
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">ERAN YARKONI</p>
+                                    <p class="team-inner-subtext">CEO and Co-Founder</p>
+                                    <p class="team-inner-subtext">ISRAEL</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-9 col-md-9 col-sm-9 ">
+                			<div>
+                   				<p class="about_text">Eran is venture capital investor, serial entrepreneur and high-tech executive. He has a wealth of hands-on experience in starting, financing and growing technology ventures. Eran was the CEO of CyOptics inc, acquired by Avago for &gt;$400M and CEO/co-founder of EnStorage, a developer of utility-scale energy storage systems. Eran was CEO of Capital Nature, an investor in early-stage renewable energy technology ventures, and Venture partner in Israel Seed Partners, a $250M venture capital firm. Eran was held various senior management positions at Intel Corporation’s Pentium Processor and Networking divisions. Eran likes cycling and skiing around the world.</p> 
+               				</div> 
+                       		<br class="clearfix">
+                       		<br class="clearfix">
+                       		<br class="clearfix">
+				<br class="clearfix">                       		
+                        </li>
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/marina_lomberg.jpg" class="img-responsive" alt="Marina Lomberg">
+                                    <div class="thumb-overlay">
+                                        <a rel="nofollow" href="https://www.linkedin.com/in/marinalomberg" class="external-link" target="_blank"><span class="social-icon-linkedin"></span></a>
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">MARINA LOMBERG</p>
+                                    <p class="team-inner-subtext">Co-Founder and MD </p>
+                                    <p class="team-inner-subtext">UK</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-9 col-md-9 col-sm-9 ">
+                			<div>
+                    				<p class="about_text">Marina holds a PhD in Renewable Energies from Imperial College London. Having been trained as a materials engineer she gained hands-on experience in cutting-edge technologies while working in Intel (Israel) and later as a post-doctorate at Imperial College London. Innovations have always been an important part of her career. A natural connector and a creative thinker, Marina focuses on innovation led strategic partnerships. She facilitates cross-industrial connections, which help businesses to grow by exploiting new ideas and solutions. Equally, the extensive network of partners allows her to drive innovation through raising funds for startups. Marina enjoys snowboarding, yoga, arts and behavioral economics.</p> 
+               				</div> 
+                        </li>                                              
+                    </ul>
+				</div><!--team-intro-->
+            </div>
+        </div><!-- /.IsraelTechGate-team -->
+
+        <div id="IsraelTechGate-contact">
+            <div class="container">
+                <div class="row">
+                  	<div class="IsraelTechGate-line-header" style="margin-top: 50px">
+                        <div class="text-center">
+							<p class="span_blog" style="font-size: 42px"><strong>CONTACT</strong> US</p>
+                            <hr class="team_hr">
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-md-8">
+                        <div class="IsraelTechGate-contact-map" id="map-canvas"> </div>  
+                        <div class="clearfix"></div>
+                        <i>You can find us on ... <span class="txt_orange">.</i>
+                    </div>
+                    -->                 
+                    <div class="contact_box">  
+                        <div class="col-md-12 contact_right">
+                            <!--
+                            <p><img src="images/location.png" alt="icon 1" /> 80 Studio, Street, Estate</p>
+                            <p><img src="images/phone1.png"  alt="icon 2" /> 000-000-0000</p>
+                            <p><img src="images/globe.png" alt="icon 3" /><a class="link_orange" href="#"><span class="txt_orange">www.company.com</span></a></p>
+                            -->
+                            <!--      
+                            <div id="wufoo-r11efrje0jfphkq">
+                                Fill out my <a href="https://madvlad.wufoo.com/forms/r11efrje0jfphkq">online form</a>.
+                            </div>
+                            -->                                     
+                                <form id="contact-form" method="post" class="form-horizontal">
+                                    <div class="form-group">
+                                        <input id="name-input" type="text" class="form-control" placeholder="Name" maxlength="40">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="subject-input" type="text" class="form-control" placeholder="Subject" maxlength="80">
+                                    </div>                                    
+                                    <div class="form-group">
+                                        <input id="email-input" type="email" class="form-control" placeholder="E-mail" maxlength="40">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="source-input" type="text" class="form-control" placeholder="How did you hear about us?" maxlength="80">
+                                    </div>                                                                   
+                                    <div class="form-group">
+                                        <textarea id="description-input" class="form-control" style="height: 130px;" placeholder="Message text"></textarea>
+                                    </div>
+                                    <button type="submit" onclick="submitToAPI(event)" class="btn btn-orange pull-right">SEND</button>
+                                    <br class="clearfix">
+                                </form>                                                      	
+                        </div>
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /#IsraelTechGate-contact -->
+
+        <div class="IsraelTechGate-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center">
+                        <!--
+                        <div class="footer_container">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#">
+                                        <span class="social-icon-fb"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="social-icon-rss"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="social-icon-twitter"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="social-icon-linkedin"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="social-icon-dribbble"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        -->
+                        <div class="footer_bottom_content">
+                            <div class="height30"></div>
+                            	<a class="btn btn-lg btn-orange" href="#">Back To Top</a>
+                            <div class="height30"></div>
+                   			<span id="footer-line">Copyright © IsraelTechGate, 2023 </span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/stickUp.min.js" type="text/javascript"></script>
+        <script src="js/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+        <script src="js/IsraelTechGate_script.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">var r11efrje0jfphkq;(function(d, t) {
+							var s = d.createElement(t), options = {
+								'userName':'madvlad',
+								'formHash':'r11efrje0jfphkq',
+								'autoResize':true,
+								'height':'618',
+								'async':true,
+								'host':'wufoo.com',
+								'header':'show',
+								'ssl':true};
+							s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+							s.onload = s.onreadystatechange = function() {
+								var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+								try { r11efrje0jfphkq = new WufooForm();r11efrje0jfphkq.initialize(options);r11efrje0jfphkq.display(); } catch (e) {}};
+							var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+						})(document, 'script');
+		</script>
+    
+</div><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;callback=initialize"></script></body></html>

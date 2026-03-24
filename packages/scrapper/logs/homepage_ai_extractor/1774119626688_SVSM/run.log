@@ -1,0 +1,54 @@
+[2026-03-21T19:00:26.688Z] === Homepage AI Extractor: SVSM ===
+[2026-03-21T19:00:26.689Z] Started at: 2026-03-21T19:00:26.689Z
+[2026-03-21T19:00:26.689Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774119626688_SVSM
+[2026-03-21T19:00:26.689Z] Company: SVSM
+[2026-03-21T19:00:26.689Z] Website: svsm.co.il
+[2026-03-21T19:00:26.689Z] cbRank: 3693534
+[2026-03-21T19:00:26.689Z] Reasons: h
+[2026-03-21T19:00:26.689Z] Fetching: https://svsm.co.il
+[2026-03-21T19:00:39.248Z] Redirected: https://svsm.co.il -> https://www.svsm.co.il/
+[2026-03-21T19:00:39.255Z] Saved HTML (225647 bytes) to page.html
+[2026-03-21T19:00:39.259Z] Extracted 27 unique links from page
+[2026-03-21T19:00:39.260Z] Saved 27 links to links.json
+[2026-03-21T19:00:39.263Z] Extracted footer HTML (12956 chars)
+[2026-03-21T19:00:39.263Z] Extracted header HTML (7187 chars)
+[2026-03-21T19:00:39.270Z] Website (post-redirect): https://www.svsm.co.il/ → origin: https://www.svsm.co.il
+[2026-03-21T19:00:39.270Z] External links: 2 (of 27 total)
+[2026-03-21T19:00:39.270Z] ── All external links ──
+[2026-03-21T19:00:39.270Z]   EXT: https://il.linkedin.com/company/simon-vekslar-spierer-maoz-co
+[2026-03-21T19:00:39.270Z]   EXT: https://www.accessible.org.il/?utm_source=svsm&utm_medium=svsm&utm_campaign=svsm
+[2026-03-21T19:00:39.270Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T19:00:39.270Z]   REGEX: li <- https://il.linkedin.com/company/simon-vekslar-spierer-maoz-co
+[2026-03-21T19:00:39.271Z]   UNCATEGORIZED: https://www.accessible.org.il/?utm_source=svsm&utm_medium=svsm&utm_campaign=svsm
+[2026-03-21T19:00:39.271Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-21T19:00:39.271Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T19:00:39.271Z] Saved AI prompt (8994 chars) to ai_prompt.txt
+[2026-03-21T19:00:39.272Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T19:00:39.275Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T19:01:31.667Z]   AI: First token received, streaming...
+[2026-03-21T19:01:35.235Z] AI response complete: 61 chars in 56.0s
+[2026-03-21T19:01:35.236Z] Saved AI response to ai_response.json
+[2026-03-21T19:01:35.236Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T19:01:35.237Z]   AI LINK: https://il.linkedin.com/company/simon-vekslar-spierer-maoz-co
+[2026-03-21T19:01:35.237Z] AI returned 1 valid links
+[2026-03-21T19:01:35.237Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T19:01:35.237Z]   AI→REGEX: li <- https://il.linkedin.com/company/simon-vekslar-spierer-maoz-co (duplicate, skipped)
+[2026-03-21T19:01:35.238Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T19:01:35.238Z] Footer/header origins (2):
+[2026-03-21T19:01:35.238Z]   FOOTER/HEADER ORIGIN: https://www.svsm.co.il
+[2026-03-21T19:01:35.238Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-21T19:01:35.238Z]   SKIP (not in footer/header): https://www.accessible.org.il/?utm_source=svsm&utm_medium=svsm&utm_campaign=svsm
+[2026-03-21T19:01:35.238Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T19:01:35.238Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T19:01:35.238Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T19:01:35.239Z] ── Step 3: Final dedup ──
+[2026-03-21T19:01:35.239Z] No urls to dedup
+[2026-03-21T19:01:35.239Z] ── FINAL RESULT ──
+[2026-03-21T19:01:35.239Z]   ws (1):
+[2026-03-21T19:01:35.239Z]     - https://www.svsm.co.il
+[2026-03-21T19:01:35.239Z]   li (1):
+[2026-03-21T19:01:35.239Z]     - https://www.linkedin.com/company/simon-vekslar-spierer-maoz-co
+[2026-03-21T19:01:35.239Z] Summary: ws:1, li:1
+[2026-03-21T19:01:35.240Z] Saved final result to result.json
+[2026-03-21T19:01:35.241Z] Override fields: ws, li
+[2026-03-21T19:01:35.241Z] Finished at: 2026-03-21T19:01:35.241Z

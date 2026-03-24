@@ -1,0 +1,88 @@
+[2026-03-24T00:07:58.512Z] === Homepage AI Extractor: Cartridge ===
+[2026-03-24T00:07:58.512Z] Started at: 2026-03-24T00:07:58.512Z
+[2026-03-24T00:07:58.512Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774310878511_Cartridge
+[2026-03-24T00:07:58.512Z] Company: Cartridge
+[2026-03-24T00:07:58.512Z] Website: cartridge.gg
+[2026-03-24T00:07:58.512Z] cbRank: 54412
+[2026-03-24T00:07:58.512Z] Reasons: i
+[2026-03-24T00:07:58.512Z] Fetching: https://cartridge.gg
+[2026-03-24T00:07:59.382Z] Redirected: https://cartridge.gg -> https://cartridge.gg/
+[2026-03-24T00:07:59.397Z] Saved HTML (647155 bytes) to page.html
+[2026-03-24T00:07:59.401Z] Extracted 20 unique links from page
+[2026-03-24T00:07:59.402Z] Saved 20 links to links.json
+[2026-03-24T00:07:59.409Z] Extracted footer HTML (5024 chars)
+[2026-03-24T00:07:59.409Z] Extracted header HTML (2578 chars)
+[2026-03-24T00:07:59.412Z] Website (post-redirect): https://cartridge.gg/ → origin: https://cartridge.gg
+[2026-03-24T00:07:59.412Z]   SUBDOMAIN: docs.cartridge.gg (added to ws)
+[2026-03-24T00:07:59.412Z] Website subdomains found: 1
+[2026-03-24T00:07:59.412Z] External links: 7 (of 20 total)
+[2026-03-24T00:07:59.412Z] ── All external links ──
+[2026-03-24T00:07:59.412Z]   EXT: https://discord.gg/cartridge
+[2026-03-24T00:07:59.412Z]   EXT: https://dojoengine.org
+[2026-03-24T00:07:59.412Z]   EXT: https://drive.google.com/drive/folders/17d2vaLK4mgykiApD30x-DjK385XjqAbx?usp=drive_link
+[2026-03-24T00:07:59.412Z]   EXT: https://github.com/cartridge-gg
+[2026-03-24T00:07:59.412Z]   EXT: https://github.com/cartridge-gg/slot
+[2026-03-24T00:07:59.413Z]   EXT: https://t.me/dojoengine
+[2026-03-24T00:07:59.413Z]   EXT: https://x.com/cartridge_gg
+[2026-03-24T00:07:59.413Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:07:59.413Z]   UNCATEGORIZED: https://discord.gg/cartridge
+[2026-03-24T00:07:59.413Z]   UNCATEGORIZED: https://dojoengine.org
+[2026-03-24T00:07:59.413Z]   UNCATEGORIZED: https://drive.google.com/drive/folders/17d2vaLK4mgykiApD30x-DjK385XjqAbx?usp=drive_link
+[2026-03-24T00:07:59.413Z]   REGEX: gh <- https://github.com/cartridge-gg
+[2026-03-24T00:07:59.413Z]   REGEX: gh <- https://github.com/cartridge-gg/slot (duplicate, skipped)
+[2026-03-24T00:07:59.413Z]   UNCATEGORIZED: https://t.me/dojoengine
+[2026-03-24T00:07:59.413Z]   REGEX: tw <- https://x.com/cartridge_gg
+[2026-03-24T00:07:59.413Z] Programmatic result: ws:2, gh:1, tw:1 | 4 uncategorized
+[2026-03-24T00:07:59.413Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:07:59.416Z] Saved AI prompt (4299 chars) to ai_prompt.txt
+[2026-03-24T00:07:59.416Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:07:59.420Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:08:14.085Z]   AI: First token received, streaming...
+[2026-03-24T00:08:20.358Z] AI response complete: 111 chars in 20.9s
+[2026-03-24T00:08:20.359Z] Saved AI response to ai_response.json
+[2026-03-24T00:08:20.360Z] ── Parsing AI response (4 lines) ──
+[2026-03-24T00:08:20.360Z]   AI LINK: https://discord.gg/cartridge
+[2026-03-24T00:08:20.360Z]   AI LINK: https://x.com/cartridge_gg
+[2026-03-24T00:08:20.360Z]   AI LINK: https://github.com/cartridge-gg
+[2026-03-24T00:08:20.360Z]   AI LINK: https://t.me/dojoengine
+[2026-03-24T00:08:20.360Z] AI returned 4 valid links
+[2026-03-24T00:08:20.361Z] ── Categorizing 4 AI-returned links ──
+[2026-03-24T00:08:20.361Z]   AI→URLS: https://discord.gg/cartridge
+[2026-03-24T00:08:20.361Z]   AI→REGEX: tw <- https://x.com/cartridge_gg (duplicate, skipped)
+[2026-03-24T00:08:20.361Z]   AI→REGEX: gh <- https://github.com/cartridge-gg (duplicate, skipped)
+[2026-03-24T00:08:20.361Z]   AI→URLS: https://t.me/dojoengine
+[2026-03-24T00:08:20.362Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:08:20.362Z] Footer/header origins (7):
+[2026-03-24T00:08:20.362Z]   FOOTER/HEADER ORIGIN: https://docs.cartridge.gg
+[2026-03-24T00:08:20.363Z]   FOOTER/HEADER ORIGIN: https://dojoengine.org
+[2026-03-24T00:08:20.363Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-24T00:08:20.363Z]   FOOTER/HEADER ORIGIN: https://drive.google.com
+[2026-03-24T00:08:20.363Z]   FOOTER/HEADER ORIGIN: https://discord.gg
+[2026-03-24T00:08:20.363Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-24T00:08:20.363Z]   FOOTER/HEADER ORIGIN: https://t.me
+[2026-03-24T00:08:20.363Z]   SKIP (AI claimed): https://discord.gg/cartridge
+[2026-03-24T00:08:20.363Z]   ADDED: urls <- https://dojoengine.org
+[2026-03-24T00:08:20.363Z]   ADDED: urls <- https://drive.google.com/drive/folders/17d2vaLK4mgykiApD30x-DjK385XjqAbx (cleaned from https://drive.google.com/drive/folders/17d2vaLK4mgykiApD30x-DjK385XjqAbx?usp=drive_link)
+[2026-03-24T00:08:20.363Z]   SKIP (AI claimed): https://t.me/dojoengine
+[2026-03-24T00:08:20.363Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-24T00:08:20.363Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:08:20.364Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:08:20.364Z] ── Step 3: Final dedup ──
+[2026-03-24T00:08:20.364Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-24T00:08:20.364Z] ── FINAL RESULT ──
+[2026-03-24T00:08:20.364Z]   ws (2):
+[2026-03-24T00:08:20.364Z]     - https://cartridge.gg
+[2026-03-24T00:08:20.364Z]     - https://docs.cartridge.gg
+[2026-03-24T00:08:20.364Z]   tw (1):
+[2026-03-24T00:08:20.364Z]     - https://x.com/cartridge_gg
+[2026-03-24T00:08:20.364Z]   gh (1):
+[2026-03-24T00:08:20.364Z]     - https://github.com/cartridge-gg
+[2026-03-24T00:08:20.364Z]   urls (4):
+[2026-03-24T00:08:20.364Z]     - https://discord.gg/cartridge
+[2026-03-24T00:08:20.365Z]     - https://dojoengine.org
+[2026-03-24T00:08:20.365Z]     - https://drive.google.com/drive/folders/17d2vaLK4mgykiApD30x-DjK385XjqAbx
+[2026-03-24T00:08:20.365Z]     - https://t.me/dojoengine
+[2026-03-24T00:08:20.365Z] Summary: ws:2, gh:1, tw:1, urls:4
+[2026-03-24T00:08:20.366Z] Saved final result to result.json
+[2026-03-24T00:08:20.366Z] Override fields: ws, tw, gh, urls
+[2026-03-24T00:08:20.366Z] Finished at: 2026-03-24T00:08:20.366Z

@@ -1,0 +1,60 @@
+[2026-03-21T12:15:20.718Z] === Homepage AI Extractor: CAST TIME ===
+[2026-03-21T12:15:20.718Z] Started at: 2026-03-21T12:15:20.718Z
+[2026-03-21T12:15:20.719Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774095320718_CAST_TIME
+[2026-03-21T12:15:20.719Z] Company: CAST TIME
+[2026-03-21T12:15:20.719Z] Website: casttime.com
+[2026-03-21T12:15:20.719Z] cbRank: 3336072
+[2026-03-21T12:15:20.719Z] Reasons: h
+[2026-03-21T12:15:20.719Z] Fetching: https://casttime.com
+[2026-03-21T12:15:25.634Z] Redirected: https://casttime.com -> https://casttime.com/
+[2026-03-21T12:15:25.640Z] Saved HTML (182187 bytes) to page.html
+[2026-03-21T12:15:25.643Z] Extracted 44 unique links from page
+[2026-03-21T12:15:25.644Z] Saved 44 links to links.json
+[2026-03-21T12:15:25.646Z] Extracted footer HTML (8132 chars)
+[2026-03-21T12:15:25.646Z] Extracted header HTML (21110 chars)
+[2026-03-21T12:15:25.649Z] Website (post-redirect): https://casttime.com/ → origin: https://casttime.com
+[2026-03-21T12:15:25.649Z] External links: 3 (of 44 total)
+[2026-03-21T12:15:25.650Z] ── All external links ──
+[2026-03-21T12:15:25.650Z]   EXT: http://www.linkedin.com/company/cast-time
+[2026-03-21T12:15:25.650Z]   EXT: https://fcasttime.ctedgecdn.net/wp-content/uploads/2023/07/CASTTIME-in-a-Nutshell-2023.pdf
+[2026-03-21T12:15:25.650Z]   EXT: https://peernap.io
+[2026-03-21T12:15:25.650Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T12:15:25.650Z]   REGEX: li <- http://www.linkedin.com/company/cast-time
+[2026-03-21T12:15:25.650Z]   UNCATEGORIZED: https://fcasttime.ctedgecdn.net/wp-content/uploads/2023/07/CASTTIME-in-a-Nutshell-2023.pdf
+[2026-03-21T12:15:25.650Z]   UNCATEGORIZED: https://peernap.io
+[2026-03-21T12:15:25.650Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-21T12:15:25.650Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T12:15:25.651Z] Saved AI prompt (6429 chars) to ai_prompt.txt
+[2026-03-21T12:15:25.651Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T12:15:25.655Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T12:15:52.292Z]   AI: First token received, streaming...
+[2026-03-21T12:15:53.479Z] AI response complete: 41 chars in 27.8s
+[2026-03-21T12:15:53.480Z] Saved AI response to ai_response.json
+[2026-03-21T12:15:53.481Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T12:15:53.481Z]   AI LINK: http://www.linkedin.com/company/cast-time
+[2026-03-21T12:15:53.481Z] AI returned 1 valid links
+[2026-03-21T12:15:53.481Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T12:15:53.481Z]   AI→REGEX: li <- http://www.linkedin.com/company/cast-time (duplicate, skipped)
+[2026-03-21T12:15:53.482Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T12:15:53.482Z] Footer/header origins (3):
+[2026-03-21T12:15:53.482Z]   FOOTER/HEADER ORIGIN: https://casttime.com
+[2026-03-21T12:15:53.482Z]   FOOTER/HEADER ORIGIN: https://peernap.io
+[2026-03-21T12:15:53.482Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-21T12:15:53.482Z]   SKIP (noise): https://fcasttime.ctedgecdn.net/wp-content/uploads/2023/07/CASTTIME-in-a-Nutshell-2023.pdf
+[2026-03-21T12:15:53.482Z]   ADDED: urls <- https://peernap.io
+[2026-03-21T12:15:53.482Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T12:15:53.483Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T12:15:53.483Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T12:15:53.483Z] ── Step 3: Final dedup ──
+[2026-03-21T12:15:53.483Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T12:15:53.483Z] ── FINAL RESULT ──
+[2026-03-21T12:15:53.483Z]   ws (1):
+[2026-03-21T12:15:53.483Z]     - https://casttime.com
+[2026-03-21T12:15:53.483Z]   li (1):
+[2026-03-21T12:15:53.483Z]     - https://www.linkedin.com/company/cast-time
+[2026-03-21T12:15:53.484Z]   urls (1):
+[2026-03-21T12:15:53.484Z]     - https://peernap.io
+[2026-03-21T12:15:53.484Z] Summary: ws:1, li:1, urls:1
+[2026-03-21T12:15:53.485Z] Saved final result to result.json
+[2026-03-21T12:15:53.485Z] Override fields: ws, li, urls
+[2026-03-21T12:15:53.485Z] Finished at: 2026-03-21T12:15:53.485Z

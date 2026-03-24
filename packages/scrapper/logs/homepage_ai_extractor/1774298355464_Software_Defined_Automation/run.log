@@ -1,0 +1,78 @@
+[2026-03-23T20:39:15.465Z] === Homepage AI Extractor: Software Defined Automation ===
+[2026-03-23T20:39:15.465Z] Started at: 2026-03-23T20:39:15.465Z
+[2026-03-23T20:39:15.465Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774298355464_Software_Defined_Automation
+[2026-03-23T20:39:15.465Z] Company: Software Defined Automation
+[2026-03-23T20:39:15.465Z] Website: softwaredefinedautomation.io
+[2026-03-23T20:39:15.466Z] cbRank: 16394
+[2026-03-23T20:39:15.466Z] Reasons: i
+[2026-03-23T20:39:15.466Z] Fetching: https://softwaredefinedautomation.io
+[2026-03-23T20:39:18.314Z] Redirected: https://softwaredefinedautomation.io -> https://www.softwaredefinedautomation.io/
+[2026-03-23T20:39:18.321Z] Saved HTML (252487 bytes) to page.html
+[2026-03-23T20:39:18.324Z] Extracted 42 unique links from page
+[2026-03-23T20:39:18.325Z] Saved 42 links to links.json
+[2026-03-23T20:39:18.328Z] Extracted footer HTML (19142 chars)
+[2026-03-23T20:39:18.328Z] Extracted header HTML (38399 chars)
+[2026-03-23T20:39:18.331Z] Website (post-redirect): https://www.softwaredefinedautomation.io/ → origin: https://www.softwaredefinedautomation.io
+[2026-03-23T20:39:18.332Z]   SUBDOMAIN: docs.softwaredefinedautomation.io (added to ws)
+[2026-03-23T20:39:18.332Z] Website subdomains found: 1
+[2026-03-23T20:39:18.332Z] External links: 4 (of 42 total)
+[2026-03-23T20:39:18.332Z] ── All external links ──
+[2026-03-23T20:39:18.332Z]   EXT: https://app.eu1.sdaconsole.io/auth/login
+[2026-03-23T20:39:18.332Z]   EXT: https://www.linkedin.com/company/software-defined-automation
+[2026-03-23T20:39:18.332Z]   EXT: https://www.youtube.com/channel/UCdSB6M7jXLRk2vI0R-K2Tmw
+[2026-03-23T20:39:18.332Z]   EXT: https://youtu.be/pU5QsBGisiE
+[2026-03-23T20:39:18.332Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:39:18.333Z]   UNCATEGORIZED: https://app.eu1.sdaconsole.io/auth/login
+[2026-03-23T20:39:18.333Z]   REGEX: li <- https://www.linkedin.com/company/software-defined-automation
+[2026-03-23T20:39:18.334Z]   REGEX: ytc <- https://www.youtube.com/channel/UCdSB6M7jXLRk2vI0R-K2Tmw
+[2026-03-23T20:39:18.334Z]   UNCATEGORIZED: https://youtu.be/pU5QsBGisiE
+[2026-03-23T20:39:18.334Z] Programmatic result: ws:2, li:1, ytc:1 | 2 uncategorized
+[2026-03-23T20:39:18.334Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:39:18.337Z] Saved AI prompt (3596 chars) to ai_prompt.txt
+[2026-03-23T20:39:18.338Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:39:18.341Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:39:28.931Z]   AI: First token received, streaming...
+[2026-03-23T20:39:39.261Z] AI response complete: 175 chars in 20.9s
+[2026-03-23T20:39:39.262Z] Saved AI response to ai_response.json
+[2026-03-23T20:39:39.263Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T20:39:39.263Z]   AI LINK: https://www.linkedin.com/company/software-defined-automation/
+[2026-03-23T20:39:39.263Z]   AI LINK: https://www.youtube.com/channel/UCdSB6M7jXLRk2vI0R-K2Tmw
+[2026-03-23T20:39:39.263Z]   AI LINK: https://www.softwaredefinedautomation.io/resources/blog/
+[2026-03-23T20:39:39.263Z] AI returned 3 valid links
+[2026-03-23T20:39:39.263Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T20:39:39.264Z]   AI→REGEX: li <- https://www.linkedin.com/company/software-defined-automation/ (duplicate, skipped)
+[2026-03-23T20:39:39.264Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCdSB6M7jXLRk2vI0R-K2Tmw (duplicate, skipped)
+[2026-03-23T20:39:39.264Z]   AI→URLS: https://www.softwaredefinedautomation.io/resources/blog (cleaned from https://www.softwaredefinedautomation.io/resources/blog/)
+[2026-03-23T20:39:39.265Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:39:39.265Z] Footer/header origins (5):
+[2026-03-23T20:39:39.265Z]   FOOTER/HEADER ORIGIN: https://www.softwaredefinedautomation.io
+[2026-03-23T20:39:39.265Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T20:39:39.266Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T20:39:39.266Z]   FOOTER/HEADER ORIGIN: http://docs.softwaredefinedautomation.io
+[2026-03-23T20:39:39.266Z]   FOOTER/HEADER ORIGIN: https://app.eu1.sdaconsole.io
+[2026-03-23T20:39:39.266Z]   ADDED: urls <- https://app.eu1.sdaconsole.io/auth/login
+[2026-03-23T20:39:39.266Z]   SKIP (not in footer/header): https://youtu.be/pU5QsBGisiE
+[2026-03-23T20:39:39.266Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T20:39:39.266Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:39:39.267Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T20:39:39.615Z]   YOUTUBE: resolved UCdSB6M7jXLRk2vI0R-K2Tmw → @softwaredefinedautomation
+[2026-03-23T20:39:39.615Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T20:39:39.615Z] ── Step 3: Final dedup ──
+[2026-03-23T20:39:39.615Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T20:39:39.615Z] ── FINAL RESULT ──
+[2026-03-23T20:39:39.616Z]   ws (2):
+[2026-03-23T20:39:39.616Z]     - https://docs.softwaredefinedautomation.io
+[2026-03-23T20:39:39.616Z]     - https://www.softwaredefinedautomation.io
+[2026-03-23T20:39:39.616Z]   li (1):
+[2026-03-23T20:39:39.616Z]     - https://www.linkedin.com/company/software-defined-automation
+[2026-03-23T20:39:39.616Z]   ytp (1):
+[2026-03-23T20:39:39.616Z]     - https://www.youtube.com/@softwaredefinedautomation
+[2026-03-23T20:39:39.616Z]   ytc (1):
+[2026-03-23T20:39:39.616Z]     - https://www.youtube.com/channel/UCdSB6M7jXLRk2vI0R-K2Tmw
+[2026-03-23T20:39:39.616Z]   urls (2):
+[2026-03-23T20:39:39.616Z]     - https://app.eu1.sdaconsole.io/auth/login
+[2026-03-23T20:39:39.616Z]     - https://www.softwaredefinedautomation.io/resources/blog
+[2026-03-23T20:39:39.616Z] Summary: ws:2, li:1, ytc:1, urls:2, ytp:1
+[2026-03-23T20:39:39.617Z] Saved final result to result.json
+[2026-03-23T20:39:39.617Z] Override fields: ws, li, ytp, ytc, urls
+[2026-03-23T20:39:39.617Z] Finished at: 2026-03-23T20:39:39.617Z

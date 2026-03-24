@@ -1,0 +1,69 @@
+[2026-03-22T05:24:16.613Z] === Homepage AI Extractor: Depanneo ===
+[2026-03-22T05:24:16.613Z] Started at: 2026-03-22T05:24:16.613Z
+[2026-03-22T05:24:16.613Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774157056612_Depanneo
+[2026-03-22T05:24:16.613Z] Company: Depanneo
+[2026-03-22T05:24:16.613Z] Website: depanneo.com
+[2026-03-22T05:24:16.613Z] cbRank: 128161
+[2026-03-22T05:24:16.613Z] Reasons: f
+[2026-03-22T05:24:16.613Z] Fetching: https://depanneo.com
+[2026-03-22T05:24:19.342Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-22T05:24:22.324Z] Redirected: https://depanneo.com -> https://www.depanneo.com/
+[2026-03-22T05:24:22.332Z] Saved HTML (214071 bytes) to page.html
+[2026-03-22T05:24:22.336Z] Extracted 174 unique links from page
+[2026-03-22T05:24:22.338Z] Saved 174 links to links.json
+[2026-03-22T05:24:22.341Z] Extracted footer HTML (8270 chars)
+[2026-03-22T05:24:22.341Z] Extracted header HTML (2978 chars)
+[2026-03-22T05:24:22.344Z] Website (post-redirect): https://www.depanneo.com/ → origin: https://www.depanneo.com
+[2026-03-22T05:24:22.344Z]   SUBDOMAIN: client.depanneo.com (added to ws)
+[2026-03-22T05:24:22.345Z] Website subdomains found: 1
+[2026-03-22T05:24:22.345Z] External links: 3 (of 174 total)
+[2026-03-22T05:24:22.345Z] ── All external links ──
+[2026-03-22T05:24:22.345Z]   EXT: https://www.facebook.com/depanneo
+[2026-03-22T05:24:22.345Z]   EXT: https://www.linkedin.com/company/depanneo
+[2026-03-22T05:24:22.345Z]   EXT: https://www.ou-serrurier.fr
+[2026-03-22T05:24:22.345Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T05:24:22.345Z]   REGEX: fb <- https://www.facebook.com/depanneo
+[2026-03-22T05:24:22.345Z]   REGEX: li <- https://www.linkedin.com/company/depanneo
+[2026-03-22T05:24:22.346Z]   UNCATEGORIZED: https://www.ou-serrurier.fr
+[2026-03-22T05:24:22.346Z] Programmatic result: ws:2, fb:1, li:1 | 1 uncategorized
+[2026-03-22T05:24:22.346Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T05:24:22.349Z] Saved AI prompt (5065 chars) to ai_prompt.txt
+[2026-03-22T05:24:22.349Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T05:24:22.353Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T05:24:43.630Z]   AI: First token received, streaming...
+[2026-03-22T05:24:48.915Z] AI response complete: 104 chars in 26.6s
+[2026-03-22T05:24:48.917Z] Saved AI response to ai_response.json
+[2026-03-22T05:24:48.917Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T05:24:48.917Z]   AI LINK: https://www.linkedin.com/company/depanneo
+[2026-03-22T05:24:48.917Z]   AI LINK: https://www.facebook.com/depanneo
+[2026-03-22T05:24:48.917Z]   AI LINK: https://client.depanneo.com/
+[2026-03-22T05:24:48.918Z] AI returned 3 valid links
+[2026-03-22T05:24:48.918Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T05:24:48.918Z]   AI→REGEX: li <- https://www.linkedin.com/company/depanneo (duplicate, skipped)
+[2026-03-22T05:24:48.918Z]   AI→REGEX: fb <- https://www.facebook.com/depanneo (duplicate, skipped)
+[2026-03-22T05:24:48.918Z]   AI→URLS: https://client.depanneo.com (cleaned from https://client.depanneo.com/)
+[2026-03-22T05:24:48.919Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T05:24:48.919Z] Footer/header origins (3):
+[2026-03-22T05:24:48.919Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T05:24:48.920Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T05:24:48.920Z]   FOOTER/HEADER ORIGIN: https://client.depanneo.com
+[2026-03-22T05:24:48.920Z]   SKIP (not in footer/header): https://www.ou-serrurier.fr
+[2026-03-22T05:24:48.920Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T05:24:48.920Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T05:24:48.920Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T05:24:48.920Z] ── Step 3: Final dedup ──
+[2026-03-22T05:24:48.920Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T05:24:48.921Z] ── FINAL RESULT ──
+[2026-03-22T05:24:48.921Z]   ws (2):
+[2026-03-22T05:24:48.921Z]     - https://client.depanneo.com
+[2026-03-22T05:24:48.921Z]     - https://www.depanneo.com
+[2026-03-22T05:24:48.921Z]   li (1):
+[2026-03-22T05:24:48.921Z]     - https://www.linkedin.com/company/depanneo
+[2026-03-22T05:24:48.922Z]   fb (1):
+[2026-03-22T05:24:48.922Z]     - https://www.facebook.com/depanneo
+[2026-03-22T05:24:48.922Z]   urls (1):
+[2026-03-22T05:24:48.922Z]     - https://client.depanneo.com
+[2026-03-22T05:24:48.922Z] Summary: ws:2, fb:1, li:1, urls:1
+[2026-03-22T05:24:48.923Z] Saved final result to result.json
+[2026-03-22T05:24:48.924Z] Override fields: ws, li, fb
+[2026-03-22T05:24:48.924Z] Finished at: 2026-03-22T05:24:48.924Z

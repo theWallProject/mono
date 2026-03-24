@@ -1,0 +1,1509 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="alternate" hreflang="en" href="https://www.ralco.co.il/en/">
+<link rel="alternate" hreflang="he" href="https://www.ralco.co.il">
+<link rel="alternate" hreflang="x-default" href="https://www.ralco.co.il">
+
+	<!-- This site is optimized with the Yoast SEO plugin v20.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>ראלקו בע"מ ישראל</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=hebrew&#038;display=swap" /></noscript>
+	<meta name="description" content="חברת ראלקו סוכנויות הינה מהחברות המובילות בארץ בתחומה. החברה מייבאת ומשווקת מוצרי חשמל ואלקטרוניקה לשימוש ביתי, מבית היוצר של שלוש יצרניות מהגדולות בעולם: ZANUSSI SHARP ו BLOMBERG">
+	<link rel="canonical" href="https://www.ralco.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="ראלקו בע&quot;מ ישראל">
+	<meta property="og:description" content="חברת ראלקו סוכנויות הינה מהחברות המובילות בארץ בתחומה. החברה מייבאת ומשווקת מוצרי חשמל ואלקטרוניקה לשימוש ביתי, מבית היוצר של שלוש יצרניות מהגדולות בעולם: ZANUSSI SHARP ו BLOMBERG">
+	<meta property="og:url" content="https://www.ralco.co.il/">
+	<meta property="og:site_name" content="ראלקו בע&quot;מ ישראל">
+	<meta property="article:publisher" content="https://www.facebook.com/officestyle.co.il/">
+	<meta property="article:modified_time" content="2025-10-27T11:11:24+00:00">
+	<meta property="og:image" content="https://www.ralco.co.il/wp-content/uploads/2020/04/21712_baner_2000x613.jpg">
+	<meta property="og:image:width" content="2000">
+	<meta property="og:image:height" content="613">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="זמן קריאה מוערך">
+	<meta name="twitter:data1" content="4 דקות">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.ralco.co.il/","url":"https://www.ralco.co.il/","name":"ראלקו בע&quot;מ ישראל","isPartOf":{"@id":"https://www.ralco.co.il/en/#website"},"about":{"@id":"https://www.ralco.co.il/en/#organization"},"primaryImageOfPage":{"@id":"https://www.ralco.co.il/#primaryimage"},"image":{"@id":"https://www.ralco.co.il/#primaryimage"},"thumbnailUrl":"https://www.ralco.co.il/wp-content/uploads/2020/04/21712_baner_2000x613.jpg","datePublished":"2016-02-17T07:27:57+00:00","dateModified":"2025-10-27T11:11:24+00:00","description":"חברת ראלקו סוכנויות הינה מהחברות המובילות בארץ בתחומה. החברה מייבאת ומשווקת מוצרי חשמל ואלקטרוניקה לשימוש ביתי, מבית היוצר של שלוש יצרניות מהגדולות בעולם: ZANUSSI SHARP ו BLOMBERG","breadcrumb":{"@id":"https://www.ralco.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://www.ralco.co.il/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://www.ralco.co.il/#primaryimage","url":"https://www.ralco.co.il/wp-content/uploads/2020/04/21712_baner_2000x613.jpg","contentUrl":"https://www.ralco.co.il/wp-content/uploads/2020/04/21712_baner_2000x613.jpg","width":2000,"height":613},{"@type":"BreadcrumbList","@id":"https://www.ralco.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"ראשי"}]},{"@type":"WebSite","@id":"https://www.ralco.co.il/en/#website","url":"https://www.ralco.co.il/en/","name":"ראלקו בע&quot;מ ישראל","description":"מוצרי חשמל ואלקטרוניקה","publisher":{"@id":"https://www.ralco.co.il/en/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.ralco.co.il/en/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"he-IL"},{"@type":"Organization","@id":"https://www.ralco.co.il/en/#organization","name":"ראלקו ישראל","url":"https://www.ralco.co.il/en/","logo":{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://www.ralco.co.il/en/#/schema/logo/image/","url":"https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png","contentUrl":"https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png","width":198,"height":195,"caption":"ראלקו ישראל"},"image":{"@id":"https://www.ralco.co.il/en/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/officestyle.co.il/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="ראלקו בע&quot;מ ישראל « פיד‏" href="https://www.ralco.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="ראלקו בע&quot;מ ישראל « פיד תגובות‏" href="https://www.ralco.co.il/comments/feed/">
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="jet-engine-frontend-css" href="https://www.ralco.co.il/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=3.1.5" media="all">
+<link rel="stylesheet" id="wpml-blocks-css" href="https://www.ralco.co.il/wp-content/plugins/sitepress-multilingual-cms/dist/css/blocks/styles.css?ver=4.6.3" media="all">
+<link rel="stylesheet" id="wpml-legacy-horizontal-list-0-css" href="//www.ralco.co.il/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css?ver=1" media="all">
+<style id="wpml-legacy-horizontal-list-0-inline-css">
+.wpml-ls-statics-shortcode_actions{background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu, .wpml-ls-statics-shortcode_actions a {border-color:#cdcdcd;}.wpml-ls-statics-shortcode_actions a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions a:hover,.wpml-ls-statics-shortcode_actions a:focus {color:#000000;background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language:hover>a, .wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a:focus {color:#000000;background-color:#eeeeee;}
+</style>
+<link rel="stylesheet" id="hello-elementor-css" href="https://www.ralco.co.il/wp-content/themes/hello-elementor/style.min.css?ver=2.7.1" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://www.ralco.co.il/wp-content/themes/hello-elementor/theme.min.css?ver=2.7.1" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.18.0" media="all">
+<link rel="stylesheet" id="elementor-frontend-legacy-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/css/frontend-legacy-rtl.min.css?ver=3.12.2" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/css/frontend-rtl.min.css?ver=3.12.2" media="all">
+<link rel="stylesheet" id="swiper-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/swiper/css/swiper.min.css?ver=5.3.6" media="all">
+<link rel="stylesheet" id="elementor-post-9897-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/post-9897.css?ver=1683442570" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="https://www.ralco.co.il/wp-content/plugins/elementor-pro/assets/css/frontend-rtl.min.css?ver=3.12.3" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.12.2" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.12.2" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/global.css?ver=1683442571" media="all">
+<link rel="stylesheet" id="elementor-post-9-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/post-9.css?ver=1761563492" media="all">
+<link rel="stylesheet" id="elementor-post-5532-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/post-5532.css?ver=1683442571" media="all">
+<link rel="stylesheet" id="elementor-post-5542-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/post-5542.css?ver=1683442572" media="all">
+<link rel="stylesheet" id="elementor-post-5594-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/post-5594.css?ver=1683442572" media="all">
+<link rel="stylesheet" id="elementor-post-8091-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/post-8091.css?ver=1683442572" media="all">
+<link rel="stylesheet" id="elementor-post-7021-css" href="https://www.ralco.co.il/wp-content/uploads/elementor/css/post-7021.css?ver=1683442572" media="all">
+
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-solid-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-brands-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3" media="all">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.12.2" id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="https://www.ralco.co.il/wp-json/"><link rel="alternate" type="application/json" href="https://www.ralco.co.il/wp-json/wp/v2/pages/9"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.ralco.co.il/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.ralco.co.il/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.2">
+<link rel="shortlink" href="https://www.ralco.co.il/">
+<link rel="alternate" type="application/json+oembed" href="https://www.ralco.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ralco.co.il%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.ralco.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ralco.co.il%2F&amp;format=xml">
+<meta name="generator" content="WPML ver:4.6.3 stt:1,20;">
+
+<link rel="stylesheet" id="5714-css" href="//www.ralco.co.il/wp-content/uploads/custom-css-js/5714.css?v=1499" media="all">
+<meta name="generator" content="Elementor 3.12.2; features: a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<link rel="icon" href="https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-64x63.png" sizes="32x32">
+<link rel="icon" href="https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png">
+<meta name="msapplication-TileImage" content="https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png">
+</head>
+<body data-rsssl="1" class="rtl home page-template-default page page-id-9 wp-custom-logo elementor-default elementor-template-full-width elementor-kit-9897 elementor-page elementor-page-9 elementor-page-5594">
+
+
+<a class="skip-link screen-reader-text" href="#content">דלג לתוכן</a>
+
+		<div data-elementor-type="header" data-elementor-id="5532" class="elementor elementor-5532 elementor-location-header">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-4c5e00c8 elementor-section-content-middle elementor-section-full_width elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-section-height-default elementor-section-height-default" data-id="4c5e00c8" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-22a1c725" data-id="22a1c725" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-8199d80 elementor-widget__width-auto elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="8199d80" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+								<a href="https://www.ralco.co.il">
+			<img width="198" height="195" src="https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png" class="attachment-full size-full wp-image-9902" alt="" loading="lazy">				</a>
+										</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-4242b55b elementor-nav-menu--stretch elementor-nav-menu__align-right elementor-widget__width-auto elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="4242b55b" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-double-line e--animation-fade">
+				<ul id="menu-1-4242b55b" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-13855"><a href="https://www.ralco.co.il/" aria-current="page" class="elementor-item elementor-item-active">ראשי</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13857"><a href="https://www.ralco.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item">אודות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-14346"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/" class="elementor-item">המותגים שלנו</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13862"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/sharp/" class="elementor-sub-item">Sharp</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13860"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/zanussi/" class="elementor-sub-item">Zanussi</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14740"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/grundig/" class="elementor-sub-item">Grundig</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13861"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/blomberg/" class="elementor-sub-item">Blomberg</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-merkaz menu-item-has-children menu-item-10590"><a href="https://www.ralco.co.il/merkaz/" class="elementor-item">מרכזי שירות</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14336"><a href="https://www.ralco.co.il/%d7%a7%d7%91%d7%99%d7%a2%d7%aa-%d7%98%d7%9b%d7%a0%d7%90%d7%99-online/" class="elementor-sub-item">קביעת טכנאי online</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-stores menu-item-10588"><a href="https://www.ralco.co.il/stores/" class="elementor-item">חנויות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13856"><a href="https://www.ralco.co.il/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%90-%d7%9e%d7%95%d7%a8%d7%a9%d7%99%d7%9d/" class="elementor-item">אתרים לא מורשים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14846"><a href="https://www.ralco.co.il/%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%95%d7%a4%d7%99%d7%a0%d7%95%d7%99-%d7%a4%d7%a1%d7%95%d7%9c%d7%aa-%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%aa/" class="elementor-item">הובלה ופינוי פסולת אלקטרונית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13858"><a href="https://www.ralco.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item">צור קשר</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="כפתור פתיחת תפריט" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>			<span class="elementor-screen-only">תפריט</span>
+		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-4242b55b" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-13855"><a href="https://www.ralco.co.il/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">ראשי</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13857"><a href="https://www.ralco.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item" tabindex="-1">אודות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-14346"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/" class="elementor-item" tabindex="-1">המותגים שלנו</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13862"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/sharp/" class="elementor-sub-item" tabindex="-1">Sharp</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13860"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/zanussi/" class="elementor-sub-item" tabindex="-1">Zanussi</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14740"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/grundig/" class="elementor-sub-item" tabindex="-1">Grundig</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13861"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/blomberg/" class="elementor-sub-item" tabindex="-1">Blomberg</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-merkaz menu-item-has-children menu-item-10590"><a href="https://www.ralco.co.il/merkaz/" class="elementor-item" tabindex="-1">מרכזי שירות</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14336"><a href="https://www.ralco.co.il/%d7%a7%d7%91%d7%99%d7%a2%d7%aa-%d7%98%d7%9b%d7%a0%d7%90%d7%99-online/" class="elementor-sub-item" tabindex="-1">קביעת טכנאי online</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-stores menu-item-10588"><a href="https://www.ralco.co.il/stores/" class="elementor-item" tabindex="-1">חנויות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13856"><a href="https://www.ralco.co.il/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%90-%d7%9e%d7%95%d7%a8%d7%a9%d7%99%d7%9d/" class="elementor-item" tabindex="-1">אתרים לא מורשים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14846"><a href="https://www.ralco.co.il/%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%95%d7%a4%d7%99%d7%a0%d7%95%d7%99-%d7%a4%d7%a1%d7%95%d7%9c%d7%aa-%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%aa/" class="elementor-item" tabindex="-1">הובלה ופינוי פסולת אלקטרונית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13858"><a href="https://www.ralco.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item" tabindex="-1">צור קשר</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-302206c" data-id="302206c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-70487ce elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="70487ce" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">/</span>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2db370d elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="2db370d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default"><a href="https://www.ralco.co.il/en">eng</a></span>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8c9f794 elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8c9f794" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-30bb468" data-id="30bb468" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-e94e7ea elementor-widget__width-auto elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="e94e7ea" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+								<a href="https://www.ralco.co.il">
+			<img width="198" height="195" src="https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png" class="attachment-full size-full wp-image-9902" alt="" loading="lazy">				</a>
+										</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-8b8354a elementor-nav-menu--stretch elementor-nav-menu__align-right elementor-widget__width-auto elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="8b8354a" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-double-line e--animation-fade">
+				<ul id="menu-1-8b8354a" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-13855"><a href="https://www.ralco.co.il/" aria-current="page" class="elementor-item elementor-item-active">ראשי</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13857"><a href="https://www.ralco.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item">אודות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-14346"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/" class="elementor-item">המותגים שלנו</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13862"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/sharp/" class="elementor-sub-item">Sharp</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13860"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/zanussi/" class="elementor-sub-item">Zanussi</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14740"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/grundig/" class="elementor-sub-item">Grundig</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13861"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/blomberg/" class="elementor-sub-item">Blomberg</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-merkaz menu-item-has-children menu-item-10590"><a href="https://www.ralco.co.il/merkaz/" class="elementor-item">מרכזי שירות</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14336"><a href="https://www.ralco.co.il/%d7%a7%d7%91%d7%99%d7%a2%d7%aa-%d7%98%d7%9b%d7%a0%d7%90%d7%99-online/" class="elementor-sub-item">קביעת טכנאי online</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-stores menu-item-10588"><a href="https://www.ralco.co.il/stores/" class="elementor-item">חנויות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13856"><a href="https://www.ralco.co.il/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%90-%d7%9e%d7%95%d7%a8%d7%a9%d7%99%d7%9d/" class="elementor-item">אתרים לא מורשים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14846"><a href="https://www.ralco.co.il/%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%95%d7%a4%d7%99%d7%a0%d7%95%d7%99-%d7%a4%d7%a1%d7%95%d7%9c%d7%aa-%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%aa/" class="elementor-item">הובלה ופינוי פסולת אלקטרונית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13858"><a href="https://www.ralco.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item">צור קשר</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="כפתור פתיחת תפריט" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>			<span class="elementor-screen-only">תפריט</span>
+		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-8b8354a" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-13855"><a href="https://www.ralco.co.il/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">ראשי</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13857"><a href="https://www.ralco.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" class="elementor-item" tabindex="-1">אודות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-14346"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/" class="elementor-item" tabindex="-1">המותגים שלנו</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13862"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/sharp/" class="elementor-sub-item" tabindex="-1">Sharp</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13860"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/zanussi/" class="elementor-sub-item" tabindex="-1">Zanussi</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14740"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/grundig/" class="elementor-sub-item" tabindex="-1">Grundig</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13861"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/blomberg/" class="elementor-sub-item" tabindex="-1">Blomberg</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-merkaz menu-item-has-children menu-item-10590"><a href="https://www.ralco.co.il/merkaz/" class="elementor-item" tabindex="-1">מרכזי שירות</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14336"><a href="https://www.ralco.co.il/%d7%a7%d7%91%d7%99%d7%a2%d7%aa-%d7%98%d7%9b%d7%a0%d7%90%d7%99-online/" class="elementor-sub-item" tabindex="-1">קביעת טכנאי online</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-stores menu-item-10588"><a href="https://www.ralco.co.il/stores/" class="elementor-item" tabindex="-1">חנויות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13856"><a href="https://www.ralco.co.il/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%90-%d7%9e%d7%95%d7%a8%d7%a9%d7%99%d7%9d/" class="elementor-item" tabindex="-1">אתרים לא מורשים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14846"><a href="https://www.ralco.co.il/%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%95%d7%a4%d7%99%d7%a0%d7%95%d7%99-%d7%a4%d7%a1%d7%95%d7%9c%d7%aa-%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%aa/" class="elementor-item" tabindex="-1">הובלה ופינוי פסולת אלקטרונית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13858"><a href="https://www.ralco.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item" tabindex="-1">צור קשר</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-1d49b60" data-id="1d49b60" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c76b50d elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="c76b50d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">/</span>		</div>
+				</div>
+				<div class="elementor-element elementor-element-84bd0cb elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="84bd0cb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default"><a href="https://www.ralco.co.il/en">eng</a></span>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-5f86fc7 elementor-hidden-tablet elementor-hidden-phone" data-id="5f86fc7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-85ec15d elementor-align-left elementor-widget elementor-widget-button" data-id="85ec15d" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://orders.selabonded.co.il/ralco/" target="_blank" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">אתר סוחרים</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+							</div>
+				</div>
+				<div data-elementor-type="single" data-elementor-id="5594" class="elementor elementor-5594 elementor-location-single post-9 page type-page status-publish has-post-thumbnail hentry">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-d168c05 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="d168c05" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7013969" data-id="7013969" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4b442fd elementor-widget elementor-widget-theme-post-content" data-id="4b442fd" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">
+					<div data-elementor-type="wp-post" data-elementor-id="9" class="elementor elementor-9">
+						<div class="elementor-inner">
+				<div class="elementor-section-wrap">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-078f68b elementor-section-full_width elementor-section-content-top elementor-section-height-default elementor-section-height-default" data-id="078f68b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-12e8f74" data-id="12e8f74" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-97016f0 elementor-widget elementor-widget-image" data-id="97016f0" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+												<img decoding="async" width="800" height="354" src="https://www.ralco.co.il/wp-content/uploads/2021/01/ralco-bannerA1-01.jpg" class="attachment-large size-large wp-image-14010" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2021/01/ralco-bannerA1-01.jpg 1920w, https://www.ralco.co.il/wp-content/uploads/2021/01/ralco-bannerA1-01-300x133.jpg 300w, https://www.ralco.co.il/wp-content/uploads/2021/01/ralco-bannerA1-01-1536x680.jpg 1536w" sizes="(max-width: 800px) 100vw, 800px">														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-e57e7d5 elementor-section-full_width elementor-hidden-desktop elementor-hidden-tablet elementor-section-height-default elementor-section-height-default" data-id="e57e7d5" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e64d0c0" data-id="e64d0c0" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-7aff6f7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7aff6f7" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-19a7127" data-id="19a7127" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-955a12d elementor-widget elementor-widget-heading" data-id="955a12d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">למעבר לאתרי המותגים</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-a0a6f30 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a0a6f30" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-36149b4" data-id="36149b4" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-0ac2d5b elementor-cta--skin-cover elementor-cta--sequenced-animation elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="0ac2d5b" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-logo-icon-05-1971x1024.jpg);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר שארפ</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://www.sharp-israel.co.il/" target="_blank">
+						לאתר שארפ					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-d4c463b" data-id="d4c463b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-fbc7f3a elementor-cta--skin-cover elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="fbc7f3a" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2020/12/blomberg-logo-icon-07-1971x1024.jpg);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר בלומברג</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://blomberg.co.il/" target="_blank">
+						לאתר בלומברג					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-2841a27" data-id="2841a27" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9dc1f09 elementor-cta--skin-cover elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="9dc1f09" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2020/12/zanussi-logo-icon-06-1965x1024.jpg);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר זנוסי</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://www.zanussi.co.il/" target="_blank">
+						לאתר זנוסי					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-30ab903" data-id="30ab903" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-72a1848 elementor-cta--skin-cover elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="72a1848" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2023/01/grundig-logo-2000x1024.jpg);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר גרונדיג</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://grundig-israel.co.il/" target="_blank">
+						לאתר גרונדיג					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-dda2790 elementor-hidden-phone elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="dda2790" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-598f959" data-id="598f959" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-28a8575 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="28a8575" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-e88a004" data-id="e88a004" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-39afe51 elementor-widget elementor-widget-heading" data-id="39afe51" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">מותגי חברת ראלקו</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-3411dcf elementor-section-full_width elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-section-height-default elementor-section-height-default" data-id="3411dcf" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-651ebd6" data-id="651ebd6" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-adfe2c4 elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="adfe2c4" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2023/01/grundig-label.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר גרונדיג</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://grundig-israel.co.il/" target="_blank">
+						לאתר גרונדיג					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6fbcbd5" data-id="6fbcbd5" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-dcbefab elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="dcbefab" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2021/03/Screen-Shot-2021-03-18-at-13.23.20-609x1024.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר בלומברג</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://blomberg.co.il/" target="_blank">
+						לאתר בלומברג					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-b938de7" data-id="b938de7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3d71333 elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="3d71333" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2021/03/Screen-Shot-2021-03-18-at-13.23.03-611x1024.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר זנוסי</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://www.zanussi.co.il/" target="_blank">
+						לאתר זנוסי					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-2329816" data-id="2329816" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-1a93794 elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="1a93794" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2021/03/Screen-Shot-2021-03-18-at-13.23.31-613x1024.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר שארפ</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://www.sharp-israel.co.il/" target="_blank">
+						לאתר שארפ					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-019657f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="019657f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-df358b0" data-id="df358b0" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9d8db08 elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="9d8db08" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2023/01/grundig-label.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר גרונדיג</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://grundig-israel.co.il/" target="_blank">
+						לאתר גרונדיג					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-c3b0050" data-id="c3b0050" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-66dcac7 elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="66dcac7" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2021/03/Screen-Shot-2021-03-18-at-13.23.20-609x1024.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר בלומברג</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://blomberg.co.il/" target="_blank">
+						לאתר בלומברג					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-9cfc707" data-id="9cfc707" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6c001f2 elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="6c001f2" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2021/03/Screen-Shot-2021-03-18-at-13.23.03-611x1024.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר זנוסי</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://www.zanussi.co.il/" target="_blank">
+						לאתר זנוסי					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-0909eff" data-id="0909eff" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-ffae2f3 elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="ffae2f3" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2021/03/Screen-Shot-2021-03-18-at-13.23.31-613x1024.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר שארפ</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://www.sharp-israel.co.il/" target="_blank">
+						לאתר שארפ					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-48cac43" data-id="48cac43" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-dbf02db elementor-cta--skin-cover elementor-cta--valign-middle elementor-animated-content elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-call-to-action" data-id="dbf02db" data-element_type="widget" data-widget_type="call-to-action.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-cta">
+					<div class="elementor-cta__bg-wrapper">
+				<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.ralco.co.il/wp-content/uploads/2025/10/ChatGPT-Image-Oct-27-2025-01_05_40-PM-683x1024.png);"></div>
+				<div class="elementor-cta__bg-overlay"></div>
+			</div>
+							<div class="elementor-cta__content">
+				
+				<h2 class="elementor-cta__title elementor-cta__content-item elementor-content-item elementor-animated-item--grow">למעבר לאתר CHIQ</h2>
+				
+									<div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item elementor-animated-item--grow">
+					<a class="elementor-cta__button elementor-button elementor-size-sm" href="https://www.chiq-israel.co.il/" target="_blank">
+						לאתר CHIQ					</a>
+					</div>
+							</div>
+						</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-eddee49 elementor-section-full_width elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-section-height-default elementor-section-height-default" data-id="eddee49" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-696bbf9" data-id="696bbf9" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-5754c8c elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5754c8c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-18a595b" data-id="18a595b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-04dd13b elementor-widget elementor-widget-heading" data-id="04dd13b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">מותגי חברת ראלקו</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-4079afd elementor-hidden-phone elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4079afd" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-wide">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-522efc6" data-id="522efc6" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c373ba6 elementor-widget elementor-widget-image" data-id="c373ba6" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+													<a href="https://blomberg.co.il/" target="_blank">
+							<img decoding="async" src="https://www.ralco.co.il/wp-content/uploads/elementor/thumbs/ralco-web-pages-2020-cut-blomberg-06-p0riecflr7b7s5m8br4boxb2hnk9pneo7czhtm647g.jpg" title="ralco web pages 2020 cut blomberg-06" alt="ralco web pages 2020 cut blomberg-06" loading="lazy">								</a>
+														</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-c0571d2 elementor-widget elementor-widget-image" data-id="c0571d2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+													<a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/blomberg/">
+							<img decoding="async" width="800" height="416" src="https://www.ralco.co.il/wp-content/uploads/2020/12/blomberg-logo-icon-07-1971x1024.jpg" class="attachment-large size-large wp-image-13482" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2020/12/blomberg-logo-icon-07-1971x1024.jpg 1971w, https://www.ralco.co.il/wp-content/uploads/2020/12/blomberg-logo-icon-07-300x156.jpg 300w, https://www.ralco.co.il/wp-content/uploads/2020/12/blomberg-logo-icon-07-1536x798.jpg 1536w, https://www.ralco.co.il/wp-content/uploads/2020/12/blomberg-logo-icon-07-2048x1064.jpg 2048w" sizes="(max-width: 800px) 100vw, 800px">								</a>
+														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-c700450" data-id="c700450" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-f8cab63 elementor-widget elementor-widget-image" data-id="f8cab63" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+													<a href="https://www.zanussi-israel.co.il/" target="_blank">
+							<img decoding="async" src="https://www.ralco.co.il/wp-content/uploads/elementor/thumbs/ralco-web-pages-2020-cut-06-p0riecflr7b7s5m8br4boxb2hnk9pneo7czhtm647g.jpg" title="ralco web pages 2020 cut-06" alt="ralco web pages 2020 cut-06" loading="lazy">								</a>
+														</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-2798783 elementor-widget elementor-widget-image" data-id="2798783" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+													<a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/zanussi/">
+							<img decoding="async" width="2376" height="1238" src="https://www.ralco.co.il/wp-content/uploads/2020/12/zanussi-logo-icon-06.jpg" class="attachment-full size-full wp-image-13484" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2020/12/zanussi-logo-icon-06.jpg 2376w, https://www.ralco.co.il/wp-content/uploads/2020/12/zanussi-logo-icon-06-300x156.jpg 300w, https://www.ralco.co.il/wp-content/uploads/2020/12/zanussi-logo-icon-06-1965x1024.jpg 1965w, https://www.ralco.co.il/wp-content/uploads/2020/12/zanussi-logo-icon-06-1536x800.jpg 1536w, https://www.ralco.co.il/wp-content/uploads/2020/12/zanussi-logo-icon-06-2048x1067.jpg 2048w" sizes="(max-width: 2376px) 100vw, 2376px">								</a>
+														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-494e7d9" data-id="494e7d9" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-b4bbf52 elementor-widget elementor-widget-image" data-id="b4bbf52" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+													<a href="https://www.sharp-israel.co.il/" target="_blank">
+							<img decoding="async" src="https://www.ralco.co.il/wp-content/uploads/elementor/thumbs/ralco-web-pages-2020-cut-sharp-06-p0riecflr7b7s5m8br4boxb2hnk9pneo7czhtm647g.jpg" title="ralco web pages 2020 cut sharp-06" alt="ralco web pages 2020 cut sharp-06" loading="lazy">								</a>
+														</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-bf31a28 elementor-widget elementor-widget-image" data-id="bf31a28" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+													<a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/sharp/">
+							<img decoding="async" width="800" height="416" src="https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-logo-icon-05-1971x1024.jpg" class="attachment-large size-large wp-image-13483" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-logo-icon-05-1971x1024.jpg 1971w, https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-logo-icon-05-300x156.jpg 300w, https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-logo-icon-05-1536x798.jpg 1536w, https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-logo-icon-05-2048x1064.jpg 2048w" sizes="(max-width: 800px) 100vw, 800px">								</a>
+														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-60d5858 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="60d5858" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-6c28e73" data-id="6c28e73" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-159ec4c" data-id="159ec4c" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-d919ddd" data-id="d919ddd" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-3273596" data-id="3273596" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-a3abad0" data-id="a3abad0" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8dd3250 elementor-section-full_width elementor-section-height-min-height elementor-section-items-stretch elementor-section-content-middle elementor-section-height-default" data-id="8dd3250" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-cc11261" data-id="cc11261" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-0f92634 elementor-widget elementor-widget-image" data-id="0f92634" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+												<img decoding="async" width="800" height="627" src="https://www.ralco.co.il/wp-content/uploads/2020/12/shops-computer-07.png" class="attachment-large size-large wp-image-13717" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2020/12/shops-computer-07.png 964w, https://www.ralco.co.il/wp-content/uploads/2020/12/shops-computer-07-300x235.png 300w" sizes="(max-width: 800px) 100vw, 800px">														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2325d8c" data-id="2325d8c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-fa20a52 elementor-widget elementor-widget-heading" data-id="fa20a52" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">חנויות מורשות</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-787abf6 elementor-widget elementor-widget-heading" data-id="787abf6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">בפריסה ארצית רחבה</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2c48c7e elementor-widget elementor-widget-text-editor" data-id="2c48c7e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>החנויות המפורטות כאן הינם חנויות מורשות של ראלקו.<br>אנו נעזור לך למצוא את החנות הקרובה לביתך.</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-2b1746c elementor-align-right elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="2b1746c" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://www.ralco.co.il/stores/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-icon elementor-align-icon-left">
+				<i aria-hidden="true" class="fas fa-angle-double-left"></i>			</span>
+						<span class="elementor-button-text">לחנויות מורשות</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-05c092d elementor-section-full_width elementor-section-height-min-height elementor-section-items-stretch elementor-section-content-middle elementor-reverse-mobile elementor-section-height-default" data-id="05c092d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-a32fa7d" data-id="a32fa7d" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-28fd5a3 elementor-widget elementor-widget-heading" data-id="28fd5a3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">מרכזי שירות</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b500f67 elementor-widget elementor-widget-heading" data-id="b500f67" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">בפריסה ארצית רחבה</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-13fded1 elementor-widget elementor-widget-text-editor" data-id="13fded1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				בחר את מרכז השירות  הקרוב לביתך					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-f8ce72b elementor-align-right elementor-tablet-align-right elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="f8ce72b" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://www.ralco.co.il/merkaz/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-icon elementor-align-icon-left">
+				<i aria-hidden="true" class="fas fa-angle-double-left"></i>			</span>
+						<span class="elementor-button-text">למרכזי שירות</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-da88823" data-id="da88823" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-923c5d0 elementor-widget elementor-widget-image" data-id="923c5d0" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+												<img decoding="async" width="800" height="627" src="https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-service-center-08.png" class="attachment-large size-large wp-image-13719" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-service-center-08.png 964w, https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-service-center-08-300x235.png 300w" sizes="(max-width: 800px) 100vw, 800px">														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a6d70b8 elementor-section-full_width elementor-section-height-min-height elementor-section-items-stretch elementor-section-content-middle elementor-section-height-default" data-id="a6d70b8" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-bbd121b" data-id="bbd121b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-284ed46 elementor-widget elementor-widget-image" data-id="284ed46" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+												<img decoding="async" width="800" height="627" src="https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-froud-computer-07.png" class="attachment-large size-large wp-image-13718" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-froud-computer-07.png 964w, https://www.ralco.co.il/wp-content/uploads/2020/12/ralco-froud-computer-07-300x235.png 300w" sizes="(max-width: 800px) 100vw, 800px">														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2be1257" data-id="2be1257" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-10494c2 elementor-widget elementor-widget-heading" data-id="10494c2" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">אתרים לא מורשים</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-9fba194 elementor-widget elementor-widget-heading" data-id="9fba194" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">להלן רשימת אתרי האינטרנט הבלתי מורשים</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e5b76cd elementor-widget elementor-widget-text-editor" data-id="e5b76cd" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				אתרי האינטרנט המפורטים כאן אינם מורשים ולא חלה עליהם אחריות של ראלקו מוצרי צריכה					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-5f5f9e4 elementor-align-right elementor-tablet-align-right elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="5f5f9e4" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://www.ralco.co.il/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%90-%d7%9e%d7%95%d7%a8%d7%a9%d7%99%d7%9d/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-icon elementor-align-icon-left">
+				<i aria-hidden="true" class="fas fa-angle-double-left"></i>			</span>
+						<span class="elementor-button-text">לרשימת אתרים</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-621748d elementor-section-full_width elementor-section-height-min-height elementor-section-items-stretch elementor-section-content-middle elementor-reverse-mobile elementor-section-height-default" data-id="621748d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-78e2788" data-id="78e2788" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6b8702e elementor-widget elementor-widget-heading" data-id="6b8702e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">להזמנת מתקין online</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-9f5a7d1 elementor-widget elementor-widget-heading" data-id="9f5a7d1" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">בפריסה ארצית רחבה</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-027f17e elementor-widget elementor-widget-text-editor" data-id="027f17e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>לקביעת תור ללא שיחת טלפון</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-774503d elementor-align-right elementor-tablet-align-right elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="774503d" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://www.ralco.co.il/קביעת-טכנאי-online/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-icon elementor-align-icon-left">
+				<i aria-hidden="true" class="fas fa-angle-double-left"></i>			</span>
+						<span class="elementor-button-text">לקביעת תור online</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ca27157" data-id="ca27157" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-ee90fca elementor-widget elementor-widget-image" data-id="ee90fca" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+												<img decoding="async" width="800" height="626" src="https://www.ralco.co.il/wp-content/uploads/2021/04/online-service-02-1308x1024.png" class="attachment-large size-large wp-image-14270" alt="" loading="lazy" srcset="https://www.ralco.co.il/wp-content/uploads/2021/04/online-service-02-1308x1024.png 1308w, https://www.ralco.co.il/wp-content/uploads/2021/04/online-service-02-300x235.png 300w, https://www.ralco.co.il/wp-content/uploads/2021/04/online-service-02-1536x1203.png 1536w, https://www.ralco.co.il/wp-content/uploads/2021/04/online-service-02-2048x1604.png 2048w" sizes="(max-width: 800px) 100vw, 800px">														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-284842f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="284842f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5ce9d91" data-id="5ce9d91" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-a281578 elementor-widget elementor-widget-heading" data-id="a281578" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">צרו קשר</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-cb60bc0 elementor-widget elementor-widget-heading" data-id="cb60bc0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">נא מלאו את הפרטים ונחזור אליכם בהקדם</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b2c4a48 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="b2c4a48" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;\u05d4\u05d1\u05d0&quot;,&quot;step_previous_label&quot;:&quot;\u05d4\u05e7\u05d5\u05d3\u05dd&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-form" method="post" name="צור קשר">
+			<input type="hidden" name="post_id" value="9">
+			<input type="hidden" name="form_id" value="b2c4a48">
+			<input type="hidden" name="referer_title" value="ראלקו בע&quot;מ ישראל">
+
+							<input type="hidden" name="queried_id" value="9">
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-field_55004d5 elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_55004d5" class="elementor-field-label">
+								מותג							</label>
+						<div class="elementor-field-subgroup  elementor-subgroup-inline"><span class="elementor-field-option"><input type="radio" value="sharp" id="form-field-field_55004d5-0" name="form_fields[field_55004d5]" required="required" aria-required="true"> <label for="form-field-field_55004d5-0">SHARP</label></span><span class="elementor-field-option"><input type="radio" value="blomberg" id="form-field-field_55004d5-1" name="form_fields[field_55004d5]" required="required" aria-required="true"> <label for="form-field-field_55004d5-1">BLOMBERG</label></span><span class="elementor-field-option"><input type="radio" value="zanussi" id="form-field-field_55004d5-2" name="form_fields[field_55004d5]" required="required" aria-required="true"> <label for="form-field-field_55004d5-2">ZANUSSI</label></span></div>				</div>
+								<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-subject elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-subject" class="elementor-field-label">
+								נושא הפניה							</label>
+								<div class="elementor-field elementor-select-wrapper remove-before ">
+			<div class="select-caret-down-wrapper">
+				<i aria-hidden="true" class="eicon-caret-down"></i>			</div>
+			<select name="form_fields[subject]" id="form-field-subject" class="elementor-field-textual elementor-size-sm" required="required" aria-required="true">
+									<option value="">בחירה נושא פנייה</option>
+									<option value="tium">תאום שירות</option>
+									<option value="hatkana">התקנה</option>
+									<option value="hadracha">הדרכה</option>
+									<option value="ahraiut">בירור אחריות</option>
+									<option value="hiluf">חלקי חילוף</option>
+									<option value="haspaka">אספקת מוצרים</option>
+									<option value="meida">מידע שיווקי</option>
+									<option value="other">אחר</option>
+							</select>
+		</div>
+						</div>
+								<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-area elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-area" class="elementor-field-label">
+								אזור							</label>
+								<div class="elementor-field elementor-select-wrapper remove-before ">
+			<div class="select-caret-down-wrapper">
+				<i aria-hidden="true" class="eicon-caret-down"></i>			</div>
+			<select name="form_fields[area]" id="form-field-area" class="elementor-field-textual elementor-size-sm" required="required" aria-required="true">
+									<option value="">בחירת אזור</option>
+									<option value="merkaz">מרכז הארץ</option>
+									<option value="beer">באר שבע דרום ואילת</option>
+									<option value="tveria">טבריה-צפת-גליל עליון-רמת גן</option>
+									<option value="haifa">חדרה-חיפה</option>
+									<option value="jerusalem">ירושלים</option>
+							</select>
+		</div>
+						</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-name" class="elementor-field-label">
+								שם לקוח							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="שם לקוח" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-telephone elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-telephone" class="elementor-field-label">
+								טלפון							</label>
+														<input size="1" type="text" name="form_fields[telephone]" id="form-field-telephone" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="טלפון" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-email" class="elementor-field-label">
+								אימייל							</label>
+														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="אימייל" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-product_type elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-product_type" class="elementor-field-label">
+								סוג המוצר							</label>
+								<div class="elementor-field elementor-select-wrapper remove-before ">
+			<div class="select-caret-down-wrapper">
+				<i aria-hidden="true" class="eicon-caret-down"></i>			</div>
+			<select name="form_fields[product_type]" id="form-field-product_type" class="elementor-field-textual elementor-size-sm" required="required" aria-required="true">
+									<option value="בחירה">בחירה</option>
+									<option value="מקררים">מקררים</option>
+									<option value="מיקרוגלים">מיקרוגלים</option>
+									<option value="מקפיא">מקפיא</option>
+									<option value="כיריים">כיריים</option>
+									<option value="תנור בנוי">תנור בנוי</option>
+									<option value="תנור משולב">תנור משולב</option>
+									<option value="מכונת כביסה">מכונת כביסה</option>
+									<option value="מייבש כביסה">מייבש כביסה</option>
+									<option value="מדיח כלים">מדיח כלים</option>
+							</select>
+		</div>
+						</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-message" class="elementor-field-label">
+								תוכן הפנייה							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="4" placeholder="תוכן הפנייה" required="required" aria-required="true"></textarea>				</div>
+								<div class="elementor-field-type-upload elementor-field-group elementor-column elementor-field-group-attachments elementor-col-100">
+												<label for="form-field-attachments" class="elementor-field-label">
+								הוספת תמונות /קבצים							</label>
+								<input type="file" name="form_fields[attachments][]" id="form-field-attachments" class="elementor-field elementor-size-sm  elementor-upload-field" multiple="multiple" data-maxsize="1" data-maxsize-message="קובץ זה חורג מהגודל המרבי המותר.">
+
+						</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_8358692 elementor-col-100 recaptcha_v3-inline">
+					<div class="elementor-field" id="form-field-field_8358692"><div class="elementor-g-recaptcha" data-sitekey="6Lf8ARQlAAAAAL6n7T2mc2pJDHBgladdoxM_0u5L" data-type="v3" data-action="Form" data-badge="inline" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-type-text">
+					<input size="1" type="text" name="form_fields[field_af03017]" id="form-field-field_af03017" class="elementor-field elementor-size-sm " style="display:none !important;">				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button type="submit" class="elementor-button elementor-size-sm">
+						<span>
+															<span class=" elementor-button-icon">
+																										</span>
+																						<span class="elementor-button-text">שליחה</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+									</div>
+			</div>
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+							</div>
+				</div>
+				<div data-elementor-type="footer" data-elementor-id="5542" class="elementor elementor-5542 elementor-location-footer">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-a611cb8 elementor-section-full_width elementor-section-content-top elementor-hidden-phone elementor-section-height-default elementor-section-height-default" data-id="a611cb8" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-79865c8" data-id="79865c8" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5954df4" data-id="5954df4" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6aff96b elementor-view-stacked elementor-hidden-phone elementor-shape-circle elementor-widget elementor-widget-icon" data-id="6aff96b" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="#top">
+			<i aria-hidden="true" class="fas fa-angle-up"></i>			</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-265e0057 elementor-section-content-top elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="265e0057" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-404fe84c" data-id="404fe84c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-40e9169c elementor-widget elementor-widget-heading" data-id="40e9169c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">תמיכה</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2736443 elementor-nav-menu__align-right menufooter1 elementor-nav-menu--dropdown-mobile elementor-nav-menu__text-align-center elementor-widget elementor-widget-nav-menu" data-id="2736443" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas e-plus-icon\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-2736443" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-8160"><a href="https://www.ralco.co.il/" aria-current="page" class="elementor-item elementor-item-active">ראשי</a></li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-merkaz menu-item-13401"><a href="https://www.ralco.co.il/merkaz/" class="elementor-item">מרכזי שירות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14520"><a href="https://www.ralco.co.il/%d7%a7%d7%91%d7%99%d7%a2%d7%aa-%d7%98%d7%9b%d7%a0%d7%90%d7%99-online/" class="elementor-item">קביעת טכנאי online</a></li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-stores menu-item-13402"><a href="https://www.ralco.co.il/stores/" class="elementor-item">חנויות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13459"><a href="https://www.ralco.co.il/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%90-%d7%9e%d7%95%d7%a8%d7%a9%d7%99%d7%9d/" class="elementor-item">אתרים לא מורשים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14847"><a href="https://www.ralco.co.il/%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%95%d7%a4%d7%99%d7%a0%d7%95%d7%99-%d7%a4%d7%a1%d7%95%d7%9c%d7%aa-%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%aa/" class="elementor-item">הובלה ופינוי פסולת אלקטרונית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="https://www.ralco.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item">צור קשר</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-2736443" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-8160"><a href="https://www.ralco.co.il/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">ראשי</a></li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-merkaz menu-item-13401"><a href="https://www.ralco.co.il/merkaz/" class="elementor-item" tabindex="-1">מרכזי שירות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14520"><a href="https://www.ralco.co.il/%d7%a7%d7%91%d7%99%d7%a2%d7%aa-%d7%98%d7%9b%d7%a0%d7%90%d7%99-online/" class="elementor-item" tabindex="-1">קביעת טכנאי online</a></li>
+<li class="menu-item menu-item-type-post_type_archive menu-item-object-stores menu-item-13402"><a href="https://www.ralco.co.il/stores/" class="elementor-item" tabindex="-1">חנויות</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13459"><a href="https://www.ralco.co.il/%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%9c%d7%90-%d7%9e%d7%95%d7%a8%d7%a9%d7%99%d7%9d/" class="elementor-item" tabindex="-1">אתרים לא מורשים</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14847"><a href="https://www.ralco.co.il/%d7%94%d7%95%d7%91%d7%9c%d7%94-%d7%95%d7%a4%d7%99%d7%a0%d7%95%d7%99-%d7%a4%d7%a1%d7%95%d7%9c%d7%aa-%d7%90%d7%9c%d7%a7%d7%98%d7%a8%d7%95%d7%a0%d7%99%d7%aa/" class="elementor-item" tabindex="-1">הובלה ופינוי פסולת אלקטרונית</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="https://www.ralco.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="elementor-item" tabindex="-1">צור קשר</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-b1d9bbd" data-id="b1d9bbd" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c4b9a01 elementor-widget elementor-widget-heading" data-id="c4b9a01" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">המותגים שלנו</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-79f9abf elementor-nav-menu--dropdown-mobile menufooter1 elementor-nav-menu__align-right elementor-nav-menu__text-align-center elementor-widget elementor-widget-nav-menu" data-id="79f9abf" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas e-plus-icon\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-79f9abf" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14742"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/grundig/" class="elementor-item">Grundig</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14342"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/zanussi/" class="elementor-item">Zanussi</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14344"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/sharp/" class="elementor-item">Sharp</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14343"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/blomberg/" class="elementor-item">Blomberg</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-79f9abf" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14742"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/grundig/" class="elementor-item" tabindex="-1">Grundig</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14342"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/zanussi/" class="elementor-item" tabindex="-1">Zanussi</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14344"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/sharp/" class="elementor-item" tabindex="-1">Sharp</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14343"><a href="https://www.ralco.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92%d7%99%d7%9d-%d7%a9%d7%9c%d7%a0%d7%95/blomberg/" class="elementor-item" tabindex="-1">Blomberg</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-4a4b546" data-id="4a4b546" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-44db815 elementor-widget elementor-widget-heading" data-id="44db815" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">שעות פעילות
+</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e6e7d0e elementor-widget elementor-widget-text-editor" data-id="e6e7d0e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>רח' המצודה 31 אזה"ת אזור, 58001<br><strong>טלפון:</strong> 03-6508282<br><strong>פקס:</strong> 03-6508245<br><strong>דוא"ל:</strong> info@ralco.co.il</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d70b2cc e-grid-align-right elementor-shape-circle e-grid-align-mobile-center elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="d70b2cc" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-320e991" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-8206083" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-66a68de" data-id="66a68de" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-ae45d62 elementor-widget elementor-widget-image" data-id="ae45d62" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+													<a href="https://www.ralco.co.il/" target="_blank">
+							<img width="198" height="195" src="https://www.ralco.co.il/wp-content/uploads/2019/02/ralco-e1595929300731.png" class="attachment-large size-large wp-image-9902" alt="" loading="lazy">								</a>
+														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2a6fcf5 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="2a6fcf5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b3a00b0" data-id="b3a00b0" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7d054cc elementor-nav-menu__align-right menufooter1 elementor-nav-menu--dropdown-mobile elementor-nav-menu__text-align-center elementor-widget elementor-widget-nav-menu" data-id="7d054cc" data-element_type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas e-plus-icon\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;layout&quot;:&quot;horizontal&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-7d054cc" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14515"><a href="https://www.ralco.co.il/%d7%aa%d7%a0%d7%90%d7%99-%d7%a9%d7%99%d7%9e%d7%95%d7%a9/" class="elementor-item">תנאי שימוש</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14516"><a href="https://www.ralco.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa-%d7%a2%d7%9c-%d7%a0%d7%aa%d7%95%d7%a0%d7%99%d7%9d/" class="elementor-item">הצהרת פרטיות על נתונים</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-7d054cc" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14515"><a href="https://www.ralco.co.il/%d7%aa%d7%a0%d7%90%d7%99-%d7%a9%d7%99%d7%9e%d7%95%d7%a9/" class="elementor-item" tabindex="-1">תנאי שימוש</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14516"><a href="https://www.ralco.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa-%d7%a2%d7%9c-%d7%a0%d7%aa%d7%95%d7%a0%d7%99%d7%9d/" class="elementor-item" tabindex="-1">הצהרת פרטיות על נתונים</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2da98c8" data-id="2da98c8" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c899ebb elementor-widget elementor-widget-heading" data-id="c899ebb" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default"><a href="https://www.hakerdesign.co.il" target="_blank">created by | HD</a></span>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+							</div>
+				</div>
+		
+<script type="rocketlazyloadscript">(function(){ var s = document.createElement('script'), e = ! document.body ? document.querySelector('head') : document.body; s.src = 'https://acsbapp.com/apps/app/dist/js/app.js'; s.async = true; s.onload = function(){ acsbJS.init({ statementLink : '', footerHtml : '', hideMobile : false, hideTrigger : false, language : 'he', position : 'left', leadColor : '#146ff8', triggerColor : '#146ff8', triggerRadius : '50%', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerIcon : 'people', triggerSize : 'big', triggerOffsetX : 20, triggerOffsetY : 20, mobile : { triggerSize : 'small', triggerPositionX : 'right', triggerPositionY : 'center', triggerOffsetX : 10, triggerOffsetY : 0, triggerRadius : '50%' } }); }; e.appendChild(s);}());</script>		<div data-elementor-type="popup" data-elementor-id="8091" class="elementor elementor-8091 elementor-location-popup" data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-161e0d85 elementor-section-height-min-height elementor-section-items-stretch elementor-reverse-mobile elementor-section-boxed elementor-section-height-default" data-id="161e0d85" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-30e285ab" data-id="30e285ab" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7dae4d79 elementor-widget elementor-widget-heading" data-id="7dae4d79" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">יש לך שאלה?</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e69e52d elementor-widget elementor-widget-text-editor" data-id="e69e52d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>מלא את הפרטים ונחזור אלייך במהרה.</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-7719b59b elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="7719b59b" data-element_type="widget" data-settings="{&quot;button_width&quot;:&quot;100&quot;,&quot;step_next_label&quot;:&quot;\u05d4\u05d1\u05d0&quot;,&quot;step_previous_label&quot;:&quot;\u05d4\u05e7\u05d5\u05d3\u05dd&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-form" method="post" name="New Form">
+			<input type="hidden" name="post_id" value="8091">
+			<input type="hidden" name="form_id" value="7719b59b">
+			<input type="hidden" name="referer_title" value="ראלקו בע&quot;מ ישראל">
+
+							<input type="hidden" name="queried_id" value="9">
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required">
+												<label for="form-field-name" class="elementor-field-label elementor-screen-only">
+								Name							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="שם מלא" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-tel elementor-col-100 elementor-field-required">
+												<label for="form-field-tel" class="elementor-field-label elementor-screen-only">
+								tel							</label>
+														<input size="1" type="text" name="form_fields[tel]" id="form-field-tel" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="טלפון" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="אימייל" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100 elementor-field-required">
+												<label for="form-field-message" class="elementor-field-label elementor-screen-only">
+								message							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="1" placeholder="הודעה" required="required" aria-required="true"></textarea>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button type="submit" class="elementor-button elementor-size-sm elementor-animation-sink">
+						<span>
+															<span class=" elementor-button-icon">
+																										</span>
+																						<span class="elementor-button-text">שליחה</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4ba9ad4e" data-id="4ba9ad4e" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-59e4ef57 elementor-widget elementor-widget-spacer" data-id="59e4ef57" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+							</div>
+				</div>
+				<div data-elementor-type="popup" data-elementor-id="7021" class="elementor elementor-7021 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;slideInRight&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.6999999999999999555910790149937383830547332763671875,&quot;sizes&quot;:[]},&quot;prevent_scroll&quot;:&quot;yes&quot;,&quot;exit_animation&quot;:&quot;slideInRight&quot;,&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-f644e59 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="f644e59" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8695737" data-id="8695737" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+							</div>
+				</div>
+		<link rel="stylesheet" id="e-animations-css" href="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.12.2" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/page-links-to/dist/new-tab.js?ver=3.3.6" id="page-links-to-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.6.3" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0" id="jquery-migrate-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1" id="smartmenus-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=explicit&amp;ver=3.12.3" id="elementor-recaptcha_v3-api-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.12.3" id="elementor-pro-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.12.2" id="elementor-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.12.2" id="elementor-frontend-modules-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id="wp-polyfill-inert-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.11" id="regenerator-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/dist/hooks.min.js?ver=4169d3cf8e8d95a3d6d5" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/dist/i18n.min.js?ver=9e794f35a71bb98672ae" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.ralco.co.il\/wp-admin\/admin-ajax.php","nonce":"b1cc5bff11","urls":{"assets":"https:\/\/www.ralco.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.ralco.co.il\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.ralco.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.12.3" id="elementor-pro-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" id="jquery-ui-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6" id="swiper-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.12.2" id="share-link-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.9.0" id="elementor-dialog-js"></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnTwitter":"\u05e9\u05ea\u05e3 \u05d1\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e0\u05db\u05d9","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05d5\u05e4\u05e7\u05d9","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e0\u05db\u05d9","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05d5\u05e4\u05e7\u05d9","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.12.2","is_static":false,"experimentalFeatures":{"a11y_improvements":true,"additional_custom_breakpoints":true,"theme_builder_v2":true,"landing-pages":true,"page-transitions":true,"notes":true,"loop":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/www.ralco.co.il\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper-container","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":9,"title":"%D7%A8%D7%90%D7%9C%D7%A7%D7%95%20%D7%91%D7%A2%22%D7%9E%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C","excerpt":"","featuredImage":"https:\/\/www.ralco.co.il\/wp-content\/uploads\/2020\/04\/21712_baner_2000x613-2000x613.jpg"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.12.2" id="elementor-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.12.3" id="pro-preloaded-elements-handlers-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.12.2" id="preloaded-modules-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.ralco.co.il/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.12.3" id="e-sticky-js"></script>
+
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>

@@ -1,0 +1,71 @@
+[2026-03-22T05:26:30.522Z] === Homepage AI Extractor: Edgify ===
+[2026-03-22T05:26:30.522Z] Started at: 2026-03-22T05:26:30.522Z
+[2026-03-22T05:26:30.523Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774157190521_Edgify
+[2026-03-22T05:26:30.523Z] Company: Edgify
+[2026-03-22T05:26:30.523Z] Website: edgify.ai
+[2026-03-22T05:26:30.523Z] cbRank: 134063
+[2026-03-22T05:26:30.523Z] Reasons: f
+[2026-03-22T05:26:30.523Z] Fetching: https://edgify.ai
+[2026-03-22T05:26:32.942Z] Redirected: https://edgify.ai -> https://www.edgify.ai/
+[2026-03-22T05:26:32.952Z] Saved HTML (313385 bytes) to page.html
+[2026-03-22T05:26:32.956Z] Extracted 17 unique links from page
+[2026-03-22T05:26:32.957Z] Saved 17 links to links.json
+[2026-03-22T05:26:32.961Z] Extracted footer HTML (37479 chars)
+[2026-03-22T05:26:32.961Z] Extracted header HTML (22985 chars)
+[2026-03-22T05:26:32.965Z] Website (post-redirect): https://www.edgify.ai/ → origin: https://www.edgify.ai
+[2026-03-22T05:26:32.965Z]   SUBDOMAIN: dashboard.staging.edgify.ai (added to ws)
+[2026-03-22T05:26:32.965Z]   SUBDOMAIN: docs.edgify.ai (added to ws)
+[2026-03-22T05:26:32.965Z] Website subdomains found: 2
+[2026-03-22T05:26:32.965Z] External links: 3 (of 17 total)
+[2026-03-22T05:26:32.965Z] ── All external links ──
+[2026-03-22T05:26:32.965Z]   EXT: https://www.facebook.com/EdgifyAI#
+[2026-03-22T05:26:32.965Z]   EXT: https://www.linkedin.com/company/edgifyai
+[2026-03-22T05:26:32.965Z]   EXT: https://x.com/Edgify_AI
+[2026-03-22T05:26:32.965Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T05:26:32.966Z]   REGEX: fb <- https://www.facebook.com/EdgifyAI#
+[2026-03-22T05:26:32.966Z]   REGEX: li <- https://www.linkedin.com/company/edgifyai
+[2026-03-22T05:26:32.966Z]   REGEX: tw <- https://x.com/Edgify_AI
+[2026-03-22T05:26:32.966Z] Programmatic result: ws:3, fb:1, li:1, tw:1 | 0 uncategorized
+[2026-03-22T05:26:32.966Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T05:26:32.967Z] Saved AI prompt (2320 chars) to ai_prompt.txt
+[2026-03-22T05:26:32.967Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T05:26:32.972Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T05:26:41.880Z]   AI: First token received, streaming...
+[2026-03-22T05:26:47.886Z] AI response complete: 101 chars in 14.9s
+[2026-03-22T05:26:47.887Z] Saved AI response to ai_response.json
+[2026-03-22T05:26:47.887Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T05:26:47.887Z]   AI LINK: https://x.com/Edgify_AI
+[2026-03-22T05:26:47.887Z]   AI LINK: https://www.facebook.com/EdgifyAI#
+[2026-03-22T05:26:47.888Z]   AI LINK: https://www.linkedin.com/company/edgifyai/
+[2026-03-22T05:26:47.888Z] AI returned 3 valid links
+[2026-03-22T05:26:47.888Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T05:26:47.888Z]   AI→REGEX: tw <- https://x.com/Edgify_AI (duplicate, skipped)
+[2026-03-22T05:26:47.888Z]   AI→REGEX: fb <- https://www.facebook.com/EdgifyAI# (duplicate, skipped)
+[2026-03-22T05:26:47.888Z]   AI→REGEX: li <- https://www.linkedin.com/company/edgifyai/ (duplicate, skipped)
+[2026-03-22T05:26:47.890Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T05:26:47.890Z] Footer/header origins (5):
+[2026-03-22T05:26:47.890Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T05:26:47.890Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T05:26:47.890Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T05:26:47.890Z]   FOOTER/HEADER ORIGIN: https://dashboard.staging.edgify.ai
+[2026-03-22T05:26:47.890Z]   FOOTER/HEADER ORIGIN: https://docs.edgify.ai
+[2026-03-22T05:26:47.890Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T05:26:47.890Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T05:26:47.890Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T05:26:47.891Z] ── Step 3: Final dedup ──
+[2026-03-22T05:26:47.891Z] No urls to dedup
+[2026-03-22T05:26:47.891Z] ── FINAL RESULT ──
+[2026-03-22T05:26:47.891Z]   ws (3):
+[2026-03-22T05:26:47.891Z]     - https://dashboard.staging.edgify.ai
+[2026-03-22T05:26:47.891Z]     - https://docs.edgify.ai
+[2026-03-22T05:26:47.891Z]     - https://www.edgify.ai
+[2026-03-22T05:26:47.891Z]   li (1):
+[2026-03-22T05:26:47.892Z]     - https://www.linkedin.com/company/edgifyai
+[2026-03-22T05:26:47.892Z]   fb (1):
+[2026-03-22T05:26:47.892Z]     - https://www.facebook.com/edgifyai#
+[2026-03-22T05:26:47.892Z]   tw (1):
+[2026-03-22T05:26:47.892Z]     - https://x.com/edgify_ai
+[2026-03-22T05:26:47.892Z] Summary: ws:3, fb:1, li:1, tw:1
+[2026-03-22T05:26:47.893Z] Saved final result to result.json
+[2026-03-22T05:26:47.894Z] Override fields: ws, li, fb, tw
+[2026-03-22T05:26:47.894Z] Finished at: 2026-03-22T05:26:47.894Z

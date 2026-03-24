@@ -1,0 +1,63 @@
+[2026-03-22T04:43:47.452Z] === Homepage AI Extractor: Wisio ===
+[2026-03-22T04:43:47.453Z] Started at: 2026-03-22T04:43:47.453Z
+[2026-03-22T04:43:47.453Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774154627451_Wisio
+[2026-03-22T04:43:47.453Z] Company: Wisio
+[2026-03-22T04:43:47.453Z] Website: wisio.com
+[2026-03-22T04:43:47.453Z] cbRank: 88235
+[2026-03-22T04:43:47.453Z] Reasons: f
+[2026-03-22T04:43:47.453Z] Fetching: https://wisio.com
+[2026-03-22T04:43:58.314Z] Network idle timeout — continuing with current state
+[2026-03-22T04:43:58.354Z] Redirected: https://wisio.com -> https://www.wisio.com/
+[2026-03-22T04:43:58.359Z] Saved HTML (123383 bytes) to page.html
+[2026-03-22T04:43:58.361Z] Extracted 19 unique links from page
+[2026-03-22T04:43:58.362Z] Saved 19 links to links.json
+[2026-03-22T04:43:58.363Z] No footer section found in DOM
+[2026-03-22T04:43:58.364Z] No header section found in DOM
+[2026-03-22T04:43:58.367Z] Website (post-redirect): https://www.wisio.com/ → origin: https://www.wisio.com
+[2026-03-22T04:43:58.368Z] External links: 4 (of 19 total)
+[2026-03-22T04:43:58.368Z] ── All external links ──
+[2026-03-22T04:43:58.368Z]   EXT: https://medium.com/wisio
+[2026-03-22T04:43:58.368Z]   EXT: https://twitter.com/wisio_official
+[2026-03-22T04:43:58.368Z]   EXT: https://www.facebook.com/wisio.official
+[2026-03-22T04:43:58.368Z]   EXT: https://www.instagram.com/wisio.official
+[2026-03-22T04:43:58.368Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:43:58.368Z]   UNCATEGORIZED: https://medium.com/wisio
+[2026-03-22T04:43:58.368Z]   REGEX: tw <- https://twitter.com/wisio_official
+[2026-03-22T04:43:58.369Z]   REGEX: fb <- https://www.facebook.com/wisio.official
+[2026-03-22T04:43:58.369Z]   REGEX: ig <- https://www.instagram.com/wisio.official
+[2026-03-22T04:43:58.369Z] Programmatic result: ws:1, tw:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-22T04:43:58.369Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:43:58.372Z] Saved AI prompt (1948 chars) to ai_prompt.txt
+[2026-03-22T04:43:58.372Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:43:58.376Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:44:04.607Z]   AI: First token received, streaming...
+[2026-03-22T04:44:05.301Z] AI response complete: 24 chars in 6.9s
+[2026-03-22T04:44:05.302Z] Saved AI response to ai_response.json
+[2026-03-22T04:44:05.303Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T04:44:05.303Z]   AI LINK: https://medium.com/wisio
+[2026-03-22T04:44:05.303Z] AI returned 1 valid links
+[2026-03-22T04:44:05.303Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T04:44:05.304Z]   AI→URLS: https://medium.com/wisio
+[2026-03-22T04:44:05.304Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:44:05.304Z] Footer/header origins (0):
+[2026-03-22T04:44:05.304Z]   SKIP (AI claimed): https://medium.com/wisio
+[2026-03-22T04:44:05.304Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T04:44:05.304Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:44:05.304Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:44:05.304Z] ── Step 3: Final dedup ──
+[2026-03-22T04:44:05.305Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T04:44:05.305Z] ── FINAL RESULT ──
+[2026-03-22T04:44:05.305Z]   ws (1):
+[2026-03-22T04:44:05.305Z]     - https://www.wisio.com
+[2026-03-22T04:44:05.305Z]   fb (1):
+[2026-03-22T04:44:05.305Z]     - https://www.facebook.com/wisio.official
+[2026-03-22T04:44:05.305Z]   tw (1):
+[2026-03-22T04:44:05.305Z]     - https://x.com/wisio_official
+[2026-03-22T04:44:05.305Z]   ig (1):
+[2026-03-22T04:44:05.306Z]     - https://www.instagram.com/wisio.official
+[2026-03-22T04:44:05.306Z]   urls (1):
+[2026-03-22T04:44:05.306Z]     - https://medium.com/wisio
+[2026-03-22T04:44:05.306Z] Summary: ws:1, tw:1, fb:1, ig:1, urls:1
+[2026-03-22T04:44:05.307Z] Saved final result to result.json
+[2026-03-22T04:44:05.307Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-22T04:44:05.307Z] Finished at: 2026-03-22T04:44:05.307Z

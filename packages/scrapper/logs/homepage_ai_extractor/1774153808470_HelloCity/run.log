@@ -1,0 +1,83 @@
+[2026-03-22T04:30:08.470Z] === Homepage AI Extractor: HelloCity ===
+[2026-03-22T04:30:08.470Z] Started at: 2026-03-22T04:30:08.470Z
+[2026-03-22T04:30:08.470Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774153808470_HelloCity
+[2026-03-22T04:30:08.470Z] Company: HelloCity
+[2026-03-22T04:30:08.470Z] Website: hellocity.com
+[2026-03-22T04:30:08.471Z] cbRank: 81775
+[2026-03-22T04:30:08.471Z] Reasons: f, i
+[2026-03-22T04:30:08.471Z] Fetching: https://hellocity.com
+[2026-03-22T04:30:13.113Z] Redirected: https://hellocity.com -> https://www.hellocity.com/
+[2026-03-22T04:30:13.121Z] Saved HTML (269063 bytes) to page.html
+[2026-03-22T04:30:13.125Z] Extracted 49 unique links from page
+[2026-03-22T04:30:13.126Z] Saved 49 links to links.json
+[2026-03-22T04:30:13.128Z] Extracted footer HTML (3693 chars)
+[2026-03-22T04:30:13.128Z] Extracted header HTML (4224 chars)
+[2026-03-22T04:30:13.132Z] Website (post-redirect): https://www.hellocity.com/ → origin: https://www.hellocity.com
+[2026-03-22T04:30:13.132Z] External links: 6 (of 49 total)
+[2026-03-22T04:30:13.132Z] ── All external links ──
+[2026-03-22T04:30:13.132Z]   EXT: https://www.facebook.com/profile.php?id=61564949341674
+[2026-03-22T04:30:13.132Z]   EXT: https://www.google.com/maps/place/360+NW+27th+St,+Miami,+FL+33127,+USA/data=!4m2!3m1!1s0x88d9b6b3016892ad:0x9733e0be38a75663?sa=X&ved=1t:242&ictx=111
+[2026-03-22T04:30:13.132Z]   EXT: https://www.instagram.com/hellocity.miami
+[2026-03-22T04:30:13.132Z]   EXT: https://www.linkedin.com/company/hellocitymiami
+[2026-03-22T04:30:13.133Z]   EXT: https://www.tiktok.com/@hellocity.miami
+[2026-03-22T04:30:13.133Z]   EXT: https://www.youtube.com/@HelloCity-Miami
+[2026-03-22T04:30:13.133Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:30:13.134Z]   UNCATEGORIZED: https://www.google.com/maps/place/360+NW+27th+St,+Miami,+FL+33127,+USA/data=!4m2!3m1!1s0x88d9b6b3016892ad:0x9733e0be38a75663?sa=X&ved=1t:242&ictx=111
+[2026-03-22T04:30:13.134Z]   REGEX: ig <- https://www.instagram.com/hellocity.miami
+[2026-03-22T04:30:13.134Z]   REGEX: li <- https://www.linkedin.com/company/hellocitymiami
+[2026-03-22T04:30:13.134Z]   REGEX: tt <- https://www.tiktok.com/@hellocity.miami
+[2026-03-22T04:30:13.134Z]   REGEX: ytp <- https://www.youtube.com/@HelloCity-Miami
+[2026-03-22T04:30:13.134Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-22T04:30:14.257Z]   RESOLVE: https://www.facebook.com/profile.php?id=61564949341674 → https://www.facebook.com/people/HelloCity/61564949341674
+[2026-03-22T04:30:14.271Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/HelloCity/61564949341674 (from https://www.facebook.com/profile.php?id=61564949341674)
+[2026-03-22T04:30:14.272Z] Programmatic result: ws:1, ig:1, li:1, tt:1, ytp:1 | 1 uncategorized
+[2026-03-22T04:30:14.272Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:30:14.273Z] Saved AI prompt (4200 chars) to ai_prompt.txt
+[2026-03-22T04:30:14.273Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:30:14.278Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:30:33.832Z]   AI: First token received, streaming...
+[2026-03-22T04:30:47.262Z] AI response complete: 186 chars in 33.0s
+[2026-03-22T04:30:47.263Z] Saved AI response to ai_response.json
+[2026-03-22T04:30:47.264Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T04:30:47.264Z]   AI LINK: https://www.linkedin.com/company/hellocitymiami/
+[2026-03-22T04:30:47.264Z]   AI LINK: https://www.instagram.com/hellocity.miami/
+[2026-03-22T04:30:47.264Z]   AI LINK: https://www.tiktok.com/@hellocity.miami
+[2026-03-22T04:30:47.264Z]   AI LINK: https://www.facebook.com/profile.php?id=61564949341674
+[2026-03-22T04:30:47.265Z] AI returned 4 valid links
+[2026-03-22T04:30:47.265Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T04:30:47.265Z]   AI→REGEX: li <- https://www.linkedin.com/company/hellocitymiami/ (duplicate, skipped)
+[2026-03-22T04:30:47.265Z]   AI→REGEX: ig <- https://www.instagram.com/hellocity.miami/ (duplicate, skipped)
+[2026-03-22T04:30:47.265Z]   AI→REGEX: tt <- https://www.tiktok.com/@hellocity.miami (duplicate, skipped)
+[2026-03-22T04:30:48.130Z]   RESOLVE: https://www.facebook.com/profile.php?id=61564949341674 → https://www.facebook.com/people/HelloCity/61564949341674
+[2026-03-22T04:30:48.144Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/HelloCity/61564949341674 (from https://www.facebook.com/profile.php?id=61564949341674)
+[2026-03-22T04:30:48.144Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:30:48.144Z] Footer/header origins (6):
+[2026-03-22T04:30:48.144Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-22T04:30:48.144Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:30:48.144Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T04:30:48.144Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-22T04:30:48.144Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T04:30:48.144Z]   FOOTER/HEADER ORIGIN: https://www.hellocity.com
+[2026-03-22T04:30:48.144Z]   ADDED: urls <- https://www.google.com/maps/place/360+NW+27th+St,+Miami,+FL+33127,+USA/data=!4m2!3m1!1s0x88d9b6b3016892ad:0x9733e0be38a75663 (cleaned from https://www.google.com/maps/place/360+NW+27th+St,+Miami,+FL+33127,+USA/data=!4m2!3m1!1s0x88d9b6b3016892ad:0x9733e0be38a75663?sa=X&ved=1t:242&ictx=111)
+[2026-03-22T04:30:48.145Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T04:30:48.145Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:30:48.145Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:30:48.145Z] ── Step 3: Final dedup ──
+[2026-03-22T04:30:48.145Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T04:30:48.145Z] ── FINAL RESULT ──
+[2026-03-22T04:30:48.145Z]   ws (1):
+[2026-03-22T04:30:48.145Z]     - https://www.hellocity.com
+[2026-03-22T04:30:48.145Z]   li (1):
+[2026-03-22T04:30:48.145Z]     - https://www.linkedin.com/company/hellocitymiami
+[2026-03-22T04:30:48.145Z]   ig (1):
+[2026-03-22T04:30:48.145Z]     - https://www.instagram.com/hellocity.miami
+[2026-03-22T04:30:48.145Z]   ytp (1):
+[2026-03-22T04:30:48.145Z]     - https://www.youtube.com/@hellocity-miami
+[2026-03-22T04:30:48.145Z]   tt (1):
+[2026-03-22T04:30:48.145Z]     - https://www.tiktok.com/@hellocity.miami
+[2026-03-22T04:30:48.145Z]   urls (1):
+[2026-03-22T04:30:48.145Z]     - https://www.google.com/maps/place/360+NW+27th+St,+Miami,+FL+33127,+USA/data=!4m2!3m1!1s0x88d9b6b3016892ad:0x9733e0be38a75663
+[2026-03-22T04:30:48.145Z] Summary: ws:1, ig:1, li:1, tt:1, ytp:1, urls:1
+[2026-03-22T04:30:48.146Z] Saved final result to result.json
+[2026-03-22T04:30:48.146Z] Override fields: ws, li, ig, ytp, tt, urls
+[2026-03-22T04:30:48.146Z] Finished at: 2026-03-22T04:30:48.146Z

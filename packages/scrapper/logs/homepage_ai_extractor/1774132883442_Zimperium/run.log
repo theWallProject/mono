@@ -1,0 +1,79 @@
+[2026-03-21T22:41:23.443Z] === Homepage AI Extractor: Zimperium ===
+[2026-03-21T22:41:23.443Z] Started at: 2026-03-21T22:41:23.443Z
+[2026-03-21T22:41:23.443Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774132883442_Zimperium
+[2026-03-21T22:41:23.443Z] Company: Zimperium
+[2026-03-21T22:41:23.443Z] Website: zimperium.com
+[2026-03-21T22:41:23.443Z] cbRank: 2700
+[2026-03-21T22:41:23.443Z] Reasons: f
+[2026-03-21T22:41:23.443Z] Fetching: https://zimperium.com
+[2026-03-21T22:41:26.961Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T22:41:29.924Z] Redirected: https://zimperium.com -> https://zimperium.com/
+[2026-03-21T22:41:29.931Z] Saved HTML (273751 bytes) to page.html
+[2026-03-21T22:41:29.934Z] Extracted 45 unique links from page
+[2026-03-21T22:41:29.935Z] Saved 45 links to links.json
+[2026-03-21T22:41:29.938Z] No footer section found in DOM
+[2026-03-21T22:41:29.938Z] Extracted header HTML (26615 chars)
+[2026-03-21T22:41:29.942Z] Website (post-redirect): https://zimperium.com/ → origin: https://zimperium.com
+[2026-03-21T22:41:29.942Z]   SUBDOMAIN: learning.zimperium.com (added to ws)
+[2026-03-21T22:41:29.942Z]   SUBDOMAIN: lp.zimperium.com (added to ws)
+[2026-03-21T22:41:29.942Z] Website subdomains found: 2
+[2026-03-21T22:41:29.942Z] External links: 5 (of 45 total)
+[2026-03-21T22:41:29.943Z] ── All external links ──
+[2026-03-21T22:41:29.943Z]   EXT: https://my.compliancehotline.com/report/zimperium
+[2026-03-21T22:41:29.943Z]   EXT: https://www.facebook.com/ZIMPERIUMINC
+[2026-03-21T22:41:29.943Z]   EXT: https://www.linkedin.com/company/zimperium
+[2026-03-21T22:41:29.943Z]   EXT: https://www.youtube.com/channel/UCKFuAnB5ZwrDGSE2pOr7xtQ
+[2026-03-21T22:41:29.943Z]   EXT: https://x.com/zimperium
+[2026-03-21T22:41:29.943Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:41:29.943Z]   UNCATEGORIZED: https://my.compliancehotline.com/report/zimperium
+[2026-03-21T22:41:29.943Z]   REGEX: fb <- https://www.facebook.com/ZIMPERIUMINC
+[2026-03-21T22:41:29.943Z]   REGEX: li <- https://www.linkedin.com/company/zimperium
+[2026-03-21T22:41:29.943Z]   REGEX: ytc <- https://www.youtube.com/channel/UCKFuAnB5ZwrDGSE2pOr7xtQ
+[2026-03-21T22:41:29.943Z]   REGEX: tw <- https://x.com/zimperium
+[2026-03-21T22:41:29.943Z] Programmatic result: ws:3, fb:1, li:1, ytc:1, tw:1 | 1 uncategorized
+[2026-03-21T22:41:29.943Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:41:29.944Z] Saved AI prompt (1985 chars) to ai_prompt.txt
+[2026-03-21T22:41:29.944Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:41:29.948Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:41:36.723Z]   AI: First token received, streaming...
+[2026-03-21T22:41:38.566Z] AI response complete: 49 chars in 8.6s
+[2026-03-21T22:41:38.567Z] Saved AI response to ai_response.json
+[2026-03-21T22:41:38.568Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T22:41:38.568Z]   AI LINK: https://my.compliancehotline.com/report/zimperium
+[2026-03-21T22:41:38.568Z] AI returned 1 valid links
+[2026-03-21T22:41:38.568Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T22:41:38.568Z]   AI→URLS: https://my.compliancehotline.com/report/zimperium
+[2026-03-21T22:41:38.569Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:41:38.569Z] Footer/header origins (3):
+[2026-03-21T22:41:38.569Z]   FOOTER/HEADER ORIGIN: https://www.zimperium.com
+[2026-03-21T22:41:38.569Z]   FOOTER/HEADER ORIGIN: https://zimperium.com
+[2026-03-21T22:41:38.569Z]   FOOTER/HEADER ORIGIN: https://learning.zimperium.com
+[2026-03-21T22:41:38.570Z]   SKIP (AI claimed): https://my.compliancehotline.com/report/zimperium
+[2026-03-21T22:41:38.570Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:41:38.570Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:41:38.570Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T22:41:39.068Z]   YOUTUBE: resolved UCKFuAnB5ZwrDGSE2pOr7xtQ → @ZimperiumMobileSecurity
+[2026-03-21T22:41:39.068Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T22:41:39.068Z] ── Step 3: Final dedup ──
+[2026-03-21T22:41:39.068Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T22:41:39.068Z] ── FINAL RESULT ──
+[2026-03-21T22:41:39.068Z]   ws (3):
+[2026-03-21T22:41:39.068Z]     - https://learning.zimperium.com
+[2026-03-21T22:41:39.068Z]     - https://lp.zimperium.com
+[2026-03-21T22:41:39.068Z]     - https://zimperium.com
+[2026-03-21T22:41:39.069Z]   li (1):
+[2026-03-21T22:41:39.069Z]     - https://www.linkedin.com/company/zimperium
+[2026-03-21T22:41:39.069Z]   fb (1):
+[2026-03-21T22:41:39.069Z]     - https://www.facebook.com/zimperiuminc
+[2026-03-21T22:41:39.069Z]   tw (1):
+[2026-03-21T22:41:39.069Z]     - https://x.com/zimperium
+[2026-03-21T22:41:39.069Z]   ytp (1):
+[2026-03-21T22:41:39.069Z]     - https://www.youtube.com/@ZimperiumMobileSecurity
+[2026-03-21T22:41:39.069Z]   ytc (1):
+[2026-03-21T22:41:39.069Z]     - https://www.youtube.com/channel/UCKFuAnB5ZwrDGSE2pOr7xtQ
+[2026-03-21T22:41:39.069Z]   urls (1):
+[2026-03-21T22:41:39.069Z]     - https://my.compliancehotline.com/report/zimperium
+[2026-03-21T22:41:39.069Z] Summary: ws:3, fb:1, li:1, ytc:1, tw:1, urls:1, ytp:1
+[2026-03-21T22:41:39.070Z] Saved final result to result.json
+[2026-03-21T22:41:39.070Z] Override fields: ws, li, fb, tw, ytp, ytc, urls
+[2026-03-21T22:41:39.070Z] Finished at: 2026-03-21T22:41:39.070Z

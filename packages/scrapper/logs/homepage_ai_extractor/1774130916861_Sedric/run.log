@@ -1,0 +1,74 @@
+[2026-03-21T22:08:36.862Z] === Homepage AI Extractor: Sedric ===
+[2026-03-21T22:08:36.862Z] Started at: 2026-03-21T22:08:36.862Z
+[2026-03-21T22:08:36.862Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774130916861_Sedric
+[2026-03-21T22:08:36.862Z] Company: Sedric
+[2026-03-21T22:08:36.862Z] Website: sedric.ai
+[2026-03-21T22:08:36.862Z] cbRank: 1397
+[2026-03-21T22:08:36.862Z] Reasons: f, i
+[2026-03-21T22:08:36.862Z] Fetching: https://sedric.ai
+[2026-03-21T22:08:40.560Z] Redirected: https://sedric.ai -> https://www.sedric.ai/
+[2026-03-21T22:08:40.698Z] Saved HTML (6520713 bytes) to page.html
+[2026-03-21T22:08:40.702Z] Extracted 27 unique links from page
+[2026-03-21T22:08:40.703Z] Saved 27 links to links.json
+[2026-03-21T22:08:40.706Z] Extracted footer HTML (7230 chars)
+[2026-03-21T22:08:40.706Z] Extracted header HTML (3040 chars)
+[2026-03-21T22:08:40.710Z] Website (post-redirect): https://www.sedric.ai/ → origin: https://www.sedric.ai
+[2026-03-21T22:08:40.710Z]   SUBDOMAIN: app.sedric.ai (added to ws)
+[2026-03-21T22:08:40.710Z] Website subdomains found: 1
+[2026-03-21T22:08:40.710Z] External links: 5 (of 27 total)
+[2026-03-21T22:08:40.710Z] ── All external links ──
+[2026-03-21T22:08:40.710Z]   EXT: https://twitter.com/SedricAI
+[2026-03-21T22:08:40.710Z]   EXT: https://www.calcalistech.com/ctechnews/article/bjny671zq
+[2026-03-21T22:08:40.710Z]   EXT: https://www.calcalistech.com/ctechnews/article/r1f6hqqga
+[2026-03-21T22:08:40.711Z]   EXT: https://www.comeet.com/jobs/sedric/0A.00F
+[2026-03-21T22:08:40.711Z]   EXT: https://www.linkedin.com/company/sedric-ai
+[2026-03-21T22:08:40.711Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:08:40.711Z]   REGEX: tw <- https://twitter.com/SedricAI
+[2026-03-21T22:08:40.711Z]   UNCATEGORIZED: https://www.calcalistech.com/ctechnews/article/bjny671zq
+[2026-03-21T22:08:40.711Z]   UNCATEGORIZED: https://www.calcalistech.com/ctechnews/article/r1f6hqqga
+[2026-03-21T22:08:40.711Z]   UNCATEGORIZED: https://www.comeet.com/jobs/sedric/0A.00F
+[2026-03-21T22:08:40.711Z]   REGEX: li <- https://www.linkedin.com/company/sedric-ai
+[2026-03-21T22:08:40.711Z] Programmatic result: ws:2, tw:1, li:1 | 3 uncategorized
+[2026-03-21T22:08:40.711Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:08:40.712Z] Saved AI prompt (5108 chars) to ai_prompt.txt
+[2026-03-21T22:08:40.712Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:08:40.716Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:09:03.247Z]   AI: First token received, streaming...
+[2026-03-21T22:09:11.802Z] AI response complete: 114 chars in 31.1s
+[2026-03-21T22:09:11.803Z] Saved AI response to ai_response.json
+[2026-03-21T22:09:11.803Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T22:09:11.804Z]   AI LINK: https://www.linkedin.com/company/sedric-ai/
+[2026-03-21T22:09:11.804Z]   AI LINK: https://twitter.com/SedricAI
+[2026-03-21T22:09:11.804Z]   AI LINK: https://www.comeet.com/jobs/sedric/0A.00F
+[2026-03-21T22:09:11.804Z] AI returned 3 valid links
+[2026-03-21T22:09:11.804Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T22:09:11.804Z]   AI→REGEX: li <- https://www.linkedin.com/company/sedric-ai/ (duplicate, skipped)
+[2026-03-21T22:09:11.804Z]   AI→REGEX: tw <- https://twitter.com/SedricAI (duplicate, skipped)
+[2026-03-21T22:09:11.805Z]   AI→URLS: https://www.comeet.com/jobs/sedric/0A.00F
+[2026-03-21T22:09:11.805Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:09:11.806Z] Footer/header origins (3):
+[2026-03-21T22:09:11.806Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:09:11.806Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T22:09:11.806Z]   FOOTER/HEADER ORIGIN: https://www.comeet.com
+[2026-03-21T22:09:11.806Z]   SKIP (not in footer/header): https://www.calcalistech.com/ctechnews/article/bjny671zq
+[2026-03-21T22:09:11.806Z]   SKIP (not in footer/header): https://www.calcalistech.com/ctechnews/article/r1f6hqqga
+[2026-03-21T22:09:11.806Z]   SKIP (AI claimed): https://www.comeet.com/jobs/sedric/0A.00F
+[2026-03-21T22:09:11.806Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:09:11.806Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:09:11.807Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:09:11.807Z] ── Step 3: Final dedup ──
+[2026-03-21T22:09:11.807Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T22:09:11.807Z] ── FINAL RESULT ──
+[2026-03-21T22:09:11.807Z]   ws (2):
+[2026-03-21T22:09:11.807Z]     - https://app.sedric.ai
+[2026-03-21T22:09:11.807Z]     - https://www.sedric.ai
+[2026-03-21T22:09:11.807Z]   li (1):
+[2026-03-21T22:09:11.807Z]     - https://www.linkedin.com/company/sedric-ai
+[2026-03-21T22:09:11.807Z]   tw (1):
+[2026-03-21T22:09:11.808Z]     - https://x.com/sedricai
+[2026-03-21T22:09:11.808Z]   urls (1):
+[2026-03-21T22:09:11.808Z]     - https://www.comeet.com/jobs/sedric/0A.00F
+[2026-03-21T22:09:11.808Z] Summary: ws:2, tw:1, li:1, urls:1
+[2026-03-21T22:09:11.809Z] Saved final result to result.json
+[2026-03-21T22:09:11.810Z] Override fields: ws, li, tw, urls
+[2026-03-21T22:09:11.810Z] Finished at: 2026-03-21T22:09:11.810Z

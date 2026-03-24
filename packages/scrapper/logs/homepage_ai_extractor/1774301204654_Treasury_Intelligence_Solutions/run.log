@@ -1,0 +1,73 @@
+[2026-03-23T21:26:44.655Z] === Homepage AI Extractor: Treasury Intelligence Solutions ===
+[2026-03-23T21:26:44.655Z] Started at: 2026-03-23T21:26:44.655Z
+[2026-03-23T21:26:44.655Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774301204654_Treasury_Intelligence_Solutions
+[2026-03-23T21:26:44.655Z] Company: Treasury Intelligence Solutions
+[2026-03-23T21:26:44.655Z] Website: tispayments.com
+[2026-03-23T21:26:44.655Z] cbRank: 20982
+[2026-03-23T21:26:44.655Z] Reasons: i
+[2026-03-23T21:26:44.655Z] Fetching: https://tispayments.com
+[2026-03-23T21:26:46.122Z] Redirected: https://tispayments.com -> https://tispayments.com/
+[2026-03-23T21:26:46.129Z] Saved HTML (211100 bytes) to page.html
+[2026-03-23T21:26:46.132Z] Extracted 66 unique links from page
+[2026-03-23T21:26:46.133Z] Saved 66 links to links.json
+[2026-03-23T21:26:46.135Z] Extracted footer HTML (21198 chars)
+[2026-03-23T21:26:46.136Z] Extracted header HTML (23457 chars)
+[2026-03-23T21:26:46.138Z] Website (post-redirect): https://tispayments.com/ → origin: https://tispayments.com
+[2026-03-23T21:26:46.139Z]   SUBDOMAIN: insights.tispayments.com (added to ws)
+[2026-03-23T21:26:46.139Z] Website subdomains found: 1
+[2026-03-23T21:26:46.139Z] External links: 3 (of 66 total)
+[2026-03-23T21:26:46.139Z] ── All external links ──
+[2026-03-23T21:26:46.139Z]   EXT: https://facebook.com/TreasuryIntelligence
+[2026-03-23T21:26:46.139Z]   EXT: https://www.linkedin.com/company/treasury-intelligence-solutions-gmbh
+[2026-03-23T21:26:46.139Z]   EXT: https://www.youtube.com/channel/UCKTZWsRYZzbUOS4p4J9YDXA
+[2026-03-23T21:26:46.139Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:26:46.139Z]   REGEX: fb <- https://facebook.com/TreasuryIntelligence
+[2026-03-23T21:26:46.139Z]   REGEX: li <- https://www.linkedin.com/company/treasury-intelligence-solutions-gmbh
+[2026-03-23T21:26:46.139Z]   REGEX: ytc <- https://www.youtube.com/channel/UCKTZWsRYZzbUOS4p4J9YDXA
+[2026-03-23T21:26:46.139Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-23T21:26:46.140Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:26:46.141Z] Saved AI prompt (9224 chars) to ai_prompt.txt
+[2026-03-23T21:26:46.141Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:26:46.144Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:27:23.875Z]   AI: First token received, streaming...
+[2026-03-23T21:27:34.810Z] AI response complete: 169 chars in 48.7s
+[2026-03-23T21:27:34.811Z] Saved AI response to ai_response.json
+[2026-03-23T21:27:34.811Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T21:27:34.811Z]   AI LINK: https://www.linkedin.com/company/treasury-intelligence-solutions-gmbh/
+[2026-03-23T21:27:34.811Z]   AI LINK: https://www.youtube.com/channel/UCKTZWsRYZzbUOS4p4J9YDXA
+[2026-03-23T21:27:34.812Z]   AI LINK: https://facebook.com/TreasuryIntelligence
+[2026-03-23T21:27:34.812Z] AI returned 3 valid links
+[2026-03-23T21:27:34.812Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T21:27:34.812Z]   AI→REGEX: li <- https://www.linkedin.com/company/treasury-intelligence-solutions-gmbh/ (duplicate, skipped)
+[2026-03-23T21:27:34.812Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCKTZWsRYZzbUOS4p4J9YDXA (duplicate, skipped)
+[2026-03-23T21:27:34.812Z]   AI→REGEX: fb <- https://facebook.com/TreasuryIntelligence (duplicate, skipped)
+[2026-03-23T21:27:34.814Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:27:34.814Z] Footer/header origins (5):
+[2026-03-23T21:27:34.814Z]   FOOTER/HEADER ORIGIN: https://tispayments.com
+[2026-03-23T21:27:34.814Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:27:34.814Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T21:27:34.814Z]   FOOTER/HEADER ORIGIN: https://facebook.com
+[2026-03-23T21:27:34.814Z]   FOOTER/HEADER ORIGIN: https://insights.tispayments.com
+[2026-03-23T21:27:34.814Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:27:34.814Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:27:34.814Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T21:27:35.163Z]   YOUTUBE: resolved UCKTZWsRYZzbUOS4p4J9YDXA → @TISpayments
+[2026-03-23T21:27:35.163Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T21:27:35.164Z] ── Step 3: Final dedup ──
+[2026-03-23T21:27:35.164Z] No urls to dedup
+[2026-03-23T21:27:35.164Z] ── FINAL RESULT ──
+[2026-03-23T21:27:35.164Z]   ws (2):
+[2026-03-23T21:27:35.164Z]     - https://insights.tispayments.com
+[2026-03-23T21:27:35.164Z]     - https://tispayments.com
+[2026-03-23T21:27:35.164Z]   li (1):
+[2026-03-23T21:27:35.164Z]     - https://www.linkedin.com/company/treasury-intelligence-solutions-gmbh
+[2026-03-23T21:27:35.165Z]   fb (1):
+[2026-03-23T21:27:35.165Z]     - https://www.facebook.com/treasuryintelligence
+[2026-03-23T21:27:35.165Z]   ytp (1):
+[2026-03-23T21:27:35.165Z]     - https://www.youtube.com/@TISpayments
+[2026-03-23T21:27:35.165Z]   ytc (1):
+[2026-03-23T21:27:35.165Z]     - https://www.youtube.com/channel/UCKTZWsRYZzbUOS4p4J9YDXA
+[2026-03-23T21:27:35.165Z] Summary: ws:2, fb:1, li:1, ytc:1, ytp:1
+[2026-03-23T21:27:35.166Z] Saved final result to result.json
+[2026-03-23T21:27:35.166Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-23T21:27:35.166Z] Finished at: 2026-03-23T21:27:35.166Z

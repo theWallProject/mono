@@ -1,0 +1,90 @@
+[2026-03-23T20:25:13.446Z] === Homepage AI Extractor: Broadlume ===
+[2026-03-23T20:25:13.446Z] Started at: 2026-03-23T20:25:13.446Z
+[2026-03-23T20:25:13.447Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774297513445_Broadlume
+[2026-03-23T20:25:13.447Z] Company: Broadlume
+[2026-03-23T20:25:13.447Z] Website: broadlume.com
+[2026-03-23T20:25:13.447Z] cbRank: 15117
+[2026-03-23T20:25:13.447Z] Reasons: i
+[2026-03-23T20:25:13.447Z] Fetching: https://broadlume.com
+[2026-03-23T20:25:18.662Z] Redirected: https://broadlume.com -> https://www.broadlume.com/
+[2026-03-23T20:25:18.671Z] Saved HTML (262674 bytes) to page.html
+[2026-03-23T20:25:18.675Z] Extracted 53 unique links from page
+[2026-03-23T20:25:18.675Z] Saved 53 links to links.json
+[2026-03-23T20:25:18.682Z] Extracted footer HTML (23258 chars)
+[2026-03-23T20:25:18.682Z] Extracted header HTML (126208 chars)
+[2026-03-23T20:25:18.685Z] Website (post-redirect): https://www.broadlume.com/ → origin: https://www.broadlume.com
+[2026-03-23T20:25:18.685Z] External links: 7 (of 53 total)
+[2026-03-23T20:25:18.685Z] ── All external links ──
+[2026-03-23T20:25:18.685Z]   EXT: http://facebook.com/broadlume
+[2026-03-23T20:25:18.686Z]   EXT: http://youtube.com/broadlume
+[2026-03-23T20:25:18.686Z]   EXT: https://apply.workable.com/broadlume
+[2026-03-23T20:25:18.686Z]   EXT: https://console.jumpcloud.com/login
+[2026-03-23T20:25:18.686Z]   EXT: https://twitter.com/Broadlume
+[2026-03-23T20:25:18.686Z]   EXT: https://www.instagram.com/broadlume
+[2026-03-23T20:25:18.686Z]   EXT: https://www.linkedin.com/company/broadlume
+[2026-03-23T20:25:18.686Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:25:18.686Z]   REGEX: fb <- http://facebook.com/broadlume
+[2026-03-23T20:25:18.686Z]   REGEX: ytp <- http://youtube.com/broadlume
+[2026-03-23T20:25:18.686Z]   UNCATEGORIZED: https://apply.workable.com/broadlume
+[2026-03-23T20:25:18.686Z]   UNCATEGORIZED: https://console.jumpcloud.com/login
+[2026-03-23T20:25:18.686Z]   REGEX: tw <- https://twitter.com/Broadlume
+[2026-03-23T20:25:18.687Z]   REGEX: ig <- https://www.instagram.com/broadlume
+[2026-03-23T20:25:18.687Z]   REGEX: li <- https://www.linkedin.com/company/broadlume
+[2026-03-23T20:25:18.687Z] Programmatic result: ws:1, fb:1, ytp:1, tw:1, ig:1, li:1 | 2 uncategorized
+[2026-03-23T20:25:18.687Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:25:18.688Z] Saved AI prompt (6059 chars) to ai_prompt.txt
+[2026-03-23T20:25:18.688Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:25:18.692Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:25:43.026Z]   AI: First token received, streaming...
+[2026-03-23T20:25:52.850Z] AI response complete: 169 chars in 34.2s
+[2026-03-23T20:25:52.851Z] Saved AI response to ai_response.json
+[2026-03-23T20:25:52.851Z] ── Parsing AI response (5 lines) ──
+[2026-03-23T20:25:52.852Z]   AI LINK: http://facebook.com/broadlume
+[2026-03-23T20:25:52.852Z]   AI LINK: https://twitter.com/Broadlume
+[2026-03-23T20:25:52.852Z]   AI LINK: https://www.linkedin.com/company/broadlume/
+[2026-03-23T20:25:52.852Z]   AI LINK: https://www.instagram.com/broadlume/
+[2026-03-23T20:25:52.852Z]   AI LINK: http://youtube.com/broadlume
+[2026-03-23T20:25:52.852Z] AI returned 5 valid links
+[2026-03-23T20:25:52.852Z] ── Categorizing 5 AI-returned links ──
+[2026-03-23T20:25:52.853Z]   AI→REGEX: fb <- http://facebook.com/broadlume (duplicate, skipped)
+[2026-03-23T20:25:52.853Z]   AI→REGEX: tw <- https://twitter.com/Broadlume (duplicate, skipped)
+[2026-03-23T20:25:52.853Z]   AI→REGEX: li <- https://www.linkedin.com/company/broadlume/ (duplicate, skipped)
+[2026-03-23T20:25:52.853Z]   AI→REGEX: ig <- https://www.instagram.com/broadlume/ (duplicate, skipped)
+[2026-03-23T20:25:52.853Z]   AI→REGEX: ytp <- http://youtube.com/broadlume (duplicate, skipped)
+[2026-03-23T20:25:52.855Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:25:52.855Z] Footer/header origins (8):
+[2026-03-23T20:25:52.855Z]   FOOTER/HEADER ORIGIN: https://www.broadlume.com
+[2026-03-23T20:25:52.856Z]   FOOTER/HEADER ORIGIN: https://apply.workable.com
+[2026-03-23T20:25:52.856Z]   FOOTER/HEADER ORIGIN: https://console.jumpcloud.com
+[2026-03-23T20:25:52.856Z]   FOOTER/HEADER ORIGIN: http://facebook.com
+[2026-03-23T20:25:52.856Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T20:25:52.856Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T20:25:52.856Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T20:25:52.856Z]   FOOTER/HEADER ORIGIN: http://youtube.com
+[2026-03-23T20:25:52.856Z]   ADDED: urls <- https://apply.workable.com/broadlume
+[2026-03-23T20:25:52.856Z]   ADDED: urls <- https://console.jumpcloud.com/login
+[2026-03-23T20:25:52.856Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-23T20:25:52.856Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:25:52.857Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:25:52.857Z] ── Step 3: Final dedup ──
+[2026-03-23T20:25:52.857Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T20:25:52.857Z] ── FINAL RESULT ──
+[2026-03-23T20:25:52.857Z]   ws (1):
+[2026-03-23T20:25:52.857Z]     - https://www.broadlume.com
+[2026-03-23T20:25:52.857Z]   li (1):
+[2026-03-23T20:25:52.857Z]     - https://www.linkedin.com/company/broadlume
+[2026-03-23T20:25:52.857Z]   fb (1):
+[2026-03-23T20:25:52.857Z]     - https://www.facebook.com/broadlume
+[2026-03-23T20:25:52.857Z]   tw (1):
+[2026-03-23T20:25:52.858Z]     - https://x.com/broadlume
+[2026-03-23T20:25:52.858Z]   ig (1):
+[2026-03-23T20:25:52.858Z]     - https://www.instagram.com/broadlume
+[2026-03-23T20:25:52.858Z]   ytp (1):
+[2026-03-23T20:25:52.858Z]     - https://www.youtube.com/@broadlume
+[2026-03-23T20:25:52.858Z]   urls (2):
+[2026-03-23T20:25:52.858Z]     - https://apply.workable.com/broadlume
+[2026-03-23T20:25:52.858Z]     - https://console.jumpcloud.com/login
+[2026-03-23T20:25:52.858Z] Summary: ws:1, fb:1, ytp:1, tw:1, ig:1, li:1, urls:2
+[2026-03-23T20:25:52.862Z] Saved final result to result.json
+[2026-03-23T20:25:52.862Z] Override fields: ws, li, fb, tw, ig, ytp, urls
+[2026-03-23T20:25:52.863Z] Finished at: 2026-03-23T20:25:52.863Z

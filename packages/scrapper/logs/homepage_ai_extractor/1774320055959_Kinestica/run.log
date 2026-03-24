@@ -1,0 +1,88 @@
+[2026-03-24T02:40:55.959Z] === Homepage AI Extractor: Kinestica ===
+[2026-03-24T02:40:55.959Z] Started at: 2026-03-24T02:40:55.959Z
+[2026-03-24T02:40:55.960Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774320055959_Kinestica
+[2026-03-24T02:40:55.960Z] Company: Kinestica
+[2026-03-24T02:40:55.960Z] Website: kinestica.com
+[2026-03-24T02:40:55.960Z] cbRank: 207447
+[2026-03-24T02:40:55.960Z] Reasons: i
+[2026-03-24T02:40:55.960Z] Fetching: https://kinestica.com
+[2026-03-24T02:40:58.129Z] Redirected: https://kinestica.com -> https://kinestica.com/
+[2026-03-24T02:40:58.134Z] Saved HTML (76840 bytes) to page.html
+[2026-03-24T02:40:58.137Z] Extracted 18 unique links from page
+[2026-03-24T02:40:58.138Z] Saved 18 links to links.json
+[2026-03-24T02:40:58.140Z] Extracted footer HTML (3634 chars)
+[2026-03-24T02:40:58.140Z] Extracted header HTML (7407 chars)
+[2026-03-24T02:40:58.143Z] Website (post-redirect): https://kinestica.com/ → origin: https://kinestica.com
+[2026-03-24T02:40:58.143Z] External links: 6 (of 18 total)
+[2026-03-24T02:40:58.143Z] ── All external links ──
+[2026-03-24T02:40:58.143Z]   EXT: http://linkedin.com/company/kinestica
+[2026-03-24T02:40:58.143Z]   EXT: https://twitter.com/Kinestica
+[2026-03-24T02:40:58.143Z]   EXT: https://www.facebook.com/kinestica
+[2026-03-24T02:40:58.143Z]   EXT: https://www.instagram.com/teamkinestica
+[2026-03-24T02:40:58.143Z]   EXT: https://www.linkedin.com/company/kinestica
+[2026-03-24T02:40:58.143Z]   EXT: https://www.youtube.com/channel/UCTAmTRlEX0v9oneI60mtvRg
+[2026-03-24T02:40:58.143Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:40:58.144Z]   REGEX: li <- http://linkedin.com/company/kinestica
+[2026-03-24T02:40:58.144Z]   REGEX: tw <- https://twitter.com/Kinestica
+[2026-03-24T02:40:58.144Z]   REGEX: fb <- https://www.facebook.com/kinestica
+[2026-03-24T02:40:58.144Z]   REGEX: ig <- https://www.instagram.com/teamkinestica
+[2026-03-24T02:40:58.144Z]   REGEX: li <- https://www.linkedin.com/company/kinestica (duplicate, skipped)
+[2026-03-24T02:40:58.145Z]   REGEX: ytc <- https://www.youtube.com/channel/UCTAmTRlEX0v9oneI60mtvRg
+[2026-03-24T02:40:58.145Z] Programmatic result: ws:1, li:1, tw:1, fb:1, ig:1, ytc:1 | 0 uncategorized
+[2026-03-24T02:40:58.145Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:40:58.148Z] Saved AI prompt (3224 chars) to ai_prompt.txt
+[2026-03-24T02:40:58.148Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:40:58.152Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:41:10.241Z]   AI: First token received, streaming...
+[2026-03-24T02:41:23.297Z] AI response complete: 193 chars in 25.1s
+[2026-03-24T02:41:23.299Z] Saved AI response to ai_response.json
+[2026-03-24T02:41:23.299Z] ── Parsing AI response (5 lines) ──
+[2026-03-24T02:41:23.299Z]   AI LINK: https://www.instagram.com/teamkinestica/
+[2026-03-24T02:41:23.300Z]   AI LINK: http://linkedin.com/company/kinestica
+[2026-03-24T02:41:23.300Z]   AI LINK: https://www.facebook.com/kinestica
+[2026-03-24T02:41:23.300Z]   AI LINK: https://www.youtube.com/channel/UCTAmTRlEX0v9oneI60mtvRg
+[2026-03-24T02:41:23.300Z]   AI LINK: https://kinestica.com/
+[2026-03-24T02:41:23.300Z] AI returned 5 valid links
+[2026-03-24T02:41:23.300Z] ── Categorizing 5 AI-returned links ──
+[2026-03-24T02:41:23.300Z]   AI→REGEX: ig <- https://www.instagram.com/teamkinestica/ (duplicate, skipped)
+[2026-03-24T02:41:23.300Z]   AI→REGEX: li <- http://linkedin.com/company/kinestica (duplicate, skipped)
+[2026-03-24T02:41:23.300Z]   AI→REGEX: fb <- https://www.facebook.com/kinestica (duplicate, skipped)
+[2026-03-24T02:41:23.301Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCTAmTRlEX0v9oneI60mtvRg (duplicate, skipped)
+[2026-03-24T02:41:23.301Z]   AI→URLS: https://kinestica.com (cleaned from https://kinestica.com/)
+[2026-03-24T02:41:23.302Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T02:41:23.302Z] Footer/header origins (7):
+[2026-03-24T02:41:23.302Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-24T02:41:23.302Z]   FOOTER/HEADER ORIGIN: https://kinestica.com
+[2026-03-24T02:41:23.302Z]   FOOTER/HEADER ORIGIN: http://linkedin.com
+[2026-03-24T02:41:23.302Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T02:41:23.303Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-24T02:41:23.303Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T02:41:23.303Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T02:41:23.303Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T02:41:23.303Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T02:41:23.303Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-24T02:41:23.567Z]   YOUTUBE: resolved UCTAmTRlEX0v9oneI60mtvRg → @kinestica
+[2026-03-24T02:41:23.567Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-24T02:41:23.567Z] ── Step 3: Final dedup ──
+[2026-03-24T02:41:23.567Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T02:41:23.568Z] ── FINAL RESULT ──
+[2026-03-24T02:41:23.568Z]   ws (1):
+[2026-03-24T02:41:23.568Z]     - https://kinestica.com
+[2026-03-24T02:41:23.568Z]   li (1):
+[2026-03-24T02:41:23.568Z]     - https://www.linkedin.com/company/kinestica
+[2026-03-24T02:41:23.568Z]   fb (1):
+[2026-03-24T02:41:23.569Z]     - https://www.facebook.com/kinestica
+[2026-03-24T02:41:23.569Z]   tw (1):
+[2026-03-24T02:41:23.569Z]     - https://x.com/kinestica
+[2026-03-24T02:41:23.569Z]   ig (1):
+[2026-03-24T02:41:23.569Z]     - https://www.instagram.com/teamkinestica
+[2026-03-24T02:41:23.569Z]   ytp (1):
+[2026-03-24T02:41:23.569Z]     - https://www.youtube.com/@kinestica
+[2026-03-24T02:41:23.569Z]   ytc (1):
+[2026-03-24T02:41:23.569Z]     - https://www.youtube.com/channel/UCTAmTRlEX0v9oneI60mtvRg
+[2026-03-24T02:41:23.569Z]   urls (1):
+[2026-03-24T02:41:23.569Z]     - https://kinestica.com
+[2026-03-24T02:41:23.569Z] Summary: ws:1, li:1, tw:1, fb:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-24T02:41:23.570Z] Saved final result to result.json
+[2026-03-24T02:41:23.570Z] Override fields: ws, li, fb, tw, ig, ytp, ytc
+[2026-03-24T02:41:23.570Z] Finished at: 2026-03-24T02:41:23.570Z

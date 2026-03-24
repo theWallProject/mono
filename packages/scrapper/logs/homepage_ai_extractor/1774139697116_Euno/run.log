@@ -1,0 +1,78 @@
+[2026-03-22T00:34:57.117Z] === Homepage AI Extractor: Euno ===
+[2026-03-22T00:34:57.117Z] Started at: 2026-03-22T00:34:57.117Z
+[2026-03-22T00:34:57.117Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774139697116_Euno
+[2026-03-22T00:34:57.117Z] Company: Euno
+[2026-03-22T00:34:57.117Z] Website: euno.ai
+[2026-03-22T00:34:57.117Z] cbRank: 14474
+[2026-03-22T00:34:57.117Z] Reasons: f, i
+[2026-03-22T00:34:57.117Z] Fetching: https://euno.ai
+[2026-03-22T00:35:00.252Z] Redirected: https://euno.ai -> https://euno.ai/
+[2026-03-22T00:35:00.285Z] Saved HTML (1156715 bytes) to page.html
+[2026-03-22T00:35:00.289Z] Extracted 29 unique links from page
+[2026-03-22T00:35:00.289Z] Saved 29 links to links.json
+[2026-03-22T00:35:00.292Z] Extracted footer HTML (16548 chars)
+[2026-03-22T00:35:00.292Z] Extracted header HTML (11964 chars)
+[2026-03-22T00:35:00.295Z] Website (post-redirect): https://euno.ai/ → origin: https://euno.ai
+[2026-03-22T00:35:00.295Z]   SUBDOMAIN: app.euno.ai (added to ws)
+[2026-03-22T00:35:00.295Z]   SUBDOMAIN: docs.euno.ai (added to ws)
+[2026-03-22T00:35:00.295Z]   SUBDOMAIN: maison.euno.ai (added to ws)
+[2026-03-22T00:35:00.296Z] Website subdomains found: 3
+[2026-03-22T00:35:00.296Z] External links: 4 (of 29 total)
+[2026-03-22T00:35:00.296Z] ── All external links ──
+[2026-03-22T00:35:00.296Z]   EXT: https://futuredatacringe.com
+[2026-03-22T00:35:00.296Z]   EXT: https://www.futuredatacringe.com
+[2026-03-22T00:35:00.296Z]   EXT: https://www.linkedin.com/company/eunoai
+[2026-03-22T00:35:00.296Z]   EXT: https://www.youtube.com/@euno_ai
+[2026-03-22T00:35:00.296Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:35:00.296Z]   UNCATEGORIZED: https://futuredatacringe.com
+[2026-03-22T00:35:00.296Z]   UNCATEGORIZED: https://www.futuredatacringe.com
+[2026-03-22T00:35:00.296Z]   REGEX: li <- https://www.linkedin.com/company/eunoai
+[2026-03-22T00:35:00.296Z]   REGEX: ytp <- https://www.youtube.com/@euno_ai
+[2026-03-22T00:35:00.296Z] Programmatic result: ws:4, li:1, ytp:1 | 2 uncategorized
+[2026-03-22T00:35:00.296Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:35:00.300Z] Saved AI prompt (3879 chars) to ai_prompt.txt
+[2026-03-22T00:35:00.300Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:35:00.304Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:35:16.217Z]   AI: First token received, streaming...
+[2026-03-22T00:35:19.843Z] AI response complete: 72 chars in 19.5s
+[2026-03-22T00:35:19.845Z] Saved AI response to ai_response.json
+[2026-03-22T00:35:19.845Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T00:35:19.845Z]   AI LINK: https://www.youtube.com/@euno_ai
+[2026-03-22T00:35:19.846Z]   AI LINK: https://www.linkedin.com/company/eunoai
+[2026-03-22T00:35:19.846Z] AI returned 2 valid links
+[2026-03-22T00:35:19.846Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T00:35:19.846Z]   AI→REGEX: ytp <- https://www.youtube.com/@euno_ai (duplicate, skipped)
+[2026-03-22T00:35:19.846Z]   AI→REGEX: li <- https://www.linkedin.com/company/eunoai (duplicate, skipped)
+[2026-03-22T00:35:19.848Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:35:19.848Z] Footer/header origins (7):
+[2026-03-22T00:35:19.848Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:35:19.848Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:35:19.848Z]   FOOTER/HEADER ORIGIN: https://docs.euno.ai
+[2026-03-22T00:35:19.848Z]   FOOTER/HEADER ORIGIN: https://maison.euno.ai
+[2026-03-22T00:35:19.848Z]   FOOTER/HEADER ORIGIN: https://futuredatacringe.com
+[2026-03-22T00:35:19.848Z]   FOOTER/HEADER ORIGIN: https://www.futuredatacringe.com
+[2026-03-22T00:35:19.848Z]   FOOTER/HEADER ORIGIN: https://app.euno.ai
+[2026-03-22T00:35:19.849Z]   ADDED: urls <- https://futuredatacringe.com
+[2026-03-22T00:35:19.849Z]   ADDED: urls <- https://www.futuredatacringe.com
+[2026-03-22T00:35:19.849Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-22T00:35:19.849Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:35:19.849Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:35:19.849Z] ── Step 3: Final dedup ──
+[2026-03-22T00:35:19.849Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T00:35:19.849Z] ── FINAL RESULT ──
+[2026-03-22T00:35:19.850Z]   ws (4):
+[2026-03-22T00:35:19.850Z]     - https://app.euno.ai
+[2026-03-22T00:35:19.850Z]     - https://docs.euno.ai
+[2026-03-22T00:35:19.850Z]     - https://euno.ai
+[2026-03-22T00:35:19.850Z]     - https://maison.euno.ai
+[2026-03-22T00:35:19.850Z]   li (1):
+[2026-03-22T00:35:19.850Z]     - https://www.linkedin.com/company/eunoai
+[2026-03-22T00:35:19.850Z]   ytp (1):
+[2026-03-22T00:35:19.850Z]     - https://www.youtube.com/@euno_ai
+[2026-03-22T00:35:19.850Z]   urls (2):
+[2026-03-22T00:35:19.850Z]     - https://futuredatacringe.com
+[2026-03-22T00:35:19.850Z]     - https://www.futuredatacringe.com
+[2026-03-22T00:35:19.851Z] Summary: ws:4, li:1, ytp:1, urls:2
+[2026-03-22T00:35:19.851Z] Saved final result to result.json
+[2026-03-22T00:35:19.851Z] Override fields: ws, li, ytp, urls
+[2026-03-22T00:35:19.852Z] Finished at: 2026-03-22T00:35:19.852Z

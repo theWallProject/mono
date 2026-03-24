@@ -1,0 +1,62 @@
+[2026-03-23T19:31:42.093Z] === Homepage AI Extractor: Revel ===
+[2026-03-23T19:31:42.093Z] Started at: 2026-03-23T19:31:42.093Z
+[2026-03-23T19:31:42.093Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774294302092_Revel
+[2026-03-23T19:31:42.093Z] Company: Revel
+[2026-03-23T19:31:42.093Z] Website: gorevel.com
+[2026-03-23T19:31:42.094Z] cbRank: 9740
+[2026-03-23T19:31:42.094Z] Reasons: i
+[2026-03-23T19:31:42.094Z] Fetching: https://gorevel.com
+[2026-03-23T19:31:44.281Z] Redirected: https://gorevel.com -> https://gorevel.com/
+[2026-03-23T19:31:44.284Z] Saved HTML (38714 bytes) to page.html
+[2026-03-23T19:31:44.287Z] Extracted 18 unique links from page
+[2026-03-23T19:31:44.288Z] Saved 18 links to links.json
+[2026-03-23T19:31:44.290Z] Extracted footer HTML (6457 chars)
+[2026-03-23T19:31:44.290Z] Extracted header HTML (12697 chars)
+[2026-03-23T19:31:44.293Z] Website (post-redirect): https://gorevel.com/ → origin: https://gorevel.com
+[2026-03-23T19:31:44.294Z] External links: 3 (of 18 total)
+[2026-03-23T19:31:44.294Z] ── All external links ──
+[2026-03-23T19:31:44.294Z]   EXT: https://intercom.help/revel-a64b93a3c6bc/en
+[2026-03-23T19:31:44.294Z]   EXT: https://onelink.to/d2hnzb?utm_source=website&utm_medium=cta
+[2026-03-23T19:31:44.294Z]   EXT: https://www.linkedin.com/company/reveltransit
+[2026-03-23T19:31:44.294Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:31:44.294Z]   UNCATEGORIZED: https://intercom.help/revel-a64b93a3c6bc/en
+[2026-03-23T19:31:44.294Z]   UNCATEGORIZED: https://onelink.to/d2hnzb?utm_source=website&utm_medium=cta
+[2026-03-23T19:31:44.294Z]   REGEX: li <- https://www.linkedin.com/company/reveltransit
+[2026-03-23T19:31:44.295Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-23T19:31:44.295Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:31:44.298Z] Saved AI prompt (3287 chars) to ai_prompt.txt
+[2026-03-23T19:31:44.298Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:31:44.302Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:31:56.508Z]   AI: First token received, streaming...
+[2026-03-23T19:31:58.114Z] AI response complete: 46 chars in 13.8s
+[2026-03-23T19:31:58.115Z] Saved AI response to ai_response.json
+[2026-03-23T19:31:58.116Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T19:31:58.116Z]   AI LINK: https://www.linkedin.com/company/reveltransit/
+[2026-03-23T19:31:58.116Z] AI returned 1 valid links
+[2026-03-23T19:31:58.116Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T19:31:58.116Z]   AI→REGEX: li <- https://www.linkedin.com/company/reveltransit/ (duplicate, skipped)
+[2026-03-23T19:31:58.117Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:31:58.118Z] Footer/header origins (4):
+[2026-03-23T19:31:58.118Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:31:58.118Z]   FOOTER/HEADER ORIGIN: https://intercom.help
+[2026-03-23T19:31:58.118Z]   FOOTER/HEADER ORIGIN: https://gorevel.com
+[2026-03-23T19:31:58.118Z]   FOOTER/HEADER ORIGIN: https://onelink.to
+[2026-03-23T19:31:58.118Z]   ADDED: urls <- https://intercom.help/revel-a64b93a3c6bc/en
+[2026-03-23T19:31:58.118Z]   ADDED: urls <- https://onelink.to/d2hnzb (cleaned from https://onelink.to/d2hnzb?utm_source=website&utm_medium=cta)
+[2026-03-23T19:31:58.118Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-23T19:31:58.118Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:31:58.118Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:31:58.119Z] ── Step 3: Final dedup ──
+[2026-03-23T19:31:58.119Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T19:31:58.119Z] ── FINAL RESULT ──
+[2026-03-23T19:31:58.119Z]   ws (1):
+[2026-03-23T19:31:58.119Z]     - https://gorevel.com
+[2026-03-23T19:31:58.119Z]   li (1):
+[2026-03-23T19:31:58.119Z]     - https://www.linkedin.com/company/reveltransit
+[2026-03-23T19:31:58.119Z]   urls (2):
+[2026-03-23T19:31:58.119Z]     - https://intercom.help/revel-a64b93a3c6bc/en
+[2026-03-23T19:31:58.119Z]     - https://onelink.to/d2hnzb
+[2026-03-23T19:31:58.119Z] Summary: ws:1, li:1, urls:2
+[2026-03-23T19:31:58.120Z] Saved final result to result.json
+[2026-03-23T19:31:58.121Z] Override fields: ws, li, urls
+[2026-03-23T19:31:58.121Z] Finished at: 2026-03-23T19:31:58.121Z

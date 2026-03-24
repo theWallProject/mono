@@ -1,0 +1,85 @@
+[2026-03-23T21:18:04.819Z] === Homepage AI Extractor: Hourly ===
+[2026-03-23T21:18:04.819Z] Started at: 2026-03-23T21:18:04.819Z
+[2026-03-23T21:18:04.819Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774300684818_Hourly
+[2026-03-23T21:18:04.819Z] Company: Hourly
+[2026-03-23T21:18:04.819Z] Website: hourly.io
+[2026-03-23T21:18:04.819Z] cbRank: 20091
+[2026-03-23T21:18:04.819Z] Reasons: i
+[2026-03-23T21:18:04.819Z] Fetching: https://hourly.io
+[2026-03-23T21:18:08.745Z] Redirected: https://hourly.io -> https://www.hourly.io/
+[2026-03-23T21:18:08.751Z] Saved HTML (191680 bytes) to page.html
+[2026-03-23T21:18:08.754Z] Extracted 31 unique links from page
+[2026-03-23T21:18:08.755Z] Saved 31 links to links.json
+[2026-03-23T21:18:08.757Z] Extracted footer HTML (5865 chars)
+[2026-03-23T21:18:08.757Z] Extracted header HTML (10058 chars)
+[2026-03-23T21:18:08.760Z] Website (post-redirect): https://www.hourly.io/ → origin: https://www.hourly.io
+[2026-03-23T21:18:08.760Z]   SUBDOMAIN: app.hourly.io (added to ws)
+[2026-03-23T21:18:08.760Z]   SUBDOMAIN: support.hourly.io (added to ws)
+[2026-03-23T21:18:08.760Z] Website subdomains found: 2
+[2026-03-23T21:18:08.760Z] External links: 4 (of 31 total)
+[2026-03-23T21:18:08.760Z] ── All external links ──
+[2026-03-23T21:18:08.760Z]   EXT: https://embed-ssl.wistia.com/deliveries/f073cedff1bbf2eadb4e8d10a4cc3c8fcbd187d3.bin
+[2026-03-23T21:18:08.760Z]   EXT: https://itunes.apple.com/us/app/checkapp-payroll/id1177888532?ls=1&mt=8
+[2026-03-23T21:18:08.761Z]   EXT: https://play.google.com/store/apps/details?id=com.checkapp&hl=en
+[2026-03-23T21:18:08.761Z]   EXT: https://www.linkedin.com/company/gohourly
+[2026-03-23T21:18:08.761Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:18:08.761Z]   UNCATEGORIZED: https://embed-ssl.wistia.com/deliveries/f073cedff1bbf2eadb4e8d10a4cc3c8fcbd187d3.bin
+[2026-03-23T21:18:08.761Z]   UNCATEGORIZED: https://itunes.apple.com/us/app/checkapp-payroll/id1177888532?ls=1&mt=8
+[2026-03-23T21:18:08.761Z]   REGEX: android_app_ids <- com.checkapp (from https://play.google.com/store/apps/details?id=com.checkapp&hl=en)
+[2026-03-23T21:18:08.761Z]   REGEX: li <- https://www.linkedin.com/company/gohourly
+[2026-03-23T21:18:08.761Z] Programmatic result: ws:3, android_app_ids:1, li:1 | 2 uncategorized
+[2026-03-23T21:18:08.761Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:18:08.762Z] Saved AI prompt (4419 chars) to ai_prompt.txt
+[2026-03-23T21:18:08.762Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:18:08.766Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:18:27.284Z]   AI: First token received, streaming...
+[2026-03-23T21:18:41.717Z]   AI streaming: 201 chars received (33.0s elapsed)
+[2026-03-23T21:18:45.619Z] AI response complete: 271 chars in 36.9s
+[2026-03-23T21:18:45.620Z] Saved AI response to ai_response.json
+[2026-03-23T21:18:45.620Z] ── Parsing AI response (6 lines) ──
+[2026-03-23T21:18:45.621Z]   AI LINK: https://www.linkedin.com/company/gohourly
+[2026-03-23T21:18:45.621Z]   AI LINK: https://itunes.apple.com/us/app/checkapp-payroll/id1177888532?ls=1&mt=8
+[2026-03-23T21:18:45.621Z]   AI LINK: https://play.google.com/store/apps/details?id=com.checkapp&hl=en
+[2026-03-23T21:18:45.621Z]   AI LINK: https://support.hourly.io/making-a-claim/
+[2026-03-23T21:18:45.621Z]   AI LINK: https://support.hourly.io/
+[2026-03-23T21:18:45.621Z]   AI LINK: https://blog.hourly.io/
+[2026-03-23T21:18:45.621Z] AI returned 6 valid links
+[2026-03-23T21:18:45.621Z] ── Categorizing 6 AI-returned links ──
+[2026-03-23T21:18:45.621Z]   AI→REGEX: li <- https://www.linkedin.com/company/gohourly (duplicate, skipped)
+[2026-03-23T21:18:45.622Z]   AI→URLS: https://itunes.apple.com/us/app/checkapp-payroll/id1177888532 (cleaned from https://itunes.apple.com/us/app/checkapp-payroll/id1177888532?ls=1&mt=8)
+[2026-03-23T21:18:45.622Z]   AI→REGEX: android_app_ids <- com.checkapp (duplicate, skipped)
+[2026-03-23T21:18:45.622Z]   AI→URLS: https://support.hourly.io/making-a-claim (cleaned from https://support.hourly.io/making-a-claim/)
+[2026-03-23T21:18:45.622Z]   AI→URLS: https://support.hourly.io (cleaned from https://support.hourly.io/)
+[2026-03-23T21:18:45.622Z]   AI→URLS: https://blog.hourly.io (cleaned from https://blog.hourly.io/)
+[2026-03-23T21:18:45.623Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:18:45.623Z] Footer/header origins (5):
+[2026-03-23T21:18:45.623Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:18:45.623Z]   FOOTER/HEADER ORIGIN: https://support.hourly.io
+[2026-03-23T21:18:45.624Z]   FOOTER/HEADER ORIGIN: https://itunes.apple.com
+[2026-03-23T21:18:45.624Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-23T21:18:45.624Z]   FOOTER/HEADER ORIGIN: https://app.hourly.io
+[2026-03-23T21:18:45.624Z]   SKIP (not in footer/header): https://embed-ssl.wistia.com/deliveries/f073cedff1bbf2eadb4e8d10a4cc3c8fcbd187d3.bin
+[2026-03-23T21:18:45.624Z]   SKIP (AI claimed): https://itunes.apple.com/us/app/checkapp-payroll/id1177888532?ls=1&mt=8
+[2026-03-23T21:18:45.624Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:18:45.624Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:18:45.624Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:18:45.624Z] ── Step 3: Final dedup ──
+[2026-03-23T21:18:45.624Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-23T21:18:45.624Z] ── FINAL RESULT ──
+[2026-03-23T21:18:45.624Z]   ws (3):
+[2026-03-23T21:18:45.624Z]     - https://app.hourly.io
+[2026-03-23T21:18:45.624Z]     - https://support.hourly.io
+[2026-03-23T21:18:45.625Z]     - https://www.hourly.io
+[2026-03-23T21:18:45.625Z]   li (1):
+[2026-03-23T21:18:45.625Z]     - https://www.linkedin.com/company/gohourly
+[2026-03-23T21:18:45.625Z]   urls (4):
+[2026-03-23T21:18:45.625Z]     - https://blog.hourly.io
+[2026-03-23T21:18:45.625Z]     - https://itunes.apple.com/us/app/checkapp-payroll/id1177888532
+[2026-03-23T21:18:45.625Z]     - https://support.hourly.io
+[2026-03-23T21:18:45.625Z]     - https://support.hourly.io/making-a-claim
+[2026-03-23T21:18:45.625Z]   android_app_ids (1):
+[2026-03-23T21:18:45.625Z]     - com.checkapp
+[2026-03-23T21:18:45.625Z] Summary: ws:3, android_app_ids:1, li:1, urls:4
+[2026-03-23T21:18:45.626Z] Saved final result to result.json
+[2026-03-23T21:18:45.627Z] Override fields: ws, li, urls, android_app_ids
+[2026-03-23T21:18:45.627Z] Finished at: 2026-03-23T21:18:45.627Z

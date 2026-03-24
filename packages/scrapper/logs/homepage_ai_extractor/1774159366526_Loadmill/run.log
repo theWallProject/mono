@@ -1,0 +1,78 @@
+[2026-03-22T06:02:46.526Z] === Homepage AI Extractor: Loadmill ===
+[2026-03-22T06:02:46.526Z] Started at: 2026-03-22T06:02:46.526Z
+[2026-03-22T06:02:46.526Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774159366526_Loadmill
+[2026-03-22T06:02:46.526Z] Company: Loadmill
+[2026-03-22T06:02:46.526Z] Website: loadmill.com
+[2026-03-22T06:02:46.526Z] cbRank: 179765
+[2026-03-22T06:02:46.527Z] Reasons: f
+[2026-03-22T06:02:46.527Z] Fetching: https://loadmill.com
+[2026-03-22T06:02:49.167Z] Redirected: https://loadmill.com -> https://www.loadmill.com/
+[2026-03-22T06:02:49.172Z] Saved HTML (155229 bytes) to page.html
+[2026-03-22T06:02:49.175Z] Extracted 28 unique links from page
+[2026-03-22T06:02:49.176Z] Saved 28 links to links.json
+[2026-03-22T06:02:49.178Z] Extracted footer HTML (6386 chars)
+[2026-03-22T06:02:49.178Z] Extracted header HTML (4530 chars)
+[2026-03-22T06:02:49.182Z] Website (post-redirect): https://www.loadmill.com/ → origin: https://www.loadmill.com
+[2026-03-22T06:02:49.182Z]   SUBDOMAIN: app.loadmill.com (added to ws)
+[2026-03-22T06:02:49.182Z]   SUBDOMAIN: docs.loadmill.com (added to ws)
+[2026-03-22T06:02:49.182Z] Website subdomains found: 2
+[2026-03-22T06:02:49.182Z] External links: 4 (of 28 total)
+[2026-03-22T06:02:49.182Z] ── All external links ──
+[2026-03-22T06:02:49.182Z]   EXT: https://github.com/loadmill
+[2026-03-22T06:02:49.182Z]   EXT: https://www.linkedin.com/company/loadmill
+[2026-03-22T06:02:49.183Z]   EXT: https://www.youtube.com/@loadmill5250
+[2026-03-22T06:02:49.183Z]   EXT: https://x.com/LoadmillTeam
+[2026-03-22T06:02:49.183Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:02:49.183Z]   REGEX: gh <- https://github.com/loadmill
+[2026-03-22T06:02:49.183Z]   REGEX: li <- https://www.linkedin.com/company/loadmill
+[2026-03-22T06:02:49.183Z]   REGEX: ytp <- https://www.youtube.com/@loadmill5250
+[2026-03-22T06:02:49.183Z]   REGEX: tw <- https://x.com/LoadmillTeam
+[2026-03-22T06:02:49.183Z] Programmatic result: ws:3, gh:1, li:1, ytp:1, tw:1 | 0 uncategorized
+[2026-03-22T06:02:49.183Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:02:49.186Z] Saved AI prompt (4028 chars) to ai_prompt.txt
+[2026-03-22T06:02:49.187Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:02:49.191Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:03:03.973Z]   AI: First token received, streaming...
+[2026-03-22T06:03:11.578Z] AI response complete: 134 chars in 22.4s
+[2026-03-22T06:03:11.579Z] Saved AI response to ai_response.json
+[2026-03-22T06:03:11.579Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T06:03:11.580Z]   AI LINK: https://www.linkedin.com/company/loadmill
+[2026-03-22T06:03:11.580Z]   AI LINK: https://x.com/LoadmillTeam
+[2026-03-22T06:03:11.580Z]   AI LINK: https://github.com/loadmill
+[2026-03-22T06:03:11.580Z]   AI LINK: https://www.youtube.com/@loadmill5250
+[2026-03-22T06:03:11.580Z] AI returned 4 valid links
+[2026-03-22T06:03:11.580Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T06:03:11.581Z]   AI→REGEX: li <- https://www.linkedin.com/company/loadmill (duplicate, skipped)
+[2026-03-22T06:03:11.581Z]   AI→REGEX: tw <- https://x.com/LoadmillTeam (duplicate, skipped)
+[2026-03-22T06:03:11.581Z]   AI→REGEX: gh <- https://github.com/loadmill (duplicate, skipped)
+[2026-03-22T06:03:11.581Z]   AI→REGEX: ytp <- https://www.youtube.com/@loadmill5250 (duplicate, skipped)
+[2026-03-22T06:03:11.582Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:03:11.582Z] Footer/header origins (6):
+[2026-03-22T06:03:11.582Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T06:03:11.582Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T06:03:11.582Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-22T06:03:11.583Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T06:03:11.583Z]   FOOTER/HEADER ORIGIN: https://docs.loadmill.com
+[2026-03-22T06:03:11.583Z]   FOOTER/HEADER ORIGIN: https://app.loadmill.com
+[2026-03-22T06:03:11.583Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:03:11.583Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:03:11.583Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T06:03:11.583Z] ── Step 3: Final dedup ──
+[2026-03-22T06:03:11.583Z] No urls to dedup
+[2026-03-22T06:03:11.583Z] ── FINAL RESULT ──
+[2026-03-22T06:03:11.583Z]   ws (3):
+[2026-03-22T06:03:11.584Z]     - https://app.loadmill.com
+[2026-03-22T06:03:11.584Z]     - https://docs.loadmill.com
+[2026-03-22T06:03:11.584Z]     - https://www.loadmill.com
+[2026-03-22T06:03:11.584Z]   li (1):
+[2026-03-22T06:03:11.584Z]     - https://www.linkedin.com/company/loadmill
+[2026-03-22T06:03:11.584Z]   tw (1):
+[2026-03-22T06:03:11.584Z]     - https://x.com/loadmillteam
+[2026-03-22T06:03:11.584Z]   gh (1):
+[2026-03-22T06:03:11.585Z]     - https://github.com/loadmill
+[2026-03-22T06:03:11.585Z]   ytp (1):
+[2026-03-22T06:03:11.585Z]     - https://www.youtube.com/@loadmill5250
+[2026-03-22T06:03:11.585Z] Summary: ws:3, gh:1, li:1, ytp:1, tw:1
+[2026-03-22T06:03:11.586Z] Saved final result to result.json
+[2026-03-22T06:03:11.586Z] Override fields: ws, li, tw, gh, ytp
+[2026-03-22T06:03:11.586Z] Finished at: 2026-03-22T06:03:11.586Z

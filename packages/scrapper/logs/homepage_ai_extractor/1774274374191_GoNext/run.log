@@ -1,0 +1,71 @@
+[2026-03-23T13:59:34.191Z] === Homepage AI Extractor: GoNext ===
+[2026-03-23T13:59:34.192Z] Started at: 2026-03-23T13:59:34.191Z
+[2026-03-23T13:59:34.192Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774274374191_GoNext
+[2026-03-23T13:59:34.192Z] Company: GoNext
+[2026-03-23T13:59:34.192Z] Website: gonext.com
+[2026-03-23T13:59:34.192Z] cbRank: 806592
+[2026-03-23T13:59:34.192Z] Reasons: f
+[2026-03-23T13:59:34.192Z] Fetching: https://gonext.com
+[2026-03-23T13:59:39.360Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T13:59:42.341Z] Redirected: https://gonext.com -> https://www.gonext.com/
+[2026-03-23T13:59:42.347Z] Saved HTML (149904 bytes) to page.html
+[2026-03-23T13:59:42.348Z] Extracted 34 unique links from page
+[2026-03-23T13:59:42.349Z] Saved 34 links to links.json
+[2026-03-23T13:59:42.351Z] Extracted footer HTML (6837 chars)
+[2026-03-23T13:59:42.351Z] Extracted header HTML (6450 chars)
+[2026-03-23T13:59:42.354Z] Website (post-redirect): https://www.gonext.com/ → origin: https://www.gonext.com
+[2026-03-23T13:59:42.354Z] External links: 4 (of 34 total)
+[2026-03-23T13:59:42.354Z] ── All external links ──
+[2026-03-23T13:59:42.355Z]   EXT: https://www.bbb.org/us/mn/edina/profile/travel-agency/go-next-inc-0704-36000620/#sealclick
+[2026-03-23T13:59:42.355Z]   EXT: https://www.facebook.com/GoNextTravel
+[2026-03-23T13:59:42.355Z]   EXT: https://www.google.com/maps/dir/8000+West+78th+Street,+Suite+345+Minneapolis,+MN+55439
+[2026-03-23T13:59:42.355Z]   EXT: https://www.instagram.com/gonext_travel
+[2026-03-23T13:59:42.355Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T13:59:42.355Z]   UNCATEGORIZED: https://www.bbb.org/us/mn/edina/profile/travel-agency/go-next-inc-0704-36000620/#sealclick
+[2026-03-23T13:59:42.355Z]   REGEX: fb <- https://www.facebook.com/GoNextTravel
+[2026-03-23T13:59:42.355Z]   UNCATEGORIZED: https://www.google.com/maps/dir/8000+West+78th+Street,+Suite+345+Minneapolis,+MN+55439
+[2026-03-23T13:59:42.355Z]   REGEX: ig <- https://www.instagram.com/gonext_travel
+[2026-03-23T13:59:42.355Z] Programmatic result: ws:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-23T13:59:42.355Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T13:59:42.356Z] Saved AI prompt (6151 chars) to ai_prompt.txt
+[2026-03-23T13:59:42.356Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T13:59:42.360Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T14:00:08.819Z]   AI: First token received, streaming...
+[2026-03-23T14:00:12.512Z] AI response complete: 79 chars in 30.2s
+[2026-03-23T14:00:12.513Z] Saved AI response to ai_response.json
+[2026-03-23T14:00:12.513Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T14:00:12.513Z]   AI LINK: https://www.facebook.com/GoNextTravel/
+[2026-03-23T14:00:12.514Z]   AI LINK: https://www.instagram.com/gonext_travel/
+[2026-03-23T14:00:12.514Z] AI returned 2 valid links
+[2026-03-23T14:00:12.514Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T14:00:12.514Z]   AI→REGEX: fb <- https://www.facebook.com/GoNextTravel/ (duplicate, skipped)
+[2026-03-23T14:00:12.514Z]   AI→REGEX: ig <- https://www.instagram.com/gonext_travel/ (duplicate, skipped)
+[2026-03-23T14:00:12.515Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T14:00:12.515Z] Footer/header origins (6):
+[2026-03-23T14:00:12.515Z]   FOOTER/HEADER ORIGIN: https://www.gonext.com
+[2026-03-23T14:00:12.515Z]   FOOTER/HEADER ORIGIN: https://www.bbb.org
+[2026-03-23T14:00:12.515Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T14:00:12.515Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T14:00:12.515Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-23T14:00:12.515Z]   FOOTER/HEADER ORIGIN: https://www.perrill.com
+[2026-03-23T14:00:12.516Z]   ADDED: urls <- https://www.bbb.org/us/mn/edina/profile/travel-agency/go-next-inc-0704-36000620 (cleaned from https://www.bbb.org/us/mn/edina/profile/travel-agency/go-next-inc-0704-36000620/#sealclick)
+[2026-03-23T14:00:12.516Z]   ADDED: urls <- https://www.google.com/maps/dir/8000+West+78th+Street,+Suite+345+Minneapolis,+MN+55439
+[2026-03-23T14:00:12.516Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-23T14:00:12.516Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T14:00:12.516Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T14:00:12.516Z] ── Step 3: Final dedup ──
+[2026-03-23T14:00:12.516Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T14:00:12.516Z] ── FINAL RESULT ──
+[2026-03-23T14:00:12.516Z]   ws (1):
+[2026-03-23T14:00:12.516Z]     - https://www.gonext.com
+[2026-03-23T14:00:12.516Z]   fb (1):
+[2026-03-23T14:00:12.516Z]     - https://www.facebook.com/gonexttravel
+[2026-03-23T14:00:12.517Z]   ig (1):
+[2026-03-23T14:00:12.517Z]     - https://www.instagram.com/gonext_travel
+[2026-03-23T14:00:12.517Z]   urls (2):
+[2026-03-23T14:00:12.517Z]     - https://www.bbb.org/us/mn/edina/profile/travel-agency/go-next-inc-0704-36000620
+[2026-03-23T14:00:12.517Z]     - https://www.google.com/maps/dir/8000+West+78th+Street,+Suite+345+Minneapolis,+MN+55439
+[2026-03-23T14:00:12.517Z] Summary: ws:1, fb:1, ig:1, urls:2
+[2026-03-23T14:00:12.518Z] Saved final result to result.json
+[2026-03-23T14:00:12.518Z] Override fields: ws, fb, ig, urls
+[2026-03-23T14:00:12.518Z] Finished at: 2026-03-23T14:00:12.518Z

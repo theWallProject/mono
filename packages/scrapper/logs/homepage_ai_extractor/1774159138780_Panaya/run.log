@@ -1,0 +1,94 @@
+[2026-03-22T05:58:58.781Z] === Homepage AI Extractor: Panaya ===
+[2026-03-22T05:58:58.781Z] Started at: 2026-03-22T05:58:58.781Z
+[2026-03-22T05:58:58.781Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774159138780_Panaya
+[2026-03-22T05:58:58.781Z] Company: Panaya
+[2026-03-22T05:58:58.782Z] Website: panaya.com
+[2026-03-22T05:58:58.782Z] cbRank: 173702
+[2026-03-22T05:58:58.782Z] Reasons: f
+[2026-03-22T05:58:58.782Z] Fetching: https://panaya.com
+[2026-03-22T05:59:02.575Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T05:59:05.590Z] Redirected: https://panaya.com -> https://www.panaya.com/
+[2026-03-22T05:59:05.605Z] Saved HTML (532537 bytes) to page.html
+[2026-03-22T05:59:05.608Z] Extracted 72 unique links from page
+[2026-03-22T05:59:05.609Z] Saved 72 links to links.json
+[2026-03-22T05:59:05.611Z] Extracted footer HTML (17039 chars)
+[2026-03-22T05:59:05.611Z] Extracted header HTML (20224 chars)
+[2026-03-22T05:59:05.618Z] Website (post-redirect): https://www.panaya.com/ → origin: https://www.panaya.com
+[2026-03-22T05:59:05.618Z]   SUBDOMAIN: my.panaya.com (added to ws)
+[2026-03-22T05:59:05.618Z]   SUBDOMAIN: success.panaya.com (added to ws)
+[2026-03-22T05:59:05.618Z] Website subdomains found: 2
+[2026-03-22T05:59:05.618Z] External links: 6 (of 72 total)
+[2026-03-22T05:59:05.618Z] ── All external links ──
+[2026-03-22T05:59:05.618Z]   EXT: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T05:59:05.618Z]   EXT: https://twitter.com/panaya
+[2026-03-22T05:59:05.618Z]   EXT: https://www.cookiepro.com/products/cookie-consent
+[2026-03-22T05:59:05.618Z]   EXT: https://www.facebook.com/mypanaya
+[2026-03-22T05:59:05.619Z]   EXT: https://www.linkedin.com/company/panaya
+[2026-03-22T05:59:05.619Z]   EXT: https://www.youtube.com/channel/UCXqV96UgPVxivlIPsUjAh2g
+[2026-03-22T05:59:05.619Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T05:59:05.620Z]   UNCATEGORIZED: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T05:59:05.620Z]   REGEX: tw <- https://twitter.com/panaya
+[2026-03-22T05:59:05.620Z]   UNCATEGORIZED: https://www.cookiepro.com/products/cookie-consent
+[2026-03-22T05:59:05.620Z]   REGEX: fb <- https://www.facebook.com/mypanaya
+[2026-03-22T05:59:05.620Z]   REGEX: li <- https://www.linkedin.com/company/panaya
+[2026-03-22T05:59:05.621Z]   REGEX: ytc <- https://www.youtube.com/channel/UCXqV96UgPVxivlIPsUjAh2g
+[2026-03-22T05:59:05.621Z] Programmatic result: ws:3, tw:1, fb:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-22T05:59:05.621Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T05:59:05.624Z] Saved AI prompt (9123 chars) to ai_prompt.txt
+[2026-03-22T05:59:05.624Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T05:59:05.629Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T05:59:47.928Z]   AI: First token received, streaming...
+[2026-03-22T06:00:01.372Z] AI response complete: 188 chars in 55.7s
+[2026-03-22T06:00:01.374Z] Saved AI response to ai_response.json
+[2026-03-22T06:00:01.374Z] ── Parsing AI response (5 lines) ──
+[2026-03-22T06:00:01.374Z]   AI LINK: https://www.linkedin.com/company/panaya
+[2026-03-22T06:00:01.375Z]   AI LINK: https://twitter.com/panaya/
+[2026-03-22T06:00:01.375Z]   AI LINK: https://www.facebook.com/mypanaya/
+[2026-03-22T06:00:01.375Z]   AI LINK: https://www.youtube.com/channel/UCXqV96UgPVxivlIPsUjAh2g
+[2026-03-22T06:00:01.375Z]   AI LINK: https://www.panaya.com/blog/
+[2026-03-22T06:00:01.375Z] AI returned 5 valid links
+[2026-03-22T06:00:01.375Z] ── Categorizing 5 AI-returned links ──
+[2026-03-22T06:00:01.376Z]   AI→REGEX: li <- https://www.linkedin.com/company/panaya (duplicate, skipped)
+[2026-03-22T06:00:01.376Z]   AI→REGEX: tw <- https://twitter.com/panaya/ (duplicate, skipped)
+[2026-03-22T06:00:01.376Z]   AI→REGEX: fb <- https://www.facebook.com/mypanaya/ (duplicate, skipped)
+[2026-03-22T06:00:01.377Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCXqV96UgPVxivlIPsUjAh2g (duplicate, skipped)
+[2026-03-22T06:00:01.377Z]   AI→URLS: https://www.panaya.com/blog (cleaned from https://www.panaya.com/blog/)
+[2026-03-22T06:00:01.378Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:00:01.378Z] Footer/header origins (7):
+[2026-03-22T06:00:01.379Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T06:00:01.379Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T06:00:01.379Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T06:00:01.379Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T06:00:01.379Z]   FOOTER/HEADER ORIGIN: https://www.panaya.com
+[2026-03-22T06:00:01.379Z]   FOOTER/HEADER ORIGIN: https://success.panaya.com
+[2026-03-22T06:00:01.379Z]   FOOTER/HEADER ORIGIN: https://my.panaya.com
+[2026-03-22T06:00:01.379Z]   SKIP (not in footer/header): https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T06:00:01.379Z]   SKIP (not in footer/header): https://www.cookiepro.com/products/cookie-consent
+[2026-03-22T06:00:01.380Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:00:01.380Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:00:01.380Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T06:00:01.645Z]   YOUTUBE: resolved UCXqV96UgPVxivlIPsUjAh2g → @PanayaVideos
+[2026-03-22T06:00:01.646Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T06:00:01.646Z] ── Step 3: Final dedup ──
+[2026-03-22T06:00:01.646Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T06:00:01.646Z] ── FINAL RESULT ──
+[2026-03-22T06:00:01.646Z]   ws (3):
+[2026-03-22T06:00:01.646Z]     - https://my.panaya.com
+[2026-03-22T06:00:01.646Z]     - https://success.panaya.com
+[2026-03-22T06:00:01.646Z]     - https://www.panaya.com
+[2026-03-22T06:00:01.646Z]   li (1):
+[2026-03-22T06:00:01.647Z]     - https://www.linkedin.com/company/panaya
+[2026-03-22T06:00:01.647Z]   fb (1):
+[2026-03-22T06:00:01.647Z]     - https://www.facebook.com/mypanaya
+[2026-03-22T06:00:01.647Z]   tw (1):
+[2026-03-22T06:00:01.647Z]     - https://x.com/panaya
+[2026-03-22T06:00:01.647Z]   ytp (1):
+[2026-03-22T06:00:01.647Z]     - https://www.youtube.com/@PanayaVideos
+[2026-03-22T06:00:01.647Z]   ytc (1):
+[2026-03-22T06:00:01.647Z]     - https://www.youtube.com/channel/UCXqV96UgPVxivlIPsUjAh2g
+[2026-03-22T06:00:01.647Z]   urls (1):
+[2026-03-22T06:00:01.647Z]     - https://www.panaya.com/blog
+[2026-03-22T06:00:01.647Z] Summary: ws:3, tw:1, fb:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-22T06:00:01.648Z] Saved final result to result.json
+[2026-03-22T06:00:01.649Z] Override fields: ws, li, fb, tw, ytp, ytc
+[2026-03-22T06:00:01.649Z] Finished at: 2026-03-22T06:00:01.649Z

@@ -1,0 +1,82 @@
+[2026-03-23T12:49:29.023Z] === Homepage AI Extractor: Answers Corporation ===
+[2026-03-23T12:49:29.023Z] Started at: 2026-03-23T12:49:29.023Z
+[2026-03-23T12:49:29.023Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774270169023_Answers_Corporation
+[2026-03-23T12:49:29.023Z] Company: Answers Corporation
+[2026-03-23T12:49:29.023Z] Website: answers.com
+[2026-03-23T12:49:29.023Z] cbRank: 561704
+[2026-03-23T12:49:29.023Z] Reasons: f, i
+[2026-03-23T12:49:29.023Z] Fetching: https://answers.com
+[2026-03-23T12:49:31.754Z] Dismissed cookie consent popup via: #onetrust-accept-btn-handler
+[2026-03-23T12:49:34.126Z] Redirected: https://answers.com -> https://www.answers.com/
+[2026-03-23T12:49:34.138Z] Saved HTML (405137 bytes) to page.html
+[2026-03-23T12:49:34.143Z] Extracted 140 unique links from page
+[2026-03-23T12:49:34.144Z] Saved 140 links to links.json
+[2026-03-23T12:49:34.146Z] No footer section found in DOM
+[2026-03-23T12:49:34.146Z] No header section found in DOM
+[2026-03-23T12:49:34.150Z] Website (post-redirect): https://www.answers.com/ → origin: https://www.answers.com
+[2026-03-23T12:49:34.150Z]   SUBDOMAIN: math.answers.com (added to ws)
+[2026-03-23T12:49:34.150Z]   SUBDOMAIN: sports.answers.com (added to ws)
+[2026-03-23T12:49:34.150Z] Website subdomains found: 2
+[2026-03-23T12:49:34.150Z] External links: 8 (of 140 total)
+[2026-03-23T12:49:34.150Z] ── All external links ──
+[2026-03-23T12:49:34.151Z]   EXT: https://system1.com/terms/privacy-policy
+[2026-03-23T12:49:34.151Z]   EXT: https://twitter.com/joinanswers
+[2026-03-23T12:49:34.151Z]   EXT: https://www.facebook.com/joinanswers
+[2026-03-23T12:49:34.151Z]   EXT: https://www.infospace.com/terms/terms-of-use.html
+[2026-03-23T12:49:34.151Z]   EXT: https://www.instagram.com/joinanswers
+[2026-03-23T12:49:34.151Z]   EXT: https://www.pinterest.com/joinanswers
+[2026-03-23T12:49:34.151Z]   EXT: https://www.tiktok.com/@joinanswers
+[2026-03-23T12:49:34.151Z]   EXT: https://www.youtube.com/c/AnswersVideo
+[2026-03-23T12:49:34.151Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T12:49:34.151Z]   UNCATEGORIZED: https://system1.com/terms/privacy-policy
+[2026-03-23T12:49:34.151Z]   REGEX: tw <- https://twitter.com/joinanswers
+[2026-03-23T12:49:34.151Z]   REGEX: fb <- https://www.facebook.com/joinanswers
+[2026-03-23T12:49:34.151Z]   UNCATEGORIZED: https://www.infospace.com/terms/terms-of-use.html
+[2026-03-23T12:49:34.151Z]   REGEX: ig <- https://www.instagram.com/joinanswers
+[2026-03-23T12:49:34.151Z]   UNCATEGORIZED: https://www.pinterest.com/joinanswers
+[2026-03-23T12:49:34.152Z]   REGEX: tt <- https://www.tiktok.com/@joinanswers
+[2026-03-23T12:49:34.152Z]   REGEX: ytp <- https://www.youtube.com/c/AnswersVideo
+[2026-03-23T12:49:34.152Z] Programmatic result: ws:3, tw:1, fb:1, ig:1, tt:1, ytp:1 | 3 uncategorized
+[2026-03-23T12:49:34.152Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T12:49:34.152Z] Saved AI prompt (2098 chars) to ai_prompt.txt
+[2026-03-23T12:49:34.152Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T12:49:34.156Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T12:49:41.105Z]   AI: First token received, streaming...
+[2026-03-23T12:49:42.020Z] AI response complete: 37 chars in 7.9s
+[2026-03-23T12:49:42.025Z] Saved AI response to ai_response.json
+[2026-03-23T12:49:42.025Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T12:49:42.025Z]   AI LINK: https://www.pinterest.com/joinanswers
+[2026-03-23T12:49:42.026Z] AI returned 1 valid links
+[2026-03-23T12:49:42.026Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T12:49:42.026Z]   AI→URLS: https://www.pinterest.com/joinanswers
+[2026-03-23T12:49:42.026Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T12:49:42.026Z] Footer/header origins (0):
+[2026-03-23T12:49:42.026Z]   SKIP (not in footer/header): https://system1.com/terms/privacy-policy
+[2026-03-23T12:49:42.026Z]   SKIP (not in footer/header): https://www.infospace.com/terms/terms-of-use.html
+[2026-03-23T12:49:42.026Z]   SKIP (AI claimed): https://www.pinterest.com/joinanswers
+[2026-03-23T12:49:42.026Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T12:49:42.027Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T12:49:42.027Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T12:49:42.027Z] ── Step 3: Final dedup ──
+[2026-03-23T12:49:42.027Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T12:49:42.027Z] ── FINAL RESULT ──
+[2026-03-23T12:49:42.027Z]   ws (3):
+[2026-03-23T12:49:42.027Z]     - https://math.answers.com
+[2026-03-23T12:49:42.027Z]     - https://sports.answers.com
+[2026-03-23T12:49:42.027Z]     - https://www.answers.com
+[2026-03-23T12:49:42.027Z]   fb (1):
+[2026-03-23T12:49:42.027Z]     - https://www.facebook.com/joinanswers
+[2026-03-23T12:49:42.027Z]   tw (1):
+[2026-03-23T12:49:42.027Z]     - https://x.com/joinanswers
+[2026-03-23T12:49:42.027Z]   ig (1):
+[2026-03-23T12:49:42.028Z]     - https://www.instagram.com/joinanswers
+[2026-03-23T12:49:42.028Z]   ytp (1):
+[2026-03-23T12:49:42.028Z]     - https://www.youtube.com/@answersvideo
+[2026-03-23T12:49:42.028Z]   tt (1):
+[2026-03-23T12:49:42.028Z]     - https://www.tiktok.com/@joinanswers
+[2026-03-23T12:49:42.028Z]   urls (1):
+[2026-03-23T12:49:42.028Z]     - https://www.pinterest.com/joinanswers
+[2026-03-23T12:49:42.028Z] Summary: ws:3, tw:1, fb:1, ig:1, tt:1, ytp:1, urls:1
+[2026-03-23T12:49:42.029Z] Saved final result to result.json
+[2026-03-23T12:49:42.030Z] Override fields: ws, fb, tw, ig, ytp, tt, urls
+[2026-03-23T12:49:42.030Z] Finished at: 2026-03-23T12:49:42.030Z

@@ -1,0 +1,66 @@
+[2026-03-22T06:33:59.535Z] === Homepage AI Extractor: diagnostics.ai ===
+[2026-03-22T06:33:59.535Z] Started at: 2026-03-22T06:33:59.535Z
+[2026-03-22T06:33:59.536Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774161239534_diagnostics.ai
+[2026-03-22T06:33:59.536Z] Company: diagnostics.ai
+[2026-03-22T06:33:59.536Z] Website: diagnostics.ai
+[2026-03-22T06:33:59.536Z] cbRank: 211441
+[2026-03-22T06:33:59.536Z] Reasons: f
+[2026-03-22T06:33:59.536Z] Fetching: https://diagnostics.ai
+[2026-03-22T06:34:02.208Z] Redirected: https://diagnostics.ai -> https://diagnostics.ai/
+[2026-03-22T06:34:02.215Z] Saved HTML (207122 bytes) to page.html
+[2026-03-22T06:34:02.218Z] Extracted 24 unique links from page
+[2026-03-22T06:34:02.219Z] Saved 24 links to links.json
+[2026-03-22T06:34:02.221Z] Extracted footer HTML (12780 chars)
+[2026-03-22T06:34:02.221Z] Extracted header HTML (17519 chars)
+[2026-03-22T06:34:02.225Z] Website (post-redirect): https://diagnostics.ai/ → origin: https://diagnostics.ai
+[2026-03-22T06:34:02.225Z] External links: 5 (of 24 total)
+[2026-03-22T06:34:02.225Z] ── All external links ──
+[2026-03-22T06:34:02.225Z]   EXT: https://pubmed.ncbi.nlm.nih.gov/31563652
+[2026-03-22T06:34:02.225Z]   EXT: https://pubmed.ncbi.nlm.nih.gov/35878653
+[2026-03-22T06:34:02.225Z]   EXT: https://pubmed.ncbi.nlm.nih.gov/39004191
+[2026-03-22T06:34:02.225Z]   EXT: https://uk.linkedin.com/company/diagnosticsai
+[2026-03-22T06:34:02.225Z]   EXT: https://x.com/diagnosticsai
+[2026-03-22T06:34:02.226Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:34:02.226Z]   UNCATEGORIZED: https://pubmed.ncbi.nlm.nih.gov/31563652
+[2026-03-22T06:34:02.227Z]   UNCATEGORIZED: https://pubmed.ncbi.nlm.nih.gov/35878653
+[2026-03-22T06:34:02.227Z]   UNCATEGORIZED: https://pubmed.ncbi.nlm.nih.gov/39004191
+[2026-03-22T06:34:02.227Z]   REGEX: li <- https://uk.linkedin.com/company/diagnosticsai
+[2026-03-22T06:34:02.227Z]   REGEX: tw <- https://x.com/diagnosticsai
+[2026-03-22T06:34:02.227Z] Programmatic result: ws:1, li:1, tw:1 | 3 uncategorized
+[2026-03-22T06:34:02.227Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:34:02.229Z] Saved AI prompt (5833 chars) to ai_prompt.txt
+[2026-03-22T06:34:02.229Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:34:02.233Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:34:24.064Z]   AI: First token received, streaming...
+[2026-03-22T06:34:26.654Z] AI response complete: 73 chars in 24.4s
+[2026-03-22T06:34:26.656Z] Saved AI response to ai_response.json
+[2026-03-22T06:34:26.656Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T06:34:26.656Z]   AI LINK: https://x.com/diagnosticsai
+[2026-03-22T06:34:26.657Z]   AI LINK: https://uk.linkedin.com/company/diagnosticsai
+[2026-03-22T06:34:26.657Z] AI returned 2 valid links
+[2026-03-22T06:34:26.657Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T06:34:26.658Z]   AI→REGEX: tw <- https://x.com/diagnosticsai (duplicate, skipped)
+[2026-03-22T06:34:26.658Z]   AI→REGEX: li <- https://uk.linkedin.com/company/diagnosticsai (duplicate, skipped)
+[2026-03-22T06:34:26.659Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:34:26.659Z] Footer/header origins (2):
+[2026-03-22T06:34:26.659Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T06:34:26.659Z]   FOOTER/HEADER ORIGIN: https://uk.linkedin.com
+[2026-03-22T06:34:26.660Z]   SKIP (not in footer/header): https://pubmed.ncbi.nlm.nih.gov/31563652
+[2026-03-22T06:34:26.660Z]   SKIP (not in footer/header): https://pubmed.ncbi.nlm.nih.gov/35878653
+[2026-03-22T06:34:26.660Z]   SKIP (not in footer/header): https://pubmed.ncbi.nlm.nih.gov/39004191
+[2026-03-22T06:34:26.660Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:34:26.660Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:34:26.660Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T06:34:26.660Z] ── Step 3: Final dedup ──
+[2026-03-22T06:34:26.660Z] No urls to dedup
+[2026-03-22T06:34:26.660Z] ── FINAL RESULT ──
+[2026-03-22T06:34:26.661Z]   ws (1):
+[2026-03-22T06:34:26.661Z]     - https://diagnostics.ai
+[2026-03-22T06:34:26.661Z]   li (1):
+[2026-03-22T06:34:26.661Z]     - https://www.linkedin.com/company/diagnosticsai
+[2026-03-22T06:34:26.661Z]   tw (1):
+[2026-03-22T06:34:26.661Z]     - https://x.com/diagnosticsai
+[2026-03-22T06:34:26.662Z] Summary: ws:1, li:1, tw:1
+[2026-03-22T06:34:26.663Z] Saved final result to result.json
+[2026-03-22T06:34:26.663Z] Override fields: ws, li, tw
+[2026-03-22T06:34:26.663Z] Finished at: 2026-03-22T06:34:26.663Z

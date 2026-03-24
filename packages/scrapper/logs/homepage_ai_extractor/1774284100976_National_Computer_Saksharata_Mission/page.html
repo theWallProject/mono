@@ -1,0 +1,4400 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>
+	National Computer Saksharta Mission
+</title>
+
+    <!-- Bootstrap (kept, but isolated) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MASTER CSS (scoped, safe) -->
+    <link rel="stylesheet" href="master.css">
+    <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/qm3PSRIx10pekcnS9DjGnjPW/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-fhF6HYISoYLkhpTlAJBpytq+eKnHbn4KQovxIc2m9B3MH/43tMbFUbSUDANMK7jX"></script><script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+
+    <!-- Allow pages to inject their own CSS -->
+    
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+   <style>
+
+      
+      
+        .wrap{
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1px 5px 5px;
+        }
+   .card-item {
+    background: linear-gradient(135deg, #d0e8ff, #f0f8ff, #ffffff); /* More blue shades */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+    .card-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+    }
+    .card-item img {
+        width: 50%;
+        border-radius: 10px;
+    }
+    .card-item h3 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .card-item p {
+        font-size: 14px;
+        color: #666;
+    }
+
+
+
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+.state-card {
+    flex: 0 0 auto;
+    width: 120px;
+    text-align: center;
+    background: linear-gradient(#fff, #ccc);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.state-card img {
+    width: 100%;
+    height: auto;
+}
+
+.state-card p {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.popup-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+}
+/* --- Mobile: center popup perfectly --- */
+@media (max-width: 768px) {
+  .popup { padding: 16px; } /* keeps content off the edges */
+
+  .popup-content {
+    position: absolute;      /* position inside the full-screen overlay */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* center horizontally & vertically */
+    margin: 0;               /* override the desktop margin */
+    width: 100%;
+    max-width: 420px;
+    max-height: calc(100dvh - 32px);  /* fits on screen even with mobile bars */
+    overflow: auto;          /* scroll if content is tall */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+.popup-content img {
+    width: 100px;
+    height: auto;
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .state-card {
+        width: 150px;
+    }
+}
+
+
+
+.section-title {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+    letter-spacing: 0.5px;
+}
+
+.slider3-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.slider3-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider3-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.director-slide {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    gap: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+
+.director-slide.reverse {
+    flex-direction: row-reverse;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.7);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.text-container {
+    flex: 2;
+}
+
+.text-container h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.text-container h4 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 8px 0 18px;
+    opacity: 0.85;
+}
+
+.text-container p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.arrow {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(6px);
+    color: white;
+    border: none;
+    font-size: 22px;
+    padding: 8px 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.arrow:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.arrow.left { left: -40px; }
+.arrow.right { right: -40px; }
+
+@media (max-width: 768px) {
+    .director-slide {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .image-container img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .arrow.left { left: 5px; }
+    .arrow.right { right: 5px; }
+}
+
+
+
+
+
+.section2-title {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+    letter-spacing: 0.5px;
+}
+
+.slider32-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.slider32-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider32-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.director2-slide {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+ background: linear-gradient(135deg, #434343, #2c3e50);
+    color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    gap: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+
+.director2-slide.reverse {
+    flex-direction: row-reverse;
+}
+
+.image2-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image2-container img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.7);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.text2-container {
+    flex: 2;
+}
+
+.text2-container h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.text2-container h4 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 8px 0 18px;
+    opacity: 0.85;
+}
+
+.text2-container p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.arrow2 {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(6px);
+    color: white;
+    border: none;
+    font-size: 22px;
+    padding: 8px 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.arrow2:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.arrow2.left { left: -40px; }
+.arrow2.right { right: -40px; }
+
+@media (max-width: 768px) {
+    .director2-slide {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .image2-container img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .arrow2.left { left: 5px; }
+    .arrow2.right { right: 5px; }
+}
+
+
+
+
+
+/* Slider Container */
+.slider2-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Wrapper */
+.slider2-wrapper {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Slides */
+.slide2-item {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Images are fully responsive */
+.slide2-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/* Mobile View – show full image, not zoomed */
+@media (max-width: 768px) {
+  .slide2-item img {
+    height: 250px;
+    object-fit: contain;  /* Shows full image */
+    padding: 5px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .slide2-item img {
+    height: 200px;
+  }
+}
+
+
+
+
+
+/* -------------------------
+  Vision section — drop-in styling
+  (Use after :root variables; does NOT change HTML)
+   ------------------------- */
+
+.vision-section {
+  padding: 56px 16px;
+  background: linear-gradient(180deg, rgba(247,249,252,1) 0%, rgba(255,255,255,1) 100%);
+  color: #1f2937;
+  overflow: hidden;
+}
+
+.vision-section .container {
+  max-width: var(--container-max,1200px);
+  margin: 0 auto;
+}
+
+/* Title */
+.vision-title {
+  text-align: center;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  margin: 0 0 18px;
+  font-weight: 800;
+  color: #0f1724;
+  position: relative;
+}
+
+/* Subtle decorative underline under title */
+.vision-title::after{
+  content: "";
+  display: block;
+  width: 68px;
+  height: 6px;
+  border-radius: 6px;
+  margin: 12px auto 0;
+  background: linear-gradient(90deg, rgba(7,179,138,1), rgba(0,192,107,1));
+  box-shadow: 0 8px 18px rgba(2,176,124,0.12);
+}
+
+/* Content layout */
+.vision-content {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 30px;
+  align-items: center;
+  margin-top: 26px;
+}
+
+/* Text column */
+.vision-text p{
+  font-size: 1.03rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0;
+  font-weight: 500;
+  background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.0));
+}
+
+/* Slight emphasis for brand name already in markup */
+.vision-text strong { color: #0b66d1; font-weight:800; }
+
+/* Image column */
+.vision-image {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position: relative;
+  padding: 10px;
+}
+.vision-image .vision-map{
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display:block;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(15,23,42,0.08);
+  transition: transform .6s cubic-bezier(.2,.9,.2,1), box-shadow .4s ease;
+  border: 6px solid #fff;
+  background: #fff;
+}
+.vision-image .vision-map:hover{ transform: translateY(-6px) scale(1.01); box-shadow: 0 26px 60px rgba(15,23,42,0.12); }
+
+/* Stats row */
+.stats {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Individual stat */
+.stat-item {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,252,255,0.98));
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(15,23,42,0.04);
+  transition: transform .28s ease, box-shadow .28s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:96px;
+}
+.stat-item:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(15,23,42,0.08); }
+
+.stat-item strong{
+  display:block;
+  font-size:1.45rem;
+  color: #061826;
+  letter-spacing:0.6px;
+  margin-bottom:6px;
+  font-weight:900;
+}
+
+/* Label under number */
+.stat-item span{
+  color: #64748b;
+  font-size:0.95rem;
+  font-weight:600;
+}
+
+/* Accent left border for first stat (subtle) */
+.stat-item:first-child { border-left: 4px solid rgba(7,179,138,0.12); }
+.stat-item:nth-child(2) { border-left: 4px solid rgba(11,102,209,0.08); }
+.stat-item:nth-child(3) { border-left: 4px solid rgba(255,107,107,0.08); }
+.stat-item:nth-child(4) { border-left: 4px solid rgba(246,180,45,0.08); }
+
+/* Responsive: collapse to single column on small screens */
+@media (max-width: 980px){
+  .vision-content { grid-template-columns: 1fr 360px; gap: 18px; }
+  .vision-title { font-size: 1.7rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap:14px; }
+}
+
+@media (max-width: 680px){
+  .vision-section { padding: 30px 14px; }
+  .vision-content { grid-template-columns: 1fr; }
+  .vision-image { order: -1; margin-bottom: 14px; }
+  .vision-image .vision-map { max-width: 100%; border-radius: 12px; border: 4px solid #fff; }
+  .vision-text p { font-size: 1rem; }
+  .stats { grid-template-columns: 1fr; gap:12px; margin-top:20px; }
+  .stat-item { min-height:80px; padding:14px; }
+  .vision-title::after { width: 56px; height:5px; }
+}
+
+/* Accessibility: ensure sufficient contrast for large numbers */
+.stat-item strong { color: #04263a; }
+
+/* Optional micro animation: fade-in on scroll (lightweight) */
+@keyframes fadeUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+.vision-section .container > * { animation: fadeUp 0.6s ease both; animation-delay: .05s; }
+
+/* If you want slightly denser layout for tight screens */
+@media (max-width:480px){
+  .vision-title { font-size: 1.4rem; }
+  .vision-text p { line-height:1.6; }
+}
+
+
+
+
+
+    /* Top Section */
+    .org-section {
+        background: linear-gradient(135deg, #0052cc, #007bff);
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+    .org-section h1 {
+        margin: 0;
+        font-size: 36px;
+        font-weight: bold;
+    }
+    .org-section p {
+        max-width: 800px;
+        margin: 15px auto 0;
+        font-size: 17px;
+        line-height: 1.6;
+        opacity: 0.95;
+    }
+
+    /* Bottom Section Layout */
+   .content-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;   /* ⭐ IMPORTANT */
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+    /* Accordion */
+    .accordion {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        width: 320px;
+        overflow: hidden;
+    }
+    .accordion-item {
+        border-bottom: 1px solid #eee;
+    }
+    .accordion-header {
+        padding: 18px 20px;
+        background: #f9fafc;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        transition: background 0.3s;
+    }
+    .accordion-header:hover {
+        background: #eef3fb;
+    }
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        background: white;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #444;
+        transition: all 0.4s ease;
+    }
+    .accordion-content.show {
+        padding: 15px 20px;
+        max-height: 500px;
+    }
+    .accordion-header span {
+        font-size: 22px;
+        transition: transform 0.3s;
+        color: #007bff;
+    }
+   /* Default icon */
+.accordion-header span::before {
+    content: "+";
+    font-size: 22px;
+    transition: 0.2s;
+}
+
+/* When open, show minus */
+.accordion-header.active span::before {
+    content: "-";
+}
+
+    /* Right Content */
+    .right-content {
+        flex: 1;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        padding: 30px;
+        min-height: 290px;
+    }
+    .right-content h2 {
+        margin-top: 0;
+        font-size: 26px;
+        color: #222;
+    }
+    .right-content p {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #555;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .content-section {
+            flex-direction: column;
+        }
+        .accordion {
+            width: 100%;
+        }
+    }
+
+
+
+
+
+
+
+.custom-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.custom-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #606c88, #3f4c6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.custom-slider {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+.partner-item {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.partner-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+
+
+
+.awards-section {
+     background: linear-gradient(135deg, #4b6cb7, #182848);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+    border-radius: 14px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    position: relative;
+}
+
+.awards-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #e0e0e0, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.awards-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.awards-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 25px;
+    padding: 10px;
+}
+
+.awards-container::-webkit-scrollbar {
+    display: none;
+}
+
+.award-card {
+    flex: 0 0 auto;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.award-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0px 8px 30px rgba(0,0,0,0.35);
+}
+
+.award-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+}
+
+.award-card p {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #f1f1f1;
+    letter-spacing: 0.5px;
+}
+
+.scroll-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.scroll-btn.left {
+    left: 10px;
+}
+
+.scroll-btn.right {
+    right: 10px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .award-card {
+        width: 160px;
+        padding: 15px;
+    }
+
+    .scroll-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+.section7-title {
+    text-align: center;
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #1b2a49; /* deep navy-blue text */
+}
+
+.slider7-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+  background: linear-gradient(135deg, #4b6cb7, #2b3a67, #1e2a3a);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.slider7-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider7-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.slide7 {
+    min-width: 300px;
+    background: linear-gradient(180deg, #ffffff, #f0f5ff);
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide7:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.slide7 img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.arrow7 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(27, 42, 73, 0.6); /* deep navy semi-transparent */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 6px 12px;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.arrow7:hover {
+    background: rgba(27, 42, 73, 0.85);
+}
+
+.arrow7.left { left: 10px; }
+.arrow7.right { right: 10px; }
+
+@media (max-width: 768px) {
+    .slide7 { min-width: 80%; }
+}
+
+
+/* container */
+.box-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:20px;
+  max-width:900px;
+  margin:0 auto;
+  box-sizing:border-box;
+}
+
+/* default: Desktop → 3 per row */
+.box-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  flex:0 1 calc(33.333% - 20px);
+  max-width:calc(33.333% - 20px);
+}
+
+/* card */
+.box-item{
+  background:#fff;
+  border-radius: 5px;
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+  text-align:center;
+  padding:1px;
+  transition:transform .25s, box-shadow .25s;
+  height:100%;
+}
+
+.box-link:hover .box-item{
+  transform:translateY(-5px);
+  box-shadow:0 8px 16px rgba(0,0,0,.12);
+}
+
+.box-pic{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:8px;
+  display:block;
+}
+
+/* Tablet (optional) */
+@media (max-width:768px){
+  /* still keep 3 or convert to 2?  
+     → You didn’t specify; keeping 3 for now. */
+}
+
+/* Mobile → 2 per row */
+@media (max-width:640px){
+  .box-link{
+    flex:0 1 calc(50% - 20px);
+    max-width:calc(50% - 20px);
+  }
+}
+
+/* Very small phones (optional but recommended) */
+@media (max-width:400px){
+  .box-link{
+    flex:0 1 calc(50% - 12px);
+    max-width:calc(50% - 12px);
+  }
+}
+
+
+
+
+
+</style>
+
+
+<style>
+.myGridClass {
+  width: 100%;
+  /*this will be the color of the odd row*/
+  background-color: #fff;
+  margin: 5px 0 10px 0;
+  border: solid 1px #a11246;
+  border-collapse:collapse;
+  font-family: 'Verdana', sans-serif;
+}
+
+.myGridClass td {
+  padding: 2px;
+  font-size:12px;
+  text-align:center;
+  line-height:22px;
+  border: solid 1px #a11246;
+  color: #000;
+}
+.myGridClass th {
+  padding: 4px 2px;
+  color: #fff;
+   text-align:center;
+  line-height:25px;
+  font-weight:600;
+  font-size:12px;
+  background: #b31f55;
+  border-left: solid 1px #a11246;
+}
+.myGridClass tr:hover
+{
+  background-color:gold;
+  color:white;
+}
+.myGridClass .myAltRowClass { background: #fcfcfc repeat-x top; }
+.myGridClass .myPagerClass { background: #ca2f48; }
+.myGridClass .myPagerClass table { margin: 5px 0; }
+.myGridClass .myPagerClass td {
+  border-width: 0;
+  padding: 0 6px;
+  border-left: solid 1px #666;
+  font-weight: bold;
+  color: #fff;
+  line-height: 12px;
+}
+.myGridClass .myPagerClass a { color: #666; text-decoration: none; }
+.myGridClass .myPagerClass a:hover { color: #000; text-decoration: none; } 
+
+  .modalBackground {
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+        }
+
+        .modalPopup {
+            background-color: #FFFFFF;
+            width: auto;
+            border: 3px solid #0DA9D0;
+            border-radius: 12px;
+            padding: 0;
+              height: fit-content;
+        }
+
+            .modalPopup .header {
+                background-color: #2FBDF1;
+                height: 30px;
+                color: White;
+                line-height: 30px;
+                text-align: center;
+                font-weight: bold;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+            }
+
+            .modalPopup .body {
+                min-height: 50px;
+                line-height: 30px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .modalPopup .footer {
+                padding: 6px;
+            }
+
+            .modalPopup .yes, .modalPopup .no {
+                height: 23px;
+                color: White;
+                line-height: 23px;
+                text-align: center;
+                font-weight: bold;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            .modalPopup .yes {
+                background-color: #2FBDF1;
+                border: 1px solid #0DA9D0;
+            }
+
+            .modalPopup .no {
+                background-color: #9F9F9F;
+                border: 1px solid #5C5C5C;
+            }
+
+  .modalPopup2 {
+            background-color: #FFFFFF;
+            width: auto;
+            border: 3px solid #0DA9D0;
+            border-radius: 12px;
+            padding: 0;
+            height:500px;
+        }
+
+            .modalPopup2 .header {
+                background-color: #2FBDF1;
+                height: 30px;
+                color: White;
+                line-height: 30px;
+                text-align: center;
+                font-weight: bold;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+            }
+
+            .modalPopup2 .body {
+                min-height: 50px;
+                line-height: 30px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .modalPopup2 .footer {
+                padding: 6px;
+            }
+
+            .modalPopup2 .yes, .modalPopup2 .no {
+                height: 23px;
+                color: White;
+                line-height: 23px;
+                text-align: center;
+                font-weight: bold;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            .modalPopup2 .yes {
+                background-color: #2FBDF1;
+                border: 1px solid #0DA9D0;
+            }
+
+            .modalPopup2 .no {
+                background-color: #9F9F9F;
+                border: 1px solid #5C5C5C;
+            }
+             .modalPopup4 {
+                 background-color: #FFFFFF;
+                 width: auto;
+                 border: 3px solid #0DA9D0;
+                 border-radius: 12px;
+                 padding: 0;
+                 height: 200px;
+             }
+
+                 .modalPopup4 .header {
+                     background-color: #2FBDF1;
+                     height: 30px;
+                     color: White;
+                     line-height: 30px;
+                     text-align: center;
+                     font-weight: bold;
+                     border-top-left-radius: 6px;
+                     border-top-right-radius: 6px;
+                 }
+
+                 .modalPopup4 .body {
+                     min-height: 50px;
+                     line-height: 30px;
+                     text-align: center;
+                     font-weight: bold;
+                 }
+
+                 .modalPopup4 .footer {
+                     padding: 6px;
+                 }
+
+                 .modalPopup4 .yes, .modalPopup4 .no {
+                     height: 23px;
+                     color: White;
+                     line-height: 23px;
+                     text-align: center;
+                     font-weight: bold;
+                     cursor: pointer;
+                     border-radius: 4px;
+                 }
+
+                 .modalPopup4 .yes {
+                     background-color: #2FBDF1;
+                     border: 1px solid #0DA9D0;
+                 }
+
+                 .modalPopup4 .no {
+                     background-color: #9F9F9F;
+                     border: 1px solid #5C5C5C;
+                 }
+
+
+     @media (max-width:1190px) {
+         .modalPopup2 {
+             width: 600px;
+         }
+
+         /* On screens that are 992px or less, set the background color to blue */
+         @media screen and (max-width: 992px) {
+             .modalPopup2 {
+                 margin-top: -125px;
+                 max-width: 400px;
+             }
+         }
+
+         /* On screens that are 600px or less, set the background color to olive */
+         @media screen and (max-width: 600px) {
+         }
+
+
+         .modalPopup3 {
+             background-color: #FFFFFF;
+             width: 800px;
+             border: 3px solid #0DA9D0;
+             border-radius: 12px;
+             padding: 0;
+             height: 500px;
+         }
+
+             .modalPopup3 .header {
+                 background-color: #2FBDF1;
+                 height: 30px;
+                 color: White;
+                 line-height: 30px;
+                 text-align: center;
+                 font-weight: bold;
+                 border-top-left-radius: 6px;
+                 border-top-right-radius: 6px;
+             }
+
+             .modalPopup3 .body {
+                 min-height: 50px;
+                 line-height: 30px;
+                 text-align: center;
+                 font-weight: bold;
+             }
+
+             .modalPopup3 .footer {
+                 padding: 6px;
+             }
+
+             .modalPopup3 .yes, .modalPopup3 .no {
+                 height: 23px;
+                 color: White;
+                 line-height: 23px;
+                 text-align: center;
+                 font-weight: bold;
+                 cursor: pointer;
+                 border-radius: 4px;
+             }
+
+             .modalPopup3 .yes {
+                 background-color: #2FBDF1;
+                 border: 1px solid #0DA9D0;
+             }
+
+             .modalPopup3 .no {
+                 background-color: #9F9F9F;
+                 border: 1px solid #5C5C5C;
+             }
+
+         @media (max-width:1190px) {
+             .modalPopup3 {
+                 width: 600px;
+             }
+
+             /* On screens that are 992px or less, set the background color to blue */
+             @media screen and (max-width: 992px) {
+                 .modalPopup3 {
+                     margin-top: -125px;
+                     max-width: 400px;
+                 }
+             }
+
+             /* On screens that are 600px or less, set the background color to olive */
+             @media screen and (max-width: 600px) {
+             }
+
+             .center3 {
+                 text-align: center;
+             }
+         }
+
+         /*products.aspx*/
+         .probrand {
+             font-size: 15px;
+             font-weight: 600;
+             line-height: 15px;
+             text-transform: uppercase;
+             font-family: sans-serif;
+         }
+
+         .proName {
+             font-size: 13px;
+             line-height: 17px;
+             font-family: sans-serif;
+         }
+
+         .proPrice {
+             font-size: 14px;
+             line-height: 17px;
+             font-family: sans-serif;
+             font-weight: 600;
+         }
+
+         .proOgPrice {
+             font-size: 13px;
+             font-family: sans-serif;
+             font-weight: 400;
+             text-decoration: line-through;
+             color: gray;
+         }
+
+         .proPriceDiscount {
+             font-size: 13px;
+             font-family: sans-serif;
+             font-weight: 400;
+             color: deeppink;
+         }
+
+         /*productview*/
+         .proNameView {
+             font-size: 20px;
+             line-height: 25px;
+             font-family: sans-serif;
+             font-weight: 600;
+             color: #696e80;
+         }
+
+         .proOgPriceView {
+             font-size: 15px;
+             font-family: sans-serif;
+             font-weight: 400;
+             text-decoration: line-through;
+             color: gray;
+         }
+
+         .proPriceDiscountView {
+             font-size: 15px;
+             font-family: sans-serif;
+             font-weight: 400;
+             color: deeppink;
+         }
+
+         .proPriceView {
+             font-size: 16px;
+             line-height: 17px;
+             font-family: sans-serif;
+             font-weight: 600;
+             margin-top: 10px;
+         }
+     }
+
+
+
+</style>
+
+
+<style>
+ h24 {
+            text-align: center;
+            color: #0047ab;
+            margin: 20px 0;
+        }
+ .page-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+  .main-wrapper {
+    display: flex;
+    justify-content: center;   /* center items horizontally */
+    align-items: center;       /* center items vertically inside wrapper */
+    flex-wrap: wrap;
+    gap: 20px;
+   
+    max-width: 1000px;
+     /* center the whole block in the page */
+}
+
+        /* Left Logo Circle */
+        .logo-circle {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .logo-circle img {
+            max-width: 150px;
+        }
+
+        /* Right Branch Items */
+        .branches {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .branch {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #444;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .box {
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #fff;
+            min-width: 260px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+        .yellow { background: #f4c542; color:#000; }
+        .green { background: #28a745; }
+        .blue { background: #007bff; }
+        .orange { background: #ff7f27; }
+        .red { background: #e83e8c; }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .container56 {
+                flex-direction: column;
+            }
+
+            .logo-circle {
+                margin: 0 auto 20px;
+            }
+
+            .branches {
+                width: 100%;
+            }
+
+            .branch {
+                flex-direction: row;
+                margin: 15px 0;
+            }
+
+            .box {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+
+
+.slider2-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.slider2-wrapper {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide2-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide2-item img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.slide2-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.slide2-btn {
+  background: linear-gradient(135deg, #d4af37, #b88909);
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.slide2-btn:hover {
+  background: linear-gradient(135deg, #b88909, #d4af37);
+  transform: scale(1.05);
+}
+
+</style>
+
+
+
+
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .franchise-section {
+            background: #f4f8ff;
+            padding: 50px 20px;
+        }
+
+        .franchise-heading {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d2c5a;
+            margin-bottom: 30px;
+        }
+
+        /* Card Grid */
+        .franchise-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Individual Card */
+        .franchise-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+            border-top: 5px solid #0d47a1;
+            padding: 20px;
+        }
+
+        .franchise-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .franchise-card h3 {
+            color: #0d47a1;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .franchise-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Responsive Image (Optional Certificate Image Section) */
+        .certificate-img {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .certificate-img img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+
+
+
+     <style>
+        /* Section styling */
+        .details-section {
+            background: #f4f8ff;
+            padding: 50px 20px;
+        }
+
+        .details-heading {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d2c5a;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive Table */
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .details-table th,
+        .details-table td {
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #e0e6f5;
+        }
+
+        .details-table th {
+            background: #0d47a1;
+            color: #fff;
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .details-table td {
+            color: #333;
+        }
+
+        .details-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            .details-table,
+            .details-table tbody,
+            .details-table tr,
+            .details-table th,
+            .details-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .details-table th {
+                background: #0d47a1;
+                color: #fff;
+                padding: 12px;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .details-table td {
+                padding: 12px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .details-table tr {
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 12px;
+                overflow: hidden;
+                background: #fff;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            }
+        }
+    </style>
+
+
+
+<script type="text/javascript">
+
+    function Showpopup() {
+        $find('ModalPopupExtender1').show();
+    }
+
+</script>
+
+  <style>
+:root{
+--midnight:#0b132b;
+--ink:#0f1724;
+--muted:#6b7280;
+--bg-top:#fbf8ef;
+--bg-bottom:#f8f1da;
+--gold-1:#e9c46a;
+--gold-2:#d4af37;
+--gold-3:#b88909;
+--gold-glow:0 8px 30px rgba(212,175,55,.25);
+}
+
+.ncsm-section{max-width:1100px;margin:28px auto;padding:20px}
+.ncsm-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.ncsm-logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--gold-2),var(--gold-1));display:flex;align-items:center;justify-content:center;color:#3b2f13;font-weight:800;font-size:18px;box-shadow:var(--gold-glow)}
+.ncsm-title h2{margin:0;font-size:22px;color:var(--midnight)}
+.ncsm-title p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.ncsm-badge{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,var(--gold-2),var(--gold-1));color:#231b08;font-weight:700;font-size:12px;border:1px solid rgba(184,137,9,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.ncsm-grid{display:flex;flex-direction:column;gap:22px}
+.ncsm-card{display:flex;flex-direction:row;align-items:flex-start;gap:24px;padding:24px;border-radius:18px;background:linear-gradient(180deg,#fff,#fffcf2);border:1px solid rgba(184,137,9,.35);box-shadow:var(--gold-glow);overflow:hidden}
+.ncsm-card::before{content:"";position:absolute;inset:-40% -60% auto auto;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--gold-1), rgba(233,196,106,.18) 40%, transparent 60%);transform:rotate(18deg);opacity:.9;z-index:-1;filter:blur(1px)}
+.ncsm-avatar{width:180px;height:180px;border-radius:16px;overflow:hidden;flex:0 0 180px;position:relative;background:#eee;border:2px solid rgba(255,255,255,.75);box-shadow:0 10px 28px rgba(15,23,36,.15)}
+.ncsm-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.ncsm-meta h3{margin:0;font-size:20px;color:var(--midnight)}
+.ncsm-meta h3 span{font-weight:700;color:var(--muted);font-size:14px}
+.ncsm-meta .role{display:block;font-size:14px;color:var(--muted);margin-top:6px}
+.ncsm-quote{font-style:italic;color:#2b2110;font-weight:700;background:linear-gradient(90deg,rgba(233,196,106,.25),rgba(255,244,204,.55));padding:12px;border-radius:10px;border-left:4px solid var(--gold-2)}
+.ncsm-body{color:var(--ink);font-size:15px;line-height:1.55}
+.ncsm-card-footer{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px dashed rgba(184,137,9,.35);padding-top:10px}
+.ncsm-small{font-size:12px;color:var(--muted)}
+@media (max-width:768px){.ncsm-card{flex-direction:column;align-items:center;text-align:center}.ncsm-avatar{width:140px;height:140px}.ncsm-section{padding:14px}}
+
+
+
+
+
+
+
+
+
+/* -------------------------
+  Polished styling for existing markup
+  (Drop into your master CSS; doesn't change HTML)
+   ------------------------- */
+.tm-home-section-1 {
+  padding: 44px 16px;
+  background: #f7f9fb;
+}
+
+/* Paragraph centered look */
+.home-description{
+  text-align: center;
+  color: #374151;
+  font-size: 1.03rem;
+  line-height: 1.6;
+  max-width: 990px;
+  margin: 0 auto 28px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+/* Card containers */
+.tm-home-box-1,
+.tm-home-box-1-2 {
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(15,23,42,0.06);
+  transition: transform .28s ease, box-shadow .28s ease;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* subtle lift on hover */
+.tm-home-box-1:hover,
+.tm-home-box-1-2:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(15,23,42,0.10); }
+
+/* Tabs styling (keeps bootstrap markup) */
+.nav-tabs.tm-white-bg {
+  background: transparent;
+  padding: 12px;
+  display: flex;
+  gap: 8px;
+  border-bottom: none;
+}
+.nav-tabs.tm-white-bg .nav-item { flex: 1; }
+.nav-tabs.tm-white-bg .nav-link {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 700;
+  color: #475569;
+  background: rgba(15,23,42,0.03);
+  transition: background .18s ease, color .18s ease;
+  text-align:center;
+  box-shadow: none;
+}
+.nav-tabs.tm-white-bg .nav-link.active {
+  color: #111;
+  background: linear-gradient(90deg,#ffd87a,#f0c04a);
+  box-shadow: 0 6px 18px rgba(240,167,47,0.12);
+}
+
+/* Tab content card body */
+.tm-search-box { padding: 18px 18px 24px; display:flex; flex-direction:column; gap:10px; flex:1; }
+.tm-form-inner .form-group b { display:block; color:#273043; font-weight:600; line-height:1.45; }
+.tm-form-inner .link-primary { color:#0b66d1; text-decoration:underline; }
+
+/* Input styling (for both <input> and asp:TextBox rendered input) */
+.tm-form-inner input[type="text"],
+.tm-form-inner input[type="search"],
+.tm-form-inner textarea,
+.tm-form-inner .aspTextBox, /* safety class name in case */
+.tm-form-inner [type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ee;
+  background: #fff;
+  outline: none;
+  margin-top:8px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+}
+.tm-form-inner input:focus,
+.tm-form-inner textarea:focus { box-shadow: 0 6px 18px rgba(14,30,37,0.06); border-color:#cbd5e1; }
+
+/* Yellow CTA bar (keeps existing .tm-yellow-gradient-bg and btn class names) */
+.tm-yellow-gradient-bg {
+  padding: 18px;
+  border-radius: 10px;
+  margin-top: 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(90deg,#f6b42d,#f0a72f);
+  box-shadow: 0 14px 32px rgba(246,180,45,0.10);
+}
+.tm-yellow-btn {
+  background: transparent;
+  border: none;
+  padding: 12px 26px;
+  font-weight: 800;
+  color: #111;
+  font-size: 0.95rem;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+}
+
+/* Center & right image cards keep same markup but get improved visuals */
+.tm-home-box-1-2 .img-responsive,
+.tm-home-box-1-2 img.img-responsive {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 260px;
+  transition: transform .6s ease;
+}
+.tm-home-box-1-2:hover .img-responsive { transform: scale(1.05); }
+
+/* CTA gradient bar at bottom of image cards */
+.tm-city-price-container {
+  height: 86px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:#fff;
+  font-size:1rem;
+  letter-spacing:0.6px;
+}
+
+/* keep existing tm-green-gradient-bg and tm-red-gradient-bg but improve shadows */
+.tm-green-gradient-bg { background: var(--accent2, linear-gradient(90deg,#07b38a,#00c06b)); box-shadow: 0 10px 30px rgba(2,176,124,0.10); }
+.tm-red-gradient-bg   { background: var(--accent3, linear-gradient(90deg,#ff6b6b,#ff8a7a)); box-shadow: 0 10px 30px rgba(255,107,107,0.10); }
+
+/* Responsive tweaks */
+@media (max-width: 992px){
+  .tm-home-box-1,
+  .tm-home-box-1-2 { min-height: 360px; }
+  .tm-home-section-1 { padding: 32px 12px; }
+  .home-description { font-size: 1rem; padding: 0 10px; }
+  .tm-city-price-container { height: 76px; font-size: .98rem; }
+}
+
+@media (max-width: 680px){
+  .tm-home-box-1,
+  .tm-home-box-1-2 { min-height: auto; box-shadow: 0 8px 18px rgba(15,23,42,0.06); border-radius: 10px; }
+  .nav-tabs.tm-white-bg { gap: 6px; padding: 8px; }
+  .nav-tabs.tm-white-bg .nav-link { padding: 8px; font-size: .95rem; }
+  .tm-home-section-1 { padding: 22px 10px; }
+  .home-description { font-size: .98rem; margin-bottom: 18px; }
+  .tm-city-price-container { height: 64px; font-size: .95rem; }
+  .tm-yellow-btn { width:100%; padding:12px 16px; }
+}
+
+/* small accessibility: ensure contrast on text inside gradient bars */
+.tm-city-price-container span,
+.tm-yellow-btn { color: #111 !important; }
+
+/* Safe display for asp:TextBox (renders input[type=text]) */
+input[id^="TextBox"] { font-size: 0.95rem; }
+
+/* Ensure no unexpected overflow */
+.tm-home-box-1-2 img { display:block; }
+
+/* Optional micro-adjust: clickable whole CTA area (keeps anchor) */
+.tm-home-box-1-2 > a { text-decoration: none; display:block; }
+
+
+</style>
+
+
+  <!-- Styles (paste into the page head or your css file) -->
+<style>
+/* ============================
+   COURSE SECTION WRAPPER
+============================ */
+.courses-section {
+  padding: 28px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Add spacing inside swiper */
+.attractiveCourses .swiper-wrapper {
+  padding-bottom: 18px;
+}
+
+/* SLIDE FIX — Center card in all devices */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 10px;
+}
+
+/* ============================
+   CARD BASE STYLE
+============================ */
+.course-card {
+  width: 100%;
+  max-width: 320px;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  box-shadow: var(--card-shadow);
+  transition: transform .26s ease, box-shadow .26s ease;
+  border: 1px solid rgba(3,34,63,0.04);
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+}
+
+.course-card.card-elevate:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* ============================
+   CARD CONTENT
+============================ */
+.card-top {
+  position: relative;
+  padding: 12px 18px 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 28px;
+}
+
+.card-badge {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  background: var(--badge-gradient);
+  color: #2b1b00;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  box-shadow: 0 6px 18px rgba(255,138,75,0.12);
+  white-space: nowrap;
+}
+
+.card-body {
+  padding: 12px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+.course-title {
+  font-size: 18px;
+  margin: 0;
+  color: var(--text-dark);
+  line-height: 1.2;
+  min-height: 2.6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.meta-row.small {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.pill {
+  background: var(--pill-bg);
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #08365a;
+}
+
+/* highlights */
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.progress {
+  background: rgba(3,34,63,0.06);
+  height: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 8px;
+  background: linear-gradient(90deg,#4facfe,#00f2fe);
+  width: 40%;
+  transition: width .6s ease;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+}
+.tag {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(3,34,63,0.06);
+  color: #08365a;
+}
+
+/* footer */
+.card-footer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  border: 0;
+}
+.btn-primary {
+  background: linear-gradient(90deg,#0066cc,#0088ff);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(0,136,255,0.12);
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(3,34,63,0.08);
+  color: #073463;
+  padding: 7px 12px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* ============================
+   RESPONSIVE FIXES
+============================ */
+
+/* Tablets */
+@media (max-width: 980px) {
+  .course-card {
+    max-width: 360px;
+  }
+  .courses-section {
+    padding: 22px 0;
+  }
+}
+
+/* MOBILE FIX — PERFECT CENTER SLIDE */
+@media (max-width: 640px) {
+
+  .swiper-slide {
+    padding: 0 6px;
+    justify-content: center;
+  }
+
+  .course-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 12px;
+    min-height: auto;
+    box-shadow: 0 8px 20px rgba(12,35,80,0.07);
+  }
+
+  .course-title {
+    font-size: 16px;
+    min-height: auto;
+  }
+
+  .card-body {
+    padding: 10px 14px 14px;
+  }
+
+  .tag, .pill, .meta-row.small {
+    font-size: 12px;
+  }
+}
+
+/* very small phones */
+@media (max-width: 420px) {
+  .swiper-slide { padding: 0 4px; }
+  .course-title { font-size: 15px; }
+  .card-body { padding: 10px 12px 12px; }
+  .card-badge { font-size: 10px; padding: 4px 7px; }
+}
+
+/* accessibility */
+.course-card:focus-within,
+.btn:focus,
+.btn-primary:focus,
+.btn-outline:focus {
+  outline: 3px solid rgba(0,136,255,0.12);
+  outline-offset: 2px;
+}
+
+
+
+  .partners-section {
+    background: #ffffff;   /* White background */
+    padding: 40px 0;       /* Space top & bottom */
+    border-radius: 10px;   /* Optional smooth edges */
+}
+
+
+.partnersSwiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partnersSwiper img {
+    width: 120px;
+    height: auto;
+    filter: grayscale(0);
+    transition: 0.3s;
+}
+
+.partnersSwiper img:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* Main Slider – Better Mobile View */
+#mainSlider .carousel-item img {
+    width: 100%;
+    height: 658px;          /* DEFAULT large height */
+    object-fit: cover;      /* Prevents shrinking */
+}
+
+/* Mobile – full image without borders */
+@media (max-width: 768px) {
+
+    #mainSlider .carousel-item {
+        height: auto;          /* Allow natural image height */
+    }
+
+    #mainSlider .carousel-item img {
+        width: 100%;
+        height: auto;          /* 🔥 No forced height → no black border */
+        object-fit: contain;   /* Show full image */
+        background: none !important; /* Remove black background */
+        padding: 5px;        /* Remove gaps */
+          border-radius: 6px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    #mainSlider .carousel-item img {
+        height: auto;
+        object-fit: contain;
+        
+    }
+}
+
+
+
+</style>
+<style>
+/* Desktop marquee */
+.marquee-box {
+    width: 100%;
+    overflow: hidden;
+    background: #004aad;
+    padding: 10px 0;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marqueeScroll 16s linear infinite;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.marquee-content a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@keyframes marqueeScroll {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 📱 Mobile View (NO TOGGLE, FULL TEXT) */
+@media (max-width: 600px) {
+
+    .marquee-content {
+        animation: none !important;   /* stop marquee */
+        white-space: normal;          /* wrap text */
+        font-size: clamp(14px, 4vw, 18px);
+        line-height: 1.5;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .marquee-box {
+        padding: 12px 0;
+    }
+}
+</style>
+
+
+</head>
+
+<body class="master-body">
+<form method="post" action="./" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTY1MzU3ODgyD2QWAmYPZBYCAgQPZBYCAgIPZBYIAgcPFgIeC18hSXRlbUNvdW50AgoWFGYPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00NzhkAgEPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00ODFkAgIPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00ODBkAgMPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00ODJkAgQPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00NzdkAgUPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00NzlkAgYPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00NzVkAgcPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00NzZkAggPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00NzNkAgkPZBYCZg8VBSVDZXJ0aWZpY2F0ZSBpbiBNb2JpbGUgUGhvbmUgUmVwYWlyaW5nFTYgTW9udGhzICAvIDI0MCBIb3VycxtDbGFzcyAxMCBQYXNzIG9yIEVxdWl2YWxlbnQDMTEyGUNvdXJzZURldGFpbHMuYXNweD9pZD00NzRkAgkPFgIfAAIkFkhmD2QWAmYPFQYLc3RhdGUvMS5qcGcAAAtzdGF0ZS8xLmpwZwAAZAIBD2QWAmYPFQYLc3RhdGUvMi5qcGcAAAtzdGF0ZS8yLmpwZwAAZAICD2QWAmYPFQYLc3RhdGUvMy5qcGcAAAtzdGF0ZS8zLmpwZwAAZAIDD2QWAmYPFQYLc3RhdGUvNC5qcGcAAAtzdGF0ZS80LmpwZwAAZAIED2QWAmYPFQYLc3RhdGUvNS5qcGcAAAtzdGF0ZS81LmpwZwAAZAIFD2QWAmYPFQYLc3RhdGUvNi5qcGcAAAtzdGF0ZS82LmpwZwAAZAIGD2QWAmYPFQYLc3RhdGUvNy5qcGcAAAtzdGF0ZS83LmpwZwAAZAIHD2QWAmYPFQYLc3RhdGUvOC5qcGcAAAtzdGF0ZS84LmpwZwAAZAIID2QWAmYPFQYLc3RhdGUvOS5qcGcAAAtzdGF0ZS85LmpwZwAAZAIJD2QWAmYPFQYMc3RhdGUvMTAuanBnAAAMc3RhdGUvMTAuanBnAABkAgoPZBYCZg8VBgxzdGF0ZS8xMS5qcGcAAAxzdGF0ZS8xMS5qcGcAAGQCCw9kFgJmDxUGDHN0YXRlLzEyLmpwZwAADHN0YXRlLzEyLmpwZwAAZAIMD2QWAmYPFQYMc3RhdGUvMTMuanBnAAAMc3RhdGUvMTMuanBnAABkAg0PZBYCZg8VBgxzdGF0ZS8xNC5qcGcAAAxzdGF0ZS8xNC5qcGcAAGQCDg9kFgJmDxUGDHN0YXRlLzE1LmpwZwAADHN0YXRlLzE1LmpwZwAAZAIPD2QWAmYPFQYMc3RhdGUvMTYuanBnAAAMc3RhdGUvMTYuanBnAABkAhAPZBYCZg8VBgxzdGF0ZS8xNy5qcGcAAAxzdGF0ZS8xNy5qcGcAAGQCEQ9kFgJmDxUGDHN0YXRlLzE4LmpwZwAADHN0YXRlLzE4LmpwZwAAZAISD2QWAmYPFQYMc3RhdGUvMTkuanBnAAAMc3RhdGUvMTkuanBnAABkAhMPZBYCZg8VBgxzdGF0ZS8yMC5qcGcAAAxzdGF0ZS8yMC5qcGcAAGQCFA9kFgJmDxUGDHN0YXRlLzIxLmpwZwAADHN0YXRlLzIxLmpwZwAAZAIVD2QWAmYPFQYMc3RhdGUvMjIuanBnAAAMc3RhdGUvMjIuanBnAABkAhYPZBYCZg8VBgxzdGF0ZS8yMy5qcGcAAAxzdGF0ZS8yMy5qcGcAAGQCFw9kFgJmDxUGDHN0YXRlLzI0LmpwZwAADHN0YXRlLzI0LmpwZwAAZAIYD2QWAmYPFQYMc3RhdGUvMjUuanBnAAAMc3RhdGUvMjUuanBnAABkAhkPZBYCZg8VBgxzdGF0ZS8yNi5qcGcAAAxzdGF0ZS8yNi5qcGcAAGQCGg9kFgJmDxUGDHN0YXRlLzI3LmpwZwAADHN0YXRlLzI3LmpwZwAAZAIbD2QWAmYPFQYMc3RhdGUvMjguanBnAAAMc3RhdGUvMjguanBnAABkAhwPZBYCZg8VBgxzdGF0ZS8yOS5qcGcAAAxzdGF0ZS8yOS5qcGcAAGQCHQ9kFgJmDxUGDHN0YXRlLzMwLmpwZwAADHN0YXRlLzMwLmpwZwAAZAIeD2QWAmYPFQYMc3RhdGUvMzEuanBnAAAMc3RhdGUvMzEuanBnAABkAh8PZBYCZg8VBgxzdGF0ZS8zMi5qcGcAAAxzdGF0ZS8zMi5qcGcAAGQCIA9kFgJmDxUGDHN0YXRlLzMzLmpwZwAADHN0YXRlLzMzLmpwZwAAZAIhD2QWAmYPFQYMc3RhdGUvMzQuanBnAAAMc3RhdGUvMzQuanBnAABkAiIPZBYCZg8VBgxzdGF0ZS8zNS5qcGcAAAxzdGF0ZS8zNS5qcGcAAGQCIw9kFgJmDxUGDHN0YXRlLzM2LmpwZwAADHN0YXRlLzM2LmpwZwAAZAILDxYCHwACDhYcZg9kFgJmDxUDQS9nYWxhcnkvMjI2NjE3NzE3V2hhdHNBcHAgSW1hZ2UgMjAyNS0wMi0yNSBhdCAxMi4xNy4zNSBBTSAoMSkuanBnFUFubnVhbCBNZWV0IDIwMjQtMjAyNRVBbm51YWwgTWVldCAyMDI0LTIwMjVkAgEPZBYCZg8VA0UvZ2FsYXJ5LzE3OTU0NTMxN1doYXRzQXBwIEltYWdlIDIwMjUtMDItMjUgYXQgMTIuMTUuMTggQU0gKDEpICgxKS5qcGcVQW5udWFsIE1lZXQgMjAyMy0yMDI0FUFubnVhbCBNZWV0IDIwMjMtMjAyNGQCAg9kFgJmDxUDGy9nYWxhcnkvMjUzNzA3MjA5MSAoNSkuanBlZxVBbm51YWwgTWVldCAyMDIyLTIwMjMVQW5udWFsIE1lZXQgMjAyMi0yMDIzZAIDD2QWAmYPFQM+L2dhbGFyeS8yNjc3MTA2NjZXaGF0c0FwcCBJbWFnZSAyMDIzLTEyLTIwIGF0IDExLjMwLjQ0IEFNLmpwZWcVQW5udWFsIE1lZXQgMjAxOS0yMDIwFUFubnVhbCBNZWV0IDIwMTktMjAyMGQCBA9kFgJmDxUDIi9nYWxhcnkvNzA4MjU3NzUwMjAxOCBiaXN3YWppdC5KUEcVQW5udWFsIE1lZXQgMjAxOC0yMDE5FUFubnVhbCBNZWV0IDIwMTgtMjAxOWQCBQ9kFgJmDxUDGy9nYWxhcnkvOTgwNzM1MjE3MjAxN3AxLmpwZxVBbm51YWwgTWVldCAyMDE3LTIwMTgVQW5udWFsIE1lZXQgMjAxNy0yMDE4ZAIGD2QWAmYPFQNQL2dhbGFyeS8yNjg5MTgxMTVmZjk1ZDA4NC0wZDlhLTQ4Y2MtOTI4ZS0zMTQxMjQwNjM0YzcxODA1MjAxNjEyNTY0ODk2MDIwMTUgYS5qcGcVQW5udWFsIE1lZXQgMjAxNS0yMDE2FUFubnVhbCBNZWV0IDIwMTUtMjAxNmQCBw9kFgJmDxUDUC9nYWxhcnkvMTUxNDE3NDIwYTkwOWIwZDQtNDM0NC00Mzk4LWFlZmYtYTE0MjlkZTk2NzkxMjQwNzIwMTUwOTE4NTM0MTgyMDE0IGEuanBnFUFubnVhbCBNZWV0IDIwMTQtMjAxNRVBbm51YWwgTWVldCAyMDE0LTIwMTVkAggPZBYCZg8VA1AvZ2FsYXJ5Lzc1MTE3OTk1MGFlNTZhNTFlLWE2MWQtNGI0NS05NWI5LTNhOGVmMDY3ODU5NTI0MDcyMDE1MDkyMTIzMDA4MjAxMyBhLmpwZxVBbm51YWwgTWVldCAyMDEzLTIwMTQVQW5udWFsIE1lZXQgMjAxMy0yMDE0ZAIJD2QWAmYPFQNQL2dhbGFyeS85NTMxODUyODJlMmM5ZGYyOC1jMWY5LTQ2ZTYtOWRkNC1mMjY0OTBkNDIwMmQxNjA1MjAxNjEyNTEwMDE2MDIwMTIgYS5qcGcVQW5udWFsIE1lZXQgMjAxMi0yMDEzFUFubnVhbCBNZWV0IDIwMTItMjAxM2QCCg9kFgJmDxUDXS9nYWxhcnkvMzQzMTc5MTg1ODY1NWUzZWYtYjBjOS00ZTQyLWI3ZmQtOGNhZWUyNTViN2E5MTgwNTIwMTYwMzMzNDAxOTFJTUctMjAxNjAyMjItV0EwMDAzLmpwZw0gQWNoaWV2ZW1lbnRzDSBBY2hpZXZlbWVudHNkAgsPZBYCZg8VA1ovZ2FsYXJ5Lzk5NDY5OTgzNmRiN2U3ZTMxLTdkMjktNDQ4Zi04OWU4LTAzZWE1MjNjNGFiZDE4MDUyMDE2MDEwNDU3NDEyQkFOTkVSIDUgWDMgY29weS5qcGcWTkNTTSBTYXJhZCBTYW5tYW4gMjAxNRZOQ1NNIFNhcmFkIFNhbm1hbiAyMDE1ZAIMD2QWAmYPFQNLL2dhbGFyeS8yNjM5MTAzMzQ0Y2Y5NTIyZi0wMzljLTRkOGUtOTgyYS1mNDlhODEzMWUxOTkxODA1MjAxNjAyMjc1NzY1ODMuanBnE091dGRvb3IgQWR2ZXJ0aXNpbmcTT3V0ZG9vciBBZHZlcnRpc2luZ2QCDQ9kFgJmDxUDXi9nYWxhcnkvMTk4MTE0NTI3YmE4ZjJiNmMtY2M1OC00NTg4LTlmMTktOGIxYjkwYTcxYjNkMTYwNzIwMTYxMjEwMzIzNTJ3YWxsIGZsZXggMTh4MTggY29weS5qcGcbV29ybGQgWW91dGggU2tpbGxzIERheSAyMDE2G1dvcmxkIFlvdXRoIFNraWxscyBEYXkgMjAxNmQCDQ9kFgICBQ9kFgJmD2QWAmYPZBYCAgEPPCsAEQIBEBYAFgAWAAwUKwAAZBgCBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUSY3RsMDAkY2hrQXV0aG9yaXplBSNjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJEdyaWRWaWV3Mg9nZBut/hRkLCB6ntGCNKP3xcQlsJiH">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=TQmU67J2vViNJzKw6WgDQn8QdufIJA_RUnbEAXZBvpk2Md3PW4QQU7L2CrtMBQXYp2UWGEhM5gzguwdJEkCuXPURl4g1&amp;t=638901284248157332" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=U0zQ9vJ_Y5WTy9L7convmPoMgClsZayvEX7jFPGLOURUD7Tf5amPg8qlqWtrBxOApolAIUw2wvYdyRJCwI1aDCuB522vXvyEuR5bW38JM2URXv60G9m2LJEHUhiQM5eqKttFiPoD-Mc5O8wMeFqgXSOVQT9cDHLz0_h8I_fain6H7vl20&amp;t=5c0e0825" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=HjicZ13jY8gYBinz-KQ0nKvyD6SjJZEY76J05XAdx4flMMTTspSWW5mZGjFMEzD3Zci66cgAN96ObCRsfBHL72L6AU6xIajBbA7Oc14LMa35cSDAno-agKJvgh3AvuoXFOpud6KmHj-Tv8TmqAQuricrkIfaYTnpAuPP0U-ObTHWgsyxx6KFAB9IkiSC8r8501UjmQ2&amp;t=5c0e0825" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=khBQcCWlj0SLKYHEQxYg46W5n8FUk6JbFTS24sfLmJz21hbKDFyXKg5dZfoZzlkw9ilrWcbqWSsgX8feYHdMP8cbRMXbozAUJKiE0sk93dVhFDn_8v2svWP89ZU0dRRgI9HS_aihw1S8Z8r9__4J6-FvFwI1&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=XnSFMirwwqfCO4050y_3s6MxIziux2fCgvn0jLmOHw6AJF1W4Olc1QUj3VhaUsoIrew2D4Bb8XT7_iRJzj4Hk6er53UjtlmKtfMh_Ip2zb7iz1i2LEuHFzEmCbcpzn-Yfxa-IA2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=u13hpjfdY-obILgWxmhADxY4TP6GR9gFGM7XCUWezPs551Vc2lU_dMefa5iItfzcIPRyixF5Kr9sPNpQYC5zWELBISAw2to735pXATnsPD93pqc1Lw5NT6RbSP0ihEfxPJYEDA2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=C69PJEWEW5tJCZWXJvrTue7-vkaSPOToOQG2brR2FUrbYu2l80BC_FZyrxp0Se5eFwqADu-pectL3ix6OOUIs54E02tlV_w3DMkp9k5TG8P49igITpQwGF1CIJM919ZVMq2BpA2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=qYkU2YyU5dA4Ts5RRmAX4rzEhHiFVDCZzyj5KK8XomTdq8AiFW6Y8jdzOhm1gp_Qjfb2YUFdGNqZ58oSRDNlvL46EXL5T0XLhNAsURlRshJA80uOsu1erE_wSNfD3Uobx-CZZA2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=T3AAYCK7WD0p1AE6SkrYARbYt9KSq0nKav6wsowxuK1BDfB-apXXvmIbl6tQmbvVIs2Nu1sXlDqJqlAcnKzGEhj3BRZHQ-hMuA5HFpGH3wPknyNEJVn4OFjVJh6S6E4V-C3fNQ2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=IkamOW9COzYmlPKAa_57YoshAtb8RyoMtuwZE3HRDR28Gjus9FjkNtrx4eNua2KwXpFDwZcPW4oqVtQ5DNQVJG6vx0qjsKW3qKcmNfVPPvoM2SS-WBZr1TdaOheWT-5S4Xqtsg2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=lczQiOVgDa9qZy-yMP8XVfy0eiQ5QkHZTseXaAbnWseNRwh9h7QybkIPVNxlinfwlkq07o4BxTD3DYwHOLPmZAX7UKNUsTyF8XHeDB7w7nTd53DVdHaWsIucCBed20ZyPopOow2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=rljPtL7IlfuBM5ZFRSTLJyToKNf-KPeJebytdbVqfoMmpWBtuBiG3_4P6Jot6q1SEIlj0xjzUrHZ9OXaj8VFjlo8msnwZhXyI4cdrOZdls4NltEBEBZYQlU7SWu9njGe1xDfEg2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=OcslN4zqVFySwXqvkGFD8_TFW-Diap58MM3BdbU6_LIPMI6kJSIZFb2ESo40-ghmjLBjv82l9FocgD81L6AX1O518-LtGeA5ruXzPzCyTtN7-R8BlTnEB6yXaVF9YqZCXDX6rQ2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=WHYAKVYdkmRoKGaasUwPxYKisXhhHxNdNx6FjU0HGNHtMqjSwDBrZM0xsm5eO9tRBEcYMc1kSjwmv0YorX9EV1g_3ABTDPYgU8rE9Yj7hZ1WdtEGZPHQwjRlLeJCFoNa6k4lEA2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=9MPPjnub8TwqhMV40TfoPIfPyz_XLG6cZUXXrpGpdfH05CYre31Jl5V1-bAxEiI5ihjT0s7gH9D7yx5Ow6gQJtHjDNWRUlNwxUjBNd5h4iFImBZ0fubQJzaHOId7pJMo4krEQw2&amp;t=7d5986a" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=8TB-sOGGn7F_27DA003XMnjaCsI5lfz9Lb33HEJXJoOCsqc0j7HpP2Gffo1Y_4d8eLPMgNw1IxiOfj_SKr1Crc_SHNm-JJfL17ZdjxJ4x-24l78eQDGY3JNH4DRUAM-0C98r8g2&amp;t=7d5986a" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA/qWDerKV+NBhGdzuoAuwS/n1RcjtHAj66REed34CUNnokHj7KsGQZ9KI/q0cgR79eMO7fmjkJSfq6Zbgk2kTWnitppBoWdcpou47WwpGbh74vbnjgIJmraa26Z5x0HAMrkLgzbJ9fFW/8j4U/WT5laiPl5BEwjZJyKbLy6DFXIQrdBqqhpk7p5lPARThAy+SQadux+TJ142ktxD+r25OjfXQ16Ha53f1r0ECJv2vCc31Yd55ixH8wI54jp8fR7kcbNOL5tfRW1Wk0XgGPqsgBord8+UbIGmFUzMuAffhg7am59QVDPtfQEY94gLJ2ZoRJtttskwi+6kx9gVufcAL6Q+o/t9g==">
+</div>
+
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+
+    <!-- WRAPPER TO ISOLATE ALL MASTER CSS -->
+    <div class="master-wrapper">
+
+        <!-- ===========================
+             TOP BAR
+        ============================ -->
+        <div class="master-topbar">
+            <div class="master-topbar-left">📞 +91-9232709000</div>
+
+            <div class="master-topbar-right">
+                <input type="submit" name="ctl00$Button1" value="Center Login" id="Button1" class="master-btn-login">
+            </div>
+        </div>
+        <br> 
+        <!-- ===========================
+             MAIN NAVBAR
+        ============================ -->
+        <nav class="navbar navbar-expand-lg master-navbar">
+            <div class="container-fluid">
+
+                <a class="navbar-brand master-brand" href="Default.aspx">
+                    <img src="logo.png" alt="Logo" class="master-logo">
+                    <span class="master-title">National Computer Saksharta Mission</span>
+                </a>
+
+                <button class="navbar-toggler master-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto master-menu-list">
+
+                        <!-- Home -->
+                        <li class="nav-item">
+                            <a class="nav-link master-link" href="Default.aspx">Home</a>
+                        </li>
+
+                        <!-- About -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle master-link" href="#" data-bs-toggle="dropdown">About</a>
+                            <ul class="dropdown-menu master-dropdown">
+                                <li><a href="board.aspx" class="dropdown-item">Board of Directors</a></li>
+                                <li><a href="OurTeam.aspx" class="dropdown-item">Our Team</a></li>
+                                <li><a href="Contact.aspx" class="dropdown-item">Contact Us</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- What We Do -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle master-link" href="#" data-bs-toggle="dropdown">What We Do</a>
+                            <ul class="dropdown-menu master-dropdown">
+                                <li><a href="SelfSponsoredCourses.aspx" class="dropdown-item">Computer Courses</a></li>
+                                <li><a href="SkillTraining.aspx" class="dropdown-item">Skill Development</a></li>
+                                <li><a href="school.aspx" class="dropdown-item">Vocational in Schools</a></li>
+                                <li><a href="ITI.aspx" class="dropdown-item">ITI</a></li>
+                                <li><a href="Yogyashree.aspx" class="dropdown-item">Yogyashree</a></li>
+                                <li><a href="https://ncsmfoundation.co.in/" target="_blank" class="dropdown-item">JEE &amp; NEET Coaching</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Our Achievement -->
+                        <li class="nav-item">
+                            <a class="nav-link master-link" href="Awards.aspx">Our Achievement</a>
+                        </li>
+
+                        <!-- Study Center -->
+                        <li class="nav-item">
+                            <a class="nav-link master-link" href="StudyCenters.aspx">Study Center</a>
+                        </li>
+
+                        <!-- Important Links -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle master-link" href="#" data-bs-toggle="dropdown">Important Links</a>
+                            <ul class="dropdown-menu master-dropdown">
+                                <li><a href="Grievance.aspx" class="dropdown-item">Grievance</a></li>
+                                <li><a href="#" class="dropdown-item">Documents</a></li>
+                                <li><a href="PrivacyPolicy.aspx" class="dropdown-item">Privacy Policy</a></li>
+                         <li><a href="TC.aspx" class="dropdown-item">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Contact -->
+                        <li class="nav-item">
+                            <a class="nav-link master-link" href="Contact.aspx">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+          <br> <br>         <!-- ===========================
+             CONTENT PLACEHOLDER
+        ============================ -->
+        <div class="master-content-area">
+            
+
+
+
+
+<!-- Image Slider -->
+<div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/banner-1.jpg" class="d-block w-100" alt="Slide 1">
+    </div>
+    <div class="carousel-item">
+      <img src="img/banner-2.jpeg" class="d-block w-100" alt="Slide 2">
+    </div>
+    <div class="carousel-item">
+      <img src="img/banner-2.jpg" class="d-block w-100" alt="Slide 3">
+    </div>
+       <div class="carousel-item">
+      <img src="img/banner-3.jpg" class="d-block w-100" alt="Slide 4">
+    </div>
+       <div class="carousel-item">
+      <img src="img/banner-4.jpg" class="d-block w-100" alt="Slide 5">
+    </div>
+	  <div class="carousel-item">
+      <img src="img/banner-5.jpg" class="d-block w-100" alt="Slide 5">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+
+<div class="marquee-box">
+    <div class="marquee-content">
+        <a href="#">
+            Since 2009, Driving scalable, compliant, and high-impact skilling outcomes across India. 
+        </a>
+    </div>
+</div>
+    <script>
+        const marqueeBox = document.getElementById("marqueeText");
+        const toggleBtn = document.getElementById("toggleBtn");
+
+        toggleBtn.addEventListener("click", function () {
+            marqueeBox.classList.toggle("open");
+
+            if (marqueeBox.classList.contains("open")) {
+                marqueeBox.style.maxHeight = marqueeBox.scrollHeight + "px";
+                toggleBtn.textContent = "কম দেখুন ▲";
+            } else {
+                marqueeBox.style.maxHeight = "50px";
+                toggleBtn.textContent = "আরও দেখুন ▼";
+            }
+        });
+    </script>
+
+    <br>     <main class="wrap">
+<!-- Section Title -->
+<div class="row">
+    <div class="col-12 text-center">
+        <h2 class="tm-section-title">What We Do</h2>
+        <div class="section-underline"></div>
+    </div>
+</div>
+
+<!-- Cards -->
+<div class="box-wrap">
+    <a href="SelfSponsoredCourses.aspx" class="box-link">
+        <div class="box-item">
+            <img src="img/7.png" alt="Computer Course" class="box-pic">
+        </div>
+    </a>
+
+    <a href="SkillTraining.aspx" class="box-link">
+        <div class="box-item">
+            <img src="img/2.png" alt="Skill Development" class="box-pic">
+        </div>
+    </a>
+      <a href="school.aspx" class="box-link">
+        <div class="box-item">
+            <img src="img/3.png" alt="School Program" class="box-pic">
+        </div>
+    </a>
+
+    <a href="ITI.aspx" class="box-link">
+        <div class="box-item">
+            <img src="img/4.png" alt="IIT College" class="box-pic">
+        </div>
+    </a>
+
+  
+
+    <a href="Yogyashree.aspx" class="box-link">
+        <div class="box-item">
+            <img src="img/5.png" alt="Yogyashree" class="box-pic">
+        </div>
+    </a>
+
+    <a href="https://ncsmfoundation.co.in/" class="box-link">
+        <div class="box-item">
+            <img src="img/6.png" alt="JEE &amp; NEET" class="box-pic">
+        </div>
+    </a>
+</div>
+
+
+<!-- Paragraph -->
+<div class="row">
+    <div class="col-lg-12">
+        <p class="home-description">
+            At NCSM, we envision a self-reliant, digitally empowered, and skill-rich India—
+            an India where quality education, modern tools, and meaningful careers are
+            accessible to all, regardless of background.
+        </p>
+    </div>
+</div>
+
+<section class="container tm-home-section-1" id="more">
+  <br><br>
+  <div class="row gy-4 justify-content-center">
+    <!-- Left (tabs) -->
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="tm-home-box-1">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tm-white-bg" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-verif" data-bs-toggle="tab" data-bs-target="#hotel" type="button" role="tab">Verification</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-notice" data-bs-toggle="tab" data-bs-target="#car" type="button" role="tab">Notice</button>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane fade show active tm-white-bg" id="hotel" role="tabpanel" aria-labelledby="tab-verif">
+            <div class="tm-search-box">
+              <div class="tm-form-inner">
+                <div class="form-group">
+                  <b>Input the necessary details, such as the student's registration number provided on the certificate. The system will then display the student's information and certificate details, allowing you to verify its authenticity.</b>
+                </div>
+
+                <div class="form-group">
+                  <b><a href="https://ncsmjobportal.in/Default.aspx" class="link-primary">Click This link for upto DEC-2023 Enrollment</a></b>
+                </div>
+
+                <div class="form-group">
+                  <b>Enter Enrolment No for Verify</b>
+                  <!-- Replace this input with your asp:TextBox (same styling) -->
+                    <input name="ctl00$ContentPlaceHolder1$TextBox1" type="text" id="ContentPlaceHolder1_TextBox1" placeholder="Enrolment No (WAXXXXXX)">
+               
+                </div>
+              </div>
+                <br>  <br>  <br>  <br>
+
+              <div class="form-group tm-yellow-gradient-bg text-center">
+                  <input type="submit" name="ctl00$ContentPlaceHolder1$Button1" value="CHECK NOW" id="ContentPlaceHolder1_Button1" class="tm-yellow-btn">
+             
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade tm-white-bg" id="car" role="tabpanel" aria-labelledby="tab-notice">
+            <div class="tm-search-box">
+              <div class="tm-form-inner">
+                <div class="form-group">
+                  <b>All notices and updates will be listed here.</b>
+                </div>
+              </div>
+              <div class="form-group tm-yellow-gradient-bg text-center">
+                  <input type="submit" name="ctl00$ContentPlaceHolder1$Button2" value="All Notice" id="ContentPlaceHolder1_Button2" class="tm-yellow-btn">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+
+    <!-- Center card -->
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="tm-home-box-1-2 tm-home-box-1-center">
+        <img src="img/index-01.jpg" alt="Read More" class="img-responsive">
+        <a href="board.aspx">
+          <div class="tm-green-gradient-bg tm-city-price-container">
+            <span>READ MORE</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right card -->
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="tm-home-box-1-2 tm-home-box-1-right">
+        <img src="img/index-02.jpg" alt="About Us" class="img-responsive">
+        <a href="Aboutus.aspx">
+          <div class="tm-red-gradient-bg tm-city-price-container">
+            <span>ABOUT US</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="container tm-home-section-1 courses-section" id="more2">
+  <h2 class="tm-section-title text-center" style="margin-bottom:12px;">Popular Course</h2>
+  <div class="section-underline" style="margin-bottom:22px;"></div>
+
+  <!-- Swiper Container (server-side repeater left unchanged) -->
+  <div class="swiper mySwiper attractiveCourses swiper-initialized swiper-horizontal swiper-backface-hidden">
+    <div class="swiper-wrapper" id="swiper-wrapper-a9905ba2fa45519b" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-611px, 0px, 0px); transition-delay: 0ms;">
+      
+          <div class="swiper-slide" role="group" aria-label="1 / 10" data-swiper-slide-index="0" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=478">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 10" data-swiper-slide-index="1" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=481">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 10" data-swiper-slide-index="2" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=480">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide swiper-slide-next" role="group" aria-label="4 / 10" data-swiper-slide-index="3" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=482">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide" role="group" aria-label="5 / 10" data-swiper-slide-index="4" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=477">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide" role="group" aria-label="6 / 10" data-swiper-slide-index="5" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=479">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide" role="group" aria-label="7 / 10" data-swiper-slide-index="6" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=475">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide" role="group" aria-label="8 / 10" data-swiper-slide-index="7" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=476">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide" role="group" aria-label="9 / 10" data-swiper-slide-index="8" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=473">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+          <div class="swiper-slide" role="group" aria-label="10 / 10" data-swiper-slide-index="9" style="width: 283.5px; margin-right: 22px;">
+            <div class="course-card card-elevate">
+              <div class="card-top">
+                <div class="card-badge">NEW</div>
+                <!-- image area removed as requested -->
+              </div>
+
+              <div class="card-body">
+                <h3 class="course-title">Certificate in Mobile Phone Repairing</h3>
+
+                <div class="meta-row">
+                  <span class="pill"><strong>Duration:</strong> 6 Months  / 240 Hours</span>
+                  <span class="pill"><strong>Eligibility:</strong> Class 10 Pass or Equivalent</span>
+                </div>
+
+                <div class="meta-row small muted">
+                  <span>Code: 112</span>
+                </div>
+
+                <!-- progress / highlights -->
+                <div class="highlights">
+                  <div class="progress">
+                    <div class="progress-bar" style="width:100%"></div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">Job Ready</span>
+                    <span class="tag">Certificate</span>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <a class="btn btn-primary" href="CourseDetails.aspx?id=474">View</a>
+                  <button type="button" class="btn-outline" onclick="alert('Enquire form or action here')">Enquire</button>
+                </div>
+              </div> <!-- /.card-body -->
+            </div> <!-- /.course-card -->
+          </div>
+        
+    </div>
+
+    <!-- Swiper Controls (styled) -->
+    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 3" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 10"></span></div>
+    <div class="swiper-button-prev" aria-label="Previous slide" tabindex="0" role="button" aria-controls="swiper-wrapper-a9905ba2fa45519b" aria-disabled="true"><svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"></path></svg></div>
+    <div class="swiper-button-next" aria-label="Next slide" tabindex="0" role="button" aria-controls="swiper-wrapper-a9905ba2fa45519b" aria-disabled="false"><svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"></path></svg></div>
+  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+</section>
+
+
+   <!-- Init Swiper (paste near your other scripts) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        try {
+            new Swiper(".attractiveCourses", {
+                // Default (desktop)
+                slidesPerView: 4,
+                spaceBetween: 22,
+                loop: true,
+
+                autoplay: {
+                    delay: 4200,
+                    disableOnInteraction: false
+                },
+
+                pagination: {
+                    el: ".attractiveCourses .swiper-pagination",
+                    clickable: true
+                },
+
+                navigation: {
+                    nextEl: ".attractiveCourses .swiper-button-next",
+                    prevEl: ".attractiveCourses .swiper-button-prev"
+                },
+
+                // RESPONSIVE FIX — mobile first
+                breakpoints: {
+                    0: {                    // Mobile
+                        slidesPerView: 1,
+                        centeredSlides: true,
+                        spaceBetween: 12
+                    },
+                    480: {                  // Small phones
+                        slidesPerView: 1,
+                        centeredSlides: true,
+                        spaceBetween: 14
+                    },
+                    768: {                  // Tablets (portrait)
+                        slidesPerView: 2,
+                        centeredSlides: false,
+                        spaceBetween: 18
+                    },
+                    992: {                  // Tablets (landscape)
+                        slidesPerView: 3,
+                        centeredSlides: false,
+                        spaceBetween: 20
+                    },
+                    1200: {                 // Large desktop
+                        slidesPerView: 4,
+                        centeredSlides: false,
+                        spaceBetween: 22
+                    }
+                }
+            });
+        } catch (err) {
+            console.warn("Swiper initialization failed:", err);
+        }
+    });
+</script>
+
+
+
+    
+	<section class="tm-white-bg section-padding-bottom">
+
+
+		<div class="container">
+			
+
+			<div class="row">
+	
+              			<!-- Section Title -->
+<div class="row">
+    <div class="col-12 text-center">
+        <h2 class="tm-section-title">New Courses</h2>
+        <div class="section-underline"></div>
+    </div>
+</div>
+	 <div class="slider2-container">
+  <div class="slider2-wrapper" id="sliderWrapper" style="transform: translateX(-200%);">
+
+    <!-- Slide 1 -->
+    <div class="slide2-item">
+      <img src="img/1.png" alt="Banner 1">
+      
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide2-item">
+      <img src="img/22.png" alt="Banner 2">
+     
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide2-item">
+      <img src="img/33.png" alt="Banner 3">
+     
+    </div>
+	  
+	    <div class="slide2-item">
+      <img src="img/44.png" alt="Banner 3">
+     
+    </div>
+	  
+	 
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Vision Section -->
+
+      <section class="vision-section">
+  <div class="container">
+    <h2 class="vision-title">OUR VISION</h2>
+
+    <div class="vision-content">
+      <div class="vision-text">
+        <p>
+         At<strong> NCSM</strong>, we’re proud of the progress we’ve made in skilling and empowering students across India. Our success is built on the strong leadership of our Board of Directors and the commitment of our expert team.
+
+Together, we’re driving the mission forward — to make digital literacy and skill development accessible to every learner, helping shape a more digitally inclusive India.
+        </p>
+      </div>
+
+      <div class="vision-image">
+        <img src="images/Our Presence  (1).png" alt="Map" class="vision-map">
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <strong>120K+</strong>
+        <span>Happy Students</span>
+      </div>
+      <div class="stat-item">
+        <strong>500+</strong>
+        <span>Study Center</span>
+      </div>
+      <div class="stat-item">
+        <strong>15+</strong>
+        <span>Years Experience</span>
+      </div>
+      <div class="stat-item">
+        <strong>200K+</strong>
+        <span>Visitor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+	</div>		
+		</div>
+	</section>
+     
+
+
+
+
+
+    <section class="tm-white-bg section-padding-bottom">
+
+
+		<div class="container">
+			
+
+			<div class="row">
+
+
+
+
+<!-- Top Section -->
+<div class="org-section">
+    <h1>Our Organization</h1>
+    <p>National Computer Saksharta Mission (NCSM) is a beacon of digital empowerment in India, passionately committed to fostering a future where everyone thrives in the digital age. We're not just an organization; we're a movement, igniting potential through cutting-edge vocational training and expert educational consulting. By forging powerful alliances with Central and State Governments, NCSM stands as a vital force, providing ingenious solutions to fuel India's burgeoning digital economy.</p>
+</div>
+
+<!-- Bottom Section -->
+<div class="content-section">
+    <!-- Accordion Left -->
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Beginning of the journey <span></span>
+            </div>
+            <div class="accordion-content">
+              Since 2009, our mission has been to promote computer education and skill development, seamlessly integrating it into the daily lives of all Indians. This endeavor seeks to unlock opportunities for personal growth, career advancement, and societal development. Over the years, our journey has resulted in the expansion of our team, with over 400 centers and team members spread across India, reinforcing our dedication to empower individuals through digital education.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Together, we’ll accomplish great things <span></span>
+            </div>
+            <div class="accordion-content">
+              United by a shared vision and a spirit of collaboration, together, we will accomplish great things. In the tapestry of our combined efforts, each thread contributes to the creation of something extraordinary. It's the synergy of diverse skills, perspectives, and determination that propels us forward. As a team, we embrace challenges, celebrate victories, and consistently strive for excellence. With a collective commitment to our goals, we are not just individuals working side by side; we are a force, a community poised to make a significant impact. Through collaboration, we pave the way for innovation, success, and a journey marked by shared achievements.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Aim high, touch the sky <span></span>
+            </div>
+            <div class="accordion-content">
+                Encouraging everyone to reach their full potential...
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Support strengthens the team <span></span>
+            </div>
+            <div class="accordion-content">
+                Strong support and trust help our team grow together...
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Content -->
+    <div class="right-content">
+        <h2>Welcome Message</h2>
+        <p>Join the largest computer training center network and unlock your full potential. At NCSM, we invite you to be a part of our community where you can expand your skills and contribute to society through our Computer Education and Skill Development program. Together, let's embark on a journey of personal and collective growth. Join us today and be a driving force in shaping a digitally empowered future for yourself and the community.</p>
+    </div>
+</div>
+
+
+</div></div></section>
+
+     <section class="tm-white-bg section-padding-bottom">
+
+
+		<div class="container">
+			
+
+			<div class="row">
+
+
+
+
+  <div class="row">
+    <div class="col-12 text-center">
+        <h2 class="tm-section-title">Ongoing Projects</h2>
+        <div class="section-underline"></div>
+    </div>
+</div>
+        <div class="slider-container">
+            
+                    <div class="state-card" onclick="openPopup('state/1.jpg', '', '')">
+                        <img src="state/1.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/2.jpg', '', '')">
+                        <img src="state/2.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/3.jpg', '', '')">
+                        <img src="state/3.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/4.jpg', '', '')">
+                        <img src="state/4.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/5.jpg', '', '')">
+                        <img src="state/5.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/6.jpg', '', '')">
+                        <img src="state/6.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/7.jpg', '', '')">
+                        <img src="state/7.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/8.jpg', '', '')">
+                        <img src="state/8.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/9.jpg', '', '')">
+                        <img src="state/9.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/10.jpg', '', '')">
+                        <img src="state/10.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/11.jpg', '', '')">
+                        <img src="state/11.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/12.jpg', '', '')">
+                        <img src="state/12.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/13.jpg', '', '')">
+                        <img src="state/13.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/14.jpg', '', '')">
+                        <img src="state/14.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/15.jpg', '', '')">
+                        <img src="state/15.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/16.jpg', '', '')">
+                        <img src="state/16.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/17.jpg', '', '')">
+                        <img src="state/17.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/18.jpg', '', '')">
+                        <img src="state/18.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/19.jpg', '', '')">
+                        <img src="state/19.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/20.jpg', '', '')">
+                        <img src="state/20.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/21.jpg', '', '')">
+                        <img src="state/21.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/22.jpg', '', '')">
+                        <img src="state/22.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/23.jpg', '', '')">
+                        <img src="state/23.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/24.jpg', '', '')">
+                        <img src="state/24.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/25.jpg', '', '')">
+                        <img src="state/25.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/26.jpg', '', '')">
+                        <img src="state/26.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/27.jpg', '', '')">
+                        <img src="state/27.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/28.jpg', '', '')">
+                        <img src="state/28.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/29.jpg', '', '')">
+                        <img src="state/29.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/30.jpg', '', '')">
+                        <img src="state/30.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/31.jpg', '', '')">
+                        <img src="state/31.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/32.jpg', '', '')">
+                        <img src="state/32.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/33.jpg', '', '')">
+                        <img src="state/33.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/34.jpg', '', '')">
+                        <img src="state/34.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/35.jpg', '', '')">
+                        <img src="state/35.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+                    <div class="state-card" onclick="openPopup('state/36.jpg', '', '')">
+                        <img src="state/36.jpg" alt="">
+                        <p></p>
+                    </div>
+                
+        </div>
+
+
+</div>
+            </div>
+         </section>
+
+        <!-- Popup -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">×</span>
+                <img id="popup-img" src="" alt="">
+                <h3 id="popup-title"></h3>
+                <p id="popup-desc"></p>
+            </div>
+        </div>
+
+
+  
+<section class="ncsm-section">
+<div class="ncsm-header">
+<div class="ncsm-logo">NCSM</div>
+<div class="ncsm-title">
+<h2>Leadership Insights</h2>
+<p>Chairman, Director, and COO </p>
+</div>
+<span class="ncsm-badge">Impact: 500k+</span>
+</div>
+<div class="ncsm-grid">
+<article class="ncsm-card">
+<div class="ncsm-avatar"><img src="images/supriya.jpg" alt="Supriyo Shekhar Kundu"></div>
+<div>
+<div class="ncsm-meta">
+<h3>Supriyo Shekhar Kundu <span>— Chairman, NCSM</span></h3>
+<span class="role">Committed to Digital Literacy &amp; Empowerment</span>
+</div>
+<div class="ncsm-quote">“Digital literacy is not just a skill — it is the foundation of an inclusive and progressive nation.”</div>
+<div class="ncsm-body">
+<p>At NCSM, our mission is to make digital education accessible to everyone, regardless of their background or circumstance. We believe that knowledge has the power to transform lives, and we work each day to help individuals gain the skills they need to grow and succeed in a changing world.</p>
+
+<p>With the collective efforts of our dedicated team, NCSM has been able to reach and support over <strong>500,000</strong> learners through various initiatives in education, training, and employment. Through Pragati Private ITIs and our vocational programs, we continue to nurture a future-ready workforce equipped for new opportunities.</p>
+
+<p>Our journey is guided by a simple goal — to empower youth and women, bridge the digital divide, and contribute, in our own small way, to building a self-reliant and digitally empowered India.
+</p>
+</div>
+<div class="ncsm-card-footer"><div class="ncsm-small">Chairman’s Message</div><div class="ncsm-small">NCSM</div></div>
+</div>
+</article>
+
+
+<article class="ncsm-card">
+<div class="ncsm-avatar"><img src="images/kuntal.jpg" alt="Kuntal Shekhar Kundu"></div>
+<div>
+<div class="ncsm-meta">
+<h3>Kuntal Shekhar Kundu <span>— Director, NCSM</span></h3>
+<span class="role">Fostering Inclusive Growth Through Innovation</span>
+</div>
+<div class="ncsm-body">
+<p>At NCSM, we believe that true progress is achieved when innovation is inclusive and benefits every section of society. From the very beginning, our approach has focused on addressing present challenges while preparing individuals and communities for the future.</p>
+
+<p>Through dedication and teamwork, we have been able to extend the reach of digital literacy and vocational training to more than half a million learners across 500+ centres nationwide. By combining grassroots engagement with a strong commitment to quality, we strive to create opportunities that promote sustainable and inclusive growth.</p>
+
+<p> we move forward, our focus remains on expanding access, embracing emerging technologies, and strengthening partnerships — so that NCSM continues to play a meaningful role in empowering people and shaping a digitally skilled, self-reliant India.
+</p>
+</div>
+<div class="ncsm-card-footer"><div class="ncsm-small">Director’s Message</div><div class="ncsm-small">NCSM</div></div>
+</div>
+</article>
+
+
+<article class="ncsm-card">
+<div class="ncsm-avatar"><img src="images/SaibalPhoto.jpg" alt="Mr. Saibal Sengupta"></div>
+<div>
+<div class="ncsm-meta">
+<h3>Mr. Saibal Sengupta <span>— COO, NCSM</span></h3>
+<span class="role">Operational excellence in training</span>
+</div>
+<div class="ncsm-body">
+<p>With over 30 years of experience in Technical Education, Training, and Skill Development, I ensure operational excellence across all NCSM programs.</p> <ul class="ncsm-bullets"> <li>Lead skill development and vocational training initiatives</li> <li>Deliver scalable, high-impact, and measurable results</li> <li>Align training programs with national skilling goals</li> <li>Build Industry–Institute partnerships to advance the mission</li> </ul> <p>Through these efforts, I ensure that NCSM provides efficient, innovative, and future-ready solutions that empower communities with digital literacy and skills.</p>
+</div>
+<div class="ncsm-card-footer"><div class="ncsm-small">COO’s Message</div><div class="ncsm-small">NCSM</div></div>
+</div>
+</article>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+    <br>
+
+
+
+    <div class="row">
+    <div class="col-12 text-center">
+        <h2 class="tm-section-title">Our Verticals</h2>
+        <div class="section-underline"></div>
+    </div>
+</div>
+   
+	<div class="page-center">
+   <div class="main-wrapper">
+		
+
+        <!-- Left Logo -->
+        <div class="logo-circle">
+            <img src="/images/logo.png" alt="NCSM Logo">
+        </div>
+
+        <!-- Right Branches -->
+        <div class="branches">
+            <div class="branch">
+                <div class="dot" style="border-color:#f4c542"></div>
+                <div class="box yellow">Skill Development Training</div>
+            </div>
+            <div class="branch">
+                <div class="dot" style="border-color:#28a745"></div>
+                <div class="box green">JEE &amp; NEET Coaching</div>
+            </div>
+            <div class="branch">
+                <div class="dot" style="border-color:#007bff"></div>
+                <div class="box blue">Comprehensive Coaching Programs for Government Job Aspirants</div>
+            </div>
+            <div class="branch">
+                <div class="dot" style="border-color:#ff7f27"></div>
+                <div class="box orange">Industrial Training Institute (ITI) and Vocational Training in Schools</div>
+            </div>
+            <div class="branch">
+                <div class="dot" style="border-color:#e83e8c"></div>
+                <div class="box red">Self Sponsored Computer Courses</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+      <section class="tm-white-bg section-padding-bottom">
+
+
+		<div class="container">
+			
+
+			<div class="row">
+
+
+
+    <section class="awards-section">
+    <h2 class="awards-title">🏆 Awards &amp; Achievements</h2>
+
+    <div class="awards-wrapper">
+        <button class="scroll-btn left disabled" onclick="scrollAwards(-1)" disabled="">❮</button>
+
+        <div class="awards-container" id="awardsContainer">
+            <div class="award-card">
+                <img src="images/image (2).png" alt="Award 1">
+                <p>Best Innovation 2024</p>
+            </div>
+            <div class="award-card">
+                <img src="images/image (3).png" alt="Award 2">
+                <p>Excellence in Design</p>
+            </div>
+            <div class="award-card">
+                <img src="images/image (1).png" alt="Award 3">
+                <p>Top Performer</p>
+            </div>
+            <div class="award-card">
+                <img src="images/image (18).png" alt="Award 4">
+                <p>Global Recognition</p>
+            </div>
+            <div class="award-card">
+                <img src="images/image (1).png" alt="Award 5">
+                <p>Customer Choice Award</p>
+            </div>
+             <div class="award-card">
+                <img src="images/image (1).png" alt="Award 3">
+                <p>Top Performer</p>
+            </div>
+            <div class="award-card">
+                <img src="images/image (18).png" alt="Award 4">
+                <p>Global Recognition</p>
+            </div>
+            <div class="award-card">
+                <img src="images/image (1).png" alt="Award 5">
+                <p>Customer Choice Award</p>
+            </div>
+        </div>
+
+        <button class="scroll-btn right" onclick="scrollAwards(1)">❯</button>
+    </div>
+</section>
+
+
+                </div>
+            </div>
+          </section>
+
+
+
+
+<div class="custom-section partners-section">
+    <div class="custom-title">We Work With</div>
+
+    <div class="swiper partnersSwiper swiper-initialized swiper-horizontal">
+        <div class="swiper-wrapper" id="swiper-wrapper-2cf6e47a115110d8c" aria-live="off" style="transition-duration: 3000ms; transform: translate3d(-820px, 0px, 0px);">
+
+            <div class="swiper-slide" role="group" aria-label="1 / 23" data-swiper-slide-index="0" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L1.JPG" alt=""></div>
+             <div class="swiper-slide" role="group" aria-label="2 / 23" data-swiper-slide-index="1" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L2.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="3 / 23" data-swiper-slide-index="2" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L3.JPG" alt=""></div>
+              <div class="swiper-slide swiper-slide-prev" role="group" aria-label="4 / 23" data-swiper-slide-index="3" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L4.JPG" alt=""></div>
+              <div class="swiper-slide swiper-slide-active" role="group" aria-label="5 / 23" data-swiper-slide-index="4" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L5.JPG" alt=""></div>
+              <div class="swiper-slide swiper-slide-next" role="group" aria-label="6 / 23" data-swiper-slide-index="5" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L6.JPG" alt=""></div>
+
+              <div class="swiper-slide" role="group" aria-label="7 / 23" data-swiper-slide-index="6" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L7.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="8 / 23" data-swiper-slide-index="7" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L8.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="9 / 23" data-swiper-slide-index="8" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L9.JPG" alt=""></div>
+
+
+              <div class="swiper-slide" role="group" aria-label="10 / 23" data-swiper-slide-index="9" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L10.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="11 / 23" data-swiper-slide-index="10" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L11.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="12 / 23" data-swiper-slide-index="11" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L12.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="13 / 23" data-swiper-slide-index="12" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L13.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="14 / 23" data-swiper-slide-index="13" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L14.JPG" alt=""></div>
+
+              <div class="swiper-slide" role="group" aria-label="15 / 23" data-swiper-slide-index="14" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L15.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="16 / 23" data-swiper-slide-index="15" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L16.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="17 / 23" data-swiper-slide-index="16" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L17.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="18 / 23" data-swiper-slide-index="17" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L18.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="19 / 23" data-swiper-slide-index="18" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L19.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="20 / 23" data-swiper-slide-index="19" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L20.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="21 / 23" data-swiper-slide-index="20" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L21.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="22 / 23" data-swiper-slide-index="21" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L22.JPG" alt=""></div>
+              <div class="swiper-slide" role="group" aria-label="23 / 23" data-swiper-slide-index="22" style="width: 175px; margin-right: 30px;"><img src="images/LOGO/L23.JPG" alt=""></div>
+
+        </div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+</div>
+
+    <script>
+        var swiper = new Swiper(".partnersSwiper", {
+            slidesPerView: 5,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            speed: 3000,
+
+            breakpoints: {
+                320: { slidesPerView: 2, spaceBetween: 20 },
+                480: { slidesPerView: 3, spaceBetween: 20 },
+                768: { slidesPerView: 4, spaceBetween: 25 },
+                1024: { slidesPerView: 6, spaceBetween: 30 }
+            }
+        });
+    </script>
+    
+      <section class="tm-white-bg section-padding-bottom">
+
+
+		<div class="container">
+			
+
+			<div class="row">
+
+
+     <!-- Voices Section -->
+   
+
+
+
+ <section class="franchise-section">
+        <h2 class="franchise-heading">Organization’s Highlights</h2>
+
+        <div class="franchise-cards">
+            <div class="franchise-card">
+                <h3>Experience</h3>
+                <p>Over 15+ years of experience in education and training.</p>
+            </div>
+            <div class="franchise-card">
+                <h3>NSDC Affiliation</h3>
+                <p>NSDC-affiliated, non-funded training partner.</p>
+            </div>
+            <div class="franchise-card">
+                <h3>Non-Profit</h3>
+                <p>Registered as a non-profit trust (12A &amp; 80G approved).</p>
+            </div>
+            <div class="franchise-card">
+                <h3>Government Partnerships</h3>
+                <p>Empaneled training provider with multiple State &amp; Central Government departments.</p>
+            </div>
+            <div class="franchise-card">
+                <h3>ISO Certification</h3>
+                <p>ISO 9001:2015 certified organization.</p>
+            </div>
+            <div class="franchise-card">
+                <h3>Students &amp; Centers</h3>
+                <p>Trained 120K+ students with 500+ training centers across eastern India.</p>
+            </div>
+            <div class="franchise-card">
+                <h3>Team Strength</h3>
+                <p>1,000+ dedicated full-time and contractual associates.</p>
+            </div>
+        </div>
+
+        <div class="certificate-img">
+            <img src="images/nnnnvvvvv.JPG" alt="NSDC Certificate">
+        </div>
+    </section>
+
+
+
+    <!-- Key Moments Section -->
+    <section class="slider7-section">
+        <h2 class="section7-title">Key Moments For Us</h2>
+        <div class="slider7-wrapper">
+            <button class="arrow7 left" disabled="">❮</button>
+            <div class="slider7-container">
+                <div class="slider7-track" style="transform: translateX(0px);">
+                    
+                            <div class="slide7">
+                                <img src="/galary/226617717WhatsApp Image 2025-02-25 at 12.17.35 AM (1).jpg" alt="Annual Meet 2024-2025">
+                                <p>Annual Meet 2024-2025</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/179545317WhatsApp Image 2025-02-25 at 12.15.18 AM (1) (1).jpg" alt="Annual Meet 2023-2024">
+                                <p>Annual Meet 2023-2024</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/2537072091 (5).jpeg" alt="Annual Meet 2022-2023">
+                                <p>Annual Meet 2022-2023</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/267710666WhatsApp Image 2023-12-20 at 11.30.44 AM.jpeg" alt="Annual Meet 2019-2020">
+                                <p>Annual Meet 2019-2020</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/7082577502018 biswajit.JPG" alt="Annual Meet 2018-2019">
+                                <p>Annual Meet 2018-2019</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/9807352172017p1.jpg" alt="Annual Meet 2017-2018">
+                                <p>Annual Meet 2017-2018</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/268918115ff95d084-0d9a-48cc-928e-3141240634c7180520161256489602015 a.jpg" alt="Annual Meet 2015-2016">
+                                <p>Annual Meet 2015-2016</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/151417420a909b0d4-4344-4398-aeff-a1429de96791240720150918534182014 a.jpg" alt="Annual Meet 2014-2015">
+                                <p>Annual Meet 2014-2015</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/751179950ae56a51e-a61d-4b45-95b9-3a8ef0678595240720150921230082013 a.jpg" alt="Annual Meet 2013-2014">
+                                <p>Annual Meet 2013-2014</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/953185282e2c9df28-c1f9-46e6-9dd4-f26490d4202d160520161251001602012 a.jpg" alt="Annual Meet 2012-2013">
+                                <p>Annual Meet 2012-2013</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/3431791858655e3ef-b0c9-4e42-b7fd-8caee255b7a918052016033340191IMG-20160222-WA0003.jpg" alt=" Achievements">
+                                <p> Achievements</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/994699836db7e7e31-7d29-448f-89e8-03ea523c4abd18052016010457412BANNER 5 X3 copy.jpg" alt="NCSM Sarad Sanman 2015">
+                                <p>NCSM Sarad Sanman 2015</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/2639103344cf9522f-039c-4d8e-982a-f49a8131e199180520160227576583.jpg" alt="Outdoor Advertising">
+                                <p>Outdoor Advertising</p>
+                            </div>
+                        
+                            <div class="slide7">
+                                <img src="/galary/198114527ba8f2b6c-cc58-4588-9f19-8b1b90a71b3d16072016121032352wall flex 18x18 copy.jpg" alt="World Youth Skills Day 2016">
+                                <p>World Youth Skills Day 2016</p>
+                            </div>
+                        
+                </div>
+            </div>
+            <button class="arrow7 right">❯</button>
+        </div>
+    </section>
+
+                </div>
+            </div>
+          </section>
+
+
+    <br>
+
+
+  
+   
+     <!-- Modal Box Content Start -->
+
+    <div id="ContentPlaceHolder1_Panel3" class="modalPopup2" style="overflow-y: scroll; display: none; position: fixed; z-index: 10001;">
+	
+         <div class="w3-container w3-center">
+                    <a id="ContentPlaceHolder1_LinkButton7" class="w3-btn w3-red" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$LinkButton7','')"><i class="fa-solid fa-xmark"></i>&nbsp;Close</a>
+
+          
+                                    <table id="ContentPlaceHolder1__T1" class="w3-table w3-responsive">
+		<tbody><tr>
+			<td colspan="2" class="w3-center">
+                                               <img id="ContentPlaceHolder1_Image3" class="w3-round-xlarge" src="" style="height:120px;width:120px;">
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label3">Enrolment No</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label4">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label1">Name</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label2">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label5">Father Name</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label6">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label59">Address</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label60">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label18">DOB</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label19">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label7">Program Code</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label8">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label9">Program Name</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label10">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label11">Period</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label12">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label13">Center Code</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label15">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label16">Center Name</span>
+                                            </td>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label17">....</span>
+                                            </td>
+		</tr>
+		<tr>
+			<td>
+                                                <span id="ContentPlaceHolder1_Label57">Click To Show Result</span>
+                                            </td>
+			<td>
+                                                 <input type="submit" name="ctl00$ContentPlaceHolder1$Button3" value="Get Result" id="ContentPlaceHolder1_Button3" class="w3-btn w3-hover-blue w3-green w3-small">
+                                            </td>
+		</tr>
+	</tbody></table>
+	
+             <table id="ContentPlaceHolder1__T2" class="w3-table w3-responsive" style="width:100%">
+		<tbody><tr>
+			<td>
+                           <div>
+
+			</div>    
+                     </td>
+		</tr>
+	</tbody></table>
+	
+                                          
+                                       
+            <div class="row mt-2">
+                <div class="col-12 d-flex justify-content-center">
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+    
+
+    <a id="ContentPlaceHolder1_LinkButton11" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$LinkButton11','')"></a>  
+
+
+
+
+
+
+
+
+
+<script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('show');
+        });
+    });
+</script>
+
+
+
+     <script>
+         let currentSlide = 0;
+         function showSlide(index) {
+             const slides2 = document.querySelectorAll(".slide2-item");
+             if (index >= slides2.length) currentSlide = 0;
+             else if (index < 0) currentSlide = slides2.length - 1;
+             else currentSlide = index;
+             document.querySelector(".slider2-wrapper").style.transform = `translateX(-${currentSlide * 100}%)`;
+         }
+         setInterval(() => showSlide(currentSlide + 1), 4000);
+
+
+
+     </script>
+
+
+
+
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slide2-item');
+        setInterval(() => {
+            index = (index + 1) % slides.length;
+            document.getElementById('sliderWrapper').style.transform = `translateX(-${index * 100}%)`;
+        }, 4000);
+    </script>
+
+   <script>
+       var swiper = new Swiper(".mySwiper", {
+           slidesPerView: 3,
+           spaceBetween: 20,
+           pagination: { el: ".swiper-pagination", clickable: true },
+           navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+           breakpoints: {
+               0: { slidesPerView: 1 },
+               768: { slidesPerView: 3 }
+           }
+       });
+   </script>
+    <script>
+        function openPopup(img, title, desc) {
+            document.getElementById('popup-img').src = img;
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-desc').innerText = desc;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(step) {
+            const track = document.getElementById("sliderTrack");
+            const slides = document.querySelectorAll(".director-slide");
+            const totalSlides = slides.length;
+
+            currentIndex += step;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+    </script>
+
+     <script>
+         let currentIndex = 0;
+
+         function moveSlide(step) {
+             const track = document.getElementById("sliderTrack2");
+             const slides = document.querySelectorAll(".director2-slide");
+             const totalSlides = slides.length;
+
+             currentIndex += step;
+             if (currentIndex < 0) currentIndex = totalSlides - 1;
+             if (currentIndex >= totalSlides) currentIndex = 0;
+
+             track.style.transform = `translateX(-${currentIndex * 100}%)`;
+         }
+
+         // Auto-slide every 5 seconds
+         setInterval(() => {
+             moveSlide(1);
+         }, 5000);
+     </script>
+
+  <script>
+      (function initAwardsSliders() {
+          // Support multiple awards sections
+          document.querySelectorAll('.awards-wrapper').forEach(wrapper => {
+              const container = wrapper.querySelector('.awards-container');
+              const btnLeft = wrapper.querySelector('.scroll-btn.left');
+              const btnRight = wrapper.querySelector('.scroll-btn.right');
+
+              // How far to scroll: one card + gap
+              const getStep = () => {
+                  const firstCard = container.querySelector('.award-card');
+                  if (!firstCard) return 240;
+                  const cardW = firstCard.getBoundingClientRect().width;
+                  const styles = getComputedStyle(container);
+                  const gap = parseFloat(styles.columnGap || styles.gap || 0);
+                  return Math.ceil(cardW + gap);
+              };
+
+              const scrollByStep = (dir) => {
+                  container.scrollBy({ left: dir * getStep(), behavior: 'smooth' });
+              };
+
+              // Wire buttons
+              btnLeft.addEventListener('click', (e) => { e.preventDefault(); scrollByStep(-1); });
+              btnRight.addEventListener('click', (e) => { e.preventDefault(); scrollByStep(1); });
+
+              // Optional: disable arrows at ends
+              const updateArrows = () => {
+                  const atStart = container.scrollLeft <= 0;
+                  const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+                  btnLeft.disabled = atStart;
+                  btnRight.disabled = atEnd;
+                  btnLeft.classList.toggle('disabled', atStart);
+                  btnRight.classList.toggle('disabled', atEnd);
+              };
+
+              container.addEventListener('scroll', updateArrows, { passive: true });
+              window.addEventListener('resize', updateArrows);
+              updateArrows();
+
+              // Optional: make mouse wheel scroll horizontally
+              container.addEventListener('wheel', (e) => {
+                  if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                      container.scrollLeft += e.deltaY;
+                      e.preventDefault();
+                  }
+              }, { passive: false });
+          });
+      })();
+  </script>
+
+
+   <script>
+       (function initAllSliders() {
+           document.querySelectorAll('.slider7-wrapper').forEach(wrapper => {
+               const container = wrapper.querySelector('.slider7-container');
+               const track = wrapper.querySelector('.slider7-track');
+               const slides = wrapper.querySelectorAll('.slide7');
+               const btnL = wrapper.querySelector('.arrow7.left');
+               const btnR = wrapper.querySelector('.arrow7.right');
+
+               if (!container || !track || slides.length === 0) return;
+
+               let index = 0;
+
+               const gapPx = () => parseFloat(getComputedStyle(track).gap || 0);
+               const slideW = () => slides[0].getBoundingClientRect().width + gapPx();
+               const visibleCount = () => Math.max(1, Math.floor((container.clientWidth + gapPx()) / slideW()));
+               const maxIndex = () => Math.max(0, slides.length - visibleCount());
+
+               function update() {
+                   track.style.transform = `translateX(${-index * slideW()}px)`;
+                   // optional: disable arrows at ends
+                   if (btnL) { btnL.disabled = index <= 0; }
+                   if (btnR) { btnR.disabled = index >= maxIndex(); }
+               }
+
+               function go(dir) {
+                   index = Math.min(Math.max(0, index + dir), maxIndex());
+                   update();
+               }
+
+               btnL && btnL.addEventListener('click', e => { e.preventDefault(); go(-1); });
+               btnR && btnR.addEventListener('click', e => { e.preventDefault(); go(1); });
+
+               // keep alignment on resize
+               window.addEventListener('resize', update);
+               update();
+           });
+       })();
+   </script>
+
+
+
+
+         <div data-act-control-type="modalPopupBackground" id="ContentPlaceHolder1_ModalPopupExtender2_backgroundElement" class="modalBackground" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div></main>
+
+
+     
+
+        </div>
+
+        <!-- ===========================
+             FOOTER
+        ============================ -->
+        <footer class="master-footer">
+
+            <div class="master-footer-grid">
+
+                <!-- Logo -->
+                <div class="master-footer-block">
+                    <img src="images/logo.png" class="master-footer-logo">
+                    <p>We provide high-quality training and development solutions.</p>
+                      <h3>Login Links</h3>
+                          <ul class="master-footer-links">
+   <li><a href="Login.aspx">Admin Login</a></li>
+                           <li><a href="DistrictLogin.aspx" class="dropdown-item">Yogyashree Report Submission</a></li>
+                               <li><a href="YGC_LOGIN.aspx" class="dropdown-item">Yogyashree Login</a></li>
+                               <li><a href="PrivacyPolicy.aspx">Privacy Policy</a></li>
+                                  <li><a href="TC.aspx">Terms And Conditions
+</a></li>
+                    </ul>
+
+                </div>
+
+                <!-- Quick Links -->
+                <div class="master-footer-block">
+                    <h3>Quick Links</h3>
+                    <ul class="master-footer-links">
+                        <li><a href="Default.aspx">Home</a></li>
+                       
+                        <li><a href="SelfSponsoredCourses.aspx">Courses</a></li>
+                        <li><a href="Contact.aspx">Contact</a></li>
+                          </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="master-footer-block">
+                    <h3>Find Us</h3>
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2651.03888758005!2d88.4055987145379!3d22.55345423343654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sncsm%20near%20Beleghata%2C%20Kolkata%2C%20West%20Bengal!5e1!3m2!1sen!2sin!4v1743596883997!5m2!1sen!2sin" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Enquire Now -->
+               <!-- Enquire Now -->
+<div class="master-footer-block">
+    <h3>Enquire Now</h3>
+
+    <input name="ctl00$txtName" type="text" id="txtName" class="master-footer-input" placeholder="Name *">
+
+    <input name="ctl00$txtEmail" type="text" id="txtEmail" class="master-footer-input" placeholder="Work Email *">
+
+    <input name="ctl00$txtMobile" type="text" maxlength="10" id="txtMobile" class="master-footer-input" placeholder="Mobile Number *">
+
+    <input name="ctl00$txtCompany" type="text" id="txtCompany" class="master-footer-input" placeholder="Company Name">
+
+    <textarea name="ctl00$txtMessage" rows="2" cols="20" id="txtMessage" class="master-footer-textarea" placeholder="Your Message / Requirement *"></textarea>
+    <!-- reCAPTCHA -->
+<div class="g-recaptcha" data-sitekey="6Ld-TWAsAAAAAGtl8QpANiGI2D3PKxX5Tp-8N-ur" style="margin-bottom:15px;"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-n7t0gp9fr780" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Ld-TWAsAAAAAGtl8QpANiGI2D3PKxX5Tp-8N-ur&amp;co=aHR0cHM6Ly9uY3NtLmNvLmluOjQ0Mw..&amp;hl=en&amp;v=qm3PSRIx10pekcnS9DjGnjPW&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=tbq1vr6rj79m"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+
+    <!-- Authorization -->
+    <div class="master-footer-auth">
+        <input id="chkAuthorize" type="checkbox" name="ctl00$chkAuthorize" checked="checked">
+        <label for="chkAuthorize">
+            I authorize NCSM to send notifications via
+            SMS / Call / Email / WhatsApp
+        </label>
+    </div>
+
+    <input type="submit" name="ctl00$btnSend" value="Submit Enquiry" id="btnSend" class="master-footer-btn">
+</div>
+
+
+            </div>
+
+            <div class="master-footer-bottom">
+                © 2026 NCSM. All rights reserved.
+            </div>
+
+        </footer>
+
+    </div> <!-- END master-wrapper -->
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"backgroundCssClass":"modalBackground","cancelControlID":"ContentPlaceHolder1_LinkButton7","dynamicServicePath":"/Default.aspx","id":"ContentPlaceHolder1_ModalPopupExtender2","popupControlID":"ContentPlaceHolder1_Panel3"}, null, null, $get("ContentPlaceHolder1_LinkButton11"));
+});
+//]]>
+</script>
+</form>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- MASTER JS (chunk 3 will contain this) -->
+<script src="master.js"></script>
+
+
+
+<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" name="c-n7t0gp9fr780" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=qm3PSRIx10pekcnS9DjGnjPW&amp;k=6Ld-TWAsAAAAAGtl8QpANiGI2D3PKxX5Tp-8N-ur&amp;bft=0dAFcWeA66xWUMfBaQedrz2prgYYqurC4nBa_7YYj2AwV7uiCGW4btdD5cyJeMcI3Rh2e99hU1BYZKJ9b1e3gxKIGHtXlCH4Gtqg" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

@@ -1,0 +1,65 @@
+[2026-03-23T15:54:28.205Z] === Homepage AI Extractor: Greenkote ===
+[2026-03-23T15:54:28.205Z] Started at: 2026-03-23T15:54:28.205Z
+[2026-03-23T15:54:28.206Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774281268204_Greenkote
+[2026-03-23T15:54:28.206Z] Company: Greenkote
+[2026-03-23T15:54:28.206Z] Website: greenkote.com
+[2026-03-23T15:54:28.206Z] cbRank: 1905934
+[2026-03-23T15:54:28.206Z] Reasons: f
+[2026-03-23T15:54:28.206Z] Fetching: https://greenkote.com
+[2026-03-23T15:54:40.346Z] Network idle timeout — continuing with current state
+[2026-03-23T15:54:40.384Z] Redirected: https://greenkote.com -> https://greenkote.com/
+[2026-03-23T15:54:40.387Z] Saved HTML (41656 bytes) to page.html
+[2026-03-23T15:54:40.389Z] Extracted 27 unique links from page
+[2026-03-23T15:54:40.393Z] Saved 27 links to links.json
+[2026-03-23T15:54:40.395Z] Extracted footer HTML (1031 chars)
+[2026-03-23T15:54:40.395Z] Extracted header HTML (4512 chars)
+[2026-03-23T15:54:40.398Z] Website (post-redirect): https://greenkote.com/ → origin: https://greenkote.com
+[2026-03-23T15:54:40.398Z] External links: 3 (of 27 total)
+[2026-03-23T15:54:40.398Z] ── All external links ──
+[2026-03-23T15:54:40.398Z]   EXT: http://alshultz.com
+[2026-03-23T15:54:40.398Z]   EXT: https://www.facebook.com/greenkote
+[2026-03-23T15:54:40.398Z]   EXT: https://www.linkedin.com/company/3478313?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A39423351381952784913%2CVSRPtargetId%3A3478313%2CVSRPcmpt%3Aprimary
+[2026-03-23T15:54:40.398Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T15:54:40.398Z]   UNCATEGORIZED: http://alshultz.com
+[2026-03-23T15:54:40.399Z]   REGEX: fb <- https://www.facebook.com/greenkote
+[2026-03-23T15:54:40.399Z]   REGEX: li <- https://www.linkedin.com/company/3478313?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A39423351381952784913%2CVSRPtargetId%3A3478313%2CVSRPcmpt%3Aprimary
+[2026-03-23T15:54:40.399Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-23T15:54:40.399Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T15:54:40.399Z] Saved AI prompt (2908 chars) to ai_prompt.txt
+[2026-03-23T15:54:40.399Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T15:54:40.404Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T15:54:50.442Z]   AI: First token received, streaming...
+[2026-03-23T15:55:11.225Z] AI response complete: 197 chars in 30.8s
+[2026-03-23T15:55:11.227Z] Saved AI response to ai_response.json
+[2026-03-23T15:55:11.227Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T15:55:11.227Z]   AI LINK: https://www.facebook.com/greenkote
+[2026-03-23T15:55:11.227Z]   AI LINK: https://www.linkedin.com/company/3478313?trk=vsrp_companies_res_name&amp;trkInfo=VSRPsearchId%3A39423351381952784913%2CVSRPtargetId%3A3478313%2CVSRPcmpt%3Aprimary
+[2026-03-23T15:55:11.227Z] AI returned 2 valid links
+[2026-03-23T15:55:11.227Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T15:55:11.227Z]   AI→REGEX: fb <- https://www.facebook.com/greenkote (duplicate, skipped)
+[2026-03-23T15:55:11.228Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/company/3478313?trk=vsrp_companies_res_name&amp;trkInfo=VSRPsearchId%3A39423351381952784913%2CVSRPtargetId%3A3478313%2CVSRPcmpt%3Aprimary
+[2026-03-23T15:55:11.228Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T15:55:11.228Z] Footer/header origins (4):
+[2026-03-23T15:55:11.228Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T15:55:11.228Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T15:55:11.228Z]   FOOTER/HEADER ORIGIN: https://greenkote.com
+[2026-03-23T15:55:11.228Z]   FOOTER/HEADER ORIGIN: http://alshultz.com
+[2026-03-23T15:55:11.229Z]   ADDED: urls <- http://alshultz.com
+[2026-03-23T15:55:11.229Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T15:55:11.229Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T15:55:11.229Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T15:55:11.229Z] ── Step 3: Final dedup ──
+[2026-03-23T15:55:11.230Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T15:55:11.230Z] ── FINAL RESULT ──
+[2026-03-23T15:55:11.230Z]   ws (1):
+[2026-03-23T15:55:11.230Z]     - https://greenkote.com
+[2026-03-23T15:55:11.230Z]   li (1):
+[2026-03-23T15:55:11.230Z]     - https://www.linkedin.com/company/3478313
+[2026-03-23T15:55:11.230Z]   fb (1):
+[2026-03-23T15:55:11.230Z]     - https://www.facebook.com/greenkote
+[2026-03-23T15:55:11.230Z]   urls (1):
+[2026-03-23T15:55:11.230Z]     - http://alshultz.com
+[2026-03-23T15:55:11.231Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-23T15:55:11.231Z] Saved final result to result.json
+[2026-03-23T15:55:11.232Z] Override fields: ws, li, fb, urls
+[2026-03-23T15:55:11.232Z] Finished at: 2026-03-23T15:55:11.232Z

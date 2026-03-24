@@ -1,0 +1,91 @@
+[2026-03-22T04:06:26.581Z] === Homepage AI Extractor: Grin ===
+[2026-03-22T04:06:26.581Z] Started at: 2026-03-22T04:06:26.581Z
+[2026-03-22T04:06:26.581Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774152386581_Grin
+[2026-03-22T04:06:26.581Z] Company: Grin
+[2026-03-22T04:06:26.581Z] Website: get-grin.com
+[2026-03-22T04:06:26.581Z] cbRank: 68280
+[2026-03-22T04:06:26.581Z] Reasons: f, i
+[2026-03-22T04:06:26.581Z] Fetching: https://get-grin.com
+[2026-03-22T04:06:29.070Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T04:06:32.023Z] Redirected: https://get-grin.com -> https://www.get-grin.com/
+[2026-03-22T04:06:32.031Z] Saved HTML (256445 bytes) to page.html
+[2026-03-22T04:06:32.035Z] Extracted 30 unique links from page
+[2026-03-22T04:06:32.036Z] Saved 30 links to links.json
+[2026-03-22T04:06:32.040Z] Extracted footer HTML (14112 chars)
+[2026-03-22T04:06:32.041Z] Extracted header HTML (24343 chars)
+[2026-03-22T04:06:32.044Z] Website (post-redirect): https://www.get-grin.com/ → origin: https://www.get-grin.com
+[2026-03-22T04:06:32.044Z]   SUBDOMAIN: providers.get-grin.com (added to ws)
+[2026-03-22T04:06:32.044Z] Website subdomains found: 1
+[2026-03-22T04:06:32.044Z] External links: 6 (of 30 total)
+[2026-03-22T04:06:32.044Z] ── All external links ──
+[2026-03-22T04:06:32.044Z]   EXT: https://twitter.com/get_grin
+[2026-03-22T04:06:32.044Z]   EXT: https://www.facebook.com/getgrinortho
+[2026-03-22T04:06:32.045Z]   EXT: https://www.instagram.com/get_grin
+[2026-03-22T04:06:32.045Z]   EXT: https://www.linkedin.com/company/get-grin
+[2026-03-22T04:06:32.045Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-22T04:06:32.045Z]   EXT: https://www.youtube.com/channel/UCfe0S2XmF-X8q1AjgNZAsQA
+[2026-03-22T04:06:32.045Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:06:32.045Z]   REGEX: tw <- https://twitter.com/get_grin
+[2026-03-22T04:06:32.045Z]   REGEX: fb <- https://www.facebook.com/getgrinortho
+[2026-03-22T04:06:32.045Z]   REGEX: ig <- https://www.instagram.com/get_grin
+[2026-03-22T04:06:32.045Z]   REGEX: li <- https://www.linkedin.com/company/get-grin
+[2026-03-22T04:06:32.045Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-22T04:06:32.046Z]   REGEX: ytc <- https://www.youtube.com/channel/UCfe0S2XmF-X8q1AjgNZAsQA
+[2026-03-22T04:06:32.046Z] Programmatic result: ws:2, tw:1, fb:1, ig:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-22T04:06:32.046Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:06:32.047Z] Saved AI prompt (3230 chars) to ai_prompt.txt
+[2026-03-22T04:06:32.047Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:06:32.051Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:06:43.185Z]   AI: First token received, streaming...
+[2026-03-22T04:06:56.349Z]   AI streaming: 201 chars received (24.3s elapsed)
+[2026-03-22T04:06:56.350Z] AI response complete: 203 chars in 24.3s
+[2026-03-22T04:06:56.352Z] Saved AI response to ai_response.json
+[2026-03-22T04:06:56.352Z] ── Parsing AI response (5 lines) ──
+[2026-03-22T04:06:56.352Z]   AI LINK: https://www.instagram.com/get_grin/
+[2026-03-22T04:06:56.352Z]   AI LINK: https://www.facebook.com/getgrinortho/
+[2026-03-22T04:06:56.353Z]   AI LINK: https://www.linkedin.com/company/get-grin/
+[2026-03-22T04:06:56.353Z]   AI LINK: https://twitter.com/get_grin
+[2026-03-22T04:06:56.353Z]   AI LINK: https://www.youtube.com/channel/UCfe0S2XmF-X8q1AjgNZAsQA
+[2026-03-22T04:06:56.353Z] AI returned 5 valid links
+[2026-03-22T04:06:56.353Z] ── Categorizing 5 AI-returned links ──
+[2026-03-22T04:06:56.353Z]   AI→REGEX: ig <- https://www.instagram.com/get_grin/ (duplicate, skipped)
+[2026-03-22T04:06:56.353Z]   AI→REGEX: fb <- https://www.facebook.com/getgrinortho/ (duplicate, skipped)
+[2026-03-22T04:06:56.354Z]   AI→REGEX: li <- https://www.linkedin.com/company/get-grin/ (duplicate, skipped)
+[2026-03-22T04:06:56.354Z]   AI→REGEX: tw <- https://twitter.com/get_grin (duplicate, skipped)
+[2026-03-22T04:06:56.355Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCfe0S2XmF-X8q1AjgNZAsQA (duplicate, skipped)
+[2026-03-22T04:06:56.356Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:06:56.356Z] Footer/header origins (6):
+[2026-03-22T04:06:56.356Z]   FOOTER/HEADER ORIGIN: https://providers.get-grin.com
+[2026-03-22T04:06:56.357Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T04:06:56.357Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T04:06:56.357Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:06:56.357Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T04:06:56.357Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T04:06:56.357Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-22T04:06:56.358Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T04:06:56.358Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:06:56.358Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T04:06:56.618Z]   YOUTUBE: resolved UCfe0S2XmF-X8q1AjgNZAsQA → @Get-Grin
+[2026-03-22T04:06:56.618Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T04:06:56.618Z] ── Step 3: Final dedup ──
+[2026-03-22T04:06:56.618Z] No urls to dedup
+[2026-03-22T04:06:56.618Z] ── FINAL RESULT ──
+[2026-03-22T04:06:56.618Z]   ws (2):
+[2026-03-22T04:06:56.618Z]     - https://providers.get-grin.com
+[2026-03-22T04:06:56.618Z]     - https://www.get-grin.com
+[2026-03-22T04:06:56.618Z]   li (1):
+[2026-03-22T04:06:56.618Z]     - https://www.linkedin.com/company/get-grin
+[2026-03-22T04:06:56.619Z]   fb (1):
+[2026-03-22T04:06:56.619Z]     - https://www.facebook.com/getgrinortho
+[2026-03-22T04:06:56.619Z]   tw (1):
+[2026-03-22T04:06:56.619Z]     - https://x.com/get_grin
+[2026-03-22T04:06:56.619Z]   ig (1):
+[2026-03-22T04:06:56.619Z]     - https://www.instagram.com/get_grin
+[2026-03-22T04:06:56.619Z]   ytp (1):
+[2026-03-22T04:06:56.619Z]     - https://www.youtube.com/@Get-Grin
+[2026-03-22T04:06:56.619Z]   ytc (1):
+[2026-03-22T04:06:56.619Z]     - https://www.youtube.com/channel/UCfe0S2XmF-X8q1AjgNZAsQA
+[2026-03-22T04:06:56.619Z] Summary: ws:2, tw:1, fb:1, ig:1, li:1, ytc:1, ytp:1
+[2026-03-22T04:06:56.620Z] Saved final result to result.json
+[2026-03-22T04:06:56.620Z] Override fields: ws, li, fb, tw, ig, ytp, ytc
+[2026-03-22T04:06:56.620Z] Finished at: 2026-03-22T04:06:56.620Z

@@ -1,0 +1,63 @@
+[2026-03-22T04:08:00.529Z] === Homepage AI Extractor: Nym ===
+[2026-03-22T04:08:00.529Z] Started at: 2026-03-22T04:08:00.529Z
+[2026-03-22T04:08:00.529Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774152480528_Nym
+[2026-03-22T04:08:00.529Z] Company: Nym
+[2026-03-22T04:08:00.529Z] Website: nym.health
+[2026-03-22T04:08:00.529Z] cbRank: 69779
+[2026-03-22T04:08:00.529Z] Reasons: f
+[2026-03-22T04:08:00.529Z] Fetching: https://nym.health
+[2026-03-22T04:08:03.557Z] Redirected: https://nym.health -> https://nym.health/
+[2026-03-22T04:08:03.563Z] Saved HTML (168191 bytes) to page.html
+[2026-03-22T04:08:03.567Z] Extracted 25 unique links from page
+[2026-03-22T04:08:03.568Z] Saved 25 links to links.json
+[2026-03-22T04:08:03.571Z] Extracted footer HTML (12621 chars)
+[2026-03-22T04:08:03.571Z] Extracted header HTML (19002 chars)
+[2026-03-22T04:08:03.575Z] Website (post-redirect): https://nym.health/ → origin: https://nym.health
+[2026-03-22T04:08:03.575Z]   SUBDOMAIN: blog.nym.health (added to ws)
+[2026-03-22T04:08:03.575Z]   SUBDOMAIN: go.nym.health (added to ws)
+[2026-03-22T04:08:03.576Z] Website subdomains found: 2
+[2026-03-22T04:08:03.576Z] External links: 2 (of 25 total)
+[2026-03-22T04:08:03.576Z] ── All external links ──
+[2026-03-22T04:08:03.576Z]   EXT: https://twitter.com/NymHealth
+[2026-03-22T04:08:03.576Z]   EXT: https://www.linkedin.com/company/nym
+[2026-03-22T04:08:03.576Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:08:03.576Z]   REGEX: tw <- https://twitter.com/NymHealth
+[2026-03-22T04:08:03.577Z]   REGEX: li <- https://www.linkedin.com/company/nym
+[2026-03-22T04:08:03.577Z] Programmatic result: ws:3, tw:1, li:1 | 0 uncategorized
+[2026-03-22T04:08:03.577Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:08:03.580Z] Saved AI prompt (7495 chars) to ai_prompt.txt
+[2026-03-22T04:08:03.580Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:08:03.584Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:08:32.407Z]   AI: First token received, streaming...
+[2026-03-22T04:08:35.220Z] AI response complete: 67 chars in 31.6s
+[2026-03-22T04:08:35.221Z] Saved AI response to ai_response.json
+[2026-03-22T04:08:35.222Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T04:08:35.222Z]   AI LINK: https://www.linkedin.com/company/nym/
+[2026-03-22T04:08:35.222Z]   AI LINK: https://twitter.com/NymHealth
+[2026-03-22T04:08:35.222Z] AI returned 2 valid links
+[2026-03-22T04:08:35.222Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T04:08:35.223Z]   AI→REGEX: li <- https://www.linkedin.com/company/nym/ (duplicate, skipped)
+[2026-03-22T04:08:35.224Z]   AI→REGEX: tw <- https://twitter.com/NymHealth (duplicate, skipped)
+[2026-03-22T04:08:35.225Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:08:35.225Z] Footer/header origins (3):
+[2026-03-22T04:08:35.225Z]   FOOTER/HEADER ORIGIN: https://nym.health
+[2026-03-22T04:08:35.225Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:08:35.225Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T04:08:35.225Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T04:08:35.225Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:08:35.226Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:08:35.226Z] ── Step 3: Final dedup ──
+[2026-03-22T04:08:35.226Z] No urls to dedup
+[2026-03-22T04:08:35.226Z] ── FINAL RESULT ──
+[2026-03-22T04:08:35.226Z]   ws (3):
+[2026-03-22T04:08:35.226Z]     - https://blog.nym.health
+[2026-03-22T04:08:35.226Z]     - https://go.nym.health
+[2026-03-22T04:08:35.227Z]     - https://nym.health
+[2026-03-22T04:08:35.227Z]   li (1):
+[2026-03-22T04:08:35.227Z]     - https://www.linkedin.com/company/nym
+[2026-03-22T04:08:35.227Z]   tw (1):
+[2026-03-22T04:08:35.227Z]     - https://x.com/nymhealth
+[2026-03-22T04:08:35.227Z] Summary: ws:3, tw:1, li:1
+[2026-03-22T04:08:35.228Z] Saved final result to result.json
+[2026-03-22T04:08:35.229Z] Override fields: ws, li, tw
+[2026-03-22T04:08:35.229Z] Finished at: 2026-03-22T04:08:35.229Z

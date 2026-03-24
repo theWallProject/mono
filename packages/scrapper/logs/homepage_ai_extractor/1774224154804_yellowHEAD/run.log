@@ -1,0 +1,74 @@
+[2026-03-23T00:02:34.805Z] === Homepage AI Extractor: yellowHEAD ===
+[2026-03-23T00:02:34.805Z] Started at: 2026-03-23T00:02:34.805Z
+[2026-03-23T00:02:34.805Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774224154804_yellowHEAD
+[2026-03-23T00:02:34.805Z] Company: yellowHEAD
+[2026-03-23T00:02:34.805Z] Website: yellowhead.com
+[2026-03-23T00:02:34.805Z] cbRank: 379625
+[2026-03-23T00:02:34.805Z] Reasons: f
+[2026-03-23T00:02:34.805Z] Fetching: https://yellowhead.com
+[2026-03-23T00:02:38.257Z] Redirected: https://yellowhead.com -> https://www.yellowhead.com/
+[2026-03-23T00:02:38.270Z] Saved HTML (379189 bytes) to page.html
+[2026-03-23T00:02:38.273Z] Extracted 27 unique links from page
+[2026-03-23T00:02:38.274Z] Saved 27 links to links.json
+[2026-03-23T00:02:38.276Z] Extracted footer HTML (19595 chars)
+[2026-03-23T00:02:38.276Z] Extracted header HTML (12423 chars)
+[2026-03-23T00:02:38.279Z] Website (post-redirect): https://www.yellowhead.com/ → origin: https://www.yellowhead.com
+[2026-03-23T00:02:38.280Z]   SUBDOMAIN: partners.yellowhead.com (added to ws)
+[2026-03-23T00:02:38.280Z] Website subdomains found: 1
+[2026-03-23T00:02:38.280Z] External links: 5 (of 27 total)
+[2026-03-23T00:02:38.280Z] ── All external links ──
+[2026-03-23T00:02:38.280Z]   EXT: https://www.facebook.com/yellowhead
+[2026-03-23T00:02:38.280Z]   EXT: https://www.instagram.com/yellowheadinc
+[2026-03-23T00:02:38.280Z]   EXT: https://www.linkedin.com/company/yellowhead
+[2026-03-23T00:02:38.280Z]   EXT: https://www.linkedin.com/posts/the-branded-queries-filter-in-search-console-share-7437477732327841792-SVba?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAA6Hw8QBHjbmzOOo59W8gP77WrqWoQhzma0&utm_campaign=share_via
+[2026-03-23T00:02:38.281Z]   EXT: https://www.linkedin.com/posts/yellowhead_metaupdate-activity-7437135668654391296-XfrB?utm_source=share&utm_medium=member_desktop&rcm=ACoAACTr3dsBOJFc8kZUa82zvt7fU2HsVULlGwA
+[2026-03-23T00:02:38.281Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:02:38.281Z]   REGEX: fb <- https://www.facebook.com/yellowhead
+[2026-03-23T00:02:38.281Z]   REGEX: ig <- https://www.instagram.com/yellowheadinc
+[2026-03-23T00:02:38.281Z]   REGEX: li <- https://www.linkedin.com/company/yellowhead
+[2026-03-23T00:02:38.281Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-23T00:02:38.281Z]   SKIP (regex domain, no match): https://www.linkedin.com/posts/the-branded-queries-filter-in-search-console-share-7437477732327841792-SVba?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAA6Hw8QBHjbmzOOo59W8gP77WrqWoQhzma0&utm_campaign=share_via
+[2026-03-23T00:02:38.281Z]   SKIP (regex domain, no match): https://www.linkedin.com/posts/yellowhead_metaupdate-activity-7437135668654391296-XfrB?utm_source=share&utm_medium=member_desktop&rcm=ACoAACTr3dsBOJFc8kZUa82zvt7fU2HsVULlGwA
+[2026-03-23T00:02:38.281Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-23T00:02:38.281Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:02:38.284Z] Saved AI prompt (5926 chars) to ai_prompt.txt
+[2026-03-23T00:02:38.284Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:02:38.288Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:03:02.273Z]   AI: First token received, streaming...
+[2026-03-23T00:03:07.811Z] AI response complete: 120 chars in 29.5s
+[2026-03-23T00:03:07.813Z] Saved AI response to ai_response.json
+[2026-03-23T00:03:07.813Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T00:03:07.813Z]   AI LINK: https://www.instagram.com/yellowheadinc/
+[2026-03-23T00:03:07.814Z]   AI LINK: https://www.linkedin.com/company/yellowhead
+[2026-03-23T00:03:07.814Z]   AI LINK: https://www.facebook.com/yellowhead
+[2026-03-23T00:03:07.814Z] AI returned 3 valid links
+[2026-03-23T00:03:07.814Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T00:03:07.814Z]   AI→REGEX: ig <- https://www.instagram.com/yellowheadinc/ (duplicate, skipped)
+[2026-03-23T00:03:07.815Z]   AI→REGEX: li <- https://www.linkedin.com/company/yellowhead (duplicate, skipped)
+[2026-03-23T00:03:07.815Z]   AI→REGEX: fb <- https://www.facebook.com/yellowhead (duplicate, skipped)
+[2026-03-23T00:03:07.815Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:03:07.816Z] Footer/header origins (5):
+[2026-03-23T00:03:07.816Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T00:03:07.816Z]   FOOTER/HEADER ORIGIN: https://www.yellowhead.com
+[2026-03-23T00:03:07.816Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:03:07.816Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T00:03:07.816Z]   FOOTER/HEADER ORIGIN: https://partners.yellowhead.com
+[2026-03-23T00:03:07.816Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T00:03:07.816Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:03:07.816Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:03:07.816Z] ── Step 3: Final dedup ──
+[2026-03-23T00:03:07.817Z] No urls to dedup
+[2026-03-23T00:03:07.817Z] ── FINAL RESULT ──
+[2026-03-23T00:03:07.817Z]   ws (2):
+[2026-03-23T00:03:07.817Z]     - https://partners.yellowhead.com
+[2026-03-23T00:03:07.817Z]     - https://www.yellowhead.com
+[2026-03-23T00:03:07.817Z]   li (1):
+[2026-03-23T00:03:07.817Z]     - https://www.linkedin.com/company/yellowhead
+[2026-03-23T00:03:07.817Z]   fb (1):
+[2026-03-23T00:03:07.817Z]     - https://www.facebook.com/yellowhead
+[2026-03-23T00:03:07.818Z]   ig (1):
+[2026-03-23T00:03:07.818Z]     - https://www.instagram.com/yellowheadinc
+[2026-03-23T00:03:07.818Z] Summary: ws:2, fb:1, ig:1, li:1
+[2026-03-23T00:03:07.819Z] Saved final result to result.json
+[2026-03-23T00:03:07.819Z] Override fields: ws, li, fb, ig
+[2026-03-23T00:03:07.819Z] Finished at: 2026-03-23T00:03:07.819Z

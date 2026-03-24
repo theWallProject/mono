@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+    <title>
+	ScamBlockPlus Ltd. 
+    </title>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta name="keywords" content="phishing, privacy, security, browser extension, scam block, online scams prevensions">
+
+	<meta name="description" content="ScamBlockPlus can be useful to both business employees who work on the internet, and to private people who need protection from phishing scams">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Chrome Extension Protecting from Phishing Scams">
+	<meta name="twitter:description" content="ScamBlockPlus can be useful to both business employees who work on the internet, and to private people who need protection from phishing scams">
+	<meta name="twitter:image" content="https://www.scamblockplus.org/images/google-docs-phishing-scam-tw.png">
+
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+    <meta http-equiv="content-language" content="EN">
+    <link rel="stylesheet" type="text/css" href="style5.css">
+
+  <script src="//platform.twitter.com/widgets.js" id="tweetjs"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-ES11YWYP0W&amp;cx=c&amp;_slc=1"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-96765630-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+
+	<style>
+		button:hover {cursor: pointer}
+
+		.tooltip {
+			position: relative;
+			display: inline-block;
+			border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+		}
+
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 300px;
+			background-color: #ddd;
+			color: #fff;
+			text-align: center;
+			padding: 5px 0;
+			border-radius: 6px;
+		 
+			position: absolute;
+			z-index: 1;
+		}
+
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+		}
+		.tooltip .tooltiptext {
+			top: -0px;
+			right: 105%; 
+		}
+		.tooltip .tooltiptext::after {
+			content: " ";
+			position: absolute;
+			top: 50%;
+			left: 100%; /* To the right of the tooltip */
+			margin-top: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: transparent transparent transparent #ddd;
+		}
+	</style>
+
+	<script>
+		function openTwPopUp()
+		{ 
+		  var h = 450;
+		  var w = 450;
+		  var left = 0;
+		  var top = 0;
+		  if (h > screen.height || w > screen.width)
+		  {
+			h = screen.height;
+			w = screen.width;
+		  }
+		  else {
+			left = (screen.width/2)-(w/2);
+			top = (screen.height/2)-(h/2);
+		  }
+		  var text = "ScamBlockPlus protects business employees working on the internet and private people, from phishing scams";
+		  window.open("https://twitter.com/share?url="+encodeURIComponent("https://www.scamblockplus.org")+"&text="+encodeURIComponent(text), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+h+',width='+w+', top='+top+', left='+left);
+		  return false;
+		}
+
+		function go1(){
+		  var js, fjs = document.getElementsByTagName('script')[0], load = function(url, id) {
+			if (document.getElementById(id)) {return;}
+			js = document.createElement('script'); js.src = url; js.id = id;
+			fjs.parentNode.insertBefore(js, fjs);
+		  };
+		  load('//platform.twitter.com/widgets.js', 'tweetjs');
+		}
+		(function() {
+		  if (window.addEventListener) { window.addEventListener("load", go1, false); }
+		  else if (window.attachEvent) { window.attachEvent("onload",go1); }
+		}());
+
+        var date = new Date();
+        var currTime = date.getTime();
+        var currTimeStr = date.toISOString();
+        var refDomain = document.referrer.length > 0 ? document.referrer.match(/:\/\/(.[^/]+)/)[1] : "";
+        var visCode = 'home:'+ refDomain + '(' + currTimeStr + ')';
+
+	    function after30secs() {
+		  ga('send', 'event', '30Secs', visCode);
+		  window.setTimeout("after60secs();", 30000);
+		}
+		function after60secs() {
+		  ga('send', 'event', '60Secs', visCode);
+		  window.setTimeout("after90secs();", 30000);
+		}
+		function after90secs() {
+		  ga('send', 'event', '90Secs', visCode);
+		  window.setTimeout("after120secs();", 30000);
+		}
+		function after120secs() {
+		  ga('send', 'event', '120Secs', visCode);
+		  window.setTimeout("after180secs();", 60000);
+		}
+		function after180secs() {
+		  ga('send', 'event', '180Secs', visCode);
+		}
+	    function installCB() {
+		  ga('send', 'event', 'install', visCode);
+		}
+		window.setTimeout("after30secs();", 30000);
+	</script>
+</head>
+
+
+
+<body>
+
+
+    <div class="logo">
+	<img src="ScamBlockPlusLogo.png" width="90px" style="margin-top: -14px; margin-left: -4px;">
+    </div>
+
+    <h1 id="mh1"><a id="top"></a><a href="index.html" style="opacity: 0.0;">Your</a></h1>
+    <h2>ScamBlockPlus Home Page</h2>
+
+    <div id="outerContent">
+    <div id="content">
+        <div id="bellow-local" class="side" style="width: 180px;"></div>
+
+    <!------------>
+    <div id="main">
+    <!------------>
+
+	<div class="path">
+
+	    Path: 
+	    Home
+
+	</div> <!-- path -->
+	<br>
+
+	<div class="mainSection">
+	<h3>
+	    The Scam-Block-Plus browser extension provides a layer of protection from online phishing scams.
+	</h3>
+	</div> <!-- mainSection -->
+
+	<h4>
+	    Privacy
+	</h4>
+	<p>
+		<br>
+		Scam-Block-Plus will never collect your private data.<br><br>
+
+		On the contrary - our main purpose is to protect your
+		privacy, by preventing untrusted websites from stealing
+		your personal data (using phishing technics).
+	</p>
+
+	<h4 style="clear:both">
+		Why &amp; How
+	</h4>
+	<p>
+		<br>
+		<iframe src="https://docs.google.com/presentation/d/1SL0AnPBF5DWlyyYT_o_WvNlb2kNTMcsFhHAgKdT0qjo/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+	</p>
+
+	<h4 id="how" style="clear:both">
+	    How Scam-Block-Plus works?
+	</h4>
+	<p>
+		<br>
+		Online scams spread by abusing the share mechanisms
+		of popular social networks and/or by sending e-mails.<br><br>
+
+		Malicious scam posts and comments try to tempt you to click on a link that brings
+		you to a scam website.<br><br>
+
+		ScamBlockPlus is an anti phishing extension that protects you when this happens.<br><br>
+
+		When ScamBlockPlus is enabled in your browser and you click on a link<br>
+		while visiting one of the following websites:<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook, Twitter, Instagram, Linkedin, Pinterest, Google+, Meetup (popular social platform)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gmail, Microsoft-Mail, Yahoo-Mail, AOL-Mail,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rackspace-Mail, mail.com, Zoho, iCloud-Mail (email services)<br>
+		a tab is opened in which the destination website is displayed.<br><br>
+		If the opened website is not listed in the global trust-list as an authenticated website,<br>
+		and thus is an "untrusted website" then the tab is actively protected by ScamBlockPlus.<br><br>
+		Notice that the black scam-block-plus incognito-icon replaces the red scam-block-plus shield-icon.<br>
+		This informs you that ScamBlockPlus prevents the website from doing things that could compromise your security.
+	</p>
+		<div style="float:left; margin: 20px; font-size: medium;">
+			Trusted tab: <img style="vertical-align:middle" src="trusted-tab.jpg">
+		</div>
+		<div style="float:left; margin: 20px; font-size: medium;">
+			Untrusted tab (incognito): <img style="vertical-align:middle" src="incognito-tab.jpg">
+		</div>
+
+	<h4 id="features" style="clear:both">
+	    Features
+	</h4>
+	<p>
+		</p><h3>Hiding cookies:</h3>
+		   <div style="margin-left: 30px;">
+		   While visiting an untrusted website, your ordinary cookies
+		   are hidden from the website.<br>
+		   You appear to be logged-out everywhere, including: Facebook, Twitter, Gmail, ... <br>
+		   Thus the untrusted website can't share, like, or tweet on
+		   your behalf.
+		   </div>
+
+		<h3>Blocking text input:</h3>
+		   <div style="margin-left: 30px;">
+		   Untrusted websites are prevented from receiving textual input from you.<br>
+		   This blocks scams that trick you into logging-in or
+		   into typing and exposing your personal data.
+		   </div>
+
+		<h3>Blocking downloads:</h3>
+		   <div style="margin-left: 30px;">
+		   File downloads are blocked when initiated by untrusted websites,<br>
+		   to prevent scams from injecting viruses into your computer.
+		   </div>
+
+		<h3>Protecting you from scam-links that are opened by external applications:</h3>
+		   <div style="margin-left: 30px;">
+		   When clicking on a scam-link in an email that is displayed by the Outlook<br>
+		   application in Windows, and the linked web-page is opened with Chrome<br>
+		   (this happens when Chrome is the default browser), you are protected<br>
+		   by Scam-Block-Plus from the scam-website. The same is true when links<br>
+		   are opened by other applications such as Word or Acrobat.
+		   </div>
+
+		<h3>You can trust a website:</h3>
+		   <div style="margin-left: 30px;">
+		   By a simple click on a button you can trust a website
+		   that is not listed on the global trust-list.<br>
+		   Scam-Block-Plus protection will be turned off for this website.<br>
+		   At any time you can untrust a website previously trusted by you.<br><br>
+		   
+		   <b>Please be sure not to trust a website unless you are absolutely sure<br>
+		   that the website is legit and not a scam !!!</b>
+		   </div>
+	<p></p>
+
+	<h4 id="sbp-vs-mcafee" style="clear:both">
+		Scam-Block-Plus Versus McAfee
+	</h4>
+	<p>
+		<br>
+		Scam-Block-Plus is not an Anti-Virus, but an Anti-Phishing tool.<br>
+		<a target="_blank" href="https://www.mcafee.com/us/index.html">McAfee</a> on the other hand is an Anti-Virus.<br><br>
+
+		For best protection, ScamBlockPlus should be used as another<br>
+		layer of protection in addition to the Anti-Virus.<br><br>
+
+		Read a <a target="_blank" href="scam-block-plus-vs-mcafee.html">side by side comparison</a> between Scam-Block-Plus &amp; McAfee.
+	</p>
+
+	<h4 id="blacklists" style="clear:both">
+		Conventional BlackLists Techniques Are Not Working
+	</h4>
+	<p>
+		<br>
+		According to <a target="_blank" href="https://www.zdnet.com/article/1-4-million-phishing-websites-are-created-every-month-heres-who-the-scammers-are-pretending-to-be/">ZDNet</a>
+		1.4 million phishing websites are created every month.<br><br>
+		<img src="images/blacklisted_through_magnifying_glass.jpg" alt="Blacklisted-Through-Magnifying-Glass"><br><br>
+		It is nearly impossible to automate a fast recognition that a new website<br>
+		is actually a fraud. Phishing websites and their corresponding legit websites<br>
+		have similar behvior. The only special characteristics of scam websites are<br>
+		the identities and intentions of their owners.<br>
+		<a target="_blank" href="blacklists-vs-whitelists.html"> Read more.</a>...
+	</p>
+
+	<h4 id="bec-scams" style="clear:both">
+	    Business Email Compromise (BEC) phishing scams
+	</h4>
+	<p>
+		<br>
+		According to <a target="_blank" href="https://www.fbi.gov/contact-us/field-offices/cincinnati/news/press-releases/business-e-mail-compromise-scheme-fraud-alert">FBI</a>
+		Since January 2015, there has been a 1,300% increase in identified exposed losses, now totaling over $5 billion.
+		<br><br>
+        BEC phishing scams usually begins with the fraudsters either phishing the CEO and gaining access to his/her inbox,
+		or with emailing<br> the company's accountant from a look-alike domain name (that is one or two letters off from
+		the target company's domain name)<br> and convincing the accountant that the email is arriving from the CEO.
+		The accountant is instructed to urgently wire a large amount<br> of money to a specified bank-account.
+		<br><br>
+		Look-alike domains can be formed by ommiting a single character or<br>
+		by replacing a single character with a similar one, for example: 'i' is replaced by '1'.
+		<br><br>	
+		ScamBlockPlus marks emails arriving from the CEO or CFO with green color.<br>
+		Thus, the accountant can't be fooled to think that a fraud mail has arrived from the CEO or CFO.
+		</p><div style="margin: 20px; width: 60%">
+		    <img src="images/marking-trusted-email-source-with-green-color.png" style="width: 80%" alt="marking-trusted-email-source">
+		</div>
+		<br><br>
+		You can manage the list of trusted emails in the form opened when clicking on the ScamBlockPlus icon:
+		<div style="float:left; margin: 20px; width: 60%">
+		    <img src="images/defining-trusted-emails-list.png" alt="defining-trusted-emails-list">
+		</div>
+	<p></p>
+
+	<h4 id="dual-authentication" style="clear:both">
+		Can Two-Factor Authentication Protect You From Phishing Scams?
+	</h4>
+	<p>
+		<br>
+		Implementing two-factor authentication via text-messages sent to your cell phone<br>
+		can't provide you good enough protection against phishing scams.<br><br>
+
+		</p><div style="margin: 20px; width: auto">
+		    <img src="images/phishing-business-people-small.jpg" alt="phishing-and-two-factor-authentication">
+		</div>
+
+		In the effort to improve security, <a target="_blank" href="https://www.facebook.com/help/148233965247823">
+		Facebook recommends</a> using two factor authentication:<br>
+		<div style="margin-left:20px;">
+			<i>If you set up two-factor authentication, you'll be asked to enter a special security<br>
+			code or confirm your login attempt each time someone tries to access Facebook<br>
+			from a computer or mobile device we don't recognize.</i>
+		</div><br>
+
+		Google supports 2-factor authentication by entering a six-digits-code sent to your<br>
+		phone after you enter your username and password.<br>
+		However, for adding a significantly better layer of protection 
+		<a target="_blank" href="https://support.google.com/accounts/answer/6103535">Google recommends</a> using<br>
+		a Security-Key for 2-Step Verification, which is a USB device attached to the desktop.<br><br>
+
+		Why sending SMS to your cellular phone is not good enough?<br>
+		Fraudsters can easily overcome this obstacle.
+		<a target="_blank" href="two-factor-authentication-cant-prevent-phishing.html"> Read more.</a>...
+	<p></p>
+
+	<h4 id="el-al" style="clear:both">
+		EL-AL 70th Anniversary Facebook Scam
+	</h4>
+	<p>
+		<br>
+		</p><div style="margin: 20px; width: auto">
+		    <img src="images/el-al-air-plane.jpg" alt="El-Al air-plane">
+		</div>
+		<a target="_blank" href="https://www.elal.com/en/Israel/Pages/default.aspx">EL AL Israel Airlines</a> is the largest airline in Israel.<br>
+		The name EL-AL means "To the Skies" or "Skywards" in Hebrew.<br><br>
+
+		EL-AL posted a warning on its <a target="_blank" href="https://www.facebook.com/ELALAirlinesIL/posts/10155598421404905">Facebook page</a> (June 5 at 10:07), that the advertised ad<br>
+		guaranteeing 2 free airline tickets for participating in a survey is a false announcement.<br><br>
+
+		This large-scale phishing scam has hit thousands of Israelis
+		<a target="_blank" href="el-al-70th-anniversary-facebook-scam.html"> Read more.</a>...
+	<p></p>
+
+	<h4 id="harvest-emails" style="clear:both">
+		How Scammers Harvest Their Phishing Scams Email-Lists?
+	</h4>
+	<p>
+		<br>
+		</p><div style="float:right; margin: 20px; width: 40%">
+		   <img src="images/phishing-credit-card-small.jpg" width="95%" alt="phishing-credit-card">
+		</div>
+		Some phishing scams are targeting the general public.
+		For example the Google Docs Phishing Scam targeted all Gmail users. The fraud
+		was viral, thus only a small number of starting Gmail addresses were needed to
+		launch the attack.<br><br>
+
+		Other phishing scams like BEC CEO phishing scams attack specific employees
+		working for victim companies. The scammers must find the email address
+		of a small number of employees plus the email address of their CEO. This is
+		not too difficult.<br><br>
+
+		However, in medium-size phishing scams the attacked population is large, yet specific.
+		As an example lets examine the <a target="_blank" href="https://dmv.ny.gov/press-release/press-release-06-01-2017">DMV phishing attack on 1 June, 2017</a>.
+		To be effective the fraudsters needed to harvest email addresses of New-York drivers.
+		<a target="_blank" href="how-scammers-harvest-phishing-scams-email-lists.html"><br><br>
+		Read more</a>....
+	<p></p>
+
+	<h4 id="google-docs">
+		Be Protected from Phishing Frauds Like the Massive Google Docs Phishing Scam<br>
+	</h4>
+	<p>
+		<br>
+		According to <a target="_blank" href="https://www.cnet.com/how-to/why-the-google-docs-scam-was-a-different-kind-of-phishing/">Cnet</a>
+		the Google Docs phishing scam relied on OAuth exploitation. With OAuth exploits, as in the case of the Google Docs scam,
+		accounts can be hijacked without the user typing in anything. In the Google Docs scam,
+		the attacker created a fake version of Google Docs and asked for permission to read, write and access
+		the victim's emails. Google quickly shut down the attack, which affected about 0.1 percent of Gmail's users
+		(at least 1 million people being compromised).<br><br>
+		Scam-Block-Plus blocks this kind of phishing scams.
+		While browsing the fake website you are signed-out from Gmail and you can't sign-in.
+		Thus the fake website can't get your permission to access your Gmail.
+		If sign-in dialog will be displayed you will not be able to fill in your details.
+		</p><div style="float:left; margin: 20px;">
+		    <img src="images/google-docs-phishing-scam.png" style="width: 80%" alt="blocked-google-docs-phishing-scam">
+		</div>
+	<p></p>
+
+	<h4 id="incognito-tabs" style="clear:both">
+	    Chrome Incognito-Windows Versus ScamBlockPlus Incognito-Tabs
+	</h4>
+	<p>
+		<br>
+		Incognito windows enable Chrome users to browse the internet anonymously.<br>
+		However a user must sign into his/her Gmail account to read mails and<br>
+		must sign into his/her Facebook/Twitter account to read posts/tweets.<br>
+		Thus when a user clicks on a link in an email or on a post or on a comment<br>
+		following a post he/she is no longer incognito and is exposed to phishing scams.<br>
+		ScamBlockPlus protects Chrome users in this common scenario.<br><br>
+		More: <a target="_blank" href="chrome-incognito-vs-scam-block-plus-incognito.html">
+								Chrome Incognito and ScamBlockPlus Incognito Compared</a>.
+	</p>
+
+
+	<h4 id="customers" style="clear:both">
+	    Businesses using ScamBlockPlus
+	</h4>
+	<p>
+		<br>
+		</p><div style="margin: 30px; font-size: medium;">
+			Law office: <img style="vertical-align:middle" src="images/aviad-seren-law-office-logo.png">
+		</div>
+		<br>
+		<div style="margin: 30px; font-size: medium;">
+			Accounting firm: <img style="vertical-align:middle" src="images/ssz-accountants-logo.jpg">
+		</div>
+		<br>
+		<div style="margin: 30px; font-size: medium;">
+			Startup: <img style="vertical-align:middle" src="images/cedato-logo.png"><br><br>
+			Recommendation from David Sahar CFO at Cedato:<br>
+			<div style="margin-left:20px;margin-top:5px;">
+			"Hi Eldad,<br> 
+			&nbsp;After installing Scam-Block-Plus, we're feeling a lot safer from online-scams.<br>
+			&nbsp;In addition to the protection it adds, the support is very professional and kind.<br>
+			&nbsp;Best Regards."<br><br>
+			</div>
+		</div>
+	<p></p>
+
+	</div> <!-- main -->
+
+
+    <!------------->
+    <div id="local" class="side" style="width: 180px;">
+    <!------------->
+
+	<div class="active">
+	    <h5><a href="javascript:void(0)" style="font-size: 12px;">On The Homepage</a></h5>
+	    <ul>
+		<li>
+		    <a href="#how">How Scam-Block-Plus works?</a>
+		</li>
+		<li>
+		    <a href="#features">Features</a>
+		</li>
+		<li>
+			<a href="#sbp-vs-mcafee">Scam-Block-Plus Versus McAfee</a>
+		</li>
+		<li>
+			<a href="#blacklists">BlackLists vs WhiteLists</a>
+		</li>
+		<li>
+		    <a href="#bec-scams">BEC Phishing Scams</a>
+		</li>
+		<li>
+		    <a href="#dual-authentication">Phishing &amp; Two Factor Authentication</a>
+		</li>
+		<li>
+		    <a href="#el-al">EL-AL 70th Anniversary FB Scam</a>
+		</li>
+		<li>
+		    <a href="#harvest-emails">How Scammers Harvest Email-Lists?</a>
+		</li>
+		<li>
+		    <a href="#google-docs">Massive Google Docs Phishing Scam</a>
+		</li>
+		<li>
+		    <a href="#incognito-tabs">Incognito-Windows vs Incognito-Tabs</a>
+		</li>
+		<li>
+		    <a href="#customers">Customers</a>
+		</li>
+	    </ul>
+	</div> <!-- active -->
+
+    </div> <!-- local -->  
+
+    <div id="outerNav">
+    <!----------->
+    <div id="nav">
+    <!----------->
+	<a href="/">Home</a> |
+	<a href="privacy.html">Privacy</a> |
+	<a href="plans_and_pricing.html">Pricing</a> |
+	<a href="aboutus.html">About us</a> |
+	<a href="contactus.html">Contact us</a>
+
+    </div> <!-- nav -->
+    </div> <!-- outerNav -->
+
+    <div class="toplink">
+	<a href="#top">
+	    <img src="arr_top.gif" alt="top" width="9" height="7">Top
+	</a>
+    </div> <!-- toplink -->
+
+    </div> <!-- content -->
+
+    <div id="footer">
+	<div style="float:right">
+	<a href="legalterms.html">Legal Terms</a>
+	</div>
+	<img src="images/tw-shr-btn.png" onclick="openTwPopUp();" style="position:fixed;left:90px;bottom: 3px; cursor: pointer;">
+	Copyright © 2017 (ScamBlockPlus Ltd.)<br><br>
+    </div> <!-- footer -->
+
+
+
+
+
+</div><iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.2f70fb173b9000da126c79afe2098f02.html?origin=https%3A%2F%2Fscamblockplus.org" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe"></iframe></body></html>

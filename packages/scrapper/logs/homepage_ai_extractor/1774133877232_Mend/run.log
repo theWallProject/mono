@@ -1,0 +1,61 @@
+[2026-03-21T22:57:57.233Z] === Homepage AI Extractor: Mend ===
+[2026-03-21T22:57:57.233Z] Started at: 2026-03-21T22:57:57.233Z
+[2026-03-21T22:57:57.233Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774133877232_Mend
+[2026-03-21T22:57:57.233Z] Company: Mend
+[2026-03-21T22:57:57.233Z] Website: mend.io
+[2026-03-21T22:57:57.233Z] cbRank: 3895
+[2026-03-21T22:57:57.233Z] Reasons: f, i
+[2026-03-21T22:57:57.233Z] Fetching: https://mend.io
+[2026-03-21T22:58:00.139Z] Redirected: https://mend.io -> https://www.mend.io/
+[2026-03-21T22:58:00.182Z] Saved HTML (2149525 bytes) to page.html
+[2026-03-21T22:58:00.186Z] Extracted 79 unique links from page
+[2026-03-21T22:58:00.187Z] Saved 79 links to links.json
+[2026-03-21T22:58:00.189Z] No footer section found in DOM
+[2026-03-21T22:58:00.189Z] No header section found in DOM
+[2026-03-21T22:58:00.193Z] Website (post-redirect): https://www.mend.io/ → origin: https://www.mend.io
+[2026-03-21T22:58:00.193Z]   SUBDOMAIN: docs.mend.io (added to ws)
+[2026-03-21T22:58:00.193Z] Website subdomains found: 1
+[2026-03-21T22:58:00.193Z] External links: 4 (of 79 total)
+[2026-03-21T22:58:00.194Z] ── All external links ──
+[2026-03-21T22:58:00.194Z]   EXT: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-21T22:58:00.194Z]   EXT: https://linkedin.com/company/mend-io
+[2026-03-21T22:58:00.194Z]   EXT: https://www.facebook.com/mendappsec
+[2026-03-21T22:58:00.194Z]   EXT: https://www.youtube.com/c/Mend_io
+[2026-03-21T22:58:00.194Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:58:00.194Z]   UNCATEGORIZED: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-21T22:58:00.194Z]   REGEX: li <- https://linkedin.com/company/mend-io
+[2026-03-21T22:58:00.194Z]   REGEX: fb <- https://www.facebook.com/mendappsec
+[2026-03-21T22:58:00.194Z]   REGEX: ytp <- https://www.youtube.com/c/Mend_io
+[2026-03-21T22:58:00.194Z] Programmatic result: ws:2, li:1, fb:1, ytp:1 | 1 uncategorized
+[2026-03-21T22:58:00.194Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:58:00.195Z] Saved AI prompt (1981 chars) to ai_prompt.txt
+[2026-03-21T22:58:00.195Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:58:00.199Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:58:05.956Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-21T22:58:05.957Z] AI response complete: 0 chars in 5.8s
+[2026-03-21T22:58:05.958Z] Saved AI response to ai_response.json
+[2026-03-21T22:58:05.958Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T22:58:05.958Z] AI returned 0 valid links
+[2026-03-21T22:58:05.959Z] ── Categorizing 0 AI-returned links ──
+[2026-03-21T22:58:05.959Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:58:05.959Z] Footer/header origins (0):
+[2026-03-21T22:58:05.959Z]   SKIP (not in footer/header): https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-21T22:58:05.959Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:58:05.959Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:58:05.959Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:58:05.959Z] ── Step 3: Final dedup ──
+[2026-03-21T22:58:05.959Z] No urls to dedup
+[2026-03-21T22:58:05.960Z] ── FINAL RESULT ──
+[2026-03-21T22:58:05.960Z]   ws (2):
+[2026-03-21T22:58:05.960Z]     - https://docs.mend.io
+[2026-03-21T22:58:05.960Z]     - https://www.mend.io
+[2026-03-21T22:58:05.960Z]   li (1):
+[2026-03-21T22:58:05.960Z]     - https://www.linkedin.com/company/mend-io
+[2026-03-21T22:58:05.960Z]   fb (1):
+[2026-03-21T22:58:05.960Z]     - https://www.facebook.com/mendappsec
+[2026-03-21T22:58:05.960Z]   ytp (1):
+[2026-03-21T22:58:05.960Z]     - https://www.youtube.com/@mend_io
+[2026-03-21T22:58:05.960Z] Summary: ws:2, li:1, fb:1, ytp:1
+[2026-03-21T22:58:05.961Z] Saved final result to result.json
+[2026-03-21T22:58:05.962Z] Override fields: ws, li, fb, ytp
+[2026-03-21T22:58:05.962Z] Finished at: 2026-03-21T22:58:05.962Z

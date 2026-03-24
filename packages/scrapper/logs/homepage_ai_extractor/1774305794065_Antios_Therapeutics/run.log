@@ -1,0 +1,72 @@
+[2026-03-23T22:43:14.066Z] === Homepage AI Extractor: Antios Therapeutics ===
+[2026-03-23T22:43:14.066Z] Started at: 2026-03-23T22:43:14.066Z
+[2026-03-23T22:43:14.066Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774305794065_Antios_Therapeutics
+[2026-03-23T22:43:14.066Z] Company: Antios Therapeutics
+[2026-03-23T22:43:14.066Z] Website: antiostherapeutics.com
+[2026-03-23T22:43:14.066Z] cbRank: 30868
+[2026-03-23T22:43:14.066Z] Reasons: i
+[2026-03-23T22:43:14.066Z] Fetching: https://antiostherapeutics.com
+[2026-03-23T22:43:16.685Z] Redirected: https://antiostherapeutics.com -> https://antiostherapeutics.com/
+[2026-03-23T22:43:16.688Z] Saved HTML (29726 bytes) to page.html
+[2026-03-23T22:43:16.690Z] Extracted 26 unique links from page
+[2026-03-23T22:43:16.693Z] Saved 26 links to links.json
+[2026-03-23T22:43:16.696Z] Extracted footer HTML (1401 chars)
+[2026-03-23T22:43:16.696Z] Extracted header HTML (3450 chars)
+[2026-03-23T22:43:16.699Z] Website (post-redirect): https://antiostherapeutics.com/ → origin: https://antiostherapeutics.com
+[2026-03-23T22:43:16.699Z] External links: 6 (of 26 total)
+[2026-03-23T22:43:16.699Z] ── All external links ──
+[2026-03-23T22:43:16.699Z]   EXT: https://player.vimeo.com/video/656311897
+[2026-03-23T22:43:16.699Z]   EXT: https://twitter.com/AntiosTx
+[2026-03-23T22:43:16.699Z]   EXT: https://vimeo.com/566275718/92f395b5af
+[2026-03-23T22:43:16.699Z]   EXT: https://vimeo.com/566278974/f175508678
+[2026-03-23T22:43:16.699Z]   EXT: https://www.fassino.com
+[2026-03-23T22:43:16.699Z]   EXT: https://www.linkedin.com/company/antios
+[2026-03-23T22:43:16.699Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T22:43:16.700Z]   UNCATEGORIZED: https://player.vimeo.com/video/656311897
+[2026-03-23T22:43:16.701Z]   REGEX: tw <- https://twitter.com/AntiosTx
+[2026-03-23T22:43:16.701Z]   UNCATEGORIZED: https://vimeo.com/566275718/92f395b5af
+[2026-03-23T22:43:16.701Z]   UNCATEGORIZED: https://vimeo.com/566278974/f175508678
+[2026-03-23T22:43:16.701Z]   UNCATEGORIZED: https://www.fassino.com
+[2026-03-23T22:43:16.701Z]   REGEX: li <- https://www.linkedin.com/company/antios
+[2026-03-23T22:43:16.701Z] Programmatic result: ws:1, tw:1, li:1 | 4 uncategorized
+[2026-03-23T22:43:16.701Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T22:43:16.702Z] Saved AI prompt (3104 chars) to ai_prompt.txt
+[2026-03-23T22:43:16.702Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T22:43:16.706Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T22:43:27.792Z]   AI: First token received, streaming...
+[2026-03-23T22:43:31.016Z] AI response complete: 69 chars in 14.3s
+[2026-03-23T22:43:31.017Z] Saved AI response to ai_response.json
+[2026-03-23T22:43:31.018Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T22:43:31.018Z]   AI LINK: https://www.linkedin.com/company/antios/
+[2026-03-23T22:43:31.018Z]   AI LINK: https://twitter.com/AntiosTx
+[2026-03-23T22:43:31.018Z] AI returned 2 valid links
+[2026-03-23T22:43:31.018Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T22:43:31.019Z]   AI→REGEX: li <- https://www.linkedin.com/company/antios/ (duplicate, skipped)
+[2026-03-23T22:43:31.019Z]   AI→REGEX: tw <- https://twitter.com/AntiosTx (duplicate, skipped)
+[2026-03-23T22:43:31.020Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T22:43:31.020Z] Footer/header origins (3):
+[2026-03-23T22:43:31.020Z]   FOOTER/HEADER ORIGIN: https://www.fassino.com
+[2026-03-23T22:43:31.020Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T22:43:31.020Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T22:43:31.020Z]   SKIP (not in footer/header): https://player.vimeo.com/video/656311897
+[2026-03-23T22:43:31.020Z]   SKIP (not in footer/header): https://vimeo.com/566275718/92f395b5af
+[2026-03-23T22:43:31.020Z]   SKIP (not in footer/header): https://vimeo.com/566278974/f175508678
+[2026-03-23T22:43:31.020Z]   ADDED: urls <- https://www.fassino.com
+[2026-03-23T22:43:31.020Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T22:43:31.020Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T22:43:31.020Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T22:43:31.021Z] ── Step 3: Final dedup ──
+[2026-03-23T22:43:31.021Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T22:43:31.021Z] ── FINAL RESULT ──
+[2026-03-23T22:43:31.021Z]   ws (1):
+[2026-03-23T22:43:31.021Z]     - https://antiostherapeutics.com
+[2026-03-23T22:43:31.021Z]   li (1):
+[2026-03-23T22:43:31.021Z]     - https://www.linkedin.com/company/antios
+[2026-03-23T22:43:31.021Z]   tw (1):
+[2026-03-23T22:43:31.021Z]     - https://x.com/antiostx
+[2026-03-23T22:43:31.021Z]   urls (1):
+[2026-03-23T22:43:31.021Z]     - https://www.fassino.com
+[2026-03-23T22:43:31.021Z] Summary: ws:1, tw:1, li:1, urls:1
+[2026-03-23T22:43:31.022Z] Saved final result to result.json
+[2026-03-23T22:43:31.023Z] Override fields: ws, li, tw, urls
+[2026-03-23T22:43:31.023Z] Finished at: 2026-03-23T22:43:31.023Z

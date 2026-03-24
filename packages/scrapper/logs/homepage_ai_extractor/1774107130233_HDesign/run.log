@@ -1,0 +1,75 @@
+[2026-03-21T15:32:10.234Z] === Homepage AI Extractor: HDesign ===
+[2026-03-21T15:32:10.234Z] Started at: 2026-03-21T15:32:10.234Z
+[2026-03-21T15:32:10.234Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774107130233_HDesign
+[2026-03-21T15:32:10.234Z] Company: HDesign
+[2026-03-21T15:32:10.234Z] Website: hdesign.co.il
+[2026-03-21T15:32:10.234Z] cbRank: 3502654
+[2026-03-21T15:32:10.234Z] Reasons: h
+[2026-03-21T15:32:10.234Z] Fetching: https://hdesign.co.il
+[2026-03-21T15:32:16.071Z] Redirected: https://hdesign.co.il -> https://www.hdesign.co.il/
+[2026-03-21T15:32:16.109Z] Saved HTML (2046909 bytes) to page.html
+[2026-03-21T15:32:16.112Z] Extracted 58 unique links from page
+[2026-03-21T15:32:16.113Z] Saved 58 links to links.json
+[2026-03-21T15:32:16.118Z] Extracted footer HTML (36461 chars)
+[2026-03-21T15:32:16.118Z] Extracted header HTML (21450 chars)
+[2026-03-21T15:32:16.121Z] Website (post-redirect): https://www.hdesign.co.il/ → origin: https://www.hdesign.co.il
+[2026-03-21T15:32:16.122Z] External links: 4 (of 58 total)
+[2026-03-21T15:32:16.122Z] ── All external links ──
+[2026-03-21T15:32:16.122Z]   EXT: https://api.whatsapp.com/send?phone=972503626785
+[2026-03-21T15:32:16.122Z]   EXT: https://www.facebook.com/hdesignprint
+[2026-03-21T15:32:16.122Z]   EXT: https://www.instagram.com/hdesign_print
+[2026-03-21T15:32:16.122Z]   EXT: https://www.youtube.com/channel/UCWe8VVoPygxIunR7GIJMcww
+[2026-03-21T15:32:16.122Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T15:32:16.122Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972503626785
+[2026-03-21T15:32:16.122Z]   REGEX: fb <- https://www.facebook.com/hdesignprint
+[2026-03-21T15:32:16.122Z]   REGEX: ig <- https://www.instagram.com/hdesign_print
+[2026-03-21T15:32:16.122Z]   REGEX: ytc <- https://www.youtube.com/channel/UCWe8VVoPygxIunR7GIJMcww
+[2026-03-21T15:32:16.122Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 1 uncategorized
+[2026-03-21T15:32:16.122Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T15:32:16.124Z] Saved AI prompt (3542 chars) to ai_prompt.txt
+[2026-03-21T15:32:16.124Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T15:32:16.127Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T15:32:30.963Z]   AI: First token received, streaming...
+[2026-03-21T15:32:39.659Z] AI response complete: 136 chars in 23.5s
+[2026-03-21T15:32:39.659Z] Saved AI response to ai_response.json
+[2026-03-21T15:32:39.659Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T15:32:39.659Z]   AI LINK: https://www.youtube.com/channel/UCWe8VVoPygxIunR7GIJMcww
+[2026-03-21T15:32:39.660Z]   AI LINK: https://www.facebook.com/hdesignprint/
+[2026-03-21T15:32:39.660Z]   AI LINK: https://www.instagram.com/hdesign_print/
+[2026-03-21T15:32:39.660Z] AI returned 3 valid links
+[2026-03-21T15:32:39.660Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T15:32:39.660Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCWe8VVoPygxIunR7GIJMcww (duplicate, skipped)
+[2026-03-21T15:32:39.660Z]   AI→REGEX: fb <- https://www.facebook.com/hdesignprint/ (duplicate, skipped)
+[2026-03-21T15:32:39.660Z]   AI→REGEX: ig <- https://www.instagram.com/hdesign_print/ (duplicate, skipped)
+[2026-03-21T15:32:39.660Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T15:32:39.660Z] Footer/header origins (5):
+[2026-03-21T15:32:39.660Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T15:32:39.660Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T15:32:39.660Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T15:32:39.660Z]   FOOTER/HEADER ORIGIN: https://www.hdesign.co.il
+[2026-03-21T15:32:39.660Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-21T15:32:39.660Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972503626785)
+[2026-03-21T15:32:39.660Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T15:32:39.660Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T15:32:39.660Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T15:32:40.039Z]   YOUTUBE: resolved UCWe8VVoPygxIunR7GIJMcww → @hdesign4774
+[2026-03-21T15:32:40.039Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T15:32:40.039Z] ── Step 3: Final dedup ──
+[2026-03-21T15:32:40.039Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T15:32:40.039Z] ── FINAL RESULT ──
+[2026-03-21T15:32:40.039Z]   ws (1):
+[2026-03-21T15:32:40.039Z]     - https://www.hdesign.co.il
+[2026-03-21T15:32:40.039Z]   fb (1):
+[2026-03-21T15:32:40.040Z]     - https://www.facebook.com/hdesignprint
+[2026-03-21T15:32:40.040Z]   ig (1):
+[2026-03-21T15:32:40.040Z]     - https://www.instagram.com/hdesign_print
+[2026-03-21T15:32:40.040Z]   ytp (1):
+[2026-03-21T15:32:40.040Z]     - https://www.youtube.com/@hdesign4774
+[2026-03-21T15:32:40.040Z]   ytc (1):
+[2026-03-21T15:32:40.040Z]     - https://www.youtube.com/channel/UCWe8VVoPygxIunR7GIJMcww
+[2026-03-21T15:32:40.040Z]   urls (1):
+[2026-03-21T15:32:40.040Z]     - https://api.whatsapp.com/send
+[2026-03-21T15:32:40.040Z] Summary: ws:1, fb:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-21T15:32:40.041Z] Saved final result to result.json
+[2026-03-21T15:32:40.041Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-21T15:32:40.041Z] Finished at: 2026-03-21T15:32:40.041Z

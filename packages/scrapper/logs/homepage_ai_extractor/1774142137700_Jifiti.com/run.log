@@ -1,0 +1,63 @@
+[2026-03-22T01:15:37.701Z] === Homepage AI Extractor: Jifiti.com ===
+[2026-03-22T01:15:37.701Z] Started at: 2026-03-22T01:15:37.701Z
+[2026-03-22T01:15:37.701Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774142137700_Jifiti.com
+[2026-03-22T01:15:37.701Z] Company: Jifiti.com
+[2026-03-22T01:15:37.701Z] Website: jifiti.com
+[2026-03-22T01:15:37.702Z] cbRank: 20574
+[2026-03-22T01:15:37.702Z] Reasons: f, i
+[2026-03-22T01:15:37.702Z] Fetching: https://jifiti.com
+[2026-03-22T01:15:50.775Z] Network idle timeout — continuing with current state
+[2026-03-22T01:15:50.825Z] Redirected: https://jifiti.com -> https://www.jifiti.com/
+[2026-03-22T01:15:50.849Z] Saved HTML (969896 bytes) to page.html
+[2026-03-22T01:15:50.855Z] Extracted 99 unique links from page
+[2026-03-22T01:15:50.856Z] Saved 99 links to links.json
+[2026-03-22T01:15:50.867Z] Extracted footer HTML (16080 chars)
+[2026-03-22T01:15:50.867Z] Extracted header HTML (391247 chars)
+[2026-03-22T01:15:50.871Z] Website (post-redirect): https://www.jifiti.com/ → origin: https://www.jifiti.com
+[2026-03-22T01:15:50.871Z]   SUBDOMAIN: gifting.jifiti.com (added to ws)
+[2026-03-22T01:15:50.871Z] Website subdomains found: 1
+[2026-03-22T01:15:50.871Z] External links: 2 (of 99 total)
+[2026-03-22T01:15:50.871Z] ── All external links ──
+[2026-03-22T01:15:50.871Z]   EXT: https://twitter.com/JifitiPayments
+[2026-03-22T01:15:50.872Z]   EXT: https://www.linkedin.com/company/jifiti
+[2026-03-22T01:15:50.872Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:15:50.872Z]   REGEX: tw <- https://twitter.com/JifitiPayments
+[2026-03-22T01:15:50.873Z]   REGEX: li <- https://www.linkedin.com/company/jifiti
+[2026-03-22T01:15:50.873Z] Programmatic result: ws:2, tw:1, li:1 | 0 uncategorized
+[2026-03-22T01:15:50.873Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:15:50.876Z] Saved AI prompt (8157 chars) to ai_prompt.txt
+[2026-03-22T01:15:50.876Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:15:50.881Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:16:26.209Z]   AI: First token received, streaming...
+[2026-03-22T01:16:29.575Z] AI response complete: 75 chars in 38.7s
+[2026-03-22T01:16:29.577Z] Saved AI response to ai_response.json
+[2026-03-22T01:16:29.577Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T01:16:29.577Z]   AI LINK: https://www.linkedin.com/company/jifiti/
+[2026-03-22T01:16:29.578Z]   AI LINK: https://twitter.com/JifitiPayments
+[2026-03-22T01:16:29.578Z] AI returned 2 valid links
+[2026-03-22T01:16:29.578Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T01:16:29.578Z]   AI→REGEX: li <- https://www.linkedin.com/company/jifiti/ (duplicate, skipped)
+[2026-03-22T01:16:29.579Z]   AI→REGEX: tw <- https://twitter.com/JifitiPayments (duplicate, skipped)
+[2026-03-22T01:16:29.590Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:16:29.590Z] Footer/header origins (4):
+[2026-03-22T01:16:29.591Z]   FOOTER/HEADER ORIGIN: https://www.jifiti.com
+[2026-03-22T01:16:29.591Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:16:29.591Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T01:16:29.591Z]   FOOTER/HEADER ORIGIN: https://gifting.jifiti.com
+[2026-03-22T01:16:29.592Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:16:29.592Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:16:29.592Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:16:29.592Z] ── Step 3: Final dedup ──
+[2026-03-22T01:16:29.592Z] No urls to dedup
+[2026-03-22T01:16:29.592Z] ── FINAL RESULT ──
+[2026-03-22T01:16:29.593Z]   ws (2):
+[2026-03-22T01:16:29.593Z]     - https://gifting.jifiti.com
+[2026-03-22T01:16:29.593Z]     - https://www.jifiti.com
+[2026-03-22T01:16:29.593Z]   li (1):
+[2026-03-22T01:16:29.593Z]     - https://www.linkedin.com/company/jifiti
+[2026-03-22T01:16:29.593Z]   tw (1):
+[2026-03-22T01:16:29.593Z]     - https://x.com/jifitipayments
+[2026-03-22T01:16:29.593Z] Summary: ws:2, tw:1, li:1
+[2026-03-22T01:16:29.594Z] Saved final result to result.json
+[2026-03-22T01:16:29.595Z] Override fields: ws, li, tw
+[2026-03-22T01:16:29.595Z] Finished at: 2026-03-22T01:16:29.595Z

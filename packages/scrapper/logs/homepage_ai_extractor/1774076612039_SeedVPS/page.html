@@ -1,0 +1,975 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title and Meta Description -->
+  <title>SeedVPS | High-Performance VPS Hosting in the Netherlands</title>
+  <meta name="description" content="High-Performance VPS hosting with SSD or Storage VPS options, powered by 10 Gbps nodes, KVM virtualization, and latest-gen hardware, hosted in the Netherlands">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.seedvps.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SeedVPS | High-Performance VPS Hosting in the Netherlands">
+  <meta property="og:description" content="High-Performance VPS hosting with SSD or Storage VPS options, powered by 10 Gbps nodes, KVM virtualization, and latest-gen hardware, hosted in the Netherlands">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="https://www.seedvps.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SeedVPS | High-Performance VPS Hosting in the Netherlands">
+  <meta name="twitter:description" content="High-Performance VPS hosting with SSD or Storage VPS options, powered by 10 Gbps nodes, KVM virtualization, and latest-gen hardware, hosted in the Netherlands">
+  <meta name="twitter:image" content="">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/favicon-96x.png" sizes="96x-96x">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/seedvps.css">
+  <script async="" src="//matomo.seedvps.com/matomo.js"></script><script src="https://unpkg.com/alpinejs" defer=""></script>
+
+      <!-- Analytics -->
+    <script defer="" data-domain="seedvps.com" src="https://analytics.seedvps.com/js/plausible.js"></script>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.seedvps.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+
+  
+
+
+
+</head>
+
+<body class="background-gradient">
+<nav x-data="accordion(6)" class="px-4 md:px-5 lg:px-14 top-0 z-50 bg-[#282d33] ">
+    <!-- Logo Left nav -->
+    <div class="max-w-7xl mx-auto z-40 flex flex-wrap items-center w-full justify-between p-3 rounded-b-lg">
+        <div class="flex items-center">
+            <a href="/">
+                <img src="/assets/svg/logo.svg" class="filter invert" width="150" alt="seedvps">
+            </a>
+        </div>
+        <!-- End left nav -->
+
+        <!-- Right nav -->
+        <!-- Show menu sm,md -->
+        <!-- Toggle button -->
+        <div @click="handleClick()" x-data="{open : false}" class="block text-white cursor-pointer lg:hidden">
+            <button @click="open = ! open" class="w-5 h-5 text-lg">
+                <svg x-show="! open" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" :class="{'transition-full each-in-out transform duration-500':! open}" class="transition-full each-in-out transform duration-500">
+                    <rect width="48" height="48" fill="white" fill-opacity="0.01"></rect>
+                    <path d="M7.94977 11.9498H39.9498" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M7.94977 23.9498H39.9498" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M7.94977 35.9498H39.9498" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg x-show="open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x" style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <!-- End toggle button -->
+
+        <!-- Mobile Toggle menu -->
+        <div x-ref="tab" :style="handleToggle()" class="relative w-full overflow-hidden transition-all duration-700 lg:hidden max-h-0" style="">
+            <div class="flex flex-col my-5 space-y-2 text-lg text-white">
+
+
+                <a href="/" class="py-1 hover:text-gray-300"><span>Pricing</span></a>
+
+                <a href="#features" class="py-1 hover:text-gray-300"><span>Features</span></a>
+
+                <a href="#faq" class="py-1 hover:text-gray-300"><span>FAQ</span></a>
+
+            </div>
+
+            <div class="space-y-2">
+                <a href="/billing/register.php" class="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                    Sign up
+                </a>
+                <a href="/billing/login" class="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                    Log In
+                </a>
+            </div>
+        </div>
+        <!-- End toggle menu -->
+        <!-- End show menu sm,md -->
+
+        <!-- Show Menu lg -->
+        <div class="hidden w-full lg:flex lg:items-center lg:w-auto">
+            <div class="items-center flex-1 pt-6 justify-center text-lg text-gray-100 lg:pt-0 lg:flex space-x-6">
+                <div class="mr-3">
+                    <a href="/" class="inline-block px-4 py-2 no-underline hover:text-gray-300 text-gray-100 font-semibold text-lg">
+                        Pricing</a>
+                </div>
+
+                <div class="mr-3">
+                    <a href="#features" class="inline-block px-4 py-2 no-underline hover:text-gray-300 text-gray-100 font-semibold text-lg">
+                        Features</a>
+                </div>
+
+                 <div class="mr-3">
+                    <a href="#faq" class="inline-block px-4 py-2 no-underline hover:text-gray-300 text-gray-100 font-semibold text-lg">
+                        FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="hidden w-full lg:flex lg:items-center lg:w-auto">
+            <div class="items-center flex-1 pt-6 justify-center text-lg text-gray-100 lg:pt-0 list-reset lg:flex space-x-2">
+                <!-- Dropdown 2 -->
+                <div x-data="{ open: false }" @mouseleave="open = false" class="relative inline-block text-white" :class="{'text-gray-200': open, 'text-white': !open }">
+                    <!-- Dropdown Toggle Button -->
+                    <button @mouseover="open = true" class="flex items-center p-2 rounded-md">
+                        <span class="mr-2 font-semibold text-lg">Log in</span>
+                        <span :class="open = ! open ? '': '-rotate-180'" class="transition-transform duration-500 transform">
+                            <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <!-- End Dropdown Toggle Button -->
+
+                    <!-- Dropdown Menu -->
+                    <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" class="absolute right-0 py-1 text-gray-500 bg-white rounded-lg shadow-xl min-w-max overflow-hidden" style="display: none;">
+                        <div>
+                            <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+
+                                <a href="/billing/login" class="-m-3 p-3 flex items-start rounded-lg hover:bg-blue-50">
+                                    <div class="flex items-center space-x-2.5">
+                                        <div class="bg-[#282d33] text-white p-1 rounded-md">
+                                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                                            </svg>
+
+                                        </div>
+                                        <p class="text-base font-medium text-slate-900">Client Portal</p>
+                                    </div>
+                                </a>
+
+                                <a href="https://cp.seedvps.com/login.php" class="-m-3 p-3 flex items-start rounded-lg hover:bg-blue-50">
+                                    <div class="flex items-center space-x-2.5">
+                                        <div class="bg-[#282d33] text-white p-1 rounded-md">
+                                            <svg class="w-5 h-5 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.7 41.6">
+                                                <path d="M27.8 11.4l-2.9-5s-4.1-1.5-8 .7c-4.3 2.4-4.5 6.8-4.5 6.8s-13.2 3.8-11 15.3c2.5 11.2 13.8 10.6 13.8 10.6v-4.3s-9.3.3-9.4-8.1c0-9.1 10-10.4 10-10.4s-.5-4.2 3.9-6.3c4.3-2.1 7.8 1.2 7.8 1.2l.3-.5z">
+                                                </path>
+                                                <path d="M52.2 14.5s-.8-9-9.6-12.1C33.4-.8 27 5 27 5l2.2 4s5.4-5.7 12.9-1.9c6.7 3.5 4.3 9.7 4.3 9.7s8.1.3 8 9.8c-1.6 8.6-11.1 9.1-11.1 9.1-1.3.2-11.2 1.1-13-1.2-4.2-5.5-1.3-13-1.3-13l-.3-.5s-2.9 5.3-2.8 11c.7 8 5.7 8.2 6.5 8.2 6.3.4 11.3-.4 11.3-.4s12.6-1.1 14.5-12.6c.9-10.3-6-12.7-6-12.7z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text-base font-medium text-slate-900">VPS Control Panel</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Dropdown Menu -->
+                </div>
+                <!-- End Dropdown 2 -->
+                <a href="/billing/register.php" class=" font-semibold px-2 py-2 rounded-md bg-white border border-white text-gray-900 focus:ring-4
+                    ring-white ring-opacity-60 hover:-translate-y-0.5 transform text-lg">
+                    Sign Up
+                </a>
+            </div>
+        </div>
+        <!-- End show Menu lg -->
+        <!-- End right nav -->
+    </div>
+</nav><header>
+    <div class="max-w-8xl mx-auto px-5 lg:px-14 mt-16 mb-12">
+        <div class="flex flex-col justify-center text-center w-full">
+            <h1 class="text-3xl md:text-5xl font-black text-[#04034a]"> High-Performance VPS Hosting</h1>
+            <p class="text-xl mt-5">Fast. Reliable. Deployed Instantly.</p>
+        </div>
+    </div>
+</header><div x-data="{
+    storageType: 'ssd',
+    billingCycle: 'annually',
+    
+    // Get price based on the selected billing cycle
+    getPrice(package) {
+        if (this.billingCycle === 'annually') {
+            return package[2];
+        } else if (this.billingCycle === 'biennially') {
+            return package[3];
+        } else {
+            return package[1]; // monthly is default
+        }
+    },
+    
+    // Generate the order URL with billing cycle parameter
+    getOrderUrl(baseUrl) {
+        if (this.billingCycle === 'annually') {
+            return baseUrl + '&amp;billingcycle=annually';
+        } else if (this.billingCycle === 'biennially') {
+            return baseUrl + '&amp;billingcycle=biennially';
+        } else {
+            return baseUrl + '&amp;billingcycle=monthly';
+        }
+    }
+}">
+
+    <div class="mx-auto max-w-7xl px-5 text-center">
+        <!-- Billing Cycle Selector -->
+        <div class="flex justify-center flex-col gap-y-6">
+            <div class="flex items-center justify-center">
+                <select id="billing-cycle" x-model="billingCycle" class="rounded-md border font-light border-[#8d8e96] px-2 py-3 -mt-6 text-gray-900 focus:border-[#031b4e] focus:outline-none">
+                    <option value="biennially">2-Year Plans (30% Off)</option>
+                    <option value="annually">1-Year Plans (15% Off)</option>
+                    <option value="monthly">Monthly Plans (0% Off)</option>
+                </select>
+            </div>
+
+
+            <!-- Storage Type Toggle -->
+            <div class="flex items-center justify-center">
+                <label for="storage-toggle" class="inline-flex cursor-pointer items-center">
+                <span :class="storageType === 'ssd' ? 'text-black font-bold' : 'text-gray-500'" class="mr-2 text-lg font-semibold text-black font-bold">SSD</span>
+
+                    <input type="checkbox" id="storage-toggle" class="peer sr-only" @click="storageType = storageType === 'ssd' ? 'hdd' : 'ssd'">
+                    <div class="peer relative h-9 w-16 rounded-full border-2 border-black peer-checked:bg-gray-900 peer-focus:outline-none after:absolute after:top-[2px] after:left-[2px] after:h-7 after:w-7 after:rounded-full after:bg-gray-900 after:transition-all after:duration-100 after:content-[''] peer-checked:after:translate-x-full after:peer-checked:bg-white"></div>
+                    <span :class="storageType === 'hdd' ? 'text-black font-bold' : 'text-gray-500'" class="ml-2 text-lg font-semibold text-gray-500">HDD</span>
+
+                </label>
+            </div>
+        </div>
+
+
+
+        <!-- Package Grids -->
+        <div x-show="storageType === 'ssd'">
+            <div class="max-w-7xl mx-auto mt-6 px-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:grid-rows-1 gap-6">
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">SSD 1GB</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;SSD 1GB&quot;,&quot;9&quot;,&quot;7.65&quot;,&quot;6.30&quot;,&quot;1&quot;,&quot;1GB&quot;,&quot;40GB&quot;,&quot;2TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=38&quot;])">€7.65</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">1</p>
+                                    <span class="ml-1 text-gray-900">Core</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">40GB</p>
+                                    <span class="ml-1 text-gray-900">SSD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">1GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">2TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=38')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=38&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">SSD 2GB</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;SSD 2GB&quot;,&quot;19&quot;,&quot;16.15&quot;,&quot;13.30&quot;,&quot;2&quot;,&quot;2GB&quot;,&quot;80GB&quot;,&quot;4TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=39&quot;])">€16.15</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">2</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">80GB</p>
+                                    <span class="ml-1 text-gray-900">SSD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">2GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">4TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=39')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=39&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">SSD 4GB</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;SSD 4GB&quot;,&quot;29&quot;,&quot;24.65&quot;,&quot;20.70&quot;,&quot;4&quot;,&quot;4GB&quot;,&quot;120GB&quot;,&quot;8TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=40&quot;])">€24.65</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">4</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">120GB</p>
+                                    <span class="ml-1 text-gray-900">SSD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">4GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">8TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=40')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=40&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">SSD 6GB</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;SSD 6GB&quot;,&quot;39&quot;,&quot;33.15&quot;,&quot;27.30&quot;,&quot;6&quot;,&quot;6GB&quot;,&quot;180GB&quot;,&quot;12TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=41&quot;])">€33.15</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">6</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">180GB</p>
+                                    <span class="ml-1 text-gray-900">SSD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">6GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">12TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=41')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=41&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">SSD 8GB</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;SSD 8GB&quot;,&quot;49&quot;,&quot;41.65&quot;,&quot;34.30&quot;,&quot;8&quot;,&quot;8GB&quot;,&quot;240GB&quot;,&quot;16TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=42&quot;])">€41.65</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">8</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">240GB</p>
+                                    <span class="ml-1 text-gray-900">SSD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">8GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">16TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=42')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=42&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div x-show="storageType === 'hdd'" style="display: none;">
+            <div class="max-w-7xl mx-auto mt-6 px-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:grid-rows-1 gap-6">
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">Lite</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;Lite&quot;,&quot;9&quot;,&quot;7.65&quot;,&quot;6.30&quot;,&quot;1&quot;,&quot;1GB&quot;,&quot;250GB&quot;,&quot;2TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=36&quot;])">€7.65</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">1</p>
+                                    <span class="ml-1 text-gray-900">Core</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">250GB</p>
+                                    <span class="ml-1 text-gray-900">HDD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">1GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">2TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=36')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=36&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">Mini</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;Mini&quot;,&quot;19&quot;,&quot;16.15&quot;,&quot;13.30&quot;,&quot;2&quot;,&quot;2GB&quot;,&quot;500GB&quot;,&quot;4TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=15&quot;])">€16.15</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">2</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">500GB</p>
+                                    <span class="ml-1 text-gray-900">HDD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">2GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">4TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=15')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=15&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">Basic</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;Basic&quot;,&quot;29&quot;,&quot;24.65&quot;,&quot;20.70&quot;,&quot;4&quot;,&quot;4GB&quot;,&quot;750GB&quot;,&quot;8TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=16&quot;])">€24.65</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">4</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">750GB</p>
+                                    <span class="ml-1 text-gray-900">HDD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">4GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">8TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=16')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=16&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">Pro</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;Pro&quot;,&quot;39&quot;,&quot;33.15&quot;,&quot;27.30&quot;,&quot;6&quot;,&quot;6GB&quot;,&quot;1024GB&quot;,&quot;12TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=17&quot;])">€33.15</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">6</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">1024GB</p>
+                                    <span class="ml-1 text-gray-900">HDD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">6GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">12TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=17')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=17&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                            <div class="border border-[#dbe1e8] rounded-md px-10 py-5 shadow-sm bg-white bg-opacity-50">
+                            <div class="hidden md:flex justify-center mb-5">
+                                <h4 class="text-2xl font-semibold text-[#c72c41]">Ultimate</h4>
+                            </div>
+                            <div class="flex justify-center items-end">
+                                <p class="text-5xl font-bold" x-text="'€' + getPrice([&quot;Ultimate&quot;,&quot;49&quot;,&quot;41.65&quot;,&quot;34.30&quot;,&quot;8&quot;,&quot;8GB&quot;,&quot;2048GB&quot;,&quot;16TB&quot;,&quot;https:\/\/www.seedvps.com\/billing\/cart.php?a=add&amp;pid=18&quot;])">€41.65</p>
+                                <span class="text-md">/mo</span>
+                            </div>
+                            <div class="grid md:px-10 lg:px-0 grid-cols-2 lg:grid-cols-1 gap-y-4 text-lg mt-5">
+                                <div class="flex">
+                                    <p class="font-semibold">8</p>
+                                    <span class="ml-1 text-gray-900">Cores</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">2048GB</p>
+                                    <span class="ml-1 text-gray-900">HDD</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">8GB</p>
+                                    <span class="ml-1 text-gray-900">RAM</span>
+                                </div>
+                                <div class="flex">
+                                    <p class="font-semibold">16TB</p>
+                                    <span class="ml-1 text-gray-900">Bandwidth</span>
+                                </div>
+                                <div class="hidden lg:flex">
+                                    <p class="font-semibold">1 Gbps</p>
+                                    <span class="ml-1 text-gray-900">Uplink</span>
+                                </div>
+                            </div>
+                            <a :href="getOrderUrl('https://www.seedvps.com/billing/cart.php?a=add&amp;pid=18')" class="w-full block mx-auto text-center mt-6 border-2 border-[#031b4e] text-[#031b4e] cursor-pointer font-semibold text-lg rounded-md p-4 hover:bg-[#031b4e] hover:text-white transition-colors" href="https://www.seedvps.com/billing/cart.php?a=add&amp;pid=18&amp;billingcycle=annually">
+                                Order Now
+                            </a>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-8xl mx-auto px-5">
+        <div class="text-gray-700 text-center text-xl mt-5">
+            All of our plans come with a <span class="text-blue-600">7-day money-back guarantee</span> and include free
+            unlimited inbound bandwidth.
+        </div>
+    </div>
+<section id="features" class="mb-20">
+    <div class="max-w-7xl mx-auto pt-24">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-14">
+                        <div class="p-5">
+                <div class="p-2 rounded-lg inline-flex  mb-5">
+                    <img src="/assets/svg/rocket.svg" alt="Instant Setup Icon" loading="lazy" width="55" height="55">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Instant Setup</h3>
+                <p class="text-lg text-gray-700">With our cutting-edge technology, your server will be online instantly. Your VPS details will be delivered to you within seconds after payment.</p>
+            </div>
+                        <div class="p-5">
+                <div class="p-2 rounded-lg inline-flex  mb-5">
+                    <img src="/assets/svg/cpu.svg" alt="Performance Icon" loading="lazy" width="55" height="55">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Performance</h3>
+                <p class="text-lg text-gray-700">Our nodes are custom-built for VPS hosting and feature Intel Xeon Gold CPUs, NVMe data center SSDs or enterprise HDDs, DDR4 ECC RAM, RAID-10, and 10 Gbps uplinks.</p>
+            </div>
+                        <div class="p-5">
+                <div class="p-2 rounded-lg inline-flex  mb-5">
+                    <img src="/assets/svg/scale.svg" alt="Scale Icon" loading="lazy" width="55" height="55">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Scale</h3>
+                <p class="text-lg text-gray-700">You can upgrade or downgrade your VPS at any time. We offer configurations of up to 40 cores, 128GB RAM, and 30TB storage. Just reach out, and we’ll be happy to provide a custom quote!</p>
+            </div>
+                        <div class="p-5">
+                <div class="p-2 rounded-lg inline-flex  mb-5">
+                    <img src="/assets/svg/controlpanel.svg" alt="Control Panel Icon" loading="lazy" width="55" height="55">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Control Panel</h3>
+                <p class="text-lg text-gray-700">Our feature-rich control panel allows you to power on, shut down, reboot, and reinstall your server. You can also access the console, check logs, monitor bandwidth, and much more!</p>
+            </div>
+                        <div class="p-5">
+                <div class="p-2 rounded-lg inline-flex  mb-5">
+                    <img src="/assets/svg/support.svg" alt="Support Icon" loading="lazy" width="55" height="55">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Support</h3>
+                <p class="text-lg text-gray-700">Our friendly support team is available 24/7, 365 days a year, and is ready to assist you with any questions you may have.</p>
+            </div>
+                        <div class="p-5">
+                <div class="p-2 rounded-lg inline-flex  mb-5">
+                    <img src="/assets/svg/raid.svg" alt="Data Safety Icon" loading="lazy" width="55" height="55">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Data Safety</h3>
+                <p class="text-lg text-gray-700">We prioritize your data security, which is why all of our servers are configured with RAID-10. This ensures that even if multiple drives fail, your data will remain safe.</p>
+            </div>
+                    </div>
+    </div>
+
+    <!--
+    <div class="max-w-5xl mx-auto p-10">
+        <div class="text-center">
+            <div class="flex justify-center mt-16">
+                <div
+                    class="border-2 border-[#1d1b4c] p-5 text-[#1d1b4c] w-48 h-20 rounded-lg flex items-center justify-center font-bold text-lg cursor-pointer transform transition duration-300 hover:bg-[#2a275e] hover:border-[#2a275e] hover:text-[#e0e0e0] hover:scale-105">
+                    More Features
+                </div>
+            </div>
+        </div>
+    </div>
+            -->
+</section>
+<section id="faq">
+    <div class="max-w-4xl mx-auto px-4 py-28" x-data="{ activeAccordion: -1 }">
+        <div class="text-center">
+            <h2 class="text-3xl md:text-5xl font-black text-[#04034a] mb-16">Frequently Asked Questions</h2>
+        </div>
+        <div class="space-y-4">
+                        <div class="p-5">
+                <button @click="activeAccordion = activeAccordion === 0 ? -1 : 0" class="flex w-full justify-between items-center text-[#142149] rounded-lg">
+                    <h3 class="font-semibold text-xl">How can I upgrade/downgrade my VPS?</h3>
+                    <span aria-hidden="true" class="transition">
+                        <span class="text-2xl -mr-1" x-text="activeAccordion === 0 ? '-' : '+'">+</span>
+                    </span>
+                </button>
+                <div x-show="activeAccordion === 0" class="mt-4" style="display: none;">
+                    <div class="pr-14 border-r-2">You can upgrade or downgrade your VPS at any time. Simply contact us and let us know which plan you would like to switch to.</div>
+                </div>
+            </div>
+                        <div class="p-5">
+                <button @click="activeAccordion = activeAccordion === 1 ? -1 : 1" class="flex w-full justify-between items-center text-[#142149] rounded-lg">
+                    <h3 class="font-semibold text-xl">What happens if I reach my bandwidth limit?</h3>
+                    <span aria-hidden="true" class="transition">
+                        <span class="text-2xl -mr-1" x-text="activeAccordion === 1 ? '-' : '+'">+</span>
+                    </span>
+                </button>
+                <div x-show="activeAccordion === 1" class="mt-4" style="display: none;">
+                    <div class="pr-14 border-r-2"><div><p class="mb-4">
+        Your VPS will be suspended for the remainder of the month.
+    </p>
+    <p class="font-semibold text-gray-800 mb-3">To purchase additional bandwidth, follow these steps:
+    </p><ol class="list-decimal list-inside space-y-2 mb-4">
+        <li><span class="font-medium">Log in</span> to the client portal.</li>
+        <li>
+            Navigate to <span class="font-medium">Services → Addons</span>.
+        </li>
+        <li>
+            Select the <span class="font-medium">"1TB Additional Traffic (One Time)"</span> addon. Ensure you select the correct service.
+        </li>
+        <li>
+            Once the invoice is paid, the suspended service will be <span class="font-medium">automatically reactivated</span>.
+        </li>
+    </ol>
+    <p class="mb-4">
+        Alternatively, you can open a ticket or contact us at
+        <a href="mailto:sales@seedvps.com" class="text-blue-600 hover:underline">sales@seedvps.com</a>.
+    </p>
+    <p class="font-bold text-gray-900">
+        The cost for additional bandwidth is €2.50 per month for every 1TB (1024GB).
+    </p></div>
+        </div>
+                </div>
+            </div>
+                        <div class="p-5">
+                <button @click="activeAccordion = activeAccordion === 2 ? -1 : 2" class="flex w-full justify-between items-center text-[#142149] rounded-lg">
+                    <h3 class="font-semibold text-xl">What virtualization types do you use?</h3>
+                    <span aria-hidden="true" class="transition">
+                        <span class="text-2xl -mr-1" x-text="activeAccordion === 2 ? '-' : '+'">+</span>
+                    </span>
+                </button>
+                <div x-show="activeAccordion === 2" class="mt-4" style="display: none;">
+                    <div class="pr-14 border-r-2">We use KVM virtualization, a highly efficient and reliable technology that offers near-native performance by utilizing hardware acceleration (Intel VT-x or AMD-V). KVM ensures strong isolation, dedicated resources for each virtual machine, and excellent scalability, making it ideal for high-performance workloads.</div>
+                </div>
+            </div>
+                        <div class="p-5">
+                <button @click="activeAccordion = activeAccordion === 3 ? -1 : 3" class="flex w-full justify-between items-center text-[#142149] rounded-lg">
+                    <h3 class="font-semibold text-xl">Do you have a Looking Glass and a Status Page?</h3>
+                    <span aria-hidden="true" class="transition">
+                        <span class="text-2xl -mr-1" x-text="activeAccordion === 3 ? '-' : '+'">-</span>
+                    </span>
+                </button>
+                <div x-show="activeAccordion === 3" class="mt-4" style="">
+                    <div class="pr-14 border-r-2"><p class="font-bold text-gray-900 mb-4">Yes!</p>
+        <ul class="list-none space-y-3">
+            <li>
+                <span class="font-medium text-gray-700">Looking Glass:</span> 
+                <a href="https://lg.nl.seedvps.com" target="_blank" class="text-blue-600 hover:underline">https://lg.nl.seedvps.com</a>
+            </li>
+            <li>
+                <span class="font-medium text-gray-700">Status Page:</span> 
+                <a href="https://status.seedvps.com" target="_blank" class="text-blue-600 hover:underline">https://status.seedvps.com</a>
+            </li>
+        </ul></div>
+                </div>
+            </div>
+                        <div class="p-5">
+                <button @click="activeAccordion = activeAccordion === 4 ? -1 : 4" class="flex w-full justify-between items-center text-[#142149] rounded-lg">
+                    <h3 class="font-semibold text-xl">Do you support IPv6?</h3>
+                    <span aria-hidden="true" class="transition">
+                        <span class="text-2xl -mr-1" x-text="activeAccordion === 4 ? '-' : '+'">+</span>
+                    </span>
+                </button>
+                <div x-show="activeAccordion === 4" class="mt-4" style="display: none;">
+                    <div class="pr-14 border-r-2">Yes, IPv6 is fully supported. If you require IPv6 addresses, simply open a support ticket, and we’ll assign them to you. We can provide as many IPv6 addresses as you need, completely free of charge!
+        </div>
+                </div>
+            </div>
+                        <div class="p-5">
+                <button @click="activeAccordion = activeAccordion === 5 ? -1 : 5" class="flex w-full justify-between items-center text-[#142149] rounded-lg">
+                    <h3 class="font-semibold text-xl">What payment methods are accepted?</h3>
+                    <span aria-hidden="true" class="transition">
+                        <span class="text-2xl -mr-1" x-text="activeAccordion === 5 ? '-' : '+'">+</span>
+                    </span>
+                </button>
+                <div x-show="activeAccordion === 5" class="mt-4" style="display: none;">
+                    <div class="pr-14 border-r-2">We accept the following payment methods: PayPal, Skrill, credit/debit cards, SEPA bank transfers, Bitcoin, and various other cryptocurrencies.</div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</section>
+<footer class="sticky top-[100vh]">
+    <div class="bg-[#282d33] mx-auto pt-10 pb-12">
+        <div class="max-w-7xl mx-auto pt-5 pb-24">
+            <div class="flex md:flex-row flex-col md:items-start items-start p-5">
+
+                <!-- footer menu -->
+                <nav class="grid grid-rows-1 md:grid-cols-2 lg:grid-cols-4 text-white gap-28 grid-cols-2 w-full">
+                    <div>
+                        <h3 class="text-lg font-bold mb-5 uppercase">Company</h3>
+                        <ul class="space-y-3">
+                            <li class="text-lg text-gray-200 font-semibold"><a href="https://www.seedvps.com/billing/announcements">News</a></li>
+                            <li class="text-lg text-gray-200 font-semibold">
+                                <a href="https://www.seedvps.com/billing/submitticket.php?step=2&amp;deptid=2">Contact
+                                    Us</a>
+                            </li>
+                            <li class="pt-2 flex items-center space-x-2">
+                                <a target="_blank" rel="nofollow noopener" href="https://twitter.com/SeedVPS"><svg class="h-4 text-gray-300 hover:text-white hover:-translate-y-0.5 transform" fill="currentColor" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 462.799">
+                                        <path fill-rule="nonzero" d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"></path>
+                                    </svg></a>
+                                <a target="_blank" rel="nofollow noopener" href="https://www.facebook.com/pages/SeedVPS/598539806868391"><svg class="h-5 text-gray-300 hover:text-white hover:-translate-y-0.5 transform" fill="currentColor" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 507.14">
+                                        <path fill-rule="nonzero" d="M509 254.5C509 113.94 395.06 0 254.5 0S0 113.94 0 254.5C0 373.86 82.17 474 193.02 501.51V332.27h-52.48V254.5h52.48v-33.51c0-86.63 39.2-126.78 124.24-126.78 16.13 0 43.95 3.17 55.33 6.33v70.5c-6.01-.63-16.44-.95-29.4-.95-41.73 0-57.86 15.81-57.86 56.91v27.5h83.13l-14.28 77.77h-68.85v174.87C411.35 491.92 509 384.62 509 254.5z"></path>
+                                    </svg></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-5 uppercase">Products</h3>
+                        <ul class="space-y-3">
+                            <li class="text-lg text-gray-200 font-semibold"><a href="/products/storage-vps/">Storage
+                                    VPS</a></li>
+                            <li class="text-lg text-gray-200 font-semibold"><a href="/products/ssd-vps/">SSD
+                                    VPS</a></li>
+                            <li class="text-lg text-gray-200 font-semibold"><a href="/products/windows-vps/">Windows
+                                    VPS</a></li>
+
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-5 uppercase">Support</h3>
+                        <ul class="space-y-3">
+                            <li class="text-lg text-gray-200 font-semibold"><a target="_blank" href="https://status.seedvps.com">Network Status</a></li>
+                            <li class="text-lg text-gray-200 font-semibold"><a href="https://www.seedvps.com/billing/knowledgebase">Knowledgebase</a></li>
+                            <li class="text-lg text-gray-200 font-semibold">
+                                <a href="https://www.seedvps.com/billing/submitticket.php?step=2&amp;deptid=1">Contact
+                                    Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-5 uppercase">Legal</h3>
+                        <ul class="space-y-3 text-gray">
+                            <li class="text-lg text-gray-200 font-semibold"><a href="/legal/terms-of-service/">Terms of
+                                    Service</a></li>
+                            <li class="text-lg text-gray-200 font-semibold"><a href="/legal/acceptable-use-policy/">Acceptable Use Policy</a></li>
+                            <li class="text-lg text-gray-200 font-semibold"><a href="/legal/privacy-policy/">Privacy
+                                    Policy</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+            <hr class="border-1 border-[#30383f] mt-[5rem] mb-[5rem]">
+
+            <div class="flex flex-col lg:flex-row lg:justify-between p-5">
+                <div class="flex flex-col lg:flex-row justify-center md:justify-start items-center space-y-2">
+                    <svg class="h-20 lg:h-12 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.7 41.6">
+                        <path d="M27.8 11.4l-2.9-5s-4.1-1.5-8 .7c-4.3 2.4-4.5 6.8-4.5 6.8s-13.2 3.8-11 15.3c2.5 11.2 13.8 10.6 13.8 10.6v-4.3s-9.3.3-9.4-8.1c0-9.1 10-10.4 10-10.4s-.5-4.2 3.9-6.3c4.3-2.1 7.8 1.2 7.8 1.2l.3-.5z">
+                        </path>
+                        <path d="M52.2 14.5s-.8-9-9.6-12.1C33.4-.8 27 5 27 5l2.2 4s5.4-5.7 12.9-1.9c6.7 3.5 4.3 9.7 4.3 9.7s8.1.3 8 9.8c-1.6 8.6-11.1 9.1-11.1 9.1-1.3.2-11.2 1.1-13-1.2-4.2-5.5-1.3-13-1.3-13l-.3-.5s-2.9 5.3-2.8 11c.7 8 5.7 8.2 6.5 8.2 6.3.4 11.3-.4 11.3-.4s12.6-1.1 14.5-12.6c.9-10.3-6-12.7-6-12.7z">
+                        </path>
+                    </svg>
+                    <p class="text-gray-400 ml-2">© SeedVPS 2025</p>
+                </div>
+                <div class="flex flex-row justify-center mt-10 md:mt-0 space-x-2">
+                    <svg class="w-12 h-12 lg:w-14 lg:h-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32">
+                        <g data-name="visa">
+                            <rect width="48" height="32" rx="4" style="fill:#222c37"></rect>
+                            <path d="m23.86 11.39-2 9.25h-2.4l2-9.25Zm10.06 6 1.26-3.47.73 3.47Zm2.67 3.28h2.22l-1.94-9.25h-2a1.09 1.09 0 0 0-1 .68l-3.59 8.57h2.52l.49-1.38h3Zm-6.24-3C30.36 15.18 27 15 27 14c0-.33.32-.68 1-.77a4.46 4.46 0 0 1 2.36.41l.42-2a6.4 6.4 0 0 0-2.24-.41c-2.36 0-4 1.26-4 3.06 0 1.33 1.19 2.07 2.09 2.51s1.25.75 1.24 1.15c0 .62-.74.9-1.43.91a5.1 5.1 0 0 1-2.44-.6l-.43 2a7.1 7.1 0 0 0 2.66.49c2.51 0 4.16-1.24 4.17-3.16m-9.91-6.23-3.88 9.25H14l-1.91-7.39a1 1 0 0 0-.57-.81 9.8 9.8 0 0 0-2.36-.78l.06-.27h4.07a1.13 1.13 0 0 1 1.11.94l1 5.35 2.49-6.29Z" style="fill:#fff"></path>
+                        </g>
+                    </svg>
+                    <svg class="w-12 h-12 lg:w-14 lg:h-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32">
+                        <g data-name="mastercard">
+                            <rect width="48" height="32" rx="4" style="fill:#222c37"></rect>
+                            <path style="fill:#f26324" d="M18.9 7.66h10.21v16.68H18.9z"></path>
+                            <path d="M20 16a10.57 10.57 0 0 1 4-8.34 10.61 10.61 0 1 0 0 16.68A10.57 10.57 0 0 1 20 16" style="fill:#e92328"></path>
+                            <path d="M40.14 22.57v-.34h.15v-.07h-.35v.07h.14v.34Zm.68 0v-.41h-.1l-.12.29-.13-.29h-.1v.41h.07v-.31l.12.27h.08l.11-.27v.31Zm.34-6.57A10.61 10.61 0 0 1 24 24.34a10.61 10.61 0 0 0 1.78-14.89A10.4 10.4 0 0 0 24 7.66 10.61 10.61 0 0 1 41.16 16" style="fill:#f59e21"></path>
+                        </g>
+                    </svg>
+                    <svg class="w-12 h-12 lg:w-14 lg:h-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32">
+                        <g data-name="amex">
+                            <rect width="48" height="32" rx="4" style="fill:#222c37"></rect>
+                            <path class="fill-white" d="m3.65 10.54.54 1.32H2.38l.55-1.32.36-.88z"></path>
+                            <path class="fill-white" d="M23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m18.32-2.46V8.9l-1.07-1.66h-3.14v2.1l-1-2.1h-5.34a3.84 3.84 0 0 0-2.5.82v-.82H11L10.4 9l-.6-1.8h-4v2.1l-.94-2.1H1.6L0 11v4.4h2.28l.47-1.22h1.12l.46 1.22h18.34v-1.46l1.16 1.46h4.81v-.74a4 4 0 0 0 2.42.74h2.87l.46-1.22h1.12L36 15.4h4.9v-1.58l1 1.58h3.38V7.24Zm-36.58 6.9L4.63 13H2l-.48 1.18H0L2.45 8.5h1.78l2.42 5.64Zm8.8 0h-1.32V9.58l-.26.86-1.33 3.7H9.78l-1.28-3.7-.28-.86v4.56H6.91V8.5h2.21l1.1 3.26.18.62.18-.62L11.7 8.5h2.21ZM19.5 9.7h-3.17v1h3.09v1.2h-3.09v1h3.17v1.2H15V8.5h4.5Zm4.59 4.44-1.68-2h-.62v2H20.4V8.5h3.09a1.76 1.76 0 0 1 2 1.78A1.75 1.75 0 0 1 24 12.06l1.88 2.08Zm3.39 0h-1.37V8.5h1.37Zm3.5 0h-.08a2.49 2.49 0 0 1-2.62-2.78v-.08A2.55 2.55 0 0 1 31 8.5h1.59v1.22H31.1a1.4 1.4 0 0 0-1.46 1.56v.08a1.41 1.41 0 0 0 .36 1.13 1.38 1.38 0 0 0 1.1.45h.43Zm5.78 0L36.28 13h-2.67l-.48 1.18h-1.46l2.42-5.68h1.8l2.41 5.64Zm7.19 0h-1.6L40.26 11l-.36-.62v3.8h-1.34V8.5h1.66l2 3 .38.64V8.46H44ZM35 9.66l-.36.88-.52 1.32h1.78l-.54-1.32Zm-11.58 0h-1.63v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.6.6 0 0 0-.23-.44.6.6 0 0 0-.47-.14Zm0 0h-1.63v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.6.6 0 0 0-.23-.44.6.6 0 0 0-.47-.14Zm11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78Zm-12-.8h-1.55v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15Zm0 0h-1.55v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15Zm11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m11.92.84L35 9.66l-.36.88-.52 1.32h1.78Zm0 0L35 9.66l-.36.88-.52 1.32h1.78ZM23.37 9.7h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.61.61 0 0 0 .21-.47.64.64 0 0 0-.21-.47.67.67 0 0 0-.49-.15m.94 10.66h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m0 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m0 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m5.75 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m-5.75 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m0 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m5.75 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m17.4 0H45a.49.49 0 0 0-.52.22.48.48 0 0 0 0 .56.49.49 0 0 0 .52.22h1.31a1.63 1.63 0 0 1 1.69.94v-3.1Zm-17.4 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m-5.75 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m20.76-1.2H48V17.9H18.86L18 19.1l-.84-1.2H8.88v8.16h8.26l.86-1.22.84 1.22h5.05v-1.84h.56A5.1 5.1 0 0 0 26 24v2.06h3.43V24.6l1.16 1.46h15.57a3.35 3.35 0 0 0 1.82-.5v-1.9a1.77 1.77 0 0 1-1.82 1.14h-2.87v-1.2h2.89a.49.49 0 0 0 .52-.22.48.48 0 0 0 0-.56.49.49 0 0 0-.52-.22h-1.29a1.54 1.54 0 0 1-1.27-.42 1.56 1.56 0 0 1-.49-1.24 1.75 1.75 0 0 1 .56-1.33 1.72 1.72 0 0 1 1.38-.45m-30.36 1.2h-3.17v1h3.11v1.18h-3.11v1h3.17v1.2h-4.53v-5.58h4.53Zm4.65 4.44L18 23l-1.41 1.8H15l2.2-2.8-2.27-2.82h1.7L18 20.94l1.38-1.78H21L18.8 22l2.28 2.84Zm5-1.86h-1.7v1.86h-1.34v-5.64h3.11a1.81 1.81 0 0 1 2 1.88 1.84 1.84 0 0 1-.59 1.41 1.81 1.81 0 0 1-1.45.49Zm6.39 1.86-1.68-2h-.62v2h-1.33v-5.64h3.06a1.78 1.78 0 0 1 1.65.71 1.79 1.79 0 0 1-1.23 2.85l1.89 2.08Zm6.58-4.44h-3.14v1h3.09v1.18h-3.09v1h3.17v1.2h-4.55v-5.58h4.55ZM41 24.8h-2.92v-1.2H41a.49.49 0 0 0 .52-.22.48.48 0 0 0 0-.56.49.49 0 0 0-.52-.22h-1.32a1.54 1.54 0 0 1-1.27-.42 1.56 1.56 0 0 1-.49-1.24 1.75 1.75 0 0 1 .57-1.32 1.72 1.72 0 0 1 1.37-.44h2.93l-.54 1.2h-2.43a.49.49 0 0 0-.52.22.48.48 0 0 0 0 .56.49.49 0 0 0 .52.22h1.31A1.55 1.55 0 0 1 42.89 23 1.75 1.75 0 0 1 41 24.8m-10.94-4.44h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m-5.75 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m0 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m5.75 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m-5.75 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m0 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38m5.75 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m0 0h-1.58v1.24h1.58a.58.58 0 0 0 .49-.15.63.63 0 0 0 0-.94.62.62 0 0 0-.49-.15m-5.75 0h-1.62v1.38h1.62a.69.69 0 0 0 0-1.38"></path>
+                        </g>
+                    </svg>
+                    <svg class="w-12 h-12 lg:w-14 lg:h-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32">
+                        <g id="discover" data-name="discover">
+                            <g id="Payment-Methods">
+                                <g id="discover-dark-large">
+                                    <path d="M48 4v24a4 4 0 0 1-4 4H4a4 4 0 0 1-1.36-.24A4 4 0 0 1 0 28V4a4 4 0 0 1 4-4h40a4 4 0 0 1 4 4" style="fill:#222c37"></path>
+                                    <path class="fill-[#ee7725]" d="M48 16v12a4.05 4.05 0 0 1-4.06 4H3.38A4 4 0 0 1 2 31.76c3.41-.49 6.69-1.09 9.92-1.78.85-.16 1.68-.36 2.51-.54 13.41-3.05 25-7.53 31.54-11.93C46.7 17 47.39 16.5 48 16"></path>
+                                    <path class="fill-white" d="M5.82 10.64H4V17h1.82a3.4 3.4 0 0 0 2.3-.72 3.22 3.22 0 0 0-2.3-5.68Zm1.48 4.8a2.33 2.33 0 0 1-1.72.56h-.32v-4.28h.32a2.33 2.33 0 0 1 1.72.52 2.12 2.12 0 0 1 .7 1.6 2.16 2.16 0 0 1-.7 1.6m2.55-4.81h1.25v6.42H9.85zm4.32 2.46c-.75-.27-1-.46-1-.81a.86.86 0 0 1 .93-.71 1.36 1.36 0 0 1 1 .52l.65-.85a2.7 2.7 0 0 0-1.88-.72 1.88 1.88 0 0 0-2 1.84c0 .89.4 1.34 1.57 1.76a5.5 5.5 0 0 1 .87.37.76.76 0 0 1 .38.66.93.93 0 0 1-1 .91 1.47 1.47 0 0 1-1.36-.86l-.81.78a2.49 2.49 0 0 0 2.28 1.22 2.07 2.07 0 0 0 2.2-2.1c0-1.02-.41-1.49-1.83-2.01m2.24.75a3.33 3.33 0 0 0 3.39 3.35 3.4 3.4 0 0 0 1.57-.37v-1.47a2 2 0 0 1-1.51.7 2.14 2.14 0 0 1-1.57-.64 2.1 2.1 0 0 1-.59-1.58 2.1 2.1 0 0 1 .59-1.54 2.15 2.15 0 0 1 1.51-.66 2.08 2.08 0 0 1 1.57.72v-1.47a3.2 3.2 0 0 0-1.54-.4 3.38 3.38 0 0 0-3.42 3.36m14.89 1.1-1.72-4.31h-1.36l2.72 6.58h.67l2.78-6.58h-1.36zm3.65 2.11h3.56v-1.09H36.2v-1.73h2.22v-1.09H36.2v-1.42h2.31v-1.09h-3.56zM42 14.36a1.73 1.73 0 0 0 1.46-1.84c0-1.2-.82-1.88-2.28-1.88h-1.84V17h1.26v-2.54h.14L42.48 17H44Zm-1-.78h-.4v-1.94h.4c.76 0 1.18.32 1.18 1s-.44.94-1.18.94"></path>
+                                    <path class="fill-[#ee7725]" d="M28.59 13.84a3.41 3.41 0 1 1-3.41-3.41 3.41 3.41 0 0 1 3.41 3.41"></path>
+                                    <path class="fill-white" d="M44 10.9a.14.14 0 0 0 .12-.14c0-.12-.08-.18-.22-.18h-.2v.58h.14v-.24l.18.24h.16Zm-.12-.08v-.12c.06 0 .1 0 .1.06s0 .06-.08.06Z"></path>
+                                    <path class="fill-white" d="M43.94 10.36a.5.5 0 1 0 .52.5.5.5 0 0 0-.15-.36.47.47 0 0 0-.37-.14m.26.8a.32.32 0 0 1-.26.12.37.37 0 0 1-.28-.13.39.39 0 1 1 .66-.29.47.47 0 0 1-.12.3"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <svg class="w-12 h-12 lg:w-14 lg:h-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32">
+                        <g data-name="bitcoin">
+                            <rect width="48" height="32" rx="4" style="fill:#222c37"></rect>
+                            <path d="M34.29 18.57a10.61 10.61 0 1 1-1.2-8 10.6 10.6 0 0 1 1.2 8" style="fill:#f89521"></path>
+                            <path d="M28.68 14.49c.21-1.41-.87-2.17-2.34-2.68l.48-1.91-1.16-.29-.47 1.86-.93-.22.47-1.87-1.17-.29-.47 1.91-.75-.17-1.61-.4-.31 1.24s.86.2.85.21a.61.61 0 0 1 .54.68l-.54 2.18-.76 3a.4.4 0 0 1-.21.24.4.4 0 0 1-.3.02l-.85-.21-.57 1.33 1.51.38.83.22-.48 1.93 1.16.29.45-1.94.92.24-.47 1.9 1.16.29.49-1.93c2 .38 3.47.22 4.1-1.57a2 2 0 0 0-1.07-2.82 1.88 1.88 0 0 0 1.49-1.71ZM26 18.22c-.36 1.44-2.8.66-3.58.47l.63-2.57c.79.2 3.32.59 2.95 2.1m.36-3.75c-.33 1.31-2.36.64-3 .48l.64-2.32c.6.16 2.72.47 2.38 1.84Z" style="fill:#fff"></path>
+                        </g>
+                    </svg>
+                    <!-- paypal svg -->
+                    <svg class="w-12 h-12 lg:w-14 lg:h-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32">
+                        <g id="paypal" data-name="paypal">
+                            <g id="Payment-Methods">
+                                <g id="paypal-dark-large">
+                                    <rect class="fill-[#222c37]" width="48" height="32" rx="4"></rect>
+                                    <path class="fill-[#253e80]" d="M20.34,25.32l.35-2.2H16.23L18.79,6.86a.21.21,0,0,1,.07-.13A.24.24,0,0,1,19,6.68h6.21c2.07,0,3.49.43,4.24,1.28a2.79,2.79,0,0,1,.67,1.27,4.3,4.3,0,0,1,0,1.75v.5l.35.2a2.32,2.32,0,0,1,.71.53,2.6,2.6,0,0,1,.57,1.29,5.81,5.81,0,0,1-.08,1.86,6.38,6.38,0,0,1-.77,2.11,4.4,4.4,0,0,1-1.21,1.33,5,5,0,0,1-1.63.73,7.93,7.93,0,0,1-2,.24h-.49a1.47,1.47,0,0,0-.94.34,1.4,1.4,0,0,0-.49.88v.2l-.61,3.88v.15a.11.11,0,0,1,0,.08h-.06Z"></path>
+                                    <path class="fill-[#1d9bd7]" d="M30.8,11.08l-.06.37c-.82,4.2-3.63,5.66-7.21,5.66H21.71a.89.89,0,0,0-.88.75l-.93,5.92-.27,1.68a.46.46,0,0,0,.11.37.44.44,0,0,0,.35.17h3.24a.78.78,0,0,0,.77-.66v-.16l.61-3.87V21.1a.77.77,0,0,1,.76-.66H26c3.13,0,5.59-1.27,6.3-5a4.24,4.24,0,0,0-.64-3.73,3.13,3.13,0,0,0-.86-.63Z"></path>
+                                    <path class="fill-[#242f65]" d="M29.94,10.74l-.38-.1-.42-.08a9.49,9.49,0,0,0-1.6-.11H22.66a.75.75,0,0,0-.33.07.78.78,0,0,0-.43.58l-1,6.57v.19a.89.89,0,0,1,.88-.75H23.6c3.58,0,6.39-1.46,7.21-5.66l.06-.37a5.58,5.58,0,0,0-.67-.28Z"></path>
+                                    <path class="fill-[#253e80]" d="M21.9,11.1a.78.78,0,0,1,.43-.58.75.75,0,0,1,.33-.07h4.88a9.49,9.49,0,0,1,1.6.11l.42.08.38.1.19.06a5.58,5.58,0,0,1,.67.28A4,4,0,0,0,30,7.51C29,6.45,27.36,6,25.22,6H19a.89.89,0,0,0-.88.75L15.53,23.16a.56.56,0,0,0,.12.43.55.55,0,0,0,.41.19H19.9l1-6.11Z"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+
+<script>
+//tooltip
+function showTooltip(element) {
+    const tooltipText = element.getAttribute('data-tooltip');
+    const tooltip = document.createElement('div');
+    tooltip.className =
+        'absolute left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 text-sm text-white bg-gray-800 rounded shadow-md tooltip whitespace-nowrap';
+    tooltip.textContent = tooltipText;
+    element.appendChild(tooltip);
+}
+
+function hideTooltip(element) {
+    const tooltip = element.querySelector('.tooltip');
+    if (tooltip) {
+        tooltip.remove();
+    }
+}
+</script>
+
+<script>
+// Faq
+document.addEventListener('alpine:init', () => {
+    Alpine.store('accordion', {
+        tab: 0,
+    });
+    Alpine.data('accordion', (idx) => ({
+        init() {
+            this.idx = idx;
+        },
+        idx: -1,
+        handleClick() {
+            this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+        },
+        handleRotate() {
+            return this.$store.accordion.tab === this.idx ? '-rotate-180' : '';
+        },
+        handleToggle() {
+            return this.$store.accordion.tab === this.idx ? `max-height:800px` : '';
+            //return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+        },
+    }));
+});
+//  end faq
+</script>
+
+
+</div></body></html>

@@ -1,0 +1,65 @@
+[2026-03-21T21:13:38.786Z] === Homepage AI Extractor: Pagaya ===
+[2026-03-21T21:13:38.786Z] Started at: 2026-03-21T21:13:38.786Z
+[2026-03-21T21:13:38.786Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774127618785_Pagaya
+[2026-03-21T21:13:38.786Z] Company: Pagaya
+[2026-03-21T21:13:38.786Z] Website: pagaya.com
+[2026-03-21T21:13:38.786Z] cbRank: N/A
+[2026-03-21T21:13:38.787Z] Reasons: h
+[2026-03-21T21:13:38.787Z] Fetching: https://pagaya.com
+[2026-03-21T21:13:42.941Z] Dismissed cookie consent popup via: [aria-label="Accept cookies"]
+[2026-03-21T21:13:45.719Z] Redirected: https://pagaya.com -> https://pagaya.com/
+[2026-03-21T21:13:45.811Z] Saved HTML (4444494 bytes) to page.html
+[2026-03-21T21:13:45.823Z] Extracted 26 unique links from page
+[2026-03-21T21:13:45.824Z] Saved 26 links to links.json
+[2026-03-21T21:13:45.859Z] Extracted footer HTML (36787 chars)
+[2026-03-21T21:13:45.859Z] Extracted header HTML (1278 chars)
+[2026-03-21T21:13:45.863Z] Website (post-redirect): https://pagaya.com/ → origin: https://pagaya.com
+[2026-03-21T21:13:45.863Z]   SUBDOMAIN: investor.pagaya.com (added to ws)
+[2026-03-21T21:13:45.863Z]   SUBDOMAIN: trust.pagaya.com (added to ws)
+[2026-03-21T21:13:45.863Z] Website subdomains found: 2
+[2026-03-21T21:13:45.863Z] External links: 2 (of 26 total)
+[2026-03-21T21:13:45.863Z] ── All external links ──
+[2026-03-21T21:13:45.863Z]   EXT: https://www.linkedin.com/company/pagaya
+[2026-03-21T21:13:45.863Z]   EXT: https://x.com/pagaya
+[2026-03-21T21:13:45.863Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:13:45.863Z]   REGEX: li <- https://www.linkedin.com/company/pagaya
+[2026-03-21T21:13:45.863Z]   REGEX: tw <- https://x.com/pagaya
+[2026-03-21T21:13:45.863Z] Programmatic result: ws:3, li:1, tw:1 | 0 uncategorized
+[2026-03-21T21:13:45.863Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:13:45.864Z] Saved AI prompt (2920 chars) to ai_prompt.txt
+[2026-03-21T21:13:45.865Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:13:45.868Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:13:56.542Z]   AI: First token received, streaming...
+[2026-03-21T21:13:59.726Z] AI response complete: 61 chars in 13.9s
+[2026-03-21T21:13:59.727Z] Saved AI response to ai_response.json
+[2026-03-21T21:13:59.728Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T21:13:59.728Z]   AI LINK: https://www.linkedin.com/company/pagaya/
+[2026-03-21T21:13:59.728Z]   AI LINK: https://x.com/pagaya
+[2026-03-21T21:13:59.728Z] AI returned 2 valid links
+[2026-03-21T21:13:59.728Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T21:13:59.729Z]   AI→REGEX: li <- https://www.linkedin.com/company/pagaya/ (duplicate, skipped)
+[2026-03-21T21:13:59.729Z]   AI→REGEX: tw <- https://x.com/pagaya (duplicate, skipped)
+[2026-03-21T21:13:59.730Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:13:59.731Z] Footer/header origins (4):
+[2026-03-21T21:13:59.731Z]   FOOTER/HEADER ORIGIN: https://investor.pagaya.com
+[2026-03-21T21:13:59.731Z]   FOOTER/HEADER ORIGIN: https://trust.pagaya.com
+[2026-03-21T21:13:59.731Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T21:13:59.731Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T21:13:59.731Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:13:59.731Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:13:59.731Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T21:13:59.732Z] ── Step 3: Final dedup ──
+[2026-03-21T21:13:59.732Z] No urls to dedup
+[2026-03-21T21:13:59.732Z] ── FINAL RESULT ──
+[2026-03-21T21:13:59.732Z]   ws (3):
+[2026-03-21T21:13:59.732Z]     - https://investor.pagaya.com
+[2026-03-21T21:13:59.732Z]     - https://pagaya.com
+[2026-03-21T21:13:59.733Z]     - https://trust.pagaya.com
+[2026-03-21T21:13:59.733Z]   li (1):
+[2026-03-21T21:13:59.733Z]     - https://www.linkedin.com/company/pagaya
+[2026-03-21T21:13:59.733Z]   tw (1):
+[2026-03-21T21:13:59.733Z]     - https://x.com/pagaya
+[2026-03-21T21:13:59.733Z] Summary: ws:3, li:1, tw:1
+[2026-03-21T21:13:59.734Z] Saved final result to result.json
+[2026-03-21T21:13:59.735Z] Override fields: ws, li, tw
+[2026-03-21T21:13:59.735Z] Finished at: 2026-03-21T21:13:59.735Z

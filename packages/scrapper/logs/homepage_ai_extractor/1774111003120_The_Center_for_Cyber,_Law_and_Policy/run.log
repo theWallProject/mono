@@ -1,0 +1,68 @@
+[2026-03-21T16:36:43.121Z] === Homepage AI Extractor: The Center for Cyber, Law and Policy ===
+[2026-03-21T16:36:43.121Z] Started at: 2026-03-21T16:36:43.121Z
+[2026-03-21T16:36:43.121Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774111003120_The_Center_for_Cyber,_Law_and_Policy
+[2026-03-21T16:36:43.121Z] Company: The Center for Cyber, Law and Policy
+[2026-03-21T16:36:43.121Z] Website: cyber.haifa.ac.il
+[2026-03-21T16:36:43.121Z] cbRank: 3552185
+[2026-03-21T16:36:43.121Z] Reasons: h
+[2026-03-21T16:36:43.121Z] Fetching: https://cyber.haifa.ac.il
+[2026-03-21T16:36:48.251Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-21T16:36:51.230Z] Redirected: https://cyber.haifa.ac.il -> https://cyber.haifa.ac.il/
+[2026-03-21T16:36:51.234Z] Saved HTML (73261 bytes) to page.html
+[2026-03-21T16:36:51.236Z] Extracted 19 unique links from page
+[2026-03-21T16:36:51.237Z] Saved 19 links to links.json
+[2026-03-21T16:36:51.239Z] Extracted footer HTML (5333 chars)
+[2026-03-21T16:36:51.239Z] Extracted header HTML (15076 chars)
+[2026-03-21T16:36:51.243Z] Website (post-redirect): https://cyber.haifa.ac.il/ → origin: https://cyber.haifa.ac.il
+[2026-03-21T16:36:51.243Z]   SUBDOMAIN: newcyber.haifa.ac.il (added to ws)
+[2026-03-21T16:36:51.243Z]   SUBDOMAIN: haifa.ac.il (added to ws)
+[2026-03-21T16:36:51.243Z] Website subdomains found: 2
+[2026-03-21T16:36:51.243Z] External links: 3 (of 19 total)
+[2026-03-21T16:36:51.243Z] ── All external links ──
+[2026-03-21T16:36:51.243Z]   EXT: https://www.gov.il/en/departments/israel_national_cyber_directorate/govil-landing-page
+[2026-03-21T16:36:51.243Z]   EXT: https://www.linkedin.com/company/the-center-for-cyber-law-policy-cclp/?viewAsMember=true
+[2026-03-21T16:36:51.243Z]   EXT: https://www.youtube.com/@CCLPHaifa
+[2026-03-21T16:36:51.243Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T16:36:51.244Z]   UNCATEGORIZED: https://www.gov.il/en/departments/israel_national_cyber_directorate/govil-landing-page
+[2026-03-21T16:36:51.244Z]   REGEX: li <- https://www.linkedin.com/company/the-center-for-cyber-law-policy-cclp/?viewAsMember=true
+[2026-03-21T16:36:51.245Z]   REGEX: ytp <- https://www.youtube.com/@CCLPHaifa
+[2026-03-21T16:36:51.245Z] Programmatic result: ws:3, li:1, ytp:1 | 1 uncategorized
+[2026-03-21T16:36:51.245Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T16:36:51.246Z] Saved AI prompt (4636 chars) to ai_prompt.txt
+[2026-03-21T16:36:51.246Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T16:36:51.250Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T16:37:09.501Z]   AI: First token received, streaming...
+[2026-03-21T16:37:16.491Z] AI response complete: 123 chars in 25.2s
+[2026-03-21T16:37:16.492Z] Saved AI response to ai_response.json
+[2026-03-21T16:37:16.492Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T16:37:16.492Z]   AI LINK: https://www.linkedin.com/company/the-center-for-cyber-law-policy-cclp/?viewAsMember=true
+[2026-03-21T16:37:16.493Z]   AI LINK: https://www.youtube.com/@CCLPHaifa
+[2026-03-21T16:37:16.493Z] AI returned 2 valid links
+[2026-03-21T16:37:16.493Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T16:37:16.493Z]   AI→REGEX: li <- https://www.linkedin.com/company/the-center-for-cyber-law-policy-cclp/?viewAsMember=true (duplicate, skipped)
+[2026-03-21T16:37:16.493Z]   AI→REGEX: ytp <- https://www.youtube.com/@CCLPHaifa (duplicate, skipped)
+[2026-03-21T16:37:16.494Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T16:37:16.494Z] Footer/header origins (4):
+[2026-03-21T16:37:16.495Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T16:37:16.495Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T16:37:16.495Z]   FOOTER/HEADER ORIGIN: http://cyber.haifa.ac.il
+[2026-03-21T16:37:16.495Z]   FOOTER/HEADER ORIGIN: https://cyber.haifa.ac.il
+[2026-03-21T16:37:16.495Z]   SKIP (not in footer/header): https://www.gov.il/en/departments/israel_national_cyber_directorate/govil-landing-page
+[2026-03-21T16:37:16.495Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T16:37:16.495Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T16:37:16.496Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T16:37:16.496Z] ── Step 3: Final dedup ──
+[2026-03-21T16:37:16.496Z] No urls to dedup
+[2026-03-21T16:37:16.496Z] ── FINAL RESULT ──
+[2026-03-21T16:37:16.496Z]   ws (3):
+[2026-03-21T16:37:16.496Z]     - https://cyber.haifa.ac.il
+[2026-03-21T16:37:16.496Z]     - https://haifa.ac.il
+[2026-03-21T16:37:16.497Z]     - https://newcyber.haifa.ac.il
+[2026-03-21T16:37:16.497Z]   li (1):
+[2026-03-21T16:37:16.497Z]     - https://www.linkedin.com/company/the-center-for-cyber-law-policy-cclp
+[2026-03-21T16:37:16.497Z]   ytp (1):
+[2026-03-21T16:37:16.497Z]     - https://www.youtube.com/@cclphaifa
+[2026-03-21T16:37:16.497Z] Summary: ws:3, li:1, ytp:1
+[2026-03-21T16:37:16.499Z] Saved final result to result.json
+[2026-03-21T16:37:16.499Z] Override fields: ws, li, ytp
+[2026-03-21T16:37:16.499Z] Finished at: 2026-03-21T16:37:16.499Z

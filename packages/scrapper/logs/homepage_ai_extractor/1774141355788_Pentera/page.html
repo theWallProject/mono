@@ -1,0 +1,956 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+    
+    <meta name="viewport" content="width=device-width">
+    <title>Pentera | Automated Security Validation &amp; Exposure Management</title>
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://pentera.io/xmlrpc.php">
+    <meta name="google-site-verification" content="lHa4Lqgbal34VGQ-AMNTJTFqjT24sgBzD1naxiAlrzA">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.9 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<meta name="description" content="Automated penetration testing and attack surface validation for cloud, hybrid, and on-prem. Built to support CTEM and reduce true cyber exposure.">
+	<link rel="canonical" href="https://pentera.io/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Welcome to Pentera">
+	<meta property="og:description" content="Don't assume, validate. With Automated Security Validation™, ensure 'pretty certain' means secure. Trusted by top CISOs.">
+	<meta property="og:url" content="https://pentera.io/">
+	<meta property="og:site_name" content="Pentera">
+	<meta property="article:modified_time" content="2026-02-20T14:38:10+00:00">
+	<meta property="og:image" content="https://pentera.io/wp-content/uploads/2024/01/home-page.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="628">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Welcome to Pentera">
+	<meta name="twitter:description" content="Don't assume, validate. With Automated Security Validation™, ensure 'pretty certain' means secure. Trusted by top CISOs.">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://pentera.io/","url":"https://pentera.io/","name":"Pentera | Automated Security Validation & Exposure Management","isPartOf":{"@id":"https://pentera.io/#website"},"primaryImageOfPage":{"@id":"https://pentera.io/#primaryimage"},"image":{"@id":"https://pentera.io/#primaryimage"},"thumbnailUrl":"https://pentera.io/wp-content/uploads/2024/01/home-page.png","datePublished":"2023-12-20T12:39:30+00:00","dateModified":"2026-02-20T14:38:10+00:00","description":"Automated penetration testing and attack surface validation for cloud, hybrid, and on-prem. Built to support CTEM and reduce true cyber exposure.","breadcrumb":{"@id":"https://pentera.io/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://pentera.io/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://pentera.io/#primaryimage","url":"https://pentera.io/wp-content/uploads/2024/01/home-page.png","contentUrl":"https://pentera.io/wp-content/uploads/2024/01/home-page.png","width":1200,"height":628,"caption":"Pentera home"},{"@type":"BreadcrumbList","@id":"https://pentera.io/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://pentera.io/#website","url":"https://pentera.io/","name":"Pentera","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://pentera.io/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//www.youtube.com">
+<link rel="dns-prefetch" href="//player.vimeo.com">
+<link rel="dns-prefetch" href="//js.qualified.com">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://pentera.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpentera.io%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://pentera.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpentera.io%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="cms-navigation-style-base-css" href="https://pentera.io/wp-content/cache/min/1/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation-base.css?ver=1771246975" type="text/css" media="screen">
+<link data-minify="1" rel="stylesheet" id="cms-navigation-style-css" href="https://pentera.io/wp-content/cache/background-css/pentera.io/wp-content/cache/min/1/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation.css?ver=1771246975&amp;wpr_t=1774141112" type="text/css" media="screen">
+<link data-minify="1" rel="stylesheet" id="main-style-css" href="https://pentera.io/wp-content/cache/background-css/pentera.io/wp-content/cache/min/1/wp-content/themes/Pentera_theme/css/main.css?ver=1771246975&amp;wpr_t=1774141112" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="fullscreen-style-css" href="https://pentera.io/wp-content/cache/background-css/pentera.io/wp-content/cache/min/1/wp-content/themes/Pentera_theme/css/fullscreen.css?ver=1771246975&amp;wpr_t=1774141112" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="style-css" href="https://pentera.io/wp-content/cache/min/1/wp-content/themes/Pentera_theme/style.css?ver=1771246975" type="text/css" media="all">
+<script type="text/javascript" id="wpml-cookie-js-extra">
+/* <![CDATA[ */
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"/"}};
+//# sourceURL=wpml-cookie-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=485900" id="wpml-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://pentera.io/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="text/javascript" src="https://pentera.io/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="//www.youtube.com/iframe_api?ver=4.9.88" id="youtube-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" nonce="qualified-one123" data-rocket-src="https://pentera.io/wp-content/themes/Pentera_theme/js/qualified.js?ver=4.9.88" id="qualified-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" nonce="qualified-two321" async="" data-rocket-src="https://js.qualified.com/qualified.js?token=ZPBH2zYn6eNeza8B&amp;ver=4.9.88" id="qualified-two-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/themes/Pentera_theme/js/gtm.js?ver=4.9.88" id="gtm-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/themes/Pentera_theme/js/tag-manager.js?ver=4.9.88" id="tag-manager-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://pentera.io/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://pentera.io/wp-json/wp/v2/pages/7"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://pentera.io/xmlrpc.php?rsd">
+<link rel="shortlink" href="https://pentera.io/">
+<meta name="generator" content="WPML ver:4.8.5 stt:1,4,3,27,66,67;">
+<link rel="icon" href="https://pentera.io/wp-content/uploads/2024/01/whatsapp-image-2024-01-21-at-09.42.42.jpeg" sizes="32x32">
+<link rel="icon" href="https://pentera.io/wp-content/uploads/2024/01/whatsapp-image-2024-01-21-at-09.42.42.jpeg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://pentera.io/wp-content/uploads/2024/01/whatsapp-image-2024-01-21-at-09.42.42.jpeg">
+<meta name="msapplication-TileImage" content="https://pentera.io/wp-content/uploads/2024/01/whatsapp-image-2024-01-21-at-09.42.42.jpeg">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+<style id="wpr-lazyload-bg"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">:root{--wpr-bg-d8d1c035-6b9c-47dc-bd07-54af2081f88d: url('../../../../../../../../../../../../plugins/wpml-cms-nav/res/img/cms-nav-dark-s.gif');}:root{--wpr-bg-e94cc0eb-1967-4ee1-8e85-bd3f52055778: url('../../../../../../../../../../../themes/Pentera_theme/img/blue-star.svg');}:root{--wpr-bg-7a80364e-b0e2-474e-9653-6e0ca8940b24: url('../../../../../../../../../../../themes/Pentera_theme/img/blue-star-mob.svg');}:root{--wpr-bg-954e0c4f-7e68-4c07-9f3b-878e65673032: url('../../../../../../../../../../../themes/Pentera_theme/img/star-footnote.svg');}:root{--wpr-bg-e979ea41-2365-4b9c-a33b-0587d17f65a1: url('../../../../../../../../../../../themes/Pentera_theme/img/arrow-gif.gif');}:root{--wpr-bg-3590dfe6-4d97-4661-9cb1-c6bf3926e426: url('../../../../../../../../../../../themes/Pentera_theme/img/quote-big-icon.svg');}:root{--wpr-bg-53fa1ccf-7714-442e-aeb3-82dfe7321a04: url('../../../../../../../../../../../themes/Pentera_theme/img/quote-small-icon.svg');}:root{--wpr-bg-ad68dceb-774a-4823-aefd-cf5464d0c17d: url('../../../../../../../../../../../themes/Pentera_theme/img/arrow-down-icon.svg');}:root{--wpr-bg-9a118ab6-05f4-47af-ad76-6d47c37eb766: url('../../../../../../../../../../../themes/Pentera_theme/img/roi-calculator-pdf/pls.svg');}:root{--wpr-bg-ec958a9d-9979-4b1e-8ba8-821b3d9623d0: url('../../../../../../../../../../../themes/Pentera_theme/img/roi-calculator-pdf/arrb.svg');}:root{--wpr-bg-0dac7a27-4c50-42d9-85b4-fcbb3dd663ec: url('../../../../../../../../../../../themes/Pentera_theme/img/polig1.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":"#menu-wrap a.trigger","style":":root{--wpr-bg-d8d1c035-6b9c-47dc-bd07-54af2081f88d: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/plugins\/wpml-cms-nav\/res\/img\/cms-nav-dark-s.gif');}","hash":"d8d1c035-6b9c-47dc-bd07-54af2081f88d"},{"selector":".feature-list__list-item","style":":root{--wpr-bg-e94cc0eb-1967-4ee1-8e85-bd3f52055778: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/blue-star.svg');}","hash":"e94cc0eb-1967-4ee1-8e85-bd3f52055778"},{"selector":".feature-list__list-item","style":":root{--wpr-bg-7a80364e-b0e2-474e-9653-6e0ca8940b24: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/blue-star-mob.svg');}","hash":"7a80364e-b0e2-474e-9653-6e0ca8940b24"},{"selector":".document__content--report .html-block p.footnote","style":":root{--wpr-bg-954e0c4f-7e68-4c07-9f3b-878e65673032: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/star-footnote.svg');}","hash":"954e0c4f-7e68-4c07-9f3b-878e65673032"},{"selector":".result-hero,.thanks-page--video","style":":root{--wpr-bg-e979ea41-2365-4b9c-a33b-0587d17f65a1: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/arrow-gif.gif');}","hash":"e979ea41-2365-4b9c-a33b-0587d17f65a1"},{"selector":".sponsor-quote__content","style":":root{--wpr-bg-3590dfe6-4d97-4661-9cb1-c6bf3926e426: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/quote-big-icon.svg');}","hash":"3590dfe6-4d97-4661-9cb1-c6bf3926e426"},{"selector":".sponsor-quote__content","style":":root{--wpr-bg-53fa1ccf-7714-442e-aeb3-82dfe7321a04: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/quote-small-icon.svg');}","hash":"53fa1ccf-7714-442e-aeb3-82dfe7321a04"},{"selector":".calculator-item__selector","style":":root{--wpr-bg-ad68dceb-774a-4823-aefd-cf5464d0c17d: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/arrow-down-icon.svg');}","hash":"ad68dceb-774a-4823-aefd-cf5464d0c17d"},{"selector":".pdf-block__stats-cont .add","style":":root{--wpr-bg-9a118ab6-05f4-47af-ad76-6d47c37eb766: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/roi-calculator-pdf\/pls.svg');}","hash":"9a118ab6-05f4-47af-ad76-6d47c37eb766"},{"selector":".pdf-block__stats-cont .sum","style":":root{--wpr-bg-ec958a9d-9979-4b1e-8ba8-821b3d9623d0: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/roi-calculator-pdf\/arrb.svg');}","hash":"ec958a9d-9979-4b1e-8ba8-821b3d9623d0"},{"selector":".columns-images__single-step","style":":root{--wpr-bg-0dac7a27-4c50-42d9-85b4-fcbb3dd663ec: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Pentera_theme\/img\/polig1.png');}","hash":"0dac7a27-4c50-42d9-85b4-fcbb3dd663ec"}]; const rocket_excluded_pairs = [];</script><link href="https://www.youtube.com" rel="preconnect"><link href="https://js.qualified.com" rel="preconnect"><link href="https://js.hsforms.net" rel="preconnect"><link href="https://js.hs-scripts.com" rel="preconnect"><link href="https://player.vimeo.com" rel="preconnect"><link href="https://www.google.com" rel="preconnect"></head>
+
+<body class="home wp-singular page-template page-template-template page-template-home page-template-templatehome-php page page-id-7 wp-theme-Pentera_theme">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZB8Z84" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    
+    <div class="wrapper">
+        <header class="header">
+            <!-- <div class="cloud-massage">
+                <div class="container cloud-massage__wrapper">
+                    <div class="cloud-massage__text">
+                                                    <h2 class="cloud-massage__title title background-marker" style="color: #1F2A50" data-marker-mob="Pentera Cloud" data-marker="Pentera Cloud" data-marker-color="#ffffff">
+                                Introducing Pentera Cloud - Validate your attackable cloud exposure                            </h2>
+                                            </div>
+                    <div class="cloud-massage__btns">
+                                                                            <a target="_blank" href="https://go.pentera.io/putting-cloud-security-to-the-test?_gl=1*bp1v3k*_ga*MjUyNzM0Nzk5LjE3MDY2OTI0MjQ.*_ga_2BKL3PX5V1*MTcxMTQ0Mzc3NS42Ni4xLjE3MTE0NTMxODIuMS4wLjA." class="cloud-massage__btn btn
+                    btn--blue">
+                                Register to webinar                            </a>
+                                            </div>
+                </div>
+            </div> -->
+            <div class="header-bg"></div>
+            <div class="container">
+                <div class="header__wrapper">
+                    <div class="header__mobile">
+                        <a href="https://pentera.io" class="logo">
+                            <img width="164" height="48" src="https://pentera.io/wp-content/uploads/2023/12/logo.svg" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2023/12/logo.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="164" height="48" src="https://pentera.io/wp-content/uploads/2023/12/logo.svg" alt=""></noscript>
+                        </a>
+                        <div class="burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="header__open">
+                        <nav class="nav">
+                            <ul class=""><li id="menu-item-22" class="column-platform menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22"><a href="/platform/">Platform</a><div class="sub-menu"><ul>	<li id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28"><a href="/platform/">Pentera Platform</a></li>
+	<li id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29"><a href="/pentera-core/">Pentera Core</a></li>
+	<li id="menu-item-11598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11598"><a href="/pentera-cloud/">Pentera Cloud</a></li>
+	<li id="menu-item-392" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-392"><a href="/pentera-surface/">Pentera Surface</a></li>
+	<li id="menu-item-28253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28253"><a href="https://pentera.io/pentera-resolve/">Pentera Resolve</a></li>
+	<li id="menu-item-394" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-394"><a href="/credential-exposure/">Credential Exposure</a></li>
+	<li id="menu-item-395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-395"><a href="/ransomwareready/">RansomwareReady™</a></li>
+</ul></div></li>
+<li id="menu-item-14097" class="column-solutions menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14097"><a href="/red-teaming/">Solutions</a><div class="sub-menu"><ul>	<li id="menu-item-26524" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26524"><a href="https://pentera.io/ctem-adoption-solution/">CTEM Adoption</a></li>
+	<li id="menu-item-14098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14098"><a href="/red-teaming/">Red Teaming</a></li>
+	<li id="menu-item-14099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14099"><a href="/vulnerability-prioritization/">Vulnerability Prioritization</a></li>
+	<li id="menu-item-14100" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14100"><a href="/ransomware-resilience/">Ransomware Resilience</a></li>
+	<li id="menu-item-14101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14101"><a href="/attack-surface-monitoring/">Attack Surface Monitoring</a></li>
+	<li id="menu-item-14102" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14102"><a href="/soc-optimization/">SOC Optimization</a></li>
+	<li id="menu-item-14103" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14103"><a href="/penetration-testing/">Penetration Testing</a></li>
+</ul></div></li>
+<li id="menu-item-24" class="column-research menu-item menu-item-type-custom menu-item-object-custom menu-item-24"><a href="/pentera-research-labs/">Research</a></li>
+<li id="menu-item-13701" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13701"><a href="/pentera-security-validation-advisory-sva/">Services</a><div class="sub-menu"><ul>	<li id="menu-item-28327" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28327"><a href="/pentera-security-validation-advisory-sva/">Strategic Advisory Services</a></li>
+	<li id="menu-item-28326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28326"><a href="https://pentera.io/offensive-security/">Offensive Security Services</a></li>
+</ul></div></li>
+<li id="menu-item-26" class="column-company menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-26"><a href="/about-us/">Company</a><div class="sub-menu"><ul>	<li id="menu-item-407" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-407"><a href="/about-us/">About Pentera</a></li>
+	<li id="menu-item-408" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-408"><a href="/partners/">Partners</a></li>
+	<li id="menu-item-409" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-409"><a href="/leadership/">Leadership</a></li>
+	<li id="menu-item-410" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-410"><a href="/newsroom/">Newsroom</a></li>
+	<li id="menu-item-412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-412"><a href="/careers/">Careers</a></li>
+	<li id="menu-item-413" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-413"><a href="/contact-us/">Contact us</a></li>
+</ul></div></li>
+<li id="menu-item-27" class="column-resources menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27"><a href="/resources/">Resources</a><div class="sub-menu"><ul>	<li id="menu-item-27409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27409"><a href="https://pentera.io/security-validation-roi-calculator/">ROI Calculator</a></li>
+	<li id="menu-item-414" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-414"><a href="/resources/research/">Research papers</a></li>
+	<li id="menu-item-415" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-415"><a href="/blog/">Blog</a></li>
+	<li id="menu-item-19733" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19733"><a href="https://pentera.io/glossary/">Glossary</a></li>
+	<li id="menu-item-25705" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25705"><a href="/resources/case-studies/">Customer stories</a></li>
+	<li id="menu-item-416" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-416"><a href="/cybertoon/">Cybertoons</a></li>
+	<li id="menu-item-417" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-417"><a href="/resources/whitepapers/">Whitepapers</a></li>
+	<li id="menu-item-418" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-418"><a href="/resources/webinars/">Webinars</a></li>
+	<li id="menu-item-419" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-419"><a href="/resources/podcasts/">Podcasts</a></li>
+	<li id="menu-item-28058" class="menu-item menu-item-type-taxonomy menu-item-object-af-resources-category menu-item-28058"><a href="https://pentera.io/af-resources-category/goat-guides/">GOAT Guides</a></li>
+	<li id="menu-item-11177" class="menu-item menu-item-type-taxonomy menu-item-object-af-resources-category menu-item-11177"><a href="https://pentera.io/af-resources-category/data-sheets/">Datasheets</a></li>
+</ul></div></li>
+</ul>                        </nav>
+                        <div class="header__right">
+                            <!-- <div class="header__search"
+                                data-da=".header__mobile, 767, 1">
+                                <div class="search">
+                                    <input type="text"
+                                        placeholder="Search...">
+                                    <button class="search__btn"></button>
+                                </div>
+                            </div> -->
+                            <a href="https://go.pentera.io/pentera-resolve-demo-request" class="header__contact btn
+                            btn--border" data-da=".header__settings, 767, 0">
+                                From Risk to Fix                            </a>
+                            <a href="https://app.pentera.io/login" class="header__support btn
+                            btn--border" data-da=".header__settings, 767, 2">
+                                Customer login                            </a>
+                            <a href="https://pentera.io/book-a-demo/" class="header__demo btn btn--orange">
+                                Book a demo                            </a>
+                            <div class="header__settings">
+                                <a href="http://support.pentera.io/" class="header__user">
+                                    <div class="header__user--icon">
+                                        <img width="27" height="27" src="https://pentera.io/wp-content/themes/Pentera_theme/img/support.svg" alt="Support" data-lazy-src="https://pentera.io/wp-content/themes/Pentera_theme/img/support.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="27" height="27" src="https://pentera.io/wp-content/themes/Pentera_theme/img/support.svg" alt="Support"></noscript>
+                                    </div>
+                                    <div class="header__user--text">
+                                        Support                                    </div>
+                                </a>
+                                <div class="header__lang lang">
+                                    <div class="lang__top">
+                                        <div class="lang__top--icon"></div>
+                                        <div class="lang__top--text">
+                                            English
+                                        </div>
+                                    </div>
+                                    <ul class="lang__list">
+                                        <li><a href="https://pentera.io/">English</a></li>
+                                        <li><a href="https://pentera.io/jp/">日本語</a></li>
+                                        <li><a href="https://pentera.io/de/">Deutsch</a></li>
+                                        <li><a href="https://pentera.io/fr/">Français</a></li>
+                                        <li><a href="https://pentera.io/it/">Italiano</a></li>
+                                        <!-- 
+                                        <li><a href="#">Español</a></li>
+                                        <li><a href="#">Italiano</a></li>
+                                        <li><a href="#">Dutch</a></li>
+                                        <li><a href="#">한국어</a></li>-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="header__news-columns">
+                                                    <a target="_blank" href="https://pentera.io/resources/reports/ai-security-exposure-survey-2026" class="news-column" data-column="resources" data-da=".column-resources, 767, 2">
+                                <div class="news-column__img">
+                                    <img width="1920" height="1307" src="https://pentera.io/wp-content/uploads/2026/02/menu_banners2-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2026/02/menu_banners2-1.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="1920" height="1307" src="https://pentera.io/wp-content/uploads/2026/02/menu_banners2-1.png" alt=""></noscript>
+                                </div>
+                                <div class="news-column__title">
+                                    What 300 CISOs Say About AI Security                                 </div>
+                                <div class="news-column__link read-more-btn">
+                                    Read Now                                </div>
+                            </a>
+                                                    <a target="_blank" href="https://pentera.io/resources/goat-guides/reporting-to-board/" class="news-column" data-column="solutions" data-da=".column-solutions, 767, 2">
+                                <div class="news-column__img">
+                                    <img width="600" height="409" src="https://pentera.io/wp-content/uploads/2025/09/goat-guide-bod_drop-menu-3.jpg" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/09/goat-guide-bod_drop-menu-3.jpg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="600" height="409" src="https://pentera.io/wp-content/uploads/2025/09/goat-guide-bod_drop-menu-3.jpg" alt=""></noscript>
+                                </div>
+                                <div class="news-column__title">
+                                    A CISO’s playbook for communicating cyber risk effectively                                </div>
+                                <div class="news-column__link read-more-btn">
+                                    Read more                                </div>
+                            </a>
+                                                    <a target="_blank" href="https://pentera.io/resources/reports/frost-radar-leader-automated-security-validation/" class="news-column" data-column="platform" data-da=".column-platform, 767, 2">
+                                <div class="news-column__img">
+                                    <img width="1920" height="1307" src="https://pentera.io/wp-content/uploads/2026/03/frost-radar_menu_banner.jpg" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2026/03/frost-radar_menu_banner.jpg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="1920" height="1307" src="https://pentera.io/wp-content/uploads/2026/03/frost-radar_menu_banner.jpg" alt=""></noscript>
+                                </div>
+                                <div class="news-column__title">
+                                     Pentera named Leader for Automated Security Validation                                </div>
+                                <div class="news-column__link read-more-btn">
+                                    Read Now                                </div>
+                            </a>
+                                            </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="zoom-wrapper">
+            <div class="zoom-wrapper__img">
+                <img src="" alt="">
+            </div>
+            <div class="zoom-wrapper__close"></div>
+        </div>
+<section class="promo" data-pattern="plus.json">
+    <div class="container container--subscription">
+
+        <nav class="breadcrumbs"><a href="https://pentera.io" class="breadcrumb-home">Home</a></nav>
+        <div class="promo__offer">
+                            <div class="promo__pre-title h-medium">
+                    Welcome to Pentera                </div>
+            
+             
+                <h1 class="promo__title h-hero title" data-marker-link="/platform/" data-marker="Security Validation" data-marker-mob="Security, Validation">
+                    AI-Powered<br>
+Security Validation                </h1>
+            
+            <div class="promo__bottom promo__bottom--subscription">
+                <p class="promo__bottom--text tag-line">
+                    Reduce your exposure with AI-powered security validation™.                </p>
+
+                                    <div class="promo__subscription">
+                        <div class="promo__subscription-left">
+                            <div class="promo__subscription-title">
+                                Start with a Demo                            </div>
+                        </div>
+                        <div class="promo__subscription-right">
+                            <div class="promo__subscription-content">
+                                <div class="promo__subscription-form">
+                                    <script type="rocketlazyloadscript" charset="utf-8" data-rocket-type="text/javascript" data-rocket-src="//js.hsforms.net/forms/embed/v2.js"></script>
+                                                                            <script type="rocketlazyloadscript">
+                                            hbspt.forms.create({
+                                                region: "na1",
+                                                portalId: "4700023",
+                                                formId: "f7fc869a-2e8a-4099-9baa-e49ac4897d6f",
+                                                onFormSubmit: function($form) {
+                                                    document.querySelector('.promo__subscription-content').style.display = 'none';
+                                                    document.querySelector('.promo__subscription-thanks').style.display = 'block';
+                                                }
+                                            });
+                                        </script>
+                                                                    </div>
+                            </div>
+                                                        <div class="promo__subscription-thanks title background-marker marker-entirety" data-marker="Thanks for reaching out! We’ll be in touch soon to set up your personalized demo -&nbsp;prepare to unlock security insights&nbsp;about your environment!" data-marker-mob="Thanks for reaching out! We’ll be in touch soon to set up your personalized demo -&nbsp;prepare to unlock security insights&nbsp;about your environment!" data-marker-color="#BFB3FF">
+                                Thanks for reaching out! We’ll be in touch soon to set up your personalized demo -&nbsp;prepare to unlock security insights&nbsp;about your environment!                            </div>
+                        </div>
+                    </div>
+                            </div>
+
+
+            <!-- <div class="promo__labels"> background-marker
+                                                <a href="/" class="promo__label promo__label--left-top">
+                                    LATERAL MOVEMENT                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 8">
+                                        <path class="path-line" d="M0 4H75.6765" />
+                                        <path class="path-arrow" d="M83 4L75.6765 7.4641L75.6765 0.535898L83 4Z" />
+                                    </svg>
+                                </a>
+                                                                                    <a href="/" class="promo__label promo__label--right-top">
+                                    LATERAL MOVEMENT                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 8">
+                                        <path class="path-line" d="M0 4H75.6765" />
+                                        <path class="path-arrow" d="M83 4L75.6765 7.4641L75.6765 0.535898L83 4Z" />
+                                    </svg>
+                                </a>
+                                                                                    <a href="/" class="promo__label promo__label--left-bottom">
+                                    FOLLOW THE VECTOR                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 8">
+                                        <path class="path-line" d="M0 4H75.6765" />
+                                        <path class="path-arrow" d="M83 4L75.6765 7.4641L75.6765 0.535898L83 4Z" />
+                                    </svg>
+                                </a>
+                                                                                                    </div> -->
+        </div>
+        <div class="grid-block">
+            <div class="grid-block-arrows" id="grid-block-arrows">
+            </div>
+            <div class="grid-block-items grid-block-items--subscription" id="grid-block-items">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hear-ciso" style="background-color:#EFF0F0;">
+    <div class="container">
+
+                    <h2 class="hear-ciso__title title h-medium" style="color: #1F2A50">
+                CISOs at these companies trust Pentera.            </h2>
+        
+        <div class="hear-ciso__wrapper hear-ciso__wrapper--line">
+                            <a href="https://www.youtube.com/watch?v=EJ1YcmPqCgU" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2026/01/edeka.webp" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2026/01/edeka.webp" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2026/01/edeka.webp" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2026/01/edeka_on.webp" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2026/01/edeka_on.webp" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2026/01/edeka_on.webp" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="https://www.youtube.com/watch?v=MBifNMewj5o" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1frame-920.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1frame-920.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1frame-920.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/02/property-1frame-919.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1frame-919.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/02/property-1frame-919.png" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="https://www.youtube.com/watch?v=LovwWQorMcg" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1casey_s_logo-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1casey_s_logo-1.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1casey_s_logo-1.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/02/property-1casey_s_logo.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1casey_s_logo.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/02/property-1casey_s_logo.png" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="https://www.youtube.com/watch?v=ZjWEMjD6MPo" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1lulu-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1lulu-1.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1lulu-1.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/02/property-1lulu-1_-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1lulu-1_-1.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/02/property-1lulu-1_-1.png" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="" class="play-btn hear-ciso-video" data-fancybox="" data-type="html5video">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1toyota-1-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1toyota-1-1.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1toyota-1-1.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/02/property-1toyota-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1toyota-1.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/02/property-1toyota-1.png" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2026/01/coop.webp" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2026/01/coop.webp" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2026/01/coop.webp" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2026/01/coop.webp" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2026/01/coop.webp" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2026/01/coop.webp" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="https://www.youtube.com/watch?v=MvWIMilMw8g" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1wyndham_hotels-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1wyndham_hotels-1.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1wyndham_hotels-1.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/02/property-1wyndham_hotels.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1wyndham_hotels.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/02/property-1wyndham_hotels.png" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="https://vimeo.com/951094452" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1dtcc-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1dtcc-1.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/02/property-1dtcc-1.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/02/property-1dtcc.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1dtcc.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/02/property-1dtcc.png" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="105" src="https://pentera.io/wp-content/uploads/2025/02/property-1schmitz-cargobull-1-1.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1schmitz-cargobull-1-1.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="105" src="https://pentera.io/wp-content/uploads/2025/02/property-1schmitz-cargobull-1-1.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/02/property-1schmitz-cargobull-.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/property-1schmitz-cargobull-.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/02/property-1schmitz-cargobull-.png" alt=""></noscript>
+                    </div>
+                </a>
+                            <a href="" class="play-btn hear-ciso-video" data-fancybox="" data-type="iframe">
+
+                    <div class="hear-ciso-video__logo">
+                        <img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/12/logo-bnp.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/12/logo-bnp.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="417" height="113" src="https://pentera.io/wp-content/uploads/2025/12/logo-bnp.png" alt=""></noscript>
+                        <img width="417" height="113" class="hov entered lazyloaded" src="https://pentera.io/wp-content/uploads/2025/12/hover-logo-bnp.png" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/12/hover-logo-bnp.png" data-ll-status="loaded"><noscript><img width="417" height="113" class="hov" src="https://pentera.io/wp-content/uploads/2025/12/hover-logo-bnp.png" alt=""></noscript>
+                    </div>
+                </a>
+                    </div>
+
+                    <a href="/resources/case-studies/" class="hear-ciso__all read-more-btn hr-light">
+                More testimonials&gt;            </a>
+        
+    </div>
+</section>
+
+    <section class="content-block  content-block--register" style="background: #1F2A50">
+    <div class="container">
+        <div class="content-block__wrapper" style="align-items: flex-start;">
+            <div class="content-block__text text-left">
+
+                                                    <h2 class="content-block__title fade-in title h-small" style="color: #ffffff">
+                        <font color="#ffaa00;">What 300 CISOs Say About AI Security</font>                    </h2>
+                
+                
+                <div class="content-block__descr fade-in" style="color: #1F2A50">
+                    <p data-pm-slice="1 1 []">Pentera’s AI Security &amp; Exposure Survey 2026 shows AI is now in use across nearly every organization—but security governance hasn’t kept pace, leaving AI as an untested attack surface.</p>
+                </div>
+                                                            <a href="https://pentera.io/resources/reports/ai-security-exposure-survey-2026" class="content-block__btn btn btn--white" target="_blank">
+                            Get the full report                        </a>
+                                                    
+                
+                
+                                    <img width="1920" height="1307" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201307'%3E%3C/svg%3E" class="content-block__add-image content-block__add-image--mobile" alt="" decoding="async" fetchpriority="high" data-lazy-srcset="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png 1920w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-300x204.png 300w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-939x639.png 939w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-768x523.png 768w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-1536x1046.png 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png"><noscript><img width="1920" height="1307" src="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png" class="content-block__add-image content-block__add-image--mobile" alt="" decoding="async" fetchpriority="high" srcset="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png 1920w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-300x204.png 300w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-939x639.png 939w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-768x523.png 768w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-1536x1046.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>                            </div>
+
+                                        
+                            <div class="content-block__media-wrap">
+            
+            
+                            <img width="1920" height="1307" src="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png" class="content-block__add-image content-block__add-image--desktop entered lazyloaded" alt="" decoding="async" data-lazy-srcset="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png 1920w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-300x204.png 300w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-939x639.png 939w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-768x523.png 768w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-1536x1046.png 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png" data-ll-status="loaded" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png 1920w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-300x204.png 300w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-939x639.png 939w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-768x523.png 768w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-1536x1046.png 1536w"><noscript><img width="1920" height="1307" src="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png" class="content-block__add-image content-block__add-image--desktop" alt="" decoding="async" srcset="https://pentera.io/wp-content/uploads/2026/02/menu_banners-1.png 1920w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-300x204.png 300w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-939x639.png 939w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-768x523.png 768w, https://pentera.io/wp-content/uploads/2026/02/menu_banners-1-1536x1046.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>                </div>
+                        
+                    </div>
+        
+    </div>
+</section>
+
+<section class="xposure-banner" style="display:none;">
+    <div class="xposure-banner__inner">
+        <h2 class="xposure-banner__title">
+            XPOSURE        </h2>
+        <div class="xposure-banner__subtitle title background-marker" data-marker="National" data-marker-color="#1F2A50">
+            The National Exposure Management vSummit        </div>
+        <div class="xposure-banner__date">
+            June 18<sup>th</sup>, 2025        </div>
+        <a href="https://events.pentera.io/xposure2025/" class="xposure-banner__btn btn btn--white" target="_blank">
+            Register Now        </a>
+                    <div class="xposure-banner__logos">
+                                    <img width="156" height="32" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20156%2032'%3E%3C/svg%3E" class="xposure-banner__logo" alt="" decoding="async" data-lazy-src="https://pentera.io/wp-content/uploads/2025/05/pentera-logo.svg"><noscript><img width="156" height="32" src="https://pentera.io/wp-content/uploads/2025/05/pentera-logo.svg" class="xposure-banner__logo" alt="" decoding="async" /></noscript>                                    <img width="400" height="400" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20400'%3E%3C/svg%3E" class="xposure-banner__logo" alt="" decoding="async" data-lazy-srcset="https://pentera.io/wp-content/uploads/2025/05/logo_aws-gray-850.png 400w, https://pentera.io/wp-content/uploads/2025/05/logo_aws-gray-850-300x300.png 300w" data-lazy-sizes="(max-width: 400px) 100vw, 400px" data-lazy-src="https://pentera.io/wp-content/uploads/2025/05/logo_aws-gray-850.png"><noscript><img width="400" height="400" src="https://pentera.io/wp-content/uploads/2025/05/logo_aws-gray-850.png" class="xposure-banner__logo" alt="" decoding="async" srcset="https://pentera.io/wp-content/uploads/2025/05/logo_aws-gray-850.png 400w, https://pentera.io/wp-content/uploads/2025/05/logo_aws-gray-850-300x300.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></noscript>                                    <img width="133" height="47" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20133%2047'%3E%3C/svg%3E" class="xposure-banner__logo" alt="" decoding="async" data-lazy-src="https://pentera.io/wp-content/uploads/2025/05/armis-logo.svg"><noscript><img width="133" height="47" src="https://pentera.io/wp-content/uploads/2025/05/armis-logo.svg" class="xposure-banner__logo" alt="" decoding="async" /></noscript>                                    <img width="143" height="40" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20143%2040'%3E%3C/svg%3E" class="xposure-banner__logo" alt="" decoding="async" data-lazy-src="https://pentera.io/wp-content/uploads/2025/05/recorded-future-logo.svg"><noscript><img width="143" height="40" src="https://pentera.io/wp-content/uploads/2025/05/recorded-future-logo.svg" class="xposure-banner__logo" alt="" decoding="async" /></noscript>                                    <img width="147" height="39" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20147%2039'%3E%3C/svg%3E" class="xposure-banner__logo" alt="" decoding="async" data-lazy-src="https://pentera.io/wp-content/uploads/2025/05/security-scorecard-logo.svg"><noscript><img width="147" height="39" src="https://pentera.io/wp-content/uploads/2025/05/security-scorecard-logo.svg" class="xposure-banner__logo" alt="" decoding="async" /></noscript>                            </div>
+                <svg width="111" height="111" viewBox="0 0 111 111" fill="none" class="xposure-banner__bg-img">
+            <g clip-path="url(#clip0_13285_41158)">
+            <path d="M87.1 9.88L86.37 19.14L85.61 28.84L85.56 28.8C91.88 35.91 95.75 45.24 95.75 55.5C95.75 77.73 77.73 95.74 55.51 95.74C33.29 95.74 15.26 77.73 15.26 55.5C15.26 33.27 33.27 15.26 55.5 15.26C60.48 15.26 65.23 16.21 69.64 17.86L69.57 17.81L78.35 13.62L86.73 9.62C77.84 3.55 67.09 0 55.5 0C24.85 0 0 24.85 0 55.5C0 86.15 24.85 111 55.5 111C86.15 111 111 86.15 111 55.5C111 36.59 101.54 19.9 87.1 9.88Z" fill="white"></path>
+            <path d="M55.4996 65.5401C49.9496 65.5401 45.4596 61.0401 45.4596 55.5001C45.4596 49.9601 49.9496 45.4601 55.4996 45.4601C61.0496 45.4601 65.5396 49.9601 65.5396 55.5001C65.5396 61.0401 61.0496 65.5401 55.4996 65.5401ZM55.4996 30.6401C41.7696 30.6401 30.6396 41.7701 30.6396 55.5001C30.6396 69.2301 41.7696 80.3601 55.4996 80.3601C69.2296 80.3601 80.3596 69.2301 80.3596 55.5001C80.3596 41.7701 69.2296 30.6401 55.4996 30.6401Z" fill="white"></path>
+            <path d="M55.4996 65.5401C49.9496 65.5401 45.4596 61.0401 45.4596 55.5001C45.4596 49.9601 49.9496 45.4601 55.4996 45.4601C61.0496 45.4601 65.5396 49.9601 65.5396 55.5001C65.5396 61.0401 61.0496 65.5401 55.4996 65.5401ZM55.4996 30.6401C41.7696 30.6401 30.6396 41.7701 30.6396 55.5001C30.6396 69.2301 41.7696 80.3601 55.4996 80.3601C69.2296 80.3601 80.3596 69.2301 80.3596 55.5001C80.3596 41.7701 69.2296 30.6401 55.4996 30.6401Z" fill="white"></path>
+            <path d="M87.1305 9.43994L86.7305 9.62994C86.8505 9.70994 86.9705 9.79994 87.0905 9.87994L87.1305 9.43994Z" fill="white"></path>
+            </g>
+            <defs>
+            <clipPath id="clip0_13285_41158">
+            <rect width="111" height="111" fill="white"></rect>
+            </clipPath>
+            </defs>
+        </svg>
+    </div>
+    <div class="xposure-banner__lottie xposure-banner__lottie--desktop lottie-field" data-lottie-id="https://pentera.io/wp-content/uploads/2025/05/desktop-animation-.json"></div>
+    <div class="xposure-banner__lottie xposure-banner__lottie--mobile lottie-field" data-lottie-id="https://pentera.io/wp-content/uploads/2025/05/mobile-animation-1.json"></div>
+</section>
+<section class="sheme">
+    <div class="container">
+
+                    <h2 class="sheme__title title h-small background-marker" style="color: #1F2A50" data-marker-link="/attack-surface-monitoring/" data-marker-mob="identify their root cause." data-marker="identify their root cause." data-marker-color="#FBAA19">
+                Discover full attack kill chains and identify their root cause.             </h2>
+        
+        <div class="sheme__lottie lottie-field" data-lottie-id="https://pentera.io/wp-content/uploads/2024/03/animation_desktop_file_size.json">
+        </div>
+        <div class="sheme__lottie sheme__lottie--mob lottie-field" data-lottie-id="https://pentera.io/wp-content/uploads/2024/03/animation_mobile_file_size.json" style="display: none">
+        </div>
+    </div>
+</section>
+<section class="number">
+    <div class="container">
+
+                    <h2 class="number__title h-small title" style="color: #ffffff">
+                Maximize security. Minimize risk.            </h2>
+        
+        <div class="number__cols">
+                            <div class="number__col">
+                    <div class="number__col--count" data-count-anim="1100">
+                        <span class="count-anim">996</span>+                    </div>
+                    <div class="number__col--title">
+                        Customers                    </div>
+                    <div class="number__col--descr p-medium">
+                        From SMBs to Enterprise                    </div>
+                </div>
+                            <div class="number__col">
+                    <div class="number__col--count" data-count-anim="60">
+                        <span class="count-anim">1</span>+                    </div>
+                    <div class="number__col--title">
+                        Countries                    </div>
+                    <div class="number__col--descr p-medium">
+                        Global presence, local expertise                    </div>
+                </div>
+                            <div class="number__col">
+                    <div class="number__col--count" data-count-anim="1">
+                        <span class="count-anim">23</span>  DAY                    </div>
+                    <div class="number__col--title">
+                        Proof of Value                    </div>
+                    <div class="number__col--descr p-medium">
+                        In your own environment                    </div>
+                </div>
+                    </div>
+
+                    <a href="https://pentera.io/book-a-demo/" class="content-block__btn number__btn btn btn--orange" target="_blank">Book a demo</a>
+        
+                    <img width="310" height="304" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20310%20304'%3E%3C/svg%3E" class="superbowl-item superbowl-item--hidden superbowl-item--side-right" alt="" id="superbowl-item-1" decoding="async" data-lazy-srcset="https://pentera.io/wp-content/uploads/2025/02/g1.png 310w, https://pentera.io/wp-content/uploads/2025/02/g1-300x294.png 300w" data-lazy-sizes="(max-width: 310px) 100vw, 310px" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/g1.png"><noscript><img width="310" height="304" src="https://pentera.io/wp-content/uploads/2025/02/g1.png" class="superbowl-item superbowl-item--hidden superbowl-item--side-right" alt="" id="superbowl-item-1" decoding="async" srcset="https://pentera.io/wp-content/uploads/2025/02/g1.png 310w, https://pentera.io/wp-content/uploads/2025/02/g1-300x294.png 300w" sizes="(max-width: 310px) 100vw, 310px" /></noscript>            </div>
+</section><section class="content-combine" style="background: #EFF0F0">
+        <div class="container">
+            <div class="content-combine__row">
+                <div class="content-combine__column">
+
+                                            <h2 class="content-block__title fade-in title h-small background-marker" style="color: #1F2A50" data-marker-mob="recognized as a, leader" data-marker-link="https://www.g2.com/products/pentera/reviews" data-marker="recognized as a leader" data-marker-color="#FBAA19">
+                            Pentera recognized as a leader in 6 categories on G2                        </h2>
+                    
+                    <div class="content-block__descr fade-in" style="color: #1F2A50">
+                        <p>Our platform reveals and prioritizes the riskiest security gaps with research-driven, AI-powered Security Validation to guide remediation and reduce your cyber exposure. Discover how we help security professionals like you validate their security and reduce exposure.</p>
+                    </div>
+
+                                             <div class="img-combine__single">
+                                <img width="864" height="256" class="lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20864%20256'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2026/02/imgl11.png"><noscript><img width="864" height="256" class="lazy" loading="lazy" src="https://pentera.io/wp-content/uploads/2026/02/imgl11.png" alt=""></noscript>
+                         </div>
+                    
+                                             <a href=" https://www.g2.com/products/pentera/reviews" class="content-block__btn btn btn--orange" target="_blank">
+                                Read Reviews                         </a>
+                    
+                </div>
+                <div class="content-combine__column">
+                                            <h2 class="content-block__title fade-in title h-small background-marker" style="color: #1F2A50" data-marker-mob="recommend, Pentera" data-marker="recommend, Pentera" data-marker-color="#FBAA19">
+                            96% would recommend Pentera                        </h2>
+                                        <div class="content-block__descr fade-in" style="color: #1F2A50">
+                        <p>4.7/5 Rating for security validation platforms.</p>
+                    </div>
+                                             <div class="img-combine__double">
+                                                                    <div class="img1"><img width="370" height="118" class="lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20118'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/imgr1.png"><noscript><img width="370" height="118" class="lazy" loading="lazy" src="https://pentera.io/wp-content/uploads/2025/02/imgr1.png" alt=""></noscript></div>
+                                                                                                    <div class="img2"><img width="564" height="118" class="lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20564%20118'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/imgr2.png"><noscript><img width="564" height="118" class="lazy" loading="lazy" src="https://pentera.io/wp-content/uploads/2025/02/imgr2.png" alt=""></noscript></div>
+                                                         </div>
+                    
+                                             <a href="https://www.gartner.com/reviews/market/adversarial-exposure-validation/vendor/pentera/product/pentera-platform" class="content-block__btn btn btn--orange" target="_blank">
+                                Read Reviews                         </a>
+                                    </div>
+            </div>
+        </div>
+</section>
+
+<section class="video">
+    <picture>
+        <source media="(max-width: 767px)" data-lazy-srcset="https://pentera.io/wp-content/uploads/2025/02/scapegoat_mobile-1.jpg">
+        <img class="video__bg" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/scapegoat_desktop-2.png"><noscript><img class="video__bg" loading="lazy" src="https://pentera.io/wp-content/uploads/2025/02/scapegoat_desktop-2.png" alt=""></noscript>
+    </picture>
+    <a href="https://youtu.be/ykgQ7O4-96w" class="play-btn" data-fancybox="" data-type="iframe">
+    </a>
+    <div class="container">
+        <div class="video__offer">
+            
+                            <h3 class="video__title h-small" style="color: #ffffff">
+                    The Cyber GOAT<br>story - Watch it Now                </h3>
+                    </div>
+            </div>
+</section>
+
+    <section class="content-block " style="background: #BFB3FF">
+    <div class="container">
+        <div class="content-block__wrapper" style="align-items: flex-start;">
+            <div class="content-block__text text-left">
+
+                                                    <h2 class="content-block__title fade-in title h-small background-marker" style="color: #1F2A50" data-marker-mob="the automation, of security validation" data-marker-link="/ctem-adoption-solution/" data-marker="the automation of, security validation" data-marker-color="#ffffff">
+                        Leading the automation of <br>
+security validation in a <br>
+changing cyber world.                    </h2>
+                
+                
+                <div class="content-block__descr fade-in" style="color: #1F2A50">
+                    <p>Pentera tests all your cybersecurity layers, always keeping up with the latest threats through an AI-powered validation engine, and pointing out true risks. We focus on continuous security validation to keep your organization safe and fix security gaps before they’re exploited. Hundreds of security experts and service providers worldwide trust Pentera for exposure reduction.</p>
+                </div>
+                                                            <a href="https://pentera.io/contact-us/" class="content-block__btn btn btn--white" target="">
+                            Contact Us                        </a>
+                                                    
+                
+                
+                            </div>
+
+                                                <a class="content-block__media" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-257a">
+
+                                                    <img width="1214" height="682" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201214%20682'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2025/02/frame-918.png"><noscript><img width="1214" height="682" loading="lazy" src="https://pentera.io/wp-content/uploads/2025/02/frame-918.png" alt=""></noscript>
+                        
+                        
+                                            </a>
+                            
+            
+            
+                        
+                    </div>
+        
+    </div>
+</section>
+
+
+    <section class="content-block " style="background: #ffffff">
+    <div class="container">
+        <div class="content-block__wrapper" style="align-items: flex-start;">
+            <div class="content-block__text text-left">
+
+                                                    <h2 class="content-block__title fade-in title h-small text-marker" style="color: #1F2A50" data-marker-mob="Pentera Labs™" data-marker="Pentera Labs™" data-marker-color="#595280">
+                        Pentera Labs™<br>
+Continuously evolving research <br>
+for your cybersecurity needs.                    </h2>
+                
+                
+                <div class="content-block__descr fade-in" style="color: #1F2A50">
+                    <p>Our in-house research team is your asset. Tap into insights from red-teamers, ethical hackers, and cyber experts at the forefront of cybersecurity to stay ahead of threats.</p>
+                </div>
+                                                            <a href="/pentera-research-labs/" class="content-block__btn btn btn--orange" target="">
+                            Learn more                        </a>
+                                                    
+                
+                
+                            </div>
+
+                                                <a class="content-block__media">
+
+                                                    <img width="2560" height="1448" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202560%201448'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2024/01/labs_copy-vtsgtz4sm-transformed-scaled.jpeg"><noscript><img width="2560" height="1448" loading="lazy" src="https://pentera.io/wp-content/uploads/2024/01/labs_copy-vtsgtz4sm-transformed-scaled.jpeg" alt=""></noscript>
+                        
+                        
+                                            </a>
+                            
+            
+            
+                        
+                    </div>
+        
+    </div>
+</section>
+
+
+    <section class="content-block " style="background: #FBAA19">
+    <div class="container">
+        <div class="content-block__wrapper" style="align-items: flex-start;">
+            <div class="content-block__text text-left">
+
+                                                    <h2 class="content-block__title fade-in title h-small text-marker" style="color: #1F2A50" data-marker-mob="Pentera Labs™" data-marker="Pentera Labs™" data-marker-color="#595280">
+                        See it for yourself.                    </h2>
+                
+                
+                <div class="content-block__descr fade-in" style="color: #000">
+                    <p>Begin your journey in security validation and see why leading companies trust us with their cybersecurity validation.</p>
+                </div>
+                                                    <div class="promo__subscription">
+                        <div class="promo__subscription-right">
+                            <div class="promo__subscription-content">
+                                <div class="promo__subscription-form">
+                                    <script type="rocketlazyloadscript" charset="utf-8" data-rocket-type="text/javascript" data-rocket-src="//js.hsforms.net/forms/embed/v2.js"></script>
+                                                                            <script type="rocketlazyloadscript">
+                                            hbspt.forms.create({
+                                                region: "na1",
+                                                portalId: "4700023",
+                                                formId: "3e3b8c8e-307b-445f-b811-3dc3ce309f68",
+                                                onFormSubmit: function($form) {
+                                                    document.querySelector('.promo__subscription-content').style.display = 'none';
+                                                    document.querySelector('.promo__subscription-thanks').style.display = 'block';
+                                                }
+                                            });
+                                        </script>
+                                                                    </div>
+                            </div>
+                                                        <div class="promo__subscription-thanks title background-marker marker-entirety" data-marker="Thanks for reaching out! We’ll be in touch soon to set up your personalized demo -&nbsp;prepare to unlock security insights&nbsp;about your environment!" data-marker-mob="Thanks for reaching out! We’ll be in touch soon to set up your personalized demo -&nbsp;prepare to unlock security insights&nbsp;about your environment!" data-marker-color="#BFB3FF">
+                                Thanks for reaching out! We’ll be in touch soon to set up your personalized demo -&nbsp;prepare to unlock security insights&nbsp;about your environment!                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+                            </div>
+
+                                        
+            
+                            <div class="content-block__media">
+                    <img width="2560" height="1376" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202560%201376'%3E%3C/svg%3E" alt="Why Pentera POV" data-lazy-src="https://pentera.io/wp-content/uploads/2024/01/new_pov1-scaled.jpg"><noscript><img width="2560" height="1376" loading="lazy" src="https://pentera.io/wp-content/uploads/2024/01/new_pov1-scaled.jpg" alt="Why Pentera POV"></noscript>
+                    <a href="https://www.youtube.com/watch?v=UErh4OXnkCM" class="play-btn" data-fancybox="" data-type="iframe">
+                    </a>
+                </div>
+            
+                        
+                    </div>
+        
+    </div>
+</section>
+<footer class="footer footer-cro">
+    <div class="container footer__wrapper">
+        <div class="footer-center">
+            <div class="footer-center__left">
+                <nav class="footer-nav" data-da=".footer-top, 767, 1">
+                    <ul class="footer-nav--desktop"><li id="menu-item-346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-346"><a href="/platform/">Platform</a><div class="sub-menu"><ul>	<li id="menu-item-347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-347"><a href="https://pentera.io/platform/">Pentera Platform</a></li>
+	<li id="menu-item-348" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-348"><a href="/pentera/pentera-core/">Pentera Core</a></li>
+	<li id="menu-item-11597" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11597"><a href="/pentera-cloud/">Pentera Cloud</a></li>
+	<li id="menu-item-349" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-349"><a href="/pentera/pentera-surface/">Pentera Surface</a></li>
+	<li id="menu-item-351" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351"><a href="/credential-exposure/">Credential Exposure</a></li>
+	<li id="menu-item-28254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28254"><a href="https://pentera.io/pentera-resolve/">Pentera Resolve</a></li>
+	<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-352"><a href="/pentera/ransomwareready/">RansomwareReady™</a></li>
+</ul></div></li>
+<li id="menu-item-14104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14104"><a href="/red-teaming/">Solutions</a><div class="sub-menu"><ul>	<li id="menu-item-26525" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26525"><a href="https://pentera.io/ctem-adoption-solution/">CTEM Adoption</a></li>
+	<li id="menu-item-14105" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14105"><a href="/red-teaming/">Red Teaming</a></li>
+	<li id="menu-item-14106" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14106"><a href="/vulnerability-prioritization/">Vulnerability Prioritization</a></li>
+	<li id="menu-item-14107" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14107"><a href="/ransomware-resilience/">Ransomware Resilience</a></li>
+	<li id="menu-item-14108" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14108"><a href="/attack-surface-monitoring/">Attack Surface Monitoring</a></li>
+	<li id="menu-item-14109" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14109"><a href="/soc-optimization/">SOC Optimization</a></li>
+	<li id="menu-item-14110" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14110"><a href="/penetration-testing/">Penetration Testing</a></li>
+</ul></div></li>
+<li id="menu-item-363" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-363"><a href="/partners/">Partners</a><div class="sub-menu"><ul>	<li id="menu-item-11487" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11487"><a href="/pentera-partner-program">Partner program</a></li>
+	<li id="menu-item-366" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-366"><a href="/become-a-partner/">Become a partner</a></li>
+	<li id="menu-item-367" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-367"><a target="_blank" href="https://partners.pentera.io/">Partner login</a></li>
+</ul></div></li>
+<li id="menu-item-13702" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13702"><a href="/pentera-security-validation-advisory-sva/">Services</a><div class="sub-menu"><ul>	<li id="menu-item-13703" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13703"><a href="/pentera-security-validation-advisory-sva/">Strategic Advisory Services</a></li>
+	<li id="menu-item-28328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28328"><a href="https://pentera.io/offensive-security/">Offensive Security Services</a></li>
+</ul></div></li>
+<li id="menu-item-372" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-372"><a href="/about-us/">Company</a><div class="sub-menu"><ul>	<li id="menu-item-373" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-373"><a href="/pentera/about-us/">About Pentera</a></li>
+	<li id="menu-item-375" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-375"><a href="/pentera/leadership/">Leadership</a></li>
+	<li id="menu-item-376" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-376"><a href="/pentera/newsroom/">Newsroom</a></li>
+	<li id="menu-item-377" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-377"><a href="/pentera/careers/">Careers</a></li>
+	<li id="menu-item-378" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-378"><a href="/pentera/contact-us/">Contact us</a></li>
+</ul></div></li>
+<li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-379"><a href="/resources/">Resources</a><div class="sub-menu"><ul>	<li id="menu-item-27410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27410"><a href="https://pentera.io/security-validation-roi-calculator/">ROI Calculator</a></li>
+	<li id="menu-item-389" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-389"><a href="/what-is-asv/">What is ASV?</a></li>
+	<li id="menu-item-381" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-381"><a href="/blog/">Blog</a></li>
+	<li id="menu-item-11387" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11387"><a href="https://pentera.io/glossary/">Glossary</a></li>
+	<li id="menu-item-380" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-380"><a href="/resources/research/">Research papers</a></li>
+	<li id="menu-item-382" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-382"><a href="/cybertoon/">Cybertoons</a></li>
+	<li id="menu-item-25710" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25710"><a href="/resources/case-studies/">Customer stories</a></li>
+	<li id="menu-item-386" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-386"><a href="/resources/whitepapers/">Whitepapers</a></li>
+	<li id="menu-item-384" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-384"><a href="/resources/webinars/">Webinars</a></li>
+	<li id="menu-item-28059" class="menu-item menu-item-type-taxonomy menu-item-object-af-resources-category menu-item-28059"><a href="https://pentera.io/af-resources-category/goat-guides/">GOAT Guides</a></li>
+	<li id="menu-item-385" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-385"><a href="/resources/podcasts/">Podcasts</a></li>
+</ul></div></li>
+</ul>                    <ul class="footer-nav--mobile"><li id="menu-item-27506" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27506"><a href="/platform/">Platform</a><div class="sub-menu"><ul>	<li id="menu-item-27507" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27507"><a href="https://pentera.io/platform/">Pentera Platform</a></li>
+	<li id="menu-item-27508" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27508"><a href="/pentera/pentera-core/">Pentera Core</a></li>
+	<li id="menu-item-27509" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27509"><a href="/pentera-cloud/">Pentera Cloud</a></li>
+	<li id="menu-item-27510" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27510"><a href="/pentera/pentera-surface/">Pentera Surface</a></li>
+	<li id="menu-item-27511" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27511"><a href="/credential-exposure/">Credential Exposure</a></li>
+	<li id="menu-item-27512" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27512"><a href="/pentera/ransomwareready/">RansomwareReady™</a></li>
+</ul></div></li>
+<li id="menu-item-27521" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27521"><a href="/partners/">Partners</a><div class="sub-menu"><ul>	<li id="menu-item-27522" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27522"><a href="/pentera-partner-program">Partner program</a></li>
+	<li id="menu-item-27523" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27523"><a href="/become-a-partner/">Become a partner</a></li>
+	<li id="menu-item-27524" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27524"><a target="_blank" href="https://partners.pentera.io/">Partner login</a></li>
+</ul></div></li>
+<li id="menu-item-27533" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27533"><a href="/resources/">Resources</a><div class="sub-menu"><ul>	<li id="menu-item-27534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27534"><a href="https://pentera.io/security-validation-roi-calculator/">ROI Calculator</a></li>
+	<li id="menu-item-27535" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27535"><a href="/what-is-asv/">What is ASV?</a></li>
+	<li id="menu-item-27536" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27536"><a href="/blog/">Blog</a></li>
+	<li id="menu-item-27537" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27537"><a href="https://pentera.io/glossary/">Glossary</a></li>
+	<li id="menu-item-27538" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27538"><a href="/resources/research/">Research papers</a></li>
+	<li id="menu-item-27539" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27539"><a href="/cybertoon/">Cybertoons</a></li>
+	<li id="menu-item-27540" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27540"><a href="/resources/case-studies/">Customer stories</a></li>
+	<li id="menu-item-27541" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27541"><a href="/resources/webinars/">Webinars</a></li>
+	<li id="menu-item-27542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27542"><a href="/resources/podcasts/">Podcasts</a></li>
+	<li id="menu-item-27543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27543"><a href="/resources/whitepapers/">Whitepapers</a></li>
+</ul></div></li>
+<li id="menu-item-27513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27513"><a href="/red-teaming/">Solutions</a><div class="sub-menu"><ul>	<li id="menu-item-27514" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27514"><a href="https://pentera.io/ctem-adoption-solution/">CTEM Adoption</a></li>
+	<li id="menu-item-27515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27515"><a href="/red-teaming/">Red Teaming</a></li>
+	<li id="menu-item-27516" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27516"><a href="/vulnerability-prioritization/">Vulnerability Prioritization</a></li>
+	<li id="menu-item-27517" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27517"><a href="/ransomware-resilience/">Ransomware Resilience</a></li>
+	<li id="menu-item-27518" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27518"><a href="/attack-surface-monitoring/">Attack Surface Monitoring</a></li>
+	<li id="menu-item-27519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27519"><a href="/soc-optimization/">SOC Optimization</a></li>
+	<li id="menu-item-27520" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27520"><a href="/penetration-testing/">Penetration Testing</a></li>
+</ul></div></li>
+<li id="menu-item-27527" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27527"><a href="/about-us/">Company</a><div class="sub-menu"><ul>	<li id="menu-item-27528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27528"><a href="/pentera/about-us/">About Pentera</a></li>
+	<li id="menu-item-27529" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27529"><a href="/pentera/leadership/">Leadership</a></li>
+	<li id="menu-item-27530" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27530"><a href="/pentera/newsroom/">Newsroom</a></li>
+	<li id="menu-item-27531" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27531"><a href="/pentera/careers/">Careers</a></li>
+	<li id="menu-item-27532" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27532"><a href="/pentera/contact-us/">Contact us</a></li>
+</ul></div></li>
+<li id="menu-item-27525" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27525"><a href="/pentera-security-validation-advisory-sva/">Services</a><div class="sub-menu"><ul>	<li id="menu-item-27526" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27526"><a href="/pentera-security-validation-advisory-sva/">Security Validation Advisory&nbsp;&nbsp;(SVA)</a></li>
+</ul></div></li>
+</ul>                </nav>
+                <div class="footer-center__bottom">
+                    <div class="footer-col">
+                        <a href="https://pentera.io" class="logo">
+                            <img width="164" height="48" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20164%2048'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2023/12/logo.svg"><noscript><img width="164" height="48" src="https://pentera.io/wp-content/uploads/2023/12/logo.svg" alt=""></noscript>
+                        </a>
+                        <div class="soc-wrap">
+                                                            <a target="_blank" href="https://www.linkedin.com/company/18445647/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39">
+    <path d="M38 19.728c0 10.517-8.501 19.02-19.013 19.02C8.475 38.749-.051 30.145 0 19.594.052 9.16 8.564.684 19.073.691 29.519.697 38 9.229 38 19.728Zm-21.944 9.711h4.612v-.416c0-2.418.014-4.837-.007-7.255-.008-.858.24-1.606.8-2.235.686-.77 2.034-.964 2.912-.421.24.148.444.385.606.622.458.671.558 1.443.558 2.235V29.433h4.626v-.426c0-2.419.011-4.838-.007-7.256a16.323 16.323 0 0 0-.151-2.1c-.324-2.37-1.897-4.05-4.135-4.4-2.061-.324-3.817.19-5.051 1.993a1.629 1.629 0 0 1-.157.147v-1.886h-4.605v13.934Zm-2.59.009c.009-.116.02-.192.02-.267 0-4.46.001-8.921.005-13.381 0-.279-.107-.325-.35-.323a225.36 225.36 0 0 1-3.891 0c-.313-.004-.407.075-.406.395.01 4.405.013 8.81.007 13.216v.36h4.615ZM11.008 8.785c-.81.024-1.677.346-2.162 1.31-.864 1.718.462 3.606 2.44 3.495 1.182-.066 2.064-.667 2.375-1.618.54-1.666-.623-3.182-2.653-3.187Z"></path>
+</svg>                                </a>
+                                                            <a target="_blank" href="https://www.youtube.com/c/pentera">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39">
+    <path d="M19 .719a19 19 0 1 0 0 38 19 19 0 0 0 0-38Zm12.268 17.78c0 1.714-.06 3.43-.156 5.144a9.279 9.279 0 0 1-.378 2.168 2.91 2.91 0 0 1-2.586 2.15 47.635 47.635 0 0 1-3.648.307c-2.595.07-5.19.13-7.782.102-2.088-.025-4.176-.17-6.258-.308a3.58 3.58 0 0 1-2.374-.92c-.706-.686-.921-1.56-1.066-2.482a40.678 40.678 0 0 1-.24-7.063c.047-1.33.087-2.675.507-3.956a2.94 2.94 0 0 1 2.577-2.134 55.19 55.19 0 0 1 4.913-.353 142.4 142.4 0 0 1 7.064-.05c.764 0 1.535.031 2.119.053 1.45.052 2.899.193 4.339.35 1.299.144 2.35 1.228 2.607 2.607.262 1.447.384 2.915.363 4.386Z"></path>
+    <path d="M24.373 19.454c.103.06.192.136.351.248a4.106 4.106 0 0 1-.426.31 3144.615 3144.615 0 0 1-8.31 4.738c-.577.328-.647.296-.652-.356-.016-3.14-.024-6.284-.024-9.43 0-.545.094-.6.549-.343l8.512 4.833Z"></path>
+</svg>                                </a>
+                                                            <a target="_blank" href="https://www.instagram.com/pentera_life/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39">
+    <path fill-rule="evenodd" d="M19 38.719c10.493 0 19-8.507 19-19 0-10.494-8.507-19-19-19s-19 8.506-19 19c0 10.493 8.507 19 19 19ZM8.55 15.074a5.812 5.812 0 0 1 5.806-5.805h9.288a5.812 5.812 0 0 1 5.806 5.805v9.29a5.812 5.812 0 0 1-5.806 5.805h-9.288a5.812 5.812 0 0 1-5.806-5.806v-9.289Zm18.578 0a3.488 3.488 0 0 0-3.484-3.483h-9.288a3.488 3.488 0 0 0-3.484 3.483v9.29a3.488 3.488 0 0 0 3.484 3.482h9.288a3.488 3.488 0 0 0 3.484-3.483v-9.289Zm-3.143-1.982a1.161 1.161 0 1 1 1.642 1.642 1.161 1.161 0 0 1-1.642-1.642Zm-10.79 6.627A5.812 5.812 0 0 1 19 13.913a5.812 5.812 0 0 1 5.806 5.806A5.812 5.812 0 0 1 19 25.524a5.812 5.812 0 0 1-5.806-5.805Zm9.288 0A3.488 3.488 0 0 0 19 16.235a3.488 3.488 0 0 0-3.483 3.484A3.488 3.488 0 0 0 19 23.202a3.488 3.488 0 0 0 3.483-3.483Z" clip-rule="evenodd"></path>
+</svg>                                </a>
+                                                            <a target="_blank" href="https://www.facebook.com/Penterasec">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39">
+    <path d="M22.733 25.062h3.689c.281-1.783.553-3.543.84-5.35h-5.611c-.008-.151-.018-.261-.018-.372 0-1.098-.004-2.197 0-3.296.005-1.576.883-2.623 2.454-2.759 1.159-.1 2.33-.05 3.496-.068h.452c.012-.124.028-.21.028-.297 0-1.359 0-2.718.006-4.077 0-.222-.057-.334-.291-.35-1.444-.108-2.886-.282-4.332-.316a7.572 7.572 0 0 0-4.6 1.4 5.495 5.495 0 0 0-2.228 3.274 15.795 15.795 0 0 0-.39 2.847c-.068 1.198-.017 2.401-.017 3.602v.402H11.96c-.011.136-.026.232-.026.33 0 1.563.004 3.126-.006 4.689 0 .262.068.352.34.349 1.177-.015 2.355-.006 3.533-.006h.387v13.645c-.773-.182-1.528-.32-2.259-.538C7.145 36.145 2.655 31.746.768 24.937-.882 18.988.12 13.377 3.825 8.38 6.901 4.226 11.047 1.734 16.177.947A18.905 18.905 0 0 1 36.175 11.63c1.824 3.904 2.283 7.986 1.367 12.194-1.407 6.476-5.278 10.97-11.243 13.702-1.05.482-2.203.74-3.31 1.099-.084.02-.17.034-.256.042V25.062Z"></path>
+</svg>                                </a>
+                                                            <a target="_blank" href="https://twitter.com/penterasec">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 39">
+    <path d="M22.465 27.755h2.816c-2.235-3.085-9.142-12.91-11.411-16.083h-2.828c3.8 5.376 7.89 11.11 11.423 16.083Zm-1.43-9.713c.703 1.028 6.068 8.55 8.493 11.97H21.47c-.391-.559-3.442-4.84-4.862-6.817l-5.812 6.817H7.444c1.117-1.352 5.666-6.706 7.667-8.94-2.772-3.868-6.047-8.338-8.293-11.68h8.069c0 .09 3.118 4.47 4.616 6.538l5.588-6.538H28.444c-.793.939-6.896 8.091-7.399 8.695M38 19.719a19 19 0 1 0-38 0 19 19 0 0 0 38 0Z"></path>
+</svg>                                </a>
+                                                    </div>
+                    </div>
+                    <div class="footer-col footer-logos">
+                                                    <img width="120" height="120" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://pentera.io/wp-content/uploads/2025/01/aws-qualified-software.png"><noscript><img width="120" height="120" src="https://pentera.io/wp-content/uploads/2025/01/aws-qualified-software.png" alt="Logo"></noscript>
+                                                    <img width="200" height="201" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20201'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://pentera.io/wp-content/uploads/2024/07/icon-1.png"><noscript><img width="200" height="201" src="https://pentera.io/wp-content/uploads/2024/07/icon-1.png" alt="Logo"></noscript>
+                                                    <img width="200" height="201" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20201'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://pentera.io/wp-content/uploads/2024/07/icon-2.png"><noscript><img width="200" height="201" src="https://pentera.io/wp-content/uploads/2024/07/icon-2.png" alt="Logo"></noscript>
+                                                    <img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://pentera.io/wp-content/uploads/2025/04/isc2-logo.png"><noscript><img width="180" height="180" src="https://pentera.io/wp-content/uploads/2025/04/isc2-logo.png" alt="Logo"></noscript>
+                                                    <img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://pentera.io/wp-content/uploads/2025/06/iso42001-e.webp"><noscript><img width="180" height="180" src="https://pentera.io/wp-content/uploads/2025/06/iso42001-e.webp" alt="Logo"></noscript>
+                                                    <img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" alt="Logo" data-lazy-src="https://pentera.io/wp-content/uploads/2025/06/urs_logo.webp"><noscript><img width="180" height="180" src="https://pentera.io/wp-content/uploads/2025/06/urs_logo.webp" alt="Logo"></noscript>
+                                            </div>
+                </div>
+            </div>
+            <div class="footer-center__right">
+                <a href="https://pentera.io" class="logo">
+                    <img width="164" height="48" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20164%2048'%3E%3C/svg%3E" alt="" data-lazy-src="https://pentera.io/wp-content/uploads/2023/12/logo.svg"><noscript><img width="164" height="48" src="https://pentera.io/wp-content/uploads/2023/12/logo.svg" alt=""></noscript>
+                </a>
+                <div class="footer-cro__form">
+                    <div class="footer-cro__form-title">
+                        Get a Cyber Exposure Deep-Dive
+                    </div>
+                    <script type="rocketlazyloadscript" charset="utf-8" data-rocket-type="text/javascript" data-rocket-src="//js.hsforms.net/forms/embed/v2.js"></script>
+                    <script type="rocketlazyloadscript">
+                    hbspt.forms.create({
+                        portalId: "4700023",
+                        formId: "65ee95fc-7cf7-4f30-968c-e473e8766104",
+                        region: "na1"
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © All rights reserved Pentera 2026            <a href="/legal-hub/">
+                Legal hub            </a>
+        </div>
+    </div>
+</footer>
+
+
+<div class="default-modal video-modal" id="video-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal"></button>
+            <div class="modal-video">
+                <div id="modal-video-iframe"></div>
+            </div>
+                    </div>
+    </div>
+</div>
+
+</div>
+<script type="rocketlazyloadscript">
+    var ajaxurl = 'https://pentera.io/wp-admin/admin-ajax.php';
+</script>
+
+<!-- Start of HubSpot Embed Code -->
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="hs-script-loader" async="" defer="" data-rocket-src="//js.hs-scripts.com/4700023.js"></script>
+<!-- End of HubSpot Embed Code -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/Pentera_theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- Not a custom post type page --> <div class="textdtr"></div> <script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/fr/pentera-at-a-glance/|/pentera-at-a-glance/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://pentera.io","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket_lazyload_css-js-extra">
+/* <![CDATA[ */
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket_lazyload_css-js-after">
+/* <![CDATA[ */
+!function o(n,c,a){function s(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(r=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",r}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return s(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var u="function"==typeof require&&require,e=0;e<a.length;e++)s(a[e]);return s}({1:[function(e,t,r){"use strict";!function(){const r="undefined"==typeof rocket_pairs?[]:rocket_pairs,e="undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs;e.map(t=>{var e=t.selector;const r=document.querySelectorAll(e);r.forEach(e=>{e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"excluded")})});const o=document.querySelector("#wpr-lazyload-bg");var t=rocket_lazyload_css_data.threshold||300;const n=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){const e=r.filter(e=>t.target.matches(e.selector));e.map(t=>{t&&(o.innerHTML+=t.style,t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"loaded")}))})}})},{rootMargin:t+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{const e=document.querySelectorAll(t.selector);e.forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&(n.observe(e),(t.elements||(t.elements=[])).push(e))})}catch(e){console.error(e)}})}c();const a=function(){const o=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType){const r=new o(t);return r.observe(e,{attributes:!0,childList:!0,subtree:!0}),r}}}();t=document.querySelector("body"),a(t,c)}()},{}]},{},[1]);
+
+//# sourceURL=rocket_lazyload_css-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://player.vimeo.com/api/player.js?ver=4.9.88" id="vimeo-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/themes/Pentera_theme/js/vendors.js?ver=4.9.88" id="vendors-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/themes/Pentera_theme/scripts.js?ver=4.9.88" id="other-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/themes/Pentera_theme/js/common.js?ver=4.9.88" id="common-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/themes/Pentera_theme/blog.js?ver=4.9.88" id="blog-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6LfFQxAqAAAAABGvM69sDuHKoFZMb2q4tRMG5WZ_&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wpcf7-recaptcha-js-before">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {
+    "sitekey": "6LfFQxAqAAAAABGvM69sDuHKoFZMb2q4tRMG5WZ_",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://pentera.io/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.4" id="wpcf7-recaptcha-js" defer=""></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://pentera.io/wp-includes/js/wp-emoji-release.min.js?ver=8557184637a4a4ffaa84bf0b43433734"}}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://pentera.io/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://pentera.io/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+
+
+</body></html>

@@ -1,0 +1,58 @@
+[2026-03-23T18:52:00.955Z] === Homepage AI Extractor: Captain Fresh ===
+[2026-03-23T18:52:00.955Z] Started at: 2026-03-23T18:52:00.955Z
+[2026-03-23T18:52:00.955Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774291920955_Captain_Fresh
+[2026-03-23T18:52:00.956Z] Company: Captain Fresh
+[2026-03-23T18:52:00.956Z] Website: captainfresh.in
+[2026-03-23T18:52:00.956Z] cbRank: 6357
+[2026-03-23T18:52:00.956Z] Reasons: i
+[2026-03-23T18:52:00.956Z] Fetching: https://captainfresh.in
+[2026-03-23T18:52:02.847Z] Redirected: https://captainfresh.in -> https://www.captainfresh.in/
+[2026-03-23T18:52:02.886Z] Saved HTML (2303524 bytes) to page.html
+[2026-03-23T18:52:02.888Z] Extracted 16 unique links from page
+[2026-03-23T18:52:02.889Z] Saved 16 links to links.json
+[2026-03-23T18:52:02.890Z] Extracted footer HTML (4340 chars)
+[2026-03-23T18:52:02.890Z] Extracted header HTML (2144 chars)
+[2026-03-23T18:52:02.894Z] Website (post-redirect): https://www.captainfresh.in/ → origin: https://www.captainfresh.in
+[2026-03-23T18:52:02.894Z] External links: 2 (of 16 total)
+[2026-03-23T18:52:02.894Z] ── All external links ──
+[2026-03-23T18:52:02.894Z]   EXT: https://captainfresh.zohorecruit.com/jobs/Careers
+[2026-03-23T18:52:02.894Z]   EXT: https://www.linkedin.com/company/captainfresh
+[2026-03-23T18:52:02.894Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T18:52:02.895Z]   UNCATEGORIZED: https://captainfresh.zohorecruit.com/jobs/Careers
+[2026-03-23T18:52:02.895Z]   REGEX: li <- https://www.linkedin.com/company/captainfresh
+[2026-03-23T18:52:02.895Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-23T18:52:02.895Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T18:52:02.898Z] Saved AI prompt (4037 chars) to ai_prompt.txt
+[2026-03-23T18:52:02.898Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T18:52:02.901Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T18:52:18.574Z]   AI: First token received, streaming...
+[2026-03-23T18:52:23.940Z] AI response complete: 96 chars in 21.0s
+[2026-03-23T18:52:23.941Z] Saved AI response to ai_response.json
+[2026-03-23T18:52:23.941Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T18:52:23.941Z]   AI LINK: https://captainfresh.zohorecruit.com/jobs/Careers
+[2026-03-23T18:52:23.942Z]   AI LINK: https://www.linkedin.com/company/captainfresh/
+[2026-03-23T18:52:23.942Z] AI returned 2 valid links
+[2026-03-23T18:52:23.942Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T18:52:23.942Z]   AI→URLS: https://captainfresh.zohorecruit.com/jobs/Careers
+[2026-03-23T18:52:23.942Z]   AI→REGEX: li <- https://www.linkedin.com/company/captainfresh/ (duplicate, skipped)
+[2026-03-23T18:52:23.944Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T18:52:23.944Z] Footer/header origins (2):
+[2026-03-23T18:52:23.944Z]   FOOTER/HEADER ORIGIN: https://captainfresh.zohorecruit.com
+[2026-03-23T18:52:23.944Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T18:52:23.944Z]   SKIP (AI claimed): https://captainfresh.zohorecruit.com/jobs/Careers
+[2026-03-23T18:52:23.944Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T18:52:23.945Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T18:52:23.945Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T18:52:23.945Z] ── Step 3: Final dedup ──
+[2026-03-23T18:52:23.945Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T18:52:23.945Z] ── FINAL RESULT ──
+[2026-03-23T18:52:23.945Z]   ws (1):
+[2026-03-23T18:52:23.945Z]     - https://www.captainfresh.in
+[2026-03-23T18:52:23.945Z]   li (1):
+[2026-03-23T18:52:23.945Z]     - https://www.linkedin.com/company/captainfresh
+[2026-03-23T18:52:23.946Z]   urls (1):
+[2026-03-23T18:52:23.946Z]     - https://captainfresh.zohorecruit.com/jobs/Careers
+[2026-03-23T18:52:23.946Z] Summary: ws:1, li:1, urls:1
+[2026-03-23T18:52:23.947Z] Saved final result to result.json
+[2026-03-23T18:52:23.947Z] Override fields: ws, li, urls
+[2026-03-23T18:52:23.948Z] Finished at: 2026-03-23T18:52:23.948Z

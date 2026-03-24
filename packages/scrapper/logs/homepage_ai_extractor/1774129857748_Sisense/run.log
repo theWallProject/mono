@@ -1,0 +1,82 @@
+[2026-03-21T21:50:57.748Z] === Homepage AI Extractor: Sisense ===
+[2026-03-21T21:50:57.748Z] Started at: 2026-03-21T21:50:57.748Z
+[2026-03-21T21:50:57.749Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774129857748_Sisense
+[2026-03-21T21:50:57.749Z] Company: Sisense
+[2026-03-21T21:50:57.749Z] Website: sisense.com
+[2026-03-21T21:50:57.749Z] cbRank: 857
+[2026-03-21T21:50:57.749Z] Reasons: f
+[2026-03-21T21:50:57.749Z] Fetching: https://sisense.com
+[2026-03-21T21:51:01.623Z] Redirected: https://sisense.com -> https://www.sisense.com/
+[2026-03-21T21:51:01.657Z] Saved HTML (1647860 bytes) to page.html
+[2026-03-21T21:51:01.661Z] Extracted 64 unique links from page
+[2026-03-21T21:51:01.662Z] Saved 64 links to links.json
+[2026-03-21T21:51:01.665Z] Extracted footer HTML (8708 chars)
+[2026-03-21T21:51:01.665Z] Extracted header HTML (13010 chars)
+[2026-03-21T21:51:01.669Z] Website (post-redirect): https://www.sisense.com/ → origin: https://www.sisense.com
+[2026-03-21T21:51:01.669Z]   SUBDOMAIN: supportportal.sisense.com (added to ws)
+[2026-03-21T21:51:01.669Z]   SUBDOMAIN: academy.sisense.com (added to ws)
+[2026-03-21T21:51:01.669Z]   SUBDOMAIN: community.sisense.com (added to ws)
+[2026-03-21T21:51:01.669Z]   SUBDOMAIN: docs.sisense.com (added to ws)
+[2026-03-21T21:51:01.669Z] Website subdomains found: 4
+[2026-03-21T21:51:01.669Z] External links: 3 (of 64 total)
+[2026-03-21T21:51:01.669Z] ── All external links ──
+[2026-03-21T21:51:01.670Z]   EXT: https://github.com/sisense
+[2026-03-21T21:51:01.670Z]   EXT: https://www.linkedin.com/company/sisense
+[2026-03-21T21:51:01.670Z]   EXT: https://x.com/sisense
+[2026-03-21T21:51:01.670Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:51:01.670Z]   REGEX: gh <- https://github.com/sisense
+[2026-03-21T21:51:01.670Z]   REGEX: li <- https://www.linkedin.com/company/sisense
+[2026-03-21T21:51:01.670Z]   REGEX: tw <- https://x.com/sisense
+[2026-03-21T21:51:01.670Z] Programmatic result: ws:5, gh:1, li:1, tw:1 | 0 uncategorized
+[2026-03-21T21:51:01.670Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:51:01.671Z] Saved AI prompt (6920 chars) to ai_prompt.txt
+[2026-03-21T21:51:01.671Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:51:01.674Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:51:31.197Z]   AI: First token received, streaming...
+[2026-03-21T21:51:37.812Z] AI response complete: 116 chars in 36.1s
+[2026-03-21T21:51:37.813Z] Saved AI response to ai_response.json
+[2026-03-21T21:51:37.814Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T21:51:37.814Z]   AI LINK: https://www.sisense.com/
+[2026-03-21T21:51:37.814Z]   AI LINK: https://x.com/sisense/
+[2026-03-21T21:51:37.814Z]   AI LINK: https://www.linkedin.com/company/sisense
+[2026-03-21T21:51:37.814Z]   AI LINK: https://github.com/sisense/
+[2026-03-21T21:51:37.815Z] AI returned 4 valid links
+[2026-03-21T21:51:37.815Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T21:51:37.815Z]   AI→URLS: https://www.sisense.com (cleaned from https://www.sisense.com/)
+[2026-03-21T21:51:37.815Z]   AI→REGEX: tw <- https://x.com/sisense/ (duplicate, skipped)
+[2026-03-21T21:51:37.815Z]   AI→REGEX: li <- https://www.linkedin.com/company/sisense (duplicate, skipped)
+[2026-03-21T21:51:37.816Z]   AI→REGEX: gh <- https://github.com/sisense/ (duplicate, skipped)
+[2026-03-21T21:51:37.816Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:51:37.817Z] Footer/header origins (8):
+[2026-03-21T21:51:37.817Z]   FOOTER/HEADER ORIGIN: https://www.sisense.com
+[2026-03-21T21:51:37.817Z]   FOOTER/HEADER ORIGIN: http://supportportal.sisense.com
+[2026-03-21T21:51:37.817Z]   FOOTER/HEADER ORIGIN: https://community.sisense.com
+[2026-03-21T21:51:37.817Z]   FOOTER/HEADER ORIGIN: https://docs.sisense.com
+[2026-03-21T21:51:37.817Z]   FOOTER/HEADER ORIGIN: https://academy.sisense.com
+[2026-03-21T21:51:37.817Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T21:51:37.817Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T21:51:37.818Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-21T21:51:37.818Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:51:37.818Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:51:37.818Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T21:51:37.818Z] ── Step 3: Final dedup ──
+[2026-03-21T21:51:37.819Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T21:51:37.819Z] ── FINAL RESULT ──
+[2026-03-21T21:51:37.819Z]   ws (5):
+[2026-03-21T21:51:37.819Z]     - https://academy.sisense.com
+[2026-03-21T21:51:37.819Z]     - https://community.sisense.com
+[2026-03-21T21:51:37.819Z]     - https://docs.sisense.com
+[2026-03-21T21:51:37.819Z]     - https://supportportal.sisense.com
+[2026-03-21T21:51:37.820Z]     - https://www.sisense.com
+[2026-03-21T21:51:37.820Z]   li (1):
+[2026-03-21T21:51:37.820Z]     - https://www.linkedin.com/company/sisense
+[2026-03-21T21:51:37.820Z]   tw (1):
+[2026-03-21T21:51:37.820Z]     - https://x.com/sisense
+[2026-03-21T21:51:37.820Z]   gh (1):
+[2026-03-21T21:51:37.820Z]     - https://github.com/sisense
+[2026-03-21T21:51:37.820Z]   urls (1):
+[2026-03-21T21:51:37.820Z]     - https://www.sisense.com
+[2026-03-21T21:51:37.821Z] Summary: ws:5, gh:1, li:1, tw:1, urls:1
+[2026-03-21T21:51:37.822Z] Saved final result to result.json
+[2026-03-21T21:51:37.822Z] Override fields: ws, li, tw, gh
+[2026-03-21T21:51:37.822Z] Finished at: 2026-03-21T21:51:37.822Z

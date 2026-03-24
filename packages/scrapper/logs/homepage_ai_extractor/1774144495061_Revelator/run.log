@@ -1,0 +1,102 @@
+[2026-03-22T01:54:55.061Z] === Homepage AI Extractor: Revelator ===
+[2026-03-22T01:54:55.062Z] Started at: 2026-03-22T01:54:55.062Z
+[2026-03-22T01:54:55.062Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774144495061_Revelator
+[2026-03-22T01:54:55.062Z] Company: Revelator
+[2026-03-22T01:54:55.062Z] Website: revelator.com
+[2026-03-22T01:54:55.062Z] cbRank: 27886
+[2026-03-22T01:54:55.062Z] Reasons: f
+[2026-03-22T01:54:55.062Z] Fetching: https://revelator.com
+[2026-03-22T01:54:57.149Z] Dismissed cookie consent popup via: button:has-text("Allow all")
+[2026-03-22T01:55:00.102Z] Redirected: https://revelator.com -> https://revelator.com/
+[2026-03-22T01:55:00.119Z] Saved HTML (704237 bytes) to page.html
+[2026-03-22T01:55:00.123Z] Extracted 39 unique links from page
+[2026-03-22T01:55:00.124Z] Saved 39 links to links.json
+[2026-03-22T01:55:00.127Z] Extracted footer HTML (5461 chars)
+[2026-03-22T01:55:00.127Z] No header section found in DOM
+[2026-03-22T01:55:00.130Z] Website (post-redirect): https://revelator.com/ → origin: https://revelator.com
+[2026-03-22T01:55:00.130Z]   SUBDOMAIN: api-docs.revelator.com (added to ws)
+[2026-03-22T01:55:00.131Z]   SUBDOMAIN: helpdesk.revelator.com (added to ws)
+[2026-03-22T01:55:00.131Z] Website subdomains found: 2
+[2026-03-22T01:55:00.132Z] External links: 7 (of 39 total)
+[2026-03-22T01:55:00.132Z] ── All external links ──
+[2026-03-22T01:55:00.132Z]   EXT: https://revelator.recruitee.com
+[2026-03-22T01:55:00.132Z]   EXT: https://revelator.xyz
+[2026-03-22T01:55:00.132Z]   EXT: https://twitter.com/GetRevelator
+[2026-03-22T01:55:00.132Z]   EXT: https://www.cookiehub.com/about-cookies
+[2026-03-22T01:55:00.132Z]   EXT: https://www.instagram.com/getrevelator
+[2026-03-22T01:55:00.132Z]   EXT: https://www.linkedin.com/company/revelator-enterprises
+[2026-03-22T01:55:00.132Z]   EXT: https://www.youtube.com/channel/UC9StokH9MOa2Ns_-8HkrcXA
+[2026-03-22T01:55:00.132Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:55:00.133Z]   UNCATEGORIZED: https://revelator.recruitee.com
+[2026-03-22T01:55:00.133Z]   UNCATEGORIZED: https://revelator.xyz
+[2026-03-22T01:55:00.133Z]   REGEX: tw <- https://twitter.com/GetRevelator
+[2026-03-22T01:55:00.133Z]   UNCATEGORIZED: https://www.cookiehub.com/about-cookies
+[2026-03-22T01:55:00.133Z]   REGEX: ig <- https://www.instagram.com/getrevelator
+[2026-03-22T01:55:00.133Z]   REGEX: li <- https://www.linkedin.com/company/revelator-enterprises
+[2026-03-22T01:55:00.133Z]   REGEX: ytc <- https://www.youtube.com/channel/UC9StokH9MOa2Ns_-8HkrcXA
+[2026-03-22T01:55:00.133Z] Programmatic result: ws:3, tw:1, ig:1, li:1, ytc:1 | 3 uncategorized
+[2026-03-22T01:55:00.133Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:55:00.134Z] Saved AI prompt (6296 chars) to ai_prompt.txt
+[2026-03-22T01:55:00.134Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:55:00.138Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:55:30.125Z]   AI: First token received, streaming...
+[2026-03-22T01:55:45.095Z]   AI streaming: 200 chars received (45.0s elapsed)
+[2026-03-22T01:55:46.533Z] AI response complete: 239 chars in 46.4s
+[2026-03-22T01:55:46.535Z] Saved AI response to ai_response.json
+[2026-03-22T01:55:46.535Z] ── Parsing AI response (6 lines) ──
+[2026-03-22T01:55:46.535Z]   AI LINK: https://revelator.recruitee.com
+[2026-03-22T01:55:46.535Z]   AI LINK: https://revelator.xyz
+[2026-03-22T01:55:46.536Z]   AI LINK: https://twitter.com/GetRevelator
+[2026-03-22T01:55:46.536Z]   AI LINK: https://www.linkedin.com/company/revelator-enterprises/
+[2026-03-22T01:55:46.536Z]   AI LINK: https://www.youtube.com/channel/UC9StokH9MOa2Ns_-8HkrcXA
+[2026-03-22T01:55:46.536Z]   AI LINK: https://www.instagram.com/getrevelator/
+[2026-03-22T01:55:46.536Z] AI returned 6 valid links
+[2026-03-22T01:55:46.536Z] ── Categorizing 6 AI-returned links ──
+[2026-03-22T01:55:46.537Z]   AI→URLS: https://revelator.recruitee.com
+[2026-03-22T01:55:46.537Z]   AI→URLS: https://revelator.xyz
+[2026-03-22T01:55:46.537Z]   AI→REGEX: tw <- https://twitter.com/GetRevelator (duplicate, skipped)
+[2026-03-22T01:55:46.537Z]   AI→REGEX: li <- https://www.linkedin.com/company/revelator-enterprises/ (duplicate, skipped)
+[2026-03-22T01:55:46.537Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC9StokH9MOa2Ns_-8HkrcXA (duplicate, skipped)
+[2026-03-22T01:55:46.537Z]   AI→REGEX: ig <- https://www.instagram.com/getrevelator/ (duplicate, skipped)
+[2026-03-22T01:55:46.538Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:55:46.538Z] Footer/header origins (8):
+[2026-03-22T01:55:46.538Z]   FOOTER/HEADER ORIGIN: https://revelator.recruitee.com
+[2026-03-22T01:55:46.538Z]   FOOTER/HEADER ORIGIN: https://api-docs.revelator.com
+[2026-03-22T01:55:46.538Z]   FOOTER/HEADER ORIGIN: https://helpdesk.revelator.com
+[2026-03-22T01:55:46.539Z]   FOOTER/HEADER ORIGIN: https://revelator.xyz
+[2026-03-22T01:55:46.539Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T01:55:46.539Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:55:46.539Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:55:46.539Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T01:55:46.539Z]   SKIP (AI claimed): https://revelator.recruitee.com
+[2026-03-22T01:55:46.539Z]   SKIP (AI claimed): https://revelator.xyz
+[2026-03-22T01:55:46.539Z]   SKIP (not in footer/header): https://www.cookiehub.com/about-cookies
+[2026-03-22T01:55:46.539Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:55:46.539Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:55:46.540Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T01:55:46.785Z]   YOUTUBE: resolved UC9StokH9MOa2Ns_-8HkrcXA → @Revelator
+[2026-03-22T01:55:46.785Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T01:55:46.785Z] ── Step 3: Final dedup ──
+[2026-03-22T01:55:46.785Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T01:55:46.785Z] ── FINAL RESULT ──
+[2026-03-22T01:55:46.786Z]   ws (3):
+[2026-03-22T01:55:46.786Z]     - https://api-docs.revelator.com
+[2026-03-22T01:55:46.786Z]     - https://helpdesk.revelator.com
+[2026-03-22T01:55:46.786Z]     - https://revelator.com
+[2026-03-22T01:55:46.786Z]   li (1):
+[2026-03-22T01:55:46.786Z]     - https://www.linkedin.com/company/revelator-enterprises
+[2026-03-22T01:55:46.786Z]   tw (1):
+[2026-03-22T01:55:46.786Z]     - https://x.com/getrevelator
+[2026-03-22T01:55:46.786Z]   ig (1):
+[2026-03-22T01:55:46.786Z]     - https://www.instagram.com/getrevelator
+[2026-03-22T01:55:46.786Z]   ytp (1):
+[2026-03-22T01:55:46.786Z]     - https://www.youtube.com/@Revelator
+[2026-03-22T01:55:46.786Z]   ytc (1):
+[2026-03-22T01:55:46.786Z]     - https://www.youtube.com/channel/UC9StokH9MOa2Ns_-8HkrcXA
+[2026-03-22T01:55:46.786Z]   urls (2):
+[2026-03-22T01:55:46.786Z]     - https://revelator.recruitee.com
+[2026-03-22T01:55:46.787Z]     - https://revelator.xyz
+[2026-03-22T01:55:46.787Z] Summary: ws:3, tw:1, ig:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-22T01:55:46.787Z] Saved final result to result.json
+[2026-03-22T01:55:46.787Z] Override fields: ws, li, tw, ig, ytp, ytc
+[2026-03-22T01:55:46.787Z] Finished at: 2026-03-22T01:55:46.787Z

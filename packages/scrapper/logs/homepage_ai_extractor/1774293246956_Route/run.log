@@ -1,0 +1,78 @@
+[2026-03-23T19:14:06.957Z] === Homepage AI Extractor: Route ===
+[2026-03-23T19:14:06.957Z] Started at: 2026-03-23T19:14:06.957Z
+[2026-03-23T19:14:06.957Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774293246956_Route
+[2026-03-23T19:14:06.958Z] Company: Route
+[2026-03-23T19:14:06.958Z] Website: route.com
+[2026-03-23T19:14:06.958Z] cbRank: 8330
+[2026-03-23T19:14:06.958Z] Reasons: i
+[2026-03-23T19:14:06.958Z] Fetching: https://route.com
+[2026-03-23T19:14:10.788Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T19:14:16.672Z] Redirected: https://route.com -> https://www.route.com/
+[2026-03-23T19:14:16.684Z] Saved HTML (447925 bytes) to page.html
+[2026-03-23T19:14:16.687Z] Extracted 25 unique links from page
+[2026-03-23T19:14:16.688Z] Saved 25 links to links.json
+[2026-03-23T19:14:16.691Z] Extracted footer HTML (24544 chars)
+[2026-03-23T19:14:16.691Z] Extracted header HTML (7575 chars)
+[2026-03-23T19:14:16.694Z] Website (post-redirect): https://www.route.com/ → origin: https://www.route.com
+[2026-03-23T19:14:16.694Z]   SUBDOMAIN: app.route.com (added to ws)
+[2026-03-23T19:14:16.695Z]   SUBDOMAIN: claims.route.com (added to ws)
+[2026-03-23T19:14:16.695Z]   SUBDOMAIN: dashboard.route.com (added to ws)
+[2026-03-23T19:14:16.695Z] Website subdomains found: 3
+[2026-03-23T19:14:16.695Z] External links: 4 (of 25 total)
+[2026-03-23T19:14:16.695Z] ── All external links ──
+[2026-03-23T19:14:16.695Z]   EXT: http://instagram.com/route
+[2026-03-23T19:14:16.695Z]   EXT: https://www.businesswire.com/news/home/20260112618618/en/Route-Acquires-Frate-Returns---Revolutionizing-the-Post-Purchase-Experience-for-Ecommerce-Brands
+[2026-03-23T19:14:16.695Z]   EXT: https://www.linkedin.com/company/route-app
+[2026-03-23T19:14:16.695Z]   EXT: https://x.com/routeapp
+[2026-03-23T19:14:16.695Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:14:16.695Z]   REGEX: ig <- http://instagram.com/route
+[2026-03-23T19:14:16.695Z]   UNCATEGORIZED: https://www.businesswire.com/news/home/20260112618618/en/Route-Acquires-Frate-Returns---Revolutionizing-the-Post-Purchase-Experience-for-Ecommerce-Brands
+[2026-03-23T19:14:16.695Z]   REGEX: li <- https://www.linkedin.com/company/route-app
+[2026-03-23T19:14:16.695Z]   REGEX: tw <- https://x.com/routeapp
+[2026-03-23T19:14:16.695Z] Programmatic result: ws:4, ig:1, li:1, tw:1 | 1 uncategorized
+[2026-03-23T19:14:16.695Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:14:16.696Z] Saved AI prompt (8966 chars) to ai_prompt.txt
+[2026-03-23T19:14:16.696Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:14:16.701Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:14:56.573Z]   AI: First token received, streaming...
+[2026-03-23T19:15:01.340Z] AI response complete: 93 chars in 44.6s
+[2026-03-23T19:15:01.342Z] Saved AI response to ai_response.json
+[2026-03-23T19:15:01.342Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T19:15:01.342Z]   AI LINK: https://www.linkedin.com/company/route-app/
+[2026-03-23T19:15:01.342Z]   AI LINK: https://x.com/routeapp
+[2026-03-23T19:15:01.342Z]   AI LINK: http://instagram.com/route
+[2026-03-23T19:15:01.343Z] AI returned 3 valid links
+[2026-03-23T19:15:01.343Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T19:15:01.343Z]   AI→REGEX: li <- https://www.linkedin.com/company/route-app/ (duplicate, skipped)
+[2026-03-23T19:15:01.343Z]   AI→REGEX: tw <- https://x.com/routeapp (duplicate, skipped)
+[2026-03-23T19:15:01.343Z]   AI→REGEX: ig <- http://instagram.com/route (duplicate, skipped)
+[2026-03-23T19:15:01.345Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:15:01.345Z] Footer/header origins (6):
+[2026-03-23T19:15:01.346Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:15:01.346Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T19:15:01.346Z]   FOOTER/HEADER ORIGIN: http://instagram.com
+[2026-03-23T19:15:01.346Z]   FOOTER/HEADER ORIGIN: https://dashboard.route.com
+[2026-03-23T19:15:01.346Z]   FOOTER/HEADER ORIGIN: https://app.route.com
+[2026-03-23T19:15:01.346Z]   FOOTER/HEADER ORIGIN: https://claims.route.com
+[2026-03-23T19:15:01.346Z]   SKIP (not in footer/header): https://www.businesswire.com/news/home/20260112618618/en/Route-Acquires-Frate-Returns---Revolutionizing-the-Post-Purchase-Experience-for-Ecommerce-Brands
+[2026-03-23T19:15:01.346Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:15:01.346Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:15:01.346Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:15:01.346Z] ── Step 3: Final dedup ──
+[2026-03-23T19:15:01.347Z] No urls to dedup
+[2026-03-23T19:15:01.347Z] ── FINAL RESULT ──
+[2026-03-23T19:15:01.347Z]   ws (4):
+[2026-03-23T19:15:01.347Z]     - https://app.route.com
+[2026-03-23T19:15:01.347Z]     - https://claims.route.com
+[2026-03-23T19:15:01.347Z]     - https://dashboard.route.com
+[2026-03-23T19:15:01.347Z]     - https://www.route.com
+[2026-03-23T19:15:01.347Z]   li (1):
+[2026-03-23T19:15:01.347Z]     - https://www.linkedin.com/company/route-app
+[2026-03-23T19:15:01.347Z]   tw (1):
+[2026-03-23T19:15:01.347Z]     - https://x.com/routeapp
+[2026-03-23T19:15:01.347Z]   ig (1):
+[2026-03-23T19:15:01.347Z]     - https://www.instagram.com/route
+[2026-03-23T19:15:01.347Z] Summary: ws:4, ig:1, li:1, tw:1
+[2026-03-23T19:15:01.348Z] Saved final result to result.json
+[2026-03-23T19:15:01.349Z] Override fields: ws, li, tw, ig
+[2026-03-23T19:15:01.349Z] Finished at: 2026-03-23T19:15:01.349Z

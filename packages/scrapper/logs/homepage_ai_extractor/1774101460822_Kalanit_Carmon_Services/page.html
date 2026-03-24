@@ -1,0 +1,897 @@
+<!DOCTYPE html><html lang="he"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.8 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>ראשי - כלנית</title>
+	<link rel="canonical" href="https://calanit.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="ראשי - כלנית">
+	<meta property="og:description" content="ההצלחה שלכם המשימה שלנו גאים להוביל בתחום התמיכה והשירות, ושירותי המומחים למעלה משני עשורים, בעזרת צוות המקצוענים שלנו, שמאפשרים לנו להציע את השירות הטוב ביותר ללקוחותינו.">
+	<meta property="og:url" content="https://calanit.co.il/">
+	<meta property="og:site_name" content="כלנית">
+	<meta property="article:publisher" content="https://www.facebook.com/calanit.by.one/">
+	<meta property="article:modified_time" content="2023-07-10T06:10:43+00:00">
+	<meta property="og:image" content="https://calanit.co.il/wp-content/uploads/2023/02/homepage.png">
+	<meta property="og:image:width" content="615">
+	<meta property="og:image:height" content="794">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://calanit.co.il/","url":"https://calanit.co.il/","name":"ראשי - כלנית","isPartOf":{"@id":"https://calanit.co.il/#website"},"primaryImageOfPage":{"@id":"https://calanit.co.il/#primaryimage"},"image":{"@id":"https://calanit.co.il/#primaryimage"},"thumbnailUrl":"https://calanit.co.il/wp-content/uploads/2023/02/homepage.png","datePublished":"2023-01-16T12:51:44+00:00","dateModified":"2023-07-10T06:10:43+00:00","breadcrumb":{"@id":"https://calanit.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://calanit.co.il/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://calanit.co.il/#primaryimage","url":"https://calanit.co.il/wp-content/uploads/2023/02/homepage.png","contentUrl":"https://calanit.co.il/wp-content/uploads/2023/02/homepage.png","width":615,"height":794},{"@type":"BreadcrumbList","@id":"https://calanit.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית"}]},{"@type":"WebSite","@id":"https://calanit.co.il/#website","url":"https://calanit.co.il/","name":"כלנית","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://calanit.co.il/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="כלנית « פיד תגובות של ראשי" href="https://calanit.co.il/sample-page/feed/">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link rel="stylesheet" id="wpah-front-styles-css" href="https://calanit.co.il/wp-content/plugins/wp-accessibility-helper/assets/css/wp-accessibility-helper.min.css?ver=0.5.9.4" media="all">
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://calanit.co.il/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}.wp-embed-responsive .wp-has-aspect-ratio .rll-youtube-player{position:absolute;padding-bottom:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<script src="https://calanit.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://calanit.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<!-- Google tag (gtag.js) -->
+<script type="rocketlazyloadscript" async="" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=AW-11201779968"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-11201779968');
+</script>
+
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KL52MJ2');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+<script type="rocketlazyloadscript" async="" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-K8Z1JB6RZV"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K8Z1JB6RZV');
+</script>
+<meta name="google-site-verification" content="okRF9Nwl71u-q4uJ-KR85A_8Fs0wmDmHFgoOWQ6zlsw"><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>  <link rel="icon" type="image/x-icon" href="https://calanit.co.il/favicon.ico">
+  <link rel="shortcut icon" href="https://calanit.co.il/favicon.ico" type="image/x-icon">
+  <link data-minify="1" rel="stylesheet" type="text/css" href="https://calanit.co.il/wp-content/cache/min/1/wp-content/themes/calanit/css/styles21.css?ver=1742225562">
+  <script data-minify="1" type="text/javascript" src="https://calanit.co.il/wp-content/cache/min/1/wp-content/themes/calanit/js/common8.js?ver=1742225562" defer=""></script>
+  <style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #FFFFFF;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dark-gray: #28303D;--wp--preset--color--gray: #39414D;--wp--preset--color--green: #FFFFFF;--wp--preset--color--blue: #D1DFE4;--wp--preset--color--purple: #D1D1E4;--wp--preset--color--red: #E4D1D1;--wp--preset--color--orange: #E4DAD1;--wp--preset--color--yellow: #EEEADD;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--purple-to-yellow: linear-gradient(160deg, #D1D1E4 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-purple: linear-gradient(160deg, #EEEADD 0%, #D1D1E4 100%);--wp--preset--gradient--green-to-yellow: linear-gradient(160deg, #ffffff 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-green: linear-gradient(160deg, #EEEADD 0%, #ffffff 100%);--wp--preset--gradient--red-to-yellow: linear-gradient(160deg, #E4D1D1 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-red: linear-gradient(160deg, #EEEADD 0%, #E4D1D1 100%);--wp--preset--gradient--purple-to-red: linear-gradient(160deg, #D1D1E4 0%, #E4D1D1 100%);--wp--preset--gradient--red-to-purple: linear-gradient(160deg, #E4D1D1 0%, #D1D1E4 100%);--wp--preset--font-size--small: 18px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 24px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--extra-small: 16px;--wp--preset--font-size--normal: 20px;--wp--preset--font-size--extra-large: 40px;--wp--preset--font-size--huge: 96px;--wp--preset--font-size--gigantic: 144px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link href="https://www.googletagmanager.com" rel="preconnect"></head>
+	
+	
+<body class="rtl home wp-singular page-template page-template-homepage page-template-homepage-php page page-id-2 wp-embed-responsive wp-theme-calanit unknown wp-accessibility-helper accessibility-contrast_mode_on wah_fstype_script accessibility-underline-setup accessibility-location-left is-light-theme has-background-white"><div id="wp_access_helper_container" class="accessability_container dark_theme">
+	<!-- WP Accessibility Helper (WAH) - https://wordpress.org/plugins/wp-accessibility-helper/ -->
+	<!-- Official plugin website - https://accessibility-helper.co.il -->
+		<button type="button" class="wahout aicon_link" accesskey="z" aria-label="סרגל צד של עוזר נגישות" title="סרגל צד של עוזר נגישות">
+		<img src="https://calanit.co.il/wp-content/uploads/2023/01/accessibility.svg" alt="נגישות" class="aicon_image entered lazyloaded" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/01/accessibility.svg" data-ll-status="loaded"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/01/accessibility.svg"
+			alt="נגישות" class="aicon_image" /></noscript>
+	</button>
+
+
+	<div id="access_container" aria-hidden="true">
+		<button tabindex="-1" type="button" class="close_container wahout" accesskey="x" aria-label="סגור" title="סגור">
+			סגור		</button>
+
+		<div class="access_container_inner">
+			<div class="a_module wah_font_resize">
+
+            <div class="a_module_title">שינוי גודל גופנים</div>
+
+            <div class="a_module_exe font_resizer">
+
+                <button type="button" class="wah-action-button smaller wahout" title="פונט קטן יותר" aria-label="פונט קטן יותר" tabindex="-1">A-</button>
+
+                <button type="button" class="wah-action-button larger wahout" title="פונט גדול יותר" aria-label="פונט גדול יותר" tabindex="-1">A+</button><button type="button" class="wah-action-button wah-font-reset wahout" title="איפוס גודל פונט" aria-label="איפוס גודל פונט" tabindex="-1">איפוס גודל פונט</button>
+
+            </div>
+
+        </div><div class="a_module wah_keyboard_navigation">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-keyboard-navigation" aria-label="ניווט מקלדת" title="ניווט מקלדת" tabindex="-1">ניווט מקלדת</button>
+
+            </div>
+
+        </div><div class="a_module wah_contrast_trigger">
+
+                <div class="a_module_title">ניגודיות</div>
+
+                <div class="a_module_exe">
+
+                    <button type="button" id="contrast_trigger" class="contrast_trigger wah-action-button wahout wah-call-contrast-trigger" title="Contrast" tabindex="-1">בחר צבע</button>
+
+                    <div class="color_selector" aria-hidden="true">
+
+                        <button type="button" class="convar black wahout" data-bgcolor="#000" data-color="#FFF" title="שחור" tabindex="-1">שחור</button>
+
+                        <button type="button" class="convar white wahout" data-bgcolor="#FFF" data-color="#000" title="לבן" tabindex="-1">לבן</button>
+
+                        <button type="button" class="convar green wahout" data-bgcolor="#00FF21" data-color="#000" title="ירוק" tabindex="-1">ירוק</button>
+
+                        <button type="button" class="convar blue wahout" data-bgcolor="#0FF" data-color="#000" title="כחול" tabindex="-1">כחול</button>
+
+                        <button type="button" class="convar red wahout" data-bgcolor="#F00" data-color="#000" title="אדום" tabindex="-1">אדום</button>
+
+                        <button type="button" class="convar orange wahout" data-bgcolor="#FF6A00" data-color="#000" title="כתום" tabindex="-1">כתום</button>
+
+                        <button type="button" class="convar yellow wahout" data-bgcolor="#FFD800" data-color="#000" title="צהוב" tabindex="-1">צהוב</button>
+
+                        <button type="button" class="convar navi wahout" data-bgcolor="#B200FF" data-color="#000" title="נאבי" tabindex="-1">נאבי</button>
+
+                    </div>
+
+                </div>
+
+            </div><div class="a_module wah_underline_links">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-underline-links" aria-label="קו תחתון לקישורים" title="קו תחתון לקישורים" tabindex="-1">קו תחתון לקישורים</button>
+
+            </div>
+
+        </div><div class="a_module wah_highlight_links">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-highlight-links" aria-label="סמן קישורים עם צבע רקע?" title="סמן קישורים עם צבע רקע?" tabindex="-1">סמן קישורים עם צבע רקע?</button>
+
+            </div>
+
+        </div><div class="a_module wah_clear_cookies">
+
+            <div class="a_module_exe">
+
+                <button type="button" class="wah-action-button wahout wah-call-clear-cookies" tabindex="-1">לנקות זכרון "עוגיות"</button>
+
+            </div>
+
+        </div><div class="a_module wah_greyscale">
+
+            <div class="a_module_exe">
+
+                <button type="button" id="greyscale" class="greyscale wah-action-button wahout wah-call-greyscale" aria-label="גווני אפור לתמונות" title="גווני אפור לתמונות" tabindex="-1">גווני אפור לתמונות</button>
+
+            </div>
+
+        </div>			
+	<button type="button" title="לסגור" class="wah-skip close-wah-sidebar" tabindex="-1">
+
+		סגור
+	</button>
+
+			</div>
+	</div>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+
+	@media only screen and (max-width: 480px) {div#wp_access_helper_container {display: none;}}
+
+
+	
+
+	</style>
+
+
+
+
+
+	<style media="screen" type="text/css">
+
+
+
+		body #wp_access_helper_container button.aicon_link {
+
+
+
+			
+
+
+			
+
+
+			
+
+
+				left:0px !important;
+
+
+
+			
+
+
+			
+
+
+				bottom:20px !important;
+
+
+
+			
+
+
+		}
+
+
+
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="wah-free-credits">
+
+		<div class="wah-free-credits-inner">
+
+			<a href="https://accessibility-helper.co.il/" target="_blank" title="Accessibility by WP Accessibility Helper Team" data-wahfont="12" tabindex="-1">Accessibility by WAH</a>
+
+		</div>
+
+	</div>
+
+		<!-- WP Accessibility Helper. Created by Alex Volkov. -->
+</div>
+<a id="skiplink" role="navigation" href="#main-section" onclick="scrollToMain()" data-wahfont="20">דלג לאזור תוכן מרכזי</a>
+
+<div id="popup" class="popupWindow" role="dialog" aria-labelledby="popupContent" aria-describedby="popupContent" aria-modal="true">
+  <div class="popupContent">
+    <div class="popupClose"><a href="javascript:closePopup();" aria-label="Close" data-wahfont="20"><img src="https://calanit.co.il/wp-content/themes/calanit/images/icon-close.svg" data-lazy-src="https://calanit.co.il/wp-content/themes/calanit/images/icon-close.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img loading="lazy" src="https://calanit.co.il/wp-content/themes/calanit/images/icon-close.svg"></noscript></a></div>
+    <div id="popupInner"></div>
+  </div>
+</div>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL52MJ2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><div class="headerDiv">
+	<div class="logoDiv">
+		<a href="https://calanit.co.il/" aria-label="כלנית - קישור לדף הבית" data-wahfont="20"><img src="https://calanit.co.il/wp-content/themes/calanit/images/calanit.svg" width="170" alt="כלנית" title="כלנית" data-lazy-src="https://calanit.co.il/wp-content/themes/calanit/images/calanit.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img loading="lazy" src="https://calanit.co.il/wp-content/themes/calanit/images/calanit.svg" width="170" alt="כלנית" title="כלנית"/></noscript></a>
+	</div>
+	<div class="menuDiv">
+    <div class="mobileMenuButton"><a onclick="doMobileMenu()" aria-label="תפריט האתר" tabindex="0" role="button" data-wahfont="20"><div><span class="sr-only" data-wahfont="20">תפריט האתר</span><i class="glyphicon glyphicon-menu-hamburger"></i></div></a></div>		
+		<div class="menu1Wrapper">
+      <div class="menu1">
+        <ul><li id="menu-item-80" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80"><a href="https://calanit.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" data-wahfont="22">אודות</a></li>
+<li id="menu-item-88" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-has-children menu-item-88"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/" data-wahfont="22">שירותים ופתרונות</a>
+<ul class="sub-menu">
+	<li id="menu-item-91" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-91"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/" data-wahfont="18">חטיבת יועצים מומחים</a></li>
+	<li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-90"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-call-center/" data-wahfont="18">חטיבת CALL CENTER</a></li>
+	<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-89"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-help-desk/" data-wahfont="18">חטיבת HELP DESK</a></li>
+</ul>
+</li>
+<li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92"><a href="https://calanit.co.il/%d7%9e%d7%a9%d7%a8%d7%95%d7%aa/" data-wahfont="22">משרות</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><a href="https://calanit.co.il/%d7%91%d7%9c%d7%95%d7%92/" data-wahfont="22">בלוג</a></li>
+<li id="menu-item-94" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94"><a href="https://calanit.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" data-wahfont="22">צור קשר</a></li>
+<li id="menu-item-354" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-354"><a href="https://calanit.co.il/english/" data-wahfont="22">English</a></li>
+</ul>	
+      </div>
+    </div>
+
+    <div class="menu2">
+			<ul><li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95"><a href="https://calanit.co.il/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/" data-wahfont="22">קריירה</a></li>
+</ul>	
+		</div>
+		
+		<div class="mobileMenu">
+			<div class="closeMenu"><a onclick="closeMobileMenu()" aria-label="סוגר תפריט" title="סוגר תפריט" tabindex="0" role="button" data-wahfont="20"><span class="sr-only" data-wahfont="20">סוגר תפריט</span><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/themes/calanit/images/icon-close.svg"><noscript><img loading="lazy" src="https://calanit.co.il/wp-content/themes/calanit/images/icon-close.svg"></noscript></a></div>
+			<ul><li id="menu-item-125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125"><a href="https://calanit.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" data-wahfont="20">אודות</a></li>
+<li id="menu-item-129" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-has-children menu-item-129"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/" data-wahfont="20">שירותים ופתרונות</a>
+<ul class="sub-menu">
+	<li id="menu-item-126" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-126"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/" data-wahfont="20">חטיבת יועצים מומחים</a></li>
+	<li id="menu-item-127" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-127"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-help-desk/" data-wahfont="20">חטיבת HELP DESK</a></li>
+	<li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-128"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-call-center/" data-wahfont="20">חטיבת CALL CENTER</a></li>
+</ul>
+</li>
+<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131"><a href="https://calanit.co.il/%d7%9e%d7%a9%d7%a8%d7%95%d7%aa/" data-wahfont="20">משרות</a></li>
+<li id="menu-item-130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"><a href="https://calanit.co.il/%d7%91%d7%9c%d7%95%d7%92/" data-wahfont="20">בלוג</a></li>
+<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132"><a href="https://calanit.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" data-wahfont="20">צור קשר</a></li>
+<li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="https://calanit.co.il/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/" data-wahfont="20">קריירה</a></li>
+<li id="menu-item-353" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-353"><a href="https://calanit.co.il/english/" data-wahfont="20">English</a></li>
+</ul>	
+		</div>
+	</div>
+</div>
+
+
+<div class="clearfix"></div>
+<div role="main" id="main-section" name="main-section">
+<div class="homeText">
+	<div class="mainDiv">
+    <div class="text wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+      <h1 data-wahfont="54">ההצלחה שלכם המשימה שלנו</h1>
+<p data-wahfont="25">גאים להוביל בתחום התמיכה והשירות, ושירותי המומחים למעלה משני עשורים, בעזרת צוות המקצוענים שלנו, שמאפשרים לנו להציע את השירות הטוב ביותר ללקוחותינו.</p>
+      <p class="homeTextLink" data-wahfont="25"><a href="https://calanit.co.il/אודות/" data-wahfont="25">בואו להכיר אותנו יותר</a></p>
+      <p data-wahfont="25">
+    </p></div>
+    <div class="image"><img src="https://calanit.co.il/wp-content/uploads/2023/02/homepage.png" alt="" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/homepage.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/homepage.png" alt=""/></noscript></div>  
+    <div class="clearfix"></div>  
+    <div class="homeReadMore">
+      <div class="readMoreArrowWrapper"><i class="glyphicon glyphicon-chevron-right"></i><a href="#homeAbout" data-wahfont="28"><div class="readMoreArrow">SCROLL</div></a></div></div>
+	 </div>
+</div>
+
+<div class="homeAbout" id="homeAbout">
+	<div class="mainDiv wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+    <h2 style="text-align: center;" data-wahfont="50">קחו לכם ONE minute להכיר את Calanit</h2>
+<p style="text-align: center;" data-wahfont="25">במשפט אחד עלינו – מתמחים במתן ייעוץ בעולמות המחשוב והטכנולוגיה ומובילים במתן פתרונות ושירותים מקצועיים למרכזי תמיכה פנים וחוץ ארגוניים.<br>
+בכמה משפטים – אנחנו מספקים שירותים מנוהלים ומפוקחים בתחומי Call centers, מוקדי תמיכה טכנית, Help desk ומוקדי שירות ומכירה. מבית ONE, שמציעה פתרונות טכנולוגיים ושירותי תוכנה ואינטגרציה לארגונים.</p>
+    <div class="readMore"><a href="https://calanit.co.il/אודות/" "="" data-wahfont="20">קרא עוד</a></div>
+	</div>
+</div>
+
+<div class="homeServices" id="homeServices">
+	<div class="mainDiv">
+    <div class="wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+      <h2 style="text-align: center;" data-wahfont="50">פתרונות ושירותים</h2>
+<p style="text-align: center;" data-wahfont="25">מה אנחנו מציעים?</p>
+    </div>
+      <ul>
+                  <li onclick="self.location='https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/'">
+              <div class="homeServiceImage" style="background:url(https://calanit.co.il/wp-content/uploads/2023/02/Roei-Shor-Photography-Calanit-348.jpg); background-position:center; background-size:cover;"></div>
+              <div class="homeServiceInner">
+                  <h3 data-wahfont="30"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/" data-wahfont="25">חטיבת יועצים מומחים</a></h3>
+                  <p data-wahfont="20">חטיבת היועצים מספקת מענה ללקוחות בכל קשת מקצועות ה-IT בתחום התשתיות והפיתוח</p>
+                  <div class="homeServiceLink"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/" data-wahfont="20">קרא עוד</a></div>
+              </div>
+            </li>
+                      <li onclick="self.location='https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-help-desk/'">
+              <div class="homeServiceImage" style="background:url(https://calanit.co.il/wp-content/uploads/2023/02/center.jpg); background-position:center; background-size:cover;"></div>
+              <div class="homeServiceInner">
+                  <h3 data-wahfont="30"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-help-desk/" data-wahfont="25">חטיבת HELP DESK</a></h3>
+                  <p data-wahfont="20">מרכזי התמיכה הטכניים שלנו נותנים מענה מקצועי, שירותי ומבוקר ללקוחות העסק</p>
+                  <div class="homeServiceLink"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-help-desk/" data-wahfont="20">קרא עוד</a></div>
+              </div>
+            </li>
+                      <li onclick="self.location='https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-call-center/'">
+              <div class="homeServiceImage" style="background:url(https://calanit.co.il/wp-content/uploads/2023/02/left.jpg); background-position:center; background-size:cover;"></div>
+              <div class="homeServiceInner">
+                  <h3 data-wahfont="30"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-call-center/" data-wahfont="25">חטיבת CALL CENTER</a></h3>
+                  <p data-wahfont="20">הצוותים האיכותיים והמקצועיים שלנו מספקים מענה מקיף במגוון שירותים ופתרונות</p>
+                  <div class="homeServiceLink"><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-call-center/" data-wahfont="20">קרא עוד</a></div>
+              </div>
+            </li>
+                </ul>
+ 
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+
+<div class="clients">
+  <div class="mainDiv">
+    <div class="wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+      <h2 style="text-align: center;" data-wahfont="48">אנחנו עובדים עם החברות המובילות בישראל</h2>
+<p style="text-align: center;" data-wahfont="25">מגייסים למעלה מ – 30 שנה לחברות המובילות במשק</p>
+    </div>
+  <section class="clientsSlider slider">
+        <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="אמדוקס" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/amdocs.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/amdocs.png" alt="אמדוקס"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Nvidia" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-4.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-4.png" alt="Nvidia"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Cyberark" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-5.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-5.png" alt="Cyberark"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="RAFAL" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-6.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-6.png" alt="RAFAL"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="אסותא" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/אסותא.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/אסותא.png" alt="אסותא"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="בנק הפעולים" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/בנק-הפעולים.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/בנק-הפעולים.png" alt="בנק הפעולים"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="בנק ישראל" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/בנק-ישראל.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/בנק-ישראל.png" alt="בנק ישראל"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="התעשייה האווירית" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/התעשייה-האווירית.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/התעשייה-האווירית.png" alt="התעשייה האווירית"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="מכבי שירותי בריאות" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/מכבי-שירותי-בריאות.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/מכבי-שירותי-בריאות.png" alt="מכבי שירותי בריאות"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="סיגייט" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/סיגייט.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/סיגייט.png" alt="סיגייט"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="חברת החשמל" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-3.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-3.png" alt="חברת החשמל"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="ביטוח לאומי" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-2.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/Layer-2.png" alt="ביטוח לאומי"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="HP" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/hp.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/hp.png" alt="HP"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="בנק לאומי" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/leumi.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/leumi.png" alt="בנק לאומי"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="הפניקס" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/hafenix.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/hafenix.png" alt="הפניקס"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Canon" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/canon.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/canon.png" alt="Canon"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="שטראוס" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/strauss.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/strauss.png" alt="שטראוס"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="ישראכרט" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/isracard.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/isracard.png" alt="ישראכרט"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="הראל ביטוח" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/harel.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/harel.png" alt="הראל ביטוח"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="טבע" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/02/teva.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/02/teva.png" alt="טבע"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="KLA" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/KLA.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/KLA.png" alt="KLA"/></noscript></div>
+            <div><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="שיכון ובינוי" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/07/שיכון-ובינוי-1.png"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/07/שיכון-ובינוי-1.png" alt="שיכון ובינוי"/></noscript></div>
+        </section>
+
+  <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+      $(document).ready(function() {
+        $(".clientsSlider").slick({
+          dots: false,
+          arrows: false,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed:2000,
+          speed:500,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          rtl:true,
+          responsive: [
+						{
+							breakpoint: 1100,
+							settings: {
+								slidesToShow:4
+							}
+						},
+						{
+							breakpoint: 899,
+							settings: {
+								slidesToShow:3,
+							}
+						}
+					]
+          });
+      });
+    </script>
+
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="homeTestimonials">
+  <div class="mainDiv">
+   <div class="wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;"><h2 style="text-align: center;" data-wahfont="50">כאן הכל מתחבר</h2>
+<p style="text-align: center;" data-wahfont="20">כל הסיבות והפתרונות לעבודה איתנו</p>
+</div>
+
+  
+  <div class="testimonialsThumbsWrapper">
+    <div class="testimonialsThumbsInner">
+      <section class="testimonialsThumbs slider">
+                <div>
+            <div class="testimonialThumb">
+              <div class="testimonialThumbImage"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="מוטי אסף" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/moti.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/moti.jpg" alt="מוטי אסף"/></noscript></div>
+              <p data-wahfont="14"><strong>מוטי אסף</strong><br>מנהל חטיבת ה Call Center</p>
+            </div>
+          </div>
+                    <div>
+            <div class="testimonialThumb">
+              <div class="testimonialThumbImage"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="דורון הראל" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/doron2.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/doron2.jpg" alt="דורון הראל"/></noscript></div>
+              <p data-wahfont="14"><strong>דורון הראל</strong><br>מנהל חטיבת Help Desk</p>
+            </div>
+          </div>
+                    <div>
+            <div class="testimonialThumb">
+              <div class="testimonialThumbImage"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="ורד אסייג שפר" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/vered.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/vered.jpg" alt="ורד אסייג שפר"/></noscript></div>
+              <p data-wahfont="14"><strong>ורד אסייג שפר</strong><br>סמנכ"לית משאבי אנוש</p>
+            </div>
+          </div>
+                    <div>
+            <div class="testimonialThumb">
+              <div class="testimonialThumbImage"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="אבי מוסרי" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/avi2.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/avi2.jpg" alt="אבי מוסרי"/></noscript></div>
+              <p data-wahfont="14"><strong>אבי מוסרי</strong><br>מנכ"ל כלנית</p>
+            </div>
+          </div>
+                    <div>
+            <div class="testimonialThumb">
+              <div class="testimonialThumbImage"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="אלון כחלון" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/alon.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/alon.jpg" alt="אלון כחלון"/></noscript></div>
+              <p data-wahfont="14"><strong>אלון כחלון</strong><br>מנהל חטיבת יועצים מומחים</p>
+            </div>
+          </div>
+                </section>
+    </div>
+  </div>
+  
+  <section class="testimonialsSlider slider">
+        <div>
+        <div class="testimonialsSlide">
+                  <a href="#" class="popupVideo" data-video="https://www.youtube.com/embed/Dc_VZqAHmbI" data-wahfont="20"><div class="testimonialVideo" style="background:url(https://calanit.co.il/wp-content/uploads/2023/05/moti.jpg) center center no-repeat; background-size:cover;"><div class="testimonialVideoPlay"></div></div></a>
+          
+          <div class="testimonialText">
+            <p data-wahfont="25">היום שירותי הcall center הם הרבה יותר שירותיים ומקצועיים. פוגשים את הלקוח איפה שהוא נמצא- בטלפון, בוואטסאפ, בצ'אט, ברשתות החברתיות, במייל או בפקס. בכל מקום שהוא רוצה לפגוש אותנו- אנחנו נמצאים.</p>
+            <div class="testimonialName">מוטי אסף</div>
+            <div class="testimonialJobTitle">מנהל חטיבת ה Call Center</div>
+            <p data-wahfont="25"></p>
+          </div>
+        </div>
+      </div>
+            <div>
+        <div class="testimonialsSlide">
+                  <a href="#" class="popupVideo" data-video="https://www.youtube.com/embed/GkBubLnV41s" data-wahfont="20"><div class="testimonialVideo" style="background:url(https://calanit.co.il/wp-content/uploads/2023/05/doron2.jpg) center center no-repeat; background-size:cover;"><div class="testimonialVideoPlay"></div></div></a>
+          
+          <div class="testimonialText">
+            <p data-wahfont="25">מרכז התמיכה הוא צומת מידע משמעותי בארגון, צריך לנצל את המידע שמגיע אליו כדי לבנות תכניות
+עבודה, לדעת איפה להקדיש את משאבים לייעול מערכות המידע הארגוניות ולהגדיל את שביעות רצון
+המשתמשים.</p>
+            <div class="testimonialName">דורון הראל</div>
+            <div class="testimonialJobTitle">מנהל חטיבת Help Desk</div>
+            <p data-wahfont="25"></p>
+          </div>
+        </div>
+      </div>
+            <div>
+        <div class="testimonialsSlide">
+                  <a href="#" class="popupVideo" data-video="https://www.youtube.com/embed/7i3XCJ5J1j8" data-wahfont="20"><div class="testimonialVideo" style="background:url(https://calanit.co.il/wp-content/uploads/2023/05/vered.jpg) center center no-repeat; background-size:cover;"><div class="testimonialVideoPlay"></div></div></a>
+          
+          <div class="testimonialText">
+            <p data-wahfont="25">מי שמגיע לכלנית יודע שזה המקום שהוא יכול להתפתח גם מקצועית וגם לתפקידי הניהול. אנחנו מחפשים אנשים שאוהבים ללמוד, שיש להם את הפאשן הזה ורואים את עצמם מתפתחים בעולם ה-IT.</p>
+            <div class="testimonialName">ורד אסייג שפר</div>
+            <div class="testimonialJobTitle">סמנכ"לית משאבי אנוש</div>
+            <p data-wahfont="25"></p>
+          </div>
+        </div>
+      </div>
+            <div>
+        <div class="testimonialsSlide">
+                  <a href="#" class="popupVideo" data-video="https://www.youtube.com/embed/yiETQKaArbE" data-wahfont="20"><div class="testimonialVideo" style="background:url(https://calanit.co.il/wp-content/uploads/2023/05/avi2.jpg) center center no-repeat; background-size:cover;"><div class="testimonialVideoPlay"></div></div></a>
+          
+          <div class="testimonialText">
+            <p data-wahfont="25">כלנית היא החברה המובילה בארץ בתחום המוקדים הטכנולוגיים ובשירותים נלווים לתחום המוקדים - או כמו שאנחנו קוראים לזה PROFFESIONAL SERVICES. העובדה שאנחנו חלק מקבוצת ONE פותחת לנו עולם של אפשרויות טכנולוגיות, מוצרים ופיתוח של מוצרים.</p>
+            <div class="testimonialName">אבי מוסרי</div>
+            <div class="testimonialJobTitle">מנכ"ל כלנית</div>
+            <p data-wahfont="25"></p>
+          </div>
+        </div>
+      </div>
+            <div>
+        <div class="testimonialsSlide">
+                  <a href="#" class="popupVideo" data-video="https://www.youtube.com/embed/NXa3gg6jOd8" data-wahfont="20"><div class="testimonialVideo" style="background:url(https://calanit.co.il/wp-content/uploads/2023/05/alon.jpg) center center no-repeat; background-size:cover;"><div class="testimonialVideoPlay"></div></div></a>
+          
+          <div class="testimonialText">
+            <p data-wahfont="25">אנחנו מציעים ללקוחות שלנו מענה כמעט לכל צורך. משירותי פיתוח, שירותי devOps, אנשי אבטחת מידע, אנשי QA ועד לרמה של טכנאים ותומכים מתקדמים. הפתרון שלנו מאפשר ללקוחות שלנו להתרכז בליבת העשייה שלהם.	</p>
+            <div class="testimonialName">אלון כחלון</div>
+            <div class="testimonialJobTitle">מנהל חטיבת יועצים מומחים</div>
+            <p data-wahfont="25"></p>
+          </div>
+        </div>
+      </div>
+        </section>
+  <div class="clearfix"></div>
+  <p class="testimonialsLink" data-wahfont="20"><a href="https://calanit.co.il/משרות/" data-wahfont="20">בואו לעבוד איתנו</a></p>
+
+  <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+      $(document).ready(function() {
+        $(".testimonialsSlider").slick({
+          dots: false,
+          arrows: false,
+          fade: true,
+          infinite: true,
+          autoplay: false,
+          draggable: true,
+          autoplaySpeed:1000,
+          speed:300,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rtl: true,
+          asNavFor: '.testimonialsThumbs',
+        });
+
+        $(".testimonialsThumbs").slick({
+          dots: false,
+          arrows: true,
+          infinite: true,
+          autoplay: false,
+          draggable: true,
+          autoplaySpeed:1000,
+          speed:300,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '0px',
+          focusOnSelect: true,
+          rtl: true,
+          asNavFor: '.testimonialsSlider',
+        });
+          
+      });
+    </script>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="homeCareers">
+  <div class="mainDiv">
+    <div class="wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+      <h2 style="text-align: center;" data-wahfont="50">בואו לעבוד איתנו</h2>
+<h3 style="text-align: center;" data-wahfont="30">רוצים להצטרף? אנחנו מגייסים!</h3>
+<p style="text-align: center;" data-wahfont="25">גאים להוביל בתחום שרותי המומחים, התמיכה והשירות למעלה משני עשורים, בעזרת צוות המקצוענים שלנו, שמאפשרים לנו להציע את השירות הטוב ביותר ללקוחותינו.</p>
+      <p class="testimonialsLink" data-wahfont="25"><a href="https://calanit.co.il/משרות/" data-wahfont="25">להזדמנות הבאה שלך</a></p>
+    </div>
+
+    <section class="homeCareersSlider slider">
+                <div class="homeCareersSlide">
+              <div class="image"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/almog.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/almog.jpg"/></noscript></div>
+              <div class="text">
+                זה עושה לי טוב כשלקוח מרוצה מודה לי בשיחה. היו כמה מקרים שממש זכיתי לעזור לאנשים, וזה מחמם לי  את הלב לדעת שעשיתי את זה.              </div>
+              <div class="name">
+                <div>אלמוג חג'בי</div>
+                <div></div>
+              </div>
+          </div>
+                  <div class="homeCareersSlide">
+              <div class="image"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/ayelet.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/ayelet.jpg"/></noscript></div>
+              <div class="text">
+                 אני מרגישה שיש לי כאן הזדמנות לקידום והתפתחות, זה המקום שלי ללמוד ולעשות מה שאני אוהבת.              </div>
+              <div class="name">
+                <div>איילת סלהוב</div>
+                <div></div>
+              </div>
+          </div>
+                  <div class="homeCareersSlide">
+              <div class="image"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/shiran.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/shiran.jpg"/></noscript></div>
+              <div class="text">
+                הדבר שהכי חשוב לי בצוות הוא הגיבוש והחיבור בין האנשים.  זה יוצר שיתוף ועזרה הדדית.  מצד שני, הרבה פעמים נוצרת גם תחרות בריאה - כלי מצוין לעמידה ביעדים.              </div>
+              <div class="name">
+                <div>שירן אלחרר</div>
+                <div></div>
+              </div>
+          </div>
+                  <div class="homeCareersSlide">
+              <div class="image"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/uploads/2023/05/avital.jpg"><noscript><img src="https://calanit.co.il/wp-content/uploads/2023/05/avital.jpg"/></noscript></div>
+              <div class="text">
+                בעזרת ראשי הצוות שלי שנותנים לי המון גמישות בשעות אני מצליחה לשלב את הלימודים והעבודה שלי ולעמוד ביעדים. בקיצור, אני ממליצה לכל סטודנט שמנסה להיכנס לעולם הטכני לבוא ולצבור ניסיון וידע פרקטי פה אצלנו              </div>
+              <div class="name">
+                <div>אביטל לנדר</div>
+                <div></div>
+              </div>
+          </div>
+            </section>
+    <div class="clearfix"></div>
+    
+  </div>
+</div>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+      $(document).ready(function() {
+        $(".homeCareersSlider").slick({
+          dots: true,
+          arrows: false,
+          infinite: true,
+          autoplay: false,
+          draggable: true,
+          autoplaySpeed:1000,
+          speed:300,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          rtl: true,
+          responsive: [
+						{
+							breakpoint: 900,
+							settings: {
+								slidesToShow: 1,
+							}
+						}
+					]
+        });
+        
+      });
+
+      $(window).load(function()   {equalizeHeights('.homeCareersSlide');});
+      $(window).resize(function() {equalizeHeights('.homeCareersSlide');});
+</script>
+
+<div class="clearfix"></div>
+
+
+<div class="homeNews">
+  <div class="mainDiv">
+    <div class="wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+    <h2 style="text-align: center;" data-wahfont="50">עדכון איכותי מעולם ה-IT</h2>
+<p style="text-align: center;" data-wahfont="20"><strong>הגיע הזמן להצטייד בכוס קפה גדולה ולהתעדכן בכל מה שחם וחדש בעולם ה-IT. כאן תלמדו את כל הטיפים, הטריקים והשטיקים, תיחשפו לכל הגימיקים הטריים ותלמדו קצת עשה ואל-תעשה שיטיסו את הקריירה שלכם לשלב הבא.</strong><br>
+<strong>כי אם כבר ללמוד, אז מהטופ של המומחים. מי יודע, אולי על האייטם הבא יופיע השם שלכם…</strong></p>
+    </div>
+    <div class="news">
+      <ul>
+        
+
+
+<li>
+    <div class="image" onclick="window.location='https://calanit.co.il/ai-%d7%91%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%a9%d7%99%d7%a8%d7%95%d7%aa/'" style="background:url(https://calanit.co.il/wp-content/uploads/2023/12/banner_blog_gbt.jpg) center center no-repeat; background-size: cover;">
+      <div class="tag" style="">כללי</div>    </div>	
+    <div class="text">
+      <h3 data-wahfont="30"><a href="https://calanit.co.il/ai-%d7%91%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%a9%d7%99%d7%a8%d7%95%d7%aa/" data-wahfont="22">ההווה והעתיד של ה-AI במוקדי שירות, תמיכה ו- HELP DESK</a></h3>
+      ה-AI (בינה מלאכותית) נמצאת בכל מקום סביבנו ומאפשרת לנו לשפר ולשדרג תהליכים במוקדי שירות, תמיכה ו- HELP DESK בארגונים. אנחנו בכלנית משלבים את ה- AI במוקדים שלנו כדי לספק, מענה...          </div>
+    <div class="more">
+      <div class="date">6 בדצמבר 2023</div>
+      <div class="link"><a href="https://calanit.co.il/ai-%d7%91%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%a9%d7%99%d7%a8%d7%95%d7%aa/" data-wahfont="18">קרא עוד <i class="glyphicon glyphicon-arrow-left"></i></a></div>
+    </div>
+</li>
+
+
+
+<li>
+    <div class="image" onclick="window.location='https://calanit.co.il/omnichannel-%d7%95%d7%91%d7%95%d7%98%d7%99-ai-%d7%97%d7%9b%d7%9e%d7%99%d7%9d-%d7%94%d7%a2%d7%aa%d7%99%d7%93-%d7%91%d7%a2%d7%95%d7%9c%d7%9d-%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%94%d7%a9%d7%99/'" style="background:url(https://calanit.co.il/wp-content/uploads/2023/07/מוקד-שירות-מאמר-כלנית-scaled.jpeg) center center no-repeat; background-size: cover;">
+      <div class="tag" style="">כללי</div>    </div>	
+    <div class="text">
+      <h3 data-wahfont="30"><a href="https://calanit.co.il/omnichannel-%d7%95%d7%91%d7%95%d7%98%d7%99-ai-%d7%97%d7%9b%d7%9e%d7%99%d7%9d-%d7%94%d7%a2%d7%aa%d7%99%d7%93-%d7%91%d7%a2%d7%95%d7%9c%d7%9d-%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%94%d7%a9%d7%99/" data-wahfont="22">Omnichannel ובוטי AI חכמים – העתיד בעולם מוקדי השירות והתמיכה</a></h3>
+      עולם מוקדי השירות וה-Call Centers עבר מהפכה של ממש בשנים האחרונות, כשערוצי הדיגיטל והדרישה של צרכנים ולקוחות לזמינות מרבית ולשירות אישי ומיידי מצריכים ארגונים לאמץ וליישם פתרונות דיגיטליים מתקדמים כדי...          </div>
+    <div class="more">
+      <div class="date">10 ביולי 2023</div>
+      <div class="link"><a href="https://calanit.co.il/omnichannel-%d7%95%d7%91%d7%95%d7%98%d7%99-ai-%d7%97%d7%9b%d7%9e%d7%99%d7%9d-%d7%94%d7%a2%d7%aa%d7%99%d7%93-%d7%91%d7%a2%d7%95%d7%9c%d7%9d-%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%94%d7%a9%d7%99/" data-wahfont="18">קרא עוד <i class="glyphicon glyphicon-arrow-left"></i></a></div>
+    </div>
+</li>
+
+
+
+<li>
+    <div class="image" onclick="window.location='https://calanit.co.il/%d7%94%d7%aa%d7%a4%d7%a7%d7%99%d7%93-%d7%a9%d7%9c%d7%99-%d7%94%d7%95%d7%90-%d7%9c%d7%a2%d7%96%d7%95%d7%a8-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99%d7%9d-%d7%9c%d7%94%d7%aa%d7%92%d7%91%d7%a8-%d7%a2%d7%9c/'" style="background:url(https://calanit.co.il/wp-content/uploads/2023/02/blog3.jpg) center center no-repeat; background-size: cover;">
+      <div class="tag" style="background:#f57844">חדשות</div>    </div>	
+    <div class="text">
+      <h3 data-wahfont="30"><a href="https://calanit.co.il/%d7%94%d7%aa%d7%a4%d7%a7%d7%99%d7%93-%d7%a9%d7%9c%d7%99-%d7%94%d7%95%d7%90-%d7%9c%d7%a2%d7%96%d7%95%d7%a8-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99%d7%9d-%d7%9c%d7%94%d7%aa%d7%92%d7%91%d7%a8-%d7%a2%d7%9c/" data-wahfont="22">"התפקיד שלי הוא לעזור לעובדים להתגבר על השדים שלהם"</a></h3>
+      אם אתם/ן מרגישים שחם – לא בטוח שזה רק בגלל שהקיץ הגיע. יכול להיות, שזוהי דווקא התוצאה של משהו אחר לגמרי.          </div>
+    <div class="more">
+      <div class="date">20 בפברואר 2023</div>
+      <div class="link"><a href="https://calanit.co.il/%d7%94%d7%aa%d7%a4%d7%a7%d7%99%d7%93-%d7%a9%d7%9c%d7%99-%d7%94%d7%95%d7%90-%d7%9c%d7%a2%d7%96%d7%95%d7%a8-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99%d7%9d-%d7%9c%d7%94%d7%aa%d7%92%d7%91%d7%a8-%d7%a2%d7%9c/" data-wahfont="18">קרא עוד <i class="glyphicon glyphicon-arrow-left"></i></a></div>
+    </div>
+</li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+
+</div>
+<div class="clearfix"></div>
+
+<div class="footerBG1">
+<div class="footerBG2">
+<div class="footer">
+<div class="mainDiv">
+
+   <div class="clearfix"></div>
+  <div class="footerColumns">
+    <div class="footerColumn">
+      <div class="footerLogo"><a href="https://calanit.co.il/" aria-label="כלנית - קישור לדף הבית" data-wahfont="14"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%200'%3E%3C/svg%3E" width="150" alt="כלנית" title="כלנית" data-lazy-src="https://calanit.co.il/wp-content/themes/calanit/images/calanit.svg"><noscript><img loading="lazy" src="https://calanit.co.il/wp-content/themes/calanit/images/calanit.svg" width="150" alt="כלנית" title="כלנית"/></noscript></a></div>
+      <p data-wahfont="14">טלפון: <a href="tel:09-9602210" data-wahfont="14">09-960222</a>2<br>
+מייל: <a href="msilto:contact@calanit.com" data-wahfont="14">contact@calanit.com</a><br>
+כתובת: יד חרוצים 27, נתניה</p>
+      <div class="socialMedia">
+        <a href="https://www.instagram.com/calanit_by_one/?igshid=Yjk4NWM2ZWVkMw%3D%3D" target="_blank" aria-label="כלנית באינסטגרם - קישור לאתר חיצוני" data-wahfont="14"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/themes/calanit/images/instagram.svg"><noscript><img src="https://calanit.co.il/wp-content/themes/calanit/images/instagram.svg"/></noscript></a>
+				<a href="https://www.linkedin.com/company/51492" target="_blank" aria-label="כלנית בלינקדאין - קישור לאתר חיצוני" data-wahfont="14"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/themes/calanit/images/linkedin.svg"><noscript><img src="https://calanit.co.il/wp-content/themes/calanit/images/linkedin.svg"/></noscript></a>
+	      <a href="https://www.facebook.com/calanit.by.one/" target="_blank" aria-label="כלנית בפייסבוק - קישור לאתר חיצוני" data-wahfont="14"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://calanit.co.il/wp-content/themes/calanit/images/facebook.svg"><noscript><img src="https://calanit.co.il/wp-content/themes/calanit/images/facebook.svg"/></noscript></a>
+      </div>
+    </div>
+
+    <div class="footerColumn">
+      <div class="footerColumnTitle">אתר</div>
+      <ul><li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137"><a href="https://calanit.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/" data-wahfont="14">אודות</a></li>
+<li id="menu-item-135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135"><a href="https://calanit.co.il/%d7%9e%d7%a9%d7%a8%d7%95%d7%aa/" data-wahfont="14">משרות</a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134"><a href="https://calanit.co.il/%d7%91%d7%9c%d7%95%d7%92/" data-wahfont="14">בלוג</a></li>
+<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="https://calanit.co.il/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/" data-wahfont="14">קריירה</a></li>
+<li id="menu-item-138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-138"><a href="https://calanit.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/" data-wahfont="14">הצהרת נגישות</a></li>
+<li id="menu-item-140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-140"><a rel="privacy-policy" href="https://calanit.co.il/privacy-policy/" data-wahfont="14">תקנון האתר</a></li>
+<li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="https://calanit.co.il/%d7%9e%d7%a4%d7%aa-%d7%94%d7%90%d7%aa%d7%a8/" data-wahfont="14">מפת האתר</a></li>
+<li id="menu-item-352" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-352"><a href="https://calanit.co.il/english/" data-wahfont="14">English</a></li>
+</ul>	
+    </div>
+
+    <div class="footerColumn">
+      <div class="footerColumnTitle">שירותים ופתרונות</div>
+      <ul>
+                  <li><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-%d7%99%d7%95%d7%a2%d7%a6%d7%99%d7%9d-%d7%9e%d7%95%d7%9e%d7%97%d7%99%d7%9d/" data-wahfont="14">חטיבת יועצים מומחים</a></li>
+                      <li><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-help-desk/" data-wahfont="14">חטיבת HELP DESK</a></li>
+                      <li><a href="https://calanit.co.il/service/%d7%97%d7%98%d7%99%d7%91%d7%aa-call-center/" data-wahfont="14">חטיבת CALL CENTER</a></li>
+                </ul>
+ 
+    </div>
+
+    <div class="footerColumn">
+      <div class="footerColumnTitle">בלוג</div>
+      <ul>
+                <li><a href="https://calanit.co.il/ai-%d7%91%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%a9%d7%99%d7%a8%d7%95%d7%aa/" data-wahfont="14">ההווה והעתיד של ה-AI במוקדי שירות, תמיכה ו- HELP DESK</a></li>
+                    <li><a href="https://calanit.co.il/omnichannel-%d7%95%d7%91%d7%95%d7%98%d7%99-ai-%d7%97%d7%9b%d7%9e%d7%99%d7%9d-%d7%94%d7%a2%d7%aa%d7%99%d7%93-%d7%91%d7%a2%d7%95%d7%9c%d7%9d-%d7%9e%d7%95%d7%a7%d7%93%d7%99-%d7%94%d7%a9%d7%99/" data-wahfont="14">Omnichannel ובוטי AI חכמים – העתיד בעולם מוקדי השירות והתמיכה</a></li>
+                    <li><a href="https://calanit.co.il/%d7%94%d7%aa%d7%a4%d7%a7%d7%99%d7%93-%d7%a9%d7%9c%d7%99-%d7%94%d7%95%d7%90-%d7%9c%d7%a2%d7%96%d7%95%d7%a8-%d7%9c%d7%a2%d7%95%d7%91%d7%93%d7%99%d7%9d-%d7%9c%d7%94%d7%aa%d7%92%d7%91%d7%a8-%d7%a2%d7%9c/" data-wahfont="14">"התפקיד שלי הוא לעזור לעובדים להתגבר על השדים שלהם"</a></li>
+               </ul>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="footerCopy">
+  <div class="footerCopyText">
+    <p data-wahfont="14">© 2026 
+        <a href="https://calanit.co.il/" data-wahfont="14">כלנית</a>.
+        כל הזכויות שמורות.
+    </p>
+  </div>
+</div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/calanit/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="rocketlazyloadscript">
+	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
+		document.body.classList.add( 'is-IE' );
+	}
+	</script>
+	<script src="https://calanit.co.il/wp-content/plugins/wp-accessibility-helper/assets/js/wp-accessibility-helper.min.js?ver=1.0.0" id="wp-accessibility-helper-js" defer=""></script>
+<script id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://calanit.co.il","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://calanit.co.il/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img data-lazy-src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=[];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi_webp/ID/hqdefault.webp'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>
+<link data-minify="1" rel="stylesheet" type="text/css" href="https://calanit.co.il/wp-content/cache/min/1/wp-content/themes/calanit/css/glyphicons.css?ver=1742225562">
+<link data-minify="1" rel="stylesheet" type="text/css" href="https://calanit.co.il/wp-content/cache/min/1/wp-content/themes/calanit/css/slick-theme3.css?ver=1742225562">
+<script type="text/javascript" src="https://calanit.co.il/wp-content/themes/calanit/js/slick.min.js" defer=""></script>
+<link data-minify="1" rel="stylesheet" type="text/css" href="https://calanit.co.il/wp-content/cache/min/1/wp-content/themes/calanit/css/animate.css?ver=1742225562">
+<script type="text/javascript" src="https://calanit.co.il/wp-content/themes/calanit/js/wow.min.js" defer=""></script>
+<script data-minify="1" type="text/javascript" src="https://calanit.co.il/wp-content/cache/min/1/wp-content/themes/calanit/js/jquery.validate.min-he.js?ver=1742225562"></script>
+<script type="text/javascript" src="https://calanit.co.il/wp-content/themes/calanit/js/additional-methods.min.js" defer=""></script>
+<script>var rocket_lcp_data = {"ajax_url":"https:\/\/calanit.co.il\/wp-admin\/admin-ajax.php","nonce":"ee0ea9c377","url":"https:\/\/calanit.co.il","is_mobile":false,"elements":"img, video, picture, p, main, div, li, svg, section, header","width_threshold":1600,"height_threshold":700,"delay":500,"debug":null}</script><script data-name="wpr-lcp-beacon" src="https://calanit.co.il/wp-content/plugins/wp-rocket/assets/js/lcp-beacon.min.js" async="" beacon-completed="true"></script>
+
+</body></html>

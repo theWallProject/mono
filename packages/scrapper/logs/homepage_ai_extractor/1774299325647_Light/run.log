@@ -1,0 +1,71 @@
+[2026-03-23T20:55:25.648Z] === Homepage AI Extractor: Light ===
+[2026-03-23T20:55:25.648Z] Started at: 2026-03-23T20:55:25.648Z
+[2026-03-23T20:55:25.648Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774299325647_Light
+[2026-03-23T20:55:25.648Z] Company: Light
+[2026-03-23T20:55:25.648Z] Website: light.inc
+[2026-03-23T20:55:25.648Z] cbRank: 17967
+[2026-03-23T20:55:25.648Z] Reasons: i
+[2026-03-23T20:55:25.648Z] Fetching: https://light.inc
+[2026-03-23T20:55:30.726Z] Redirected: https://light.inc -> https://light.inc/
+[2026-03-23T20:55:30.742Z] Saved HTML (613386 bytes) to page.html
+[2026-03-23T20:55:30.744Z] Extracted 31 unique links from page
+[2026-03-23T20:55:30.744Z] Saved 31 links to links.json
+[2026-03-23T20:55:30.747Z] Extracted footer HTML (24283 chars)
+[2026-03-23T20:55:30.747Z] No header section found in DOM
+[2026-03-23T20:55:30.751Z] Website (post-redirect): https://light.inc/ → origin: https://light.inc
+[2026-03-23T20:55:30.751Z]   SUBDOMAIN: app.light.inc (added to ws)
+[2026-03-23T20:55:30.751Z]   SUBDOMAIN: docs.light.inc (added to ws)
+[2026-03-23T20:55:30.751Z]   SUBDOMAIN: help.light.inc (added to ws)
+[2026-03-23T20:55:30.751Z] Website subdomains found: 3
+[2026-03-23T20:55:30.751Z] External links: 3 (of 31 total)
+[2026-03-23T20:55:30.751Z] ── All external links ──
+[2026-03-23T20:55:30.751Z]   EXT: https://apps.apple.com/us/app/light-sfp/id6744313804
+[2026-03-23T20:55:30.751Z]   EXT: https://play.google.com/store/apps/details?id=com.anonymous.lightexpo
+[2026-03-23T20:55:30.751Z]   EXT: https://www.linkedin.com/company/uselightinc
+[2026-03-23T20:55:30.751Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:55:30.752Z]   UNCATEGORIZED: https://apps.apple.com/us/app/light-sfp/id6744313804
+[2026-03-23T20:55:30.752Z]   REGEX: android_app_ids <- com.anonymous.lightexpo (from https://play.google.com/store/apps/details?id=com.anonymous.lightexpo)
+[2026-03-23T20:55:30.752Z]   REGEX: li <- https://www.linkedin.com/company/uselightinc
+[2026-03-23T20:55:30.752Z] Programmatic result: ws:4, android_app_ids:1, li:1 | 1 uncategorized
+[2026-03-23T20:55:30.752Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:55:30.755Z] Saved AI prompt (10106 chars) to ai_prompt.txt
+[2026-03-23T20:55:30.755Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:55:30.759Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:56:12.381Z]   AI: First token received, streaming...
+[2026-03-23T20:56:18.842Z] AI response complete: 98 chars in 48.1s
+[2026-03-23T20:56:18.843Z] Saved AI response to ai_response.json
+[2026-03-23T20:56:18.843Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T20:56:18.843Z]   AI LINK: https://apps.apple.com/us/app/light-sfp/id6744313804
+[2026-03-23T20:56:18.843Z]   AI LINK: https://www.linkedin.com/company/uselightinc/
+[2026-03-23T20:56:18.843Z] AI returned 2 valid links
+[2026-03-23T20:56:18.843Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T20:56:18.844Z]   AI→URLS: https://apps.apple.com/us/app/light-sfp/id6744313804
+[2026-03-23T20:56:18.844Z]   AI→REGEX: li <- https://www.linkedin.com/company/uselightinc/ (duplicate, skipped)
+[2026-03-23T20:56:18.844Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:56:18.844Z] Footer/header origins (4):
+[2026-03-23T20:56:18.844Z]   FOOTER/HEADER ORIGIN: https://docs.light.inc
+[2026-03-23T20:56:18.845Z]   FOOTER/HEADER ORIGIN: https://help.light.inc
+[2026-03-23T20:56:18.845Z]   FOOTER/HEADER ORIGIN: https://apps.apple.com
+[2026-03-23T20:56:18.845Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T20:56:18.845Z]   SKIP (AI claimed): https://apps.apple.com/us/app/light-sfp/id6744313804
+[2026-03-23T20:56:18.845Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T20:56:18.845Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:56:18.845Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:56:18.845Z] ── Step 3: Final dedup ──
+[2026-03-23T20:56:18.845Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T20:56:18.845Z] ── FINAL RESULT ──
+[2026-03-23T20:56:18.845Z]   ws (4):
+[2026-03-23T20:56:18.846Z]     - https://app.light.inc
+[2026-03-23T20:56:18.846Z]     - https://docs.light.inc
+[2026-03-23T20:56:18.846Z]     - https://help.light.inc
+[2026-03-23T20:56:18.846Z]     - https://light.inc
+[2026-03-23T20:56:18.846Z]   li (1):
+[2026-03-23T20:56:18.846Z]     - https://www.linkedin.com/company/uselightinc
+[2026-03-23T20:56:18.846Z]   urls (1):
+[2026-03-23T20:56:18.846Z]     - https://apps.apple.com/us/app/light-sfp/id6744313804
+[2026-03-23T20:56:18.847Z]   android_app_ids (1):
+[2026-03-23T20:56:18.847Z]     - com.anonymous.lightexpo
+[2026-03-23T20:56:18.847Z] Summary: ws:4, android_app_ids:1, li:1, urls:1
+[2026-03-23T20:56:18.848Z] Saved final result to result.json
+[2026-03-23T20:56:18.848Z] Override fields: ws, li, urls, android_app_ids
+[2026-03-23T20:56:18.848Z] Finished at: 2026-03-23T20:56:18.848Z

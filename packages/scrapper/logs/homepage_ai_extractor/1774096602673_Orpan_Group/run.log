@@ -1,0 +1,65 @@
+[2026-03-21T12:36:42.674Z] === Homepage AI Extractor: Orpan Group ===
+[2026-03-21T12:36:42.674Z] Started at: 2026-03-21T12:36:42.674Z
+[2026-03-21T12:36:42.674Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774096602673_Orpan_Group
+[2026-03-21T12:36:42.674Z] Company: Orpan Group
+[2026-03-21T12:36:42.674Z] Website: orpan.com
+[2026-03-21T12:36:42.674Z] cbRank: 3356904
+[2026-03-21T12:36:42.675Z] Reasons: h
+[2026-03-21T12:36:42.675Z] Fetching: https://orpan.com
+[2026-03-21T12:36:46.097Z] Redirected: https://orpan.com -> https://www.orpan.com/
+[2026-03-21T12:36:46.119Z] Saved HTML (770032 bytes) to page.html
+[2026-03-21T12:36:46.126Z] Extracted 14 unique links from page
+[2026-03-21T12:36:46.127Z] Saved 14 links to links.json
+[2026-03-21T12:36:46.131Z] Extracted footer HTML (7589 chars)
+[2026-03-21T12:36:46.132Z] Extracted header HTML (8609 chars)
+[2026-03-21T12:36:46.136Z] Website (post-redirect): https://www.orpan.com/ → origin: https://www.orpan.com
+[2026-03-21T12:36:46.136Z] External links: 3 (of 14 total)
+[2026-03-21T12:36:46.136Z] ── All external links ──
+[2026-03-21T12:36:46.137Z]   EXT: https://www.facebook.com/orpangroup
+[2026-03-21T12:36:46.137Z]   EXT: https://www.linkedin.com/company/orpan-group
+[2026-03-21T12:36:46.137Z]   EXT: https://www.youtube.com/user/YMeiriOrpanGroup
+[2026-03-21T12:36:46.137Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T12:36:46.137Z]   REGEX: fb <- https://www.facebook.com/orpangroup
+[2026-03-21T12:36:46.137Z]   REGEX: li <- https://www.linkedin.com/company/orpan-group
+[2026-03-21T12:36:46.137Z]   REGEX: ytp <- https://www.youtube.com/user/YMeiriOrpanGroup
+[2026-03-21T12:36:46.137Z] Programmatic result: ws:1, fb:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-21T12:36:46.137Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T12:36:46.140Z] Saved AI prompt (6282 chars) to ai_prompt.txt
+[2026-03-21T12:36:46.141Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T12:36:46.149Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T12:37:19.719Z]   AI: First token received, streaming...
+[2026-03-21T12:37:26.895Z] AI response complete: 126 chars in 40.8s
+[2026-03-21T12:37:26.896Z] Saved AI response to ai_response.json
+[2026-03-21T12:37:26.896Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T12:37:26.896Z]   AI LINK: https://www.facebook.com/orpangroup
+[2026-03-21T12:37:26.896Z]   AI LINK: https://www.linkedin.com/company/orpan-group
+[2026-03-21T12:37:26.896Z]   AI LINK: https://www.youtube.com/user/YMeiriOrpanGroup
+[2026-03-21T12:37:26.896Z] AI returned 3 valid links
+[2026-03-21T12:37:26.896Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T12:37:26.896Z]   AI→REGEX: fb <- https://www.facebook.com/orpangroup (duplicate, skipped)
+[2026-03-21T12:37:26.896Z]   AI→REGEX: li <- https://www.linkedin.com/company/orpan-group (duplicate, skipped)
+[2026-03-21T12:37:26.896Z]   AI→REGEX: ytp <- https://www.youtube.com/user/YMeiriOrpanGroup (duplicate, skipped)
+[2026-03-21T12:37:26.897Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T12:37:26.897Z] Footer/header origins (4):
+[2026-03-21T12:37:26.897Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T12:37:26.897Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T12:37:26.897Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T12:37:26.897Z]   FOOTER/HEADER ORIGIN: https://www.orpan.com
+[2026-03-21T12:37:26.897Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T12:37:26.897Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T12:37:26.897Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T12:37:26.897Z] ── Step 3: Final dedup ──
+[2026-03-21T12:37:26.897Z] No urls to dedup
+[2026-03-21T12:37:26.897Z] ── FINAL RESULT ──
+[2026-03-21T12:37:26.897Z]   ws (1):
+[2026-03-21T12:37:26.897Z]     - https://www.orpan.com
+[2026-03-21T12:37:26.897Z]   li (1):
+[2026-03-21T12:37:26.897Z]     - https://www.linkedin.com/company/orpan-group
+[2026-03-21T12:37:26.897Z]   fb (1):
+[2026-03-21T12:37:26.897Z]     - https://www.facebook.com/orpangroup
+[2026-03-21T12:37:26.898Z]   ytp (1):
+[2026-03-21T12:37:26.898Z]     - https://www.youtube.com/@ymeiriorpangroup
+[2026-03-21T12:37:26.898Z] Summary: ws:1, fb:1, li:1, ytp:1
+[2026-03-21T12:37:26.898Z] Saved final result to result.json
+[2026-03-21T12:37:26.898Z] Override fields: ws, li, fb, ytp
+[2026-03-21T12:37:26.899Z] Finished at: 2026-03-21T12:37:26.899Z

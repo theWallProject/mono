@@ -1,0 +1,64 @@
+[2026-03-23T00:07:17.609Z] === Homepage AI Extractor: Xtag ===
+[2026-03-23T00:07:17.609Z] Started at: 2026-03-23T00:07:17.609Z
+[2026-03-23T00:07:17.609Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774224437608_Xtag
+[2026-03-23T00:07:17.609Z] Company: Xtag
+[2026-03-23T00:07:17.609Z] Website: xtag.com
+[2026-03-23T00:07:17.609Z] cbRank: 385984
+[2026-03-23T00:07:17.609Z] Reasons: f
+[2026-03-23T00:07:17.609Z] Fetching: https://xtag.com
+[2026-03-23T00:07:20.935Z] Redirected: https://xtag.com -> https://xtag.com/
+[2026-03-23T00:07:20.938Z] Saved HTML (42704 bytes) to page.html
+[2026-03-23T00:07:20.940Z] Extracted 22 unique links from page
+[2026-03-23T00:07:20.941Z] Saved 22 links to links.json
+[2026-03-23T00:07:20.943Z] Extracted footer HTML (5411 chars)
+[2026-03-23T00:07:20.943Z] Extracted header HTML (2259 chars)
+[2026-03-23T00:07:20.946Z] Website (post-redirect): https://xtag.com/ → origin: https://xtag.com
+[2026-03-23T00:07:20.946Z] External links: 3 (of 22 total)
+[2026-03-23T00:07:20.946Z] ── All external links ──
+[2026-03-23T00:07:20.947Z]   EXT: https://www.facebook.com/Xtagint
+[2026-03-23T00:07:20.947Z]   EXT: https://www.instagram.com/xtagcom
+[2026-03-23T00:07:20.947Z]   EXT: https://www.linkedin.com/company/xtag.com
+[2026-03-23T00:07:20.947Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:07:20.947Z]   REGEX: fb <- https://www.facebook.com/Xtagint
+[2026-03-23T00:07:20.947Z]   REGEX: ig <- https://www.instagram.com/xtagcom
+[2026-03-23T00:07:20.947Z]   REGEX: li <- https://www.linkedin.com/company/xtag.com
+[2026-03-23T00:07:20.947Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-23T00:07:20.947Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:07:20.950Z] Saved AI prompt (4174 chars) to ai_prompt.txt
+[2026-03-23T00:07:20.950Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:07:20.955Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:07:35.794Z]   AI: First token received, streaming...
+[2026-03-23T00:07:41.794Z] AI response complete: 109 chars in 20.8s
+[2026-03-23T00:07:41.795Z] Saved AI response to ai_response.json
+[2026-03-23T00:07:41.795Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T00:07:41.796Z]   AI LINK: https://www.facebook.com/Xtagint
+[2026-03-23T00:07:41.796Z]   AI LINK: https://www.linkedin.com/company/xtag.com
+[2026-03-23T00:07:41.796Z]   AI LINK: https://www.instagram.com/xtagcom/
+[2026-03-23T00:07:41.796Z] AI returned 3 valid links
+[2026-03-23T00:07:41.796Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T00:07:41.797Z]   AI→REGEX: fb <- https://www.facebook.com/Xtagint (duplicate, skipped)
+[2026-03-23T00:07:41.797Z]   AI→REGEX: li <- https://www.linkedin.com/company/xtag.com (duplicate, skipped)
+[2026-03-23T00:07:41.797Z]   AI→REGEX: ig <- https://www.instagram.com/xtagcom/ (duplicate, skipped)
+[2026-03-23T00:07:41.798Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:07:41.798Z] Footer/header origins (3):
+[2026-03-23T00:07:41.798Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T00:07:41.798Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:07:41.798Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T00:07:41.798Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T00:07:41.798Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:07:41.799Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:07:41.799Z] ── Step 3: Final dedup ──
+[2026-03-23T00:07:41.799Z] No urls to dedup
+[2026-03-23T00:07:41.799Z] ── FINAL RESULT ──
+[2026-03-23T00:07:41.799Z]   ws (1):
+[2026-03-23T00:07:41.799Z]     - https://xtag.com
+[2026-03-23T00:07:41.799Z]   li (1):
+[2026-03-23T00:07:41.800Z]     - https://www.linkedin.com/company/xtag.com
+[2026-03-23T00:07:41.800Z]   fb (1):
+[2026-03-23T00:07:41.800Z]     - https://www.facebook.com/xtagint
+[2026-03-23T00:07:41.800Z]   ig (1):
+[2026-03-23T00:07:41.800Z]     - https://www.instagram.com/xtagcom
+[2026-03-23T00:07:41.801Z] Summary: ws:1, fb:1, ig:1, li:1
+[2026-03-23T00:07:41.801Z] Saved final result to result.json
+[2026-03-23T00:07:41.802Z] Override fields: ws, li, fb, ig
+[2026-03-23T00:07:41.802Z] Finished at: 2026-03-23T00:07:41.802Z

@@ -1,0 +1,62 @@
+[2026-03-21T16:25:29.661Z] === Homepage AI Extractor: BiSkilled ===
+[2026-03-21T16:25:29.661Z] Started at: 2026-03-21T16:25:29.661Z
+[2026-03-21T16:25:29.661Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774110329661_BiSkilled
+[2026-03-21T16:25:29.662Z] Company: BiSkilled
+[2026-03-21T16:25:29.662Z] Website: bpmk.co.il
+[2026-03-21T16:25:29.662Z] cbRank: 3541334
+[2026-03-21T16:25:29.662Z] Reasons: h
+[2026-03-21T16:25:29.662Z] Fetching: https://bpmk.co.il
+[2026-03-21T16:25:31.784Z] Redirected: https://bpmk.co.il -> https://bpmk.co.il/
+[2026-03-21T16:25:31.789Z] Saved HTML (60311 bytes) to page.html
+[2026-03-21T16:25:31.791Z] Extracted 14 unique links from page
+[2026-03-21T16:25:31.791Z] Saved 14 links to links.json
+[2026-03-21T16:25:31.793Z] Extracted footer HTML (3643 chars)
+[2026-03-21T16:25:31.793Z] Extracted header HTML (776 chars)
+[2026-03-21T16:25:31.798Z] Website (post-redirect): https://bpmk.co.il/ → origin: https://bpmk.co.il
+[2026-03-21T16:25:31.798Z] External links: 4 (of 14 total)
+[2026-03-21T16:25:31.798Z] ── All external links ──
+[2026-03-21T16:25:31.798Z]   EXT: https://github.com/biskilled
+[2026-03-21T16:25:31.798Z]   EXT: https://wa.me/447754351600?text=Hello%20BiSkilled!%20I%27m%20interested%20in%20your%20software%20delivery%20service.
+[2026-03-21T16:25:31.798Z]   EXT: https://wa.me/447754351600?text=Hi%20BiSkilled%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services.
+[2026-03-21T16:25:31.798Z]   EXT: https://www.linkedin.com/in/tal-shany-9788713
+[2026-03-21T16:25:31.798Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T16:25:31.798Z]   REGEX: gh <- https://github.com/biskilled
+[2026-03-21T16:25:31.798Z]   UNCATEGORIZED: https://wa.me/447754351600?text=Hello%20BiSkilled!%20I%27m%20interested%20in%20your%20software%20delivery%20service.
+[2026-03-21T16:25:31.798Z]   UNCATEGORIZED: https://wa.me/447754351600?text=Hi%20BiSkilled%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services.
+[2026-03-21T16:25:31.799Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-21T16:25:31.799Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/tal-shany-9788713
+[2026-03-21T16:25:31.799Z] Programmatic result: ws:1, gh:1 | 2 uncategorized
+[2026-03-21T16:25:31.799Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T16:25:31.802Z] Saved AI prompt (3609 chars) to ai_prompt.txt
+[2026-03-21T16:25:31.802Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T16:25:31.805Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T16:25:45.759Z]   AI: First token received, streaming...
+[2026-03-21T16:25:50.917Z] AI response complete: 74 chars in 19.1s
+[2026-03-21T16:25:50.919Z] Saved AI response to ai_response.json
+[2026-03-21T16:25:50.919Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T16:25:50.919Z]   AI LINK: https://github.com/biskilled
+[2026-03-21T16:25:50.920Z]   AI LINK: https://www.linkedin.com/in/tal-shany-9788713
+[2026-03-21T16:25:50.920Z] AI returned 2 valid links
+[2026-03-21T16:25:50.920Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T16:25:50.920Z]   AI→REGEX: gh <- https://github.com/biskilled (duplicate, skipped)
+[2026-03-21T16:25:50.920Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/tal-shany-9788713
+[2026-03-21T16:25:50.922Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T16:25:50.922Z] Footer/header origins (2):
+[2026-03-21T16:25:50.922Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-21T16:25:50.922Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T16:25:50.922Z]   SKIP (not in footer/header): https://wa.me/447754351600?text=Hello%20BiSkilled!%20I%27m%20interested%20in%20your%20software%20delivery%20service.
+[2026-03-21T16:25:50.922Z]   SKIP (not in footer/header): https://wa.me/447754351600?text=Hi%20BiSkilled%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services.
+[2026-03-21T16:25:50.922Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T16:25:50.922Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T16:25:50.923Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T16:25:50.923Z] ── Step 3: Final dedup ──
+[2026-03-21T16:25:50.923Z] No urls to dedup
+[2026-03-21T16:25:50.923Z] ── FINAL RESULT ──
+[2026-03-21T16:25:50.923Z]   ws (1):
+[2026-03-21T16:25:50.923Z]     - https://bpmk.co.il
+[2026-03-21T16:25:50.923Z]   gh (1):
+[2026-03-21T16:25:50.923Z]     - https://github.com/biskilled
+[2026-03-21T16:25:50.924Z] Summary: ws:1, gh:1
+[2026-03-21T16:25:50.925Z] Saved final result to result.json
+[2026-03-21T16:25:50.925Z] Override fields: ws, gh
+[2026-03-21T16:25:50.925Z] Finished at: 2026-03-21T16:25:50.925Z

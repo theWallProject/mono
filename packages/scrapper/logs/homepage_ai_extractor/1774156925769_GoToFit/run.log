@@ -1,0 +1,70 @@
+[2026-03-22T05:22:05.770Z] === Homepage AI Extractor: GoToFit ===
+[2026-03-22T05:22:05.770Z] Started at: 2026-03-22T05:22:05.770Z
+[2026-03-22T05:22:05.770Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774156925769_GoToFit
+[2026-03-22T05:22:05.770Z] Company: GoToFit
+[2026-03-22T05:22:05.771Z] Website: gotofit.top
+[2026-03-22T05:22:05.771Z] cbRank: 125301
+[2026-03-22T05:22:05.771Z] Reasons: f
+[2026-03-22T05:22:05.771Z] Fetching: https://gotofit.top
+[2026-03-22T05:22:08.191Z] Redirected: https://gotofit.top -> https://gotofit.top/
+[2026-03-22T05:22:08.196Z] Saved HTML (163412 bytes) to page.html
+[2026-03-22T05:22:08.199Z] Extracted 9 unique links from page
+[2026-03-22T05:22:08.200Z] Saved 9 links to links.json
+[2026-03-22T05:22:08.202Z] Extracted footer HTML (4450 chars)
+[2026-03-22T05:22:08.202Z] Extracted header HTML (6197 chars)
+[2026-03-22T05:22:08.205Z] Website (post-redirect): https://gotofit.top/ → origin: https://gotofit.top
+[2026-03-22T05:22:08.205Z] External links: 4 (of 9 total)
+[2026-03-22T05:22:08.205Z] ── All external links ──
+[2026-03-22T05:22:08.205Z]   EXT: https://apps.apple.com/us/app/gotofit/id1523296057
+[2026-03-22T05:22:08.205Z]   EXT: https://play.google.com/store/apps/details?id=com.gotofit&hl=en&gl=US
+[2026-03-22T05:22:08.205Z]   EXT: https://www.buymeacoffee.com/sam55
+[2026-03-22T05:22:08.205Z]   EXT: https://www.tiktok.com/@gotofit0
+[2026-03-22T05:22:08.205Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T05:22:08.205Z]   UNCATEGORIZED: https://apps.apple.com/us/app/gotofit/id1523296057
+[2026-03-22T05:22:08.205Z]   REGEX: android_app_ids <- com.gotofit (from https://play.google.com/store/apps/details?id=com.gotofit&hl=en&gl=US)
+[2026-03-22T05:22:08.206Z]   UNCATEGORIZED: https://www.buymeacoffee.com/sam55
+[2026-03-22T05:22:08.206Z]   REGEX: tt <- https://www.tiktok.com/@gotofit0
+[2026-03-22T05:22:08.206Z] Programmatic result: ws:1, android_app_ids:1, tt:1 | 2 uncategorized
+[2026-03-22T05:22:08.206Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T05:22:08.209Z] Saved AI prompt (3635 chars) to ai_prompt.txt
+[2026-03-22T05:22:08.209Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T05:22:08.214Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T05:22:21.936Z]   AI: First token received, streaming...
+[2026-03-22T05:22:34.700Z] AI response complete: 161 chars in 26.5s
+[2026-03-22T05:22:34.701Z] Saved AI response to ai_response.json
+[2026-03-22T05:22:34.702Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T05:22:34.702Z]   AI LINK: https://apps.apple.com/us/app/gotofit/id1523296057
+[2026-03-22T05:22:34.702Z]   AI LINK: https://play.google.com/store/apps/details?id=com.gotofit&amp;hl=en&amp;gl=US
+[2026-03-22T05:22:34.702Z]   AI LINK: https://www.tiktok.com/@gotofit0
+[2026-03-22T05:22:34.702Z] AI returned 3 valid links
+[2026-03-22T05:22:34.702Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T05:22:34.703Z]   AI→URLS: https://apps.apple.com/us/app/gotofit/id1523296057
+[2026-03-22T05:22:34.703Z]   AI→REGEX: android_app_ids <- com.gotofit (duplicate, skipped)
+[2026-03-22T05:22:34.703Z]   AI→REGEX: tt <- https://www.tiktok.com/@gotofit0 (duplicate, skipped)
+[2026-03-22T05:22:34.704Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T05:22:34.704Z] Footer/header origins (4):
+[2026-03-22T05:22:34.704Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-22T05:22:34.704Z]   FOOTER/HEADER ORIGIN: https://apps.apple.com
+[2026-03-22T05:22:34.704Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-22T05:22:34.704Z]   FOOTER/HEADER ORIGIN: https://www.buymeacoffee.com
+[2026-03-22T05:22:34.705Z]   SKIP (AI claimed): https://apps.apple.com/us/app/gotofit/id1523296057
+[2026-03-22T05:22:34.705Z]   ADDED: urls <- https://www.buymeacoffee.com/sam55
+[2026-03-22T05:22:34.705Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T05:22:34.705Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T05:22:34.705Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T05:22:34.705Z] ── Step 3: Final dedup ──
+[2026-03-22T05:22:34.705Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T05:22:34.705Z] ── FINAL RESULT ──
+[2026-03-22T05:22:34.706Z]   ws (1):
+[2026-03-22T05:22:34.706Z]     - https://gotofit.top
+[2026-03-22T05:22:34.706Z]   tt (1):
+[2026-03-22T05:22:34.706Z]     - https://www.tiktok.com/@gotofit0
+[2026-03-22T05:22:34.706Z]   urls (2):
+[2026-03-22T05:22:34.706Z]     - https://apps.apple.com/us/app/gotofit/id1523296057
+[2026-03-22T05:22:34.706Z]     - https://www.buymeacoffee.com/sam55
+[2026-03-22T05:22:34.706Z]   android_app_ids (1):
+[2026-03-22T05:22:34.706Z]     - com.gotofit
+[2026-03-22T05:22:34.707Z] Summary: ws:1, android_app_ids:1, tt:1, urls:2
+[2026-03-22T05:22:34.708Z] Saved final result to result.json
+[2026-03-22T05:22:34.708Z] Override fields: ws, tt, urls, android_app_ids
+[2026-03-22T05:22:34.708Z] Finished at: 2026-03-22T05:22:34.708Z

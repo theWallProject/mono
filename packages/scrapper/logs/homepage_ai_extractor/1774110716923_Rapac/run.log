@@ -1,0 +1,63 @@
+[2026-03-21T16:31:56.923Z] === Homepage AI Extractor: Rapac ===
+[2026-03-21T16:31:56.923Z] Started at: 2026-03-21T16:31:56.923Z
+[2026-03-21T16:31:56.923Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774110716923_Rapac
+[2026-03-21T16:31:56.924Z] Company: Rapac
+[2026-03-21T16:31:56.924Z] Website: rapac.co.il
+[2026-03-21T16:31:56.924Z] cbRank: 3549696
+[2026-03-21T16:31:56.924Z] Reasons: h
+[2026-03-21T16:31:56.924Z] Fetching: https://rapac.co.il
+[2026-03-21T16:32:00.139Z] Redirected: https://rapac.co.il -> https://rapac.co.il/
+[2026-03-21T16:32:00.144Z] Saved HTML (75355 bytes) to page.html
+[2026-03-21T16:32:00.148Z] Extracted 23 unique links from page
+[2026-03-21T16:32:00.148Z] Saved 23 links to links.json
+[2026-03-21T16:32:00.151Z] Extracted footer HTML (4958 chars)
+[2026-03-21T16:32:00.151Z] Extracted header HTML (4850 chars)
+[2026-03-21T16:32:00.155Z] Website (post-redirect): https://rapac.co.il/ → origin: https://rapac.co.il
+[2026-03-21T16:32:00.155Z] External links: 4 (of 23 total)
+[2026-03-21T16:32:00.155Z] ── All external links ──
+[2026-03-21T16:32:00.155Z]   EXT: https://maya.tase.co.il/he/companies/769
+[2026-03-21T16:32:00.155Z]   EXT: https://maya.tase.co.il/he/companies/769/reports?eventsFamilyIds%5B%5D=100
+[2026-03-21T16:32:00.155Z]   EXT: https://studiobaram.co.il
+[2026-03-21T16:32:00.155Z]   EXT: https://www.linkedin.com/company/rapac-group
+[2026-03-21T16:32:00.155Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T16:32:00.155Z]   UNCATEGORIZED: https://maya.tase.co.il/he/companies/769
+[2026-03-21T16:32:00.155Z]   UNCATEGORIZED: https://maya.tase.co.il/he/companies/769/reports?eventsFamilyIds%5B%5D=100
+[2026-03-21T16:32:00.155Z]   UNCATEGORIZED: https://studiobaram.co.il
+[2026-03-21T16:32:00.156Z]   REGEX: li <- https://www.linkedin.com/company/rapac-group
+[2026-03-21T16:32:00.156Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-21T16:32:00.156Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T16:32:00.157Z] Saved AI prompt (5142 chars) to ai_prompt.txt
+[2026-03-21T16:32:00.157Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T16:32:00.161Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T16:32:26.125Z]   AI: First token received, streaming...
+[2026-03-21T16:32:27.560Z] AI response complete: 44 chars in 27.4s
+[2026-03-21T16:32:27.561Z] Saved AI response to ai_response.json
+[2026-03-21T16:32:27.562Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T16:32:27.562Z]   AI LINK: https://www.linkedin.com/company/rapac-group
+[2026-03-21T16:32:27.562Z] AI returned 1 valid links
+[2026-03-21T16:32:27.562Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T16:32:27.563Z]   AI→REGEX: li <- https://www.linkedin.com/company/rapac-group (duplicate, skipped)
+[2026-03-21T16:32:27.563Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T16:32:27.563Z] Footer/header origins (3):
+[2026-03-21T16:32:27.563Z]   FOOTER/HEADER ORIGIN: https://rapac.co.il
+[2026-03-21T16:32:27.563Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T16:32:27.564Z]   FOOTER/HEADER ORIGIN: https://studiobaram.co.il
+[2026-03-21T16:32:27.564Z]   SKIP (not in footer/header): https://maya.tase.co.il/he/companies/769
+[2026-03-21T16:32:27.564Z]   SKIP (not in footer/header): https://maya.tase.co.il/he/companies/769/reports?eventsFamilyIds%5B%5D=100
+[2026-03-21T16:32:27.564Z]   ADDED: urls <- https://studiobaram.co.il
+[2026-03-21T16:32:27.564Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T16:32:27.564Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T16:32:27.565Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T16:32:27.565Z] ── Step 3: Final dedup ──
+[2026-03-21T16:32:27.565Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T16:32:27.565Z] ── FINAL RESULT ──
+[2026-03-21T16:32:27.565Z]   ws (1):
+[2026-03-21T16:32:27.565Z]     - https://rapac.co.il
+[2026-03-21T16:32:27.565Z]   li (1):
+[2026-03-21T16:32:27.565Z]     - https://www.linkedin.com/company/rapac-group
+[2026-03-21T16:32:27.566Z]   urls (1):
+[2026-03-21T16:32:27.566Z]     - https://studiobaram.co.il
+[2026-03-21T16:32:27.566Z] Summary: ws:1, li:1, urls:1
+[2026-03-21T16:32:27.567Z] Saved final result to result.json
+[2026-03-21T16:32:27.567Z] Override fields: ws, li, urls
+[2026-03-21T16:32:27.568Z] Finished at: 2026-03-21T16:32:27.567Z

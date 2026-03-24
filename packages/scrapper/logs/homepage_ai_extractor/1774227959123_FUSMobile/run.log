@@ -1,0 +1,59 @@
+[2026-03-23T01:05:59.124Z] === Homepage AI Extractor: FUSMobile ===
+[2026-03-23T01:05:59.124Z] Started at: 2026-03-23T01:05:59.124Z
+[2026-03-23T01:05:59.124Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774227959123_FUSMobile
+[2026-03-23T01:05:59.124Z] Company: FUSMobile
+[2026-03-23T01:05:59.124Z] Website: fusmobile.com
+[2026-03-23T01:05:59.124Z] cbRank: 478858
+[2026-03-23T01:05:59.124Z] Reasons: f
+[2026-03-23T01:05:59.124Z] Fetching: https://fusmobile.com
+[2026-03-23T01:06:09.792Z] Network idle timeout — continuing with current state
+[2026-03-23T01:06:09.825Z] Redirected: https://fusmobile.com -> https://www.fusmobile.com/
+[2026-03-23T01:06:09.858Z] Saved HTML (1344360 bytes) to page.html
+[2026-03-23T01:06:09.861Z] Extracted 13 unique links from page
+[2026-03-23T01:06:09.862Z] Saved 13 links to links.json
+[2026-03-23T01:06:09.864Z] Extracted footer HTML (13362 chars)
+[2026-03-23T01:06:09.864Z] Extracted header HTML (12425 chars)
+[2026-03-23T01:06:09.867Z] Website (post-redirect): https://www.fusmobile.com/ → origin: https://www.fusmobile.com
+[2026-03-23T01:06:09.868Z] External links: 2 (of 13 total)
+[2026-03-23T01:06:09.868Z] ── All external links ──
+[2026-03-23T01:06:09.868Z]   EXT: https://www.linkedin.com/company/7603055/admin/dashboard
+[2026-03-23T01:06:09.868Z]   EXT: https://x.com/FusMobile
+[2026-03-23T01:06:09.868Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T01:06:09.868Z]   REGEX: li <- https://www.linkedin.com/company/7603055/admin/dashboard
+[2026-03-23T01:06:09.869Z]   REGEX: tw <- https://x.com/FusMobile
+[2026-03-23T01:06:09.869Z] Programmatic result: ws:1, li:1, tw:1 | 0 uncategorized
+[2026-03-23T01:06:09.869Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T01:06:09.873Z] Saved AI prompt (10372 chars) to ai_prompt.txt
+[2026-03-23T01:06:09.873Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T01:06:09.877Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T01:06:55.555Z]   AI: First token received, streaming...
+[2026-03-23T01:07:00.022Z] AI response complete: 81 chars in 50.1s
+[2026-03-23T01:07:00.024Z] Saved AI response to ai_response.json
+[2026-03-23T01:07:00.024Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T01:07:00.024Z]   AI LINK: https://x.com/FusMobile
+[2026-03-23T01:07:00.024Z]   AI LINK: https://www.linkedin.com/company/7603055/admin/dashboard/
+[2026-03-23T01:07:00.025Z] AI returned 2 valid links
+[2026-03-23T01:07:00.025Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T01:07:00.025Z]   AI→REGEX: tw <- https://x.com/FusMobile (duplicate, skipped)
+[2026-03-23T01:07:00.025Z]   AI→REGEX: li <- https://www.linkedin.com/company/7603055/admin/dashboard/ (duplicate, skipped)
+[2026-03-23T01:07:00.026Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T01:07:00.026Z] Footer/header origins (3):
+[2026-03-23T01:07:00.026Z]   FOOTER/HEADER ORIGIN: https://www.fusmobile.com
+[2026-03-23T01:07:00.026Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T01:07:00.026Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T01:07:00.026Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T01:07:00.026Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T01:07:00.026Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T01:07:00.026Z] ── Step 3: Final dedup ──
+[2026-03-23T01:07:00.027Z] No urls to dedup
+[2026-03-23T01:07:00.027Z] ── FINAL RESULT ──
+[2026-03-23T01:07:00.027Z]   ws (1):
+[2026-03-23T01:07:00.027Z]     - https://www.fusmobile.com
+[2026-03-23T01:07:00.027Z]   li (1):
+[2026-03-23T01:07:00.027Z]     - https://www.linkedin.com/company/7603055
+[2026-03-23T01:07:00.027Z]   tw (1):
+[2026-03-23T01:07:00.027Z]     - https://x.com/fusmobile
+[2026-03-23T01:07:00.028Z] Summary: ws:1, li:1, tw:1
+[2026-03-23T01:07:00.029Z] Saved final result to result.json
+[2026-03-23T01:07:00.029Z] Override fields: ws, li, tw
+[2026-03-23T01:07:00.029Z] Finished at: 2026-03-23T01:07:00.029Z

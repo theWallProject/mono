@@ -1,0 +1,58 @@
+[2026-03-23T19:53:57.993Z] === Homepage AI Extractor: Black Semiconductor ===
+[2026-03-23T19:53:57.994Z] Started at: 2026-03-23T19:53:57.994Z
+[2026-03-23T19:53:57.994Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774295637992_Black_Semiconductor
+[2026-03-23T19:53:57.994Z] Company: Black Semiconductor
+[2026-03-23T19:53:57.994Z] Website: blacksemi.com
+[2026-03-23T19:53:57.994Z] cbRank: 11883
+[2026-03-23T19:53:57.994Z] Reasons: i
+[2026-03-23T19:53:57.994Z] Fetching: https://blacksemi.com
+[2026-03-23T19:54:01.754Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T19:54:04.736Z] Redirected: https://blacksemi.com -> https://www.blacksemi.com/
+[2026-03-23T19:54:04.740Z] Saved HTML (49440 bytes) to page.html
+[2026-03-23T19:54:04.742Z] Extracted 17 unique links from page
+[2026-03-23T19:54:04.742Z] Saved 17 links to links.json
+[2026-03-23T19:54:04.745Z] Extracted footer HTML (6189 chars)
+[2026-03-23T19:54:04.745Z] Extracted header HTML (896 chars)
+[2026-03-23T19:54:04.750Z] Website (post-redirect): https://www.blacksemi.com/ → origin: https://www.blacksemi.com
+[2026-03-23T19:54:04.750Z] External links: 2 (of 17 total)
+[2026-03-23T19:54:04.750Z] ── All external links ──
+[2026-03-23T19:54:04.750Z]   EXT: https://www.linkedin.com/company/black-semiconductor
+[2026-03-23T19:54:04.750Z]   EXT: https://www.youtube.com/@blacksemiconductor
+[2026-03-23T19:54:04.750Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:54:04.750Z]   REGEX: li <- https://www.linkedin.com/company/black-semiconductor
+[2026-03-23T19:54:04.750Z]   REGEX: ytp <- https://www.youtube.com/@blacksemiconductor
+[2026-03-23T19:54:04.751Z] Programmatic result: ws:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-23T19:54:04.751Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:54:04.752Z] Saved AI prompt (4512 chars) to ai_prompt.txt
+[2026-03-23T19:54:04.752Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:54:04.756Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:54:22.164Z]   AI: First token received, streaming...
+[2026-03-23T19:54:25.820Z] AI response complete: 97 chars in 21.1s
+[2026-03-23T19:54:25.821Z] Saved AI response to ai_response.json
+[2026-03-23T19:54:25.821Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T19:54:25.821Z]   AI LINK: https://www.youtube.com/@blacksemiconductor
+[2026-03-23T19:54:25.822Z]   AI LINK: https://www.linkedin.com/company/black-semiconductor/
+[2026-03-23T19:54:25.822Z] AI returned 2 valid links
+[2026-03-23T19:54:25.822Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T19:54:25.822Z]   AI→REGEX: ytp <- https://www.youtube.com/@blacksemiconductor (duplicate, skipped)
+[2026-03-23T19:54:25.822Z]   AI→REGEX: li <- https://www.linkedin.com/company/black-semiconductor/ (duplicate, skipped)
+[2026-03-23T19:54:25.823Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:54:25.823Z] Footer/header origins (2):
+[2026-03-23T19:54:25.823Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T19:54:25.823Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:54:25.823Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:54:25.824Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:54:25.824Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:54:25.824Z] ── Step 3: Final dedup ──
+[2026-03-23T19:54:25.824Z] No urls to dedup
+[2026-03-23T19:54:25.824Z] ── FINAL RESULT ──
+[2026-03-23T19:54:25.824Z]   ws (1):
+[2026-03-23T19:54:25.824Z]     - https://www.blacksemi.com
+[2026-03-23T19:54:25.824Z]   li (1):
+[2026-03-23T19:54:25.824Z]     - https://www.linkedin.com/company/black-semiconductor
+[2026-03-23T19:54:25.824Z]   ytp (1):
+[2026-03-23T19:54:25.824Z]     - https://www.youtube.com/@blacksemiconductor
+[2026-03-23T19:54:25.824Z] Summary: ws:1, li:1, ytp:1
+[2026-03-23T19:54:25.825Z] Saved final result to result.json
+[2026-03-23T19:54:25.826Z] Override fields: ws, li, ytp
+[2026-03-23T19:54:25.826Z] Finished at: 2026-03-23T19:54:25.826Z

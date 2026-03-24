@@ -1,0 +1,75 @@
+[2026-03-24T01:12:45.236Z] === Homepage AI Extractor: carbonABLE ===
+[2026-03-24T01:12:45.237Z] Started at: 2026-03-24T01:12:45.237Z
+[2026-03-24T01:12:45.237Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774314765236_carbonABLE
+[2026-03-24T01:12:45.237Z] Company: carbonABLE
+[2026-03-24T01:12:45.237Z] Website: carbonable.io
+[2026-03-24T01:12:45.237Z] cbRank: 80381
+[2026-03-24T01:12:45.237Z] Reasons: i
+[2026-03-24T01:12:45.237Z] Fetching: https://carbonable.io
+[2026-03-24T01:12:46.954Z] Redirected: https://carbonable.io -> https://www.carbonable.io/
+[2026-03-24T01:12:46.972Z] Saved HTML (759352 bytes) to page.html
+[2026-03-24T01:12:46.975Z] Extracted 14 unique links from page
+[2026-03-24T01:12:46.975Z] Saved 14 links to links.json
+[2026-03-24T01:12:46.978Z] Extracted footer HTML (20561 chars)
+[2026-03-24T01:12:46.978Z] Extracted header HTML (32223 chars)
+[2026-03-24T01:12:46.981Z] Website (post-redirect): https://www.carbonable.io/ → origin: https://www.carbonable.io
+[2026-03-24T01:12:46.981Z]   SUBDOMAIN: app.carbonable.io (added to ws)
+[2026-03-24T01:12:46.981Z] Website subdomains found: 1
+[2026-03-24T01:12:46.981Z] External links: 4 (of 14 total)
+[2026-03-24T01:12:46.981Z] ── All external links ──
+[2026-03-24T01:12:46.981Z]   EXT: https://carbonable.medium.com
+[2026-03-24T01:12:46.981Z]   EXT: https://discord.gg/Huspzn4teW
+[2026-03-24T01:12:46.981Z]   EXT: https://twitter.com/Carbonable_io
+[2026-03-24T01:12:46.981Z]   EXT: https://www.linkedin.com/company/carbonable
+[2026-03-24T01:12:46.981Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:12:46.982Z]   UNCATEGORIZED: https://carbonable.medium.com
+[2026-03-24T01:12:46.983Z]   UNCATEGORIZED: https://discord.gg/Huspzn4teW
+[2026-03-24T01:12:46.983Z]   REGEX: tw <- https://twitter.com/Carbonable_io
+[2026-03-24T01:12:46.983Z]   REGEX: li <- https://www.linkedin.com/company/carbonable
+[2026-03-24T01:12:46.983Z] Programmatic result: ws:2, tw:1, li:1 | 2 uncategorized
+[2026-03-24T01:12:46.983Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:12:46.986Z] Saved AI prompt (5396 chars) to ai_prompt.txt
+[2026-03-24T01:12:46.986Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:12:46.990Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:13:06.231Z]   AI: First token received, streaming...
+[2026-03-24T01:13:13.496Z] AI response complete: 138 chars in 26.5s
+[2026-03-24T01:13:13.497Z] Saved AI response to ai_response.json
+[2026-03-24T01:13:13.498Z] ── Parsing AI response (4 lines) ──
+[2026-03-24T01:13:13.498Z]   AI LINK: https://carbonable.medium.com
+[2026-03-24T01:13:13.498Z]   AI LINK: https://www.linkedin.com/company/carbonable/
+[2026-03-24T01:13:13.498Z]   AI LINK: https://twitter.com/Carbonable_io
+[2026-03-24T01:13:13.498Z]   AI LINK: https://discord.gg/Huspzn4teW
+[2026-03-24T01:13:13.498Z] AI returned 4 valid links
+[2026-03-24T01:13:13.498Z] ── Categorizing 4 AI-returned links ──
+[2026-03-24T01:13:13.499Z]   AI→URLS: https://carbonable.medium.com
+[2026-03-24T01:13:13.499Z]   AI→REGEX: li <- https://www.linkedin.com/company/carbonable/ (duplicate, skipped)
+[2026-03-24T01:13:13.499Z]   AI→REGEX: tw <- https://twitter.com/Carbonable_io (duplicate, skipped)
+[2026-03-24T01:13:13.499Z]   AI→URLS: https://discord.gg/Huspzn4teW
+[2026-03-24T01:13:13.500Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:13:13.500Z] Footer/header origins (4):
+[2026-03-24T01:13:13.500Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T01:13:13.500Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T01:13:13.500Z]   FOOTER/HEADER ORIGIN: https://carbonable.medium.com
+[2026-03-24T01:13:13.500Z]   FOOTER/HEADER ORIGIN: https://discord.gg
+[2026-03-24T01:13:13.500Z]   SKIP (AI claimed): https://carbonable.medium.com
+[2026-03-24T01:13:13.500Z]   SKIP (AI claimed): https://discord.gg/Huspzn4teW
+[2026-03-24T01:13:13.500Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:13:13.500Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:13:13.500Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:13:13.501Z] ── Step 3: Final dedup ──
+[2026-03-24T01:13:13.501Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-24T01:13:13.501Z] ── FINAL RESULT ──
+[2026-03-24T01:13:13.501Z]   ws (2):
+[2026-03-24T01:13:13.501Z]     - https://app.carbonable.io
+[2026-03-24T01:13:13.501Z]     - https://www.carbonable.io
+[2026-03-24T01:13:13.501Z]   li (1):
+[2026-03-24T01:13:13.501Z]     - https://www.linkedin.com/company/carbonable
+[2026-03-24T01:13:13.501Z]   tw (1):
+[2026-03-24T01:13:13.501Z]     - https://x.com/carbonable_io
+[2026-03-24T01:13:13.501Z]   urls (2):
+[2026-03-24T01:13:13.501Z]     - https://carbonable.medium.com
+[2026-03-24T01:13:13.501Z]     - https://discord.gg/Huspzn4teW
+[2026-03-24T01:13:13.501Z] Summary: ws:2, tw:1, li:1, urls:2
+[2026-03-24T01:13:13.502Z] Saved final result to result.json
+[2026-03-24T01:13:13.503Z] Override fields: ws, li, tw, urls
+[2026-03-24T01:13:13.503Z] Finished at: 2026-03-24T01:13:13.503Z

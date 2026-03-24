@@ -1,0 +1,58 @@
+[2026-03-23T14:19:09.516Z] === Homepage AI Extractor: USA-Mortgages ===
+[2026-03-23T14:19:09.516Z] Started at: 2026-03-23T14:19:09.516Z
+[2026-03-23T14:19:09.516Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774275549515_USA-Mortgages
+[2026-03-23T14:19:09.517Z] Company: USA-Mortgages
+[2026-03-23T14:19:09.517Z] Website: usa-mortgages.com
+[2026-03-23T14:19:09.517Z] cbRank: 920446
+[2026-03-23T14:19:09.517Z] Reasons: f
+[2026-03-23T14:19:09.517Z] Fetching: https://usa-mortgages.com
+[2026-03-23T14:19:15.481Z] Redirected: https://usa-mortgages.com -> https://www.usa-mortgages.com/
+[2026-03-23T14:19:15.490Z] Saved HTML (288182 bytes) to page.html
+[2026-03-23T14:19:15.493Z] Extracted 26 unique links from page
+[2026-03-23T14:19:15.494Z] Saved 26 links to links.json
+[2026-03-23T14:19:15.497Z] Extracted footer HTML (26003 chars)
+[2026-03-23T14:19:15.497Z] Extracted header HTML (14939 chars)
+[2026-03-23T14:19:15.502Z] Website (post-redirect): https://www.usa-mortgages.com/ → origin: https://www.usa-mortgages.com
+[2026-03-23T14:19:15.502Z] External links: 2 (of 26 total)
+[2026-03-23T14:19:15.502Z] ── All external links ──
+[2026-03-23T14:19:15.502Z]   EXT: https://www.facebook.com/USAMortgagesFinance
+[2026-03-23T14:19:15.502Z]   EXT: https://www.linkedin.com/company/usa-mortgages
+[2026-03-23T14:19:15.502Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T14:19:15.502Z]   REGEX: fb <- https://www.facebook.com/USAMortgagesFinance
+[2026-03-23T14:19:15.503Z]   REGEX: li <- https://www.linkedin.com/company/usa-mortgages
+[2026-03-23T14:19:15.503Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-23T14:19:15.503Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T14:19:15.504Z] Saved AI prompt (2799 chars) to ai_prompt.txt
+[2026-03-23T14:19:15.504Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T14:19:15.508Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T14:19:24.995Z]   AI: First token received, streaming...
+[2026-03-23T14:19:29.316Z] AI response complete: 93 chars in 13.8s
+[2026-03-23T14:19:29.318Z] Saved AI response to ai_response.json
+[2026-03-23T14:19:29.318Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T14:19:29.318Z]   AI LINK: https://www.facebook.com/USAMortgagesFinance/
+[2026-03-23T14:19:29.318Z]   AI LINK: https://www.linkedin.com/company/usa-mortgages/
+[2026-03-23T14:19:29.318Z] AI returned 2 valid links
+[2026-03-23T14:19:29.318Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T14:19:29.319Z]   AI→REGEX: fb <- https://www.facebook.com/USAMortgagesFinance/ (duplicate, skipped)
+[2026-03-23T14:19:29.319Z]   AI→REGEX: li <- https://www.linkedin.com/company/usa-mortgages/ (duplicate, skipped)
+[2026-03-23T14:19:29.319Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T14:19:29.319Z] Footer/header origins (3):
+[2026-03-23T14:19:29.319Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T14:19:29.320Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T14:19:29.320Z]   FOOTER/HEADER ORIGIN: https://www.usa-mortgages.com
+[2026-03-23T14:19:29.320Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T14:19:29.320Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T14:19:29.320Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T14:19:29.320Z] ── Step 3: Final dedup ──
+[2026-03-23T14:19:29.320Z] No urls to dedup
+[2026-03-23T14:19:29.320Z] ── FINAL RESULT ──
+[2026-03-23T14:19:29.320Z]   ws (1):
+[2026-03-23T14:19:29.320Z]     - https://www.usa-mortgages.com
+[2026-03-23T14:19:29.320Z]   li (1):
+[2026-03-23T14:19:29.320Z]     - https://www.linkedin.com/company/usa-mortgages
+[2026-03-23T14:19:29.320Z]   fb (1):
+[2026-03-23T14:19:29.320Z]     - https://www.facebook.com/usamortgagesfinance
+[2026-03-23T14:19:29.321Z] Summary: ws:1, fb:1, li:1
+[2026-03-23T14:19:29.321Z] Saved final result to result.json
+[2026-03-23T14:19:29.322Z] Override fields: ws, li, fb
+[2026-03-23T14:19:29.322Z] Finished at: 2026-03-23T14:19:29.322Z

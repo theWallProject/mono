@@ -1,0 +1,84 @@
+[2026-03-22T04:32:01.935Z] === Homepage AI Extractor: Expecting.ai ===
+[2026-03-22T04:32:01.935Z] Started at: 2026-03-22T04:32:01.935Z
+[2026-03-22T04:32:01.935Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774153921935_Expecting.ai
+[2026-03-22T04:32:01.936Z] Company: Expecting.ai
+[2026-03-22T04:32:01.936Z] Website: expecting.ai
+[2026-03-22T04:32:01.936Z] cbRank: 83392
+[2026-03-22T04:32:01.936Z] Reasons: f
+[2026-03-22T04:32:01.936Z] Fetching: https://expecting.ai
+[2026-03-22T04:32:07.698Z] Redirected: https://expecting.ai -> https://expecting.ai/
+[2026-03-22T04:32:07.708Z] Saved HTML (373532 bytes) to page.html
+[2026-03-22T04:32:07.711Z] Extracted 67 unique links from page
+[2026-03-22T04:32:07.711Z] Saved 67 links to links.json
+[2026-03-22T04:32:07.714Z] Extracted footer HTML (17259 chars)
+[2026-03-22T04:32:07.714Z] Extracted header HTML (22152 chars)
+[2026-03-22T04:32:07.718Z] Website (post-redirect): https://expecting.ai/ → origin: https://expecting.ai
+[2026-03-22T04:32:07.718Z]   SUBDOMAIN: lp.expecting.ai (added to ws)
+[2026-03-22T04:32:07.718Z] Website subdomains found: 1
+[2026-03-22T04:32:07.718Z] External links: 5 (of 67 total)
+[2026-03-22T04:32:07.719Z] ── All external links ──
+[2026-03-22T04:32:07.719Z]   EXT: https://www.facebook.com/ExpectingAi
+[2026-03-22T04:32:07.719Z]   EXT: https://www.instagram.com/expecting.ai
+[2026-03-22T04:32:07.719Z]   EXT: https://www.linkedin.com/company/expecting-ai
+[2026-03-22T04:32:07.719Z]   EXT: https://www.youtube.com/@ExpectingAi
+[2026-03-22T04:32:07.719Z]   EXT: https://x.com/ExpectingAi
+[2026-03-22T04:32:07.719Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:32:07.719Z]   REGEX: fb <- https://www.facebook.com/ExpectingAi
+[2026-03-22T04:32:07.720Z]   REGEX: ig <- https://www.instagram.com/expecting.ai
+[2026-03-22T04:32:07.720Z]   REGEX: li <- https://www.linkedin.com/company/expecting-ai
+[2026-03-22T04:32:07.720Z]   REGEX: ytp <- https://www.youtube.com/@ExpectingAi
+[2026-03-22T04:32:07.721Z]   REGEX: tw <- https://x.com/ExpectingAi
+[2026-03-22T04:32:07.721Z] Programmatic result: ws:2, fb:1, ig:1, li:1, ytp:1, tw:1 | 0 uncategorized
+[2026-03-22T04:32:07.721Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:32:07.724Z] Saved AI prompt (4055 chars) to ai_prompt.txt
+[2026-03-22T04:32:07.725Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:32:07.729Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:32:21.406Z]   AI: First token received, streaming...
+[2026-03-22T04:32:32.097Z] AI response complete: 185 chars in 24.4s
+[2026-03-22T04:32:32.099Z] Saved AI response to ai_response.json
+[2026-03-22T04:32:32.099Z] ── Parsing AI response (5 lines) ──
+[2026-03-22T04:32:32.099Z]   AI LINK: https://www.facebook.com/ExpectingAi
+[2026-03-22T04:32:32.099Z]   AI LINK: https://www.linkedin.com/company/expecting-ai
+[2026-03-22T04:32:32.100Z]   AI LINK: https://www.instagram.com/expecting.ai/
+[2026-03-22T04:32:32.100Z]   AI LINK: https://x.com/ExpectingAi
+[2026-03-22T04:32:32.100Z]   AI LINK: https://www.youtube.com/@ExpectingAi
+[2026-03-22T04:32:32.100Z] AI returned 5 valid links
+[2026-03-22T04:32:32.100Z] ── Categorizing 5 AI-returned links ──
+[2026-03-22T04:32:32.101Z]   AI→REGEX: fb <- https://www.facebook.com/ExpectingAi (duplicate, skipped)
+[2026-03-22T04:32:32.101Z]   AI→REGEX: li <- https://www.linkedin.com/company/expecting-ai (duplicate, skipped)
+[2026-03-22T04:32:32.101Z]   AI→REGEX: ig <- https://www.instagram.com/expecting.ai/ (duplicate, skipped)
+[2026-03-22T04:32:32.102Z]   AI→REGEX: tw <- https://x.com/ExpectingAi (duplicate, skipped)
+[2026-03-22T04:32:32.102Z]   AI→REGEX: ytp <- https://www.youtube.com/@ExpectingAi (duplicate, skipped)
+[2026-03-22T04:32:32.103Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:32:32.103Z] Footer/header origins (8):
+[2026-03-22T04:32:32.103Z]   FOOTER/HEADER ORIGIN: https://expecting.ai
+[2026-03-22T04:32:32.103Z]   FOOTER/HEADER ORIGIN: https://www.lp.expecting.ai
+[2026-03-22T04:32:32.103Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T04:32:32.104Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:32:32.104Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T04:32:32.104Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T04:32:32.104Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T04:32:32.104Z]   FOOTER/HEADER ORIGIN: https://lp.expecting.ai
+[2026-03-22T04:32:32.104Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T04:32:32.104Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:32:32.104Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:32:32.105Z] ── Step 3: Final dedup ──
+[2026-03-22T04:32:32.105Z] No urls to dedup
+[2026-03-22T04:32:32.105Z] ── FINAL RESULT ──
+[2026-03-22T04:32:32.105Z]   ws (2):
+[2026-03-22T04:32:32.105Z]     - https://expecting.ai
+[2026-03-22T04:32:32.106Z]     - https://lp.expecting.ai
+[2026-03-22T04:32:32.106Z]   li (1):
+[2026-03-22T04:32:32.106Z]     - https://www.linkedin.com/company/expecting-ai
+[2026-03-22T04:32:32.106Z]   fb (1):
+[2026-03-22T04:32:32.106Z]     - https://www.facebook.com/expectingai
+[2026-03-22T04:32:32.106Z]   tw (1):
+[2026-03-22T04:32:32.107Z]     - https://x.com/expectingai
+[2026-03-22T04:32:32.107Z]   ig (1):
+[2026-03-22T04:32:32.107Z]     - https://www.instagram.com/expecting.ai
+[2026-03-22T04:32:32.107Z]   ytp (1):
+[2026-03-22T04:32:32.107Z]     - https://www.youtube.com/@expectingai
+[2026-03-22T04:32:32.107Z] Summary: ws:2, fb:1, ig:1, li:1, ytp:1, tw:1
+[2026-03-22T04:32:32.109Z] Saved final result to result.json
+[2026-03-22T04:32:32.109Z] Override fields: ws, li, fb, tw, ig, ytp
+[2026-03-22T04:32:32.109Z] Finished at: 2026-03-22T04:32:32.109Z

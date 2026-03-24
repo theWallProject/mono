@@ -1,0 +1,79 @@
+[2026-03-23T14:45:18.529Z] === Homepage AI Extractor: Meditek ===
+[2026-03-23T14:45:18.529Z] Started at: 2026-03-23T14:45:18.529Z
+[2026-03-23T14:45:18.529Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774277118529_Meditek
+[2026-03-23T14:45:18.529Z] Company: Meditek
+[2026-03-23T14:45:18.529Z] Website: meditek.net
+[2026-03-23T14:45:18.529Z] cbRank: 1068027
+[2026-03-23T14:45:18.529Z] Reasons: f
+[2026-03-23T14:45:18.529Z] Fetching: https://meditek.net
+[2026-03-23T14:45:20.586Z] Redirected: https://meditek.net -> https://meditek.net/
+[2026-03-23T14:45:20.595Z] Saved HTML (224170 bytes) to page.html
+[2026-03-23T14:45:20.599Z] Extracted 30 unique links from page
+[2026-03-23T14:45:20.599Z] Saved 30 links to links.json
+[2026-03-23T14:45:20.602Z] Extracted footer HTML (11185 chars)
+[2026-03-23T14:45:20.602Z] Extracted header HTML (11861 chars)
+[2026-03-23T14:45:20.605Z] Website (post-redirect): https://meditek.net/ → origin: https://meditek.net
+[2026-03-23T14:45:20.605Z]   SUBDOMAIN: kk.meditek.net (added to ws)
+[2026-03-23T14:45:20.605Z] Website subdomains found: 1
+[2026-03-23T14:45:20.605Z] External links: 4 (of 30 total)
+[2026-03-23T14:45:20.605Z] ── All external links ──
+[2026-03-23T14:45:20.605Z]   EXT: https://twitter.com/Meditekisg
+[2026-03-23T14:45:20.605Z]   EXT: https://www.facebook.com/meditekisg
+[2026-03-23T14:45:20.605Z]   EXT: https://www.instagram.com/meditekyazilim
+[2026-03-23T14:45:20.606Z]   EXT: https://www.youtube.com/channel/UCs67U5L9H9JMbNC6e4zx-yQ
+[2026-03-23T14:45:20.606Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T14:45:20.606Z]   REGEX: tw <- https://twitter.com/Meditekisg
+[2026-03-23T14:45:20.606Z]   REGEX: fb <- https://www.facebook.com/meditekisg
+[2026-03-23T14:45:20.606Z]   REGEX: ig <- https://www.instagram.com/meditekyazilim
+[2026-03-23T14:45:20.607Z]   REGEX: ytc <- https://www.youtube.com/channel/UCs67U5L9H9JMbNC6e4zx-yQ
+[2026-03-23T14:45:20.607Z] Programmatic result: ws:2, tw:1, fb:1, ig:1, ytc:1 | 0 uncategorized
+[2026-03-23T14:45:20.607Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T14:45:20.609Z] Saved AI prompt (5190 chars) to ai_prompt.txt
+[2026-03-23T14:45:20.609Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T14:45:20.613Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T14:45:46.938Z]   AI: First token received, streaming...
+[2026-03-23T14:46:00.314Z] AI response complete: 165 chars in 39.7s
+[2026-03-23T14:46:00.315Z] Saved AI response to ai_response.json
+[2026-03-23T14:46:00.315Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T14:46:00.315Z]   AI LINK: https://www.facebook.com/meditekisg
+[2026-03-23T14:46:00.315Z]   AI LINK: https://www.instagram.com/meditekyazilim/
+[2026-03-23T14:46:00.316Z]   AI LINK: https://twitter.com/Meditekisg
+[2026-03-23T14:46:00.316Z]   AI LINK: https://www.youtube.com/channel/UCs67U5L9H9JMbNC6e4zx-yQ
+[2026-03-23T14:46:00.316Z] AI returned 4 valid links
+[2026-03-23T14:46:00.316Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T14:46:00.316Z]   AI→REGEX: fb <- https://www.facebook.com/meditekisg (duplicate, skipped)
+[2026-03-23T14:46:00.316Z]   AI→REGEX: ig <- https://www.instagram.com/meditekyazilim/ (duplicate, skipped)
+[2026-03-23T14:46:00.317Z]   AI→REGEX: tw <- https://twitter.com/Meditekisg (duplicate, skipped)
+[2026-03-23T14:46:00.317Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCs67U5L9H9JMbNC6e4zx-yQ (duplicate, skipped)
+[2026-03-23T14:46:00.318Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T14:46:00.318Z] Footer/header origins (5):
+[2026-03-23T14:46:00.318Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T14:46:00.319Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T14:46:00.319Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T14:46:00.319Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T14:46:00.319Z]   FOOTER/HEADER ORIGIN: https://kk.meditek.net
+[2026-03-23T14:46:00.319Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T14:46:00.319Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T14:46:00.319Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T14:46:00.843Z]   YOUTUBE: resolved UCs67U5L9H9JMbNC6e4zx-yQ → @MeditekYazlm1
+[2026-03-23T14:46:00.844Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T14:46:00.844Z] ── Step 3: Final dedup ──
+[2026-03-23T14:46:00.844Z] No urls to dedup
+[2026-03-23T14:46:00.844Z] ── FINAL RESULT ──
+[2026-03-23T14:46:00.844Z]   ws (2):
+[2026-03-23T14:46:00.844Z]     - https://kk.meditek.net
+[2026-03-23T14:46:00.844Z]     - https://meditek.net
+[2026-03-23T14:46:00.845Z]   fb (1):
+[2026-03-23T14:46:00.845Z]     - https://www.facebook.com/meditekisg
+[2026-03-23T14:46:00.845Z]   tw (1):
+[2026-03-23T14:46:00.845Z]     - https://x.com/meditekisg
+[2026-03-23T14:46:00.845Z]   ig (1):
+[2026-03-23T14:46:00.845Z]     - https://www.instagram.com/meditekyazilim
+[2026-03-23T14:46:00.845Z]   ytp (1):
+[2026-03-23T14:46:00.845Z]     - https://www.youtube.com/@MeditekYazlm1
+[2026-03-23T14:46:00.845Z]   ytc (1):
+[2026-03-23T14:46:00.845Z]     - https://www.youtube.com/channel/UCs67U5L9H9JMbNC6e4zx-yQ
+[2026-03-23T14:46:00.845Z] Summary: ws:2, tw:1, fb:1, ig:1, ytc:1, ytp:1
+[2026-03-23T14:46:00.846Z] Saved final result to result.json
+[2026-03-23T14:46:00.846Z] Override fields: ws, fb, tw, ig, ytp, ytc
+[2026-03-23T14:46:00.846Z] Finished at: 2026-03-23T14:46:00.846Z

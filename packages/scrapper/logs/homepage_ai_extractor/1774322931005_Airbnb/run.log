@@ -1,0 +1,64 @@
+[2026-03-24T03:28:51.006Z] === Homepage AI Extractor: Airbnb ===
+[2026-03-24T03:28:51.006Z] Started at: 2026-03-24T03:28:51.006Z
+[2026-03-24T03:28:51.006Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774322931005_Airbnb
+[2026-03-24T03:28:51.006Z] Company: Airbnb
+[2026-03-24T03:28:51.006Z] Website: www.airbnb.org
+[2026-03-24T03:28:51.006Z] cbRank: N/A
+[2026-03-24T03:28:51.007Z] Reasons: BDS_PRESSURE
+[2026-03-24T03:28:51.007Z] Fetching: https://www.airbnb.org
+[2026-03-24T03:28:53.473Z] Redirected: https://www.airbnb.org -> https://www.airbnb.org/
+[2026-03-24T03:28:53.485Z] Saved HTML (430094 bytes) to page.html
+[2026-03-24T03:28:53.513Z] Extracted 17 unique links from page
+[2026-03-24T03:28:53.514Z] Saved 17 links to links.json
+[2026-03-24T03:28:53.536Z] Extracted footer HTML (29310 chars)
+[2026-03-24T03:28:53.536Z] Extracted header HTML (7981 chars)
+[2026-03-24T03:28:53.540Z] Website (post-redirect): https://www.airbnb.org/ → origin: https://www.airbnb.org
+[2026-03-24T03:28:53.540Z] External links: 4 (of 17 total)
+[2026-03-24T03:28:53.540Z] ── All external links ──
+[2026-03-24T03:28:53.540Z]   EXT: https://www.airbnb.com/for-airbnb-org/donate
+[2026-03-24T03:28:53.540Z]   EXT: https://www.airbnb.com/for-airbnb-org/how-to-host
+[2026-03-24T03:28:53.540Z]   EXT: https://www.airbnb.com/help/topic/1435
+[2026-03-24T03:28:53.541Z]   EXT: https://www.airbnb.com/help/topic/1455
+[2026-03-24T03:28:53.541Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T03:28:53.541Z]   UNCATEGORIZED: https://www.airbnb.com/for-airbnb-org/donate
+[2026-03-24T03:28:53.541Z]   UNCATEGORIZED: https://www.airbnb.com/for-airbnb-org/how-to-host
+[2026-03-24T03:28:53.541Z]   UNCATEGORIZED: https://www.airbnb.com/help/topic/1435
+[2026-03-24T03:28:53.541Z]   UNCATEGORIZED: https://www.airbnb.com/help/topic/1455
+[2026-03-24T03:28:53.541Z] Programmatic result: ws:1 | 4 uncategorized
+[2026-03-24T03:28:53.541Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T03:28:53.544Z] Saved AI prompt (4466 chars) to ai_prompt.txt
+[2026-03-24T03:28:53.545Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T03:28:53.549Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T03:29:04.476Z]   AI: First token received, streaming...
+[2026-03-24T03:29:07.631Z] AI response complete: 73 chars in 14.1s
+[2026-03-24T03:29:07.632Z] Saved AI response to ai_response.json
+[2026-03-24T03:29:07.632Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T03:29:07.632Z]   AI LINK: https://www.airbnb.org/legal/privacy
+[2026-03-24T03:29:07.633Z]   AI LINK: https://www.airbnb.org/legal/cookies
+[2026-03-24T03:29:07.633Z] AI returned 2 valid links
+[2026-03-24T03:29:07.633Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T03:29:07.633Z]   AI→URLS: https://www.airbnb.org/legal/privacy
+[2026-03-24T03:29:07.633Z]   AI→URLS: https://www.airbnb.org/legal/cookies
+[2026-03-24T03:29:07.634Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T03:29:07.634Z] Footer/header origins (2):
+[2026-03-24T03:29:07.634Z]   FOOTER/HEADER ORIGIN: https://www.airbnb.org
+[2026-03-24T03:29:07.634Z]   FOOTER/HEADER ORIGIN: https://airbnb.org
+[2026-03-24T03:29:07.634Z]   SKIP (not in footer/header): https://www.airbnb.com/for-airbnb-org/donate
+[2026-03-24T03:29:07.634Z]   SKIP (not in footer/header): https://www.airbnb.com/for-airbnb-org/how-to-host
+[2026-03-24T03:29:07.634Z]   SKIP (not in footer/header): https://www.airbnb.com/help/topic/1435
+[2026-03-24T03:29:07.634Z]   SKIP (not in footer/header): https://www.airbnb.com/help/topic/1455
+[2026-03-24T03:29:07.634Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T03:29:07.634Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T03:29:07.634Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T03:29:07.634Z] ── Step 3: Final dedup ──
+[2026-03-24T03:29:07.634Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-24T03:29:07.635Z] ── FINAL RESULT ──
+[2026-03-24T03:29:07.635Z]   ws (1):
+[2026-03-24T03:29:07.635Z]     - https://www.airbnb.org
+[2026-03-24T03:29:07.635Z]   urls (2):
+[2026-03-24T03:29:07.635Z]     - https://www.airbnb.org/legal/cookies
+[2026-03-24T03:29:07.635Z]     - https://www.airbnb.org/legal/privacy
+[2026-03-24T03:29:07.635Z] Summary: ws:1, urls:2
+[2026-03-24T03:29:07.636Z] Saved final result to result.json
+[2026-03-24T03:29:07.636Z] Override fields: ws
+[2026-03-24T03:29:07.637Z] Finished at: 2026-03-24T03:29:07.637Z

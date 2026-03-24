@@ -1,0 +1,77 @@
+[2026-03-21T07:55:50.521Z] === Homepage AI Extractor: Schooly ===
+[2026-03-21T07:55:50.521Z] Started at: 2026-03-21T07:55:50.521Z
+[2026-03-21T07:55:50.521Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774079750521_Schooly
+[2026-03-21T07:55:50.521Z] Company: Schooly
+[2026-03-21T07:55:50.521Z] Website: schooly.co.il
+[2026-03-21T07:55:50.521Z] cbRank: 3131989
+[2026-03-21T07:55:50.521Z] Reasons: h
+[2026-03-21T07:55:50.521Z] Fetching: https://schooly.co.il
+[2026-03-21T07:55:52.980Z] Redirected: https://schooly.co.il -> https://schooly.co.il/
+[2026-03-21T07:55:52.988Z] Saved HTML (239764 bytes) to page.html
+[2026-03-21T07:55:52.992Z] Extracted 36 unique links from page
+[2026-03-21T07:55:52.992Z] Saved 36 links to links.json
+[2026-03-21T07:55:52.995Z] Extracted footer HTML (2741 chars)
+[2026-03-21T07:55:52.995Z] Extracted header HTML (148 chars)
+[2026-03-21T07:55:52.998Z] Website (post-redirect): https://schooly.co.il/ → origin: https://schooly.co.il
+[2026-03-21T07:55:52.998Z]   SUBDOMAIN: help.schooly.co.il (added to ws)
+[2026-03-21T07:55:52.998Z]   SUBDOMAIN: my.schooly.co.il (added to ws)
+[2026-03-21T07:55:52.998Z] Website subdomains found: 2
+[2026-03-21T07:55:52.998Z] External links: 5 (of 36 total)
+[2026-03-21T07:55:52.998Z] ── All external links ──
+[2026-03-21T07:55:52.999Z]   EXT: https://api.whatsapp.com/send?phone=0548014150
+[2026-03-21T07:55:52.999Z]   EXT: https://api.whatsapp.com/send?phone=055-7776114
+[2026-03-21T07:55:52.999Z]   EXT: https://hocus.co.il
+[2026-03-21T07:55:52.999Z]   EXT: https://itunes.apple.com/il/app/schooly/id923820393?mt=8
+[2026-03-21T07:55:52.999Z]   EXT: https://play.google.com/store/apps/details?id=il.co.schoolapps.schooly
+[2026-03-21T07:55:52.999Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T07:55:53.000Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=0548014150
+[2026-03-21T07:55:53.000Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=055-7776114
+[2026-03-21T07:55:53.000Z]   UNCATEGORIZED: https://hocus.co.il
+[2026-03-21T07:55:53.000Z]   UNCATEGORIZED: https://itunes.apple.com/il/app/schooly/id923820393?mt=8
+[2026-03-21T07:55:53.000Z]   REGEX: android_app_ids <- il.co.schoolapps.schooly (from https://play.google.com/store/apps/details?id=il.co.schoolapps.schooly)
+[2026-03-21T07:55:53.000Z] Programmatic result: ws:3, android_app_ids:1 | 4 uncategorized
+[2026-03-21T07:55:53.000Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T07:55:53.003Z] Saved AI prompt (3290 chars) to ai_prompt.txt
+[2026-03-21T07:55:53.004Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T07:55:53.008Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T07:56:05.677Z]   AI: First token received, streaming...
+[2026-03-21T07:56:14.204Z] AI response complete: 109 chars in 21.2s
+[2026-03-21T07:56:14.205Z] Saved AI response to ai_response.json
+[2026-03-21T07:56:14.205Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T07:56:14.206Z]   AI LINK: https://itunes.apple.com/il/app/schooly/id923820393?mt=8
+[2026-03-21T07:56:14.206Z]   AI LINK: https://schooly.co.il
+[2026-03-21T07:56:14.206Z]   AI LINK: https://schooly.co.il/privacy/
+[2026-03-21T07:56:14.206Z] AI returned 3 valid links
+[2026-03-21T07:56:14.206Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T07:56:14.207Z]   AI→URLS: https://itunes.apple.com/il/app/schooly/id923820393 (cleaned from https://itunes.apple.com/il/app/schooly/id923820393?mt=8)
+[2026-03-21T07:56:14.207Z]   AI→URLS: https://schooly.co.il
+[2026-03-21T07:56:14.207Z]   AI→URLS: https://schooly.co.il/privacy (cleaned from https://schooly.co.il/privacy/)
+[2026-03-21T07:56:14.207Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T07:56:14.207Z] Footer/header origins (2):
+[2026-03-21T07:56:14.207Z]   FOOTER/HEADER ORIGIN: https://schooly.co.il
+[2026-03-21T07:56:14.207Z]   FOOTER/HEADER ORIGIN: https://hocus.co.il
+[2026-03-21T07:56:14.207Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=0548014150
+[2026-03-21T07:56:14.208Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=055-7776114
+[2026-03-21T07:56:14.208Z]   ADDED: urls <- https://hocus.co.il
+[2026-03-21T07:56:14.208Z]   SKIP (AI claimed): https://itunes.apple.com/il/app/schooly/id923820393?mt=8
+[2026-03-21T07:56:14.208Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T07:56:14.208Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T07:56:14.208Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T07:56:14.208Z] ── Step 3: Final dedup ──
+[2026-03-21T07:56:14.208Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-21T07:56:14.209Z] ── FINAL RESULT ──
+[2026-03-21T07:56:14.209Z]   ws (3):
+[2026-03-21T07:56:14.209Z]     - https://help.schooly.co.il
+[2026-03-21T07:56:14.209Z]     - https://my.schooly.co.il
+[2026-03-21T07:56:14.209Z]     - https://schooly.co.il
+[2026-03-21T07:56:14.209Z]   urls (4):
+[2026-03-21T07:56:14.209Z]     - https://hocus.co.il
+[2026-03-21T07:56:14.209Z]     - https://itunes.apple.com/il/app/schooly/id923820393
+[2026-03-21T07:56:14.209Z]     - https://schooly.co.il
+[2026-03-21T07:56:14.209Z]     - https://schooly.co.il/privacy
+[2026-03-21T07:56:14.209Z]   android_app_ids (1):
+[2026-03-21T07:56:14.209Z]     - il.co.schoolapps.schooly
+[2026-03-21T07:56:14.209Z] Summary: ws:3, android_app_ids:1, urls:4
+[2026-03-21T07:56:14.211Z] Saved final result to result.json
+[2026-03-21T07:56:14.211Z] Override fields: ws, urls, android_app_ids
+[2026-03-21T07:56:14.211Z] Finished at: 2026-03-21T07:56:14.211Z

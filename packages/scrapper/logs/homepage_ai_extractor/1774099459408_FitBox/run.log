@@ -1,0 +1,70 @@
+[2026-03-21T13:24:19.409Z] === Homepage AI Extractor: FitBox ===
+[2026-03-21T13:24:19.409Z] Started at: 2026-03-21T13:24:19.409Z
+[2026-03-21T13:24:19.409Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774099459408_FitBox
+[2026-03-21T13:24:19.409Z] Company: FitBox
+[2026-03-21T13:24:19.409Z] Website: fit-box.co.il
+[2026-03-21T13:24:19.409Z] cbRank: 3397276
+[2026-03-21T13:24:19.409Z] Reasons: h
+[2026-03-21T13:24:19.409Z] Fetching: https://fit-box.co.il
+[2026-03-21T13:24:27.641Z] Redirected: https://fit-box.co.il -> https://www.fit-box.co.il/
+[2026-03-21T13:24:27.656Z] Saved HTML (503075 bytes) to page.html
+[2026-03-21T13:24:27.659Z] Extracted 36 unique links from page
+[2026-03-21T13:24:27.659Z] Saved 36 links to links.json
+[2026-03-21T13:24:27.661Z] Extracted footer HTML (26633 chars)
+[2026-03-21T13:24:27.661Z] Extracted header HTML (16660 chars)
+[2026-03-21T13:24:27.665Z] Website (post-redirect): https://www.fit-box.co.il/ → origin: https://www.fit-box.co.il
+[2026-03-21T13:24:27.665Z] External links: 5 (of 36 total)
+[2026-03-21T13:24:27.665Z] ── All external links ──
+[2026-03-21T13:24:27.665Z]   EXT: https://wa.me/972547275050
+[2026-03-21T13:24:27.665Z]   EXT: https://www.enable.co.il
+[2026-03-21T13:24:27.665Z]   EXT: https://www.facebook.com/FitBoxIsrael
+[2026-03-21T13:24:27.665Z]   EXT: https://www.instagram.com/fitbox.il/?igshid=1nauwh8jv9sh2
+[2026-03-21T13:24:27.665Z]   EXT: https://www.upress.co.il
+[2026-03-21T13:24:27.665Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T13:24:27.666Z]   UNCATEGORIZED: https://wa.me/972547275050
+[2026-03-21T13:24:27.666Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-21T13:24:27.666Z]   REGEX: fb <- https://www.facebook.com/FitBoxIsrael
+[2026-03-21T13:24:27.666Z]   REGEX: ig <- https://www.instagram.com/fitbox.il/?igshid=1nauwh8jv9sh2
+[2026-03-21T13:24:27.666Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-21T13:24:27.666Z] Programmatic result: ws:1, fb:1, ig:1 | 3 uncategorized
+[2026-03-21T13:24:27.666Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T13:24:27.667Z] Saved AI prompt (4149 chars) to ai_prompt.txt
+[2026-03-21T13:24:27.667Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T13:24:27.671Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T13:24:52.837Z]   AI: First token received, streaming...
+[2026-03-21T13:24:59.853Z] AI response complete: 96 chars in 32.2s
+[2026-03-21T13:24:59.854Z] Saved AI response to ai_response.json
+[2026-03-21T13:24:59.854Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T13:24:59.854Z]   AI LINK: https://www.facebook.com/FitBoxIsrael/
+[2026-03-21T13:24:59.854Z]   AI LINK: https://www.instagram.com/fitbox.il/?igshid=1nauwh8jv9sh2
+[2026-03-21T13:24:59.855Z] AI returned 2 valid links
+[2026-03-21T13:24:59.855Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T13:24:59.855Z]   AI→REGEX: fb <- https://www.facebook.com/FitBoxIsrael/ (duplicate, skipped)
+[2026-03-21T13:24:59.855Z]   AI→REGEX: ig <- https://www.instagram.com/fitbox.il/?igshid=1nauwh8jv9sh2 (duplicate, skipped)
+[2026-03-21T13:24:59.855Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T13:24:59.856Z] Footer/header origins (4):
+[2026-03-21T13:24:59.856Z]   FOOTER/HEADER ORIGIN: https://www.fit-box.co.il
+[2026-03-21T13:24:59.856Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T13:24:59.856Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T13:24:59.856Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-21T13:24:59.856Z]   ADDED: urls <- https://wa.me/972547275050
+[2026-03-21T13:24:59.856Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-21T13:24:59.856Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-21T13:24:59.856Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T13:24:59.856Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T13:24:59.856Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T13:24:59.857Z] ── Step 3: Final dedup ──
+[2026-03-21T13:24:59.857Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T13:24:59.857Z] ── FINAL RESULT ──
+[2026-03-21T13:24:59.857Z]   ws (1):
+[2026-03-21T13:24:59.857Z]     - https://www.fit-box.co.il
+[2026-03-21T13:24:59.857Z]   fb (1):
+[2026-03-21T13:24:59.857Z]     - https://www.facebook.com/fitboxisrael
+[2026-03-21T13:24:59.857Z]   ig (1):
+[2026-03-21T13:24:59.857Z]     - https://www.instagram.com/fitbox.il
+[2026-03-21T13:24:59.857Z]   urls (1):
+[2026-03-21T13:24:59.858Z]     - https://wa.me/972547275050
+[2026-03-21T13:24:59.858Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-21T13:24:59.859Z] Saved final result to result.json
+[2026-03-21T13:24:59.859Z] Override fields: ws, fb, ig, urls
+[2026-03-21T13:24:59.859Z] Finished at: 2026-03-21T13:24:59.859Z

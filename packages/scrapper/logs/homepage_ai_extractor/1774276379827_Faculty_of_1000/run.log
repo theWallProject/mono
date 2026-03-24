@@ -1,0 +1,91 @@
+[2026-03-23T14:32:59.827Z] === Homepage AI Extractor: Faculty of 1000 ===
+[2026-03-23T14:32:59.827Z] Started at: 2026-03-23T14:32:59.827Z
+[2026-03-23T14:32:59.827Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774276379827_Faculty_of_1000
+[2026-03-23T14:32:59.828Z] Company: Faculty of 1000
+[2026-03-23T14:32:59.828Z] Website: f1000.com
+[2026-03-23T14:32:59.828Z] cbRank: 988286
+[2026-03-23T14:32:59.828Z] Reasons: f
+[2026-03-23T14:32:59.828Z] Fetching: https://f1000.com
+[2026-03-23T14:33:02.505Z] Redirected: https://f1000.com -> https://www.f1000.com/
+[2026-03-23T14:33:02.509Z] Saved HTML (81905 bytes) to page.html
+[2026-03-23T14:33:02.512Z] Extracted 21 unique links from page
+[2026-03-23T14:33:02.513Z] Saved 21 links to links.json
+[2026-03-23T14:33:02.515Z] Extracted footer HTML (4926 chars)
+[2026-03-23T14:33:02.515Z] Extracted header HTML (7386 chars)
+[2026-03-23T14:33:02.520Z] Website (post-redirect): https://www.f1000.com/ → origin: https://www.f1000.com
+[2026-03-23T14:33:02.520Z] External links: 4 (of 21 total)
+[2026-03-23T14:33:02.520Z] ── All external links ──
+[2026-03-23T14:33:02.520Z]   EXT: https://privacy.informa.com/policies/en
+[2026-03-23T14:33:02.520Z]   EXT: https://twitter.com/F1000
+[2026-03-23T14:33:02.520Z]   EXT: https://www.linkedin.com/company/f1000-research-ltd
+[2026-03-23T14:33:02.520Z]   EXT: https://www.youtube.com/c/F1000Research
+[2026-03-23T14:33:02.520Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T14:33:02.521Z]   UNCATEGORIZED: https://privacy.informa.com/policies/en
+[2026-03-23T14:33:02.522Z]   REGEX: tw <- https://twitter.com/F1000
+[2026-03-23T14:33:02.522Z]   REGEX: li <- https://www.linkedin.com/company/f1000-research-ltd
+[2026-03-23T14:33:02.522Z]   REGEX: ytp <- https://www.youtube.com/c/F1000Research
+[2026-03-23T14:33:02.522Z] Programmatic result: ws:1, tw:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-23T14:33:02.522Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T14:33:02.526Z] Saved AI prompt (5273 chars) to ai_prompt.txt
+[2026-03-23T14:33:02.526Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T14:33:02.531Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T14:33:22.667Z]   AI: First token received, streaming...
+[2026-03-23T14:33:38.029Z]   AI streaming: 203 chars received (35.5s elapsed)
+[2026-03-23T14:33:50.606Z] AI response complete: 386 chars in 48.1s
+[2026-03-23T14:33:50.607Z] Saved AI response to ai_response.json
+[2026-03-23T14:33:50.608Z] ── Parsing AI response (8 lines) ──
+[2026-03-23T14:33:50.608Z]   AI LINK: https://uk.linkedin.com/company/f1000-research-ltd
+[2026-03-23T14:33:50.608Z]   AI LINK: https://twitter.com/F1000
+[2026-03-23T14:33:50.608Z]   AI LINK: https://www.youtube.com/channel/F1000Research
+[2026-03-23T14:33:50.608Z]   AI LINK: https://www.f1000.com/open-research-services/
+[2026-03-23T14:33:50.608Z]   AI LINK: https://www.f1000.com/case-studies/
+[2026-03-23T14:33:50.608Z]   AI LINK: https://www.f1000.com/resources-for-researchers/where-to-publish-your-research/f1000-publishing-venues/
+[2026-03-23T14:33:50.609Z]   AI LINK: https://www.f1000.com/resources-for-researchers/
+[2026-03-23T14:33:50.609Z]   AI LINK: https://www.f1000.com/about/
+[2026-03-23T14:33:50.609Z] AI returned 8 valid links
+[2026-03-23T14:33:50.609Z] ── Categorizing 8 AI-returned links ──
+[2026-03-23T14:33:50.609Z]   AI→REGEX: li <- https://uk.linkedin.com/company/f1000-research-ltd (duplicate, skipped)
+[2026-03-23T14:33:50.609Z]   AI→REGEX: tw <- https://twitter.com/F1000 (duplicate, skipped)
+[2026-03-23T14:33:50.610Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/F1000Research
+[2026-03-23T14:33:50.610Z]   AI→URLS: https://www.f1000.com/open-research-services (cleaned from https://www.f1000.com/open-research-services/)
+[2026-03-23T14:33:50.610Z]   AI→URLS: https://www.f1000.com/case-studies (cleaned from https://www.f1000.com/case-studies/)
+[2026-03-23T14:33:50.610Z]   AI→URLS: https://www.f1000.com/resources-for-researchers/where-to-publish-your-research/f1000-publishing-venues (cleaned from https://www.f1000.com/resources-for-researchers/where-to-publish-your-research/f1000-publishing-venues/)
+[2026-03-23T14:33:50.610Z]   AI→URLS: https://www.f1000.com/resources-for-researchers (cleaned from https://www.f1000.com/resources-for-researchers/)
+[2026-03-23T14:33:50.610Z]   AI→URLS: https://www.f1000.com/about (cleaned from https://www.f1000.com/about/)
+[2026-03-23T14:33:50.611Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T14:33:50.611Z] Footer/header origins (5):
+[2026-03-23T14:33:50.611Z]   FOOTER/HEADER ORIGIN: https://www.f1000.com
+[2026-03-23T14:33:50.611Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T14:33:50.611Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T14:33:50.612Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T14:33:50.612Z]   FOOTER/HEADER ORIGIN: https://privacy.informa.com
+[2026-03-23T14:33:50.612Z]   ADDED: urls <- https://privacy.informa.com/policies/en
+[2026-03-23T14:33:50.612Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T14:33:50.612Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T14:33:50.612Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T14:33:50.763Z]   YOUTUBE: F1000Research has no @handle (from https://www.youtube.com/channel/F1000Research)
+[2026-03-23T14:33:50.763Z]   YOUTUBE: no new ytp URLs resolved
+[2026-03-23T14:33:50.763Z] ── Step 3: Final dedup ──
+[2026-03-23T14:33:50.763Z] Dedup: removed 0 of 6 URLs already in specialized fields
+[2026-03-23T14:33:50.763Z] ── FINAL RESULT ──
+[2026-03-23T14:33:50.763Z]   ws (1):
+[2026-03-23T14:33:50.763Z]     - https://www.f1000.com
+[2026-03-23T14:33:50.764Z]   li (1):
+[2026-03-23T14:33:50.764Z]     - https://www.linkedin.com/company/f1000-research-ltd
+[2026-03-23T14:33:50.764Z]   tw (1):
+[2026-03-23T14:33:50.764Z]     - https://x.com/f1000
+[2026-03-23T14:33:50.764Z]   ytp (1):
+[2026-03-23T14:33:50.764Z]     - https://www.youtube.com/@f1000research
+[2026-03-23T14:33:50.764Z]   ytc (1):
+[2026-03-23T14:33:50.764Z]     - https://www.youtube.com/channel/F1000Research
+[2026-03-23T14:33:50.764Z]   urls (6):
+[2026-03-23T14:33:50.764Z]     - https://privacy.informa.com/policies/en
+[2026-03-23T14:33:50.764Z]     - https://www.f1000.com/about
+[2026-03-23T14:33:50.765Z]     - https://www.f1000.com/case-studies
+[2026-03-23T14:33:50.765Z]     - https://www.f1000.com/open-research-services
+[2026-03-23T14:33:50.765Z]     - https://www.f1000.com/resources-for-researchers
+[2026-03-23T14:33:50.765Z]     - https://www.f1000.com/resources-for-researchers/where-to-publish-your-research/f1000-publishing-venues
+[2026-03-23T14:33:50.765Z] Summary: ws:1, tw:1, li:1, ytp:1, ytc:1, urls:6
+[2026-03-23T14:33:50.766Z] Saved final result to result.json
+[2026-03-23T14:33:50.766Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-23T14:33:50.766Z] Finished at: 2026-03-23T14:33:50.766Z

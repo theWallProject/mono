@@ -1,0 +1,76 @@
+[2026-03-22T04:59:11.137Z] === Homepage AI Extractor: MemoMate ===
+[2026-03-22T04:59:11.137Z] Started at: 2026-03-22T04:59:11.137Z
+[2026-03-22T04:59:11.137Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774155551137_MemoMate
+[2026-03-22T04:59:11.137Z] Company: MemoMate
+[2026-03-22T04:59:11.138Z] Website: memomate.app
+[2026-03-22T04:59:11.138Z] cbRank: 105409
+[2026-03-22T04:59:11.138Z] Reasons: f
+[2026-03-22T04:59:11.138Z] Fetching: https://memomate.app
+[2026-03-22T04:59:15.782Z] Redirected: https://memomate.app -> https://memomate.app/
+[2026-03-22T04:59:15.812Z] Saved HTML (1248880 bytes) to page.html
+[2026-03-22T04:59:15.815Z] Extracted 14 unique links from page
+[2026-03-22T04:59:15.816Z] Saved 14 links to links.json
+[2026-03-22T04:59:15.820Z] Extracted footer HTML (35109 chars)
+[2026-03-22T04:59:15.821Z] Extracted header HTML (33507 chars)
+[2026-03-22T04:59:15.824Z] Website (post-redirect): https://memomate.app/ → origin: https://memomate.app
+[2026-03-22T04:59:15.824Z]   SUBDOMAIN: chat.memomate.app (added to ws)
+[2026-03-22T04:59:15.824Z] Website subdomains found: 1
+[2026-03-22T04:59:15.824Z] External links: 4 (of 14 total)
+[2026-03-22T04:59:15.824Z] ── All external links ──
+[2026-03-22T04:59:15.824Z]   EXT: https://calendar.app.google/iUBovHwLjvdoEbFk7
+[2026-03-22T04:59:15.824Z]   EXT: https://calendly.com/memomate/30min
+[2026-03-22T04:59:15.824Z]   EXT: https://www.instagram.com/memomate.app
+[2026-03-22T04:59:15.825Z]   EXT: https://www.linkedin.com/company/memomate
+[2026-03-22T04:59:15.825Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:59:15.825Z]   UNCATEGORIZED: https://calendar.app.google/iUBovHwLjvdoEbFk7
+[2026-03-22T04:59:15.825Z]   UNCATEGORIZED: https://calendly.com/memomate/30min
+[2026-03-22T04:59:15.825Z]   REGEX: ig <- https://www.instagram.com/memomate.app
+[2026-03-22T04:59:15.825Z]   REGEX: li <- https://www.linkedin.com/company/memomate
+[2026-03-22T04:59:15.825Z] Programmatic result: ws:2, ig:1, li:1 | 2 uncategorized
+[2026-03-22T04:59:15.825Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:59:15.826Z] Saved AI prompt (2447 chars) to ai_prompt.txt
+[2026-03-22T04:59:15.826Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:59:15.831Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:59:24.451Z]   AI: First token received, streaming...
+[2026-03-22T04:59:29.665Z] AI response complete: 103 chars in 13.8s
+[2026-03-22T04:59:29.667Z] Saved AI response to ai_response.json
+[2026-03-22T04:59:29.667Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T04:59:29.667Z]   AI LINK: https://memomate.app
+[2026-03-22T04:59:29.667Z]   AI LINK: https://www.instagram.com/memomate.app/
+[2026-03-22T04:59:29.667Z]   AI LINK: https://www.linkedin.com/company/memomate/
+[2026-03-22T04:59:29.668Z] AI returned 3 valid links
+[2026-03-22T04:59:29.668Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T04:59:29.668Z]   AI→URLS: https://memomate.app
+[2026-03-22T04:59:29.668Z]   AI→REGEX: ig <- https://www.instagram.com/memomate.app/ (duplicate, skipped)
+[2026-03-22T04:59:29.668Z]   AI→REGEX: li <- https://www.linkedin.com/company/memomate/ (duplicate, skipped)
+[2026-03-22T04:59:29.669Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:59:29.669Z] Footer/header origins (6):
+[2026-03-22T04:59:29.669Z]   FOOTER/HEADER ORIGIN: https://memomate.app
+[2026-03-22T04:59:29.670Z]   FOOTER/HEADER ORIGIN: https://calendar.app.google
+[2026-03-22T04:59:29.670Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T04:59:29.670Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:59:29.670Z]   FOOTER/HEADER ORIGIN: https://chat.memomate.app
+[2026-03-22T04:59:29.670Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-22T04:59:29.670Z]   ADDED: urls <- https://calendar.app.google/iUBovHwLjvdoEbFk7
+[2026-03-22T04:59:29.670Z]   ADDED: urls <- https://calendly.com/memomate/30min
+[2026-03-22T04:59:29.671Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-22T04:59:29.671Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:59:29.671Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:59:29.671Z] ── Step 3: Final dedup ──
+[2026-03-22T04:59:29.671Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T04:59:29.671Z] ── FINAL RESULT ──
+[2026-03-22T04:59:29.671Z]   ws (2):
+[2026-03-22T04:59:29.671Z]     - https://chat.memomate.app
+[2026-03-22T04:59:29.671Z]     - https://memomate.app
+[2026-03-22T04:59:29.671Z]   li (1):
+[2026-03-22T04:59:29.672Z]     - https://www.linkedin.com/company/memomate
+[2026-03-22T04:59:29.672Z]   ig (1):
+[2026-03-22T04:59:29.672Z]     - https://www.instagram.com/memomate.app
+[2026-03-22T04:59:29.672Z]   urls (3):
+[2026-03-22T04:59:29.672Z]     - https://calendar.app.google/iUBovHwLjvdoEbFk7
+[2026-03-22T04:59:29.672Z]     - https://calendly.com/memomate/30min
+[2026-03-22T04:59:29.672Z]     - https://memomate.app
+[2026-03-22T04:59:29.673Z] Summary: ws:2, ig:1, li:1, urls:3
+[2026-03-22T04:59:29.674Z] Saved final result to result.json
+[2026-03-22T04:59:29.674Z] Override fields: ws, li, ig, urls
+[2026-03-22T04:59:29.674Z] Finished at: 2026-03-22T04:59:29.674Z

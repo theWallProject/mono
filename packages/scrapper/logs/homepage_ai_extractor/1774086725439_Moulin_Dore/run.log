@@ -1,0 +1,69 @@
+[2026-03-21T09:52:05.449Z] === Homepage AI Extractor: Moulin Dore ===
+[2026-03-21T09:52:05.453Z] Started at: 2026-03-21T09:52:05.453Z
+[2026-03-21T09:52:05.453Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774086725439_Moulin_Dore
+[2026-03-21T09:52:05.453Z] Company: Moulin Dore
+[2026-03-21T09:52:05.453Z] Website: moulindore.co.il
+[2026-03-21T09:52:05.453Z] cbRank: 3216921
+[2026-03-21T09:52:05.453Z] Reasons: h
+[2026-03-21T09:52:05.453Z] Fetching: https://moulindore.co.il
+[2026-03-21T09:52:09.803Z] Redirected: https://moulindore.co.il -> https://moulindore.co.il/
+[2026-03-21T09:52:09.821Z] Saved HTML (744213 bytes) to page.html
+[2026-03-21T09:52:09.824Z] Extracted 59 unique links from page
+[2026-03-21T09:52:09.825Z] Saved 59 links to links.json
+[2026-03-21T09:52:09.828Z] Extracted footer HTML (8311 chars)
+[2026-03-21T09:52:09.828Z] Extracted header HTML (414 chars)
+[2026-03-21T09:52:09.831Z] Website (post-redirect): https://moulindore.co.il/ → origin: https://moulindore.co.il
+[2026-03-21T09:52:09.831Z] External links: 5 (of 59 total)
+[2026-03-21T09:52:09.831Z] ── All external links ──
+[2026-03-21T09:52:09.831Z]   EXT: https://fr.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-21T09:52:09.832Z]   EXT: https://www.facebook.com/Moulindoreisrael
+[2026-03-21T09:52:09.832Z]   EXT: https://www.instagram.com/le_moulin_dore_
+[2026-03-21T09:52:09.832Z]   EXT: https://www.skynettechnologies.com/all-in-one-accessibility
+[2026-03-21T09:52:09.832Z]   EXT: https://www.skynettechnologies.com/report-accessibility-problem
+[2026-03-21T09:52:09.832Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T09:52:09.832Z]   UNCATEGORIZED: https://fr.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-21T09:52:09.832Z]   REGEX: fb <- https://www.facebook.com/Moulindoreisrael
+[2026-03-21T09:52:09.832Z]   REGEX: ig <- https://www.instagram.com/le_moulin_dore_
+[2026-03-21T09:52:09.832Z]   UNCATEGORIZED: https://www.skynettechnologies.com/all-in-one-accessibility
+[2026-03-21T09:52:09.832Z]   UNCATEGORIZED: https://www.skynettechnologies.com/report-accessibility-problem
+[2026-03-21T09:52:09.833Z] Programmatic result: ws:1, fb:1, ig:1 | 3 uncategorized
+[2026-03-21T09:52:09.833Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T09:52:09.834Z] Saved AI prompt (5109 chars) to ai_prompt.txt
+[2026-03-21T09:52:09.834Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T09:52:09.838Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T09:52:28.576Z]   AI: First token received, streaming...
+[2026-03-21T09:52:33.494Z] AI response complete: 85 chars in 23.7s
+[2026-03-21T09:52:33.495Z] Saved AI response to ai_response.json
+[2026-03-21T09:52:33.495Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T09:52:33.496Z]   AI LINK: https://www.facebook.com/Moulindoreisrael/
+[2026-03-21T09:52:33.496Z]   AI LINK: https://www.instagram.com/le_moulin_dore_/
+[2026-03-21T09:52:33.496Z] AI returned 2 valid links
+[2026-03-21T09:52:33.496Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T09:52:33.496Z]   AI→REGEX: fb <- https://www.facebook.com/Moulindoreisrael/ (duplicate, skipped)
+[2026-03-21T09:52:33.496Z]   AI→REGEX: ig <- https://www.instagram.com/le_moulin_dore_/ (duplicate, skipped)
+[2026-03-21T09:52:33.497Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T09:52:33.497Z] Footer/header origins (3):
+[2026-03-21T09:52:33.497Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T09:52:33.497Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T09:52:33.497Z]   FOOTER/HEADER ORIGIN: https://fr.shopify.com
+[2026-03-21T09:52:33.497Z]   ADDED: urls <- https://fr.shopify.com (cleaned from https://fr.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore)
+[2026-03-21T09:52:33.497Z]   SKIP (not in footer/header): https://www.skynettechnologies.com/all-in-one-accessibility
+[2026-03-21T09:52:33.497Z]   SKIP (not in footer/header): https://www.skynettechnologies.com/report-accessibility-problem
+[2026-03-21T09:52:33.497Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T09:52:33.497Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T09:52:33.497Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T09:52:33.497Z] ── Step 3: Final dedup ──
+[2026-03-21T09:52:33.498Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T09:52:33.498Z] ── FINAL RESULT ──
+[2026-03-21T09:52:33.498Z]   ws (1):
+[2026-03-21T09:52:33.498Z]     - https://moulindore.co.il
+[2026-03-21T09:52:33.498Z]   fb (1):
+[2026-03-21T09:52:33.498Z]     - https://www.facebook.com/moulindoreisrael
+[2026-03-21T09:52:33.498Z]   ig (1):
+[2026-03-21T09:52:33.498Z]     - https://www.instagram.com/le_moulin_dore_
+[2026-03-21T09:52:33.498Z]   urls (1):
+[2026-03-21T09:52:33.498Z]     - https://fr.shopify.com
+[2026-03-21T09:52:33.498Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-21T09:52:33.499Z] Saved final result to result.json
+[2026-03-21T09:52:33.499Z] Override fields: ws, fb, ig, urls
+[2026-03-21T09:52:33.499Z] Finished at: 2026-03-21T09:52:33.499Z

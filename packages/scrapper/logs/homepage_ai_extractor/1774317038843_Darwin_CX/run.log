@@ -1,0 +1,73 @@
+[2026-03-24T01:50:38.844Z] === Homepage AI Extractor: Darwin CX ===
+[2026-03-24T01:50:38.844Z] Started at: 2026-03-24T01:50:38.844Z
+[2026-03-24T01:50:38.844Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774317038843_Darwin_CX
+[2026-03-24T01:50:38.844Z] Company: Darwin CX
+[2026-03-24T01:50:38.844Z] Website: darwin.cx
+[2026-03-24T01:50:38.844Z] cbRank: 102198
+[2026-03-24T01:50:38.844Z] Reasons: i
+[2026-03-24T01:50:38.844Z] Fetching: https://darwin.cx
+[2026-03-24T01:50:49.569Z] Network idle timeout — continuing with current state
+[2026-03-24T01:50:49.641Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-24T01:50:57.620Z] Redirected: https://darwin.cx -> https://www.darwin.cx/
+[2026-03-24T01:50:57.632Z] Saved HTML (434615 bytes) to page.html
+[2026-03-24T01:50:57.635Z] Extracted 46 unique links from page
+[2026-03-24T01:50:57.636Z] Saved 46 links to links.json
+[2026-03-24T01:50:57.640Z] Extracted footer HTML (26074 chars)
+[2026-03-24T01:50:57.641Z] Extracted header HTML (11604 chars)
+[2026-03-24T01:50:57.647Z] Website (post-redirect): https://www.darwin.cx/ → origin: https://www.darwin.cx
+[2026-03-24T01:50:57.647Z]   SUBDOMAIN: app.darwin.cx (added to ws)
+[2026-03-24T01:50:57.647Z] Website subdomains found: 1
+[2026-03-24T01:50:57.648Z] External links: 5 (of 46 total)
+[2026-03-24T01:50:57.648Z] ── All external links ──
+[2026-03-24T01:50:57.648Z]   EXT: https://cdn.prod.website-files.com/652e65c0d49283bd65bd9b52/68ee74e75777fa2c3358c184_DarwinCX_2025_PCI-DSS-v4-0-1-SAQ-D-Service-Provider.pdf
+[2026-03-24T01:50:57.648Z]   EXT: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-24T01:50:57.648Z]   EXT: https://www.linkedin.com/company/darwin-cx
+[2026-03-24T01:50:57.648Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-24T01:50:57.648Z]   EXT: https://www.youtube.com/@DarwinCXPlatform
+[2026-03-24T01:50:57.648Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:50:57.648Z]   UNCATEGORIZED: https://cdn.prod.website-files.com/652e65c0d49283bd65bd9b52/68ee74e75777fa2c3358c184_DarwinCX_2025_PCI-DSS-v4-0-1-SAQ-D-Service-Provider.pdf
+[2026-03-24T01:50:57.648Z]   UNCATEGORIZED: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-24T01:50:57.648Z]   REGEX: li <- https://www.linkedin.com/company/darwin-cx
+[2026-03-24T01:50:57.648Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-24T01:50:57.648Z]   REGEX: ytp <- https://www.youtube.com/@DarwinCXPlatform
+[2026-03-24T01:50:57.648Z] Programmatic result: ws:2, li:1, ytp:1 | 3 uncategorized
+[2026-03-24T01:50:57.648Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:50:57.652Z] Saved AI prompt (2976 chars) to ai_prompt.txt
+[2026-03-24T01:50:57.652Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:50:57.656Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:51:08.074Z]   AI: First token received, streaming...
+[2026-03-24T01:51:12.203Z] AI response complete: 85 chars in 14.6s
+[2026-03-24T01:51:12.204Z] Saved AI response to ai_response.json
+[2026-03-24T01:51:12.204Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T01:51:12.205Z]   AI LINK: https://www.linkedin.com/company/darwin-cx/
+[2026-03-24T01:51:12.205Z]   AI LINK: https://www.youtube.com/@DarwinCXPlatform
+[2026-03-24T01:51:12.205Z] AI returned 2 valid links
+[2026-03-24T01:51:12.205Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T01:51:12.205Z]   AI→REGEX: li <- https://www.linkedin.com/company/darwin-cx/ (duplicate, skipped)
+[2026-03-24T01:51:12.205Z]   AI→REGEX: ytp <- https://www.youtube.com/@DarwinCXPlatform (duplicate, skipped)
+[2026-03-24T01:51:12.207Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:51:12.208Z] Footer/header origins (4):
+[2026-03-24T01:51:12.208Z]   FOOTER/HEADER ORIGIN: https://www.darwin.cx
+[2026-03-24T01:51:12.208Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T01:51:12.208Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-24T01:51:12.208Z]   FOOTER/HEADER ORIGIN: https://app.darwin.cx
+[2026-03-24T01:51:12.208Z]   SKIP (noise): https://cdn.prod.website-files.com/652e65c0d49283bd65bd9b52/68ee74e75777fa2c3358c184_DarwinCX_2025_PCI-DSS-v4-0-1-SAQ-D-Service-Provider.pdf
+[2026-03-24T01:51:12.208Z]   SKIP (not in footer/header): https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-24T01:51:12.208Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-24T01:51:12.208Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:51:12.208Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:51:12.208Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:51:12.209Z] ── Step 3: Final dedup ──
+[2026-03-24T01:51:12.209Z] No urls to dedup
+[2026-03-24T01:51:12.209Z] ── FINAL RESULT ──
+[2026-03-24T01:51:12.209Z]   ws (2):
+[2026-03-24T01:51:12.209Z]     - https://app.darwin.cx
+[2026-03-24T01:51:12.209Z]     - https://www.darwin.cx
+[2026-03-24T01:51:12.209Z]   li (1):
+[2026-03-24T01:51:12.209Z]     - https://www.linkedin.com/company/darwin-cx
+[2026-03-24T01:51:12.209Z]   ytp (1):
+[2026-03-24T01:51:12.209Z]     - https://www.youtube.com/@darwincxplatform
+[2026-03-24T01:51:12.209Z] Summary: ws:2, li:1, ytp:1
+[2026-03-24T01:51:12.210Z] Saved final result to result.json
+[2026-03-24T01:51:12.210Z] Override fields: ws, li, ytp
+[2026-03-24T01:51:12.210Z] Finished at: 2026-03-24T01:51:12.210Z

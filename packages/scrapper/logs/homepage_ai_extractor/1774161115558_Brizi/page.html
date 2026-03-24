@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brizi | Coming Soon</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. THEME VARIABLES & GLOBAL RESET
+           ========================================= */
+        :root {
+            /* Colors */
+            --bg-color: #FFFFFF;
+            --text-color: #222222;
+            --heading-color: #4169E1; /* Royal Blue */
+            --border-color: #DDDDDD;
+            
+            /* Fonts */
+            --font-pixel: 'Press Start 2P', cursive;
+            --font-body: 'Google Sans', 'Poppins', 'Helvetica Neue', sans-serif;
+            
+            /* Effects */
+            --pixel-shadow: 4px 4px 0 0 var(--heading-color);
+            --pixel-shadow-light: 2px 2px 0 0 var(--heading-color);
+        }
+
+        /* Dark Theme Overrides (Global) */
+        [data-theme="dark"] {
+            --bg-color: #222222;
+            --text-color: #FFFFFF;
+            --border-color: #444444;
+        }
+
+        /* Base Reset */
+        html { box-sizing: border-box; }
+        *, *:before, *:after { box-sizing: inherit; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0; padding: 0;
+            overflow: hidden; /* PREVENT SCROLLING */
+            height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        a { text-decoration: none; color: var(--heading-color); font-weight: 600; }
+
+        /* Typography */
+        h1 {
+            font-family: var(--font-pixel);
+            color: var(--heading-color);
+            margin-top: 2rem; margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 2.2rem; line-height: 1.4; min-height: 80px; display: block;
+        }
+        [data-theme="dark"] h1 { color: #FFFFFF; } /* Dark mode override for H1 */
+
+        /* =========================================
+           2. UTILITY CLASSES & ANIMATIONS
+           ========================================= */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* =========================================
+           3. COMPONENTS
+           ========================================= */
+        
+        /* --- Theme Notification Bar --- */
+        #theme-notification {
+            position: fixed;
+            top: 20px; /* Spacing from top */
+            left: 50%; /* Center horizontally */
+            width: auto; /* Fit content */
+            min-width: 200px;
+            text-align: center; 
+            font-family: var(--font-pixel); 
+            font-size: 0.7rem;
+            padding: 10px 20px; 
+            background-color: var(--heading-color); 
+            color: var(--bg-color);
+            z-index: 2000; 
+            
+            /* Start hidden above view, centered horizontally */
+            transform: translateX(-50%) translateY(-200%); 
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Retro bouncy slide */
+            
+            /* 8-bit box styling */
+            border: 2px solid var(--text-color);
+            box-shadow: var(--pixel-shadow);
+        }
+        
+        #theme-notification.visible { 
+            /* Slide down into view */
+            transform: translateX(-50%) translateY(0); 
+        }
+        
+        /* Dark mode specific border/shadow adjustment */
+        [data-theme="dark"] #theme-notification {
+            border-color: #FFFFFF;
+            box-shadow: 4px 4px 0 0 #FFFFFF;
+        }
+
+        /* --- Hero Section --- */
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; padding: 20px; }
+        
+        /* Typing Effect Cursor */
+        #name-type-effect::after {
+            content: ''; display: inline-block; width: 0.2em; height: 1em;
+            background-color: var(--heading-color); margin-left: 5px; vertical-align: text-bottom;
+        }
+        #name-type-effect.blinking::after { animation: blink 1s step-end infinite; }
+
+        /* CTA & Loading Area */
+        .cta-container { position: relative; height: 80px; display: flex; justify-content: center; align-items: flex-start; margin-top: 15px; }
+        
+        #loading-wrapper {
+            position: absolute; top: 0; display: flex; flex-direction: column; align-items: center; gap: 10px;
+            opacity: 1; transition: opacity 1s ease-out;
+        }
+        #loading-container {
+            width: 250px; height: 50px; border: 4px solid var(--heading-color);
+            background-color: var(--bg-color); padding: 4px; display: flex; align-items: center;
+            box-shadow: var(--pixel-shadow); transition: background-color 0.3s ease;
+        }
+        #loading-bar { width: 0%; height: 100%; background-color: var(--heading-color); transition: width 0.2s steps(5, end); }
+        #loading-percent { font-family: var(--font-pixel); font-size: 0.8rem; color: var(--heading-color); }
+
+        /* Dark mode overrides for Loading */
+        [data-theme="dark"] #loading-bar { background-color: #FFFFFF; }
+        [data-theme="dark"] #loading-percent { color: #FFFFFF; }
+
+        /* "Coming Soon" Badge (Replaces CTA Button style) */
+        .cta-button {
+            position: absolute; top: 0; width: 250px; height: 50px;
+            font-family: var(--font-pixel); font-size: 1rem; color: var(--bg-color);
+            background-color: var(--heading-color); display: flex; justify-content: center; align-items: center;
+            box-shadow: var(--pixel-shadow); visibility: hidden; opacity: 0;
+            transition: visibility 0s, opacity 1s ease-in, color 0.3s ease, box-shadow 0.3s ease;
+            cursor: default; /* Not clickable */
+            pointer-events: none;
+        }
+        .cta-button.visible { visibility: visible; opacity: 1; }
+        
+        /* Dark mode overrides for CTA Button */
+        [data-theme="dark"] .cta-button { color: #FFFFFF; box-shadow: 4px 4px 0 0 #FFFFFF; }
+
+        /* --- Header & Navigation --- */
+        /* Simplified Header: Fixed at top, always visible */
+        .header {
+            padding: 20px 0; 
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+        }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-pixel); font-size: 1rem; }
+        
+        /* Theme Switch */
+        .theme-switch-wrapper { display: flex; align-items: center; }
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 48px; }
+        .theme-switch input { display: none; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border: 2px solid var(--text-color); overflow: hidden; }
+        .slider:before {
+            position: absolute; content: ""; 
+            height: 12px; width: 12px; left: 4px; bottom: 4px;
+            background-color: var(--bg-color); transition: .4s; border: 2px solid var(--text-color);
+        }
+        input:checked + .slider { background-color: var(--heading-color); }
+        input:checked + .slider:before {
+            transform: translateX(24px);
+            background-color: var(--text-color); border-color: var(--bg-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; min-height: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Theme Notification Bar -->
+    <div id="theme-notification" class="visible">Light Mode Detected!</div>
+
+    <!-- Header (Logo + Toggle Only) -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Brizi</a>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <div class="slider"></div>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <div class="container">
+            <h1 id="name-type-effect">Ale</h1>
+            <div class="cta-container">
+                <!-- Loading Animation -->
+                <div id="loading-wrapper">
+                    <div id="loading-container"><div id="loading-bar" style="width: 13%;"></div></div>
+                    <div id="loading-percent">13%</div>
+                </div>
+                <!-- Main CTA -->
+                <div class="cta-button" id="cta-button">Coming Soon!</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initialize Typing & Loading Animation
+            initTypingAnimation();
+            // 2. Initialize Theme Logic
+            initTheme();
+        });
+
+        /* =========================================
+           MODULE 1: TYPING ANIMATION
+           ========================================= */
+        function initTypingAnimation() {
+            const nameToType = "Alexander Brisimitzakis";
+            const typeElement = document.getElementById('name-type-effect');
+            const ctaButton = document.getElementById('cta-button');
+            const loadingWrapper = document.getElementById('loading-wrapper');
+            const loadingBar = document.getElementById('loading-bar');
+            const loadingPercent = document.getElementById('loading-percent');
+            let charIndex = 0;
+
+            function typeNextChar() {
+                if (charIndex < nameToType.length) {
+                    typeElement.classList.remove('blinking');
+                    typeElement.textContent = nameToType.substring(0, charIndex + 1);
+                    
+                    const progress = Math.floor(((charIndex + 1) / nameToType.length) * 100);
+                    if (loadingBar) loadingBar.style.width = `${progress}%`;
+                    if (loadingPercent) loadingPercent.textContent = `${progress}%`;
+
+                    let speed = Math.random() * 150 + 50; // Normal speed: 50-200ms
+                    if (nameToType.charAt(charIndex) === ' ') {
+                        speed = 600; // Pause at space
+                        typeElement.classList.add('blinking');
+                    }
+                    charIndex++;
+                    setTimeout(typeNextChar, speed);
+                } else {
+                    onTypingComplete();
+                }
+            }
+
+            function onTypingComplete() {
+                typeElement.textContent = nameToType;
+                typeElement.classList.add('blinking');
+                if (loadingBar) loadingBar.style.width = '100%';
+                if (loadingPercent) loadingPercent.textContent = '100%';
+                
+                // Trigger fades
+                loadingWrapper.style.opacity = '0';
+                ctaButton.classList.add('visible');
+                
+                // Hide theme notification if it's still showing
+                const themeNotif = document.getElementById('theme-notification');
+                if (themeNotif) themeNotif.classList.remove('visible');
+            }
+
+            setTimeout(typeNextChar, 250);
+        }
+
+        /* =========================================
+           MODULE 2: THEME LOGIC
+           ========================================= */
+        function initTheme() {
+            const toggleSwitch = document.getElementById('theme-toggle');
+            const themeNotification = document.getElementById('theme-notification');
+            let notificationTimeout;
+
+            function setTheme(theme, notify = false) {
+                document.documentElement.setAttribute('data-theme', theme);
+                toggleSwitch.checked = (theme === 'dark');
+
+                if (notify) {
+                    const modeText = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+                    themeNotification.textContent = notify === 'auto' ? `${modeText} Detected!` : `${modeText} Enabled!`;
+                    themeNotification.classList.add('visible');
+                    
+                    if (notify !== 'auto') { // Only set 3s timer for manual toggles
+                         clearTimeout(notificationTimeout);
+                         notificationTimeout = setTimeout(() => {
+                             themeNotification.classList.remove('visible');
+                         }, 3000);
+                    }
+                }
+            }
+
+            // Always detect from system preference on load
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+            setTheme(prefersDark.matches ? 'dark' : 'light', 'auto');
+
+            // Event Listeners
+            toggleSwitch.addEventListener('change', (e) => setTheme(e.target.checked ? 'dark' : 'light', true));
+            prefersDark.addEventListener('change', (e) => setTheme(e.matches ? 'dark' : 'light', 'auto'));
+        }
+    </script>
+
+</body></html>

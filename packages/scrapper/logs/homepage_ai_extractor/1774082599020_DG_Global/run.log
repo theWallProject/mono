@@ -1,0 +1,71 @@
+[2026-03-21T08:43:19.021Z] === Homepage AI Extractor: DG Global ===
+[2026-03-21T08:43:19.021Z] Started at: 2026-03-21T08:43:19.021Z
+[2026-03-21T08:43:19.021Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774082599020_DG_Global
+[2026-03-21T08:43:19.021Z] Company: DG Global
+[2026-03-21T08:43:19.021Z] Website: dg-global.com
+[2026-03-21T08:43:19.021Z] cbRank: 3168936
+[2026-03-21T08:43:19.021Z] Reasons: h
+[2026-03-21T08:43:19.021Z] Fetching: https://dg-global.com
+[2026-03-21T08:43:22.639Z] Redirected: https://dg-global.com -> https://www.dg-global.com/
+[2026-03-21T08:43:22.643Z] Saved HTML (117791 bytes) to page.html
+[2026-03-21T08:43:22.647Z] Extracted 84 unique links from page
+[2026-03-21T08:43:22.647Z] Saved 84 links to links.json
+[2026-03-21T08:43:22.650Z] Extracted footer HTML (1805 chars)
+[2026-03-21T08:43:22.650Z] Extracted header HTML (24680 chars)
+[2026-03-21T08:43:22.653Z] Website (post-redirect): https://www.dg-global.com/ → origin: https://www.dg-global.com
+[2026-03-21T08:43:22.653Z] External links: 4 (of 84 total)
+[2026-03-21T08:43:22.653Z] ── All external links ──
+[2026-03-21T08:43:22.654Z]   EXT: https://twitter.com/translationsdg
+[2026-03-21T08:43:22.654Z]   EXT: https://www.extra.co.il
+[2026-03-21T08:43:22.654Z]   EXT: https://www.facebook.com/translations1000
+[2026-03-21T08:43:22.654Z]   EXT: https://www.linkedin.com/company/dg-global-translations?trk=ppro_cprof
+[2026-03-21T08:43:22.654Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:43:22.654Z]   REGEX: tw <- https://twitter.com/translationsdg
+[2026-03-21T08:43:22.654Z]   UNCATEGORIZED: https://www.extra.co.il
+[2026-03-21T08:43:22.654Z]   REGEX: fb <- https://www.facebook.com/translations1000
+[2026-03-21T08:43:22.654Z]   REGEX: li <- https://www.linkedin.com/company/dg-global-translations?trk=ppro_cprof
+[2026-03-21T08:43:22.654Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-21T08:43:22.655Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:43:22.658Z] Saved AI prompt (3191 chars) to ai_prompt.txt
+[2026-03-21T08:43:22.658Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:43:22.661Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:43:35.074Z]   AI: First token received, streaming...
+[2026-03-21T08:43:43.171Z] AI response complete: 147 chars in 20.5s
+[2026-03-21T08:43:43.172Z] Saved AI response to ai_response.json
+[2026-03-21T08:43:43.173Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T08:43:43.173Z]   AI LINK: https://www.facebook.com/translations1000
+[2026-03-21T08:43:43.173Z]   AI LINK: https://www.linkedin.com/company/dg-global-translations?trk=ppro_cprof
+[2026-03-21T08:43:43.173Z]   AI LINK: https://twitter.com/translationsdg
+[2026-03-21T08:43:43.173Z] AI returned 3 valid links
+[2026-03-21T08:43:43.173Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T08:43:43.174Z]   AI→REGEX: fb <- https://www.facebook.com/translations1000 (duplicate, skipped)
+[2026-03-21T08:43:43.174Z]   AI→REGEX: li <- https://www.linkedin.com/company/dg-global-translations?trk=ppro_cprof (duplicate, skipped)
+[2026-03-21T08:43:43.174Z]   AI→REGEX: tw <- https://twitter.com/translationsdg (duplicate, skipped)
+[2026-03-21T08:43:43.175Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:43:43.175Z] Footer/header origins (5):
+[2026-03-21T08:43:43.175Z]   FOOTER/HEADER ORIGIN: https://www.dg-global.com
+[2026-03-21T08:43:43.175Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T08:43:43.176Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T08:43:43.176Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T08:43:43.176Z]   FOOTER/HEADER ORIGIN: https://www.extra.co.il
+[2026-03-21T08:43:43.176Z]   ADDED: urls <- https://www.extra.co.il
+[2026-03-21T08:43:43.176Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T08:43:43.176Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:43:43.176Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T08:43:43.176Z] ── Step 3: Final dedup ──
+[2026-03-21T08:43:43.176Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T08:43:43.177Z] ── FINAL RESULT ──
+[2026-03-21T08:43:43.177Z]   ws (1):
+[2026-03-21T08:43:43.177Z]     - https://www.dg-global.com
+[2026-03-21T08:43:43.177Z]   li (1):
+[2026-03-21T08:43:43.177Z]     - https://www.linkedin.com/company/dg-global-translations
+[2026-03-21T08:43:43.177Z]   fb (1):
+[2026-03-21T08:43:43.178Z]     - https://www.facebook.com/translations1000
+[2026-03-21T08:43:43.178Z]   tw (1):
+[2026-03-21T08:43:43.178Z]     - https://x.com/translationsdg
+[2026-03-21T08:43:43.178Z]   urls (1):
+[2026-03-21T08:43:43.178Z]     - https://www.extra.co.il
+[2026-03-21T08:43:43.178Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-21T08:43:43.180Z] Saved final result to result.json
+[2026-03-21T08:43:43.180Z] Override fields: ws, li, fb, tw, urls
+[2026-03-21T08:43:43.180Z] Finished at: 2026-03-21T08:43:43.180Z

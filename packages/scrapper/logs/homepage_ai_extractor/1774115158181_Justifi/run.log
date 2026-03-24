@@ -1,0 +1,62 @@
+[2026-03-21T17:45:58.181Z] === Homepage AI Extractor: Justifi ===
+[2026-03-21T17:45:58.181Z] Started at: 2026-03-21T17:45:58.181Z
+[2026-03-21T17:45:58.181Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774115158181_Justifi
+[2026-03-21T17:45:58.181Z] Company: Justifi
+[2026-03-21T17:45:58.181Z] Website: justifi.org
+[2026-03-21T17:45:58.181Z] cbRank: 3608167
+[2026-03-21T17:45:58.181Z] Reasons: h
+[2026-03-21T17:45:58.181Z] Fetching: https://justifi.org
+[2026-03-21T17:46:01.845Z] Redirected: https://justifi.org -> https://www.justifi.org/
+[2026-03-21T17:46:01.853Z] Saved HTML (238875 bytes) to page.html
+[2026-03-21T17:46:01.856Z] Extracted 28 unique links from page
+[2026-03-21T17:46:01.857Z] Saved 28 links to links.json
+[2026-03-21T17:46:01.859Z] Extracted footer HTML (295 chars)
+[2026-03-21T17:46:01.859Z] Extracted header HTML (8560 chars)
+[2026-03-21T17:46:01.864Z] Website (post-redirect): https://www.justifi.org/ → origin: https://www.justifi.org
+[2026-03-21T17:46:01.865Z] External links: 4 (of 28 total)
+[2026-03-21T17:46:01.865Z] ── All external links ──
+[2026-03-21T17:46:01.865Z]   EXT: http://instagram.com/teamjustifi
+[2026-03-21T17:46:01.865Z]   EXT: http://www.facebook.com/justifi.org
+[2026-03-21T17:46:01.865Z]   EXT: http://www.olark.com/live-chat-powered-by-olark
+[2026-03-21T17:46:01.865Z]   EXT: https://www.youtube.com/channel/UCdYD6bJAwrDBj385YDcN75g
+[2026-03-21T17:46:01.865Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T17:46:01.865Z]   REGEX: ig <- http://instagram.com/teamjustifi
+[2026-03-21T17:46:01.865Z]   REGEX: fb <- http://www.facebook.com/justifi.org
+[2026-03-21T17:46:01.865Z]   UNCATEGORIZED: http://www.olark.com/live-chat-powered-by-olark
+[2026-03-21T17:46:01.865Z]   REGEX: ytc <- https://www.youtube.com/channel/UCdYD6bJAwrDBj385YDcN75g
+[2026-03-21T17:46:01.865Z] Programmatic result: ws:1, ig:1, fb:1, ytc:1 | 1 uncategorized
+[2026-03-21T17:46:01.866Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T17:46:01.869Z] Saved AI prompt (2137 chars) to ai_prompt.txt
+[2026-03-21T17:46:01.869Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T17:46:01.875Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T17:46:08.369Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-21T17:46:08.369Z] AI response complete: 0 chars in 6.5s
+[2026-03-21T17:46:08.371Z] Saved AI response to ai_response.json
+[2026-03-21T17:46:08.371Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T17:46:08.371Z] AI returned 0 valid links
+[2026-03-21T17:46:08.371Z] ── Categorizing 0 AI-returned links ──
+[2026-03-21T17:46:08.372Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T17:46:08.372Z] Footer/header origins (0):
+[2026-03-21T17:46:08.373Z]   SKIP (not in footer/header): http://www.olark.com/live-chat-powered-by-olark
+[2026-03-21T17:46:08.373Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T17:46:08.373Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T17:46:08.373Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T17:46:08.953Z]   YOUTUBE: resolved UCdYD6bJAwrDBj385YDcN75g → @justifi8749
+[2026-03-21T17:46:08.953Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T17:46:08.953Z] ── Step 3: Final dedup ──
+[2026-03-21T17:46:08.954Z] No urls to dedup
+[2026-03-21T17:46:08.954Z] ── FINAL RESULT ──
+[2026-03-21T17:46:08.954Z]   ws (1):
+[2026-03-21T17:46:08.954Z]     - https://www.justifi.org
+[2026-03-21T17:46:08.954Z]   fb (1):
+[2026-03-21T17:46:08.954Z]     - https://www.facebook.com/justifi.org
+[2026-03-21T17:46:08.954Z]   ig (1):
+[2026-03-21T17:46:08.954Z]     - https://www.instagram.com/teamjustifi
+[2026-03-21T17:46:08.954Z]   ytp (1):
+[2026-03-21T17:46:08.954Z]     - https://www.youtube.com/@justifi8749
+[2026-03-21T17:46:08.954Z]   ytc (1):
+[2026-03-21T17:46:08.954Z]     - https://www.youtube.com/channel/UCdYD6bJAwrDBj385YDcN75g
+[2026-03-21T17:46:08.954Z] Summary: ws:1, ig:1, fb:1, ytc:1, ytp:1
+[2026-03-21T17:46:08.955Z] Saved final result to result.json
+[2026-03-21T17:46:08.955Z] Override fields: ws, fb, ig, ytp, ytc
+[2026-03-21T17:46:08.955Z] Finished at: 2026-03-21T17:46:08.955Z

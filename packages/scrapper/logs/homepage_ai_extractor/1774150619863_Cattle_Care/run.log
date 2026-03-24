@@ -1,0 +1,71 @@
+[2026-03-22T03:36:59.864Z] === Homepage AI Extractor: Cattle Care ===
+[2026-03-22T03:36:59.864Z] Started at: 2026-03-22T03:36:59.864Z
+[2026-03-22T03:36:59.864Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774150619863_Cattle_Care
+[2026-03-22T03:36:59.864Z] Company: Cattle Care
+[2026-03-22T03:36:59.864Z] Website: cattle-care.com
+[2026-03-22T03:36:59.864Z] cbRank: 56146
+[2026-03-22T03:36:59.865Z] Reasons: f
+[2026-03-22T03:36:59.865Z] Fetching: https://cattle-care.com
+[2026-03-22T03:37:01.528Z] Redirected: https://cattle-care.com -> https://www.cattle-care.com/
+[2026-03-22T03:37:01.533Z] Saved HTML (67931 bytes) to page.html
+[2026-03-22T03:37:01.536Z] Extracted 16 unique links from page
+[2026-03-22T03:37:01.537Z] Saved 16 links to links.json
+[2026-03-22T03:37:01.540Z] Extracted footer HTML (4627 chars)
+[2026-03-22T03:37:01.541Z] Extracted header HTML (3781 chars)
+[2026-03-22T03:37:01.544Z] Website (post-redirect): https://www.cattle-care.com/ → origin: https://www.cattle-care.com
+[2026-03-22T03:37:01.544Z]   SUBDOMAIN: farm.cattle-care.com (added to ws)
+[2026-03-22T03:37:01.544Z] Website subdomains found: 1
+[2026-03-22T03:37:01.544Z] External links: 3 (of 16 total)
+[2026-03-22T03:37:01.544Z] ── All external links ──
+[2026-03-22T03:37:01.545Z]   EXT: https://www.facebook.com/profile.php?id=100075925271537
+[2026-03-22T03:37:01.545Z]   EXT: https://www.instagram.com/cattlecareusa
+[2026-03-22T03:37:01.545Z]   EXT: https://www.linkedin.com/company/cattle-care/about
+[2026-03-22T03:37:01.545Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T03:37:01.545Z]   REGEX: ig <- https://www.instagram.com/cattlecareusa
+[2026-03-22T03:37:01.545Z]   REGEX: li <- https://www.linkedin.com/company/cattle-care/about
+[2026-03-22T03:37:01.545Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-22T03:37:02.515Z]   RESOLVE: https://www.facebook.com/profile.php?id=100075925271537 → https://www.facebook.com/CattleCareUSA
+[2026-03-22T03:37:02.524Z]   RESOLVED: fb <- https://www.facebook.com/CattleCareUSA (from https://www.facebook.com/profile.php?id=100075925271537)
+[2026-03-22T03:37:02.525Z] Programmatic result: ws:2, ig:1, li:1, fb:1 | 0 uncategorized
+[2026-03-22T03:37:02.525Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T03:37:02.525Z] Saved AI prompt (2695 chars) to ai_prompt.txt
+[2026-03-22T03:37:02.525Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T03:37:02.530Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T03:37:12.436Z]   AI: First token received, streaming...
+[2026-03-22T03:37:21.928Z] AI response complete: 148 chars in 19.4s
+[2026-03-22T03:37:21.929Z] Saved AI response to ai_response.json
+[2026-03-22T03:37:21.930Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T03:37:21.930Z]   AI LINK: https://www.linkedin.com/company/cattle-care/about/
+[2026-03-22T03:37:21.930Z]   AI LINK: https://www.instagram.com/cattlecareusa/
+[2026-03-22T03:37:21.930Z]   AI LINK: https://www.facebook.com/profile.php?id=100075925271537
+[2026-03-22T03:37:21.930Z] AI returned 3 valid links
+[2026-03-22T03:37:21.930Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T03:37:21.931Z]   AI→REGEX: li <- https://www.linkedin.com/company/cattle-care/about/ (duplicate, skipped)
+[2026-03-22T03:37:21.931Z]   AI→REGEX: ig <- https://www.instagram.com/cattlecareusa/ (duplicate, skipped)
+[2026-03-22T03:37:22.702Z]   RESOLVE: https://www.facebook.com/profile.php?id=100075925271537 → https://www.facebook.com/CattleCareUSA
+[2026-03-22T03:37:22.721Z]   AI→RESOLVED: fb <- https://www.facebook.com/CattleCareUSA (from https://www.facebook.com/profile.php?id=100075925271537) (duplicate)
+[2026-03-22T03:37:22.721Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T03:37:22.721Z] Footer/header origins (4):
+[2026-03-22T03:37:22.721Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T03:37:22.722Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T03:37:22.722Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T03:37:22.722Z]   FOOTER/HEADER ORIGIN: https://farm.cattle-care.com
+[2026-03-22T03:37:22.722Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T03:37:22.722Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T03:37:22.722Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T03:37:22.722Z] ── Step 3: Final dedup ──
+[2026-03-22T03:37:22.722Z] No urls to dedup
+[2026-03-22T03:37:22.722Z] ── FINAL RESULT ──
+[2026-03-22T03:37:22.722Z]   ws (2):
+[2026-03-22T03:37:22.722Z]     - https://farm.cattle-care.com
+[2026-03-22T03:37:22.722Z]     - https://www.cattle-care.com
+[2026-03-22T03:37:22.722Z]   li (1):
+[2026-03-22T03:37:22.722Z]     - https://www.linkedin.com/company/cattle-care
+[2026-03-22T03:37:22.722Z]   fb (1):
+[2026-03-22T03:37:22.722Z]     - https://www.facebook.com/cattlecareusa
+[2026-03-22T03:37:22.722Z]   ig (1):
+[2026-03-22T03:37:22.723Z]     - https://www.instagram.com/cattlecareusa
+[2026-03-22T03:37:22.723Z] Summary: ws:2, ig:1, li:1, fb:1
+[2026-03-22T03:37:22.723Z] Saved final result to result.json
+[2026-03-22T03:37:22.723Z] Override fields: ws, li, fb, ig
+[2026-03-22T03:37:22.723Z] Finished at: 2026-03-22T03:37:22.723Z

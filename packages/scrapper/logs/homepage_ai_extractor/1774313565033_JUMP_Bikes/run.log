@@ -1,0 +1,71 @@
+[2026-03-24T00:52:45.034Z] === Homepage AI Extractor: JUMP Bikes ===
+[2026-03-24T00:52:45.034Z] Started at: 2026-03-24T00:52:45.034Z
+[2026-03-24T00:52:45.034Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774313565033_JUMP_Bikes
+[2026-03-24T00:52:45.034Z] Company: JUMP Bikes
+[2026-03-24T00:52:45.034Z] Website: jumpbikes.com
+[2026-03-24T00:52:45.034Z] cbRank: 68273
+[2026-03-24T00:52:45.034Z] Reasons: i
+[2026-03-24T00:52:45.034Z] Fetching: https://jumpbikes.com
+[2026-03-24T00:52:46.732Z] Redirected: https://jumpbikes.com -> https://jumpbikes.com/
+[2026-03-24T00:52:46.738Z] Saved HTML (178371 bytes) to page.html
+[2026-03-24T00:52:46.741Z] Extracted 10 unique links from page
+[2026-03-24T00:52:46.742Z] Saved 10 links to links.json
+[2026-03-24T00:52:46.744Z] Extracted footer HTML (2787 chars)
+[2026-03-24T00:52:46.744Z] Extracted header HTML (3163 chars)
+[2026-03-24T00:52:46.747Z] Website (post-redirect): https://jumpbikes.com/ → origin: https://jumpbikes.com
+[2026-03-24T00:52:46.747Z] External links: 4 (of 10 total)
+[2026-03-24T00:52:46.747Z] ── All external links ──
+[2026-03-24T00:52:46.747Z]   EXT: https://facebook.com/jumpbikesus
+[2026-03-24T00:52:46.747Z]   EXT: https://medium.com/@jumpbikes
+[2026-03-24T00:52:46.747Z]   EXT: https://twitter.com/jumpbikes
+[2026-03-24T00:52:46.748Z]   EXT: https://www.youtube.com/channel/UC0bIUeuJZFkk4EAZsYHJ1lg
+[2026-03-24T00:52:46.748Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:52:46.748Z]   REGEX: fb <- https://facebook.com/jumpbikesus
+[2026-03-24T00:52:46.749Z]   UNCATEGORIZED: https://medium.com/@jumpbikes
+[2026-03-24T00:52:46.749Z]   REGEX: tw <- https://twitter.com/jumpbikes
+[2026-03-24T00:52:46.749Z]   REGEX: ytc <- https://www.youtube.com/channel/UC0bIUeuJZFkk4EAZsYHJ1lg
+[2026-03-24T00:52:46.750Z] Programmatic result: ws:1, fb:1, tw:1, ytc:1 | 1 uncategorized
+[2026-03-24T00:52:46.750Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:52:46.753Z] Saved AI prompt (3726 chars) to ai_prompt.txt
+[2026-03-24T00:52:46.753Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:52:46.757Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:53:01.366Z]   AI: First token received, streaming...
+[2026-03-24T00:53:06.664Z] AI response complete: 92 chars in 19.9s
+[2026-03-24T00:53:06.665Z] Saved AI response to ai_response.json
+[2026-03-24T00:53:06.666Z] ── Parsing AI response (3 lines) ──
+[2026-03-24T00:53:06.666Z]   AI LINK: https://twitter.com/jumpbikes
+[2026-03-24T00:53:06.666Z]   AI LINK: https://facebook.com/jumpbikesus
+[2026-03-24T00:53:06.666Z]   AI LINK: https://medium.com/@jumpbikes
+[2026-03-24T00:53:06.666Z] AI returned 3 valid links
+[2026-03-24T00:53:06.666Z] ── Categorizing 3 AI-returned links ──
+[2026-03-24T00:53:06.667Z]   AI→REGEX: tw <- https://twitter.com/jumpbikes (duplicate, skipped)
+[2026-03-24T00:53:06.667Z]   AI→REGEX: fb <- https://facebook.com/jumpbikesus (duplicate, skipped)
+[2026-03-24T00:53:06.667Z]   AI→URLS: https://medium.com/@jumpbikes
+[2026-03-24T00:53:06.668Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:53:06.668Z] Footer/header origins (3):
+[2026-03-24T00:53:06.668Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T00:53:06.668Z]   FOOTER/HEADER ORIGIN: https://facebook.com
+[2026-03-24T00:53:06.668Z]   FOOTER/HEADER ORIGIN: https://medium.com
+[2026-03-24T00:53:06.668Z]   SKIP (AI claimed): https://medium.com/@jumpbikes
+[2026-03-24T00:53:06.668Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T00:53:06.668Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:53:06.668Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-24T00:53:06.951Z]   YOUTUBE: UC0bIUeuJZFkk4EAZsYHJ1lg has no @handle (from https://www.youtube.com/channel/UC0bIUeuJZFkk4EAZsYHJ1lg)
+[2026-03-24T00:53:06.952Z]   YOUTUBE: no new ytp URLs resolved
+[2026-03-24T00:53:06.952Z] ── Step 3: Final dedup ──
+[2026-03-24T00:53:06.952Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T00:53:06.952Z] ── FINAL RESULT ──
+[2026-03-24T00:53:06.952Z]   ws (1):
+[2026-03-24T00:53:06.952Z]     - https://jumpbikes.com
+[2026-03-24T00:53:06.952Z]   fb (1):
+[2026-03-24T00:53:06.952Z]     - https://www.facebook.com/jumpbikesus
+[2026-03-24T00:53:06.952Z]   tw (1):
+[2026-03-24T00:53:06.952Z]     - https://x.com/jumpbikes
+[2026-03-24T00:53:06.953Z]   ytc (1):
+[2026-03-24T00:53:06.953Z]     - https://www.youtube.com/channel/UC0bIUeuJZFkk4EAZsYHJ1lg
+[2026-03-24T00:53:06.953Z]   urls (1):
+[2026-03-24T00:53:06.953Z]     - https://medium.com/@jumpbikes
+[2026-03-24T00:53:06.953Z] Summary: ws:1, fb:1, tw:1, ytc:1, urls:1
+[2026-03-24T00:53:06.954Z] Saved final result to result.json
+[2026-03-24T00:53:06.954Z] Override fields: ws, fb, tw, ytc, urls
+[2026-03-24T00:53:06.954Z] Finished at: 2026-03-24T00:53:06.954Z

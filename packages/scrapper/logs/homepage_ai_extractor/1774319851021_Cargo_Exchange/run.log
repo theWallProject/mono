@@ -1,0 +1,57 @@
+[2026-03-24T02:37:31.023Z] === Homepage AI Extractor: Cargo Exchange ===
+[2026-03-24T02:37:31.023Z] Started at: 2026-03-24T02:37:31.023Z
+[2026-03-24T02:37:31.023Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774319851021_Cargo_Exchange
+[2026-03-24T02:37:31.023Z] Company: Cargo Exchange
+[2026-03-24T02:37:31.023Z] Website: cargoexchange.in
+[2026-03-24T02:37:31.023Z] cbRank: 184693
+[2026-03-24T02:37:31.023Z] Reasons: i
+[2026-03-24T02:37:31.023Z] Fetching: https://cargoexchange.in
+[2026-03-24T02:37:32.503Z] Redirected: https://cargoexchange.in -> https://cargoexchange.in/
+[2026-03-24T02:37:32.507Z] Saved HTML (64445 bytes) to page.html
+[2026-03-24T02:37:32.512Z] Extracted 4 unique links from page
+[2026-03-24T02:37:32.513Z] Saved 4 links to links.json
+[2026-03-24T02:37:32.515Z] Extracted footer HTML (1187 chars)
+[2026-03-24T02:37:32.515Z] Extracted header HTML (2445 chars)
+[2026-03-24T02:37:32.519Z] Website (post-redirect): https://cargoexchange.in/ → origin: https://cargoexchange.in
+[2026-03-24T02:37:32.519Z] External links: 2 (of 4 total)
+[2026-03-24T02:37:32.519Z] ── All external links ──
+[2026-03-24T02:37:32.519Z]   EXT: https://twitter.com/CargoXchange
+[2026-03-24T02:37:32.520Z]   EXT: https://www.linkedin.com/company/cargo-exchange
+[2026-03-24T02:37:32.520Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:37:32.520Z]   REGEX: tw <- https://twitter.com/CargoXchange
+[2026-03-24T02:37:32.520Z]   REGEX: li <- https://www.linkedin.com/company/cargo-exchange
+[2026-03-24T02:37:32.520Z] Programmatic result: ws:1, tw:1, li:1 | 0 uncategorized
+[2026-03-24T02:37:32.520Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:37:32.523Z] Saved AI prompt (2419 chars) to ai_prompt.txt
+[2026-03-24T02:37:32.523Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:37:32.527Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:37:40.715Z]   AI: First token received, streaming...
+[2026-03-24T02:37:44.160Z] AI response complete: 81 chars in 11.6s
+[2026-03-24T02:37:44.161Z] Saved AI response to ai_response.json
+[2026-03-24T02:37:44.161Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T02:37:44.162Z]   AI LINK: https://www.linkedin.com/company/cargo-exchange/
+[2026-03-24T02:37:44.162Z]   AI LINK: https://twitter.com/CargoXchange
+[2026-03-24T02:37:44.162Z] AI returned 2 valid links
+[2026-03-24T02:37:44.162Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T02:37:44.162Z]   AI→REGEX: li <- https://www.linkedin.com/company/cargo-exchange/ (duplicate, skipped)
+[2026-03-24T02:37:44.162Z]   AI→REGEX: tw <- https://twitter.com/CargoXchange (duplicate, skipped)
+[2026-03-24T02:37:44.163Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T02:37:44.163Z] Footer/header origins (2):
+[2026-03-24T02:37:44.163Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T02:37:44.163Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T02:37:44.163Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T02:37:44.164Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T02:37:44.164Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T02:37:44.164Z] ── Step 3: Final dedup ──
+[2026-03-24T02:37:44.164Z] No urls to dedup
+[2026-03-24T02:37:44.164Z] ── FINAL RESULT ──
+[2026-03-24T02:37:44.164Z]   ws (1):
+[2026-03-24T02:37:44.164Z]     - https://cargoexchange.in
+[2026-03-24T02:37:44.164Z]   li (1):
+[2026-03-24T02:37:44.164Z]     - https://www.linkedin.com/company/cargo-exchange
+[2026-03-24T02:37:44.164Z]   tw (1):
+[2026-03-24T02:37:44.164Z]     - https://x.com/cargoxchange
+[2026-03-24T02:37:44.164Z] Summary: ws:1, tw:1, li:1
+[2026-03-24T02:37:44.165Z] Saved final result to result.json
+[2026-03-24T02:37:44.166Z] Override fields: ws, li, tw
+[2026-03-24T02:37:44.166Z] Finished at: 2026-03-24T02:37:44.166Z

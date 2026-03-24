@@ -1,0 +1,63 @@
+[2026-03-23T20:14:45.800Z] === Homepage AI Extractor: Statement ===
+[2026-03-23T20:14:45.801Z] Started at: 2026-03-23T20:14:45.801Z
+[2026-03-23T20:14:45.801Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774296885799_Statement
+[2026-03-23T20:14:45.801Z] Company: Statement
+[2026-03-23T20:14:45.801Z] Website: statement.io
+[2026-03-23T20:14:45.801Z] cbRank: 14004
+[2026-03-23T20:14:45.801Z] Reasons: i
+[2026-03-23T20:14:45.801Z] Fetching: https://statement.io
+[2026-03-23T20:14:49.332Z] Redirected: https://statement.io -> https://www.statement.io/
+[2026-03-23T20:14:49.341Z] Saved HTML (324249 bytes) to page.html
+[2026-03-23T20:14:49.344Z] Extracted 20 unique links from page
+[2026-03-23T20:14:49.347Z] Saved 20 links to links.json
+[2026-03-23T20:14:49.352Z] No footer section found in DOM
+[2026-03-23T20:14:49.352Z] Extracted header HTML (47558 chars)
+[2026-03-23T20:14:49.355Z] Website (post-redirect): https://www.statement.io/ → origin: https://www.statement.io
+[2026-03-23T20:14:49.355Z]   SUBDOMAIN: app.statement.io (added to ws)
+[2026-03-23T20:14:49.355Z] Website subdomains found: 1
+[2026-03-23T20:14:49.356Z] External links: 3 (of 20 total)
+[2026-03-23T20:14:49.356Z] ── All external links ──
+[2026-03-23T20:14:49.356Z]   EXT: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-23T20:14:49.356Z]   EXT: https://job-boards.greenhouse.io/statement
+[2026-03-23T20:14:49.356Z]   EXT: https://www.linkedin.com/company/statement-io
+[2026-03-23T20:14:49.356Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:14:49.356Z]   UNCATEGORIZED: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-23T20:14:49.356Z]   UNCATEGORIZED: https://job-boards.greenhouse.io/statement
+[2026-03-23T20:14:49.356Z]   REGEX: li <- https://www.linkedin.com/company/statement-io
+[2026-03-23T20:14:49.356Z] Programmatic result: ws:2, li:1 | 2 uncategorized
+[2026-03-23T20:14:49.356Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:14:49.357Z] Saved AI prompt (2041 chars) to ai_prompt.txt
+[2026-03-23T20:14:49.357Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:14:49.361Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:14:56.075Z]   AI: First token received, streaming...
+[2026-03-23T20:14:57.231Z] AI response complete: 42 chars in 7.9s
+[2026-03-23T20:14:57.232Z] Saved AI response to ai_response.json
+[2026-03-23T20:14:57.232Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T20:14:57.233Z]   AI LINK: https://job-boards.greenhouse.io/statement
+[2026-03-23T20:14:57.233Z] AI returned 1 valid links
+[2026-03-23T20:14:57.233Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T20:14:57.233Z]   AI→URLS: https://job-boards.greenhouse.io/statement
+[2026-03-23T20:14:57.234Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:14:57.234Z] Footer/header origins (3):
+[2026-03-23T20:14:57.234Z]   FOOTER/HEADER ORIGIN: https://www.statement.io
+[2026-03-23T20:14:57.235Z]   FOOTER/HEADER ORIGIN: https://job-boards.greenhouse.io
+[2026-03-23T20:14:57.235Z]   FOOTER/HEADER ORIGIN: https://app.statement.io
+[2026-03-23T20:14:57.235Z]   SKIP (not in footer/header): https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-23T20:14:57.235Z]   SKIP (AI claimed): https://job-boards.greenhouse.io/statement
+[2026-03-23T20:14:57.235Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T20:14:57.235Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:14:57.235Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:14:57.235Z] ── Step 3: Final dedup ──
+[2026-03-23T20:14:57.236Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T20:14:57.236Z] ── FINAL RESULT ──
+[2026-03-23T20:14:57.236Z]   ws (2):
+[2026-03-23T20:14:57.236Z]     - https://app.statement.io
+[2026-03-23T20:14:57.236Z]     - https://www.statement.io
+[2026-03-23T20:14:57.236Z]   li (1):
+[2026-03-23T20:14:57.236Z]     - https://www.linkedin.com/company/statement-io
+[2026-03-23T20:14:57.236Z]   urls (1):
+[2026-03-23T20:14:57.236Z]     - https://job-boards.greenhouse.io/statement
+[2026-03-23T20:14:57.237Z] Summary: ws:2, li:1, urls:1
+[2026-03-23T20:14:57.237Z] Saved final result to result.json
+[2026-03-23T20:14:57.238Z] Override fields: ws, li, urls
+[2026-03-23T20:14:57.238Z] Finished at: 2026-03-23T20:14:57.238Z

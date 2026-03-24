@@ -1,0 +1,64 @@
+[2026-03-21T08:03:49.266Z] === Homepage AI Extractor: Halik ===
+[2026-03-21T08:03:49.266Z] Started at: 2026-03-21T08:03:49.266Z
+[2026-03-21T08:03:49.267Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774080229265_Halik
+[2026-03-21T08:03:49.267Z] Company: Halik
+[2026-03-21T08:03:49.267Z] Website: halik.biz
+[2026-03-21T08:03:49.267Z] cbRank: 3136200
+[2026-03-21T08:03:49.267Z] Reasons: h
+[2026-03-21T08:03:49.267Z] Fetching: https://halik.biz
+[2026-03-21T08:03:53.329Z] Redirected: https://halik.biz -> https://halik.biz/
+[2026-03-21T08:03:53.351Z] Saved HTML (1203518 bytes) to page.html
+[2026-03-21T08:03:53.355Z] Extracted 14 unique links from page
+[2026-03-21T08:03:53.355Z] Saved 14 links to links.json
+[2026-03-21T08:03:53.358Z] Extracted footer HTML (1535 chars)
+[2026-03-21T08:03:53.358Z] Extracted header HTML (1774 chars)
+[2026-03-21T08:03:53.362Z] Website (post-redirect): https://halik.biz/ → origin: https://halik.biz
+[2026-03-21T08:03:53.362Z] External links: 3 (of 14 total)
+[2026-03-21T08:03:53.362Z] ── All external links ──
+[2026-03-21T08:03:53.362Z]   EXT: https://login.hostmonster.com/hosting/webmail
+[2026-03-21T08:03:53.362Z]   EXT: https://www.facebook.com/HALIKLTD
+[2026-03-21T08:03:53.362Z]   EXT: https://www.youtube.com/user/halikasphalt
+[2026-03-21T08:03:53.362Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:03:53.362Z]   UNCATEGORIZED: https://login.hostmonster.com/hosting/webmail
+[2026-03-21T08:03:53.362Z]   REGEX: fb <- https://www.facebook.com/HALIKLTD
+[2026-03-21T08:03:53.362Z]   REGEX: ytp <- https://www.youtube.com/user/halikasphalt
+[2026-03-21T08:03:53.362Z] Programmatic result: ws:1, fb:1, ytp:1 | 1 uncategorized
+[2026-03-21T08:03:53.363Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:03:53.364Z] Saved AI prompt (2620 chars) to ai_prompt.txt
+[2026-03-21T08:03:53.364Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:03:53.368Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:04:02.514Z]   AI: First token received, streaming...
+[2026-03-21T08:04:06.708Z] AI response complete: 75 chars in 13.3s
+[2026-03-21T08:04:06.709Z] Saved AI response to ai_response.json
+[2026-03-21T08:04:06.709Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T08:04:06.710Z]   AI LINK: https://www.facebook.com/HALIKLTD
+[2026-03-21T08:04:06.710Z]   AI LINK: https://www.youtube.com/user/halikasphalt
+[2026-03-21T08:04:06.710Z] AI returned 2 valid links
+[2026-03-21T08:04:06.710Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T08:04:06.710Z]   AI→REGEX: fb <- https://www.facebook.com/HALIKLTD (duplicate, skipped)
+[2026-03-21T08:04:06.710Z]   AI→REGEX: ytp <- https://www.youtube.com/user/halikasphalt (duplicate, skipped)
+[2026-03-21T08:04:06.711Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:04:06.711Z] Footer/header origins (4):
+[2026-03-21T08:04:06.711Z]   FOOTER/HEADER ORIGIN: https://login.hostmonster.com
+[2026-03-21T08:04:06.711Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T08:04:06.711Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T08:04:06.711Z]   FOOTER/HEADER ORIGIN: http://www.halik.biz
+[2026-03-21T08:04:06.712Z]   ADDED: urls <- https://login.hostmonster.com/hosting/webmail
+[2026-03-21T08:04:06.712Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T08:04:06.712Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:04:06.712Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T08:04:06.712Z] ── Step 3: Final dedup ──
+[2026-03-21T08:04:06.712Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T08:04:06.712Z] ── FINAL RESULT ──
+[2026-03-21T08:04:06.712Z]   ws (1):
+[2026-03-21T08:04:06.712Z]     - https://halik.biz
+[2026-03-21T08:04:06.712Z]   fb (1):
+[2026-03-21T08:04:06.712Z]     - https://www.facebook.com/halikltd
+[2026-03-21T08:04:06.712Z]   ytp (1):
+[2026-03-21T08:04:06.713Z]     - https://www.youtube.com/@halikasphalt
+[2026-03-21T08:04:06.713Z]   urls (1):
+[2026-03-21T08:04:06.713Z]     - https://login.hostmonster.com/hosting/webmail
+[2026-03-21T08:04:06.713Z] Summary: ws:1, fb:1, ytp:1, urls:1
+[2026-03-21T08:04:06.714Z] Saved final result to result.json
+[2026-03-21T08:04:06.714Z] Override fields: ws, fb, ytp, urls
+[2026-03-21T08:04:06.714Z] Finished at: 2026-03-21T08:04:06.714Z

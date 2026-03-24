@@ -1,0 +1,65 @@
+[2026-03-23T21:36:21.441Z] === Homepage AI Extractor: Via.Delivery ===
+[2026-03-23T21:36:21.441Z] Started at: 2026-03-23T21:36:21.441Z
+[2026-03-23T21:36:21.441Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774301781441_Via.Delivery
+[2026-03-23T21:36:21.441Z] Company: Via.Delivery
+[2026-03-23T21:36:21.441Z] Website: via.delivery
+[2026-03-23T21:36:21.441Z] cbRank: 22280
+[2026-03-23T21:36:21.441Z] Reasons: i
+[2026-03-23T21:36:21.441Z] Fetching: https://via.delivery
+[2026-03-23T21:36:26.102Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-23T21:36:29.049Z] Redirected: https://via.delivery -> https://via.delivery/
+[2026-03-23T21:36:29.078Z] Saved HTML (1268340 bytes) to page.html
+[2026-03-23T21:36:29.081Z] Extracted 32 unique links from page
+[2026-03-23T21:36:29.081Z] Saved 32 links to links.json
+[2026-03-23T21:36:29.089Z] Extracted footer HTML (145246 chars)
+[2026-03-23T21:36:29.089Z] Extracted header HTML (264822 chars)
+[2026-03-23T21:36:29.093Z] Website (post-redirect): https://via.delivery/ → origin: https://via.delivery
+[2026-03-23T21:36:29.094Z] External links: 3 (of 32 total)
+[2026-03-23T21:36:29.094Z] ── All external links ──
+[2026-03-23T21:36:29.094Z]   EXT: https://www.linkedin.com/company/viadelivery
+[2026-03-23T21:36:29.094Z]   EXT: https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42401&filter_member=viadelivery
+[2026-03-23T21:36:29.094Z]   EXT: https://www.viadelivery.pro
+[2026-03-23T21:36:29.094Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:36:29.094Z]   REGEX: li <- https://www.linkedin.com/company/viadelivery
+[2026-03-23T21:36:29.095Z]   UNCATEGORIZED: https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42401&filter_member=viadelivery
+[2026-03-23T21:36:29.095Z]   UNCATEGORIZED: https://www.viadelivery.pro
+[2026-03-23T21:36:29.095Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-23T21:36:29.095Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:36:29.099Z] Saved AI prompt (2487 chars) to ai_prompt.txt
+[2026-03-23T21:36:29.099Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:36:29.103Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:36:37.141Z]   AI: First token received, streaming...
+[2026-03-23T21:36:40.626Z] AI response complete: 73 chars in 11.5s
+[2026-03-23T21:36:40.630Z] Saved AI response to ai_response.json
+[2026-03-23T21:36:40.630Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T21:36:40.630Z]   AI LINK: https://www.linkedin.com/company/viadelivery/
+[2026-03-23T21:36:40.631Z]   AI LINK: https://www.viadelivery.pro
+[2026-03-23T21:36:40.631Z] AI returned 2 valid links
+[2026-03-23T21:36:40.631Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T21:36:40.631Z]   AI→REGEX: li <- https://www.linkedin.com/company/viadelivery/ (duplicate, skipped)
+[2026-03-23T21:36:40.631Z]   AI→URLS: https://www.viadelivery.pro
+[2026-03-23T21:36:40.634Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:36:40.634Z] Footer/header origins (4):
+[2026-03-23T21:36:40.634Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:36:40.634Z]   FOOTER/HEADER ORIGIN: https://cdnjs.cloudflare.com
+[2026-03-23T21:36:40.634Z]   FOOTER/HEADER ORIGIN: https://www.viadelivery.pro
+[2026-03-23T21:36:40.634Z]   FOOTER/HEADER ORIGIN: https://www.opencart.com
+[2026-03-23T21:36:40.634Z]   ADDED: urls <- https://www.opencart.com/index.php (cleaned from https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42401&filter_member=viadelivery)
+[2026-03-23T21:36:40.634Z]   SKIP (AI claimed): https://www.viadelivery.pro
+[2026-03-23T21:36:40.634Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T21:36:40.634Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:36:40.634Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:36:40.634Z] ── Step 3: Final dedup ──
+[2026-03-23T21:36:40.634Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T21:36:40.635Z] ── FINAL RESULT ──
+[2026-03-23T21:36:40.635Z]   ws (1):
+[2026-03-23T21:36:40.635Z]     - https://via.delivery
+[2026-03-23T21:36:40.635Z]   li (1):
+[2026-03-23T21:36:40.635Z]     - https://www.linkedin.com/company/viadelivery
+[2026-03-23T21:36:40.635Z]   urls (2):
+[2026-03-23T21:36:40.635Z]     - https://www.opencart.com/index.php
+[2026-03-23T21:36:40.635Z]     - https://www.viadelivery.pro
+[2026-03-23T21:36:40.635Z] Summary: ws:1, li:1, urls:2
+[2026-03-23T21:36:40.636Z] Saved final result to result.json
+[2026-03-23T21:36:40.636Z] Override fields: ws, li, urls
+[2026-03-23T21:36:40.636Z] Finished at: 2026-03-23T21:36:40.636Z

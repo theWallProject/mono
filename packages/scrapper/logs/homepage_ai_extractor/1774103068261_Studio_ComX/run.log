@@ -1,0 +1,72 @@
+[2026-03-21T14:24:28.262Z] === Homepage AI Extractor: Studio ComX ===
+[2026-03-21T14:24:28.262Z] Started at: 2026-03-21T14:24:28.262Z
+[2026-03-21T14:24:28.262Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774103068261_Studio_ComX
+[2026-03-21T14:24:28.262Z] Company: Studio ComX
+[2026-03-21T14:24:28.262Z] Website: comx.co.il
+[2026-03-21T14:24:28.263Z] cbRank: 3442050
+[2026-03-21T14:24:28.263Z] Reasons: h
+[2026-03-21T14:24:28.263Z] Fetching: https://comx.co.il
+[2026-03-21T14:24:32.259Z] Redirected: https://comx.co.il -> https://comx.co.il/?v=4605f628f91d
+[2026-03-21T14:24:32.264Z] Saved HTML (115774 bytes) to page.html
+[2026-03-21T14:24:32.267Z] Extracted 22 unique links from page
+[2026-03-21T14:24:32.268Z] Saved 22 links to links.json
+[2026-03-21T14:24:32.270Z] Extracted footer HTML (12298 chars)
+[2026-03-21T14:24:32.270Z] Extracted header HTML (13379 chars)
+[2026-03-21T14:24:32.273Z] Website (post-redirect): https://comx.co.il/?v=4605f628f91d → origin: https://comx.co.il
+[2026-03-21T14:24:32.273Z] External links: 5 (of 22 total)
+[2026-03-21T14:24:32.273Z] ── All external links ──
+[2026-03-21T14:24:32.273Z]   EXT: https://policies.google.com/privacy
+[2026-03-21T14:24:32.273Z]   EXT: https://policies.google.com/terms
+[2026-03-21T14:24:32.273Z]   EXT: https://twitter.com/ComxStudio
+[2026-03-21T14:24:32.274Z]   EXT: https://www.facebook.com/StudioComX
+[2026-03-21T14:24:32.274Z]   EXT: https://www.pinterest.com/StudioComX
+[2026-03-21T14:24:32.274Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:24:32.274Z]   UNCATEGORIZED: https://policies.google.com/privacy
+[2026-03-21T14:24:32.274Z]   UNCATEGORIZED: https://policies.google.com/terms
+[2026-03-21T14:24:32.274Z]   REGEX: tw <- https://twitter.com/ComxStudio
+[2026-03-21T14:24:32.274Z]   REGEX: fb <- https://www.facebook.com/StudioComX
+[2026-03-21T14:24:32.274Z]   UNCATEGORIZED: https://www.pinterest.com/StudioComX
+[2026-03-21T14:24:32.274Z] Programmatic result: ws:1, tw:1, fb:1 | 3 uncategorized
+[2026-03-21T14:24:32.274Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:24:32.275Z] Saved AI prompt (5344 chars) to ai_prompt.txt
+[2026-03-21T14:24:32.275Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:24:32.279Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:24:53.173Z]   AI: First token received, streaming...
+[2026-03-21T14:24:58.783Z] AI response complete: 103 chars in 26.5s
+[2026-03-21T14:24:58.785Z] Saved AI response to ai_response.json
+[2026-03-21T14:24:58.785Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T14:24:58.785Z]   AI LINK: https://www.pinterest.com/StudioComX
+[2026-03-21T14:24:58.785Z]   AI LINK: https://www.facebook.com/StudioComX
+[2026-03-21T14:24:58.785Z]   AI LINK: https://twitter.com/ComxStudio
+[2026-03-21T14:24:58.785Z] AI returned 3 valid links
+[2026-03-21T14:24:58.786Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T14:24:58.786Z]   AI→URLS: https://www.pinterest.com/StudioComX
+[2026-03-21T14:24:58.786Z]   AI→REGEX: fb <- https://www.facebook.com/StudioComX (duplicate, skipped)
+[2026-03-21T14:24:58.787Z]   AI→REGEX: tw <- https://twitter.com/ComxStudio (duplicate, skipped)
+[2026-03-21T14:24:58.787Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:24:58.787Z] Footer/header origins (4):
+[2026-03-21T14:24:58.787Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T14:24:58.787Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T14:24:58.787Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-21T14:24:58.787Z]   FOOTER/HEADER ORIGIN: https://comx.co.il
+[2026-03-21T14:24:58.788Z]   SKIP (not in footer/header): https://policies.google.com/privacy
+[2026-03-21T14:24:58.788Z]   SKIP (not in footer/header): https://policies.google.com/terms
+[2026-03-21T14:24:58.788Z]   SKIP (AI claimed): https://www.pinterest.com/StudioComX
+[2026-03-21T14:24:58.788Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T14:24:58.788Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:24:58.788Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:24:58.788Z] ── Step 3: Final dedup ──
+[2026-03-21T14:24:58.788Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T14:24:58.788Z] ── FINAL RESULT ──
+[2026-03-21T14:24:58.788Z]   ws (1):
+[2026-03-21T14:24:58.788Z]     - https://comx.co.il
+[2026-03-21T14:24:58.789Z]   fb (1):
+[2026-03-21T14:24:58.789Z]     - https://www.facebook.com/studiocomx
+[2026-03-21T14:24:58.789Z]   tw (1):
+[2026-03-21T14:24:58.789Z]     - https://x.com/comxstudio
+[2026-03-21T14:24:58.789Z]   urls (1):
+[2026-03-21T14:24:58.789Z]     - https://www.pinterest.com/StudioComX
+[2026-03-21T14:24:58.789Z] Summary: ws:1, tw:1, fb:1, urls:1
+[2026-03-21T14:24:58.790Z] Saved final result to result.json
+[2026-03-21T14:24:58.791Z] Override fields: ws, fb, tw, urls
+[2026-03-21T14:24:58.791Z] Finished at: 2026-03-21T14:24:58.791Z

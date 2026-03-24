@@ -1,0 +1,68 @@
+[2026-03-23T19:45:00.705Z] === Homepage AI Extractor: Xage Security ===
+[2026-03-23T19:45:00.706Z] Started at: 2026-03-23T19:45:00.706Z
+[2026-03-23T19:45:00.706Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774295100705_Xage_Security
+[2026-03-23T19:45:00.706Z] Company: Xage Security
+[2026-03-23T19:45:00.706Z] Website: xage.com
+[2026-03-23T19:45:00.706Z] cbRank: 10950
+[2026-03-23T19:45:00.706Z] Reasons: i
+[2026-03-23T19:45:00.706Z] Fetching: https://xage.com
+[2026-03-23T19:45:04.265Z] Redirected: https://xage.com -> https://xage.com/
+[2026-03-23T19:45:04.292Z] Saved HTML (1112686 bytes) to page.html
+[2026-03-23T19:45:04.297Z] Extracted 50 unique links from page
+[2026-03-23T19:45:04.298Z] Saved 50 links to links.json
+[2026-03-23T19:45:04.304Z] No footer section found in DOM
+[2026-03-23T19:45:04.304Z] Extracted header HTML (45858 chars)
+[2026-03-23T19:45:04.310Z] Website (post-redirect): https://xage.com/ → origin: https://xage.com
+[2026-03-23T19:45:04.310Z]   SUBDOMAIN: info.xage.com (added to ws)
+[2026-03-23T19:45:04.310Z] Website subdomains found: 1
+[2026-03-23T19:45:04.310Z] External links: 4 (of 50 total)
+[2026-03-23T19:45:04.310Z] ── All external links ──
+[2026-03-23T19:45:04.310Z]   EXT: https://twitter.com/xageinc
+[2026-03-23T19:45:04.310Z]   EXT: https://vimeo.com/925152155
+[2026-03-23T19:45:04.310Z]   EXT: https://www.facebook.com/xageinc
+[2026-03-23T19:45:04.310Z]   EXT: https://www.linkedin.com/company/xage-security
+[2026-03-23T19:45:04.310Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:45:04.310Z]   REGEX: tw <- https://twitter.com/xageinc
+[2026-03-23T19:45:04.310Z]   UNCATEGORIZED: https://vimeo.com/925152155
+[2026-03-23T19:45:04.310Z]   REGEX: fb <- https://www.facebook.com/xageinc
+[2026-03-23T19:45:04.311Z]   REGEX: li <- https://www.linkedin.com/company/xage-security
+[2026-03-23T19:45:04.311Z] Programmatic result: ws:2, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-23T19:45:04.311Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:45:04.314Z] Saved AI prompt (1975 chars) to ai_prompt.txt
+[2026-03-23T19:45:04.314Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:45:04.318Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:45:10.906Z]   AI: First token received, streaming...
+[2026-03-23T19:45:13.195Z] AI response complete: 27 chars in 8.9s
+[2026-03-23T19:45:13.196Z] Saved AI response to ai_response.json
+[2026-03-23T19:45:13.196Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T19:45:13.197Z]   AI LINK: https://vimeo.com/925152155
+[2026-03-23T19:45:13.197Z] AI returned 1 valid links
+[2026-03-23T19:45:13.197Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T19:45:13.197Z]   AI→URLS: https://vimeo.com/925152155
+[2026-03-23T19:45:13.198Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:45:13.199Z] Footer/header origins (3):
+[2026-03-23T19:45:13.199Z]   FOOTER/HEADER ORIGIN: https://xage.com
+[2026-03-23T19:45:13.199Z]   FOOTER/HEADER ORIGIN: https://info.xage.com
+[2026-03-23T19:45:13.199Z]   FOOTER/HEADER ORIGIN: https://info.xagedev.wpengine.com
+[2026-03-23T19:45:13.199Z]   SKIP (AI claimed): https://vimeo.com/925152155
+[2026-03-23T19:45:13.199Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:45:13.199Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:45:13.199Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:45:13.199Z] ── Step 3: Final dedup ──
+[2026-03-23T19:45:13.199Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T19:45:13.199Z] ── FINAL RESULT ──
+[2026-03-23T19:45:13.199Z]   ws (2):
+[2026-03-23T19:45:13.199Z]     - https://info.xage.com
+[2026-03-23T19:45:13.200Z]     - https://xage.com
+[2026-03-23T19:45:13.200Z]   li (1):
+[2026-03-23T19:45:13.200Z]     - https://www.linkedin.com/company/xage-security
+[2026-03-23T19:45:13.200Z]   fb (1):
+[2026-03-23T19:45:13.200Z]     - https://www.facebook.com/xageinc
+[2026-03-23T19:45:13.200Z]   tw (1):
+[2026-03-23T19:45:13.200Z]     - https://x.com/xageinc
+[2026-03-23T19:45:13.200Z]   urls (1):
+[2026-03-23T19:45:13.200Z]     - https://vimeo.com/925152155
+[2026-03-23T19:45:13.200Z] Summary: ws:2, tw:1, fb:1, li:1, urls:1
+[2026-03-23T19:45:13.201Z] Saved final result to result.json
+[2026-03-23T19:45:13.201Z] Override fields: ws, li, fb, tw, urls
+[2026-03-23T19:45:13.201Z] Finished at: 2026-03-23T19:45:13.201Z

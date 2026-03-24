@@ -1,0 +1,2193 @@
+<!DOCTYPE html><html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths skrollr skrollr-desktop" dir="rtl" lang="he-IL"><!--<![endif]--><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+<script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/1ebf2aa6/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="https://www.youtube.com/iframe_api"></script><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/qm3PSRIx10pekcnS9DjGnjPW/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-fhF6HYISoYLkhpTlAJBpytq+eKnHbn4KQovxIc2m9B3MH/43tMbFUbSUDANMK7jX"></script><script async="" type="text/plain" data-blocked="web3d-consent" data-category="analytics" data-orig-type="text/javascript" data-src="https://www.googletagmanager.com/gtm.js?id=GTM-P8XBZ8M"></script><script>
+(function() {
+    "use strict";
+    
+    // Получаем оригинальный descriptor ДО создания блокировки
+    var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");
+    var originalCookieGetter = originalCookieDescriptor ? originalCookieDescriptor.get : function() {
+        return Object.getOwnPropertyDescriptor(Document.prototype, "cookie").get.call(document);
+    };
+    
+    // Функция проверки согласия (используем оригинальный getter, чтобы обойти блокировку)
+    function hasConsent() {
+        try {
+            // Используем оригинальный getter, чтобы получить реальные куки
+            var allCookies = originalCookieGetter.call(document);
+            var consentCookie = allCookies.match(/(^|;)\s*w3d_consent=([^;]*)/);
+            if (!consentCookie) return false;
+            
+            var consent = JSON.parse(decodeURIComponent(consentCookie[2]));
+            return consent && (consent.analytics == 1 || consent.marketing == 1);
+        } catch(e) {
+            return false;
+        }
+    }
+    
+    // Если согласие уже дано - не блокируем
+    if (hasConsent()) {
+        console.log("✅ Consent: Cookies are ACTIVE (consent given)");
+        return; // Выходим из скрипта блокировки
+    }
+    
+    // БЕЛЫЙ СПИСОК: только эти куки разрешены
+    var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+    var blockerActive = true;
+    
+    // Логируем, что блокировка активна
+    console.log("🚫 Consent: Cookies are BLOCKED (waiting for consent)");
+    
+    function isCookieAllowed(cookieName) {
+        // Если блокировка отключена - разрешаем все
+        if (!blockerActive) return true;
+        
+        for (var i = 0; i < allowedCookies.length; i++) {
+            if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    function isRemovalAttempt(value) {
+        var lower = value.toLowerCase();
+        return lower.indexOf("expires=") !== -1 || lower.indexOf("max-age=0") !== -1;
+    }
+    
+    // СТАНДАРТНЫЙ ПЕРЕХВАТ: Object.defineProperty для document.cookie (самый частый и безопасный способ)
+    if (originalCookieDescriptor) {
+        try {
+            // Проверяем, можно ли переопределить свойство (не было ли оно уже переопределено)
+            var currentDescriptor = Object.getOwnPropertyDescriptor(document, "cookie");
+            if (currentDescriptor && currentDescriptor.configurable !== false) {
+                Object.defineProperty(document, "cookie", {
+                    configurable: true,
+                    set: function(value) {
+                        // Проверяем согласие перед каждой установкой куки
+                        if (hasConsent()) {
+                            if (blockerActive) {
+                                disableBlocker();
+                            }
+                            // Используем оригинальный setter напрямую
+                            return originalCookieDescriptor.set.call(document, value);
+                        }
+                        
+                        var cookieName = value.split("=")[0].trim();
+                        if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                            // Блокируем куку (логирование отдельных куки убрано для чистоты консоли)
+                            return;
+                        }
+                        return originalCookieDescriptor.set.call(document, value);
+                    },
+                    get: function() {
+                        return originalCookieDescriptor.get.call(document);
+                    }
+                });
+            }
+        } catch(e) {
+            // Если свойство уже переопределено или неконфигурируемо - это нормально
+        }
+    }
+    
+    // Функция полного отключения блокировки
+    var cleanupInterval = null;
+    var consentCheckInterval = null;
+    var eventHandlers = [];
+    
+    function disableBlocker() {
+        if (!blockerActive) return; // Уже отключено
+        
+        blockerActive = false;
+        console.log("✅ Consent: Cookies are now ACTIVE (consent detected)");
+        
+        // Восстанавливаем оригинальный document.cookie
+        if (originalCookieDescriptor) {
+            try {
+                Object.defineProperty(document, "cookie", originalCookieDescriptor);
+            } catch(e) {
+                // Если не удалось восстановить - это нормально, возможно уже восстановлено
+            }
+        }
+        
+        // Останавливаем все интервалы
+        if (cleanupInterval) {
+            clearInterval(cleanupInterval);
+            cleanupInterval = null;
+        }
+        if (consentCheckInterval) {
+            clearInterval(consentCheckInterval);
+            consentCheckInterval = null;
+        }
+        
+        // Удаляем все обработчики событий
+        eventHandlers.forEach(function(handler) {
+            try {
+                document.removeEventListener(handler.event, handler.fn, true);
+                window.removeEventListener(handler.event, handler.fn, true);
+            } catch(e) {}
+        });
+        eventHandlers = [];
+    }
+    
+    // ПРОСТАЯ очистка: удаляем уже установленные блокируемые куки
+    function cleanupCookies() {
+        // Если согласие дано - отключаем блокировку полностью
+        if (hasConsent()) {
+            disableBlocker();
+            return;
+        }
+        
+        // Если блокировка отключена - не делаем ничего
+        if (!blockerActive) return;
+        
+        try {
+            var allCookiesStr = originalCookieGetter.call(document);
+            if (!allCookiesStr) return;
+            
+            var allCookies = allCookiesStr.split(";");
+            var hostname = window.location.hostname;
+            var expireDate = "Thu, 01 Jan 1970 00:00:00 UTC";
+            
+            for (var i = 0; i < allCookies.length; i++) {
+                var cookie = allCookies[i].trim();
+                if (cookie) {
+                    var cookieName = cookie.split("=")[0].trim();
+                    if (!isCookieAllowed(cookieName)) {
+                        // Используем оригинальный setter напрямую, чтобы обойти наш перехват
+                        if (originalCookieDescriptor && originalCookieDescriptor.set) {
+                            originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/");
+                            originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/; domain=" + hostname);
+                            if (hostname.indexOf(".") > 0) {
+                                originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/; domain=." + hostname.split(".").slice(-2).join("."));
+                            }
+                        } else {
+                            document.cookie = cookieName + "=; expires=" + expireDate + "; path=/";
+                            document.cookie = cookieName + "=; expires=" + expireDate + "; path=/; domain=" + hostname;
+                            if (hostname.indexOf(".") > 0) {
+                                document.cookie = cookieName + "=; expires=" + expireDate + "; path=/; domain=." + hostname.split(".").slice(-2).join(".");
+                            }
+                        }
+                    }
+                }
+            }
+        } catch(e) {
+            // Тихая обработка ошибок
+        }
+    }
+    
+    // Проверяем согласие сразу - если дано, не запускаем блокировку
+    if (hasConsent()) {
+        disableBlocker();
+        return; // Выходим - блокировка не нужна
+    }
+    
+    // Очищаем сразу и периодически (оптимальная частота для перехвата)
+    cleanupCookies();
+    
+    // Запускаем интервалы только если блокировка активна
+    if (blockerActive) {
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 50);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 100);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 200);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 500);
+        
+        cleanupInterval = setInterval(function() {
+            if (!blockerActive || hasConsent()) {
+                if (hasConsent()) disableBlocker();
+                if (cleanupInterval) {
+                    clearInterval(cleanupInterval);
+                    cleanupInterval = null;
+                }
+                return;
+            }
+            cleanupCookies();
+        }, 500);
+        
+        // Также очищаем при важных событиях
+        var cleanupHandler = function() {
+            if (blockerActive && !hasConsent()) cleanupCookies();
+        };
+        
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", cleanupHandler, true);
+            eventHandlers.push({event: "DOMContentLoaded", fn: cleanupHandler});
+        }
+        window.addEventListener("load", cleanupHandler, true);
+        eventHandlers.push({event: "load", fn: cleanupHandler});
+        
+        // Слушаем изменения в куке согласия
+        var lastConsentCheck = Date.now();
+        consentCheckInterval = setInterval(function() {
+            if (Date.now() - lastConsentCheck > 1000) {
+                lastConsentCheck = Date.now();
+                if (hasConsent()) {
+                    disableBlocker();
+                }
+            }
+        }, 1000);
+    }
+})();
+</script>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>טל לימוזין | שירותי הסעות לנמל התעופה | חברת הלימוזינות ושירותי ההסעות המובילה בישראל</title>
+	<link rel="shortcut icon" href="/wp-content/themes/atlanta-child/assets/images/favicon.png">
+	<script>window.isRemovalAttempt = window.isRemovalAttempt || function(){ return false; };</script>
+	  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <!-- КРИТИЧЕСКИЙ ПЕРЕХВАТ: блокируем куки ДО загрузки других скриптов -->
+    <script>
+    (function() {
+        'use strict';
+        // БЕЛЫЙ СПИСОК куки (синхронизирован с PHP)
+        var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+        var blockerActive = true;
+        
+        function isCookieAllowed(cookieName) {
+            for (var i = 0; i < allowedCookies.length; i++) {
+                if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function isRemovalAttempt(value) {
+            var lower = value.toLowerCase();
+            return lower.indexOf("expires=") !== -1 || lower.indexOf("max-age=0") !== -1;
+        }
+        
+        // Выводим сообщение о блокировке максимум один раз
+        var blockedCookieNoticeShown = false;
+        function logBlockedCookie(name) {
+            if (blockedCookieNoticeShown) return;
+            blockedCookieNoticeShown = true;
+        }
+        
+        // Перехватываем document.cookie СРАЗУ, до загрузки других скриптов
+        var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+        
+        // Проверяем, не было ли свойство уже переопределено
+        var currentDescriptor = Object.getOwnPropertyDescriptor(document, 'cookie');
+        if (currentDescriptor && currentDescriptor.configurable === false) {
+            // Свойство уже переопределено и неконфигурируемо - пропускаем
+            return;
+        }
+        
+        try {
+            if (!originalCookieDescriptor) {
+                // Fallback для старых браузеров
+                var cookieStore = {};
+                Object.defineProperty(document, 'cookie', {
+                    configurable: true,
+                    get: function() {
+                        var allowed = [];
+                        for (var name in cookieStore) {
+                            if (isCookieAllowed(name)) {
+                                allowed.push(name + '=' + cookieStore[name]);
+                            }
+                        }
+                        return allowed.join('; ');
+                    },
+                    set: function(value) {
+                        var cookieName = value.split('=')[0].trim();
+                        if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                            logBlockedCookie(cookieName);
+                            return;
+                        }
+                        cookieStore[cookieName] = value.split('=').slice(1).join('=');
+                    }
+                });
+            } else {
+                Object.defineProperty(document, 'cookie', {
+                    configurable: true,
+                    set: function(value) {
+                        var cookieName = value.split('=')[0].trim();
+                        if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                            logBlockedCookie(cookieName);
+                            return;
+                        }
+                        return originalCookieDescriptor.set.call(document, value);
+                    },
+                    get: function() {
+                        return originalCookieDescriptor.get.call(document);
+                    }
+                });
+            }
+        } catch(e) {
+            // Если свойство уже переопределено - это нормально, просто пропускаем
+        }
+        
+        // ОЧИСТКА: удаляем уже установленные куки, которые не в белом списке
+        // Используем оригинальный getter для получения всех cookies
+        function cleanupCookies() {
+            try {
+                var allCookiesStr = originalCookieDescriptor ? originalCookieDescriptor.get.call(document) : document.cookie;
+                if (!allCookiesStr) return;
+                
+                var allCookies = allCookiesStr.split(';');
+                var hostname = window.location.hostname;
+                var domainParts = hostname.split('.');
+                var expireDate = 'Thu, 01 Jan 1970 00:00:00 UTC';
+                var removed = false;
+                
+                for (var i = 0; i < allCookies.length; i++) {
+                    var cookie = allCookies[i].trim();
+                    if (cookie) {
+                        var cookieName = cookie.split('=')[0].trim();
+                        if (!isCookieAllowed(cookieName)) {
+                            // Пытаемся удалить куку разными способами (разные path и domain)
+                            // Используем оригинальный setter напрямую, чтобы обойти наш перехват
+                            if (originalCookieDescriptor && originalCookieDescriptor.set) {
+                                originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/');
+                                originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/; domain=' + hostname);
+                                if (domainParts.length > 1) {
+                                    originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/; domain=.' + domainParts.slice(-2).join('.'));
+                                }
+                            } else {
+                                document.cookie = cookieName + '=; expires=' + expireDate + '; path=/';
+                                document.cookie = cookieName + '=; expires=' + expireDate + '; path=/; domain=' + hostname;
+                                if (domainParts.length > 1) {
+                                    document.cookie = cookieName + '=; expires=' + expireDate + '; path=/; domain=.' + domainParts.slice(-2).join('.');
+                                }
+                            }
+                            removed = true;
+                        }
+                    }
+                }
+                if (removed) {
+                }
+            } catch(e) {
+                // Тихая обработка ошибок
+            }
+        }
+        
+        // Очищаем сразу и периодически
+        cleanupCookies();
+        setTimeout(cleanupCookies, 10);
+        setTimeout(cleanupCookies, 100);
+        setTimeout(cleanupCookies, 500);
+    })();
+    </script>
+        <script id="w3d-consent-blocker-v2">
+    (function() {
+        'use strict';
+        
+        // Паттерны из PHP
+        var criticalPatterns = ["wp-includes\/js\/","wp-admin\/js\/","jquery","wp-polyfill","wp-i18n","wp-hooks","wp-api","regenerator-runtime","wp-element","wp-components","lodash","moment","react","elementor","\/elementor\/","elementor-frontend","elementor-webpack","swiper","divi-","et-builder","fusion-","vc_","js_composer","beaver-builder","oxygen-","bricks-","woocommerce","wc-","contact-form-7","wpcf7","cf7","gravity","ninja-forms","wpforms","formidable","wp-rocket","autoptimize","litespeed","w3tc","cache","yoast","rank-math","all-in-one-seo","slick","owl.carousel","aos","animate","parallax","isotope","masonry","lightbox","magnific","fancybox","fonts.googleapis.com","fonts.gstatic.com","fontawesome","font-awesome","cdnjs.cloudflare.com\/ajax\/libs\/","unpkg.com","jsdelivr.net","w3d-cb-banner","web3d_consent","w3dConsentUpdated","recaptcha","hcaptcha","turnstile"];
+        var trackingPatterns = ["google-analytics.com\/analytics.js","google-analytics.com\/ga.js","googletagmanager.com\/gtag\/js","googletagmanager.com\/gtm.js","doubleclick.net","googlesyndication.com","googleadservices.com","mc.yandex.ru","yandex.ru\/metrika","hotjar.com","mouseflow.com","crazyegg.com","clarity.ms","fullstory.com","logrocket.com","connect.facebook.net","facebook.net\/signals","snap.licdn.com","ads.linkedin.com","static.ads-twitter.com","analytics.tiktok.com","pinterest.com\/ct\/","adnxs.com","adsrvr.org","criteo.com","outbrain.com","taboola.com"];
+        var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+        var blockerActive = true;
+
+        function hasConsent() {
+            try {
+                var cookies = document.cookie || '';
+                var match = cookies.match(/(^|;)\\s*w3d_consent=([^;]*)/);
+                if (!match) return false;
+                var consent = JSON.parse(decodeURIComponent(match[2]));
+                var hasConsentValue = consent && (consent.analytics == 1 || consent.marketing == 1);
+                if (hasConsentValue && blockerActive) {
+                    blockerActive = false;
+                }
+                return hasConsentValue;
+            } catch (e) {
+                return false;
+            }
+        }
+        
+        // Проверяем consent сразу при загрузке
+        if (hasConsent()) {
+            blockerActive = false;
+            
+            // Автоматически восстанавливаем заблокированные скрипты
+            function quickReleaseScripts() {
+                var scripts = document.querySelectorAll('script[type="text/plain"][data-category]');
+                var released = 0;
+                scripts.forEach(function(script) {
+                    var category = script.getAttribute('data-category');
+                    var consent = hasConsent();
+                    if (!consent) return;
+                    
+                    try {
+                        var cookies = document.cookie || '';
+                        var match = cookies.match(/(^|;)\\s*w3d_consent=([^;]*)/);
+                        if (!match) return;
+                        var consentData = JSON.parse(decodeURIComponent(match[2]));
+                        var allowAnalytics = consentData && Number(consentData.analytics) === 1;
+                        var allowMarketing = consentData && Number(consentData.marketing) === 1;
+                        
+                        if ((category === 'analytics' && !allowAnalytics) || 
+                            (category === 'marketing' && !allowMarketing)) {
+                            return;
+                        }
+                        
+                        var newScript = document.createElement('script');
+                        var scriptType = script.getAttribute('data-orig-type') || 'text/javascript';
+                        newScript.type = scriptType;
+                        var dataSrc = script.getAttribute('data-src');
+                        if (dataSrc) {
+                            newScript.src = dataSrc;
+                        } else {
+                            newScript.innerHTML = script.innerHTML;
+                        }
+                        script.parentNode.insertBefore(newScript, script.nextSibling);
+                        script.remove();
+                        released++;
+                    } catch(e) {
+                        // Silent error handling
+                    }
+                });
+            }
+            
+            // Восстанавливаем сразу и после DOM готов
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', quickReleaseScripts);
+            } else {
+                setTimeout(quickReleaseScripts, 50);
+            }
+        }
+        
+        function isCritical(src) {
+            if (!src) return false;
+            src = src.toLowerCase();
+            for (var i = 0; i < criticalPatterns.length; i++) {
+                if (src.indexOf(criticalPatterns[i].toLowerCase()) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function isTracking(src) {
+            if (!src) return false;
+            src = src.toLowerCase();
+            for (var i = 0; i < trackingPatterns.length; i++) {
+                if (src.indexOf(trackingPatterns[i].toLowerCase()) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        var marketingHintPatterns = [
+            'doubleclick.net',
+            'googlesyndication.com',
+            'googleadservices.com',
+            'connect.facebook.net',
+            'fbevents.js',
+            'analytics.tiktok.com',
+            'ads.linkedin.com',
+            'snap.licdn.com',
+            'adsrvr.org',
+            'adnxs.com'
+        ];
+
+        function getTrackingCategory(src) {
+            if (!src) return 'analytics';
+            src = src.toLowerCase();
+            for (var i = 0; i < marketingHintPatterns.length; i++) {
+                if (src.indexOf(marketingHintPatterns[i]) !== -1) {
+                    return 'marketing';
+                }
+            }
+            return 'analytics';
+        }
+
+        var scriptProto = window.HTMLScriptElement ? HTMLScriptElement.prototype : null;
+        var originalScriptSetAttribute = scriptProto ? scriptProto.setAttribute : null;
+
+        function blockScriptElement(el, src) {
+            if (!el || el.tagName !== 'SCRIPT') return;
+            if (el.getAttribute && el.getAttribute('data-blocked') === 'web3d-consent') return;
+
+            if (hasConsent() || !blockerActive) {
+                if (src) {
+                    try {
+                        el.src = src;
+                    } catch (e) {
+                        el.setAttribute('src', src);
+                    }
+                }
+                return;
+            }
+
+            var category = getTrackingCategory(src || '');
+            var originalType = el.getAttribute ? (el.getAttribute('type') || 'text/javascript') : 'text/javascript';
+
+            try {
+                if (originalScriptSetAttribute) {
+                    originalScriptSetAttribute.call(el, 'type', 'text/plain');
+                    originalScriptSetAttribute.call(el, 'data-blocked', 'web3d-consent');
+                    originalScriptSetAttribute.call(el, 'data-category', category);
+                    originalScriptSetAttribute.call(el, 'data-orig-type', originalType);
+                    if (src) {
+                        originalScriptSetAttribute.call(el, 'data-src', src);
+                    }
+                } else {
+                    el.type = 'text/plain';
+                    el.setAttribute('data-blocked', 'web3d-consent');
+                    el.setAttribute('data-category', category);
+                    el.setAttribute('data-orig-type', originalType);
+                    if (src) el.setAttribute('data-src', src);
+                }
+            } catch (e) {
+                // fallback
+                el.type = 'text/plain';
+                el.setAttribute('data-blocked', 'web3d-consent');
+                el.setAttribute('data-category', category);
+                el.setAttribute('data-orig-type', originalType);
+                if (src) el.setAttribute('data-src', src);
+            }
+            el.text = '';
+        }
+        
+        // Сообщаем о блокировке куки максимум один раз
+        var blockedCookieNoticeShown = false;
+        function logBlockedCookie(name) {
+            if (blockedCookieNoticeShown) return;
+            blockedCookieNoticeShown = true;
+        }
+        
+        // ========== БЛОКИРОВКА ВСЕХ COOKIES (кроме белого списка) ==========
+        var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+        if (!originalCookieDescriptor || !originalCookieDescriptor.set) {
+            return; // Не можем перехватить
+        }
+        
+        // Проверяем, не было ли свойство уже переопределено
+        var currentDescriptor = Object.getOwnPropertyDescriptor(document, 'cookie');
+        if (currentDescriptor && currentDescriptor.configurable === false) {
+            // Свойство уже переопределено и неконфигурируемо - пропускаем
+            return;
+        }
+        
+        // БЕЛЫЙ СПИСОК: синхронизирован с серверным (из PHP)
+        // allowedCookies уже определен выше из PHP
+        
+        // Функция проверки, разрешена ли кука
+        function isCookieAllowed(cookieName) {
+            for (var i = 0; i < allowedCookies.length; i++) {
+                if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        try {
+            Object.defineProperty(document, 'cookie', {
+                configurable: true,
+                set: function(value) {
+                    if (!blockerActive || hasConsent()) {
+                        blockerActive = false;
+                        return originalCookieDescriptor.set.call(document, value);
+                    }
+                    var cookieName = value.split('=')[0].trim();
+                    
+                    // Блокируем ВСЕ куки, кроме белого списка
+                    if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                        logBlockedCookie(cookieName);
+                        return;
+                    }
+                    
+                    return originalCookieDescriptor.set.call(document, value);
+                },
+                get: function() {
+                    return originalCookieDescriptor.get.call(document);
+                }
+            });
+        } catch(e) {
+            // Если свойство уже переопределено - это нормально, просто пропускаем
+        }
+        
+        // ========== БЛОКИРОВКА ВНЕШНИХ СКРИПТОВ ==========
+        var originalCreate = document.createElement;
+        document.createElement = function(tag) {
+            var el = originalCreate.call(document, tag);
+            
+            if (tag.toLowerCase() === 'script') {
+                var origSetAttr = el.setAttribute.bind(el);
+                
+                el.setAttribute = function(name, value) {
+                    if (name === 'src' && typeof value === 'string') {
+                        if (!blockerActive || hasConsent()) {
+                            return origSetAttr(name, value);
+                        }
+                        // Критические - разрешаем
+                        if (isCritical(value)) {
+                            return origSetAttr(name, value);
+                        }
+                        
+                        // Tracking - блокируем
+                        if (isTracking(value)) {
+                            blockScriptElement(el, value);
+                            return;
+                        }
+                    }
+                    return origSetAttr(name, value);
+                };
+            }
+            
+            return el;
+        };
+        
+        if (scriptProto && originalScriptSetAttribute) {
+            scriptProto.setAttribute = function(name, value) {
+                if (!blockerActive || hasConsent()) {
+                    return originalScriptSetAttribute.call(this, name, value);
+                }
+                if (
+                    name &&
+                    name.toLowerCase() === 'src' &&
+                    typeof value === 'string' &&
+                    !isCritical(value) &&
+                    isTracking(value)
+                ) {
+                    blockScriptElement(this, value);
+                    return;
+                }
+                return originalScriptSetAttribute.call(this, name, value);
+            };
+        }
+
+        if (scriptProto) {
+            var scriptSrcDescriptor = Object.getOwnPropertyDescriptor(scriptProto, 'src');
+            if (scriptSrcDescriptor && scriptSrcDescriptor.set && scriptSrcDescriptor.configurable !== false) {
+                Object.defineProperty(scriptProto, 'src', {
+                    configurable: true,
+                    get: scriptSrcDescriptor.get,
+                    set: function(value) {
+                        if (!blockerActive || hasConsent()) {
+                            return scriptSrcDescriptor.set.call(this, value);
+                        }
+                        if (typeof value === 'string' && !isCritical(value) && isTracking(value)) {
+                            blockScriptElement(this, value);
+                            return value;
+                        }
+                        return scriptSrcDescriptor.set.call(this, value);
+                    }
+                });
+            }
+        }
+
+        // ========== БЛОКИРОВКА INLINE СКРИПТОВ ==========
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.tagName !== 'SCRIPT') return;
+                    if (node.type === 'text/plain') return;
+                    if (node.getAttribute('data-blocked')) return;
+                    
+                    var src = node.src || '';
+                    var content = node.textContent || node.innerHTML || '';
+                    
+                    // Пропускаем пустые
+                    if (!src && content.length < 20) return;
+                    
+                    // Критические - разрешаем
+                    if (isCritical(src) || isCritical(content)) {
+                        return;
+                    }
+                    
+                    // Проверяем inline tracking код
+                    var trackingInlinePatterns = [
+                        /gtag\s*\(\s*['"]config['"]/,
+                        /gtag\s*\(\s*['"]event['"]/,
+                        /ga\s*\(\s*['"]create['"]/,
+                        /GoogleAnalyticsObject/,
+                        /fbq\s*\(\s*['"]init['"]/,
+                        /fbq\s*\(\s*['"]track['"]/,
+                        /_linkedin_data_partner_id/,
+                        /ttq\.load/,
+                        /ym\s*\(\s*\d+/,
+                        /dataLayer\.push/
+                    ];
+                    
+                    var isTrackingInline = false;
+                    for (var i = 0; i < trackingInlinePatterns.length; i++) {
+                        if (trackingInlinePatterns[i].test(content)) {
+                            isTrackingInline = true;
+                            break;
+                        }
+                    }
+                    
+                    if (isTrackingInline || isTracking(src)) {
+                        var originalType = node.getAttribute('type') || 'text/javascript';
+                        node.type = 'text/plain';
+                        node.setAttribute('data-blocked', 'web3d-consent');
+                        node.setAttribute('data-category', 'analytics');
+                        node.setAttribute('data-orig-type', originalType);
+                        if (src) node.setAttribute('data-src', src);
+                        node.textContent = '';
+                    }
+                });
+            });
+        });
+        
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+        
+        // ========== БЛОКИРОВКА document.write ==========
+        var origWrite = document.write;
+        document.write = function(content) {
+            if (typeof content === 'string' && content.length > 0) {
+                for (var i = 0; i < trackingPatterns.length; i++) {
+                    if (content.indexOf(trackingPatterns[i]) !== -1) {
+                        return;
+                    }
+                }
+            }
+            return origWrite.call(document, content);
+        };
+        
+        
+    })();
+    </script>
+    
+	<!-- This site is optimized with the Yoast SEO plugin v22.0 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="טל לימוזין, חברת הלימוזינות ושירותי הסעות VIP המובילה בישראל. שירותי לימוזינות והסעות פרטיות אל נמל התעופה בן גוריון וממנו, הזמן עכשיו &gt;&gt;">
+	<link rel="canonical" href="https://www.tal-limousine.com/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="טל לימוזין | שירותי הסעות לנמל התעופה | חברת הלימוזינות ושירותי ההסעות המובילה בישראל">
+	<meta property="og:description" content="טל לימוזין, חברת הלימוזינות ושירותי הסעות VIP המובילה בישראל. שירותי לימוזינות והסעות פרטיות אל נמל התעופה בן גוריון וממנו, הזמן עכשיו &gt;&gt;">
+	<meta property="og:url" content="https://www.tal-limousine.com/">
+	<meta property="og:site_name" content="www.tal-limousine.com">
+	<meta property="article:modified_time" content="2021-07-22T08:40:18+00:00">
+	<meta property="og:image" content="https://www.tal-limousine.com/wp-content/uploads/2020/03/BOOKNOW.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.tal-limousine.com/","url":"https://www.tal-limousine.com/","name":"טל לימוזין | שירותי הסעות לנמל התעופה | חברת הלימוזינות ושירותי ההסעות המובילה בישראל","isPartOf":{"@id":"https://www.tal-limousine.com/#website"},"primaryImageOfPage":{"@id":"https://www.tal-limousine.com/#primaryimage"},"image":{"@id":"https://www.tal-limousine.com/#primaryimage"},"thumbnailUrl":"https://www.tal-limousine.com/wp-content/uploads/2020/03/BOOKNOW.png","datePublished":"2016-10-06T10:13:33+00:00","dateModified":"2021-07-22T08:40:18+00:00","description":"טל לימוזין, חברת הלימוזינות ושירותי הסעות VIP המובילה בישראל. שירותי לימוזינות והסעות פרטיות אל נמל התעופה בן גוריון וממנו, הזמן עכשיו >>","breadcrumb":{"@id":"https://www.tal-limousine.com/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://www.tal-limousine.com/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://www.tal-limousine.com/#primaryimage","url":"https://www.tal-limousine.com/wp-content/uploads/2020/03/BOOKNOW.png","contentUrl":"https://www.tal-limousine.com/wp-content/uploads/2020/03/BOOKNOW.png","width":238,"height":65},{"@type":"BreadcrumbList","@id":"https://www.tal-limousine.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.tal-limousine.com/#website","url":"https://www.tal-limousine.com/","name":"www.tal-limousine.com","description":"טל לימוזין, חברת הלימוזינות ושירותי הסעות VIP המובילה בישראל","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.tal-limousine.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"he-IL"}]}</script>
+	<meta name="google-site-verification" content="ukCp7ePHxDrDZiMB42TQ9Dvxqan-1dRq-8mfbgO2ktI">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="alternate" type="application/rss+xml" title="www.tal-limousine.com « פיד‏" href="https://www.tal-limousine.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="www.tal-limousine.com « פיד תגובות‏" href="https://www.tal-limousine.com/comments/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.tal-limousine.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.8"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="mediaelement-css" href="https://www.tal-limousine.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17" type="text/css" media="all">
+<link rel="stylesheet" id="wp-mediaelement-css" href="https://www.tal-limousine.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.4.8" type="text/css" media="all">
+<link rel="stylesheet" id="view_editor_gutenberg_frontend_assets-css" href="https://www.tal-limousine.com/wp-content/plugins/wp-views/public/css/views-frontend.css?ver=3.6.11" type="text/css" media="all">
+<style id="view_editor_gutenberg_frontend_assets-inline-css" type="text/css">
+.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item a {color: #444;background-color: #fff;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:focus {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #eee;}
+.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item a {color: #444;background-color: #fff;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:focus {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item a {color: #444;background-color: #eeeeee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:focus {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #e5e5e5;}
+.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item a {color: #444;background-color: #fff;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:focus {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item a {color: #444;background-color: #eeeeee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:focus {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item {border-color: #0099cc;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item a {color: #444;background-color: #cbddeb;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue a:focus {color: #000;background-color: #95bedd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #95bedd;}
+</style>
+<link rel="stylesheet" id="awd-style-css" href="https://www.tal-limousine.com/wp-content/plugins/aryo-widget-device/assets/css/style.css?ver=6.4.8" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="https://www.tal-limousine.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8.7" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-rtl-css" href="https://www.tal-limousine.com/wp-content/plugins/contact-form-7/includes/css/styles-rtl.css?ver=5.8.7" type="text/css" media="all">
+<link rel="stylesheet" id="wp-lightbox-2.min.css-css" href="https://www.tal-limousine.com/wp-content/plugins/wp-lightbox-2/styles/lightbox.min.css?ver=1.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-a11y-css" href="https://www.tal-limousine.com/wp-content/plugins/pojo-accessibility/assets/css/style.min.css?ver=1.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-css-framework-css" href="https://www.tal-limousine.com/wp-content/themes/atlanta/assets/bootstrap/css/bootstrap.min.css?ver=3.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://www.tal-limousine.com/wp-content/plugins/types/vendor/toolset/toolset-common/res/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0" type="text/css" media="screen">
+<link rel="stylesheet" id="pojo-base-style-css" href="https://www.tal-limousine.com/wp-content/themes/atlanta/core/assets/css/style.min.css?ver=1.6.6" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-style-css" href="https://www.tal-limousine.com/wp-content/themes/atlanta-child/assets/css/style.css?ver=1.6.6" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-base-style-rtl-css" href="https://www.tal-limousine.com/wp-content/themes/atlanta/core/assets/css/rtl.min.css?ver=1.6.6" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-style-rtl-css" href="https://www.tal-limousine.com/wp-content/themes/atlanta-child/assets/css/rtl.css?ver=1.6.6" type="text/css" media="all">
+<link rel="stylesheet" id="pojo-builder-animation-css" href="https://www.tal-limousine.com/wp-content/plugins/pojo-builder-animation/assets/css/styles.css?ver=6.4.8" type="text/css" media="all">
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/wp-views/vendor/toolset/common-es/public/toolset-common-es-frontend.js?ver=168000" id="toolset-common-es-frontend-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://www.tal-limousine.com/wp-json/"><link rel="alternate" type="application/json" href="https://www.tal-limousine.com/wp-json/wp/v2/pages/8"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.tal-limousine.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.4.8">
+<link rel="shortlink" href="https://www.tal-limousine.com/">
+<link rel="alternate" type="application/json+oembed" href="https://www.tal-limousine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tal-limousine.com%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.tal-limousine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tal-limousine.com%2F&amp;format=xml">
+<meta name="generator" content="Site Kit by Google 1.119.0"><link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"><style type="text/css">div.logo-text a{color: #666666; font-family: 'Open Sans', Arial, sans-serif; font-weight: normal; font-size: 30px;line-height: 1em;}.logo-img a > img{width: auto;}body{background-color: rgba(255, 255, 255, 1);background-position: top center;background-repeat: repeat;background-size: auto;background-attachment: scroll;color: #014d8e; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: 400; font-size: 18px;line-height: 1.6em;}#top-bar{color: #888888; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: normal; font-size: 11px;line-height: 36px;}#top-bar a{color: #888888;}#top-bar a:hover{color: #289dcc;}#header, .sticky-header{background-image: url("https://www.tal-limousine.com/wp-content/uploads/2016/10/header-bg.jpg");background-color: rgba(255, 255, 255, 1);background-position: center bottom;background-repeat: no-repeat;background-size: cover;background-attachment: scroll;}.sf-menu a, .mobile-menu a{color: #014d8e; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: normal; font-size: 20px;}.sf-menu a:hover,.sf-menu li.active a, .sf-menu li.current-menu-item > a,.sf-menu .sfHover > a,.sf-menu .sfHover > li.current-menu-item > a,.sf-menu li.current-menu-ancestor > a,.mobile-menu a:hover,.mobile-menu li.current-menu-item > a{color: #0c528e;}.nav-main .sf-menu .sub-menu{background-color: #b5b5b5;}.nav-main .sf-menu .sub-menu li:hover{background-color: #474747;}.nav-main .sf-menu .sub-menu li a{color: #014d8e; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: 400; font-size: 20px;text-transform: uppercase;line-height: 3.8em;}.nav-main .sf-menu .sub-menu li:hover > a,.nav-main .sf-menu .sub-menu li.current-menu-item > a{color: #014d8e;}a, .entry-meta:after,.sd-title:after,.title-comments:after,.title-respond:after,.pb-widget-title:after,.widget-title:after{color: #014d8e;}a:hover{color: #289dcc;}::selection{color: #ffffff;background: #289dcc;}::-moz-selection{color: #ffffff;background: #289dcc;}h1{color: #289dcc; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: normal; font-size: 30px;text-transform: uppercase;line-height: 1.3em;}h2{color: #289dcc; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: normal; font-size: 25px;text-transform: uppercase;line-height: 1.5em;}h3{color: #289dcc; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 18px;text-transform: uppercase;line-height: 1.5em;}h4{color: #289dcc; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: normal; font-size: 17px;text-transform: uppercase;line-height: 1.4em;}h5{color: #289dcc; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 16px;text-transform: uppercase;line-height: 2em;}h6{color: #7a7a7a; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 18px;text-transform: uppercase;line-height: 2.5em;}#page-header.page-header-style-custom_bg{background-position: center center;background-repeat: repeat;background-size: cover;background-attachment: fixed;}#page-header{height: 40px;line-height: 40px;color: #ffffff; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: bold; font-size: 36px;text-transform: uppercase;}#page-header div.breadcrumbs, #page-header div.breadcrumbs a{color: #014d8e; font-family: 'Open Sans Hebrew', Arial, sans-serif; font-weight: 300; font-size: 13px;text-transform: capitalize;}#sidebar{color: #818181; font-family: 'Open Sans', Arial, sans-serif; font-weight: normal; font-size: 13px;line-height: 1.5em;}#sidebar a{color: #289dcc;}#sidebar a:hover{color: #289dcc;}#sidebar .widget-title{color: #289dcc; font-family: 'Open Sans', Arial, sans-serif; font-weight: bold; font-size: 16px;text-transform: uppercase;line-height: 2em;}#footer{background-color: #292418;color: #ffffff; font-family: 'Open Sans', Arial, sans-serif; font-weight: normal; font-size: 18px;line-height: 1.5em;}#footer a{color: #ffffff;}#footer a:hover{color: #ffffff;}#sidebar-footer .widget-title{color: #289dcc; font-family: 'Open Sans', Arial, sans-serif; font-weight: bold; font-size: 14px;text-transform: uppercase;line-height: 1.8em;}#copyright{background-color: #353535;color: #595959; font-family: 'Open Sans', Arial, sans-serif; font-weight: normal; font-size: 11px;line-height: 60px;}#copyright a{color: #7c7c7c;}#copyright a:hover{color: #289dcc;}#outer-slidebar #outer-slidebar-overlay{background-color: #289dcc;}#outer-slidebar{color: #ffffff; font-family: 'Open Sans', Arial, sans-serif; font-weight: normal; font-size: 15px;line-height: 1.5em;}#outer-slidebar a{color: #f2f2f2;}#outer-slidebar a:hover{color: #ffffff;}#outer-slidebar .widget-title{color: #ffffff; font-family: 'Open Sans', Arial, sans-serif; font-weight: bold; font-size: 19px;line-height: 2.5em;}#pojo-scroll-up{width: 50px;height: 50px;line-height: 50px;background-color: rgba(51, 51, 51, 0.6);background-position: top center;background-repeat: repeat;background-size: auto;background-attachment: scroll;}#pojo-scroll-up a{color: #eeeeee;}body.postid-8, body.page-id-8{background-color: #000;}.sf-menu a, .menu-no-found,.sf-menu li.pojo-menu-search,.search-header{line-height: 95px;}.sf-menu li:hover ul, .sf-menu li.sfHover ul{top: 95px;}#top-bar ul.social-links li a .social-icon:before{line-height: 36px;height: 36px;width: 36px;}.navbar-toggle{border-color: #014d8e;}.icon-bar{background-color: #014d8e;}.sf-menu li.active, .sf-menu li:hover, .sf-menu li.current-menu-item, .sf-menu li.current-menu-parent, .sf-menu li.current-menu-ancestor, .sf-menu li.current_page_item, .sf-menu li.current_page_paren, .sf-menu li.current_page_ancestor{border-color: #0c528e;}#sidebar .menu li a:hover, #sidebar .sub-menu li a:hover, #sidebar .sub-page-menu li a:hover, #sidebar .menu li.current_page_item > a, #sidebar .sub-menu li.current_page_item > a, #sidebar .sub-page-menu li.current_page_item > a, #sidebar .menu li.current-menu-item > a, #sidebar .sub-menu li.current-menu-item > a, #sidebar .sub-page-menu li.current-menu-item > a{border-color: #014d8e;}.category-filters a{color: #014d8e;}.category-filters a:hover,.category-filters a.active{color: #289dcc;border-top-color: #289dcc;}#outer-slidebar #outer-slidebar-toggle a{border-right-color: #289dcc;color: #ffffff;}.rtl #outer-slidebar #outer-slidebar-toggle a{border-left-color: #289dcc;}</style>
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style> <script> window.addEventListener("load",function(){ var c={script:false,link:false}; function ls(s) { if(!['script','link'].includes(s)||c[s]){return;}c[s]=true; var d=document,f=d.getElementsByTagName(s)[0],j=d.createElement(s); if(s==='script'){j.async=true;j.src='https://www.tal-limousine.com/wp-content/plugins/wp-views/vendor/toolset/blocks/public/js/frontend.js?v=1.6.9';}else{ j.rel='stylesheet';j.href='https://www.tal-limousine.com/wp-content/plugins/wp-views/vendor/toolset/blocks/public/css/style.css?v=1.6.9';} f.parentNode.insertBefore(j, f); }; function ex(){ls('script');ls('link')} window.addEventListener("scroll", ex, {once: true}); if (('IntersectionObserver' in window) && ('IntersectionObserverEntry' in window) && ('intersectionRatio' in window.IntersectionObserverEntry.prototype)) { var i = 0, fb = document.querySelectorAll("[class^='tb-']"), o = new IntersectionObserver(es => { es.forEach(e => { o.unobserve(e.target); if (e.intersectionRatio > 0) { ex();o.disconnect();}else{ i++;if(fb.length>i){o.observe(fb[i])}} }) }); if (fb.length) { o.observe(fb[i]) } } }) </script>
+	<noscript>
+		<link rel="stylesheet" href="https://www.tal-limousine.com/wp-content/plugins/wp-views/vendor/toolset/blocks/public/css/style.css">
+	</noscript><style type="text/css">
+#pojo-a11y-toolbar .pojo-a11y-toolbar-toggle a{ background-color: #4054b2;	color: #ffffff;}
+#pojo-a11y-toolbar .pojo-a11y-toolbar-overlay, #pojo-a11y-toolbar .pojo-a11y-toolbar-overlay ul.pojo-a11y-toolbar-items.pojo-a11y-links{ border-color: #4054b2;}
+body.pojo-a11y-focusable a:focus{ outline-style: solid !important;	outline-width: 1px !important;	outline-color: #FF0000 !important;}
+#pojo-a11y-toolbar{ top: 100px !important;}
+#pojo-a11y-toolbar .pojo-a11y-toolbar-overlay{ background-color: #ffffff;}
+#pojo-a11y-toolbar .pojo-a11y-toolbar-overlay ul.pojo-a11y-toolbar-items li.pojo-a11y-toolbar-item a, #pojo-a11y-toolbar .pojo-a11y-toolbar-overlay p.pojo-a11y-toolbar-title{ color: #333333;}
+#pojo-a11y-toolbar .pojo-a11y-toolbar-overlay ul.pojo-a11y-toolbar-items li.pojo-a11y-toolbar-item a.active{ background-color: #4054b2;	color: #ffffff;}
+@media (max-width: 767px) { #pojo-a11y-toolbar { top: 50px !important; } }</style>
+<!-- Google Tag Manager snippet added by Site Kit -->
+<script type="text/javascript">
+/* <![CDATA[ */
+
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-P8XBZ8M' );
+			
+/* ]]> */
+</script>
+
+<!-- End Google Tag Manager snippet added by Site Kit -->
+		<style type="text/css" id="wp-custom-css">
+			.wpcf7-form-control{
+	color:unset;
+	border: 0px solid;
+	
+}
+.wpcf7-list-item {
+    margin: 0 .3em 0 0;
+}
+.entry-content{
+	margin-top:30px;
+}		</style>
+			
+	<style>
+	body #header, body .sticky-header{height: auto;background-image: none !important;}	.sf-menu li a{color:#ffffff;}	#nav_menu-2 a{color:#ffffff !important;}	#top-bar, body #header, body .sticky-header{background-color:#000000;}	.icon-bar{background-color:#ffffff;}	body .navbar-toggle{border-color:#ffffff;}	</style>
+<script src="https://www.tal-limousine.com/wp-includes/js/wp-emoji-release.min.js?ver=6.4.8" defer=""></script><style type="text/css" id="pojo-size-sections"></style></head>
+<body class="rtl home page-template-default page page-id-8 layout-section pojo-title-bar views-template--- format-page-builder"><a id="pojo-a11y-skip-content" class="pojo-skip-link pojo-skip-content" tabindex="1" accesskey="s" href="#content" role="link">דילוג לתוכן</a><nav id="pojo-a11y-toolbar" class="pojo-a11y-toolbar-right pojo-a11y-hidden-phone" role="navigation">
+			<div class="pojo-a11y-toolbar-toggle">
+				<a class="pojo-a11y-toolbar-link pojo-a11y-toolbar-toggle-link" href="javascript:void(0);" title="Accessibility Tools" role="link">
+					<span class="pojo-sr-only sr-only">פתח סרגל נגישות</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor" width="1em">
+						<title>Accessibility Tools</title>
+						<g><path d="M60.4,78.9c-2.2,4.1-5.3,7.4-9.2,9.8c-4,2.4-8.3,3.6-13,3.6c-6.9,0-12.8-2.4-17.7-7.3c-4.9-4.9-7.3-10.8-7.3-17.7c0-5,1.4-9.5,4.1-13.7c2.7-4.2,6.4-7.2,10.9-9.2l-0.9-7.3c-6.3,2.3-11.4,6.2-15.3,11.8C7.9,54.4,6,60.6,6,67.3c0,5.8,1.4,11.2,4.3,16.1s6.8,8.8,11.7,11.7c4.9,2.9,10.3,4.3,16.1,4.3c7,0,13.3-2.1,18.9-6.2c5.7-4.1,9.6-9.5,11.7-16.2l-5.7-11.4C63.5,70.4,62.5,74.8,60.4,78.9z"></path><path d="M93.8,71.3l-11.1,5.5L70,51.4c-0.6-1.3-1.7-2-3.2-2H41.3l-0.9-7.2h22.7v-7.2H39.6L37.5,19c2.5,0.3,4.8-0.5,6.7-2.3c1.9-1.8,2.9-4,2.9-6.6c0-2.5-0.9-4.6-2.6-6.3c-1.8-1.8-3.9-2.6-6.3-2.6c-2,0-3.8,0.6-5.4,1.8c-1.6,1.2-2.7,2.7-3.2,4.6c-0.3,1-0.4,1.8-0.3,2.3l5.4,43.5c0.1,0.9,0.5,1.6,1.2,2.3c0.7,0.6,1.5,0.9,2.4,0.9h26.4l13.4,26.7c0.6,1.3,1.7,2,3.2,2c0.6,0,1.1-0.1,1.6-0.4L97,77.7L93.8,71.3z"></path></g>					</svg>
+				</a>
+			</div>
+			<div class="pojo-a11y-toolbar-overlay">
+				<div class="pojo-a11y-toolbar-inner">
+					<p class="pojo-a11y-toolbar-title">Accessibility Tools</p>
+					
+					<ul class="pojo-a11y-toolbar-items pojo-a11y-tools">
+																			<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-resize-font pojo-a11y-btn-resize-plus" data-action="resize-plus" data-action-group="resize" tabindex="-1" role="link">
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>Increase Text</title><path fill="currentColor" d="M256 200v16c0 4.25-3.75 8-8 8h-56v56c0 4.25-3.75 8-8 8h-16c-4.25 0-8-3.75-8-8v-56h-56c-4.25 0-8-3.75-8-8v-16c0-4.25 3.75-8 8-8h56v-56c0-4.25 3.75-8 8-8h16c4.25 0 8 3.75 8 8v56h56c4.25 0 8 3.75 8 8zM288 208c0-61.75-50.25-112-112-112s-112 50.25-112 112 50.25 112 112 112 112-50.25 112-112zM416 416c0 17.75-14.25 32-32 32-8.5 0-16.75-3.5-22.5-9.5l-85.75-85.5c-29.25 20.25-64.25 31-99.75 31-97.25 0-176-78.75-176-176s78.75-176 176-176 176 78.75 176 176c0 35.5-10.75 70.5-31 99.75l85.75 85.75c5.75 5.75 9.25 14 9.25 22.5z"></path></svg></span><span class="pojo-a11y-toolbar-text">Increase Text</span>								</a>
+							</li>
+							
+							<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-resize-font pojo-a11y-btn-resize-minus" data-action="resize-minus" data-action-group="resize" tabindex="-1" role="link">
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>Decrease Text</title><path fill="currentColor" d="M256 200v16c0 4.25-3.75 8-8 8h-144c-4.25 0-8-3.75-8-8v-16c0-4.25 3.75-8 8-8h144c4.25 0 8 3.75 8 8zM288 208c0-61.75-50.25-112-112-112s-112 50.25-112 112 50.25 112 112 112 112-50.25 112-112zM416 416c0 17.75-14.25 32-32 32-8.5 0-16.75-3.5-22.5-9.5l-85.75-85.5c-29.25 20.25-64.25 31-99.75 31-97.25 0-176-78.75-176-176s78.75-176 176-176 176 78.75 176 176c0 35.5-10.75 70.5-31 99.75l85.75 85.75c5.75 5.75 9.25 14 9.25 22.5z"></path></svg></span><span class="pojo-a11y-toolbar-text">Decrease Text</span>								</a>
+							</li>
+						
+													<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-background-group pojo-a11y-btn-grayscale" data-action="grayscale" data-action-group="schema" tabindex="-1" role="link">
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>Grayscale</title><path fill="currentColor" d="M15.75 384h-15.75v-352h15.75v352zM31.5 383.75h-8v-351.75h8v351.75zM55 383.75h-7.75v-351.75h7.75v351.75zM94.25 383.75h-7.75v-351.75h7.75v351.75zM133.5 383.75h-15.5v-351.75h15.5v351.75zM165 383.75h-7.75v-351.75h7.75v351.75zM180.75 383.75h-7.75v-351.75h7.75v351.75zM196.5 383.75h-7.75v-351.75h7.75v351.75zM235.75 383.75h-15.75v-351.75h15.75v351.75zM275 383.75h-15.75v-351.75h15.75v351.75zM306.5 383.75h-15.75v-351.75h15.75v351.75zM338 383.75h-15.75v-351.75h15.75v351.75zM361.5 383.75h-15.75v-351.75h15.75v351.75zM408.75 383.75h-23.5v-351.75h23.5v351.75zM424.5 383.75h-8v-351.75h8v351.75zM448 384h-15.75v-352h15.75v352z"></path></svg></span><span class="pojo-a11y-toolbar-text">Grayscale</span>								</a>
+							</li>
+						
+													<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-background-group pojo-a11y-btn-high-contrast" data-action="high-contrast" data-action-group="schema" tabindex="-1" role="link">
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>High Contrast</title><path fill="currentColor" d="M192 360v-272c-75 0-136 61-136 136s61 136 136 136zM384 224c0 106-86 192-192 192s-192-86-192-192 86-192 192-192 192 86 192 192z"></path></svg></span><span class="pojo-a11y-toolbar-text">High Contrast</span>								</a>
+							</li>
+						
+													<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-background-group pojo-a11y-btn-negative-contrast" data-action="negative-contrast" data-action-group="schema" tabindex="-1" role="link">
+
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>Negative Contrast</title><path fill="currentColor" d="M416 240c-23.75-36.75-56.25-68.25-95.25-88.25 10 17 15.25 36.5 15.25 56.25 0 61.75-50.25 112-112 112s-112-50.25-112-112c0-19.75 5.25-39.25 15.25-56.25-39 20-71.5 51.5-95.25 88.25 42.75 66 111.75 112 192 112s149.25-46 192-112zM236 144c0-6.5-5.5-12-12-12-41.75 0-76 34.25-76 76 0 6.5 5.5 12 12 12s12-5.5 12-12c0-28.5 23.5-52 52-52 6.5 0 12-5.5 12-12zM448 240c0 6.25-2 12-5 17.25-46 75.75-130.25 126.75-219 126.75s-173-51.25-219-126.75c-3-5.25-5-11-5-17.25s2-12 5-17.25c46-75.5 130.25-126.75 219-126.75s173 51.25 219 126.75c3 5.25 5 11 5 17.25z"></path></svg></span><span class="pojo-a11y-toolbar-text">Negative Contrast</span>								</a>
+							</li>
+						
+													<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-background-group pojo-a11y-btn-light-background" data-action="light-background" data-action-group="schema" tabindex="-1" role="link">
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>Light Background</title><path fill="currentColor" d="M184 144c0 4.25-3.75 8-8 8s-8-3.75-8-8c0-17.25-26.75-24-40-24-4.25 0-8-3.75-8-8s3.75-8 8-8c23.25 0 56 12.25 56 40zM224 144c0-50-50.75-80-96-80s-96 30-96 80c0 16 6.5 32.75 17 45 4.75 5.5 10.25 10.75 15.25 16.5 17.75 21.25 32.75 46.25 35.25 74.5h57c2.5-28.25 17.5-53.25 35.25-74.5 5-5.75 10.5-11 15.25-16.5 10.5-12.25 17-29 17-45zM256 144c0 25.75-8.5 48-25.75 67s-40 45.75-42 72.5c7.25 4.25 11.75 12.25 11.75 20.5 0 6-2.25 11.75-6.25 16 4 4.25 6.25 10 6.25 16 0 8.25-4.25 15.75-11.25 20.25 2 3.5 3.25 7.75 3.25 11.75 0 16.25-12.75 24-27.25 24-6.5 14.5-21 24-36.75 24s-30.25-9.5-36.75-24c-14.5 0-27.25-7.75-27.25-24 0-4 1.25-8.25 3.25-11.75-7-4.5-11.25-12-11.25-20.25 0-6 2.25-11.75 6.25-16-4-4.25-6.25-10-6.25-16 0-8.25 4.5-16.25 11.75-20.5-2-26.75-24.75-53.5-42-72.5s-25.75-41.25-25.75-67c0-68 64.75-112 128-112s128 44 128 112z"></path></svg></span><span class="pojo-a11y-toolbar-text">Light Background</span>								</a>
+							</li>
+						
+													<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-links-underline" data-action="links-underline" data-action-group="toggle" tabindex="-1" role="link">
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>Links Underline</title><path fill="currentColor" d="M364 304c0-6.5-2.5-12.5-7-17l-52-52c-4.5-4.5-10.75-7-17-7-7.25 0-13 2.75-18 8 8.25 8.25 18 15.25 18 28 0 13.25-10.75 24-24 24-12.75 0-19.75-9.75-28-18-5.25 5-8.25 10.75-8.25 18.25 0 6.25 2.5 12.5 7 17l51.5 51.75c4.5 4.5 10.75 6.75 17 6.75s12.5-2.25 17-6.5l36.75-36.5c4.5-4.5 7-10.5 7-16.75zM188.25 127.75c0-6.25-2.5-12.5-7-17l-51.5-51.75c-4.5-4.5-10.75-7-17-7s-12.5 2.5-17 6.75l-36.75 36.5c-4.5 4.5-7 10.5-7 16.75 0 6.5 2.5 12.5 7 17l52 52c4.5 4.5 10.75 6.75 17 6.75 7.25 0 13-2.5 18-7.75-8.25-8.25-18-15.25-18-28 0-13.25 10.75-24 24-24 12.75 0 19.75 9.75 28 18 5.25-5 8.25-10.75 8.25-18.25zM412 304c0 19-7.75 37.5-21.25 50.75l-36.75 36.5c-13.5 13.5-31.75 20.75-50.75 20.75-19.25 0-37.5-7.5-51-21.25l-51.5-51.75c-13.5-13.5-20.75-31.75-20.75-50.75 0-19.75 8-38.5 22-52.25l-22-22c-13.75 14-32.25 22-52 22-19 0-37.5-7.5-51-21l-52-52c-13.75-13.75-21-31.75-21-51 0-19 7.75-37.5 21.25-50.75l36.75-36.5c13.5-13.5 31.75-20.75 50.75-20.75 19.25 0 37.5 7.5 51 21.25l51.5 51.75c13.5 13.5 20.75 31.75 20.75 50.75 0 19.75-8 38.5-22 52.25l22 22c13.75-14 32.25-22 52-22 19 0 37.5 7.5 51 21l52 52c13.75 13.75 21 31.75 21 51z"></path></svg></span><span class="pojo-a11y-toolbar-text">Links Underline</span>								</a>
+							</li>
+						
+													<li class="pojo-a11y-toolbar-item">
+								<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-readable-font" data-action="readable-font" data-action-group="toggle" tabindex="-1" role="link">
+									<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>Readable Font</title><path fill="currentColor" d="M181.25 139.75l-42.5 112.5c24.75 0.25 49.5 1 74.25 1 4.75 0 9.5-0.25 14.25-0.5-13-38-28.25-76.75-46-113zM0 416l0.5-19.75c23.5-7.25 49-2.25 59.5-29.25l59.25-154 70-181h32c1 1.75 2 3.5 2.75 5.25l51.25 120c18.75 44.25 36 89 55 133 11.25 26 20 52.75 32.5 78.25 1.75 4 5.25 11.5 8.75 14.25 8.25 6.5 31.25 8 43 12.5 0.75 4.75 1.5 9.5 1.5 14.25 0 2.25-0.25 4.25-0.25 6.5-31.75 0-63.5-4-95.25-4-32.75 0-65.5 2.75-98.25 3.75 0-6.5 0.25-13 1-19.5l32.75-7c6.75-1.5 20-3.25 20-12.5 0-9-32.25-83.25-36.25-93.5l-112.5-0.5c-6.5 14.5-31.75 80-31.75 89.5 0 19.25 36.75 20 51 22 0.25 4.75 0.25 9.5 0.25 14.5 0 2.25-0.25 4.5-0.5 6.75-29 0-58.25-5-87.25-5-3.5 0-8.5 1.5-12 2-15.75 2.75-31.25 3.5-47 3.5z"></path></svg></span><span class="pojo-a11y-toolbar-text">Readable Font</span>								</a>
+							</li>
+																		<li class="pojo-a11y-toolbar-item">
+							<a href="#" class="pojo-a11y-toolbar-link pojo-a11y-btn-reset" data-action="reset" tabindex="-1" role="link">
+								<span class="pojo-a11y-toolbar-icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 448 448"><title>איפוס</title><path fill="currentColor" d="M384 224c0 105.75-86.25 192-192 192-57.25 0-111.25-25.25-147.75-69.25-2.5-3.25-2.25-8 0.5-10.75l34.25-34.5c1.75-1.5 4-2.25 6.25-2.25 2.25 0.25 4.5 1.25 5.75 3 24.5 31.75 61.25 49.75 101 49.75 70.5 0 128-57.5 128-128s-57.5-128-128-128c-32.75 0-63.75 12.5-87 34.25l34.25 34.5c4.75 4.5 6 11.5 3.5 17.25-2.5 6-8.25 10-14.75 10h-112c-8.75 0-16-7.25-16-16v-112c0-6.5 4-12.25 10-14.75 5.75-2.5 12.75-1.25 17.25 3.5l32.5 32.25c35.25-33.25 83-53 132.25-53 105.75 0 192 86.25 192 192z"></path></svg></span>
+								<span class="pojo-a11y-toolbar-text">איפוס</span>
+							</a>
+						</li>
+					</ul>
+									</div>
+			</div>
+		</nav>
+<!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em>
+	<a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+	<a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+</p><![endif]-->
+
+
+<div id="container">
+	
+			<section id="top-bar">
+			<div class="container">
+				<div class="pull-left">
+									</div>
+				<div class="pull-right">
+					<section id="pojo_button-2" class="widget widget_pojo_button"><div class="widget-inner"><div class="pojo-button-wrap pojo-button-none">
+				<a class="button size-medium" style="background-color:rgba(255,255,255,1);border-color:#cccccc;color:#333333" href="https://tallimo.co.il/booking" role="link">
+					<span class="pojo-button-text">הזמן עכשיו</span>
+				</a>
+			</div></div></section>				</div>
+			</div><!-- .container -->
+		</section>
+		<header id="header" class="logo-left" role="banner">
+			<div class="container">
+				<div class="logo">
+										<div class="logo-img">
+						<a href="https://www.tal-limousine.com/" rel="home" role="link"><img src="https://www.tal-limousine.com/wp-content/uploads/2016/10/logo.png" alt="www.tal-limousine.com" class="logo-img-primary"></a>					</div>
+										
+										<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">תפריט</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+									</div>
+				<nav class="nav-main" role="navigation">
+					<div class="navbar-collapse collapse">
+													<ul id="menu-menu" class="sf-menu hidden-xs sf-js-enabled"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active menu-%d7%a2%d7%9e%d7%95%d7%93-%d7%94%d7%91%d7%99%d7%aa first-item menu-item-318"><a href="/" role="link"><span>עמוד הבית</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%90%d7%95%d7%93%d7%95%d7%aa menu-item-26"><a href="https://www.tal-limousine.com/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-vip/" role="link"><span>אודות</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d menu-item-164"><a href="#" role="link" class="sf-with-ul"><span>שירותים</span><span class="sf-sub-indicator"> »</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a0%d7%aa%d7%91%d7%92 menu-item-167"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a0%d7%aa%d7%91%d7%92/" role="link"><span>הסעות לנתבג</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%a0%d7%aa%d7%91%d7%92 menu-item-165"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%a0%d7%aa%d7%91%d7%92/" role="link"><span>שירות VIP בנתב"ג</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%9c%d7%90%d7%99%d7%a8%d7%95%d7%a2%d7%99%d7%9d menu-item-1080"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%9c%d7%90%d7%99%d7%a8%d7%95%d7%a2%d7%99%d7%9d-2/" role="link"><span>לימוזינות לאירועים</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%91%d7%97%d7%95%d7%9c menu-item-166"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%91%d7%97%d7%95%d7%9c/" role="link"><span>שירותי הסעות בחו"ל</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%97%d7%95%d7%9c menu-item-1179"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%97%d7%95%d7%9c/" role="link"><span>שירות VIP בחו"ל</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%90%d7%99%d7%a8%d7%95%d7%97-%d7%90%d7%97%d7%9e%d7%99%d7%9d menu-item-182"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%90%d7%99%d7%a8%d7%95%d7%97-%d7%90%d7%97%d7%9e%d7%99%d7%9d/" role="link"><span>אירוח אח"מים</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a0%d7%94%d7%92-%d7%a4%d7%a8%d7%98%d7%99 menu-item-1294"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a0%d7%94%d7%92-%d7%a4%d7%a8%d7%98%d7%99/" role="link"><span>נהג פרטי</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%91%d7%98%d7%97%d7%94 menu-item-181"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%91%d7%98%d7%97%d7%94-%d7%a6%d7%9e%d7%95%d7%93%d7%99%d7%9d/" role="link"><span>שירותי אבטחה</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a6%d7%95%d7%95%d7%aa%d7%99-%d7%90%d7%95%d7%95%d7%99%d7%a8 menu-item-180"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a6%d7%95%d7%95%d7%aa%d7%99-%d7%90%d7%95%d7%95%d7%99%d7%a8/" role="link"><span>הסעות לצוותי אוויר</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a6%d7%99-%d7%a8%d7%9b%d7%91 menu-item-183"><a href="https://www.tal-limousine.com/%d7%a6%d7%99-%d7%a8%d7%9b%d7%91/" role="link"><span>צי רכב</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%99%d7%9d menu-item-23"><a href="https://www.tal-limousine.com/%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%99%d7%9d/" role="link"><span>לקוחות עסקיים</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%94%d7%92%d7%a0%d7%aa-%d7%94%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa menu-item-1406"><a href="https://www.tal-limousine.com/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%94%d7%92%d7%a0%d7%aa-%d7%94%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" role="link"><span>מדיניות הגנת הפרטיות</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8 menu-item-21"><a href="https://www.tal-limousine.com/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" role="link"><span>צור קשר</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-%d7%9e%d7%a8%d7%9b%d7%96-%d7%94%d7%9e%d7%99%d7%93%d7%a2 menu-item-1010"><a href="https://www.tal-limousine.com/category/%d7%9e%d7%a8%d7%9b%d7%96-%d7%94%d7%9e%d7%99%d7%93%d7%a2/" role="link" class="sf-with-ul"><span>מרכז המידע</span><span class="sf-sub-indicator"> »</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-%d7%97%d7%95%d7%a4%d7%a9%d7%94-%d7%97%d7%9c%d7%95%d7%9e%d7%99%d7%aa-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%94-%d7%a2%d7%95%d7%93-%d7%9c%d7%a4%d7%a0%d7%99-%d7%94%d7%98%d7%99%d7%a1%d7%94 menu-item-1248"><a href="https://www.tal-limousine.com/%d7%97%d7%95%d7%a4%d7%a9%d7%94-%d7%97%d7%9c%d7%95%d7%9e%d7%99%d7%aa-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%94-%d7%a2%d7%95%d7%93-%d7%9c%d7%a4%d7%a0%d7%99-%d7%94%d7%98%d7%99%d7%a1%d7%94/" role="link"><span>חופשה חלומית מתחילה עוד לפני הטיסה</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-%d7%9b%d7%9c-%d7%94%d7%93%d7%a8%d7%9b%d7%99%d7%9d-%d7%9e%d7%95%d7%91%d7%99%d7%9c%d7%95%d7%aa-%d7%9c%d7%97%d7%95%d7%9c menu-item-1184"><a href="https://www.tal-limousine.com/%d7%9b%d7%9c-%d7%94%d7%93%d7%a8%d7%9b%d7%99%d7%9d-%d7%9e%d7%95%d7%91%d7%99%d7%9c%d7%95%d7%aa-%d7%9c%d7%97%d7%95%d7%9c/" role="link"><span>כל הדרכים מובילות לחו"ל</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-%d7%aa%d7%94%d7%9c%d7%99%d7%9a-%d7%98%d7%a8%d7%95%d7%9d-%d7%94%d7%98%d7%99%d7%a1%d7%94-%d7%91%d7%a0%d7%aa%d7%91%d7%92 menu-item-1195"><a href="https://www.tal-limousine.com/%d7%aa%d7%94%d7%9c%d7%99%d7%9a-%d7%98%d7%a8%d7%95%d7%9d-%d7%94%d7%98%d7%99%d7%a1%d7%94-%d7%91%d7%a0%d7%aa%d7%91%d7%92/" role="link"><span>תהליך טרום הטיסה בנתב"ג</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-%d7%a9%d7%90%d7%98%d7%9c%d7%99%d7%9d-%d7%9c%d7%a0%d7%aa%d7%91%d7%92-%d7%96%d7%94-%d7%94%d7%9b%d7%99-2019-%d7%91-2020-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%94%d7%a1%d7%a2%d7%95%d7%aa-vi menu-item-1245"><a href="https://www.tal-limousine.com/%d7%91-2020-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%94%d7%a1%d7%a2%d7%95%d7%aa-vip/" role="link"><span>שאטלים לנתב"ג זה הכי 2019, ב 2020 נוסעים בהסעות VIP</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-%d7%9e%d7%95%d7%a0%d7%99%d7%aa-%d7%a9%d7%97%d7%95%d7%a8%d7%94 menu-item-1314"><a href="https://www.tal-limousine.com/%d7%9e%d7%95%d7%a0%d7%99%d7%aa-%d7%a9%d7%97%d7%95%d7%a8%d7%94/" role="link"><span>מונית שחורה</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-%d7%91%d7%97%d7%9f-%d7%90%d7%aa-%d7%a2%d7%a6%d7%9e%d7%9a-%d7%94%d7%90%d7%9d-%d7%9e%d7%aa%d7%90%d7%99%d7%9d-%d7%9c%d7%9a-%d7%9c%d7%94%d7%99%d7%95%d7%aa-%d7%9c%d7%a7%d7%95%d7%97-vip menu-item-1257"><a href="https://www.tal-limousine.com/%d7%91%d7%97%d7%9f-%d7%90%d7%aa-%d7%a2%d7%a6%d7%9e%d7%9a-%d7%94%d7%90%d7%9d-%d7%9e%d7%aa%d7%90%d7%99%d7%9d-%d7%9c%d7%9a-%d7%9c%d7%94%d7%99%d7%95%d7%aa-%d7%9c%d7%a7%d7%95%d7%97-vip/" role="link"><span>בחן את עצמך – האם מתאים לך להיות לקוח VIP</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-%d7%98%d7%9c-%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%9f-%d7%97%d7%91%d7%a8%d7%aa-%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%95%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94 menu-item-1009"><a href="https://www.tal-limousine.com/%d7%98%d7%9c-%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%9f-%d7%97%d7%91%d7%a8%d7%aa-%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%95%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2/" role="link"><span>טל לימוזין – חברת לימוזינות ושירותי הסעות VIP</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-en menu-item-296"><a href="https://www.tal-limousine.com/en/" role="link"><span>En</span></a></li>
+</ul><ul id="menu-menu-1" class="mobile-menu visible-xs"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active first-item menu-item-318"><a href="/" role="link"><span>עמוד הבית</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://www.tal-limousine.com/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-vip/" role="link"><span>אודות</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-164"><a href="#" role="link"><span>שירותים</span></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-167"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a0%d7%aa%d7%91%d7%92/" role="link"><span>הסעות לנתבג</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-165"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%a0%d7%aa%d7%91%d7%92/" role="link"><span>שירות VIP בנתב"ג</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1080"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%9c%d7%90%d7%99%d7%a8%d7%95%d7%a2%d7%99%d7%9d-2/" role="link"><span>לימוזינות לאירועים</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%91%d7%97%d7%95%d7%9c/" role="link"><span>שירותי הסעות בחו"ל</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1179"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%97%d7%95%d7%9c/" role="link"><span>שירות VIP בחו"ל</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-182"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%90%d7%99%d7%a8%d7%95%d7%97-%d7%90%d7%97%d7%9e%d7%99%d7%9d/" role="link"><span>אירוח אח"מים</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1294"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a0%d7%94%d7%92-%d7%a4%d7%a8%d7%98%d7%99/" role="link"><span>נהג פרטי</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%91%d7%98%d7%97%d7%94-%d7%a6%d7%9e%d7%95%d7%93%d7%99%d7%9d/" role="link"><span>שירותי אבטחה</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-180"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a6%d7%95%d7%95%d7%aa%d7%99-%d7%90%d7%95%d7%95%d7%99%d7%a8/" role="link"><span>הסעות לצוותי אוויר</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a href="https://www.tal-limousine.com/%d7%a6%d7%99-%d7%a8%d7%9b%d7%91/" role="link"><span>צי רכב</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="https://www.tal-limousine.com/%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%99%d7%9d/" role="link"><span>לקוחות עסקיים</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-1406"><a href="https://www.tal-limousine.com/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%94%d7%92%d7%a0%d7%aa-%d7%94%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" role="link"><span>מדיניות הגנת הפרטיות</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="https://www.tal-limousine.com/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" role="link"><span>צור קשר</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1010"><a href="https://www.tal-limousine.com/category/%d7%9e%d7%a8%d7%9b%d7%96-%d7%94%d7%9e%d7%99%d7%93%d7%a2/" role="link"><span>מרכז המידע</span></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1248"><a href="https://www.tal-limousine.com/%d7%97%d7%95%d7%a4%d7%a9%d7%94-%d7%97%d7%9c%d7%95%d7%9e%d7%99%d7%aa-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%94-%d7%a2%d7%95%d7%93-%d7%9c%d7%a4%d7%a0%d7%99-%d7%94%d7%98%d7%99%d7%a1%d7%94/" role="link"><span>חופשה חלומית מתחילה עוד לפני הטיסה</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1184"><a href="https://www.tal-limousine.com/%d7%9b%d7%9c-%d7%94%d7%93%d7%a8%d7%9b%d7%99%d7%9d-%d7%9e%d7%95%d7%91%d7%99%d7%9c%d7%95%d7%aa-%d7%9c%d7%97%d7%95%d7%9c/" role="link"><span>כל הדרכים מובילות לחו"ל</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1195"><a href="https://www.tal-limousine.com/%d7%aa%d7%94%d7%9c%d7%99%d7%9a-%d7%98%d7%a8%d7%95%d7%9d-%d7%94%d7%98%d7%99%d7%a1%d7%94-%d7%91%d7%a0%d7%aa%d7%91%d7%92/" role="link"><span>תהליך טרום הטיסה בנתב"ג</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1245"><a href="https://www.tal-limousine.com/%d7%91-2020-%d7%a0%d7%95%d7%a1%d7%a2%d7%99%d7%9d-%d7%91%d7%94%d7%a1%d7%a2%d7%95%d7%aa-vip/" role="link"><span>שאטלים לנתב"ג זה הכי 2019, ב 2020 נוסעים בהסעות VIP</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1314"><a href="https://www.tal-limousine.com/%d7%9e%d7%95%d7%a0%d7%99%d7%aa-%d7%a9%d7%97%d7%95%d7%a8%d7%94/" role="link"><span>מונית שחורה</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1257"><a href="https://www.tal-limousine.com/%d7%91%d7%97%d7%9f-%d7%90%d7%aa-%d7%a2%d7%a6%d7%9e%d7%9a-%d7%94%d7%90%d7%9d-%d7%9e%d7%aa%d7%90%d7%99%d7%9d-%d7%9c%d7%9a-%d7%9c%d7%94%d7%99%d7%95%d7%aa-%d7%9c%d7%a7%d7%95%d7%97-vip/" role="link"><span>בחן את עצמך – האם מתאים לך להיות לקוח VIP</span></a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1009"><a href="https://www.tal-limousine.com/%d7%98%d7%9c-%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%9f-%d7%97%d7%91%d7%a8%d7%aa-%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%95%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2/" role="link"><span>טל לימוזין – חברת לימוזינות ושירותי הסעות VIP</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-296"><a href="https://www.tal-limousine.com/en/" role="link"><span>En</span></a></li>
+</ul>											</div>
+				</nav><!--/#nav-menu -->
+			</div><!-- /.container -->
+		</header>
+		<div class="header_botom">
+		<div class="header_cf">
+<div class="wpcf7 js" id="wpcf7-f1251-o2" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f1251-o2" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="1251">
+<input type="hidden" name="_wpcf7_version" value="5.8.7">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1251-o2">
+<input type="hidden" name="_wpcf7_container_post" value="0">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+<input type="hidden" name="_wpcf7_recaptcha_response" value="0cAFcWeA5YHKBq3HNvXQ-5vOd6G2EINK8gpmclY_8YLhjO4J-obAEzKm-BJ4qWckUZVVMSxsfm-Cfh05cYCyUJdURwOiJuomZNBRFJ_LsDmqyCMWDpJh9zozZsce2CIkgQUJ5lRB6UzGc3nmm8MdXpgTTVrtIjU02QMk6AUBq-DeEcJF80MCpIkSx9_kcmuDAinl5YtXKcYskWuIxPTll0iBLOKXG1VD5VuT_Qy3epcDRAAWk1EZxkS49V6KvHtR-dumjNLturz495VX5zyFijAWtL_lYI86S7jjcSKI77T4KMkgtpUS17SESSkGwTxXZh83InDyJFCzrP7ctyd-OQ7caYwfiNJrwkh3KxH3ueEWAafihl5cDZrMF_Dt2HmERQC_cPMnXiCAK34vFA0B8qndhZXvIvLfENvpTz39Caf7bSzenQEagpVO-z-mb_ZPyzZD35VYofWI5ulkroHVQxB4hGe_mXIJtAAmee_c8GW6HFyWwFRsaFVCjIqQ3LP8uhxehx6XwP2r8Nlh2DOizSj4bNiNo3QEJVDlAbSHo1f8RSTyTUwqolcS9rQ1Wn2QJ0Re0KL2Tk5-dWn1VgE1cK59Ma_Tk7TEH0gWpifBK88qn3S_MdyVRipomOVD0_EriPuBm7x6tMCJeiYIBw0O0IbC8dbR1xNtsax22YgdERNs6TJriCO2WN5OgFMBzMR2dMlEUogFIU6ldvzmtbhB-nNq73Tp8Dz1kZJw7Hp-YmkXtctJb1VX_jKyGkLLyIupJyk4rrnj92s2EWm-OdD1cgEbbHOqdU27GTqpFJDgKcfKPq91_5D0dqphjA58zN2nhMPJgACbwvquhzzISqZFTezYX72eQ-eggkbAcZQqk7ziptyReRLmf0AbBpJ1eyQUX3NX8EBsPyK7A5_5Ap5IT5RsAKb5jrsyYXLVkX6i3FfHX9T5GMEfQc07ImSeg_Wl-tM6ZbW_g5MqvTyog876AQqe_8ilDWH9EUgSJC-xKbqy300fj4-gySE0c68l5QYy2W4ZNVnnGzTYepjQkrQkWb9C6j2DKestUtykK1OSW4zmacUJdZXphZgfJ7_ZQi4kWeBGr-4zRbT3AIAxDcoWkcvOuUSwe-SyQcdNt32iUtuixleN2rkVOlwo-9AXQijZwuYBfY5rrJKXU0c-2wdHJk1iJWa0kEg57DFHFkFISppX5S71Ym5m0XhWf8rn7wOETHfxg5XLfrXyyP2LAhdk5XLA6Dz_C-fcqy3eBRoAA3rJ6iLXr1qGoIPEXOMMlVHgEQdpEpF3SJJiW2P0Up7ApSzmUcq_R78fl3Y9Ukmu_2qn7u1cQ3JoYd6f_CUNmoVkfMaVZFZudkkeBYBKQq8A3Hw9KQqtWl-TJmH8R_QmZdm2pT1D4n1Wjli96IDd6OV9evgxWnOP41i0GZRMSnaId2znv8vslZzdQQSyk1CO73_tLUxTL9AUIT1K8ofO0BGEn_WYNdy-54oCOzU2uVbr3pzPK8zwKtXW6GavJ5YBqdRxeWO6nQiLsGiUjyGNhjseY-xwkTodLi-wdIzWsVbhPDKwr0euJpnaY4HEhrDogQrqdRmvVyUZVEEM34Z8H17n1cwPEVNwsON8DeHsI5USbJ3kUPaiiMyiH6Iu3t2fY0mvZs7P2DYCe1t_qo8zej4zDV_DGqFcXutdGtAFCG2KfQbhOWq0VkECRewane_BlczFK9oZLmknvOuzSzlMI1Q954uqKuszrDgJBqX_ddAN1OUjIjQtS3F7GALODTxT0tLLpZU2HlB1M4xRCFGFDntVbkXV6PO4zkmNxFxGKYqrNU_DCLldOCKnbK8TEmRz69XxvpF0bBK0cJNdxzSlOn36nfL2wlgAFascv3_ClBw_viFWtbmw8eG9PexH3xYa4_iYL-vGGc3HWQ2SFSQpPvTIre6YtarZCzQVGiKSDd7z9UAySUKdbEVrihpTQVDNEHFfmmHDdDZPV8QBnQy0NpJ1VLcn7hSBkHs3cg92Dm8AuPwCW7vhfBcjGz5VcUF2M8bAwMmTC-6xiLCMuxX2Hft-qfsVMtSkDP4WVP">
+</div>
+<h2>צרו קשר עם מרכז ההזמנות
+</h2>
+<p><span id="wpcf7-69bec7084d1cb-wrapper" class="wpcf7-form-control-wrap po-h-wrap" style="display:none !important; visibility:hidden !important;"><label for="wpcf7-69bec7084d1cb-field" class="hp-message">Please leave this field empty.</label><input id="wpcf7-69bec7084d1cb-field" class="wpcf7-form-control wpcf7-text" type="text" name="po-h" value="" size="40" tabindex="-1" autocomplete="new-password"></span><span class="input input--chisato"><span class="wpcf7-form-control-wrap" data-name="your-first-name"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input__field input__field--chisato" aria-required="true" aria-invalid="false" value="" type="text" name="your-first-name"></span><label for="first-name" class="input__label input__label--chisato"><span class="input__label-content input__label-content--chisato" data-content="שם פרטי">שם פרטי</span></label></span><span class="input input--chisato"><span class="wpcf7-form-control-wrap" data-name="your-last-name"><input size="40" class="wpcf7-form-control wpcf7-text input__field input__field--chisato" aria-invalid="false" value="" type="text" name="your-last-name"></span><label for="last-name" class="input__label input__label--chisato"><span class="input__label-content input__label-content--chisato" data-content="שם משפחה">שם משפחה</span></label></span><span class="input input--chisato"><span class="wpcf7-form-control-wrap" data-name="tel-92"><input size="40" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel input__field input__field--chisato" aria-invalid="false" value="" type="tel" name="tel-92"></span><label for="phone" class="input__label input__label--chisato"><span class="input__label-content input__label-content--chisato" data-content="טלפון">טלפון</span></label></span><span class="input input--chisato"><span class="wpcf7-form-control-wrap" data-name="email-726"><input size="40" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email input__field input__field--chisato" aria-required="true" aria-invalid="false" value="" type="email" name="email-726"></span><label for="email" class="input__label input__label--chisato"><span class="input__label-content input__label-content--chisato" data-content="מייל">מייל</span></label></span>
+</p>
+
+<!--web3d-consent-start-->
+<div id="web3d-consent-1251" class="web3d-consent-text">
+	<p><span class="wpcf7-form-control-wrap" data-name="privacy_consent"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="privacy_consent" value="1" aria-invalid="false"><span class="wpcf7-list-item-label">אני מאשר/ת כי קראתי והבנתי את <a href="https://www.tal-limousine.com/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%94%d7%92%d7%a0%d7%aa-%d7%94%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" style="text-decoration:underline" target="_blank" rel="noopener noreferrer" role="link">מדיניות הפרטיות</a> וכי אני מסכים/ה לה</span></label></span></span></span>
+	</p>
+</div>
+<style id="web3d-consent-style-1251">#web3d-consent-1251 { color: #2f3437 !important; }
+#web3d-consent-1251 a { color: #0062ff !important; text-decoration: underline !important; text-decoration-color: #0062ff !important; }
+/* Consent block base styling */
+.web3d-consent-text {
+ font-weight: 400;
+ font-size:
+
+}
+@media(min-width:767px){
+.wpcf7-list-item-label {
+ font-size: .7em;
+}
+}
+@media (max-width: 767px) {
+ .header_cf {
+ top: 0vw;
+ width: 90%;
+ right: 5%;
+ z-index: 1;
+ }
+}
+
+input[type=\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"radio\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"], input[type=\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"checkbox\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"]{
+margin:0;
+}
+.web3d-consent-text a {
+ font-weight: 400;
+}
+
+.web3d-consent-text .web3d-consent-helper {
+ display: block;
+ opacity: 0.8;
+ margin-top: 6px;
+}
+</style><!--web3d-consent-end-->
+<p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="שלח" disabled=""><span class="wpcf7-spinner"></span>
+</p><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>		<div class="header_img"><img src="https://www.tal-limousine.com/wp-content/uploads/2021/06/new.jpg"></div>				</div>
+			
+				<div id="page-header" class="page-header-style-custom_bg">
+	<div class="page-header-title container">
+					<div class="title-primary pull-left">
+				<h1>טל לימוזין</h1>
+			</div>
+					</div><!-- /.page-header-title -->
+</div><!-- /#page-header -->
+		<div id="primary">
+			<div class="container">
+				<div id="content" class="row">		<section id="main" role="main">
+			<article id="post-8" class="post-8 page type-page status-publish hentry">
+									<div class="entry-content">
+							<section id="builder-section-1" class="section" style="color:#FFFFFF;background-color:#292418" data-anchor-target="#builder-section-1">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<h2 style="text-align:right;color:#ffffff">חברת ההסעות ושירותי הVIP המובילה בישראל</h2>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-2" class="section" style="color:#FFFFFF;background-color:#292418" data-anchor-target="#builder-section-2">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-3" class="section" style="color:#FFFFFF;background-color:#292418" data-anchor-target="#builder-section-3">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><p>טל לימוזין מספקת מכלול שלם ומקיף של שירותים (One Stop Shop). סל השירותים המגוון מאפשר לנו לספק פתרונות כוללים ולהתאים עבורך חבילת שירותים ההולמת את צרכיך. לחברתנו ניסיון של 30 שנה במתן מגוון רחב של שירותים משלימים כגון: הזמנת שירותי VIP וטרקלינים בנתב''ג, שירותי הסעות ושירותי VIP גם בחו''ל, הצמדת נהג אישי, טיולים, שירות מוסק ועוד.</p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-4" class="section" style="color:#FFFFFF;background-color:#292418;background-image:url(&quot;https://www.tal-limousine.com/wp-content/uploads/2021/06/plain.png&quot;);background-repeat:no-repeat;background-size:cover;background-position:bottom center" data-anchor-target="#builder-section-4">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h3 style="text-align: left;">&nbsp;</h3><h2 style="padding-right: 120px; text-align: left;"><span style="color: #ffffff;">טל לימוזין – ''להתחיל את </span></h2><h2 style="padding-right: 120px; text-align: left;"><span style="color: #ffffff;">החופשה כבר מהבית"</span></h2><p style="text-align: left;"><span style="font-size: 14pt; color: #ffffff;">בהזמנת השירותים, נסיעתכם לחו''ל תתחיל כבר מפתח </span></p><p style="text-align: left;"><span style="color: #ffffff;"> <span style="font-size: 14pt;">ביתכם וכשתנחתו נדאג לכם לנחיתה הכי רכה שאפשר. </span></span></p><p style="text-align: left;"><span style="font-size: 14pt; color: #ffffff;">שבו והתרווחו ברכבים חדישים ומרווחים ואנו נדאג לשאר.</span></p><p style="text-align: left;">&nbsp;</p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-5" class="section" style="color:#FFFFFF" data-anchor-target="#builder-section-5">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h2 style="text-align: center;"><span style="color: #ffffff;">הזמן אונליין - חסוך זמן</span></h2><p><a href="https://tal-limousine.jetalimo.com/?lang=he" target="_blank" rel="noopener" role="link"><img class="size-full wp-image-719 aligncenter" src="https://www.tal-limousine.com/wp-content/uploads/2020/03/BOOKNOW.png" alt="" width="238" height="65"></a></p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-6" class="section" style="color:#FFFFFF;background-color:#292418;background-image:url(&quot;https://www.tal-limousine.com/wp-content/uploads/2021/07/man-car.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:bottom center;padding-top:80px;padding-bottom:80px" data-anchor-target="#builder-section-6">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:100;margin-bottom:30;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h3>&nbsp;</h3><h2><span style="color: #ffffff;">עסקים נוסעים עם טל לימוזין</span></h2><p><span style="color: #ffffff; font-size: 14pt;">בנוחות, דייקנות, מקצועיות ובשירות מפנק </span><br><span style="color: #ffffff; font-size: 14pt;">ברמה אחת מעל כולם. משדה התעופה ואליו - </span><br><span style="color: #ffffff; font-size: 14pt;">כאן ובכל מקום בעולם - סביב השעון - לשירותכם.</span></p><p>&nbsp;</p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:30;margin-bottom:30;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-7" class="section" style="color:#FFFFFF;background-color:#292418;background-image:url(&quot;https://www.tal-limousine.com/wp-content/uploads/2020/03/transportation-bg-1.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:bottom center" data-anchor-target="#builder-section-7">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h3 style="text-align: right;">&nbsp;</h3><h2 style="text-align: right;"><span style="color: #ffffff;">טל לימוזין נתב"ג, </span><br><span style="color: #ffffff;"> הסעות לכל נקודה בארץ</span></h2><p style="text-align: right;"><span style="color: #ffffff; font-size: 14pt;">מדן ועד אילת. מהבית, מהמלון, שירותי </span><br><span style="color: #ffffff; font-size: 14pt;"> <a style="color: #ffffff;" href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a9%d7%93%d7%94-%d7%94%d7%aa%d7%a2%d7%95%d7%a4%d7%94/" role="link">ההסעות לשדה התעופה</a> שלנו בדרך אליכם </span><br><span style="color: #ffffff; font-size: 14pt;"> כדי שתגיעו בזמן ותיהנו במיוחד...מהנסיעה.</span></p><p style="text-align: right;">&nbsp;</p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-8" class="section" style="color:#FFFFFF;background-color:#292418;background-image:url(&quot;https://www.tal-limousine.com/wp-content/uploads/2021/07/man-flight2.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:bottom center;padding-top:70px;padding-bottom:70px" data-anchor-target="#builder-section-8">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h3 style="text-align: left;">&nbsp;</h3><h2 style="text-align: left;"><span style="color: #ffffff;"><a style="color: #ffffff;" href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%91%d7%97%d7%95%d7%9c/" role="link">שירותי הסעות בחו"ל</a></span></h2><p style="text-align: left;"><span style="color: #ffffff; font-size: 14pt;">רומא, פריז, לונדון, ניו יורק, איפה אתם? </span><br><span style="color: #ffffff; font-size: 14pt;">אנחנו דואגים להסעתכם לשדה התעופה </span><br><span style="color: #ffffff;"><span style="font-size: 14pt;">בדרך ליעד הבא שלכם, בעולם או חזרה ארצה.</span> </span></p><p>&nbsp;</p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-9" class="section" style="color:#FFFFFF;background-color:#292418;background-image:url(&quot;https://www.tal-limousine.com/wp-content/uploads/2020/04/vip-hospitality-bg-1-Copy.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:bottom center;padding-top:90px;padding-bottom:90px" data-anchor-target="#builder-section-9">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h3 style="text-align: right;">&nbsp;</h3><h2 style="text-align: right;"><span style="color: #ffffff;">שירות vip בנתב"ג</span></h2><p style="text-align: right;"><span style="color: #ffffff; font-size: 14pt;">טל לימוזין נתב"ג זו הדרך להבטיח התנהלות חלקה, </span><br><span style="color: #ffffff; font-size: 14pt;">נעימה ומקוצרת בכניסה וביציאה מהארץ. </span></p><p style="text-align: right;"><span style="color: #ffffff; font-size: 14pt;">הצוות שלנו משרת אתכם מרגע הגעתכם לנקודת המפגש </span><br><span style="color: #ffffff; font-size: 14pt;">בשדה התעופה ומטפל במזוודות, בידוק בטחוני, בידוק הכבודה, </span><br><span style="color: #ffffff; font-size: 14pt;">ביקורת הדרכונים, אירוח בטרקליני אח"מים ועד ...למטוס ובחזרה.</span></p><p style="text-align: right;">&nbsp;</p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-10" class="section" style="color:#FFFFFF;background-color:#292418;background-image:url(&quot;https://www.tal-limousine.com/wp-content/uploads/2021/07/manwomen.jpg&quot;);background-repeat:no-repeat;background-size:cover;background-position:bottom center;padding-top:90px;padding-bottom:90px" data-anchor-target="#builder-section-10">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h3 style="text-align: left;">&nbsp;</h3><h2 style="text-align: left;"><span style="color: #ffffff;">הסעות תיירים vip</span></h2><p style="text-align: left;"><span style="color: #ffffff; font-size: 14pt;">חבילת אירוח מלאה בארץ הכוללת: </span></p><p style="text-align: left;"><span style="color: #ffffff; font-size: 14pt;">שירותי VIP בכניסה לארץ </span></p><p style="text-align: left;"><span style="color: #ffffff; font-size: 14pt;">הסעה ברכב מפואר לטרקלין ה- VIP</span></p><p style="text-align: left;"><span style="color: #ffffff; font-size: 14pt;">כיבוד קל, טיפול בדרכונים, איסוף וטיפול במזוודות.</span></p><p dir="ltr" style="text-align: left;">&nbsp;</p></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					<section id="builder-section-11" class="section" style="color:#FFFFFF;background-color:#000000;background-repeat:no-repeat;background-size:cover;background-position:bottom center" data-anchor-target="#builder-section-11">
+
+									
+					<div class="container">
+						<div class="columns advanced-columns">
+															<div class="column-12 advanced-column">
+									<div class="columns widget-columns">
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+															<div class="textwidget"><h2 style="text-align: center;"><span style="color: #ffffff;">שירותי ה VIP המובחרים והמובילים בישראל</span></h2><h3 style="text-align: center;"><span style="color: #ffffff;">שירותי לימוזינות והסעות פרטיות אל נמל התעופה בן גוריון וממנו</span></h3></div>
+														</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="widget-image align-none"><img src="https://www.tal-limousine.com/wp-content/uploads/2020/03/ICONS.png" alt="שירותי VIP המובחרים והמובילים בישראל"></div>												</div>
+											</div>
+																					<div class="column-12 widget-column">
+												<div class="pb-widget-inner">
+													<div class="pojo-divider alignnone divider-style-space" style="margin-top:10;margin-bottom:10;width:100%">
+				<hr style="border-color:#000000;border-width:1px">
+			</div>												</div>
+											</div>
+																			</div>
+								</div>
+													</div>
+					</div>
+							</section>
+					</div>
+			<footer>
+							</footer>
+		</article>
+					</section><!-- section#main -->
+				</div><!-- #content -->
+		</div><!-- .container -->
+	</div><!-- #primary -->
+
+			<footer id="footer">
+			<div class="container">
+			<div class="footerInfo">
+				<a class="Fmail" href="mailto:info@tal-limousine.com" role="link">info@tal-limousine.com</a><div class="FPhone">Phone: <a href="tel:03-9754044" role="link">03-9754044</a></div><div class="FaxFooter">Fax:   03-9754045</div>
+				<div class="Fadress">P.O.B 102, Ben Gurion, International Airport, 70100, Israel <br><a href="/הצהרת-נגישות/" role="link">הצהרת-נגישות</a></div>
+			</div>
+				<div class="footerOne"><section id="pojo_button-2" class="widget widget_pojo_button"><div class="widget-inner"><div class="pojo-button-wrap pojo-button-none">
+				<a class="button size-medium" style="background-color:rgba(255,255,255,1);border-color:#cccccc;color:#333333" href="https://tallimo.co.il/booking" role="link">
+					<span class="pojo-button-text">הזמן עכשיו</span>
+				</a>
+			</div></div></section></div>
+			</div>
+			<div id="sidebar-footer">
+	<div class="container">
+		<div class="row">
+			<section id="pages-4" class="widget widget_pages col-sm-4"><div class="widget-inner"><h5 class="widget-title"><span>טל לימוזין</span></h5>
+			<ul>
+				<li class="page_item page-item-2"><a href="https://www.tal-limousine.com/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-vip/" role="link">אודות</a></li>
+<li class="page_item page-item-8 current_page_item"><a href="https://www.tal-limousine.com/" aria-current="page" role="link">טל לימוזין</a></li>
+<li class="page_item page-item-13"><a href="https://www.tal-limousine.com/%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%99%d7%9d/" role="link">לקוחות עסקיים</a></li>
+<li class="page_item page-item-19"><a href="https://www.tal-limousine.com/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" role="link">צור קשר</a></li>
+<li class="page_item page-item-1219"><a href="https://www.tal-limousine.com/%d7%aa%d7%95%d7%93%d7%94/" role="link">תודה</a></li>
+<li class="page_item page-item-1403"><a href="https://www.tal-limousine.com/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%94%d7%92%d7%a0%d7%aa-%d7%94%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" role="link">מדיניות הגנת הפרטיות</a></li>
+<li class="page_item page-item-1029"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%9c%d7%90%d7%99%d7%a8%d7%95%d7%a2%d7%99%d7%9d-2/" role="link">לימוזינות לאירועים</a></li>
+<li class="page_item page-item-1170"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%97%d7%95%d7%9c/" role="link">שירות VIP בחו"ל</a></li>
+<li class="page_item page-item-1287"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a0%d7%94%d7%92-%d7%a4%d7%a8%d7%98%d7%99/" role="link">נהג פרטי</a></li>
+			</ul>
+
+			</div></section><section id="pages-5" class="widget widget_pages col-sm-4"><div class="widget-inner"><h5 class="widget-title"><span>שירותי VIP</span></h5>
+			<ul>
+				<li class="page_item page-item-1219"><a href="https://www.tal-limousine.com/%d7%aa%d7%95%d7%93%d7%94/" role="link">תודה</a></li>
+<li class="page_item page-item-1403"><a href="https://www.tal-limousine.com/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%94%d7%92%d7%a0%d7%aa-%d7%94%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" role="link">מדיניות הגנת הפרטיות</a></li>
+<li class="page_item page-item-115"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a0%d7%aa%d7%91%d7%92/" role="link">הסעות לנתבג</a></li>
+<li class="page_item page-item-122"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%91%d7%97%d7%95%d7%9c/" role="link">שירותי הסעות בחו"ל</a></li>
+<li class="page_item page-item-143"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%a0%d7%aa%d7%91%d7%92/" role="link">שירות VIP בנתב"ג</a></li>
+<li class="page_item page-item-168"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%90%d7%99%d7%a8%d7%95%d7%97-%d7%90%d7%97%d7%9e%d7%99%d7%9d/" role="link">אירוח אח"מים</a></li>
+<li class="page_item page-item-172"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99-%d7%90%d7%91%d7%98%d7%97%d7%94-%d7%a6%d7%9e%d7%95%d7%93%d7%99%d7%9d/" role="link">שירותי אבטחה צמודים</a></li>
+<li class="page_item page-item-176"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%94%d7%a1%d7%a2%d7%95%d7%aa-%d7%9c%d7%a6%d7%95%d7%95%d7%aa%d7%99-%d7%90%d7%95%d7%95%d7%99%d7%a8/" role="link">הסעות לצוותי אוויר</a></li>
+<li class="page_item page-item-1029"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%9c%d7%99%d7%9e%d7%95%d7%96%d7%99%d7%a0%d7%95%d7%aa-%d7%9c%d7%90%d7%99%d7%a8%d7%95%d7%a2%d7%99%d7%9d-2/" role="link">לימוזינות לאירועים</a></li>
+<li class="page_item page-item-1170"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-vip-%d7%91%d7%97%d7%95%d7%9c/" role="link">שירות VIP בחו"ל</a></li>
+<li class="page_item page-item-1287"><a href="https://www.tal-limousine.com/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a0%d7%94%d7%92-%d7%a4%d7%a8%d7%98%d7%99/" role="link">נהג פרטי</a></li>
+			</ul>
+
+			</div></section><section id="text-3" class="widget widget_text col-sm-4"><div class="widget-inner">			<div class="textwidget"><p><img decoding="async" class="alignleft" src="/he/wp-content/themes/atlanta-child/assets/images/footer-ssl.png" alt="קנייה בטוחה"></p>
+<p style="text-align: left;">© All Rights Reserved to Tal Limousine</p>
+<p><a href="https://web3d.co.il/service/%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-%d7%94%d7%a7%d7%9e%d7%aa-%d7%90%d7%aa%d7%a8-%d7%90%d7%99%d7%a0%d7%98%d7%a8%d7%a0%d7%98/%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8%d7%99-%d7%aa%d7%93%d7%9e%d7%99%d7%aa/" target="_blank" rel="noopener" role="link">בניית אתרי תדמית <img decoding="async" src="/wp-content/uploads/2022/04/web3d-white.png" alt="web3d בניית אתרי תדמית"></a></p>
+</div>
+		</div></section>		</div>
+	</div>
+</div>		</footer>
+
+		<div id="copyright" role="contentinfo">
+			<div class="container">
+				<div class="footer-text-left pull-left">
+					Theme by <a href="http://pojo.me/" rel="nofollow" role="link">Pojo.me</a> - WordPress Themes				</div>
+				<div class="footer-text-right pull-right">
+					We <i class="fa fa-heart"></i> <a href="http://wordpress.org/" role="link">WordPress</a>				</div>
+			</div><!-- .container -->
+		</div>
+	
+</div><!-- #container -->
+<script type="text/javascript">var PojoSliders=[];</script>		<div id="pojo-scroll-up" class="pojo-scroll-up-right" data-offset="50" data-duration="750" style="font-size: 20px;border-radius: 6px">
+			<div class="pojo-scroll-up-inner">
+				<a class="pojo-scroll-up-button" href="javascript:void(0);" title="גלילה לראש העמוד" role="link">
+					<span class="fa fa-chevron-up"></span><span class="sr-only">גלילה לראש העמוד</span>
+				</a>
+			</div>
+		</div>
+				<!-- Google Tag Manager (noscript) snippet added by Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8XBZ8M" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
+		<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.8.7" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.tal-limousine.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.8.7" id="contact-form-7-js"></script>
+<script type="text/javascript" id="wp-jquery-lightbox-js-extra">
+/* <![CDATA[ */
+var JQLBSettings = {"fitToScreen":"0","resizeSpeed":"400","displayDownloadLink":"0","navbarOnTop":"0","loopImages":"","resizeCenter":"","marginSize":"","linkTarget":"","help":"","prevLinkTitle":"previous image","nextLinkTitle":"next image","prevLinkText":"\u00ab Previous","nextLinkText":"Next \u00bb","closeTitle":"close image gallery","image":"Image ","of":" of ","download":"Download","jqlb_overlay_opacity":"80","jqlb_overlay_color":"#000000","jqlb_overlay_close":"1","jqlb_border_width":"10","jqlb_border_color":"#ffffff","jqlb_border_radius":"0","jqlb_image_info_background_transparency":"100","jqlb_image_info_bg_color":"#ffffff","jqlb_image_info_text_color":"#000000","jqlb_image_info_text_fontsize":"10","jqlb_show_text_for_image":"1","jqlb_next_image_title":"next image","jqlb_previous_image_title":"previous image","jqlb_next_button_image":"https:\/\/www.tal-limousine.com\/wp-content\/plugins\/wp-lightbox-2\/styles\/images\/he_IL\/next.gif","jqlb_previous_button_image":"https:\/\/www.tal-limousine.com\/wp-content\/plugins\/wp-lightbox-2\/styles\/images\/he_IL\/prev.gif","jqlb_maximum_width":"","jqlb_maximum_height":"","jqlb_show_close_button":"1","jqlb_close_image_title":"close image gallery","jqlb_close_image_max_heght":"22","jqlb_image_for_close_lightbox":"https:\/\/www.tal-limousine.com\/wp-content\/plugins\/wp-lightbox-2\/styles\/images\/he_IL\/closelabel.gif","jqlb_keyboard_navigation":"1","jqlb_popup_size_fix":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/wp-lightbox-2/js/dist/wp-lightbox-2.min.js?ver=1.3.4.1" id="wp-jquery-lightbox-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/themes/atlanta-child/js/main.js?ver=2" id="main-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/pojo-forms/assets/js/app.min.js?ver=6.4.8" id="pojo-forms-js"></script>
+<script type="text/javascript" id="pojo-a11y-js-extra">
+/* <![CDATA[ */
+var PojoA11yOptions = {"focusable":"","remove_link_target":"","add_role_links":"1","enable_save":"1","save_expiration":"12"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/pojo-accessibility/assets/js/app.min.js?ver=1.0.0" id="pojo-a11y-js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LddBf4ZAAAAABkHfUgfbUkRNW_Zw8m-DDGKxPKO&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id="wp-polyfill-inert-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0" id="regenerator-runtime-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LddBf4ZAAAAABkHfUgfbUkRNW_Zw8m-DDGKxPKO","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.8.7" id="wpcf7-recaptcha-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/themes/atlanta/assets/bootstrap/js/bootstrap.min.js?ver=3.0.0" id="pojo-plugins-js"></script>
+<script type="text/javascript" id="pojo-scripts-js-extra">
+/* <![CDATA[ */
+var Pojo = {"ajaxurl":"https:\/\/www.tal-limousine.com\/wp-admin\/admin-ajax.php","css_framework_type":"bootstrap","superfish_args":{"delay":150,"animation":{"opacity":"show","height":"show"},"speed":"fast"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/themes/atlanta/assets/js/frontend.min.js?ver=1.6.6" id="pojo-scripts-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/themes/atlanta/core/assets/masterslider/masterslider.min.js?ver=2.9.5" id="masterslider-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/pojo-builder-animation/assets/js/scripts.min.js?ver=6.4.8" id="pojo-builder-animation-js"></script>
+<script type="text/javascript" src="https://www.tal-limousine.com/wp-content/plugins/pojo-news-ticker/assets/js/app.min.js?ver=6.4.8" id="pojo-news-ticker-js"></script>
+		
+				
+		<style id="w3d-cb-style">/* Banner container */
+.w3d-cb-banner {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 730px;
+  width: 95%;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px 24px;
+  z-index: 2147483647;
+  box-sizing: border-box;
+}
+
+.w3d-cb-banner.slide-enter {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateX(-50%) translateY(100%); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* Header */
+.w3d-cb-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.w3d-cb-title-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1;
+}
+
+.w3d-cb-cookie-icon {
+  width: 1.6em;
+  height: 1.6em;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.w3d-cb-cookie-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.w3d-cb-cookie-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.w3d-cb-logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.w3d-cb-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: #000000;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+h3.w3d-cb-title {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+.w3d-cb-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  font-size: unset;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  color: #666;
+}
+
+.w3d-cb-close:hover {
+  color: #ffffff;
+}
+
+/* Message */
+.w3d-cb-message {
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.w3d-cb-message a {
+  color: #0073aa;
+  text-decoration: underline;
+}
+
+.w3d-cb-message a:hover {
+  color: #005177;
+}
+
+/* Categories */
+.w3d-cb-categories {
+  margin: 16px 0;
+}
+
+.w3d-cb-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.w3d-cb-category:last-child {
+  border-bottom: none;
+}
+
+.w3d-cb-category-label {
+  font-size: 14px;
+  color: #000000;
+}
+
+/* Toggle Switch */
+.w3d-cb-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.w3d-cb-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.w3d-cb-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.w3d-cb-slider:before {
+  position: absolute;
+  content: \\\"\\\";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider {
+  background-color: #4CAF50;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider:before {
+  transform: translateX(24px);
+}
+
+/* Buttons */
+#w3d-cb-banner .w3d-cb-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+#w3d-cb-banner .w3d-cb-btn {
+  padding: 10px 20px;
+  border: 2px solid #0073aa;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 120px;
+}
+
+#w3d-cb-banner .w3d-cb-btn-accept {
+  background: var(--w3d-accept-bg, #0073aa);
+  border-color: var(--w3d-accept-border, #005177);
+  color: var(--w3d-accept-text, #ffffff);
+}
+
+#w3d-cb-banner .w3d-cb-btn-accept:hover {
+  opacity: 0.9;
+}
+
+#w3d-cb-banner .w3d-cb-btn-deny {
+  background: var(--w3d-deny-bg, transparent);
+  border-color: var(--w3d-deny-border, #0073aa);
+  color: var(--w3d-deny-text, #0073aa);
+}
+
+#w3d-cb-banner .w3d-cb-btn-deny:hover {
+  opacity: 0.8;
+}
+
+#w3d-cb-banner .w3d-cb-btn-save {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: #ffffff;
+}
+
+#w3d-cb-banner .w3d-cb-btn-save:hover {
+  background: #45a049;
+  border-color: #45a049;
+}
+
+#w3d-cb-banner .w3d-cb-btn-view {
+  background: transparent;
+  color: #666;
+  border-color: #999;
+  font-size: 13px;
+  flex-basis: 100%;
+  margin-top: 4px;
+}
+
+#w3d-cb-banner .w3d-cb-btn-view:hover {
+  background: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 425px) {
+  .w3d-cb-banner {
+    width: 100%;
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  #w3d-cb-banner .w3d-cb-buttons {
+    flex-direction: column;
+  }
+
+  #w3d-cb-banner .w3d-cb-btn {
+    width: 100%;
+  }
+}
+
+/* Color Overrides from Settings */
+:root {
+  --w3d-bg: #ffffff;
+  --w3d-border: #ffffff;
+  --w3d-text: #000000;
+  --w3d-link: #000000;
+  --w3d-link-underline: #000000;
+  --w3d-toggle-active: #4CAF50;
+  --w3d-toggle-inactive: #ccc;
+  --w3d-accept-bg: #000000;
+  --w3d-accept-border: #000000;
+  --w3d-accept-text: #ffffff;
+  --w3d-deny-bg: #e5e5e5;
+  --w3d-deny-border: #e5e5e5;
+  --w3d-deny-text: #000000;
+}
+
+.w3d-cb-banner {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.w3d-cb-title {
+  color: #000000 !important;
+}
+
+.w3d-cb-message {
+  color: #000000 !important;
+}
+
+.w3d-cb-message a {
+  color: #000000 !important;
+  text-decoration-color: #000000 !important;
+}
+
+.w3d-cb-message a:hover {
+  color: #000000 !important;
+  text-decoration-color: #000000 !important;
+}
+
+.w3d-cb-category-label {
+  color: #000000 !important;
+}
+
+.w3d-cb-slider {
+  background-color: #ccc !important;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider {
+  background-color: #4CAF50 !important;
+}
+
+.w3d-cb-btn-accept {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.w3d-cb-btn-deny {
+  background: #e5e5e5 !important;
+  border-color: #e5e5e5 !important;
+  color: #000000 !important;
+}
+</style>    <div id="w3d-cb-banner" class="w3d-cb-banner" style="display: block !important;">
+        <div class="w3d-cb-header">
+                        <div class="w3d-cb-title-wrap">
+                <h3 class="w3d-cb-title">ניהול הסכמה</h3>
+                            </div>
+                    </div>
+
+        <div class="w3d-cb-message">האתר שלנו משתמש בעוגיות לצורך תפעול תקין, שיפור חוויית השימוש, ניתוח סטטיסטי והצגת פרסומות מותאמות אישית. תוכלו לבחור אם לאפשר את כל סוגי העוגיות או לדחות אותן. למידע נוסף: <a href="https://www.tal-limousine.com/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%94%d7%92%d7%a0%d7%aa-%d7%94%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" target="_blank" rel="noopener noreferrer" role="link">מדיניות פרטיות</a></div>
+
+        
+        <div class="w3d-cb-buttons" id="w3d-cb-simple-buttons">
+            <button type="button" class="w3d-cb-btn w3d-cb-btn-accept" id="w3d-cb-accept">לקבל</button>
+            <button type="button" class="w3d-cb-btn w3d-cb-btn-deny" id="w3d-cb-deny">לדחות</button>
+                    </div>
+
+            </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            var COOKIE_NAME = 'w3d_consent';
+            var COOKIE_DAYS = 365;
+            var SHOW_CATEGORIES = false;
+            var initialized = false;
+
+            function getCookie(name) {
+                var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+                return v ? decodeURIComponent(v[2]) : null;
+            }
+
+            function setCookie(name, value, days) {
+                var d = new Date();
+                d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+                document.cookie = name + "=" + encodeURIComponent(value) + ";path=/;expires=" + d.toGMTString() + ";SameSite=Lax";
+            }
+
+            function getStoredConsentData() {
+                var stored = getCookie(COOKIE_NAME);
+                if (!stored) return null;
+                try {
+                    return JSON.parse(stored);
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            function hasStoredConsent() {
+                var parsed = getStoredConsentData();
+                if (!parsed) return false;
+                return typeof parsed.functional !== 'undefined' ||
+                    typeof parsed.analytics !== 'undefined' ||
+                    typeof parsed.marketing !== 'undefined';
+            }
+
+            function hasAnalyticsConsent() {
+                var parsed = getStoredConsentData();
+                return !!(parsed && Number(parsed.analytics) === 1);
+            }
+
+            function hasMarketingConsent() {
+                var parsed = getStoredConsentData();
+                return !!(parsed && Number(parsed.marketing) === 1);
+            }
+
+            function restoreBlockedIframe(wrapper) {
+                if (!wrapper || wrapper.getAttribute('data-restored') === '1') return;
+                var encoded = wrapper.getAttribute('data-orig');
+                if (!encoded) return;
+
+                var decoded = '';
+                try {
+                    decoded = atob(encoded);
+                } catch (e) {
+                    return;
+                }
+
+                if (!decoded) return;
+
+                var container = document.createElement('div');
+                container.innerHTML = decoded.trim();
+                var iframe = container.firstElementChild;
+                if (!iframe) return;
+
+                wrapper.parentNode.replaceChild(iframe, wrapper);
+                wrapper.setAttribute('data-restored', '1');
+            }
+
+            function restoreBlockedEmbeds() {
+                document.querySelectorAll('.w3d-blocked-iframe[data-orig]').forEach(function(wrapper) {
+                    restoreBlockedIframe(wrapper);
+                });
+            }
+
+            function releaseBlockedScripts(consent) {
+                consent = consent || getStoredConsentData();
+                if (!consent) return;
+
+                var allowAnalytics = Number(consent.analytics) === 1;
+                var allowMarketing = Number(consent.marketing) === 1;
+
+                if (!allowAnalytics && !allowMarketing) return;
+
+                var scriptsFound = 0;
+                var scriptsRestored = [];
+                document.querySelectorAll('script[type="text/plain"][data-category]').forEach(function(script) {
+                    var category = script.getAttribute('data-category');
+                    if (
+                        (category === 'analytics' && !allowAnalytics) ||
+                        (category === 'marketing' && !allowMarketing)
+                    ) {
+                        return;
+                    }
+                    scriptsFound++;
+
+                    var newScript = document.createElement('script');
+                    var scriptType = script.getAttribute('data-orig-type') || script.getAttribute('type') || 'text/javascript';
+                    newScript.type = scriptType;
+                    var dataSrc = script.getAttribute('data-src');
+                    if (dataSrc) {
+                        newScript.src = dataSrc;
+                    } else {
+                        var inlineContent = script.innerHTML || script.textContent || '';
+                        if (inlineContent.length > 0) {
+                            newScript.innerHTML = inlineContent;
+                        } else {
+                            return;
+                        }
+                    }
+
+                    scriptsRestored.push({
+                        src: dataSrc || 'inline',
+                        category: category,
+                        type: scriptType
+                    });
+                    script.parentNode.insertBefore(newScript, script.nextSibling);
+                    script.remove();
+                });
+
+                if (allowMarketing) {
+                    restoreBlockedEmbeds();
+                }
+            }
+
+            window.w3dUnblockIframe = function(triggerEl) {
+                var wrapper = null;
+                if (triggerEl) {
+                    if (triggerEl.closest) {
+                        wrapper = triggerEl.closest('.w3d-blocked-iframe');
+                    } else {
+                        var node = triggerEl;
+                        while (node && node !== document.body) {
+                            if (node.classList && node.classList.contains('w3d-blocked-iframe')) {
+                                wrapper = node;
+                                break;
+                            }
+                            node = node.parentNode;
+                        }
+                    }
+                }
+                if (!wrapper) return;
+
+                if (!hasMarketingConsent()) {
+                    showBanner();
+                    if (SHOW_CATEGORIES) {
+                        var categories = document.getElementById('w3d-cb-categories');
+                        var simple = document.getElementById('w3d-cb-simple-buttons');
+                        var advanced = document.getElementById('w3d-cb-advanced-buttons');
+                        if (categories) categories.style.display = 'block';
+                        if (simple) simple.style.display = 'none';
+                        if (advanced) advanced.style.display = 'flex';
+                    }
+                    return;
+                }
+
+                restoreBlockedIframe(wrapper);
+            };
+
+            function showBanner() {
+                var banner = document.getElementById('w3d-cb-banner');
+                if (banner) {
+                    banner.style.removeProperty('display');
+                    banner.style.setProperty('display', 'block', 'important');
+                }
+            }
+
+            function hideBanner() {
+                var banner = document.getElementById('w3d-cb-banner');
+                if (banner) {
+                    banner.style.setProperty('display', 'none', 'important');
+                }
+            }
+
+            function saveConsent(functional, analytics, marketing) {
+                var consent = {
+                    functional: functional ? 1 : 0,
+                    analytics: analytics ? 1 : 0,
+                    marketing: marketing ? 1 : 0,
+                    timestamp: Date.now()
+                };
+
+                setCookie(COOKIE_NAME, JSON.stringify(consent), COOKIE_DAYS);
+
+                hideBanner();
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://www.tal-limousine.com/wp-admin/admin-ajax.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send('action=web3d_save_consent_log&consent=' + encodeURIComponent(JSON.stringify(consent)));
+
+                // Разблокируем скрипты и перезагружаем
+                if (analytics || marketing) {
+                    setTimeout(function() {
+                        releaseBlockedScripts(consent);
+
+                        setTimeout(function() {
+                            if (typeof gtag !== 'undefined') {
+                                try {
+                                    gtag('consent', 'update', {
+                                        'analytics_storage': analytics ? 'granted' : 'denied',
+                                        'ad_storage': marketing ? 'granted' : 'denied'
+                                    });
+                                } catch (e) {
+                                    // Silent error handling
+                                }
+                            }
+
+                            setTimeout(function() {
+                                location.reload();
+                            }, 800);
+                        }, 300);
+                    }, 200);
+                }
+
+                if (!analytics && !marketing && typeof gtag !== 'undefined') {
+                    gtag('consent', 'update', {
+                        'analytics_storage': 'denied',
+                        'ad_storage': 'denied'
+                    });
+                }
+            }
+
+            function initBanner() {
+                if (initialized) return;
+
+                var banner = document.getElementById('w3d-cb-banner');
+                if (!banner) return;
+
+                var existingConsent = getStoredConsentData();
+
+                // Показываем баннер, только если пользователь ещё не принял решение
+                if (existingConsent) {
+                    hideBanner();
+                    if (existingConsent.analytics || existingConsent.marketing) {
+                        setTimeout(function() {
+                            releaseBlockedScripts(existingConsent);
+                        }, 300);
+                    }
+                    initialized = true;
+                    return;
+                }
+
+                showBanner();
+
+                // Event handlers
+                document.getElementById('w3d-cb-accept').onclick = function() {
+                    saveConsent(true, true, true);
+                };
+
+                document.getElementById('w3d-cb-deny').onclick = function() {
+                    saveConsent(true, false, false);
+                };
+
+                if (document.getElementById('w3d-cb-close')) {
+                    document.getElementById('w3d-cb-close').onclick = function() {
+                        // Просто скрываем баннер без сохранения согласия
+                        hideBanner();
+                    };
+                }
+
+                if (SHOW_CATEGORIES) {
+                    document.getElementById('w3d-cb-view').onclick = function() {
+                        document.getElementById('w3d-cb-categories').style.display = 'block';
+                        document.getElementById('w3d-cb-simple-buttons').style.display = 'none';
+                        document.getElementById('w3d-cb-advanced-buttons').style.display = 'flex';
+                    };
+
+                    document.getElementById('w3d-cb-save').onclick = function() {
+                        var analytics = document.getElementById('w3d-cb-analytics').checked;
+                        var marketing = document.getElementById('w3d-cb-marketing').checked;
+                        saveConsent(true, analytics, marketing);
+                    };
+                }
+
+                initialized = true;
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initBanner);
+            } else {
+                initBanner();
+            }
+        })();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dfe53b58ea3f8e1',t:'MTc3NDExMDQ3Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-aude7m7fn8wl" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LddBf4ZAAAAABkHfUgfbUkRNW_Zw8m-DDGKxPKO&amp;co=aHR0cHM6Ly93d3cudGFsLWxpbW91c2luZS5jb206NDQz&amp;hl=en&amp;v=qm3PSRIx10pekcnS9DjGnjPW&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=ro9yn268dca"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

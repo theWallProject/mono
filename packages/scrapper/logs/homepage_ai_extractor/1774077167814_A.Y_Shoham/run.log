@@ -1,0 +1,74 @@
+[2026-03-21T07:12:47.815Z] === Homepage AI Extractor: A.Y Shoham ===
+[2026-03-21T07:12:47.815Z] Started at: 2026-03-21T07:12:47.815Z
+[2026-03-21T07:12:47.815Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774077167814_A.Y_Shoham
+[2026-03-21T07:12:47.815Z] Company: A.Y Shoham
+[2026-03-21T07:12:47.815Z] Website: qforb.com
+[2026-03-21T07:12:47.815Z] cbRank: 3096678
+[2026-03-21T07:12:47.815Z] Reasons: h
+[2026-03-21T07:12:47.815Z] Fetching: https://qforb.com
+[2026-03-21T07:12:52.035Z] Redirected: https://qforb.com -> https://qforb.com/
+[2026-03-21T07:12:52.046Z] Saved HTML (475506 bytes) to page.html
+[2026-03-21T07:12:52.050Z] Extracted 5 unique links from page
+[2026-03-21T07:12:52.050Z] Saved 5 links to links.json
+[2026-03-21T07:12:52.052Z] Extracted footer HTML (6601 chars)
+[2026-03-21T07:12:52.052Z] No header section found in DOM
+[2026-03-21T07:12:52.057Z] Website (post-redirect): https://qforb.com/ → origin: https://qforb.com
+[2026-03-21T07:12:52.057Z] External links: 5 (of 5 total)
+[2026-03-21T07:12:52.057Z] ── All external links ──
+[2026-03-21T07:12:52.057Z]   EXT: https://www.enable.co.il
+[2026-03-21T07:12:52.057Z]   EXT: https://www.facebook.com/quality4building
+[2026-03-21T07:12:52.057Z]   EXT: https://www.instagram.com/q.building
+[2026-03-21T07:12:52.058Z]   EXT: https://www.upress.co.il
+[2026-03-21T07:12:52.058Z]   EXT: https://www.youtube.com/channel/UCO46tOHVCrHDOmtuS1_G4DA/videos
+[2026-03-21T07:12:52.058Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T07:12:52.058Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-21T07:12:52.058Z]   REGEX: fb <- https://www.facebook.com/quality4building
+[2026-03-21T07:12:52.058Z]   REGEX: ig <- https://www.instagram.com/q.building
+[2026-03-21T07:12:52.058Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-21T07:12:52.058Z]   REGEX: ytc <- https://www.youtube.com/channel/UCO46tOHVCrHDOmtuS1_G4DA/videos
+[2026-03-21T07:12:52.058Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-21T07:12:52.058Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T07:12:52.061Z] Saved AI prompt (3772 chars) to ai_prompt.txt
+[2026-03-21T07:12:52.061Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T07:12:52.065Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T07:13:08.591Z]   AI: First token received, streaming...
+[2026-03-21T07:13:17.864Z] AI response complete: 143 chars in 25.8s
+[2026-03-21T07:13:17.865Z] Saved AI response to ai_response.json
+[2026-03-21T07:13:17.866Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T07:13:17.866Z]   AI LINK: https://www.facebook.com/quality4building
+[2026-03-21T07:13:17.866Z]   AI LINK: https://www.instagram.com/q.building/
+[2026-03-21T07:13:17.866Z]   AI LINK: https://www.youtube.com/channel/UCO46tOHVCrHDOmtuS1_G4DA/videos
+[2026-03-21T07:13:17.866Z] AI returned 3 valid links
+[2026-03-21T07:13:17.866Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T07:13:17.867Z]   AI→REGEX: fb <- https://www.facebook.com/quality4building (duplicate, skipped)
+[2026-03-21T07:13:17.867Z]   AI→REGEX: ig <- https://www.instagram.com/q.building/ (duplicate, skipped)
+[2026-03-21T07:13:17.867Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCO46tOHVCrHDOmtuS1_G4DA/videos (duplicate, skipped)
+[2026-03-21T07:13:17.867Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T07:13:17.867Z] Footer/header origins (3):
+[2026-03-21T07:13:17.867Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T07:13:17.867Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T07:13:17.867Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T07:13:17.868Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-21T07:13:17.868Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-21T07:13:17.868Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T07:13:17.868Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T07:13:17.868Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T07:13:18.141Z]   YOUTUBE: resolved UCO46tOHVCrHDOmtuS1_G4DA → @q4bqualityforbuildings32
+[2026-03-21T07:13:18.141Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T07:13:18.141Z] ── Step 3: Final dedup ──
+[2026-03-21T07:13:18.141Z] No urls to dedup
+[2026-03-21T07:13:18.141Z] ── FINAL RESULT ──
+[2026-03-21T07:13:18.142Z]   ws (1):
+[2026-03-21T07:13:18.142Z]     - https://qforb.com
+[2026-03-21T07:13:18.142Z]   fb (1):
+[2026-03-21T07:13:18.142Z]     - https://www.facebook.com/quality4building
+[2026-03-21T07:13:18.142Z]   ig (1):
+[2026-03-21T07:13:18.142Z]     - https://www.instagram.com/q.building
+[2026-03-21T07:13:18.142Z]   ytp (1):
+[2026-03-21T07:13:18.142Z]     - https://www.youtube.com/@q4bqualityforbuildings32
+[2026-03-21T07:13:18.142Z]   ytc (1):
+[2026-03-21T07:13:18.142Z]     - https://www.youtube.com/channel/UCO46tOHVCrHDOmtuS1_G4DA
+[2026-03-21T07:13:18.142Z] Summary: ws:1, fb:1, ig:1, ytc:1, ytp:1
+[2026-03-21T07:13:18.143Z] Saved final result to result.json
+[2026-03-21T07:13:18.143Z] Override fields: ws, fb, ig, ytp, ytc
+[2026-03-21T07:13:18.143Z] Finished at: 2026-03-21T07:13:18.143Z

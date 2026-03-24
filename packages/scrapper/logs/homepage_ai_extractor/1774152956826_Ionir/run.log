@@ -1,0 +1,81 @@
+[2026-03-22T04:15:56.826Z] === Homepage AI Extractor: Ionir ===
+[2026-03-22T04:15:56.826Z] Started at: 2026-03-22T04:15:56.826Z
+[2026-03-22T04:15:56.826Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774152956826_Ionir
+[2026-03-22T04:15:56.826Z] Company: Ionir
+[2026-03-22T04:15:56.827Z] Website: ionir.com
+[2026-03-22T04:15:56.827Z] cbRank: 73614
+[2026-03-22T04:15:56.827Z] Reasons: f
+[2026-03-22T04:15:56.827Z] Fetching: https://ionir.com
+[2026-03-22T04:15:59.587Z] Redirected: https://ionir.com -> https://ionir.com/
+[2026-03-22T04:15:59.594Z] Saved HTML (241496 bytes) to page.html
+[2026-03-22T04:15:59.597Z] Extracted 35 unique links from page
+[2026-03-22T04:15:59.598Z] Saved 35 links to links.json
+[2026-03-22T04:15:59.601Z] Extracted footer HTML (5594 chars)
+[2026-03-22T04:15:59.601Z] Extracted header HTML (16966 chars)
+[2026-03-22T04:15:59.605Z] Website (post-redirect): https://ionir.com/ → origin: https://ionir.com
+[2026-03-22T04:15:59.606Z] External links: 6 (of 35 total)
+[2026-03-22T04:15:59.606Z] ── All external links ──
+[2026-03-22T04:15:59.606Z]   EXT: https://catalog.redhat.com/software/operators/detail/5fff62bf8c08a2e97ced7144
+[2026-03-22T04:15:59.606Z]   EXT: https://circleci.com/integrations/#ionir
+[2026-03-22T04:15:59.606Z]   EXT: https://twitter.com/IonirCloud
+[2026-03-22T04:15:59.606Z]   EXT: https://www.hideseekmedia.com
+[2026-03-22T04:15:59.606Z]   EXT: https://www.linkedin.com/company/ionircloud
+[2026-03-22T04:15:59.606Z]   EXT: https://www.youtube.com/channel/UCLmuvD6x6PHXE9hpdPV4SZg
+[2026-03-22T04:15:59.606Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:15:59.606Z]   UNCATEGORIZED: https://catalog.redhat.com/software/operators/detail/5fff62bf8c08a2e97ced7144
+[2026-03-22T04:15:59.606Z]   UNCATEGORIZED: https://circleci.com/integrations/#ionir
+[2026-03-22T04:15:59.607Z]   REGEX: tw <- https://twitter.com/IonirCloud
+[2026-03-22T04:15:59.607Z]   UNCATEGORIZED: https://www.hideseekmedia.com
+[2026-03-22T04:15:59.607Z]   REGEX: li <- https://www.linkedin.com/company/ionircloud
+[2026-03-22T04:15:59.607Z]   REGEX: ytc <- https://www.youtube.com/channel/UCLmuvD6x6PHXE9hpdPV4SZg
+[2026-03-22T04:15:59.607Z] Programmatic result: ws:1, tw:1, li:1, ytc:1 | 3 uncategorized
+[2026-03-22T04:15:59.607Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:15:59.610Z] Saved AI prompt (5031 chars) to ai_prompt.txt
+[2026-03-22T04:15:59.610Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:15:59.615Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:16:19.296Z]   AI: First token received, streaming...
+[2026-03-22T04:16:28.213Z] AI response complete: 131 chars in 28.6s
+[2026-03-22T04:16:28.214Z] Saved AI response to ai_response.json
+[2026-03-22T04:16:28.215Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T04:16:28.215Z]   AI LINK: https://www.linkedin.com/company/ionircloud
+[2026-03-22T04:16:28.215Z]   AI LINK: https://www.youtube.com/channel/UCLmuvD6x6PHXE9hpdPV4SZg
+[2026-03-22T04:16:28.215Z]   AI LINK: https://twitter.com/IonirCloud
+[2026-03-22T04:16:28.215Z] AI returned 3 valid links
+[2026-03-22T04:16:28.216Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T04:16:28.216Z]   AI→REGEX: li <- https://www.linkedin.com/company/ionircloud (duplicate, skipped)
+[2026-03-22T04:16:28.216Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCLmuvD6x6PHXE9hpdPV4SZg (duplicate, skipped)
+[2026-03-22T04:16:28.216Z]   AI→REGEX: tw <- https://twitter.com/IonirCloud (duplicate, skipped)
+[2026-03-22T04:16:28.217Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:16:28.217Z] Footer/header origins (5):
+[2026-03-22T04:16:28.217Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:16:28.217Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T04:16:28.217Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T04:16:28.217Z]   FOOTER/HEADER ORIGIN: https://ionir.com
+[2026-03-22T04:16:28.218Z]   FOOTER/HEADER ORIGIN: https://www.hideseekmedia.com
+[2026-03-22T04:16:28.218Z]   SKIP (not in footer/header): https://catalog.redhat.com/software/operators/detail/5fff62bf8c08a2e97ced7144
+[2026-03-22T04:16:28.218Z]   SKIP (not in footer/header): https://circleci.com/integrations/#ionir
+[2026-03-22T04:16:28.218Z]   ADDED: urls <- https://www.hideseekmedia.com
+[2026-03-22T04:16:28.218Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T04:16:28.218Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:16:28.219Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T04:16:28.461Z]   YOUTUBE: resolved UCLmuvD6x6PHXE9hpdPV4SZg → @ionir2228
+[2026-03-22T04:16:28.461Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T04:16:28.461Z] ── Step 3: Final dedup ──
+[2026-03-22T04:16:28.461Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T04:16:28.461Z] ── FINAL RESULT ──
+[2026-03-22T04:16:28.461Z]   ws (1):
+[2026-03-22T04:16:28.461Z]     - https://ionir.com
+[2026-03-22T04:16:28.461Z]   li (1):
+[2026-03-22T04:16:28.462Z]     - https://www.linkedin.com/company/ionircloud
+[2026-03-22T04:16:28.462Z]   tw (1):
+[2026-03-22T04:16:28.462Z]     - https://x.com/ionircloud
+[2026-03-22T04:16:28.462Z]   ytp (1):
+[2026-03-22T04:16:28.462Z]     - https://www.youtube.com/@ionir2228
+[2026-03-22T04:16:28.462Z]   ytc (1):
+[2026-03-22T04:16:28.462Z]     - https://www.youtube.com/channel/UCLmuvD6x6PHXE9hpdPV4SZg
+[2026-03-22T04:16:28.462Z]   urls (1):
+[2026-03-22T04:16:28.462Z]     - https://www.hideseekmedia.com
+[2026-03-22T04:16:28.462Z] Summary: ws:1, tw:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-22T04:16:28.463Z] Saved final result to result.json
+[2026-03-22T04:16:28.463Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-22T04:16:28.463Z] Finished at: 2026-03-22T04:16:28.463Z

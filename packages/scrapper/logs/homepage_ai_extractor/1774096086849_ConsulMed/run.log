@@ -1,0 +1,61 @@
+[2026-03-21T12:28:06.849Z] === Homepage AI Extractor: ConsulMed ===
+[2026-03-21T12:28:06.849Z] Started at: 2026-03-21T12:28:06.849Z
+[2026-03-21T12:28:06.850Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774096086849_ConsulMed
+[2026-03-21T12:28:06.850Z] Company: ConsulMed
+[2026-03-21T12:28:06.850Z] Website: consulmed.org
+[2026-03-21T12:28:06.850Z] cbRank: 3349023
+[2026-03-21T12:28:06.850Z] Reasons: h
+[2026-03-21T12:28:06.850Z] Fetching: https://consulmed.org
+[2026-03-21T12:28:11.589Z] Redirected: https://consulmed.org -> https://www.consulmed.org/
+[2026-03-21T12:28:11.601Z] Saved HTML (516785 bytes) to page.html
+[2026-03-21T12:28:11.605Z] Extracted 108 unique links from page
+[2026-03-21T12:28:11.606Z] Saved 108 links to links.json
+[2026-03-21T12:28:11.609Z] Extracted footer HTML (2564 chars)
+[2026-03-21T12:28:11.609Z] Extracted header HTML (10457 chars)
+[2026-03-21T12:28:11.614Z] Website (post-redirect): https://www.consulmed.org/ → origin: https://www.consulmed.org
+[2026-03-21T12:28:11.614Z] External links: 3 (of 108 total)
+[2026-03-21T12:28:11.614Z] ── All external links ──
+[2026-03-21T12:28:11.614Z]   EXT: https://wa.me/972549100881
+[2026-03-21T12:28:11.614Z]   EXT: https://www.facebook.com/ConsulMedLtd
+[2026-03-21T12:28:11.614Z]   EXT: https://www.linkedin.com/company/consulmed-ltd/about
+[2026-03-21T12:28:11.614Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T12:28:11.615Z]   UNCATEGORIZED: https://wa.me/972549100881
+[2026-03-21T12:28:11.615Z]   REGEX: fb <- https://www.facebook.com/ConsulMedLtd
+[2026-03-21T12:28:11.615Z]   REGEX: li <- https://www.linkedin.com/company/consulmed-ltd/about
+[2026-03-21T12:28:11.615Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-21T12:28:11.616Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T12:28:11.617Z] Saved AI prompt (3724 chars) to ai_prompt.txt
+[2026-03-21T12:28:11.617Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T12:28:11.621Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T12:28:26.809Z]   AI: First token received, streaming...
+[2026-03-21T12:28:31.669Z] AI response complete: 92 chars in 20.1s
+[2026-03-21T12:28:31.670Z] Saved AI response to ai_response.json
+[2026-03-21T12:28:31.670Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T12:28:31.671Z]   AI LINK: https://www.facebook.com/ConsulMedLtd/
+[2026-03-21T12:28:31.671Z]   AI LINK: https://www.linkedin.com/company/consulmed-ltd/about/
+[2026-03-21T12:28:31.671Z] AI returned 2 valid links
+[2026-03-21T12:28:31.671Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T12:28:31.671Z]   AI→REGEX: fb <- https://www.facebook.com/ConsulMedLtd/ (duplicate, skipped)
+[2026-03-21T12:28:31.672Z]   AI→REGEX: li <- https://www.linkedin.com/company/consulmed-ltd/about/ (duplicate, skipped)
+[2026-03-21T12:28:31.672Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T12:28:31.672Z] Footer/header origins (3):
+[2026-03-21T12:28:31.672Z]   FOOTER/HEADER ORIGIN: https://www.consulmed.org
+[2026-03-21T12:28:31.673Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T12:28:31.673Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T12:28:31.673Z]   SKIP (not in footer/header): https://wa.me/972549100881
+[2026-03-21T12:28:31.673Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T12:28:31.673Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T12:28:31.673Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T12:28:31.673Z] ── Step 3: Final dedup ──
+[2026-03-21T12:28:31.673Z] No urls to dedup
+[2026-03-21T12:28:31.674Z] ── FINAL RESULT ──
+[2026-03-21T12:28:31.674Z]   ws (1):
+[2026-03-21T12:28:31.674Z]     - https://www.consulmed.org
+[2026-03-21T12:28:31.674Z]   li (1):
+[2026-03-21T12:28:31.674Z]     - https://www.linkedin.com/company/consulmed-ltd
+[2026-03-21T12:28:31.674Z]   fb (1):
+[2026-03-21T12:28:31.674Z]     - https://www.facebook.com/consulmedltd
+[2026-03-21T12:28:31.674Z] Summary: ws:1, fb:1, li:1
+[2026-03-21T12:28:31.675Z] Saved final result to result.json
+[2026-03-21T12:28:31.676Z] Override fields: ws, li, fb
+[2026-03-21T12:28:31.676Z] Finished at: 2026-03-21T12:28:31.676Z

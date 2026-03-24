@@ -1,0 +1,78 @@
+[2026-03-23T21:21:46.638Z] === Homepage AI Extractor: BlockApps ===
+[2026-03-23T21:21:46.638Z] Started at: 2026-03-23T21:21:46.638Z
+[2026-03-23T21:21:46.638Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774300906637_BlockApps
+[2026-03-23T21:21:46.638Z] Company: BlockApps
+[2026-03-23T21:21:46.638Z] Website: blockapps.net
+[2026-03-23T21:21:46.638Z] cbRank: 20421
+[2026-03-23T21:21:46.638Z] Reasons: i
+[2026-03-23T21:21:46.638Z] Fetching: https://blockapps.net
+[2026-03-23T21:21:47.995Z] Redirected: https://blockapps.net -> https://blockapps.net/
+[2026-03-23T21:21:47.997Z] Saved HTML (16308 bytes) to page.html
+[2026-03-23T21:21:47.999Z] Extracted 10 unique links from page
+[2026-03-23T21:21:48.000Z] Saved 10 links to links.json
+[2026-03-23T21:21:48.002Z] Extracted footer HTML (4627 chars)
+[2026-03-23T21:21:48.002Z] Extracted header HTML (621 chars)
+[2026-03-23T21:21:48.004Z] Website (post-redirect): https://blockapps.net/ → origin: https://blockapps.net
+[2026-03-23T21:21:48.004Z] External links: 6 (of 10 total)
+[2026-03-23T21:21:48.004Z] ── All external links ──
+[2026-03-23T21:21:48.005Z]   EXT: https://app.strato.nexus
+[2026-03-23T21:21:48.005Z]   EXT: https://github.com/strato-net
+[2026-03-23T21:21:48.005Z]   EXT: https://strato.nexus
+[2026-03-23T21:21:48.005Z]   EXT: https://t.me/strato_net
+[2026-03-23T21:21:48.005Z]   EXT: https://www.linkedin.com/company/strato-net
+[2026-03-23T21:21:48.005Z]   EXT: https://x.com/strato_net
+[2026-03-23T21:21:48.005Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:21:48.005Z]   UNCATEGORIZED: https://app.strato.nexus
+[2026-03-23T21:21:48.005Z]   REGEX: gh <- https://github.com/strato-net
+[2026-03-23T21:21:48.005Z]   UNCATEGORIZED: https://strato.nexus
+[2026-03-23T21:21:48.005Z]   UNCATEGORIZED: https://t.me/strato_net
+[2026-03-23T21:21:48.005Z]   REGEX: li <- https://www.linkedin.com/company/strato-net
+[2026-03-23T21:21:48.005Z]   REGEX: tw <- https://x.com/strato_net
+[2026-03-23T21:21:48.005Z] Programmatic result: ws:1, gh:1, li:1, tw:1 | 3 uncategorized
+[2026-03-23T21:21:48.005Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:21:48.009Z] Saved AI prompt (2674 chars) to ai_prompt.txt
+[2026-03-23T21:21:48.009Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:21:48.013Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:21:57.991Z]   AI: First token received, streaming...
+[2026-03-23T21:22:05.002Z] AI response complete: 122 chars in 17.0s
+[2026-03-23T21:22:05.003Z] Saved AI response to ai_response.json
+[2026-03-23T21:22:05.004Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T21:22:05.004Z]   AI LINK: https://x.com/strato_net
+[2026-03-23T21:22:05.004Z]   AI LINK: https://t.me/strato_net
+[2026-03-23T21:22:05.004Z]   AI LINK: https://www.linkedin.com/company/strato-net
+[2026-03-23T21:22:05.004Z]   AI LINK: https://github.com/strato-net
+[2026-03-23T21:22:05.004Z] AI returned 4 valid links
+[2026-03-23T21:22:05.004Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T21:22:05.004Z]   AI→REGEX: tw <- https://x.com/strato_net (duplicate, skipped)
+[2026-03-23T21:22:05.005Z]   AI→URLS: https://t.me/strato_net
+[2026-03-23T21:22:05.005Z]   AI→REGEX: li <- https://www.linkedin.com/company/strato-net (duplicate, skipped)
+[2026-03-23T21:22:05.005Z]   AI→REGEX: gh <- https://github.com/strato-net (duplicate, skipped)
+[2026-03-23T21:22:05.005Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:22:05.005Z] Footer/header origins (4):
+[2026-03-23T21:22:05.005Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T21:22:05.005Z]   FOOTER/HEADER ORIGIN: https://t.me
+[2026-03-23T21:22:05.005Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:22:05.006Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-23T21:22:05.006Z]   SKIP (not in footer/header): https://app.strato.nexus
+[2026-03-23T21:22:05.006Z]   SKIP (not in footer/header): https://strato.nexus
+[2026-03-23T21:22:05.006Z]   SKIP (AI claimed): https://t.me/strato_net
+[2026-03-23T21:22:05.006Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:22:05.006Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:22:05.006Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:22:05.006Z] ── Step 3: Final dedup ──
+[2026-03-23T21:22:05.006Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T21:22:05.006Z] ── FINAL RESULT ──
+[2026-03-23T21:22:05.006Z]   ws (1):
+[2026-03-23T21:22:05.006Z]     - https://blockapps.net
+[2026-03-23T21:22:05.006Z]   li (1):
+[2026-03-23T21:22:05.006Z]     - https://www.linkedin.com/company/strato-net
+[2026-03-23T21:22:05.006Z]   tw (1):
+[2026-03-23T21:22:05.006Z]     - https://x.com/strato_net
+[2026-03-23T21:22:05.006Z]   gh (1):
+[2026-03-23T21:22:05.007Z]     - https://github.com/strato-net
+[2026-03-23T21:22:05.007Z]   urls (1):
+[2026-03-23T21:22:05.007Z]     - https://t.me/strato_net
+[2026-03-23T21:22:05.007Z] Summary: ws:1, gh:1, li:1, tw:1, urls:1
+[2026-03-23T21:22:05.008Z] Saved final result to result.json
+[2026-03-23T21:22:05.008Z] Override fields: ws, li, tw, gh, urls
+[2026-03-23T21:22:05.008Z] Finished at: 2026-03-23T21:22:05.008Z

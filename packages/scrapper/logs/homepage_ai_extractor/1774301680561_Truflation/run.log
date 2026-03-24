@@ -1,0 +1,79 @@
+[2026-03-23T21:34:40.562Z] === Homepage AI Extractor: Truflation ===
+[2026-03-23T21:34:40.562Z] Started at: 2026-03-23T21:34:40.562Z
+[2026-03-23T21:34:40.562Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774301680561_Truflation
+[2026-03-23T21:34:40.562Z] Company: Truflation
+[2026-03-23T21:34:40.562Z] Website: truflation.com
+[2026-03-23T21:34:40.562Z] cbRank: 22028
+[2026-03-23T21:34:40.562Z] Reasons: i
+[2026-03-23T21:34:40.562Z] Fetching: https://truflation.com
+[2026-03-23T21:34:48.951Z] Dismissed cookie consent popup via: button:has-text("Agree")
+[2026-03-23T21:34:51.928Z] Redirected: https://truflation.com -> https://truflation.com/
+[2026-03-23T21:34:51.943Z] Saved HTML (651036 bytes) to page.html
+[2026-03-23T21:34:51.946Z] Extracted 23 unique links from page
+[2026-03-23T21:34:51.947Z] Saved 23 links to links.json
+[2026-03-23T21:34:51.949Z] No footer section found in DOM
+[2026-03-23T21:34:51.949Z] Extracted header HTML (11278 chars)
+[2026-03-23T21:34:51.954Z] Website (post-redirect): https://truflation.com/ → origin: https://truflation.com
+[2026-03-23T21:34:51.954Z]   SUBDOMAIN: help.truflation.com (added to ws)
+[2026-03-23T21:34:51.954Z]   SUBDOMAIN: media-kit.truflation.com (added to ws)
+[2026-03-23T21:34:51.954Z] Website subdomains found: 2
+[2026-03-23T21:34:51.954Z] External links: 5 (of 23 total)
+[2026-03-23T21:34:51.954Z] ── All external links ──
+[2026-03-23T21:34:51.954Z]   EXT: https://linkedin.com/company/truflation
+[2026-03-23T21:34:51.954Z]   EXT: https://t.me/truflation
+[2026-03-23T21:34:51.954Z]   EXT: https://truflation.ghost.io
+[2026-03-23T21:34:51.955Z]   EXT: https://twitter.com/truflation
+[2026-03-23T21:34:51.955Z]   EXT: https://www.youtube.com/channel/UCZJSvVppUtK7F22xjBcbV0A
+[2026-03-23T21:34:51.955Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:34:51.955Z]   REGEX: li <- https://linkedin.com/company/truflation
+[2026-03-23T21:34:51.955Z]   UNCATEGORIZED: https://t.me/truflation
+[2026-03-23T21:34:51.955Z]   UNCATEGORIZED: https://truflation.ghost.io
+[2026-03-23T21:34:51.955Z]   REGEX: tw <- https://twitter.com/truflation
+[2026-03-23T21:34:51.955Z]   REGEX: ytc <- https://www.youtube.com/channel/UCZJSvVppUtK7F22xjBcbV0A
+[2026-03-23T21:34:51.955Z] Programmatic result: ws:3, li:1, tw:1, ytc:1 | 2 uncategorized
+[2026-03-23T21:34:51.955Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:34:51.959Z] Saved AI prompt (1992 chars) to ai_prompt.txt
+[2026-03-23T21:34:51.959Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:34:51.963Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:34:58.911Z]   AI: First token received, streaming...
+[2026-03-23T21:35:00.724Z] AI response complete: 51 chars in 8.8s
+[2026-03-23T21:35:00.725Z] Saved AI response to ai_response.json
+[2026-03-23T21:35:00.725Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T21:35:00.725Z]   AI LINK: https://t.me/truflation
+[2026-03-23T21:35:00.725Z]   AI LINK: https://truflation.ghost.io
+[2026-03-23T21:35:00.725Z] AI returned 2 valid links
+[2026-03-23T21:35:00.725Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T21:35:00.726Z]   AI→URLS: https://t.me/truflation
+[2026-03-23T21:35:00.726Z]   AI→URLS: https://truflation.ghost.io
+[2026-03-23T21:35:00.726Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:35:00.726Z] Footer/header origins (1):
+[2026-03-23T21:35:00.726Z]   FOOTER/HEADER ORIGIN: https://truflation.ghost.io
+[2026-03-23T21:35:00.726Z]   SKIP (AI claimed): https://t.me/truflation
+[2026-03-23T21:35:00.727Z]   SKIP (AI claimed): https://truflation.ghost.io
+[2026-03-23T21:35:00.727Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:35:00.727Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:35:00.727Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T21:35:01.159Z]   YOUTUBE: resolved UCZJSvVppUtK7F22xjBcbV0A → @truflation
+[2026-03-23T21:35:01.159Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T21:35:01.159Z] ── Step 3: Final dedup ──
+[2026-03-23T21:35:01.159Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T21:35:01.159Z] ── FINAL RESULT ──
+[2026-03-23T21:35:01.159Z]   ws (3):
+[2026-03-23T21:35:01.159Z]     - https://help.truflation.com
+[2026-03-23T21:35:01.159Z]     - https://media-kit.truflation.com
+[2026-03-23T21:35:01.159Z]     - https://truflation.com
+[2026-03-23T21:35:01.159Z]   li (1):
+[2026-03-23T21:35:01.160Z]     - https://www.linkedin.com/company/truflation
+[2026-03-23T21:35:01.160Z]   tw (1):
+[2026-03-23T21:35:01.160Z]     - https://x.com/truflation
+[2026-03-23T21:35:01.160Z]   ytp (1):
+[2026-03-23T21:35:01.160Z]     - https://www.youtube.com/@truflation
+[2026-03-23T21:35:01.160Z]   ytc (1):
+[2026-03-23T21:35:01.160Z]     - https://www.youtube.com/channel/UCZJSvVppUtK7F22xjBcbV0A
+[2026-03-23T21:35:01.160Z]   urls (2):
+[2026-03-23T21:35:01.160Z]     - https://t.me/truflation
+[2026-03-23T21:35:01.160Z]     - https://truflation.ghost.io
+[2026-03-23T21:35:01.160Z] Summary: ws:3, li:1, tw:1, ytc:1, urls:2, ytp:1
+[2026-03-23T21:35:01.161Z] Saved final result to result.json
+[2026-03-23T21:35:01.161Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-23T21:35:01.161Z] Finished at: 2026-03-23T21:35:01.161Z

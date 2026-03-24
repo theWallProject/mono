@@ -1,0 +1,75 @@
+[2026-03-23T16:16:06.310Z] === Homepage AI Extractor: Appstractor Corporation ===
+[2026-03-23T16:16:06.310Z] Started at: 2026-03-23T16:16:06.310Z
+[2026-03-23T16:16:06.310Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774282566309_Appstractor_Corporation
+[2026-03-23T16:16:06.310Z] Company: Appstractor Corporation
+[2026-03-23T16:16:06.310Z] Website: appstractor.com
+[2026-03-23T16:16:06.310Z] cbRank: 2276628
+[2026-03-23T16:16:06.310Z] Reasons: f
+[2026-03-23T16:16:06.310Z] Fetching: https://appstractor.com
+[2026-03-23T16:16:07.560Z] Redirected: https://appstractor.com -> https://appstractor.com/
+[2026-03-23T16:16:07.576Z] Saved HTML (745157 bytes) to page.html
+[2026-03-23T16:16:07.580Z] Extracted 10 unique links from page
+[2026-03-23T16:16:07.580Z] Saved 10 links to links.json
+[2026-03-23T16:16:07.586Z] Extracted footer HTML (1904 chars)
+[2026-03-23T16:16:07.586Z] Extracted header HTML (1890 chars)
+[2026-03-23T16:16:07.590Z] Website (post-redirect): https://appstractor.com/ → origin: https://appstractor.com
+[2026-03-23T16:16:07.590Z]   SUBDOMAIN: blog.appstractor.com (added to ws)
+[2026-03-23T16:16:07.590Z] Website subdomains found: 1
+[2026-03-23T16:16:07.590Z] External links: 4 (of 10 total)
+[2026-03-23T16:16:07.590Z] ── All external links ──
+[2026-03-23T16:16:07.590Z]   EXT: https://cal.com/claudiuciungan/appstractor
+[2026-03-23T16:16:07.590Z]   EXT: https://twitter.com/appstractor?lang=en
+[2026-03-23T16:16:07.591Z]   EXT: https://www.linkedin.com/company/appstractor/?originalSubdomain=uk
+[2026-03-23T16:16:07.591Z]   EXT: https://www.trustedproxies.com
+[2026-03-23T16:16:07.591Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T16:16:07.591Z]   UNCATEGORIZED: https://cal.com/claudiuciungan/appstractor
+[2026-03-23T16:16:07.591Z]   REGEX: tw <- https://twitter.com/appstractor?lang=en
+[2026-03-23T16:16:07.591Z]   REGEX: li <- https://www.linkedin.com/company/appstractor/?originalSubdomain=uk
+[2026-03-23T16:16:07.591Z]   UNCATEGORIZED: https://www.trustedproxies.com
+[2026-03-23T16:16:07.591Z] Programmatic result: ws:2, tw:1, li:1 | 2 uncategorized
+[2026-03-23T16:16:07.591Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T16:16:07.592Z] Saved AI prompt (3262 chars) to ai_prompt.txt
+[2026-03-23T16:16:07.592Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T16:16:07.596Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T16:16:19.676Z]   AI: First token received, streaming...
+[2026-03-23T16:16:26.590Z] AI response complete: 135 chars in 19.0s
+[2026-03-23T16:16:26.592Z] Saved AI response to ai_response.json
+[2026-03-23T16:16:26.592Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T16:16:26.592Z]   AI LINK: https://twitter.com/appstractor?lang=en
+[2026-03-23T16:16:26.592Z]   AI LINK: https://www.linkedin.com/company/appstractor/?originalSubdomain=uk
+[2026-03-23T16:16:26.592Z]   AI LINK: https://blog.appstractor.com
+[2026-03-23T16:16:26.592Z] AI returned 3 valid links
+[2026-03-23T16:16:26.592Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T16:16:26.593Z]   AI→REGEX: tw <- https://twitter.com/appstractor?lang=en (duplicate, skipped)
+[2026-03-23T16:16:26.593Z]   AI→REGEX: li <- https://www.linkedin.com/company/appstractor/?originalSubdomain=uk (duplicate, skipped)
+[2026-03-23T16:16:26.593Z]   AI→URLS: https://blog.appstractor.com
+[2026-03-23T16:16:26.594Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T16:16:26.594Z] Footer/header origins (5):
+[2026-03-23T16:16:26.594Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T16:16:26.594Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T16:16:26.594Z]   FOOTER/HEADER ORIGIN: https://blog.appstractor.com
+[2026-03-23T16:16:26.594Z]   FOOTER/HEADER ORIGIN: https://www.trustedproxies.com
+[2026-03-23T16:16:26.594Z]   FOOTER/HEADER ORIGIN: https://cal.com
+[2026-03-23T16:16:26.594Z]   ADDED: urls <- https://cal.com/claudiuciungan/appstractor
+[2026-03-23T16:16:26.594Z]   ADDED: urls <- https://www.trustedproxies.com
+[2026-03-23T16:16:26.594Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-23T16:16:26.594Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T16:16:26.594Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T16:16:26.595Z] ── Step 3: Final dedup ──
+[2026-03-23T16:16:26.595Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-23T16:16:26.595Z] ── FINAL RESULT ──
+[2026-03-23T16:16:26.595Z]   ws (2):
+[2026-03-23T16:16:26.595Z]     - https://appstractor.com
+[2026-03-23T16:16:26.595Z]     - https://blog.appstractor.com
+[2026-03-23T16:16:26.595Z]   li (1):
+[2026-03-23T16:16:26.595Z]     - https://www.linkedin.com/company/appstractor
+[2026-03-23T16:16:26.595Z]   tw (1):
+[2026-03-23T16:16:26.595Z]     - https://x.com/appstractor
+[2026-03-23T16:16:26.595Z]   urls (3):
+[2026-03-23T16:16:26.596Z]     - https://blog.appstractor.com
+[2026-03-23T16:16:26.596Z]     - https://cal.com/claudiuciungan/appstractor
+[2026-03-23T16:16:26.596Z]     - https://www.trustedproxies.com
+[2026-03-23T16:16:26.596Z] Summary: ws:2, tw:1, li:1, urls:3
+[2026-03-23T16:16:26.597Z] Saved final result to result.json
+[2026-03-23T16:16:26.597Z] Override fields: ws, li, tw, urls
+[2026-03-23T16:16:26.597Z] Finished at: 2026-03-23T16:16:26.597Z

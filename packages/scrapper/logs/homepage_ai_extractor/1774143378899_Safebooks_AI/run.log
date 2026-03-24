@@ -1,0 +1,73 @@
+[2026-03-22T01:36:18.900Z] === Homepage AI Extractor: Safebooks AI ===
+[2026-03-22T01:36:18.901Z] Started at: 2026-03-22T01:36:18.901Z
+[2026-03-22T01:36:18.901Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774143378899_Safebooks_AI
+[2026-03-22T01:36:18.901Z] Company: Safebooks AI
+[2026-03-22T01:36:18.901Z] Website: safebooks.ai
+[2026-03-22T01:36:18.901Z] cbRank: 24713
+[2026-03-22T01:36:18.901Z] Reasons: f, i
+[2026-03-22T01:36:18.901Z] Fetching: https://safebooks.ai
+[2026-03-22T01:36:22.474Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T01:36:25.376Z] Redirected: https://safebooks.ai -> https://safebooks.ai/
+[2026-03-22T01:36:25.407Z] Saved HTML (640135 bytes) to page.html
+[2026-03-22T01:36:25.416Z] Extracted 34 unique links from page
+[2026-03-22T01:36:25.416Z] Saved 34 links to links.json
+[2026-03-22T01:36:25.444Z] Extracted footer HTML (19317 chars)
+[2026-03-22T01:36:25.444Z] Extracted header HTML (57427 chars)
+[2026-03-22T01:36:25.449Z] Website (post-redirect): https://safebooks.ai/ → origin: https://safebooks.ai
+[2026-03-22T01:36:25.449Z]   SUBDOMAIN: trust.safebooks.ai (added to ws)
+[2026-03-22T01:36:25.449Z] Website subdomains found: 1
+[2026-03-22T01:36:25.449Z] External links: 4 (of 34 total)
+[2026-03-22T01:36:25.449Z] ── All external links ──
+[2026-03-22T01:36:25.449Z]   EXT: https://www.linkedin.com/company/90888934
+[2026-03-22T01:36:25.449Z]   EXT: https://www.youtube.com/@Safebooks_AI
+[2026-03-22T01:36:25.449Z]   EXT: https://x.com/Safebooks_ai
+[2026-03-22T01:36:25.449Z]   EXT: https://x.com/intent/user?screen_name=Safebooks_ai
+[2026-03-22T01:36:25.449Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:36:25.450Z]   REGEX: li <- https://www.linkedin.com/company/90888934
+[2026-03-22T01:36:25.450Z]   REGEX: ytp <- https://www.youtube.com/@Safebooks_AI
+[2026-03-22T01:36:25.451Z]   REGEX: tw <- https://x.com/Safebooks_ai
+[2026-03-22T01:36:25.451Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-22T01:36:25.451Z]   SKIP (regex domain, no match): https://x.com/intent/user?screen_name=Safebooks_ai
+[2026-03-22T01:36:25.451Z] Programmatic result: ws:2, li:1, ytp:1, tw:1 | 0 uncategorized
+[2026-03-22T01:36:25.451Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:36:25.457Z] Saved AI prompt (9938 chars) to ai_prompt.txt
+[2026-03-22T01:36:25.461Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:36:25.466Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:37:05.371Z]   AI: First token received, streaming...
+[2026-03-22T01:37:12.576Z] AI response complete: 107 chars in 47.1s
+[2026-03-22T01:37:12.577Z] Saved AI response to ai_response.json
+[2026-03-22T01:37:12.578Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T01:37:12.578Z]   AI LINK: https://www.linkedin.com/company/90888934/
+[2026-03-22T01:37:12.578Z]   AI LINK: https://www.youtube.com/@Safebooks_AI
+[2026-03-22T01:37:12.578Z]   AI LINK: https://x.com/Safebooks_ai
+[2026-03-22T01:37:12.578Z] AI returned 3 valid links
+[2026-03-22T01:37:12.579Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T01:37:12.579Z]   AI→REGEX: li <- https://www.linkedin.com/company/90888934/ (duplicate, skipped)
+[2026-03-22T01:37:12.579Z]   AI→REGEX: ytp <- https://www.youtube.com/@Safebooks_AI (duplicate, skipped)
+[2026-03-22T01:37:12.580Z]   AI→REGEX: tw <- https://x.com/Safebooks_ai (duplicate, skipped)
+[2026-03-22T01:37:12.580Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:37:12.581Z] Footer/header origins (5):
+[2026-03-22T01:37:12.581Z]   FOOTER/HEADER ORIGIN: https://safebooks.ai
+[2026-03-22T01:37:12.581Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:37:12.581Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:37:12.581Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T01:37:12.581Z]   FOOTER/HEADER ORIGIN: https://trust.safebooks.ai
+[2026-03-22T01:37:12.581Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:37:12.581Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:37:12.582Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:37:12.582Z] ── Step 3: Final dedup ──
+[2026-03-22T01:37:12.582Z] No urls to dedup
+[2026-03-22T01:37:12.582Z] ── FINAL RESULT ──
+[2026-03-22T01:37:12.582Z]   ws (2):
+[2026-03-22T01:37:12.582Z]     - https://safebooks.ai
+[2026-03-22T01:37:12.582Z]     - https://trust.safebooks.ai
+[2026-03-22T01:37:12.582Z]   li (1):
+[2026-03-22T01:37:12.583Z]     - https://www.linkedin.com/company/90888934
+[2026-03-22T01:37:12.583Z]   tw (1):
+[2026-03-22T01:37:12.583Z]     - https://x.com/safebooks_ai
+[2026-03-22T01:37:12.583Z]   ytp (1):
+[2026-03-22T01:37:12.583Z]     - https://www.youtube.com/@safebooks_ai
+[2026-03-22T01:37:12.583Z] Summary: ws:2, li:1, ytp:1, tw:1
+[2026-03-22T01:37:12.584Z] Saved final result to result.json
+[2026-03-22T01:37:12.585Z] Override fields: ws, li, tw, ytp
+[2026-03-22T01:37:12.585Z] Finished at: 2026-03-22T01:37:12.585Z

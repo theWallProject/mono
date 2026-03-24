@@ -1,0 +1,62 @@
+[2026-03-23T19:38:26.925Z] === Homepage AI Extractor: Explo ===
+[2026-03-23T19:38:26.925Z] Started at: 2026-03-23T19:38:26.925Z
+[2026-03-23T19:38:26.926Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774294706924_Explo
+[2026-03-23T19:38:26.926Z] Company: Explo
+[2026-03-23T19:38:26.926Z] Website: explo.co
+[2026-03-23T19:38:26.926Z] cbRank: 10238
+[2026-03-23T19:38:26.926Z] Reasons: i
+[2026-03-23T19:38:26.926Z] Fetching: https://explo.co
+[2026-03-23T19:38:31.048Z] Redirected: https://explo.co -> https://www.explo.co/
+[2026-03-23T19:38:31.129Z] Saved HTML (4131221 bytes) to page.html
+[2026-03-23T19:38:31.134Z] Extracted 43 unique links from page
+[2026-03-23T19:38:31.135Z] Saved 43 links to links.json
+[2026-03-23T19:38:31.151Z] No footer section found in DOM
+[2026-03-23T19:38:31.151Z] Extracted header HTML (24144 chars)
+[2026-03-23T19:38:31.154Z] Website (post-redirect): https://www.explo.co/ → origin: https://www.explo.co
+[2026-03-23T19:38:31.154Z]   SUBDOMAIN: app.explo.co (added to ws)
+[2026-03-23T19:38:31.154Z]   SUBDOMAIN: docs.explo.co (added to ws)
+[2026-03-23T19:38:31.154Z]   SUBDOMAIN: status.explo.co (added to ws)
+[2026-03-23T19:38:31.154Z] Website subdomains found: 3
+[2026-03-23T19:38:31.154Z] External links: 2 (of 43 total)
+[2026-03-23T19:38:31.154Z] ── All external links ──
+[2026-03-23T19:38:31.155Z]   EXT: https://omni.co/blog/omni-acquires-explo/?utm_source=explo-website&utm_medium=blog&utm_campaign=explo-announcement
+[2026-03-23T19:38:31.155Z]   EXT: https://www.linkedin.com/company/explo-co
+[2026-03-23T19:38:31.155Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:38:31.155Z]   UNCATEGORIZED: https://omni.co/blog/omni-acquires-explo/?utm_source=explo-website&utm_medium=blog&utm_campaign=explo-announcement
+[2026-03-23T19:38:31.155Z]   REGEX: li <- https://www.linkedin.com/company/explo-co
+[2026-03-23T19:38:31.155Z] Programmatic result: ws:4, li:1 | 1 uncategorized
+[2026-03-23T19:38:31.155Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:38:31.158Z] Saved AI prompt (2038 chars) to ai_prompt.txt
+[2026-03-23T19:38:31.158Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:38:31.161Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:38:36.802Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-23T19:38:36.803Z] AI response complete: 0 chars in 5.6s
+[2026-03-23T19:38:36.807Z] Saved AI response to ai_response.json
+[2026-03-23T19:38:36.807Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T19:38:36.808Z] AI returned 0 valid links
+[2026-03-23T19:38:36.808Z] ── Categorizing 0 AI-returned links ──
+[2026-03-23T19:38:36.809Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:38:36.809Z] Footer/header origins (3):
+[2026-03-23T19:38:36.810Z]   FOOTER/HEADER ORIGIN: https://omni.co
+[2026-03-23T19:38:36.810Z]   FOOTER/HEADER ORIGIN: https://docs.explo.co
+[2026-03-23T19:38:36.810Z]   FOOTER/HEADER ORIGIN: https://app.explo.co
+[2026-03-23T19:38:36.810Z]   ADDED: urls <- https://omni.co/blog/omni-acquires-explo (cleaned from https://omni.co/blog/omni-acquires-explo/?utm_source=explo-website&utm_medium=blog&utm_campaign=explo-announcement)
+[2026-03-23T19:38:36.810Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T19:38:36.810Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:38:36.810Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:38:36.810Z] ── Step 3: Final dedup ──
+[2026-03-23T19:38:36.810Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T19:38:36.810Z] ── FINAL RESULT ──
+[2026-03-23T19:38:36.810Z]   ws (4):
+[2026-03-23T19:38:36.811Z]     - https://app.explo.co
+[2026-03-23T19:38:36.811Z]     - https://docs.explo.co
+[2026-03-23T19:38:36.811Z]     - https://status.explo.co
+[2026-03-23T19:38:36.811Z]     - https://www.explo.co
+[2026-03-23T19:38:36.811Z]   li (1):
+[2026-03-23T19:38:36.811Z]     - https://www.linkedin.com/company/explo-co
+[2026-03-23T19:38:36.811Z]   urls (1):
+[2026-03-23T19:38:36.811Z]     - https://omni.co/blog/omni-acquires-explo
+[2026-03-23T19:38:36.811Z] Summary: ws:4, li:1, urls:1
+[2026-03-23T19:38:36.812Z] Saved final result to result.json
+[2026-03-23T19:38:36.813Z] Override fields: ws, li, urls
+[2026-03-23T19:38:36.813Z] Finished at: 2026-03-23T19:38:36.813Z

@@ -1,0 +1,70 @@
+[2026-03-21T22:09:17.108Z] === Homepage AI Extractor: Zorro ===
+[2026-03-21T22:09:17.108Z] Started at: 2026-03-21T22:09:17.108Z
+[2026-03-21T22:09:17.108Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774130957108_Zorro
+[2026-03-21T22:09:17.109Z] Company: Zorro
+[2026-03-21T22:09:17.109Z] Website: myzorro.co
+[2026-03-21T22:09:17.109Z] cbRank: 1453
+[2026-03-21T22:09:17.109Z] Reasons: f
+[2026-03-21T22:09:17.109Z] Fetching: https://myzorro.co
+[2026-03-21T22:09:20.432Z] Redirected: https://myzorro.co -> https://www.myzorro.co/
+[2026-03-21T22:09:20.460Z] Saved HTML (212041 bytes) to page.html
+[2026-03-21T22:09:20.506Z] Extracted 29 unique links from page
+[2026-03-21T22:09:20.507Z] Saved 29 links to links.json
+[2026-03-21T22:09:20.556Z] Extracted footer HTML (12245 chars)
+[2026-03-21T22:09:20.556Z] Extracted header HTML (9375 chars)
+[2026-03-21T22:09:20.559Z] Website (post-redirect): https://www.myzorro.co/ → origin: https://www.myzorro.co
+[2026-03-21T22:09:20.560Z]   SUBDOMAIN: quote.myzorro.co (added to ws)
+[2026-03-21T22:09:20.560Z] Website subdomains found: 1
+[2026-03-21T22:09:20.560Z] External links: 4 (of 29 total)
+[2026-03-21T22:09:20.560Z] ── All external links ──
+[2026-03-21T22:09:20.560Z]   EXT: https://app.termly.io/dsar/3a9a608d-58a1-45c5-9cf7-81d052a5e2c9
+[2026-03-21T22:09:20.560Z]   EXT: https://www.axios.com/pro/health-tech-deals/2025/06/11/zorro-raises-20m-series-a-ichra-health-plans
+[2026-03-21T22:09:20.561Z]   EXT: https://www.linkedin.com/company/myzorrotech
+[2026-03-21T22:09:20.561Z]   EXT: https://x.com/zorro_co
+[2026-03-21T22:09:20.561Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:09:20.561Z]   UNCATEGORIZED: https://app.termly.io/dsar/3a9a608d-58a1-45c5-9cf7-81d052a5e2c9
+[2026-03-21T22:09:20.561Z]   UNCATEGORIZED: https://www.axios.com/pro/health-tech-deals/2025/06/11/zorro-raises-20m-series-a-ichra-health-plans
+[2026-03-21T22:09:20.561Z]   REGEX: li <- https://www.linkedin.com/company/myzorrotech
+[2026-03-21T22:09:20.561Z]   REGEX: tw <- https://x.com/zorro_co
+[2026-03-21T22:09:20.561Z] Programmatic result: ws:2, li:1, tw:1 | 2 uncategorized
+[2026-03-21T22:09:20.561Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:09:20.564Z] Saved AI prompt (4418 chars) to ai_prompt.txt
+[2026-03-21T22:09:20.565Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:09:20.570Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:09:38.481Z]   AI: First token received, streaming...
+[2026-03-21T22:09:41.998Z] AI response complete: 68 chars in 21.4s
+[2026-03-21T22:09:42.000Z] Saved AI response to ai_response.json
+[2026-03-21T22:09:42.000Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T22:09:42.000Z]   AI LINK: https://www.linkedin.com/company/myzorrotech/
+[2026-03-21T22:09:42.000Z]   AI LINK: https://x.com/zorro_co
+[2026-03-21T22:09:42.000Z] AI returned 2 valid links
+[2026-03-21T22:09:42.001Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T22:09:42.001Z]   AI→REGEX: li <- https://www.linkedin.com/company/myzorrotech/ (duplicate, skipped)
+[2026-03-21T22:09:42.001Z]   AI→REGEX: tw <- https://x.com/zorro_co (duplicate, skipped)
+[2026-03-21T22:09:42.002Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:09:42.002Z] Footer/header origins (4):
+[2026-03-21T22:09:42.002Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:09:42.002Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T22:09:42.002Z]   FOOTER/HEADER ORIGIN: https://quote.myzorro.co
+[2026-03-21T22:09:42.002Z]   FOOTER/HEADER ORIGIN: https://app.termly.io
+[2026-03-21T22:09:42.003Z]   ADDED: urls <- https://app.termly.io/dsar/3a9a608d-58a1-45c5-9cf7-81d052a5e2c9
+[2026-03-21T22:09:42.003Z]   SKIP (not in footer/header): https://www.axios.com/pro/health-tech-deals/2025/06/11/zorro-raises-20m-series-a-ichra-health-plans
+[2026-03-21T22:09:42.003Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T22:09:42.003Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:09:42.003Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:09:42.003Z] ── Step 3: Final dedup ──
+[2026-03-21T22:09:42.003Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T22:09:42.003Z] ── FINAL RESULT ──
+[2026-03-21T22:09:42.004Z]   ws (2):
+[2026-03-21T22:09:42.004Z]     - https://quote.myzorro.co
+[2026-03-21T22:09:42.004Z]     - https://www.myzorro.co
+[2026-03-21T22:09:42.004Z]   li (1):
+[2026-03-21T22:09:42.004Z]     - https://www.linkedin.com/company/myzorrotech
+[2026-03-21T22:09:42.004Z]   tw (1):
+[2026-03-21T22:09:42.004Z]     - https://x.com/zorro_co
+[2026-03-21T22:09:42.004Z]   urls (1):
+[2026-03-21T22:09:42.005Z]     - https://app.termly.io/dsar/3a9a608d-58a1-45c5-9cf7-81d052a5e2c9
+[2026-03-21T22:09:42.005Z] Summary: ws:2, li:1, tw:1, urls:1
+[2026-03-21T22:09:42.006Z] Saved final result to result.json
+[2026-03-21T22:09:42.006Z] Override fields: ws, li, tw, urls
+[2026-03-21T22:09:42.007Z] Finished at: 2026-03-21T22:09:42.007Z

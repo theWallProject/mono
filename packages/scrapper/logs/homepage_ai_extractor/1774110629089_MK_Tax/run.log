@@ -1,0 +1,65 @@
+[2026-03-21T16:30:29.090Z] === Homepage AI Extractor: MK Tax ===
+[2026-03-21T16:30:29.090Z] Started at: 2026-03-21T16:30:29.090Z
+[2026-03-21T16:30:29.090Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774110629089_MK_Tax
+[2026-03-21T16:30:29.090Z] Company: MK Tax
+[2026-03-21T16:30:29.090Z] Website: mktaxusa.com
+[2026-03-21T16:30:29.090Z] cbRank: 3548607
+[2026-03-21T16:30:29.090Z] Reasons: h
+[2026-03-21T16:30:29.090Z] Fetching: https://mktaxusa.com
+[2026-03-21T16:30:40.313Z] Network idle timeout — continuing with current state
+[2026-03-21T16:30:40.383Z] Dismissed cookie consent popup via: button:has-text("Accept cookies")
+[2026-03-21T16:30:48.367Z] Redirected: https://mktaxusa.com -> https://mktaxusa.com/
+[2026-03-21T16:30:48.379Z] Saved HTML (470930 bytes) to page.html
+[2026-03-21T16:30:48.381Z] Extracted 11 unique links from page
+[2026-03-21T16:30:48.382Z] Saved 11 links to links.json
+[2026-03-21T16:30:48.384Z] Extracted footer HTML (3648 chars)
+[2026-03-21T16:30:48.384Z] Extracted header HTML (5513 chars)
+[2026-03-21T16:30:48.387Z] Website (post-redirect): https://mktaxusa.com/ → origin: https://mktaxusa.com
+[2026-03-21T16:30:48.388Z] External links: 4 (of 11 total)
+[2026-03-21T16:30:48.388Z] ── All external links ──
+[2026-03-21T16:30:48.388Z]   EXT: https://theavocado.co
+[2026-03-21T16:30:48.388Z]   EXT: https://www.enable.co.il
+[2026-03-21T16:30:48.388Z]   EXT: https://www.linkedin.com/company/mktaxltd.
+[2026-03-21T16:30:48.388Z]   EXT: https://www.upress.co.il
+[2026-03-21T16:30:48.388Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T16:30:48.388Z]   UNCATEGORIZED: https://theavocado.co
+[2026-03-21T16:30:48.388Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-21T16:30:48.388Z]   REGEX: li <- https://www.linkedin.com/company/mktaxltd.
+[2026-03-21T16:30:48.389Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-21T16:30:48.389Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-21T16:30:48.389Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T16:30:48.390Z] Saved AI prompt (3530 chars) to ai_prompt.txt
+[2026-03-21T16:30:48.390Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T16:30:48.394Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T16:31:02.665Z]   AI: First token received, streaming...
+[2026-03-21T16:31:04.545Z] AI response complete: 43 chars in 16.2s
+[2026-03-21T16:31:04.547Z] Saved AI response to ai_response.json
+[2026-03-21T16:31:04.547Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T16:31:04.547Z]   AI LINK: https://www.linkedin.com/company/mktaxltd./
+[2026-03-21T16:31:04.547Z] AI returned 1 valid links
+[2026-03-21T16:31:04.548Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T16:31:04.548Z]   AI→REGEX: li <- https://www.linkedin.com/company/mktaxltd./ (duplicate, skipped)
+[2026-03-21T16:31:04.549Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T16:31:04.549Z] Footer/header origins (3):
+[2026-03-21T16:31:04.549Z]   FOOTER/HEADER ORIGIN: https://mktaxusa.com
+[2026-03-21T16:31:04.549Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T16:31:04.549Z]   FOOTER/HEADER ORIGIN: https://theavocado.co
+[2026-03-21T16:31:04.550Z]   ADDED: urls <- https://theavocado.co
+[2026-03-21T16:31:04.550Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-21T16:31:04.550Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-21T16:31:04.550Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T16:31:04.550Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T16:31:04.550Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T16:31:04.550Z] ── Step 3: Final dedup ──
+[2026-03-21T16:31:04.551Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T16:31:04.551Z] ── FINAL RESULT ──
+[2026-03-21T16:31:04.551Z]   ws (1):
+[2026-03-21T16:31:04.551Z]     - https://mktaxusa.com
+[2026-03-21T16:31:04.551Z]   li (1):
+[2026-03-21T16:31:04.551Z]     - https://www.linkedin.com/company/mktaxltd.
+[2026-03-21T16:31:04.551Z]   urls (1):
+[2026-03-21T16:31:04.552Z]     - https://theavocado.co
+[2026-03-21T16:31:04.552Z] Summary: ws:1, li:1, urls:1
+[2026-03-21T16:31:04.553Z] Saved final result to result.json
+[2026-03-21T16:31:04.553Z] Override fields: ws, li, urls
+[2026-03-21T16:31:04.554Z] Finished at: 2026-03-21T16:31:04.554Z

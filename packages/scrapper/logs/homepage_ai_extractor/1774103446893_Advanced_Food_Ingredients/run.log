@@ -1,0 +1,70 @@
+[2026-03-21T14:30:46.894Z] === Homepage AI Extractor: Advanced Food Ingredients ===
+[2026-03-21T14:30:46.894Z] Started at: 2026-03-21T14:30:46.894Z
+[2026-03-21T14:30:46.894Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774103446893_Advanced_Food_Ingredients
+[2026-03-21T14:30:46.894Z] Company: Advanced Food Ingredients
+[2026-03-21T14:30:46.894Z] Website: afingredients.com
+[2026-03-21T14:30:46.894Z] cbRank: 3447523
+[2026-03-21T14:30:46.894Z] Reasons: h
+[2026-03-21T14:30:46.894Z] Fetching: https://afingredients.com
+[2026-03-21T14:30:49.826Z] Redirected: https://afingredients.com -> https://afingredients.com/
+[2026-03-21T14:30:49.833Z] Saved HTML (251326 bytes) to page.html
+[2026-03-21T14:30:49.835Z] Extracted 39 unique links from page
+[2026-03-21T14:30:49.836Z] Saved 39 links to links.json
+[2026-03-21T14:30:49.839Z] Extracted footer HTML (10986 chars)
+[2026-03-21T14:30:49.839Z] Extracted header HTML (78928 chars)
+[2026-03-21T14:30:49.842Z] Website (post-redirect): https://afingredients.com/ → origin: https://afingredients.com
+[2026-03-21T14:30:49.842Z] External links: 4 (of 39 total)
+[2026-03-21T14:30:49.842Z] ── All external links ──
+[2026-03-21T14:30:49.842Z]   EXT: https://advancedfood.eu
+[2026-03-21T14:30:49.842Z]   EXT: https://sitelinx.co.il
+[2026-03-21T14:30:49.842Z]   EXT: https://www.linkedin.com/company/advanced-food-ingredients-ltd/mycompany
+[2026-03-21T14:30:49.842Z]   EXT: https://www.linkedin.com/showcase/food-ingredients-israel/?viewAsMember=true
+[2026-03-21T14:30:49.842Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:30:49.842Z]   UNCATEGORIZED: https://advancedfood.eu
+[2026-03-21T14:30:49.843Z]   UNCATEGORIZED: https://sitelinx.co.il
+[2026-03-21T14:30:49.843Z]   REGEX: li <- https://www.linkedin.com/company/advanced-food-ingredients-ltd/mycompany
+[2026-03-21T14:30:49.843Z]   REGEX: li <- https://www.linkedin.com/showcase/food-ingredients-israel/?viewAsMember=true
+[2026-03-21T14:30:49.843Z] Programmatic result: ws:1, li:2 | 2 uncategorized
+[2026-03-21T14:30:49.843Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:30:49.846Z] Saved AI prompt (8556 chars) to ai_prompt.txt
+[2026-03-21T14:30:49.846Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:30:49.850Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:31:27.694Z]   AI: First token received, streaming...
+[2026-03-21T14:31:46.934Z]   AI streaming: 200 chars received (57.1s elapsed)
+[2026-03-21T14:31:51.026Z] AI response complete: 232 chars in 61.2s
+[2026-03-21T14:31:51.027Z] Saved AI response to ai_response.json
+[2026-03-21T14:31:51.027Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T14:31:51.027Z]   AI LINK: https://www.linkedin.com/company/advanced-food-ingredients-ltd/mycompany/
+[2026-03-21T14:31:51.027Z]   AI LINK: https://afingredients.com/category/%d7%9e%d7%96%d7%95%d7%9f/
+[2026-03-21T14:31:51.027Z]   AI LINK: https://afingredients.com/category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94/
+[2026-03-21T14:31:51.027Z] AI returned 3 valid links
+[2026-03-21T14:31:51.027Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T14:31:51.027Z]   AI→REGEX: li <- https://www.linkedin.com/company/advanced-food-ingredients-ltd/mycompany/ (duplicate, skipped)
+[2026-03-21T14:31:51.027Z]   AI→URLS: https://afingredients.com/category/%d7%9e%d7%96%d7%95%d7%9f (cleaned from https://afingredients.com/category/%d7%9e%d7%96%d7%95%d7%9f/)
+[2026-03-21T14:31:51.027Z]   AI→URLS: https://afingredients.com/category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94 (cleaned from https://afingredients.com/category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94/)
+[2026-03-21T14:31:51.028Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:31:51.028Z] Footer/header origins (3):
+[2026-03-21T14:31:51.028Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T14:31:51.028Z]   FOOTER/HEADER ORIGIN: https://afingredients.com
+[2026-03-21T14:31:51.028Z]   FOOTER/HEADER ORIGIN: https://advancedfood.eu
+[2026-03-21T14:31:51.028Z]   ADDED: urls <- https://advancedfood.eu
+[2026-03-21T14:31:51.028Z]   SKIP (not in footer/header): https://sitelinx.co.il
+[2026-03-21T14:31:51.028Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T14:31:51.028Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:31:51.028Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:31:51.028Z] ── Step 3: Final dedup ──
+[2026-03-21T14:31:51.028Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-21T14:31:51.028Z] ── FINAL RESULT ──
+[2026-03-21T14:31:51.028Z]   ws (1):
+[2026-03-21T14:31:51.028Z]     - https://afingredients.com
+[2026-03-21T14:31:51.028Z]   li (2):
+[2026-03-21T14:31:51.028Z]     - https://www.linkedin.com/company/advanced-food-ingredients-ltd
+[2026-03-21T14:31:51.029Z]     - https://www.linkedin.com/company/food-ingredients-israel
+[2026-03-21T14:31:51.029Z]   urls (3):
+[2026-03-21T14:31:51.029Z]     - https://advancedfood.eu
+[2026-03-21T14:31:51.029Z]     - https://afingredients.com/category/%d7%9e%d7%96%d7%95%d7%9f
+[2026-03-21T14:31:51.029Z]     - https://afingredients.com/category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94
+[2026-03-21T14:31:51.029Z] Summary: ws:1, li:2, urls:3
+[2026-03-21T14:31:51.029Z] Saved final result to result.json
+[2026-03-21T14:31:51.029Z] Override fields: ws, li
+[2026-03-21T14:31:51.030Z] Finished at: 2026-03-21T14:31:51.030Z

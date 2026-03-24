@@ -1,0 +1,59 @@
+[2026-03-22T07:20:18.336Z] === Homepage AI Extractor: Zorba ===
+[2026-03-22T07:20:18.336Z] Started at: 2026-03-22T07:20:18.336Z
+[2026-03-22T07:20:18.337Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774164018336_Zorba
+[2026-03-22T07:20:18.337Z] Company: Zorba
+[2026-03-22T07:20:18.337Z] Website: getzorba.com
+[2026-03-22T07:20:18.337Z] cbRank: 258581
+[2026-03-22T07:20:18.337Z] Reasons: f
+[2026-03-22T07:20:18.337Z] Fetching: https://getzorba.com
+[2026-03-22T07:20:21.177Z] Redirected: https://getzorba.com -> https://getzorba.com/
+[2026-03-22T07:20:21.182Z] Saved HTML (29490 bytes) to page.html
+[2026-03-22T07:20:21.185Z] Extracted 10 unique links from page
+[2026-03-22T07:20:21.185Z] Saved 10 links to links.json
+[2026-03-22T07:20:21.188Z] No footer section found in DOM
+[2026-03-22T07:20:21.188Z] Extracted header HTML (2258 chars)
+[2026-03-22T07:20:21.194Z] Website (post-redirect): https://getzorba.com/ → origin: https://getzorba.com
+[2026-03-22T07:20:21.194Z]   SUBDOMAIN: blog.getzorba.com (added to ws)
+[2026-03-22T07:20:21.194Z] Website subdomains found: 1
+[2026-03-22T07:20:21.194Z] External links: 3 (of 10 total)
+[2026-03-22T07:20:21.194Z] ── All external links ──
+[2026-03-22T07:20:21.194Z]   EXT: https://www.facebook.com/getzorba
+[2026-03-22T07:20:21.195Z]   EXT: https://www.instagram.com/zorba.realestate
+[2026-03-22T07:20:21.195Z]   EXT: https://www.linkedin.com/company/getzorba
+[2026-03-22T07:20:21.195Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T07:20:21.195Z]   REGEX: fb <- https://www.facebook.com/getzorba
+[2026-03-22T07:20:21.195Z]   REGEX: ig <- https://www.instagram.com/zorba.realestate
+[2026-03-22T07:20:21.195Z]   REGEX: li <- https://www.linkedin.com/company/getzorba
+[2026-03-22T07:20:21.196Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-22T07:20:21.196Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T07:20:21.199Z] Saved AI prompt (1922 chars) to ai_prompt.txt
+[2026-03-22T07:20:21.199Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T07:20:21.204Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T07:20:26.668Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-22T07:20:26.668Z] AI response complete: 0 chars in 5.5s
+[2026-03-22T07:20:26.670Z] Saved AI response to ai_response.json
+[2026-03-22T07:20:26.670Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T07:20:26.670Z] AI returned 0 valid links
+[2026-03-22T07:20:26.670Z] ── Categorizing 0 AI-returned links ──
+[2026-03-22T07:20:26.671Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T07:20:26.671Z] Footer/header origins (1):
+[2026-03-22T07:20:26.671Z]   FOOTER/HEADER ORIGIN: https://blog.getzorba.com
+[2026-03-22T07:20:26.671Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T07:20:26.671Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T07:20:26.671Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T07:20:26.671Z] ── Step 3: Final dedup ──
+[2026-03-22T07:20:26.672Z] No urls to dedup
+[2026-03-22T07:20:26.672Z] ── FINAL RESULT ──
+[2026-03-22T07:20:26.672Z]   ws (2):
+[2026-03-22T07:20:26.672Z]     - https://blog.getzorba.com
+[2026-03-22T07:20:26.672Z]     - https://getzorba.com
+[2026-03-22T07:20:26.672Z]   li (1):
+[2026-03-22T07:20:26.672Z]     - https://www.linkedin.com/company/getzorba
+[2026-03-22T07:20:26.672Z]   fb (1):
+[2026-03-22T07:20:26.672Z]     - https://www.facebook.com/getzorba
+[2026-03-22T07:20:26.673Z]   ig (1):
+[2026-03-22T07:20:26.673Z]     - https://www.instagram.com/zorba.realestate
+[2026-03-22T07:20:26.673Z] Summary: ws:2, fb:1, ig:1, li:1
+[2026-03-22T07:20:26.674Z] Saved final result to result.json
+[2026-03-22T07:20:26.674Z] Override fields: ws, li, fb, ig
+[2026-03-22T07:20:26.674Z] Finished at: 2026-03-22T07:20:26.674Z

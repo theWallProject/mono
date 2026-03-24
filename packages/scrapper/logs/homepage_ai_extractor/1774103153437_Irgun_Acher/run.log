@@ -1,0 +1,66 @@
+[2026-03-21T14:25:53.438Z] === Homepage AI Extractor: Irgun Acher ===
+[2026-03-21T14:25:53.438Z] Started at: 2026-03-21T14:25:53.438Z
+[2026-03-21T14:25:53.438Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774103153437_Irgun_Acher
+[2026-03-21T14:25:53.439Z] Company: Irgun Acher
+[2026-03-21T14:25:53.439Z] Website: irgun-acher.co.il
+[2026-03-21T14:25:53.439Z] cbRank: 3443317
+[2026-03-21T14:25:53.439Z] Reasons: h
+[2026-03-21T14:25:53.439Z] Fetching: https://irgun-acher.co.il
+[2026-03-21T14:25:59.724Z] Redirected: https://irgun-acher.co.il -> https://www.irgun-acher.co.il/
+[2026-03-21T14:25:59.733Z] Saved HTML (468826 bytes) to page.html
+[2026-03-21T14:25:59.736Z] Extracted 14 unique links from page
+[2026-03-21T14:25:59.736Z] Saved 14 links to links.json
+[2026-03-21T14:25:59.738Z] Extracted footer HTML (17429 chars)
+[2026-03-21T14:25:59.738Z] Extracted header HTML (213 chars)
+[2026-03-21T14:25:59.741Z] Website (post-redirect): https://www.irgun-acher.co.il/ → origin: https://www.irgun-acher.co.il
+[2026-03-21T14:25:59.741Z] External links: 5 (of 14 total)
+[2026-03-21T14:25:59.742Z] ── All external links ──
+[2026-03-21T14:25:59.742Z]   EXT: http://www.kidumplus.co.il
+[2026-03-21T14:25:59.742Z]   EXT: https://il.linkedin.com/company/irgun-acher
+[2026-03-21T14:25:59.742Z]   EXT: https://www.enable.co.il
+[2026-03-21T14:25:59.742Z]   EXT: https://www.facebook.com/irgunacher?mibextid=ZbWKwL
+[2026-03-21T14:25:59.742Z]   EXT: https://www.upress.co.il
+[2026-03-21T14:25:59.742Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:25:59.742Z]   UNCATEGORIZED: http://www.kidumplus.co.il
+[2026-03-21T14:25:59.742Z]   REGEX: li <- https://il.linkedin.com/company/irgun-acher
+[2026-03-21T14:25:59.742Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-21T14:25:59.742Z]   REGEX: fb <- https://www.facebook.com/irgunacher?mibextid=ZbWKwL
+[2026-03-21T14:25:59.742Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-21T14:25:59.742Z] Programmatic result: ws:1, li:1, fb:1 | 3 uncategorized
+[2026-03-21T14:25:59.742Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:25:59.745Z] Saved AI prompt (9196 chars) to ai_prompt.txt
+[2026-03-21T14:25:59.745Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:25:59.749Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:26:43.010Z]   AI: First token received, streaming...
+[2026-03-21T14:26:46.831Z] AI response complete: 51 chars in 47.1s
+[2026-03-21T14:26:46.833Z] Saved AI response to ai_response.json
+[2026-03-21T14:26:46.833Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T14:26:46.833Z]   AI LINK: https://www.facebook.com/irgunacher?mibextid=ZbWKwL
+[2026-03-21T14:26:46.833Z] AI returned 1 valid links
+[2026-03-21T14:26:46.833Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T14:26:46.834Z]   AI→REGEX: fb <- https://www.facebook.com/irgunacher?mibextid=ZbWKwL (duplicate, skipped)
+[2026-03-21T14:26:46.834Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:26:46.834Z] Footer/header origins (2):
+[2026-03-21T14:26:46.834Z]   FOOTER/HEADER ORIGIN: http://www.kidumplus.co.il
+[2026-03-21T14:26:46.834Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T14:26:46.835Z]   ADDED: urls <- http://www.kidumplus.co.il
+[2026-03-21T14:26:46.835Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-21T14:26:46.835Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-21T14:26:46.835Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T14:26:46.835Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:26:46.835Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:26:46.835Z] ── Step 3: Final dedup ──
+[2026-03-21T14:26:46.835Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T14:26:46.836Z] ── FINAL RESULT ──
+[2026-03-21T14:26:46.836Z]   ws (1):
+[2026-03-21T14:26:46.836Z]     - https://www.irgun-acher.co.il
+[2026-03-21T14:26:46.836Z]   li (1):
+[2026-03-21T14:26:46.836Z]     - https://www.linkedin.com/company/irgun-acher
+[2026-03-21T14:26:46.836Z]   fb (1):
+[2026-03-21T14:26:46.836Z]     - https://www.facebook.com/irgunacher
+[2026-03-21T14:26:46.837Z]   urls (1):
+[2026-03-21T14:26:46.837Z]     - http://www.kidumplus.co.il
+[2026-03-21T14:26:46.837Z] Summary: ws:1, li:1, fb:1, urls:1
+[2026-03-21T14:26:46.838Z] Saved final result to result.json
+[2026-03-21T14:26:46.838Z] Override fields: ws, li, fb, urls
+[2026-03-21T14:26:46.838Z] Finished at: 2026-03-21T14:26:46.838Z

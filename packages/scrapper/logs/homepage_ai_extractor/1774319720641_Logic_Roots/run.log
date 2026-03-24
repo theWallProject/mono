@@ -1,0 +1,59 @@
+[2026-03-24T02:35:20.641Z] === Homepage AI Extractor: Logic Roots ===
+[2026-03-24T02:35:20.641Z] Started at: 2026-03-24T02:35:20.641Z
+[2026-03-24T02:35:20.642Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774319720641_Logic_Roots
+[2026-03-24T02:35:20.642Z] Company: Logic Roots
+[2026-03-24T02:35:20.642Z] Website: logicroots.com
+[2026-03-24T02:35:20.642Z] cbRank: 176171
+[2026-03-24T02:35:20.642Z] Reasons: i
+[2026-03-24T02:35:20.642Z] Fetching: https://logicroots.com
+[2026-03-24T02:35:32.070Z] Network idle timeout — continuing with current state
+[2026-03-24T02:35:32.109Z] Redirected: https://logicroots.com -> https://logicroots.com/
+[2026-03-24T02:35:32.113Z] Saved HTML (54069 bytes) to page.html
+[2026-03-24T02:35:32.116Z] Extracted 46 unique links from page
+[2026-03-24T02:35:32.117Z] Saved 46 links to links.json
+[2026-03-24T02:35:32.119Z] Extracted footer HTML (6765 chars)
+[2026-03-24T02:35:32.119Z] No header section found in DOM
+[2026-03-24T02:35:32.122Z] Website (post-redirect): https://logicroots.com/ → origin: https://logicroots.com
+[2026-03-24T02:35:32.123Z] External links: 3 (of 46 total)
+[2026-03-24T02:35:32.123Z] ── All external links ──
+[2026-03-24T02:35:32.123Z]   EXT: https://twitter.com/lrlabs
+[2026-03-24T02:35:32.123Z]   EXT: https://www.facebook.com/LRLabs
+[2026-03-24T02:35:32.123Z]   EXT: https://www.pinterest.com/logicroots
+[2026-03-24T02:35:32.123Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:35:32.123Z]   REGEX: tw <- https://twitter.com/lrlabs
+[2026-03-24T02:35:32.123Z]   REGEX: fb <- https://www.facebook.com/LRLabs
+[2026-03-24T02:35:32.123Z]   UNCATEGORIZED: https://www.pinterest.com/logicroots
+[2026-03-24T02:35:32.123Z] Programmatic result: ws:1, tw:1, fb:1 | 1 uncategorized
+[2026-03-24T02:35:32.123Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:35:32.124Z] Saved AI prompt (5061 chars) to ai_prompt.txt
+[2026-03-24T02:35:32.124Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:35:32.128Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:35:51.173Z]   AI: First token received, streaming...
+[2026-03-24T02:35:52.108Z] AI response complete: 36 chars in 20.0s
+[2026-03-24T02:35:52.109Z] Saved AI response to ai_response.json
+[2026-03-24T02:35:52.109Z] ── Parsing AI response (1 lines) ──
+[2026-03-24T02:35:52.110Z]   AI LINK: https://www.pinterest.com/logicroots
+[2026-03-24T02:35:52.110Z] AI returned 1 valid links
+[2026-03-24T02:35:52.110Z] ── Categorizing 1 AI-returned links ──
+[2026-03-24T02:35:52.110Z]   AI→URLS: https://www.pinterest.com/logicroots
+[2026-03-24T02:35:52.111Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T02:35:52.112Z] Footer/header origins (0):
+[2026-03-24T02:35:52.112Z]   SKIP (AI claimed): https://www.pinterest.com/logicroots
+[2026-03-24T02:35:52.112Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T02:35:52.112Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T02:35:52.112Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T02:35:52.112Z] ── Step 3: Final dedup ──
+[2026-03-24T02:35:52.112Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T02:35:52.113Z] ── FINAL RESULT ──
+[2026-03-24T02:35:52.113Z]   ws (1):
+[2026-03-24T02:35:52.113Z]     - https://logicroots.com
+[2026-03-24T02:35:52.113Z]   fb (1):
+[2026-03-24T02:35:52.113Z]     - https://www.facebook.com/lrlabs
+[2026-03-24T02:35:52.113Z]   tw (1):
+[2026-03-24T02:35:52.113Z]     - https://x.com/lrlabs
+[2026-03-24T02:35:52.113Z]   urls (1):
+[2026-03-24T02:35:52.113Z]     - https://www.pinterest.com/logicroots
+[2026-03-24T02:35:52.113Z] Summary: ws:1, tw:1, fb:1, urls:1
+[2026-03-24T02:35:52.115Z] Saved final result to result.json
+[2026-03-24T02:35:52.115Z] Override fields: ws, fb, tw, urls
+[2026-03-24T02:35:52.115Z] Finished at: 2026-03-24T02:35:52.115Z

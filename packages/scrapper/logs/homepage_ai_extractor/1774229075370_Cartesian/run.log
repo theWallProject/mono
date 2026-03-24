@@ -1,0 +1,56 @@
+[2026-03-23T01:24:35.371Z] === Homepage AI Extractor: Cartesian ===
+[2026-03-23T01:24:35.371Z] Started at: 2026-03-23T01:24:35.371Z
+[2026-03-23T01:24:35.371Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774229075370_Cartesian
+[2026-03-23T01:24:35.371Z] Company: Cartesian
+[2026-03-23T01:24:35.371Z] Website: cartesian.com
+[2026-03-23T01:24:35.371Z] cbRank: 515085
+[2026-03-23T01:24:35.371Z] Reasons: f
+[2026-03-23T01:24:35.371Z] Fetching: https://cartesian.com
+[2026-03-23T01:24:46.475Z] Network idle timeout — continuing with current state
+[2026-03-23T01:24:46.545Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T01:24:54.534Z] Redirected: https://cartesian.com -> https://www.cartesian.com/
+[2026-03-23T01:24:54.545Z] Saved HTML (397092 bytes) to page.html
+[2026-03-23T01:24:54.549Z] Extracted 60 unique links from page
+[2026-03-23T01:24:54.550Z] Saved 60 links to links.json
+[2026-03-23T01:24:54.554Z] Extracted footer HTML (13817 chars)
+[2026-03-23T01:24:54.554Z] Extracted header HTML (128054 chars)
+[2026-03-23T01:24:54.558Z] Website (post-redirect): https://www.cartesian.com/ → origin: https://www.cartesian.com
+[2026-03-23T01:24:54.559Z] External links: 2 (of 60 total)
+[2026-03-23T01:24:54.559Z] ── All external links ──
+[2026-03-23T01:24:54.559Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T01:24:54.559Z]   EXT: https://www.linkedin.com/company/cartesian
+[2026-03-23T01:24:54.559Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T01:24:54.559Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T01:24:54.559Z]   REGEX: li <- https://www.linkedin.com/company/cartesian
+[2026-03-23T01:24:54.559Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-23T01:24:54.559Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T01:24:54.589Z] Saved AI prompt (10211 chars) to ai_prompt.txt
+[2026-03-23T01:24:54.589Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T01:24:54.594Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T01:25:37.196Z]   AI: First token received, streaming...
+[2026-03-23T01:25:38.372Z] AI response complete: 43 chars in 43.8s
+[2026-03-23T01:25:38.373Z] Saved AI response to ai_response.json
+[2026-03-23T01:25:38.373Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T01:25:38.373Z]   AI LINK: https://www.linkedin.com/company/cartesian/
+[2026-03-23T01:25:38.373Z] AI returned 1 valid links
+[2026-03-23T01:25:38.373Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T01:25:38.374Z]   AI→REGEX: li <- https://www.linkedin.com/company/cartesian/ (duplicate, skipped)
+[2026-03-23T01:25:38.375Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T01:25:38.375Z] Footer/header origins (2):
+[2026-03-23T01:25:38.375Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T01:25:38.375Z]   FOOTER/HEADER ORIGIN: https://www.cartesian.com
+[2026-03-23T01:25:38.375Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T01:25:38.375Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T01:25:38.375Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T01:25:38.376Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T01:25:38.376Z] ── Step 3: Final dedup ──
+[2026-03-23T01:25:38.376Z] No urls to dedup
+[2026-03-23T01:25:38.376Z] ── FINAL RESULT ──
+[2026-03-23T01:25:38.376Z]   ws (1):
+[2026-03-23T01:25:38.376Z]     - https://www.cartesian.com
+[2026-03-23T01:25:38.376Z]   li (1):
+[2026-03-23T01:25:38.376Z]     - https://www.linkedin.com/company/cartesian
+[2026-03-23T01:25:38.377Z] Summary: ws:1, li:1
+[2026-03-23T01:25:38.378Z] Saved final result to result.json
+[2026-03-23T01:25:38.378Z] Override fields: ws, li
+[2026-03-23T01:25:38.378Z] Finished at: 2026-03-23T01:25:38.378Z

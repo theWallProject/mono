@@ -1,0 +1,76 @@
+[2026-03-23T20:01:56.867Z] === Homepage AI Extractor: Autonomy AI ===
+[2026-03-23T20:01:56.867Z] Started at: 2026-03-23T20:01:56.867Z
+[2026-03-23T20:01:56.867Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774296116867_Autonomy_AI
+[2026-03-23T20:01:56.868Z] Company: Autonomy AI
+[2026-03-23T20:01:56.868Z] Website: autonomyai.io
+[2026-03-23T20:01:56.868Z] cbRank: 12583
+[2026-03-23T20:01:56.868Z] Reasons: i
+[2026-03-23T20:01:56.868Z] Fetching: https://autonomyai.io
+[2026-03-23T20:02:00.000Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T20:02:02.955Z] Redirected: https://autonomyai.io -> https://autonomyai.io/
+[2026-03-23T20:02:02.980Z] Saved HTML (939994 bytes) to page.html
+[2026-03-23T20:02:02.986Z] Extracted 27 unique links from page
+[2026-03-23T20:02:02.986Z] Saved 27 links to links.json
+[2026-03-23T20:02:02.989Z] Extracted footer HTML (8620 chars)
+[2026-03-23T20:02:02.989Z] Extracted header HTML (11309 chars)
+[2026-03-23T20:02:02.991Z] Website (post-redirect): https://autonomyai.io/ → origin: https://autonomyai.io
+[2026-03-23T20:02:02.992Z]   SUBDOMAIN: help.autonomyai.io (added to ws)
+[2026-03-23T20:02:02.992Z]   SUBDOMAIN: studio.autonomyai.io (added to ws)
+[2026-03-23T20:02:02.992Z] Website subdomains found: 2
+[2026-03-23T20:02:02.992Z] External links: 4 (of 27 total)
+[2026-03-23T20:02:02.992Z] ── All external links ──
+[2026-03-23T20:02:02.992Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T20:02:02.992Z]   EXT: https://www.linkedin.com/company/autonomyio
+[2026-03-23T20:02:02.992Z]   EXT: https://www.youtube.com/@Autonomy-AI-Agents
+[2026-03-23T20:02:02.992Z]   EXT: https://x.com/AutonomyAI_io
+[2026-03-23T20:02:02.992Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:02:02.993Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T20:02:02.993Z]   REGEX: li <- https://www.linkedin.com/company/autonomyio
+[2026-03-23T20:02:02.993Z]   REGEX: ytp <- https://www.youtube.com/@Autonomy-AI-Agents
+[2026-03-23T20:02:02.993Z]   REGEX: tw <- https://x.com/AutonomyAI_io
+[2026-03-23T20:02:02.993Z] Programmatic result: ws:3, li:1, ytp:1, tw:1 | 1 uncategorized
+[2026-03-23T20:02:02.993Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:02:02.993Z] Saved AI prompt (5043 chars) to ai_prompt.txt
+[2026-03-23T20:02:02.993Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:02:02.998Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:02:21.816Z]   AI: First token received, streaming...
+[2026-03-23T20:02:28.894Z] AI response complete: 116 chars in 25.9s
+[2026-03-23T20:02:28.895Z] Saved AI response to ai_response.json
+[2026-03-23T20:02:28.895Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T20:02:28.895Z]   AI LINK: https://www.youtube.com/@Autonomy-AI-Agents
+[2026-03-23T20:02:28.896Z]   AI LINK: https://x.com/AutonomyAI_io
+[2026-03-23T20:02:28.896Z]   AI LINK: https://www.linkedin.com/company/autonomyio/
+[2026-03-23T20:02:28.896Z] AI returned 3 valid links
+[2026-03-23T20:02:28.896Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T20:02:28.896Z]   AI→REGEX: ytp <- https://www.youtube.com/@Autonomy-AI-Agents (duplicate, skipped)
+[2026-03-23T20:02:28.896Z]   AI→REGEX: tw <- https://x.com/AutonomyAI_io (duplicate, skipped)
+[2026-03-23T20:02:28.897Z]   AI→REGEX: li <- https://www.linkedin.com/company/autonomyio/ (duplicate, skipped)
+[2026-03-23T20:02:28.897Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:02:28.897Z] Footer/header origins (6):
+[2026-03-23T20:02:28.897Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T20:02:28.897Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T20:02:28.898Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T20:02:28.898Z]   FOOTER/HEADER ORIGIN: https://autonomyai.io
+[2026-03-23T20:02:28.898Z]   FOOTER/HEADER ORIGIN: https://help.autonomyai.io
+[2026-03-23T20:02:28.898Z]   FOOTER/HEADER ORIGIN: https://studio.autonomyai.io
+[2026-03-23T20:02:28.898Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T20:02:28.898Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T20:02:28.898Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:02:28.898Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:02:28.898Z] ── Step 3: Final dedup ──
+[2026-03-23T20:02:28.898Z] No urls to dedup
+[2026-03-23T20:02:28.898Z] ── FINAL RESULT ──
+[2026-03-23T20:02:28.898Z]   ws (3):
+[2026-03-23T20:02:28.898Z]     - https://autonomyai.io
+[2026-03-23T20:02:28.899Z]     - https://help.autonomyai.io
+[2026-03-23T20:02:28.899Z]     - https://studio.autonomyai.io
+[2026-03-23T20:02:28.899Z]   li (1):
+[2026-03-23T20:02:28.899Z]     - https://www.linkedin.com/company/autonomyio
+[2026-03-23T20:02:28.899Z]   tw (1):
+[2026-03-23T20:02:28.899Z]     - https://x.com/autonomyai_io
+[2026-03-23T20:02:28.899Z]   ytp (1):
+[2026-03-23T20:02:28.899Z]     - https://www.youtube.com/@autonomy-ai-agents
+[2026-03-23T20:02:28.899Z] Summary: ws:3, li:1, ytp:1, tw:1
+[2026-03-23T20:02:28.900Z] Saved final result to result.json
+[2026-03-23T20:02:28.901Z] Override fields: ws, li, tw, ytp
+[2026-03-23T20:02:28.901Z] Finished at: 2026-03-23T20:02:28.901Z

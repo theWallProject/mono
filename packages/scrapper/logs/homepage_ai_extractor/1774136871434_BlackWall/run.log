@@ -1,0 +1,58 @@
+[2026-03-21T23:47:51.435Z] === Homepage AI Extractor: BlackWall ===
+[2026-03-21T23:47:51.435Z] Started at: 2026-03-21T23:47:51.435Z
+[2026-03-21T23:47:51.435Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774136871434_BlackWall
+[2026-03-21T23:47:51.435Z] Company: BlackWall
+[2026-03-21T23:47:51.435Z] Website: blackwall.com
+[2026-03-21T23:47:51.435Z] cbRank: 9168
+[2026-03-21T23:47:51.435Z] Reasons: f
+[2026-03-21T23:47:51.435Z] Fetching: https://blackwall.com
+[2026-03-21T23:47:52.454Z] Redirected: https://blackwall.com -> https://blackwall.com/en/home
+[2026-03-21T23:47:52.456Z] Saved HTML (44534 bytes) to page.html
+[2026-03-21T23:47:52.459Z] Extracted 17 unique links from page
+[2026-03-21T23:47:52.459Z] Saved 17 links to links.json
+[2026-03-21T23:47:52.461Z] Extracted footer HTML (1834 chars)
+[2026-03-21T23:47:52.461Z] Extracted header HTML (2494 chars)
+[2026-03-21T23:47:52.463Z] Website (post-redirect): https://blackwall.com/en/home → origin: https://blackwall.com
+[2026-03-21T23:47:52.463Z]   SUBDOMAIN: careers.blackwall.com (added to ws)
+[2026-03-21T23:47:52.464Z]   SUBDOMAIN: docs.blackwall.com (added to ws)
+[2026-03-21T23:47:52.464Z] Website subdomains found: 2
+[2026-03-21T23:47:52.464Z] External links: 1 (of 17 total)
+[2026-03-21T23:47:52.464Z] ── All external links ──
+[2026-03-21T23:47:52.464Z]   EXT: https://www.linkedin.com/company/blackwall-solutions
+[2026-03-21T23:47:52.464Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T23:47:52.464Z]   REGEX: li <- https://www.linkedin.com/company/blackwall-solutions
+[2026-03-21T23:47:52.464Z] Programmatic result: ws:3, li:1 | 0 uncategorized
+[2026-03-21T23:47:52.464Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T23:47:52.465Z] Saved AI prompt (3380 chars) to ai_prompt.txt
+[2026-03-21T23:47:52.465Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T23:47:52.467Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T23:48:04.231Z]   AI: First token received, streaming...
+[2026-03-21T23:48:05.646Z] AI response complete: 52 chars in 13.2s
+[2026-03-21T23:48:05.647Z] Saved AI response to ai_response.json
+[2026-03-21T23:48:05.647Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T23:48:05.647Z]   AI LINK: https://www.linkedin.com/company/blackwall-solutions
+[2026-03-21T23:48:05.648Z] AI returned 1 valid links
+[2026-03-21T23:48:05.648Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T23:48:05.648Z]   AI→REGEX: li <- https://www.linkedin.com/company/blackwall-solutions (duplicate, skipped)
+[2026-03-21T23:48:05.648Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T23:48:05.648Z] Footer/header origins (4):
+[2026-03-21T23:48:05.649Z]   FOOTER/HEADER ORIGIN: https://docs.blackwall.com
+[2026-03-21T23:48:05.649Z]   FOOTER/HEADER ORIGIN: https://blackwall.com
+[2026-03-21T23:48:05.649Z]   FOOTER/HEADER ORIGIN: https://careers.blackwall.com
+[2026-03-21T23:48:05.649Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T23:48:05.649Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T23:48:05.649Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T23:48:05.649Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T23:48:05.649Z] ── Step 3: Final dedup ──
+[2026-03-21T23:48:05.649Z] No urls to dedup
+[2026-03-21T23:48:05.649Z] ── FINAL RESULT ──
+[2026-03-21T23:48:05.649Z]   ws (3):
+[2026-03-21T23:48:05.650Z]     - https://blackwall.com
+[2026-03-21T23:48:05.650Z]     - https://careers.blackwall.com
+[2026-03-21T23:48:05.650Z]     - https://docs.blackwall.com
+[2026-03-21T23:48:05.650Z]   li (1):
+[2026-03-21T23:48:05.650Z]     - https://www.linkedin.com/company/blackwall-solutions
+[2026-03-21T23:48:05.650Z] Summary: ws:3, li:1
+[2026-03-21T23:48:05.651Z] Saved final result to result.json
+[2026-03-21T23:48:05.651Z] Override fields: ws, li
+[2026-03-21T23:48:05.651Z] Finished at: 2026-03-21T23:48:05.651Z

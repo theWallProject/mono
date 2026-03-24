@@ -1,0 +1,69 @@
+[2026-03-21T08:08:35.979Z] === Homepage AI Extractor: UIDB ===
+[2026-03-21T08:08:35.979Z] Started at: 2026-03-21T08:08:35.979Z
+[2026-03-21T08:08:35.979Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774080515978_UIDB
+[2026-03-21T08:08:35.979Z] Company: UIDB
+[2026-03-21T08:08:35.979Z] Website: ui-db.com
+[2026-03-21T08:08:35.979Z] cbRank: 3142231
+[2026-03-21T08:08:35.979Z] Reasons: h
+[2026-03-21T08:08:35.979Z] Fetching: https://ui-db.com
+[2026-03-21T08:08:51.066Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T08:08:54.034Z] Redirected: https://ui-db.com -> https://ui-db.com/
+[2026-03-21T08:08:54.094Z] Saved HTML (2167382 bytes) to page.html
+[2026-03-21T08:08:54.109Z] Extracted 57 unique links from page
+[2026-03-21T08:08:54.110Z] Saved 57 links to links.json
+[2026-03-21T08:08:54.144Z] Extracted footer HTML (57551 chars)
+[2026-03-21T08:08:54.144Z] Extracted header HTML (141841 chars)
+[2026-03-21T08:08:54.147Z] Website (post-redirect): https://ui-db.com/ → origin: https://ui-db.com
+[2026-03-21T08:08:54.148Z] External links: 4 (of 57 total)
+[2026-03-21T08:08:54.148Z] ── All external links ──
+[2026-03-21T08:08:54.148Z]   EXT: https://ul.waze.com/ul?place=ChIJU-9hMzy7HRURwKFrQhZ34mY&ll=32.76767530%2C34.97267120&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location
+[2026-03-21T08:08:54.148Z]   EXT: https://wa.me/972532447103
+[2026-03-21T08:08:54.148Z]   EXT: https://www.facebook.com/UIDBsoftware
+[2026-03-21T08:08:54.148Z]   EXT: https://www.linkedin.com/company/ui-db
+[2026-03-21T08:08:54.148Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:08:54.149Z]   UNCATEGORIZED: https://ul.waze.com/ul?place=ChIJU-9hMzy7HRURwKFrQhZ34mY&ll=32.76767530%2C34.97267120&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location
+[2026-03-21T08:08:54.149Z]   UNCATEGORIZED: https://wa.me/972532447103
+[2026-03-21T08:08:54.149Z]   REGEX: fb <- https://www.facebook.com/UIDBsoftware
+[2026-03-21T08:08:54.149Z]   REGEX: li <- https://www.linkedin.com/company/ui-db
+[2026-03-21T08:08:54.149Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-21T08:08:54.149Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:08:54.151Z] Saved AI prompt (4699 chars) to ai_prompt.txt
+[2026-03-21T08:08:54.151Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:08:54.155Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:09:13.353Z]   AI: First token received, streaming...
+[2026-03-21T08:09:16.868Z] AI response complete: 77 chars in 22.7s
+[2026-03-21T08:09:16.869Z] Saved AI response to ai_response.json
+[2026-03-21T08:09:16.869Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T08:09:16.869Z]   AI LINK: https://www.linkedin.com/company/ui-db
+[2026-03-21T08:09:16.870Z]   AI LINK: https://www.facebook.com/UIDBsoftware/
+[2026-03-21T08:09:16.870Z] AI returned 2 valid links
+[2026-03-21T08:09:16.870Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T08:09:16.870Z]   AI→REGEX: li <- https://www.linkedin.com/company/ui-db (duplicate, skipped)
+[2026-03-21T08:09:16.870Z]   AI→REGEX: fb <- https://www.facebook.com/UIDBsoftware/ (duplicate, skipped)
+[2026-03-21T08:09:16.872Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:09:16.872Z] Footer/header origins (4):
+[2026-03-21T08:09:16.872Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T08:09:16.872Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T08:09:16.872Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-21T08:09:16.872Z]   FOOTER/HEADER ORIGIN: https://ul.waze.com
+[2026-03-21T08:09:16.872Z]   ADDED: urls <- https://ul.waze.com/ul (cleaned from https://ul.waze.com/ul?place=ChIJU-9hMzy7HRURwKFrQhZ34mY&ll=32.76767530%2C34.97267120&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location)
+[2026-03-21T08:09:16.872Z]   ADDED: urls <- https://wa.me/972532447103
+[2026-03-21T08:09:16.872Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-21T08:09:16.873Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:09:16.873Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T08:09:16.873Z] ── Step 3: Final dedup ──
+[2026-03-21T08:09:16.873Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T08:09:16.873Z] ── FINAL RESULT ──
+[2026-03-21T08:09:16.873Z]   ws (1):
+[2026-03-21T08:09:16.873Z]     - https://ui-db.com
+[2026-03-21T08:09:16.873Z]   li (1):
+[2026-03-21T08:09:16.873Z]     - https://www.linkedin.com/company/ui-db
+[2026-03-21T08:09:16.873Z]   fb (1):
+[2026-03-21T08:09:16.874Z]     - https://www.facebook.com/uidbsoftware
+[2026-03-21T08:09:16.874Z]   urls (2):
+[2026-03-21T08:09:16.874Z]     - https://ul.waze.com/ul
+[2026-03-21T08:09:16.874Z]     - https://wa.me/972532447103
+[2026-03-21T08:09:16.874Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-21T08:09:16.875Z] Saved final result to result.json
+[2026-03-21T08:09:16.875Z] Override fields: ws, li, fb, urls
+[2026-03-21T08:09:16.875Z] Finished at: 2026-03-21T08:09:16.875Z

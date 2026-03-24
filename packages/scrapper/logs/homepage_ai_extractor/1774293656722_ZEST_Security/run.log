@@ -1,0 +1,65 @@
+[2026-03-23T19:20:56.723Z] === Homepage AI Extractor: ZEST Security ===
+[2026-03-23T19:20:56.723Z] Started at: 2026-03-23T19:20:56.723Z
+[2026-03-23T19:20:56.723Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774293656722_ZEST_Security
+[2026-03-23T19:20:56.723Z] Company: ZEST Security
+[2026-03-23T19:20:56.723Z] Website: zestsecurity.io
+[2026-03-23T19:20:56.723Z] cbRank: 8711
+[2026-03-23T19:20:56.723Z] Reasons: i
+[2026-03-23T19:20:56.723Z] Fetching: https://zestsecurity.io
+[2026-03-23T19:20:59.350Z] Redirected: https://zestsecurity.io -> https://www.zestsecurity.io/
+[2026-03-23T19:20:59.355Z] Saved HTML (92164 bytes) to page.html
+[2026-03-23T19:20:59.357Z] Extracted 20 unique links from page
+[2026-03-23T19:20:59.360Z] Saved 20 links to links.json
+[2026-03-23T19:20:59.362Z] Extracted footer HTML (4476 chars)
+[2026-03-23T19:20:59.362Z] Extracted header HTML (11315 chars)
+[2026-03-23T19:20:59.366Z] Website (post-redirect): https://www.zestsecurity.io/ → origin: https://www.zestsecurity.io
+[2026-03-23T19:20:59.366Z] External links: 3 (of 20 total)
+[2026-03-23T19:20:59.366Z] ── All external links ──
+[2026-03-23T19:20:59.366Z]   EXT: https://aws.amazon.com/marketplace/pp/prodview-d3n55nt26i43e?sr=0-1&ref_=beagle&applicationId=AWSMPContessa
+[2026-03-23T19:20:59.366Z]   EXT: https://www.linkedin.com/company/zest-cyber
+[2026-03-23T19:20:59.366Z]   EXT: https://yaya-zest-website.webflow.io/legal/privacy-policy
+[2026-03-23T19:20:59.366Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:20:59.366Z]   UNCATEGORIZED: https://aws.amazon.com/marketplace/pp/prodview-d3n55nt26i43e?sr=0-1&ref_=beagle&applicationId=AWSMPContessa
+[2026-03-23T19:20:59.367Z]   REGEX: li <- https://www.linkedin.com/company/zest-cyber
+[2026-03-23T19:20:59.367Z]   UNCATEGORIZED: https://yaya-zest-website.webflow.io/legal/privacy-policy
+[2026-03-23T19:20:59.367Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-23T19:20:59.367Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:20:59.367Z] Saved AI prompt (4814 chars) to ai_prompt.txt
+[2026-03-23T19:20:59.368Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:20:59.372Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:21:18.848Z]   AI: First token received, streaming...
+[2026-03-23T19:21:34.366Z]   AI streaming: 203 chars received (35.0s elapsed)
+[2026-03-23T19:21:34.367Z] AI response complete: 210 chars in 35.0s
+[2026-03-23T19:21:34.368Z] Saved AI response to ai_response.json
+[2026-03-23T19:21:34.368Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T19:21:34.368Z]   AI LINK: https://www.linkedin.com/company/zest-cyber/
+[2026-03-23T19:21:34.368Z]   AI LINK: https://aws.amazon.com/marketplace/pp/prodview-d3n55nt26i43e?sr=0-1&ref_=beagle&applicationId=AWSMPContessa
+[2026-03-23T19:21:34.368Z]   AI LINK: https://yaya-zest-website.webflow.io/legal/privacy-policy
+[2026-03-23T19:21:34.369Z] AI returned 3 valid links
+[2026-03-23T19:21:34.369Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T19:21:34.369Z]   AI→REGEX: li <- https://www.linkedin.com/company/zest-cyber/ (duplicate, skipped)
+[2026-03-23T19:21:34.369Z]   AI→URLS: https://aws.amazon.com/marketplace/pp/prodview-d3n55nt26i43e (cleaned from https://aws.amazon.com/marketplace/pp/prodview-d3n55nt26i43e?sr=0-1&ref_=beagle&applicationId=AWSMPContessa)
+[2026-03-23T19:21:34.369Z]   AI→URLS: https://yaya-zest-website.webflow.io/legal/privacy-policy
+[2026-03-23T19:21:34.371Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:21:34.371Z] Footer/header origins (2):
+[2026-03-23T19:21:34.371Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:21:34.371Z]   FOOTER/HEADER ORIGIN: https://aws.amazon.com
+[2026-03-23T19:21:34.371Z]   SKIP (AI claimed): https://aws.amazon.com/marketplace/pp/prodview-d3n55nt26i43e?sr=0-1&ref_=beagle&applicationId=AWSMPContessa
+[2026-03-23T19:21:34.371Z]   SKIP (AI claimed): https://yaya-zest-website.webflow.io/legal/privacy-policy
+[2026-03-23T19:21:34.371Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:21:34.371Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:21:34.371Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:21:34.371Z] ── Step 3: Final dedup ──
+[2026-03-23T19:21:34.371Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T19:21:34.371Z] ── FINAL RESULT ──
+[2026-03-23T19:21:34.372Z]   ws (1):
+[2026-03-23T19:21:34.372Z]     - https://www.zestsecurity.io
+[2026-03-23T19:21:34.372Z]   li (1):
+[2026-03-23T19:21:34.372Z]     - https://www.linkedin.com/company/zest-cyber
+[2026-03-23T19:21:34.372Z]   urls (2):
+[2026-03-23T19:21:34.372Z]     - https://aws.amazon.com/marketplace/pp/prodview-d3n55nt26i43e
+[2026-03-23T19:21:34.372Z]     - https://yaya-zest-website.webflow.io/legal/privacy-policy
+[2026-03-23T19:21:34.372Z] Summary: ws:1, li:1, urls:2
+[2026-03-23T19:21:34.376Z] Saved final result to result.json
+[2026-03-23T19:21:34.376Z] Override fields: ws, li, urls
+[2026-03-23T19:21:34.376Z] Finished at: 2026-03-23T19:21:34.376Z

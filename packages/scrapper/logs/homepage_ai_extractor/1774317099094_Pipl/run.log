@@ -1,0 +1,68 @@
+[2026-03-24T01:51:39.095Z] === Homepage AI Extractor: Pipl ===
+[2026-03-24T01:51:39.095Z] Started at: 2026-03-24T01:51:39.095Z
+[2026-03-24T01:51:39.096Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774317099094_Pipl
+[2026-03-24T01:51:39.096Z] Company: Pipl
+[2026-03-24T01:51:39.096Z] Website: pipl.com
+[2026-03-24T01:51:39.096Z] cbRank: 102912
+[2026-03-24T01:51:39.096Z] Reasons: i
+[2026-03-24T01:51:39.096Z] Fetching: https://pipl.com
+[2026-03-24T01:51:42.526Z] Redirected: https://pipl.com -> https://pipl.com/
+[2026-03-24T01:51:42.544Z] Saved HTML (806882 bytes) to page.html
+[2026-03-24T01:51:42.548Z] Extracted 32 unique links from page
+[2026-03-24T01:51:42.548Z] Saved 32 links to links.json
+[2026-03-24T01:51:42.551Z] Extracted footer HTML (11305 chars)
+[2026-03-24T01:51:42.551Z] Extracted header HTML (21786 chars)
+[2026-03-24T01:51:42.555Z] Website (post-redirect): https://pipl.com/ → origin: https://pipl.com
+[2026-03-24T01:51:42.555Z]   SUBDOMAIN: docs.pipl.com (added to ws)
+[2026-03-24T01:51:42.555Z] Website subdomains found: 1
+[2026-03-24T01:51:42.555Z] External links: 4 (of 32 total)
+[2026-03-24T01:51:42.555Z] ── All external links ──
+[2026-03-24T01:51:42.555Z]   EXT: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-24T01:51:42.556Z]   EXT: https://twitter.com/pipl_com
+[2026-03-24T01:51:42.556Z]   EXT: https://www.linkedin.com/company/pipl-inc
+[2026-03-24T01:51:42.556Z]   EXT: https://youtu.be/D6oHlZArf_Q
+[2026-03-24T01:51:42.556Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:51:42.557Z]   UNCATEGORIZED: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-24T01:51:42.557Z]   REGEX: tw <- https://twitter.com/pipl_com
+[2026-03-24T01:51:42.557Z]   REGEX: li <- https://www.linkedin.com/company/pipl-inc
+[2026-03-24T01:51:42.557Z]   UNCATEGORIZED: https://youtu.be/D6oHlZArf_Q
+[2026-03-24T01:51:42.557Z] Programmatic result: ws:2, tw:1, li:1 | 2 uncategorized
+[2026-03-24T01:51:42.557Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:51:42.560Z] Saved AI prompt (6110 chars) to ai_prompt.txt
+[2026-03-24T01:51:42.560Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:51:42.564Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:52:06.387Z]   AI: First token received, streaming...
+[2026-03-24T01:52:09.392Z] AI response complete: 71 chars in 26.8s
+[2026-03-24T01:52:09.393Z] Saved AI response to ai_response.json
+[2026-03-24T01:52:09.393Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T01:52:09.394Z]   AI LINK: https://www.linkedin.com/company/pipl-inc/
+[2026-03-24T01:52:09.394Z]   AI LINK: https://twitter.com/pipl_com
+[2026-03-24T01:52:09.394Z] AI returned 2 valid links
+[2026-03-24T01:52:09.394Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T01:52:09.394Z]   AI→REGEX: li <- https://www.linkedin.com/company/pipl-inc/ (duplicate, skipped)
+[2026-03-24T01:52:09.395Z]   AI→REGEX: tw <- https://twitter.com/pipl_com (duplicate, skipped)
+[2026-03-24T01:52:09.395Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:52:09.396Z] Footer/header origins (4):
+[2026-03-24T01:52:09.396Z]   FOOTER/HEADER ORIGIN: http://pipl.com
+[2026-03-24T01:52:09.396Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T01:52:09.396Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T01:52:09.396Z]   FOOTER/HEADER ORIGIN: https://docs.pipl.com
+[2026-03-24T01:52:09.396Z]   SKIP (not in footer/header): https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-24T01:52:09.396Z]   SKIP (not in footer/header): https://youtu.be/D6oHlZArf_Q
+[2026-03-24T01:52:09.396Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:52:09.397Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:52:09.397Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:52:09.397Z] ── Step 3: Final dedup ──
+[2026-03-24T01:52:09.397Z] No urls to dedup
+[2026-03-24T01:52:09.397Z] ── FINAL RESULT ──
+[2026-03-24T01:52:09.397Z]   ws (2):
+[2026-03-24T01:52:09.397Z]     - https://docs.pipl.com
+[2026-03-24T01:52:09.397Z]     - https://pipl.com
+[2026-03-24T01:52:09.397Z]   li (1):
+[2026-03-24T01:52:09.397Z]     - https://www.linkedin.com/company/pipl-inc
+[2026-03-24T01:52:09.397Z]   tw (1):
+[2026-03-24T01:52:09.397Z]     - https://x.com/pipl_com
+[2026-03-24T01:52:09.398Z] Summary: ws:2, tw:1, li:1
+[2026-03-24T01:52:09.398Z] Saved final result to result.json
+[2026-03-24T01:52:09.399Z] Override fields: ws, li, tw
+[2026-03-24T01:52:09.399Z] Finished at: 2026-03-24T01:52:09.399Z

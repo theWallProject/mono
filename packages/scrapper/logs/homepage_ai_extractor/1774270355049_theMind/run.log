@@ -1,0 +1,72 @@
+[2026-03-23T12:52:35.050Z] === Homepage AI Extractor: theMind ===
+[2026-03-23T12:52:35.050Z] Started at: 2026-03-23T12:52:35.050Z
+[2026-03-23T12:52:35.051Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774270355049_theMind
+[2026-03-23T12:52:35.051Z] Company: theMind
+[2026-03-23T12:52:35.051Z] Website: themind.io
+[2026-03-23T12:52:35.051Z] cbRank: 569459
+[2026-03-23T12:52:35.051Z] Reasons: f
+[2026-03-23T12:52:35.051Z] Fetching: https://themind.io
+[2026-03-23T12:52:37.343Z] Redirected: https://themind.io -> https://www.themind.io/
+[2026-03-23T12:52:37.347Z] Saved HTML (113045 bytes) to page.html
+[2026-03-23T12:52:37.349Z] Extracted 26 unique links from page
+[2026-03-23T12:52:37.350Z] Saved 26 links to links.json
+[2026-03-23T12:52:37.353Z] Extracted footer HTML (3234 chars)
+[2026-03-23T12:52:37.353Z] Extracted header HTML (22677 chars)
+[2026-03-23T12:52:37.356Z] Website (post-redirect): https://www.themind.io/ → origin: https://www.themind.io
+[2026-03-23T12:52:37.356Z] External links: 5 (of 26 total)
+[2026-03-23T12:52:37.356Z] ── All external links ──
+[2026-03-23T12:52:37.356Z]   EXT: https://apolo.us/privacy
+[2026-03-23T12:52:37.356Z]   EXT: https://twitter.com/apolocloud
+[2026-03-23T12:52:37.356Z]   EXT: https://www.facebook.com/askthemind
+[2026-03-23T12:52:37.356Z]   EXT: https://www.linkedin.com/company/theapolo
+[2026-03-23T12:52:37.356Z]   EXT: https://www.linkedin.com/company/themind
+[2026-03-23T12:52:37.356Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T12:52:37.356Z]   UNCATEGORIZED: https://apolo.us/privacy
+[2026-03-23T12:52:37.357Z]   REGEX: tw <- https://twitter.com/apolocloud
+[2026-03-23T12:52:37.357Z]   REGEX: fb <- https://www.facebook.com/askthemind
+[2026-03-23T12:52:37.357Z]   REGEX: li <- https://www.linkedin.com/company/theapolo
+[2026-03-23T12:52:37.357Z]   REGEX: li <- https://www.linkedin.com/company/themind
+[2026-03-23T12:52:37.357Z] Programmatic result: ws:1, tw:1, fb:1, li:2 | 1 uncategorized
+[2026-03-23T12:52:37.357Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T12:52:37.357Z] Saved AI prompt (3926 chars) to ai_prompt.txt
+[2026-03-23T12:52:37.357Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T12:52:37.361Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T12:52:53.243Z]   AI: First token received, streaming...
+[2026-03-23T12:52:58.269Z] AI response complete: 98 chars in 20.9s
+[2026-03-23T12:52:58.273Z] Saved AI response to ai_response.json
+[2026-03-23T12:52:58.273Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T12:52:58.274Z]   AI LINK: https://twitter.com/apolocloud
+[2026-03-23T12:52:58.274Z]   AI LINK: https://www.linkedin.com/company/theapolo/
+[2026-03-23T12:52:58.274Z]   AI LINK: https://apolo.us/privacy
+[2026-03-23T12:52:58.274Z] AI returned 3 valid links
+[2026-03-23T12:52:58.274Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T12:52:58.274Z]   AI→REGEX: tw <- https://twitter.com/apolocloud (duplicate, skipped)
+[2026-03-23T12:52:58.274Z]   AI→REGEX: li <- https://www.linkedin.com/company/theapolo/ (duplicate, skipped)
+[2026-03-23T12:52:58.275Z]   AI→URLS: https://apolo.us/privacy
+[2026-03-23T12:52:58.275Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T12:52:58.275Z] Footer/header origins (3):
+[2026-03-23T12:52:58.276Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T12:52:58.276Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T12:52:58.276Z]   FOOTER/HEADER ORIGIN: https://apolo.us
+[2026-03-23T12:52:58.276Z]   SKIP (AI claimed): https://apolo.us/privacy
+[2026-03-23T12:52:58.276Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T12:52:58.276Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T12:52:58.276Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T12:52:58.276Z] ── Step 3: Final dedup ──
+[2026-03-23T12:52:58.276Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T12:52:58.276Z] ── FINAL RESULT ──
+[2026-03-23T12:52:58.276Z]   ws (1):
+[2026-03-23T12:52:58.276Z]     - https://www.themind.io
+[2026-03-23T12:52:58.276Z]   li (2):
+[2026-03-23T12:52:58.276Z]     - https://www.linkedin.com/company/theapolo
+[2026-03-23T12:52:58.277Z]     - https://www.linkedin.com/company/themind
+[2026-03-23T12:52:58.277Z]   fb (1):
+[2026-03-23T12:52:58.277Z]     - https://www.facebook.com/askthemind
+[2026-03-23T12:52:58.277Z]   tw (1):
+[2026-03-23T12:52:58.277Z]     - https://x.com/apolocloud
+[2026-03-23T12:52:58.277Z]   urls (1):
+[2026-03-23T12:52:58.277Z]     - https://apolo.us/privacy
+[2026-03-23T12:52:58.277Z] Summary: ws:1, tw:1, fb:1, li:2, urls:1
+[2026-03-23T12:52:58.278Z] Saved final result to result.json
+[2026-03-23T12:52:58.278Z] Override fields: ws, li, fb, tw, urls
+[2026-03-23T12:52:58.278Z] Finished at: 2026-03-23T12:52:58.278Z

@@ -1,0 +1,60 @@
+[2026-03-24T01:39:11.631Z] === Homepage AI Extractor: Dado ===
+[2026-03-24T01:39:11.631Z] Started at: 2026-03-24T01:39:11.631Z
+[2026-03-24T01:39:11.631Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774316351630_Dado
+[2026-03-24T01:39:11.631Z] Company: Dado
+[2026-03-24T01:39:11.631Z] Website: dadohr.com
+[2026-03-24T01:39:11.632Z] cbRank: 92992
+[2026-03-24T01:39:11.632Z] Reasons: i
+[2026-03-24T01:39:11.632Z] Fetching: https://dadohr.com
+[2026-03-24T01:39:14.755Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-24T01:39:17.710Z] Redirected: https://dadohr.com -> https://www.dadohr.com/
+[2026-03-24T01:39:17.765Z] Saved HTML (2150421 bytes) to page.html
+[2026-03-24T01:39:17.769Z] Extracted 31 unique links from page
+[2026-03-24T01:39:17.770Z] Saved 31 links to links.json
+[2026-03-24T01:39:17.772Z] Extracted footer HTML (4093 chars)
+[2026-03-24T01:39:17.772Z] Extracted header HTML (4185 chars)
+[2026-03-24T01:39:17.785Z] Website (post-redirect): https://www.dadohr.com/ → origin: https://www.dadohr.com
+[2026-03-24T01:39:17.785Z]   SUBDOMAIN: app.dadohr.com (added to ws)
+[2026-03-24T01:39:17.785Z] Website subdomains found: 1
+[2026-03-24T01:39:17.785Z] External links: 3 (of 31 total)
+[2026-03-24T01:39:17.785Z] ── All external links ──
+[2026-03-24T01:39:17.785Z]   EXT: https://dado-hr.webflow.io/content/onboarding-hr-automation-business-case
+[2026-03-24T01:39:17.785Z]   EXT: https://privado.ai/cookie-consent
+[2026-03-24T01:39:17.785Z]   EXT: https://www.linkedin.com/company/dado-hr
+[2026-03-24T01:39:17.785Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:39:17.786Z]   UNCATEGORIZED: https://dado-hr.webflow.io/content/onboarding-hr-automation-business-case
+[2026-03-24T01:39:17.786Z]   UNCATEGORIZED: https://privado.ai/cookie-consent
+[2026-03-24T01:39:17.786Z]   REGEX: li <- https://www.linkedin.com/company/dado-hr
+[2026-03-24T01:39:17.786Z] Programmatic result: ws:2, li:1 | 2 uncategorized
+[2026-03-24T01:39:17.786Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:39:17.787Z] Saved AI prompt (4748 chars) to ai_prompt.txt
+[2026-03-24T01:39:17.787Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:39:17.791Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:39:39.271Z]   AI: First token received, streaming...
+[2026-03-24T01:39:40.891Z] AI response complete: 41 chars in 23.1s
+[2026-03-24T01:39:40.892Z] Saved AI response to ai_response.json
+[2026-03-24T01:39:40.892Z] ── Parsing AI response (1 lines) ──
+[2026-03-24T01:39:40.893Z]   AI LINK: https://www.linkedin.com/company/dado-hr/
+[2026-03-24T01:39:40.893Z] AI returned 1 valid links
+[2026-03-24T01:39:40.893Z] ── Categorizing 1 AI-returned links ──
+[2026-03-24T01:39:40.893Z]   AI→REGEX: li <- https://www.linkedin.com/company/dado-hr/ (duplicate, skipped)
+[2026-03-24T01:39:40.894Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:39:40.894Z] Footer/header origins (1):
+[2026-03-24T01:39:40.894Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T01:39:40.894Z]   SKIP (not in footer/header): https://dado-hr.webflow.io/content/onboarding-hr-automation-business-case
+[2026-03-24T01:39:40.894Z]   SKIP (not in footer/header): https://privado.ai/cookie-consent
+[2026-03-24T01:39:40.894Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:39:40.894Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:39:40.894Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:39:40.894Z] ── Step 3: Final dedup ──
+[2026-03-24T01:39:40.895Z] No urls to dedup
+[2026-03-24T01:39:40.895Z] ── FINAL RESULT ──
+[2026-03-24T01:39:40.895Z]   ws (2):
+[2026-03-24T01:39:40.895Z]     - https://app.dadohr.com
+[2026-03-24T01:39:40.895Z]     - https://www.dadohr.com
+[2026-03-24T01:39:40.895Z]   li (1):
+[2026-03-24T01:39:40.895Z]     - https://www.linkedin.com/company/dado-hr
+[2026-03-24T01:39:40.895Z] Summary: ws:2, li:1
+[2026-03-24T01:39:40.896Z] Saved final result to result.json
+[2026-03-24T01:39:40.896Z] Override fields: ws, li
+[2026-03-24T01:39:40.897Z] Finished at: 2026-03-24T01:39:40.897Z

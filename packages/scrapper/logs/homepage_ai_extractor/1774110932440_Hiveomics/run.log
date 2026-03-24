@@ -1,0 +1,70 @@
+[2026-03-21T16:35:32.440Z] === Homepage AI Extractor: Hiveomics ===
+[2026-03-21T16:35:32.440Z] Started at: 2026-03-21T16:35:32.440Z
+[2026-03-21T16:35:32.440Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774110932440_Hiveomics
+[2026-03-21T16:35:32.441Z] Company: Hiveomics
+[2026-03-21T16:35:32.441Z] Website: hiveomics.com
+[2026-03-21T16:35:32.441Z] cbRank: 3551144
+[2026-03-21T16:35:32.441Z] Reasons: h
+[2026-03-21T16:35:32.441Z] Fetching: https://hiveomics.com
+[2026-03-21T16:35:34.304Z] Redirected: https://hiveomics.com -> https://hiveomics.com/
+[2026-03-21T16:35:34.308Z] Saved HTML (65509 bytes) to page.html
+[2026-03-21T16:35:34.313Z] Extracted 11 unique links from page
+[2026-03-21T16:35:34.315Z] Saved 11 links to links.json
+[2026-03-21T16:35:34.317Z] Extracted footer HTML (3461 chars)
+[2026-03-21T16:35:34.317Z] Extracted header HTML (1212 chars)
+[2026-03-21T16:35:34.321Z] Website (post-redirect): https://hiveomics.com/ → origin: https://hiveomics.com
+[2026-03-21T16:35:34.321Z] External links: 5 (of 11 total)
+[2026-03-21T16:35:34.321Z] ── All external links ──
+[2026-03-21T16:35:34.321Z]   EXT: http://med-alyans.ru/index.php/Hahn/article/view/1071/1270
+[2026-03-21T16:35:34.321Z]   EXT: https://dx.doi.org/10.26044/ecr2025/C-28537
+[2026-03-21T16:35:34.322Z]   EXT: https://github.com/hiveomics
+[2026-03-21T16:35:34.322Z]   EXT: https://linkedin.com/company/hiveomics
+[2026-03-21T16:35:34.322Z]   EXT: https://x.com/hiveomics
+[2026-03-21T16:35:34.322Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T16:35:34.322Z]   UNCATEGORIZED: http://med-alyans.ru/index.php/Hahn/article/view/1071/1270
+[2026-03-21T16:35:34.322Z]   UNCATEGORIZED: https://dx.doi.org/10.26044/ecr2025/C-28537
+[2026-03-21T16:35:34.322Z]   REGEX: gh <- https://github.com/hiveomics
+[2026-03-21T16:35:34.322Z]   REGEX: li <- https://linkedin.com/company/hiveomics
+[2026-03-21T16:35:34.322Z]   REGEX: tw <- https://x.com/hiveomics
+[2026-03-21T16:35:34.322Z] Programmatic result: ws:1, gh:1, li:1, tw:1 | 2 uncategorized
+[2026-03-21T16:35:34.322Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T16:35:34.324Z] Saved AI prompt (3222 chars) to ai_prompt.txt
+[2026-03-21T16:35:34.324Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T16:35:34.328Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T16:35:46.203Z]   AI: First token received, streaming...
+[2026-03-21T16:35:50.942Z] AI response complete: 91 chars in 16.6s
+[2026-03-21T16:35:50.943Z] Saved AI response to ai_response.json
+[2026-03-21T16:35:50.943Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T16:35:50.944Z]   AI LINK: https://linkedin.com/company/hiveomics
+[2026-03-21T16:35:50.944Z]   AI LINK: https://x.com/hiveomics
+[2026-03-21T16:35:50.944Z]   AI LINK: https://github.com/hiveomics
+[2026-03-21T16:35:50.944Z] AI returned 3 valid links
+[2026-03-21T16:35:50.944Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T16:35:50.945Z]   AI→REGEX: li <- https://linkedin.com/company/hiveomics (duplicate, skipped)
+[2026-03-21T16:35:50.945Z]   AI→REGEX: tw <- https://x.com/hiveomics (duplicate, skipped)
+[2026-03-21T16:35:50.945Z]   AI→REGEX: gh <- https://github.com/hiveomics (duplicate, skipped)
+[2026-03-21T16:35:50.946Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T16:35:50.946Z] Footer/header origins (3):
+[2026-03-21T16:35:50.946Z]   FOOTER/HEADER ORIGIN: https://linkedin.com
+[2026-03-21T16:35:50.947Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T16:35:50.947Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-21T16:35:50.947Z]   SKIP (not in footer/header): http://med-alyans.ru/index.php/Hahn/article/view/1071/1270
+[2026-03-21T16:35:50.947Z]   SKIP (not in footer/header): https://dx.doi.org/10.26044/ecr2025/C-28537
+[2026-03-21T16:35:50.947Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T16:35:50.947Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T16:35:50.947Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T16:35:50.947Z] ── Step 3: Final dedup ──
+[2026-03-21T16:35:50.948Z] No urls to dedup
+[2026-03-21T16:35:50.948Z] ── FINAL RESULT ──
+[2026-03-21T16:35:50.948Z]   ws (1):
+[2026-03-21T16:35:50.948Z]     - https://hiveomics.com
+[2026-03-21T16:35:50.948Z]   li (1):
+[2026-03-21T16:35:50.948Z]     - https://www.linkedin.com/company/hiveomics
+[2026-03-21T16:35:50.948Z]   tw (1):
+[2026-03-21T16:35:50.949Z]     - https://x.com/hiveomics
+[2026-03-21T16:35:50.949Z]   gh (1):
+[2026-03-21T16:35:50.949Z]     - https://github.com/hiveomics
+[2026-03-21T16:35:50.949Z] Summary: ws:1, gh:1, li:1, tw:1
+[2026-03-21T16:35:50.950Z] Saved final result to result.json
+[2026-03-21T16:35:50.950Z] Override fields: ws, li, tw, gh
+[2026-03-21T16:35:50.951Z] Finished at: 2026-03-21T16:35:50.951Z

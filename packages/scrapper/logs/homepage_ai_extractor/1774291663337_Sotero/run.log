@@ -1,0 +1,62 @@
+[2026-03-23T18:47:43.338Z] === Homepage AI Extractor: Sotero ===
+[2026-03-23T18:47:43.338Z] Started at: 2026-03-23T18:47:43.338Z
+[2026-03-23T18:47:43.338Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774291663337_Sotero
+[2026-03-23T18:47:43.338Z] Company: Sotero
+[2026-03-23T18:47:43.338Z] Website: soterosoft.com
+[2026-03-23T18:47:43.338Z] cbRank: 6056
+[2026-03-23T18:47:43.338Z] Reasons: i
+[2026-03-23T18:47:43.338Z] Fetching: https://soterosoft.com
+[2026-03-23T18:47:47.706Z] Redirected: https://soterosoft.com -> https://www.soterosoft.com/
+[2026-03-23T18:47:47.711Z] Saved HTML (95105 bytes) to page.html
+[2026-03-23T18:47:47.713Z] Extracted 35 unique links from page
+[2026-03-23T18:47:47.714Z] Saved 35 links to links.json
+[2026-03-23T18:47:47.716Z] Extracted footer HTML (6272 chars)
+[2026-03-23T18:47:47.716Z] Extracted header HTML (4987 chars)
+[2026-03-23T18:47:47.721Z] Website (post-redirect): https://www.soterosoft.com/ → origin: https://www.soterosoft.com
+[2026-03-23T18:47:47.721Z]   SUBDOMAIN: info.soterosoft.com (added to ws)
+[2026-03-23T18:47:47.721Z] Website subdomains found: 1
+[2026-03-23T18:47:47.721Z] External links: 2 (of 35 total)
+[2026-03-23T18:47:47.721Z] ── All external links ──
+[2026-03-23T18:47:47.721Z]   EXT: https://twitter.com/soterosecure
+[2026-03-23T18:47:47.721Z]   EXT: https://www.linkedin.com/company/soterosoft
+[2026-03-23T18:47:47.721Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T18:47:47.721Z]   REGEX: tw <- https://twitter.com/soterosecure
+[2026-03-23T18:47:47.721Z]   REGEX: li <- https://www.linkedin.com/company/soterosoft
+[2026-03-23T18:47:47.721Z] Programmatic result: ws:2, tw:1, li:1 | 0 uncategorized
+[2026-03-23T18:47:47.721Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T18:47:47.725Z] Saved AI prompt (5223 chars) to ai_prompt.txt
+[2026-03-23T18:47:47.725Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T18:47:47.730Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T18:48:08.211Z]   AI: First token received, streaming...
+[2026-03-23T18:48:11.822Z] AI response complete: 76 chars in 24.1s
+[2026-03-23T18:48:11.823Z] Saved AI response to ai_response.json
+[2026-03-23T18:48:11.823Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T18:48:11.824Z]   AI LINK: https://twitter.com/soterosecure
+[2026-03-23T18:48:11.824Z]   AI LINK: https://www.linkedin.com/company/soterosoft
+[2026-03-23T18:48:11.824Z] AI returned 2 valid links
+[2026-03-23T18:48:11.824Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T18:48:11.824Z]   AI→REGEX: tw <- https://twitter.com/soterosecure (duplicate, skipped)
+[2026-03-23T18:48:11.824Z]   AI→REGEX: li <- https://www.linkedin.com/company/soterosoft (duplicate, skipped)
+[2026-03-23T18:48:11.825Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T18:48:11.825Z] Footer/header origins (4):
+[2026-03-23T18:48:11.825Z]   FOOTER/HEADER ORIGIN: https://www.soterosoft.com
+[2026-03-23T18:48:11.825Z]   FOOTER/HEADER ORIGIN: https://info.soterosoft.com
+[2026-03-23T18:48:11.825Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T18:48:11.825Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T18:48:11.825Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T18:48:11.826Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T18:48:11.826Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T18:48:11.826Z] ── Step 3: Final dedup ──
+[2026-03-23T18:48:11.826Z] No urls to dedup
+[2026-03-23T18:48:11.826Z] ── FINAL RESULT ──
+[2026-03-23T18:48:11.826Z]   ws (2):
+[2026-03-23T18:48:11.826Z]     - https://info.soterosoft.com
+[2026-03-23T18:48:11.826Z]     - https://www.soterosoft.com
+[2026-03-23T18:48:11.826Z]   li (1):
+[2026-03-23T18:48:11.826Z]     - https://www.linkedin.com/company/soterosoft
+[2026-03-23T18:48:11.826Z]   tw (1):
+[2026-03-23T18:48:11.827Z]     - https://x.com/soterosecure
+[2026-03-23T18:48:11.827Z] Summary: ws:2, tw:1, li:1
+[2026-03-23T18:48:11.827Z] Saved final result to result.json
+[2026-03-23T18:48:11.828Z] Override fields: ws, li, tw
+[2026-03-23T18:48:11.828Z] Finished at: 2026-03-23T18:48:11.828Z

@@ -1,0 +1,100 @@
+[2026-03-22T04:32:37.107Z] === Homepage AI Extractor: Sogur ===
+[2026-03-22T04:32:37.107Z] Started at: 2026-03-22T04:32:37.107Z
+[2026-03-22T04:32:37.107Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774153957106_Sogur
+[2026-03-22T04:32:37.107Z] Company: Sogur
+[2026-03-22T04:32:37.107Z] Website: sogur.com
+[2026-03-22T04:32:37.107Z] cbRank: 83427
+[2026-03-22T04:32:37.107Z] Reasons: f
+[2026-03-22T04:32:37.107Z] Fetching: https://sogur.com
+[2026-03-22T04:32:40.508Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-22T04:32:43.109Z] Redirected: https://sogur.com -> https://www.sogur.com/
+[2026-03-22T04:32:43.120Z] Saved HTML (343421 bytes) to page.html
+[2026-03-22T04:32:43.123Z] Extracted 21 unique links from page
+[2026-03-22T04:32:43.123Z] Saved 21 links to links.json
+[2026-03-22T04:32:43.127Z] Extracted footer HTML (4805 chars)
+[2026-03-22T04:32:43.127Z] Extracted header HTML (639 chars)
+[2026-03-22T04:32:43.131Z] Website (post-redirect): https://www.sogur.com/ → origin: https://www.sogur.com
+[2026-03-22T04:32:43.131Z] External links: 9 (of 21 total)
+[2026-03-22T04:32:43.131Z] ── All external links ──
+[2026-03-22T04:32:43.131Z]   EXT: http://linkedin.com/company/sogurcurrency
+[2026-03-22T04:32:43.131Z]   EXT: https://github.com/SogurCurrency
+[2026-03-22T04:32:43.131Z]   EXT: https://github.com/SogurCurrency/smart-contracts
+[2026-03-22T04:32:43.131Z]   EXT: https://github.com/SogurCurrency/smart-contracts/tree/master/audit
+[2026-03-22T04:32:43.131Z]   EXT: https://medium.com/sogurcurrency
+[2026-03-22T04:32:43.131Z]   EXT: https://t.me/SogurSGR_ANN
+[2026-03-22T04:32:43.131Z]   EXT: https://twitter.com/sogurcurrency
+[2026-03-22T04:32:43.131Z]   EXT: https://www.facebook.com/sogurcurrency
+[2026-03-22T04:32:43.132Z]   EXT: https://www.youtube.com/c/S%C3%B6gurCurrency
+[2026-03-22T04:32:43.132Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:32:43.132Z]   REGEX: li <- http://linkedin.com/company/sogurcurrency
+[2026-03-22T04:32:43.132Z]   REGEX: gh <- https://github.com/SogurCurrency
+[2026-03-22T04:32:43.132Z]   REGEX: gh <- https://github.com/SogurCurrency/smart-contracts (duplicate, skipped)
+[2026-03-22T04:32:43.132Z]   REGEX: gh <- https://github.com/SogurCurrency/smart-contracts/tree/master/audit (duplicate, skipped)
+[2026-03-22T04:32:43.132Z]   UNCATEGORIZED: https://medium.com/sogurcurrency
+[2026-03-22T04:32:43.132Z]   UNCATEGORIZED: https://t.me/SogurSGR_ANN
+[2026-03-22T04:32:43.133Z]   REGEX: tw <- https://twitter.com/sogurcurrency
+[2026-03-22T04:32:43.133Z]   REGEX: fb <- https://www.facebook.com/sogurcurrency
+[2026-03-22T04:32:43.133Z]   REGEX: ytp <- https://www.youtube.com/c/S%C3%B6gurCurrency
+[2026-03-22T04:32:43.133Z] Programmatic result: ws:1, li:1, gh:1, tw:1, fb:1, ytp:1 | 2 uncategorized
+[2026-03-22T04:32:43.133Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:32:43.136Z] Saved AI prompt (6093 chars) to ai_prompt.txt
+[2026-03-22T04:32:43.136Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:32:43.141Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:33:03.332Z]   AI: First token received, streaming...
+[2026-03-22T04:33:15.882Z]   AI streaming: 201 chars received (32.7s elapsed)
+[2026-03-22T04:33:19.381Z] AI response complete: 251 chars in 36.2s
+[2026-03-22T04:33:19.383Z] Saved AI response to ai_response.json
+[2026-03-22T04:33:19.383Z] ── Parsing AI response (7 lines) ──
+[2026-03-22T04:33:19.383Z]   AI LINK: https://twitter.com/sogurcurrency
+[2026-03-22T04:33:19.383Z]   AI LINK: https://www.facebook.com/sogurcurrency
+[2026-03-22T04:33:19.384Z]   AI LINK: https://medium.com/sogurcurrency
+[2026-03-22T04:33:19.384Z]   AI LINK: http://linkedin.com/company/sogurcurrency
+[2026-03-22T04:33:19.384Z]   AI LINK: https://www.youtube.com/c/S%C3%B6gurCurrency
+[2026-03-22T04:33:19.384Z]   AI LINK: https://github.com/SogurCurrency
+[2026-03-22T04:33:19.384Z]   AI LINK: https://t.me/SogurSGR_ANN
+[2026-03-22T04:33:19.384Z] AI returned 7 valid links
+[2026-03-22T04:33:19.384Z] ── Categorizing 7 AI-returned links ──
+[2026-03-22T04:33:19.385Z]   AI→REGEX: tw <- https://twitter.com/sogurcurrency (duplicate, skipped)
+[2026-03-22T04:33:19.385Z]   AI→REGEX: fb <- https://www.facebook.com/sogurcurrency (duplicate, skipped)
+[2026-03-22T04:33:19.385Z]   AI→URLS: https://medium.com/sogurcurrency
+[2026-03-22T04:33:19.385Z]   AI→REGEX: li <- http://linkedin.com/company/sogurcurrency (duplicate, skipped)
+[2026-03-22T04:33:19.385Z]   AI→REGEX: ytp <- https://www.youtube.com/c/S%C3%B6gurCurrency (duplicate, skipped)
+[2026-03-22T04:33:19.386Z]   AI→REGEX: gh <- https://github.com/SogurCurrency (duplicate, skipped)
+[2026-03-22T04:33:19.386Z]   AI→URLS: https://t.me/SogurSGR_ANN
+[2026-03-22T04:33:19.387Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:33:19.387Z] Footer/header origins (8):
+[2026-03-22T04:33:19.387Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T04:33:19.387Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T04:33:19.388Z]   FOOTER/HEADER ORIGIN: https://medium.com
+[2026-03-22T04:33:19.388Z]   FOOTER/HEADER ORIGIN: http://linkedin.com
+[2026-03-22T04:33:19.388Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T04:33:19.388Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-22T04:33:19.388Z]   FOOTER/HEADER ORIGIN: https://t.me
+[2026-03-22T04:33:19.388Z]   FOOTER/HEADER ORIGIN: https://www.sogur.com
+[2026-03-22T04:33:19.388Z]   SKIP (AI claimed): https://medium.com/sogurcurrency
+[2026-03-22T04:33:19.388Z]   SKIP (AI claimed): https://t.me/SogurSGR_ANN
+[2026-03-22T04:33:19.389Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T04:33:19.389Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:33:19.389Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:33:19.389Z] ── Step 3: Final dedup ──
+[2026-03-22T04:33:19.389Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T04:33:19.389Z] ── FINAL RESULT ──
+[2026-03-22T04:33:19.390Z]   ws (1):
+[2026-03-22T04:33:19.390Z]     - https://www.sogur.com
+[2026-03-22T04:33:19.390Z]   li (1):
+[2026-03-22T04:33:19.390Z]     - https://www.linkedin.com/company/sogurcurrency
+[2026-03-22T04:33:19.390Z]   fb (1):
+[2026-03-22T04:33:19.390Z]     - https://www.facebook.com/sogurcurrency
+[2026-03-22T04:33:19.390Z]   tw (1):
+[2026-03-22T04:33:19.390Z]     - https://x.com/sogurcurrency
+[2026-03-22T04:33:19.391Z]   gh (1):
+[2026-03-22T04:33:19.391Z]     - https://github.com/sogurcurrency
+[2026-03-22T04:33:19.391Z]   ytp (1):
+[2026-03-22T04:33:19.391Z]     - https://www.youtube.com/@s%c3%b6gurcurrency
+[2026-03-22T04:33:19.391Z]   urls (2):
+[2026-03-22T04:33:19.391Z]     - https://medium.com/sogurcurrency
+[2026-03-22T04:33:19.392Z]     - https://t.me/SogurSGR_ANN
+[2026-03-22T04:33:19.392Z] Summary: ws:1, li:1, gh:1, tw:1, fb:1, ytp:1, urls:2
+[2026-03-22T04:33:19.393Z] Saved final result to result.json
+[2026-03-22T04:33:19.394Z] Override fields: ws, li, fb, tw, gh, ytp, urls
+[2026-03-22T04:33:19.394Z] Finished at: 2026-03-22T04:33:19.394Z

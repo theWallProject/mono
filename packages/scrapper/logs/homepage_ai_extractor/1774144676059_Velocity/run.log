@@ -1,0 +1,64 @@
+[2026-03-22T01:57:56.060Z] === Homepage AI Extractor: Velocity ===
+[2026-03-22T01:57:56.060Z] Started at: 2026-03-22T01:57:56.060Z
+[2026-03-22T01:57:56.060Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774144676059_Velocity
+[2026-03-22T01:57:56.060Z] Company: Velocity
+[2026-03-22T01:57:56.060Z] Website: velocity.tech
+[2026-03-22T01:57:56.060Z] cbRank: 28231
+[2026-03-22T01:57:56.061Z] Reasons: f
+[2026-03-22T01:57:56.061Z] Fetching: https://velocity.tech
+[2026-03-22T01:58:06.886Z] Network idle timeout — continuing with current state
+[2026-03-22T01:58:06.922Z] Redirected: https://velocity.tech -> https://www.velocity.tech/
+[2026-03-22T01:58:06.926Z] Saved HTML (122908 bytes) to page.html
+[2026-03-22T01:58:06.929Z] Extracted 19 unique links from page
+[2026-03-22T01:58:06.930Z] Saved 19 links to links.json
+[2026-03-22T01:58:06.932Z] No footer section found in DOM
+[2026-03-22T01:58:06.932Z] No header section found in DOM
+[2026-03-22T01:58:06.936Z] Website (post-redirect): https://www.velocity.tech/ → origin: https://www.velocity.tech
+[2026-03-22T01:58:06.936Z]   SUBDOMAIN: docs.velocity.tech (added to ws)
+[2026-03-22T01:58:06.936Z]   SUBDOMAIN: trust.velocity.tech (added to ws)
+[2026-03-22T01:58:06.936Z] Website subdomains found: 2
+[2026-03-22T01:58:06.937Z] External links: 4 (of 19 total)
+[2026-03-22T01:58:06.937Z] ── All external links ──
+[2026-03-22T01:58:06.937Z]   EXT: https://twitter.com/velocitytechhq
+[2026-03-22T01:58:06.937Z]   EXT: https://www.bigpanda.io/press-release/bigpanda-acquires-velocity
+[2026-03-22T01:58:06.937Z]   EXT: https://www.linkedin.com/company/techvelocity
+[2026-03-22T01:58:06.937Z]   EXT: https://www.youtube.com/@velocitytechhq
+[2026-03-22T01:58:06.937Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:58:06.937Z]   REGEX: tw <- https://twitter.com/velocitytechhq
+[2026-03-22T01:58:06.937Z]   UNCATEGORIZED: https://www.bigpanda.io/press-release/bigpanda-acquires-velocity
+[2026-03-22T01:58:06.937Z]   REGEX: li <- https://www.linkedin.com/company/techvelocity
+[2026-03-22T01:58:06.937Z]   REGEX: ytp <- https://www.youtube.com/@velocitytechhq
+[2026-03-22T01:58:06.938Z] Programmatic result: ws:3, tw:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-22T01:58:06.938Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:58:06.968Z] Saved AI prompt (1997 chars) to ai_prompt.txt
+[2026-03-22T01:58:06.968Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:58:06.972Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:58:12.384Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-22T01:58:12.385Z] AI response complete: 0 chars in 5.4s
+[2026-03-22T01:58:12.386Z] Saved AI response to ai_response.json
+[2026-03-22T01:58:12.387Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T01:58:12.387Z] AI returned 0 valid links
+[2026-03-22T01:58:12.387Z] ── Categorizing 0 AI-returned links ──
+[2026-03-22T01:58:12.387Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:58:12.388Z] Footer/header origins (0):
+[2026-03-22T01:58:12.388Z]   SKIP (not in footer/header): https://www.bigpanda.io/press-release/bigpanda-acquires-velocity
+[2026-03-22T01:58:12.388Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:58:12.388Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:58:12.388Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:58:12.388Z] ── Step 3: Final dedup ──
+[2026-03-22T01:58:12.389Z] No urls to dedup
+[2026-03-22T01:58:12.389Z] ── FINAL RESULT ──
+[2026-03-22T01:58:12.389Z]   ws (3):
+[2026-03-22T01:58:12.389Z]     - https://docs.velocity.tech
+[2026-03-22T01:58:12.389Z]     - https://trust.velocity.tech
+[2026-03-22T01:58:12.389Z]     - https://www.velocity.tech
+[2026-03-22T01:58:12.389Z]   li (1):
+[2026-03-22T01:58:12.389Z]     - https://www.linkedin.com/company/techvelocity
+[2026-03-22T01:58:12.389Z]   tw (1):
+[2026-03-22T01:58:12.389Z]     - https://x.com/velocitytechhq
+[2026-03-22T01:58:12.390Z]   ytp (1):
+[2026-03-22T01:58:12.390Z]     - https://www.youtube.com/@velocitytechhq
+[2026-03-22T01:58:12.390Z] Summary: ws:3, tw:1, li:1, ytp:1
+[2026-03-22T01:58:12.391Z] Saved final result to result.json
+[2026-03-22T01:58:12.391Z] Override fields: ws, li, tw, ytp
+[2026-03-22T01:58:12.392Z] Finished at: 2026-03-22T01:58:12.392Z

@@ -1,0 +1,63 @@
+[2026-03-24T00:05:07.170Z] === Homepage AI Extractor: Popularium ===
+[2026-03-24T00:05:07.170Z] Started at: 2026-03-24T00:05:07.170Z
+[2026-03-24T00:05:07.170Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774310707169_Popularium
+[2026-03-24T00:05:07.170Z] Company: Popularium
+[2026-03-24T00:05:07.170Z] Website: popularium.com
+[2026-03-24T00:05:07.170Z] cbRank: 52678
+[2026-03-24T00:05:07.170Z] Reasons: i
+[2026-03-24T00:05:07.170Z] Fetching: https://popularium.com
+[2026-03-24T00:05:09.340Z] Redirected: https://popularium.com -> https://popularium.com/
+[2026-03-24T00:05:09.343Z] Saved HTML (19465 bytes) to page.html
+[2026-03-24T00:05:09.345Z] Extracted 15 unique links from page
+[2026-03-24T00:05:09.346Z] Saved 15 links to links.json
+[2026-03-24T00:05:09.348Z] Extracted footer HTML (3391 chars)
+[2026-03-24T00:05:09.348Z] Extracted header HTML (3344 chars)
+[2026-03-24T00:05:09.352Z] Website (post-redirect): https://popularium.com/ → origin: https://popularium.com
+[2026-03-24T00:05:09.353Z] External links: 3 (of 15 total)
+[2026-03-24T00:05:09.353Z] ── All external links ──
+[2026-03-24T00:05:09.353Z]   EXT: https://discord.com/invite/6ZKXN5VEZH
+[2026-03-24T00:05:09.353Z]   EXT: https://shop.chaos-agents.com
+[2026-03-24T00:05:09.353Z]   EXT: https://store.steampowered.com/app/3240890
+[2026-03-24T00:05:09.353Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:05:09.354Z]   UNCATEGORIZED: https://discord.com/invite/6ZKXN5VEZH
+[2026-03-24T00:05:09.354Z]   UNCATEGORIZED: https://shop.chaos-agents.com
+[2026-03-24T00:05:09.355Z]   UNCATEGORIZED: https://store.steampowered.com/app/3240890
+[2026-03-24T00:05:09.355Z] Programmatic result: ws:1 | 3 uncategorized
+[2026-03-24T00:05:09.355Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:05:09.356Z] Saved AI prompt (2783 chars) to ai_prompt.txt
+[2026-03-24T00:05:09.356Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:05:09.361Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:05:19.095Z]   AI: First token received, streaming...
+[2026-03-24T00:05:25.706Z] AI response complete: 80 chars in 16.4s
+[2026-03-24T00:05:25.708Z] Saved AI response to ai_response.json
+[2026-03-24T00:05:25.708Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T00:05:25.708Z]   AI LINK: https://discord.com/invite/6ZKXN5VEZH
+[2026-03-24T00:05:25.708Z]   AI LINK: https://store.steampowered.com/app/3240890
+[2026-03-24T00:05:25.708Z] AI returned 2 valid links
+[2026-03-24T00:05:25.708Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T00:05:25.709Z]   AI→URLS: https://discord.com/invite/6ZKXN5VEZH
+[2026-03-24T00:05:25.709Z]   AI→URLS: https://store.steampowered.com/app/3240890
+[2026-03-24T00:05:25.709Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:05:25.709Z] Footer/header origins (3):
+[2026-03-24T00:05:25.709Z]   FOOTER/HEADER ORIGIN: https://store.steampowered.com
+[2026-03-24T00:05:25.710Z]   FOOTER/HEADER ORIGIN: https://popularium.com
+[2026-03-24T00:05:25.710Z]   FOOTER/HEADER ORIGIN: https://shop.chaos-agents.com
+[2026-03-24T00:05:25.710Z]   SKIP (AI claimed): https://discord.com/invite/6ZKXN5VEZH
+[2026-03-24T00:05:25.710Z]   ADDED: urls <- https://shop.chaos-agents.com
+[2026-03-24T00:05:25.710Z]   SKIP (AI claimed): https://store.steampowered.com/app/3240890
+[2026-03-24T00:05:25.710Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-24T00:05:25.710Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:05:25.710Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:05:25.710Z] ── Step 3: Final dedup ──
+[2026-03-24T00:05:25.710Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-24T00:05:25.710Z] ── FINAL RESULT ──
+[2026-03-24T00:05:25.710Z]   ws (1):
+[2026-03-24T00:05:25.710Z]     - https://popularium.com
+[2026-03-24T00:05:25.710Z]   urls (3):
+[2026-03-24T00:05:25.710Z]     - https://discord.com/invite/6ZKXN5VEZH
+[2026-03-24T00:05:25.711Z]     - https://shop.chaos-agents.com
+[2026-03-24T00:05:25.711Z]     - https://store.steampowered.com/app/3240890
+[2026-03-24T00:05:25.711Z] Summary: ws:1, urls:3
+[2026-03-24T00:05:25.711Z] Saved final result to result.json
+[2026-03-24T00:05:25.712Z] Override fields: ws, urls
+[2026-03-24T00:05:25.712Z] Finished at: 2026-03-24T00:05:25.712Z

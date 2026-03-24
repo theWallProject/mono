@@ -1,0 +1,59 @@
+[2026-03-24T01:08:38.285Z] === Homepage AI Extractor: The Exclosure ===
+[2026-03-24T01:08:38.285Z] Started at: 2026-03-24T01:08:38.285Z
+[2026-03-24T01:08:38.285Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774314518284_The_Exclosure
+[2026-03-24T01:08:38.285Z] Company: The Exclosure
+[2026-03-24T01:08:38.285Z] Website: exclosure.io
+[2026-03-24T01:08:38.285Z] cbRank: 76346
+[2026-03-24T01:08:38.285Z] Reasons: i
+[2026-03-24T01:08:38.285Z] Fetching: https://exclosure.io
+[2026-03-24T01:08:49.393Z] Network idle timeout — continuing with current state
+[2026-03-24T01:08:49.427Z] Redirected: https://exclosure.io -> https://www.exclosure.io/
+[2026-03-24T01:08:49.438Z] Saved HTML (406253 bytes) to page.html
+[2026-03-24T01:08:49.440Z] Extracted 4 unique links from page
+[2026-03-24T01:08:49.441Z] Saved 4 links to links.json
+[2026-03-24T01:08:49.442Z] Extracted footer HTML (3156 chars)
+[2026-03-24T01:08:49.443Z] Extracted header HTML (516 chars)
+[2026-03-24T01:08:49.447Z] Website (post-redirect): https://www.exclosure.io/ → origin: https://www.exclosure.io
+[2026-03-24T01:08:49.447Z] External links: 2 (of 4 total)
+[2026-03-24T01:08:49.447Z] ── All external links ──
+[2026-03-24T01:08:49.447Z]   EXT: https://twitter.com/TheExclosure
+[2026-03-24T01:08:49.447Z]   EXT: https://www.linkedin.com/company/exclosure
+[2026-03-24T01:08:49.447Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:08:49.448Z]   REGEX: tw <- https://twitter.com/TheExclosure
+[2026-03-24T01:08:49.448Z]   REGEX: li <- https://www.linkedin.com/company/exclosure
+[2026-03-24T01:08:49.448Z] Programmatic result: ws:1, tw:1, li:1 | 0 uncategorized
+[2026-03-24T01:08:49.448Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:08:49.449Z] Saved AI prompt (4330 chars) to ai_prompt.txt
+[2026-03-24T01:08:49.449Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:08:49.453Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:09:10.496Z]   AI: First token received, streaming...
+[2026-03-24T01:09:13.485Z] AI response complete: 76 chars in 24.0s
+[2026-03-24T01:09:13.487Z] Saved AI response to ai_response.json
+[2026-03-24T01:09:13.487Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T01:09:13.487Z]   AI LINK: https://twitter.com/TheExclosure
+[2026-03-24T01:09:13.487Z]   AI LINK: https://www.linkedin.com/company/exclosure/
+[2026-03-24T01:09:13.487Z] AI returned 2 valid links
+[2026-03-24T01:09:13.487Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T01:09:13.488Z]   AI→REGEX: tw <- https://twitter.com/TheExclosure (duplicate, skipped)
+[2026-03-24T01:09:13.488Z]   AI→REGEX: li <- https://www.linkedin.com/company/exclosure/ (duplicate, skipped)
+[2026-03-24T01:09:13.488Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:09:13.488Z] Footer/header origins (3):
+[2026-03-24T01:09:13.488Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T01:09:13.488Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T01:09:13.489Z]   FOOTER/HEADER ORIGIN: https://www.exclosure.io
+[2026-03-24T01:09:13.489Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:09:13.489Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:09:13.489Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:09:13.489Z] ── Step 3: Final dedup ──
+[2026-03-24T01:09:13.489Z] No urls to dedup
+[2026-03-24T01:09:13.489Z] ── FINAL RESULT ──
+[2026-03-24T01:09:13.489Z]   ws (1):
+[2026-03-24T01:09:13.489Z]     - https://www.exclosure.io
+[2026-03-24T01:09:13.489Z]   li (1):
+[2026-03-24T01:09:13.489Z]     - https://www.linkedin.com/company/exclosure
+[2026-03-24T01:09:13.489Z]   tw (1):
+[2026-03-24T01:09:13.489Z]     - https://x.com/theexclosure
+[2026-03-24T01:09:13.490Z] Summary: ws:1, tw:1, li:1
+[2026-03-24T01:09:13.490Z] Saved final result to result.json
+[2026-03-24T01:09:13.491Z] Override fields: ws, li, tw
+[2026-03-24T01:09:13.491Z] Finished at: 2026-03-24T01:09:13.491Z

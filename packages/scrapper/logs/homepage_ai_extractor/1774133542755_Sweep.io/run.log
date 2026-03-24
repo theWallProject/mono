@@ -1,0 +1,83 @@
+[2026-03-21T22:52:22.756Z] === Homepage AI Extractor: Sweep.io ===
+[2026-03-21T22:52:22.756Z] Started at: 2026-03-21T22:52:22.756Z
+[2026-03-21T22:52:22.756Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774133542755_Sweep.io
+[2026-03-21T22:52:22.756Z] Company: Sweep.io
+[2026-03-21T22:52:22.756Z] Website: sweep.io
+[2026-03-21T22:52:22.756Z] cbRank: 3508
+[2026-03-21T22:52:22.756Z] Reasons: f
+[2026-03-21T22:52:22.756Z] Fetching: https://sweep.io
+[2026-03-21T22:52:27.687Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-21T22:52:30.616Z] Redirected: https://sweep.io -> https://www.sweep.io/
+[2026-03-21T22:52:30.654Z] Saved HTML (1974467 bytes) to page.html
+[2026-03-21T22:52:30.657Z] Extracted 36 unique links from page
+[2026-03-21T22:52:30.658Z] Saved 36 links to links.json
+[2026-03-21T22:52:30.661Z] Extracted footer HTML (52319 chars)
+[2026-03-21T22:52:30.661Z] Extracted header HTML (15006 chars)
+[2026-03-21T22:52:30.666Z] Website (post-redirect): https://www.sweep.io/ → origin: https://www.sweep.io
+[2026-03-21T22:52:30.666Z]   SUBDOMAIN: app.sweep.io (added to ws)
+[2026-03-21T22:52:30.666Z] Website subdomains found: 1
+[2026-03-21T22:52:30.667Z] External links: 6 (of 36 total)
+[2026-03-21T22:52:30.667Z] ── All external links ──
+[2026-03-21T22:52:30.667Z]   EXT: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T22:52:30.667Z]   EXT: https://instagram.com/sweep.io?igshid=OGprNHZld2czeTE=
+[2026-03-21T22:52:30.667Z]   EXT: https://twitter.com/sweep_io
+[2026-03-21T22:52:30.667Z]   EXT: https://www.cookiepro.com/products/cookie-consent
+[2026-03-21T22:52:30.667Z]   EXT: https://www.linkedin.com/company/sweephq
+[2026-03-21T22:52:30.667Z]   EXT: https://www.youtube.com/@sweep_io
+[2026-03-21T22:52:30.667Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:52:30.667Z]   UNCATEGORIZED: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T22:52:30.667Z]   REGEX: ig <- https://instagram.com/sweep.io?igshid=OGprNHZld2czeTE=
+[2026-03-21T22:52:30.667Z]   REGEX: tw <- https://twitter.com/sweep_io
+[2026-03-21T22:52:30.667Z]   UNCATEGORIZED: https://www.cookiepro.com/products/cookie-consent
+[2026-03-21T22:52:30.667Z]   REGEX: li <- https://www.linkedin.com/company/sweephq
+[2026-03-21T22:52:30.667Z]   REGEX: ytp <- https://www.youtube.com/@sweep_io
+[2026-03-21T22:52:30.667Z] Programmatic result: ws:2, ig:1, tw:1, li:1, ytp:1 | 2 uncategorized
+[2026-03-21T22:52:30.668Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:52:30.671Z] Saved AI prompt (5367 chars) to ai_prompt.txt
+[2026-03-21T22:52:30.671Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:52:30.675Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:52:50.553Z]   AI: First token received, streaming...
+[2026-03-21T22:53:01.496Z] AI response complete: 159 chars in 30.8s
+[2026-03-21T22:53:01.497Z] Saved AI response to ai_response.json
+[2026-03-21T22:53:01.498Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T22:53:01.498Z]   AI LINK: https://www.linkedin.com/company/sweephq/
+[2026-03-21T22:53:01.498Z]   AI LINK: https://twitter.com/sweep_io
+[2026-03-21T22:53:01.498Z]   AI LINK: https://www.youtube.com/@sweep_io
+[2026-03-21T22:53:01.498Z]   AI LINK: https://instagram.com/sweep.io?igshid=OGprNHZld2czeTE=
+[2026-03-21T22:53:01.499Z] AI returned 4 valid links
+[2026-03-21T22:53:01.499Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T22:53:01.499Z]   AI→REGEX: li <- https://www.linkedin.com/company/sweephq/ (duplicate, skipped)
+[2026-03-21T22:53:01.499Z]   AI→REGEX: tw <- https://twitter.com/sweep_io (duplicate, skipped)
+[2026-03-21T22:53:01.499Z]   AI→REGEX: ytp <- https://www.youtube.com/@sweep_io (duplicate, skipped)
+[2026-03-21T22:53:01.499Z]   AI→REGEX: ig <- https://instagram.com/sweep.io?igshid=OGprNHZld2czeTE= (duplicate, skipped)
+[2026-03-21T22:53:01.501Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:53:01.501Z] Footer/header origins (6):
+[2026-03-21T22:53:01.501Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:53:01.501Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T22:53:01.501Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T22:53:01.501Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-21T22:53:01.501Z]   FOOTER/HEADER ORIGIN: https://www.sweep.io
+[2026-03-21T22:53:01.501Z]   FOOTER/HEADER ORIGIN: https://app.sweep.io
+[2026-03-21T22:53:01.501Z]   SKIP (not in footer/header): https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T22:53:01.501Z]   SKIP (not in footer/header): https://www.cookiepro.com/products/cookie-consent
+[2026-03-21T22:53:01.502Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:53:01.502Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:53:01.502Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:53:01.502Z] ── Step 3: Final dedup ──
+[2026-03-21T22:53:01.502Z] No urls to dedup
+[2026-03-21T22:53:01.502Z] ── FINAL RESULT ──
+[2026-03-21T22:53:01.503Z]   ws (2):
+[2026-03-21T22:53:01.503Z]     - https://app.sweep.io
+[2026-03-21T22:53:01.503Z]     - https://www.sweep.io
+[2026-03-21T22:53:01.503Z]   li (1):
+[2026-03-21T22:53:01.503Z]     - https://www.linkedin.com/company/sweephq
+[2026-03-21T22:53:01.503Z]   tw (1):
+[2026-03-21T22:53:01.503Z]     - https://x.com/sweep_io
+[2026-03-21T22:53:01.503Z]   ig (1):
+[2026-03-21T22:53:01.503Z]     - https://www.instagram.com/sweep.io
+[2026-03-21T22:53:01.504Z]   ytp (1):
+[2026-03-21T22:53:01.504Z]     - https://www.youtube.com/@sweep_io
+[2026-03-21T22:53:01.504Z] Summary: ws:2, ig:1, tw:1, li:1, ytp:1
+[2026-03-21T22:53:01.505Z] Saved final result to result.json
+[2026-03-21T22:53:01.505Z] Override fields: ws, li, tw, ig, ytp
+[2026-03-21T22:53:01.505Z] Finished at: 2026-03-21T22:53:01.505Z

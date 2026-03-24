@@ -1,0 +1,89 @@
+[2026-03-23T00:20:03.936Z] === Homepage AI Extractor: LUPR ===
+[2026-03-23T00:20:03.936Z] Started at: 2026-03-23T00:20:03.936Z
+[2026-03-23T00:20:03.936Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774225203936_LUPR
+[2026-03-23T00:20:03.937Z] Company: LUPR
+[2026-03-23T00:20:03.937Z] Website: lupr.com
+[2026-03-23T00:20:03.937Z] cbRank: 399470
+[2026-03-23T00:20:03.937Z] Reasons: f
+[2026-03-23T00:20:03.937Z] Fetching: https://lupr.com
+[2026-03-23T00:20:15.752Z] Network idle timeout — continuing with current state
+[2026-03-23T00:20:15.787Z] Redirected: https://lupr.com -> https://lupr.com/
+[2026-03-23T00:20:15.796Z] Saved HTML (377576 bytes) to page.html
+[2026-03-23T00:20:15.798Z] Extracted 29 unique links from page
+[2026-03-23T00:20:15.799Z] Saved 29 links to links.json
+[2026-03-23T00:20:15.802Z] Extracted footer HTML (19868 chars)
+[2026-03-23T00:20:15.802Z] Extracted header HTML (23538 chars)
+[2026-03-23T00:20:15.805Z] Website (post-redirect): https://lupr.com/ → origin: https://lupr.com
+[2026-03-23T00:20:15.805Z] External links: 6 (of 29 total)
+[2026-03-23T00:20:15.806Z] ── All external links ──
+[2026-03-23T00:20:15.806Z]   EXT: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EFmW6UAL
+[2026-03-23T00:20:15.806Z]   EXT: https://calendly.com/sean-harley/15min?back=1
+[2026-03-23T00:20:15.806Z]   EXT: https://www.facebook.com/LUPRapp
+[2026-03-23T00:20:15.806Z]   EXT: https://www.linkedin.com/company/lupr-com
+[2026-03-23T00:20:15.806Z]   EXT: https://www.youtube.com/channel/UCpodxeMROxd5qgy0w6Ga6Hg
+[2026-03-23T00:20:15.806Z]   EXT: https://x.com/golupr?mx=2
+[2026-03-23T00:20:15.806Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:20:15.806Z]   UNCATEGORIZED: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EFmW6UAL
+[2026-03-23T00:20:15.806Z]   UNCATEGORIZED: https://calendly.com/sean-harley/15min?back=1
+[2026-03-23T00:20:15.806Z]   REGEX: fb <- https://www.facebook.com/LUPRapp
+[2026-03-23T00:20:15.806Z]   REGEX: li <- https://www.linkedin.com/company/lupr-com
+[2026-03-23T00:20:15.806Z]   REGEX: ytc <- https://www.youtube.com/channel/UCpodxeMROxd5qgy0w6Ga6Hg
+[2026-03-23T00:20:15.806Z]   REGEX: tw <- https://x.com/golupr?mx=2
+[2026-03-23T00:20:15.806Z] Programmatic result: ws:1, fb:1, li:1, ytc:1, tw:1 | 2 uncategorized
+[2026-03-23T00:20:15.806Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:20:15.808Z] Saved AI prompt (9576 chars) to ai_prompt.txt
+[2026-03-23T00:20:15.808Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:20:15.811Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:20:57.339Z]   AI: First token received, streaming...
+[2026-03-23T00:21:11.620Z] AI response complete: 181 chars in 55.8s
+[2026-03-23T00:21:11.622Z] Saved AI response to ai_response.json
+[2026-03-23T00:21:11.622Z] ── Parsing AI response (5 lines) ──
+[2026-03-23T00:21:11.622Z]   AI LINK: https://www.facebook.com/LUPRapp/
+[2026-03-23T00:21:11.622Z]   AI LINK: https://x.com/golupr?mx=2
+[2026-03-23T00:21:11.623Z]   AI LINK: https://www.linkedin.com/company/lupr-com/
+[2026-03-23T00:21:11.623Z]   AI LINK: https://www.youtube.com/channel/UCpodxeMROxd5qgy0w6Ga6Hg
+[2026-03-23T00:21:11.623Z]   AI LINK: https://lupr.com/blog
+[2026-03-23T00:21:11.623Z] AI returned 5 valid links
+[2026-03-23T00:21:11.623Z] ── Categorizing 5 AI-returned links ──
+[2026-03-23T00:21:11.623Z]   AI→REGEX: fb <- https://www.facebook.com/LUPRapp/ (duplicate, skipped)
+[2026-03-23T00:21:11.624Z]   AI→REGEX: tw <- https://x.com/golupr?mx=2 (duplicate, skipped)
+[2026-03-23T00:21:11.624Z]   AI→REGEX: li <- https://www.linkedin.com/company/lupr-com/ (duplicate, skipped)
+[2026-03-23T00:21:11.624Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCpodxeMROxd5qgy0w6Ga6Hg (duplicate, skipped)
+[2026-03-23T00:21:11.624Z]   AI→URLS: https://lupr.com/blog
+[2026-03-23T00:21:11.624Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:21:11.625Z] Footer/header origins (6):
+[2026-03-23T00:21:11.625Z]   FOOTER/HEADER ORIGIN: https://lupr.com
+[2026-03-23T00:21:11.625Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T00:21:11.625Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T00:21:11.625Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:21:11.625Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T00:21:11.625Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-23T00:21:11.625Z]   SKIP (not in footer/header): https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EFmW6UAL
+[2026-03-23T00:21:11.626Z]   ADDED: urls <- https://calendly.com/sean-harley/15min (cleaned from https://calendly.com/sean-harley/15min?back=1)
+[2026-03-23T00:21:11.626Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T00:21:11.626Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:21:11.626Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T00:21:11.889Z]   YOUTUBE: resolved UCpodxeMROxd5qgy0w6Ga6Hg → @luprinc.7753
+[2026-03-23T00:21:11.890Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T00:21:11.890Z] ── Step 3: Final dedup ──
+[2026-03-23T00:21:11.890Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T00:21:11.890Z] ── FINAL RESULT ──
+[2026-03-23T00:21:11.890Z]   ws (1):
+[2026-03-23T00:21:11.890Z]     - https://lupr.com
+[2026-03-23T00:21:11.891Z]   li (1):
+[2026-03-23T00:21:11.891Z]     - https://www.linkedin.com/company/lupr-com
+[2026-03-23T00:21:11.891Z]   fb (1):
+[2026-03-23T00:21:11.891Z]     - https://www.facebook.com/luprapp
+[2026-03-23T00:21:11.891Z]   tw (1):
+[2026-03-23T00:21:11.891Z]     - https://x.com/golupr
+[2026-03-23T00:21:11.891Z]   ytp (1):
+[2026-03-23T00:21:11.891Z]     - https://www.youtube.com/@luprinc.7753
+[2026-03-23T00:21:11.891Z]   ytc (1):
+[2026-03-23T00:21:11.891Z]     - https://www.youtube.com/channel/UCpodxeMROxd5qgy0w6Ga6Hg
+[2026-03-23T00:21:11.891Z]   urls (2):
+[2026-03-23T00:21:11.891Z]     - https://calendly.com/sean-harley/15min
+[2026-03-23T00:21:11.891Z]     - https://lupr.com/blog
+[2026-03-23T00:21:11.891Z] Summary: ws:1, fb:1, li:1, ytc:1, tw:1, urls:2, ytp:1
+[2026-03-23T00:21:11.892Z] Saved final result to result.json
+[2026-03-23T00:21:11.892Z] Override fields: ws, li, fb, tw, ytp, ytc, urls
+[2026-03-23T00:21:11.892Z] Finished at: 2026-03-23T00:21:11.892Z

@@ -1,0 +1,68 @@
+[2026-03-23T21:06:57.341Z] === Homepage AI Extractor: Bluesight ===
+[2026-03-23T21:06:57.341Z] Started at: 2026-03-23T21:06:57.341Z
+[2026-03-23T21:06:57.341Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774300017341_Bluesight
+[2026-03-23T21:06:57.341Z] Company: Bluesight
+[2026-03-23T21:06:57.341Z] Website: bluesight.com
+[2026-03-23T21:06:57.341Z] cbRank: 19067
+[2026-03-23T21:06:57.341Z] Reasons: i
+[2026-03-23T21:06:57.341Z] Fetching: https://bluesight.com
+[2026-03-23T21:07:08.736Z] Network idle timeout — continuing with current state
+[2026-03-23T21:07:08.774Z] Redirected: https://bluesight.com -> https://bluesight.com/
+[2026-03-23T21:07:08.781Z] Saved HTML (216777 bytes) to page.html
+[2026-03-23T21:07:08.784Z] Extracted 38 unique links from page
+[2026-03-23T21:07:08.784Z] Saved 38 links to links.json
+[2026-03-23T21:07:08.789Z] Extracted footer HTML (8158 chars)
+[2026-03-23T21:07:08.789Z] Extracted header HTML (33243 chars)
+[2026-03-23T21:07:08.793Z] Website (post-redirect): https://bluesight.com/ → origin: https://bluesight.com
+[2026-03-23T21:07:08.793Z]   SUBDOMAIN: controlcheck.bluesight.com (added to ws)
+[2026-03-23T21:07:08.793Z]   SUBDOMAIN: costcheck.bluesight.com (added to ws)
+[2026-03-23T21:07:08.793Z]   SUBDOMAIN: kitcheck.bluesight.com (added to ws)
+[2026-03-23T21:07:08.793Z] Website subdomains found: 3
+[2026-03-23T21:07:08.794Z] External links: 2 (of 38 total)
+[2026-03-23T21:07:08.794Z] ── All external links ──
+[2026-03-23T21:07:08.794Z]   EXT: https://login.rxauditor.com/login
+[2026-03-23T21:07:08.794Z]   EXT: https://www.linkedin.com/company/bluesight-inc
+[2026-03-23T21:07:08.794Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:07:08.794Z]   UNCATEGORIZED: https://login.rxauditor.com/login
+[2026-03-23T21:07:08.794Z]   REGEX: li <- https://www.linkedin.com/company/bluesight-inc
+[2026-03-23T21:07:08.794Z] Programmatic result: ws:4, li:1 | 1 uncategorized
+[2026-03-23T21:07:08.794Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:07:08.796Z] Saved AI prompt (5949 chars) to ai_prompt.txt
+[2026-03-23T21:07:08.796Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:07:08.800Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:07:34.879Z]   AI: First token received, streaming...
+[2026-03-23T21:07:36.276Z] AI response complete: 46 chars in 27.5s
+[2026-03-23T21:07:36.277Z] Saved AI response to ai_response.json
+[2026-03-23T21:07:36.277Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T21:07:36.277Z]   AI LINK: https://www.linkedin.com/company/bluesight-inc
+[2026-03-23T21:07:36.277Z] AI returned 1 valid links
+[2026-03-23T21:07:36.277Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T21:07:36.278Z]   AI→REGEX: li <- https://www.linkedin.com/company/bluesight-inc (duplicate, skipped)
+[2026-03-23T21:07:36.279Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:07:36.279Z] Footer/header origins (6):
+[2026-03-23T21:07:36.279Z]   FOOTER/HEADER ORIGIN: https://bluesight.com
+[2026-03-23T21:07:36.279Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:07:36.279Z]   FOOTER/HEADER ORIGIN: https://kitcheck.bluesight.com
+[2026-03-23T21:07:36.279Z]   FOOTER/HEADER ORIGIN: https://costcheck.bluesight.com
+[2026-03-23T21:07:36.279Z]   FOOTER/HEADER ORIGIN: https://controlcheck.bluesight.com
+[2026-03-23T21:07:36.279Z]   FOOTER/HEADER ORIGIN: https://login.rxauditor.com
+[2026-03-23T21:07:36.279Z]   ADDED: urls <- https://login.rxauditor.com/login
+[2026-03-23T21:07:36.279Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T21:07:36.279Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:07:36.279Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:07:36.280Z] ── Step 3: Final dedup ──
+[2026-03-23T21:07:36.280Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T21:07:36.280Z] ── FINAL RESULT ──
+[2026-03-23T21:07:36.280Z]   ws (4):
+[2026-03-23T21:07:36.280Z]     - https://bluesight.com
+[2026-03-23T21:07:36.280Z]     - https://controlcheck.bluesight.com
+[2026-03-23T21:07:36.280Z]     - https://costcheck.bluesight.com
+[2026-03-23T21:07:36.280Z]     - https://kitcheck.bluesight.com
+[2026-03-23T21:07:36.280Z]   li (1):
+[2026-03-23T21:07:36.280Z]     - https://www.linkedin.com/company/bluesight-inc
+[2026-03-23T21:07:36.281Z]   urls (1):
+[2026-03-23T21:07:36.281Z]     - https://login.rxauditor.com/login
+[2026-03-23T21:07:36.281Z] Summary: ws:4, li:1, urls:1
+[2026-03-23T21:07:36.285Z] Saved final result to result.json
+[2026-03-23T21:07:36.286Z] Override fields: ws, li, urls
+[2026-03-23T21:07:36.286Z] Finished at: 2026-03-23T21:07:36.286Z

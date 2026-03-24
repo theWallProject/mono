@@ -1,0 +1,615 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL" class="no-js"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.4",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <script type="rocketlazyloadscript">document.getElementsByTagName("html")[0].classList.remove("no-js"),document.addEventListener("DOMContentLoaded",(function(){var e=document.querySelector("#wpadminbar"),t=document.querySelector(".site-header"),n=t.clientHeight,o=t.classList;o.contains("sticky")||o.add("sticky"),e&&(navbarTopPosition=e.clientHeight,t.style.top=navbarTopPosition+"px"),document.getElementsByTagName("body")[0].style.paddingTop=n+"px"}));</script><!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-THJ967P');</script>
+<!-- End Google Tag Manager --><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.7 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>קרדן נדל"ן - ייזום, תכנון ובנייה</title>
+<link data-rocket-prefetch="" href="https://fonts.googleapis.com" rel="dns-prefetch">
+<link data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&amp;display=swap" rel="preload">
+<link data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap" rel="preload">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&amp;display=swap" media="all" onload="this.media='all'" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&#038;display=swap"></noscript>
+<link href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=hebrew&amp;display=swap" media="all" onload="this.media='all'" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=hebrew&#038;display=swap"></noscript>
+<link rel="preload" data-rocket-preload="" as="image" href="https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-scaled.jpg" imagesrcset="https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-scaled.jpg 2560w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-300x250.jpg 300w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-1024x853.jpg 1024w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-768x640.jpg 768w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-1536x1280.jpg 1536w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-2048x1706.jpg 2048w" imagesizes="(max-width: 2560px) 100vw, 2560px" fetchpriority="high">
+	<meta name="description" content="חברת קרדן נדל&quot;ן נוסדה בשנת 1988 ומתמחה בייזום, תכנון ובניית שכונות ומבני מגורים, בניית מבני תעסוקה, מסחר ומלונאות.">
+	<link rel="canonical" href="https://kardan-nadlan.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="קרדן נדל&quot;ן - ייזום, תכנון ובנייה">
+	<meta property="og:description" content="חברת קרדן נדל&quot;ן נוסדה בשנת 1988 ומתמחה בייזום, תכנון ובניית שכונות ומבני מגורים, בניית מבני תעסוקה, מסחר ומלונאות.">
+	<meta property="og:url" content="https://kardan-nadlan.co.il/">
+	<meta property="og:site_name" content="קרדן נדל״ן">
+	<meta property="article:modified_time" content="2025-12-15T10:52:16+00:00">
+	<meta property="og:image" content="https://kardan-nadlan.co.il/wp-content/uploads/homepage_image8-9-22.jpg">
+	<meta property="og:image:width" content="1920">
+	<meta property="og:image:height" content="864">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://kardan-nadlan.co.il/","url":"https://kardan-nadlan.co.il/","name":"קרדן נדל\"ן - ייזום, תכנון ובנייה","isPartOf":{"@id":"https://kardan-nadlan.co.il/#website"},"about":{"@id":"https://kardan-nadlan.co.il/#organization"},"datePublished":"2020-11-22T06:40:03+00:00","dateModified":"2025-12-15T10:52:16+00:00","description":"חברת קרדן נדל\"ן נוסדה בשנת 1988 ומתמחה בייזום, תכנון ובניית שכונות ומבני מגורים, בניית מבני תעסוקה, מסחר ומלונאות.","breadcrumb":{"@id":"https://kardan-nadlan.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://kardan-nadlan.co.il/"]}]},{"@type":"BreadcrumbList","@id":"https://kardan-nadlan.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית"}]},{"@type":"WebSite","@id":"https://kardan-nadlan.co.il/#website","url":"https://kardan-nadlan.co.il/","name":"קרדן נדל״ן","description":"","publisher":{"@id":"https://kardan-nadlan.co.il/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://kardan-nadlan.co.il/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"},{"@type":"Organization","@id":"https://kardan-nadlan.co.il/#organization","name":"קרדן נדל״ן","url":"https://kardan-nadlan.co.il/","logo":{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://kardan-nadlan.co.il/#/schema/logo/image/","url":"https://kardan-nadlan.co.il/wp-content/uploads/cropped-favicon.png","contentUrl":"https://kardan-nadlan.co.il/wp-content/uploads/cropped-favicon.png","width":512,"height":512,"caption":"קרדן נדל״ן"},"image":{"@id":"https://kardan-nadlan.co.il/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="קרדן נדל״ן « פיד‏" href="https://kardan-nadlan.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="קרדן נדל״ן « פיד תגובות‏" href="https://kardan-nadlan.co.il/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://kardan-nadlan.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkardan-nadlan.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://kardan-nadlan.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkardan-nadlan.co.il%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-includes/css/dist/block-library/style-rtl.min.css?ver=6.9.4" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="joinchat-button-style-inline-css">
+.wp-block-joinchat-button{border:none!important;text-align:center}.wp-block-joinchat-button figure{display:table;margin:0 auto;padding:0}.wp-block-joinchat-button figcaption{font:normal normal 400 .6em/2em var(--wp--preset--font-family--system-font,sans-serif);margin:0;padding:0}.wp-block-joinchat-button .joinchat-button__qr{background-color:#fff;border:6px solid #25d366;border-radius:30px;box-sizing:content-box;display:block;height:200px;margin:auto;overflow:hidden;padding:10px;width:200px}.wp-block-joinchat-button .joinchat-button__qr canvas,.wp-block-joinchat-button .joinchat-button__qr img{display:block;margin:auto}.wp-block-joinchat-button .joinchat-button__link{align-items:center;background-color:#25d366;border:6px solid #25d366;border-radius:30px;display:inline-flex;flex-flow:row nowrap;justify-content:center;line-height:1.25em;margin:0 auto;text-decoration:none}.wp-block-joinchat-button .joinchat-button__link:before{background:transparent var(--joinchat-ico) no-repeat center;background-size:100%;content:"";display:block;height:1.5em;margin:-.75em .75em -.75em 0;width:1.5em}.wp-block-joinchat-button figure+.joinchat-button__link{margin-top:10px}@media (orientation:landscape)and (min-height:481px),(orientation:portrait)and (min-width:481px){.wp-block-joinchat-button.joinchat-button--qr-only figure+.joinchat-button__link{display:none}}@media (max-width:480px),(orientation:landscape)and (max-height:480px){.wp-block-joinchat-button figure{display:none}}
+
+/*# sourceURL=https://kardan-nadlan.co.il/wp-content/plugins/creame-whatsapp-me/gutenberg/build/style-index.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/themes/kardan/assets/css/reset.min.css?ver=1.5.0" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/themes/kardan/assets/css/theme.min.css?ver=1.5.0" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1774087898" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/plugins/elementor/assets/css/widget-heading-rtl.min.css?ver=3.34.1" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=3.34.0" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.45.0" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/uploads/elementor/css/post-133.css?ver=1774087899" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/lib/nicons/css/nicons.css?ver=2.2.52" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/css/frontend-rtl.min.css?ver=2.2.52" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/uploads/elementor/css/post-2642.css?ver=1774087899" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+
+
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<link rel="https://api.w.org/" href="https://kardan-nadlan.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://kardan-nadlan.co.il/wp-json/wp/v2/pages/57"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://kardan-nadlan.co.il/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="shortlink" href="https://kardan-nadlan.co.il/">
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MLBVW4M');</script>
+<!-- End Google Tag Manager --><meta name="generator" content="Elementor 3.34.1; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://kardan-nadlan.co.il/wp-content/uploads/cropped-favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="https://kardan-nadlan.co.il/wp-content/uploads/cropped-favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://kardan-nadlan.co.il/wp-content/uploads/cropped-favicon-180x180.png">
+<meta name="msapplication-TileImage" content="https://kardan-nadlan.co.il/wp-content/uploads/cropped-favicon-270x270.png">
+<script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script><meta name="generator" content="WP Rocket 3.20.2" data-wpr-features="wpr_delay_js wpr_defer_js wpr_async_css wpr_preconnect_external_domains wpr_oci wpr_preload_links wpr_desktop"><link href="https://cdnjs.cloudflare.com" rel="preconnect"></head>
+
+<body class="rtl home wp-singular page-template page-template-templates page-template-template-home page-template-templatestemplate-home-php page page-id-57 wp-custom-logo wp-theme-kardan elementor-default elementor-kit-133">
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ967P"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLBVW4M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><header class="site-header" role="banner">
+    <div class="site-branding">
+                    <a href="https://kardan-nadlan.co.il/" class="custom-logo-link" rel="home" aria-current="page"><img fetchpriority="high" width="935" height="413" src="https://kardan-nadlan.co.il/wp-content/uploads/cropped-Kardan-Logo-copy3.png" class="custom-logo" alt="קרדן נדל״ן" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/cropped-Kardan-Logo-copy3.png 935w, https://kardan-nadlan.co.il/wp-content/uploads/cropped-Kardan-Logo-copy3-300x133.png 300w, https://kardan-nadlan.co.il/wp-content/uploads/cropped-Kardan-Logo-copy3-768x339.png 768w" sizes="(max-width: 935px) 100vw, 935px"></a>            </div>
+
+        <nav id="site-navigation" class="site-navigation" role="navigation">
+        <div class="menu-primary-container"><ul id="menu-primary" class="menu"><li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7"><a href="#">פרויקטים</a>
+<ul class="sub-menu">
+	<li id="menu-item-200" class="menu-item menu-item-type-taxonomy menu-item-object-project_status menu-item-200"><a href="https://kardan-nadlan.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d-%d7%91%d7%a9%d7%99%d7%95%d7%95%d7%a7/">פרויקטים בשיווק</a></li>
+	<li id="menu-item-882" class="menu-item menu-item-type-taxonomy menu-item-object-project_status menu-item-882"><a href="https://kardan-nadlan.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d-%d7%a2%d7%aa%d7%99%d7%93%d7%99%d7%99%d7%9d/">פרויקטים עתידיים</a></li>
+	<li id="menu-item-1009" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1009"><a href="https://kardan-nadlan.co.il/projects/%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%D7%99%D7%9D-%D7%9E%D7%90%D7%95%D7%9B%D7%9C%D7%A1%D7%99%D7%9D/">פרויקטים מאוכלסים</a></li>
+</ul>
+</li>
+<li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101"><a href="https://kardan-nadlan.co.il/about/">אודות</a></li>
+<li id="menu-item-1795" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1795"><a href="https://kardan-nadlan.co.il/urban-renewal/">התחדשות עירונית</a></li>
+<li id="menu-item-1537" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1537"><a target="_blank" href="https://www.el-har.co.il/">חברת הביצוע אלהר</a></li>
+<li id="menu-item-176" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a href="https://kardan-nadlan.co.il/corporate-responsibility/">אחריות תאגידית</a></li>
+<li id="menu-item-1867" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1867"><a target="_blank" href="https://www.home-connex.com/login">כניסת דיירים</a></li>
+<li id="menu-item-1237" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1237"><a href="#">צור קשר</a>
+<ul class="sub-menu">
+	<li id="menu-item-199" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-199"><a href="https://kardan-nadlan.co.il/contact-us/">צור קשר</a></li>
+	<li id="menu-item-1236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1236"><a href="https://kardan-nadlan.co.il/jobs/">דרושים</a></li>
+</ul>
+</li>
+</ul></div>    </nav>
+    
+    <div class="header-actions">
+
+                        <a href="tel:*9199" class="phone">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24.237" height="29.083" viewBox="0 0 24.237 29.083"><g transform="matrix(0.07, -0.998, 0.998, 0.07, 0.814, 26.823)"><path d="M0,0C5.919.35,11,4.449,11.35,9.157" transform="translate(14.682 0.046)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path><path d="M0,0C3.288.194,6.111,2.472,6.306,5.087" transform="translate(14.964 3.835)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path><path d="M17.441,12.91l-1.887,1.906A24.074,24.074,0,0,1,7.459,8.286l2.427-1.47a1.111,1.111,0,0,0,.379-1.6L7.633.916A2.137,2.137,0,0,0,5.557.023L1.2.673A1.222,1.222,0,0,0,.034,2.127C2.3,11.248,11.746,18.87,23.191,20.808a1.54,1.54,0,0,0,1.847-.908l.885-3.448a1.523,1.523,0,0,0-1.092-1.663l-5.366-2.156A1.909,1.909,0,0,0,17.441,12.91Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path></g></svg>            </span>
+            <span dir="ltr">*9199</span>
+        </a>
+        
+                            <button class="meeting" aria-controls="schedule-meeting-pop" aria-expanded="false">
+                <span class="icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.124" height="19.589" viewBox="0 0 15.124 19.589"><g transform="translate(-61.569 0)"><path d="M214.2,65.14V66.3h1.257V65.14a.437.437,0,0,1,.437-.437h2.842a1.7,1.7,0,0,0,1.694-1.694V62h-1.257v1.009a.437.437,0,0,1-.437.437h-2.842A1.7,1.7,0,0,0,214.2,65.14Z" transform="translate(-146.979 -59.402)" fill="currentColor"></path><path d="M156.124,3.14a.437.437,0,0,1,.437-.437H159.4A1.7,1.7,0,0,0,161.1,1.009V0H159.84V1.009a.437.437,0,0,1-.437.437h-2.842a1.7,1.7,0,0,0-1.694,1.694V4.3h1.257Z" transform="translate(-89.843 0)" fill="currentColor"></path><path d="M74.591,204.513a1.968,1.968,0,0,0-.936.238V202H61.569v8.728a5.082,5.082,0,0,0,1.469,3.6l.669.661h7.81l.669-.661a5.071,5.071,0,0,0,1.466-3.418l1.289-.425a2.64,2.64,0,0,0,1.753-2.553v-1.155A2.191,2.191,0,0,0,74.591,204.513Zm-2.1-1.256v1.59H62.736v-1.59Zm0,7.471A3.775,3.775,0,0,1,71.4,213.4l-.334.33h-6.9l-.334-.33a3.775,3.775,0,0,1-1.091-2.675V206.1h9.752Zm3.038-2.795a1.4,1.4,0,0,1-.927,1.351l-.944.311v-2.817a.938.938,0,1,1,1.872,0v1.155Z" transform="translate(0 -195.402)" fill="currentColor"></path></g></svg>                </span>
+                <span>תיאום פגישה!</span>
+            </button>
+        
+        <form action="/" class="search-form">
+            <input type="text" name="s" id="search-query" placeholder="חפש בקרדן נדל״ן..." aria-label="חפש באתר קרדן נדל״ן">
+            <button type="submit" aria-label="חפש">
+                <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z" class=""></path></svg>
+            </button>
+        </form>
+
+        <button id="nav-toggler" araia-controls="site-navigation" aria-label="תפריט">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+</header>
+
+<main class="site-main homepage">
+    <section id="hero" style="">
+            <div class="video-background" tabindex="-1">
+            <div id="player" data-video="MGKEkXXjk7Y"></div>
+            <div class="overlay"></div>
+        </div>
+    
+    <div class="content">
+                
+            </div>
+</section>
+
+    <div class="has-video">
+        
+<form id="filters" action="/projects/פרויקטים-בשיווק/">
+    <select name="farea" id="area-selector" aria-label="בחר אזור">
+        <option value="">בחר אזור</option>
+        <option value="0">הצג הכל</option>
+                                    <option value="18">ירושלים</option>
+                            <option value="22">מרכז</option>
+                            <option value="20">צפון</option>
+                        </select>
+
+    <select name="ftype" id="type-selector" aria-label="בחר סוג דירה">
+        <option value="">בחר סוג דירה</option>
+        <option value="0">הצג הכל</option>
+                                    <option value="14">2 חדרים</option>
+                            <option value="9">3 חדרים</option>
+                            <option value="10">4 חדרים</option>
+                            <option value="11">5 חדרים</option>
+                            <option value="16">6 חדרים</option>
+                        </select>
+
+    <select name="fprice" id="price-selector" aria-label="בחר טווחי מחירים">
+        <option value="">בחר טווחי מחירים</option>
+        <option value="0">הצג הכל</option>
+                                    <option value="13">מעל 1.2 מליון ועד 1.6 מליון</option>
+                            <option value="24">מעל 1.6 מליון ועד 2 מילון</option>
+                            <option value="25">מעל 2 מליון ועד 2.5 מליון</option>
+                            <option value="26">מעל 2.5 מליון ועד 3 מליון</option>
+                            <option value="27">מעל 3 מליון</option>
+                        </select>
+
+    <button class="submit-filters">בחר דירה</button>
+</form>
+    </div>
+
+<div class="filters-mob">
+    
+<form id="filters" action="/projects/פרויקטים-בשיווק/">
+    <select name="farea" id="area-selector" aria-label="בחר אזור">
+        <option value="">בחר אזור</option>
+        <option value="0">הצג הכל</option>
+                                    <option value="18">ירושלים</option>
+                            <option value="22">מרכז</option>
+                            <option value="20">צפון</option>
+                        </select>
+
+    <select name="ftype" id="type-selector" aria-label="בחר סוג דירה">
+        <option value="">בחר סוג דירה</option>
+        <option value="0">הצג הכל</option>
+                                    <option value="14">2 חדרים</option>
+                            <option value="9">3 חדרים</option>
+                            <option value="10">4 חדרים</option>
+                            <option value="11">5 חדרים</option>
+                            <option value="16">6 חדרים</option>
+                        </select>
+
+    <select name="fprice" id="price-selector" aria-label="בחר טווחי מחירים">
+        <option value="">בחר טווחי מחירים</option>
+        <option value="0">הצג הכל</option>
+                                    <option value="13">מעל 1.2 מליון ועד 1.6 מליון</option>
+                            <option value="24">מעל 1.6 מליון ועד 2 מילון</option>
+                            <option value="25">מעל 2 מליון ועד 2.5 מליון</option>
+                            <option value="26">מעל 2.5 מליון ועד 3 מליון</option>
+                            <option value="27">מעל 3 מליון</option>
+                        </select>
+
+    <button class="submit-filters">בחר דירה</button>
+</form>
+</div>
+
+<section class="content-section projects_carusel bg-white">
+            <h2 id="project-carousel-title" class="section-title">פרויקטים בשיווק</h2>
+    
+    
+    <div class="carousel-wrap">
+        <div class="container">
+            
+<div class="splide" aria-label="project-carousel-title">
+    <div class="splide__track">
+        <ul class="splide__list">
+                            <li class="splide__slide">
+                    
+<article class="project">
+    <a href="https://kardan-nadlan.co.il/project/%d7%91%d7%aa-%d7%99%d7%9d-%d7%a4%d7%90%d7%a8%d7%a7-%d7%94%d7%99%d7%9d/">
+        <div class="project-thumb">
+            <img fetchpriority="high" width="2560" height="2133" src="https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-scaled.jpg" class="attachment-full size-full wp-post-image" alt="" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-scaled.jpg 2560w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-300x250.jpg 300w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-1024x853.jpg 1024w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-768x640.jpg 768w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-1536x1280.jpg 1536w, https://kardan-nadlan.co.il/wp-content/uploads/cam_01_-2048x1706.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">        </div>
+
+        <h3 class="project-title">בת ים - פארק הים ISLAND</h3>
+    </a>
+</article>
+                </li>
+                            <li class="splide__slide">
+                    
+<article class="project">
+    <a href="https://kardan-nadlan.co.il/project/%d7%9e%d7%92%d7%93%d7%9c%d7%99-%d7%99%d7%95-%d7%91%d7%aa-%d7%99%d7%9d/">
+        <div class="project-thumb">
+            <img width="2560" height="1440" src="https://kardan-nadlan.co.il/wp-content/uploads/Masada_Top-2_010000-scaled.jpg" class="attachment-full size-full wp-post-image" alt="" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/Masada_Top-2_010000-scaled.jpg 2560w, https://kardan-nadlan.co.il/wp-content/uploads/Masada_Top-2_010000-300x169.jpg 300w, https://kardan-nadlan.co.il/wp-content/uploads/Masada_Top-2_010000-1024x576.jpg 1024w, https://kardan-nadlan.co.il/wp-content/uploads/Masada_Top-2_010000-768x432.jpg 768w, https://kardan-nadlan.co.il/wp-content/uploads/Masada_Top-2_010000-1536x864.jpg 1536w, https://kardan-nadlan.co.il/wp-content/uploads/Masada_Top-2_010000-2048x1152.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">        </div>
+
+        <h3 class="project-title">מגדלי U - בת ים</h3>
+    </a>
+</article>
+                </li>
+                            <li class="splide__slide">
+                    
+<article class="project">
+    <a href="https://kardan-nadlan.co.il/project/%d7%a0%d7%aa%d7%a0%d7%99%d7%94/">
+        <div class="project-thumb">
+            <img loading="lazy" width="1024" height="736" src="https://kardan-nadlan.co.il/wp-content/uploads/Alive-נתניה-1.jpg" class="attachment-full size-full" alt="" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/Alive-נתניה-1.jpg 1024w, https://kardan-nadlan.co.il/wp-content/uploads/Alive-נתניה-1-300x216.jpg 300w, https://kardan-nadlan.co.il/wp-content/uploads/Alive-נתניה-1-768x552.jpg 768w" sizes="(max-width: 1024px) 100vw, 1024px">        </div>
+
+        <h3 class="project-title">נתניה – ALIVE</h3>
+    </a>
+</article>
+                </li>
+                            <li class="splide__slide">
+                    
+<article class="project">
+    <a href="https://kardan-nadlan.co.il/project/%d7%a8%d7%9e%d7%aa-%d7%92%d7%9f-%d7%a2%d7%95%d7%96%d7%99%d7%90%d7%9c/">
+        <div class="project-thumb">
+            <img loading="lazy" width="2560" height="2560" src="https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-scaled.jpg" class="attachment-full size-full wp-post-image" alt="" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-scaled.jpg 2560w, https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-300x300.jpg 300w, https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-1024x1024.jpg 1024w, https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-150x150.jpg 150w, https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-768x768.jpg 768w, https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-1536x1536.jpg 1536w, https://kardan-nadlan.co.il/wp-content/uploads/Uziel_07-2048x2048.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">        </div>
+
+        <h3 class="project-title">רמת גן - עוזיאל</h3>
+    </a>
+</article>
+                </li>
+                            <li class="splide__slide">
+                    
+<article class="project">
+    <a href="https://kardan-nadlan.co.il/project/holyland/">
+        <div class="project-thumb">
+            <img loading="lazy" width="320" height="213" src="https://kardan-nadlan.co.il/wp-content/uploads/Holyland-main-image.jpg" class="attachment-full size-full" alt="" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/Holyland-main-image.jpg 320w, https://kardan-nadlan.co.il/wp-content/uploads/Holyland-main-image-300x200.jpg 300w" sizes="(max-width: 320px) 100vw, 320px">        </div>
+
+        <h3 class="project-title">ירושלים - הולילנד</h3>
+    </a>
+</article>
+                </li>
+                            <li class="splide__slide">
+                    
+<article class="project">
+    <a href="https://kardan-nadlan.co.il/project/%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91/">
+        <div class="project-thumb">
+            <img loading="lazy" width="2560" height="2560" src="https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-scaled.jpg" class="attachment-full size-full wp-post-image" alt="" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-scaled.jpg 2560w, https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-300x300.jpg 300w, https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-1024x1024.jpg 1024w, https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-150x150.jpg 150w, https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-768x768.jpg 768w, https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-1536x1536.jpg 1536w, https://kardan-nadlan.co.il/wp-content/uploads/קרית-שלום-הדמייה-חדשה-2048x2048.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">        </div>
+
+        <h3 class="project-title">תל אביב - קרית שלום</h3>
+    </a>
+</article>
+                </li>
+                    </ul>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section content_with_image bg-light">
+    <div class="container">
+                    <div class="content"><h2>קרדן נדל״ן</h2>
+<h3>מהחברות המובילות בענף הנדל״ן הישראלי עוסקת בייזום ופיתוח פרויקטים למגורים ונכסים מניבים</h3>
+<p>קרדן נדל״ן מתמקדת בייזום ובבנייה של אלפי יחידות דיור ברחבי הארץ, עוסקת בניהול ותחזוקת נכסי נדל״ן ובביצוע עבודות קבלניות באמצעות חברת הביצוע ״אל-הר״ שבבעלותה.</p>
+<p><a class="btn-default" href="/about/">עוד על החברה</a></p>
+</div>
+        
+                    <div class="image"><img loading="lazy" width="584" height="600" src="https://kardan-nadlan.co.il/wp-content/uploads/about_img-1.png" class="attachment-full size-full" alt="לחיצת ידיים" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/about_img-1.png 584w, https://kardan-nadlan.co.il/wp-content/uploads/about_img-1-292x300.png 292w" sizes="(max-width: 584px) 100vw, 584px"></div>
+            </div>
+</section>
+</main>
+
+<footer id="site-footer" class="site-footer" role="contentinfo">
+        <div class="container">
+        <nav class="footer-navigation"><ul id="menu-footer" class="menu"><li id="menu-item-726" class="menu-item menu-item-type-taxonomy menu-item-object-project_status menu-item-726"><a href="https://kardan-nadlan.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d-%d7%91%d7%a9%d7%99%d7%95%d7%95%d7%a7/">פרויקטים בשיווק</a></li>
+<li id="menu-item-883" class="menu-item menu-item-type-taxonomy menu-item-object-project_status menu-item-883"><a href="https://kardan-nadlan.co.il/projects/%d7%a4%d7%a8%d7%95%d7%99%d7%a7%d7%98%d7%99%d7%9d-%d7%a2%d7%aa%d7%99%d7%93%d7%99%d7%99%d7%9d/">פרויקטים עתידיים</a></li>
+<li id="menu-item-1793" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1793"><a href="https://kardan-nadlan.co.il/urban-renewal/">התחדשות עירונית</a></li>
+<li id="menu-item-1536" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1536"><a target="_blank" href="https://www.el-har.co.il/">חברת הביצוע אלהר</a></li>
+<li id="menu-item-730" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-730"><a href="https://kardan-nadlan.co.il/corporate-responsibility/">אחריות תאגידית</a></li>
+<li id="menu-item-97" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="https://kardan-nadlan.co.il/about/">אודות החברה</a></li>
+<li id="menu-item-1234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1234"><a href="https://kardan-nadlan.co.il/jobs/">דרושים</a></li>
+<li id="menu-item-1470" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1470"><a href="https://kardan-nadlan.co.il/%d7%a7%d7%a9%d7%a8%d7%99-%d7%9e%d7%a9%d7%a7%d7%99%d7%a2%d7%99%d7%9d/">קשרי משקיעים</a></li>
+<li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="https://kardan-nadlan.co.il/contact-us/">צור קשר</a></li>
+</ul></nav>
+        <div class="social-networks-nav">
+                                        <h4>עקבו אחרינו</h4>
+
+                <ul class="social-menu"><li><a href="https://www.facebook.com/kardan.nadlan" rel="noopener noreferrer nofollow" title="לעמוד הפייסבוק שלנו"><svg xmlns="http://www.w3.org/2000/svg" width="12.001" height="24" viewBox="0 0 12.001 24"><path d="M16,3.985h2.191V.169A28.292,28.292,0,0,0,15,0C11.837,0,9.673,1.987,9.673,5.639V9H6.187v4.266H9.673V24h4.274V13.267h3.345L17.823,9H13.946V6.062c0-1.233.333-2.077,2.051-2.077Z" transform="translate(-6.187)" fill="#191d40"></path></svg></a></li><li><a href="https://www.instagram.com/kardan_nadlan/" rel="noopener noreferrer nofollow" title="לעמוד האינסטגרם שלנו"><svg xmlns="http://www.w3.org/2000/svg" width="23.761" height="23.766" viewBox="0 0 23.761 23.766"><g transform="translate(-0.449)"><path d="M24.149,6.987A8.684,8.684,0,0,0,23.6,4.1,6.088,6.088,0,0,0,20.119.627,8.706,8.706,0,0,0,17.236.074C15.964.014,15.56,0,12.334,0S8.7.014,7.436.07A8.686,8.686,0,0,0,4.553.622,5.8,5.8,0,0,0,2.445,2a5.851,5.851,0,0,0-1.37,2.1A8.707,8.707,0,0,0,.523,6.982c-.06,1.272-.074,1.676-.074,4.9s.014,3.63.07,4.9a8.683,8.683,0,0,0,.553,2.883,6.087,6.087,0,0,0,3.477,3.477,8.708,8.708,0,0,0,2.883.552c1.267.056,1.671.07,4.9.07s3.63-.014,4.9-.07a8.682,8.682,0,0,0,2.883-.552,6.079,6.079,0,0,0,3.477-3.477,8.713,8.713,0,0,0,.552-2.883c.056-1.267.07-1.671.07-4.9s0-3.63-.06-4.9Zm-2.14,9.7A6.514,6.514,0,0,1,21.6,18.9a3.942,3.942,0,0,1-2.256,2.256,6.537,6.537,0,0,1-2.205.408c-1.254.056-1.629.07-4.8.07s-3.552-.014-4.8-.07a6.511,6.511,0,0,1-2.205-.408,3.657,3.657,0,0,1-1.365-.887A3.7,3.7,0,0,1,3.081,18.9a6.538,6.538,0,0,1-.408-2.205c-.056-1.254-.07-1.63-.07-4.8s.014-3.552.07-4.8a6.511,6.511,0,0,1,.408-2.205,3.612,3.612,0,0,1,.892-1.365,3.689,3.689,0,0,1,1.365-.887,6.542,6.542,0,0,1,2.205-.409c1.254-.056,1.63-.07,4.8-.07s3.552.014,4.8.07a6.514,6.514,0,0,1,2.205.409,3.654,3.654,0,0,1,1.365.887A3.694,3.694,0,0,1,21.6,4.889a6.54,6.54,0,0,1,.409,2.205c.056,1.254.07,1.629.07,4.8s-.014,3.542-.07,4.8Zm0,0" transform="translate(0 0)" fill="#191d40"></path><path d="M131.054,124.5a6.105,6.105,0,1,0,6.105,6.105A6.107,6.107,0,0,0,131.054,124.5Zm0,10.065a3.96,3.96,0,1,1,3.96-3.96,3.961,3.961,0,0,1-3.96,3.96Zm0,0" transform="translate(-118.72 -118.72)" fill="#191d40"></path><path d="M365.3,90.027a1.425,1.425,0,1,1-1.425-1.425A1.425,1.425,0,0,1,365.3,90.027Zm0,0" transform="translate(-345.195 -84.488)" fill="#191d40"></path></g></svg></a></li><li><a href="https://www.youtube.com/channel/UChSoZcznVhh5yoiP-Jav0mQ" rel="noopener noreferrer nofollow" title="לערוץ היוטיוב שלנו"><svg xmlns="http://www.w3.org/2000/svg" width="25.122" height="29.761" viewBox="0 0 25.122 29.761"><g transform="translate(-7.067)"><g transform="translate(7.067)"><path d="M31.755,40.142a3.173,3.173,0,0,0-2.716-2.468,84.4,84.4,0,0,0-9.406-.348,84.431,84.431,0,0,0-9.408.348A3.173,3.173,0,0,0,7.51,40.142a26.9,26.9,0,0,0-.443,5.939A26.894,26.894,0,0,0,7.5,52.019a3.173,3.173,0,0,0,2.715,2.468,84.41,84.41,0,0,0,9.407.348,84.349,84.349,0,0,0,9.408-.348,3.173,3.173,0,0,0,2.715-2.468,26.915,26.915,0,0,0,.44-5.938A26.934,26.934,0,0,0,31.755,40.142ZM14.233,41.617H12.414v9.662H10.726V41.617H8.94V40.034h5.292Zm4.587,9.662H17.3v-.914a2.433,2.433,0,0,1-1.735,1.029.931.931,0,0,1-.978-.623,4.276,4.276,0,0,1-.134-1.246V42.9h1.518v6.169a4.727,4.727,0,0,0,.014.59c.036.236.152.355.355.355.3,0,.623-.235.96-.711V42.9H18.82v8.378Zm5.768-2.515a6.693,6.693,0,0,1-.154,1.688,1.2,1.2,0,0,1-1.213.942,2.069,2.069,0,0,1-1.569-.927v.812H20.134V40.034h1.518v3.672a2.056,2.056,0,0,1,1.569-.909,1.2,1.2,0,0,1,1.213.945,6.434,6.434,0,0,1,.154,1.684Zm5.73-1.4H27.281v1.485c0,.776.254,1.163.776,1.163a.652.652,0,0,0,.678-.609,9.552,9.552,0,0,0,.034-1.029h1.549V48.6c0,.489-.019.826-.032.978a2.163,2.163,0,0,1-.354.909,2.1,2.1,0,0,1-1.836.908,2.174,2.174,0,0,1-1.838-.858,3.245,3.245,0,0,1-.487-1.97V45.632a3.261,3.261,0,0,1,.469-1.974,2.158,2.158,0,0,1,1.818-.859,2.109,2.109,0,0,1,1.791.859,3.293,3.293,0,0,1,.47,1.974v1.735Z" transform="translate(-7.067 -25.075)" fill="#191d40"></path><path d="M69.419,58.163q-.761,0-.762,1.162V60.1h1.518v-.775C70.175,58.551,69.921,58.163,69.419,58.163Z" transform="translate(-48.443 -39.073)" fill="#191d40"></path><path d="M52.262,58.163a1.088,1.088,0,0,0-.757.369v5.107a1.083,1.083,0,0,0,.757.374c.438,0,.66-.374.66-1.131V59.306C52.923,58.551,52.7,58.163,52.262,58.163Z" transform="translate(-36.92 -39.073)" fill="#191d40"></path><path d="M54.094,17.4a2.465,2.465,0,0,0,1.753-1.04v.924h1.534V8.82H55.847v6.472c-.34.48-.662.718-.969.718-.205,0-.326-.121-.36-.359a3.558,3.558,0,0,1-.019-.6V8.82H52.97v6.7a4.278,4.278,0,0,0,.136,1.259A.942.942,0,0,0,54.094,17.4Z" transform="translate(-37.904 -5.925)" fill="#191d40"></path><path d="M19.488,6.76v4.6h1.7V6.76L23.237,0h-1.72L20.355,4.462,19.147,0h-1.79c.359,1.053.732,2.112,1.091,3.166A27.99,27.99,0,0,1,19.488,6.76Z" transform="translate(-13.98)" fill="#191d40"></path><path d="M37.58,17.194a2.092,2.092,0,0,0,1.79-.867,3.312,3.312,0,0,0,.476-1.991V11.371a3.318,3.318,0,0,0-.476-1.995,2.275,2.275,0,0,0-3.576,0,3.291,3.291,0,0,0-.48,1.995v2.965a3.282,3.282,0,0,0,.48,1.991A2.091,2.091,0,0,0,37.58,17.194Zm-.732-6.131c0-.783.238-1.174.732-1.174s.732.39.732,1.174v3.562c0,.783-.237,1.175-.732,1.175s-.732-.392-.732-1.175Z" transform="translate(-26.042 -5.716)" fill="#191d40"></path></g></g></svg></a></li></ul>            
+            <a href="https://www.duns100.co.il/%D7%A7%D7%A8%D7%93%D7%9F_%D7%A0%D7%93%D7%9C%D7%9F_%D7%99%D7%96%D7%95%D7%9D_%D7%95%D7%A4%D7%99%D7%AA%D7%95%D7%97_%D7%91%D7%A2%D7%9E" target="_blank" rel="noopener noreferrer nofollow"><div style="display:block; max-width: 240px; width: 90%; margin-top: 15px;"><img loading="lazy" width="1280" height="578" src="https://kardan-nadlan.co.il/wp-content/uploads/Picture29.png" class="attachment-full size-full" alt="" decoding="async" srcset="https://kardan-nadlan.co.il/wp-content/uploads/Picture29.png 1280w, https://kardan-nadlan.co.il/wp-content/uploads/Picture29-300x135.png 300w, https://kardan-nadlan.co.il/wp-content/uploads/Picture29-1024x462.png 1024w, https://kardan-nadlan.co.il/wp-content/uploads/Picture29-768x347.png 768w" sizes="(max-width: 1280px) 100vw, 1280px"></div></a>        </div>
+
+        <div class="subscribe-form-area">
+                            <h2>
+                    <span>הצטרפו לעולם הנדל"ן של קרדן</span>
+                    <span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="86.692" height="86.691" viewBox="0 0 86.692 86.691"><g transform="translate(-16 -16)"><path d="M117.353,223.786h4.335a1.445,1.445,0,0,0,1.2-2.246l-5.779-8.669a1.445,1.445,0,0,0-1.2-.643h-4.979a26.014,26.014,0,0,0-50.725,0H55.224a1.445,1.445,0,0,0-1.2.643l-5.779,8.669a1.445,1.445,0,0,0,1.2,2.246h4.335v20.228H48v2.89h75.133v-2.89h-5.779Zm1.635-2.89H79.115l-3.853-5.779h39.873Zm-19.525-8.669L101,209.154l5.4-1.2a23.027,23.027,0,0,1,1.556,4.274Zm-.745-13.249-6.573,3.287a1.445,1.445,0,0,0-.556.491l-2.461,3.692H86.165l-3.911-3.911a1.444,1.444,0,0,0-.671-.379l-4.97-1.243-1.072-3.75a23.205,23.205,0,0,1,23.177,1.814Zm-25.767-.359,1.112,3.891a1.445,1.445,0,0,0,1.039,1l5.391,1.348,4.052,4.052a1.445,1.445,0,0,0,1.022.423H89.9a1.445,1.445,0,0,0,1.2-.643l2.677-4.015,7.428-3.715a23.058,23.058,0,0,1,3.705,4.36L99.7,206.482a1.445,1.445,0,0,0-.979.764l-2.49,4.981H73.691l-1.171-4.685a1.445,1.445,0,0,0-.461-.747l-4.237-3.63A23.123,23.123,0,0,1,72.951,198.619ZM66.1,205.5l3.723,3.191.885,3.537H63.177A22.991,22.991,0,0,1,66.1,205.5ZM56,215.117H69.863L66.01,220.9H52.145Zm.672,8.669H66.783a1.445,1.445,0,0,0,1.2-.643l4.577-6.866,4.577,6.866a1.445,1.445,0,0,0,1.2.643h36.121v20.228H74.007V222.341h-2.89v21.673H56.669Z" transform="translate(-26.221 -144.212)" fill="rgba(242,238,235,0.5)"></path><path d="M32.471,128.274a1.445,1.445,0,0,0,2.312-1.156v-2.89h2.89a4.339,4.339,0,0,0,4.335-4.335V108.335A4.339,4.339,0,0,0,37.673,104H20.335A4.339,4.339,0,0,0,16,108.335v11.559a4.339,4.339,0,0,0,4.335,4.335h6.743Zm-13.582-8.38V108.335a1.446,1.446,0,0,1,1.445-1.445H37.673a1.446,1.446,0,0,1,1.445,1.445v11.559a1.447,1.447,0,0,1-1.445,1.445H33.338a1.445,1.445,0,0,0-1.445,1.445v1.445l-3.468-2.6a1.445,1.445,0,0,0-.867-.289H20.335A1.446,1.446,0,0,1,18.89,119.893Z" transform="translate(0 -72.107)" fill="rgba(242,238,235,0.5)"></path><path d="M48,136h2.89v2.89H48Z" transform="translate(-26.221 -98.327)" fill="rgba(242,238,235,0.5)"></path><path d="M80,136h8.669v2.89H80Z" transform="translate(-52.441 -98.327)" fill="rgba(242,238,235,0.5)"></path><path d="M48,168H62.449v2.89H48Z" transform="translate(-26.221 -124.548)" fill="rgba(242,238,235,0.5)"></path><path d="M188.335,47.118h5.006l2.461,3.691a1.445,1.445,0,0,0,2.4,0l2.461-3.691h5.006a4.339,4.339,0,0,0,4.335-4.335V28.335A4.339,4.339,0,0,0,205.673,24H188.335A4.339,4.339,0,0,0,184,28.335V42.783a4.339,4.339,0,0,0,4.335,4.335ZM186.89,28.335a1.446,1.446,0,0,1,1.445-1.445h17.338a1.447,1.447,0,0,1,1.445,1.445V42.783a1.447,1.447,0,0,1-1.445,1.445h-5.779a1.445,1.445,0,0,0-1.2.643L197,47.4l-1.688-2.531a1.445,1.445,0,0,0-1.2-.643h-5.779a1.446,1.446,0,0,1-1.445-1.445Z" transform="translate(-137.658 -6.555)" fill="rgba(242,238,235,0.5)"></path><path d="M224.65,67.319a1.445,1.445,0,0,0,1.364.122l10.114-4.335a1.445,1.445,0,0,0,0-2.656l-10.114-4.335A1.445,1.445,0,0,0,224,57.444v8.669A1.445,1.445,0,0,0,224.65,67.319Zm2.24-7.684,5,2.143-5,2.143Z" transform="translate(-170.434 -32.775)" fill="rgba(242,238,235,0.5)"></path><path d="M376.563,96H353.445A1.445,1.445,0,0,0,352,97.445v17.338a1.445,1.445,0,0,0,1.445,1.445h7.224v2.89a1.445,1.445,0,0,0,2.312,1.156l5.394-4.046h8.187a1.445,1.445,0,0,0,1.445-1.445V97.445A1.445,1.445,0,0,0,376.563,96Zm-3.845,2.89L365,105.639,357.29,98.89Zm-4.824,14.449a1.445,1.445,0,0,0-.867.289l-3.468,2.6v-1.445a1.445,1.445,0,0,0-1.445-1.445H354.89V100.629l9.163,8.017a1.445,1.445,0,0,0,1.9,0l9.163-8.017v12.709Z" transform="translate(-275.316 -65.551)" fill="rgba(242,238,235,0.5)"></path><path d="M88,264h2.89v2.89H88Z" transform="translate(-58.996 -203.209)" fill="rgba(242,238,235,0.5)"></path><path d="M16,304h2.89v2.89H16Z" transform="translate(0 -235.985)" fill="rgba(242,238,235,0.5)"></path><path d="M40,48h2.89v2.89H40Z" transform="translate(-19.665 -26.221)" fill="rgba(242,238,235,0.5)"></path><path d="M120,72h2.89v2.89H120Z" transform="translate(-85.217 -45.886)" fill="rgba(242,238,235,0.5)"></path><path d="M352,64h2.89v2.89H352Z" transform="translate(-275.316 -39.331)" fill="rgba(242,238,235,0.5)"></path><path d="M448,32h2.89v2.89H448Z" transform="translate(-353.978 -13.11)" fill="rgba(242,238,235,0.5)"></path><path d="M408,256h2.89v2.89H408Z" transform="translate(-321.202 -196.654)" fill="rgba(242,238,235,0.5)"></path><path d="M472,296h2.89v2.89H472Z" transform="translate(-373.643 -229.43)" fill="rgba(242,238,235,0.5)"></path><path d="M144,16h2.89v2.89H144Z" transform="translate(-104.882 0)" fill="rgba(242,238,235,0.5)"></path></g></svg></span>
+                </h2>
+                
+<div class="wpcf7 no-js" id="wpcf7-f766-o1" lang="he-IL" dir="rtl" data-wpcf7-id="766">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f766-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="766"><input type="hidden" name="_wpcf7_version" value="6.1.4"><input type="hidden" name="_wpcf7_locale" value="he_IL"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f766-o1"><input type="hidden" name="_wpcf7_container_post" value="0"><input type="hidden" name="_wpcf7_posted_data_hash" value="">
+</fieldset>
+<label for="email" class="screen-reader-text">דוא״ל</label>
+<span class="wpcf7-form-control-wrap" data-name="email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="דוא״ל" value="" type="email" name="email"></span> 
+
+<button type="submit" class="btn-default">שליחה</button><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="o-oe">
+            <p>כל ההדמיות והתוכניות באתר זה הינן להמחשה בלבד. את החברה יחייבו הסכם המכר ומפרטיו בלבד ט.ל.ח</p>
+            <nav class="footer-bottom-nav"><ul id="menu-%d7%94%d7%a6%d7%94%d7%a8%d7%95%d7%aa" class="menu"><li id="menu-item-752" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-752"><a href="https://kardan-nadlan.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/">הצהרת נגישות</a></li>
+<li id="menu-item-780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-780"><a href="https://kardan-nadlan.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/">מדיניות פרטיות</a></li>
+<li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-783"><a href="https://kardan-nadlan.co.il/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f-%d7%94%d7%90%d7%aa%d7%a8/">תקנון האתר</a></li>
+</ul></nav>        </div><!-- end .o-oe -->
+
+        <p class="copyright">2026 © קרדן נדלן כל הזכויות שמורות  | עיצוב ופיתוח - <a href="https://zazim-bareshet.co.il" rel="nofollow noopener noreferrer" target="_blank">זזים ברשת</a></p>    </div>
+</footer>
+
+<div id="schedule-meeting-pop">
+    <div id="schedule-meeting-wrapper">
+        <div id="schedule-meeting-inner">
+            <button class="close" aria-label="סגור" aria-controls="schedule-meeting-wrapper">
+            </button>
+
+                            <h1 class="title">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="15.124" height="19.589" viewBox="0 0 15.124 19.589"><g transform="translate(-61.569 0)"><path d="M214.2,65.14V66.3h1.257V65.14a.437.437,0,0,1,.437-.437h2.842a1.7,1.7,0,0,0,1.694-1.694V62h-1.257v1.009a.437.437,0,0,1-.437.437h-2.842A1.7,1.7,0,0,0,214.2,65.14Z" transform="translate(-146.979 -59.402)" fill="currentColor"></path><path d="M156.124,3.14a.437.437,0,0,1,.437-.437H159.4A1.7,1.7,0,0,0,161.1,1.009V0H159.84V1.009a.437.437,0,0,1-.437.437h-2.842a1.7,1.7,0,0,0-1.694,1.694V4.3h1.257Z" transform="translate(-89.843 0)" fill="currentColor"></path><path d="M74.591,204.513a1.968,1.968,0,0,0-.936.238V202H61.569v8.728a5.082,5.082,0,0,0,1.469,3.6l.669.661h7.81l.669-.661a5.071,5.071,0,0,0,1.466-3.418l1.289-.425a2.64,2.64,0,0,0,1.753-2.553v-1.155A2.191,2.191,0,0,0,74.591,204.513Zm-2.1-1.256v1.59H62.736v-1.59Zm0,7.471A3.775,3.775,0,0,1,71.4,213.4l-.334.33h-6.9l-.334-.33a3.775,3.775,0,0,1-1.091-2.675V206.1h9.752Zm3.038-2.795a1.4,1.4,0,0,1-.927,1.351l-.944.311v-2.817a.938.938,0,1,1,1.872,0v1.155Z" transform="translate(0 -195.402)" fill="currentColor"></path></g></svg></span>
+                    <span class="text">באיזה פרויקט היית רוצה להיפגש איתנו על כוס קפה?</span>
+                </h1>
+            
+                            <h2 class="subtitle">מלאו את הטופס ונהיה איתך בקשר</h2>
+            
+                            <div class="form-wrap">
+<div class="wpcf7 no-js" id="wpcf7-f517-o2" lang="he-IL" dir="rtl" data-wpcf7-id="517">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f517-o2" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="517"><input type="hidden" name="_wpcf7_version" value="6.1.4"><input type="hidden" name="_wpcf7_locale" value="he_IL"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f517-o2"><input type="hidden" name="_wpcf7_container_post" value="0"><input type="hidden" name="_wpcf7_posted_data_hash" value="">
+</fieldset>
+<label class="screen-reader-text" for="fullname">שם מלא</label>
+<span class="wpcf7-form-control-wrap" data-name="fullname"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="שם מלא" value="" type="text" name="fullname"></span> 
+
+<label class="screen-reader-text" for="phone">טלפון</label>
+<span class="wpcf7-form-control-wrap" data-name="phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="טלפון" value="" type="tel" name="phone"></span>
+
+<label class="screen-reader-text" for="mail">אימייל</label>
+<span class="wpcf7-form-control-wrap" data-name="email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="אימייל" value="" type="email" name="email"></span>
+
+<label class="screen-reader-text" for="project_id">בחר פרויקט</label>
+<span class="wpcf7-form-control-wrap project_id"><select id="project_id" name="project_id" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required " aria-required="true" aria-invalid="false"><option value="">בחר פרוייקט *</option><option value="11585">בת ים - פארק הים ISLAND</option><option value="11585">מגדלי U - בת ים</option><option value="11326">נתניה – ALIVE</option><option value="9193">רמת גן - עוזיאל</option><option value="10242">ירושלים - הולילנד</option><option value="">תל אביב - קרית שלום</option></select></span>
+
+<input type="hidden" name="remote_ip" value="80.178.161.190" class="wpcf7-form-control wpcf7-hidden">
+
+<span class="wpcf7-form-control-wrap" data-name="mail_marketing"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="mail_marketing[]" value="מעוניין לקבל מידע בנושא מבצעים, פרוייקטים חדשים ועוד"><span class="wpcf7-list-item-label">מעוניין לקבל מידע בנושא מבצעים, פרוייקטים חדשים ועוד</span></span></span></span>
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="MediaTitle">
+<input class="wpcf7-form-control wpcf7-submit has-spinner btn-default" type="submit" value="שלח"><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>
+            
+        </div>
+    </div>
+</div>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/kardan/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="rocketlazyloadscript">
+              (function(e){
+                  var el = document.createElement('script');
+                  el.setAttribute('data-account', 'jzY9a9ffNj');
+                  el.setAttribute('src', 'https://cdn.userway.org/widget.js');
+                  document.body.appendChild(el);
+                })();
+              </script>		<div data-elementor-type="popup" data-elementor-id="2642" class="elementor elementor-2642 elementor-location-popup" data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:{&quot;page_load&quot;:&quot;yes&quot;,&quot;page_load_delay&quot;:0},&quot;timing&quot;:{&quot;times_times&quot;:1,&quot;times&quot;:&quot;yes&quot;}}" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-a201827 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="a201827" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-166ab1d" data-id="166ab1d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-74cea92 elementor-widget elementor-widget-heading" data-id="74cea92" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">ניהול קבצי עוגיות באתר</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-fb741e0 elementor-widget elementor-widget-text-editor" data-id="fb741e0" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>באתר זה נעשה שימוש בעוגיות לצורך ניתוח נתונים סטטיסטיים, שיפור חווית הגלישה, התאמת האתר למשתמש ופרסום מותאם אישית. למידע נוסף לעניין מטרות השימוש, העברת מידע וכיצד תוכל למחוק או לחסום עוגיות, ראה את <span style="text-decoration: underline;"><a href="https://kardan-nadlan.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/">מדיניות הפרטיות</a></span></p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-8f97ba8" data-id="8f97ba8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6502049 elementor-align-left elementor-widget elementor-widget-button" data-id="6502049" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="#elementor-action%3Aaction%3Dpopup%3Aclose%26settings%3DeyJkb19ub3Rfc2hvd19hZ2FpbiI6IiJ9">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">הבנתי</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+					<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.4" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<link rel="stylesheet" href="https://kardan-nadlan.co.il/wp-content/plugins/contact-form-7/includes/css/styles-rtl.css?ver=6.1.4" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all">
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://kardan-nadlan.co.il","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/themes/kardan/assets/js/global.min.js?ver=1.5.0" id="kardan-global-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/themes/kardan/assets/js/homepage.min.js?ver=1.5.0" id="kardan-homepage-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.34.1" id="elementor-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.34.1" id="elementor-frontend-modules-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" data-rocket-defer="" defer=""></script>
+<script id="elementor-frontend-js-extra">
+var PremiumSettings = {"ajaxurl":"https://kardan-nadlan.co.il/wp-admin/admin-ajax.php","nonce":"e27ee4b07a"};
+//# sourceURL=elementor-frontend-js-extra
+</script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnTwitter":"\u05e9\u05ea\u05e3 \u05d1\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8","a11yCarouselPrevSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e7\u05d5\u05d3\u05de\u05ea","a11yCarouselNextSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d1\u05d0\u05d4","a11yCarouselFirstSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05e8\u05d0\u05e9\u05d5\u05e0\u05d4","a11yCarouselLastSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d0\u05d7\u05e8\u05d5\u05e0\u05d4","a11yCarouselPaginationBulletMessage":"\u05dc\u05e2\u05d1\u05d5\u05e8 \u05dc\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e0\u05db\u05d9","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05d5\u05e4\u05e7\u05d9","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e0\u05db\u05d9","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05d5\u05e4\u05e7\u05d9","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":true},"version":"3.34.1","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"theme_builder_v2":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"e_interactions":true,"import-export-customization":true,"e_pro_variables":true},"urls":{"assets":"https:\/\/kardan-nadlan.co.il\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/kardan-nadlan.co.il\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/kardan-nadlan.co.il\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"696fa5df54"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":57,"title":"%D7%A7%D7%A8%D7%93%D7%9F%20%D7%A0%D7%93%D7%9C%22%D7%9F%20-%20%D7%99%D7%99%D7%96%D7%95%D7%9D%2C%20%D7%AA%D7%9B%D7%A0%D7%95%D7%9F%20%D7%95%D7%91%D7%A0%D7%99%D7%99%D7%94","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.34.1" id="elementor-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/elements-handler.min.js?ver=4.11.63" id="pa-elements-handler-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.4" id="swv-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" id="contact-form-7-js-before">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/kardan-nadlan.co.il\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.4" id="contact-form-7-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.34.0" id="elementor-pro-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/kardan-nadlan.co.il\/wp-admin\/admin-ajax.php","nonce":"4be85e19d3","urls":{"assets":"https:\/\/kardan-nadlan.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/kardan-nadlan.co.il\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/kardan-nadlan.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.34.0" id="elementor-pro-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.34.0" id="pro-elements-handlers-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" id="gsap-js-js" data-rocket-defer="" defer=""></script>
+<script id="elementor-extras-frontend-js-extra">
+var elementorExtrasFrontendConfig = {"urls":{"assets":"https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/"},"refreshableWidgets":["ee-offcanvas.classic","ee-popup.classic","gallery-slider.default","media-carousel.default","image-carousel.default","slides.default"]};
+//# sourceURL=elementor-extras-frontend-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/js/frontend.min.js?ver=2.2.52" id="elementor-extras-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/lib/parallax-gallery/parallax-gallery.min.js?ver=1.0.0" id="parallax-gallery-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/lib/hotips/hotips.min.js?ver=1.1.0" id="hotips-js" data-rocket-defer="" defer=""></script>
+
+<script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach((t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}}))}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find((t=>e[t]))];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout((()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)}),i);window.addEventListener("rocket-startLoading",(function(){clearTimeout(o)}))}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach((t=>{e.forEach((e=>{i.push(t+e)}))})),i}l(t,e){this.i().forEach((t=>delete e[t])),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script><noscript><link rel='stylesheet' id='wp-block-library-rtl-css' href='https://kardan-nadlan.co.il/wp-includes/css/dist/block-library/style-rtl.min.css?ver=6.9.4' media='all' /><link rel='stylesheet' id='kardan-reset-css' href='https://kardan-nadlan.co.il/wp-content/themes/kardan/assets/css/reset.min.css?ver=1.5.0' media='all' /><link rel='stylesheet' id='kardan-theme-css' href='https://kardan-nadlan.co.il/wp-content/themes/kardan/assets/css/theme.min.css?ver=1.5.0' media='all' /><link rel='stylesheet' id='elementor-frontend-css' href='https://kardan-nadlan.co.il/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1774087898' media='all' /><link rel='stylesheet' id='widget-heading-css' href='https://kardan-nadlan.co.il/wp-content/plugins/elementor/assets/css/widget-heading-rtl.min.css?ver=3.34.1' media='all' /><link rel='stylesheet' id='e-popup-css' href='https://kardan-nadlan.co.il/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=3.34.0' media='all' /><link rel='stylesheet' id='elementor-icons-css' href='https://kardan-nadlan.co.il/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.45.0' media='all' /><link rel='stylesheet' id='elementor-post-133-css' href='https://kardan-nadlan.co.il/wp-content/uploads/elementor/css/post-133.css?ver=1774087899' media='all' /><link rel='stylesheet' id='namogo-icons-css' href='https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/lib/nicons/css/nicons.css?ver=2.2.52' media='all' /><link rel='stylesheet' id='elementor-extras-frontend-css' href='https://kardan-nadlan.co.il/wp-content/plugins/elementor-extras/assets/css/frontend-rtl.min.css?ver=2.2.52' media='all' /><link rel='stylesheet' id='elementor-post-2642-css' href='https://kardan-nadlan.co.il/wp-content/uploads/elementor/css/post-2642.css?ver=1774087899' media='all' /><link rel='stylesheet' id='contact-form-7-css' href='https://kardan-nadlan.co.il/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.4' media='all' /><link rel='stylesheet' id='contact-form-7-rtl-css' href='https://kardan-nadlan.co.il/wp-content/plugins/contact-form-7/includes/css/styles-rtl.css?ver=6.1.4' media='all' /></noscript>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

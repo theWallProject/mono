@@ -1,0 +1,89 @@
+[2026-03-22T00:04:42.709Z] === Homepage AI Extractor: Totango ===
+[2026-03-22T00:04:42.710Z] Started at: 2026-03-22T00:04:42.710Z
+[2026-03-22T00:04:42.710Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774137882709_Totango
+[2026-03-22T00:04:42.710Z] Company: Totango
+[2026-03-22T00:04:42.710Z] Website: totango.com
+[2026-03-22T00:04:42.710Z] cbRank: 10967
+[2026-03-22T00:04:42.710Z] Reasons: f, i
+[2026-03-22T00:04:42.710Z] Fetching: https://totango.com
+[2026-03-22T00:04:46.187Z] Redirected: https://totango.com -> https://www.totango.com/
+[2026-03-22T00:04:46.193Z] Saved HTML (198549 bytes) to page.html
+[2026-03-22T00:04:46.196Z] Extracted 56 unique links from page
+[2026-03-22T00:04:46.197Z] Saved 56 links to links.json
+[2026-03-22T00:04:46.201Z] Extracted footer HTML (12060 chars)
+[2026-03-22T00:04:46.201Z] Extracted header HTML (26306 chars)
+[2026-03-22T00:04:46.204Z] Website (post-redirect): https://www.totango.com/ → origin: https://www.totango.com
+[2026-03-22T00:04:46.204Z]   SUBDOMAIN: app.totango.com (added to ws)
+[2026-03-22T00:04:46.204Z]   SUBDOMAIN: blog.totango.com (added to ws)
+[2026-03-22T00:04:46.204Z]   SUBDOMAIN: unison.totango.com (added to ws)
+[2026-03-22T00:04:46.204Z] Website subdomains found: 3
+[2026-03-22T00:04:46.204Z] External links: 5 (of 56 total)
+[2026-03-22T00:04:46.204Z] ── All external links ──
+[2026-03-22T00:04:46.204Z]   EXT: https://app.catalyst.io/?__hstc=93496706.7db7bac8c7927f467edd83c9b6e04347.1774137884379.1774137884379.1774137884379.1&__hssc=93496706.1.1774137884379&__hsfp=3e49f0cd0de871a2c826a828a087c5e2
+[2026-03-22T00:04:46.205Z]   EXT: https://logo.dev
+[2026-03-22T00:04:46.205Z]   EXT: https://www.g2.com/products/totango/reviews
+[2026-03-22T00:04:46.205Z]   EXT: https://www.linkedin.com/company/totango
+[2026-03-22T00:04:46.205Z]   EXT: https://www.youtube.com/totango?
+[2026-03-22T00:04:46.205Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:04:46.205Z]   UNCATEGORIZED: https://app.catalyst.io/?__hstc=93496706.7db7bac8c7927f467edd83c9b6e04347.1774137884379.1774137884379.1774137884379.1&__hssc=93496706.1.1774137884379&__hsfp=3e49f0cd0de871a2c826a828a087c5e2
+[2026-03-22T00:04:46.205Z]   UNCATEGORIZED: https://logo.dev
+[2026-03-22T00:04:46.205Z]   UNCATEGORIZED: https://www.g2.com/products/totango/reviews
+[2026-03-22T00:04:46.205Z]   REGEX: li <- https://www.linkedin.com/company/totango
+[2026-03-22T00:04:46.205Z]   REGEX: ytp <- https://www.youtube.com/totango?
+[2026-03-22T00:04:46.205Z] Programmatic result: ws:4, li:1, ytp:1 | 3 uncategorized
+[2026-03-22T00:04:46.205Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:04:46.208Z] Saved AI prompt (5872 chars) to ai_prompt.txt
+[2026-03-22T00:04:46.208Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:04:46.213Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:05:12.605Z]   AI: First token received, streaming...
+[2026-03-22T00:05:20.821Z] AI response complete: 142 chars in 34.6s
+[2026-03-22T00:05:20.822Z] Saved AI response to ai_response.json
+[2026-03-22T00:05:20.823Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T00:05:20.823Z]   AI LINK: https://www.youtube.com/totango
+[2026-03-22T00:05:20.823Z]   AI LINK: https://www.linkedin.com/company/totango/
+[2026-03-22T00:05:20.823Z]   AI LINK: https://www.g2.com/products/totango/reviews
+[2026-03-22T00:05:20.823Z]   AI LINK: https://blog.totango.com
+[2026-03-22T00:05:20.823Z] AI returned 4 valid links
+[2026-03-22T00:05:20.824Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T00:05:20.824Z]   AI→REGEX: ytp <- https://www.youtube.com/totango (duplicate, skipped)
+[2026-03-22T00:05:20.824Z]   AI→REGEX: li <- https://www.linkedin.com/company/totango/ (duplicate, skipped)
+[2026-03-22T00:05:20.824Z]   AI→URLS: https://www.g2.com/products/totango/reviews
+[2026-03-22T00:05:20.824Z]   AI→URLS: https://blog.totango.com
+[2026-03-22T00:05:20.827Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:05:20.827Z] Footer/header origins (9):
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://blog.totango.com
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://www.totango.com
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://www.g2.com
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://logo.dev
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://app.totango.com
+[2026-03-22T00:05:20.827Z]   FOOTER/HEADER ORIGIN: https://app.catalyst.io
+[2026-03-22T00:05:20.828Z]   FOOTER/HEADER ORIGIN: https://unison.totango.com
+[2026-03-22T00:05:20.828Z]   ADDED: urls <- https://app.catalyst.io (cleaned from https://app.catalyst.io/?__hstc=93496706.7db7bac8c7927f467edd83c9b6e04347.1774137884379.1774137884379.1774137884379.1&__hssc=93496706.1.1774137884379&__hsfp=3e49f0cd0de871a2c826a828a087c5e2)
+[2026-03-22T00:05:20.828Z]   ADDED: urls <- https://logo.dev
+[2026-03-22T00:05:20.828Z]   SKIP (AI claimed): https://www.g2.com/products/totango/reviews
+[2026-03-22T00:05:20.828Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-22T00:05:20.828Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:05:20.828Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:05:20.829Z] ── Step 3: Final dedup ──
+[2026-03-22T00:05:20.829Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-22T00:05:20.829Z] ── FINAL RESULT ──
+[2026-03-22T00:05:20.829Z]   ws (4):
+[2026-03-22T00:05:20.829Z]     - https://app.totango.com
+[2026-03-22T00:05:20.829Z]     - https://blog.totango.com
+[2026-03-22T00:05:20.830Z]     - https://unison.totango.com
+[2026-03-22T00:05:20.830Z]     - https://www.totango.com
+[2026-03-22T00:05:20.830Z]   li (1):
+[2026-03-22T00:05:20.830Z]     - https://www.linkedin.com/company/totango
+[2026-03-22T00:05:20.830Z]   ytp (1):
+[2026-03-22T00:05:20.830Z]     - https://www.youtube.com/@totango
+[2026-03-22T00:05:20.830Z]   urls (4):
+[2026-03-22T00:05:20.830Z]     - https://app.catalyst.io
+[2026-03-22T00:05:20.830Z]     - https://blog.totango.com
+[2026-03-22T00:05:20.830Z]     - https://logo.dev
+[2026-03-22T00:05:20.830Z]     - https://www.g2.com/products/totango/reviews
+[2026-03-22T00:05:20.831Z] Summary: ws:4, li:1, ytp:1, urls:4
+[2026-03-22T00:05:20.832Z] Saved final result to result.json
+[2026-03-22T00:05:20.832Z] Override fields: ws, li, ytp, urls
+[2026-03-22T00:05:20.832Z] Finished at: 2026-03-22T00:05:20.832Z

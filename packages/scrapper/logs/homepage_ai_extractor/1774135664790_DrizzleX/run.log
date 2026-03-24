@@ -1,0 +1,70 @@
+[2026-03-21T23:27:44.791Z] === Homepage AI Extractor: DrizzleX ===
+[2026-03-21T23:27:44.791Z] Started at: 2026-03-21T23:27:44.791Z
+[2026-03-21T23:27:44.791Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774135664790_DrizzleX
+[2026-03-21T23:27:44.791Z] Company: DrizzleX
+[2026-03-21T23:27:44.791Z] Website: drizzlex.com
+[2026-03-21T23:27:44.791Z] cbRank: 6318
+[2026-03-21T23:27:44.791Z] Reasons: f
+[2026-03-21T23:27:44.791Z] Fetching: https://drizzlex.com
+[2026-03-21T23:27:56.165Z] Network idle timeout — continuing with current state
+[2026-03-21T23:27:56.199Z] Redirected: https://drizzlex.com -> https://www.drizzlex.com/
+[2026-03-21T23:27:56.223Z] Saved HTML (1281209 bytes) to page.html
+[2026-03-21T23:27:56.226Z] Extracted 31 unique links from page
+[2026-03-21T23:27:56.227Z] Saved 31 links to links.json
+[2026-03-21T23:27:56.229Z] Extracted footer HTML (23968 chars)
+[2026-03-21T23:27:56.229Z] Extracted header HTML (16810 chars)
+[2026-03-21T23:27:56.236Z] Website (post-redirect): https://www.drizzlex.com/ → origin: https://www.drizzlex.com
+[2026-03-21T23:27:56.236Z]   SUBDOMAIN: admin.drizzlex.com (added to ws)
+[2026-03-21T23:27:56.237Z] Website subdomains found: 1
+[2026-03-21T23:27:56.237Z] External links: 3 (of 31 total)
+[2026-03-21T23:27:56.237Z] ── All external links ──
+[2026-03-21T23:27:56.237Z]   EXT: https://www.facebook.com/drizzlex
+[2026-03-21T23:27:56.237Z]   EXT: https://www.linkedin.com/company/drizzlex
+[2026-03-21T23:27:56.237Z]   EXT: https://x.com/drizzleXinc
+[2026-03-21T23:27:56.237Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T23:27:56.237Z]   REGEX: fb <- https://www.facebook.com/drizzlex
+[2026-03-21T23:27:56.237Z]   REGEX: li <- https://www.linkedin.com/company/drizzlex
+[2026-03-21T23:27:56.237Z]   REGEX: tw <- https://x.com/drizzleXinc
+[2026-03-21T23:27:56.237Z] Programmatic result: ws:2, fb:1, li:1, tw:1 | 0 uncategorized
+[2026-03-21T23:27:56.237Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T23:27:56.241Z] Saved AI prompt (2515 chars) to ai_prompt.txt
+[2026-03-21T23:27:56.241Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T23:27:56.244Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T23:28:04.713Z]   AI: First token received, streaming...
+[2026-03-21T23:28:10.011Z] AI response complete: 102 chars in 13.8s
+[2026-03-21T23:28:10.012Z] Saved AI response to ai_response.json
+[2026-03-21T23:28:10.013Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T23:28:10.013Z]   AI LINK: https://www.linkedin.com/company/drizzlex/
+[2026-03-21T23:28:10.013Z]   AI LINK: https://x.com/drizzleXinc
+[2026-03-21T23:28:10.013Z]   AI LINK: https://www.facebook.com/drizzlex
+[2026-03-21T23:28:10.013Z] AI returned 3 valid links
+[2026-03-21T23:28:10.013Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T23:28:10.013Z]   AI→REGEX: li <- https://www.linkedin.com/company/drizzlex/ (duplicate, skipped)
+[2026-03-21T23:28:10.014Z]   AI→REGEX: tw <- https://x.com/drizzleXinc (duplicate, skipped)
+[2026-03-21T23:28:10.014Z]   AI→REGEX: fb <- https://www.facebook.com/drizzlex (duplicate, skipped)
+[2026-03-21T23:28:10.014Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T23:28:10.014Z] Footer/header origins (5):
+[2026-03-21T23:28:10.014Z]   FOOTER/HEADER ORIGIN: https://www.drizzlex.com
+[2026-03-21T23:28:10.014Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T23:28:10.014Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T23:28:10.015Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T23:28:10.015Z]   FOOTER/HEADER ORIGIN: https://admin.drizzlex.com
+[2026-03-21T23:28:10.015Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T23:28:10.015Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T23:28:10.015Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T23:28:10.015Z] ── Step 3: Final dedup ──
+[2026-03-21T23:28:10.015Z] No urls to dedup
+[2026-03-21T23:28:10.015Z] ── FINAL RESULT ──
+[2026-03-21T23:28:10.015Z]   ws (2):
+[2026-03-21T23:28:10.015Z]     - https://admin.drizzlex.com
+[2026-03-21T23:28:10.016Z]     - https://www.drizzlex.com
+[2026-03-21T23:28:10.016Z]   li (1):
+[2026-03-21T23:28:10.016Z]     - https://www.linkedin.com/company/drizzlex
+[2026-03-21T23:28:10.016Z]   fb (1):
+[2026-03-21T23:28:10.016Z]     - https://www.facebook.com/drizzlex
+[2026-03-21T23:28:10.016Z]   tw (1):
+[2026-03-21T23:28:10.016Z]     - https://x.com/drizzlexinc
+[2026-03-21T23:28:10.016Z] Summary: ws:2, fb:1, li:1, tw:1
+[2026-03-21T23:28:10.017Z] Saved final result to result.json
+[2026-03-21T23:28:10.017Z] Override fields: ws, li, fb, tw
+[2026-03-21T23:28:10.018Z] Finished at: 2026-03-21T23:28:10.018Z

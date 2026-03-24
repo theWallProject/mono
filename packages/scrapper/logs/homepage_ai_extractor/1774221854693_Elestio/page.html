@@ -1,0 +1,992 @@
+<!DOCTYPE html><html lang="en" class="has-reveal"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy Fully Managed Open-Source Software on Any Cloud | Elestio</title>
+    <meta name="description" content="Deploy 400+ fully managed open-source tools on Elestio. 9 cloud providers, 100+ regions, automated backups, SSL, and 24/7 monitoring from $14/mo.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://dash.elest.io">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css?rev=301">
+    <link rel="stylesheet" href="/css/cookie-consent.css">
+    <script type="text/javascript" async="" src="https://app.posthog.com/static/array.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Elestio","legalName":"Elestio Limited","url":"https://elest.io","logo":"https://elest.io/images/logo.svg","description":"Deploy 400+ fully managed open-source tools on Elestio. 9 cloud providers, 100+ regions, automated backups, SSL, and 24/7 monitoring from $14/mo.","foundingDate":"2022","address":{"@type":"PostalAddress","streetAddress":"66 Fitzwilliam Square","addressLocality":"Dublin","postalCode":"D02 AT27","addressCountry":"IE"},"contactPoint":{"@type":"ContactPoint","email":"support@elest.io","contactType":"customer support"},"sameAs":["https://www.linkedin.com/company/elestio","https://github.com/elestio","https://twitter.com/elaborateio","https://www.youtube.com/@elestio","https://www.g2.com/products/elestio","https://www.trustpilot.com/review/elest.io"],"numberOfEmployees":{"@type":"QuantitativeValue","minValue":20,"maxValue":50},"areaServed":"Worldwide","knowsAbout":["managed hosting","DevOps","open-source software","cloud infrastructure","CI/CD","Docker","Kubernetes"],"slogan":"Managed Open-Source Hosting","datePublished":"2024-01-15","dateModified":"2026-03-16"}</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://elest.io/",
+        "name": "Elestio",
+        "description": "Deploy 400+ fully managed open-source tools on Elestio. 9 cloud providers, 100+ regions, automated backups, SSL, and 24/7 monitoring from $14/mo.","datePublished": "2024-01-15","dateModified": "2026-03-16"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage","datePublished": "2024-01-15","dateModified": "2026-03-16",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Elestio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Elestio is a fully managed platform that lets you deploy over 400 open-source software tools on dedicated cloud instances. We handle the entire DevOps lifecycle including setup, configuration, SSL encryption, automated backups, security updates, and 24/7 monitoring."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does fully managed hosting work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You choose your software, select a cloud provider and region, and Elestio deploys it on a dedicated instance in under few minutes. We continuously manage your service with automated backups, OS and software updates, SSL certificate management, and proactive monitoring."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What open-source software can I deploy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Elestio offers 400+ open-source tools across categories including databases (PostgreSQL, MySQL, Redis), applications (WordPress, n8n, Supabase), AI tools (Dify, Ollama, OpenWebUI), DevOps (GitLab, Jenkins, Portainer), and infrastructure services."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Elestio offers a free 3-day trial. A credit card is required to start. You can deploy any software from our catalogue and experience the full managed service including automated backups, monitoring, and support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Elestio different from AWS, GCP, or Azure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unlike major cloud providers, Elestio provides a fully managed experience. We deploy on your choice of any cloud provider across 100+ regions, handling all DevOps work at a fraction of the cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What cloud providers and regions are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Elestio supports any cloud provider including AWS, Azure, Hetzner, DigitalOcean, Vultr, Linode, and Scaleway, with 100+ regions across 40+ countries worldwide."
+            }
+          }
+        ]
+      }
+    </script>
+    
+
+<link rel="stylesheet" href="/css/homepage.css">
+<link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/testimonials.css"><link rel="stylesheet" href="/css/db-migration.css"><link rel="stylesheet" href="/css/sw-explore.css"><link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/testimonials.css"><link rel="stylesheet" href="/css/db-migration.css"><link rel="stylesheet" href="/css/sw-explore.css"><link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/testimonials.css"><link rel="stylesheet" href="/css/db-migration.css"><link rel="stylesheet" href="/css/sw-explore.css"><link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/testimonials.css"><link rel="stylesheet" href="/css/db-migration.css"><link rel="stylesheet" href="/css/sw-explore.css"><link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/testimonials.css"><link rel="stylesheet" href="/css/db-migration.css"><link rel="stylesheet" href="/css/sw-explore.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Elestio","legalName":"Elestio Limited","url":"https://elest.io","logo":"https://elest.io/images/logo.svg","description":"Elestio is a fully managed DevOps platform that enables deployment of 400+ open-source software tools on dedicated cloud instances across 100+ regions worldwide.","foundingDate":"2022","address":{"@type":"PostalAddress","streetAddress":"66 Fitzwilliam Square","addressLocality":"Dublin","postalCode":"D02 AT27","addressCountry":"IE"},"contactPoint":{"@type":"ContactPoint","email":"support@elest.io","contactType":"customer support"},"sameAs":["https://www.linkedin.com/company/elestio","https://github.com/elestio","https://twitter.com/elaborateio","https://www.youtube.com/@elestio","https://www.g2.com/products/elestio","https://www.trustpilot.com/review/elest.io"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","bestRating":"5","ratingCount":"200"},"numberOfEmployees":{"@type":"QuantitativeValue","minValue":20,"maxValue":50},"areaServed":"Worldwide","knowsAbout":["managed hosting","DevOps","open-source software","cloud infrastructure","CI/CD","Docker","Kubernetes"],"slogan":"Managed Open-Source Hosting"}</script><link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/testimonials.css"><link rel="stylesheet" href="/css/db-migration.css"><link rel="stylesheet" href="/css/sw-explore.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Elestio","legalName":"Elestio Limited","url":"https://elest.io","logo":"https://elest.io/images/logo.svg","description":"Elestio is a fully managed DevOps platform that enables deployment of 400+ open-source software tools on dedicated cloud instances across 100+ regions worldwide.","foundingDate":"2022","address":{"@type":"PostalAddress","streetAddress":"66 Fitzwilliam Square","addressLocality":"Dublin","postalCode":"D02 AT27","addressCountry":"IE"},"contactPoint":{"@type":"ContactPoint","email":"support@elest.io","contactType":"customer support"},"sameAs":["https://www.linkedin.com/company/elestio","https://github.com/elestio","https://twitter.com/elaborateio","https://www.youtube.com/@elestio","https://www.g2.com/products/elestio","https://www.trustpilot.com/review/elest.io"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","bestRating":"5","ratingCount":"200"},"numberOfEmployees":{"@type":"QuantitativeValue","minValue":20,"maxValue":50},"areaServed":"Worldwide","knowsAbout":["managed hosting","DevOps","open-source software","cloud infrastructure","CI/CD","Docker","Kubernetes"],"slogan":"Managed Open-Source Hosting"}</script><link rel="canonical" href="https://elest.io/"><meta property="article:modified_time" content="2026-03-22T00:00:00+00:00"><meta property="og:title" content="Deploy Fully Managed Open-Source Software on Any Cloud | Elestio"><meta property="og:description" content="Deploy 400+ fully managed open-source tools on Elestio. 9 cloud providers, 100+ regions, automated backups, SSL, and 24/7 monitoring from $14/mo."><meta property="og:type" content="website"><meta property="og:url" content="https://elest.io/"><meta property="og:image" content="https://elest.io/images/og_main.jpg"><meta property="og:site_name" content="Elestio"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Deploy Fully Managed Open-Source Software on Any Cloud | Elestio"><meta name="twitter:description" content="Deploy 400+ fully managed open-source tools on Elestio. 9 cloud providers, 100+ regions, automated backups, SSL, and 24/7 monitoring from $14/mo."><meta name="twitter:image" content="https://elest.io/images/og_main.jpg"><meta name="twitter:site" content="@elest_io"></head>
+<body>
+
+<!-- ===== HEADER (build.js will fill this) ===== -->
+<header class="header"><link rel="stylesheet" href="/css/header.css">
+
+<nav class="header-nav">
+  <div class="header-nav-container">
+    <a href="/" class="new-nav-logo">
+      <img src="/images/elestio.svg" alt="Elestio">
+    </a>
+
+    <div class="new-nav-links">
+      <!-- Managed Services -->
+      <div class="new-mega-trigger">
+        <a href="/fully-managed-services">Managed services ▾</a>
+        <div class="new-mega-menu mega-services">
+          <div class="mega-grid">
+            <a href="/fully-managed-services/databases" class="mega-card">
+              <span class="mega-card-title">Databases</span>
+              <span class="mega-card-desc">PostgreSQL, MySQL, Redis, MongoDB &amp; more</span>
+            </a>
+            <a href="/fully-managed-services/applications" class="mega-card">
+              <span class="mega-card-title">Applications</span>
+              <span class="mega-card-desc">n8n, WordPress, Supabase, Keycloak &amp; more</span>
+            </a>
+            <a href="/fully-managed-services/development" class="mega-card">
+              <span class="mega-card-title">Development</span>
+              <span class="mega-card-desc">CI/CD tools, IDE, Git hosting &amp; version control</span>
+            </a>
+            <a href="/fully-managed-services/hosting-and-infrastructure" class="mega-card">
+              <span class="mega-card-title">Hosting &amp; Infrastructure</span>
+              <span class="mega-card-desc">Servers, containers, monitoring &amp; storage</span>
+            </a>
+          </div>
+          <a href="/fully-managed-services/ai-gpu" class="mega-card" style="grid-column:1/-1;margin-top:8px;">
+            <span class="mega-card-title">AI &amp; GPU</span>
+            <span class="mega-card-desc">LLMs, AI frameworks, GPU-powered inference tools</span>
+          </a>
+          <a href="/fully-managed-services" class="mega-bottom-link">
+            View all 400+ services <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="new-mega-trigger">
+        <a href="#">Features ▾</a>
+        <div class="new-mega-menu mega-compact">
+          <div class="mega-grid single-col">
+            <a href="/domains" class="mega-card">
+              <span class="mega-card-title">Domains</span>
+              <span class="mega-card-desc">Custom domains &amp; SSL for your services</span>
+            </a>
+            <a href="/cicd" class="mega-card">
+              <span class="mega-card-title">CI/CD</span>
+              <span class="mega-card-desc">Automated deployment pipelines</span>
+            </a>
+            <a href="/terraform" class="mega-card">
+              <span class="mega-card-title">Terraform</span>
+              <span class="mega-card-desc">Infrastructure as code provider</span>
+            </a>
+            <a href="/clusters" class="mega-card">
+              <span class="mega-card-title">Clusters</span>
+              <span class="mega-card-desc">High availability &amp; multi-node scaling</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="new-mega-trigger">
+        <a href="#">AI ▾</a>
+        <div class="new-mega-menu mega-compact">
+          <div class="mega-grid single-col">
+            <a href="/agents" class="mega-card">
+              <span class="mega-card-title">Agents</span>
+              <span class="mega-card-desc">Deploy with AI coding agents</span>
+            </a>
+            <a href="/ai-automation" class="mega-card">
+              <span class="mega-card-title">AI &amp; Automation</span>
+              <span class="mega-card-desc">Automate your infrastructure workflows</span>
+            </a>
+            <a href="/vibecoder" class="mega-card">
+              <span class="mega-card-title">Vibecoder</span>
+              <span class="mega-card-desc">AI-powered app development &amp; deployment</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/pricing">Pricing</a>
+    </div>
+
+    <div class="new-nav-cta">
+      <a href="https://dash.elest.io/" class="new-btn-ghost">Login</a>
+      <a href="https://dash.elest.io/signup" class="new-btn-primary">Get Started</a>
+    </div>
+
+    <button class="new-nav-mobile-toggle" onclick="toggleNewMobileMenu()" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="new-nav-mobile" id="newNavMobile">
+  <div>
+    <button class="new-mobile-dropdown-btn" onclick="toggleMobileDropdown(this)">
+      Managed services ▾
+    </button>
+    <div class="new-mobile-dropdown-content">
+      <a href="/fully-managed-services/databases">Databases</a>
+      <a href="/fully-managed-services/applications">Applications</a>
+      <a href="/fully-managed-services/development">Development</a>
+      <a href="/fully-managed-services/hosting-and-infrastructure">Hosting &amp; Infrastructure</a>
+      <a href="/fully-managed-services/ai-gpu">AI &amp; GPU</a>
+      <a href="/fully-managed-services">All Services</a>
+    </div>
+  </div>
+  <div>
+    <button class="new-mobile-dropdown-btn" onclick="toggleMobileDropdown(this)">
+      Features ▾
+    </button>
+    <div class="new-mobile-dropdown-content">
+      <a href="/domains">Domains</a>
+      <a href="/cicd">CI/CD</a>
+      <a href="/terraform">Terraform</a>
+      <a href="/clusters">Clusters</a>
+    </div>
+  </div>
+  <div>
+    <button class="new-mobile-dropdown-btn" onclick="toggleMobileDropdown(this)">
+      AI ▾
+    </button>
+    <div class="new-mobile-dropdown-content">
+      <a href="/agents">Agents</a>
+      <a href="/ai-automation">AI &amp; Automation</a>
+      <a href="/vibecoder">Vibecoder</a>
+    </div>
+  </div>
+  <a href="/pricing">Pricing</a>
+  <a href="https://docs.elest.io/" target="_blank" rel="nofollow noopener noreferrer">Documentation</a>
+  <hr>
+  <a href="https://dash.elest.io/">Login</a>
+  <a href="https://dash.elest.io/signup" class="new-btn-primary">Get Started</a>
+</div>
+
+<script src="/js/header.js" defer=""></script>
+</header>
+
+<div id="hp-content">
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <a href="/agents" class="hero-label"><span class="pulse"></span> <span>AI Skills</span> Deploy with natural language</a>
+    <h1>Deploy Fully Managed <span class="sr-only">Databases, Applications, AI Models, DevOps Tools, Infrastructure</span></h1>
+    <div class="hero-rotating-line">
+      <div class="rotating-words">
+        <span>Databases</span>
+        <span>Applications</span>
+        <span>AI Models</span>
+        <span>DevOps Tools</span>
+        <span>Infrastructure</span>
+        <span>Databases</span>
+      </div>
+    </div>
+    <h2 class="hero-h2">on Any Cloud</h2>
+    <p class="hero-sub">The managed DevOps platform for 400+ open-source tools.<br>Deploy on any cloud in under few minutes. No DevOps required.</p>
+    <div class="hero-buttons">
+      <a href="https://dash.elest.io/signup" class="btn btn-primary">Deploy Now <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+      <a href="https://calendly.com/johnathan-elestio/30min" target="_blank" rel="noopener" class="btn btn-outline">Book a Demo</a>
+    </div>
+    <div class="hero-badges-row">
+      <div class="hero-provider-grid">
+        <span class="hero-provider"><img src="/images/hosted-logos/aws.svg" alt="AWS" style="height:16px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/azure-logo.svg" alt="Azure" style="height:32px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/hetzner.svg" alt="Hetzner" style="height:10px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/digitalocean.svg" alt="DigitalOcean" style="height:16px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/vultr.svg" alt="Vultr" style="height:16px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/linode.svg" alt="Linode" style="height:22px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/scaleway.svg" alt="Scaleway" style="height:16px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/netcup-logo.svg" alt="Netcup" style="height:22px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><img src="/images/hosted-logos/tensordock.svg" alt="TensorDock" style="height:16px;filter:brightness(0) invert(1)"></span>
+        <span class="hero-provider"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> On-Premise</span>
+      </div>
+      <div class="hero-trust-grid">
+        <a href="https://www.trustpilot.com/review/elest.io" target="_blank" class="hero-trust-item" style="text-decoration:none;color:rgba(255,255,255,0.7)"><svg width="14" height="14" viewBox="0 0 20 20"><polygon points="10,0 12.5,7.5 20,7.5 14,12 16,20 10,15 4,20 6,12 0,7.5 7.5,7.5" fill="#00B67A"></polygon></svg> Trustpilot <strong>4.6/5</strong></a>
+        <a href="https://www.g2.com/products/elestio/reviews" target="_blank" class="hero-trust-item" style="text-decoration:none;color:rgba(255,255,255,0.7)"><svg width="14" height="14" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="#FF492C" stroke-width="2"></circle><text x="10" y="14" text-anchor="middle" fill="#FF492C" font-size="10" font-weight="800">G2</text></svg> G2 <strong>4.8/5</strong></a>
+        <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9EA" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> SOC2</span>
+        <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9EA" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> ISO 27001</span>
+        <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9EA" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> HIPAA</span>
+        <span class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9EA" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> GDPR</span>
+        <span class="hero-trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 900 600"><rect width="900" height="600" fill="#039"></rect><g fill="#fc0" transform="translate(450,300)"><path id="s" d="M0,162.5 22.041947,230.338137 -35.664619,188.411863H35.664619L-22.041947,230.338137z"></path><use href="#s" y="-400"></use><g id="s5"><use href="#s" transform="rotate(30) rotate(-30,0,200)"></use><use href="#s" transform="rotate(60) rotate(-60,0,200)"></use><use href="#s" transform="rotate(90) rotate(-90,0,200)"></use><use href="#s" transform="rotate(120) rotate(-120,0,200)"></use><use href="#s" transform="rotate(150) rotate(-150,0,200)"></use></g><use href="#s5" transform="scale(-1,1)"></use></g></svg> Sovereign Cloud</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<section class="trust hp-bg-dark">
+  <div class="container">
+    <div class="trust-heading">
+      <p class="reveal"><strong class="trust-count">10,000+</strong> developers and companies trust Elestio worldwide</p>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <div class="logo-item"><img loading="lazy" src="/images/trust/bosch.png" alt="Bosch" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/atos.png" alt="Atos" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/accenture.png" alt="Accenture" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/europeen.png" alt="European Commission" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/birmingham.png" alt="University of Birmingham" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/swissrail_white.png" alt="Swissrail" style="height:38px;max-width:180px;object-fit:contain;opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/dfat.png" alt="DFAT" style="height:50px;max-width:220px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/bosch.png" alt="Bosch" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/atos.png" alt="Atos" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/accenture.png" alt="Accenture" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/europeen.png" alt="European Commission" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/birmingham.png" alt="University of Birmingham" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/swissrail_white.png" alt="Swissrail" style="height:38px;max-width:180px;object-fit:contain;opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/dfat.png" alt="DFAT" style="height:50px;max-width:220px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/bosch.png" alt="Bosch" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/atos.png" alt="Atos" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/accenture.png" alt="Accenture" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/europeen.png" alt="European Commission" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/birmingham.png" alt="University of Birmingham" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/swissrail_white.png" alt="Swissrail" style="height:38px;max-width:180px;object-fit:contain;opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/dfat.png" alt="DFAT" style="height:50px;max-width:220px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/bosch.png" alt="Bosch" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/atos.png" alt="Atos" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/accenture.png" alt="Accenture" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/europeen.png" alt="European Commission" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/birmingham.png" alt="University of Birmingham" style="height:38px;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/swissrail_white.png" alt="Swissrail" style="height:38px;max-width:180px;object-fit:contain;opacity:0.6"></div>
+        <div class="logo-item"><img loading="lazy" src="/images/trust/dfat.png" alt="DFAT" style="height:50px;max-width:220px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"></div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</section>
+
+<!-- ===== FEATURES (light) ===== -->
+<section class="features hp-bg-light">
+  <div class="container">
+    <div class="section-label section-label-orange reveal">Platform</div>
+    <h2 class="section-title-light reveal">The Managed DevOps Platform for Open-Source Software</h2>
+    <p class="section-sub-light reveal">We handle setup, configuration, encryption, backups, updates, monitoring and more. You focus on your product.</p>
+    <div class="bento-grid">
+      <!-- Large card: Fast Deployments -->
+      <div class="bento-card bento-large reveal">
+        <div>
+          <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+          <h3>Deploy in Few Minutes</h3>
+          <p>Select any open-source software and deploy it instantly. No servers to configure, no Docker files to write, no DevOps expertise required. Just pick, click, and ship.</p>
+          <span class="bento-stat">400+ tools ready to deploy</span>
+        </div>
+        <div class="bento-visual">
+          <div class="speed-visual">
+            <div style="text-align:center"><div class="speed-num">&lt;3</div><div class="speed-unit">MINUTES</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Regular cards -->
+      <div class="bento-card reveal reveal-delay-1">
+        <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        <h3>No Vendor Lock-in</h3>
+        <p>Migrate your software and data to any cloud provider at any time. You stay free and in control.</p>
+        <span class="bento-stat">any cloud provider</span>
+      </div>
+      <div class="bento-card reveal reveal-delay-2">
+        <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg></div>
+        <h3>Predictable Pricing</h3>
+        <p>One monthly price covers compute, storage, bandwidth, updates, security and maintenance.</p>
+        <span class="bento-stat">All-inclusive, no surprises</span>
+      </div>
+      <div class="bento-card reveal reveal-delay-1">
+        <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M23 12a11.05 11.05 0 00-22 0zm-5 7a3 3 0 01-6 0v-7"></path></svg></div>
+        <h3>Automated Updates</h3>
+        <p>Always run the latest, most secure versions without lifting a finger. Updates applied safely in the background.</p>
+        <span class="bento-stat">Always safe</span>
+      </div>
+      <div class="bento-card reveal reveal-delay-2">
+        <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg></div>
+        <h3>Encrypted Everything</h3>
+        <p>All connections encrypted end-to-end with TLS. Automated backups included. Your data stays yours.</p>
+        <span class="bento-stat">TLS + daily backups</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATALOGUE (dark) ===== -->
+<section class="catalogue hp-bg-white">
+  <div class="container">
+    <div class="section-label section-label-orange reveal">Catalogue</div>
+    <h2 class="section-title-light reveal">400+ Open-Source Tools Ready to Deploy</h2>
+    <div class="catalogue-count reveal">
+      <div class="count-num" data-count="400">400+</div>
+      <p class="section-sub-light" style="margin:4px auto 48px">open-source tools, fully managed, with backups, updates and monitoring included.</p>
+    </div>
+    <div class="catalogue-cta reveal">
+      <a href="/fully-managed-services" class="btn btn-outline-light">Explore All Services <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+    </div>
+    <!-- Double Slider -->
+    <div class="sw-slider" style="margin-top:48px">
+      <div class="sw-slider-track row-1">
+        <a class="sw-slider-item" href="/open-source/n8n"><img loading="lazy" src="/images/softwares/194/logo.png" alt="n8n"><span>n8n</span></a>
+        <a class="sw-slider-item" href="/open-source/wordpress"><img loading="lazy" src="/images/softwares/3/logo.png" alt="WordPress"><span>WordPress</span></a>
+        <a class="sw-slider-item" href="/open-source/supabase"><img loading="lazy" src="/images/softwares/206/logo.png" alt="Supabase"><span>Supabase</span></a>
+        <a class="sw-slider-item" href="/open-source/keycloak"><img loading="lazy" src="/images/softwares/118/logo.png" alt="Keycloak"><span>Keycloak</span></a>
+        <a class="sw-slider-item" href="/open-source/ghost"><img loading="lazy" src="/images/softwares/49/logo.png" alt="Ghost"><span>Ghost</span></a>
+        <a class="sw-slider-item" href="/open-source/grafana"><img loading="lazy" src="/images/softwares/113/logo.png" alt="Grafana"><span>Grafana</span></a>
+        <a class="sw-slider-item" href="/open-source/minio"><img loading="lazy" src="/images/softwares/117/logo.png" alt="MinIO"><span>MinIO</span></a>
+        <a class="sw-slider-item" href="/open-source/gitea"><img loading="lazy" src="/images/softwares/108/logo.png" alt="Gitea"><span>Gitea</span></a>
+        <a class="sw-slider-item" href="/open-source/nocodb"><img loading="lazy" src="/images/softwares/143/logo.png" alt="NocoDB"><span>NocoDB</span></a>
+        <a class="sw-slider-item" href="/open-source/appsmith"><img loading="lazy" src="/images/softwares/132/logo.png" alt="Appsmith"><span>Appsmith</span></a>
+        <a class="sw-slider-item" href="/open-source/metabase"><img loading="lazy" src="/images/softwares/121/logo.png" alt="Metabase"><span>Metabase</span></a>
+        <a class="sw-slider-item" href="/open-source/ragflow"><img loading="lazy" src="/images/softwares/424/logo.png" alt="RagFlow"><span>RagFlow</span></a>
+        <a class="sw-slider-item" href="/open-source/openwebui"><img loading="lazy" src="/images/softwares/406/logo.png" alt="OpenWebUI"><span>OpenWebUI</span></a>
+        <a class="sw-slider-item" href="/open-source/anythingllm"><img loading="lazy" src="/images/softwares/407/logo.png" alt="AnythingLLM"><span>AnythingLLM</span></a>
+        <!-- Duplicate for seamless loop -->
+        <a class="sw-slider-item" href="/open-source/n8n"><img loading="lazy" src="/images/softwares/194/logo.png" alt="n8n"><span>n8n</span></a>
+        <a class="sw-slider-item" href="/open-source/wordpress"><img loading="lazy" src="/images/softwares/3/logo.png" alt="WordPress"><span>WordPress</span></a>
+        <a class="sw-slider-item" href="/open-source/supabase"><img loading="lazy" src="/images/softwares/206/logo.png" alt="Supabase"><span>Supabase</span></a>
+        <a class="sw-slider-item" href="/open-source/keycloak"><img loading="lazy" src="/images/softwares/118/logo.png" alt="Keycloak"><span>Keycloak</span></a>
+        <a class="sw-slider-item" href="/open-source/ghost"><img loading="lazy" src="/images/softwares/49/logo.png" alt="Ghost"><span>Ghost</span></a>
+        <a class="sw-slider-item" href="/open-source/grafana"><img loading="lazy" src="/images/softwares/113/logo.png" alt="Grafana"><span>Grafana</span></a>
+        <a class="sw-slider-item" href="/open-source/minio"><img loading="lazy" src="/images/softwares/117/logo.png" alt="MinIO"><span>MinIO</span></a>
+        <a class="sw-slider-item" href="/open-source/gitea"><img loading="lazy" src="/images/softwares/108/logo.png" alt="Gitea"><span>Gitea</span></a>
+        <a class="sw-slider-item" href="/open-source/nocodb"><img loading="lazy" src="/images/softwares/143/logo.png" alt="NocoDB"><span>NocoDB</span></a>
+        <a class="sw-slider-item" href="/open-source/appsmith"><img loading="lazy" src="/images/softwares/132/logo.png" alt="Appsmith"><span>Appsmith</span></a>
+        <a class="sw-slider-item" href="/open-source/metabase"><img loading="lazy" src="/images/softwares/121/logo.png" alt="Metabase"><span>Metabase</span></a>
+        <a class="sw-slider-item" href="/open-source/ragflow"><img loading="lazy" src="/images/softwares/424/logo.png" alt="RagFlow"><span>RagFlow</span></a>
+        <a class="sw-slider-item" href="/open-source/openwebui"><img loading="lazy" src="/images/softwares/406/logo.png" alt="OpenWebUI"><span>OpenWebUI</span></a>
+        <a class="sw-slider-item" href="/open-source/anythingllm"><img loading="lazy" src="/images/softwares/407/logo.png" alt="AnythingLLM"><span>AnythingLLM</span></a>
+      </div>
+    </div>
+    <div class="sw-slider" style="margin-bottom:20px">
+      <div class="sw-slider-track row-2">
+        <a class="sw-slider-item" href="/open-source/postgresql"><img loading="lazy" src="/images/softwares/11/logo.png" alt="PostgreSQL"><span>PostgreSQL</span></a>
+        <a class="sw-slider-item" href="/open-source/nextcloud"><img loading="lazy" src="/images/softwares/156/logo.png" alt="Nextcloud"><span>Nextcloud</span></a>
+        <a class="sw-slider-item" href="/open-source/plausible"><img loading="lazy" src="/images/softwares/127/logo.png" alt="Plausible"><span>Plausible</span></a>
+        <a class="sw-slider-item" href="/open-source/mattermost"><img loading="lazy" src="/images/softwares/115/logo.png" alt="Mattermost"><span>Mattermost</span></a>
+        <a class="sw-slider-item" href="/open-source/clickhouse"><img loading="lazy" src="/images/softwares/93/logo.png" alt="ClickHouse"><span>ClickHouse</span></a>
+        <a class="sw-slider-item" href="/open-source/portainer"><img loading="lazy" src="/images/softwares/112/logo.png" alt="Portainer"><span>Portainer</span></a>
+        <a class="sw-slider-item" href="/open-source/uptime-kuma"><img loading="lazy" src="/images/softwares/110/logo.png" alt="Uptime Kuma"><span>Uptime Kuma</span></a>
+        <a class="sw-slider-item" href="/open-source/cal"><img loading="lazy" src="/images/softwares/150/logo.png" alt="Cal.com"><span>Cal.com</span></a>
+        <a class="sw-slider-item" href="/open-source/authelia"><img loading="lazy" src="/images/softwares/141/logo.png" alt="Authelia"><span>Authelia</span></a>
+        <a class="sw-slider-item" href="/open-source/prometheus"><img loading="lazy" src="/images/softwares/252/logo.png" alt="Prometheus"><span>Prometheus</span></a>
+        <a class="sw-slider-item" href="/open-source/dify"><img loading="lazy" src="/images/softwares/408/logo.png" alt="Dify"><span>Dify</span></a>
+        <a class="sw-slider-item" href="/open-source/langflow"><img loading="lazy" src="/images/softwares/409/logo.png" alt="Langflow"><span>Langflow</span></a>
+        <a class="sw-slider-item" href="/open-source/lightdash"><img loading="lazy" src="/images/softwares/181/logo.png" alt="Lightdash"><span>Lightdash</span></a>
+        <a class="sw-slider-item" href="/open-source/outline"><img loading="lazy" src="/images/softwares/133/logo.png" alt="Outline"><span>Outline</span></a>
+        <!-- Duplicate for seamless loop -->
+        <a class="sw-slider-item" href="/open-source/postgresql"><img loading="lazy" src="/images/softwares/11/logo.png" alt="PostgreSQL"><span>PostgreSQL</span></a>
+        <a class="sw-slider-item" href="/open-source/nextcloud"><img loading="lazy" src="/images/softwares/156/logo.png" alt="Nextcloud"><span>Nextcloud</span></a>
+        <a class="sw-slider-item" href="/open-source/plausible"><img loading="lazy" src="/images/softwares/127/logo.png" alt="Plausible"><span>Plausible</span></a>
+        <a class="sw-slider-item" href="/open-source/mattermost"><img loading="lazy" src="/images/softwares/115/logo.png" alt="Mattermost"><span>Mattermost</span></a>
+        <a class="sw-slider-item" href="/open-source/clickhouse"><img loading="lazy" src="/images/softwares/93/logo.png" alt="ClickHouse"><span>ClickHouse</span></a>
+        <a class="sw-slider-item" href="/open-source/portainer"><img loading="lazy" src="/images/softwares/112/logo.png" alt="Portainer"><span>Portainer</span></a>
+        <a class="sw-slider-item" href="/open-source/uptime-kuma"><img loading="lazy" src="/images/softwares/110/logo.png" alt="Uptime Kuma"><span>Uptime Kuma</span></a>
+        <a class="sw-slider-item" href="/open-source/cal"><img loading="lazy" src="/images/softwares/150/logo.png" alt="Cal.com"><span>Cal.com</span></a>
+        <a class="sw-slider-item" href="/open-source/authelia"><img loading="lazy" src="/images/softwares/141/logo.png" alt="Authelia"><span>Authelia</span></a>
+        <a class="sw-slider-item" href="/open-source/prometheus"><img loading="lazy" src="/images/softwares/252/logo.png" alt="Prometheus"><span>Prometheus</span></a>
+        <a class="sw-slider-item" href="/open-source/dify"><img loading="lazy" src="/images/softwares/408/logo.png" alt="Dify"><span>Dify</span></a>
+        <a class="sw-slider-item" href="/open-source/langflow"><img loading="lazy" src="/images/softwares/409/logo.png" alt="Langflow"><span>Langflow</span></a>
+        <a class="sw-slider-item" href="/open-source/lightdash"><img loading="lazy" src="/images/softwares/181/logo.png" alt="Lightdash"><span>Lightdash</span></a>
+        <a class="sw-slider-item" href="/open-source/outline"><img loading="lazy" src="/images/softwares/133/logo.png" alt="Outline"><span>Outline</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI SKILLS (light) ===== -->
+<section class="ai-skills hp-bg-light">
+  <div class="container">
+    <div class="ai-layout">
+      <div>
+        <div class="section-label section-label-orange reveal">AI-Powered</div>
+        <h2 class="section-title-light reveal" style="max-width:480px">Infrastructure at the Speed of Conversation</h2>
+        <p class="section-sub-light reveal">Let your AI coding agent deploy and manage services on Elestio. One CLI install, natural language commands, 400+ templates. <a href="/agents" style="color:var(--hp-orange);font-weight:600;text-decoration:none;">Learn more →</a></p>
+        <div class="ai-agents reveal">
+          <span class="agent-pill"><svg viewBox="0 0 16 16" fill="#D97757" width="14" height="14"><path d="m3.127 10.604 3.135-1.76.053-.153-.053-.085H6.11l-.525-.032-1.791-.048-1.554-.065-1.505-.08-.38-.081L0 7.832l.036-.234.32-.214.455.04 1.009.069 1.513.105 1.097.064 1.626.17h.259l.036-.105-.089-.065-.068-.064-1.566-1.062-1.695-1.121-.887-.646-.48-.327-.243-.306-.104-.67.435-.48.585.04.15.04.593.456 1.267.981 1.654 1.218.242.202.097-.068.012-.049-.109-.181-.9-1.626-.96-1.655-.428-.686-.113-.411a2 2 0 0 1-.068-.484l.496-.674L4.446 0l.662.089.279.242.411.94.666 1.48 1.033 2.014.302.597.162.553.06.17h.105v-.097l.085-1.134.157-1.392.154-1.792.052-.504.25-.605.497-.327.387.186.319.456-.045.294-.19 1.23-.37 1.93-.243 1.29h.142l.161-.16.654-.868 1.097-1.372.484-.545.565-.601.363-.287h.686l.505.751-.226.775-.707.895-.585.759-.839 1.13-.524.904.048.072.125-.012 1.897-.403 1.024-.186 1.223-.21.553.258.06.263-.218.536-1.307.323-1.533.307-2.284.54-.028.02.032.04 1.029.098.44.024h1.077l2.005.15.525.346.315.424-.053.323-.807.411-3.631-.863-.872-.218h-.12v.073l.726.71 1.331 1.202 1.667 1.55.084.383-.214.302-.226-.032-1.464-1.101-.565-.497-1.28-1.077h-.084v.113l.295.432 1.557 2.34.08.718-.112.234-.404.141-.444-.08-.911-1.28-.94-1.44-.759-1.291-.093.053-.448 4.821-.21.246-.484.186-.403-.307-.214-.496.214-.98.258-1.28.21-1.016.19-1.263.112-.42-.008-.028-.092.012-.953 1.307-1.448 1.957-1.146 1.227-.274.109-.477-.247.045-.44.266-.39 1.586-2.018.956-1.25.617-.723-.004-.105h-.036l-4.212 2.736-.75.096-.324-.302.04-.496.154-.162 1.267-.871z"></path></svg> Claude Code</span>
+          <span class="agent-pill"><svg viewBox="0 0 24 24" fill="#10a37f" width="14" height="14"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"></path></svg> OpenAI Codex</span>
+          <span class="agent-pill"><svg viewBox="0 0 24 24" fill="#3b82f6" width="14" height="14"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"></path></svg> Cursor</span>
+          <span class="agent-pill"><svg viewBox="0 0 24 24" fill="#333" width="14" height="14"><path d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Z"></path></svg> GitHub Copilot</span>
+          <span class="agent-pill"><svg viewBox="0 0 1024 1024" fill="none" width="14" height="14"><rect width="1024" height="1024" rx="200" fill="#0B100F"></rect><path d="M897.246 286.869H889.819C850.735 286.808 819.017 318.46 819.017 357.539V515.589C819.017 547.15 792.93 572.716 761.882 572.716C743.436 572.716 725.02 563.433 714.093 547.85L552.673 317.304C539.28 298.16 517.486 286.747 493.895 286.747C457.094 286.747 423.976 318.034 423.976 356.657V515.619C423.976 547.181 398.103 572.746 366.842 572.746C348.335 572.746 329.949 563.463 319.021 547.881L138.395 289.882C134.316 284.038 125.154 286.93 125.154 294.052V431.892C125.154 438.862 127.285 445.619 131.272 451.34L309.037 705.2C319.539 720.204 335.033 731.344 352.9 735.392C397.616 745.557 438.77 711.135 438.77 667.278V508.406C438.77 476.845 464.339 451.279 495.904 451.279H495.995C515.02 451.279 532.857 460.562 543.785 476.145L705.235 706.661C718.659 725.835 739.327 737.218 763.983 737.218C801.606 737.218 833.841 705.9 833.841 667.308V508.376C833.841 476.815 859.41 451.249 890.975 451.249H897.276C901.233 451.249 904.43 448.053 904.43 444.097V294.021C904.43 290.065 901.233 286.869 897.276 286.869H897.246Z" fill="white"></path></svg> Windsurf</span>
+          <span class="agent-pill"><svg viewBox="0 0 92 96" fill="#eab308" width="14" height="14"><path fill-rule="evenodd" clip-rule="evenodd" d="M65.4492701,16.3 C76.3374701,16.3 85.1635558,25.16479 85.1635558,36.1 L85.1635558,42.7 L90.9027661,54.1647464 C91.4694141,55.2966923 91.4668177,56.6300535 90.8957658,57.7597839 L85.1635558,69.1 L85.1635558,75.7 C85.1635558,86.63554 76.3374701,95.5 65.4492701,95.5 L26.0206986,95.5 C15.1328272,95.5 6.30641291,86.63554 6.30641291,75.7 L6.30641291,69.1 L0.448507752,57.7954874 C-0.14693501,56.6464093 -0.149634367,55.2802504 0.441262896,54.1288283 L6.30641291,42.7 L6.30641291,36.1 C6.30641291,25.16479 15.1328272,16.3 26.0206986,16.3 L65.4492701,16.3 Z"></path><circle cx="45.7349843" cy="11" r="11"></circle></svg> Cline</span>
+        </div>
+        <div class="ai-minicards reveal">
+          <div class="ai-minicard">
+            <div class="ai-minicard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg></div>
+            <div><h4>Natural Language Deploys</h4><p>Describe what you need. Your AI agent handles the rest. No YAML, no configs.</p></div>
+          </div>
+          <div class="ai-minicard">
+            <div class="ai-minicard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg></div>
+            <div><h4>400+ Templates, 9 Providers</h4><p>PostgreSQL, Keycloak, n8n, and hundreds more on any supported cloud.</p></div>
+          </div>
+          <div class="ai-minicard">
+            <div class="ai-minicard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></div>
+            <div><h4>Full Lifecycle Management</h4><p>Deploy, monitor, backup, update, and teardown. Every stage handled.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="terminal">
+          <div class="terminal-header">
+            <div class="terminal-dot red"></div><div class="terminal-dot yellow"></div><div class="terminal-dot green"></div>
+            <span class="terminal-title">terminal</span>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <!-- Static fallback content -->
+            <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">npx skills add elestio/elestio-skill</span></div>
+            <div class="terminal-line"><span class="success">  Elestio skill added</span></div>
+            <div class="terminal-line">&nbsp;</div>
+            <div class="terminal-line"><span class="user-input">&gt; Deploy PostgreSQL 18 on Hetzner in Germany</span></div>
+            <div class="terminal-line"><span class="success">  PostgreSQL 18 deployed in 2m 34s</span></div>
+            <div class="terminal-line">&nbsp;</div>
+            <div class="terminal-line"><span class="user-input">&gt; Deploy my frontend and backend with CI/CD</span></div>
+            <div class="terminal-line"><span class="success">  CI/CD pipelines configured</span></div>
+            <div class="terminal-line">&nbsp;</div>
+            <div class="terminal-line"><span class="user-input">&gt; Connect my custom domain to the frontend</span></div>
+            <div class="terminal-line"><span class="success">  Domain connected with SSL</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS (dark) ===== -->
+<section class="elst-testimonials">
+  <div class="elst-testimonials__container">
+    <div class="elst-testimonials__header">
+      <p class="elst-testimonials__label">Reviews</p>
+      <h2 class="elst-testimonials__title">Trusted by 10,000+ Developers Worldwide</h2>
+      <p class="elst-testimonials__subtitle">Real reviews from real users on Trustpilot.</p>
+    </div>
+    <!-- Featured testimonial -->
+    <div class="elst-testimonials__featured">
+      <div class="elst-testimonials__featured-quote-mark">“</div>
+      <div class="elst-testimonials__featured-stars">★★★★★</div>
+      <p class="elst-testimonials__featured-text">"I'm in the IT industry for over 25 years and Elestio stands out in many ways. The managed services are top-notch, support is incredibly fast, and the platform just works. Couldn't be better!"</p>
+      <div class="elst-testimonials__featured-author">
+        <div class="elst-testimonials__featured-info">
+          <strong>Conflock</strong>
+          <span>IT Director · Germany · Verified on Trustpilot</span>
+        </div>
+      </div>
+    </div>
+    <!-- Review cards grid -->
+    <div id="elstReviewsGrid" class="elst-testimonials__grid"><a href="https://www.trustpilot.com/reviews/68c1e1e81b3ab2aee7728d11" target="_blank" rel="noopener" class="elst-pr-card"><div class="elst-pr-stars">★★★★★</div><div class="elst-pr-title">It's a great great service!</div><div class="elst-pr-text">It's a great great service!</div><div class="elst-pr-author"><div><div class="elst-pr-name">francesco</div><div class="elst-pr-meta">IT · September 10, 2025</div></div></div></a><a href="https://www.trustpilot.com/reviews/68c80439cb3bd71e6dd93dc9" target="_blank" rel="noopener" class="elst-pr-card"><div class="elst-pr-stars">★★★★★</div><div class="elst-pr-title">Review for Thomas</div><div class="elst-pr-text">Review for Thomas - Technical Support Excellence Rating: 5/5 stars Thomas provided outstanding technical support for our n8n version update issue. His approach was both professiona...</div><div class="elst-pr-author"><div><div class="elst-pr-name">FlyToMoon</div><div class="elst-pr-meta">KZ · September 15, 2025</div></div></div></a><a href="https://www.trustpilot.com/reviews/68359f1556584c41ab9f8f29" target="_blank" rel="noopener" class="elst-pr-card"><div class="elst-pr-stars">★★★★★</div><div class="elst-pr-title">Super easy setup and great support</div><div class="elst-pr-text">Elest.io made deploying my apps incredibly simple. The UI is clean, performance solid, and support responded fast to my questions. Perfect choice for startups or solo developers!</div><div class="elst-pr-author"><div><div class="elst-pr-name">User</div><div class="elst-pr-meta">HU · May 27, 2025</div></div></div></a><a href="https://www.trustpilot.com/reviews/67ee76a56dd6b69df606e937" target="_blank" rel="noopener" class="elst-pr-card"><div class="elst-pr-stars">★★★★★</div><div class="elst-pr-title">Always fantastic service</div><div class="elst-pr-text">Always fantastic service. Never a problem with them - couldn't fault Elestio for anything, amazing company, highly recommend!</div><div class="elst-pr-author"><div><div class="elst-pr-name">Antony Lees</div><div class="elst-pr-meta">GB · April 3, 2025</div></div></div></a><a href="https://www.trustpilot.com/reviews/6989f398782aefaecc12fdbf" target="_blank" rel="noopener" class="elst-pr-card"><div class="elst-pr-stars">★★★★★</div><div class="elst-pr-title">Customer support on Elestio is fantastic!</div><div class="elst-pr-text">Customer support on Elestio is fantastic! I am a recent customer of theirs and the experience has been awesome.  They have already answered a few questions I had when I got stuck i...</div><div class="elst-pr-author"><div><div class="elst-pr-name">Kilsun Lithandrous</div><div class="elst-pr-meta">US · February 09, 2026</div></div></div></a><a href="https://www.trustpilot.com/reviews/680f4b6f3859b62cca57cccd" target="_blank" rel="noopener" class="elst-pr-card"><div class="elst-pr-stars">★★★★★</div><div class="elst-pr-title">Elest.io stands out as an exceptional…</div><div class="elst-pr-text">Elest.io stands out as an exceptional service, delivering top-tier stability, versatility, and user-friendliness. A clear recommendation for anyone seeking a seamless, secure, and ...</div><div class="elst-pr-author"><div><div class="elst-pr-name">M</div><div class="elst-pr-meta">DE · April 28, 2025</div></div></div></a></div>
+    <!-- Trustpilot link -->
+    <div class="elst-testimonials__link">
+      <a href="https://www.trustpilot.com/review/elest.io" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 20 20"><polygon points="10,0 12.5,7.5 20,7.5 14,12 16,20 10,15 4,20 6,12 0,7.5 7.5,7.5" fill="#00B67A"></polygon></svg>
+        See all reviews on Trustpilot
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h8v8M13 3L3 13"></path></svg>
+      </a>
+    </div>
+  </div>
+  <script>
+    (function(){
+      fetch('/js/elestioReviews.json')
+        .then(function(r){return r.json()})
+        .then(function(reviews){
+          var grid=document.getElementById('elstReviewsGrid');
+          if(!grid||!reviews)return;
+          for(var i=reviews.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=reviews[i];reviews[i]=reviews[j];reviews[j]=t;}
+          var html='';
+          var count=Math.min(reviews.length,6);
+          for(var i=0;i<count;i++){
+            var r=reviews[i];
+            var text=(r.content||'').replace(/<br\s*\/?>/g,' ');
+            if(text.length>180)text=text.substring(0,180)+'...';
+            var title=r.title||'';
+            if(title.length>60)title=title.substring(0,60)+'...';
+            var link=r.link||'https://www.trustpilot.com/review/elest.io';
+            html+='<a href="'+link+'" target="_blank" rel="noopener" class="elst-pr-card">';
+            html+='<div class="elst-pr-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>';
+            html+='<div class="elst-pr-title">'+title+'</div>';
+            html+='<div class="elst-pr-text">'+text+'</div>';
+            html+='<div class="elst-pr-author">';
+            html+='<div><div class="elst-pr-name">'+(r.fullName||'Anonymous')+'</div>';
+            html+='<div class="elst-pr-meta">'+(r.location||'')+' &middot; '+(r.date||'')+'</div></div></div></a>';
+          }
+          grid.innerHTML=html;
+        }).catch(function(){});
+    })();
+  </script>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section hp-bg-light">
+  <div class="container" style="max-width:800px;margin:0 auto;padding:0 24px">
+    <h2 class="faq-title reveal">Frequently Asked Questions</h2>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How does Elestio charge me?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Our billing is simple and transparent: Elestio charges you for each deployed service per hour. This includes compute time, storage, transit bandwidth, and the level of support you choose. There is no commitment.<br><a target="_blank" href="https://docs.elest.io/books/billing">Learn more about billing and invoicing</a></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What type of support does Elestio offer?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer"><p>Email and community support via our forum is available to everyone with our Test plan, with no SLA.</p><p>Staging Support plans offers a guaranteed response within 2 business days and priority queueing for support tickets, and email support.</p><p>Production Support plans offer a guaranteed response within 1 business day, highest priority queueing for support tickets, a dedicated customer success manager, and phone and email support.</p><br><a target="_blank" href="https://docs.elest.io/books/service-dashboard/page/service-support-plans">Learn more about our support plans</a></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Which cloud providers does Elestio use?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer"><p>Elestio is currently partnered with Digital Ocean, Amazon Lightsail, Linode, Vultr, Scaleway, Hetzner, TensorDock, Netcup and Azure.</p><p>Have your own infrastructure, but need help managing it? You can also Bring Your Own VM (BYOVM) from any other cloud provider, including your own infrastructure, and connect it to your account for seamless management, automated backups, and a secure connection to your other services.</p><br><a target="_blank" href="https://docs.elest.io/books/cloud-providers">Learn more about our providers</a></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I install more than one software on the same VM?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer"><p>Our dedicated service are running with full isolation so one service = one VM. You can install multiple softwares on a single VM using our CI/CD system.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Where can I deploy my services?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer"><p>Our cloud provider partners have datacenters in 62 cities across 20 countries. Deploy services close to your office or users and get the lowest possible latency.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Where does Elestio store my data?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer"><p>Elestio stores your account data in the EU, protected by some of the strictest privacy laws in the world. <a target="_blank" href="https://docs.elest.io/books/legal-compliance/page/privacy-policies">Click here to learn more about our Privacy policy and practices</a></p><p>Your application data is hosted in your service, in the country or city where you choose to deploy your services. By default, our automated remote backups are stored on the same continent as your service, but in a different datacenter.</p><a target="_blank" href="https://docs.elest.io/books/backups">Learn more about our backup strategy</a></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I deploy Elestio services on-premise or on my existing cloud infrastructure?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Yes, with our "Bring Your Own VM" (BYOVM), you can connect any on-premise or cloud VM managed services dashboard. You can deploy any software we offer on your own infrastructure and it will be treated like any other VM we operate on your behalf: backed up, updated and secured. <a target="_blank" href="https://docs.elest.io/books/cloud-providers/page/byovm-bring-your-own-vm">Learn more about our BYOVM capability</a></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can my software services communicate between different cloud providers safely?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Each Elestio project generates a unique, secure, encrypted virtual network that allows any service in that project (in any region and on any provider) to communicate using private IPv4 addresses with near line-speed throughput. This unique feature is powered by <a href="https://www.defined.net/nebula/">Nebula, originally created by Slack and released as open-source software in 2020.</a></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is it possible to restrict access to my virtual machine (with a firewall)?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Yes, each service comes with a pre-configured firewall that opens application-specific ports to the internet. You can easily restrict access to one or multiple IPs from the service dashboard. <a target="_blank" href="https://docs.elest.io/books/security/page/network-firewall">Learn more about configuring your firewall</a></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I migrate/clone my service to another cloud or region?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Yes, from the service dashboard you just need to click on the 'clone' button to migrate/clone the running service to any other target cloud or region.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section hp-bg-dark">
+  <div class="container">
+    <h2 class="reveal">Deploy <span style="color:var(--hp-orange)">Fully Managed</span> Open-Source Apps in <span style="color:var(--hp-orange)">Minutes</span></h2>
+    <p class="reveal">Plans starting at <strong style="color:var(--hp-orange)">$14/mo</strong>.</p>
+    <div class="cta-stats reveal">
+      <div class="cta-stat"><div class="stat-num" data-count="400">400+</div><div class="stat-label">Tools</div></div>
+      <div class="cta-stat"><div class="stat-num" data-count="100">100</div><div class="stat-label">Regions</div></div>
+      <div class="cta-stat"><div class="stat-num">99.95%</div><div class="stat-label">Uptime</div></div>
+    </div>
+    <div class="cta-buttons reveal">
+      <a href="https://dash.elest.io/signup" class="btn btn-primary">Deploy Now <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+</div><!-- end #hp-content -->
+
+<!-- ===== FOOTER (build.js will fill this) ===== -->
+<footer><style>
+.footer{padding:60px 0 32px;background:#0B1120;border-top:1px solid #1E293B}
+.footer .container{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr repeat(5,1fr);gap:40px;margin-bottom:48px}
+.footer-brand .nav-logo{margin-bottom:12px;display:inline-flex}
+.footer-brand .nav-logo img{height:28px}
+.footer-brand p{font-size:13px;color:#94A3B8;line-height:1.6;max-width:260px;margin:0}
+.footer-social{display:flex;gap:10px;margin-top:16px}
+.footer-social a{width:36px;height:36px;border-radius:8px;border:1px solid #1E293B;display:flex;align-items:center;justify-content:center;color:#94A3B8;transition:all 0.2s;text-decoration:none}
+.footer-social a:hover{border-color:#EC5A22;color:#EC5A22}
+.footer-social a svg{width:16px;height:16px;fill:currentColor}
+.footer-certs{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.footer-cert{font-size:10px;font-weight:700;color:#94A3B8;padding:4px 8px;border:1px solid #1E293B;border-radius:4px;letter-spacing:0.5px}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;padding:0;margin:0}
+.footer-col ul li{margin-bottom:8px}
+.footer-col ul li a{font-size:13px;color:#94A3B8;transition:color 0.2s;text-decoration:none}
+.footer-col ul li a:hover{color:#E2E8F0}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid #1E293B;font-size:12px;color:#94A3B8}
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-brand{grid-column:span 3}
+}
+@media(max-width:768px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .footer-brand{grid-column:span 2}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+
+<div class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/images/elestio-white.svg" alt="Elestio"></a>
+        <p>The managed DevOps platform. Deploy 400+ open-source tools on any cloud. We handle the rest.</p>
+        <div class="footer-social">
+          <a href="https://github.com/elestio" target="_blank" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+          <a href="https://www.linkedin.com/company/elestio" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"></path></svg></a>
+          <a href="https://www.youtube.com/@elestio" target="_blank" aria-label="YouTube"><svg viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 011.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 01-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 01-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 010 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 011.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 017.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"></path></svg></a>
+          <a href="https://twitter.com/elest_io" target="_blank" aria-label="X"><svg viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633z"></path></svg></a>
+          <a href="https://discord.gg/4T4JGaMYrD" target="_blank" aria-label="Discord"><svg viewBox="0 0 16 16"><path d="M13.545 2.907a13.227 13.227 0 00-3.257-1.011.05.05 0 00-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 00-3.658 0 8.258 8.258 0 00-.412-.833.051.051 0 00-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 00-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 003.995 2.02.05.05 0 00.056-.019c.308-.42.582-.863.818-1.329a.05.05 0 00-.028-.07 8.735 8.735 0 01-1.248-.595.05.05 0 01-.005-.084c.084-.063.168-.129.248-.195a.05.05 0 01.051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 01.053.007c.08.066.164.132.248.195a.051.051 0 01-.004.085c-.399.233-.813.44-1.249.594a.05.05 0 00-.027.07c.24.465.515.909.817 1.329a.05.05 0 00.056.019 13.235 13.235 0 004.001-2.02.049.049 0 00.021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 00-.02-.019zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612z"></path></svg></a>
+        </div>
+        <div class="footer-certs">
+          <span class="footer-cert">ISO 27001</span>
+          <span class="footer-cert">SOC2</span>
+          <span class="footer-cert">HIPAA</span>
+          <span class="footer-cert">GDPR</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/fully-managed-services/databases">Databases</a></li>
+          <li><a href="/fully-managed-services/applications">Applications</a></li>
+          <li><a href="/fully-managed-services/development">Dev Tools</a></li>
+          <li><a href="/fully-managed-services/hosting-and-infrastructure">Hosting</a></li>
+          <li><a href="/fully-managed-services">All Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/cicd">CI/CD</a></li>
+          <li><a href="/agents">AI Skills</a></li>
+          <li><a href="/terraform">Terraform</a></li>
+          <li><a href="/use-cases">Use Cases</a></li>
+          <li><a href="https://api-doc.elest.io/" target="_blank">API</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/what-is-elestio">What is Elestio?</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="https://blog.elest.io" target="_blank">Blog</a></li>
+          <li><a href="/security-and-compliance">Security</a></li>
+          <li><a href="https://status.elest.io" target="_blank">Status</a></li>
+          <li><a href="mailto:support@elest.io">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://docs.elest.io/" target="_blank">Documentation</a></li>
+          <li><a href="https://community.elest.io/" target="_blank">Community</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/support-for-enterprises">Enterprise Support</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Compare</h4>
+        <ul>
+          <li><a href="/elestio-vs-heroku">Elestio vs Heroku</a></li>
+          <li><a href="/elestio-vs-railway">Elestio vs Railway</a></li>
+          <li><a href="/elestio-vs-render">Elestio vs Render</a></li>
+          <li><a href="/elestio-vs-self-hosting">Elestio vs Self-Hosting</a></li>
+          <li><a href="/elestio-vs-coolify">Elestio vs Coolify</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Elestio. All rights reserved.</span>
+      <span>66 Fitzwilliam Square, Dublin, D02 AT27, Ireland</span>
+    </div>
+  </div>
+</div>
+
+<script src="/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@figmania/svg-animate/lib/index.min.js" defer=""></script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var faqTitles = document.querySelectorAll(".faq__title");
+    var boardTitles = document.querySelectorAll(".board__title");
+
+    function toggleFaqDescription(curBlock) {
+      if (curBlock.classList.contains("active")) {
+        document.querySelectorAll(".faq__title").forEach(function (title) {
+          title.classList.remove("active");
+          title.nextElementSibling.style.transition = "background 0.2s";
+          title.nextElementSibling.style.background = "transparent";
+        });
+
+      } else {
+
+
+        document.querySelectorAll(".faq__title").forEach(function (title) {
+          title.classList.remove("active");
+        });
+
+        curBlock.classList.add("active");
+
+        curBlock.classList.remove("hide-content");
+
+        document.querySelectorAll(".faq__description").forEach(function (desc) {
+          desc.style.transition = "background 0.2s";
+          desc.style.background = "#fff";
+        });
+
+        curBlock.nextElementSibling.style.transition = "height 0.2s";
+        curBlock.nextElementSibling.style.height =
+          curBlock.nextElementSibling.scrollHeight + "px";
+      }
+    }
+
+    function toggleBoardBlock(curBlock, curCat) {
+      if (curBlock.classList.contains("active")) {
+        document.querySelectorAll(".board__title").forEach(function (title) {
+          title.classList.remove("active");
+          title.nextElementSibling.style.transition = "background 0.25s";
+          title.nextElementSibling.style.background = "transparent";
+        });
+
+        curBlock.querySelector("i").classList.remove("fa-chevron-up");
+        curBlock.querySelector("i").classList.add("fa-chevron-down");
+      } else {
+        document.querySelectorAll(".board__title i").forEach(function (icon) {
+          icon.classList.remove("fa-chevron-up");
+          icon.classList.add("fa-chevron-down");
+        });
+
+        document.querySelectorAll(".board__title").forEach(function (title) {
+          title.classList.remove("active");
+        });
+
+        document.querySelectorAll(".board__block").forEach(function (block) {
+          block.style.transition = "background 0.25s";
+          block.style.background = "transparent";
+        });
+
+        curBlock.classList.add("active");
+        curBlock.querySelector("i").classList.remove("fa-chevron-down");
+        curBlock.querySelector("i").classList.add("fa-chevron-up");
+
+        document
+          .querySelectorAll(`.board__block[cat=${curCat}]`)
+          .forEach(function (catBlock) {
+            catBlock.classList.remove("hide-content");
+            catBlock.style.transition = "height 0.25s";
+            catBlock.style.height = catBlock.scrollHeight + "px";
+            catBlock.style.background = "#fff";
+          });
+      }
+    }
+
+    faqTitles.forEach(function (title) {
+      title.removeEventListener(
+        "click",
+        toggleFaqDescription.bind(null, title)
+      );
+      title.addEventListener("click", toggleFaqDescription.bind(null, title));
+    });
+
+    boardTitles.forEach(function (title) {
+      title.removeEventListener("click", function () {});
+      title.addEventListener("click", function () {
+        var curBlock = title;
+        var curCat = title.getAttribute("cat");
+        toggleBoardBlock(curBlock, curCat);
+      });
+    });
+  });
+</script>
+
+<script>
+  var curMenu = window.location.href.split("/").pop();
+  var headerLinksItems = document.querySelectorAll(".header__links--item");
+
+  headerLinksItems.forEach(function (item) {
+    item.classList.remove("active");
+  });
+
+  var curMenuItem = document.querySelector(
+    ".header__links--item[menu='" + curMenu + "']"
+  );
+
+  if (curMenuItem) {
+    curMenuItem.classList.add("active");
+  }
+</script>
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-K7RSW6K88S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-K7RSW6K88S");
+</script>
+
+<script>
+  !(function (t, e) {
+    var o, n, p, r;
+    e.__SV ||
+      ((window.posthog = e),
+      (e._i = []),
+      (e.init = function (i, s, a) {
+        function g(t, e) {
+          var o = e.split(".");
+          2 == o.length && ((t = t[o[0]]), (e = o[1])),
+            (t[e] = function () {
+              t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+            });
+        }
+        ((p = t.createElement("script")).type = "text/javascript"),
+          (p.async = !0),
+          (p.src = s.api_host + "/static/array.js"),
+          (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+            p,
+            r
+          );
+        var u = e;
+        for (
+          void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+            u.people = u.people || [],
+            u.toString = function (t) {
+              var e = "posthog";
+              return (
+                "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e
+              );
+            },
+            u.people.toString = function () {
+              return u.toString(1) + ".people (stub)";
+            },
+            o =
+              "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(
+                " "
+              ),
+            n = 0;
+          n < o.length;
+          n++
+        )
+          g(u, o[n]);
+        e._i.push([i, s, a]);
+      }),
+      (e.__SV = 1));
+  })(document, window.posthog || []);
+  posthog.init("phc_yfXcP7dvY4GmzeN08JstUlK7bue5bpfXYZQxzHJRe8g", {
+    api_host: "https://app.posthog.com",
+  });
+
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", reveal);
+</script>
+
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script type="text/javascript" crossorigin="anonymous" src="https://us-assets.i.posthog.com/static/surveys.js?v=1.363.1"></script><script type="text/javascript" crossorigin="anonymous" src="https://us-assets.i.posthog.com/array/phc_yfXcP7dvY4GmzeN08JstUlK7bue5bpfXYZQxzHJRe8g/config.js"></script><script src="/js/homepage.js" defer=""></script>
+
+
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner" style="display: block;">
+  <div class="cookie-consent-container">
+    <div class="cookie-consent-text">
+      <h3>We use cookies</h3>
+      <p>This website uses technologies such as cookies to enable essential site functionality, as well as for analytics and personalization. Learn more in our <a href="https://docs.elest.io/books/legal-compliance/page/privacy-policies" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</p>
+    </div>
+    <div class="cookie-consent-buttons">
+      <button id="cookie-consent-accept" class="cookie-consent-btn cookie-consent-btn-accept">Accept</button>
+      <button id="cookie-consent-reject" class="cookie-consent-btn cookie-consent-btn-reject">Decline</button>
+    </div>
+  </div>
+</div>
+<script src="/js/cookie-consent.js" defer=""></script>
+
+
+
+
+
+
+
+<a id="btnHamburger" style="display: none;"></a></body></html>

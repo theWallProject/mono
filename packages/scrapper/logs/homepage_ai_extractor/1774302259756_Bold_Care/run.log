@@ -1,0 +1,72 @@
+[2026-03-23T21:44:19.757Z] === Homepage AI Extractor: Bold Care ===
+[2026-03-23T21:44:19.757Z] Started at: 2026-03-23T21:44:19.757Z
+[2026-03-23T21:44:19.757Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774302259756_Bold_Care
+[2026-03-23T21:44:19.757Z] Company: Bold Care
+[2026-03-23T21:44:19.757Z] Website: boldcare.in
+[2026-03-23T21:44:19.757Z] cbRank: 23034
+[2026-03-23T21:44:19.757Z] Reasons: i
+[2026-03-23T21:44:19.757Z] Fetching: https://boldcare.in
+[2026-03-23T21:44:26.111Z] Redirected: https://boldcare.in -> https://boldcare.in/
+[2026-03-23T21:44:26.147Z] Saved HTML (1446142 bytes) to page.html
+[2026-03-23T21:44:26.152Z] Extracted 64 unique links from page
+[2026-03-23T21:44:26.152Z] Saved 64 links to links.json
+[2026-03-23T21:44:26.155Z] Extracted footer HTML (13614 chars)
+[2026-03-23T21:44:26.155Z] Extracted header HTML (14247 chars)
+[2026-03-23T21:44:26.162Z] Website (post-redirect): https://boldcare.in/ → origin: https://boldcare.in
+[2026-03-23T21:44:26.162Z] External links: 4 (of 64 total)
+[2026-03-23T21:44:26.162Z] ── All external links ──
+[2026-03-23T21:44:26.162Z]   EXT: https://wa.me/919019530313?text=Hey,%20Let%E2%80%99s%20chat%20about%20Boldcare.
+[2026-03-23T21:44:26.162Z]   EXT: https://www.facebook.com/boldcare.official
+[2026-03-23T21:44:26.162Z]   EXT: https://www.instagram.com/bold.care
+[2026-03-23T21:44:26.162Z]   EXT: https://www.youtube.com/channel/UCmG0TPnONefIFU-7LuzwvJQ
+[2026-03-23T21:44:26.162Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:44:26.163Z]   UNCATEGORIZED: https://wa.me/919019530313?text=Hey,%20Let%E2%80%99s%20chat%20about%20Boldcare.
+[2026-03-23T21:44:26.163Z]   REGEX: fb <- https://www.facebook.com/boldcare.official
+[2026-03-23T21:44:26.164Z]   REGEX: ig <- https://www.instagram.com/bold.care
+[2026-03-23T21:44:26.164Z]   REGEX: ytc <- https://www.youtube.com/channel/UCmG0TPnONefIFU-7LuzwvJQ
+[2026-03-23T21:44:26.164Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 1 uncategorized
+[2026-03-23T21:44:26.164Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:44:26.167Z] Saved AI prompt (5104 chars) to ai_prompt.txt
+[2026-03-23T21:44:26.168Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:44:26.171Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:44:48.229Z]   AI: First token received, streaming...
+[2026-03-23T21:44:57.810Z] AI response complete: 137 chars in 31.6s
+[2026-03-23T21:44:57.815Z] Saved AI response to ai_response.json
+[2026-03-23T21:44:57.815Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T21:44:57.815Z]   AI LINK: https://www.facebook.com/boldcare.official/
+[2026-03-23T21:44:57.815Z]   AI LINK: https://www.instagram.com/bold.care/
+[2026-03-23T21:44:57.816Z]   AI LINK: https://www.youtube.com/channel/UCmG0TPnONefIFU-7LuzwvJQ
+[2026-03-23T21:44:57.816Z] AI returned 3 valid links
+[2026-03-23T21:44:57.816Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T21:44:57.816Z]   AI→REGEX: fb <- https://www.facebook.com/boldcare.official/ (duplicate, skipped)
+[2026-03-23T21:44:57.816Z]   AI→REGEX: ig <- https://www.instagram.com/bold.care/ (duplicate, skipped)
+[2026-03-23T21:44:57.816Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCmG0TPnONefIFU-7LuzwvJQ (duplicate, skipped)
+[2026-03-23T21:44:57.817Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:44:57.817Z] Footer/header origins (4):
+[2026-03-23T21:44:57.817Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T21:44:57.817Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T21:44:57.817Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T21:44:57.817Z]   FOOTER/HEADER ORIGIN: https://boldcare.in
+[2026-03-23T21:44:57.817Z]   SKIP (not in footer/header): https://wa.me/919019530313?text=Hey,%20Let%E2%80%99s%20chat%20about%20Boldcare.
+[2026-03-23T21:44:57.817Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:44:57.817Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:44:57.817Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T21:44:58.125Z]   YOUTUBE: resolved UCmG0TPnONefIFU-7LuzwvJQ → @BoldCareOfficial
+[2026-03-23T21:44:58.125Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T21:44:58.125Z] ── Step 3: Final dedup ──
+[2026-03-23T21:44:58.125Z] No urls to dedup
+[2026-03-23T21:44:58.125Z] ── FINAL RESULT ──
+[2026-03-23T21:44:58.125Z]   ws (1):
+[2026-03-23T21:44:58.125Z]     - https://boldcare.in
+[2026-03-23T21:44:58.125Z]   fb (1):
+[2026-03-23T21:44:58.125Z]     - https://www.facebook.com/boldcare.official
+[2026-03-23T21:44:58.125Z]   ig (1):
+[2026-03-23T21:44:58.125Z]     - https://www.instagram.com/bold.care
+[2026-03-23T21:44:58.125Z]   ytp (1):
+[2026-03-23T21:44:58.125Z]     - https://www.youtube.com/@BoldCareOfficial
+[2026-03-23T21:44:58.126Z]   ytc (1):
+[2026-03-23T21:44:58.126Z]     - https://www.youtube.com/channel/UCmG0TPnONefIFU-7LuzwvJQ
+[2026-03-23T21:44:58.126Z] Summary: ws:1, fb:1, ig:1, ytc:1, ytp:1
+[2026-03-23T21:44:58.126Z] Saved final result to result.json
+[2026-03-23T21:44:58.126Z] Override fields: ws, fb, ig, ytp, ytc
+[2026-03-23T21:44:58.126Z] Finished at: 2026-03-23T21:44:58.126Z

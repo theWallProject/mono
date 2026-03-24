@@ -1,0 +1,71 @@
+[2026-03-24T00:05:50.310Z] === Homepage AI Extractor: QED Protocol ===
+[2026-03-24T00:05:50.311Z] Started at: 2026-03-24T00:05:50.311Z
+[2026-03-24T00:05:50.311Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774310750310_QED_Protocol
+[2026-03-24T00:05:50.311Z] Company: QED Protocol
+[2026-03-24T00:05:50.311Z] Website: qedprotocol.com
+[2026-03-24T00:05:50.311Z] cbRank: 52853
+[2026-03-24T00:05:50.311Z] Reasons: i
+[2026-03-24T00:05:50.311Z] Fetching: https://qedprotocol.com
+[2026-03-24T00:05:53.364Z] Redirected: https://qedprotocol.com -> https://qedprotocol.com/
+[2026-03-24T00:05:53.463Z] Saved HTML (177719 bytes) to page.html
+[2026-03-24T00:05:53.663Z] Extracted 6 unique links from page
+[2026-03-24T00:05:53.665Z] Saved 6 links to links.json
+[2026-03-24T00:05:53.861Z] Extracted footer HTML (7323 chars)
+[2026-03-24T00:05:53.861Z] Extracted header HTML (3705 chars)
+[2026-03-24T00:05:53.871Z] Website (post-redirect): https://qedprotocol.com/ → origin: https://qedprotocol.com
+[2026-03-24T00:05:53.871Z] External links: 4 (of 6 total)
+[2026-03-24T00:05:53.871Z] ── All external links ──
+[2026-03-24T00:05:53.871Z]   EXT: https://github.com/OpenAssetStandards
+[2026-03-24T00:05:53.871Z]   EXT: https://medium.com/@carterfeldman
+[2026-03-24T00:05:53.872Z]   EXT: https://oas.gg
+[2026-03-24T00:05:53.872Z]   EXT: https://twitter.com/QEDProtocol
+[2026-03-24T00:05:53.872Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:05:53.872Z]   REGEX: gh <- https://github.com/OpenAssetStandards
+[2026-03-24T00:05:53.872Z]   UNCATEGORIZED: https://medium.com/@carterfeldman
+[2026-03-24T00:05:53.872Z]   UNCATEGORIZED: https://oas.gg
+[2026-03-24T00:05:53.872Z]   REGEX: tw <- https://twitter.com/QEDProtocol
+[2026-03-24T00:05:53.872Z] Programmatic result: ws:1, gh:1, tw:1 | 2 uncategorized
+[2026-03-24T00:05:53.872Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:05:53.873Z] Saved AI prompt (3044 chars) to ai_prompt.txt
+[2026-03-24T00:05:53.873Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:05:53.880Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:06:05.225Z]   AI: First token received, streaming...
+[2026-03-24T00:06:10.283Z] AI response complete: 103 chars in 16.4s
+[2026-03-24T00:06:10.284Z] Saved AI response to ai_response.json
+[2026-03-24T00:06:10.285Z] ── Parsing AI response (3 lines) ──
+[2026-03-24T00:06:10.285Z]   AI LINK: https://github.com/OpenAssetStandards
+[2026-03-24T00:06:10.285Z]   AI LINK: https://twitter.com/QEDProtocol
+[2026-03-24T00:06:10.285Z]   AI LINK: https://medium.com/@carterfeldman
+[2026-03-24T00:06:10.285Z] AI returned 3 valid links
+[2026-03-24T00:06:10.285Z] ── Categorizing 3 AI-returned links ──
+[2026-03-24T00:06:10.285Z]   AI→REGEX: gh <- https://github.com/OpenAssetStandards (duplicate, skipped)
+[2026-03-24T00:06:10.285Z]   AI→REGEX: tw <- https://twitter.com/QEDProtocol (duplicate, skipped)
+[2026-03-24T00:06:10.286Z]   AI→URLS: https://medium.com/@carterfeldman
+[2026-03-24T00:06:10.286Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:06:10.286Z] Footer/header origins (5):
+[2026-03-24T00:06:10.286Z]   FOOTER/HEADER ORIGIN: https://oas.gg
+[2026-03-24T00:06:10.286Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-24T00:06:10.286Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T00:06:10.286Z]   FOOTER/HEADER ORIGIN: https://medium.com
+[2026-03-24T00:06:10.286Z]   FOOTER/HEADER ORIGIN: https://qedprotocol.com
+[2026-03-24T00:06:10.286Z]   SKIP (AI claimed): https://medium.com/@carterfeldman
+[2026-03-24T00:06:10.287Z]   ADDED: urls <- https://oas.gg
+[2026-03-24T00:06:10.287Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-24T00:06:10.287Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:06:10.287Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:06:10.287Z] ── Step 3: Final dedup ──
+[2026-03-24T00:06:10.287Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-24T00:06:10.287Z] ── FINAL RESULT ──
+[2026-03-24T00:06:10.287Z]   ws (1):
+[2026-03-24T00:06:10.287Z]     - https://qedprotocol.com
+[2026-03-24T00:06:10.287Z]   tw (1):
+[2026-03-24T00:06:10.287Z]     - https://x.com/qedprotocol
+[2026-03-24T00:06:10.287Z]   gh (1):
+[2026-03-24T00:06:10.287Z]     - https://github.com/openassetstandards
+[2026-03-24T00:06:10.287Z]   urls (2):
+[2026-03-24T00:06:10.287Z]     - https://medium.com/@carterfeldman
+[2026-03-24T00:06:10.288Z]     - https://oas.gg
+[2026-03-24T00:06:10.288Z] Summary: ws:1, gh:1, tw:1, urls:2
+[2026-03-24T00:06:10.288Z] Saved final result to result.json
+[2026-03-24T00:06:10.289Z] Override fields: ws, tw, gh, urls
+[2026-03-24T00:06:10.289Z] Finished at: 2026-03-24T00:06:10.289Z

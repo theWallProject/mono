@@ -1,0 +1,64 @@
+[2026-03-22T06:36:55.898Z] === Homepage AI Extractor: FlyCode ===
+[2026-03-22T06:36:55.898Z] Started at: 2026-03-22T06:36:55.898Z
+[2026-03-22T06:36:55.898Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774161415897_FlyCode
+[2026-03-22T06:36:55.898Z] Company: FlyCode
+[2026-03-22T06:36:55.898Z] Website: flycode.com
+[2026-03-22T06:36:55.898Z] cbRank: 213930
+[2026-03-22T06:36:55.898Z] Reasons: f
+[2026-03-22T06:36:55.898Z] Fetching: https://flycode.com
+[2026-03-22T06:36:58.968Z] Redirected: https://flycode.com -> https://www.flycode.com/
+[2026-03-22T06:36:58.989Z] Saved HTML (952362 bytes) to page.html
+[2026-03-22T06:36:58.996Z] Extracted 37 unique links from page
+[2026-03-22T06:36:58.997Z] Saved 37 links to links.json
+[2026-03-22T06:36:59.000Z] No footer section found in DOM
+[2026-03-22T06:36:59.001Z] Extracted header HTML (3750 chars)
+[2026-03-22T06:36:59.004Z] Website (post-redirect): https://www.flycode.com/ → origin: https://www.flycode.com
+[2026-03-22T06:36:59.004Z]   SUBDOMAIN: docs.flycode.com (added to ws)
+[2026-03-22T06:36:59.004Z]   SUBDOMAIN: help.flycode.com (added to ws)
+[2026-03-22T06:36:59.005Z] Website subdomains found: 2
+[2026-03-22T06:36:59.005Z] External links: 3 (of 37 total)
+[2026-03-22T06:36:59.005Z] ── All external links ──
+[2026-03-22T06:36:59.005Z]   EXT: https://marketplace.stripe.com/apps/flycode-payments
+[2026-03-22T06:36:59.005Z]   EXT: https://twitter.com/FlycodeHQ
+[2026-03-22T06:36:59.005Z]   EXT: https://www.linkedin.com/company/flycodehq
+[2026-03-22T06:36:59.005Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:36:59.005Z]   UNCATEGORIZED: https://marketplace.stripe.com/apps/flycode-payments
+[2026-03-22T06:36:59.005Z]   REGEX: tw <- https://twitter.com/FlycodeHQ
+[2026-03-22T06:36:59.005Z]   REGEX: li <- https://www.linkedin.com/company/flycodehq
+[2026-03-22T06:36:59.005Z] Programmatic result: ws:3, tw:1, li:1 | 1 uncategorized
+[2026-03-22T06:36:59.005Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:36:59.009Z] Saved AI prompt (1982 chars) to ai_prompt.txt
+[2026-03-22T06:36:59.009Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:36:59.013Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:37:05.556Z]   AI: First token received, streaming...
+[2026-03-22T06:37:07.607Z] AI response complete: 52 chars in 8.6s
+[2026-03-22T06:37:07.609Z] Saved AI response to ai_response.json
+[2026-03-22T06:37:07.609Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T06:37:07.609Z]   AI LINK: https://marketplace.stripe.com/apps/flycode-payments
+[2026-03-22T06:37:07.609Z] AI returned 1 valid links
+[2026-03-22T06:37:07.609Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T06:37:07.610Z]   AI→URLS: https://marketplace.stripe.com/apps/flycode-payments
+[2026-03-22T06:37:07.610Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:37:07.610Z] Footer/header origins (1):
+[2026-03-22T06:37:07.610Z]   FOOTER/HEADER ORIGIN: https://marketplace.stripe.com
+[2026-03-22T06:37:07.610Z]   SKIP (AI claimed): https://marketplace.stripe.com/apps/flycode-payments
+[2026-03-22T06:37:07.611Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:37:07.611Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:37:07.611Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T06:37:07.611Z] ── Step 3: Final dedup ──
+[2026-03-22T06:37:07.611Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T06:37:07.611Z] ── FINAL RESULT ──
+[2026-03-22T06:37:07.611Z]   ws (3):
+[2026-03-22T06:37:07.611Z]     - https://docs.flycode.com
+[2026-03-22T06:37:07.611Z]     - https://help.flycode.com
+[2026-03-22T06:37:07.612Z]     - https://www.flycode.com
+[2026-03-22T06:37:07.612Z]   li (1):
+[2026-03-22T06:37:07.612Z]     - https://www.linkedin.com/company/flycodehq
+[2026-03-22T06:37:07.612Z]   tw (1):
+[2026-03-22T06:37:07.612Z]     - https://x.com/flycodehq
+[2026-03-22T06:37:07.612Z]   urls (1):
+[2026-03-22T06:37:07.612Z]     - https://marketplace.stripe.com/apps/flycode-payments
+[2026-03-22T06:37:07.613Z] Summary: ws:3, tw:1, li:1, urls:1
+[2026-03-22T06:37:07.613Z] Saved final result to result.json
+[2026-03-22T06:37:07.614Z] Override fields: ws, li, tw, urls
+[2026-03-22T06:37:07.614Z] Finished at: 2026-03-22T06:37:07.614Z

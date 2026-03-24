@@ -1,0 +1,93 @@
+[2026-03-23T17:54:35.204Z] === Homepage AI Extractor: Figment ===
+[2026-03-23T17:54:35.204Z] Started at: 2026-03-23T17:54:35.204Z
+[2026-03-23T17:54:35.205Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774288475204_Figment
+[2026-03-23T17:54:35.205Z] Company: Figment
+[2026-03-23T17:54:35.205Z] Website: figment.io
+[2026-03-23T17:54:35.205Z] cbRank: 2810
+[2026-03-23T17:54:35.205Z] Reasons: i
+[2026-03-23T17:54:35.205Z] Fetching: https://figment.io
+[2026-03-23T17:54:39.030Z] Redirected: https://figment.io -> https://www.figment.io/
+[2026-03-23T17:54:39.053Z] Saved HTML (863655 bytes) to page.html
+[2026-03-23T17:54:39.058Z] Extracted 72 unique links from page
+[2026-03-23T17:54:39.058Z] Saved 72 links to links.json
+[2026-03-23T17:54:39.070Z] Extracted footer HTML (72114 chars)
+[2026-03-23T17:54:39.070Z] Extracted header HTML (474452 chars)
+[2026-03-23T17:54:39.075Z] Website (post-redirect): https://www.figment.io/ → origin: https://www.figment.io
+[2026-03-23T17:54:39.075Z]   SUBDOMAIN: trust.figment.io (added to ws)
+[2026-03-23T17:54:39.075Z]   SUBDOMAIN: app.figment.io (added to ws)
+[2026-03-23T17:54:39.075Z]   SUBDOMAIN: auth0.figment.io (added to ws)
+[2026-03-23T17:54:39.075Z]   SUBDOMAIN: docs.figment.io (added to ws)
+[2026-03-23T17:54:39.075Z]   SUBDOMAIN: trustpage.www.figment.io (added to ws)
+[2026-03-23T17:54:39.075Z]   SUBDOMAIN: www.figment.io (added to ws)
+[2026-03-23T17:54:39.075Z] Website subdomains found: 6
+[2026-03-23T17:54:39.076Z] External links: 5 (of 72 total)
+[2026-03-23T17:54:39.076Z] ── All external links ──
+[2026-03-23T17:54:39.076Z]   EXT: https://boards.greenhouse.io/figment
+[2026-03-23T17:54:39.076Z]   EXT: https://twitter.com/Figment_io
+[2026-03-23T17:54:39.076Z]   EXT: https://www.linkedin.com/company/figment-io
+[2026-03-23T17:54:39.076Z]   EXT: https://www.linkedin.com/company/www.figment.io
+[2026-03-23T17:54:39.076Z]   EXT: https://www.youtube.com/@Figment_io
+[2026-03-23T17:54:39.076Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T17:54:39.076Z]   UNCATEGORIZED: https://boards.greenhouse.io/figment
+[2026-03-23T17:54:39.076Z]   REGEX: tw <- https://twitter.com/Figment_io
+[2026-03-23T17:54:39.076Z]   REGEX: li <- https://www.linkedin.com/company/figment-io
+[2026-03-23T17:54:39.076Z]   REGEX: li <- https://www.linkedin.com/company/www.figment.io
+[2026-03-23T17:54:39.076Z]   REGEX: ytp <- https://www.youtube.com/@Figment_io
+[2026-03-23T17:54:39.076Z] Programmatic result: ws:7, tw:1, li:2, ytp:1 | 1 uncategorized
+[2026-03-23T17:54:39.076Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T17:54:39.080Z] Saved AI prompt (3621 chars) to ai_prompt.txt
+[2026-03-23T17:54:39.080Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T17:54:39.085Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T17:54:51.108Z]   AI: First token received, streaming...
+[2026-03-23T17:54:59.181Z] AI response complete: 152 chars in 20.1s
+[2026-03-23T17:54:59.183Z] Saved AI response to ai_response.json
+[2026-03-23T17:54:59.183Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T17:54:59.183Z]   AI LINK: https://www.linkedin.com/company/www.figment.io/
+[2026-03-23T17:54:59.183Z]   AI LINK: https://twitter.com/Figment_io
+[2026-03-23T17:54:59.183Z]   AI LINK: https://www.youtube.com/@Figment_io
+[2026-03-23T17:54:59.183Z]   AI LINK: https://boards.greenhouse.io/figment
+[2026-03-23T17:54:59.183Z] AI returned 4 valid links
+[2026-03-23T17:54:59.183Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T17:54:59.184Z]   AI→REGEX: li <- https://www.linkedin.com/company/www.figment.io/ (duplicate, skipped)
+[2026-03-23T17:54:59.184Z]   AI→REGEX: tw <- https://twitter.com/Figment_io (duplicate, skipped)
+[2026-03-23T17:54:59.184Z]   AI→REGEX: ytp <- https://www.youtube.com/@Figment_io (duplicate, skipped)
+[2026-03-23T17:54:59.184Z]   AI→URLS: https://boards.greenhouse.io/figment
+[2026-03-23T17:54:59.190Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T17:54:59.190Z] Footer/header origins (9):
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://www.figment.io
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://docs.figment.io
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://boards.greenhouse.io
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: http://trust.figment.io
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://trust.figment.io
+[2026-03-23T17:54:59.191Z]   FOOTER/HEADER ORIGIN: https://auth0.figment.io
+[2026-03-23T17:54:59.191Z]   SKIP (AI claimed): https://boards.greenhouse.io/figment
+[2026-03-23T17:54:59.191Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T17:54:59.191Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T17:54:59.192Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T17:54:59.192Z] ── Step 3: Final dedup ──
+[2026-03-23T17:54:59.192Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T17:54:59.192Z] ── FINAL RESULT ──
+[2026-03-23T17:54:59.192Z]   ws (7):
+[2026-03-23T17:54:59.192Z]     - https://app.figment.io
+[2026-03-23T17:54:59.192Z]     - https://auth0.figment.io
+[2026-03-23T17:54:59.192Z]     - https://docs.figment.io
+[2026-03-23T17:54:59.192Z]     - https://trust.figment.io
+[2026-03-23T17:54:59.192Z]     - https://trustpage.www.figment.io
+[2026-03-23T17:54:59.192Z]     - https://www.figment.io
+[2026-03-23T17:54:59.192Z]     - https://www.figment.io
+[2026-03-23T17:54:59.192Z]   li (2):
+[2026-03-23T17:54:59.192Z]     - https://www.linkedin.com/company/figment-io
+[2026-03-23T17:54:59.193Z]     - https://www.linkedin.com/company/www.figment.io
+[2026-03-23T17:54:59.193Z]   tw (1):
+[2026-03-23T17:54:59.193Z]     - https://x.com/figment_io
+[2026-03-23T17:54:59.193Z]   ytp (1):
+[2026-03-23T17:54:59.193Z]     - https://www.youtube.com/@figment_io
+[2026-03-23T17:54:59.193Z]   urls (1):
+[2026-03-23T17:54:59.193Z]     - https://boards.greenhouse.io/figment
+[2026-03-23T17:54:59.193Z] Summary: ws:7, tw:1, li:2, ytp:1, urls:1
+[2026-03-23T17:54:59.195Z] Saved final result to result.json
+[2026-03-23T17:54:59.195Z] Override fields: ws, li, tw, ytp, urls
+[2026-03-23T17:54:59.195Z] Finished at: 2026-03-23T17:54:59.195Z

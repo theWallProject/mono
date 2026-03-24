@@ -1,0 +1,70 @@
+[2026-03-23T00:23:43.030Z] === Homepage AI Extractor: Musico ===
+[2026-03-23T00:23:43.030Z] Started at: 2026-03-23T00:23:43.030Z
+[2026-03-23T00:23:43.030Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774225423028_Musico
+[2026-03-23T00:23:43.030Z] Company: Musico
+[2026-03-23T00:23:43.031Z] Website: academy.musico.io
+[2026-03-23T00:23:43.031Z] cbRank: 401801
+[2026-03-23T00:23:43.031Z] Reasons: f
+[2026-03-23T00:23:43.031Z] Fetching: https://academy.musico.io
+[2026-03-23T00:23:46.660Z] Dismissed cookie consent popup via: button:has-text("Got it")
+[2026-03-23T00:23:49.652Z] Redirected: https://academy.musico.io -> https://academy.musico.io/
+[2026-03-23T00:23:49.655Z] Saved HTML (45734 bytes) to page.html
+[2026-03-23T00:23:49.657Z] Extracted 14 unique links from page
+[2026-03-23T00:23:49.657Z] Saved 14 links to links.json
+[2026-03-23T00:23:49.660Z] Extracted footer HTML (10377 chars)
+[2026-03-23T00:23:49.660Z] Extracted header HTML (7386 chars)
+[2026-03-23T00:23:49.664Z] Website (post-redirect): https://academy.musico.io/ → origin: https://academy.musico.io
+[2026-03-23T00:23:49.664Z]   SUBDOMAIN: blog.musico.io (added to ws)
+[2026-03-23T00:23:49.664Z] Website subdomains found: 1
+[2026-03-23T00:23:49.665Z] External links: 3 (of 14 total)
+[2026-03-23T00:23:49.665Z] ── All external links ──
+[2026-03-23T00:23:49.665Z]   EXT: https://www.facebook.com/Musico.io
+[2026-03-23T00:23:49.665Z]   EXT: https://www.instagram.com/musico.io
+[2026-03-23T00:23:49.665Z]   EXT: https://www.linkedin.com/company/musicoio
+[2026-03-23T00:23:49.665Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:23:49.665Z]   REGEX: fb <- https://www.facebook.com/Musico.io
+[2026-03-23T00:23:49.665Z]   REGEX: ig <- https://www.instagram.com/musico.io
+[2026-03-23T00:23:49.665Z]   REGEX: li <- https://www.linkedin.com/company/musicoio
+[2026-03-23T00:23:49.665Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-23T00:23:49.665Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:23:49.695Z] Saved AI prompt (2142 chars) to ai_prompt.txt
+[2026-03-23T00:23:49.695Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:23:49.699Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:23:56.482Z]   AI: First token received, streaming...
+[2026-03-23T00:24:02.519Z] AI response complete: 114 chars in 12.8s
+[2026-03-23T00:24:02.521Z] Saved AI response to ai_response.json
+[2026-03-23T00:24:02.521Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T00:24:02.521Z]   AI LINK: https://www.linkedin.com/company/musicoio
+[2026-03-23T00:24:02.521Z]   AI LINK: https://www.facebook.com/Musico.io/
+[2026-03-23T00:24:02.521Z]   AI LINK: https://www.instagram.com/musico.io/
+[2026-03-23T00:24:02.522Z] AI returned 3 valid links
+[2026-03-23T00:24:02.522Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T00:24:02.522Z]   AI→REGEX: li <- https://www.linkedin.com/company/musicoio (duplicate, skipped)
+[2026-03-23T00:24:02.522Z]   AI→REGEX: fb <- https://www.facebook.com/Musico.io/ (duplicate, skipped)
+[2026-03-23T00:24:02.522Z]   AI→REGEX: ig <- https://www.instagram.com/musico.io/ (duplicate, skipped)
+[2026-03-23T00:24:02.523Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:24:02.523Z] Footer/header origins (5):
+[2026-03-23T00:24:02.523Z]   FOOTER/HEADER ORIGIN: https://academy.musico.io
+[2026-03-23T00:24:02.523Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:24:02.524Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T00:24:02.524Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T00:24:02.524Z]   FOOTER/HEADER ORIGIN: https://blog.musico.io
+[2026-03-23T00:24:02.524Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T00:24:02.524Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:24:02.524Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:24:02.524Z] ── Step 3: Final dedup ──
+[2026-03-23T00:24:02.524Z] No urls to dedup
+[2026-03-23T00:24:02.525Z] ── FINAL RESULT ──
+[2026-03-23T00:24:02.525Z]   ws (2):
+[2026-03-23T00:24:02.525Z]     - https://academy.musico.io
+[2026-03-23T00:24:02.525Z]     - https://blog.musico.io
+[2026-03-23T00:24:02.525Z]   li (1):
+[2026-03-23T00:24:02.525Z]     - https://www.linkedin.com/company/musicoio
+[2026-03-23T00:24:02.525Z]   fb (1):
+[2026-03-23T00:24:02.525Z]     - https://www.facebook.com/musico.io
+[2026-03-23T00:24:02.525Z]   ig (1):
+[2026-03-23T00:24:02.526Z]     - https://www.instagram.com/musico.io
+[2026-03-23T00:24:02.526Z] Summary: ws:2, fb:1, ig:1, li:1
+[2026-03-23T00:24:02.527Z] Saved final result to result.json
+[2026-03-23T00:24:02.527Z] Override fields: ws, li, fb, ig
+[2026-03-23T00:24:02.528Z] Finished at: 2026-03-23T00:24:02.528Z

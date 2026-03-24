@@ -1,0 +1,88 @@
+[2026-03-24T03:29:09.840Z] === Homepage AI Extractor: Airbnb ===
+[2026-03-24T03:29:09.840Z] Started at: 2026-03-24T03:29:09.840Z
+[2026-03-24T03:29:09.840Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774322949840_Airbnb
+[2026-03-24T03:29:09.840Z] Company: Airbnb
+[2026-03-24T03:29:09.840Z] Website: www.airbnb.co.in
+[2026-03-24T03:29:09.841Z] cbRank: N/A
+[2026-03-24T03:29:09.841Z] Reasons: BDS_PRESSURE
+[2026-03-24T03:29:09.841Z] Fetching: https://www.airbnb.co.in
+[2026-03-24T03:29:13.076Z] Dismissed cookie consent popup via: button:has-text("Got it")
+[2026-03-24T03:29:15.933Z] Redirected: https://www.airbnb.co.in -> https://www.airbnb.co.in/
+[2026-03-24T03:29:15.964Z] Saved HTML (1228512 bytes) to page.html
+[2026-03-24T03:29:15.968Z] Extracted 176 unique links from page
+[2026-03-24T03:29:15.969Z] Saved 176 links to links.json
+[2026-03-24T03:29:15.974Z] Extracted footer HTML (100800 chars)
+[2026-03-24T03:29:15.974Z] Extracted header HTML (35479 chars)
+[2026-03-24T03:29:15.980Z] Website (post-redirect): https://www.airbnb.co.in/ → origin: https://www.airbnb.co.in
+[2026-03-24T03:29:15.980Z] External links: 6 (of 176 total)
+[2026-03-24T03:29:15.980Z] ── All external links ──
+[2026-03-24T03:29:15.980Z]   EXT: https://community.withairbnb.com/t5/Community-Center/ct-p/community-center
+[2026-03-24T03:29:15.980Z]   EXT: https://instagram.com/airbnb
+[2026-03-24T03:29:15.980Z]   EXT: https://investors.airbnb.com
+[2026-03-24T03:29:15.980Z]   EXT: https://twitter.com/airbnb_in
+[2026-03-24T03:29:15.981Z]   EXT: https://www.airbnb.org/?locale=en-IN
+[2026-03-24T03:29:15.981Z]   EXT: https://www.facebook.com/AirbnbIndia
+[2026-03-24T03:29:15.981Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T03:29:15.981Z]   UNCATEGORIZED: https://community.withairbnb.com/t5/Community-Center/ct-p/community-center
+[2026-03-24T03:29:15.981Z]   REGEX: ig <- https://instagram.com/airbnb
+[2026-03-24T03:29:15.981Z]   UNCATEGORIZED: https://investors.airbnb.com
+[2026-03-24T03:29:15.981Z]   REGEX: tw <- https://twitter.com/airbnb_in
+[2026-03-24T03:29:15.981Z]   UNCATEGORIZED: https://www.airbnb.org/?locale=en-IN
+[2026-03-24T03:29:15.981Z]   REGEX: fb <- https://www.facebook.com/AirbnbIndia
+[2026-03-24T03:29:15.981Z] Programmatic result: ws:1, ig:1, tw:1, fb:1 | 3 uncategorized
+[2026-03-24T03:29:15.981Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T03:29:15.985Z] Saved AI prompt (8565 chars) to ai_prompt.txt
+[2026-03-24T03:29:15.985Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T03:29:15.989Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T03:29:42.563Z]   AI: First token received, streaming...
+[2026-03-24T03:29:55.135Z]   AI streaming: 201 chars received (39.1s elapsed)
+[2026-03-24T03:29:56.505Z] AI response complete: 236 chars in 40.5s
+[2026-03-24T03:29:56.506Z] Saved AI response to ai_response.json
+[2026-03-24T03:29:56.506Z] ── Parsing AI response (6 lines) ──
+[2026-03-24T03:29:56.506Z]   AI LINK: https://community.withairbnb.com/t5/Community-Center/ct-p/community-center
+[2026-03-24T03:29:56.507Z]   AI LINK: https://investors.airbnb.com
+[2026-03-24T03:29:56.507Z]   AI LINK: https://www.airbnb.org/?locale=en-IN
+[2026-03-24T03:29:56.507Z]   AI LINK: https://www.facebook.com/AirbnbIndia
+[2026-03-24T03:29:56.507Z]   AI LINK: https://twitter.com/airbnb_in
+[2026-03-24T03:29:56.507Z]   AI LINK: https://instagram.com/airbnb
+[2026-03-24T03:29:56.507Z] AI returned 6 valid links
+[2026-03-24T03:29:56.507Z] ── Categorizing 6 AI-returned links ──
+[2026-03-24T03:29:56.508Z]   AI→URLS: https://community.withairbnb.com/t5/Community-Center/ct-p/community-center
+[2026-03-24T03:29:56.508Z]   AI→URLS: https://investors.airbnb.com
+[2026-03-24T03:29:56.508Z]   AI→URLS: https://www.airbnb.org (cleaned from https://www.airbnb.org/?locale=en-IN)
+[2026-03-24T03:29:56.508Z]   AI→REGEX: fb <- https://www.facebook.com/AirbnbIndia (duplicate, skipped)
+[2026-03-24T03:29:56.508Z]   AI→REGEX: tw <- https://twitter.com/airbnb_in (duplicate, skipped)
+[2026-03-24T03:29:56.508Z]   AI→REGEX: ig <- https://instagram.com/airbnb (duplicate, skipped)
+[2026-03-24T03:29:56.510Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T03:29:56.510Z] Footer/header origins (6):
+[2026-03-24T03:29:56.510Z]   FOOTER/HEADER ORIGIN: https://community.withairbnb.com
+[2026-03-24T03:29:56.510Z]   FOOTER/HEADER ORIGIN: https://investors.airbnb.com
+[2026-03-24T03:29:56.510Z]   FOOTER/HEADER ORIGIN: https://www.airbnb.org
+[2026-03-24T03:29:56.510Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T03:29:56.510Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T03:29:56.511Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-24T03:29:56.511Z]   SKIP (AI claimed): https://community.withairbnb.com/t5/Community-Center/ct-p/community-center
+[2026-03-24T03:29:56.511Z]   SKIP (AI claimed): https://investors.airbnb.com
+[2026-03-24T03:29:56.511Z]   SKIP (AI claimed): https://www.airbnb.org/?locale=en-IN
+[2026-03-24T03:29:56.511Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T03:29:56.511Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T03:29:56.511Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T03:29:56.511Z] ── Step 3: Final dedup ──
+[2026-03-24T03:29:56.511Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-24T03:29:56.511Z] ── FINAL RESULT ──
+[2026-03-24T03:29:56.512Z]   ws (1):
+[2026-03-24T03:29:56.512Z]     - https://www.airbnb.co.in
+[2026-03-24T03:29:56.512Z]   fb (1):
+[2026-03-24T03:29:56.512Z]     - https://www.facebook.com/airbnbindia
+[2026-03-24T03:29:56.512Z]   tw (1):
+[2026-03-24T03:29:56.512Z]     - https://x.com/airbnb_in
+[2026-03-24T03:29:56.512Z]   ig (1):
+[2026-03-24T03:29:56.512Z]     - https://www.instagram.com/airbnb
+[2026-03-24T03:29:56.512Z]   urls (3):
+[2026-03-24T03:29:56.512Z]     - https://community.withairbnb.com/t5/Community-Center/ct-p/community-center
+[2026-03-24T03:29:56.512Z]     - https://investors.airbnb.com
+[2026-03-24T03:29:56.513Z]     - https://www.airbnb.org
+[2026-03-24T03:29:56.513Z] Summary: ws:1, ig:1, tw:1, fb:1, urls:3
+[2026-03-24T03:29:56.514Z] Saved final result to result.json
+[2026-03-24T03:29:56.514Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-24T03:29:56.514Z] Finished at: 2026-03-24T03:29:56.514Z

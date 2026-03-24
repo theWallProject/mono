@@ -1,0 +1,63 @@
+[2026-03-22T22:55:14.489Z] === Homepage AI Extractor: Anima Biotech ===
+[2026-03-22T22:55:14.489Z] Started at: 2026-03-22T22:55:14.489Z
+[2026-03-22T22:55:14.489Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774220114489_Anima_Biotech
+[2026-03-22T22:55:14.489Z] Company: Anima Biotech
+[2026-03-22T22:55:14.489Z] Website: animabiotech.com
+[2026-03-22T22:55:14.489Z] cbRank: 295725
+[2026-03-22T22:55:14.489Z] Reasons: f
+[2026-03-22T22:55:14.489Z] Fetching: https://animabiotech.com
+[2026-03-22T22:55:17.656Z] Redirected: https://animabiotech.com -> https://www.animabiotech.com/
+[2026-03-22T22:55:17.661Z] Saved HTML (190180 bytes) to page.html
+[2026-03-22T22:55:17.664Z] Extracted 33 unique links from page
+[2026-03-22T22:55:17.665Z] Saved 33 links to links.json
+[2026-03-22T22:55:17.667Z] Extracted footer HTML (2537 chars)
+[2026-03-22T22:55:17.667Z] Extracted header HTML (2216 chars)
+[2026-03-22T22:55:17.670Z] Website (post-redirect): https://www.animabiotech.com/ → origin: https://www.animabiotech.com
+[2026-03-22T22:55:17.670Z] External links: 3 (of 33 total)
+[2026-03-22T22:55:17.670Z] ── All external links ──
+[2026-03-22T22:55:17.670Z]   EXT: https://il.linkedin.com/company/anima-biotech
+[2026-03-22T22:55:17.670Z]   EXT: https://www.lionways.com
+[2026-03-22T22:55:17.670Z]   EXT: https://x.com/AnimaBiotech
+[2026-03-22T22:55:17.671Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:55:17.671Z]   REGEX: li <- https://il.linkedin.com/company/anima-biotech
+[2026-03-22T22:55:17.672Z]   UNCATEGORIZED: https://www.lionways.com
+[2026-03-22T22:55:17.672Z]   REGEX: tw <- https://x.com/AnimaBiotech
+[2026-03-22T22:55:17.672Z] Programmatic result: ws:1, li:1, tw:1 | 1 uncategorized
+[2026-03-22T22:55:17.672Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:55:17.676Z] Saved AI prompt (3584 chars) to ai_prompt.txt
+[2026-03-22T22:55:17.676Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:55:17.680Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:55:31.381Z]   AI: First token received, streaming...
+[2026-03-22T22:55:34.527Z] AI response complete: 72 chars in 16.9s
+[2026-03-22T22:55:34.528Z] Saved AI response to ai_response.json
+[2026-03-22T22:55:34.528Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T22:55:34.529Z]   AI LINK: https://x.com/AnimaBiotech
+[2026-03-22T22:55:34.529Z]   AI LINK: https://il.linkedin.com/company/anima-biotech
+[2026-03-22T22:55:34.529Z] AI returned 2 valid links
+[2026-03-22T22:55:34.529Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T22:55:34.530Z]   AI→REGEX: tw <- https://x.com/AnimaBiotech (duplicate, skipped)
+[2026-03-22T22:55:34.530Z]   AI→REGEX: li <- https://il.linkedin.com/company/anima-biotech (duplicate, skipped)
+[2026-03-22T22:55:34.531Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:55:34.531Z] Footer/header origins (3):
+[2026-03-22T22:55:34.531Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T22:55:34.531Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-22T22:55:34.531Z]   FOOTER/HEADER ORIGIN: https://www.lionways.com
+[2026-03-22T22:55:34.532Z]   ADDED: urls <- https://www.lionways.com
+[2026-03-22T22:55:34.532Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T22:55:34.532Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:55:34.532Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T22:55:34.532Z] ── Step 3: Final dedup ──
+[2026-03-22T22:55:34.532Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T22:55:34.532Z] ── FINAL RESULT ──
+[2026-03-22T22:55:34.532Z]   ws (1):
+[2026-03-22T22:55:34.532Z]     - https://www.animabiotech.com
+[2026-03-22T22:55:34.533Z]   li (1):
+[2026-03-22T22:55:34.533Z]     - https://www.linkedin.com/company/anima-biotech
+[2026-03-22T22:55:34.533Z]   tw (1):
+[2026-03-22T22:55:34.533Z]     - https://x.com/animabiotech
+[2026-03-22T22:55:34.533Z]   urls (1):
+[2026-03-22T22:55:34.533Z]     - https://www.lionways.com
+[2026-03-22T22:55:34.534Z] Summary: ws:1, li:1, tw:1, urls:1
+[2026-03-22T22:55:34.535Z] Saved final result to result.json
+[2026-03-22T22:55:34.535Z] Override fields: ws, li, tw, urls
+[2026-03-22T22:55:34.535Z] Finished at: 2026-03-22T22:55:34.535Z

@@ -1,0 +1,73 @@
+[2026-03-23T00:15:18.767Z] === Homepage AI Extractor: PCI Booking ===
+[2026-03-23T00:15:18.767Z] Started at: 2026-03-23T00:15:18.767Z
+[2026-03-23T00:15:18.767Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774224918767_PCI_Booking
+[2026-03-23T00:15:18.767Z] Company: PCI Booking
+[2026-03-23T00:15:18.767Z] Website: pcibooking.net
+[2026-03-23T00:15:18.767Z] cbRank: 395409
+[2026-03-23T00:15:18.767Z] Reasons: f
+[2026-03-23T00:15:18.767Z] Fetching: https://pcibooking.net
+[2026-03-23T00:15:20.363Z] Redirected: https://pcibooking.net -> https://pcibooking.net/
+[2026-03-23T00:15:20.370Z] Saved HTML (274804 bytes) to page.html
+[2026-03-23T00:15:20.373Z] Extracted 33 unique links from page
+[2026-03-23T00:15:20.373Z] Saved 33 links to links.json
+[2026-03-23T00:15:20.375Z] No footer section found in DOM
+[2026-03-23T00:15:20.375Z] Extracted header HTML (4802 chars)
+[2026-03-23T00:15:20.378Z] Website (post-redirect): https://pcibooking.net/ → origin: https://pcibooking.net
+[2026-03-23T00:15:20.378Z]   SUBDOMAIN: developers.pcibooking.net (added to ws)
+[2026-03-23T00:15:20.379Z]   SUBDOMAIN: users.pcibooking.net (added to ws)
+[2026-03-23T00:15:20.379Z] Website subdomains found: 2
+[2026-03-23T00:15:20.379Z] External links: 5 (of 33 total)
+[2026-03-23T00:15:20.379Z] ── All external links ──
+[2026-03-23T00:15:20.379Z]   EXT: https://developers.orchestrasolutions.com
+[2026-03-23T00:15:20.379Z]   EXT: https://orchestrasolutions.com
+[2026-03-23T00:15:20.379Z]   EXT: https://orchestrasolutions.com/solutions/orchestra-connect
+[2026-03-23T00:15:20.379Z]   EXT: https://orchestrasolutions.com/solutions/payment-methods
+[2026-03-23T00:15:20.379Z]   EXT: https://www.linkedin.com/company/pci-booking
+[2026-03-23T00:15:20.379Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:15:20.380Z]   UNCATEGORIZED: https://developers.orchestrasolutions.com
+[2026-03-23T00:15:20.380Z]   UNCATEGORIZED: https://orchestrasolutions.com
+[2026-03-23T00:15:20.380Z]   UNCATEGORIZED: https://orchestrasolutions.com/solutions/orchestra-connect
+[2026-03-23T00:15:20.380Z]   UNCATEGORIZED: https://orchestrasolutions.com/solutions/payment-methods
+[2026-03-23T00:15:20.380Z]   REGEX: li <- https://www.linkedin.com/company/pci-booking
+[2026-03-23T00:15:20.380Z] Programmatic result: ws:3, li:1 | 4 uncategorized
+[2026-03-23T00:15:20.380Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:15:20.383Z] Saved AI prompt (2136 chars) to ai_prompt.txt
+[2026-03-23T00:15:20.383Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:15:20.388Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:15:25.923Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-23T00:15:25.924Z] AI response complete: 0 chars in 5.5s
+[2026-03-23T00:15:25.925Z] Saved AI response to ai_response.json
+[2026-03-23T00:15:25.926Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T00:15:25.926Z] AI returned 0 valid links
+[2026-03-23T00:15:25.926Z] ── Categorizing 0 AI-returned links ──
+[2026-03-23T00:15:25.926Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:15:25.927Z] Footer/header origins (4):
+[2026-03-23T00:15:25.927Z]   FOOTER/HEADER ORIGIN: https://pcibooking.net
+[2026-03-23T00:15:25.927Z]   FOOTER/HEADER ORIGIN: https://orchestrasolutions.com
+[2026-03-23T00:15:25.927Z]   FOOTER/HEADER ORIGIN: https://developers.pcibooking.net
+[2026-03-23T00:15:25.927Z]   FOOTER/HEADER ORIGIN: https://developers.orchestrasolutions.com
+[2026-03-23T00:15:25.927Z]   ADDED: urls <- https://developers.orchestrasolutions.com
+[2026-03-23T00:15:25.928Z]   ADDED: urls <- https://orchestrasolutions.com
+[2026-03-23T00:15:25.928Z]   ADDED: urls <- https://orchestrasolutions.com/solutions/orchestra-connect
+[2026-03-23T00:15:25.928Z]   ADDED: urls <- https://orchestrasolutions.com/solutions/payment-methods
+[2026-03-23T00:15:25.928Z] Step 2b result: added 4 uncategorized domains from footer/header
+[2026-03-23T00:15:25.928Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:15:25.928Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:15:25.928Z] ── Step 3: Final dedup ──
+[2026-03-23T00:15:25.929Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-23T00:15:25.929Z] ── FINAL RESULT ──
+[2026-03-23T00:15:25.929Z]   ws (3):
+[2026-03-23T00:15:25.929Z]     - https://developers.pcibooking.net
+[2026-03-23T00:15:25.929Z]     - https://pcibooking.net
+[2026-03-23T00:15:25.929Z]     - https://users.pcibooking.net
+[2026-03-23T00:15:25.929Z]   li (1):
+[2026-03-23T00:15:25.929Z]     - https://www.linkedin.com/company/pci-booking
+[2026-03-23T00:15:25.929Z]   urls (4):
+[2026-03-23T00:15:25.929Z]     - https://developers.orchestrasolutions.com
+[2026-03-23T00:15:25.930Z]     - https://orchestrasolutions.com
+[2026-03-23T00:15:25.930Z]     - https://orchestrasolutions.com/solutions/orchestra-connect
+[2026-03-23T00:15:25.930Z]     - https://orchestrasolutions.com/solutions/payment-methods
+[2026-03-23T00:15:25.930Z] Summary: ws:3, li:1, urls:4
+[2026-03-23T00:15:25.931Z] Saved final result to result.json
+[2026-03-23T00:15:25.932Z] Override fields: ws, li, urls
+[2026-03-23T00:15:25.932Z] Finished at: 2026-03-23T00:15:25.932Z

@@ -1,0 +1,66 @@
+[2026-03-23T23:37:49.421Z] === Homepage AI Extractor: May Health ===
+[2026-03-23T23:37:49.421Z] Started at: 2026-03-23T23:37:49.421Z
+[2026-03-23T23:37:49.421Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774309069420_May_Health
+[2026-03-23T23:37:49.421Z] Company: May Health
+[2026-03-23T23:37:49.421Z] Website: mayhealth.com
+[2026-03-23T23:37:49.421Z] cbRank: 44819
+[2026-03-23T23:37:49.421Z] Reasons: i
+[2026-03-23T23:37:49.421Z] Fetching: https://mayhealth.com
+[2026-03-23T23:37:52.191Z] Redirected: https://mayhealth.com -> https://mayhealth.com/
+[2026-03-23T23:37:52.199Z] Saved HTML (266418 bytes) to page.html
+[2026-03-23T23:37:52.202Z] Extracted 15 unique links from page
+[2026-03-23T23:37:52.203Z] Saved 15 links to links.json
+[2026-03-23T23:37:52.208Z] Extracted footer HTML (4747 chars)
+[2026-03-23T23:37:52.208Z] Extracted header HTML (70701 chars)
+[2026-03-23T23:37:52.211Z] Website (post-redirect): https://mayhealth.com/ → origin: https://mayhealth.com
+[2026-03-23T23:37:52.211Z] External links: 3 (of 15 total)
+[2026-03-23T23:37:52.211Z] ── All external links ──
+[2026-03-23T23:37:52.212Z]   EXT: https://www.facebook.com/profile.php?id=100086105387626
+[2026-03-23T23:37:52.212Z]   EXT: https://www.instagram.com/hellomayhealth
+[2026-03-23T23:37:52.212Z]   EXT: https://www.linkedin.com/company/may-health
+[2026-03-23T23:37:52.212Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:37:52.213Z]   REGEX: ig <- https://www.instagram.com/hellomayhealth
+[2026-03-23T23:37:52.213Z]   REGEX: li <- https://www.linkedin.com/company/may-health
+[2026-03-23T23:37:52.213Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T23:37:53.370Z]   RESOLVE: https://www.facebook.com/profile.php?id=100086105387626 → https://www.facebook.com/people/May-Health/100086105387626
+[2026-03-23T23:37:53.397Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/May-Health/100086105387626 (from https://www.facebook.com/profile.php?id=100086105387626)
+[2026-03-23T23:37:53.397Z] Programmatic result: ws:1, ig:1, li:1 | 0 uncategorized
+[2026-03-23T23:37:53.397Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:37:53.398Z] Saved AI prompt (4559 chars) to ai_prompt.txt
+[2026-03-23T23:37:53.398Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:37:53.402Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:38:11.357Z]   AI: First token received, streaming...
+[2026-03-23T23:38:21.030Z] AI response complete: 142 chars in 27.6s
+[2026-03-23T23:38:21.031Z] Saved AI response to ai_response.json
+[2026-03-23T23:38:21.031Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T23:38:21.031Z]   AI LINK: https://www.linkedin.com/company/may-health/
+[2026-03-23T23:38:21.032Z]   AI LINK: https://www.facebook.com/profile.php?id=100086105387626
+[2026-03-23T23:38:21.032Z]   AI LINK: https://www.instagram.com/hellomayhealth/
+[2026-03-23T23:38:21.032Z] AI returned 3 valid links
+[2026-03-23T23:38:21.032Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T23:38:21.032Z]   AI→REGEX: li <- https://www.linkedin.com/company/may-health/ (duplicate, skipped)
+[2026-03-23T23:38:21.853Z]   RESOLVE: https://www.facebook.com/profile.php?id=100086105387626 → https://www.facebook.com/people/May-Health/100086105387626
+[2026-03-23T23:38:21.866Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/May-Health/100086105387626 (from https://www.facebook.com/profile.php?id=100086105387626)
+[2026-03-23T23:38:21.866Z]   AI→REGEX: ig <- https://www.instagram.com/hellomayhealth/ (duplicate, skipped)
+[2026-03-23T23:38:21.867Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:38:21.867Z] Footer/header origins (4):
+[2026-03-23T23:38:21.867Z]   FOOTER/HEADER ORIGIN: https://mayhealth.com
+[2026-03-23T23:38:21.867Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:38:21.867Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T23:38:21.867Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T23:38:21.867Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:38:21.867Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:38:21.867Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:38:21.867Z] ── Step 3: Final dedup ──
+[2026-03-23T23:38:21.867Z] No urls to dedup
+[2026-03-23T23:38:21.867Z] ── FINAL RESULT ──
+[2026-03-23T23:38:21.867Z]   ws (1):
+[2026-03-23T23:38:21.867Z]     - https://mayhealth.com
+[2026-03-23T23:38:21.867Z]   li (1):
+[2026-03-23T23:38:21.867Z]     - https://www.linkedin.com/company/may-health
+[2026-03-23T23:38:21.867Z]   ig (1):
+[2026-03-23T23:38:21.867Z]     - https://www.instagram.com/hellomayhealth
+[2026-03-23T23:38:21.868Z] Summary: ws:1, ig:1, li:1
+[2026-03-23T23:38:21.868Z] Saved final result to result.json
+[2026-03-23T23:38:21.868Z] Override fields: ws, li, ig
+[2026-03-23T23:38:21.868Z] Finished at: 2026-03-23T23:38:21.868Z

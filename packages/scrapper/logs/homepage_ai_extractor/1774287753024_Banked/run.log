@@ -1,0 +1,69 @@
+[2026-03-23T17:42:33.024Z] === Homepage AI Extractor: Banked ===
+[2026-03-23T17:42:33.024Z] Started at: 2026-03-23T17:42:33.024Z
+[2026-03-23T17:42:33.024Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774287753024_Banked
+[2026-03-23T17:42:33.024Z] Company: Banked
+[2026-03-23T17:42:33.024Z] Website: banked.com
+[2026-03-23T17:42:33.025Z] cbRank: 1972
+[2026-03-23T17:42:33.025Z] Reasons: i
+[2026-03-23T17:42:33.025Z] Fetching: https://banked.com
+[2026-03-23T17:42:37.221Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-23T17:42:40.219Z] Redirected: https://banked.com -> https://banked.com/
+[2026-03-23T17:42:40.224Z] Saved HTML (133036 bytes) to page.html
+[2026-03-23T17:42:40.226Z] Extracted 30 unique links from page
+[2026-03-23T17:42:40.226Z] Saved 30 links to links.json
+[2026-03-23T17:42:40.228Z] No footer section found in DOM
+[2026-03-23T17:42:40.228Z] No header section found in DOM
+[2026-03-23T17:42:40.233Z] Website (post-redirect): https://banked.com/ → origin: https://banked.com
+[2026-03-23T17:42:40.233Z]   SUBDOMAIN: console.banked.com (added to ws)
+[2026-03-23T17:42:40.233Z]   SUBDOMAIN: developer.banked.com (added to ws)
+[2026-03-23T17:42:40.233Z]   SUBDOMAIN: status.banked.com (added to ws)
+[2026-03-23T17:42:40.233Z] Website subdomains found: 3
+[2026-03-23T17:42:40.233Z] External links: 4 (of 30 total)
+[2026-03-23T17:42:40.233Z] ── All external links ──
+[2026-03-23T17:42:40.233Z]   EXT: https://medium.com/@banked
+[2026-03-23T17:42:40.233Z]   EXT: https://support.paybybank.com
+[2026-03-23T17:42:40.233Z]   EXT: https://twitter.com/wearebanked
+[2026-03-23T17:42:40.233Z]   EXT: https://www.linkedin.com/company/banked-limited
+[2026-03-23T17:42:40.233Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T17:42:40.234Z]   UNCATEGORIZED: https://medium.com/@banked
+[2026-03-23T17:42:40.234Z]   UNCATEGORIZED: https://support.paybybank.com
+[2026-03-23T17:42:40.234Z]   REGEX: tw <- https://twitter.com/wearebanked
+[2026-03-23T17:42:40.234Z]   REGEX: li <- https://www.linkedin.com/company/banked-limited
+[2026-03-23T17:42:40.234Z] Programmatic result: ws:4, tw:1, li:1 | 2 uncategorized
+[2026-03-23T17:42:40.234Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T17:42:40.237Z] Saved AI prompt (1985 chars) to ai_prompt.txt
+[2026-03-23T17:42:40.237Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T17:42:40.242Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T17:42:46.813Z]   AI: First token received, streaming...
+[2026-03-23T17:42:47.501Z] AI response complete: 26 chars in 7.3s
+[2026-03-23T17:42:47.503Z] Saved AI response to ai_response.json
+[2026-03-23T17:42:47.503Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T17:42:47.503Z]   AI LINK: https://medium.com/@banked
+[2026-03-23T17:42:47.503Z] AI returned 1 valid links
+[2026-03-23T17:42:47.503Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T17:42:47.504Z]   AI→URLS: https://medium.com/@banked
+[2026-03-23T17:42:47.504Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T17:42:47.504Z] Footer/header origins (0):
+[2026-03-23T17:42:47.504Z]   SKIP (AI claimed): https://medium.com/@banked
+[2026-03-23T17:42:47.504Z]   SKIP (not in footer/header): https://support.paybybank.com
+[2026-03-23T17:42:47.504Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T17:42:47.504Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T17:42:47.504Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T17:42:47.504Z] ── Step 3: Final dedup ──
+[2026-03-23T17:42:47.505Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T17:42:47.505Z] ── FINAL RESULT ──
+[2026-03-23T17:42:47.505Z]   ws (4):
+[2026-03-23T17:42:47.505Z]     - https://banked.com
+[2026-03-23T17:42:47.505Z]     - https://console.banked.com
+[2026-03-23T17:42:47.505Z]     - https://developer.banked.com
+[2026-03-23T17:42:47.505Z]     - https://status.banked.com
+[2026-03-23T17:42:47.505Z]   li (1):
+[2026-03-23T17:42:47.505Z]     - https://www.linkedin.com/company/banked-limited
+[2026-03-23T17:42:47.505Z]   tw (1):
+[2026-03-23T17:42:47.505Z]     - https://x.com/wearebanked
+[2026-03-23T17:42:47.505Z]   urls (1):
+[2026-03-23T17:42:47.506Z]     - https://medium.com/@banked
+[2026-03-23T17:42:47.506Z] Summary: ws:4, tw:1, li:1, urls:1
+[2026-03-23T17:42:47.507Z] Saved final result to result.json
+[2026-03-23T17:42:47.507Z] Override fields: ws, li, tw, urls
+[2026-03-23T17:42:47.507Z] Finished at: 2026-03-23T17:42:47.507Z

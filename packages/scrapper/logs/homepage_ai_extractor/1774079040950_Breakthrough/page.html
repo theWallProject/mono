@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreakT</title>
+    <link rel="icon" href="/btweb/static/img/favicon.ico">
+    <link rel="stylesheet" href="/btweb/static/css/style.css">
+</head>
+<body>
+    <div class="landing-container">
+        <img src="/btweb/static/img/hacker_glassdore_1.png" alt="" class="landing-img" draggable="false">
+        <form method="POST" action="/btweb/enter" class="button-hotspot-form" id="hotspotForm" style="left: 6.75%; top: 56.2222%; width: 2.5%; height: 5.33333%;">
+            <input type="hidden" name="csrf_token" value="3a2a8b11fe42b4f9c1d9b0d3f0e564422c205dca36eda60d1dedef6ebc7c06ae">
+            <button type="submit" class="button-hotspot" aria-label="Contact"></button>
+        </form>
+    </div>
+    <script>
+    (function() {
+        // Button center in image coordinates (fraction of image natural size)
+        var BTN_X = 0.080;
+        var BTN_Y = 0.575;
+        var BTN_W = 0.025;
+        var BTN_H = 0.045;
+
+        var IMG_W = 1536;
+        var IMG_H = 1024;
+        var IMG_ASPECT = IMG_W / IMG_H;
+
+        var form = document.getElementById("hotspotForm");
+
+        function positionHotspot() {
+            var vw = window.innerWidth;
+            var vh = window.innerHeight;
+            var vpAspect = vw / vh;
+
+            var scale, renderedW, renderedH, offsetX, offsetY;
+
+            if (vpAspect > IMG_ASPECT) {
+                // Viewport wider than image: scale to fill width, crop top/bottom
+                scale = vw / IMG_W;
+                renderedW = vw;
+                renderedH = IMG_H * scale;
+                offsetX = 0;
+                offsetY = (renderedH - vh) / 2;
+            } else {
+                // Viewport taller than image: scale to fill height, crop left/right
+                scale = vh / IMG_H;
+                renderedW = IMG_W * scale;
+                renderedH = vh;
+                offsetX = (renderedW - vw) / 2;
+                offsetY = 0;
+            }
+
+            var x = BTN_X * renderedW - offsetX;
+            var y = BTN_Y * renderedH - offsetY;
+            var w = BTN_W * renderedW;
+            var h = BTN_H * renderedH;
+
+            form.style.left = ((x - w / 2) / vw * 100) + "%";
+            form.style.top = ((y - h / 2) / vh * 100) + "%";
+            form.style.width = (w / vw * 100) + "%";
+            form.style.height = (h / vh * 100) + "%";
+        }
+
+        positionHotspot();
+        window.addEventListener("resize", positionHotspot);
+    })();
+    </script>
+
+</body></html>

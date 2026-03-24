@@ -1,0 +1,80 @@
+[2026-03-23T22:54:22.973Z] === Homepage AI Extractor: Railsr ===
+[2026-03-23T22:54:22.973Z] Started at: 2026-03-23T22:54:22.973Z
+[2026-03-23T22:54:22.973Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774306462973_Railsr
+[2026-03-23T22:54:22.974Z] Company: Railsr
+[2026-03-23T22:54:22.974Z] Website: railsr.com
+[2026-03-23T22:54:22.974Z] cbRank: 33711
+[2026-03-23T22:54:22.974Z] Reasons: i
+[2026-03-23T22:54:22.974Z] Fetching: https://railsr.com
+[2026-03-23T22:54:26.123Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T22:54:29.079Z] Redirected: https://railsr.com -> https://www.railsr.com/
+[2026-03-23T22:54:29.100Z] Saved HTML (878445 bytes) to page.html
+[2026-03-23T22:54:29.103Z] Extracted 31 unique links from page
+[2026-03-23T22:54:29.103Z] Saved 31 links to links.json
+[2026-03-23T22:54:29.106Z] Extracted footer HTML (18170 chars)
+[2026-03-23T22:54:29.106Z] Extracted header HTML (15427 chars)
+[2026-03-23T22:54:29.110Z] Website (post-redirect): https://www.railsr.com/ → origin: https://www.railsr.com
+[2026-03-23T22:54:29.110Z]   SUBDOMAIN: dashboard.railsr.com (added to ws)
+[2026-03-23T22:54:29.110Z]   SUBDOMAIN: support.railsr.com (added to ws)
+[2026-03-23T22:54:29.110Z] Website subdomains found: 2
+[2026-03-23T22:54:29.110Z] External links: 4 (of 31 total)
+[2026-03-23T22:54:29.110Z] ── All external links ──
+[2026-03-23T22:54:29.110Z]   EXT: https://app.railsbank.com
+[2026-03-23T22:54:29.110Z]   EXT: https://twitter.com/railsr_
+[2026-03-23T22:54:29.110Z]   EXT: https://www.facebook.com/RailsrGlobal
+[2026-03-23T22:54:29.110Z]   EXT: https://www.linkedin.com/company/railsrglobal
+[2026-03-23T22:54:29.111Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T22:54:29.111Z]   UNCATEGORIZED: https://app.railsbank.com
+[2026-03-23T22:54:29.111Z]   REGEX: tw <- https://twitter.com/railsr_
+[2026-03-23T22:54:29.111Z]   REGEX: fb <- https://www.facebook.com/RailsrGlobal
+[2026-03-23T22:54:29.111Z]   REGEX: li <- https://www.linkedin.com/company/railsrglobal
+[2026-03-23T22:54:29.111Z] Programmatic result: ws:3, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-23T22:54:29.111Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T22:54:29.114Z] Saved AI prompt (6635 chars) to ai_prompt.txt
+[2026-03-23T22:54:29.114Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T22:54:29.118Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T22:54:54.817Z]   AI: First token received, streaming...
+[2026-03-23T22:55:02.045Z] AI response complete: 137 chars in 32.9s
+[2026-03-23T22:55:02.046Z] Saved AI response to ai_response.json
+[2026-03-23T22:55:02.046Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T22:55:02.047Z]   AI LINK: https://app.railsbank.com
+[2026-03-23T22:55:02.047Z]   AI LINK: https://twitter.com/railsr_
+[2026-03-23T22:55:02.047Z]   AI LINK: https://www.linkedin.com/company/railsrglobal
+[2026-03-23T22:55:02.047Z]   AI LINK: https://www.facebook.com/RailsrGlobal
+[2026-03-23T22:55:02.047Z] AI returned 4 valid links
+[2026-03-23T22:55:02.047Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T22:55:02.047Z]   AI→URLS: https://app.railsbank.com
+[2026-03-23T22:55:02.047Z]   AI→REGEX: tw <- https://twitter.com/railsr_ (duplicate, skipped)
+[2026-03-23T22:55:02.047Z]   AI→REGEX: li <- https://www.linkedin.com/company/railsrglobal (duplicate, skipped)
+[2026-03-23T22:55:02.048Z]   AI→REGEX: fb <- https://www.facebook.com/RailsrGlobal (duplicate, skipped)
+[2026-03-23T22:55:02.048Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T22:55:02.048Z] Footer/header origins (6):
+[2026-03-23T22:55:02.048Z]   FOOTER/HEADER ORIGIN: https://www.railsr.com
+[2026-03-23T22:55:02.048Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T22:55:02.048Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T22:55:02.048Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T22:55:02.048Z]   FOOTER/HEADER ORIGIN: https://dashboard.railsr.com
+[2026-03-23T22:55:02.048Z]   FOOTER/HEADER ORIGIN: https://support.railsr.com
+[2026-03-23T22:55:02.048Z]   SKIP (AI claimed): https://app.railsbank.com
+[2026-03-23T22:55:02.049Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T22:55:02.049Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T22:55:02.049Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T22:55:02.049Z] ── Step 3: Final dedup ──
+[2026-03-23T22:55:02.049Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T22:55:02.049Z] ── FINAL RESULT ──
+[2026-03-23T22:55:02.049Z]   ws (3):
+[2026-03-23T22:55:02.049Z]     - https://dashboard.railsr.com
+[2026-03-23T22:55:02.049Z]     - https://support.railsr.com
+[2026-03-23T22:55:02.049Z]     - https://www.railsr.com
+[2026-03-23T22:55:02.049Z]   li (1):
+[2026-03-23T22:55:02.049Z]     - https://www.linkedin.com/company/railsrglobal
+[2026-03-23T22:55:02.049Z]   fb (1):
+[2026-03-23T22:55:02.049Z]     - https://www.facebook.com/railsrglobal
+[2026-03-23T22:55:02.049Z]   tw (1):
+[2026-03-23T22:55:02.049Z]     - https://x.com/railsr_
+[2026-03-23T22:55:02.050Z]   urls (1):
+[2026-03-23T22:55:02.050Z]     - https://app.railsbank.com
+[2026-03-23T22:55:02.050Z] Summary: ws:3, tw:1, fb:1, li:1, urls:1
+[2026-03-23T22:55:02.054Z] Saved final result to result.json
+[2026-03-23T22:55:02.055Z] Override fields: ws, li, fb, tw, urls
+[2026-03-23T22:55:02.055Z] Finished at: 2026-03-23T22:55:02.055Z

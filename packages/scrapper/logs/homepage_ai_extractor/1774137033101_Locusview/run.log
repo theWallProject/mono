@@ -1,0 +1,80 @@
+[2026-03-21T23:50:33.102Z] === Homepage AI Extractor: Locusview ===
+[2026-03-21T23:50:33.102Z] Started at: 2026-03-21T23:50:33.102Z
+[2026-03-21T23:50:33.102Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774137033101_Locusview
+[2026-03-21T23:50:33.102Z] Company: Locusview
+[2026-03-21T23:50:33.102Z] Website: locusview.com
+[2026-03-21T23:50:33.102Z] cbRank: 9427
+[2026-03-21T23:50:33.102Z] Reasons: f, i
+[2026-03-21T23:50:33.102Z] Fetching: https://locusview.com
+[2026-03-21T23:50:36.691Z] Redirected: https://locusview.com -> https://www.locusview.com/
+[2026-03-21T23:50:36.699Z] Saved HTML (349391 bytes) to page.html
+[2026-03-21T23:50:36.702Z] Extracted 49 unique links from page
+[2026-03-21T23:50:36.703Z] Saved 49 links to links.json
+[2026-03-21T23:50:36.705Z] Extracted footer HTML (10833 chars)
+[2026-03-21T23:50:36.705Z] Extracted header HTML (2286 chars)
+[2026-03-21T23:50:36.709Z] Website (post-redirect): https://www.locusview.com/ → origin: https://www.locusview.com
+[2026-03-21T23:50:36.709Z]   SUBDOMAIN: my.locusview.com (added to ws)
+[2026-03-21T23:50:36.709Z] Website subdomains found: 1
+[2026-03-21T23:50:36.709Z] External links: 4 (of 49 total)
+[2026-03-21T23:50:36.709Z] ── All external links ──
+[2026-03-21T23:50:36.709Z]   EXT: https://twitter.com/LocusView
+[2026-03-21T23:50:36.709Z]   EXT: https://www.itron.com/w/itron-signs-definitive-agreement-to-acquire-locusview-ltd
+[2026-03-21T23:50:36.710Z]   EXT: https://www.linkedin.com/company/locusview
+[2026-03-21T23:50:36.710Z]   EXT: https://www.youtube.com/channel/UCXR2MtX9p2HayjYOHp4dXHg
+[2026-03-21T23:50:36.710Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T23:50:36.710Z]   REGEX: tw <- https://twitter.com/LocusView
+[2026-03-21T23:50:36.710Z]   UNCATEGORIZED: https://www.itron.com/w/itron-signs-definitive-agreement-to-acquire-locusview-ltd
+[2026-03-21T23:50:36.710Z]   REGEX: li <- https://www.linkedin.com/company/locusview
+[2026-03-21T23:50:36.710Z]   REGEX: ytc <- https://www.youtube.com/channel/UCXR2MtX9p2HayjYOHp4dXHg
+[2026-03-21T23:50:36.710Z] Programmatic result: ws:2, tw:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-21T23:50:36.710Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T23:50:36.713Z] Saved AI prompt (7160 chars) to ai_prompt.txt
+[2026-03-21T23:50:36.714Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T23:50:36.717Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T23:51:07.055Z]   AI: First token received, streaming...
+[2026-03-21T23:51:18.680Z] AI response complete: 156 chars in 42.0s
+[2026-03-21T23:51:18.682Z] Saved AI response to ai_response.json
+[2026-03-21T23:51:18.682Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T23:51:18.682Z]   AI LINK: https://www.linkedin.com/company/locusview/
+[2026-03-21T23:51:18.682Z]   AI LINK: https://twitter.com/LocusView
+[2026-03-21T23:51:18.682Z]   AI LINK: https://www.youtube.com/channel/UCXR2MtX9p2HayjYOHp4dXHg
+[2026-03-21T23:51:18.683Z]   AI LINK: https://my.locusview.com/
+[2026-03-21T23:51:18.683Z] AI returned 4 valid links
+[2026-03-21T23:51:18.683Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T23:51:18.683Z]   AI→REGEX: li <- https://www.linkedin.com/company/locusview/ (duplicate, skipped)
+[2026-03-21T23:51:18.683Z]   AI→REGEX: tw <- https://twitter.com/LocusView (duplicate, skipped)
+[2026-03-21T23:51:18.684Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCXR2MtX9p2HayjYOHp4dXHg (duplicate, skipped)
+[2026-03-21T23:51:18.684Z]   AI→URLS: https://my.locusview.com (cleaned from https://my.locusview.com/)
+[2026-03-21T23:51:18.685Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T23:51:18.685Z] Footer/header origins (5):
+[2026-03-21T23:51:18.685Z]   FOOTER/HEADER ORIGIN: https://my.locusview.com
+[2026-03-21T23:51:18.685Z]   FOOTER/HEADER ORIGIN: https://www.locusview.com
+[2026-03-21T23:51:18.685Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T23:51:18.685Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T23:51:18.686Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T23:51:18.686Z]   SKIP (not in footer/header): https://www.itron.com/w/itron-signs-definitive-agreement-to-acquire-locusview-ltd
+[2026-03-21T23:51:18.686Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T23:51:18.686Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T23:51:18.686Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T23:51:18.949Z]   YOUTUBE: resolved UCXR2MtX9p2HayjYOHp4dXHg → @locusview619
+[2026-03-21T23:51:18.949Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T23:51:18.949Z] ── Step 3: Final dedup ──
+[2026-03-21T23:51:18.950Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T23:51:18.950Z] ── FINAL RESULT ──
+[2026-03-21T23:51:18.950Z]   ws (2):
+[2026-03-21T23:51:18.950Z]     - https://my.locusview.com
+[2026-03-21T23:51:18.950Z]     - https://www.locusview.com
+[2026-03-21T23:51:18.950Z]   li (1):
+[2026-03-21T23:51:18.950Z]     - https://www.linkedin.com/company/locusview
+[2026-03-21T23:51:18.950Z]   tw (1):
+[2026-03-21T23:51:18.950Z]     - https://x.com/locusview
+[2026-03-21T23:51:18.950Z]   ytp (1):
+[2026-03-21T23:51:18.950Z]     - https://www.youtube.com/@locusview619
+[2026-03-21T23:51:18.950Z]   ytc (1):
+[2026-03-21T23:51:18.950Z]     - https://www.youtube.com/channel/UCXR2MtX9p2HayjYOHp4dXHg
+[2026-03-21T23:51:18.950Z]   urls (1):
+[2026-03-21T23:51:18.950Z]     - https://my.locusview.com
+[2026-03-21T23:51:18.950Z] Summary: ws:2, tw:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-21T23:51:18.951Z] Saved final result to result.json
+[2026-03-21T23:51:18.951Z] Override fields: ws, li, tw, ytp, ytc
+[2026-03-21T23:51:18.951Z] Finished at: 2026-03-21T23:51:18.951Z

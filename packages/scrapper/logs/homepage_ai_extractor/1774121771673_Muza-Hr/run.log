@@ -1,0 +1,72 @@
+[2026-03-21T19:36:11.673Z] === Homepage AI Extractor: Muza-Hr ===
+[2026-03-21T19:36:11.673Z] Started at: 2026-03-21T19:36:11.673Z
+[2026-03-21T19:36:11.673Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774121771673_Muza-Hr
+[2026-03-21T19:36:11.674Z] Company: Muza-Hr
+[2026-03-21T19:36:11.674Z] Website: muza-hr.co.il
+[2026-03-21T19:36:11.674Z] cbRank: 3741187
+[2026-03-21T19:36:11.674Z] Reasons: h
+[2026-03-21T19:36:11.674Z] Fetching: https://muza-hr.co.il
+[2026-03-21T19:36:15.193Z] Redirected: https://muza-hr.co.il -> https://www.muza-hr.co.il/
+[2026-03-21T19:36:15.204Z] Saved HTML (505052 bytes) to page.html
+[2026-03-21T19:36:15.207Z] Extracted 20 unique links from page
+[2026-03-21T19:36:15.208Z] Saved 20 links to links.json
+[2026-03-21T19:36:15.211Z] Extracted footer HTML (9785 chars)
+[2026-03-21T19:36:15.211Z] Extracted header HTML (14810 chars)
+[2026-03-21T19:36:15.215Z] Website (post-redirect): https://www.muza-hr.co.il/ → origin: https://www.muza-hr.co.il
+[2026-03-21T19:36:15.215Z] External links: 5 (of 20 total)
+[2026-03-21T19:36:15.215Z] ── All external links ──
+[2026-03-21T19:36:15.215Z]   EXT: https://wa.me/+972543232069
+[2026-03-21T19:36:15.215Z]   EXT: https://www.enable.co.il
+[2026-03-21T19:36:15.215Z]   EXT: https://www.facebook.com/jobs.muza.hr
+[2026-03-21T19:36:15.216Z]   EXT: https://www.linkedin.com/in/dorit-halfon-headhunter-muza-hr
+[2026-03-21T19:36:15.216Z]   EXT: https://www.upress.co.il
+[2026-03-21T19:36:15.216Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T19:36:15.216Z]   UNCATEGORIZED: https://wa.me/+972543232069
+[2026-03-21T19:36:15.216Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-21T19:36:15.216Z]   REGEX: fb <- https://www.facebook.com/jobs.muza.hr
+[2026-03-21T19:36:15.216Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-21T19:36:15.216Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-21T19:36:15.216Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/dorit-halfon-headhunter-muza-hr
+[2026-03-21T19:36:15.216Z] Programmatic result: ws:1, fb:1 | 3 uncategorized
+[2026-03-21T19:36:15.216Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T19:36:15.219Z] Saved AI prompt (5993 chars) to ai_prompt.txt
+[2026-03-21T19:36:15.220Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T19:36:15.224Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T19:36:42.644Z]   AI: First token received, streaming...
+[2026-03-21T19:36:50.675Z] AI response complete: 125 chars in 35.5s
+[2026-03-21T19:36:50.677Z] Saved AI response to ai_response.json
+[2026-03-21T19:36:50.677Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T19:36:50.677Z]   AI LINK: https://www.muza-hr.co.il
+[2026-03-21T19:36:50.678Z]   AI LINK: https://www.facebook.com/jobs.muza.hr/
+[2026-03-21T19:36:50.678Z]   AI LINK: https://www.linkedin.com/in/dorit-halfon-headhunter-muza-hr/
+[2026-03-21T19:36:50.678Z] AI returned 3 valid links
+[2026-03-21T19:36:50.678Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T19:36:50.678Z]   AI→URLS: https://www.muza-hr.co.il
+[2026-03-21T19:36:50.679Z]   AI→REGEX: fb <- https://www.facebook.com/jobs.muza.hr/ (duplicate, skipped)
+[2026-03-21T19:36:50.679Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/dorit-halfon-headhunter-muza-hr/
+[2026-03-21T19:36:50.679Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T19:36:50.679Z] Footer/header origins (4):
+[2026-03-21T19:36:50.680Z]   FOOTER/HEADER ORIGIN: https://www.muza-hr.co.il
+[2026-03-21T19:36:50.680Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T19:36:50.680Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T19:36:50.680Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-21T19:36:50.680Z]   ADDED: urls <- https://wa.me/+972543232069
+[2026-03-21T19:36:50.680Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-21T19:36:50.680Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-21T19:36:50.681Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T19:36:50.681Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T19:36:50.681Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T19:36:50.681Z] ── Step 3: Final dedup ──
+[2026-03-21T19:36:50.681Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T19:36:50.681Z] ── FINAL RESULT ──
+[2026-03-21T19:36:50.681Z]   ws (1):
+[2026-03-21T19:36:50.682Z]     - https://www.muza-hr.co.il
+[2026-03-21T19:36:50.682Z]   fb (1):
+[2026-03-21T19:36:50.682Z]     - https://www.facebook.com/jobs.muza.hr
+[2026-03-21T19:36:50.682Z]   urls (2):
+[2026-03-21T19:36:50.682Z]     - https://wa.me/+972543232069
+[2026-03-21T19:36:50.682Z]     - https://www.muza-hr.co.il
+[2026-03-21T19:36:50.682Z] Summary: ws:1, fb:1, urls:2
+[2026-03-21T19:36:50.683Z] Saved final result to result.json
+[2026-03-21T19:36:50.683Z] Override fields: ws, fb, urls
+[2026-03-21T19:36:50.684Z] Finished at: 2026-03-21T19:36:50.684Z

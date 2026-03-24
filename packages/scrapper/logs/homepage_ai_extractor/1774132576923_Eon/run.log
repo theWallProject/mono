@@ -1,0 +1,72 @@
+[2026-03-21T22:36:16.924Z] === Homepage AI Extractor: Eon ===
+[2026-03-21T22:36:16.924Z] Started at: 2026-03-21T22:36:16.924Z
+[2026-03-21T22:36:16.924Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774132576923_Eon
+[2026-03-21T22:36:16.924Z] Company: Eon
+[2026-03-21T22:36:16.924Z] Website: eon.io
+[2026-03-21T22:36:16.925Z] cbRank: 2167
+[2026-03-21T22:36:16.925Z] Reasons: f, i
+[2026-03-21T22:36:16.925Z] Fetching: https://eon.io
+[2026-03-21T22:36:21.561Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T22:36:24.516Z] Redirected: https://eon.io -> https://www.eon.io/
+[2026-03-21T22:36:24.538Z] Saved HTML (973247 bytes) to page.html
+[2026-03-21T22:36:24.541Z] Extracted 37 unique links from page
+[2026-03-21T22:36:24.541Z] Saved 37 links to links.json
+[2026-03-21T22:36:24.552Z] Extracted footer HTML (266369 chars)
+[2026-03-21T22:36:24.552Z] Extracted header HTML (392469 chars)
+[2026-03-21T22:36:24.555Z] Website (post-redirect): https://www.eon.io/ → origin: https://www.eon.io
+[2026-03-21T22:36:24.556Z]   SUBDOMAIN: trust.eon.io (added to ws)
+[2026-03-21T22:36:24.556Z] Website subdomains found: 1
+[2026-03-21T22:36:24.556Z] External links: 5 (of 37 total)
+[2026-03-21T22:36:24.556Z] ── All external links ──
+[2026-03-21T22:36:24.556Z]   EXT: https://eonsretrofuturisticlaunchparty.splashthat.com
+[2026-03-21T22:36:24.556Z]   EXT: https://registration.awsevents.com/flow/awsevents/reinvent24/public/page/catalog?search.topic=1707430256139005EF97&trk=mail.google.com&search=cop%20331
+[2026-03-21T22:36:24.556Z]   EXT: https://visitusatourbooth.splashthat.com
+[2026-03-21T22:36:24.556Z]   EXT: https://www.linkedin.com/company/eon-io/about
+[2026-03-21T22:36:24.556Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T22:36:24.556Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:36:24.557Z]   UNCATEGORIZED: https://eonsretrofuturisticlaunchparty.splashthat.com
+[2026-03-21T22:36:24.557Z]   UNCATEGORIZED: https://registration.awsevents.com/flow/awsevents/reinvent24/public/page/catalog?search.topic=1707430256139005EF97&trk=mail.google.com&search=cop%20331
+[2026-03-21T22:36:24.557Z]   UNCATEGORIZED: https://visitusatourbooth.splashthat.com
+[2026-03-21T22:36:24.557Z]   REGEX: li <- https://www.linkedin.com/company/eon-io/about
+[2026-03-21T22:36:24.557Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T22:36:24.558Z] Programmatic result: ws:2, li:1 | 4 uncategorized
+[2026-03-21T22:36:24.558Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:36:24.561Z] Saved AI prompt (4298 chars) to ai_prompt.txt
+[2026-03-21T22:36:24.561Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:36:24.565Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:36:41.441Z]   AI: First token received, streaming...
+[2026-03-21T22:36:44.781Z] AI response complete: 68 chars in 20.2s
+[2026-03-21T22:36:44.782Z] Saved AI response to ai_response.json
+[2026-03-21T22:36:44.782Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T22:36:44.783Z]   AI LINK: https://www.linkedin.com/company/eon-io/about/
+[2026-03-21T22:36:44.783Z]   AI LINK: https://trust.eon.io/
+[2026-03-21T22:36:44.783Z] AI returned 2 valid links
+[2026-03-21T22:36:44.783Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T22:36:44.784Z]   AI→REGEX: li <- https://www.linkedin.com/company/eon-io/about/ (duplicate, skipped)
+[2026-03-21T22:36:44.784Z]   AI→URLS: https://trust.eon.io (cleaned from https://trust.eon.io/)
+[2026-03-21T22:36:44.787Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:36:44.787Z] Footer/header origins (3):
+[2026-03-21T22:36:44.788Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:36:44.788Z]   FOOTER/HEADER ORIGIN: https://trust.eon.io
+[2026-03-21T22:36:44.788Z]   FOOTER/HEADER ORIGIN: https://www.eon.io
+[2026-03-21T22:36:44.788Z]   SKIP (not in footer/header): https://eonsretrofuturisticlaunchparty.splashthat.com
+[2026-03-21T22:36:44.788Z]   SKIP (not in footer/header): https://registration.awsevents.com/flow/awsevents/reinvent24/public/page/catalog?search.topic=1707430256139005EF97&trk=mail.google.com&search=cop%20331
+[2026-03-21T22:36:44.788Z]   SKIP (not in footer/header): https://visitusatourbooth.splashthat.com
+[2026-03-21T22:36:44.789Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-21T22:36:44.789Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:36:44.789Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:36:44.789Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:36:44.790Z] ── Step 3: Final dedup ──
+[2026-03-21T22:36:44.790Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T22:36:44.790Z] ── FINAL RESULT ──
+[2026-03-21T22:36:44.790Z]   ws (2):
+[2026-03-21T22:36:44.790Z]     - https://trust.eon.io
+[2026-03-21T22:36:44.790Z]     - https://www.eon.io
+[2026-03-21T22:36:44.790Z]   li (1):
+[2026-03-21T22:36:44.791Z]     - https://www.linkedin.com/company/eon-io
+[2026-03-21T22:36:44.791Z]   urls (1):
+[2026-03-21T22:36:44.791Z]     - https://trust.eon.io
+[2026-03-21T22:36:44.791Z] Summary: ws:2, li:1, urls:1
+[2026-03-21T22:36:44.792Z] Saved final result to result.json
+[2026-03-21T22:36:44.792Z] Override fields: ws, li
+[2026-03-21T22:36:44.792Z] Finished at: 2026-03-21T22:36:44.792Z

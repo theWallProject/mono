@@ -1,0 +1,76 @@
+[2026-03-23T19:09:52.127Z] === Homepage AI Extractor: Teal ===
+[2026-03-23T19:09:52.127Z] Started at: 2026-03-23T19:09:52.127Z
+[2026-03-23T19:09:52.127Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774292992126_Teal
+[2026-03-23T19:09:52.127Z] Company: Teal
+[2026-03-23T19:09:52.128Z] Website: tealhq.com
+[2026-03-23T19:09:52.128Z] cbRank: 7885
+[2026-03-23T19:09:52.128Z] Reasons: i
+[2026-03-23T19:09:52.128Z] Fetching: https://tealhq.com
+[2026-03-23T19:09:56.078Z] Redirected: https://tealhq.com -> https://www.tealhq.com/
+[2026-03-23T19:09:56.086Z] Saved HTML (215454 bytes) to page.html
+[2026-03-23T19:09:56.090Z] Extracted 86 unique links from page
+[2026-03-23T19:09:56.090Z] Saved 86 links to links.json
+[2026-03-23T19:09:56.093Z] Extracted footer HTML (12879 chars)
+[2026-03-23T19:09:56.093Z] Extracted header HTML (27269 chars)
+[2026-03-23T19:09:56.096Z] Website (post-redirect): https://www.tealhq.com/ → origin: https://www.tealhq.com
+[2026-03-23T19:09:56.097Z]   SUBDOMAIN: app.tealhq.com (added to ws)
+[2026-03-23T19:09:56.097Z] Website subdomains found: 1
+[2026-03-23T19:09:56.097Z] External links: 4 (of 86 total)
+[2026-03-23T19:09:56.097Z] ── All external links ──
+[2026-03-23T19:09:56.097Z]   EXT: https://www.instagram.com/teal_hq/?hl=en
+[2026-03-23T19:09:56.097Z]   EXT: https://www.linkedin.com/company/tealhq
+[2026-03-23T19:09:56.097Z]   EXT: https://www.tiktok.com/@teal_hq
+[2026-03-23T19:09:56.097Z]   EXT: https://www.youtube.com/c/Tealhq/featured
+[2026-03-23T19:09:56.097Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:09:56.098Z]   REGEX: ig <- https://www.instagram.com/teal_hq/?hl=en
+[2026-03-23T19:09:56.098Z]   REGEX: li <- https://www.linkedin.com/company/tealhq
+[2026-03-23T19:09:56.098Z]   REGEX: tt <- https://www.tiktok.com/@teal_hq
+[2026-03-23T19:09:56.099Z]   REGEX: ytp <- https://www.youtube.com/c/Tealhq/featured
+[2026-03-23T19:09:56.099Z] Programmatic result: ws:2, ig:1, li:1, tt:1, ytp:1 | 0 uncategorized
+[2026-03-23T19:09:56.099Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:09:56.100Z] Saved AI prompt (6695 chars) to ai_prompt.txt
+[2026-03-23T19:09:56.100Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:09:56.103Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:10:22.517Z]   AI: First token received, streaming...
+[2026-03-23T19:10:33.153Z] AI response complete: 155 chars in 37.1s
+[2026-03-23T19:10:33.154Z] Saved AI response to ai_response.json
+[2026-03-23T19:10:33.154Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T19:10:33.154Z]   AI LINK: https://www.youtube.com/c/Tealhq/featured
+[2026-03-23T19:10:33.154Z]   AI LINK: https://www.linkedin.com/company/tealhq/
+[2026-03-23T19:10:33.155Z]   AI LINK: https://www.tiktok.com/@teal_hq
+[2026-03-23T19:10:33.155Z]   AI LINK: https://www.instagram.com/teal_hq/?hl=en
+[2026-03-23T19:10:33.155Z] AI returned 4 valid links
+[2026-03-23T19:10:33.155Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T19:10:33.155Z]   AI→REGEX: ytp <- https://www.youtube.com/c/Tealhq/featured (duplicate, skipped)
+[2026-03-23T19:10:33.155Z]   AI→REGEX: li <- https://www.linkedin.com/company/tealhq/ (duplicate, skipped)
+[2026-03-23T19:10:33.156Z]   AI→REGEX: tt <- https://www.tiktok.com/@teal_hq (duplicate, skipped)
+[2026-03-23T19:10:33.156Z]   AI→REGEX: ig <- https://www.instagram.com/teal_hq/?hl=en (duplicate, skipped)
+[2026-03-23T19:10:33.157Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:10:33.157Z] Footer/header origins (6):
+[2026-03-23T19:10:33.158Z]   FOOTER/HEADER ORIGIN: https://www.tealhq.com
+[2026-03-23T19:10:33.158Z]   FOOTER/HEADER ORIGIN: https://app.tealhq.com
+[2026-03-23T19:10:33.158Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T19:10:33.158Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:10:33.158Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-23T19:10:33.158Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T19:10:33.158Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:10:33.158Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:10:33.158Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:10:33.158Z] ── Step 3: Final dedup ──
+[2026-03-23T19:10:33.158Z] No urls to dedup
+[2026-03-23T19:10:33.158Z] ── FINAL RESULT ──
+[2026-03-23T19:10:33.159Z]   ws (2):
+[2026-03-23T19:10:33.159Z]     - https://app.tealhq.com
+[2026-03-23T19:10:33.159Z]     - https://www.tealhq.com
+[2026-03-23T19:10:33.159Z]   li (1):
+[2026-03-23T19:10:33.159Z]     - https://www.linkedin.com/company/tealhq
+[2026-03-23T19:10:33.159Z]   ig (1):
+[2026-03-23T19:10:33.159Z]     - https://www.instagram.com/teal_hq
+[2026-03-23T19:10:33.159Z]   ytp (1):
+[2026-03-23T19:10:33.159Z]     - https://www.youtube.com/@tealhq
+[2026-03-23T19:10:33.159Z]   tt (1):
+[2026-03-23T19:10:33.159Z]     - https://www.tiktok.com/@teal_hq
+[2026-03-23T19:10:33.160Z] Summary: ws:2, ig:1, li:1, tt:1, ytp:1
+[2026-03-23T19:10:33.160Z] Saved final result to result.json
+[2026-03-23T19:10:33.161Z] Override fields: ws, li, ig, ytp, tt
+[2026-03-23T19:10:33.161Z] Finished at: 2026-03-23T19:10:33.161Z

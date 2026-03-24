@@ -1,0 +1,82 @@
+[2026-03-23T19:58:21.454Z] === Homepage AI Extractor: Dashworks ===
+[2026-03-23T19:58:21.454Z] Started at: 2026-03-23T19:58:21.454Z
+[2026-03-23T19:58:21.454Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774295901453_Dashworks
+[2026-03-23T19:58:21.454Z] Company: Dashworks
+[2026-03-23T19:58:21.454Z] Website: dashworks.ai
+[2026-03-23T19:58:21.454Z] cbRank: 12354
+[2026-03-23T19:58:21.454Z] Reasons: i
+[2026-03-23T19:58:21.454Z] Fetching: https://dashworks.ai
+[2026-03-23T19:58:33.235Z] Network idle timeout — continuing with current state
+[2026-03-23T19:58:33.279Z] Redirected: https://dashworks.ai -> https://www.dashworks.ai/
+[2026-03-23T19:58:33.284Z] Saved HTML (115794 bytes) to page.html
+[2026-03-23T19:58:33.288Z] Extracted 28 unique links from page
+[2026-03-23T19:58:33.291Z] Saved 28 links to links.json
+[2026-03-23T19:58:33.295Z] Extracted footer HTML (4753 chars)
+[2026-03-23T19:58:33.295Z] Extracted header HTML (9053 chars)
+[2026-03-23T19:58:33.300Z] Website (post-redirect): https://www.dashworks.ai/ → origin: https://www.dashworks.ai
+[2026-03-23T19:58:33.300Z]   SUBDOMAIN: docs.dashworks.ai (added to ws)
+[2026-03-23T19:58:33.300Z]   SUBDOMAIN: web.dashworks.ai (added to ws)
+[2026-03-23T19:58:33.300Z] Website subdomains found: 2
+[2026-03-23T19:58:33.300Z] External links: 4 (of 28 total)
+[2026-03-23T19:58:33.300Z] ── All external links ──
+[2026-03-23T19:58:33.300Z]   EXT: https://dashworks.gitbook.io/dashworks-help-center
+[2026-03-23T19:58:33.300Z]   EXT: https://twitter.com/DashworksAI
+[2026-03-23T19:58:33.300Z]   EXT: https://www.facebook.com/profile.php?id=61552061889143
+[2026-03-23T19:58:33.300Z]   EXT: https://www.linkedin.com/company/dashworksai
+[2026-03-23T19:58:33.300Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:58:33.301Z]   UNCATEGORIZED: https://dashworks.gitbook.io/dashworks-help-center
+[2026-03-23T19:58:33.301Z]   REGEX: tw <- https://twitter.com/DashworksAI
+[2026-03-23T19:58:33.301Z]   REGEX: li <- https://www.linkedin.com/company/dashworksai
+[2026-03-23T19:58:33.301Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T19:58:34.757Z]   RESOLVE: https://www.facebook.com/profile.php?id=61552061889143 → https://www.facebook.com/people/Dashworks/61552061889143
+[2026-03-23T19:58:34.773Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Dashworks/61552061889143 (from https://www.facebook.com/profile.php?id=61552061889143)
+[2026-03-23T19:58:34.773Z] Programmatic result: ws:3, tw:1, li:1 | 1 uncategorized
+[2026-03-23T19:58:34.773Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:58:34.776Z] Saved AI prompt (4497 chars) to ai_prompt.txt
+[2026-03-23T19:58:34.777Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:58:34.780Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:58:53.826Z]   AI: First token received, streaming...
+[2026-03-23T19:59:05.813Z] AI response complete: 184 chars in 31.0s
+[2026-03-23T19:59:05.815Z] Saved AI response to ai_response.json
+[2026-03-23T19:59:05.815Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T19:59:05.815Z]   AI LINK: https://dashworks.gitbook.io/dashworks-help-center/
+[2026-03-23T19:59:05.815Z]   AI LINK: https://www.linkedin.com/company/dashworksai/
+[2026-03-23T19:59:05.816Z]   AI LINK: https://twitter.com/DashworksAI
+[2026-03-23T19:59:05.816Z]   AI LINK: https://www.facebook.com/profile.php?id=61552061889143
+[2026-03-23T19:59:05.816Z] AI returned 4 valid links
+[2026-03-23T19:59:05.816Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T19:59:05.816Z]   AI→URLS: https://dashworks.gitbook.io/dashworks-help-center (cleaned from https://dashworks.gitbook.io/dashworks-help-center/)
+[2026-03-23T19:59:05.816Z]   AI→REGEX: li <- https://www.linkedin.com/company/dashworksai/ (duplicate, skipped)
+[2026-03-23T19:59:05.816Z]   AI→REGEX: tw <- https://twitter.com/DashworksAI (duplicate, skipped)
+[2026-03-23T19:59:06.622Z]   RESOLVE: https://www.facebook.com/profile.php?id=61552061889143 → https://www.facebook.com/people/Dashworks/61552061889143
+[2026-03-23T19:59:06.663Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/Dashworks/61552061889143 (from https://www.facebook.com/profile.php?id=61552061889143)
+[2026-03-23T19:59:06.664Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:59:06.664Z] Footer/header origins (7):
+[2026-03-23T19:59:06.664Z]   FOOTER/HEADER ORIGIN: https://dashworks.gitbook.io
+[2026-03-23T19:59:06.664Z]   FOOTER/HEADER ORIGIN: https://www.dashworks.ai
+[2026-03-23T19:59:06.664Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:59:06.664Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T19:59:06.664Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T19:59:06.664Z]   FOOTER/HEADER ORIGIN: https://docs.dashworks.ai
+[2026-03-23T19:59:06.664Z]   FOOTER/HEADER ORIGIN: https://web.dashworks.ai
+[2026-03-23T19:59:06.664Z]   SKIP (AI claimed): https://dashworks.gitbook.io/dashworks-help-center
+[2026-03-23T19:59:06.664Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:59:06.664Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:59:06.664Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:59:06.664Z] ── Step 3: Final dedup ──
+[2026-03-23T19:59:06.664Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T19:59:06.664Z] ── FINAL RESULT ──
+[2026-03-23T19:59:06.664Z]   ws (3):
+[2026-03-23T19:59:06.665Z]     - https://docs.dashworks.ai
+[2026-03-23T19:59:06.665Z]     - https://web.dashworks.ai
+[2026-03-23T19:59:06.665Z]     - https://www.dashworks.ai
+[2026-03-23T19:59:06.665Z]   li (1):
+[2026-03-23T19:59:06.665Z]     - https://www.linkedin.com/company/dashworksai
+[2026-03-23T19:59:06.665Z]   tw (1):
+[2026-03-23T19:59:06.665Z]     - https://x.com/dashworksai
+[2026-03-23T19:59:06.665Z]   urls (1):
+[2026-03-23T19:59:06.665Z]     - https://dashworks.gitbook.io/dashworks-help-center
+[2026-03-23T19:59:06.665Z] Summary: ws:3, tw:1, li:1, urls:1
+[2026-03-23T19:59:06.665Z] Saved final result to result.json
+[2026-03-23T19:59:06.666Z] Override fields: ws, li, tw, urls
+[2026-03-23T19:59:06.666Z] Finished at: 2026-03-23T19:59:06.666Z

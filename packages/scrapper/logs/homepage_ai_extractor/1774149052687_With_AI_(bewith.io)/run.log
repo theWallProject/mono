@@ -1,0 +1,62 @@
+[2026-03-22T03:10:52.687Z] === Homepage AI Extractor: With AI (bewith.io) ===
+[2026-03-22T03:10:52.687Z] Started at: 2026-03-22T03:10:52.687Z
+[2026-03-22T03:10:52.688Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774149052687_With_AI_(bewith.io)
+[2026-03-22T03:10:52.688Z] Company: With AI (bewith.io)
+[2026-03-22T03:10:52.688Z] Website: bewith.io
+[2026-03-22T03:10:52.688Z] cbRank: 46687
+[2026-03-22T03:10:52.688Z] Reasons: f, i
+[2026-03-22T03:10:52.688Z] Fetching: https://bewith.io
+[2026-03-22T03:10:57.591Z] Redirected: https://bewith.io -> https://bewith.io/
+[2026-03-22T03:10:57.599Z] Saved HTML (289990 bytes) to page.html
+[2026-03-22T03:10:57.604Z] Extracted 25 unique links from page
+[2026-03-22T03:10:57.605Z] Saved 25 links to links.json
+[2026-03-22T03:10:57.608Z] Extracted footer HTML (5969 chars)
+[2026-03-22T03:10:57.608Z] Extracted header HTML (44940 chars)
+[2026-03-22T03:10:57.612Z] Website (post-redirect): https://bewith.io/ → origin: https://bewith.io
+[2026-03-22T03:10:57.612Z] External links: 3 (of 25 total)
+[2026-03-22T03:10:57.612Z] ── All external links ──
+[2026-03-22T03:10:57.612Z]   EXT: https://calendly.com/with-eran/30min
+[2026-03-22T03:10:57.612Z]   EXT: https://www.linkedin.com/company/bwith
+[2026-03-22T03:10:57.612Z]   EXT: https://www.youtube.com/@with_everythingcommunity
+[2026-03-22T03:10:57.612Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T03:10:57.612Z]   UNCATEGORIZED: https://calendly.com/with-eran/30min
+[2026-03-22T03:10:57.613Z]   REGEX: li <- https://www.linkedin.com/company/bwith
+[2026-03-22T03:10:57.613Z]   REGEX: ytp <- https://www.youtube.com/@with_everythingcommunity
+[2026-03-22T03:10:57.613Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-22T03:10:57.613Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T03:10:57.616Z] Saved AI prompt (4963 chars) to ai_prompt.txt
+[2026-03-22T03:10:57.616Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T03:10:57.621Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T03:11:17.308Z]   AI: First token received, streaming...
+[2026-03-22T03:11:20.807Z] AI response complete: 89 chars in 23.2s
+[2026-03-22T03:11:20.809Z] Saved AI response to ai_response.json
+[2026-03-22T03:11:20.809Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T03:11:20.809Z]   AI LINK: https://www.linkedin.com/company/bwith/
+[2026-03-22T03:11:20.809Z]   AI LINK: https://www.youtube.com/@with_everythingcommunity
+[2026-03-22T03:11:20.810Z] AI returned 2 valid links
+[2026-03-22T03:11:20.810Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T03:11:20.810Z]   AI→REGEX: li <- https://www.linkedin.com/company/bwith/ (duplicate, skipped)
+[2026-03-22T03:11:20.810Z]   AI→REGEX: ytp <- https://www.youtube.com/@with_everythingcommunity (duplicate, skipped)
+[2026-03-22T03:11:20.811Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T03:11:20.811Z] Footer/header origins (4):
+[2026-03-22T03:11:20.812Z]   FOOTER/HEADER ORIGIN: https://bewith.io
+[2026-03-22T03:11:20.812Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T03:11:20.812Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T03:11:20.812Z]   FOOTER/HEADER ORIGIN: http://bewith.io
+[2026-03-22T03:11:20.812Z]   SKIP (not in footer/header): https://calendly.com/with-eran/30min
+[2026-03-22T03:11:20.812Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T03:11:20.812Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T03:11:20.813Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T03:11:20.813Z] ── Step 3: Final dedup ──
+[2026-03-22T03:11:20.813Z] No urls to dedup
+[2026-03-22T03:11:20.813Z] ── FINAL RESULT ──
+[2026-03-22T03:11:20.813Z]   ws (1):
+[2026-03-22T03:11:20.813Z]     - https://bewith.io
+[2026-03-22T03:11:20.813Z]   li (1):
+[2026-03-22T03:11:20.813Z]     - https://www.linkedin.com/company/bwith
+[2026-03-22T03:11:20.814Z]   ytp (1):
+[2026-03-22T03:11:20.814Z]     - https://www.youtube.com/@with_everythingcommunity
+[2026-03-22T03:11:20.814Z] Summary: ws:1, li:1, ytp:1
+[2026-03-22T03:11:20.815Z] Saved final result to result.json
+[2026-03-22T03:11:20.815Z] Override fields: ws, li, ytp
+[2026-03-22T03:11:20.815Z] Finished at: 2026-03-22T03:11:20.815Z

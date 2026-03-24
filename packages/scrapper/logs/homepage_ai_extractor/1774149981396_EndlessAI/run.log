@@ -1,0 +1,57 @@
+[2026-03-22T03:26:21.397Z] === Homepage AI Extractor: EndlessAI ===
+[2026-03-22T03:26:21.398Z] Started at: 2026-03-22T03:26:21.398Z
+[2026-03-22T03:26:21.398Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774149981396_EndlessAI
+[2026-03-22T03:26:21.398Z] Company: EndlessAI
+[2026-03-22T03:26:21.398Z] Website: endlessai.com
+[2026-03-22T03:26:21.398Z] cbRank: 50885
+[2026-03-22T03:26:21.398Z] Reasons: f
+[2026-03-22T03:26:21.398Z] Fetching: https://endlessai.com
+[2026-03-22T03:26:22.706Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T03:26:25.693Z] Redirected: https://endlessai.com -> https://endlessai.com/
+[2026-03-22T03:26:25.699Z] Saved HTML (96093 bytes) to page.html
+[2026-03-22T03:26:25.701Z] Extracted 11 unique links from page
+[2026-03-22T03:26:25.702Z] Saved 11 links to links.json
+[2026-03-22T03:26:25.704Z] Extracted footer HTML (5740 chars)
+[2026-03-22T03:26:25.704Z] Extracted header HTML (3552 chars)
+[2026-03-22T03:26:25.707Z] Website (post-redirect): https://endlessai.com/ → origin: https://endlessai.com
+[2026-03-22T03:26:25.708Z] External links: 3 (of 11 total)
+[2026-03-22T03:26:25.708Z] ── All external links ──
+[2026-03-22T03:26:25.708Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-22T03:26:25.708Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-22T03:26:25.708Z]   EXT: https://www.linkedin.com/company/endlessai
+[2026-03-22T03:26:25.708Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T03:26:25.708Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-22T03:26:25.708Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-22T03:26:25.708Z]   REGEX: li <- https://www.linkedin.com/company/endlessai
+[2026-03-22T03:26:25.708Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-22T03:26:25.708Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T03:26:25.711Z] Saved AI prompt (3171 chars) to ai_prompt.txt
+[2026-03-22T03:26:25.712Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T03:26:25.716Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T03:26:37.023Z]   AI: First token received, streaming...
+[2026-03-22T03:26:38.403Z] AI response complete: 43 chars in 12.7s
+[2026-03-22T03:26:38.404Z] Saved AI response to ai_response.json
+[2026-03-22T03:26:38.405Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T03:26:38.405Z]   AI LINK: https://www.linkedin.com/company/endlessai/
+[2026-03-22T03:26:38.405Z] AI returned 1 valid links
+[2026-03-22T03:26:38.405Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T03:26:38.405Z]   AI→REGEX: li <- https://www.linkedin.com/company/endlessai/ (duplicate, skipped)
+[2026-03-22T03:26:38.406Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T03:26:38.406Z] Footer/header origins (1):
+[2026-03-22T03:26:38.406Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T03:26:38.406Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-22T03:26:38.407Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-22T03:26:38.407Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T03:26:38.407Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T03:26:38.407Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T03:26:38.407Z] ── Step 3: Final dedup ──
+[2026-03-22T03:26:38.407Z] No urls to dedup
+[2026-03-22T03:26:38.407Z] ── FINAL RESULT ──
+[2026-03-22T03:26:38.408Z]   ws (1):
+[2026-03-22T03:26:38.408Z]     - https://endlessai.com
+[2026-03-22T03:26:38.408Z]   li (1):
+[2026-03-22T03:26:38.408Z]     - https://www.linkedin.com/company/endlessai
+[2026-03-22T03:26:38.408Z] Summary: ws:1, li:1
+[2026-03-22T03:26:38.409Z] Saved final result to result.json
+[2026-03-22T03:26:38.409Z] Override fields: ws, li
+[2026-03-22T03:26:38.410Z] Finished at: 2026-03-22T03:26:38.410Z

@@ -1,0 +1,76 @@
+[2026-03-22T00:06:48.795Z] === Homepage AI Extractor: TULU ===
+[2026-03-22T00:06:48.795Z] Started at: 2026-03-22T00:06:48.795Z
+[2026-03-22T00:06:48.795Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774138008794_TULU
+[2026-03-22T00:06:48.795Z] Company: TULU
+[2026-03-22T00:06:48.795Z] Website: tulu.io
+[2026-03-22T00:06:48.795Z] cbRank: 11017
+[2026-03-22T00:06:48.795Z] Reasons: f, i
+[2026-03-22T00:06:48.796Z] Fetching: https://tulu.io
+[2026-03-22T00:06:54.025Z] Redirected: https://tulu.io -> https://www.tulu.io/
+[2026-03-22T00:06:54.042Z] Saved HTML (795818 bytes) to page.html
+[2026-03-22T00:06:54.046Z] Extracted 25 unique links from page
+[2026-03-22T00:06:54.046Z] Saved 25 links to links.json
+[2026-03-22T00:06:54.049Z] Extracted footer HTML (23846 chars)
+[2026-03-22T00:06:54.049Z] Extracted header HTML (30279 chars)
+[2026-03-22T00:06:54.054Z] Website (post-redirect): https://www.tulu.io/ → origin: https://www.tulu.io
+[2026-03-22T00:06:54.054Z] External links: 5 (of 25 total)
+[2026-03-22T00:06:54.054Z] ── All external links ──
+[2026-03-22T00:06:54.054Z]   EXT: https://tulu-push.web.app/get_app
+[2026-03-22T00:06:54.054Z]   EXT: https://wponetap.com/?utm_source=frontend-link&utm_medium=link&utm_campaign=ref-link-toolbar
+[2026-03-22T00:06:54.054Z]   EXT: https://www.instagram.com/tulu.io?igsh=aHk4bXBvbGh3aDF4
+[2026-03-22T00:06:54.054Z]   EXT: https://www.linkedin.com/company/tulou
+[2026-03-22T00:06:54.054Z]   EXT: https://www.youtube.com/@tulu_life
+[2026-03-22T00:06:54.054Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:06:54.055Z]   UNCATEGORIZED: https://tulu-push.web.app/get_app
+[2026-03-22T00:06:54.055Z]   UNCATEGORIZED: https://wponetap.com/?utm_source=frontend-link&utm_medium=link&utm_campaign=ref-link-toolbar
+[2026-03-22T00:06:54.055Z]   REGEX: ig <- https://www.instagram.com/tulu.io?igsh=aHk4bXBvbGh3aDF4
+[2026-03-22T00:06:54.055Z]   REGEX: li <- https://www.linkedin.com/company/tulou
+[2026-03-22T00:06:54.055Z]   REGEX: ytp <- https://www.youtube.com/@tulu_life
+[2026-03-22T00:06:54.055Z] Programmatic result: ws:1, ig:1, li:1, ytp:1 | 2 uncategorized
+[2026-03-22T00:06:54.055Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:06:54.058Z] Saved AI prompt (11112 chars) to ai_prompt.txt
+[2026-03-22T00:06:54.058Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:06:54.063Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:07:40.577Z]   AI: First token received, streaming...
+[2026-03-22T00:07:53.042Z] AI response complete: 165 chars in 59.0s
+[2026-03-22T00:07:53.044Z] Saved AI response to ai_response.json
+[2026-03-22T00:07:53.044Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T00:07:53.044Z]   AI LINK: https://www.linkedin.com/company/tulou/
+[2026-03-22T00:07:53.044Z]   AI LINK: https://www.instagram.com/tulu.io?igsh=aHk4bXBvbGh3aDF4
+[2026-03-22T00:07:53.045Z]   AI LINK: https://www.youtube.com/@tulu_life
+[2026-03-22T00:07:53.045Z]   AI LINK: https://tulu-push.web.app/get_app/
+[2026-03-22T00:07:53.045Z] AI returned 4 valid links
+[2026-03-22T00:07:53.045Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T00:07:53.045Z]   AI→REGEX: li <- https://www.linkedin.com/company/tulou/ (duplicate, skipped)
+[2026-03-22T00:07:53.045Z]   AI→REGEX: ig <- https://www.instagram.com/tulu.io?igsh=aHk4bXBvbGh3aDF4 (duplicate, skipped)
+[2026-03-22T00:07:53.045Z]   AI→REGEX: ytp <- https://www.youtube.com/@tulu_life (duplicate, skipped)
+[2026-03-22T00:07:53.046Z]   AI→URLS: https://tulu-push.web.app/get_app (cleaned from https://tulu-push.web.app/get_app/)
+[2026-03-22T00:07:53.046Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:07:53.046Z] Footer/header origins (5):
+[2026-03-22T00:07:53.046Z]   FOOTER/HEADER ORIGIN: https://www.tulu.io
+[2026-03-22T00:07:53.046Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:07:53.046Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T00:07:53.047Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:07:53.047Z]   FOOTER/HEADER ORIGIN: https://tulu-push.web.app
+[2026-03-22T00:07:53.047Z]   SKIP (AI claimed): https://tulu-push.web.app/get_app
+[2026-03-22T00:07:53.047Z]   SKIP (not in footer/header): https://wponetap.com/?utm_source=frontend-link&utm_medium=link&utm_campaign=ref-link-toolbar
+[2026-03-22T00:07:53.047Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:07:53.047Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:07:53.047Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:07:53.047Z] ── Step 3: Final dedup ──
+[2026-03-22T00:07:53.047Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T00:07:53.047Z] ── FINAL RESULT ──
+[2026-03-22T00:07:53.048Z]   ws (1):
+[2026-03-22T00:07:53.048Z]     - https://www.tulu.io
+[2026-03-22T00:07:53.048Z]   li (1):
+[2026-03-22T00:07:53.048Z]     - https://www.linkedin.com/company/tulou
+[2026-03-22T00:07:53.048Z]   ig (1):
+[2026-03-22T00:07:53.048Z]     - https://www.instagram.com/tulu.io
+[2026-03-22T00:07:53.048Z]   ytp (1):
+[2026-03-22T00:07:53.048Z]     - https://www.youtube.com/@tulu_life
+[2026-03-22T00:07:53.048Z]   urls (1):
+[2026-03-22T00:07:53.049Z]     - https://tulu-push.web.app/get_app
+[2026-03-22T00:07:53.049Z] Summary: ws:1, ig:1, li:1, ytp:1, urls:1
+[2026-03-22T00:07:53.050Z] Saved final result to result.json
+[2026-03-22T00:07:53.050Z] Override fields: ws, li, ig, ytp, urls
+[2026-03-22T00:07:53.050Z] Finished at: 2026-03-22T00:07:53.050Z

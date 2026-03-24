@@ -1,0 +1,86 @@
+[2026-03-23T00:57:14.157Z] === Homepage AI Extractor: FreeMind ===
+[2026-03-23T00:57:14.157Z] Started at: 2026-03-23T00:57:14.157Z
+[2026-03-23T00:57:14.157Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774227434157_FreeMind
+[2026-03-23T00:57:14.157Z] Company: FreeMind
+[2026-03-23T00:57:14.157Z] Website: freemindgroup.com
+[2026-03-23T00:57:14.157Z] cbRank: 465628
+[2026-03-23T00:57:14.157Z] Reasons: f
+[2026-03-23T00:57:14.157Z] Fetching: https://freemindgroup.com
+[2026-03-23T00:57:16.243Z] Redirected: https://freemindgroup.com -> https://freemindgroup.com/
+[2026-03-23T00:57:16.250Z] Saved HTML (191634 bytes) to page.html
+[2026-03-23T00:57:16.253Z] Extracted 53 unique links from page
+[2026-03-23T00:57:16.253Z] Saved 53 links to links.json
+[2026-03-23T00:57:16.255Z] Extracted footer HTML (2624 chars)
+[2026-03-23T00:57:16.255Z] Extracted header HTML (12244 chars)
+[2026-03-23T00:57:16.258Z] Website (post-redirect): https://freemindgroup.com/ → origin: https://freemindgroup.com
+[2026-03-23T00:57:16.259Z] External links: 7 (of 53 total)
+[2026-03-23T00:57:16.259Z] ── All external links ──
+[2026-03-23T00:57:16.259Z]   EXT: https://embed-ssl.wistia.com/deliveries/6ecf19cfe56b350104a86505785fc4b490792320.bin
+[2026-03-23T00:57:16.259Z]   EXT: https://embed-ssl.wistia.com/deliveries/d682cdf8378c90650529b49dc16389d8d2a5547c.bin
+[2026-03-23T00:57:16.259Z]   EXT: https://mailchimp.com/legal/terms
+[2026-03-23T00:57:16.259Z]   EXT: https://www.freemindinvestments.com
+[2026-03-23T00:57:16.259Z]   EXT: https://www.linkedin.com/company/1315060
+[2026-03-23T00:57:16.260Z]   EXT: https://www.youtube.com/user/FreeMindGroup
+[2026-03-23T00:57:16.260Z]   EXT: https://x.com/FreemindGrp
+[2026-03-23T00:57:16.260Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:57:16.260Z]   UNCATEGORIZED: https://embed-ssl.wistia.com/deliveries/6ecf19cfe56b350104a86505785fc4b490792320.bin
+[2026-03-23T00:57:16.260Z]   UNCATEGORIZED: https://embed-ssl.wistia.com/deliveries/d682cdf8378c90650529b49dc16389d8d2a5547c.bin
+[2026-03-23T00:57:16.260Z]   UNCATEGORIZED: https://mailchimp.com/legal/terms
+[2026-03-23T00:57:16.260Z]   UNCATEGORIZED: https://www.freemindinvestments.com
+[2026-03-23T00:57:16.260Z]   REGEX: li <- https://www.linkedin.com/company/1315060
+[2026-03-23T00:57:16.260Z]   REGEX: ytp <- https://www.youtube.com/user/FreeMindGroup
+[2026-03-23T00:57:16.260Z]   REGEX: tw <- https://x.com/FreemindGrp
+[2026-03-23T00:57:16.260Z] Programmatic result: ws:1, li:1, ytp:1, tw:1 | 4 uncategorized
+[2026-03-23T00:57:16.260Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:57:16.264Z] Saved AI prompt (3687 chars) to ai_prompt.txt
+[2026-03-23T00:57:16.264Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:57:16.269Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:57:30.165Z]   AI: First token received, streaming...
+[2026-03-23T00:57:42.154Z] AI response complete: 196 chars in 25.9s
+[2026-03-23T00:57:42.155Z] Saved AI response to ai_response.json
+[2026-03-23T00:57:42.155Z] ── Parsing AI response (5 lines) ──
+[2026-03-23T00:57:42.156Z]   AI LINK: https://x.com/FreemindGrp
+[2026-03-23T00:57:42.156Z]   AI LINK: https://www.linkedin.com/company/1315060/
+[2026-03-23T00:57:42.156Z]   AI LINK: https://www.youtube.com/user/FreeMindGroup
+[2026-03-23T00:57:42.156Z]   AI LINK: https://freemindgroup.com/terms-conditions/
+[2026-03-23T00:57:42.156Z]   AI LINK: https://freemindgroup.com/privacy-policy/
+[2026-03-23T00:57:42.156Z] AI returned 5 valid links
+[2026-03-23T00:57:42.156Z] ── Categorizing 5 AI-returned links ──
+[2026-03-23T00:57:42.157Z]   AI→REGEX: tw <- https://x.com/FreemindGrp (duplicate, skipped)
+[2026-03-23T00:57:42.157Z]   AI→REGEX: li <- https://www.linkedin.com/company/1315060/ (duplicate, skipped)
+[2026-03-23T00:57:42.157Z]   AI→REGEX: ytp <- https://www.youtube.com/user/FreeMindGroup (duplicate, skipped)
+[2026-03-23T00:57:42.157Z]   AI→URLS: https://freemindgroup.com/terms-conditions (cleaned from https://freemindgroup.com/terms-conditions/)
+[2026-03-23T00:57:42.157Z]   AI→URLS: https://freemindgroup.com/privacy-policy (cleaned from https://freemindgroup.com/privacy-policy/)
+[2026-03-23T00:57:42.158Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:57:42.158Z] Footer/header origins (5):
+[2026-03-23T00:57:42.158Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T00:57:42.158Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:57:42.159Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T00:57:42.159Z]   FOOTER/HEADER ORIGIN: https://freemindgroup.com
+[2026-03-23T00:57:42.159Z]   FOOTER/HEADER ORIGIN: https://www.freemindinvestments.com
+[2026-03-23T00:57:42.159Z]   SKIP (not in footer/header): https://embed-ssl.wistia.com/deliveries/6ecf19cfe56b350104a86505785fc4b490792320.bin
+[2026-03-23T00:57:42.159Z]   SKIP (not in footer/header): https://embed-ssl.wistia.com/deliveries/d682cdf8378c90650529b49dc16389d8d2a5547c.bin
+[2026-03-23T00:57:42.159Z]   SKIP (not in footer/header): https://mailchimp.com/legal/terms
+[2026-03-23T00:57:42.159Z]   ADDED: urls <- https://www.freemindinvestments.com
+[2026-03-23T00:57:42.160Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T00:57:42.160Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:57:42.160Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:57:42.160Z] ── Step 3: Final dedup ──
+[2026-03-23T00:57:42.160Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-23T00:57:42.160Z] ── FINAL RESULT ──
+[2026-03-23T00:57:42.160Z]   ws (1):
+[2026-03-23T00:57:42.161Z]     - https://freemindgroup.com
+[2026-03-23T00:57:42.161Z]   li (1):
+[2026-03-23T00:57:42.161Z]     - https://www.linkedin.com/company/1315060
+[2026-03-23T00:57:42.161Z]   tw (1):
+[2026-03-23T00:57:42.161Z]     - https://x.com/freemindgrp
+[2026-03-23T00:57:42.161Z]   ytp (1):
+[2026-03-23T00:57:42.161Z]     - https://www.youtube.com/@freemindgroup
+[2026-03-23T00:57:42.161Z]   urls (3):
+[2026-03-23T00:57:42.162Z]     - https://freemindgroup.com/privacy-policy
+[2026-03-23T00:57:42.162Z]     - https://freemindgroup.com/terms-conditions
+[2026-03-23T00:57:42.162Z]     - https://www.freemindinvestments.com
+[2026-03-23T00:57:42.162Z] Summary: ws:1, li:1, ytp:1, tw:1, urls:3
+[2026-03-23T00:57:42.163Z] Saved final result to result.json
+[2026-03-23T00:57:42.163Z] Override fields: ws, li, tw, ytp
+[2026-03-23T00:57:42.164Z] Finished at: 2026-03-23T00:57:42.164Z

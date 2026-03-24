@@ -1,0 +1,83 @@
+[2026-03-22T00:05:26.052Z] === Homepage AI Extractor: Demostack ===
+[2026-03-22T00:05:26.053Z] Started at: 2026-03-22T00:05:26.053Z
+[2026-03-22T00:05:26.053Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774137926052_Demostack
+[2026-03-22T00:05:26.053Z] Company: Demostack
+[2026-03-22T00:05:26.053Z] Website: demostack.com
+[2026-03-22T00:05:26.053Z] cbRank: 11002
+[2026-03-22T00:05:26.053Z] Reasons: f
+[2026-03-22T00:05:26.053Z] Fetching: https://demostack.com
+[2026-03-22T00:05:29.708Z] Redirected: https://demostack.com -> https://www.demostack.com/
+[2026-03-22T00:05:29.722Z] Saved HTML (637476 bytes) to page.html
+[2026-03-22T00:05:29.725Z] Extracted 46 unique links from page
+[2026-03-22T00:05:29.725Z] Saved 46 links to links.json
+[2026-03-22T00:05:29.727Z] Extracted footer HTML (16644 chars)
+[2026-03-22T00:05:29.727Z] Extracted header HTML (17851 chars)
+[2026-03-22T00:05:29.731Z] Website (post-redirect): https://www.demostack.com/ → origin: https://www.demostack.com
+[2026-03-22T00:05:29.732Z]   SUBDOMAIN: app.demostack.com (added to ws)
+[2026-03-22T00:05:29.732Z] Website subdomains found: 1
+[2026-03-22T00:05:29.732Z] External links: 5 (of 46 total)
+[2026-03-22T00:05:29.732Z] ── All external links ──
+[2026-03-22T00:05:29.732Z]   EXT: https://twitter.com/DemostackHQ
+[2026-03-22T00:05:29.732Z]   EXT: https://www.facebook.com/Demostack
+[2026-03-22T00:05:29.732Z]   EXT: https://www.linkedin.com/company/demostack
+[2026-03-22T00:05:29.732Z]   EXT: https://www.measurabl.com
+[2026-03-22T00:05:29.732Z]   EXT: https://www.youtube.com/channel/UCioE_IE4vw9mfOdgKz6oBGQ
+[2026-03-22T00:05:29.732Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:05:29.732Z]   REGEX: tw <- https://twitter.com/DemostackHQ
+[2026-03-22T00:05:29.732Z]   REGEX: fb <- https://www.facebook.com/Demostack
+[2026-03-22T00:05:29.733Z]   REGEX: li <- https://www.linkedin.com/company/demostack
+[2026-03-22T00:05:29.733Z]   UNCATEGORIZED: https://www.measurabl.com
+[2026-03-22T00:05:29.733Z]   REGEX: ytc <- https://www.youtube.com/channel/UCioE_IE4vw9mfOdgKz6oBGQ
+[2026-03-22T00:05:29.733Z] Programmatic result: ws:2, tw:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-22T00:05:29.733Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:05:29.734Z] Saved AI prompt (11303 chars) to ai_prompt.txt
+[2026-03-22T00:05:29.734Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:05:29.738Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:06:30.999Z]   AI: First token received, streaming...
+[2026-03-22T00:06:43.188Z] AI response complete: 167 chars in 73.5s
+[2026-03-22T00:06:43.190Z] Saved AI response to ai_response.json
+[2026-03-22T00:06:43.190Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T00:06:43.190Z]   AI LINK: https://www.linkedin.com/company/demostack/
+[2026-03-22T00:06:43.190Z]   AI LINK: https://www.facebook.com/Demostack
+[2026-03-22T00:06:43.191Z]   AI LINK: https://twitter.com/DemostackHQ
+[2026-03-22T00:06:43.191Z]   AI LINK: https://www.youtube.com/channel/UCioE_IE4vw9mfOdgKz6oBGQ
+[2026-03-22T00:06:43.191Z] AI returned 4 valid links
+[2026-03-22T00:06:43.191Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T00:06:43.191Z]   AI→REGEX: li <- https://www.linkedin.com/company/demostack/ (duplicate, skipped)
+[2026-03-22T00:06:43.191Z]   AI→REGEX: fb <- https://www.facebook.com/Demostack (duplicate, skipped)
+[2026-03-22T00:06:43.192Z]   AI→REGEX: tw <- https://twitter.com/DemostackHQ (duplicate, skipped)
+[2026-03-22T00:06:43.192Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCioE_IE4vw9mfOdgKz6oBGQ (duplicate, skipped)
+[2026-03-22T00:06:43.193Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:06:43.193Z] Footer/header origins (6):
+[2026-03-22T00:06:43.193Z]   FOOTER/HEADER ORIGIN: https://www.demostack.com
+[2026-03-22T00:06:43.193Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:06:43.193Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T00:06:43.194Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T00:06:43.194Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:06:43.194Z]   FOOTER/HEADER ORIGIN: https://app.demostack.com
+[2026-03-22T00:06:43.194Z]   SKIP (not in footer/header): https://www.measurabl.com
+[2026-03-22T00:06:43.194Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:06:43.194Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:06:43.194Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T00:06:43.473Z]   YOUTUBE: resolved UCioE_IE4vw9mfOdgKz6oBGQ → @demostack5181
+[2026-03-22T00:06:43.473Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T00:06:43.473Z] ── Step 3: Final dedup ──
+[2026-03-22T00:06:43.473Z] No urls to dedup
+[2026-03-22T00:06:43.473Z] ── FINAL RESULT ──
+[2026-03-22T00:06:43.473Z]   ws (2):
+[2026-03-22T00:06:43.473Z]     - https://app.demostack.com
+[2026-03-22T00:06:43.473Z]     - https://www.demostack.com
+[2026-03-22T00:06:43.473Z]   li (1):
+[2026-03-22T00:06:43.473Z]     - https://www.linkedin.com/company/demostack
+[2026-03-22T00:06:43.473Z]   fb (1):
+[2026-03-22T00:06:43.473Z]     - https://www.facebook.com/demostack
+[2026-03-22T00:06:43.473Z]   tw (1):
+[2026-03-22T00:06:43.473Z]     - https://x.com/demostackhq
+[2026-03-22T00:06:43.474Z]   ytp (1):
+[2026-03-22T00:06:43.474Z]     - https://www.youtube.com/@demostack5181
+[2026-03-22T00:06:43.474Z]   ytc (1):
+[2026-03-22T00:06:43.474Z]     - https://www.youtube.com/channel/UCioE_IE4vw9mfOdgKz6oBGQ
+[2026-03-22T00:06:43.474Z] Summary: ws:2, tw:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-22T00:06:43.474Z] Saved final result to result.json
+[2026-03-22T00:06:43.474Z] Override fields: ws, li, fb, tw, ytp, ytc
+[2026-03-22T00:06:43.475Z] Finished at: 2026-03-22T00:06:43.475Z

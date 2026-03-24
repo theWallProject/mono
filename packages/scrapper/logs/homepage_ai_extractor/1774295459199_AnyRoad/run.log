@@ -1,0 +1,101 @@
+[2026-03-23T19:50:59.199Z] === Homepage AI Extractor: AnyRoad ===
+[2026-03-23T19:50:59.200Z] Started at: 2026-03-23T19:50:59.200Z
+[2026-03-23T19:50:59.200Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774295459199_AnyRoad
+[2026-03-23T19:50:59.200Z] Company: AnyRoad
+[2026-03-23T19:50:59.200Z] Website: anyroad.com
+[2026-03-23T19:50:59.200Z] cbRank: 11541
+[2026-03-23T19:50:59.200Z] Reasons: i
+[2026-03-23T19:50:59.200Z] Fetching: https://anyroad.com
+[2026-03-23T19:51:10.211Z] Network idle timeout — continuing with current state
+[2026-03-23T19:51:10.342Z] Redirected: https://anyroad.com -> https://www.anyroad.com/
+[2026-03-23T19:51:10.361Z] Saved HTML (665271 bytes) to page.html
+[2026-03-23T19:51:10.367Z] Extracted 63 unique links from page
+[2026-03-23T19:51:10.368Z] Saved 63 links to links.json
+[2026-03-23T19:51:10.380Z] Extracted footer HTML (12147 chars)
+[2026-03-23T19:51:10.380Z] Extracted header HTML (103709 chars)
+[2026-03-23T19:51:10.387Z] Website (post-redirect): https://www.anyroad.com/ → origin: https://www.anyroad.com
+[2026-03-23T19:51:10.387Z]   SUBDOMAIN: app.anyroad.com (added to ws)
+[2026-03-23T19:51:10.387Z]   SUBDOMAIN: blog.anyroad.com (added to ws)
+[2026-03-23T19:51:10.387Z]   SUBDOMAIN: help.anyroad.com (added to ws)
+[2026-03-23T19:51:10.387Z]   SUBDOMAIN: trust.anyroad.com (added to ws)
+[2026-03-23T19:51:10.387Z] Website subdomains found: 4
+[2026-03-23T19:51:10.388Z] External links: 7 (of 63 total)
+[2026-03-23T19:51:10.388Z] ── All external links ──
+[2026-03-23T19:51:10.388Z]   EXT: https://jobs.lever.co/anyroad
+[2026-03-23T19:51:10.388Z]   EXT: https://webflow.com/solutions/industry
+[2026-03-23T19:51:10.388Z]   EXT: https://www.bside.show
+[2026-03-23T19:51:10.388Z]   EXT: https://www.facebook.com/anyroad
+[2026-03-23T19:51:10.388Z]   EXT: https://www.g2.com/products/anyroad/reviews
+[2026-03-23T19:51:10.388Z]   EXT: https://www.instagram.com/anyroad_experiences
+[2026-03-23T19:51:10.388Z]   EXT: https://www.linkedin.com/company/anyroad
+[2026-03-23T19:51:10.388Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:51:10.389Z]   UNCATEGORIZED: https://jobs.lever.co/anyroad
+[2026-03-23T19:51:10.389Z]   UNCATEGORIZED: https://webflow.com/solutions/industry
+[2026-03-23T19:51:10.389Z]   UNCATEGORIZED: https://www.bside.show
+[2026-03-23T19:51:10.389Z]   REGEX: fb <- https://www.facebook.com/anyroad
+[2026-03-23T19:51:10.389Z]   UNCATEGORIZED: https://www.g2.com/products/anyroad/reviews
+[2026-03-23T19:51:10.390Z]   REGEX: ig <- https://www.instagram.com/anyroad_experiences
+[2026-03-23T19:51:10.390Z]   REGEX: li <- https://www.linkedin.com/company/anyroad
+[2026-03-23T19:51:10.390Z] Programmatic result: ws:5, fb:1, ig:1, li:1 | 4 uncategorized
+[2026-03-23T19:51:10.390Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:51:10.394Z] Saved AI prompt (5487 chars) to ai_prompt.txt
+[2026-03-23T19:51:10.394Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:51:10.399Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:51:29.910Z]   AI: First token received, streaming...
+[2026-03-23T19:51:40.518Z] AI response complete: 192 chars in 30.1s
+[2026-03-23T19:51:40.519Z] Saved AI response to ai_response.json
+[2026-03-23T19:51:40.519Z] ── Parsing AI response (5 lines) ──
+[2026-03-23T19:51:40.519Z]   AI LINK: https://www.linkedin.com/company/anyroad/
+[2026-03-23T19:51:40.520Z]   AI LINK: https://www.facebook.com/anyroad/
+[2026-03-23T19:51:40.520Z]   AI LINK: https://www.instagram.com/anyroad_experiences/
+[2026-03-23T19:51:40.520Z]   AI LINK: https://www.g2.com/products/anyroad/reviews
+[2026-03-23T19:51:40.520Z]   AI LINK: https://blog.anyroad.com/
+[2026-03-23T19:51:40.520Z] AI returned 5 valid links
+[2026-03-23T19:51:40.520Z] ── Categorizing 5 AI-returned links ──
+[2026-03-23T19:51:40.521Z]   AI→REGEX: li <- https://www.linkedin.com/company/anyroad/ (duplicate, skipped)
+[2026-03-23T19:51:40.521Z]   AI→REGEX: fb <- https://www.facebook.com/anyroad/ (duplicate, skipped)
+[2026-03-23T19:51:40.521Z]   AI→REGEX: ig <- https://www.instagram.com/anyroad_experiences/ (duplicate, skipped)
+[2026-03-23T19:51:40.521Z]   AI→URLS: https://www.g2.com/products/anyroad/reviews
+[2026-03-23T19:51:40.521Z]   AI→URLS: https://blog.anyroad.com (cleaned from https://blog.anyroad.com/)
+[2026-03-23T19:51:40.523Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:51:40.524Z] Footer/header origins (9):
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://blog.anyroad.com
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://help.anyroad.com
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://trust.anyroad.com
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://www.bside.show
+[2026-03-23T19:51:40.524Z]   FOOTER/HEADER ORIGIN: https://jobs.lever.co
+[2026-03-23T19:51:40.525Z]   FOOTER/HEADER ORIGIN: https://app.anyroad.com
+[2026-03-23T19:51:40.525Z]   ADDED: urls <- https://jobs.lever.co/anyroad
+[2026-03-23T19:51:40.525Z]   SKIP (not in footer/header): https://webflow.com/solutions/industry
+[2026-03-23T19:51:40.525Z]   ADDED: urls <- https://www.bside.show
+[2026-03-23T19:51:40.525Z]   SKIP (AI claimed): https://www.g2.com/products/anyroad/reviews
+[2026-03-23T19:51:40.525Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-23T19:51:40.525Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:51:40.525Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:51:40.525Z] ── Step 3: Final dedup ──
+[2026-03-23T19:51:40.526Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-23T19:51:40.526Z] ── FINAL RESULT ──
+[2026-03-23T19:51:40.526Z]   ws (5):
+[2026-03-23T19:51:40.526Z]     - https://app.anyroad.com
+[2026-03-23T19:51:40.526Z]     - https://blog.anyroad.com
+[2026-03-23T19:51:40.526Z]     - https://help.anyroad.com
+[2026-03-23T19:51:40.526Z]     - https://trust.anyroad.com
+[2026-03-23T19:51:40.526Z]     - https://www.anyroad.com
+[2026-03-23T19:51:40.526Z]   li (1):
+[2026-03-23T19:51:40.526Z]     - https://www.linkedin.com/company/anyroad
+[2026-03-23T19:51:40.526Z]   fb (1):
+[2026-03-23T19:51:40.527Z]     - https://www.facebook.com/anyroad
+[2026-03-23T19:51:40.527Z]   ig (1):
+[2026-03-23T19:51:40.527Z]     - https://www.instagram.com/anyroad_experiences
+[2026-03-23T19:51:40.527Z]   urls (4):
+[2026-03-23T19:51:40.527Z]     - https://blog.anyroad.com
+[2026-03-23T19:51:40.527Z]     - https://jobs.lever.co/anyroad
+[2026-03-23T19:51:40.527Z]     - https://www.bside.show
+[2026-03-23T19:51:40.527Z]     - https://www.g2.com/products/anyroad/reviews
+[2026-03-23T19:51:40.527Z] Summary: ws:5, fb:1, ig:1, li:1, urls:4
+[2026-03-23T19:51:40.528Z] Saved final result to result.json
+[2026-03-23T19:51:40.529Z] Override fields: ws, li, fb, ig, urls
+[2026-03-23T19:51:40.529Z] Finished at: 2026-03-23T19:51:40.529Z

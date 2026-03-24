@@ -1,0 +1,72 @@
+[2026-03-21T08:06:06.869Z] === Homepage AI Extractor: Freshboard ===
+[2026-03-21T08:06:06.869Z] Started at: 2026-03-21T08:06:06.869Z
+[2026-03-21T08:06:06.869Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774080366869_Freshboard
+[2026-03-21T08:06:06.869Z] Company: Freshboard
+[2026-03-21T08:06:06.869Z] Website: freshboard.co
+[2026-03-21T08:06:06.870Z] cbRank: 3137555
+[2026-03-21T08:06:06.870Z] Reasons: h
+[2026-03-21T08:06:06.870Z] Fetching: https://freshboard.co
+[2026-03-21T08:06:10.441Z] Redirected: https://freshboard.co -> https://freshboard.co/
+[2026-03-21T08:06:10.448Z] Saved HTML (251009 bytes) to page.html
+[2026-03-21T08:06:10.450Z] Extracted 9 unique links from page
+[2026-03-21T08:06:10.451Z] Saved 9 links to links.json
+[2026-03-21T08:06:10.453Z] Extracted footer HTML (7589 chars)
+[2026-03-21T08:06:10.453Z] Extracted header HTML (23319 chars)
+[2026-03-21T08:06:10.456Z] Website (post-redirect): https://freshboard.co/ → origin: https://freshboard.co
+[2026-03-21T08:06:10.456Z] External links: 3 (of 9 total)
+[2026-03-21T08:06:10.456Z] ── All external links ──
+[2026-03-21T08:06:10.456Z]   EXT: http://twitter.com/Freshboardcity
+[2026-03-21T08:06:10.456Z]   EXT: https://mag7.freshboard.city
+[2026-03-21T08:06:10.456Z]   EXT: https://www.linkedin.com/company/79787290
+[2026-03-21T08:06:10.456Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:06:10.456Z]   REGEX: tw <- http://twitter.com/Freshboardcity
+[2026-03-21T08:06:10.456Z]   UNCATEGORIZED: https://mag7.freshboard.city
+[2026-03-21T08:06:10.457Z]   REGEX: li <- https://www.linkedin.com/company/79787290
+[2026-03-21T08:06:10.457Z] Programmatic result: ws:1, tw:1, li:1 | 1 uncategorized
+[2026-03-21T08:06:10.457Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:06:10.457Z] Saved AI prompt (6993 chars) to ai_prompt.txt
+[2026-03-21T08:06:10.458Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:06:10.461Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:06:42.561Z]   AI: First token received, streaming...
+[2026-03-21T08:06:52.274Z] AI response complete: 155 chars in 41.8s
+[2026-03-21T08:06:52.275Z] Saved AI response to ai_response.json
+[2026-03-21T08:06:52.275Z] ── Parsing AI response (5 lines) ──
+[2026-03-21T08:06:52.275Z]   AI LINK: https://mag7.freshboard.city
+[2026-03-21T08:06:52.276Z]   AI LINK: http://freshboard.co
+[2026-03-21T08:06:52.276Z]   AI LINK: https://freshboard.co/pricing
+[2026-03-21T08:06:52.276Z]   AI LINK: http://twitter.com/Freshboardcity
+[2026-03-21T08:06:52.276Z]   AI LINK: https://www.linkedin.com/company/79787290
+[2026-03-21T08:06:52.276Z] AI returned 5 valid links
+[2026-03-21T08:06:52.276Z] ── Categorizing 5 AI-returned links ──
+[2026-03-21T08:06:52.277Z]   AI→URLS: https://mag7.freshboard.city
+[2026-03-21T08:06:52.277Z]   AI→URLS: http://freshboard.co
+[2026-03-21T08:06:52.277Z]   AI→URLS: https://freshboard.co/pricing
+[2026-03-21T08:06:52.277Z]   AI→REGEX: tw <- http://twitter.com/Freshboardcity (duplicate, skipped)
+[2026-03-21T08:06:52.277Z]   AI→REGEX: li <- https://www.linkedin.com/company/79787290 (duplicate, skipped)
+[2026-03-21T08:06:52.278Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:06:52.278Z] Footer/header origins (4):
+[2026-03-21T08:06:52.278Z]   FOOTER/HEADER ORIGIN: http://freshboard.co
+[2026-03-21T08:06:52.279Z]   FOOTER/HEADER ORIGIN: https://freshboard.co
+[2026-03-21T08:06:52.279Z]   FOOTER/HEADER ORIGIN: http://twitter.com
+[2026-03-21T08:06:52.279Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T08:06:52.279Z]   SKIP (AI claimed): https://mag7.freshboard.city
+[2026-03-21T08:06:52.279Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T08:06:52.279Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:06:52.279Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T08:06:52.279Z] ── Step 3: Final dedup ──
+[2026-03-21T08:06:52.279Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-21T08:06:52.280Z] ── FINAL RESULT ──
+[2026-03-21T08:06:52.280Z]   ws (1):
+[2026-03-21T08:06:52.280Z]     - https://freshboard.co
+[2026-03-21T08:06:52.280Z]   li (1):
+[2026-03-21T08:06:52.280Z]     - https://www.linkedin.com/company/79787290
+[2026-03-21T08:06:52.280Z]   tw (1):
+[2026-03-21T08:06:52.280Z]     - https://x.com/freshboardcity
+[2026-03-21T08:06:52.280Z]   urls (3):
+[2026-03-21T08:06:52.281Z]     - http://freshboard.co
+[2026-03-21T08:06:52.281Z]     - https://freshboard.co/pricing
+[2026-03-21T08:06:52.281Z]     - https://mag7.freshboard.city
+[2026-03-21T08:06:52.281Z] Summary: ws:1, tw:1, li:1, urls:3
+[2026-03-21T08:06:52.282Z] Saved final result to result.json
+[2026-03-21T08:06:52.283Z] Override fields: ws, li, tw
+[2026-03-21T08:06:52.283Z] Finished at: 2026-03-21T08:06:52.283Z

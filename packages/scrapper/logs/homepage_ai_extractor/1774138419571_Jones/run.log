@@ -1,0 +1,73 @@
+[2026-03-22T00:13:39.571Z] === Homepage AI Extractor: Jones ===
+[2026-03-22T00:13:39.572Z] Started at: 2026-03-22T00:13:39.572Z
+[2026-03-22T00:13:39.572Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774138419571_Jones
+[2026-03-22T00:13:39.572Z] Company: Jones
+[2026-03-22T00:13:39.572Z] Website: getjones.com
+[2026-03-22T00:13:39.572Z] cbRank: 11422
+[2026-03-22T00:13:39.572Z] Reasons: f, i
+[2026-03-22T00:13:39.572Z] Fetching: https://getjones.com
+[2026-03-22T00:13:42.523Z] Redirected: https://getjones.com -> https://getjones.com/
+[2026-03-22T00:13:42.528Z] Saved HTML (178174 bytes) to page.html
+[2026-03-22T00:13:42.530Z] Extracted 29 unique links from page
+[2026-03-22T00:13:42.531Z] Saved 29 links to links.json
+[2026-03-22T00:13:42.533Z] Extracted footer HTML (10702 chars)
+[2026-03-22T00:13:42.533Z] Extracted header HTML (9618 chars)
+[2026-03-22T00:13:42.536Z] Website (post-redirect): https://getjones.com/ → origin: https://getjones.com
+[2026-03-22T00:13:42.536Z]   SUBDOMAIN: app.getjones.com (added to ws)
+[2026-03-22T00:13:42.536Z] Website subdomains found: 1
+[2026-03-22T00:13:42.536Z] External links: 3 (of 29 total)
+[2026-03-22T00:13:42.536Z] ── All external links ──
+[2026-03-22T00:13:42.536Z]   EXT: https://www.facebook.com/JonesSoftware
+[2026-03-22T00:13:42.536Z]   EXT: https://www.linkedin.com/company/jones1/mycompany/?viewAsMember=true
+[2026-03-22T00:13:42.537Z]   EXT: https://www.youtube.com/channel/UC9SEFlLRH8ZL6O0QIiPNh8A
+[2026-03-22T00:13:42.537Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:13:42.537Z]   REGEX: fb <- https://www.facebook.com/JonesSoftware
+[2026-03-22T00:13:42.537Z]   REGEX: li <- https://www.linkedin.com/company/jones1/mycompany/?viewAsMember=true
+[2026-03-22T00:13:42.537Z]   REGEX: ytc <- https://www.youtube.com/channel/UC9SEFlLRH8ZL6O0QIiPNh8A
+[2026-03-22T00:13:42.537Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-22T00:13:42.537Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:13:42.538Z] Saved AI prompt (5683 chars) to ai_prompt.txt
+[2026-03-22T00:13:42.538Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:13:42.541Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:14:05.523Z]   AI: First token received, streaming...
+[2026-03-22T00:14:17.052Z] AI response complete: 167 chars in 34.5s
+[2026-03-22T00:14:17.054Z] Saved AI response to ai_response.json
+[2026-03-22T00:14:17.054Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:14:17.054Z]   AI LINK: https://www.facebook.com/JonesSoftware/
+[2026-03-22T00:14:17.054Z]   AI LINK: https://www.youtube.com/channel/UC9SEFlLRH8ZL6O0QIiPNh8A/
+[2026-03-22T00:14:17.054Z]   AI LINK: https://www.linkedin.com/company/jones1/mycompany/?viewAsMember=true/
+[2026-03-22T00:14:17.055Z] AI returned 3 valid links
+[2026-03-22T00:14:17.055Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:14:17.055Z]   AI→REGEX: fb <- https://www.facebook.com/JonesSoftware/ (duplicate, skipped)
+[2026-03-22T00:14:17.055Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC9SEFlLRH8ZL6O0QIiPNh8A/ (duplicate, skipped)
+[2026-03-22T00:14:17.055Z]   AI→REGEX: li <- https://www.linkedin.com/company/jones1/mycompany/?viewAsMember=true/ (duplicate, skipped)
+[2026-03-22T00:14:17.056Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:14:17.057Z] Footer/header origins (5):
+[2026-03-22T00:14:17.057Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T00:14:17.057Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:14:17.057Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:14:17.057Z]   FOOTER/HEADER ORIGIN: https://getjones.com
+[2026-03-22T00:14:17.057Z]   FOOTER/HEADER ORIGIN: https://app.getjones.com
+[2026-03-22T00:14:17.057Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:14:17.057Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:14:17.057Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T00:14:17.297Z]   YOUTUBE: resolved UC9SEFlLRH8ZL6O0QIiPNh8A → @jones7101
+[2026-03-22T00:14:17.297Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T00:14:17.297Z] ── Step 3: Final dedup ──
+[2026-03-22T00:14:17.297Z] No urls to dedup
+[2026-03-22T00:14:17.297Z] ── FINAL RESULT ──
+[2026-03-22T00:14:17.297Z]   ws (2):
+[2026-03-22T00:14:17.297Z]     - https://app.getjones.com
+[2026-03-22T00:14:17.297Z]     - https://getjones.com
+[2026-03-22T00:14:17.298Z]   li (1):
+[2026-03-22T00:14:17.298Z]     - https://www.linkedin.com/company/jones1
+[2026-03-22T00:14:17.298Z]   fb (1):
+[2026-03-22T00:14:17.298Z]     - https://www.facebook.com/jonessoftware
+[2026-03-22T00:14:17.298Z]   ytp (1):
+[2026-03-22T00:14:17.298Z]     - https://www.youtube.com/@jones7101
+[2026-03-22T00:14:17.298Z]   ytc (1):
+[2026-03-22T00:14:17.298Z]     - https://www.youtube.com/channel/UC9SEFlLRH8ZL6O0QIiPNh8A
+[2026-03-22T00:14:17.298Z] Summary: ws:2, fb:1, li:1, ytc:1, ytp:1
+[2026-03-22T00:14:17.299Z] Saved final result to result.json
+[2026-03-22T00:14:17.299Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-22T00:14:17.299Z] Finished at: 2026-03-22T00:14:17.299Z

@@ -1,0 +1,62 @@
+[2026-03-21T09:56:57.844Z] === Homepage AI Extractor: WeDiggit ===
+[2026-03-21T09:56:57.844Z] Started at: 2026-03-21T09:56:57.844Z
+[2026-03-21T09:56:57.844Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774087017843_WeDiggit
+[2026-03-21T09:56:57.844Z] Company: WeDiggit
+[2026-03-21T09:56:57.844Z] Website: wediggit.co.il
+[2026-03-21T09:56:57.844Z] cbRank: 3221332
+[2026-03-21T09:56:57.844Z] Reasons: h
+[2026-03-21T09:56:57.844Z] Fetching: https://wediggit.co.il
+[2026-03-21T09:57:01.780Z] Redirected: https://wediggit.co.il -> https://wediggit.co.il/
+[2026-03-21T09:57:01.785Z] Saved HTML (174594 bytes) to page.html
+[2026-03-21T09:57:01.788Z] Extracted 24 unique links from page
+[2026-03-21T09:57:01.789Z] Saved 24 links to links.json
+[2026-03-21T09:57:01.791Z] Extracted footer HTML (16804 chars)
+[2026-03-21T09:57:01.791Z] Extracted header HTML (43235 chars)
+[2026-03-21T09:57:01.795Z] Website (post-redirect): https://wediggit.co.il/ → origin: https://wediggit.co.il
+[2026-03-21T09:57:01.795Z]   SUBDOMAIN: catalog.wediggit.co.il (added to ws)
+[2026-03-21T09:57:01.796Z] Website subdomains found: 1
+[2026-03-21T09:57:01.796Z] External links: 2 (of 24 total)
+[2026-03-21T09:57:01.796Z] ── All external links ──
+[2026-03-21T09:57:01.796Z]   EXT: https://www.facebook.com/wediggitltd
+[2026-03-21T09:57:01.796Z]   EXT: https://www.linkedin.com/company/wediggit-ltd-
+[2026-03-21T09:57:01.796Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T09:57:01.796Z]   REGEX: fb <- https://www.facebook.com/wediggitltd
+[2026-03-21T09:57:01.796Z]   REGEX: li <- https://www.linkedin.com/company/wediggit-ltd-
+[2026-03-21T09:57:01.796Z] Programmatic result: ws:2, fb:1, li:1 | 0 uncategorized
+[2026-03-21T09:57:01.796Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T09:57:01.797Z] Saved AI prompt (8903 chars) to ai_prompt.txt
+[2026-03-21T09:57:01.797Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T09:57:01.801Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T09:57:43.143Z]   AI: First token received, streaming...
+[2026-03-21T09:57:48.170Z] AI response complete: 84 chars in 46.4s
+[2026-03-21T09:57:48.171Z] Saved AI response to ai_response.json
+[2026-03-21T09:57:48.172Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T09:57:48.172Z]   AI LINK: https://www.facebook.com/wediggitltd
+[2026-03-21T09:57:48.172Z]   AI LINK: https://www.linkedin.com/company/wediggit-ltd-/
+[2026-03-21T09:57:48.172Z] AI returned 2 valid links
+[2026-03-21T09:57:48.172Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T09:57:48.172Z]   AI→REGEX: fb <- https://www.facebook.com/wediggitltd (duplicate, skipped)
+[2026-03-21T09:57:48.173Z]   AI→REGEX: li <- https://www.linkedin.com/company/wediggit-ltd-/ (duplicate, skipped)
+[2026-03-21T09:57:48.173Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T09:57:48.173Z] Footer/header origins (4):
+[2026-03-21T09:57:48.173Z]   FOOTER/HEADER ORIGIN: https://wediggit.co.il
+[2026-03-21T09:57:48.173Z]   FOOTER/HEADER ORIGIN: https://catalog.wediggit.co.il
+[2026-03-21T09:57:48.174Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T09:57:48.174Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T09:57:48.174Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T09:57:48.174Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T09:57:48.174Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T09:57:48.174Z] ── Step 3: Final dedup ──
+[2026-03-21T09:57:48.174Z] No urls to dedup
+[2026-03-21T09:57:48.174Z] ── FINAL RESULT ──
+[2026-03-21T09:57:48.174Z]   ws (2):
+[2026-03-21T09:57:48.174Z]     - https://catalog.wediggit.co.il
+[2026-03-21T09:57:48.174Z]     - https://wediggit.co.il
+[2026-03-21T09:57:48.175Z]   li (1):
+[2026-03-21T09:57:48.175Z]     - https://www.linkedin.com/company/wediggit-ltd-
+[2026-03-21T09:57:48.175Z]   fb (1):
+[2026-03-21T09:57:48.175Z]     - https://www.facebook.com/wediggitltd
+[2026-03-21T09:57:48.175Z] Summary: ws:2, fb:1, li:1
+[2026-03-21T09:57:48.176Z] Saved final result to result.json
+[2026-03-21T09:57:48.176Z] Override fields: ws, li, fb
+[2026-03-21T09:57:48.176Z] Finished at: 2026-03-21T09:57:48.176Z

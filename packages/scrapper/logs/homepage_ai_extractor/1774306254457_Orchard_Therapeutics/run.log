@@ -1,0 +1,70 @@
+[2026-03-23T22:50:54.458Z] === Homepage AI Extractor: Orchard Therapeutics ===
+[2026-03-23T22:50:54.458Z] Started at: 2026-03-23T22:50:54.458Z
+[2026-03-23T22:50:54.458Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774306254457_Orchard_Therapeutics
+[2026-03-23T22:50:54.458Z] Company: Orchard Therapeutics
+[2026-03-23T22:50:54.458Z] Website: orchard-tx.com
+[2026-03-23T22:50:54.458Z] cbRank: 33515
+[2026-03-23T22:50:54.459Z] Reasons: i
+[2026-03-23T22:50:54.459Z] Fetching: https://orchard-tx.com
+[2026-03-23T22:50:57.296Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T22:51:00.290Z] Redirected: https://orchard-tx.com -> https://www.orchard-tx.com/
+[2026-03-23T22:51:00.296Z] Saved HTML (74692 bytes) to page.html
+[2026-03-23T22:51:00.298Z] Extracted 23 unique links from page
+[2026-03-23T22:51:00.299Z] Saved 23 links to links.json
+[2026-03-23T22:51:00.301Z] Extracted footer HTML (8479 chars)
+[2026-03-23T22:51:00.301Z] Extracted header HTML (2298 chars)
+[2026-03-23T22:51:00.305Z] Website (post-redirect): https://www.orchard-tx.com/ → origin: https://www.orchard-tx.com
+[2026-03-23T22:51:00.305Z]   SUBDOMAIN: ir.orchard-tx.com (added to ws)
+[2026-03-23T22:51:00.305Z] Website subdomains found: 1
+[2026-03-23T22:51:00.305Z] External links: 4 (of 23 total)
+[2026-03-23T22:51:00.305Z] ── All external links ──
+[2026-03-23T22:51:00.305Z]   EXT: https://orchard-tx.de
+[2026-03-23T22:51:00.305Z]   EXT: https://twitter.com/orchard_tx
+[2026-03-23T22:51:00.305Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T22:51:00.305Z]   EXT: https://www.linkedin.com/company/orchard-therapeutics
+[2026-03-23T22:51:00.305Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T22:51:00.305Z]   UNCATEGORIZED: https://orchard-tx.de
+[2026-03-23T22:51:00.306Z]   REGEX: tw <- https://twitter.com/orchard_tx
+[2026-03-23T22:51:00.306Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T22:51:00.306Z]   REGEX: li <- https://www.linkedin.com/company/orchard-therapeutics
+[2026-03-23T22:51:00.306Z] Programmatic result: ws:2, tw:1, li:1 | 2 uncategorized
+[2026-03-23T22:51:00.306Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T22:51:00.310Z] Saved AI prompt (9820 chars) to ai_prompt.txt
+[2026-03-23T22:51:00.310Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T22:51:00.314Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T22:51:39.457Z]   AI: First token received, streaming...
+[2026-03-23T22:51:43.350Z] AI response complete: 84 chars in 43.0s
+[2026-03-23T22:51:43.351Z] Saved AI response to ai_response.json
+[2026-03-23T22:51:43.351Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T22:51:43.351Z]   AI LINK: https://twitter.com/orchard_tx
+[2026-03-23T22:51:43.351Z]   AI LINK: https://www.linkedin.com/company/orchard-therapeutics
+[2026-03-23T22:51:43.351Z] AI returned 2 valid links
+[2026-03-23T22:51:43.351Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T22:51:43.352Z]   AI→REGEX: tw <- https://twitter.com/orchard_tx (duplicate, skipped)
+[2026-03-23T22:51:43.352Z]   AI→REGEX: li <- https://www.linkedin.com/company/orchard-therapeutics (duplicate, skipped)
+[2026-03-23T22:51:43.353Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T22:51:43.353Z] Footer/header origins (5):
+[2026-03-23T22:51:43.353Z]   FOOTER/HEADER ORIGIN: https://orchard-tx.com
+[2026-03-23T22:51:43.353Z]   FOOTER/HEADER ORIGIN: https://www.orchard-tx.com
+[2026-03-23T22:51:43.353Z]   FOOTER/HEADER ORIGIN: https://ir.orchard-tx.com
+[2026-03-23T22:51:43.353Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T22:51:43.353Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T22:51:43.354Z]   SKIP (not in footer/header): https://orchard-tx.de
+[2026-03-23T22:51:43.354Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T22:51:43.354Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T22:51:43.354Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T22:51:43.354Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T22:51:43.354Z] ── Step 3: Final dedup ──
+[2026-03-23T22:51:43.354Z] No urls to dedup
+[2026-03-23T22:51:43.354Z] ── FINAL RESULT ──
+[2026-03-23T22:51:43.354Z]   ws (2):
+[2026-03-23T22:51:43.354Z]     - https://ir.orchard-tx.com
+[2026-03-23T22:51:43.354Z]     - https://www.orchard-tx.com
+[2026-03-23T22:51:43.354Z]   li (1):
+[2026-03-23T22:51:43.354Z]     - https://www.linkedin.com/company/orchard-therapeutics
+[2026-03-23T22:51:43.354Z]   tw (1):
+[2026-03-23T22:51:43.354Z]     - https://x.com/orchard_tx
+[2026-03-23T22:51:43.355Z] Summary: ws:2, tw:1, li:1
+[2026-03-23T22:51:43.355Z] Saved final result to result.json
+[2026-03-23T22:51:43.356Z] Override fields: ws, li, tw
+[2026-03-23T22:51:43.356Z] Finished at: 2026-03-23T22:51:43.356Z

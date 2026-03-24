@@ -1,0 +1,104 @@
+[2026-03-23T23:55:05.933Z] === Homepage AI Extractor: TipRanks ===
+[2026-03-23T23:55:05.933Z] Started at: 2026-03-23T23:55:05.933Z
+[2026-03-23T23:55:05.933Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774310105932_TipRanks
+[2026-03-23T23:55:05.933Z] Company: TipRanks
+[2026-03-23T23:55:05.933Z] Website: tipranks.com
+[2026-03-23T23:55:05.933Z] cbRank: 49825
+[2026-03-23T23:55:05.933Z] Reasons: i
+[2026-03-23T23:55:05.933Z] Fetching: https://tipranks.com
+[2026-03-23T23:55:12.137Z] Redirected: https://tipranks.com -> https://www.tipranks.com/
+[2026-03-23T23:55:12.145Z] Saved HTML (323784 bytes) to page.html
+[2026-03-23T23:55:12.148Z] Extracted 155 unique links from page
+[2026-03-23T23:55:12.149Z] Saved 155 links to links.json
+[2026-03-23T23:55:12.151Z] Extracted footer HTML (21067 chars)
+[2026-03-23T23:55:12.151Z] No header section found in DOM
+[2026-03-23T23:55:12.158Z] Website (post-redirect): https://www.tipranks.com/ → origin: https://www.tipranks.com
+[2026-03-23T23:55:12.158Z]   SUBDOMAIN: click.tipranks.com (added to ws)
+[2026-03-23T23:55:12.158Z]   SUBDOMAIN: enterprise.tipranks.com (added to ws)
+[2026-03-23T23:55:12.159Z]   SUBDOMAIN: lp.tipranks.com (added to ws)
+[2026-03-23T23:55:12.159Z]   SUBDOMAIN: newswire.tipranks.com (added to ws)
+[2026-03-23T23:55:12.159Z] Website subdomains found: 4
+[2026-03-23T23:55:12.159Z] External links: 6 (of 155 total)
+[2026-03-23T23:55:12.159Z] ── All external links ──
+[2026-03-23T23:55:12.159Z]   EXT: http://linkedin.com/company/2858966
+[2026-03-23T23:55:12.159Z]   EXT: https://facebook.com/tipranks
+[2026-03-23T23:55:12.159Z]   EXT: https://stocktwits.com/tipranks
+[2026-03-23T23:55:12.159Z]   EXT: https://twitter.com/tipranks
+[2026-03-23T23:55:12.159Z]   EXT: https://www.instagram.com/tipranks
+[2026-03-23T23:55:12.159Z]   EXT: https://www.youtube.com/channel/UCGNXpSXu1WdSbq5Wr-29ohA
+[2026-03-23T23:55:12.159Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:55:12.160Z]   REGEX: li <- http://linkedin.com/company/2858966
+[2026-03-23T23:55:12.160Z]   REGEX: fb <- https://facebook.com/tipranks
+[2026-03-23T23:55:12.160Z]   UNCATEGORIZED: https://stocktwits.com/tipranks
+[2026-03-23T23:55:12.161Z]   REGEX: tw <- https://twitter.com/tipranks
+[2026-03-23T23:55:12.161Z]   REGEX: ig <- https://www.instagram.com/tipranks
+[2026-03-23T23:55:12.161Z]   REGEX: ytc <- https://www.youtube.com/channel/UCGNXpSXu1WdSbq5Wr-29ohA
+[2026-03-23T23:55:12.161Z] Programmatic result: ws:5, li:1, fb:1, tw:1, ig:1, ytc:1 | 1 uncategorized
+[2026-03-23T23:55:12.161Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:55:12.164Z] Saved AI prompt (3066 chars) to ai_prompt.txt
+[2026-03-23T23:55:12.164Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:55:12.168Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:55:23.299Z]   AI: First token received, streaming...
+[2026-03-23T23:55:39.953Z]   AI streaming: 200 chars received (27.8s elapsed)
+[2026-03-23T23:55:40.421Z] AI response complete: 218 chars in 28.3s
+[2026-03-23T23:55:40.423Z] Saved AI response to ai_response.json
+[2026-03-23T23:55:40.423Z] ── Parsing AI response (6 lines) ──
+[2026-03-23T23:55:40.423Z]   AI LINK: https://twitter.com/tipranks
+[2026-03-23T23:55:40.423Z]   AI LINK: https://facebook.com/tipranks
+[2026-03-23T23:55:40.423Z]   AI LINK: http://linkedin.com/company/2858966
+[2026-03-23T23:55:40.424Z]   AI LINK: https://www.instagram.com/tipranks
+[2026-03-23T23:55:40.424Z]   AI LINK: https://www.youtube.com/channel/UCGNXpSXu1WdSbq5Wr-29ohA
+[2026-03-23T23:55:40.424Z]   AI LINK: https://stocktwits.com/tipranks
+[2026-03-23T23:55:40.424Z] AI returned 6 valid links
+[2026-03-23T23:55:40.424Z] ── Categorizing 6 AI-returned links ──
+[2026-03-23T23:55:40.424Z]   AI→REGEX: tw <- https://twitter.com/tipranks (duplicate, skipped)
+[2026-03-23T23:55:40.424Z]   AI→REGEX: fb <- https://facebook.com/tipranks (duplicate, skipped)
+[2026-03-23T23:55:40.425Z]   AI→REGEX: li <- http://linkedin.com/company/2858966 (duplicate, skipped)
+[2026-03-23T23:55:40.425Z]   AI→REGEX: ig <- https://www.instagram.com/tipranks (duplicate, skipped)
+[2026-03-23T23:55:40.425Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCGNXpSXu1WdSbq5Wr-29ohA (duplicate, skipped)
+[2026-03-23T23:55:40.425Z]   AI→URLS: https://stocktwits.com/tipranks
+[2026-03-23T23:55:40.427Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:55:40.427Z] Footer/header origins (10):
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://click.tipranks.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://stocktwits.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://facebook.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: http://linkedin.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://lp.tipranks.com
+[2026-03-23T23:55:40.427Z]   FOOTER/HEADER ORIGIN: https://enterprise.tipranks.com
+[2026-03-23T23:55:40.428Z]   FOOTER/HEADER ORIGIN: https://newswire.tipranks.com
+[2026-03-23T23:55:40.428Z]   SKIP (AI claimed): https://stocktwits.com/tipranks
+[2026-03-23T23:55:40.428Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:55:40.428Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:55:40.428Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T23:55:40.823Z]   YOUTUBE: resolved UCGNXpSXu1WdSbq5Wr-29ohA → @TipRanksTM
+[2026-03-23T23:55:40.824Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T23:55:40.824Z] ── Step 3: Final dedup ──
+[2026-03-23T23:55:40.824Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T23:55:40.824Z] ── FINAL RESULT ──
+[2026-03-23T23:55:40.824Z]   ws (5):
+[2026-03-23T23:55:40.824Z]     - https://click.tipranks.com
+[2026-03-23T23:55:40.825Z]     - https://enterprise.tipranks.com
+[2026-03-23T23:55:40.825Z]     - https://lp.tipranks.com
+[2026-03-23T23:55:40.825Z]     - https://newswire.tipranks.com
+[2026-03-23T23:55:40.825Z]     - https://www.tipranks.com
+[2026-03-23T23:55:40.825Z]   li (1):
+[2026-03-23T23:55:40.825Z]     - https://www.linkedin.com/company/2858966
+[2026-03-23T23:55:40.825Z]   fb (1):
+[2026-03-23T23:55:40.825Z]     - https://www.facebook.com/tipranks
+[2026-03-23T23:55:40.825Z]   tw (1):
+[2026-03-23T23:55:40.825Z]     - https://x.com/tipranks
+[2026-03-23T23:55:40.825Z]   ig (1):
+[2026-03-23T23:55:40.825Z]     - https://www.instagram.com/tipranks
+[2026-03-23T23:55:40.825Z]   ytp (1):
+[2026-03-23T23:55:40.826Z]     - https://www.youtube.com/@TipRanksTM
+[2026-03-23T23:55:40.826Z]   ytc (1):
+[2026-03-23T23:55:40.826Z]     - https://www.youtube.com/channel/UCGNXpSXu1WdSbq5Wr-29ohA
+[2026-03-23T23:55:40.826Z]   urls (1):
+[2026-03-23T23:55:40.826Z]     - https://stocktwits.com/tipranks
+[2026-03-23T23:55:40.826Z] Summary: ws:5, li:1, fb:1, tw:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-23T23:55:40.827Z] Saved final result to result.json
+[2026-03-23T23:55:40.827Z] Override fields: ws, li, fb, tw, ig, ytp, ytc, urls
+[2026-03-23T23:55:40.827Z] Finished at: 2026-03-23T23:55:40.827Z

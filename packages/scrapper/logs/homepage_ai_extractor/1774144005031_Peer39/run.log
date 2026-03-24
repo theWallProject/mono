@@ -1,0 +1,78 @@
+[2026-03-22T01:46:45.032Z] === Homepage AI Extractor: Peer39 ===
+[2026-03-22T01:46:45.032Z] Started at: 2026-03-22T01:46:45.032Z
+[2026-03-22T01:46:45.032Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774144005031_Peer39
+[2026-03-22T01:46:45.033Z] Company: Peer39
+[2026-03-22T01:46:45.033Z] Website: peer39.com
+[2026-03-22T01:46:45.033Z] cbRank: 26276
+[2026-03-22T01:46:45.033Z] Reasons: f
+[2026-03-22T01:46:45.033Z] Fetching: https://peer39.com
+[2026-03-22T01:46:47.569Z] Redirected: https://peer39.com -> https://www.peer39.com/
+[2026-03-22T01:46:47.578Z] Saved HTML (294234 bytes) to page.html
+[2026-03-22T01:46:47.582Z] Extracted 24 unique links from page
+[2026-03-22T01:46:47.583Z] Saved 24 links to links.json
+[2026-03-22T01:46:47.586Z] Extracted footer HTML (14948 chars)
+[2026-03-22T01:46:47.586Z] Extracted header HTML (31178 chars)
+[2026-03-22T01:46:47.590Z] Website (post-redirect): https://www.peer39.com/ → origin: https://www.peer39.com
+[2026-03-22T01:46:47.590Z]   SUBDOMAIN: app.peer39.com (added to ws)
+[2026-03-22T01:46:47.590Z] Website subdomains found: 1
+[2026-03-22T01:46:47.590Z] External links: 5 (of 24 total)
+[2026-03-22T01:46:47.590Z] ── All external links ──
+[2026-03-22T01:46:47.590Z]   EXT: https://iabeurope.eu
+[2026-03-22T01:46:47.590Z]   EXT: https://www.ana.net
+[2026-03-22T01:46:47.590Z]   EXT: https://www.iab.com
+[2026-03-22T01:46:47.590Z]   EXT: https://www.linkedin.com/company/peer39
+[2026-03-22T01:46:47.590Z]   EXT: https://www.youtube.com/@Peer39Technology
+[2026-03-22T01:46:47.590Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:46:47.590Z]   UNCATEGORIZED: https://iabeurope.eu
+[2026-03-22T01:46:47.591Z]   UNCATEGORIZED: https://www.ana.net
+[2026-03-22T01:46:47.591Z]   UNCATEGORIZED: https://www.iab.com
+[2026-03-22T01:46:47.591Z]   REGEX: li <- https://www.linkedin.com/company/peer39
+[2026-03-22T01:46:47.591Z]   REGEX: ytp <- https://www.youtube.com/@Peer39Technology
+[2026-03-22T01:46:47.591Z] Programmatic result: ws:2, li:1, ytp:1 | 3 uncategorized
+[2026-03-22T01:46:47.591Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:46:47.594Z] Saved AI prompt (10029 chars) to ai_prompt.txt
+[2026-03-22T01:46:47.594Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:46:47.599Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:47:30.542Z]   AI: First token received, streaming...
+[2026-03-22T01:47:34.565Z] AI response complete: 81 chars in 47.0s
+[2026-03-22T01:47:34.566Z] Saved AI response to ai_response.json
+[2026-03-22T01:47:34.567Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T01:47:34.567Z]   AI LINK: https://www.linkedin.com/company/peer39
+[2026-03-22T01:47:34.567Z]   AI LINK: https://www.youtube.com/@Peer39Technology
+[2026-03-22T01:47:34.567Z] AI returned 2 valid links
+[2026-03-22T01:47:34.567Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T01:47:34.568Z]   AI→REGEX: li <- https://www.linkedin.com/company/peer39 (duplicate, skipped)
+[2026-03-22T01:47:34.568Z]   AI→REGEX: ytp <- https://www.youtube.com/@Peer39Technology (duplicate, skipped)
+[2026-03-22T01:47:34.569Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:47:34.569Z] Footer/header origins (7):
+[2026-03-22T01:47:34.569Z]   FOOTER/HEADER ORIGIN: https://www.peer39.com
+[2026-03-22T01:47:34.569Z]   FOOTER/HEADER ORIGIN: https://app.peer39.com
+[2026-03-22T01:47:34.569Z]   FOOTER/HEADER ORIGIN: https://www.ana.net
+[2026-03-22T01:47:34.570Z]   FOOTER/HEADER ORIGIN: https://www.iab.com
+[2026-03-22T01:47:34.570Z]   FOOTER/HEADER ORIGIN: https://iabeurope.eu
+[2026-03-22T01:47:34.570Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:47:34.570Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:47:34.570Z]   ADDED: urls <- https://iabeurope.eu
+[2026-03-22T01:47:34.570Z]   ADDED: urls <- https://www.ana.net
+[2026-03-22T01:47:34.570Z]   ADDED: urls <- https://www.iab.com
+[2026-03-22T01:47:34.571Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-22T01:47:34.571Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:47:34.571Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:47:34.571Z] ── Step 3: Final dedup ──
+[2026-03-22T01:47:34.571Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T01:47:34.571Z] ── FINAL RESULT ──
+[2026-03-22T01:47:34.571Z]   ws (2):
+[2026-03-22T01:47:34.571Z]     - https://app.peer39.com
+[2026-03-22T01:47:34.572Z]     - https://www.peer39.com
+[2026-03-22T01:47:34.572Z]   li (1):
+[2026-03-22T01:47:34.572Z]     - https://www.linkedin.com/company/peer39
+[2026-03-22T01:47:34.572Z]   ytp (1):
+[2026-03-22T01:47:34.572Z]     - https://www.youtube.com/@peer39technology
+[2026-03-22T01:47:34.572Z]   urls (3):
+[2026-03-22T01:47:34.572Z]     - https://iabeurope.eu
+[2026-03-22T01:47:34.573Z]     - https://www.ana.net
+[2026-03-22T01:47:34.573Z]     - https://www.iab.com
+[2026-03-22T01:47:34.573Z] Summary: ws:2, li:1, ytp:1, urls:3
+[2026-03-22T01:47:34.574Z] Saved final result to result.json
+[2026-03-22T01:47:34.574Z] Override fields: ws, li, ytp, urls
+[2026-03-22T01:47:34.575Z] Finished at: 2026-03-22T01:47:34.575Z

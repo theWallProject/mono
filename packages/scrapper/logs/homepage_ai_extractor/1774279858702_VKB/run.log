@@ -1,0 +1,65 @@
+[2026-03-23T15:30:58.703Z] === Homepage AI Extractor: VKB ===
+[2026-03-23T15:30:58.703Z] Started at: 2026-03-23T15:30:58.703Z
+[2026-03-23T15:30:58.703Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774279858702_VKB
+[2026-03-23T15:30:58.703Z] Company: VKB
+[2026-03-23T15:30:58.703Z] Website: vkb.co.za
+[2026-03-23T15:30:58.703Z] cbRank: 1575254
+[2026-03-23T15:30:58.703Z] Reasons: f
+[2026-03-23T15:30:58.703Z] Fetching: https://vkb.co.za
+[2026-03-23T15:31:06.602Z] Redirected: https://vkb.co.za -> https://www.vkb.co.za/index.php/en/
+[2026-03-23T15:31:06.605Z] Saved HTML (38887 bytes) to page.html
+[2026-03-23T15:31:06.608Z] Extracted 56 unique links from page
+[2026-03-23T15:31:06.611Z] Saved 56 links to links.json
+[2026-03-23T15:31:06.613Z] Extracted footer HTML (914 chars)
+[2026-03-23T15:31:06.613Z] Extracted header HTML (1855 chars)
+[2026-03-23T15:31:06.616Z] Website (post-redirect): https://www.vkb.co.za/index.php/en/ → origin: https://www.vkb.co.za
+[2026-03-23T15:31:06.617Z]   SUBDOMAIN: unutilisedassets.vkb.co.za (added to ws)
+[2026-03-23T15:31:06.617Z]   SUBDOMAIN: verkope.vkb.co.za (added to ws)
+[2026-03-23T15:31:06.617Z] Website subdomains found: 2
+[2026-03-23T15:31:06.617Z] External links: 3 (of 56 total)
+[2026-03-23T15:31:06.617Z] ── All external links ──
+[2026-03-23T15:31:06.617Z]   EXT: https://twitter.com/vkblandbou
+[2026-03-23T15:31:06.617Z]   EXT: https://www.facebook.com/vkblandbou
+[2026-03-23T15:31:06.617Z]   EXT: https://www.gwk.co.za
+[2026-03-23T15:31:06.617Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T15:31:06.618Z]   REGEX: tw <- https://twitter.com/vkblandbou
+[2026-03-23T15:31:06.618Z]   REGEX: fb <- https://www.facebook.com/vkblandbou
+[2026-03-23T15:31:06.618Z]   UNCATEGORIZED: https://www.gwk.co.za
+[2026-03-23T15:31:06.618Z] Programmatic result: ws:3, tw:1, fb:1 | 1 uncategorized
+[2026-03-23T15:31:06.618Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T15:31:06.618Z] Saved AI prompt (2632 chars) to ai_prompt.txt
+[2026-03-23T15:31:06.619Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T15:31:06.622Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T15:31:16.036Z]   AI: First token received, streaming...
+[2026-03-23T15:31:16.271Z] AI response complete: 21 chars in 9.7s
+[2026-03-23T15:31:16.272Z] Saved AI response to ai_response.json
+[2026-03-23T15:31:16.272Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T15:31:16.273Z]   AI LINK: https://www.gwk.co.za
+[2026-03-23T15:31:16.273Z] AI returned 1 valid links
+[2026-03-23T15:31:16.273Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T15:31:16.273Z]   AI→URLS: https://www.gwk.co.za
+[2026-03-23T15:31:16.274Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T15:31:16.274Z] Footer/header origins (2):
+[2026-03-23T15:31:16.274Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T15:31:16.274Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T15:31:16.274Z]   SKIP (AI claimed): https://www.gwk.co.za
+[2026-03-23T15:31:16.274Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T15:31:16.275Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T15:31:16.275Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T15:31:16.275Z] ── Step 3: Final dedup ──
+[2026-03-23T15:31:16.275Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T15:31:16.275Z] ── FINAL RESULT ──
+[2026-03-23T15:31:16.275Z]   ws (3):
+[2026-03-23T15:31:16.275Z]     - https://unutilisedassets.vkb.co.za
+[2026-03-23T15:31:16.275Z]     - https://verkope.vkb.co.za
+[2026-03-23T15:31:16.275Z]     - https://www.vkb.co.za
+[2026-03-23T15:31:16.276Z]   fb (1):
+[2026-03-23T15:31:16.276Z]     - https://www.facebook.com/vkblandbou
+[2026-03-23T15:31:16.276Z]   tw (1):
+[2026-03-23T15:31:16.276Z]     - https://x.com/vkblandbou
+[2026-03-23T15:31:16.276Z]   urls (1):
+[2026-03-23T15:31:16.276Z]     - https://www.gwk.co.za
+[2026-03-23T15:31:16.276Z] Summary: ws:3, tw:1, fb:1, urls:1
+[2026-03-23T15:31:16.277Z] Saved final result to result.json
+[2026-03-23T15:31:16.277Z] Override fields: ws, fb, tw, urls
+[2026-03-23T15:31:16.277Z] Finished at: 2026-03-23T15:31:16.277Z

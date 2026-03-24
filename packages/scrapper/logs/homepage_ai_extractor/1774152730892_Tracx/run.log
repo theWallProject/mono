@@ -1,0 +1,76 @@
+[2026-03-22T04:12:10.893Z] === Homepage AI Extractor: Tracx ===
+[2026-03-22T04:12:10.893Z] Started at: 2026-03-22T04:12:10.893Z
+[2026-03-22T04:12:10.894Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774152730892_Tracx
+[2026-03-22T04:12:10.894Z] Company: Tracx
+[2026-03-22T04:12:10.894Z] Website: tracx.com
+[2026-03-22T04:12:10.894Z] cbRank: 72947
+[2026-03-22T04:12:10.894Z] Reasons: f
+[2026-03-22T04:12:10.894Z] Fetching: https://tracx.com
+[2026-03-22T04:12:12.851Z] Redirected: https://tracx.com -> https://tracx.com/
+[2026-03-22T04:12:12.857Z] Saved HTML (132266 bytes) to page.html
+[2026-03-22T04:12:12.860Z] Extracted 38 unique links from page
+[2026-03-22T04:12:12.862Z] Saved 38 links to links.json
+[2026-03-22T04:12:12.864Z] Extracted footer HTML (8054 chars)
+[2026-03-22T04:12:12.864Z] Extracted header HTML (9970 chars)
+[2026-03-22T04:12:12.869Z] Website (post-redirect): https://tracx.com/ → origin: https://tracx.com
+[2026-03-22T04:12:12.869Z]   SUBDOMAIN: app.tracx.com (added to ws)
+[2026-03-22T04:12:12.869Z] Website subdomains found: 1
+[2026-03-22T04:12:12.870Z] External links: 5 (of 38 total)
+[2026-03-22T04:12:12.870Z] ── All external links ──
+[2026-03-22T04:12:12.870Z]   EXT: https://app.termly.io/notify/88049319-90b0-4167-8790-220643563877
+[2026-03-22T04:12:12.870Z]   EXT: https://twitter.com/tracxapp
+[2026-03-22T04:12:12.870Z]   EXT: https://www.linkedin.com/company/chase-interaction
+[2026-03-22T04:12:12.870Z]   EXT: https://www.linkedin.com/company/chase-interaction/jobs
+[2026-03-22T04:12:12.870Z]   EXT: https://www.saashub.com/tracx-status
+[2026-03-22T04:12:12.870Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:12:12.870Z]   UNCATEGORIZED: https://app.termly.io/notify/88049319-90b0-4167-8790-220643563877
+[2026-03-22T04:12:12.870Z]   REGEX: tw <- https://twitter.com/tracxapp
+[2026-03-22T04:12:12.870Z]   REGEX: li <- https://www.linkedin.com/company/chase-interaction
+[2026-03-22T04:12:12.870Z]   REGEX: li <- https://www.linkedin.com/company/chase-interaction/jobs (duplicate, skipped)
+[2026-03-22T04:12:12.870Z]   UNCATEGORIZED: https://www.saashub.com/tracx-status
+[2026-03-22T04:12:12.870Z] Programmatic result: ws:2, tw:1, li:1 | 2 uncategorized
+[2026-03-22T04:12:12.871Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:12:12.872Z] Saved AI prompt (5756 chars) to ai_prompt.txt
+[2026-03-22T04:12:12.872Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:12:12.876Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:12:37.676Z]   AI: First token received, streaming...
+[2026-03-22T04:12:44.056Z] AI response complete: 117 chars in 31.2s
+[2026-03-22T04:12:44.057Z] Saved AI response to ai_response.json
+[2026-03-22T04:12:44.058Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T04:12:44.058Z]   AI LINK: https://www.linkedin.com/company/chase-interaction/
+[2026-03-22T04:12:44.058Z]   AI LINK: https://twitter.com/tracxapp
+[2026-03-22T04:12:44.058Z]   AI LINK: https://www.saashub.com/tracx-status
+[2026-03-22T04:12:44.058Z] AI returned 3 valid links
+[2026-03-22T04:12:44.058Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T04:12:44.059Z]   AI→REGEX: li <- https://www.linkedin.com/company/chase-interaction/ (duplicate, skipped)
+[2026-03-22T04:12:44.059Z]   AI→REGEX: tw <- https://twitter.com/tracxapp (duplicate, skipped)
+[2026-03-22T04:12:44.059Z]   AI→URLS: https://www.saashub.com/tracx-status
+[2026-03-22T04:12:44.060Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:12:44.060Z] Footer/header origins (5):
+[2026-03-22T04:12:44.061Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:12:44.061Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T04:12:44.061Z]   FOOTER/HEADER ORIGIN: https://www.saashub.com
+[2026-03-22T04:12:44.061Z]   FOOTER/HEADER ORIGIN: https://app.termly.io
+[2026-03-22T04:12:44.061Z]   FOOTER/HEADER ORIGIN: https://app.tracx.com
+[2026-03-22T04:12:44.061Z]   ADDED: urls <- https://app.termly.io/notify/88049319-90b0-4167-8790-220643563877
+[2026-03-22T04:12:44.061Z]   SKIP (AI claimed): https://www.saashub.com/tracx-status
+[2026-03-22T04:12:44.061Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T04:12:44.061Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:12:44.061Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:12:44.061Z] ── Step 3: Final dedup ──
+[2026-03-22T04:12:44.061Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T04:12:44.062Z] ── FINAL RESULT ──
+[2026-03-22T04:12:44.062Z]   ws (2):
+[2026-03-22T04:12:44.062Z]     - https://app.tracx.com
+[2026-03-22T04:12:44.062Z]     - https://tracx.com
+[2026-03-22T04:12:44.062Z]   li (1):
+[2026-03-22T04:12:44.062Z]     - https://www.linkedin.com/company/chase-interaction
+[2026-03-22T04:12:44.062Z]   tw (1):
+[2026-03-22T04:12:44.062Z]     - https://x.com/tracxapp
+[2026-03-22T04:12:44.063Z]   urls (2):
+[2026-03-22T04:12:44.063Z]     - https://app.termly.io/notify/88049319-90b0-4167-8790-220643563877
+[2026-03-22T04:12:44.063Z]     - https://www.saashub.com/tracx-status
+[2026-03-22T04:12:44.063Z] Summary: ws:2, tw:1, li:1, urls:2
+[2026-03-22T04:12:44.063Z] Saved final result to result.json
+[2026-03-22T04:12:44.064Z] Override fields: ws, li, tw, urls
+[2026-03-22T04:12:44.064Z] Finished at: 2026-03-22T04:12:44.064Z

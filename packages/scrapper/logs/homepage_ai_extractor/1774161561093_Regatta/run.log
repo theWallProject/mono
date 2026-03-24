@@ -1,0 +1,71 @@
+[2026-03-22T06:39:21.093Z] === Homepage AI Extractor: Regatta ===
+[2026-03-22T06:39:21.093Z] Started at: 2026-03-22T06:39:21.093Z
+[2026-03-22T06:39:21.093Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774161561093_Regatta
+[2026-03-22T06:39:21.093Z] Company: Regatta
+[2026-03-22T06:39:21.093Z] Website: regatta.dev
+[2026-03-22T06:39:21.093Z] cbRank: 216777
+[2026-03-22T06:39:21.093Z] Reasons: f
+[2026-03-22T06:39:21.094Z] Fetching: https://regatta.dev
+[2026-03-22T06:39:21.981Z] Redirected: https://regatta.dev -> https://regatta.dev/
+[2026-03-22T06:39:21.985Z] Saved HTML (149242 bytes) to page.html
+[2026-03-22T06:39:21.987Z] Extracted 16 unique links from page
+[2026-03-22T06:39:21.987Z] Saved 16 links to links.json
+[2026-03-22T06:39:21.989Z] Extracted footer HTML (4133 chars)
+[2026-03-22T06:39:21.989Z] Extracted header HTML (5102 chars)
+[2026-03-22T06:39:21.992Z] Website (post-redirect): https://regatta.dev/ → origin: https://regatta.dev
+[2026-03-22T06:39:21.992Z]   SUBDOMAIN: docs.regatta.dev (added to ws)
+[2026-03-22T06:39:21.992Z] Website subdomains found: 1
+[2026-03-22T06:39:21.993Z] External links: 3 (of 16 total)
+[2026-03-22T06:39:21.993Z] ── All external links ──
+[2026-03-22T06:39:21.993Z]   EXT: https://twitter.com/regatta_data
+[2026-03-22T06:39:21.993Z]   EXT: https://www.linkedin.com/company/regatta-data
+[2026-03-22T06:39:21.993Z]   EXT: https://www.linkedin.com/company/regatta-data/jobs
+[2026-03-22T06:39:21.993Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:39:21.994Z]   REGEX: tw <- https://twitter.com/regatta_data
+[2026-03-22T06:39:21.994Z]   REGEX: li <- https://www.linkedin.com/company/regatta-data
+[2026-03-22T06:39:21.994Z]   REGEX: li <- https://www.linkedin.com/company/regatta-data/jobs (duplicate, skipped)
+[2026-03-22T06:39:21.994Z] Programmatic result: ws:2, tw:1, li:1 | 0 uncategorized
+[2026-03-22T06:39:21.994Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:39:21.997Z] Saved AI prompt (4061 chars) to ai_prompt.txt
+[2026-03-22T06:39:21.997Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:39:22.000Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:39:37.615Z]   AI: First token received, streaming...
+[2026-03-22T06:39:44.087Z] AI response complete: 129 chars in 22.1s
+[2026-03-22T06:39:44.089Z] Saved AI response to ai_response.json
+[2026-03-22T06:39:44.089Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T06:39:44.089Z]   AI LINK: https://www.linkedin.com/company/regatta-data
+[2026-03-22T06:39:44.089Z]   AI LINK: https://twitter.com/regatta_data
+[2026-03-22T06:39:44.090Z]   AI LINK: https://docs.regatta.dev
+[2026-03-22T06:39:44.090Z]   AI LINK: https://regatta.dev/blog/
+[2026-03-22T06:39:44.090Z] AI returned 4 valid links
+[2026-03-22T06:39:44.090Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T06:39:44.090Z]   AI→REGEX: li <- https://www.linkedin.com/company/regatta-data (duplicate, skipped)
+[2026-03-22T06:39:44.091Z]   AI→REGEX: tw <- https://twitter.com/regatta_data (duplicate, skipped)
+[2026-03-22T06:39:44.091Z]   AI→URLS: https://docs.regatta.dev
+[2026-03-22T06:39:44.091Z]   AI→URLS: https://regatta.dev/blog (cleaned from https://regatta.dev/blog/)
+[2026-03-22T06:39:44.092Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:39:44.092Z] Footer/header origins (4):
+[2026-03-22T06:39:44.092Z]   FOOTER/HEADER ORIGIN: https://regatta.dev
+[2026-03-22T06:39:44.092Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T06:39:44.093Z]   FOOTER/HEADER ORIGIN: https://docs.regatta.dev
+[2026-03-22T06:39:44.093Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T06:39:44.093Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:39:44.093Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:39:44.093Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T06:39:44.093Z] ── Step 3: Final dedup ──
+[2026-03-22T06:39:44.093Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T06:39:44.093Z] ── FINAL RESULT ──
+[2026-03-22T06:39:44.093Z]   ws (2):
+[2026-03-22T06:39:44.094Z]     - https://docs.regatta.dev
+[2026-03-22T06:39:44.094Z]     - https://regatta.dev
+[2026-03-22T06:39:44.094Z]   li (1):
+[2026-03-22T06:39:44.094Z]     - https://www.linkedin.com/company/regatta-data
+[2026-03-22T06:39:44.094Z]   tw (1):
+[2026-03-22T06:39:44.094Z]     - https://x.com/regatta_data
+[2026-03-22T06:39:44.094Z]   urls (2):
+[2026-03-22T06:39:44.094Z]     - https://docs.regatta.dev
+[2026-03-22T06:39:44.095Z]     - https://regatta.dev/blog
+[2026-03-22T06:39:44.095Z] Summary: ws:2, tw:1, li:1, urls:2
+[2026-03-22T06:39:44.096Z] Saved final result to result.json
+[2026-03-22T06:39:44.096Z] Override fields: ws, li, tw
+[2026-03-22T06:39:44.097Z] Finished at: 2026-03-22T06:39:44.097Z

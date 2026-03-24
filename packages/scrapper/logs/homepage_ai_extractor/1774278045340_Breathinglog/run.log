@@ -1,0 +1,60 @@
+[2026-03-23T15:00:45.341Z] === Homepage AI Extractor: Breathinglog ===
+[2026-03-23T15:00:45.341Z] Started at: 2026-03-23T15:00:45.341Z
+[2026-03-23T15:00:45.341Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774278045340_Breathinglog
+[2026-03-23T15:00:45.341Z] Company: Breathinglog
+[2026-03-23T15:00:45.341Z] Website: breathinglog.com
+[2026-03-23T15:00:45.341Z] cbRank: 1230186
+[2026-03-23T15:00:45.341Z] Reasons: f
+[2026-03-23T15:00:45.341Z] Fetching: https://breathinglog.com
+[2026-03-23T15:00:48.254Z] Redirected: https://breathinglog.com -> https://www.breathinglog.com/
+[2026-03-23T15:00:48.258Z] Saved HTML (10109 bytes) to page.html
+[2026-03-23T15:00:48.260Z] Extracted 11 unique links from page
+[2026-03-23T15:00:48.264Z] Saved 11 links to links.json
+[2026-03-23T15:00:48.266Z] Extracted footer HTML (2229 chars)
+[2026-03-23T15:00:48.266Z] Extracted header HTML (885 chars)
+[2026-03-23T15:00:48.270Z] Website (post-redirect): https://www.breathinglog.com/ → origin: https://www.breathinglog.com
+[2026-03-23T15:00:48.271Z] External links: 2 (of 11 total)
+[2026-03-23T15:00:48.271Z] ── All external links ──
+[2026-03-23T15:00:48.271Z]   EXT: http://pwalsh.me
+[2026-03-23T15:00:48.271Z]   EXT: http://www.breatheon.com
+[2026-03-23T15:00:48.271Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T15:00:48.271Z]   UNCATEGORIZED: http://pwalsh.me
+[2026-03-23T15:00:48.271Z]   UNCATEGORIZED: http://www.breatheon.com
+[2026-03-23T15:00:48.271Z] Programmatic result: ws:1 | 2 uncategorized
+[2026-03-23T15:00:48.271Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T15:00:48.272Z] Saved AI prompt (3178 chars) to ai_prompt.txt
+[2026-03-23T15:00:48.272Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T15:00:48.275Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T15:00:59.763Z]   AI: First token received, streaming...
+[2026-03-23T15:01:02.516Z] AI response complete: 57 chars in 14.2s
+[2026-03-23T15:01:02.517Z] Saved AI response to ai_response.json
+[2026-03-23T15:01:02.517Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T15:01:02.517Z]   AI LINK: http://www.breatheon.com
+[2026-03-23T15:01:02.518Z]   AI LINK: https://twitter.com/breathinglog
+[2026-03-23T15:01:02.518Z] AI returned 2 valid links
+[2026-03-23T15:01:02.518Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T15:01:02.518Z]   AI→URLS: http://www.breatheon.com
+[2026-03-23T15:01:02.519Z]   AI→REGEX: tw <- https://twitter.com/breathinglog
+[2026-03-23T15:01:02.519Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T15:01:02.519Z] Footer/header origins (2):
+[2026-03-23T15:01:02.519Z]   FOOTER/HEADER ORIGIN: http://www.breatheon.com
+[2026-03-23T15:01:02.519Z]   FOOTER/HEADER ORIGIN: http://pwalsh.me
+[2026-03-23T15:01:02.520Z]   ADDED: urls <- http://pwalsh.me
+[2026-03-23T15:01:02.520Z]   SKIP (AI claimed): http://www.breatheon.com
+[2026-03-23T15:01:02.520Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T15:01:02.520Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T15:01:02.520Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T15:01:02.520Z] ── Step 3: Final dedup ──
+[2026-03-23T15:01:02.520Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T15:01:02.520Z] ── FINAL RESULT ──
+[2026-03-23T15:01:02.520Z]   ws (1):
+[2026-03-23T15:01:02.520Z]     - https://www.breathinglog.com
+[2026-03-23T15:01:02.520Z]   tw (1):
+[2026-03-23T15:01:02.520Z]     - https://x.com/breathinglog
+[2026-03-23T15:01:02.520Z]   urls (2):
+[2026-03-23T15:01:02.521Z]     - http://pwalsh.me
+[2026-03-23T15:01:02.521Z]     - http://www.breatheon.com
+[2026-03-23T15:01:02.521Z] Summary: ws:1, urls:2, tw:1
+[2026-03-23T15:01:02.522Z] Saved final result to result.json
+[2026-03-23T15:01:02.522Z] Override fields: ws, tw, urls
+[2026-03-23T15:01:02.522Z] Finished at: 2026-03-23T15:01:02.522Z

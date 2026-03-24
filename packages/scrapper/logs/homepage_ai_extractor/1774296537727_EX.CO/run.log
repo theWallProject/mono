@@ -1,0 +1,102 @@
+[2026-03-23T20:08:57.728Z] === Homepage AI Extractor: EX.CO ===
+[2026-03-23T20:08:57.728Z] Started at: 2026-03-23T20:08:57.728Z
+[2026-03-23T20:08:57.728Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774296537727_EX.CO
+[2026-03-23T20:08:57.728Z] Company: EX.CO
+[2026-03-23T20:08:57.728Z] Website: ex.co
+[2026-03-23T20:08:57.728Z] cbRank: 13373
+[2026-03-23T20:08:57.728Z] Reasons: i
+[2026-03-23T20:08:57.728Z] Fetching: https://ex.co
+[2026-03-23T20:09:00.506Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T20:09:03.465Z] Redirected: https://ex.co -> https://ex.co/
+[2026-03-23T20:09:03.475Z] Saved HTML (309092 bytes) to page.html
+[2026-03-23T20:09:03.477Z] Extracted 34 unique links from page
+[2026-03-23T20:09:03.478Z] Saved 34 links to links.json
+[2026-03-23T20:09:03.480Z] Extracted footer HTML (18816 chars)
+[2026-03-23T20:09:03.480Z] Extracted header HTML (19302 chars)
+[2026-03-23T20:09:03.484Z] Website (post-redirect): https://ex.co/ → origin: https://ex.co
+[2026-03-23T20:09:03.484Z]   SUBDOMAIN: blog.ex.co (added to ws)
+[2026-03-23T20:09:03.484Z]   SUBDOMAIN: content.ex.co (added to ws)
+[2026-03-23T20:09:03.484Z]   SUBDOMAIN: login.ex.co (added to ws)
+[2026-03-23T20:09:03.484Z]   SUBDOMAIN: support.ex.co (added to ws)
+[2026-03-23T20:09:03.485Z] Website subdomains found: 4
+[2026-03-23T20:09:03.485Z] External links: 5 (of 34 total)
+[2026-03-23T20:09:03.485Z] ── All external links ──
+[2026-03-23T20:09:03.485Z]   EXT: https://business.safety.google/privacy
+[2026-03-23T20:09:03.485Z]   EXT: https://hubs.li/Q046z6Yk0
+[2026-03-23T20:09:03.485Z]   EXT: https://twitter.com/excoplatform
+[2026-03-23T20:09:03.485Z]   EXT: https://www.linkedin.com/company/excoplatform
+[2026-03-23T20:09:03.485Z]   EXT: https://www.youtube.com/channel/UCc99IT0x9Za1uQ_r8b1PwXQ?view_as=subscriber
+[2026-03-23T20:09:03.485Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:09:03.485Z]   UNCATEGORIZED: https://business.safety.google/privacy
+[2026-03-23T20:09:03.485Z]   UNCATEGORIZED: https://hubs.li/Q046z6Yk0
+[2026-03-23T20:09:03.485Z]   REGEX: tw <- https://twitter.com/excoplatform
+[2026-03-23T20:09:03.485Z]   REGEX: li <- https://www.linkedin.com/company/excoplatform
+[2026-03-23T20:09:03.485Z]   REGEX: ytc <- https://www.youtube.com/channel/UCc99IT0x9Za1uQ_r8b1PwXQ?view_as=subscriber
+[2026-03-23T20:09:03.485Z] Programmatic result: ws:5, tw:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-23T20:09:03.485Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:09:03.490Z] Saved AI prompt (10013 chars) to ai_prompt.txt
+[2026-03-23T20:09:03.490Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:09:03.494Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:09:53.767Z]   AI: First token received, streaming...
+[2026-03-23T20:10:09.221Z]   AI streaming: 203 chars received (65.7s elapsed)
+[2026-03-23T20:10:10.157Z] AI response complete: 228 chars in 66.7s
+[2026-03-23T20:10:10.159Z] Saved AI response to ai_response.json
+[2026-03-23T20:10:10.159Z] ── Parsing AI response (6 lines) ──
+[2026-03-23T20:10:10.159Z]   AI LINK: https://www.linkedin.com/company/excoplatform
+[2026-03-23T20:10:10.159Z]   AI LINK: https://twitter.com/excoplatform
+[2026-03-23T20:10:10.159Z]   AI LINK: https://www.youtube.com/channel/UCc99IT0x9Za1uQ_r8b1PwXQ?view_as=subscriber
+[2026-03-23T20:10:10.160Z]   AI LINK: https://blog.ex.co/
+[2026-03-23T20:10:10.160Z]   AI LINK: https://support.ex.co/
+[2026-03-23T20:10:10.160Z]   AI LINK: https://content.ex.co/glossary
+[2026-03-23T20:10:10.160Z] AI returned 6 valid links
+[2026-03-23T20:10:10.160Z] ── Categorizing 6 AI-returned links ──
+[2026-03-23T20:10:10.160Z]   AI→REGEX: li <- https://www.linkedin.com/company/excoplatform (duplicate, skipped)
+[2026-03-23T20:10:10.160Z]   AI→REGEX: tw <- https://twitter.com/excoplatform (duplicate, skipped)
+[2026-03-23T20:10:10.160Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCc99IT0x9Za1uQ_r8b1PwXQ?view_as=subscriber (duplicate, skipped)
+[2026-03-23T20:10:10.160Z]   AI→URLS: https://blog.ex.co (cleaned from https://blog.ex.co/)
+[2026-03-23T20:10:10.161Z]   AI→URLS: https://support.ex.co (cleaned from https://support.ex.co/)
+[2026-03-23T20:10:10.161Z]   AI→URLS: https://content.ex.co/glossary
+[2026-03-23T20:10:10.162Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:10:10.162Z] Footer/header origins (9):
+[2026-03-23T20:10:10.162Z]   FOOTER/HEADER ORIGIN: https://ex.co
+[2026-03-23T20:10:10.162Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T20:10:10.162Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T20:10:10.162Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T20:10:10.162Z]   FOOTER/HEADER ORIGIN: https://blog.ex.co
+[2026-03-23T20:10:10.162Z]   FOOTER/HEADER ORIGIN: https://support.ex.co
+[2026-03-23T20:10:10.162Z]   FOOTER/HEADER ORIGIN: https://content.ex.co
+[2026-03-23T20:10:10.163Z]   FOOTER/HEADER ORIGIN: https://hubs.li
+[2026-03-23T20:10:10.163Z]   FOOTER/HEADER ORIGIN: https://login.ex.co
+[2026-03-23T20:10:10.163Z]   SKIP (not in footer/header): https://business.safety.google/privacy
+[2026-03-23T20:10:10.163Z]   ADDED: urls <- https://hubs.li/Q046z6Yk0
+[2026-03-23T20:10:10.163Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T20:10:10.163Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:10:10.164Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T20:10:10.751Z]   YOUTUBE: resolved UCc99IT0x9Za1uQ_r8b1PwXQ → @exc
+[2026-03-23T20:10:10.751Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T20:10:10.751Z] ── Step 3: Final dedup ──
+[2026-03-23T20:10:10.751Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-23T20:10:10.751Z] ── FINAL RESULT ──
+[2026-03-23T20:10:10.751Z]   ws (5):
+[2026-03-23T20:10:10.752Z]     - https://blog.ex.co
+[2026-03-23T20:10:10.752Z]     - https://content.ex.co
+[2026-03-23T20:10:10.752Z]     - https://ex.co
+[2026-03-23T20:10:10.752Z]     - https://login.ex.co
+[2026-03-23T20:10:10.752Z]     - https://support.ex.co
+[2026-03-23T20:10:10.752Z]   li (1):
+[2026-03-23T20:10:10.752Z]     - https://www.linkedin.com/company/excoplatform
+[2026-03-23T20:10:10.753Z]   tw (1):
+[2026-03-23T20:10:10.753Z]     - https://x.com/excoplatform
+[2026-03-23T20:10:10.753Z]   ytp (1):
+[2026-03-23T20:10:10.753Z]     - https://www.youtube.com/@exc
+[2026-03-23T20:10:10.753Z]   ytc (1):
+[2026-03-23T20:10:10.753Z]     - https://www.youtube.com/channel/UCc99IT0x9Za1uQ_r8b1PwXQ
+[2026-03-23T20:10:10.753Z]   urls (4):
+[2026-03-23T20:10:10.753Z]     - https://blog.ex.co
+[2026-03-23T20:10:10.753Z]     - https://content.ex.co/glossary
+[2026-03-23T20:10:10.753Z]     - https://hubs.li/Q046z6Yk0
+[2026-03-23T20:10:10.753Z]     - https://support.ex.co
+[2026-03-23T20:10:10.753Z] Summary: ws:5, tw:1, li:1, ytc:1, urls:4, ytp:1
+[2026-03-23T20:10:10.754Z] Saved final result to result.json
+[2026-03-23T20:10:10.754Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-23T20:10:10.754Z] Finished at: 2026-03-23T20:10:10.754Z

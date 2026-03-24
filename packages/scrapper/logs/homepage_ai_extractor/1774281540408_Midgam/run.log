@@ -1,0 +1,59 @@
+[2026-03-23T15:59:00.409Z] === Homepage AI Extractor: Midgam ===
+[2026-03-23T15:59:00.409Z] Started at: 2026-03-23T15:59:00.409Z
+[2026-03-23T15:59:00.409Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774281540408_Midgam
+[2026-03-23T15:59:00.409Z] Company: Midgam
+[2026-03-23T15:59:00.409Z] Website: midgam.co.il
+[2026-03-23T15:59:00.409Z] cbRank: 1987745
+[2026-03-23T15:59:00.409Z] Reasons: f
+[2026-03-23T15:59:00.409Z] Fetching: https://midgam.co.il
+[2026-03-23T15:59:11.801Z] Network idle timeout — continuing with current state
+[2026-03-23T15:59:11.844Z] Redirected: https://midgam.co.il -> https://www.midgam.co.il/
+[2026-03-23T15:59:11.852Z] Saved HTML (215030 bytes) to page.html
+[2026-03-23T15:59:11.854Z] Extracted 15 unique links from page
+[2026-03-23T15:59:11.855Z] Saved 15 links to links.json
+[2026-03-23T15:59:11.858Z] No footer section found in DOM
+[2026-03-23T15:59:11.858Z] Extracted header HTML (1443 chars)
+[2026-03-23T15:59:11.863Z] Website (post-redirect): https://www.midgam.co.il/ → origin: https://www.midgam.co.il
+[2026-03-23T15:59:11.863Z] External links: 3 (of 15 total)
+[2026-03-23T15:59:11.863Z] ── All external links ──
+[2026-03-23T15:59:11.863Z]   EXT: http://linkedin.com/company/midgam
+[2026-03-23T15:59:11.863Z]   EXT: https://fb.me/MidgamRC
+[2026-03-23T15:59:11.863Z]   EXT: https://www.waze.com/livemap?zoom=17&lat=32.09394&lon=34.82483&navigate=yes
+[2026-03-23T15:59:11.863Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T15:59:11.864Z]   REGEX: li <- http://linkedin.com/company/midgam
+[2026-03-23T15:59:11.865Z]   UNCATEGORIZED: https://fb.me/MidgamRC
+[2026-03-23T15:59:11.865Z]   UNCATEGORIZED: https://www.waze.com/livemap?zoom=17&lat=32.09394&lon=34.82483&navigate=yes
+[2026-03-23T15:59:11.865Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-23T15:59:11.865Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T15:59:11.868Z] Saved AI prompt (2027 chars) to ai_prompt.txt
+[2026-03-23T15:59:11.868Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T15:59:11.872Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T15:59:18.617Z]   AI: First token received, streaming...
+[2026-03-23T15:59:19.072Z] AI response complete: 22 chars in 7.2s
+[2026-03-23T15:59:19.074Z] Saved AI response to ai_response.json
+[2026-03-23T15:59:19.074Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T15:59:19.074Z]   AI LINK: https://fb.me/MidgamRC
+[2026-03-23T15:59:19.074Z] AI returned 1 valid links
+[2026-03-23T15:59:19.074Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T15:59:19.074Z]   AI→URLS: https://fb.me/MidgamRC
+[2026-03-23T15:59:19.075Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T15:59:19.075Z] Footer/header origins (1):
+[2026-03-23T15:59:19.075Z]   FOOTER/HEADER ORIGIN: https://www.midgam.co.il
+[2026-03-23T15:59:19.075Z]   SKIP (AI claimed): https://fb.me/MidgamRC
+[2026-03-23T15:59:19.075Z]   SKIP (not in footer/header): https://www.waze.com/livemap?zoom=17&lat=32.09394&lon=34.82483&navigate=yes
+[2026-03-23T15:59:19.075Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T15:59:19.075Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T15:59:19.075Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T15:59:19.075Z] ── Step 3: Final dedup ──
+[2026-03-23T15:59:19.076Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T15:59:19.076Z] ── FINAL RESULT ──
+[2026-03-23T15:59:19.076Z]   ws (1):
+[2026-03-23T15:59:19.076Z]     - https://www.midgam.co.il
+[2026-03-23T15:59:19.076Z]   li (1):
+[2026-03-23T15:59:19.076Z]     - https://www.linkedin.com/company/midgam
+[2026-03-23T15:59:19.076Z]   urls (1):
+[2026-03-23T15:59:19.076Z]     - https://fb.me/MidgamRC
+[2026-03-23T15:59:19.076Z] Summary: ws:1, li:1, urls:1
+[2026-03-23T15:59:19.077Z] Saved final result to result.json
+[2026-03-23T15:59:19.077Z] Override fields: ws, li, urls
+[2026-03-23T15:59:19.077Z] Finished at: 2026-03-23T15:59:19.077Z

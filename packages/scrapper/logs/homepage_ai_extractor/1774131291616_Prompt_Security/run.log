@@ -1,0 +1,64 @@
+[2026-03-21T22:14:51.617Z] === Homepage AI Extractor: Prompt Security ===
+[2026-03-21T22:14:51.617Z] Started at: 2026-03-21T22:14:51.617Z
+[2026-03-21T22:14:51.617Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774131291616_Prompt_Security
+[2026-03-21T22:14:51.617Z] Company: Prompt Security
+[2026-03-21T22:14:51.617Z] Website: prompt.security
+[2026-03-21T22:14:51.617Z] cbRank: 1695
+[2026-03-21T22:14:51.617Z] Reasons: f
+[2026-03-21T22:14:51.617Z] Fetching: https://prompt.security
+[2026-03-21T22:14:55.412Z] Redirected: https://prompt.security -> https://prompt.security/
+[2026-03-21T22:14:55.448Z] Saved HTML (219562 bytes) to page.html
+[2026-03-21T22:14:55.505Z] Extracted 47 unique links from page
+[2026-03-21T22:14:55.505Z] Saved 47 links to links.json
+[2026-03-21T22:14:55.562Z] Extracted footer HTML (14564 chars)
+[2026-03-21T22:14:55.562Z] Extracted header HTML (16891 chars)
+[2026-03-21T22:14:55.570Z] Website (post-redirect): https://prompt.security/ → origin: https://prompt.security
+[2026-03-21T22:14:55.571Z] External links: 3 (of 47 total)
+[2026-03-21T22:14:55.574Z] ── All external links ──
+[2026-03-21T22:14:55.575Z]   EXT: https://twitter.com/prompt_security
+[2026-03-21T22:14:55.575Z]   EXT: https://www.linkedin.com/company/promptsec
+[2026-03-21T22:14:55.575Z]   EXT: https://www.youtube.com/@PromptSecurity
+[2026-03-21T22:14:55.575Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:14:55.576Z]   REGEX: tw <- https://twitter.com/prompt_security
+[2026-03-21T22:14:55.576Z]   REGEX: li <- https://www.linkedin.com/company/promptsec
+[2026-03-21T22:14:55.577Z]   REGEX: ytp <- https://www.youtube.com/@PromptSecurity
+[2026-03-21T22:14:55.577Z] Programmatic result: ws:1, tw:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-21T22:14:55.577Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:14:55.579Z] Saved AI prompt (9026 chars) to ai_prompt.txt
+[2026-03-21T22:14:55.584Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:14:55.592Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:15:32.942Z]   AI: First token received, streaming...
+[2026-03-21T22:15:38.212Z] AI response complete: 118 chars in 42.6s
+[2026-03-21T22:15:38.213Z] Saved AI response to ai_response.json
+[2026-03-21T22:15:38.214Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T22:15:38.214Z]   AI LINK: https://twitter.com/prompt_security
+[2026-03-21T22:15:38.214Z]   AI LINK: https://www.youtube.com/@PromptSecurity
+[2026-03-21T22:15:38.214Z]   AI LINK: https://www.linkedin.com/company/promptsec
+[2026-03-21T22:15:38.214Z] AI returned 3 valid links
+[2026-03-21T22:15:38.214Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T22:15:38.215Z]   AI→REGEX: tw <- https://twitter.com/prompt_security (duplicate, skipped)
+[2026-03-21T22:15:38.215Z]   AI→REGEX: ytp <- https://www.youtube.com/@PromptSecurity (duplicate, skipped)
+[2026-03-21T22:15:38.215Z]   AI→REGEX: li <- https://www.linkedin.com/company/promptsec (duplicate, skipped)
+[2026-03-21T22:15:38.217Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:15:38.217Z] Footer/header origins (3):
+[2026-03-21T22:15:38.217Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T22:15:38.217Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T22:15:38.217Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:15:38.217Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:15:38.217Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:15:38.217Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:15:38.217Z] ── Step 3: Final dedup ──
+[2026-03-21T22:15:38.218Z] No urls to dedup
+[2026-03-21T22:15:38.218Z] ── FINAL RESULT ──
+[2026-03-21T22:15:38.218Z]   ws (1):
+[2026-03-21T22:15:38.218Z]     - https://prompt.security
+[2026-03-21T22:15:38.218Z]   li (1):
+[2026-03-21T22:15:38.218Z]     - https://www.linkedin.com/company/promptsec
+[2026-03-21T22:15:38.218Z]   tw (1):
+[2026-03-21T22:15:38.218Z]     - https://x.com/prompt_security
+[2026-03-21T22:15:38.218Z]   ytp (1):
+[2026-03-21T22:15:38.218Z]     - https://www.youtube.com/@promptsecurity
+[2026-03-21T22:15:38.218Z] Summary: ws:1, tw:1, li:1, ytp:1
+[2026-03-21T22:15:38.219Z] Saved final result to result.json
+[2026-03-21T22:15:38.220Z] Override fields: ws, li, tw, ytp
+[2026-03-21T22:15:38.220Z] Finished at: 2026-03-21T22:15:38.220Z

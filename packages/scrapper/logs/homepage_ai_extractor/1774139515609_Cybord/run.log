@@ -1,0 +1,78 @@
+[2026-03-22T00:31:55.610Z] === Homepage AI Extractor: Cybord ===
+[2026-03-22T00:31:55.610Z] Started at: 2026-03-22T00:31:55.610Z
+[2026-03-22T00:31:55.610Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774139515609_Cybord
+[2026-03-22T00:31:55.610Z] Company: Cybord
+[2026-03-22T00:31:55.610Z] Website: cybord.ai
+[2026-03-22T00:31:55.610Z] cbRank: 13970
+[2026-03-22T00:31:55.611Z] Reasons: f
+[2026-03-22T00:31:55.611Z] Fetching: https://cybord.ai
+[2026-03-22T00:32:00.629Z] Redirected: https://cybord.ai -> https://cybord.ai/
+[2026-03-22T00:32:00.639Z] Saved HTML (462122 bytes) to page.html
+[2026-03-22T00:32:00.641Z] Extracted 52 unique links from page
+[2026-03-22T00:32:00.642Z] Saved 52 links to links.json
+[2026-03-22T00:32:00.645Z] Extracted footer HTML (12932 chars)
+[2026-03-22T00:32:00.645Z] Extracted header HTML (17512 chars)
+[2026-03-22T00:32:00.650Z] Website (post-redirect): https://cybord.ai/ → origin: https://cybord.ai
+[2026-03-22T00:32:00.650Z] External links: 5 (of 52 total)
+[2026-03-22T00:32:00.650Z] ── All external links ──
+[2026-03-22T00:32:00.650Z]   EXT: https://attractive.co.il
+[2026-03-22T00:32:00.650Z]   EXT: https://twitter.com/Cybord_AI
+[2026-03-22T00:32:00.650Z]   EXT: https://www.codenroll.co.il
+[2026-03-22T00:32:00.650Z]   EXT: https://www.linkedin.com/company/cybord
+[2026-03-22T00:32:00.650Z]   EXT: https://www.youtube.com/channel/UCgkwIAKlL5po-gbP3_7hNVg
+[2026-03-22T00:32:00.650Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:32:00.650Z]   UNCATEGORIZED: https://attractive.co.il
+[2026-03-22T00:32:00.650Z]   REGEX: tw <- https://twitter.com/Cybord_AI
+[2026-03-22T00:32:00.651Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-22T00:32:00.651Z]   REGEX: li <- https://www.linkedin.com/company/cybord
+[2026-03-22T00:32:00.651Z]   REGEX: ytc <- https://www.youtube.com/channel/UCgkwIAKlL5po-gbP3_7hNVg
+[2026-03-22T00:32:00.651Z] Programmatic result: ws:1, tw:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-22T00:32:00.651Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:32:00.651Z] Saved AI prompt (7156 chars) to ai_prompt.txt
+[2026-03-22T00:32:00.651Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:32:00.655Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:32:32.063Z]   AI: First token received, streaming...
+[2026-03-22T00:32:41.430Z] AI response complete: 127 chars in 40.8s
+[2026-03-22T00:32:41.431Z] Saved AI response to ai_response.json
+[2026-03-22T00:32:41.432Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:32:41.432Z]   AI LINK: https://www.linkedin.com/company/cybord/
+[2026-03-22T00:32:41.432Z]   AI LINK: https://www.youtube.com/channel/UCgkwIAKlL5po-gbP3_7hNVg
+[2026-03-22T00:32:41.432Z]   AI LINK: https://twitter.com/Cybord_AI
+[2026-03-22T00:32:41.432Z] AI returned 3 valid links
+[2026-03-22T00:32:41.432Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:32:41.433Z]   AI→REGEX: li <- https://www.linkedin.com/company/cybord/ (duplicate, skipped)
+[2026-03-22T00:32:41.433Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCgkwIAKlL5po-gbP3_7hNVg (duplicate, skipped)
+[2026-03-22T00:32:41.433Z]   AI→REGEX: tw <- https://twitter.com/Cybord_AI (duplicate, skipped)
+[2026-03-22T00:32:41.433Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:32:41.434Z] Footer/header origins (5):
+[2026-03-22T00:32:41.434Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:32:41.434Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:32:41.434Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T00:32:41.434Z]   FOOTER/HEADER ORIGIN: https://cybord.ai
+[2026-03-22T00:32:41.434Z]   FOOTER/HEADER ORIGIN: https://attractive.co.il
+[2026-03-22T00:32:41.434Z]   ADDED: urls <- https://attractive.co.il
+[2026-03-22T00:32:41.434Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-22T00:32:41.434Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T00:32:41.434Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:32:41.435Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T00:32:41.693Z]   YOUTUBE: resolved UCgkwIAKlL5po-gbP3_7hNVg → @cybord3980
+[2026-03-22T00:32:41.693Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T00:32:41.693Z] ── Step 3: Final dedup ──
+[2026-03-22T00:32:41.693Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T00:32:41.694Z] ── FINAL RESULT ──
+[2026-03-22T00:32:41.694Z]   ws (1):
+[2026-03-22T00:32:41.694Z]     - https://cybord.ai
+[2026-03-22T00:32:41.694Z]   li (1):
+[2026-03-22T00:32:41.694Z]     - https://www.linkedin.com/company/cybord
+[2026-03-22T00:32:41.694Z]   tw (1):
+[2026-03-22T00:32:41.694Z]     - https://x.com/cybord_ai
+[2026-03-22T00:32:41.694Z]   ytp (1):
+[2026-03-22T00:32:41.694Z]     - https://www.youtube.com/@cybord3980
+[2026-03-22T00:32:41.694Z]   ytc (1):
+[2026-03-22T00:32:41.694Z]     - https://www.youtube.com/channel/UCgkwIAKlL5po-gbP3_7hNVg
+[2026-03-22T00:32:41.694Z]   urls (1):
+[2026-03-22T00:32:41.694Z]     - https://attractive.co.il
+[2026-03-22T00:32:41.694Z] Summary: ws:1, tw:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-22T00:32:41.695Z] Saved final result to result.json
+[2026-03-22T00:32:41.696Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-22T00:32:41.696Z] Finished at: 2026-03-22T00:32:41.696Z

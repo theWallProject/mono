@@ -1,0 +1,85 @@
+[2026-03-24T02:59:30.451Z] === Homepage AI Extractor: Fixya ===
+[2026-03-24T02:59:30.451Z] Started at: 2026-03-24T02:59:30.451Z
+[2026-03-24T02:59:30.451Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774321170450_Fixya
+[2026-03-24T02:59:30.451Z] Company: Fixya
+[2026-03-24T02:59:30.451Z] Website: fixya.com
+[2026-03-24T02:59:30.451Z] cbRank: 294060
+[2026-03-24T02:59:30.451Z] Reasons: i
+[2026-03-24T02:59:30.451Z] Fetching: https://fixya.com
+[2026-03-24T02:59:35.556Z] Redirected: https://fixya.com -> https://www.fixya.com/
+[2026-03-24T02:59:35.562Z] Saved HTML (203969 bytes) to page.html
+[2026-03-24T02:59:35.565Z] Extracted 38 unique links from page
+[2026-03-24T02:59:35.566Z] Saved 38 links to links.json
+[2026-03-24T02:59:35.568Z] Extracted footer HTML (4390 chars)
+[2026-03-24T02:59:35.568Z] Extracted header HTML (4623 chars)
+[2026-03-24T02:59:35.573Z] Website (post-redirect): https://www.fixya.com/ → origin: https://www.fixya.com
+[2026-03-24T02:59:35.573Z]   SUBDOMAIN: blog.fixya.com (added to ws)
+[2026-03-24T02:59:35.573Z] Website subdomains found: 1
+[2026-03-24T02:59:35.573Z] External links: 5 (of 38 total)
+[2026-03-24T02:59:35.573Z] ── All external links ──
+[2026-03-24T02:59:35.573Z]   EXT: https://plus.google.com/+fixya
+[2026-03-24T02:59:35.573Z]   EXT: https://twitter.com/fixya
+[2026-03-24T02:59:35.573Z]   EXT: https://www.facebook.com/pages/FixYa/315217715293
+[2026-03-24T02:59:35.573Z]   EXT: https://www.linkedin.com/company/fixya
+[2026-03-24T02:59:35.573Z]   EXT: https://www.verticalscope.com/careers/jobs
+[2026-03-24T02:59:35.573Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:59:35.573Z]   UNCATEGORIZED: https://plus.google.com/+fixya
+[2026-03-24T02:59:35.573Z]   REGEX: tw <- https://twitter.com/fixya
+[2026-03-24T02:59:35.574Z]   REGEX: li <- https://www.linkedin.com/company/fixya
+[2026-03-24T02:59:35.574Z]   UNCATEGORIZED: https://www.verticalscope.com/careers/jobs
+[2026-03-24T02:59:35.574Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-24T02:59:37.088Z]   RESOLVE: https://www.facebook.com/pages/FixYa/315217715293 → https://www.facebook.com/people/Fixya/100050651761990
+[2026-03-24T02:59:37.093Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Fixya/100050651761990 (from https://www.facebook.com/pages/FixYa/315217715293)
+[2026-03-24T02:59:37.093Z] Programmatic result: ws:2, tw:1, li:1 | 2 uncategorized
+[2026-03-24T02:59:37.093Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:59:37.096Z] Saved AI prompt (4792 chars) to ai_prompt.txt
+[2026-03-24T02:59:37.096Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:59:37.100Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:59:56.441Z]   AI: First token received, streaming...
+[2026-03-24T03:00:08.456Z] AI response complete: 168 chars in 31.4s
+[2026-03-24T03:00:08.457Z] Saved AI response to ai_response.json
+[2026-03-24T03:00:08.457Z] ── Parsing AI response (5 lines) ──
+[2026-03-24T03:00:08.457Z]   AI LINK: https://plus.google.com/+fixya
+[2026-03-24T03:00:08.458Z]   AI LINK: https://twitter.com/fixya
+[2026-03-24T03:00:08.458Z]   AI LINK: https://www.facebook.com/pages/FixYa/315217715293
+[2026-03-24T03:00:08.458Z]   AI LINK: https://www.linkedin.com/company/fixya
+[2026-03-24T03:00:08.458Z]   AI LINK: https://blog.fixya.com
+[2026-03-24T03:00:08.458Z] AI returned 5 valid links
+[2026-03-24T03:00:08.458Z] ── Categorizing 5 AI-returned links ──
+[2026-03-24T03:00:08.459Z]   AI→URLS: https://plus.google.com/+fixya
+[2026-03-24T03:00:08.459Z]   AI→REGEX: tw <- https://twitter.com/fixya (duplicate, skipped)
+[2026-03-24T03:00:09.620Z]   RESOLVE: https://www.facebook.com/pages/FixYa/315217715293 → https://www.facebook.com/people/Fixya/100050651761990
+[2026-03-24T03:00:09.625Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/Fixya/100050651761990 (from https://www.facebook.com/pages/FixYa/315217715293)
+[2026-03-24T03:00:09.625Z]   AI→REGEX: li <- https://www.linkedin.com/company/fixya (duplicate, skipped)
+[2026-03-24T03:00:09.625Z]   AI→URLS: https://blog.fixya.com
+[2026-03-24T03:00:09.626Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T03:00:09.626Z] Footer/header origins (6):
+[2026-03-24T03:00:09.626Z]   FOOTER/HEADER ORIGIN: https://www.verticalscope.com
+[2026-03-24T03:00:09.626Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-24T03:00:09.626Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T03:00:09.626Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T03:00:09.626Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T03:00:09.626Z]   FOOTER/HEADER ORIGIN: https://www.fixya.com
+[2026-03-24T03:00:09.626Z]   SKIP (AI claimed): https://plus.google.com/+fixya
+[2026-03-24T03:00:09.626Z]   ADDED: urls <- https://www.verticalscope.com/careers/jobs
+[2026-03-24T03:00:09.626Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-24T03:00:09.626Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T03:00:09.626Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T03:00:09.626Z] ── Step 3: Final dedup ──
+[2026-03-24T03:00:09.626Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-24T03:00:09.626Z] ── FINAL RESULT ──
+[2026-03-24T03:00:09.626Z]   ws (2):
+[2026-03-24T03:00:09.626Z]     - https://blog.fixya.com
+[2026-03-24T03:00:09.626Z]     - https://www.fixya.com
+[2026-03-24T03:00:09.627Z]   li (1):
+[2026-03-24T03:00:09.627Z]     - https://www.linkedin.com/company/fixya
+[2026-03-24T03:00:09.627Z]   tw (1):
+[2026-03-24T03:00:09.627Z]     - https://x.com/fixya
+[2026-03-24T03:00:09.627Z]   urls (3):
+[2026-03-24T03:00:09.627Z]     - https://blog.fixya.com
+[2026-03-24T03:00:09.627Z]     - https://plus.google.com/+fixya
+[2026-03-24T03:00:09.627Z]     - https://www.verticalscope.com/careers/jobs
+[2026-03-24T03:00:09.627Z] Summary: ws:2, tw:1, li:1, urls:3
+[2026-03-24T03:00:09.627Z] Saved final result to result.json
+[2026-03-24T03:00:09.628Z] Override fields: ws, li, tw, urls
+[2026-03-24T03:00:09.628Z] Finished at: 2026-03-24T03:00:09.628Z

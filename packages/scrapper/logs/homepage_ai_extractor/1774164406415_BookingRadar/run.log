@@ -1,0 +1,83 @@
+[2026-03-22T07:26:46.416Z] === Homepage AI Extractor: BookingRadar ===
+[2026-03-22T07:26:46.417Z] Started at: 2026-03-22T07:26:46.416Z
+[2026-03-22T07:26:46.417Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774164406415_BookingRadar
+[2026-03-22T07:26:46.417Z] Company: BookingRadar
+[2026-03-22T07:26:46.417Z] Website: bookingradar.com
+[2026-03-22T07:26:46.417Z] cbRank: 265917
+[2026-03-22T07:26:46.417Z] Reasons: f
+[2026-03-22T07:26:46.417Z] Fetching: https://bookingradar.com
+[2026-03-22T07:26:51.419Z] Redirected: https://bookingradar.com -> https://bookingradar.com/
+[2026-03-22T07:26:51.437Z] Saved HTML (784442 bytes) to page.html
+[2026-03-22T07:26:51.441Z] Extracted 57 unique links from page
+[2026-03-22T07:26:51.442Z] Saved 57 links to links.json
+[2026-03-22T07:26:51.444Z] No footer section found in DOM
+[2026-03-22T07:26:51.444Z] Extracted header HTML (10398 chars)
+[2026-03-22T07:26:51.448Z] Website (post-redirect): https://bookingradar.com/ → origin: https://bookingradar.com
+[2026-03-22T07:26:51.448Z]   SUBDOMAIN: admin.bookingradar.com (added to ws)
+[2026-03-22T07:26:51.448Z]   SUBDOMAIN: partner.bookingradar.com (added to ws)
+[2026-03-22T07:26:51.448Z] Website subdomains found: 2
+[2026-03-22T07:26:51.448Z] External links: 7 (of 57 total)
+[2026-03-22T07:26:51.448Z] ── All external links ──
+[2026-03-22T07:26:51.448Z]   EXT: https://www.facebook.com/bookingradar
+[2026-03-22T07:26:51.448Z]   EXT: https://www.instagram.com/bookingradar
+[2026-03-22T07:26:51.448Z]   EXT: https://www.linkedin.com/company/bookingradar
+[2026-03-22T07:26:51.449Z]   EXT: https://www.pinterest.ru/bookingradar
+[2026-03-22T07:26:51.449Z]   EXT: https://www.tiktok.com/@bookingradar
+[2026-03-22T07:26:51.449Z]   EXT: https://www.youtube.com/channel/UCV2f9MisYXoej-fuqm4R84Q
+[2026-03-22T07:26:51.449Z]   EXT: https://x.com/bookingradar
+[2026-03-22T07:26:51.449Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T07:26:51.449Z]   REGEX: fb <- https://www.facebook.com/bookingradar
+[2026-03-22T07:26:51.449Z]   REGEX: ig <- https://www.instagram.com/bookingradar
+[2026-03-22T07:26:51.449Z]   REGEX: li <- https://www.linkedin.com/company/bookingradar
+[2026-03-22T07:26:51.449Z]   UNCATEGORIZED: https://www.pinterest.ru/bookingradar
+[2026-03-22T07:26:51.449Z]   REGEX: tt <- https://www.tiktok.com/@bookingradar
+[2026-03-22T07:26:51.449Z]   REGEX: ytc <- https://www.youtube.com/channel/UCV2f9MisYXoej-fuqm4R84Q
+[2026-03-22T07:26:51.450Z]   REGEX: tw <- https://x.com/bookingradar
+[2026-03-22T07:26:51.450Z] Programmatic result: ws:3, fb:1, ig:1, li:1, tt:1, ytc:1, tw:1 | 1 uncategorized
+[2026-03-22T07:26:51.450Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T07:26:51.450Z] Saved AI prompt (1982 chars) to ai_prompt.txt
+[2026-03-22T07:26:51.451Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T07:26:51.454Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T07:26:58.018Z]   AI: First token received, streaming...
+[2026-03-22T07:26:59.159Z] AI response complete: 37 chars in 7.7s
+[2026-03-22T07:26:59.161Z] Saved AI response to ai_response.json
+[2026-03-22T07:26:59.161Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T07:26:59.161Z]   AI LINK: https://www.pinterest.ru/bookingradar
+[2026-03-22T07:26:59.161Z] AI returned 1 valid links
+[2026-03-22T07:26:59.161Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T07:26:59.162Z]   AI→URLS: https://www.pinterest.ru/bookingradar
+[2026-03-22T07:26:59.162Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T07:26:59.163Z] Footer/header origins (0):
+[2026-03-22T07:26:59.163Z]   SKIP (AI claimed): https://www.pinterest.ru/bookingradar
+[2026-03-22T07:26:59.163Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T07:26:59.163Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T07:26:59.163Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T07:26:59.415Z]   YOUTUBE: resolved UCV2f9MisYXoej-fuqm4R84Q → @bookingradar7184
+[2026-03-22T07:26:59.415Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T07:26:59.415Z] ── Step 3: Final dedup ──
+[2026-03-22T07:26:59.415Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T07:26:59.415Z] ── FINAL RESULT ──
+[2026-03-22T07:26:59.415Z]   ws (3):
+[2026-03-22T07:26:59.415Z]     - https://admin.bookingradar.com
+[2026-03-22T07:26:59.415Z]     - https://bookingradar.com
+[2026-03-22T07:26:59.415Z]     - https://partner.bookingradar.com
+[2026-03-22T07:26:59.415Z]   li (1):
+[2026-03-22T07:26:59.416Z]     - https://www.linkedin.com/company/bookingradar
+[2026-03-22T07:26:59.416Z]   fb (1):
+[2026-03-22T07:26:59.416Z]     - https://www.facebook.com/bookingradar
+[2026-03-22T07:26:59.416Z]   tw (1):
+[2026-03-22T07:26:59.416Z]     - https://x.com/bookingradar
+[2026-03-22T07:26:59.416Z]   ig (1):
+[2026-03-22T07:26:59.416Z]     - https://www.instagram.com/bookingradar
+[2026-03-22T07:26:59.416Z]   ytp (1):
+[2026-03-22T07:26:59.416Z]     - https://www.youtube.com/@bookingradar7184
+[2026-03-22T07:26:59.416Z]   ytc (1):
+[2026-03-22T07:26:59.416Z]     - https://www.youtube.com/channel/UCV2f9MisYXoej-fuqm4R84Q
+[2026-03-22T07:26:59.416Z]   tt (1):
+[2026-03-22T07:26:59.416Z]     - https://www.tiktok.com/@bookingradar
+[2026-03-22T07:26:59.416Z]   urls (1):
+[2026-03-22T07:26:59.416Z]     - https://www.pinterest.ru/bookingradar
+[2026-03-22T07:26:59.416Z] Summary: ws:3, fb:1, ig:1, li:1, tt:1, ytc:1, tw:1, urls:1, ytp:1
+[2026-03-22T07:26:59.417Z] Saved final result to result.json
+[2026-03-22T07:26:59.417Z] Override fields: ws, li, fb, tw, ig, ytp, ytc, tt, urls
+[2026-03-22T07:26:59.417Z] Finished at: 2026-03-22T07:26:59.417Z

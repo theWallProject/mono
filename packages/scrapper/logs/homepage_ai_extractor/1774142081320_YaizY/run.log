@@ -1,0 +1,75 @@
+[2026-03-22T01:14:41.321Z] === Homepage AI Extractor: YaizY ===
+[2026-03-22T01:14:41.321Z] Started at: 2026-03-22T01:14:41.321Z
+[2026-03-22T01:14:41.322Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774142081320_YaizY
+[2026-03-22T01:14:41.322Z] Company: YaizY
+[2026-03-22T01:14:41.322Z] Website: yaizy.io
+[2026-03-22T01:14:41.322Z] cbRank: 20550
+[2026-03-22T01:14:41.322Z] Reasons: f
+[2026-03-22T01:14:41.322Z] Fetching: https://yaizy.io
+[2026-03-22T01:14:44.563Z] Redirected: https://yaizy.io -> https://yaizy.io/
+[2026-03-22T01:14:44.579Z] Saved HTML (704269 bytes) to page.html
+[2026-03-22T01:14:44.584Z] Extracted 18 unique links from page
+[2026-03-22T01:14:44.585Z] Saved 18 links to links.json
+[2026-03-22T01:14:44.589Z] Extracted footer HTML (23730 chars)
+[2026-03-22T01:14:44.589Z] Extracted header HTML (6249 chars)
+[2026-03-22T01:14:44.592Z] Website (post-redirect): https://yaizy.io/ → origin: https://yaizy.io
+[2026-03-22T01:14:44.592Z] External links: 5 (of 18 total)
+[2026-03-22T01:14:44.592Z] ── All external links ──
+[2026-03-22T01:14:44.592Z]   EXT: https://www.facebook.com/YaizY.io
+[2026-03-22T01:14:44.592Z]   EXT: https://www.framer.com/legal/policy
+[2026-03-22T01:14:44.592Z]   EXT: https://www.instagram.com/yaizy.io
+[2026-03-22T01:14:44.592Z]   EXT: https://www.linkedin.com/company/yaizy
+[2026-03-22T01:14:44.593Z]   EXT: https://www.youtube.com/@yaizyyaizy4281
+[2026-03-22T01:14:44.593Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:14:44.593Z]   REGEX: fb <- https://www.facebook.com/YaizY.io
+[2026-03-22T01:14:44.593Z]   UNCATEGORIZED: https://www.framer.com/legal/policy
+[2026-03-22T01:14:44.593Z]   REGEX: ig <- https://www.instagram.com/yaizy.io
+[2026-03-22T01:14:44.593Z]   REGEX: li <- https://www.linkedin.com/company/yaizy
+[2026-03-22T01:14:44.593Z]   REGEX: ytp <- https://www.youtube.com/@yaizyyaizy4281
+[2026-03-22T01:14:44.593Z] Programmatic result: ws:1, fb:1, ig:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-22T01:14:44.593Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:14:44.596Z] Saved AI prompt (8863 chars) to ai_prompt.txt
+[2026-03-22T01:14:44.597Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:14:44.601Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:15:21.684Z]   AI: First token received, streaming...
+[2026-03-22T01:15:32.275Z] AI response complete: 149 chars in 47.7s
+[2026-03-22T01:15:32.276Z] Saved AI response to ai_response.json
+[2026-03-22T01:15:32.276Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T01:15:32.277Z]   AI LINK: https://www.linkedin.com/company/yaizy/
+[2026-03-22T01:15:32.277Z]   AI LINK: https://www.facebook.com/YaizY.io
+[2026-03-22T01:15:32.277Z]   AI LINK: https://www.instagram.com/yaizy.io/
+[2026-03-22T01:15:32.277Z]   AI LINK: https://www.youtube.com/@yaizyyaizy4281
+[2026-03-22T01:15:32.277Z] AI returned 4 valid links
+[2026-03-22T01:15:32.277Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T01:15:32.278Z]   AI→REGEX: li <- https://www.linkedin.com/company/yaizy/ (duplicate, skipped)
+[2026-03-22T01:15:32.278Z]   AI→REGEX: fb <- https://www.facebook.com/YaizY.io (duplicate, skipped)
+[2026-03-22T01:15:32.278Z]   AI→REGEX: ig <- https://www.instagram.com/yaizy.io/ (duplicate, skipped)
+[2026-03-22T01:15:32.278Z]   AI→REGEX: ytp <- https://www.youtube.com/@yaizyyaizy4281 (duplicate, skipped)
+[2026-03-22T01:15:32.279Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:15:32.279Z] Footer/header origins (5):
+[2026-03-22T01:15:32.279Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:15:32.279Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T01:15:32.280Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T01:15:32.280Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:15:32.280Z]   FOOTER/HEADER ORIGIN: https://yaizy.io
+[2026-03-22T01:15:32.280Z]   SKIP (not in footer/header): https://www.framer.com/legal/policy
+[2026-03-22T01:15:32.280Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:15:32.280Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:15:32.280Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:15:32.281Z] ── Step 3: Final dedup ──
+[2026-03-22T01:15:32.281Z] No urls to dedup
+[2026-03-22T01:15:32.281Z] ── FINAL RESULT ──
+[2026-03-22T01:15:32.281Z]   ws (1):
+[2026-03-22T01:15:32.281Z]     - https://yaizy.io
+[2026-03-22T01:15:32.281Z]   li (1):
+[2026-03-22T01:15:32.281Z]     - https://www.linkedin.com/company/yaizy
+[2026-03-22T01:15:32.281Z]   fb (1):
+[2026-03-22T01:15:32.281Z]     - https://www.facebook.com/yaizy.io
+[2026-03-22T01:15:32.282Z]   ig (1):
+[2026-03-22T01:15:32.282Z]     - https://www.instagram.com/yaizy.io
+[2026-03-22T01:15:32.282Z]   ytp (1):
+[2026-03-22T01:15:32.282Z]     - https://www.youtube.com/@yaizyyaizy4281
+[2026-03-22T01:15:32.282Z] Summary: ws:1, fb:1, ig:1, li:1, ytp:1
+[2026-03-22T01:15:32.284Z] Saved final result to result.json
+[2026-03-22T01:15:32.284Z] Override fields: ws, li, fb, ig, ytp
+[2026-03-22T01:15:32.284Z] Finished at: 2026-03-22T01:15:32.284Z

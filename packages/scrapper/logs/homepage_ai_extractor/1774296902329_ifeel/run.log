@@ -1,0 +1,78 @@
+[2026-03-23T20:15:02.330Z] === Homepage AI Extractor: ifeel ===
+[2026-03-23T20:15:02.330Z] Started at: 2026-03-23T20:15:02.330Z
+[2026-03-23T20:15:02.331Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774296902329_ifeel
+[2026-03-23T20:15:02.331Z] Company: ifeel
+[2026-03-23T20:15:02.331Z] Website: ifeelonline.com
+[2026-03-23T20:15:02.331Z] cbRank: 14222
+[2026-03-23T20:15:02.331Z] Reasons: i
+[2026-03-23T20:15:02.331Z] Fetching: https://ifeelonline.com
+[2026-03-23T20:15:06.142Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-23T20:15:09.100Z] Redirected: https://ifeelonline.com -> https://ifeelonline.com/
+[2026-03-23T20:15:09.116Z] Saved HTML (627121 bytes) to page.html
+[2026-03-23T20:15:09.119Z] Extracted 66 unique links from page
+[2026-03-23T20:15:09.123Z] Saved 66 links to links.json
+[2026-03-23T20:15:09.127Z] No footer section found in DOM
+[2026-03-23T20:15:09.127Z] Extracted header HTML (57955 chars)
+[2026-03-23T20:15:09.133Z] Website (post-redirect): https://ifeelonline.com/ → origin: https://ifeelonline.com
+[2026-03-23T20:15:09.133Z]   SUBDOMAIN: chat.ifeelonline.com (added to ws)
+[2026-03-23T20:15:09.133Z]   SUBDOMAIN: trust.ifeelonline.com (added to ws)
+[2026-03-23T20:15:09.133Z] Website subdomains found: 2
+[2026-03-23T20:15:09.133Z] External links: 6 (of 66 total)
+[2026-03-23T20:15:09.133Z] ── All external links ──
+[2026-03-23T20:15:09.133Z]   EXT: https://apps.apple.com/us/app/ifeel-online-therapy/id1405536289
+[2026-03-23T20:15:09.134Z]   EXT: https://es.linkedin.com/company/ifeelonline
+[2026-03-23T20:15:09.134Z]   EXT: https://ifeelonline-canaletico.appcore.es/en
+[2026-03-23T20:15:09.134Z]   EXT: https://play.google.com/store/apps/dev?id=6171958691729060471&hl=en&pli=1
+[2026-03-23T20:15:09.134Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T20:15:09.134Z]   EXT: https://www.instagram.com/ifeelonline_en/reels
+[2026-03-23T20:15:09.134Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:15:09.134Z]   UNCATEGORIZED: https://apps.apple.com/us/app/ifeel-online-therapy/id1405536289
+[2026-03-23T20:15:09.134Z]   REGEX: li <- https://es.linkedin.com/company/ifeelonline
+[2026-03-23T20:15:09.134Z]   UNCATEGORIZED: https://ifeelonline-canaletico.appcore.es/en
+[2026-03-23T20:15:09.134Z]   REGEX: android_dev_id <- 6171958691729060471 (from https://play.google.com/store/apps/dev?id=6171958691729060471&hl=en&pli=1)
+[2026-03-23T20:15:09.134Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T20:15:09.134Z]   REGEX: ig <- https://www.instagram.com/ifeelonline_en/reels
+[2026-03-23T20:15:09.134Z] Programmatic result: ws:3, li:1, android_dev_id:1, ig:1 | 3 uncategorized
+[2026-03-23T20:15:09.134Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:15:09.135Z] Saved AI prompt (2155 chars) to ai_prompt.txt
+[2026-03-23T20:15:09.135Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:15:09.139Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:15:16.103Z]   AI: First token received, streaming...
+[2026-03-23T20:15:23.956Z] AI response complete: 108 chars in 14.8s
+[2026-03-23T20:15:23.957Z] Saved AI response to ai_response.json
+[2026-03-23T20:15:23.957Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T20:15:23.958Z]   AI LINK: https://apps.apple.com/us/app/ifeel-online-therapy/id1405536289
+[2026-03-23T20:15:23.958Z]   AI LINK: https://ifeelonline-canaletico.appcore.es/en
+[2026-03-23T20:15:23.958Z] AI returned 2 valid links
+[2026-03-23T20:15:23.958Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T20:15:23.959Z]   AI→URLS: https://apps.apple.com/us/app/ifeel-online-therapy/id1405536289
+[2026-03-23T20:15:23.959Z]   AI→URLS: https://ifeelonline-canaletico.appcore.es/en
+[2026-03-23T20:15:23.959Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:15:23.959Z] Footer/header origins (2):
+[2026-03-23T20:15:23.959Z]   FOOTER/HEADER ORIGIN: https://ifeelonline.com
+[2026-03-23T20:15:23.960Z]   FOOTER/HEADER ORIGIN: https://chat.ifeelonline.com
+[2026-03-23T20:15:23.960Z]   SKIP (AI claimed): https://apps.apple.com/us/app/ifeel-online-therapy/id1405536289
+[2026-03-23T20:15:23.960Z]   SKIP (AI claimed): https://ifeelonline-canaletico.appcore.es/en
+[2026-03-23T20:15:23.960Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T20:15:23.960Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T20:15:23.960Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:15:23.960Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:15:23.960Z] ── Step 3: Final dedup ──
+[2026-03-23T20:15:23.960Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T20:15:23.960Z] ── FINAL RESULT ──
+[2026-03-23T20:15:23.960Z]   ws (3):
+[2026-03-23T20:15:23.960Z]     - https://chat.ifeelonline.com
+[2026-03-23T20:15:23.960Z]     - https://ifeelonline.com
+[2026-03-23T20:15:23.961Z]     - https://trust.ifeelonline.com
+[2026-03-23T20:15:23.961Z]   li (1):
+[2026-03-23T20:15:23.961Z]     - https://www.linkedin.com/company/ifeelonline
+[2026-03-23T20:15:23.961Z]   ig (1):
+[2026-03-23T20:15:23.961Z]     - https://www.instagram.com/ifeelonline_en
+[2026-03-23T20:15:23.961Z]   urls (2):
+[2026-03-23T20:15:23.961Z]     - https://apps.apple.com/us/app/ifeel-online-therapy/id1405536289
+[2026-03-23T20:15:23.961Z]     - https://ifeelonline-canaletico.appcore.es/en
+[2026-03-23T20:15:23.961Z]   android_dev_id: 6171958691729060471
+[2026-03-23T20:15:23.961Z] Summary: ws:3, li:1, android_dev_id:1, ig:1, urls:2
+[2026-03-23T20:15:23.962Z] Saved final result to result.json
+[2026-03-23T20:15:23.962Z] Override fields: ws, li, ig, urls, android_dev_id
+[2026-03-23T20:15:23.962Z] Finished at: 2026-03-23T20:15:23.962Z

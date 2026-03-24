@@ -1,0 +1,403 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Zetz | Autonomous Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#136dec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .blue-glow {
+            box-shadow: 0 0 15px rgba(19, 109, 236, 0.3);
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.left-0{left:0px}.right-0{right:0px}.top-0{top:0px}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-12{margin-top:3rem}.mt-16{margin-top:4rem}.mt-2{margin-top:0.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.size-16{width:4rem;height:4rem}.size-6{width:1.5rem;height:1.5rem}.size-8{width:2rem;height:2rem}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-full{height:100%}.min-h-\[560px\]{min-height:560px}.w-1\/3{width:33.333333%}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-2{width:0.5rem}.w-20{width:5rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-shrink-0{flex-shrink:0}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-r{border-top-right-radius:0.25rem;border-bottom-right-radius:0.25rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-primary{--tw-border-opacity:1;border-color:rgb(19 109 236 / var(--tw-border-opacity, 1))}.border-primary\/30{border-color:rgb(19 109 236 / 0.3)}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.bg-background-light{--tw-bg-opacity:1;background-color:rgb(246 247 248 / var(--tw-bg-opacity, 1))}.bg-background-light\/80{background-color:rgb(246 247 248 / 0.8)}.bg-primary{--tw-bg-opacity:1;background-color:rgb(19 109 236 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(19 109 236 / 0.1)}.bg-primary\/20{background-color:rgb(19 109 236 / 0.2)}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.p-10{padding:2.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pb-20{padding-bottom:5rem}.pt-32{padding-top:8rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[1\.1\]{line-height:1.1}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-primary{--tw-text-opacity:1;color:rgb(19 109 236 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-10{opacity:0.1}.opacity-20{opacity:0.2}.opacity-75{opacity:0.75}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            -webkit-backdrop-filter: blur(10px);
+                    backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .blue-glow {
+            box-shadow: 0 0 15px rgba(19, 109, 236, 0.3);
+        }
+        .hover\:border-primary\/50:hover{border-color:rgb(19 109 236 / 0.5)}
+        .hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(19 109 236 / var(--tw-bg-opacity, 1))}
+        .hover\:bg-primary\/90:hover{background-color:rgb(19 109 236 / 0.9)}
+        .hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}
+        .hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(19 109 236 / var(--tw-text-opacity, 1))}
+        .hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+        .group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(19 109 236 / var(--tw-bg-opacity, 1))}
+        .group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+        .dark\:border-slate-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}
+        .dark\:border-slate-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}
+        .dark\:bg-background-dark:is(.dark *){--tw-bg-opacity:1;background-color:rgb(16 24 34 / var(--tw-bg-opacity, 1))}
+        .dark\:bg-background-dark\/80:is(.dark *){background-color:rgb(16 24 34 / 0.8)}
+        .dark\:bg-slate-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}
+        .dark\:bg-slate-900:is(.dark *){--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}
+        .dark\:bg-slate-900\/30:is(.dark *){background-color:rgb(15 23 42 / 0.3)}
+        .dark\:bg-slate-900\/50:is(.dark *){background-color:rgb(15 23 42 / 0.5)}
+        .dark\:text-slate-300:is(.dark *){--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}
+        .dark\:text-slate-400:is(.dark *){--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}
+        .dark\:text-white:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+        @media (min-width: 768px){.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}.md\:justify-end{justify-content:flex-end}.md\:px-16{padding-left:4rem;padding-right:4rem}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}
+        @media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}}
+    </style></head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-300">
+<div class="fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">ZETZ</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#overview">Company</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#capabilities">Capabilities</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#performance">Performance</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#contact">Contact</a>
+</nav>
+</div>
+</div>
+<section class="pt-32 pb-20 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="relative overflow-hidden rounded-xl bg-slate-900 min-h-[560px] flex items-center px-8 md:px-16" style="background-image: linear-gradient(to right, rgba(16, 24, 34, 0.95) 30%, rgba(16, 24, 34, 0.6) 100%), url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDvEcuCM7bkSHDoouBCRJccfeX9rMRKbdFMT3wx-PPMvPsHTvyeZ5t8fW-RnT27x_ynRSPBZRzrGhdd1r5scj0wUq5XDVKLqs-rFYxwh9DxIaLizqwboDJI2h79mf857uWw7IKilLyyNQrBHZAp5YhMQQQgWWwYUsARoXgB7apZ9Qqt6biM0fadfM4nU04wjWlS4DBj6WXeuQShQSy9ZFWLPZjE89fTjTZmLX7zYo09lnIiWTyVKaB-LQIhn7cMboPBSPw93bZzUOs&quot;); background-size: cover; background-position: center;">
+<div class="max-w-2xl relative z-10">
+<div class="inline-flex items-center gap-2 bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full mb-6">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-xs font-bold uppercase tracking-wider">Next-Gen Autonomous Systems</span>
+</div>
+<h1 class="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+                        Advancing Autonomous Intelligence for Next-Gen Unmanned Systems
+                    </h1>
+<p class="text-lg md:text-xl text-slate-300 mb-10 font-normal leading-relaxed">
+                        Bridging the gap between hardware and intelligence for high-performance UAS operating in complex environments.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<a href="#capabilities" class="bg-primary text-white h-12 px-8 rounded-lg font-bold hover:bg-primary/90 transition-all blue-glow flex items-center justify-center">
+                            Explore Competencies
+                        </a>
+<a href="#performance" class="bg-white/10 text-white backdrop-blur-sm border border-white/20 h-12 px-8 rounded-lg font-bold hover:bg-white/20 transition-all flex items-center justify-center">
+                            View Performance
+                        </a>
+</div>
+</div>
+<div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: radial-gradient(#136dec 1px, transparent 1px); background-size: 30px 30px;"></div>
+</div>
+</div>
+</section>
+<section class="py-16 px-6 bg-slate-50 dark:bg-slate-900/30" id="overview">
+<div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+<div class="size-16 text-primary mb-6">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-3xl font-bold mb-6 tracking-tight">Company Overview</h2>
+<div class="w-20 h-1 bg-primary mb-8"></div>
+<p class="text-xl max-w-3xl leading-relaxed text-slate-600 dark:text-slate-300">
+                Zetz is a specialized software firm providing high-performance autonomy and AI solutions for
+                <span class="text-primary font-bold">Unmanned Aerial Systems (UAS)</span>. We bridge the gap between hardware and intelligence,
+                enabling drones to operate in GPS-denied environments and execute complex missions with minimal human intervention.
+            </p>
+</div>
+</section>
+<section class="py-24 px-6" id="capabilities">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<p class="text-primary font-bold uppercase tracking-widest text-sm mb-2">Technical Excellence</p>
+<h2 class="text-4xl font-bold tracking-tight">Core Competencies</h2>
+</div>
+<div class="text-slate-500 dark:text-slate-400 max-w-md">
+                    Our interdisciplinary approach combines aerospace engineering with deep neural network optimization.
+                </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<div class="glass-card p-8 rounded-xl flex flex-col items-start gap-4 group hover:border-primary/50 transition-all">
+<div class="bg-primary/10 text-primary p-3 rounded-lg group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">explore</span>
+</div>
+<h3 class="font-bold text-lg">Autonomous Navigation</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Edge-based obstacle avoidance and path planning for complex indoor/outdoor environments.</p>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-start gap-4 group hover:border-primary/50 transition-all">
+<div class="bg-primary/10 text-primary p-3 rounded-lg group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<h3 class="font-bold text-lg">AI &amp; Machine Learning</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Real-time object detection, classification, and tracking using computer vision models.</p>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-start gap-4 group hover:border-primary/50 transition-all">
+<div class="bg-primary/10 text-primary p-3 rounded-lg group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">location_off</span>
+</div>
+<h3 class="font-bold text-lg">GPS-Independent Flight</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Visual Inertial Odometry (VIO) and LiDAR-based SLAM for navigation in signal-contested areas.</p>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-start gap-4 group hover:border-primary/50 transition-all">
+<div class="bg-primary/10 text-primary p-3 rounded-lg group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<h3 class="font-bold text-lg">Swarm Intelligence</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Coordination algorithms for multi-agent autonomous systems.</p>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-start gap-4 group hover:border-primary/50 transition-all">
+<div class="bg-primary/10 text-primary p-3 rounded-lg group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">memory</span>
+</div>
+<h3 class="font-bold text-lg">Edge Computing Integration</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Optimized AI model deployment on low-power, high-performance hardware.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 bg-slate-900 text-white relative overflow-hidden">
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grad1)"></path>
+<defs>
+<linearGradient id="grad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#136dec;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:transparent;stop-opacity:0"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl font-bold mb-8">What Sets Zetz Apart</h2>
+<div class="space-y-10">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 border border-primary text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<div>
+<h4 class="font-bold text-xl mb-2">Proprietary Autonomy Stack</h4>
+<p class="text-slate-400 leading-relaxed">Unique algorithms that reduce pilot cognitive load by up to 80%.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 border border-primary text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">settings_input_component</span>
+</div>
+<div>
+<h4 class="font-bold text-xl mb-2">Platform Agnostic</h4>
+<p class="text-slate-400 leading-relaxed">Software architecture compatible with MAVLink-based systems and major OEM hardware.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 border border-primary text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div>
+<h4 class="font-bold text-xl mb-2">Rapid Prototyping</h4>
+<p class="text-slate-400 leading-relaxed">Ability to iterate custom AI features from concept to flight-test in under 90 days.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 border border-primary text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">shield_lock</span>
+</div>
+<div>
+<h4 class="font-bold text-xl mb-2">Security First</h4>
+<p class="text-slate-400 leading-relaxed">Developed by U.S. citizens in secure facilities; compliant with Blue UAS guidelines and SOC2 standards.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-slate-800/50 p-10 rounded-2xl border border-slate-700 relative">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-bold">Operational Impact</h3>
+<span class="text-xs text-slate-400 uppercase tracking-widest">Efficiency Metrics</span>
+</div>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-sm font-medium">Cognitive Load Reduction</span>
+<span class="text-primary font-bold">80%</span>
+</div>
+<div class="w-full bg-slate-700 h-2 rounded-full">
+<div class="bg-primary h-2 rounded-full blue-glow" style="width: 80%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-sm font-medium">Navigational Precision (GPS-Denied)</span>
+<span class="text-primary font-bold">94%</span>
+</div>
+<div class="w-full bg-slate-700 h-2 rounded-full">
+<div class="bg-primary h-2 rounded-full blue-glow" style="width: 94%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-sm font-medium">Hardware Interoperability</span>
+<span class="text-primary font-bold">100%</span>
+</div>
+<div class="w-full bg-slate-700 h-2 rounded-full">
+<div class="bg-primary h-2 rounded-full blue-glow" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<div class="mt-12 p-4 bg-primary/10 border-l-4 border-primary rounded-r">
+<p class="text-sm italic text-slate-300 leading-relaxed">
+                        "Zetz intelligence modules transformed our off-the-shelf tactical drones into resilient autonomous assets overnight."
+                    </p>
+<p class="text-xs mt-2 font-bold">— Tactical Systems Integration Lead</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6" id="performance">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-2">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified</span>
+                        Past Performance
+                    </h2>
+<div class="space-y-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-lg">Israeli Defense Forces</h4>
+<span class="text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Current</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                Main multi-drone orchestration platform in the IDF, operating in 80% of active-duty ISR/reconnaissance forces.
+                            </p>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-xl border border-slate-200 dark:border-slate-800">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                        Company Data
+                    </h2>
+<div class="space-y-6">
+<div>
+<span class="text-xs text-slate-500 uppercase font-bold tracking-widest block mb-1">UEI Number</span>
+<div class="flex items-center justify-between bg-white dark:bg-slate-800 px-4 py-3 rounded border border-slate-200 dark:border-slate-700">
+<code class="text-sm font-mono text-primary font-bold">NNECALGH3P21</code>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary">content_copy</span>
+</div>
+</div>
+<div>
+<span class="text-xs text-slate-500 uppercase font-bold tracking-widest block mb-1">CAGE Code</span>
+<div class="flex items-center justify-between bg-white dark:bg-slate-800 px-4 py-3 rounded border border-slate-200 dark:border-slate-700">
+<code class="text-sm font-mono text-primary font-bold">181V5</code>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary">content_copy</span>
+</div>
+</div>
+<div>
+<span class="text-xs text-slate-500 uppercase font-bold tracking-widest block mb-2">Primary NAICS Codes</span>
+<ul class="space-y-2">
+<li class="flex items-center gap-3 text-sm">
+<span class="w-16 font-bold text-slate-400">541511</span>
+<span>Custom Computer Programming</span>
+</li>
+<li class="flex items-center gap-3 text-sm">
+<span class="w-16 font-bold text-slate-400">541715</span>
+<span>R&amp;D in Engineering &amp; Life Sciences</span>
+</li>
+<li class="flex items-center gap-3 text-sm">
+<span class="w-16 font-bold text-slate-400">334511</span>
+<span>Search, Detection, &amp; Navigation</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-16 px-6" id="contact">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold">ZETZ</h2>
+</div>
+<p class="text-slate-500 dark:text-slate-400 max-w-sm mb-8">
+                        The definitive intelligence layer for autonomous systems in non-permissive environments.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="https://www.zetz.io" target="_blank" rel="noopener noreferrer">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="mailto:sales@zetz.io">
+<span class="material-symbols-outlined text-lg">alternate_email</span>
+</a>
+</div>
+</div>
+<div class="md:flex md:justify-end">
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-primary">Contact GTM</h4>
+<div class="space-y-4">
+<div>
+<p class="font-bold text-lg">Bret Hinrichs</p>
+<p class="text-sm text-slate-500">Director, US Go-To-Market</p>
+</div>
+<a class="flex items-center gap-3 text-sm hover:text-primary transition-colors" href="mailto:sales@zetz.io">
+<span class="material-symbols-outlined text-primary text-sm">mail</span>
+                                sales@zetz.io
+                            </a>
+<a class="flex items-center gap-3 text-sm hover:text-primary transition-colors" href="tel:+19528205198">
+<span class="material-symbols-outlined text-primary text-sm">phone</span>
+                                952-820-5198
+                            </a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 uppercase tracking-tighter">
+<p>© 2026 Zetz Autonomous Systems. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+</body></html>

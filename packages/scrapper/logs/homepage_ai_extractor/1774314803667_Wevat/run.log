@@ -1,0 +1,83 @@
+[2026-03-24T01:13:23.668Z] === Homepage AI Extractor: Wevat ===
+[2026-03-24T01:13:23.668Z] Started at: 2026-03-24T01:13:23.668Z
+[2026-03-24T01:13:23.668Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774314803667_Wevat
+[2026-03-24T01:13:23.668Z] Company: Wevat
+[2026-03-24T01:13:23.668Z] Website: wevat.com
+[2026-03-24T01:13:23.668Z] cbRank: 80464
+[2026-03-24T01:13:23.668Z] Reasons: i
+[2026-03-24T01:13:23.668Z] Fetching: https://wevat.com
+[2026-03-24T01:13:27.732Z] Redirected: https://wevat.com -> https://www.wevat.com/
+[2026-03-24T01:13:27.743Z] Saved HTML (428821 bytes) to page.html
+[2026-03-24T01:13:27.748Z] Extracted 74 unique links from page
+[2026-03-24T01:13:27.749Z] Saved 74 links to links.json
+[2026-03-24T01:13:27.751Z] Extracted footer HTML (12846 chars)
+[2026-03-24T01:13:27.751Z] Extracted header HTML (2502 chars)
+[2026-03-24T01:13:27.755Z] Website (post-redirect): https://www.wevat.com/ → origin: https://www.wevat.com
+[2026-03-24T01:13:27.755Z] External links: 7 (of 74 total)
+[2026-03-24T01:13:27.755Z] ── All external links ──
+[2026-03-24T01:13:27.755Z]   EXT: https://twitter.com/WevatApp
+[2026-03-24T01:13:27.756Z]   EXT: https://weibo.com/u/7143992335
+[2026-03-24T01:13:27.756Z]   EXT: https://wevat.app.link/kkzeGp6v0lb
+[2026-03-24T01:13:27.756Z]   EXT: https://wevat.app.link/znuKI8i4v8
+[2026-03-24T01:13:27.756Z]   EXT: https://wevat.app.link/zqxxWzF4v8
+[2026-03-24T01:13:27.756Z]   EXT: https://www.facebook.com/wevat
+[2026-03-24T01:13:27.756Z]   EXT: https://www.instagram.com/wevatapp
+[2026-03-24T01:13:27.756Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:13:27.756Z]   REGEX: tw <- https://twitter.com/WevatApp
+[2026-03-24T01:13:27.757Z]   UNCATEGORIZED: https://weibo.com/u/7143992335
+[2026-03-24T01:13:27.757Z]   UNCATEGORIZED: https://wevat.app.link/kkzeGp6v0lb
+[2026-03-24T01:13:27.758Z]   UNCATEGORIZED: https://wevat.app.link/znuKI8i4v8
+[2026-03-24T01:13:27.758Z]   UNCATEGORIZED: https://wevat.app.link/zqxxWzF4v8
+[2026-03-24T01:13:27.758Z]   REGEX: fb <- https://www.facebook.com/wevat
+[2026-03-24T01:13:27.758Z]   REGEX: ig <- https://www.instagram.com/wevatapp
+[2026-03-24T01:13:27.758Z] Programmatic result: ws:1, tw:1, fb:1, ig:1 | 4 uncategorized
+[2026-03-24T01:13:27.758Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:13:27.759Z] Saved AI prompt (9788 chars) to ai_prompt.txt
+[2026-03-24T01:13:27.759Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:13:27.763Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:14:16.939Z]   AI: First token received, streaming...
+[2026-03-24T01:14:26.108Z] AI response complete: 127 chars in 58.3s
+[2026-03-24T01:14:26.109Z] Saved AI response to ai_response.json
+[2026-03-24T01:14:26.109Z] ── Parsing AI response (4 lines) ──
+[2026-03-24T01:14:26.110Z]   AI LINK: https://twitter.com/WevatApp
+[2026-03-24T01:14:26.110Z]   AI LINK: https://www.facebook.com/wevat/
+[2026-03-24T01:14:26.110Z]   AI LINK: https://www.instagram.com/wevatapp/
+[2026-03-24T01:14:26.110Z]   AI LINK: https://weibo.com/u/7143992335
+[2026-03-24T01:14:26.110Z] AI returned 4 valid links
+[2026-03-24T01:14:26.110Z] ── Categorizing 4 AI-returned links ──
+[2026-03-24T01:14:26.110Z]   AI→REGEX: tw <- https://twitter.com/WevatApp (duplicate, skipped)
+[2026-03-24T01:14:26.111Z]   AI→REGEX: fb <- https://www.facebook.com/wevat/ (duplicate, skipped)
+[2026-03-24T01:14:26.111Z]   AI→REGEX: ig <- https://www.instagram.com/wevatapp/ (duplicate, skipped)
+[2026-03-24T01:14:26.111Z]   AI→URLS: https://weibo.com/u/7143992335
+[2026-03-24T01:14:26.112Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:14:26.112Z] Footer/header origins (6):
+[2026-03-24T01:14:26.112Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T01:14:26.112Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T01:14:26.112Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-24T01:14:26.112Z]   FOOTER/HEADER ORIGIN: https://weibo.com
+[2026-03-24T01:14:26.113Z]   FOOTER/HEADER ORIGIN: http://wevat.com
+[2026-03-24T01:14:26.113Z]   FOOTER/HEADER ORIGIN: https://www.wevat.com
+[2026-03-24T01:14:26.113Z]   SKIP (AI claimed): https://weibo.com/u/7143992335
+[2026-03-24T01:14:26.113Z]   SKIP (not in footer/header): https://wevat.app.link/kkzeGp6v0lb
+[2026-03-24T01:14:26.113Z]   SKIP (not in footer/header): https://wevat.app.link/znuKI8i4v8
+[2026-03-24T01:14:26.113Z]   SKIP (not in footer/header): https://wevat.app.link/zqxxWzF4v8
+[2026-03-24T01:14:26.113Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:14:26.113Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:14:26.113Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:14:26.113Z] ── Step 3: Final dedup ──
+[2026-03-24T01:14:26.113Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T01:14:26.114Z] ── FINAL RESULT ──
+[2026-03-24T01:14:26.114Z]   ws (1):
+[2026-03-24T01:14:26.114Z]     - https://www.wevat.com
+[2026-03-24T01:14:26.114Z]   fb (1):
+[2026-03-24T01:14:26.114Z]     - https://www.facebook.com/wevat
+[2026-03-24T01:14:26.114Z]   tw (1):
+[2026-03-24T01:14:26.114Z]     - https://x.com/wevatapp
+[2026-03-24T01:14:26.114Z]   ig (1):
+[2026-03-24T01:14:26.114Z]     - https://www.instagram.com/wevatapp
+[2026-03-24T01:14:26.114Z]   urls (1):
+[2026-03-24T01:14:26.114Z]     - https://weibo.com/u/7143992335
+[2026-03-24T01:14:26.114Z] Summary: ws:1, tw:1, fb:1, ig:1, urls:1
+[2026-03-24T01:14:26.115Z] Saved final result to result.json
+[2026-03-24T01:14:26.116Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-24T01:14:26.116Z] Finished at: 2026-03-24T01:14:26.116Z

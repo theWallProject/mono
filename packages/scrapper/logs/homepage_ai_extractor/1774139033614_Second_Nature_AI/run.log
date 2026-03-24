@@ -1,0 +1,75 @@
+[2026-03-22T00:23:53.614Z] === Homepage AI Extractor: Second Nature AI ===
+[2026-03-22T00:23:53.614Z] Started at: 2026-03-22T00:23:53.614Z
+[2026-03-22T00:23:53.614Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774139033614_Second_Nature_AI
+[2026-03-22T00:23:53.615Z] Company: Second Nature AI
+[2026-03-22T00:23:53.615Z] Website: secondnature.ai
+[2026-03-22T00:23:53.615Z] cbRank: 13252
+[2026-03-22T00:23:53.615Z] Reasons: f, i
+[2026-03-22T00:23:53.615Z] Fetching: https://secondnature.ai
+[2026-03-22T00:23:57.562Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T00:24:00.508Z] Redirected: https://secondnature.ai -> https://secondnature.ai/
+[2026-03-22T00:24:00.517Z] Saved HTML (342597 bytes) to page.html
+[2026-03-22T00:24:00.519Z] Extracted 49 unique links from page
+[2026-03-22T00:24:00.520Z] Saved 49 links to links.json
+[2026-03-22T00:24:00.523Z] Extracted footer HTML (23818 chars)
+[2026-03-22T00:24:00.523Z] Extracted header HTML (18946 chars)
+[2026-03-22T00:24:00.527Z] Website (post-redirect): https://secondnature.ai/ → origin: https://secondnature.ai
+[2026-03-22T00:24:00.527Z]   SUBDOMAIN: app.secondnature.ai (added to ws)
+[2026-03-22T00:24:00.527Z]   SUBDOMAIN: tryme.secondnature.ai (added to ws)
+[2026-03-22T00:24:00.527Z] Website subdomains found: 2
+[2026-03-22T00:24:00.527Z] External links: 4 (of 49 total)
+[2026-03-22T00:24:00.527Z] ── All external links ──
+[2026-03-22T00:24:00.527Z]   EXT: https://business.safety.google/privacy
+[2026-03-22T00:24:00.527Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T00:24:00.527Z]   EXT: https://www.linkedin.com/company/second-nature-ai
+[2026-03-22T00:24:00.527Z]   EXT: https://www.youtube.com/channel/UC87apT-W4g2hGEhzVScJJLQ
+[2026-03-22T00:24:00.528Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:24:00.529Z]   UNCATEGORIZED: https://business.safety.google/privacy
+[2026-03-22T00:24:00.529Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T00:24:00.529Z]   REGEX: li <- https://www.linkedin.com/company/second-nature-ai
+[2026-03-22T00:24:00.529Z]   REGEX: ytc <- https://www.youtube.com/channel/UC87apT-W4g2hGEhzVScJJLQ
+[2026-03-22T00:24:00.529Z] Programmatic result: ws:3, li:1, ytc:1 | 2 uncategorized
+[2026-03-22T00:24:00.529Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:24:00.531Z] Saved AI prompt (3595 chars) to ai_prompt.txt
+[2026-03-22T00:24:00.531Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:24:00.535Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:24:12.111Z]   AI: First token received, streaming...
+[2026-03-22T00:24:19.715Z] AI response complete: 107 chars in 19.2s
+[2026-03-22T00:24:19.716Z] Saved AI response to ai_response.json
+[2026-03-22T00:24:19.717Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T00:24:19.717Z]   AI LINK: https://www.linkedin.com/company/second-nature-ai/
+[2026-03-22T00:24:19.717Z]   AI LINK: https://www.youtube.com/channel/UC87apT-W4g2hGEhzVScJJLQ
+[2026-03-22T00:24:19.717Z] AI returned 2 valid links
+[2026-03-22T00:24:19.717Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T00:24:19.718Z]   AI→REGEX: li <- https://www.linkedin.com/company/second-nature-ai/ (duplicate, skipped)
+[2026-03-22T00:24:19.718Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC87apT-W4g2hGEhzVScJJLQ (duplicate, skipped)
+[2026-03-22T00:24:19.719Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:24:19.719Z] Footer/header origins (4):
+[2026-03-22T00:24:19.719Z]   FOOTER/HEADER ORIGIN: https://secondnature.ai
+[2026-03-22T00:24:19.719Z]   FOOTER/HEADER ORIGIN: https://app.secondnature.ai
+[2026-03-22T00:24:19.719Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:24:19.719Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:24:19.719Z]   SKIP (not in footer/header): https://business.safety.google/privacy
+[2026-03-22T00:24:19.719Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T00:24:19.720Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:24:19.720Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:24:19.720Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T00:24:19.966Z]   YOUTUBE: resolved UC87apT-W4g2hGEhzVScJJLQ → @SecondNatureAI
+[2026-03-22T00:24:19.967Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T00:24:19.967Z] ── Step 3: Final dedup ──
+[2026-03-22T00:24:19.967Z] No urls to dedup
+[2026-03-22T00:24:19.967Z] ── FINAL RESULT ──
+[2026-03-22T00:24:19.967Z]   ws (3):
+[2026-03-22T00:24:19.967Z]     - https://app.secondnature.ai
+[2026-03-22T00:24:19.968Z]     - https://secondnature.ai
+[2026-03-22T00:24:19.968Z]     - https://tryme.secondnature.ai
+[2026-03-22T00:24:19.968Z]   li (1):
+[2026-03-22T00:24:19.968Z]     - https://www.linkedin.com/company/second-nature-ai
+[2026-03-22T00:24:19.968Z]   ytp (1):
+[2026-03-22T00:24:19.968Z]     - https://www.youtube.com/@SecondNatureAI
+[2026-03-22T00:24:19.968Z]   ytc (1):
+[2026-03-22T00:24:19.968Z]     - https://www.youtube.com/channel/UC87apT-W4g2hGEhzVScJJLQ
+[2026-03-22T00:24:19.968Z] Summary: ws:3, li:1, ytc:1, ytp:1
+[2026-03-22T00:24:19.969Z] Saved final result to result.json
+[2026-03-22T00:24:19.969Z] Override fields: ws, li, ytp, ytc
+[2026-03-22T00:24:19.969Z] Finished at: 2026-03-22T00:24:19.969Z

@@ -1,0 +1,827 @@
+<!DOCTYPE html><html lang="en-US"><head><style data-hubspot-styled-components=""></style><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Datricks - Financial Integrity</title>
+<link data-rocket-prefetch="" href="https://fonts.googleapis.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://js.hsforms.net" rel="dns-prefetch">
+<link data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="preload">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" media="all" onload="this.media='all'" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&#038;display=swap"></noscript><link rel="preload" data-rocket-preload="" as="image" href="https://datricks.com/wp-content/uploads/2025/01/Hero-image-1-1536x1300.webp" media="(min-width: 992px)" fetchpriority="high">
+	<link rel="pingback" href="https://datricks.com/xmlrpc.php">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<script type="rocketlazyloadscript" data-minify="1" id="cookieyes" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/cache/min/1/client_data/f26250d5050c81e02b0b2fe8/script.js?ver=1773667059" data-rocket-defer="" defer=""></script>
+	<!-- This site is optimized with the Yoast SEO plugin v27.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<meta name="description" content="Offering real-time risk detection and control, ensuring continuous financial compliance and enabling you to significantly impact the bottom line of your business">
+	<link rel="canonical" href="https://datricks.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Datricks - Financial Integrity">
+	<meta property="og:description" content="Offering real-time risk detection and control, ensuring continuous financial compliance and enabling you to significantly impact the bottom line of your business">
+	<meta property="og:url" content="https://datricks.com/">
+	<meta property="og:site_name" content="Datricks">
+	<meta property="article:modified_time" content="2025-12-23T08:07:36+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://datricks.com/","url":"https://datricks.com/","name":"Datricks - Financial Integrity","isPartOf":{"@id":"https://datricks.com/#website"},"datePublished":"2025-01-13T13:22:10+00:00","dateModified":"2025-12-23T08:07:36+00:00","description":"Offering real-time risk detection and control, ensuring continuous financial compliance and enabling you to significantly impact the bottom line of your business","breadcrumb":{"@id":"https://datricks.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://datricks.com/"]}]},{"@type":"BreadcrumbList","@id":"https://datricks.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://datricks.com/#website","url":"https://datricks.com/","name":"Datricks","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://datricks.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="//js.hsforms.net">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://datricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdatricks.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://datricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdatricks.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="wp-block-heading-inline-css" type="text/css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://datricks.com/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css" type="text/css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://datricks.com/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="dt-two-columns-style-inline-css" type="text/css">
+.two-columns{background-color:var(--primary);padding-bottom:5rem;position:relative}@media (min-width:1025px){.two-columns{padding-bottom:100px}}.two-columns>div{margin-left:auto;margin-right:auto;max-width:1400px;padding-left:10px;padding-right:10px;width:100%}@media (min-width:1025px){.two-columns>div{padding-left:1.25rem;padding-right:1.25rem}}.two-columns .two-columns-section-title{margin-bottom:-200px;padding:70px 1.25rem 200px}@media (min-width:768px){.two-columns .two-columns-section-title{padding-top:60px}}@media (min-width:1025px){.two-columns .two-columns-section-title{padding:120px 0 220px;text-align:center}}.two-columns .two-columns-section-title{background-image:linear-gradient(180deg,hsla(0,0%,100%,.749),hsla(0,0%,100%,0))}.two-columns .two-columns-section-title h2{margin-bottom:1.25rem}.two-columns .two-columns-section-title p{font-size:.875rem;line-height:1.25rem;margin-bottom:15px}@media (min-width:768px){.two-columns .two-columns-section-title p{font-size:1.125rem;line-height:1.75rem}}.two-columns .inner-wrapper{display:flex;flex-direction:column;row-gap:1.25rem}.two-columns .inner-wrapper .two-columns-row{align-items:center;-moz-column-gap:80px;column-gap:80px;display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-between;margin-bottom:2.5rem;margin-left:auto;margin-right:auto;max-width:1100px;padding-left:10px;padding-right:10px;width:100%}@media (min-width:1025px){.two-columns .inner-wrapper .two-columns-row{flex-direction:row;margin-bottom:50px;margin-top:50px}}.two-columns .inner-wrapper .two-columns-row:first-child{margin-top:30px}@media (min-width:1025px){.two-columns .inner-wrapper .two-columns-row:first-child{margin-top:1.25rem}}.two-columns .inner-wrapper .two-columns-row .two-columns-content{display:flex;flex:1 1 0%;flex-direction:column;gap:10px;order:9999;padding:10px}@media (min-width:1025px){.two-columns .inner-wrapper .two-columns-row .two-columns-content{order:0}}.two-columns .inner-wrapper .two-columns-row .two-columns-content p:first-child{font-size:24px;font-weight:500;line-height:28px;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}@media (min-width:768px){.two-columns .inner-wrapper .two-columns-row .two-columns-content p:first-child{font-size:26px;line-height:32px}}.two-columns .inner-wrapper .two-columns-row .two-columns-content h3{font-size:24px;font-weight:500;line-height:28px}@media (min-width:768px){.two-columns .inner-wrapper .two-columns-row .two-columns-content h3{font-size:26px;line-height:32px}}.two-columns .inner-wrapper .two-columns-row .two-columns-content p{font-size:.875rem;line-height:1.25rem}@media (min-width:768px){.two-columns .inner-wrapper .two-columns-row .two-columns-content p{font-size:1.125rem;line-height:1.75rem}}.two-columns .inner-wrapper .two-columns-row .lottie-wrapper{padding:10px}@media (min-width:1025px){.two-columns .inner-wrapper .two-columns-row .lottie-wrapper{width:50%}@media (min-width:768px){.two-columns .inner-wrapper .two-columns-row:nth-child(2n) .two-columns-content{order:9999}}}.two-columns .cta-wrapper{text-align:center}@media (min-width:1025px){.two-columns.section-30-70 .two-columns-row .lottie-wrapper{width:calc(70% - 55px)}}.two-columns-accordion{background-color:var(--primary);padding-bottom:40px;position:relative}@media (min-width:1025px){.two-columns-accordion{padding-bottom:160px}}.two-columns-accordion>div{margin-left:auto;margin-right:auto;max-width:1400px;padding-left:10px;padding-right:10px;width:100%}@media (min-width:1025px){.two-columns-accordion>div{padding-left:1.25rem;padding-right:1.25rem}}.two-columns-accordion .two-columns-section-title{padding:70px 1.25rem 20px}@media (min-width:768px){.two-columns-accordion .two-columns-section-title{padding-top:60px}}@media (min-width:1025px){.two-columns-accordion .two-columns-section-title{padding:120px 0 50px}}.two-columns-accordion .two-columns-section-title h2{margin-bottom:1.25rem}.two-columns-accordion .two-columns-section-title h2+h2{margin-top:-15px}.two-columns-accordion .two-columns-section-title p{font-size:.875rem;line-height:1.25rem;margin-bottom:15px}@media (min-width:768px){.two-columns-accordion .two-columns-section-title p{font-size:1.125rem;line-height:1.75rem}}@media (min-width:1025px){.two-columns-accordion .two-columns-section-title p{max-width:60%}}.two-columns-accordion .inner-wrapper{position:relative}.two-columns-accordion .inner-wrapper .two-columns-row{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-between;margin-left:auto;margin-right:auto;width:100%}@media (min-width:1025px){.two-columns-accordion .inner-wrapper .two-columns-row{flex-direction:row}}.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content{display:flex;flex-direction:column;float:left;padding-bottom:1rem;position:relative}@media (min-width:1025px){.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content{padding-bottom:2.25rem;width:50%}}.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content:before{display:block;display:none;height:100%;left:14px;position:absolute;top:0;width:1px;--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1));--tw-content:"";content:var(--tw-content)}@media (min-width:1025px){.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content:before{display:block}}.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title{cursor:pointer;display:block;float:left;font-size:24px;font-weight:500;line-height:28px;margin-top:-9px;padding-bottom:10px;padding-left:20px;position:relative;width:100%}@media (min-width:768px){.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title{font-size:36px;line-height:1.3}}@media (min-width:1025px){.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title{padding-left:50px}}.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title{font-family:Manrope;font-weight:600}.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title .set-num{align-items:center;border-radius:9999px;border-width:1px;display:none;height:30px;justify-content:center;left:0;position:absolute;top:9px;width:30px;--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(255 115 66/var(--tw-bg-opacity,1));font-size:17px;line-height:1;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1));transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:linear}@media (min-width:1025px){.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title .set-num{display:flex}}.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title.active .set-num,.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content>.set-title:hover .set-num{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1));color:var(--black)}.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content .accordion_content{float:left;font-size:.875rem;line-height:1.25rem;margin-top:-9px;padding-bottom:10px;padding-left:20px;padding-top:10px;position:relative;width:100%}@media (min-width:768px){.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content .accordion_content{font-size:1.125rem;line-height:1.75rem}}@media (min-width:1025px){.two-columns-accordion .inner-wrapper .two-columns-row .two-columns-content .accordion_content{display:none;padding-left:50px}}.two-columns-accordion .inner-wrapper .two-columns-row:last-child .two-columns-content:before{display:none}.two-columns-accordion .inner-wrapper .two-columns-row .lottie-wrapper{margin-bottom:20px;max-width:500px;padding:10px;position:relative;right:0;top:0}@media (min-width:1025px){.two-columns-accordion .inner-wrapper .two-columns-row .lottie-wrapper{display:none;margin-bottom:0;max-width:100%;position:absolute;width:50%}}.two-columns-accordion .cta-wrapper{margin-top:30px;text-align:center}@media (min-width:768px){.two-columns-accordion .cta-wrapper{margin-top:50px;text-align:left}}
+/*# sourceURL=https://datricks.com/wp-content/themes/datricks/blocks/sections/two-columns/style.css */
+</style>
+<style id="dt-features-style-inline-css" type="text/css">
+.features{background-color:var(--gray);position:relative}.features>div{margin-left:auto;margin-right:auto;max-width:1280px;padding:70px 30px;position:relative;width:100%}@media (min-width:768px){.features>div{padding-bottom:70px;padding-top:100px}}@media (min-width:1025px){.features>div{padding-bottom:120px;padding-top:175px}.features .features-title{max-width:55%}}.features .features-image-on-left{display:flex;flex-wrap:wrap}@media (min-width:768px){.features .features-image-on-left{-moz-column-gap:70px;column-gap:70px;padding-top:2.5rem}}.features .features-image-on-left .feature{display:flex;flex-direction:column;gap:10px;justify-content:space-between;margin-top:30px;position:relative;width:100%}@media (min-width:768px){.features .features-image-on-left .feature{margin-bottom:25px;margin-top:25px;width:calc(50% - 35px)}}@media (min-width:1025px){.features .features-image-on-left .feature{flex-direction:row;margin-bottom:30px;margin-top:30px}}.features .features-image-on-left .feature .lottie-wrapper{margin-left:-1.25rem;max-width:100px}@media (min-width:1025px){.features .features-image-on-left .feature .lottie-wrapper{margin-left:0}}.features .features-image-on-left .feature>div:last-child{display:flex;flex:1 1 0%;flex-direction:column}.features .features-image-on-left .feature>div:last-child h4{font-size:1.5rem;font-weight:500;line-height:2rem}@media (min-width:768px){.features .features-image-on-left .feature>div:last-child h4{font-size:26px;line-height:32px}}.features .features-image-on-left .feature>div:last-child p{color:var(--black);font-size:.875rem;line-height:1.25rem;margin-top:10px}@media (min-width:768px){.features .features-image-on-left .feature>div:last-child p{font-size:1rem;line-height:1.5rem}}.archive-contact .features>div{margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem}@media (min-width:1025px){.archive-contact .features>div{max-width:1024px;padding-bottom:70px;padding-top:100px}}@media (min-width:1367px){.archive-contact .features>div{max-width:1367px;padding-top:222px}}@media (min-width:768px){.archive-contact .features>div .features-image-on-left,.archive-contact .features>div .features-title{max-width:55%}}@media (min-width:1367px){.archive-contact .features>div .features-image-on-left,.archive-contact .features>div .features-title{max-width:830px}}.archive-contact .features>div .features-image-on-left{padding-top:0}@media (min-width:1025px){.archive-contact .features>div .features-image-on-left{padding-top:50px}.archive-contact .features>div .features-image-on-left .feature{margin-bottom:20px;margin-top:20px;width:100%}}@media (min-width:1367px){.archive-contact .features>div .features-image-on-left .feature{margin-bottom:50px;margin-top:50px;width:calc(50% - 50px)}}
+/*# sourceURL=https://datricks.com/wp-content/themes/datricks/blocks/sections/features/style.css */
+</style>
+<link data-minify="1" rel="stylesheet" id="dt-side-by-side-style-css" href="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/side-by-side/style.css?ver=1773667059" type="text/css" media="all">
+<style id="dt-logos-carousel-style-inline-css" type="text/css">
+.logos-carousel{background-color:var(--gray);overflow:hidden;padding-bottom:0;padding-top:1.5rem}@media (min-width:768px){.logos-carousel{padding-bottom:48px;padding-top:48px}}.logos-carousel.white-bg{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.logos-carousel.default-bg .swiper-slide img,.logos-carousel.white-bg .swiper-slide img{filter:invert(1)}.logos-carousel.black-bg{background-color:var(--black)}.logos-carousel.black-bg .logos-carousel-title{font-size:40px;justify-content:center;margin-bottom:50px;text-align:left;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1));max-width:955px}.logos-carousel.black-bg .logos-carousel-title h2{font-size:60px;font-style:Medium;font-weight:400;leading-trim:NONE;letter-spacing:0;line-height:100%}.logos-carousel.black-bg .logos-slider{max-width:1260px}.logos-carousel.padding-y{padding-bottom:0;padding-top:40px}@media (min-width:768px){.logos-carousel.padding-y{padding-bottom:80px;padding-top:80px}}.logos-carousel.padding-y{padding-bottom:76px;padding-top:85px}.logos-carousel>div{align-items:center;height:100%;max-width:1200px;padding-left:1.25rem;padding-right:1.25rem;width:100%}@media (min-width:1025px){.logos-carousel>div{display:flex;margin-left:auto;margin-right:auto}}.logos-carousel .logos-slider{height:100%;margin:0 auto;max-width:1100px;overflow:hidden;position:relative}.logos-carousel .logos-slider .swiper-wrapper{align-items:center;max-height:100%}.logos-carousel .logos-slider .swiper-slide{align-items:center;display:flex;height:100%;height:80px;justify-content:center}.logos-carousel .logos-slider .swiper-slide figure{height:100%}@media (min-width:767px){.logos-carousel .logos-slider .swiper-slide figure{align-items:center;display:flex;padding:0 20px}}.logos-carousel .logos-slider .swiper-slide figure img{display:inline-block;height:100%;max-height:40px;-o-object-fit:contain;object-fit:contain;-o-object-position:center;object-position:center;vertical-align:middle}@media (min-width:767px){.logos-carousel .logos-slider .swiper-slide figure img[src*=hella]{max-height:62px;max-width:125px}.logos-carousel .logos-slider .swiper-slide figure img[src*=ICL]{max-height:35px}.logos-carousel .logos-slider .swiper-slide figure img[src*=cyberark]{max-width:150px}}@media (max-width:1024px){.logos-carousel.black-bg .logos-carousel-title h2{font-size:28px}}
+/*# sourceURL=https://datricks.com/wp-content/themes/datricks/blocks/sections/logos-carousel/style.css */
+</style>
+<style id="dt-hs-form-style-inline-css" type="text/css">
+.form-section{background-color:var(--primary);position:relative}.form-section>div{margin-left:auto;margin-right:auto;max-width:650px!important;padding:70px 30px;width:100%}@media (min-width:768px){.form-section>div{padding-bottom:111px;padding-top:111px}}@media (min-width:1025px){.form-section>div{padding-bottom:101px}}.form-section>div{width:100%}.form-section .lottie-wrapper{align-items:flex-end;display:flex;height:100%;left:0;overflow-x:hidden;overflow-y:clip;pointer-events:none;position:absolute;top:0;width:100%}@media (min-width:768px){.form-section .lottie-wrapper{align-items:center}}.form-section .lottie-wrapper .lottie-animation{height:190px;--tw-scale-x:1.25;--tw-scale-y:1.25;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width:768px){.form-section .lottie-wrapper .lottie-animation{height:auto;--tw-scale-x:2;--tw-scale-y:2;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (min-width:1025px){.form-section .lottie-wrapper .lottie-animation{--tw-scale-x:1.25;--tw-scale-y:1.25;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}.form-section .form-title{text-align:center}.form-section .hs-error-msg.hs-main-font-element{color:#fff!important}.form-section .form-wrapper{margin-top:60px;position:relative}@media (min-width:768px){.form-section .form-wrapper{margin-top:2.5rem}}.form-section .form-wrapper{max-width:548px;width:100%}.form-section .form-wrapper form fieldset{display:flex;flex-direction:column;margin-bottom:1.25rem;max-width:100%;row-gap:1.25rem;width:100%}@media (min-width:1025px){.form-section .form-wrapper form fieldset{flex-direction:row;gap:2.5rem}}.form-section .form-wrapper form fieldset .hs-form-field:not(.hs-fieldtype-booleancheckbox):not(.hs-fieldtype-textarea){width:100%}@media (min-width:1025px){.form-section .form-wrapper form fieldset .hs-form-field:not(.hs-fieldtype-booleancheckbox):not(.hs-fieldtype-textarea){width:50%}}.form-section .form-wrapper form fieldset .hs-form-field.hs-fieldtype-textarea{flex:1 1 100%;width:100%}.form-section .form-wrapper form fieldset input:not([type=checkbox]),.form-section .form-wrapper form fieldset select,.form-section .form-wrapper form fieldset textarea{background-color:transparent;border-bottom-width:1px;color:var(--black);font-family:var(--font-manrope),Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.5rem;margin-right:0;outline:2px solid transparent;outline-offset:2px;padding-bottom:10px;padding-top:10px;transition-duration:.3s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);width:100%!important}.form-section .form-wrapper form fieldset input:not([type=checkbox]):focus,.form-section .form-wrapper form fieldset select:focus,.form-section .form-wrapper form fieldset textarea:focus{border-bottom-width:1px;--tw-border-opacity:1;border-bottom-color:rgb(255 255 255/var(--tw-border-opacity,1))}.form-section .form-wrapper form fieldset input:not([type=checkbox])::-moz-placeholder,.form-section .form-wrapper form fieldset select::-moz-placeholder,.form-section .form-wrapper form fieldset textarea::-moz-placeholder{color:var(--black)}.form-section .form-wrapper form fieldset input:not([type=checkbox])::placeholder,.form-section .form-wrapper form fieldset select::placeholder,.form-section .form-wrapper form fieldset textarea::placeholder{color:var(--black)}.form-section .form-wrapper form .hs-error-msg,.form-section .form-wrapper form span{font-size:.75rem;line-height:1rem}.form-section .form-wrapper form input[type=submit]{cursor:pointer}.form-section .form-wrapper form .hs_submit{letter-spacing:-.07rem;text-align:center}.form-section .form-wrapper form .hs-button.primary.large{letter-spacing:-.07rem}.form-section-v2{background-color:var(--primary);position:relative}.form-section-v2>div{margin-left:auto;margin-right:auto;padding:70px 30px;width:100%}@media (min-width:1025px){.form-section-v2>div{padding-bottom:92px;padding-top:80px}}.form-section-v2 .lottie-wrapper{align-items:flex-end;display:flex;height:100%;left:0;overflow-x:hidden;overflow-y:clip;pointer-events:none;position:absolute;top:0;width:100%}@media (min-width:768px){.form-section-v2 .lottie-wrapper{align-items:center}}.form-section-v2 .lottie-wrapper .lottie-animation{height:190px;margin-left:auto;margin-right:auto;max-width:1920px;width:100%;--tw-scale-x:1.25;--tw-scale-y:1.25;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width:768px){.form-section-v2 .lottie-wrapper .lottie-animation{--tw-scale-x:2;--tw-scale-y:2;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (min-width:1025px){.form-section-v2 .lottie-wrapper .lottie-animation{height:auto;--tw-scale-x:1.25;--tw-scale-y:1.25;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}.form-section-v2 .form-title{text-align:center}.form-section-v2 .form-title h2{font-size:40px;font-weight:500;letter-spacing:-.4px;line-height:1.08;margin-bottom:22px}.hs-form-field select{background-image:url('data:image/svg+xml;utf8,<svg fill="%23000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');background-position:right 10px center;background-repeat:no-repeat;background-size:1rem;border-bottom:1px solid #000;border-radius:0;width:100%}.hs-form-field{position:relative}.hs-form-field input,.hs-form-field select,.hs-form-field textarea{background:transparent;border:none;border-bottom:1px solid #000;font-family:inherit;font-size:16px;padding:12px 0;width:100%}.hs-form-field input::-moz-placeholder,.hs-form-field select::-moz-placeholder,.hs-form-field textarea::-moz-placeholder{color:#666;opacity:1}.hs-form-field input::placeholder,.hs-form-field select::placeholder,.hs-form-field textarea::placeholder{color:#666;opacity:1}.hs-form-field input:focus,.hs-form-field select:focus,.hs-form-field textarea:focus{border-bottom-color:var(--primary);outline:none}.hs-form-field textarea{min-height:120px;resize:vertical}.hs-form-field textarea,.hs-form-field.hs-fieldtype-textarea{flex:1 1 100%;width:100%!important}.submitted-message{display:none;padding:20px;text-align:center}.submitted-message.hidden{display:none!important}.submitted-message p{font-size:16px;line-height:1.5;margin:0 0 15px}.beacon-default,.beacon-demo,.beacon-subscribe{animation:beacon-pulse 2s infinite;background:radial-gradient(circle,var(--primary) 0,transparent 70%);border-radius:50%;height:50px;margin:0 auto;width:50px}@keyframes beacon-pulse{0%{opacity:1;transform:scale(.8)}50%{opacity:.7;transform:scale(1.2)}to{opacity:1;transform:scale(.8)}}.lottie-animation{height:100%;width:100%}#bottom-form-container{width:100%}.hs-form-field.hs-fieldtype-booleancheckbox .hs-form-booleancheckbox{align-items:flex-start;display:flex;gap:12px}.hs-form-field.hs-fieldtype-booleancheckbox .hs-form-booleancheckbox label.hs-form-booleancheckbox-display{align-items:flex-start;cursor:pointer;display:flex;font-size:14px;gap:8px;line-height:1.4;margin:0}.hs-form-field.hs-fieldtype-booleancheckbox .hs-form-booleancheckbox label.hs-form-booleancheckbox-display input[type=checkbox]{flex-shrink:0;height:16px;margin:0;width:16px}.hs-form-field.hs-fieldtype-booleancheckbox .hs-form-booleancheckbox label.hs-form-booleancheckbox-display span{margin:0;padding:0}.legal-consent-container .hs-form-booleancheckbox{align-items:flex-start;display:flex;gap:12px}.legal-consent-container .hs-form-booleancheckbox label{align-items:flex-start;cursor:pointer;display:flex;font-size:14px;gap:8px;line-height:1.4;margin:0}.legal-consent-container .hs-form-booleancheckbox label input[type=checkbox]{flex-shrink:0;height:16px;margin:0;width:16px}
+/*# sourceURL=https://datricks.com/wp-content/themes/datricks/blocks/sections/hs-form/style.css */
+</style>
+<style id="dt-lottie-tabs-style-inline-css" type="text/css">
+.tabs-section{background-color:var(--gray);position:relative}.tabs-section>div{margin-left:auto;margin-right:auto;max-width:1360px;padding:60px 30px;position:relative;width:100%}@media (min-width:768px){.tabs-section>div{padding-bottom:50px;padding-top:80px}}@media (min-width:1025px){.tabs-section>div{padding-bottom:80px;padding-top:80px}}.tabs-section>div{background-image:linear-gradient(180deg,hsla(0,0%,100%,0),#fff)}@media screen and (min-width:1921px){.tabs-section>div{height:100vh;margin-top:100px}}.tabs-section .tabs-title{max-width:800px!important;text-align:left!important}@media (min-width:1025px){.tabs-section .tabs-title{margin-left:auto!important;margin-right:auto!important;text-align:center!important}}.tabs-section .tabs-title p{font-size:.875rem;line-height:1.25rem;margin-bottom:2.5rem;margin-top:1.25rem}@media (min-width:768px){.tabs-section .tabs-title p{font-size:1rem;line-height:1.5rem;margin-bottom:60px}}@media (min-width:1025px){.tabs-section .tabs-title p{font-size:1.125rem;line-height:1.75rem;margin-bottom:0}}.tabs-section .tabs-all-lottie{align-items:center;display:none;flex-direction:column;margin-left:auto;margin-right:auto;max-height:50vh;max-width:1000px;min-height:35vh;position:relative}@media (min-width:1025px){.tabs-section .tabs-all-lottie{display:flex;min-height:35vh}}@media (min-width:1367px){.tabs-section .tabs-all-lottie{min-height:38vh}}@media (min-width:1601px){.tabs-section .tabs-all-lottie{height:450px}}.tabs-section .tabs-all-lottie .lottie-wrapper{height:100%;max-width:80%;position:absolute;top:50%;--tw-translate-y:-50%;opacity:0;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));transition-duration:.3s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (min-width:1601px){.tabs-section .tabs-all-lottie .lottie-wrapper{height:auto}}.tabs-section .tabs-all-lottie .lottie-wrapper .lottie-animation{height:100%;width:100%}@media (min-width:1601px){.tabs-section .tabs-all-lottie .lottie-wrapper .lottie-animation{height:auto;width:auto}}.tabs-section .tabs-all-lottie .lottie-wrapper .lottie-animation.lottie-loading{opacity:.5}.tabs-section .tabs-all-lottie .lottie-wrapper .lottie-animation.lottie-loading:after{inset:0;position:absolute}@keyframes pulse{50%{opacity:.5}}.tabs-section .tabs-all-lottie .lottie-wrapper .lottie-animation.lottie-loading:after{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite;background-color:var(--gray);content:""}.tabs-section .tabs-line{display:none;justify-content:space-between;margin-left:auto;margin-right:auto;max-width:660px;position:relative;width:66%;z-index:1}@media (min-width:1025px){.tabs-section .tabs-line{display:flex}}.tabs-section .tabs-line:before{background-color:#09080933;content:"";height:1px;position:absolute;top:.25rem;width:100%}.tabs-section .tabs-line .tabs-dot{border-color:var(--gray);border-radius:9999px;border-width:2px;cursor:pointer;height:11px;width:11px;z-index:1;--tw-bg-opacity:1;background-color:rgb(196 196 196/var(--tw-bg-opacity,1))}.tabs-section .tabs-container{display:flex;flex-direction:column;gap:30px;margin-left:auto;margin-right:auto;margin-top:30px;max-width:1000px;padding:10px}@media (min-width:1025px){.tabs-section .tabs-container{flex-direction:row;padding:0;text-align:center}}.tabs-section .tabs-container .tab{width:100%}@media (min-width:768px){.tabs-section .tabs-container .tab .lottie-wrapper{max-width:70%}}@media (min-width:1025px){.tabs-section .tabs-container .tab .lottie-wrapper{display:none}}.tabs-section .tabs-container .tab h3{cursor:pointer;font-size:1.5rem;font-weight:400;line-height:2rem}@media (min-width:768px){.tabs-section .tabs-container .tab h3{font-size:26px;line-height:32px}}@media (min-width:1025px){.tabs-section .tabs-container .tab h3{font-size:22px;line-height:30px;opacity:.3}}@media (min-width:1367px){.tabs-section .tabs-container .tab h3{font-size:34px;line-height:38px}}.tabs-section .tabs-container .tab h3{letter-spacing:-1px;transition:opacity .5s ease}@media (min-width:1025px){.tabs-section .tabs-container .tab h3.small-title{font-size:20px;line-height:26px;margin-top:15px}}.tabs-section .tabs-container .tab p{font-size:.875rem;line-height:1.25rem;margin-bottom:0;margin-top:6px}@media (min-width:768px){.tabs-section .tabs-container .tab p{font-size:18px;margin-bottom:15px;max-width:680px}}@media (min-width:1025px){.tabs-section .tabs-container .tab p{font-size:13px;line-height:18px;max-width:100%;opacity:0}}@media (min-width:1367px){.tabs-section .tabs-container .tab p{font-size:1rem;line-height:1.5rem}}.tabs-section .tabs-container .tab p{transition:opacity .5s ease}.tabs-section.step1 .tabs-all-lottie .lottie-wrapper:first-child{opacity:1}.tabs-section.step1 .tabs-line .tabs-dot:first-child{background-color:var(--primary);border-style:none;height:9px;width:9px}.tabs-section.step1 .tabs-container .tab:first-child h3,.tabs-section.step1 .tabs-container .tab:first-child p,.tabs-section.step2 .tabs-all-lottie .lottie-wrapper:nth-child(2){opacity:1}.tabs-section.step2 .tabs-line .tabs-dot:nth-child(2){background-color:var(--primary);border-style:none;height:9px;width:9px}.tabs-section.step2 .tabs-container .tab:nth-child(2) h3,.tabs-section.step2 .tabs-container .tab:nth-child(2) p,.tabs-section.step3 .tabs-all-lottie .lottie-wrapper:nth-child(3){opacity:1}.tabs-section.step3 .tabs-line .tabs-dot:nth-child(3){background-color:var(--primary);border-style:none;height:9px;width:9px}.tabs-section.step3 .tabs-container .tab:nth-child(3) h3,.tabs-section.step3 .tabs-container .tab:nth-child(3) p,.tabs-section.step4 .tabs-all-lottie .lottie-wrapper:nth-child(4){opacity:1}.tabs-section.step4 .tabs-line .tabs-dot:nth-child(4){background-color:var(--primary);border-style:none;height:9px;width:9px}.tabs-section.step4 .tabs-container .tab:nth-child(4) h3,.tabs-section.step4 .tabs-container .tab:nth-child(4) p,.tabs-section.step5 .tabs-all-lottie .lottie-wrapper:nth-child(5){opacity:1}.tabs-section.step5 .tabs-line .tabs-dot:nth-child(5){background-color:var(--primary);border-style:none;height:9px;width:9px}.tabs-section.step5 .tabs-container .tab:nth-child(5) h3,.tabs-section.step5 .tabs-container .tab:nth-child(5) p,.tabs-section.step6 .tabs-all-lottie .lottie-wrapper:nth-child(6){opacity:1}.tabs-section.step6 .tabs-line .tabs-dot:nth-child(6){background-color:var(--primary);border-style:none;height:9px;width:9px}.tabs-section.step6 .tabs-container .tab:nth-child(6) h3,.tabs-section.step6 .tabs-container .tab:nth-child(6) p{opacity:1}.tabs-section.tab-wide{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.tabs-section.tab-wide .tabs-title{max-width:none}@media (min-width:1025px){.tabs-section.tab-wide .tabs-container{justify-content:space-around}}.tabs-section.bg-grey{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.tabs-section.bg-grey>div{background-image:none}
+/*# sourceURL=https://datricks.com/wp-content/themes/datricks/blocks/sections/lottie-tabs/style.css */
+</style>
+<link data-minify="1" rel="stylesheet" id="dt-testimonials-style-css" href="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/testimonials/style.css?ver=1773667059" type="text/css" media="all">
+<style id="dt-metrics-style-inline-css" type="text/css">
+.metrics{background-color:var(--gray);margin-left:auto;margin-right:auto;max-width:1920px;overflow-x:clip;position:relative}.metrics .metrics-background{height:auto;position:absolute;right:0;top:0;width:100%}@media (min-width:1025px){.metrics .metrics-background{height:100%;width:60%}}@media screen and (min-width:1025px){.metrics .metrics-background{right:0}}.metrics .metrics-background img{height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:left;object-position:left;width:100%}.metrics>div{margin-left:auto;margin-right:auto;max-width:1280px;padding-left:10px;padding-right:10px;padding-top:50vw;position:relative;width:100%;z-index:1}@media (min-width:768px){.metrics>div{padding-top:44vw}}@media (min-width:1025px){.metrics>div{padding-top:0}}.metrics .inner-wrapper{background-image:linear-gradient(180deg,#ff7342,#e8e8e8 70%);padding:2.5rem 1.25rem 5rem}@media (min-width:768px){.metrics .inner-wrapper{padding:60px 1.25rem 1.25rem}}@media (min-width:1025px){.metrics .inner-wrapper{background-image:none;padding:0}.metrics .inner-wrapper .metrics-title{padding-top:126px}}@media (min-width:1367px){.metrics .inner-wrapper .metrics-title{padding-top:126px}}.metrics .inner-wrapper .metrics-title{display:flex;flex-flow:column;gap:14px;max-width:760px;width:100%}.metrics .inner-wrapper .metrics-title h2{margin-bottom:10px}.metrics .inner-wrapper .metrics-title p{font-size:.875rem;line-height:1.25rem;margin-bottom:15px}@media (min-width:768px){.metrics .inner-wrapper .metrics-title p{font-size:1.125rem;line-height:1.75rem}}.metrics .inner-wrapper .metrics-title p{font-family:Manrope;font-size:18px;font-style:Regular;font-weight:400;max-width:610px;leading-trim:NONE;letter-spacing:.02rem;line-height:150%}.metrics .inner-wrapper .metrics-content{padding-bottom:1.25rem;position:relative}@media (min-width:1025px){.metrics .inner-wrapper .metrics-content{margin-top:2.5rem;padding-top:1.25rem;width:48vw}}@media (min-width:1367px){.metrics .inner-wrapper .metrics-content{margin-top:99px;padding-top:70px;width:46%}}.metrics .inner-wrapper .metrics-content:before{content:"";display:none;height:119%;position:absolute;right:0;top:0}@media (min-width:1025px){.metrics .inner-wrapper .metrics-content:before{display:block;width:55vw}}@media (min-width:1367px){.metrics .inner-wrapper .metrics-content:before{width:50vw}}.metrics .inner-wrapper .metrics-content:before{background-image:linear-gradient(180deg,#ff7342,rgba(255,115,66,0))}.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper{-moz-column-gap:2.5rem;column-gap:2.5rem;display:flex;flex-wrap:wrap;row-gap:2rem}@media (min-width:1367px){.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper{row-gap:3.5rem}}.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card{display:flex;flex-direction:column;width:calc(50% - 20px);z-index:1}@media (min-width:1025px){.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card{width:40%}}.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card .counter{display:flex;font-family:var(--font-inter),Helvetica,Arial,sans-serif;font-size:1.5rem;font-weight:500;line-height:2rem}@media (min-width:768px){.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card .counter{font-size:40px;line-height:55px}}@media (min-width:1367px){.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card .counter{font-size:48px}}.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card p{font-size:.875rem;line-height:1.25rem}@media (min-width:768px){.metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card p{font-size:1rem;line-height:1.5rem}}.archive-contact .metrics>div{margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem}@media (min-width:1025px){.archive-contact .metrics>div{max-width:1024px}}@media (min-width:1367px){.archive-contact .metrics>div{max-width:1367px}}@media (min-width:1025px){.archive-contact .metrics .metrics-background{right:-18%}}@media (min-width:1367px){.archive-contact .metrics .metrics-background{right:-1%}}@media (max-width:1024px){.archive-contact .metrics .inner-wrapper{padding-bottom:30px}}@media (min-width:1367px){.archive-contact .metrics .inner-wrapper .metrics-title{padding-top:133px}}.archive-contact .metrics .inner-wrapper .metrics-title p{max-width:720px}.archive-contact .metrics .inner-wrapper .metrics-content{padding-bottom:0}@media (min-width:1025px){.archive-contact .metrics .inner-wrapper .metrics-content{padding-bottom:4rem}}@media (min-width:1367px){.archive-contact .metrics .inner-wrapper .metrics-content{margin-top:45px;width:50%}.archive-contact .metrics .inner-wrapper .metrics-content .metrics-cards-wrapper{-moz-column-gap:5rem;column-gap:5rem;row-gap:3rem}}.archive-contact .metrics .inner-wrapper .metrics-content .metrics-cards-wrapper .metrics-card .counter{margin-bottom:.75rem}@media (max-width:1024px){.metrics>div{padding-left:25px;padding-right:25px}.metrics .inner-wrapper .metrics-title h2{font-size:28px;margin-bottom:0}.metrics .inner-wrapper .metrics-title p{font-size:16px}.metrics .inner-wrapper{padding-bottom:25px;padding-top:16px}}
+/*# sourceURL=https://datricks.com/wp-content/themes/datricks/blocks/sections/metrics/style.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dt-black: #090809;--wp--preset--color--dt-primary: #ff7342;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--manrope: "Manrope", sans-serif;--wp--preset--font-family--inter-tight: "Inter-Tight", sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 1570px;--wp--style--global--wide-size: 1872px; }:where(body) { margin: 0; }.wp-site-blocks { padding-top: var(--wp--style--root--padding-top); padding-bottom: var(--wp--style--root--padding-bottom); }.has-global-padding { padding-right: var(--wp--style--root--padding-right); padding-left: var(--wp--style--root--padding-left); }.has-global-padding > .alignfull { margin-right: calc(var(--wp--style--root--padding-right) * -1); margin-left: calc(var(--wp--style--root--padding-left) * -1); }.has-global-padding :where(:not(.alignfull.is-layout-flow) > .has-global-padding:not(.wp-block-block, .alignfull)) { padding-right: 0; padding-left: 0; }.has-global-padding :where(:not(.alignfull.is-layout-flow) > .has-global-padding:not(.wp-block-block, .alignfull)) > .alignfull { margin-left: 0; margin-right: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 1.5rem; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 1.5rem; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 1.5rem;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 1.5rem;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 1.5rem;}:root :where(.is-layout-grid){gap: 1.5rem;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{color: #090809;--wp--style--root--padding-top: 0px;--wp--style--root--padding-right: 0px;--wp--style--root--padding-bottom: 0px;--wp--style--root--padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-dt-black-color{color: var(--wp--preset--color--dt-black) !important;}.has-dt-primary-color{color: var(--wp--preset--color--dt-primary) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-dt-black-background-color{background-color: var(--wp--preset--color--dt-black) !important;}.has-dt-primary-background-color{background-color: var(--wp--preset--color--dt-primary) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-dt-black-border-color{border-color: var(--wp--preset--color--dt-black) !important;}.has-dt-primary-border-color{border-color: var(--wp--preset--color--dt-primary) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-manrope-font-family{font-family: var(--wp--preset--font-family--manrope) !important;}.has-inter-tight-font-family{font-family: var(--wp--preset--font-family--inter-tight) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="datricks-main-css" href="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/build/main/main.css?ver=1773667059" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="datricks-dt-contact-hero-css" href="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/contact-hero/style.css?ver=1773667059" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="datricks-dt-product-hero-css" href="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/product-hero/style.css?ver=1773667059" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="datricks-dt-homepage-hero-css" href="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/homepage-hero/style.css?ver=1773667059" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="datricks-dt-hero-css" href="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/hero/style.css?ver=1773667059" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-style-css" href="https://datricks.com/wp-content/cache/min/1/npm/swiper@11/swiper-bundle.min.css?ver=1773667059" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="glightbox-style-css" href="https://datricks.com/wp-content/cache/min/1/npm/glightbox/dist/css/glightbox.min.css?ver=1773667059" type="text/css" media="all">
+<script type="text/javascript" src="https://datricks.com/wp-includes/js/jquery/jquery.min.js?ver=1693242863" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="text/javascript" src="https://datricks.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1686289764" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<link rel="https://api.w.org/" href="https://datricks.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://datricks.com/wp-json/wp/v2/pages/10"><link rel="shortlink" href="https://datricks.com/">
+<style class="wp-fonts-local" type="text/css">
+@font-face{font-family:Manrope;font-style:normal;font-weight:800;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/Manrope/Manrope-ExtraBold.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Manrope;font-style:normal;font-weight:700;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/Manrope/Manrope-Bold.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Manrope;font-style:normal;font-weight:600;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/Manrope/Manrope-SemiBold.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Manrope;font-style:normal;font-weight:500;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/Manrope/Manrope-Medium.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Manrope;font-style:normal;font-weight:400;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/Manrope/Manrope-Regular.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Manrope;font-style:normal;font-weight:300;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/Manrope/Manrope-Light.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Manrope;font-style:normal;font-weight:100;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/Manrope/Manrope-ExtraLight.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Inter-Tight;font-style:normal;font-weight:800;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/InterTight/InterTight-ExtraBold.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Inter-Tight;font-style:normal;font-weight:700;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/InterTight/InterTight-Bold.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Inter-Tight;font-style:normal;font-weight:600;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/InterTight/InterTight-SemiBold.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Inter-Tight;font-style:normal;font-weight:500;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/InterTight/InterTight-Medium.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Inter-Tight;font-style:normal;font-weight:400;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/InterTight/InterTight-Regular.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Inter-Tight;font-style:normal;font-weight:300;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/InterTight/InterTight-Light.ttf') format('truetype');font-stretch:normal;}
+@font-face{font-family:Inter-Tight;font-style:normal;font-weight:100;font-display:fallback;src:url('https://datricks.com/wp-content/themes/datricks/assets/fonts/InterTight/InterTight-ExtraLight.ttf') format('truetype');font-stretch:normal;}
+</style>
+<link rel="icon" href="https://datricks.com/wp-content/uploads/2025/03/cropped-fav-32x32.webp" sizes="32x32">
+<link rel="icon" href="https://datricks.com/wp-content/uploads/2025/03/cropped-fav-192x192.webp" sizes="192x192">
+<link rel="apple-touch-icon" href="https://datricks.com/wp-content/uploads/2025/03/cropped-fav-180x180.webp">
+<meta name="msapplication-TileImage" content="https://datricks.com/wp-content/uploads/2025/03/cropped-fav-270x270.webp">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+	<!-- Google Tag Manager -->
+	<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-5W8NFC9');</script>
+	<!-- End Google Tag Manager -->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5W8NFC9"
+	                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.20.5" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_image_dimensions wpr_minify_css wpr_preload_links wpr_desktop"></head>
+
+
+<body class="home wp-singular page-template-default page page-id-10 wp-theme-datricks">
+
+<header>
+	<div>
+		<div class="nav-wrapper">
+			<a href="/" class="header-logo">
+				<img width="150" height="32" src="https://datricks.com/wp-content/uploads/2025/01/datrocks-logo.svg" alt="datricks logo" title="datricks logo">			</a>
+			<nav>
+				<ul id="menu-main-menu" class="main-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://datricks.com/platform/">Platform</a>
+<ul class="sub-menu has-custom-title">
+<li class="submenu-header"><div class="submenu-header__content"><div class="submenu-header__top"><img width="34" height="34" class="submenu-header__icon" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2034%2034'%3E%3C/svg%3E" alt="The Financial Integrity Platform" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-1-1.svg"><noscript><img width="34" height="34" class="submenu-header__icon" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-1-1.svg" alt="The Financial Integrity Platform"></noscript><p class="submenu-header__title">The Financial Integrity Platform</p></div><div class="submenu-header__desc"><p>AI-powered autonomous, <br> real-time control</p>
+</div><a class="submenu-header__link" href="https://datricks.com/platform/">LEARN MORE</a></div></li><li class="submenu-items"><p class="submenu-items__title">Use cases</p>
+	<ul class="submenu-items__list">
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/audit-ready-always-a-financial-integrity-use-case/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Audit readiness" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-2-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-2-1.svg" alt="Audit readiness" class="menu-item__icon"></noscript>Audit readiness</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/internal-fraud-a-financial-integrity-use-case/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Internal fraud" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-3-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-3-1.svg" alt="Internal fraud" class="menu-item__icon"></noscript>Internal fraud</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/eliminating-vendor-related-exposures/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Vendor exposures" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-4-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-4-1.svg" alt="Vendor exposures" class="menu-item__icon"></noscript>Vendor exposures</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/eliminating-exposure-in-finance-digital-transformation/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Digital transformation" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-5-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-5-1.svg" alt="Digital transformation" class="menu-item__icon"></noscript>Digital transformation</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/stop-sod-violations-in-real-time/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="SoD violations" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-6-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-6-1.svg" alt="SoD violations" class="menu-item__icon"></noscript>SoD violations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/eliminating-procure-to-pay-exposures/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="P2P exposure" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-7-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-7-1.svg" alt="P2P exposure" class="menu-item__icon"></noscript>P2P exposure</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/vendor-advance-payment-fraud/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Advanced payment" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-8-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-8-1.svg" alt="Advanced payment" class="menu-item__icon"></noscript>Advanced payment</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/eliminating-accounts-payable-exposures/"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="AP exposures" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-9-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-9-1.svg" alt="AP exposures" class="menu-item__icon"></noscript>AP exposures</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-use_cases"><a href="https://datricks.com/use-case/modernizing-continuous-control-monitoring/"><img width="24" height="27" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2027'%3E%3C/svg%3E" alt="Modernizing Analytics" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/12/svgexport-1-1.svg"><noscript><img width="24" height="27" src="https://datricks.com/wp-content/uploads/2025/12/svgexport-1-1.svg" alt="Modernizing Analytics" class="menu-item__icon"></noscript>Modernizing Analytics</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://datricks.com/resources/">Resources</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/resources/?type=case_studies"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Case studies" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-10-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-10-1.svg" alt="Case studies" class="menu-item__icon"></noscript>Case studies</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/resources/?type=webinars_videos"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Webinars &amp; Videos" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-11-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-11-1.svg" alt="Webinars &#038; Videos" class="menu-item__icon"></noscript>Webinars &amp; Videos</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/resources/?type=podcasts"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Podcasts" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-12-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-12-1.svg" alt="Podcasts" class="menu-item__icon"></noscript>Podcasts</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/resources/?type=press_releases"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="Press releases" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-13-1.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-13-1.svg" alt="Press releases" class="menu-item__icon"></noscript>Press releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/resources/?type=ebooks"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" alt="eBook" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/12/ebooks.svg"><noscript><img width="24" height="24" src="https://datricks.com/wp-content/uploads/2025/12/ebooks.svg" alt="eBook" class="menu-item__icon"></noscript>eBook</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://datricks.com/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Company</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://datricks.com/about-datricks/"><img width="25" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2024'%3E%3C/svg%3E" alt="About Us" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-14-1.svg"><noscript><img width="25" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-14-1.svg" alt="About Us" class="menu-item__icon"></noscript>About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://datricks.com/careers/"><img width="25" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2024'%3E%3C/svg%3E" alt="Careers" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-15-1.svg"><noscript><img width="25" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-15-1.svg" alt="Careers" class="menu-item__icon"></noscript>Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://datricks.com/contact-us/"><img width="25" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2024'%3E%3C/svg%3E" alt="Contact Us" class="menu-item__icon" data-lazy-src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-16-1.svg"><noscript><img width="25" height="24" src="https://datricks.com/wp-content/uploads/2025/10/svgexport-1-16-1.svg" alt="Contact Us" class="menu-item__icon"></noscript>Contact Us</a></li>
+</ul>
+</li>
+<li><a href="/get-a-demo" class="btn-primary">Get a demo</a></li></ul>			</nav>
+			<button class="menu-toggle">
+				<svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none"><rect width="2" height="15" fill="#B2B4B4"></rect><rect x="6" y="2" width="2" height="11" fill="#B2B4B4"></rect><rect x="12" width="2" height="15" fill="#B2B4B4"></rect></svg>
+			</button>
+		</div>
+	</div>
+</header>
+
+	<main id="main-content">
+		<div class="">
+			
+<section class="homepage-hero" id="block_ba8535350ba5cb692e64285935d862fa">
+	<div>
+		<div class="inner-wrapper">
+			<div class="left-part">
+								
+
+<h1>Integrity always<br> comes first </h1>
+
+
+
+<p>Finances are the pulse of enterprises, yet their&nbsp;integrity is exposed to human errors, non-compliance, and fraud. Datricks eliminates these vulnerabilities, transforming your business from a state of exposure&nbsp;into a beacon of&nbsp;<strong>Financial Integrity.</strong></p>
+
+
+
+<p><a href="#get-a-demo" rel="" target="_self" class="btn btn-primary">Get a demo</a></p>
+
+
+			</div>
+			<div class="right-part">
+									<div class="homepage-hero-slider">
+						<div class="swiper-wrapper">
+															<div class="swiper-slide">
+									<picture>
+										<source media="(min-width: 992px)" srcset="https://datricks.com/wp-content/uploads/2025/01/Hero-image-1-1536x1300.webp">
+										<img data-no-lazy="" fetchpriority="high" decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-1.webp" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970">									</picture>
+								</div>
+															<div class="swiper-slide">
+									<picture>
+										<source media="(min-width: 992px)" srcset="https://datricks.com/wp-content/uploads/2025/01/Hero-image-4-1536x1300.webp">
+										<img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-4.webp" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970">									</picture>
+								</div>
+															<div class="swiper-slide">
+									<picture>
+										<source media="(min-width: 992px)" data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/Hero-image-3-1536x1300.webp">
+										<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202328%201970'%3E%3C/svg%3E" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-3.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-3.webp" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970" /></noscript>									</picture>
+								</div>
+															<div class="swiper-slide">
+									<picture>
+										<source media="(min-width: 992px)" data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/Hero-image-2-1536x1300.webp">
+										<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202328%201970'%3E%3C/svg%3E" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-2.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-2.webp" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970" /></noscript>									</picture>
+								</div>
+															<div class="swiper-slide">
+									<picture>
+										<source media="(min-width: 992px)" data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/Hero-image-5-1536x1300.webp">
+										<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202328%201970'%3E%3C/svg%3E" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-5.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/Hero-image-5.webp" alt="Integrity always comes first" title="Integrity always comes first" width="2328" height="1970" /></noscript>									</picture>
+								</div>
+													</div>
+					</div>
+							</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="logos-carousel default-bg " id="block_974f210d941add96da69a32f39669b8a">
+  
+	<div>
+					<div class="logos-slider">
+				<div class="swiper-wrapper">
+											<div class="swiper-slide">
+							<figure>
+								<img width="144" height="42" decoding="async" src="https://datricks.com/wp-content/uploads/2025/09/Group-427320786.svg" title="Group-427320786">							</figure>
+						</div>
+											<div class="swiper-slide">
+							<figure>
+								<img width="107" height="40" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20107%2040'%3E%3C/svg%3E" title="Vector-1" data-lazy-src="https://datricks.com/wp-content/uploads/2025/09/Vector-1.svg"><noscript><img width="107" height="40" decoding="async" src="https://datricks.com/wp-content/uploads/2025/09/Vector-1.svg" title="Vector-1" /></noscript>							</figure>
+						</div>
+											<div class="swiper-slide">
+							<figure>
+								<img width="139" height="38" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20139%2038'%3E%3C/svg%3E" title="Vector" data-lazy-src="https://datricks.com/wp-content/uploads/2025/09/Vector.svg"><noscript><img width="139" height="38" decoding="async" src="https://datricks.com/wp-content/uploads/2025/09/Vector.svg" title="Vector" /></noscript>							</figure>
+						</div>
+											<div class="swiper-slide">
+							<figure>
+								<img width="146" height="58" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20146%2058'%3E%3C/svg%3E" title="Layer_1" data-lazy-src="https://datricks.com/wp-content/uploads/2025/09/Layer_1.svg"><noscript><img width="146" height="58" decoding="async" src="https://datricks.com/wp-content/uploads/2025/09/Layer_1.svg" title="Layer_1" /></noscript>							</figure>
+						</div>
+											<div class="swiper-slide">
+							<figure>
+								<img width="182" height="32" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20182%2032'%3E%3C/svg%3E" title="Group-427320797" data-lazy-src="https://datricks.com/wp-content/uploads/2025/09/Group-427320797.svg"><noscript><img width="182" height="32" decoding="async" src="https://datricks.com/wp-content/uploads/2025/09/Group-427320797.svg" title="Group-427320797" /></noscript>							</figure>
+						</div>
+											<div class="swiper-slide">
+							<figure>
+								<img width="1000" height="343" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20343'%3E%3C/svg%3E" title="Siemens_Energy_logo 1 (1)" data-lazy-src="https://datricks.com/wp-content/uploads/2025/12/Siemens_Energy_logo-1-1.svg"><noscript><img width="1000" height="343" decoding="async" src="https://datricks.com/wp-content/uploads/2025/12/Siemens_Energy_logo-1-1.svg" title="Siemens_Energy_logo 1 (1)" /></noscript>							</figure>
+						</div>
+											<div class="swiper-slide">
+							<figure>
+								<img width="300" height="65" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%2065'%3E%3C/svg%3E" title="Würth_logo 1" data-lazy-src="https://datricks.com/wp-content/uploads/2025/12/Wurth_logo-1.svg"><noscript><img width="300" height="65" decoding="async" src="https://datricks.com/wp-content/uploads/2025/12/Wurth_logo-1.svg" title="Würth_logo 1" /></noscript>							</figure>
+						</div>
+									</div>
+			</div>
+			</div>
+</section>
+
+
+<section class="tabs-section step1  " id="problem">
+	<div>
+		<div class="inner-wrapper">
+			<div class="tabs-title">
+								
+
+<h2>Exposures are on the rise</h2>
+
+
+
+<p>Today, employees are facing more pressure than ever to meet financial targets in an environment of surging complexity, creating more exposures for your business.</p>
+
+
+			</div>
+							<div class="tabs-all-lottie">
+					            <div class="lottie-wrapper">
+              <div class="lottie-animation" data-lottie-desktop="https://datricks.com/wp-content/uploads/2025/03/human_errors_v1_RENDER__R2-3.json" data-lottie-mobile="https://datricks.com/wp-content/uploads/2025/03/human_errors-2.json">
+              </div>
+            </div>
+					            <div class="lottie-wrapper">
+              <div class="lottie-animation" data-lottie-desktop="https://datricks.com/wp-content/uploads/2025/03/More-non-compliance-_RENDER_R2.json" data-lottie-mobile="https://datricks.com/wp-content/uploads/2025/03/non-compliance-2.json">
+              </div>
+            </div>
+					            <div class="lottie-wrapper">
+              <div class="lottie-animation" data-lottie-desktop="https://datricks.com/wp-content/uploads/2025/03/More_fraud_RENDER_R2.json" data-lottie-mobile="https://datricks.com/wp-content/uploads/2025/03/Fraud-2.json">
+              </div>
+            </div>
+									</div>
+				<div class="tabs-line">
+											<div class="tabs-dot"></div>
+											<div class="tabs-dot"></div>
+											<div class="tabs-dot"></div>
+									</div>
+				<div class="tabs-container">
+											<div class="tab">
+							<div class="lottie-wrapper">
+                <div class="lottie-animation" data-lottie-desktop="https://datricks.com/wp-content/uploads/2025/03/human_errors_v1_RENDER__R2-3.json" data-lottie-mobile="https://datricks.com/wp-content/uploads/2025/03/human_errors-2.json">
+                </div>
+							</div>
+							<h3 class="">More human errors</h3>
+															<div><p>Honest mistakes happen all the time. And more data means more of them.For example, creating multiple records for the same entity, which inevitably lead to costly duplicate payments.</p>
+</div>
+													</div>
+											<div class="tab">
+							<div class="lottie-wrapper">
+                <div class="lottie-animation" data-lottie-desktop="https://datricks.com/wp-content/uploads/2025/03/More-non-compliance-_RENDER_R2.json" data-lottie-mobile="https://datricks.com/wp-content/uploads/2025/03/non-compliance-2.json">
+                </div>
+							</div>
+							<h3 class="">More non-compliance</h3>
+															<div><p>Some employees knowingly or unknowingly bypass protocols to work faster. And with workloads on rise, it’s only getting worse, costing firms nearly 3X as much as being in compliance.</p>
+</div>
+													</div>
+											<div class="tab">
+							<div class="lottie-wrapper">
+                <div class="lottie-animation" data-lottie-desktop="https://datricks.com/wp-content/uploads/2025/03/More_fraud_RENDER_R2.json" data-lottie-mobile="https://datricks.com/wp-content/uploads/2025/03/Fraud-2.json">
+                </div>
+							</div>
+							<h3 class="">More fraud</h3>
+															<div><p>Whether committed by employees or state-sponsored cyber criminals, fraud is growing fast. It’s already responsible for the staggering loss of 5% of annual revenueof businesses worldwide.</p>
+</div>
+													</div>
+									</div>
+					</div>
+	</div>
+</section>
+
+
+  <section class="two-columns section-30-70" id="platform">
+    <div>
+      <div class="two-columns-section-title">
+                
+
+<h2><br>The Financial Integrity platform</h2>
+
+
+
+<p>Powered by an agentic intelligence layer that works 24/7 to deliver autonomous, real-time control over finance operations.</p>
+
+
+      </div>
+      <div class="inner-wrapper">
+                  <div class="two-columns-row">
+            <div class="two-columns-content">
+              <p>01</p>
+              <h3>Autonomous process discovery</h3>
+              <p>Without needing any input, Datricks automatically and continuously analyzes the unfolding of business processes, displaying events and activities as they happen.</p>
+            </div>
+                          <div class="lottie-wrapper">
+                <div class="lottie-animation" data-lottie="https://datricks.com/wp-content/uploads/2025/01/UI_Process.json"></div>
+              </div>
+                      </div>
+                    <div class="two-columns-row">
+            <div class="two-columns-content">
+              <p>02</p>
+              <h3>Integrity exposure detection</h3>
+              <p>Advanced machine learning analyzes all business data, learning, identifying, and alerting to issues and anomalies in real time.</p>
+            </div>
+                          <div class="lottie-wrapper">
+                <div class="lottie-animation" data-lottie="https://datricks.com/wp-content/uploads/2025/01/UI_Exposures.json"></div>
+              </div>
+                      </div>
+                    <div class="two-columns-row">
+            <div class="two-columns-content">
+              <p>03</p>
+              <h3>Integrity intelligence</h3>
+              <p>Finance leaders get a comprehensive view of the organization’s overall financial health, along with AI-driven insights about the issues that matter, for achieving peak performance.</p>
+            </div>
+                          <div class="lottie-wrapper">
+                <div class="lottie-animation" data-lottie="https://datricks.com/wp-content/uploads/2025/01/UI_Dashboards.json"></div>
+              </div>
+                      </div>
+                </div>
+              <div class="cta-wrapper">
+          <p>
+            <a href="#get-a-demo " class="btn-primary btn-black">Get a demo</a>
+          </p>
+        </div>
+          </div>
+  </section>
+
+
+
+
+
+<section class="side-by-side   skin-default layout-default" id="block_b036446aa70c1f0382938858425e8f15">
+	<div class="">
+		<div class="inner-wrapper">
+							<div class="left-part">
+											<!-- Default skin: text goes to left side -->
+												
+
+<h2>7 days to see results<br>0 input required</h2>
+
+
+
+<p>Setup is effortless. Just point Datricks at your ERP and other Business Management Solutions — no need to explain how your business runs. <br>You’ll see results within a week.</p>
+
+
+									</div>
+				<div class="right-part">
+											<!-- Default skin: logos go to right side -->
+													<h4>Supported ERP’s</h4>
+																			<div class="logos-wrapper">
+																	<figure>
+										<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2040'%3E%3C/svg%3E" title="SAP_2011_logo-1" width="80" height="40" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/SAP_2011_logo-1.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/SAP_2011_logo-1.webp" title="SAP_2011_logo-1" width="80" height="40" /></noscript>									</figure>
+																	<figure>
+										<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2084%2059'%3E%3C/svg%3E" title="Salesforce" width="84" height="59" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/Salesforce.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/Salesforce.webp" title="Salesforce" width="84" height="59" /></noscript>									</figure>
+																	<figure>
+										<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2036'%3E%3C/svg%3E" title="2024_NetSuite_logo-1" width="96" height="36" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/2024_NetSuite_logo-1.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/2024_NetSuite_logo-1.webp" title="2024_NetSuite_logo-1" width="96" height="36" /></noscript>									</figure>
+																	<figure>
+										<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20116%2036'%3E%3C/svg%3E" title="oracle-erp-cloud-logo-C3EF2A7895-seeklogo" width="116" height="36" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/oracle-erp-cloud-logo-C3EF2A7895-seeklogo.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/oracle-erp-cloud-logo-C3EF2A7895-seeklogo.webp" title="oracle-erp-cloud-logo-C3EF2A7895-seeklogo" width="116" height="36" /></noscript>									</figure>
+															</div>
+															</div>
+			
+					</div>
+	</div>
+</section>
+
+
+<section class="metrics" id="block_4ecd7c7d95b768220d176a57ab5955a2">
+	<picture class="metrics-background">
+					<source media="(min-width: 1025px)" data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/bg-metrics.png">
+							<source media="(min-width: 320px)" data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/bg-metrics-mobile.png">
+							<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201248%20837'%3E%3C/svg%3E" title="bg-metrics" width="1248" height="837" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/bg-metrics.png"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/bg-metrics.png" title="bg-metrics" width="1248" height="837" /></noscript>			</picture>
+	<div>
+		<div class="inner-wrapper">
+			<div class="metrics-title">
+								
+
+<h2><strong>The ROI of autonomous Financial Integrity</strong></h2>
+
+
+
+<p>realized by industry leaders around the world</p>
+
+
+			</div>
+						<div class="metrics-content">
+				<div class="metrics-cards-wrapper">
+											<div class="metrics-card">
+							<div class="counter">
+								<span>$</span>
+								<span class="counter-number" data-duration="3000" data-to-value="38" data-from-value="1" data-delimiter=",">38</span>
+								<span>M</span>
+							</div>
+							<p>boost in cash flow by detecting terms manipulation and early payments.</p>
+						</div>
+											<div class="metrics-card">
+							<div class="counter">
+								<span>$</span>
+								<span class="counter-number" data-duration="3000" data-to-value="13" data-from-value="1" data-delimiter=",">13</span>
+								<span>M</span>
+							</div>
+							<p>in losses mitigated by reducing and recovering duplicate payments.</p>
+						</div>
+											<div class="metrics-card">
+							<div class="counter">
+								<span></span>
+								<span class="counter-number" data-duration="3000" data-to-value="3" data-from-value="1" data-delimiter=",">3</span>
+								<span>%</span>
+							</div>
+							<p>of revenue recovered due to detection of fraudulent activities.</p>
+						</div>
+											<div class="metrics-card">
+							<div class="counter">
+								<span></span>
+								<span class="counter-number" data-duration="3000" data-to-value="250" data-from-value="1" data-delimiter=",">250</span>
+								<span>x</span>
+							</div>
+							<p>faster time to perform audits and better SOX testing.</p>
+						</div>
+									</div>
+			</div>
+					</div>
+	</div>
+</section>
+
+
+<section class="cta-section hide-on-desktop" id="block_47c8229025b17a5f795e1f76bd8a080d">
+	<div>
+		<div class="lottie-wrapper">
+			<div class="lottie-animation" data-lottie="/wp-content/themes/datricks/assets/lottie/cta_pulse.json"></div>
+		</div>
+				
+
+<p><a href="#get-a-demo" rel="" target="_self" class="btn btn-primary btn-white">Get a demo</a></p>
+
+
+	</div>
+</section>
+
+
+<section data-wpr-lazyrender="1" class="features" id="benefits">
+	<div>
+		<div class="features-title">
+						
+
+<h2>Transformative impact across your business</h2>
+
+
+		</div>
+					<div class="features-image-on-left">
+									<div class="feature">
+													<div class="lottie-wrapper">
+								<div class="lottie-animation" data-lottie="https://datricks.com/wp-content/uploads/2025/01/Build-more-trust.json"></div>
+							</div>
+																		<div>
+							<h4>Build more trust</h4>
+							<p>Foster confidence in your financial operationsby ensuring you never miss anything that matters and avoiding unfortunate surprises.</p>
+						</div>
+					</div>
+									<div class="feature">
+													<div class="lottie-wrapper">
+								<div class="lottie-animation" data-lottie="https://datricks.com/wp-content/uploads/2025/01/Focus-auditor-efforts.json"></div>
+							</div>
+																		<div>
+							<h4>Focus auditor efforts</h4>
+							<p>Dedicate your auditors’ time to the most problematic issues, instead of randomly sampling data — resulting in imprecise conclusions.</p>
+						</div>
+					</div>
+									<div class="feature">
+													<div class="lottie-wrapper">
+								<div class="lottie-animation" data-lottie="https://datricks.com/wp-content/uploads/2025/01/Recover-funds_02.json"></div>
+							</div>
+																		<div>
+							<h4>Recover lost funds</h4>
+							<p>Recover lost assets and prevent further losses. Stop duplicate payments, pay terms manipulation, and maverick spending.</p>
+						</div>
+					</div>
+									<div class="feature">
+													<div class="lottie-wrapper">
+								<div class="lottie-animation" data-lottie="https://datricks.com/wp-content/uploads/2025/01/Achieve-peak-performance.json"></div>
+							</div>
+																		<div>
+							<h4>Achieve peak performance</h4>
+							<p>Boost your bottom line, improve working capitaland cash flow, and scale your financial processes with confidence.</p>
+						</div>
+					</div>
+							</div>
+			</div>
+</section>
+
+
+<section class="testimonials  " id="block_7ec4bb6998127bd4b0a65434176c1691">
+	<div>
+		<div class="inner-wrapper">
+			<div class="left-part">
+				<div class="testimonials-title">
+										
+
+<h2>Be part of<br>the conversation</h2>
+
+
+											<figure>
+							<img width="333" height="246" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20333%20246'%3E%3C/svg%3E" alt="" data-lazy-src="/wp-content/themes/datricks/assets/img/quote.webp"><noscript><img width="333" height="246" decoding="async" src="/wp-content/themes/datricks/assets/img/quote.webp" alt=""></noscript>
+						</figure>
+									</div>
+			</div>
+			<div class="right-part">
+															<div class="testimonials-slider">
+							<div class="swiper-wrapper">
+																	<div class="swiper-slide">
+										<p class="name">Todd Freeman</p>
+										<p class="position">VP Internal Audit</p>
+										<p class="description">
+											When we were evaluating other solutions, it was clear that Datricks brings the only platform that can help us identify inefficiencies in our billing processes, eliminate costly rebilling, and drive real savings. No BI system can do that. Now that’s impressive!										</p>
+																					<figure>
+												<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202509%201071'%3E%3C/svg%3E" alt="vulcan materials company" title="vulcan-materials-company-logo_2" width="2509" height="1071" data-lazy-src="https://datricks.com/wp-content/uploads/2025/05/vulcan-materials-company-logo_2.png"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/05/vulcan-materials-company-logo_2.png" alt="vulcan materials company" title="vulcan-materials-company-logo_2" width="2509" height="1071" /></noscript>											</figure>
+																			</div>
+																	<div class="swiper-slide">
+										<p class="name">Heiko Laessig</p>
+										<p class="position">EVP Risk, Internal Control and Process Management</p>
+										<p class="description">
+											We have already witnessed that this solution will help us identify and mitigate risks, improve our processes, and ultimately achieve our business goals efficiently.										</p>
+																					<figure>
+												<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20118'%3E%3C/svg%3E" title="hella-logo-300x118" width="300" height="118" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/hella-logo-300x118-2.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/hella-logo-300x118-2.webp" title="hella-logo-300x118" width="300" height="118" /></noscript>											</figure>
+																			</div>
+																	<div class="swiper-slide">
+										<p class="name">Rami Bareket</p>
+										<p class="position">Director, Head of Global IT Audit</p>
+										<p class="description">
+											Datricks mapped controls that were never conducted in the past, enabling us to find meaningful issues with substantial impact on the business										</p>
+																					<figure>
+												<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20117%2046'%3E%3C/svg%3E" title="ICL" width="117" height="46" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/ICL.webp"><noscript><img decoding="async" src="https://datricks.com/wp-content/uploads/2025/01/ICL.webp" title="ICL" width="117" height="46" /></noscript>											</figure>
+																			</div>
+																	<div class="swiper-slide">
+										<p class="name">Timo&nbsp;Neumann</p>
+										<p class="position">Head of Group Auditing</p>
+										<p class="description">
+											Datricks replaces several software programs at once – efficient, user-friendly, and real-time. In a short period and without additional resources, we obtained a continuous auditing platform for SAP that is adaptable to our needs, thanks to the Datricks team’s high flexibility and commitment. And outstanding: self-explanatory through AI!										</p>
+																					<figure>
+												<img width="300" height="65" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%2065'%3E%3C/svg%3E" title="Würth_logo" data-lazy-src="https://datricks.com/wp-content/uploads/2025/12/Wurth_logo.svg"><noscript><img width="300" height="65" decoding="async" src="https://datricks.com/wp-content/uploads/2025/12/Wurth_logo.svg" title="Würth_logo" /></noscript>											</figure>
+																			</div>
+																	<div class="swiper-slide">
+										<p class="name">Marcin Nizinski</p>
+										<p class="position">Head of IT Audit and Data Analytics</p>
+										<p class="description">
+											While evaluating other solutions, it was clear that Datricks brings the only platform that can help us identify exposures out-of-the-box, across many systems in our landscape, and drive real savings. No BI system can do that. Now that’s impressive!										</p>
+																					<figure>
+												<img width="1000" height="343" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20343'%3E%3C/svg%3E" title="Siemens_Energy_logo 1" data-lazy-src="https://datricks.com/wp-content/uploads/2025/12/Siemens_Energy_logo-1.svg"><noscript><img width="1000" height="343" decoding="async" src="https://datricks.com/wp-content/uploads/2025/12/Siemens_Energy_logo-1.svg" title="Siemens_Energy_logo 1" /></noscript>											</figure>
+																			</div>
+															</div>
+							<div class="testimonial-controls">
+								<div class="testimonials-slider-dots"></div>
+								<div class="testimonials-slider-button-prev">
+									<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
+										<path fill="#000" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z">
+										</path>
+									</svg>
+								</div>
+								<div class="testimonials-slider-button-next">
+									<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
+										<path fill="#000" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z">
+										</path>
+									</svg>
+								</div>
+							</div>
+						</div>
+												</div>
+		</div>
+	</div>
+</section>
+
+
+<section data-wpr-lazyrender="1" class=" form-section" id="get-a-demo">
+	<div>
+		<div class="lottie-wrapper">
+			<div class="lottie-animation" data-lottie="/wp-content/themes/datricks/assets/lottie/cta_pulse.json"></div>
+		</div>
+		<div class="form-title">
+						
+
+<h2>Eliminate<br>your exposures</h2>
+
+
+		</div>
+					<div class="form-wrapper">
+				<div id="bottom-form-container" data-hs-form-id="cbffc8c1-0858-4047-8df6-5a37c38b5b31" data-form-type="demo"></div>
+			</div>
+			</div>
+</section>		</div>
+	</main>
+
+
+<footer data-wpr-lazyrender="1">
+	<div>
+		<div class="inner-wrapper">
+			<div class="top-part">
+				<a class="footer-main-logo" href="/">
+					<img width="150" height="32" src="https://datricks.com/wp-content/uploads/2025/01/datrocks-logo.svg" alt="datricks logo" title="datricks logo">				</a>
+				<div class="footer-logos">
+										<picture>
+						<source data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/AICPA.png.webp">
+						<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2058%2058'%3E%3C/svg%3E" title="AICPA.png" width="58" height="58" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/AICPA.png.webp"><noscript><img src="https://datricks.com/wp-content/uploads/2025/01/AICPA.png.webp" title="AICPA.png" width="58" height="58" /></noscript>					</picture>
+										<picture>
+						<source data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/iso.png.webp">
+						<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2058%2058'%3E%3C/svg%3E" title="iso.png" width="58" height="58" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/iso.png.webp"><noscript><img src="https://datricks.com/wp-content/uploads/2025/01/iso.png.webp" title="iso.png" width="58" height="58" /></noscript>					</picture>
+										<picture>
+						<source data-lazy-srcset="https://datricks.com/wp-content/uploads/2025/01/SAP.png.webp">
+						<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2070%2046'%3E%3C/svg%3E" title="SAP.png" width="70" height="46" data-lazy-src="https://datricks.com/wp-content/uploads/2025/01/SAP.png.webp"><noscript><img src="https://datricks.com/wp-content/uploads/2025/01/SAP.png.webp" title="SAP.png" width="70" height="46" /></noscript>					</picture>
+									</div>
+				<div class="footer-socials">
+					<a href="https://twitter.com/Datricks_" target="_blank">
+						<svg viewBox="0 0 24 24" aria-hidden="true" width="30">
+							<g>
+								<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+								</path>
+							</g>
+						</svg>
+					</a>
+					<a href="https://www.linkedin.com/company/datricks" target="_blank">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000" width="30" focusable="false">
+							<path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z">
+							</path>
+						</svg> </a>
+				</div>
+			</div>
+			<div class="footer-links">
+				<ul id="menu-footer-menu" class="footer-menu"><li id="menu-item-1362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1362"><a href="https://datricks.com/about-datricks/">About Us</a></li>
+<li id="menu-item-1378" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1378"><a href="https://datricks.com/careers/">Careers</a></li>
+<li id="menu-item-605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-605"><a href="https://datricks.com/blog/">Blog</a></li>
+<li id="menu-item-801" class="menu-item menu-item-type-post_type menu-item-object-calculators menu-item-801"><a href="https://datricks.com/calculator/fraud-base-calculator/">Cost of fraud calculator</a></li>
+<li id="menu-item-800" class="menu-item menu-item-type-post_type menu-item-object-calculators menu-item-800"><a href="https://datricks.com/calculator/risk-based-calculator/">Cost of risk calculator</a></li>
+<li id="menu-item-1619" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1619"><a href="https://datricks.com/faq/">FAQ</a></li>
+<li id="menu-item-606" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-606"><a href="https://datricks.freshdesk.com/support/solutions">Help Center</a></li>
+</ul>			</div>
+			<div class="footer-copyright">
+				<p>© 2026 Datricks All Rights Reserved | <a href="/privacy-policy/">Privacy
+						Policy</a>&nbsp;|&nbsp;<a href="/terms-of-use/">Terms of Use</a>&nbsp;</p>
+			</div>
+		</div>
+	</div>
+</footer>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/datricks/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="rocketlazyloadscript">
+              (function(e){
+                  var el = document.createElement('script');
+                  el.setAttribute('data-account', 'mpxBEYbp07');
+                  el.setAttribute('src', 'https://cdn.userway.org/widget.js');
+                  document.body.appendChild(el);
+                })();
+              </script><script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://datricks.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/build/main/main.js?ver=1773667059" id="datricks-main-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/cache/min/1/npm/swiper@11/swiper-bundle.min.js?ver=1773667059" id="swiper-script-js" data-rocket-defer="" defer=""></script>
+<script type="text/javascript" src="https://js.hsforms.net/forms/v2.js" id="hubspot-forms-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/cache/min/1/ajax/libs/lottie-web/5.12.2/lottie.min.js?ver=1773667059" id="lottie-web-script-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/cache/min/1/ajax/libs/gsap/3.11.3/gsap.min.js?ver=1773667059" id="gsap-script-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/cache/min/1/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js?ver=1773667060" id="gsap-scroll-trigger-script-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/cache/min/1/gh/mcstudios/glightbox/dist/js/glightbox.min.js?ver=1773667060" id="glightbox-script-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/vendor/react.min.js?ver=1721642535" id="react-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/vendor/react-jsx-runtime.min.js?ver=1741100129" id="react-jsx-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/autop.min.js?ver=1706705996" id="wp-autop-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/blob.min.js?ver=1706705996" id="wp-blob-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/block-serialization-default-parser.min.js?ver=1706705996" id="wp-block-serialization-default-parser-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/hooks.min.js?ver=1761030842" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/deprecated.min.js?ver=1706705996" id="wp-deprecated-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/dom.min.js?ver=1761030842" id="wp-dom-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/vendor/react-dom.min.js?ver=1734116784" id="react-dom-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/escape-html.min.js?ver=1706705996" id="wp-escape-html-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/element.min.js?ver=1761030842" id="wp-element-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/is-shallow-equal.min.js?ver=1706705996" id="wp-is-shallow-equal-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/i18n.min.js?ver=1761030842" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/keycodes.min.js?ver=1761030842" id="wp-keycodes-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/priority-queue.min.js?ver=1761030842" id="wp-priority-queue-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/compose.min.js?ver=1761030842" id="wp-compose-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/private-apis.min.js?ver=1761030842" id="wp-private-apis-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/redux-routine.min.js?ver=1741100129" id="wp-redux-routine-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/data.min.js?ver=1761030842" id="wp-data-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-data-js-after">
+/* <![CDATA[ */
+( function() {
+	var userId = 0;
+	var storageKey = "WP_DATA_USER_" + userId;
+	wp.data
+		.use( wp.data.plugins.persistence, { storageKey: storageKey } );
+} )();
+//# sourceURL=wp-data-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/html-entities.min.js?ver=1761030842" id="wp-html-entities-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/dom-ready.min.js?ver=1706705996" id="wp-dom-ready-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/a11y.min.js?ver=1761030842" id="wp-a11y-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/rich-text.min.js?ver=1762867963" id="wp-rich-text-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/shortcode.min.js?ver=1761030842" id="wp-shortcode-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/warning.min.js?ver=1761030842" id="wp-warning-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/dist/blocks.min.js?ver=1769729871" id="wp-blocks-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/jquery/ui/core.min.js?ver=1738862846" id="jquery-ui-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1738862846" id="jquery-ui-mouse-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/jquery/ui/sortable.min.js?ver=1738862846" id="jquery-ui-sortable-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-includes/js/jquery/ui/resizable.min.js?ver=1738862846" id="jquery-ui-resizable-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/js/acf.min.js?ver=1741364029" id="acf-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://datricks.com/wp-content/plugins/advanced-custom-fields-pro/assets/build/js/acf-input.min.js?ver=1741364029" id="acf-input-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/homepage-hero/script.js?ver=1773667060" id="dt-homepage-hero-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/logos-carousel/script.js?ver=1773667060" id="dt-logos-carousel-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/lottie-tabs/script.js?ver=1773667060" id="dt-lottie-tabs-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/two-columns/script.js?ver=1773667060" id="dt-two-columns-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/side-by-side/script.js?ver=1773667060" id="dt-side-by-side-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/metrics/script.js?ver=1773667060" id="dt-metrics-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/cta/script.js?ver=1773667060" id="dt-cta-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/features/script.js?ver=1773667060" id="dt-features-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/testimonials/script.js?ver=1773667060" id="dt-testimonials-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer="defer" data-wp-strategy="defer" data-rocket-src="https://datricks.com/wp-content/cache/min/1/wp-content/themes/datricks/blocks/sections/hs-form/script.js?ver=1773667060" id="dt-hs-form-script-js"></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://datricks.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+
+</body></html>

@@ -1,0 +1,71 @@
+[2026-03-21T22:28:25.886Z] === Homepage AI Extractor: myLaurel ===
+[2026-03-21T22:28:25.886Z] Started at: 2026-03-21T22:28:25.886Z
+[2026-03-21T22:28:25.886Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774132105885_myLaurel
+[2026-03-21T22:28:25.886Z] Company: myLaurel
+[2026-03-21T22:28:25.886Z] Website: mylaurelhealth.com
+[2026-03-21T22:28:25.886Z] cbRank: 2063
+[2026-03-21T22:28:25.886Z] Reasons: f
+[2026-03-21T22:28:25.886Z] Fetching: https://mylaurelhealth.com
+[2026-03-21T22:28:30.590Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-21T22:28:33.540Z] Redirected: https://mylaurelhealth.com -> https://www.mylaurelhealth.com/
+[2026-03-21T22:28:33.555Z] Saved HTML (556156 bytes) to page.html
+[2026-03-21T22:28:33.558Z] Extracted 22 unique links from page
+[2026-03-21T22:28:33.558Z] Saved 22 links to links.json
+[2026-03-21T22:28:33.561Z] Extracted footer HTML (51374 chars)
+[2026-03-21T22:28:33.561Z] Extracted header HTML (33880 chars)
+[2026-03-21T22:28:33.566Z] Website (post-redirect): https://www.mylaurelhealth.com/ → origin: https://www.mylaurelhealth.com
+[2026-03-21T22:28:33.566Z]   SUBDOMAIN: trust.mylaurelhealth.com (added to ws)
+[2026-03-21T22:28:33.566Z] Website subdomains found: 1
+[2026-03-21T22:28:33.566Z] External links: 2 (of 22 total)
+[2026-03-21T22:28:33.566Z] ── All external links ──
+[2026-03-21T22:28:33.566Z]   EXT: https://www.linkedin.com/company/mylaurel
+[2026-03-21T22:28:33.567Z]   EXT: https://www.youtube.com/channel/UCTg6k8zFMcbekIzhCafjgOQ
+[2026-03-21T22:28:33.567Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:28:33.567Z]   REGEX: li <- https://www.linkedin.com/company/mylaurel
+[2026-03-21T22:28:33.568Z]   REGEX: ytc <- https://www.youtube.com/channel/UCTg6k8zFMcbekIzhCafjgOQ
+[2026-03-21T22:28:33.568Z] Programmatic result: ws:2, li:1, ytc:1 | 0 uncategorized
+[2026-03-21T22:28:33.568Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:28:33.569Z] Saved AI prompt (2392 chars) to ai_prompt.txt
+[2026-03-21T22:28:33.569Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:28:33.573Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:28:42.079Z]   AI: First token received, streaming...
+[2026-03-21T22:28:51.836Z] AI response complete: 133 chars in 18.3s
+[2026-03-21T22:28:51.838Z] Saved AI response to ai_response.json
+[2026-03-21T22:28:51.838Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T22:28:51.838Z]   AI LINK: https://www.linkedin.com/company/mylaurel/
+[2026-03-21T22:28:51.838Z]   AI LINK: https://www.youtube.com/channel/UCTg6k8zFMcbekIzhCafjgOQ
+[2026-03-21T22:28:51.838Z]   AI LINK: https://trust.mylaurelhealth.com/
+[2026-03-21T22:28:51.839Z] AI returned 3 valid links
+[2026-03-21T22:28:51.839Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T22:28:51.839Z]   AI→REGEX: li <- https://www.linkedin.com/company/mylaurel/ (duplicate, skipped)
+[2026-03-21T22:28:51.840Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCTg6k8zFMcbekIzhCafjgOQ (duplicate, skipped)
+[2026-03-21T22:28:51.841Z]   AI→URLS: https://trust.mylaurelhealth.com (cleaned from https://trust.mylaurelhealth.com/)
+[2026-03-21T22:28:51.842Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:28:51.842Z] Footer/header origins (4):
+[2026-03-21T22:28:51.843Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:28:51.843Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T22:28:51.843Z]   FOOTER/HEADER ORIGIN: https://abo
+[2026-03-21T22:28:51.843Z]   FOOTER/HEADER ORIGIN: https://trust.mylaurelhealth.com
+[2026-03-21T22:28:51.843Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:28:51.843Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:28:51.844Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T22:28:52.184Z]   YOUTUBE: resolved UCTg6k8zFMcbekIzhCafjgOQ → @myLaurelHealth
+[2026-03-21T22:28:52.184Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T22:28:52.184Z] ── Step 3: Final dedup ──
+[2026-03-21T22:28:52.184Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T22:28:52.185Z] ── FINAL RESULT ──
+[2026-03-21T22:28:52.185Z]   ws (2):
+[2026-03-21T22:28:52.185Z]     - https://trust.mylaurelhealth.com
+[2026-03-21T22:28:52.185Z]     - https://www.mylaurelhealth.com
+[2026-03-21T22:28:52.185Z]   li (1):
+[2026-03-21T22:28:52.185Z]     - https://www.linkedin.com/company/mylaurel
+[2026-03-21T22:28:52.185Z]   ytp (1):
+[2026-03-21T22:28:52.185Z]     - https://www.youtube.com/@myLaurelHealth
+[2026-03-21T22:28:52.185Z]   ytc (1):
+[2026-03-21T22:28:52.185Z]     - https://www.youtube.com/channel/UCTg6k8zFMcbekIzhCafjgOQ
+[2026-03-21T22:28:52.185Z]   urls (1):
+[2026-03-21T22:28:52.185Z]     - https://trust.mylaurelhealth.com
+[2026-03-21T22:28:52.185Z] Summary: ws:2, li:1, ytc:1, urls:1, ytp:1
+[2026-03-21T22:28:52.186Z] Saved final result to result.json
+[2026-03-21T22:28:52.186Z] Override fields: ws, li, ytp, ytc
+[2026-03-21T22:28:52.186Z] Finished at: 2026-03-21T22:28:52.186Z

@@ -1,0 +1,78 @@
+[2026-03-21T08:09:29.406Z] === Homepage AI Extractor: INAAMED ===
+[2026-03-21T08:09:29.406Z] Started at: 2026-03-21T08:09:29.406Z
+[2026-03-21T08:09:29.406Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774080569405_INAAMED
+[2026-03-21T08:09:29.406Z] Company: INAAMED
+[2026-03-21T08:09:29.406Z] Website: inaamed.co.il
+[2026-03-21T08:09:29.406Z] cbRank: 3144044
+[2026-03-21T08:09:29.406Z] Reasons: h
+[2026-03-21T08:09:29.406Z] Fetching: https://inaamed.co.il
+[2026-03-21T08:09:33.895Z] Redirected: https://inaamed.co.il -> https://www.inaamed.co.il/
+[2026-03-21T08:09:33.902Z] Saved HTML (302803 bytes) to page.html
+[2026-03-21T08:09:33.906Z] Extracted 29 unique links from page
+[2026-03-21T08:09:33.907Z] Saved 29 links to links.json
+[2026-03-21T08:09:33.910Z] Extracted footer HTML (23730 chars)
+[2026-03-21T08:09:33.910Z] Extracted header HTML (49231 chars)
+[2026-03-21T08:09:33.915Z] Website (post-redirect): https://www.inaamed.co.il/ → origin: https://www.inaamed.co.il
+[2026-03-21T08:09:33.915Z] External links: 4 (of 29 total)
+[2026-03-21T08:09:33.915Z] ── All external links ──
+[2026-03-21T08:09:33.915Z]   EXT: https://www.facebook.com/inaamed
+[2026-03-21T08:09:33.915Z]   EXT: https://www.hdigital.co.il
+[2026-03-21T08:09:33.915Z]   EXT: https://www.instagram.com/inaa_med
+[2026-03-21T08:09:33.915Z]   EXT: https://www.youtube.com/channel/UC1OopStBpXZNDLmp4ausRpw
+[2026-03-21T08:09:33.915Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:09:33.916Z]   REGEX: fb <- https://www.facebook.com/inaamed
+[2026-03-21T08:09:33.916Z]   UNCATEGORIZED: https://www.hdigital.co.il
+[2026-03-21T08:09:33.916Z]   REGEX: ig <- https://www.instagram.com/inaa_med
+[2026-03-21T08:09:33.916Z]   REGEX: ytc <- https://www.youtube.com/channel/UC1OopStBpXZNDLmp4ausRpw
+[2026-03-21T08:09:33.916Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 1 uncategorized
+[2026-03-21T08:09:33.916Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:09:33.917Z] Saved AI prompt (5375 chars) to ai_prompt.txt
+[2026-03-21T08:09:33.917Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:09:33.921Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:09:56.306Z]   AI: First token received, streaming...
+[2026-03-21T08:10:06.902Z] AI response complete: 152 chars in 33.0s
+[2026-03-21T08:10:06.904Z] Saved AI response to ai_response.json
+[2026-03-21T08:10:06.904Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T08:10:06.904Z]   AI LINK: https://www.inaamed.co.il/
+[2026-03-21T08:10:06.904Z]   AI LINK: https://www.facebook.com/inaamed
+[2026-03-21T08:10:06.904Z]   AI LINK: https://www.instagram.com/inaa_med/
+[2026-03-21T08:10:06.905Z]   AI LINK: https://www.youtube.com/channel/UC1OopStBpXZNDLmp4ausRpw
+[2026-03-21T08:10:06.905Z] AI returned 4 valid links
+[2026-03-21T08:10:06.905Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T08:10:06.905Z]   AI→URLS: https://www.inaamed.co.il (cleaned from https://www.inaamed.co.il/)
+[2026-03-21T08:10:06.905Z]   AI→REGEX: fb <- https://www.facebook.com/inaamed (duplicate, skipped)
+[2026-03-21T08:10:06.905Z]   AI→REGEX: ig <- https://www.instagram.com/inaa_med/ (duplicate, skipped)
+[2026-03-21T08:10:06.906Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC1OopStBpXZNDLmp4ausRpw (duplicate, skipped)
+[2026-03-21T08:10:06.906Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:10:06.906Z] Footer/header origins (5):
+[2026-03-21T08:10:06.906Z]   FOOTER/HEADER ORIGIN: https://www.inaamed.co.il
+[2026-03-21T08:10:06.907Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T08:10:06.907Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T08:10:06.907Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T08:10:06.907Z]   FOOTER/HEADER ORIGIN: https://www.hdigital.co.il
+[2026-03-21T08:10:06.907Z]   ADDED: urls <- https://www.hdigital.co.il
+[2026-03-21T08:10:06.907Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T08:10:06.907Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:10:06.907Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T08:10:07.183Z]   YOUTUBE: resolved UC1OopStBpXZNDLmp4ausRpw → @Inaamed
+[2026-03-21T08:10:07.183Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T08:10:07.184Z] ── Step 3: Final dedup ──
+[2026-03-21T08:10:07.184Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T08:10:07.184Z] ── FINAL RESULT ──
+[2026-03-21T08:10:07.184Z]   ws (1):
+[2026-03-21T08:10:07.184Z]     - https://www.inaamed.co.il
+[2026-03-21T08:10:07.184Z]   fb (1):
+[2026-03-21T08:10:07.184Z]     - https://www.facebook.com/inaamed
+[2026-03-21T08:10:07.184Z]   ig (1):
+[2026-03-21T08:10:07.184Z]     - https://www.instagram.com/inaa_med
+[2026-03-21T08:10:07.184Z]   ytp (1):
+[2026-03-21T08:10:07.184Z]     - https://www.youtube.com/@Inaamed
+[2026-03-21T08:10:07.185Z]   ytc (1):
+[2026-03-21T08:10:07.185Z]     - https://www.youtube.com/channel/UC1OopStBpXZNDLmp4ausRpw
+[2026-03-21T08:10:07.185Z]   urls (2):
+[2026-03-21T08:10:07.185Z]     - https://www.hdigital.co.il
+[2026-03-21T08:10:07.185Z]     - https://www.inaamed.co.il
+[2026-03-21T08:10:07.185Z] Summary: ws:1, fb:1, ig:1, ytc:1, urls:2, ytp:1
+[2026-03-21T08:10:07.185Z] Saved final result to result.json
+[2026-03-21T08:10:07.185Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-21T08:10:07.186Z] Finished at: 2026-03-21T08:10:07.186Z

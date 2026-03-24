@@ -1,0 +1,82 @@
+[2026-03-24T00:01:42.509Z] === Homepage AI Extractor: Layerswap Labs ===
+[2026-03-24T00:01:42.509Z] Started at: 2026-03-24T00:01:42.509Z
+[2026-03-24T00:01:42.509Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774310502508_Layerswap_Labs
+[2026-03-24T00:01:42.509Z] Company: Layerswap Labs
+[2026-03-24T00:01:42.509Z] Website: layerswap.io
+[2026-03-24T00:01:42.509Z] cbRank: 51801
+[2026-03-24T00:01:42.509Z] Reasons: i
+[2026-03-24T00:01:42.509Z] Fetching: https://layerswap.io
+[2026-03-24T00:01:43.698Z] Redirected: https://layerswap.io -> https://layerswap.io/
+[2026-03-24T00:01:43.718Z] Saved HTML (905282 bytes) to page.html
+[2026-03-24T00:01:43.725Z] Extracted 13 unique links from page
+[2026-03-24T00:01:43.725Z] Saved 13 links to links.json
+[2026-03-24T00:01:43.728Z] Extracted footer HTML (5279 chars)
+[2026-03-24T00:01:43.728Z] Extracted header HTML (12876 chars)
+[2026-03-24T00:01:43.732Z] Website (post-redirect): https://layerswap.io/ → origin: https://layerswap.io
+[2026-03-24T00:01:43.732Z]   SUBDOMAIN: docs.layerswap.io (added to ws)
+[2026-03-24T00:01:43.733Z]   SUBDOMAIN: learn.layerswap.io (added to ws)
+[2026-03-24T00:01:43.733Z]   SUBDOMAIN: testnet.layerswap.io (added to ws)
+[2026-03-24T00:01:43.733Z] Website subdomains found: 3
+[2026-03-24T00:01:43.733Z] External links: 4 (of 13 total)
+[2026-03-24T00:01:43.733Z] ── All external links ──
+[2026-03-24T00:01:43.733Z]   EXT: https://discord.gg/layerswap
+[2026-03-24T00:01:43.733Z]   EXT: https://github.com/layerswap/layerswapapp
+[2026-03-24T00:01:43.733Z]   EXT: https://twitter.com/layerswap
+[2026-03-24T00:01:43.733Z]   EXT: https://www.youtube.com/@layerswaphq
+[2026-03-24T00:01:43.733Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:01:43.733Z]   UNCATEGORIZED: https://discord.gg/layerswap
+[2026-03-24T00:01:43.733Z]   REGEX: gh <- https://github.com/layerswap/layerswapapp
+[2026-03-24T00:01:43.734Z]   REGEX: tw <- https://twitter.com/layerswap
+[2026-03-24T00:01:43.734Z]   REGEX: ytp <- https://www.youtube.com/@layerswaphq
+[2026-03-24T00:01:43.734Z] Programmatic result: ws:4, gh:1, tw:1, ytp:1 | 1 uncategorized
+[2026-03-24T00:01:43.734Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:01:43.737Z] Saved AI prompt (2736 chars) to ai_prompt.txt
+[2026-03-24T00:01:43.737Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:01:43.741Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:01:52.503Z]   AI: First token received, streaming...
+[2026-03-24T00:02:00.130Z] AI response complete: 137 chars in 16.4s
+[2026-03-24T00:02:00.131Z] Saved AI response to ai_response.json
+[2026-03-24T00:02:00.131Z] ── Parsing AI response (4 lines) ──
+[2026-03-24T00:02:00.131Z]   AI LINK: https://twitter.com/layerswap
+[2026-03-24T00:02:00.131Z]   AI LINK: https://discord.gg/layerswap
+[2026-03-24T00:02:00.131Z]   AI LINK: https://github.com/layerswap/layerswapapp
+[2026-03-24T00:02:00.132Z]   AI LINK: https://www.youtube.com/@layerswaphq
+[2026-03-24T00:02:00.132Z] AI returned 4 valid links
+[2026-03-24T00:02:00.132Z] ── Categorizing 4 AI-returned links ──
+[2026-03-24T00:02:00.132Z]   AI→REGEX: tw <- https://twitter.com/layerswap (duplicate, skipped)
+[2026-03-24T00:02:00.132Z]   AI→URLS: https://discord.gg/layerswap
+[2026-03-24T00:02:00.132Z]   AI→REGEX: gh <- https://github.com/layerswap/layerswapapp (duplicate, skipped)
+[2026-03-24T00:02:00.133Z]   AI→REGEX: ytp <- https://www.youtube.com/@layerswaphq (duplicate, skipped)
+[2026-03-24T00:02:00.133Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:02:00.133Z] Footer/header origins (7):
+[2026-03-24T00:02:00.133Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T00:02:00.133Z]   FOOTER/HEADER ORIGIN: https://discord.gg
+[2026-03-24T00:02:00.133Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-24T00:02:00.133Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-24T00:02:00.134Z]   FOOTER/HEADER ORIGIN: https://learn.layerswap.io
+[2026-03-24T00:02:00.134Z]   FOOTER/HEADER ORIGIN: https://testnet.layerswap.io
+[2026-03-24T00:02:00.134Z]   FOOTER/HEADER ORIGIN: https://docs.layerswap.io
+[2026-03-24T00:02:00.134Z]   SKIP (AI claimed): https://discord.gg/layerswap
+[2026-03-24T00:02:00.134Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T00:02:00.134Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:02:00.134Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:02:00.134Z] ── Step 3: Final dedup ──
+[2026-03-24T00:02:00.134Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T00:02:00.134Z] ── FINAL RESULT ──
+[2026-03-24T00:02:00.134Z]   ws (4):
+[2026-03-24T00:02:00.134Z]     - https://docs.layerswap.io
+[2026-03-24T00:02:00.134Z]     - https://layerswap.io
+[2026-03-24T00:02:00.135Z]     - https://learn.layerswap.io
+[2026-03-24T00:02:00.135Z]     - https://testnet.layerswap.io
+[2026-03-24T00:02:00.135Z]   tw (1):
+[2026-03-24T00:02:00.135Z]     - https://x.com/layerswap
+[2026-03-24T00:02:00.135Z]   gh (1):
+[2026-03-24T00:02:00.135Z]     - https://github.com/layerswap
+[2026-03-24T00:02:00.135Z]   ytp (1):
+[2026-03-24T00:02:00.135Z]     - https://www.youtube.com/@layerswaphq
+[2026-03-24T00:02:00.135Z]   urls (1):
+[2026-03-24T00:02:00.135Z]     - https://discord.gg/layerswap
+[2026-03-24T00:02:00.135Z] Summary: ws:4, gh:1, tw:1, ytp:1, urls:1
+[2026-03-24T00:02:00.136Z] Saved final result to result.json
+[2026-03-24T00:02:00.137Z] Override fields: ws, tw, gh, ytp, urls
+[2026-03-24T00:02:00.137Z] Finished at: 2026-03-24T00:02:00.137Z

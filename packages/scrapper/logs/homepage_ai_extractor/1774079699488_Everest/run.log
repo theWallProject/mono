@@ -1,0 +1,73 @@
+[2026-03-21T07:54:59.489Z] === Homepage AI Extractor: Everest ===
+[2026-03-21T07:54:59.490Z] Started at: 2026-03-21T07:54:59.490Z
+[2026-03-21T07:54:59.490Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774079699488_Everest
+[2026-03-21T07:54:59.490Z] Company: Everest
+[2026-03-21T07:54:59.490Z] Website: everests.co.il
+[2026-03-21T07:54:59.490Z] cbRank: 3129833
+[2026-03-21T07:54:59.490Z] Reasons: h
+[2026-03-21T07:54:59.490Z] Fetching: https://everests.co.il
+[2026-03-21T07:55:06.778Z] Redirected: https://everests.co.il -> https://everests.co.il/
+[2026-03-21T07:55:06.783Z] Saved HTML (80182 bytes) to page.html
+[2026-03-21T07:55:06.785Z] Extracted 41 unique links from page
+[2026-03-21T07:55:06.786Z] Saved 41 links to links.json
+[2026-03-21T07:55:06.788Z] Extracted footer HTML (4544 chars)
+[2026-03-21T07:55:06.789Z] Extracted header HTML (4315 chars)
+[2026-03-21T07:55:06.792Z] Website (post-redirect): https://everests.co.il/ → origin: https://everests.co.il
+[2026-03-21T07:55:06.793Z] External links: 4 (of 41 total)
+[2026-03-21T07:55:06.793Z] ── All external links ──
+[2026-03-21T07:55:06.793Z]   EXT: https://business.facebook.com
+[2026-03-21T07:55:06.793Z]   EXT: https://www.facebook.com/everest2mobile
+[2026-03-21T07:55:06.793Z]   EXT: https://www.linkedin.com/organization/10365714/admin/updates
+[2026-03-21T07:55:06.793Z]   EXT: https://www.youtube.com/channel/UCV76_GAo3zrxCTGhh8bBlaQ
+[2026-03-21T07:55:06.793Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T07:55:06.793Z]   REGEX: fb <- https://www.facebook.com/everest2mobile
+[2026-03-21T07:55:06.793Z]   REGEX: ytc <- https://www.youtube.com/channel/UCV76_GAo3zrxCTGhh8bBlaQ
+[2026-03-21T07:55:06.793Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-21T07:55:06.793Z]   SKIP (regex domain, no match): https://business.facebook.com
+[2026-03-21T07:55:06.793Z]   SKIP (regex domain, no match): https://www.linkedin.com/organization/10365714/admin/updates
+[2026-03-21T07:55:06.793Z] Programmatic result: ws:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-21T07:55:06.794Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T07:55:06.795Z] Saved AI prompt (4802 chars) to ai_prompt.txt
+[2026-03-21T07:55:06.795Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T07:55:06.799Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T07:55:29.169Z]   AI: First token received, streaming...
+[2026-03-21T07:55:41.220Z] AI response complete: 158 chars in 34.4s
+[2026-03-21T07:55:41.221Z] Saved AI response to ai_response.json
+[2026-03-21T07:55:41.221Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T07:55:41.221Z]   AI LINK: https://www.linkedin.com/organization/10365714/admin/updates
+[2026-03-21T07:55:41.221Z]   AI LINK: https://www.facebook.com/everest2mobile/
+[2026-03-21T07:55:41.221Z]   AI LINK: https://www.youtube.com/channel/UCV76_GAo3zrxCTGhh8bBlaQ
+[2026-03-21T07:55:41.222Z] AI returned 3 valid links
+[2026-03-21T07:55:41.222Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T07:55:41.222Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/organization/10365714/admin/updates
+[2026-03-21T07:55:41.222Z]   AI→REGEX: fb <- https://www.facebook.com/everest2mobile/ (duplicate, skipped)
+[2026-03-21T07:55:41.222Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCV76_GAo3zrxCTGhh8bBlaQ (duplicate, skipped)
+[2026-03-21T07:55:41.223Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T07:55:41.223Z] Footer/header origins (7):
+[2026-03-21T07:55:41.223Z]   FOOTER/HEADER ORIGIN: https://everests.co.il
+[2026-03-21T07:55:41.223Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-21T07:55:41.223Z]   FOOTER/HEADER ORIGIN: https://business.facebook.com
+[2026-03-21T07:55:41.223Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T07:55:41.223Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T07:55:41.223Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T07:55:41.223Z]   FOOTER/HEADER ORIGIN: http://everests.co.il
+[2026-03-21T07:55:41.223Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T07:55:41.224Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T07:55:41.224Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T07:55:41.617Z]   YOUTUBE: resolved UCV76_GAo3zrxCTGhh8bBlaQ → @EverestsCoIl
+[2026-03-21T07:55:41.617Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T07:55:41.618Z] ── Step 3: Final dedup ──
+[2026-03-21T07:55:41.618Z] No urls to dedup
+[2026-03-21T07:55:41.618Z] ── FINAL RESULT ──
+[2026-03-21T07:55:41.618Z]   ws (1):
+[2026-03-21T07:55:41.618Z]     - https://everests.co.il
+[2026-03-21T07:55:41.618Z]   fb (1):
+[2026-03-21T07:55:41.618Z]     - https://www.facebook.com/everest2mobile
+[2026-03-21T07:55:41.618Z]   ytp (1):
+[2026-03-21T07:55:41.618Z]     - https://www.youtube.com/@EverestsCoIl
+[2026-03-21T07:55:41.618Z]   ytc (1):
+[2026-03-21T07:55:41.618Z]     - https://www.youtube.com/channel/UCV76_GAo3zrxCTGhh8bBlaQ
+[2026-03-21T07:55:41.618Z] Summary: ws:1, fb:1, ytc:1, ytp:1
+[2026-03-21T07:55:41.619Z] Saved final result to result.json
+[2026-03-21T07:55:41.619Z] Override fields: ws, fb, ytp, ytc
+[2026-03-21T07:55:41.619Z] Finished at: 2026-03-21T07:55:41.619Z

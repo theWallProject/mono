@@ -1,0 +1,68 @@
+[2026-03-22T00:43:53.680Z] === Homepage AI Extractor: Theator ===
+[2026-03-22T00:43:53.680Z] Started at: 2026-03-22T00:43:53.680Z
+[2026-03-22T00:43:53.680Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774140233680_Theator
+[2026-03-22T00:43:53.680Z] Company: Theator
+[2026-03-22T00:43:53.680Z] Website: theator.io
+[2026-03-22T00:43:53.680Z] cbRank: 16406
+[2026-03-22T00:43:53.680Z] Reasons: f, i
+[2026-03-22T00:43:53.680Z] Fetching: https://theator.io
+[2026-03-22T00:43:56.721Z] Redirected: https://theator.io -> https://theator.io/
+[2026-03-22T00:43:56.728Z] Saved HTML (154581 bytes) to page.html
+[2026-03-22T00:43:56.731Z] Extracted 27 unique links from page
+[2026-03-22T00:43:56.732Z] Saved 27 links to links.json
+[2026-03-22T00:43:56.734Z] Extracted footer HTML (3681 chars)
+[2026-03-22T00:43:56.734Z] Extracted header HTML (125 chars)
+[2026-03-22T00:43:56.738Z] Website (post-redirect): https://theator.io/ → origin: https://theator.io
+[2026-03-22T00:43:56.738Z]   SUBDOMAIN: app.theator.io (added to ws)
+[2026-03-22T00:43:56.738Z] Website subdomains found: 1
+[2026-03-22T00:43:56.738Z] External links: 3 (of 27 total)
+[2026-03-22T00:43:56.738Z] ── All external links ──
+[2026-03-22T00:43:56.738Z]   EXT: https://twitter.com/mytheator
+[2026-03-22T00:43:56.738Z]   EXT: https://www.jqueryscript.net/privacy
+[2026-03-22T00:43:56.739Z]   EXT: https://www.linkedin.com/company/theator
+[2026-03-22T00:43:56.739Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:43:56.739Z]   REGEX: tw <- https://twitter.com/mytheator
+[2026-03-22T00:43:56.739Z]   UNCATEGORIZED: https://www.jqueryscript.net/privacy
+[2026-03-22T00:43:56.739Z]   REGEX: li <- https://www.linkedin.com/company/theator
+[2026-03-22T00:43:56.739Z] Programmatic result: ws:2, tw:1, li:1 | 1 uncategorized
+[2026-03-22T00:43:56.739Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:43:56.740Z] Saved AI prompt (3649 chars) to ai_prompt.txt
+[2026-03-22T00:43:56.741Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:43:56.745Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:44:12.096Z]   AI: First token received, streaming...
+[2026-03-22T00:44:17.470Z] AI response complete: 100 chars in 20.7s
+[2026-03-22T00:44:17.472Z] Saved AI response to ai_response.json
+[2026-03-22T00:44:17.472Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:44:17.472Z]   AI LINK: https://theator.io/privacy-policy/
+[2026-03-22T00:44:17.472Z]   AI LINK: https://theator.io/terms-of-use/
+[2026-03-22T00:44:17.473Z]   AI LINK: https://theator.io/patents-page/
+[2026-03-22T00:44:17.473Z] AI returned 3 valid links
+[2026-03-22T00:44:17.473Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:44:17.473Z]   AI→URLS: https://theator.io/privacy-policy (cleaned from https://theator.io/privacy-policy/)
+[2026-03-22T00:44:17.473Z]   AI→URLS: https://theator.io/terms-of-use (cleaned from https://theator.io/terms-of-use/)
+[2026-03-22T00:44:17.473Z]   AI→URLS: https://theator.io/patents-page (cleaned from https://theator.io/patents-page/)
+[2026-03-22T00:44:17.474Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:44:17.474Z] Footer/header origins (1):
+[2026-03-22T00:44:17.474Z]   FOOTER/HEADER ORIGIN: https://theator.io
+[2026-03-22T00:44:17.474Z]   SKIP (not in footer/header): https://www.jqueryscript.net/privacy
+[2026-03-22T00:44:17.474Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:44:17.474Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:44:17.474Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:44:17.475Z] ── Step 3: Final dedup ──
+[2026-03-22T00:44:17.475Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T00:44:17.475Z] ── FINAL RESULT ──
+[2026-03-22T00:44:17.475Z]   ws (2):
+[2026-03-22T00:44:17.475Z]     - https://app.theator.io
+[2026-03-22T00:44:17.475Z]     - https://theator.io
+[2026-03-22T00:44:17.476Z]   li (1):
+[2026-03-22T00:44:17.476Z]     - https://www.linkedin.com/company/theator
+[2026-03-22T00:44:17.476Z]   tw (1):
+[2026-03-22T00:44:17.476Z]     - https://x.com/mytheator
+[2026-03-22T00:44:17.476Z]   urls (3):
+[2026-03-22T00:44:17.476Z]     - https://theator.io/patents-page
+[2026-03-22T00:44:17.476Z]     - https://theator.io/privacy-policy
+[2026-03-22T00:44:17.476Z]     - https://theator.io/terms-of-use
+[2026-03-22T00:44:17.476Z] Summary: ws:2, tw:1, li:1, urls:3
+[2026-03-22T00:44:17.477Z] Saved final result to result.json
+[2026-03-22T00:44:17.478Z] Override fields: ws, li, tw
+[2026-03-22T00:44:17.478Z] Finished at: 2026-03-22T00:44:17.478Z

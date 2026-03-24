@@ -1,0 +1,76 @@
+[2026-03-24T02:08:17.181Z] === Homepage AI Extractor: SparesHub ===
+[2026-03-24T02:08:17.181Z] Started at: 2026-03-24T02:08:17.181Z
+[2026-03-24T02:08:17.181Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774318097180_SparesHub
+[2026-03-24T02:08:17.181Z] Company: SparesHub
+[2026-03-24T02:08:17.181Z] Website: spareshub.com
+[2026-03-24T02:08:17.181Z] cbRank: 119237
+[2026-03-24T02:08:17.181Z] Reasons: i
+[2026-03-24T02:08:17.181Z] Fetching: https://spareshub.com
+[2026-03-24T02:08:21.822Z] Redirected: https://spareshub.com -> https://spareshub.com/
+[2026-03-24T02:08:21.847Z] Saved HTML (1003466 bytes) to page.html
+[2026-03-24T02:08:21.854Z] Extracted 210 unique links from page
+[2026-03-24T02:08:21.858Z] Saved 210 links to links.json
+[2026-03-24T02:08:21.862Z] Extracted footer HTML (13953 chars)
+[2026-03-24T02:08:21.863Z] Extracted header HTML (60212 chars)
+[2026-03-24T02:08:21.867Z] Website (post-redirect): https://spareshub.com/ → origin: https://spareshub.com
+[2026-03-24T02:08:21.868Z] External links: 5 (of 210 total)
+[2026-03-24T02:08:21.868Z] ── All external links ──
+[2026-03-24T02:08:21.868Z]   EXT: https://shopify.com/83326271789/account?locale=en
+[2026-03-24T02:08:21.868Z]   EXT: https://twitter.com/shopify
+[2026-03-24T02:08:21.868Z]   EXT: https://www.facebook.com/shopify
+[2026-03-24T02:08:21.868Z]   EXT: https://www.instagram.com/shopify
+[2026-03-24T02:08:21.868Z]   EXT: https://www.pinterest.com/shopify
+[2026-03-24T02:08:21.868Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:08:21.869Z]   UNCATEGORIZED: https://shopify.com/83326271789/account?locale=en
+[2026-03-24T02:08:21.869Z]   REGEX: tw <- https://twitter.com/shopify
+[2026-03-24T02:08:21.869Z]   REGEX: fb <- https://www.facebook.com/shopify
+[2026-03-24T02:08:21.869Z]   REGEX: ig <- https://www.instagram.com/shopify
+[2026-03-24T02:08:21.869Z]   UNCATEGORIZED: https://www.pinterest.com/shopify
+[2026-03-24T02:08:21.870Z] Programmatic result: ws:1, tw:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-24T02:08:21.870Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:08:21.870Z] Saved AI prompt (7106 chars) to ai_prompt.txt
+[2026-03-24T02:08:21.870Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:08:21.875Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:08:49.374Z]   AI: First token received, streaming...
+[2026-03-24T02:08:55.545Z] AI response complete: 130 chars in 33.7s
+[2026-03-24T02:08:55.547Z] Saved AI response to ai_response.json
+[2026-03-24T02:08:55.547Z] ── Parsing AI response (4 lines) ──
+[2026-03-24T02:08:55.547Z]   AI LINK: https://www.facebook.com/shopify
+[2026-03-24T02:08:55.547Z]   AI LINK: https://www.instagram.com/shopify/
+[2026-03-24T02:08:55.547Z]   AI LINK: https://www.pinterest.com/shopify/
+[2026-03-24T02:08:55.547Z]   AI LINK: https://twitter.com/shopify
+[2026-03-24T02:08:55.547Z] AI returned 4 valid links
+[2026-03-24T02:08:55.547Z] ── Categorizing 4 AI-returned links ──
+[2026-03-24T02:08:55.548Z]   AI→REGEX: fb <- https://www.facebook.com/shopify (duplicate, skipped)
+[2026-03-24T02:08:55.548Z]   AI→REGEX: ig <- https://www.instagram.com/shopify/ (duplicate, skipped)
+[2026-03-24T02:08:55.548Z]   AI→URLS: https://www.pinterest.com/shopify (cleaned from https://www.pinterest.com/shopify/)
+[2026-03-24T02:08:55.549Z]   AI→REGEX: tw <- https://twitter.com/shopify (duplicate, skipped)
+[2026-03-24T02:08:55.550Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T02:08:55.550Z] Footer/header origins (5):
+[2026-03-24T02:08:55.550Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T02:08:55.550Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-24T02:08:55.550Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-24T02:08:55.550Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T02:08:55.551Z]   FOOTER/HEADER ORIGIN: https://spareshub.com
+[2026-03-24T02:08:55.551Z]   SKIP (not in footer/header): https://shopify.com/83326271789/account?locale=en
+[2026-03-24T02:08:55.551Z]   SKIP (AI claimed): https://www.pinterest.com/shopify
+[2026-03-24T02:08:55.551Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T02:08:55.551Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T02:08:55.551Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T02:08:55.552Z] ── Step 3: Final dedup ──
+[2026-03-24T02:08:55.552Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T02:08:55.552Z] ── FINAL RESULT ──
+[2026-03-24T02:08:55.552Z]   ws (1):
+[2026-03-24T02:08:55.552Z]     - https://spareshub.com
+[2026-03-24T02:08:55.552Z]   fb (1):
+[2026-03-24T02:08:55.552Z]     - https://www.facebook.com/shopify
+[2026-03-24T02:08:55.552Z]   tw (1):
+[2026-03-24T02:08:55.552Z]     - https://x.com/shopify
+[2026-03-24T02:08:55.553Z]   ig (1):
+[2026-03-24T02:08:55.553Z]     - https://www.instagram.com/shopify
+[2026-03-24T02:08:55.553Z]   urls (1):
+[2026-03-24T02:08:55.553Z]     - https://www.pinterest.com/shopify
+[2026-03-24T02:08:55.553Z] Summary: ws:1, tw:1, fb:1, ig:1, urls:1
+[2026-03-24T02:08:55.554Z] Saved final result to result.json
+[2026-03-24T02:08:55.554Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-24T02:08:55.554Z] Finished at: 2026-03-24T02:08:55.554Z

@@ -1,0 +1,73 @@
+[2026-03-23T20:07:04.211Z] === Homepage AI Extractor: Antimetal ===
+[2026-03-23T20:07:04.211Z] Started at: 2026-03-23T20:07:04.211Z
+[2026-03-23T20:07:04.211Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774296424210_Antimetal
+[2026-03-23T20:07:04.211Z] Company: Antimetal
+[2026-03-23T20:07:04.211Z] Website: antimetal.com
+[2026-03-23T20:07:04.211Z] cbRank: 13170
+[2026-03-23T20:07:04.211Z] Reasons: i
+[2026-03-23T20:07:04.211Z] Fetching: https://antimetal.com
+[2026-03-23T20:07:07.066Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-23T20:07:08.030Z] Redirected: https://antimetal.com -> https://antimetal.com/demo
+[2026-03-23T20:07:08.034Z] Saved HTML (71444 bytes) to page.html
+[2026-03-23T20:07:08.036Z] Extracted 14 unique links from page
+[2026-03-23T20:07:08.036Z] Saved 14 links to links.json
+[2026-03-23T20:07:08.038Z] Extracted footer HTML (14563 chars)
+[2026-03-23T20:07:08.039Z] Extracted header HTML (10312 chars)
+[2026-03-23T20:07:08.042Z] Website (post-redirect): https://antimetal.com/demo → origin: https://antimetal.com
+[2026-03-23T20:07:08.042Z] External links: 4 (of 14 total)
+[2026-03-23T20:07:08.042Z] ── All external links ──
+[2026-03-23T20:07:08.042Z]   EXT: https://github.com/antimetal
+[2026-03-23T20:07:08.042Z]   EXT: https://jobs.ashbyhq.com/antimetal
+[2026-03-23T20:07:08.042Z]   EXT: https://www.linkedin.com/company/antimetal
+[2026-03-23T20:07:08.042Z]   EXT: https://x.com/antimetal
+[2026-03-23T20:07:08.042Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:07:08.043Z]   REGEX: gh <- https://github.com/antimetal
+[2026-03-23T20:07:08.043Z]   UNCATEGORIZED: https://jobs.ashbyhq.com/antimetal
+[2026-03-23T20:07:08.043Z]   REGEX: li <- https://www.linkedin.com/company/antimetal
+[2026-03-23T20:07:08.044Z]   REGEX: tw <- https://x.com/antimetal
+[2026-03-23T20:07:08.044Z] Programmatic result: ws:1, gh:1, li:1, tw:1 | 1 uncategorized
+[2026-03-23T20:07:08.044Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:07:08.047Z] Saved AI prompt (4267 chars) to ai_prompt.txt
+[2026-03-23T20:07:08.047Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:07:08.051Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:07:23.893Z]   AI: First token received, streaming...
+[2026-03-23T20:07:32.036Z] AI response complete: 130 chars in 24.0s
+[2026-03-23T20:07:32.037Z] Saved AI response to ai_response.json
+[2026-03-23T20:07:32.037Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T20:07:32.037Z]   AI LINK: https://jobs.ashbyhq.com/antimetal
+[2026-03-23T20:07:32.038Z]   AI LINK: https://x.com/antimetal
+[2026-03-23T20:07:32.038Z]   AI LINK: https://www.linkedin.com/company/antimetal
+[2026-03-23T20:07:32.038Z]   AI LINK: https://github.com/antimetal
+[2026-03-23T20:07:32.038Z] AI returned 4 valid links
+[2026-03-23T20:07:32.038Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T20:07:32.039Z]   AI→URLS: https://jobs.ashbyhq.com/antimetal
+[2026-03-23T20:07:32.040Z]   AI→REGEX: tw <- https://x.com/antimetal (duplicate, skipped)
+[2026-03-23T20:07:32.040Z]   AI→REGEX: li <- https://www.linkedin.com/company/antimetal (duplicate, skipped)
+[2026-03-23T20:07:32.040Z]   AI→REGEX: gh <- https://github.com/antimetal (duplicate, skipped)
+[2026-03-23T20:07:32.041Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:07:32.041Z] Footer/header origins (4):
+[2026-03-23T20:07:32.041Z]   FOOTER/HEADER ORIGIN: https://jobs.ashbyhq.com
+[2026-03-23T20:07:32.041Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T20:07:32.041Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T20:07:32.041Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-23T20:07:32.042Z]   SKIP (AI claimed): https://jobs.ashbyhq.com/antimetal
+[2026-03-23T20:07:32.042Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T20:07:32.042Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:07:32.042Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:07:32.042Z] ── Step 3: Final dedup ──
+[2026-03-23T20:07:32.042Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T20:07:32.042Z] ── FINAL RESULT ──
+[2026-03-23T20:07:32.042Z]   ws (1):
+[2026-03-23T20:07:32.042Z]     - https://antimetal.com
+[2026-03-23T20:07:32.042Z]   li (1):
+[2026-03-23T20:07:32.042Z]     - https://www.linkedin.com/company/antimetal
+[2026-03-23T20:07:32.042Z]   tw (1):
+[2026-03-23T20:07:32.043Z]     - https://x.com/antimetal
+[2026-03-23T20:07:32.043Z]   gh (1):
+[2026-03-23T20:07:32.043Z]     - https://github.com/antimetal
+[2026-03-23T20:07:32.043Z]   urls (1):
+[2026-03-23T20:07:32.043Z]     - https://jobs.ashbyhq.com/antimetal
+[2026-03-23T20:07:32.043Z] Summary: ws:1, gh:1, li:1, tw:1, urls:1
+[2026-03-23T20:07:32.044Z] Saved final result to result.json
+[2026-03-23T20:07:32.045Z] Override fields: ws, li, tw, gh, urls
+[2026-03-23T20:07:32.045Z] Finished at: 2026-03-23T20:07:32.045Z

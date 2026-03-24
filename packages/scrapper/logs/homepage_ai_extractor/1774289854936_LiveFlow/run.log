@@ -1,0 +1,66 @@
+[2026-03-23T18:17:34.936Z] === Homepage AI Extractor: LiveFlow ===
+[2026-03-23T18:17:34.936Z] Started at: 2026-03-23T18:17:34.936Z
+[2026-03-23T18:17:34.936Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774289854936_LiveFlow
+[2026-03-23T18:17:34.936Z] Company: LiveFlow
+[2026-03-23T18:17:34.936Z] Website: liveflow.com
+[2026-03-23T18:17:34.936Z] cbRank: 4228
+[2026-03-23T18:17:34.936Z] Reasons: i
+[2026-03-23T18:17:34.936Z] Fetching: https://liveflow.com
+[2026-03-23T18:17:45.629Z] Network idle timeout — continuing with current state
+[2026-03-23T18:17:45.662Z] Redirected: https://liveflow.com -> https://liveflow.com/
+[2026-03-23T18:17:45.672Z] Saved HTML (395280 bytes) to page.html
+[2026-03-23T18:17:45.675Z] Extracted 32 unique links from page
+[2026-03-23T18:17:45.676Z] Saved 32 links to links.json
+[2026-03-23T18:17:45.678Z] No footer section found in DOM
+[2026-03-23T18:17:45.678Z] No header section found in DOM
+[2026-03-23T18:17:45.684Z] Website (post-redirect): https://liveflow.com/ → origin: https://liveflow.com
+[2026-03-23T18:17:45.685Z]   SUBDOMAIN: trust.liveflow.com (added to ws)
+[2026-03-23T18:17:45.685Z] Website subdomains found: 1
+[2026-03-23T18:17:45.685Z] External links: 4 (of 32 total)
+[2026-03-23T18:17:45.685Z] ── All external links ──
+[2026-03-23T18:17:45.685Z]   EXT: https://app.liveflow.io/auth/sign-in?callbackUrl=https%3A%2F%2Fapp.liveflow.io%2Fw
+[2026-03-23T18:17:45.685Z]   EXT: https://www.linkedin.com/company/liveflow
+[2026-03-23T18:17:45.685Z]   EXT: https://www.youtube.com/@liveflow_com
+[2026-03-23T18:17:45.685Z]   EXT: https://x.com/LiveFlow_com
+[2026-03-23T18:17:45.685Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T18:17:45.686Z]   UNCATEGORIZED: https://app.liveflow.io/auth/sign-in?callbackUrl=https%3A%2F%2Fapp.liveflow.io%2Fw
+[2026-03-23T18:17:45.686Z]   REGEX: li <- https://www.linkedin.com/company/liveflow
+[2026-03-23T18:17:45.687Z]   REGEX: ytp <- https://www.youtube.com/@liveflow_com
+[2026-03-23T18:17:45.687Z]   REGEX: tw <- https://x.com/LiveFlow_com
+[2026-03-23T18:17:45.687Z] Programmatic result: ws:2, li:1, ytp:1, tw:1 | 1 uncategorized
+[2026-03-23T18:17:45.687Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T18:17:45.690Z] Saved AI prompt (2015 chars) to ai_prompt.txt
+[2026-03-23T18:17:45.690Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T18:17:45.696Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T18:17:52.258Z]   AI: First token received, streaming...
+[2026-03-23T18:17:57.999Z] AI response complete: 82 chars in 12.3s
+[2026-03-23T18:17:58.001Z] Saved AI response to ai_response.json
+[2026-03-23T18:17:58.001Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T18:17:58.001Z]   AI LINK: https://app.liveflow.io/auth/sign-in?callbackUrl=https%3A%2F%2Fapp.liveflow.io%2Fw
+[2026-03-23T18:17:58.001Z] AI returned 1 valid links
+[2026-03-23T18:17:58.001Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T18:17:58.002Z]   AI→URLS: https://app.liveflow.io/auth/sign-in (cleaned from https://app.liveflow.io/auth/sign-in?callbackUrl=https%3A%2F%2Fapp.liveflow.io%2Fw)
+[2026-03-23T18:17:58.002Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T18:17:58.002Z] Footer/header origins (0):
+[2026-03-23T18:17:58.002Z]   SKIP (AI claimed): https://app.liveflow.io/auth/sign-in?callbackUrl=https%3A%2F%2Fapp.liveflow.io%2Fw
+[2026-03-23T18:17:58.002Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T18:17:58.002Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T18:17:58.003Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T18:17:58.003Z] ── Step 3: Final dedup ──
+[2026-03-23T18:17:58.003Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T18:17:58.003Z] ── FINAL RESULT ──
+[2026-03-23T18:17:58.003Z]   ws (2):
+[2026-03-23T18:17:58.003Z]     - https://liveflow.com
+[2026-03-23T18:17:58.003Z]     - https://trust.liveflow.com
+[2026-03-23T18:17:58.003Z]   li (1):
+[2026-03-23T18:17:58.003Z]     - https://www.linkedin.com/company/liveflow
+[2026-03-23T18:17:58.003Z]   tw (1):
+[2026-03-23T18:17:58.003Z]     - https://x.com/liveflow_com
+[2026-03-23T18:17:58.003Z]   ytp (1):
+[2026-03-23T18:17:58.004Z]     - https://www.youtube.com/@liveflow_com
+[2026-03-23T18:17:58.004Z]   urls (1):
+[2026-03-23T18:17:58.004Z]     - https://app.liveflow.io/auth/sign-in
+[2026-03-23T18:17:58.004Z] Summary: ws:2, li:1, ytp:1, tw:1, urls:1
+[2026-03-23T18:17:58.005Z] Saved final result to result.json
+[2026-03-23T18:17:58.005Z] Override fields: ws, li, tw, ytp, urls
+[2026-03-23T18:17:58.005Z] Finished at: 2026-03-23T18:17:58.005Z

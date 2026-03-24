@@ -1,0 +1,71 @@
+[2026-03-21T16:27:16.201Z] === Homepage AI Extractor: Reporto ===
+[2026-03-21T16:27:16.201Z] Started at: 2026-03-21T16:27:16.201Z
+[2026-03-21T16:27:16.201Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774110436200_Reporto
+[2026-03-21T16:27:16.201Z] Company: Reporto
+[2026-03-21T16:27:16.201Z] Website: reporto.co.il
+[2026-03-21T16:27:16.201Z] cbRank: 3545952
+[2026-03-21T16:27:16.201Z] Reasons: h
+[2026-03-21T16:27:16.201Z] Fetching: https://reporto.co.il
+[2026-03-21T16:27:17.947Z] Redirected: https://reporto.co.il -> https://reporto.co.il/
+[2026-03-21T16:27:17.959Z] Saved HTML (479970 bytes) to page.html
+[2026-03-21T16:27:17.962Z] Extracted 34 unique links from page
+[2026-03-21T16:27:17.962Z] Saved 34 links to links.json
+[2026-03-21T16:27:17.965Z] Extracted footer HTML (9969 chars)
+[2026-03-21T16:27:17.965Z] Extracted header HTML (10610 chars)
+[2026-03-21T16:27:17.968Z] Website (post-redirect): https://reporto.co.il/ → origin: https://reporto.co.il
+[2026-03-21T16:27:17.968Z]   SUBDOMAIN: app.reporto.co.il (added to ws)
+[2026-03-21T16:27:17.968Z]   SUBDOMAIN: my.reporto.co.il (added to ws)
+[2026-03-21T16:27:17.968Z] Website subdomains found: 2
+[2026-03-21T16:27:17.968Z] External links: 3 (of 34 total)
+[2026-03-21T16:27:17.968Z] ── All external links ──
+[2026-03-21T16:27:17.968Z]   EXT: https://apps.apple.com/il/app/reporto/id1493446812
+[2026-03-21T16:27:17.968Z]   EXT: https://play.google.com/store/apps/details?id=com.reporto.app&hl=en
+[2026-03-21T16:27:17.968Z]   EXT: https://wa.me/+972587468660
+[2026-03-21T16:27:17.968Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T16:27:17.968Z]   UNCATEGORIZED: https://apps.apple.com/il/app/reporto/id1493446812
+[2026-03-21T16:27:17.968Z]   REGEX: android_app_ids <- com.reporto.app (from https://play.google.com/store/apps/details?id=com.reporto.app&hl=en)
+[2026-03-21T16:27:17.969Z]   UNCATEGORIZED: https://wa.me/+972587468660
+[2026-03-21T16:27:17.969Z] Programmatic result: ws:3, android_app_ids:1 | 2 uncategorized
+[2026-03-21T16:27:17.969Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T16:27:17.969Z] Saved AI prompt (7105 chars) to ai_prompt.txt
+[2026-03-21T16:27:17.969Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T16:27:17.973Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T16:27:54.538Z]   AI: First token received, streaming...
+[2026-03-21T16:28:02.602Z] AI response complete: 118 chars in 44.6s
+[2026-03-21T16:28:02.603Z] Saved AI response to ai_response.json
+[2026-03-21T16:28:02.603Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T16:28:02.604Z]   AI LINK: https://apps.apple.com/il/app/reporto/id1493446812
+[2026-03-21T16:28:02.604Z]   AI LINK: https://play.google.com/store/apps/details?id=com.reporto.app&hl=en
+[2026-03-21T16:28:02.604Z] AI returned 2 valid links
+[2026-03-21T16:28:02.604Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T16:28:02.604Z]   AI→URLS: https://apps.apple.com/il/app/reporto/id1493446812
+[2026-03-21T16:28:02.605Z]   AI→REGEX: android_app_ids <- com.reporto.app (duplicate, skipped)
+[2026-03-21T16:28:02.605Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T16:28:02.605Z] Footer/header origins (6):
+[2026-03-21T16:28:02.605Z]   FOOTER/HEADER ORIGIN: https://reporto.co.il
+[2026-03-21T16:28:02.606Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-21T16:28:02.606Z]   FOOTER/HEADER ORIGIN: https://apps.apple.com
+[2026-03-21T16:28:02.606Z]   FOOTER/HEADER ORIGIN: https://my.reporto.co.il
+[2026-03-21T16:28:02.606Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-21T16:28:02.606Z]   FOOTER/HEADER ORIGIN: https://app.reporto.co.il
+[2026-03-21T16:28:02.606Z]   SKIP (AI claimed): https://apps.apple.com/il/app/reporto/id1493446812
+[2026-03-21T16:28:02.607Z]   ADDED: urls <- https://wa.me/+972587468660
+[2026-03-21T16:28:02.607Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T16:28:02.607Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T16:28:02.607Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T16:28:02.607Z] ── Step 3: Final dedup ──
+[2026-03-21T16:28:02.607Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T16:28:02.607Z] ── FINAL RESULT ──
+[2026-03-21T16:28:02.607Z]   ws (3):
+[2026-03-21T16:28:02.608Z]     - https://app.reporto.co.il
+[2026-03-21T16:28:02.608Z]     - https://my.reporto.co.il
+[2026-03-21T16:28:02.608Z]     - https://reporto.co.il
+[2026-03-21T16:28:02.608Z]   urls (2):
+[2026-03-21T16:28:02.608Z]     - https://apps.apple.com/il/app/reporto/id1493446812
+[2026-03-21T16:28:02.608Z]     - https://wa.me/+972587468660
+[2026-03-21T16:28:02.608Z]   android_app_ids (1):
+[2026-03-21T16:28:02.609Z]     - com.reporto.app
+[2026-03-21T16:28:02.609Z] Summary: ws:3, android_app_ids:1, urls:2
+[2026-03-21T16:28:02.610Z] Saved final result to result.json
+[2026-03-21T16:28:02.610Z] Override fields: ws, urls, android_app_ids
+[2026-03-21T16:28:02.610Z] Finished at: 2026-03-21T16:28:02.610Z

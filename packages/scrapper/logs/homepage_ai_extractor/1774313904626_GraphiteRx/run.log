@@ -1,0 +1,63 @@
+[2026-03-24T00:58:24.627Z] === Homepage AI Extractor: GraphiteRx ===
+[2026-03-24T00:58:24.627Z] Started at: 2026-03-24T00:58:24.627Z
+[2026-03-24T00:58:24.627Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774313904626_GraphiteRx
+[2026-03-24T00:58:24.627Z] Company: GraphiteRx
+[2026-03-24T00:58:24.627Z] Website: graphiterx.com
+[2026-03-24T00:58:24.627Z] cbRank: 72215
+[2026-03-24T00:58:24.627Z] Reasons: i
+[2026-03-24T00:58:24.627Z] Fetching: https://graphiterx.com
+[2026-03-24T00:58:35.253Z] Network idle timeout — continuing with current state
+[2026-03-24T00:58:35.291Z] Redirected: https://graphiterx.com -> https://www.graphiterx.com/
+[2026-03-24T00:58:35.317Z] Saved HTML (868775 bytes) to page.html
+[2026-03-24T00:58:35.321Z] Extracted 12 unique links from page
+[2026-03-24T00:58:35.322Z] Saved 12 links to links.json
+[2026-03-24T00:58:35.326Z] Extracted footer HTML (35296 chars)
+[2026-03-24T00:58:35.326Z] Extracted header HTML (36460 chars)
+[2026-03-24T00:58:35.330Z] Website (post-redirect): https://www.graphiterx.com/ → origin: https://www.graphiterx.com
+[2026-03-24T00:58:35.330Z] External links: 3 (of 12 total)
+[2026-03-24T00:58:35.330Z] ── All external links ──
+[2026-03-24T00:58:35.330Z]   EXT: https://graphiterx.force.com/Supplier/s
+[2026-03-24T00:58:35.330Z]   EXT: https://graphiterx.my.site.com/s
+[2026-03-24T00:58:35.330Z]   EXT: https://www.linkedin.com/company/graphiterx
+[2026-03-24T00:58:35.330Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:58:35.330Z]   UNCATEGORIZED: https://graphiterx.force.com/Supplier/s
+[2026-03-24T00:58:35.330Z]   UNCATEGORIZED: https://graphiterx.my.site.com/s
+[2026-03-24T00:58:35.331Z]   REGEX: li <- https://www.linkedin.com/company/graphiterx
+[2026-03-24T00:58:35.331Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-24T00:58:35.331Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:58:35.334Z] Saved AI prompt (4623 chars) to ai_prompt.txt
+[2026-03-24T00:58:35.334Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:58:35.339Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:58:54.830Z]   AI: First token received, streaming...
+[2026-03-24T00:58:56.251Z] AI response complete: 44 chars in 20.9s
+[2026-03-24T00:58:56.253Z] Saved AI response to ai_response.json
+[2026-03-24T00:58:56.253Z] ── Parsing AI response (1 lines) ──
+[2026-03-24T00:58:56.253Z]   AI LINK: https://www.linkedin.com/company/graphiterx/
+[2026-03-24T00:58:56.253Z] AI returned 1 valid links
+[2026-03-24T00:58:56.253Z] ── Categorizing 1 AI-returned links ──
+[2026-03-24T00:58:56.254Z]   AI→REGEX: li <- https://www.linkedin.com/company/graphiterx/ (duplicate, skipped)
+[2026-03-24T00:58:56.254Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:58:56.254Z] Footer/header origins (4):
+[2026-03-24T00:58:56.254Z]   FOOTER/HEADER ORIGIN: https://www.graphiterx.com
+[2026-03-24T00:58:56.254Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T00:58:56.254Z]   FOOTER/HEADER ORIGIN: https://graphiterx.my.site.com
+[2026-03-24T00:58:56.254Z]   FOOTER/HEADER ORIGIN: https://graphiterx.force.com
+[2026-03-24T00:58:56.255Z]   ADDED: urls <- https://graphiterx.force.com/Supplier/s
+[2026-03-24T00:58:56.255Z]   ADDED: urls <- https://graphiterx.my.site.com/s
+[2026-03-24T00:58:56.255Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-24T00:58:56.255Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:58:56.255Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:58:56.255Z] ── Step 3: Final dedup ──
+[2026-03-24T00:58:56.255Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-24T00:58:56.255Z] ── FINAL RESULT ──
+[2026-03-24T00:58:56.255Z]   ws (1):
+[2026-03-24T00:58:56.255Z]     - https://www.graphiterx.com
+[2026-03-24T00:58:56.255Z]   li (1):
+[2026-03-24T00:58:56.255Z]     - https://www.linkedin.com/company/graphiterx
+[2026-03-24T00:58:56.255Z]   urls (2):
+[2026-03-24T00:58:56.256Z]     - https://graphiterx.force.com/Supplier/s
+[2026-03-24T00:58:56.256Z]     - https://graphiterx.my.site.com/s
+[2026-03-24T00:58:56.256Z] Summary: ws:1, li:1, urls:2
+[2026-03-24T00:58:56.257Z] Saved final result to result.json
+[2026-03-24T00:58:56.257Z] Override fields: ws, li, urls
+[2026-03-24T00:58:56.257Z] Finished at: 2026-03-24T00:58:56.257Z

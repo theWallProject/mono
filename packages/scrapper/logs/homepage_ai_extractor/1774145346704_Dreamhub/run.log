@@ -1,0 +1,69 @@
+[2026-03-22T02:09:06.704Z] === Homepage AI Extractor: Dreamhub ===
+[2026-03-22T02:09:06.705Z] Started at: 2026-03-22T02:09:06.705Z
+[2026-03-22T02:09:06.705Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774145346704_Dreamhub
+[2026-03-22T02:09:06.705Z] Company: Dreamhub
+[2026-03-22T02:09:06.705Z] Website: dreamhub.ai
+[2026-03-22T02:09:06.705Z] cbRank: 31699
+[2026-03-22T02:09:06.705Z] Reasons: f, i
+[2026-03-22T02:09:06.705Z] Fetching: https://dreamhub.ai
+[2026-03-22T02:09:08.156Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T02:09:11.135Z] Redirected: https://dreamhub.ai -> https://www.dreamhub.ai/
+[2026-03-22T02:09:11.146Z] Saved HTML (381980 bytes) to page.html
+[2026-03-22T02:09:11.149Z] Extracted 11 unique links from page
+[2026-03-22T02:09:11.150Z] Saved 11 links to links.json
+[2026-03-22T02:09:11.152Z] Extracted footer HTML (9092 chars)
+[2026-03-22T02:09:11.153Z] Extracted header HTML (7718 chars)
+[2026-03-22T02:09:11.156Z] Website (post-redirect): https://www.dreamhub.ai/ → origin: https://www.dreamhub.ai
+[2026-03-22T02:09:11.156Z]   SUBDOMAIN: crm.dreamhub.ai (added to ws)
+[2026-03-22T02:09:11.156Z] Website subdomains found: 1
+[2026-03-22T02:09:11.156Z] External links: 3 (of 11 total)
+[2026-03-22T02:09:11.156Z] ── All external links ──
+[2026-03-22T02:09:11.156Z]   EXT: https://serieseight.com
+[2026-03-22T02:09:11.156Z]   EXT: https://www.linkedin.com/company/dreamhubinc
+[2026-03-22T02:09:11.156Z]   EXT: https://x.com/dreamhubai
+[2026-03-22T02:09:11.157Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:09:11.157Z]   UNCATEGORIZED: https://serieseight.com
+[2026-03-22T02:09:11.157Z]   REGEX: li <- https://www.linkedin.com/company/dreamhubinc
+[2026-03-22T02:09:11.157Z]   REGEX: tw <- https://x.com/dreamhubai
+[2026-03-22T02:09:11.157Z] Programmatic result: ws:2, li:1, tw:1 | 1 uncategorized
+[2026-03-22T02:09:11.157Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:09:11.158Z] Saved AI prompt (6244 chars) to ai_prompt.txt
+[2026-03-22T02:09:11.158Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:09:11.162Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:09:39.888Z]   AI: First token received, streaming...
+[2026-03-22T02:09:43.170Z] AI response complete: 70 chars in 32.0s
+[2026-03-22T02:09:43.171Z] Saved AI response to ai_response.json
+[2026-03-22T02:09:43.171Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T02:09:43.171Z]   AI LINK: https://x.com/dreamhubai
+[2026-03-22T02:09:43.172Z]   AI LINK: https://www.linkedin.com/company/dreamhubinc/
+[2026-03-22T02:09:43.172Z] AI returned 2 valid links
+[2026-03-22T02:09:43.172Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T02:09:43.172Z]   AI→REGEX: tw <- https://x.com/dreamhubai (duplicate, skipped)
+[2026-03-22T02:09:43.173Z]   AI→REGEX: li <- https://www.linkedin.com/company/dreamhubinc/ (duplicate, skipped)
+[2026-03-22T02:09:43.173Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:09:43.173Z] Footer/header origins (5):
+[2026-03-22T02:09:43.174Z]   FOOTER/HEADER ORIGIN: https://www.dreamhub.ai
+[2026-03-22T02:09:43.174Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T02:09:43.174Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T02:09:43.174Z]   FOOTER/HEADER ORIGIN: https://serieseight.com
+[2026-03-22T02:09:43.174Z]   FOOTER/HEADER ORIGIN: https://crm.dreamhub.ai
+[2026-03-22T02:09:43.174Z]   ADDED: urls <- https://serieseight.com
+[2026-03-22T02:09:43.174Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T02:09:43.174Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:09:43.175Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:09:43.175Z] ── Step 3: Final dedup ──
+[2026-03-22T02:09:43.175Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T02:09:43.175Z] ── FINAL RESULT ──
+[2026-03-22T02:09:43.175Z]   ws (2):
+[2026-03-22T02:09:43.175Z]     - https://crm.dreamhub.ai
+[2026-03-22T02:09:43.175Z]     - https://www.dreamhub.ai
+[2026-03-22T02:09:43.175Z]   li (1):
+[2026-03-22T02:09:43.176Z]     - https://www.linkedin.com/company/dreamhubinc
+[2026-03-22T02:09:43.176Z]   tw (1):
+[2026-03-22T02:09:43.176Z]     - https://x.com/dreamhubai
+[2026-03-22T02:09:43.176Z]   urls (1):
+[2026-03-22T02:09:43.176Z]     - https://serieseight.com
+[2026-03-22T02:09:43.176Z] Summary: ws:2, li:1, tw:1, urls:1
+[2026-03-22T02:09:43.177Z] Saved final result to result.json
+[2026-03-22T02:09:43.178Z] Override fields: ws, li, tw, urls
+[2026-03-22T02:09:43.178Z] Finished at: 2026-03-22T02:09:43.178Z

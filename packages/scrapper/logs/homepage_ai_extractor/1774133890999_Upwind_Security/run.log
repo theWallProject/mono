@@ -1,0 +1,76 @@
+[2026-03-21T22:58:11.000Z] === Homepage AI Extractor: Upwind Security ===
+[2026-03-21T22:58:11.000Z] Started at: 2026-03-21T22:58:11.000Z
+[2026-03-21T22:58:11.000Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774133890999_Upwind_Security
+[2026-03-21T22:58:11.000Z] Company: Upwind Security
+[2026-03-21T22:58:11.000Z] Website: upwind.io
+[2026-03-21T22:58:11.000Z] cbRank: 3946
+[2026-03-21T22:58:11.001Z] Reasons: f, i
+[2026-03-21T22:58:11.001Z] Fetching: https://upwind.io
+[2026-03-21T22:58:15.350Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T22:58:18.323Z] Redirected: https://upwind.io -> https://www.upwind.io/
+[2026-03-21T22:58:18.340Z] Saved HTML (717276 bytes) to page.html
+[2026-03-21T22:58:18.343Z] Extracted 62 unique links from page
+[2026-03-21T22:58:18.343Z] Saved 62 links to links.json
+[2026-03-21T22:58:18.349Z] Extracted footer HTML (20985 chars)
+[2026-03-21T22:58:18.349Z] Extracted header HTML (275208 chars)
+[2026-03-21T22:58:18.353Z] Website (post-redirect): https://www.upwind.io/ → origin: https://www.upwind.io
+[2026-03-21T22:58:18.353Z]   SUBDOMAIN: docs.upwind.io (added to ws)
+[2026-03-21T22:58:18.353Z] Website subdomains found: 1
+[2026-03-21T22:58:18.353Z] External links: 5 (of 62 total)
+[2026-03-21T22:58:18.353Z] ── All external links ──
+[2026-03-21T22:58:18.353Z]   EXT: https://twitter.com/upwindsecurity
+[2026-03-21T22:58:18.353Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-21T22:58:18.353Z]   EXT: https://www.gartner.com/reviews/market/cloud-native-application-protection-platforms/vendor/upwind/product/upwind
+[2026-03-21T22:58:18.354Z]   EXT: https://www.instagram.com/upwindsecurity
+[2026-03-21T22:58:18.354Z]   EXT: https://www.linkedin.com/company/upwindsecurity
+[2026-03-21T22:58:18.354Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:58:18.354Z]   REGEX: tw <- https://twitter.com/upwindsecurity
+[2026-03-21T22:58:18.354Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-21T22:58:18.354Z]   UNCATEGORIZED: https://www.gartner.com/reviews/market/cloud-native-application-protection-platforms/vendor/upwind/product/upwind
+[2026-03-21T22:58:18.354Z]   REGEX: ig <- https://www.instagram.com/upwindsecurity
+[2026-03-21T22:58:18.354Z]   REGEX: li <- https://www.linkedin.com/company/upwindsecurity
+[2026-03-21T22:58:18.354Z] Programmatic result: ws:2, tw:1, ig:1, li:1 | 2 uncategorized
+[2026-03-21T22:58:18.354Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:58:18.357Z] Saved AI prompt (11564 chars) to ai_prompt.txt
+[2026-03-21T22:58:18.357Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:58:18.362Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:59:08.476Z]   AI: First token received, streaming...
+[2026-03-21T22:59:13.923Z] AI response complete: 125 chars in 55.6s
+[2026-03-21T22:59:13.924Z] Saved AI response to ai_response.json
+[2026-03-21T22:59:13.925Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T22:59:13.925Z]   AI LINK: https://twitter.com/upwindsecurity
+[2026-03-21T22:59:13.925Z]   AI LINK: https://www.linkedin.com/company/upwindsecurity/
+[2026-03-21T22:59:13.925Z]   AI LINK: https://www.instagram.com/upwindsecurity/
+[2026-03-21T22:59:13.925Z] AI returned 3 valid links
+[2026-03-21T22:59:13.925Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T22:59:13.926Z]   AI→REGEX: tw <- https://twitter.com/upwindsecurity (duplicate, skipped)
+[2026-03-21T22:59:13.926Z]   AI→REGEX: li <- https://www.linkedin.com/company/upwindsecurity/ (duplicate, skipped)
+[2026-03-21T22:59:13.926Z]   AI→REGEX: ig <- https://www.instagram.com/upwindsecurity/ (duplicate, skipped)
+[2026-03-21T22:59:13.929Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:59:13.929Z] Footer/header origins (5):
+[2026-03-21T22:59:13.929Z]   FOOTER/HEADER ORIGIN: https://www.upwind.io
+[2026-03-21T22:59:13.929Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T22:59:13.929Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:59:13.929Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T22:59:13.930Z]   FOOTER/HEADER ORIGIN: https://docs.upwind.io
+[2026-03-21T22:59:13.930Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-21T22:59:13.930Z]   SKIP (not in footer/header): https://www.gartner.com/reviews/market/cloud-native-application-protection-platforms/vendor/upwind/product/upwind
+[2026-03-21T22:59:13.930Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:59:13.930Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:59:13.930Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:59:13.931Z] ── Step 3: Final dedup ──
+[2026-03-21T22:59:13.931Z] No urls to dedup
+[2026-03-21T22:59:13.931Z] ── FINAL RESULT ──
+[2026-03-21T22:59:13.931Z]   ws (2):
+[2026-03-21T22:59:13.931Z]     - https://docs.upwind.io
+[2026-03-21T22:59:13.931Z]     - https://www.upwind.io
+[2026-03-21T22:59:13.931Z]   li (1):
+[2026-03-21T22:59:13.932Z]     - https://www.linkedin.com/company/upwindsecurity
+[2026-03-21T22:59:13.932Z]   tw (1):
+[2026-03-21T22:59:13.932Z]     - https://x.com/upwindsecurity
+[2026-03-21T22:59:13.932Z]   ig (1):
+[2026-03-21T22:59:13.932Z]     - https://www.instagram.com/upwindsecurity
+[2026-03-21T22:59:13.932Z] Summary: ws:2, tw:1, ig:1, li:1
+[2026-03-21T22:59:13.933Z] Saved final result to result.json
+[2026-03-21T22:59:13.933Z] Override fields: ws, li, tw, ig
+[2026-03-21T22:59:13.933Z] Finished at: 2026-03-21T22:59:13.933Z

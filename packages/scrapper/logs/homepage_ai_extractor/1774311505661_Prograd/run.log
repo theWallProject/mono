@@ -1,0 +1,89 @@
+[2026-03-24T00:18:25.662Z] === Homepage AI Extractor: Prograd ===
+[2026-03-24T00:18:25.662Z] Started at: 2026-03-24T00:18:25.662Z
+[2026-03-24T00:18:25.662Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774311505661_Prograd
+[2026-03-24T00:18:25.662Z] Company: Prograd
+[2026-03-24T00:18:25.662Z] Website: prograd.uk
+[2026-03-24T00:18:25.662Z] cbRank: 56731
+[2026-03-24T00:18:25.662Z] Reasons: i
+[2026-03-24T00:18:25.662Z] Fetching: https://prograd.uk
+[2026-03-24T00:18:27.891Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-24T00:18:30.861Z] Redirected: https://prograd.uk -> https://www.prograd.uk/
+[2026-03-24T00:18:30.868Z] Saved HTML (132442 bytes) to page.html
+[2026-03-24T00:18:30.870Z] Extracted 28 unique links from page
+[2026-03-24T00:18:30.871Z] Saved 28 links to links.json
+[2026-03-24T00:18:30.874Z] Extracted footer HTML (10021 chars)
+[2026-03-24T00:18:30.874Z] Extracted header HTML (1609 chars)
+[2026-03-24T00:18:30.878Z] Website (post-redirect): https://www.prograd.uk/ → origin: https://www.prograd.uk
+[2026-03-24T00:18:30.878Z]   SUBDOMAIN: app.prograd.uk (added to ws)
+[2026-03-24T00:18:30.878Z] Website subdomains found: 1
+[2026-03-24T00:18:30.878Z] External links: 5 (of 28 total)
+[2026-03-24T00:18:30.878Z] ── All external links ──
+[2026-03-24T00:18:30.878Z]   EXT: https://instagram.com/prograd.uk
+[2026-03-24T00:18:30.878Z]   EXT: https://prograd.onelink.me/kljz/1jah9pdk
+[2026-03-24T00:18:30.878Z]   EXT: https://www.linkedin.com/company/prograduk
+[2026-03-24T00:18:30.878Z]   EXT: https://www.tiktok.com/@prograd.uk
+[2026-03-24T00:18:30.878Z]   EXT: https://youtube.com/channel/UCHQAIiRDH0TYHCEq3PkOKyQ
+[2026-03-24T00:18:30.878Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:18:30.879Z]   REGEX: ig <- https://instagram.com/prograd.uk
+[2026-03-24T00:18:30.879Z]   UNCATEGORIZED: https://prograd.onelink.me/kljz/1jah9pdk
+[2026-03-24T00:18:30.880Z]   REGEX: li <- https://www.linkedin.com/company/prograduk
+[2026-03-24T00:18:30.880Z]   REGEX: tt <- https://www.tiktok.com/@prograd.uk
+[2026-03-24T00:18:30.880Z]   REGEX: ytc <- https://youtube.com/channel/UCHQAIiRDH0TYHCEq3PkOKyQ
+[2026-03-24T00:18:30.880Z] Programmatic result: ws:2, ig:1, li:1, tt:1, ytc:1 | 1 uncategorized
+[2026-03-24T00:18:30.880Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:18:30.881Z] Saved AI prompt (7496 chars) to ai_prompt.txt
+[2026-03-24T00:18:30.881Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:18:30.885Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:19:02.187Z]   AI: First token received, streaming...
+[2026-03-24T00:19:17.640Z]   AI streaming: 200 chars received (46.8s elapsed)
+[2026-03-24T00:19:17.641Z] AI response complete: 204 chars in 46.8s
+[2026-03-24T00:19:17.642Z] Saved AI response to ai_response.json
+[2026-03-24T00:19:17.643Z] ── Parsing AI response (5 lines) ──
+[2026-03-24T00:19:17.643Z]   AI LINK: https://www.tiktok.com/@prograd.uk
+[2026-03-24T00:19:17.643Z]   AI LINK: https://www.linkedin.com/company/prograduk
+[2026-03-24T00:19:17.644Z]   AI LINK: https://youtube.com/channel/UCHQAIiRDH0TYHCEq3PkOKyQ
+[2026-03-24T00:19:17.644Z]   AI LINK: https://instagram.com/prograd.uk
+[2026-03-24T00:19:17.644Z]   AI LINK: https://prograd.onelink.me/kljz/1jah9pdk
+[2026-03-24T00:19:17.644Z] AI returned 5 valid links
+[2026-03-24T00:19:17.644Z] ── Categorizing 5 AI-returned links ──
+[2026-03-24T00:19:17.644Z]   AI→REGEX: tt <- https://www.tiktok.com/@prograd.uk (duplicate, skipped)
+[2026-03-24T00:19:17.644Z]   AI→REGEX: li <- https://www.linkedin.com/company/prograduk (duplicate, skipped)
+[2026-03-24T00:19:17.644Z]   AI→REGEX: ytc <- https://youtube.com/channel/UCHQAIiRDH0TYHCEq3PkOKyQ (duplicate, skipped)
+[2026-03-24T00:19:17.644Z]   AI→REGEX: ig <- https://instagram.com/prograd.uk (duplicate, skipped)
+[2026-03-24T00:19:17.645Z]   AI→URLS: https://prograd.onelink.me/kljz/1jah9pdk
+[2026-03-24T00:19:17.646Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:19:17.646Z] Footer/header origins (6):
+[2026-03-24T00:19:17.646Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-24T00:19:17.646Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T00:19:17.646Z]   FOOTER/HEADER ORIGIN: https://youtube.com
+[2026-03-24T00:19:17.646Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-24T00:19:17.647Z]   FOOTER/HEADER ORIGIN: https://prograd.onelink.me
+[2026-03-24T00:19:17.647Z]   FOOTER/HEADER ORIGIN: https://app.prograd.uk
+[2026-03-24T00:19:17.647Z]   SKIP (AI claimed): https://prograd.onelink.me/kljz/1jah9pdk
+[2026-03-24T00:19:17.647Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T00:19:17.647Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:19:17.647Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-24T00:19:17.930Z]   YOUTUBE: resolved UCHQAIiRDH0TYHCEq3PkOKyQ → @prograd_uk
+[2026-03-24T00:19:17.930Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-24T00:19:17.930Z] ── Step 3: Final dedup ──
+[2026-03-24T00:19:17.930Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T00:19:17.930Z] ── FINAL RESULT ──
+[2026-03-24T00:19:17.930Z]   ws (2):
+[2026-03-24T00:19:17.930Z]     - https://app.prograd.uk
+[2026-03-24T00:19:17.930Z]     - https://www.prograd.uk
+[2026-03-24T00:19:17.930Z]   li (1):
+[2026-03-24T00:19:17.930Z]     - https://www.linkedin.com/company/prograduk
+[2026-03-24T00:19:17.930Z]   ig (1):
+[2026-03-24T00:19:17.930Z]     - https://www.instagram.com/prograd.uk
+[2026-03-24T00:19:17.930Z]   ytp (1):
+[2026-03-24T00:19:17.930Z]     - https://www.youtube.com/@prograd_uk
+[2026-03-24T00:19:17.930Z]   ytc (1):
+[2026-03-24T00:19:17.930Z]     - https://www.youtube.com/channel/UCHQAIiRDH0TYHCEq3PkOKyQ
+[2026-03-24T00:19:17.931Z]   tt (1):
+[2026-03-24T00:19:17.931Z]     - https://www.tiktok.com/@prograd.uk
+[2026-03-24T00:19:17.931Z]   urls (1):
+[2026-03-24T00:19:17.931Z]     - https://prograd.onelink.me/kljz/1jah9pdk
+[2026-03-24T00:19:17.931Z] Summary: ws:2, ig:1, li:1, tt:1, ytc:1, urls:1, ytp:1
+[2026-03-24T00:19:17.931Z] Saved final result to result.json
+[2026-03-24T00:19:17.931Z] Override fields: ws, li, ig, ytp, ytc, tt, urls
+[2026-03-24T00:19:17.931Z] Finished at: 2026-03-24T00:19:17.931Z

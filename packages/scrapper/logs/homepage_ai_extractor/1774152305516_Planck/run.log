@@ -1,0 +1,74 @@
+[2026-03-22T04:05:05.517Z] === Homepage AI Extractor: Planck ===
+[2026-03-22T04:05:05.517Z] Started at: 2026-03-22T04:05:05.517Z
+[2026-03-22T04:05:05.517Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774152305516_Planck
+[2026-03-22T04:05:05.517Z] Company: Planck
+[2026-03-22T04:05:05.517Z] Website: planckdata.com
+[2026-03-22T04:05:05.517Z] cbRank: 67324
+[2026-03-22T04:05:05.517Z] Reasons: f
+[2026-03-22T04:05:05.517Z] Fetching: https://planckdata.com
+[2026-03-22T04:05:12.877Z] Redirected: https://planckdata.com -> https://www.planckdata.com/
+[2026-03-22T04:05:13.082Z] Saved HTML (923487 bytes) to page.html
+[2026-03-22T04:05:13.431Z] Extracted 20 unique links from page
+[2026-03-22T04:05:13.432Z] Saved 20 links to links.json
+[2026-03-22T04:05:13.782Z] Extracted footer HTML (18731 chars)
+[2026-03-22T04:05:13.782Z] No header section found in DOM
+[2026-03-22T04:05:13.785Z] Website (post-redirect): https://www.planckdata.com/ → origin: https://www.planckdata.com
+[2026-03-22T04:05:13.785Z] External links: 6 (of 20 total)
+[2026-03-22T04:05:13.785Z] ── All external links ──
+[2026-03-22T04:05:13.786Z]   EXT: https://twitter.com/Planckdata
+[2026-03-22T04:05:13.786Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T04:05:13.786Z]   EXT: https://www.linkedin.com/company/planckdata
+[2026-03-22T04:05:13.786Z]   EXT: https://www1.appliedsystems.com/en-us
+[2026-03-22T04:05:13.786Z]   EXT: https://www1.appliedsystems.com/en-us/privacy-policy
+[2026-03-22T04:05:13.786Z]   EXT: https://www1.appliedsystems.com/en-us/terms-of-use
+[2026-03-22T04:05:13.786Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:05:13.787Z]   REGEX: tw <- https://twitter.com/Planckdata
+[2026-03-22T04:05:13.787Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T04:05:13.788Z]   REGEX: li <- https://www.linkedin.com/company/planckdata
+[2026-03-22T04:05:13.788Z]   UNCATEGORIZED: https://www1.appliedsystems.com/en-us
+[2026-03-22T04:05:13.788Z]   UNCATEGORIZED: https://www1.appliedsystems.com/en-us/privacy-policy
+[2026-03-22T04:05:13.788Z]   UNCATEGORIZED: https://www1.appliedsystems.com/en-us/terms-of-use
+[2026-03-22T04:05:13.788Z] Programmatic result: ws:1, tw:1, li:1 | 4 uncategorized
+[2026-03-22T04:05:13.788Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:05:13.818Z] Saved AI prompt (5605 chars) to ai_prompt.txt
+[2026-03-22T04:05:13.821Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:05:13.828Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:05:33.456Z]   AI: First token received, streaming...
+[2026-03-22T04:05:36.940Z] AI response complete: 75 chars in 23.1s
+[2026-03-22T04:05:36.942Z] Saved AI response to ai_response.json
+[2026-03-22T04:05:36.942Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T04:05:36.942Z]   AI LINK: https://www.linkedin.com/company/planckdata/
+[2026-03-22T04:05:36.942Z]   AI LINK: https://twitter.com/Planckdata
+[2026-03-22T04:05:36.942Z] AI returned 2 valid links
+[2026-03-22T04:05:36.943Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T04:05:36.943Z]   AI→REGEX: li <- https://www.linkedin.com/company/planckdata/ (duplicate, skipped)
+[2026-03-22T04:05:36.944Z]   AI→REGEX: tw <- https://twitter.com/Planckdata (duplicate, skipped)
+[2026-03-22T04:05:36.944Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:05:36.944Z] Footer/header origins (3):
+[2026-03-22T04:05:36.945Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:05:36.945Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T04:05:36.945Z]   FOOTER/HEADER ORIGIN: https://www1.appliedsystems.com
+[2026-03-22T04:05:36.945Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T04:05:36.945Z]   ADDED: urls <- https://www1.appliedsystems.com/en-us
+[2026-03-22T04:05:36.945Z]   ADDED: urls <- https://www1.appliedsystems.com/en-us/privacy-policy
+[2026-03-22T04:05:36.946Z]   ADDED: urls <- https://www1.appliedsystems.com/en-us/terms-of-use
+[2026-03-22T04:05:36.946Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-22T04:05:36.946Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:05:36.946Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:05:36.946Z] ── Step 3: Final dedup ──
+[2026-03-22T04:05:36.946Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T04:05:36.946Z] ── FINAL RESULT ──
+[2026-03-22T04:05:36.947Z]   ws (1):
+[2026-03-22T04:05:36.947Z]     - https://www.planckdata.com
+[2026-03-22T04:05:36.947Z]   li (1):
+[2026-03-22T04:05:36.947Z]     - https://www.linkedin.com/company/planckdata
+[2026-03-22T04:05:36.947Z]   tw (1):
+[2026-03-22T04:05:36.947Z]     - https://x.com/planckdata
+[2026-03-22T04:05:36.948Z]   urls (3):
+[2026-03-22T04:05:36.948Z]     - https://www1.appliedsystems.com/en-us
+[2026-03-22T04:05:36.948Z]     - https://www1.appliedsystems.com/en-us/privacy-policy
+[2026-03-22T04:05:36.948Z]     - https://www1.appliedsystems.com/en-us/terms-of-use
+[2026-03-22T04:05:36.948Z] Summary: ws:1, tw:1, li:1, urls:3
+[2026-03-22T04:05:36.949Z] Saved final result to result.json
+[2026-03-22T04:05:36.950Z] Override fields: ws, li, tw, urls
+[2026-03-22T04:05:36.950Z] Finished at: 2026-03-22T04:05:36.950Z

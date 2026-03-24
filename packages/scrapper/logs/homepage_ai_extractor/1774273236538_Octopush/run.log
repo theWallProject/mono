@@ -1,0 +1,89 @@
+[2026-03-23T13:40:36.538Z] === Homepage AI Extractor: Octopush ===
+[2026-03-23T13:40:36.538Z] Started at: 2026-03-23T13:40:36.538Z
+[2026-03-23T13:40:36.538Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774273236538_Octopush
+[2026-03-23T13:40:36.538Z] Company: Octopush
+[2026-03-23T13:40:36.539Z] Website: octopush.com
+[2026-03-23T13:40:36.539Z] cbRank: 716755
+[2026-03-23T13:40:36.539Z] Reasons: f
+[2026-03-23T13:40:36.539Z] Fetching: https://octopush.com
+[2026-03-23T13:40:38.806Z] Redirected: https://octopush.com -> https://octopush.com/
+[2026-03-23T13:40:38.812Z] Saved HTML (182253 bytes) to page.html
+[2026-03-23T13:40:38.814Z] Extracted 56 unique links from page
+[2026-03-23T13:40:38.818Z] Saved 56 links to links.json
+[2026-03-23T13:40:38.820Z] Extracted footer HTML (9904 chars)
+[2026-03-23T13:40:38.820Z] Extracted header HTML (15392 chars)
+[2026-03-23T13:40:38.823Z] Website (post-redirect): https://octopush.com/ → origin: https://octopush.com
+[2026-03-23T13:40:38.823Z]   SUBDOMAIN: client.octopush.com (added to ws)
+[2026-03-23T13:40:38.823Z]   SUBDOMAIN: dev.octopush.com (added to ws)
+[2026-03-23T13:40:38.823Z]   SUBDOMAIN: help.octopush.com (added to ws)
+[2026-03-23T13:40:38.823Z] Website subdomains found: 3
+[2026-03-23T13:40:38.823Z] External links: 5 (of 56 total)
+[2026-03-23T13:40:38.824Z] ── All external links ──
+[2026-03-23T13:40:38.824Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-23T13:40:38.824Z]   EXT: https://fr.linkedin.com/company/octopush
+[2026-03-23T13:40:38.824Z]   EXT: https://www.facebook.com/octopushsms
+[2026-03-23T13:40:38.824Z]   EXT: https://www.youtube.com/channel/UCBKB3DDuPtCdPXOFnLZ5bFQ
+[2026-03-23T13:40:38.824Z]   EXT: https://www.youtube.com/watch?v=Q6PJDj6I3uY
+[2026-03-23T13:40:38.824Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T13:40:38.824Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-23T13:40:38.824Z]   REGEX: li <- https://fr.linkedin.com/company/octopush
+[2026-03-23T13:40:38.824Z]   REGEX: fb <- https://www.facebook.com/octopushsms
+[2026-03-23T13:40:38.824Z]   REGEX: ytc <- https://www.youtube.com/channel/UCBKB3DDuPtCdPXOFnLZ5bFQ
+[2026-03-23T13:40:38.824Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T13:40:38.824Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=Q6PJDj6I3uY
+[2026-03-23T13:40:38.824Z] Programmatic result: ws:4, li:1, fb:1, ytc:1 | 1 uncategorized
+[2026-03-23T13:40:38.824Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T13:40:38.825Z] Saved AI prompt (7756 chars) to ai_prompt.txt
+[2026-03-23T13:40:38.825Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T13:40:38.828Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T13:41:13.739Z]   AI: First token received, streaming...
+[2026-03-23T13:41:25.052Z] AI response complete: 162 chars in 46.2s
+[2026-03-23T13:41:25.054Z] Saved AI response to ai_response.json
+[2026-03-23T13:41:25.054Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T13:41:25.054Z]   AI LINK: https://www.facebook.com/octopushsms/
+[2026-03-23T13:41:25.054Z]   AI LINK: https://fr.linkedin.com/company/octopush
+[2026-03-23T13:41:25.055Z]   AI LINK: https://www.youtube.com/channel/UCBKB3DDuPtCdPXOFnLZ5bFQ
+[2026-03-23T13:41:25.055Z]   AI LINK: https://octopush.com/blog/
+[2026-03-23T13:41:25.055Z] AI returned 4 valid links
+[2026-03-23T13:41:25.055Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T13:41:25.055Z]   AI→REGEX: fb <- https://www.facebook.com/octopushsms/ (duplicate, skipped)
+[2026-03-23T13:41:25.055Z]   AI→REGEX: li <- https://fr.linkedin.com/company/octopush (duplicate, skipped)
+[2026-03-23T13:41:25.055Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCBKB3DDuPtCdPXOFnLZ5bFQ (duplicate, skipped)
+[2026-03-23T13:41:25.056Z]   AI→URLS: https://octopush.com/blog (cleaned from https://octopush.com/blog/)
+[2026-03-23T13:41:25.056Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T13:41:25.056Z] Footer/header origins (7):
+[2026-03-23T13:41:25.056Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T13:41:25.056Z]   FOOTER/HEADER ORIGIN: https://fr.linkedin.com
+[2026-03-23T13:41:25.056Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T13:41:25.056Z]   FOOTER/HEADER ORIGIN: https://octopush.com
+[2026-03-23T13:41:25.056Z]   FOOTER/HEADER ORIGIN: https://client.octopush.com
+[2026-03-23T13:41:25.057Z]   FOOTER/HEADER ORIGIN: https://help.octopush.com
+[2026-03-23T13:41:25.057Z]   FOOTER/HEADER ORIGIN: https://dev.octopush.com
+[2026-03-23T13:41:25.057Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-23T13:41:25.057Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T13:41:25.057Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T13:41:25.057Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T13:41:25.665Z]   YOUTUBE: resolved UCBKB3DDuPtCdPXOFnLZ5bFQ → @sasoctopush7857
+[2026-03-23T13:41:25.665Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T13:41:25.665Z] ── Step 3: Final dedup ──
+[2026-03-23T13:41:25.665Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T13:41:25.665Z] ── FINAL RESULT ──
+[2026-03-23T13:41:25.666Z]   ws (4):
+[2026-03-23T13:41:25.666Z]     - https://client.octopush.com
+[2026-03-23T13:41:25.666Z]     - https://dev.octopush.com
+[2026-03-23T13:41:25.666Z]     - https://help.octopush.com
+[2026-03-23T13:41:25.666Z]     - https://octopush.com
+[2026-03-23T13:41:25.666Z]   li (1):
+[2026-03-23T13:41:25.666Z]     - https://www.linkedin.com/company/octopush
+[2026-03-23T13:41:25.666Z]   fb (1):
+[2026-03-23T13:41:25.666Z]     - https://www.facebook.com/octopushsms
+[2026-03-23T13:41:25.666Z]   ytp (1):
+[2026-03-23T13:41:25.666Z]     - https://www.youtube.com/@sasoctopush7857
+[2026-03-23T13:41:25.666Z]   ytc (1):
+[2026-03-23T13:41:25.666Z]     - https://www.youtube.com/channel/UCBKB3DDuPtCdPXOFnLZ5bFQ
+[2026-03-23T13:41:25.666Z]   urls (1):
+[2026-03-23T13:41:25.666Z]     - https://octopush.com/blog
+[2026-03-23T13:41:25.666Z] Summary: ws:4, li:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-23T13:41:25.668Z] Saved final result to result.json
+[2026-03-23T13:41:25.668Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-23T13:41:25.668Z] Finished at: 2026-03-23T13:41:25.668Z

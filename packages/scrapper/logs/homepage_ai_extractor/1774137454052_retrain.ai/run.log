@@ -1,0 +1,88 @@
+[2026-03-21T23:57:34.052Z] === Homepage AI Extractor: retrain.ai ===
+[2026-03-21T23:57:34.053Z] Started at: 2026-03-21T23:57:34.053Z
+[2026-03-21T23:57:34.053Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774137454052_retrain.ai
+[2026-03-21T23:57:34.053Z] Company: retrain.ai
+[2026-03-21T23:57:34.053Z] Website: retrain.ai
+[2026-03-21T23:57:34.053Z] cbRank: 10249
+[2026-03-21T23:57:34.053Z] Reasons: f, i
+[2026-03-21T23:57:34.053Z] Fetching: https://retrain.ai
+[2026-03-21T23:57:41.271Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T23:57:44.265Z] Redirected: https://retrain.ai -> https://www.retrain.ai/
+[2026-03-21T23:57:44.271Z] Saved HTML (230388 bytes) to page.html
+[2026-03-21T23:57:44.272Z] Extracted 49 unique links from page
+[2026-03-21T23:57:44.273Z] Saved 49 links to links.json
+[2026-03-21T23:57:44.275Z] Extracted footer HTML (12382 chars)
+[2026-03-21T23:57:44.275Z] Extracted header HTML (15586 chars)
+[2026-03-21T23:57:44.278Z] Website (post-redirect): https://www.retrain.ai/ → origin: https://www.retrain.ai
+[2026-03-21T23:57:44.279Z]   SUBDOMAIN: app.retrain.ai (added to ws)
+[2026-03-21T23:57:44.279Z] Website subdomains found: 1
+[2026-03-21T23:57:44.279Z] External links: 5 (of 49 total)
+[2026-03-21T23:57:44.279Z] ── All external links ──
+[2026-03-21T23:57:44.279Z]   EXT: https://www.facebook.com/RetrainAi
+[2026-03-21T23:57:44.279Z]   EXT: https://www.linkedin.com/company/retrain-ai
+[2026-03-21T23:57:44.279Z]   EXT: https://www.responsiblehr.org
+[2026-03-21T23:57:44.279Z]   EXT: https://www.youtube.com/channel/UCzjBxI1NoienQ7aj162y4Tg
+[2026-03-21T23:57:44.279Z]   EXT: https://x.com/RetrainAi
+[2026-03-21T23:57:44.279Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T23:57:44.279Z]   REGEX: fb <- https://www.facebook.com/RetrainAi
+[2026-03-21T23:57:44.279Z]   REGEX: li <- https://www.linkedin.com/company/retrain-ai
+[2026-03-21T23:57:44.280Z]   UNCATEGORIZED: https://www.responsiblehr.org
+[2026-03-21T23:57:44.280Z]   REGEX: ytc <- https://www.youtube.com/channel/UCzjBxI1NoienQ7aj162y4Tg
+[2026-03-21T23:57:44.280Z]   REGEX: tw <- https://x.com/RetrainAi
+[2026-03-21T23:57:44.280Z] Programmatic result: ws:2, fb:1, li:1, ytc:1, tw:1 | 1 uncategorized
+[2026-03-21T23:57:44.280Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T23:57:44.281Z] Saved AI prompt (8114 chars) to ai_prompt.txt
+[2026-03-21T23:57:44.281Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T23:57:44.284Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T23:58:21.699Z]   AI: First token received, streaming...
+[2026-03-21T23:58:34.088Z] AI response complete: 160 chars in 49.8s
+[2026-03-21T23:58:34.089Z] Saved AI response to ai_response.json
+[2026-03-21T23:58:34.090Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T23:58:34.090Z]   AI LINK: https://www.linkedin.com/company/retrain-ai/
+[2026-03-21T23:58:34.090Z]   AI LINK: https://www.facebook.com/RetrainAi
+[2026-03-21T23:58:34.090Z]   AI LINK: https://x.com/RetrainAi
+[2026-03-21T23:58:34.090Z]   AI LINK: https://www.youtube.com/channel/UCzjBxI1NoienQ7aj162y4Tg
+[2026-03-21T23:58:34.090Z] AI returned 4 valid links
+[2026-03-21T23:58:34.090Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T23:58:34.091Z]   AI→REGEX: li <- https://www.linkedin.com/company/retrain-ai/ (duplicate, skipped)
+[2026-03-21T23:58:34.091Z]   AI→REGEX: fb <- https://www.facebook.com/RetrainAi (duplicate, skipped)
+[2026-03-21T23:58:34.091Z]   AI→REGEX: tw <- https://x.com/RetrainAi (duplicate, skipped)
+[2026-03-21T23:58:34.091Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCzjBxI1NoienQ7aj162y4Tg (duplicate, skipped)
+[2026-03-21T23:58:34.092Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T23:58:34.092Z] Footer/header origins (8):
+[2026-03-21T23:58:34.092Z]   FOOTER/HEADER ORIGIN: https://www.retrain.ai
+[2026-03-21T23:58:34.093Z]   FOOTER/HEADER ORIGIN: https://app.retrain.ai
+[2026-03-21T23:58:34.093Z]   FOOTER/HEADER ORIGIN: https://retrain.ai
+[2026-03-21T23:58:34.093Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T23:58:34.093Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T23:58:34.093Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T23:58:34.093Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T23:58:34.093Z]   FOOTER/HEADER ORIGIN: https://www.responsiblehr.org
+[2026-03-21T23:58:34.093Z]   ADDED: urls <- https://www.responsiblehr.org
+[2026-03-21T23:58:34.094Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T23:58:34.094Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T23:58:34.094Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T23:58:34.359Z]   YOUTUBE: resolved UCzjBxI1NoienQ7aj162y4Tg → @retrainai8392
+[2026-03-21T23:58:34.359Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T23:58:34.360Z] ── Step 3: Final dedup ──
+[2026-03-21T23:58:34.360Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T23:58:34.360Z] ── FINAL RESULT ──
+[2026-03-21T23:58:34.360Z]   ws (2):
+[2026-03-21T23:58:34.360Z]     - https://app.retrain.ai
+[2026-03-21T23:58:34.360Z]     - https://www.retrain.ai
+[2026-03-21T23:58:34.360Z]   li (1):
+[2026-03-21T23:58:34.360Z]     - https://www.linkedin.com/company/retrain-ai
+[2026-03-21T23:58:34.360Z]   fb (1):
+[2026-03-21T23:58:34.360Z]     - https://www.facebook.com/retrainai
+[2026-03-21T23:58:34.360Z]   tw (1):
+[2026-03-21T23:58:34.360Z]     - https://x.com/retrainai
+[2026-03-21T23:58:34.360Z]   ytp (1):
+[2026-03-21T23:58:34.360Z]     - https://www.youtube.com/@retrainai8392
+[2026-03-21T23:58:34.360Z]   ytc (1):
+[2026-03-21T23:58:34.360Z]     - https://www.youtube.com/channel/UCzjBxI1NoienQ7aj162y4Tg
+[2026-03-21T23:58:34.360Z]   urls (1):
+[2026-03-21T23:58:34.360Z]     - https://www.responsiblehr.org
+[2026-03-21T23:58:34.360Z] Summary: ws:2, fb:1, li:1, ytc:1, tw:1, urls:1, ytp:1
+[2026-03-21T23:58:34.361Z] Saved final result to result.json
+[2026-03-21T23:58:34.361Z] Override fields: ws, li, fb, tw, ytp, ytc, urls
+[2026-03-21T23:58:34.361Z] Finished at: 2026-03-21T23:58:34.361Z

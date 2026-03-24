@@ -1,0 +1,75 @@
+[2026-03-22T01:27:45.646Z] === Homepage AI Extractor: Tabit ===
+[2026-03-22T01:27:45.646Z] Started at: 2026-03-22T01:27:45.646Z
+[2026-03-22T01:27:45.646Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774142865645_Tabit
+[2026-03-22T01:27:45.646Z] Company: Tabit
+[2026-03-22T01:27:45.647Z] Website: tabit.cloud
+[2026-03-22T01:27:45.647Z] cbRank: 23322
+[2026-03-22T01:27:45.647Z] Reasons: f
+[2026-03-22T01:27:45.647Z] Fetching: https://tabit.cloud
+[2026-03-22T01:27:50.425Z] Redirected: https://tabit.cloud -> https://www.tabit.cloud/
+[2026-03-22T01:27:50.436Z] Saved HTML (372321 bytes) to page.html
+[2026-03-22T01:27:50.440Z] Extracted 34 unique links from page
+[2026-03-22T01:27:50.441Z] Saved 34 links to links.json
+[2026-03-22T01:27:50.445Z] Extracted footer HTML (8273 chars)
+[2026-03-22T01:27:50.446Z] Extracted header HTML (28863 chars)
+[2026-03-22T01:27:50.450Z] Website (post-redirect): https://www.tabit.cloud/ → origin: https://www.tabit.cloud
+[2026-03-22T01:27:50.450Z]   SUBDOMAIN: legal.tabit.cloud (added to ws)
+[2026-03-22T01:27:50.450Z]   SUBDOMAIN: us-office.tabit.cloud (added to ws)
+[2026-03-22T01:27:50.450Z] Website subdomains found: 2
+[2026-03-22T01:27:50.450Z] External links: 4 (of 34 total)
+[2026-03-22T01:27:50.451Z] ── All external links ──
+[2026-03-22T01:27:50.451Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T01:27:50.451Z]   EXT: https://www.facebook.com/tabit.cloud
+[2026-03-22T01:27:50.451Z]   EXT: https://www.instagram.com/tabit_cloud
+[2026-03-22T01:27:50.451Z]   EXT: https://www.linkedin.com/company/tabit---restaurant-technologies
+[2026-03-22T01:27:50.451Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:27:50.451Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T01:27:50.451Z]   REGEX: fb <- https://www.facebook.com/tabit.cloud
+[2026-03-22T01:27:50.451Z]   REGEX: ig <- https://www.instagram.com/tabit_cloud
+[2026-03-22T01:27:50.452Z]   REGEX: li <- https://www.linkedin.com/company/tabit---restaurant-technologies
+[2026-03-22T01:27:50.452Z] Programmatic result: ws:3, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-22T01:27:50.452Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:27:50.455Z] Saved AI prompt (6700 chars) to ai_prompt.txt
+[2026-03-22T01:27:50.455Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:27:50.460Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:28:18.611Z]   AI: First token received, streaming...
+[2026-03-22T01:28:24.999Z] AI response complete: 140 chars in 34.5s
+[2026-03-22T01:28:25.001Z] Saved AI response to ai_response.json
+[2026-03-22T01:28:25.001Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T01:28:25.001Z]   AI LINK: https://www.instagram.com/tabit_cloud/
+[2026-03-22T01:28:25.001Z]   AI LINK: https://www.facebook.com/tabit.cloud
+[2026-03-22T01:28:25.002Z]   AI LINK: https://www.linkedin.com/company/tabit---restaurant-technologies
+[2026-03-22T01:28:25.002Z] AI returned 3 valid links
+[2026-03-22T01:28:25.002Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T01:28:25.002Z]   AI→REGEX: ig <- https://www.instagram.com/tabit_cloud/ (duplicate, skipped)
+[2026-03-22T01:28:25.002Z]   AI→REGEX: fb <- https://www.facebook.com/tabit.cloud (duplicate, skipped)
+[2026-03-22T01:28:25.002Z]   AI→REGEX: li <- https://www.linkedin.com/company/tabit---restaurant-technologies (duplicate, skipped)
+[2026-03-22T01:28:25.004Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:28:25.004Z] Footer/header origins (6):
+[2026-03-22T01:28:25.004Z]   FOOTER/HEADER ORIGIN: https://www.tabit.cloud
+[2026-03-22T01:28:25.004Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T01:28:25.004Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T01:28:25.004Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:28:25.004Z]   FOOTER/HEADER ORIGIN: https://legal.tabit.cloud
+[2026-03-22T01:28:25.005Z]   FOOTER/HEADER ORIGIN: https://us-office.tabit.cloud
+[2026-03-22T01:28:25.005Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-22T01:28:25.005Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:28:25.005Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:28:25.005Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:28:25.005Z] ── Step 3: Final dedup ──
+[2026-03-22T01:28:25.005Z] No urls to dedup
+[2026-03-22T01:28:25.006Z] ── FINAL RESULT ──
+[2026-03-22T01:28:25.006Z]   ws (3):
+[2026-03-22T01:28:25.006Z]     - https://legal.tabit.cloud
+[2026-03-22T01:28:25.006Z]     - https://us-office.tabit.cloud
+[2026-03-22T01:28:25.006Z]     - https://www.tabit.cloud
+[2026-03-22T01:28:25.006Z]   li (1):
+[2026-03-22T01:28:25.007Z]     - https://www.linkedin.com/company/tabit---restaurant-technologies
+[2026-03-22T01:28:25.007Z]   fb (1):
+[2026-03-22T01:28:25.007Z]     - https://www.facebook.com/tabit.cloud
+[2026-03-22T01:28:25.007Z]   ig (1):
+[2026-03-22T01:28:25.007Z]     - https://www.instagram.com/tabit_cloud
+[2026-03-22T01:28:25.007Z] Summary: ws:3, fb:1, ig:1, li:1
+[2026-03-22T01:28:25.008Z] Saved final result to result.json
+[2026-03-22T01:28:25.009Z] Override fields: ws, li, fb, ig
+[2026-03-22T01:28:25.009Z] Finished at: 2026-03-22T01:28:25.009Z

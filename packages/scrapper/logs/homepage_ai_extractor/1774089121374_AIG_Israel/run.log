@@ -1,0 +1,74 @@
+[2026-03-21T10:32:01.375Z] === Homepage AI Extractor: AIG Israel ===
+[2026-03-21T10:32:01.375Z] Started at: 2026-03-21T10:32:01.375Z
+[2026-03-21T10:32:01.375Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774089121374_AIG_Israel
+[2026-03-21T10:32:01.375Z] Company: AIG Israel
+[2026-03-21T10:32:01.375Z] Website: aig.co.il
+[2026-03-21T10:32:01.375Z] cbRank: 3249720
+[2026-03-21T10:32:01.375Z] Reasons: h
+[2026-03-21T10:32:01.375Z] Fetching: https://aig.co.il
+[2026-03-21T10:32:12.237Z] Network idle timeout — continuing with current state
+[2026-03-21T10:32:12.269Z] Redirected: https://aig.co.il -> https://www.aig.co.il/
+[2026-03-21T10:32:12.283Z] Saved HTML (587711 bytes) to page.html
+[2026-03-21T10:32:12.288Z] Extracted 135 unique links from page
+[2026-03-21T10:32:12.288Z] Saved 135 links to links.json
+[2026-03-21T10:32:12.292Z] Extracted footer HTML (38852 chars)
+[2026-03-21T10:32:12.292Z] Extracted header HTML (37066 chars)
+[2026-03-21T10:32:12.295Z] Website (post-redirect): https://www.aig.co.il/ → origin: https://www.aig.co.il
+[2026-03-21T10:32:12.295Z]   SUBDOMAIN: join.aig.co.il (added to ws)
+[2026-03-21T10:32:12.295Z]   SUBDOMAIN: services.aig.co.il (added to ws)
+[2026-03-21T10:32:12.295Z] Website subdomains found: 2
+[2026-03-21T10:32:12.295Z] External links: 3 (of 135 total)
+[2026-03-21T10:32:12.295Z] ── All external links ──
+[2026-03-21T10:32:12.295Z]   EXT: http://www.facebook.com/aigisrael
+[2026-03-21T10:32:12.296Z]   EXT: https://www.instagram.com/aig_il
+[2026-03-21T10:32:12.296Z]   EXT: https://www.youtube.com/@aigisrael
+[2026-03-21T10:32:12.296Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T10:32:12.296Z]   REGEX: fb <- http://www.facebook.com/aigisrael
+[2026-03-21T10:32:12.296Z]   REGEX: ig <- https://www.instagram.com/aig_il
+[2026-03-21T10:32:12.296Z]   REGEX: ytp <- https://www.youtube.com/@aigisrael
+[2026-03-21T10:32:12.296Z] Programmatic result: ws:3, fb:1, ig:1, ytp:1 | 0 uncategorized
+[2026-03-21T10:32:12.296Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T10:32:12.297Z] Saved AI prompt (7661 chars) to ai_prompt.txt
+[2026-03-21T10:32:12.297Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T10:32:12.300Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T10:32:41.256Z]   AI: First token received, streaming...
+[2026-03-21T10:32:47.099Z] AI response complete: 101 chars in 34.8s
+[2026-03-21T10:32:47.100Z] Saved AI response to ai_response.json
+[2026-03-21T10:32:47.101Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T10:32:47.101Z]   AI LINK: http://www.facebook.com/aigisrael
+[2026-03-21T10:32:47.101Z]   AI LINK: https://www.instagram.com/aig_il
+[2026-03-21T10:32:47.101Z]   AI LINK: https://www.youtube.com/@aigisrael
+[2026-03-21T10:32:47.101Z] AI returned 3 valid links
+[2026-03-21T10:32:47.102Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T10:32:47.102Z]   AI→REGEX: fb <- http://www.facebook.com/aigisrael (duplicate, skipped)
+[2026-03-21T10:32:47.102Z]   AI→REGEX: ig <- https://www.instagram.com/aig_il (duplicate, skipped)
+[2026-03-21T10:32:47.102Z]   AI→REGEX: ytp <- https://www.youtube.com/@aigisrael (duplicate, skipped)
+[2026-03-21T10:32:47.103Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T10:32:47.103Z] Footer/header origins (7):
+[2026-03-21T10:32:47.103Z]   FOOTER/HEADER ORIGIN: https://join.aig.co.il
+[2026-03-21T10:32:47.103Z]   FOOTER/HEADER ORIGIN: https://www.aig.co.il
+[2026-03-21T10:32:47.103Z]   FOOTER/HEADER ORIGIN: https://services.aig.co.il
+[2026-03-21T10:32:47.103Z]   FOOTER/HEADER ORIGIN: http://www.aig.co.il
+[2026-03-21T10:32:47.104Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-21T10:32:47.104Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T10:32:47.104Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T10:32:47.104Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T10:32:47.104Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T10:32:47.104Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T10:32:47.104Z] ── Step 3: Final dedup ──
+[2026-03-21T10:32:47.104Z] No urls to dedup
+[2026-03-21T10:32:47.104Z] ── FINAL RESULT ──
+[2026-03-21T10:32:47.105Z]   ws (3):
+[2026-03-21T10:32:47.105Z]     - https://join.aig.co.il
+[2026-03-21T10:32:47.105Z]     - https://services.aig.co.il
+[2026-03-21T10:32:47.105Z]     - https://www.aig.co.il
+[2026-03-21T10:32:47.105Z]   fb (1):
+[2026-03-21T10:32:47.105Z]     - https://www.facebook.com/aigisrael
+[2026-03-21T10:32:47.105Z]   ig (1):
+[2026-03-21T10:32:47.105Z]     - https://www.instagram.com/aig_il
+[2026-03-21T10:32:47.105Z]   ytp (1):
+[2026-03-21T10:32:47.106Z]     - https://www.youtube.com/@aigisrael
+[2026-03-21T10:32:47.106Z] Summary: ws:3, fb:1, ig:1, ytp:1
+[2026-03-21T10:32:47.107Z] Saved final result to result.json
+[2026-03-21T10:32:47.107Z] Override fields: ws, fb, ig, ytp
+[2026-03-21T10:32:47.107Z] Finished at: 2026-03-21T10:32:47.107Z

@@ -1,0 +1,59 @@
+[2026-03-23T23:25:18.298Z] === Homepage AI Extractor: Novellus ===
+[2026-03-23T23:25:18.298Z] Started at: 2026-03-23T23:25:18.298Z
+[2026-03-23T23:25:18.299Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774308318297_Novellus
+[2026-03-23T23:25:18.299Z] Company: Novellus
+[2026-03-23T23:25:18.299Z] Website: novellustx.com
+[2026-03-23T23:25:18.299Z] cbRank: 41736
+[2026-03-23T23:25:18.299Z] Reasons: i
+[2026-03-23T23:25:18.299Z] Fetching: https://novellustx.com
+[2026-03-23T23:25:21.485Z] Redirected: https://novellustx.com -> https://www.novellustx.com/
+[2026-03-23T23:25:21.490Z] Saved HTML (51281 bytes) to page.html
+[2026-03-23T23:25:21.493Z] Extracted 19 unique links from page
+[2026-03-23T23:25:21.494Z] Saved 19 links to links.json
+[2026-03-23T23:25:21.496Z] Extracted footer HTML (3248 chars)
+[2026-03-23T23:25:21.496Z] Extracted header HTML (2993 chars)
+[2026-03-23T23:25:21.500Z] Website (post-redirect): https://www.novellustx.com/ → origin: https://www.novellustx.com
+[2026-03-23T23:25:21.500Z] External links: 3 (of 19 total)
+[2026-03-23T23:25:21.500Z] ── All external links ──
+[2026-03-23T23:25:21.500Z]   EXT: https://ernexa-web.cdn.prismic.io/ernexa-web/aSm5AXNYClf9nlWx_ErnexaTherapeutics_FactSheet_October24%2C2025_v1.0.pdf
+[2026-03-23T23:25:21.500Z]   EXT: https://investor.ernexatx.com
+[2026-03-23T23:25:21.500Z]   EXT: https://www.linkedin.com/company/ernexa-therapeutics/?viewAsMember=true
+[2026-03-23T23:25:21.500Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:25:21.500Z]   UNCATEGORIZED: https://ernexa-web.cdn.prismic.io/ernexa-web/aSm5AXNYClf9nlWx_ErnexaTherapeutics_FactSheet_October24%2C2025_v1.0.pdf
+[2026-03-23T23:25:21.501Z]   UNCATEGORIZED: https://investor.ernexatx.com
+[2026-03-23T23:25:21.501Z]   REGEX: li <- https://www.linkedin.com/company/ernexa-therapeutics/?viewAsMember=true
+[2026-03-23T23:25:21.501Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-23T23:25:21.501Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:25:21.504Z] Saved AI prompt (4008 chars) to ai_prompt.txt
+[2026-03-23T23:25:21.505Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:25:21.509Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:25:37.635Z]   AI: First token received, streaming...
+[2026-03-23T23:25:40.866Z] AI response complete: 71 chars in 19.4s
+[2026-03-23T23:25:40.868Z] Saved AI response to ai_response.json
+[2026-03-23T23:25:40.868Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T23:25:40.868Z]   AI LINK: https://www.linkedin.com/company/ernexa-therapeutics/?viewAsMember=true
+[2026-03-23T23:25:40.869Z] AI returned 1 valid links
+[2026-03-23T23:25:40.869Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T23:25:40.869Z]   AI→REGEX: li <- https://www.linkedin.com/company/ernexa-therapeutics/?viewAsMember=true (duplicate, skipped)
+[2026-03-23T23:25:40.869Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:25:40.870Z] Footer/header origins (2):
+[2026-03-23T23:25:40.870Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:25:40.870Z]   FOOTER/HEADER ORIGIN: https://investor.ernexatx.com
+[2026-03-23T23:25:40.870Z]   SKIP (noise): https://ernexa-web.cdn.prismic.io/ernexa-web/aSm5AXNYClf9nlWx_ErnexaTherapeutics_FactSheet_October24%2C2025_v1.0.pdf
+[2026-03-23T23:25:40.870Z]   ADDED: urls <- https://investor.ernexatx.com
+[2026-03-23T23:25:40.870Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T23:25:40.870Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:25:40.870Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:25:40.870Z] ── Step 3: Final dedup ──
+[2026-03-23T23:25:40.870Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T23:25:40.870Z] ── FINAL RESULT ──
+[2026-03-23T23:25:40.870Z]   ws (1):
+[2026-03-23T23:25:40.870Z]     - https://www.novellustx.com
+[2026-03-23T23:25:40.871Z]   li (1):
+[2026-03-23T23:25:40.871Z]     - https://www.linkedin.com/company/ernexa-therapeutics
+[2026-03-23T23:25:40.871Z]   urls (1):
+[2026-03-23T23:25:40.871Z]     - https://investor.ernexatx.com
+[2026-03-23T23:25:40.871Z] Summary: ws:1, li:1, urls:1
+[2026-03-23T23:25:40.872Z] Saved final result to result.json
+[2026-03-23T23:25:40.872Z] Override fields: ws, li, urls
+[2026-03-23T23:25:40.872Z] Finished at: 2026-03-23T23:25:40.872Z

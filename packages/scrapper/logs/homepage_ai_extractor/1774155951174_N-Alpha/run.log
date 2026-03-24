@@ -1,0 +1,66 @@
+[2026-03-22T05:05:51.175Z] === Homepage AI Extractor: N-Alpha ===
+[2026-03-22T05:05:51.175Z] Started at: 2026-03-22T05:05:51.175Z
+[2026-03-22T05:05:51.175Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774155951174_N-Alpha
+[2026-03-22T05:05:51.175Z] Company: N-Alpha
+[2026-03-22T05:05:51.175Z] Website: n-alpha.com
+[2026-03-22T05:05:51.175Z] cbRank: 111756
+[2026-03-22T05:05:51.176Z] Reasons: f
+[2026-03-22T05:05:51.176Z] Fetching: https://n-alpha.com
+[2026-03-22T05:05:54.678Z] Redirected: https://n-alpha.com -> https://n-alpha.com/
+[2026-03-22T05:05:54.689Z] Saved HTML (339174 bytes) to page.html
+[2026-03-22T05:05:54.693Z] Extracted 11 unique links from page
+[2026-03-22T05:05:54.694Z] Saved 11 links to links.json
+[2026-03-22T05:05:54.697Z] Extracted footer HTML (2481 chars)
+[2026-03-22T05:05:54.697Z] Extracted header HTML (5556 chars)
+[2026-03-22T05:05:54.701Z] Website (post-redirect): https://n-alpha.com/ → origin: https://n-alpha.com
+[2026-03-22T05:05:54.701Z] External links: 4 (of 11 total)
+[2026-03-22T05:05:54.701Z] ── All external links ──
+[2026-03-22T05:05:54.701Z]   EXT: https://materialx.io
+[2026-03-22T05:05:54.701Z]   EXT: https://policies.google.com/privacy
+[2026-03-22T05:05:54.702Z]   EXT: https://policies.google.com/terms
+[2026-03-22T05:05:54.702Z]   EXT: https://www.linkedin.com/company/n-alpha
+[2026-03-22T05:05:54.702Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T05:05:54.702Z]   UNCATEGORIZED: https://materialx.io
+[2026-03-22T05:05:54.702Z]   UNCATEGORIZED: https://policies.google.com/privacy
+[2026-03-22T05:05:54.702Z]   UNCATEGORIZED: https://policies.google.com/terms
+[2026-03-22T05:05:54.702Z]   REGEX: li <- https://www.linkedin.com/company/n-alpha
+[2026-03-22T05:05:54.702Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-22T05:05:54.702Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T05:05:54.705Z] Saved AI prompt (3334 chars) to ai_prompt.txt
+[2026-03-22T05:05:54.706Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T05:05:54.709Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T05:06:06.911Z]   AI: First token received, streaming...
+[2026-03-22T05:06:08.068Z] AI response complete: 41 chars in 13.4s
+[2026-03-22T05:06:08.070Z] Saved AI response to ai_response.json
+[2026-03-22T05:06:08.070Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T05:06:08.070Z]   AI LINK: https://www.linkedin.com/company/n-alpha/
+[2026-03-22T05:06:08.070Z] AI returned 1 valid links
+[2026-03-22T05:06:08.070Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T05:06:08.071Z]   AI→REGEX: li <- https://www.linkedin.com/company/n-alpha/ (duplicate, skipped)
+[2026-03-22T05:06:08.071Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T05:06:08.071Z] Footer/header origins (4):
+[2026-03-22T05:06:08.071Z]   FOOTER/HEADER ORIGIN: https://n-alpha.com
+[2026-03-22T05:06:08.071Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T05:06:08.072Z]   FOOTER/HEADER ORIGIN: https://policies.google.com
+[2026-03-22T05:06:08.072Z]   FOOTER/HEADER ORIGIN: https://materialx.io
+[2026-03-22T05:06:08.072Z]   ADDED: urls <- https://materialx.io
+[2026-03-22T05:06:08.072Z]   ADDED: urls <- https://policies.google.com/privacy
+[2026-03-22T05:06:08.073Z]   ADDED: urls <- https://policies.google.com/terms
+[2026-03-22T05:06:08.073Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-22T05:06:08.073Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T05:06:08.073Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T05:06:08.073Z] ── Step 3: Final dedup ──
+[2026-03-22T05:06:08.073Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T05:06:08.073Z] ── FINAL RESULT ──
+[2026-03-22T05:06:08.074Z]   ws (1):
+[2026-03-22T05:06:08.074Z]     - https://n-alpha.com
+[2026-03-22T05:06:08.074Z]   li (1):
+[2026-03-22T05:06:08.074Z]     - https://www.linkedin.com/company/n-alpha
+[2026-03-22T05:06:08.074Z]   urls (3):
+[2026-03-22T05:06:08.074Z]     - https://materialx.io
+[2026-03-22T05:06:08.074Z]     - https://policies.google.com/privacy
+[2026-03-22T05:06:08.074Z]     - https://policies.google.com/terms
+[2026-03-22T05:06:08.075Z] Summary: ws:1, li:1, urls:3
+[2026-03-22T05:06:08.076Z] Saved final result to result.json
+[2026-03-22T05:06:08.076Z] Override fields: ws, li, urls
+[2026-03-22T05:06:08.076Z] Finished at: 2026-03-22T05:06:08.076Z

@@ -1,0 +1,85 @@
+[2026-03-22T04:56:20.291Z] === Homepage AI Extractor: RightBound ===
+[2026-03-22T04:56:20.291Z] Started at: 2026-03-22T04:56:20.291Z
+[2026-03-22T04:56:20.291Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774155380291_RightBound
+[2026-03-22T04:56:20.292Z] Company: RightBound
+[2026-03-22T04:56:20.292Z] Website: rightbound.com
+[2026-03-22T04:56:20.292Z] cbRank: 102261
+[2026-03-22T04:56:20.292Z] Reasons: f, i
+[2026-03-22T04:56:20.292Z] Fetching: https://rightbound.com
+[2026-03-22T04:56:23.806Z] Redirected: https://rightbound.com -> https://rightbound.com/
+[2026-03-22T04:56:23.811Z] Saved HTML (114188 bytes) to page.html
+[2026-03-22T04:56:23.822Z] Extracted 17 unique links from page
+[2026-03-22T04:56:23.823Z] Saved 17 links to links.json
+[2026-03-22T04:56:23.826Z] Extracted footer HTML (4073 chars)
+[2026-03-22T04:56:23.826Z] Extracted header HTML (2326 chars)
+[2026-03-22T04:56:23.831Z] Website (post-redirect): https://rightbound.com/ → origin: https://rightbound.com
+[2026-03-22T04:56:23.831Z] External links: 6 (of 17 total)
+[2026-03-22T04:56:23.831Z] ── All external links ──
+[2026-03-22T04:56:23.831Z]   EXT: https://forms.gle/BpRhuwFyHEJXAoE6A
+[2026-03-22T04:56:23.831Z]   EXT: https://twitter.com/rightbound_io
+[2026-03-22T04:56:23.831Z]   EXT: https://vimeo.com/rightbound
+[2026-03-22T04:56:23.831Z]   EXT: https://www.gong.io/blog/gong-acquires-rightbound-to-add-account-and-contact-data
+[2026-03-22T04:56:23.831Z]   EXT: https://www.linkedin.com/company/rightbound
+[2026-03-22T04:56:23.831Z]   EXT: https://www.youtube.com/channel/UCsMoqcnmp4Ap1NhxHEffhDQ
+[2026-03-22T04:56:23.831Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:56:23.832Z]   UNCATEGORIZED: https://forms.gle/BpRhuwFyHEJXAoE6A
+[2026-03-22T04:56:23.832Z]   REGEX: tw <- https://twitter.com/rightbound_io
+[2026-03-22T04:56:23.832Z]   UNCATEGORIZED: https://vimeo.com/rightbound
+[2026-03-22T04:56:23.832Z]   UNCATEGORIZED: https://www.gong.io/blog/gong-acquires-rightbound-to-add-account-and-contact-data
+[2026-03-22T04:56:23.832Z]   REGEX: li <- https://www.linkedin.com/company/rightbound
+[2026-03-22T04:56:23.832Z]   REGEX: ytc <- https://www.youtube.com/channel/UCsMoqcnmp4Ap1NhxHEffhDQ
+[2026-03-22T04:56:23.832Z] Programmatic result: ws:1, tw:1, li:1, ytc:1 | 3 uncategorized
+[2026-03-22T04:56:23.832Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:56:23.836Z] Saved AI prompt (4501 chars) to ai_prompt.txt
+[2026-03-22T04:56:23.836Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:56:23.840Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:56:40.298Z]   AI: First token received, streaming...
+[2026-03-22T04:56:50.499Z] AI response complete: 163 chars in 26.7s
+[2026-03-22T04:56:50.500Z] Saved AI response to ai_response.json
+[2026-03-22T04:56:50.501Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T04:56:50.501Z]   AI LINK: https://www.linkedin.com/company/rightbound
+[2026-03-22T04:56:50.501Z]   AI LINK: https://twitter.com/rightbound_io
+[2026-03-22T04:56:50.501Z]   AI LINK: https://vimeo.com/rightbound
+[2026-03-22T04:56:50.501Z]   AI LINK: https://www.youtube.com/channel/UCsMoqcnmp4Ap1NhxHEffhDQ
+[2026-03-22T04:56:50.501Z] AI returned 4 valid links
+[2026-03-22T04:56:50.502Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T04:56:50.502Z]   AI→REGEX: li <- https://www.linkedin.com/company/rightbound (duplicate, skipped)
+[2026-03-22T04:56:50.503Z]   AI→REGEX: tw <- https://twitter.com/rightbound_io (duplicate, skipped)
+[2026-03-22T04:56:50.503Z]   AI→URLS: https://vimeo.com/rightbound
+[2026-03-22T04:56:50.503Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCsMoqcnmp4Ap1NhxHEffhDQ (duplicate, skipped)
+[2026-03-22T04:56:50.503Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:56:50.504Z] Footer/header origins (6):
+[2026-03-22T04:56:50.504Z]   FOOTER/HEADER ORIGIN: https://rightbound.com
+[2026-03-22T04:56:50.504Z]   FOOTER/HEADER ORIGIN: https://forms.gle
+[2026-03-22T04:56:50.504Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:56:50.504Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T04:56:50.504Z]   FOOTER/HEADER ORIGIN: https://vimeo.com
+[2026-03-22T04:56:50.504Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T04:56:50.504Z]   ADDED: urls <- https://forms.gle/BpRhuwFyHEJXAoE6A
+[2026-03-22T04:56:50.505Z]   SKIP (AI claimed): https://vimeo.com/rightbound
+[2026-03-22T04:56:50.505Z]   SKIP (not in footer/header): https://www.gong.io/blog/gong-acquires-rightbound-to-add-account-and-contact-data
+[2026-03-22T04:56:50.505Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T04:56:50.505Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:56:50.505Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T04:56:50.751Z]   YOUTUBE: resolved UCsMoqcnmp4Ap1NhxHEffhDQ → @rightbound2378
+[2026-03-22T04:56:50.751Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T04:56:50.751Z] ── Step 3: Final dedup ──
+[2026-03-22T04:56:50.751Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T04:56:50.752Z] ── FINAL RESULT ──
+[2026-03-22T04:56:50.752Z]   ws (1):
+[2026-03-22T04:56:50.752Z]     - https://rightbound.com
+[2026-03-22T04:56:50.752Z]   li (1):
+[2026-03-22T04:56:50.752Z]     - https://www.linkedin.com/company/rightbound
+[2026-03-22T04:56:50.752Z]   tw (1):
+[2026-03-22T04:56:50.752Z]     - https://x.com/rightbound_io
+[2026-03-22T04:56:50.752Z]   ytp (1):
+[2026-03-22T04:56:50.752Z]     - https://www.youtube.com/@rightbound2378
+[2026-03-22T04:56:50.752Z]   ytc (1):
+[2026-03-22T04:56:50.752Z]     - https://www.youtube.com/channel/UCsMoqcnmp4Ap1NhxHEffhDQ
+[2026-03-22T04:56:50.752Z]   urls (2):
+[2026-03-22T04:56:50.752Z]     - https://forms.gle/BpRhuwFyHEJXAoE6A
+[2026-03-22T04:56:50.752Z]     - https://vimeo.com/rightbound
+[2026-03-22T04:56:50.752Z] Summary: ws:1, tw:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-22T04:56:50.753Z] Saved final result to result.json
+[2026-03-22T04:56:50.753Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-22T04:56:50.753Z] Finished at: 2026-03-22T04:56:50.753Z

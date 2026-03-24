@@ -1,0 +1,58 @@
+[2026-03-22T00:43:33.023Z] === Homepage AI Extractor: Beable ===
+[2026-03-22T00:43:33.023Z] Started at: 2026-03-22T00:43:33.023Z
+[2026-03-22T00:43:33.023Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774140213022_Beable
+[2026-03-22T00:43:33.023Z] Company: Beable
+[2026-03-22T00:43:33.023Z] Website: beable.com
+[2026-03-22T00:43:33.023Z] cbRank: 16283
+[2026-03-22T00:43:33.023Z] Reasons: f
+[2026-03-22T00:43:33.023Z] Fetching: https://beable.com
+[2026-03-22T00:43:35.967Z] Redirected: https://beable.com -> https://beable.com/
+[2026-03-22T00:43:35.970Z] Saved HTML (63835 bytes) to page.html
+[2026-03-22T00:43:35.973Z] Extracted 30 unique links from page
+[2026-03-22T00:43:35.974Z] Saved 30 links to links.json
+[2026-03-22T00:43:35.976Z] Extracted footer HTML (1835 chars)
+[2026-03-22T00:43:35.976Z] Extracted header HTML (5420 chars)
+[2026-03-22T00:43:35.980Z] Website (post-redirect): https://beable.com/ → origin: https://beable.com
+[2026-03-22T00:43:35.980Z]   SUBDOMAIN: login.beable.com (added to ws)
+[2026-03-22T00:43:35.980Z] Website subdomains found: 1
+[2026-03-22T00:43:35.981Z] External links: 2 (of 30 total)
+[2026-03-22T00:43:35.981Z] ── All external links ──
+[2026-03-22T00:43:35.981Z]   EXT: https://www.linkedin.com/company/beableeducation
+[2026-03-22T00:43:35.981Z]   EXT: https://www.youtube.com/watch?v=Ljv9TGb5FC8
+[2026-03-22T00:43:35.981Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:43:35.981Z]   REGEX: li <- https://www.linkedin.com/company/beableeducation
+[2026-03-22T00:43:35.981Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-22T00:43:35.981Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=Ljv9TGb5FC8
+[2026-03-22T00:43:35.981Z] Programmatic result: ws:2, li:1 | 0 uncategorized
+[2026-03-22T00:43:35.981Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:43:35.985Z] Saved AI prompt (3010 chars) to ai_prompt.txt
+[2026-03-22T00:43:35.985Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:43:35.989Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:43:46.538Z]   AI: First token received, streaming...
+[2026-03-22T00:43:47.929Z] AI response complete: 49 chars in 11.9s
+[2026-03-22T00:43:47.931Z] Saved AI response to ai_response.json
+[2026-03-22T00:43:47.931Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T00:43:47.931Z]   AI LINK: https://www.linkedin.com/company/beableeducation/
+[2026-03-22T00:43:47.931Z] AI returned 1 valid links
+[2026-03-22T00:43:47.932Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T00:43:47.932Z]   AI→REGEX: li <- https://www.linkedin.com/company/beableeducation/ (duplicate, skipped)
+[2026-03-22T00:43:47.932Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:43:47.932Z] Footer/header origins (3):
+[2026-03-22T00:43:47.932Z]   FOOTER/HEADER ORIGIN: https://beable.com
+[2026-03-22T00:43:47.933Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:43:47.933Z]   FOOTER/HEADER ORIGIN: https://login.beable.com
+[2026-03-22T00:43:47.933Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:43:47.933Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:43:47.933Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:43:47.933Z] ── Step 3: Final dedup ──
+[2026-03-22T00:43:47.933Z] No urls to dedup
+[2026-03-22T00:43:47.933Z] ── FINAL RESULT ──
+[2026-03-22T00:43:47.934Z]   ws (2):
+[2026-03-22T00:43:47.934Z]     - https://beable.com
+[2026-03-22T00:43:47.934Z]     - https://login.beable.com
+[2026-03-22T00:43:47.934Z]   li (1):
+[2026-03-22T00:43:47.934Z]     - https://www.linkedin.com/company/beableeducation
+[2026-03-22T00:43:47.934Z] Summary: ws:2, li:1
+[2026-03-22T00:43:47.935Z] Saved final result to result.json
+[2026-03-22T00:43:47.935Z] Override fields: ws, li
+[2026-03-22T00:43:47.936Z] Finished at: 2026-03-22T00:43:47.936Z

@@ -1,0 +1,83 @@
+[2026-03-22T00:46:21.047Z] === Homepage AI Extractor: Addionics ===
+[2026-03-22T00:46:21.047Z] Started at: 2026-03-22T00:46:21.047Z
+[2026-03-22T00:46:21.047Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774140381046_Addionics
+[2026-03-22T00:46:21.047Z] Company: Addionics
+[2026-03-22T00:46:21.047Z] Website: addionics.com
+[2026-03-22T00:46:21.048Z] cbRank: 16621
+[2026-03-22T00:46:21.048Z] Reasons: f, i
+[2026-03-22T00:46:21.048Z] Fetching: https://addionics.com
+[2026-03-22T00:46:23.946Z] Redirected: https://addionics.com -> https://addionics.com/
+[2026-03-22T00:46:23.953Z] Saved HTML (239208 bytes) to page.html
+[2026-03-22T00:46:23.957Z] Extracted 42 unique links from page
+[2026-03-22T00:46:23.957Z] Saved 42 links to links.json
+[2026-03-22T00:46:23.960Z] Extracted footer HTML (19470 chars)
+[2026-03-22T00:46:23.960Z] Extracted header HTML (7939 chars)
+[2026-03-22T00:46:23.963Z] Website (post-redirect): https://addionics.com/ → origin: https://addionics.com
+[2026-03-22T00:46:23.964Z]   SUBDOMAIN: lp.addionics.com (added to ws)
+[2026-03-22T00:46:23.964Z] Website subdomains found: 1
+[2026-03-22T00:46:23.964Z] External links: 7 (of 42 total)
+[2026-03-22T00:46:23.964Z] ── All external links ──
+[2026-03-22T00:46:23.964Z]   EXT: https://techcrunch.com
+[2026-03-22T00:46:23.964Z]   EXT: https://venturebeat.com
+[2026-03-22T00:46:23.964Z]   EXT: https://www.economist.com
+[2026-03-22T00:46:23.964Z]   EXT: https://www.fine-line.co
+[2026-03-22T00:46:23.964Z]   EXT: https://www.linkedin.com/company/addionics/mycompany
+[2026-03-22T00:46:23.964Z]   EXT: https://www.reuters.com
+[2026-03-22T00:46:23.964Z]   EXT: https://www.youtube.com/channel/UCl_GTwe86WDtYUqQiIgr-Lg
+[2026-03-22T00:46:23.964Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:46:23.964Z]   UNCATEGORIZED: https://techcrunch.com
+[2026-03-22T00:46:23.965Z]   UNCATEGORIZED: https://venturebeat.com
+[2026-03-22T00:46:23.965Z]   UNCATEGORIZED: https://www.economist.com
+[2026-03-22T00:46:23.965Z]   UNCATEGORIZED: https://www.fine-line.co
+[2026-03-22T00:46:23.965Z]   REGEX: li <- https://www.linkedin.com/company/addionics/mycompany
+[2026-03-22T00:46:23.965Z]   UNCATEGORIZED: https://www.reuters.com
+[2026-03-22T00:46:23.965Z]   REGEX: ytc <- https://www.youtube.com/channel/UCl_GTwe86WDtYUqQiIgr-Lg
+[2026-03-22T00:46:23.965Z] Programmatic result: ws:2, li:1, ytc:1 | 5 uncategorized
+[2026-03-22T00:46:23.965Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:46:23.966Z] Saved AI prompt (11968 chars) to ai_prompt.txt
+[2026-03-22T00:46:23.966Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:46:23.971Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:47:17.378Z]   AI: First token received, streaming...
+[2026-03-22T00:47:24.577Z] AI response complete: 110 chars in 60.6s
+[2026-03-22T00:47:24.578Z] Saved AI response to ai_response.json
+[2026-03-22T00:47:24.578Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T00:47:24.579Z]   AI LINK: https://www.linkedin.com/company/addionics/mycompany/
+[2026-03-22T00:47:24.579Z]   AI LINK: https://www.youtube.com/channel/UCl_GTwe86WDtYUqQiIgr-Lg
+[2026-03-22T00:47:24.579Z] AI returned 2 valid links
+[2026-03-22T00:47:24.579Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T00:47:24.579Z]   AI→REGEX: li <- https://www.linkedin.com/company/addionics/mycompany/ (duplicate, skipped)
+[2026-03-22T00:47:24.579Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCl_GTwe86WDtYUqQiIgr-Lg (duplicate, skipped)
+[2026-03-22T00:47:24.580Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:47:24.580Z] Footer/header origins (4):
+[2026-03-22T00:47:24.580Z]   FOOTER/HEADER ORIGIN: https://addionics.com
+[2026-03-22T00:47:24.581Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:47:24.581Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:47:24.581Z]   FOOTER/HEADER ORIGIN: https://www.fine-line.co
+[2026-03-22T00:47:24.581Z]   SKIP (not in footer/header): https://techcrunch.com
+[2026-03-22T00:47:24.581Z]   SKIP (not in footer/header): https://venturebeat.com
+[2026-03-22T00:47:24.581Z]   SKIP (not in footer/header): https://www.economist.com
+[2026-03-22T00:47:24.581Z]   ADDED: urls <- https://www.fine-line.co
+[2026-03-22T00:47:24.581Z]   SKIP (not in footer/header): https://www.reuters.com
+[2026-03-22T00:47:24.582Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T00:47:24.582Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:47:24.582Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T00:47:25.052Z]   YOUTUBE: resolved UCl_GTwe86WDtYUqQiIgr-Lg → @addionics5387
+[2026-03-22T00:47:25.052Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T00:47:25.052Z] ── Step 3: Final dedup ──
+[2026-03-22T00:47:25.053Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T00:47:25.053Z] ── FINAL RESULT ──
+[2026-03-22T00:47:25.053Z]   ws (2):
+[2026-03-22T00:47:25.053Z]     - https://addionics.com
+[2026-03-22T00:47:25.053Z]     - https://lp.addionics.com
+[2026-03-22T00:47:25.053Z]   li (1):
+[2026-03-22T00:47:25.053Z]     - https://www.linkedin.com/company/addionics
+[2026-03-22T00:47:25.053Z]   ytp (1):
+[2026-03-22T00:47:25.053Z]     - https://www.youtube.com/@addionics5387
+[2026-03-22T00:47:25.053Z]   ytc (1):
+[2026-03-22T00:47:25.053Z]     - https://www.youtube.com/channel/UCl_GTwe86WDtYUqQiIgr-Lg
+[2026-03-22T00:47:25.053Z]   urls (1):
+[2026-03-22T00:47:25.053Z]     - https://www.fine-line.co
+[2026-03-22T00:47:25.054Z] Summary: ws:2, li:1, ytc:1, urls:1, ytp:1
+[2026-03-22T00:47:25.054Z] Saved final result to result.json
+[2026-03-22T00:47:25.055Z] Override fields: ws, li, ytp, ytc, urls
+[2026-03-22T00:47:25.055Z] Finished at: 2026-03-22T00:47:25.055Z

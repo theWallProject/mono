@@ -1,0 +1,66 @@
+[2026-03-23T01:09:53.677Z] === Homepage AI Extractor: Javelin Medical ===
+[2026-03-23T01:09:53.677Z] Started at: 2026-03-23T01:09:53.677Z
+[2026-03-23T01:09:53.677Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774228193676_Javelin_Medical
+[2026-03-23T01:09:53.677Z] Company: Javelin Medical
+[2026-03-23T01:09:53.677Z] Website: javelinmed.com
+[2026-03-23T01:09:53.677Z] cbRank: 483314
+[2026-03-23T01:09:53.677Z] Reasons: f
+[2026-03-23T01:09:53.677Z] Fetching: https://javelinmed.com
+[2026-03-23T01:10:04.303Z] Network idle timeout — continuing with current state
+[2026-03-23T01:10:04.334Z] Redirected: https://javelinmed.com -> https://www.javelinmed.com/
+[2026-03-23T01:10:04.348Z] Saved HTML (630693 bytes) to page.html
+[2026-03-23T01:10:04.352Z] Extracted 13 unique links from page
+[2026-03-23T01:10:04.352Z] Saved 13 links to links.json
+[2026-03-23T01:10:04.354Z] Extracted footer HTML (6999 chars)
+[2026-03-23T01:10:04.354Z] Extracted header HTML (2607 chars)
+[2026-03-23T01:10:04.358Z] Website (post-redirect): https://www.javelinmed.com/ → origin: https://www.javelinmed.com
+[2026-03-23T01:10:04.358Z] External links: 2 (of 13 total)
+[2026-03-23T01:10:04.358Z] ── All external links ──
+[2026-03-23T01:10:04.359Z]   EXT: https://app.prighter.com/portal/18624155420
+[2026-03-23T01:10:04.359Z]   EXT: https://www.linkedin.com/company/javelin-medical
+[2026-03-23T01:10:04.359Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T01:10:04.360Z]   UNCATEGORIZED: https://app.prighter.com/portal/18624155420
+[2026-03-23T01:10:04.360Z]   REGEX: li <- https://www.linkedin.com/company/javelin-medical
+[2026-03-23T01:10:04.360Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-23T01:10:04.360Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T01:10:04.363Z] Saved AI prompt (5791 chars) to ai_prompt.txt
+[2026-03-23T01:10:04.363Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T01:10:04.367Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T01:10:33.869Z]   AI: First token received, streaming...
+[2026-03-23T01:10:45.410Z] AI response complete: 162 chars in 41.0s
+[2026-03-23T01:10:45.411Z] Saved AI response to ai_response.json
+[2026-03-23T01:10:45.411Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T01:10:45.412Z]   AI LINK: https://www.javelinmed.com
+[2026-03-23T01:10:45.412Z]   AI LINK: https://www.linkedin.com/company/javelin-medical/
+[2026-03-23T01:10:45.412Z]   AI LINK: https://app.prighter.com/portal/18624155420
+[2026-03-23T01:10:45.412Z]   AI LINK: https://www.javelinmed.com/privacy-policy
+[2026-03-23T01:10:45.412Z] AI returned 4 valid links
+[2026-03-23T01:10:45.412Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T01:10:45.414Z]   AI→URLS: https://www.javelinmed.com
+[2026-03-23T01:10:45.414Z]   AI→REGEX: li <- https://www.linkedin.com/company/javelin-medical/ (duplicate, skipped)
+[2026-03-23T01:10:45.414Z]   AI→URLS: https://app.prighter.com/portal/18624155420
+[2026-03-23T01:10:45.415Z]   AI→URLS: https://www.javelinmed.com/privacy-policy
+[2026-03-23T01:10:45.415Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T01:10:45.415Z] Footer/header origins (3):
+[2026-03-23T01:10:45.415Z]   FOOTER/HEADER ORIGIN: https://www.javelinmed.com
+[2026-03-23T01:10:45.415Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T01:10:45.415Z]   FOOTER/HEADER ORIGIN: https://app.prighter.com
+[2026-03-23T01:10:45.415Z]   SKIP (AI claimed): https://app.prighter.com/portal/18624155420
+[2026-03-23T01:10:45.416Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T01:10:45.416Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T01:10:45.416Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T01:10:45.416Z] ── Step 3: Final dedup ──
+[2026-03-23T01:10:45.416Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-23T01:10:45.416Z] ── FINAL RESULT ──
+[2026-03-23T01:10:45.416Z]   ws (1):
+[2026-03-23T01:10:45.417Z]     - https://www.javelinmed.com
+[2026-03-23T01:10:45.417Z]   li (1):
+[2026-03-23T01:10:45.417Z]     - https://www.linkedin.com/company/javelin-medical
+[2026-03-23T01:10:45.417Z]   urls (3):
+[2026-03-23T01:10:45.417Z]     - https://app.prighter.com/portal/18624155420
+[2026-03-23T01:10:45.418Z]     - https://www.javelinmed.com
+[2026-03-23T01:10:45.418Z]     - https://www.javelinmed.com/privacy-policy
+[2026-03-23T01:10:45.418Z] Summary: ws:1, li:1, urls:3
+[2026-03-23T01:10:45.419Z] Saved final result to result.json
+[2026-03-23T01:10:45.419Z] Override fields: ws, li, urls
+[2026-03-23T01:10:45.420Z] Finished at: 2026-03-23T01:10:45.420Z

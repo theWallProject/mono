@@ -1,0 +1,86 @@
+[2026-03-22T06:00:51.024Z] === Homepage AI Extractor: CloudShare ===
+[2026-03-22T06:00:51.024Z] Started at: 2026-03-22T06:00:51.024Z
+[2026-03-22T06:00:51.024Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774159251024_CloudShare
+[2026-03-22T06:00:51.024Z] Company: CloudShare
+[2026-03-22T06:00:51.024Z] Website: cloudshare.com
+[2026-03-22T06:00:51.024Z] cbRank: 175362
+[2026-03-22T06:00:51.024Z] Reasons: f, i
+[2026-03-22T06:00:51.025Z] Fetching: https://cloudshare.com
+[2026-03-22T06:00:54.538Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T06:01:02.525Z] Redirected: https://cloudshare.com -> https://www.cloudshare.com/
+[2026-03-22T06:01:02.678Z] Saved HTML (6598822 bytes) to page.html
+[2026-03-22T06:01:02.682Z] Extracted 45 unique links from page
+[2026-03-22T06:01:02.682Z] Saved 45 links to links.json
+[2026-03-22T06:01:02.684Z] Extracted footer HTML (11654 chars)
+[2026-03-22T06:01:02.684Z] Extracted header HTML (8756 chars)
+[2026-03-22T06:01:02.689Z] Website (post-redirect): https://www.cloudshare.com/ → origin: https://www.cloudshare.com
+[2026-03-22T06:01:02.689Z]   SUBDOMAIN: use.cloudshare.com (added to ws)
+[2026-03-22T06:01:02.689Z] Website subdomains found: 1
+[2026-03-22T06:01:02.689Z] External links: 5 (of 45 total)
+[2026-03-22T06:01:02.690Z] ── All external links ──
+[2026-03-22T06:01:02.690Z]   EXT: https://twitter.com/CloudShare
+[2026-03-22T06:01:02.690Z]   EXT: https://www.facebook.com/CloudShare
+[2026-03-22T06:01:02.690Z]   EXT: https://www.instagram.com/cloudshare_labs
+[2026-03-22T06:01:02.690Z]   EXT: https://www.linkedin.com/company/cloudshare
+[2026-03-22T06:01:02.690Z]   EXT: https://www.youtube.com/user/cloudsharecom
+[2026-03-22T06:01:02.690Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:01:02.690Z]   REGEX: tw <- https://twitter.com/CloudShare
+[2026-03-22T06:01:02.690Z]   REGEX: fb <- https://www.facebook.com/CloudShare
+[2026-03-22T06:01:02.691Z]   REGEX: ig <- https://www.instagram.com/cloudshare_labs
+[2026-03-22T06:01:02.691Z]   REGEX: li <- https://www.linkedin.com/company/cloudshare
+[2026-03-22T06:01:02.691Z]   REGEX: ytp <- https://www.youtube.com/user/cloudsharecom
+[2026-03-22T06:01:02.691Z] Programmatic result: ws:2, tw:1, fb:1, ig:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-22T06:01:02.691Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:01:02.695Z] Saved AI prompt (7216 chars) to ai_prompt.txt
+[2026-03-22T06:01:02.695Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:01:02.699Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:01:31.336Z]   AI: First token received, streaming...
+[2026-03-22T06:01:41.060Z]   AI streaming: 200 chars received (38.4s elapsed)
+[2026-03-22T06:01:41.062Z] AI response complete: 200 chars in 38.4s
+[2026-03-22T06:01:41.064Z] Saved AI response to ai_response.json
+[2026-03-22T06:01:41.064Z] ── Parsing AI response (5 lines) ──
+[2026-03-22T06:01:41.064Z]   AI LINK: https://www.linkedin.com/company/cloudshare/
+[2026-03-22T06:01:41.064Z]   AI LINK: https://www.facebook.com/CloudShare/
+[2026-03-22T06:01:41.064Z]   AI LINK: https://www.instagram.com/cloudshare_labs/
+[2026-03-22T06:01:41.065Z]   AI LINK: https://www.youtube.com/user/cloudsharecom/
+[2026-03-22T06:01:41.065Z]   AI LINK: https://twitter.com/CloudShare/
+[2026-03-22T06:01:41.065Z] AI returned 5 valid links
+[2026-03-22T06:01:41.065Z] ── Categorizing 5 AI-returned links ──
+[2026-03-22T06:01:41.065Z]   AI→REGEX: li <- https://www.linkedin.com/company/cloudshare/ (duplicate, skipped)
+[2026-03-22T06:01:41.066Z]   AI→REGEX: fb <- https://www.facebook.com/CloudShare/ (duplicate, skipped)
+[2026-03-22T06:01:41.066Z]   AI→REGEX: ig <- https://www.instagram.com/cloudshare_labs/ (duplicate, skipped)
+[2026-03-22T06:01:41.066Z]   AI→REGEX: ytp <- https://www.youtube.com/user/cloudsharecom/ (duplicate, skipped)
+[2026-03-22T06:01:41.067Z]   AI→REGEX: tw <- https://twitter.com/CloudShare/ (duplicate, skipped)
+[2026-03-22T06:01:41.068Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:01:41.068Z] Footer/header origins (8):
+[2026-03-22T06:01:41.068Z]   FOOTER/HEADER ORIGIN: https://www.cloudshare.com
+[2026-03-22T06:01:41.068Z]   FOOTER/HEADER ORIGIN: https://cloudshare.com
+[2026-03-22T06:01:41.068Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T06:01:41.069Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T06:01:41.069Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T06:01:41.069Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T06:01:41.069Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T06:01:41.069Z]   FOOTER/HEADER ORIGIN: https://use.cloudshare.com
+[2026-03-22T06:01:41.069Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:01:41.069Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:01:41.070Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T06:01:41.070Z] ── Step 3: Final dedup ──
+[2026-03-22T06:01:41.070Z] No urls to dedup
+[2026-03-22T06:01:41.070Z] ── FINAL RESULT ──
+[2026-03-22T06:01:41.070Z]   ws (2):
+[2026-03-22T06:01:41.071Z]     - https://use.cloudshare.com
+[2026-03-22T06:01:41.071Z]     - https://www.cloudshare.com
+[2026-03-22T06:01:41.071Z]   li (1):
+[2026-03-22T06:01:41.071Z]     - https://www.linkedin.com/company/cloudshare
+[2026-03-22T06:01:41.071Z]   fb (1):
+[2026-03-22T06:01:41.072Z]     - https://www.facebook.com/cloudshare
+[2026-03-22T06:01:41.072Z]   tw (1):
+[2026-03-22T06:01:41.072Z]     - https://x.com/cloudshare
+[2026-03-22T06:01:41.072Z]   ig (1):
+[2026-03-22T06:01:41.072Z]     - https://www.instagram.com/cloudshare_labs
+[2026-03-22T06:01:41.073Z]   ytp (1):
+[2026-03-22T06:01:41.073Z]     - https://www.youtube.com/@cloudsharecom
+[2026-03-22T06:01:41.073Z] Summary: ws:2, tw:1, fb:1, ig:1, li:1, ytp:1
+[2026-03-22T06:01:41.074Z] Saved final result to result.json
+[2026-03-22T06:01:41.074Z] Override fields: ws, li, fb, tw, ig, ytp
+[2026-03-22T06:01:41.074Z] Finished at: 2026-03-22T06:01:41.074Z

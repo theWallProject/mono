@@ -1,0 +1,921 @@
+<!DOCTYPE html><html lang="pt-BR" strict-transport-security:="" max-age="63072000;" includesubdomains;="" preload=""><head><style type="text/css">.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}</style>
+
+  <!-- Google Tag Manager -->
+  <!-- <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=u3BzZN0DL6DgMYZqnNrbCWgV2o8ktfmGerKJBj4Z4zD_YTEHj5v_ZXZwBLvTdUyGAIQXdESWVDc7ulM8H9xngVr91wRS1DkQ2kA45dPHoPRdp29QPZUIufV_OjDZl3Pr-use8EHanGMveXEw5hS5VYHe4Paee2s9K3nrg37fU5xiV3beJoxADD5bPObWAFw48OMweaevFBtyCeZ0az4ow-TvdkCJFRh3V3E97it8si0sEJ8FACgJYJv79Tou-xcHjOq3S8F6YSSVDfQ5qRv7IsCGqKUXHocjm1AGeS9x96yyIB6yiR5x1WREWl2nLfg_DwlL77MoXtan1OW8mvrejubhc-b4OmV6eksmtEKQnSX4t2dVRAVl-44HtbHzoAC7bJdXWQhVmssEIApVqrYebHsztTegXsCr4BUFUj3Z88QsP1re9R3cuEOpaYOm_DK_30SaSR_4iVZRES7PFMqtT42SiINeyi2w2kwAl-f1bzI4KT5H-66W_6Ni2Sujl4xagngnhuDzboZRcIvmxwQMNc6lucXgTxxpnUPlA4S9X6IUTZaAq1eIfpoXzol5F9UdoUXl8KwTJfqSb_lUfLszz2NTTVOHPx-uf0uAC9dQ557QvNd0SlPqE8PkiW1nnizFvH0W4Jcq-aD7NIf_1PvVNu4vUbnJZfiV-1HwdYFhMWOpWnmlH5QfqglRxdaBVMK4UJFtNVT24qLy4YWuXjueSk50iTsWidt9PAj0CDqG_seDuL7InfaS3_DFEcUUwNmXHufL1Z5qMzu6a_Y686PO-BatnI7PNdAI9C-htUiV5Xgh5qbqT_hkvgWEuC81_kMSd2HYGvxSnykfj9uref4kyjqYsjYBcIQqdlA89EecL5WxRXmvFNP_9Metsl5pR7Z7ma_2jEmxaNl8m3S9ua4aaWkC7QZ5pq7PL36NAEAFndWAeTbzmbD0Nslve5W-tPygWaBEHy7zGsPHfjMZrydwJVCVDVTimINkTEsqW9uf2z69YME4Te3bU3Of7oKq7rKHSPzKwBjv3hPcKNwvE_MhYFLCnh58baiNOO75-aPmYhjg6NYWQohicrXJQInb0bmkVfbh_HWADyN7f2uXqSN6bxHh7Q2-e6Hsy80ymEu_S9ehP24hVx-pUxDFDzwqh6lrHJYoWx4jb-gNNj9OTg3BSh6iA5IXwEw2VFlwYzy6dEaWgXYhsbaH4FIlYzY48CbpxbC60PvEkEsOfPVHVEcfE8t6-FUX9h-n2Wob_0e7a-UB3r1SHcOTLqa7DhT4c2CM70CD7LgokDDiLiUdgfzGaog9Wlxuk-DdCM--a3aXYZPNfKEnXO5v9RH7svRSo7VHpmOivhu3nh4kmZn00vzea0XVio9BotWI85rK-8MmkAsSCTydoZlxhsE8E7mGjiyoMKBxI8E4HqZ8HDY169wE47Jy42WSTccD6aZa-LskHXmg-it8e0We62HvOh-p2dNUWr0tWO0EYYDbfd_JNLf55Nlz6EZnXVvBUUS69jFEn6uqLwvAEmUS1vCsttKLPlvIzZNABgA2jImBFnLgc56uRkYm4FpgTCO0Mxh58plnGPcunRU7hG7y4nkTnHh85SzZaADIlWxscFifcmrYOEioE7YroTl875Eap5noqAJ4u1T0ua_XQzS_xu7_Fy1bHVJAXh9hLEoW25xW5vS9zcue4cNLwJbbqLZqCyQC3r6RekpmjQtII7gOJ7q05ptXccZDxlUEVQeDZj1l9X8Nitiuz7Mi1bVY6SYEshKSOnPouKlPkMfPLvNlQ6l-lfBESjBY60JTloV4BS86XoSEOcwX3YnhRM3NKmiEN_NIe-qSDbQdV4uZTBaKmddQWKPyEcR4tLxK2PtBVDU_A2DvAYmC3GynxT4e6z-L_IZ4ybU_NOcPY8XSvQ7ER2RJ8eb9urnY7MRBgI9bTHhzhrOZ8JteayMFJOwmv100aCIoD4bWtO7Twupc2NAhCLxvDrDyK40VU9mVJdRrAAiEOtc7kHHRLwqd4MzGgS_Sp08czwvoyfKUYM83bSaJ-o1kFzK6Pb5jCIssu4KItwtQliLF1ZbNFrUdHeEPiXa4Q1sNje4yrVkbcWoJ7VgMTWJJfNSqp4u4khK4HB6tnXGMOwA6L_Moqqo8G0F52vgwSu9IhEUR4416riwJuY77m4ihoh8xBgKqPb-uHV-QECjOGr9JXRMIR6rBtl5OwUyKfhq2GK9Yd4kA0xvgvb5IqAi6h3dmLYRZ7FA4UHlJko6SSVYkvMuSGDxDuGaPvTODp8CkTzLJxxNfhidqzT55OBniSHalWRqXnaWNkB__N-op2zUyVpPCbGcn0_5Oz2FvHj1jnTCtwQ0ba3sKmoEgFX5xN1cUMPdz9_AqLoBwPV1xv50ZL9X6mLtxdzExX2ElfjEtK-E1Gx5MFtnWjH_Tzh1pBfpld8SejJxvlqz001oET-5XrisguQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9tZWRpYS1jZG4uYXRsYXNzaWFuLmNvbS91cy1lYXN0LTEvdjEvY2RuL2ZpbGUvMWM4OTI4MDAtZDQ1MS00ODE5LTg3NjYtZmZiM2E2MjM1YmE2L2JpbmFyeT9kbD10cnVlJm1heC1hZ2U9MjU5MjAwMCZ0b2tlbj1leUpoYkdjaU9pSlNVekkxTmlJc0ltdHBaQ0k2SW1kbGJtVnlhV010YTJWNWNHRnBjaTlrZEMxaGNHa3RabWxzWlhOMGIzSmxMMk5rYmkxaGRYUm9MUzF5Y20xbk56VjBjMkpuY1hGamJHWnJJbjAuZXlKemRXSWlPaUpoTmpSa05qQTRaQzAzTWpBd0xUUXpPREl0T0Raak1TMHhORGsyTXpJMllqQmxZamtpTENKbGVIUkpaQ0k2SWpGak9Ea3lPREF3TFdRME5URXRORGd4T1MwNE56WTJMV1ptWWpOaE5qSXpOV0poTmlJc0ltbHVkRWxrSWpvaU1XTTRPVEk0TURBdFpEUTFNUzAwT0RFNUxUZzNOall0Wm1aaU0yRTJNak0xWW1FMklpd2lhWE52YkdGMFpXUWlPblJ5ZFdVc0luSmxjMjkxY21ObFZIbHdaU0k2TUN3aVptSWlPaUowWkhBdGIyNXNlU0lzSW1semN5STZJbWRsYm1WeWFXTXRhMlY1Y0dGcGNpOWtkQzFoY0drdFptbHNaWE4wYjNKbElpd2lZWFZrSWpvaWJXVmthV0VpTENKcFlYUWlPakUzTkRJMk16RTBOVFVzSW01aVppSTZNVGMwTWpZek1UUTFOU3dpWlhod0lqb3hOelF5TmpNeU16TTRMQ0pxZEdraU9pSXpNR1F3WVdWaVpETXhZbVUzTldZNE1qUTNaakExTldJeU5XUXdNMlE0TnpNek1HTm1ZekV4SW4wLkZRMnFUT3A3a0ZJOGxtU3N2empQdGIzWEZ3d3JMV01WMjdtWTZwN2dOcUlGb1NtU1FUajJTcVRTVk5xT2c2RHZOVW9PM04yTE9FRUJZQ2E4ZjNBemJidTJLbWNIVDd4TGhzVFBfang3bC1EN2xDS2pwdWVXMTRCNHRqQ0FsMG9FZklmY0R2bmQ5WTZQS1hoVU1UWmsyNGtaWi1IdUhQdm0wWXN6ejBVUTNyMnFudHNsX1BUcTAxLUFCeld4SnEtZElyVHVhRk5WeWdHNmJJMEtKWmphYm5FQkRqX2pyZ3pUN0I3dkN2ZDdILTE0UXZ6U3dOMG5Nalh5SU0xYlp0RGVYTFI5cm85eTA0aExoaDBfUzBORC1SMHdlbWQySEZYZjQzM2hUQ2o3RTM1X1ROanFwM29hTDBxWWNNbUlTMm5CU2RqMDlHLU0ybGRRSHl6REFGbGl3ZyZjbGllbnQ9YTY0ZDYwOGQtNzIwMC00MzgyLTg2YzEtMTQ5NjMyNmIwZWI5JmFjY2VwdD1pbWFnZSUyZndlYnAmUG9saWN5PWV5SlRkR0YwWlcxbGJuUWlPbHQ3SWxKbGMyOTFjbU5sSWpvaWFIUjBjSE02THk5dFpXUnBZUzFqWkc0dVlYUnNZWE56YVdGdUxtTnZiUzkxY3kxbFlYTjBMVEV2ZGpFdlkyUnVMMlpwYkdVdk1XTTRPVEk0TURBdFpEUTFNUzAwT0RFNUxUZzNOall0Wm1aaU0yRTJNak0xWW1FMkwySnBibUZ5ZVQ4cVkyeHBaVzUwUFdFMk5HUTJNRGhrTFRjeU1EQXRORE00TWkwNE5tTXhMVEUwT1RZek1qWmlNR1ZpT1NvaUxDSkRiMjVrYVhScGIyNGlPbnNpUkdGMFpVeGxjM05VYUdGdUlqcDdJa0ZYVXpwRmNHOWphRlJwYldVaU9qRTNOREkyTXpJek16aDlmWDFkZlFfXyZLZXktUGFpci1JZD1LM0NFUUJMVllKVzBGVCZTaWduYXR1cmU9QWtEdWo1My1sY1BwUGxhbkgxeHdIRXJMM1RyclBnSjRLZXRnQzVFT3JWR0RqaXI0OHFzLVJEMVg5TmJudHYyUVNXRlVBaWZ5eUN-eXJrQTBZZ1lZZm9jY35za09YTkoyak9DNEwxZ1UzcHhhVkNET1gyQWViTEZmLUI2MWRxcGpNeWZKUm1MTmRpTVhqalI1SVdLQXNlbVVtbERjeTZwcHpwVnhxUk9WQ01Xejd1bVhoRzZTZkcxeDc1bWZxMzdOb2FjMU5jcHlyNndRM1dmMjRDSjB6RkRQZ1NZYlZyWGdwQm9xeDUxVkxnRi1kamZydlhVczZIV0FuN2ZSTn5QaVN5QjhrYnNkLXhUUHdvc2VrOXFvNGFpTDZEcjR-Y2I3T0JjQ1ZHWmFVM2ZhZHBBay0yemFYdGltelNRbzl5S1daN0pJNXRCeU1QRVFPTEh5RmlqUXd3X18"/><script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MWJMJ38');</script> -->
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="pragma" content="no-cache">
+
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' 'unsafe-inline' 'unsafe-eval'
+      https://psicologiaviva.com.br
+      https://fonts.gstatic.com
+      https://cdn.jsdelivr.net/npm/
+      https://stackpath.bootstrapcdn.com/bootstrap/
+      https://selo.brazillab.org.br/startups/
+      https://secure.trust-provider.com/
+      https://www.trustlogo.com/
+      https://cdn.siteblindado.com/
+      https://ajax.googleapis.com/
+      https://www.google-analytics.com/j/*
+      script-src 'self' 'unsafe-inline'
+      https://www.googletagmanager.com
+      https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js
+      https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js
+      https://www.google-analytics.com/analytics.js
+      https://connect.facebook.net/en_US/fbevents.js
+      https://d335luupugsy2.cloudfront.net/js/
+      https://unpkg.com/blip-chat-widget
+      https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
+      https://secure.trust-provider.com/
+      https://www.trustlogo.com/
+      https://secure.comodo.com/
+      https://connect.facebook.net/
+      https://cdn.siteblindado.com/
+      https://d335luupugsy2.cloudfront.net/
+      https://ajax.googleapis.com/
+      https://www.psicologiaviva.com.br/assets/js/jquery/jquery.min.js
+      https://snap.licdn.com/li.lms-analytics/
+      https://www.googleadservices.com/pagead/conversion_async.js
+      https://cdn.taboola.com/libtrc/unip/1388340/tfa.js
+      https://googleads.g.doubleclick.net/pagead/https://gc.kis.v2.scr.kaspersky-labs.com wss://gc.kis.v2.scr.kaspersky-labs.com ;
+    frame-src https://gc.kis.v2.scr.kaspersky-labs.com wss://gc.kis.v2.scr.kaspersky-labs.com 'self'
+      https://chat.blip.ai/
+      https://bid.g.doubleclick.net/;
+    img-src https://gc.kis.v2.scr.kaspersky-labs.com wss://gc.kis.v2.scr.kaspersky-labs.com * 'self' blob: data:
+      https://www.googletagmanager.com
+      https://www.psicologiaviva.com.br/;
+    object-src 'none';
+    style-src-elem 'self' 'unsafe-inline'
+      https://maxcdn.bootstrapcdn.com/font-awesome/
+      https://stackpath.bootstrapcdn.com/
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/
+      https://snap.licdn.com/li.lms-analytics/
+      https://ajax.googleapis.com/ajax/libs/;
+    connect-src https://gc.kis.v2.scr.kaspersky-labs.com wss://gc.kis.v2.scr.kaspersky-labs.com 'self'
+      https://www.google-analytics.com/
+      https://stats.g.doubleclick.net/
+      https://pages.rdstation.com.br/
+      https://seal.siteblindado.com.br/
+      https://pageview-notify.rdstation.com.br/send
+      https://trc.taboola.com/1388340/log/3/
+      https://popups.rdstation.com.br;
+    font-src 'self' data:
+      https://www.psicologiaviva.com.br
+      https://maxcdn.bootstrapcdn.com/font-awesome/
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/
+      https://fonts.googleapis.com
+      https://fonts.gstatic.com
+      https://perfil.psicologiaviva.com.br/sitenovo/fonts/ style-src https://gc.kis.v2.scr.kaspersky-labs.com wss://gc.kis.v2.scr.kaspersky-labs.com 'self' 'unsafe-inline' 'unsafe-eval'
+      https://psicologiaviva.com.br
+      https://fonts.gstatic.com
+      https://cdn.jsdelivr.net/npm/
+      https://stackpath.bootstrapcdn.com/bootstrap/
+      https://selo.brazillab.org.br/startups/
+      https://secure.trust-provider.com/
+      https://www.trustlogo.com/
+      https://cdn.siteblindado.com/
+      https://ajax.googleapis.com/
+      https://www.google-analytics.com/j/*
+      script-src 'self' 'unsafe-inline'
+      https://www.googletagmanager.com
+      https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js
+      https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js
+      https://www.google-analytics.com/analytics.js
+      https://connect.facebook.net/en_US/fbevents.js
+      https://d335luupugsy2.cloudfront.net/js/
+      https://unpkg.com/blip-chat-widget
+      https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
+      https://secure.trust-provider.com/
+      https://www.trustlogo.com/
+      https://secure.comodo.com/
+      https://connect.facebook.net/
+      https://cdn.siteblindado.com/
+      https://d335luupugsy2.cloudfront.net/
+      https://ajax.googleapis.com/
+      https://www.psicologiaviva.com.br/assets/js/jquery/jquery.min.js
+      https://snap.licdn.com/li.lms-analytics/
+      https://www.googleadservices.com/pagead/conversion_async.js
+      https://cdn.taboola.com/libtrc/unip/1388340/tfa.js
+      https://googleads.g.doubleclick.net/pagead/;child-src https://gc.kis.v2.scr.kaspersky-labs.com wss://gc.kis.v2.scr.kaspersky-labs.com 'self' 'unsafe-inline' 'unsafe-eval'
+      https://psicologiaviva.com.br
+      https://fonts.gstatic.com
+      https://cdn.jsdelivr.net/npm/
+      https://stackpath.bootstrapcdn.com/bootstrap/
+      https://selo.brazillab.org.br/startups/
+      https://secure.trust-provider.com/
+      https://www.trustlogo.com/
+      https://cdn.siteblindado.com/
+      https://ajax.googleapis.com/
+      https://www.google-analytics.com/j/*
+      script-src 'self' 'unsafe-inline'
+      https://www.googletagmanager.com
+      https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js
+      https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js
+      https://www.google-analytics.com/analytics.js
+      https://connect.facebook.net/en_US/fbevents.js
+      https://d335luupugsy2.cloudfront.net/js/
+      https://unpkg.com/blip-chat-widget
+      https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
+      https://secure.trust-provider.com/
+      https://www.trustlogo.com/
+      https://secure.comodo.com/
+      https://connect.facebook.net/
+      https://cdn.siteblindado.com/
+      https://d335luupugsy2.cloudfront.net/
+      https://ajax.googleapis.com/
+      https://www.psicologiaviva.com.br/assets/js/jquery/jquery.min.js
+      https://snap.licdn.com/li.lms-analytics/
+      https://www.googleadservices.com/pagead/conversion_async.js
+      https://cdn.taboola.com/libtrc/unip/1388340/tfa.js
+      https://googleads.g.doubleclick.net/pagead/;">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Psicologia viva">
+  <meta name="description" content="A Psicologia Viva proporciona a oportunidade de pessoas consultarem com um psicólogo online por videoconferência de qualquer lugar do mundo.">
+  <meta name="sb.validation_hash" content="BLI-dLpsasBHRHZJkxryHrQNWyCFppRCRpisMnGGBmVmEDuUITiQYvvOTnZulgLolyvZvYZmLppWTTRVchAdipvgBGiUZEaTgVEF">
+  <meta name="theme-color" content="hsl(318, 100%, 90%)">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Psicologia Viva">
+  <meta property="og:url" content="https://www.psicologiaviva.com.br/">
+  <meta property="og:title" content="Consulte com um psicólogo online de qualquer lugar - Psicologia Viva">
+  <meta property="og:description" content="A Psicologia Viva proporciona a oportunidade de pessoas consultarem com um psicólogo online por videoconferência de qualquer lugar do mundo.">
+  <meta property="og:image" content="../assets/img/site/logosite.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@psicologia_viva">
+  <meta name="twitter:title" content="Consulte com um psicólogo online de qualquer lugar - Psicologia Viva">
+  <meta name="twitter:description" content="A Psicologia Viva proporciona a oportunidade de pessoas consultarem com um psicólogo online por videoconferência de qualquer lugar do mundo.">
+  <meta name="twitter:image" content="../assets/img/site/logosite.png">
+
+  <link rel="shortcut icon" href="https://corporate.psicologiaviva.com.br/wp-content/uploads/2022/09/cropped-favicon2.png" type="image/x-icon">
+  <link rel="canonical" href="https://www.psicologiaviva.com.br/">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" integrity="sha384-Nlo8b0yiGl7Dn+BgLn4mxhIIBU6We7aeeiulNCjHdUv/eKHx59s3anfSUjExbDxn" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/assets/css/custom.min.css?version=1.0.5">
+  <link rel="stylesheet" href="/assets/css/footer.min.css?version=1.0.1">
+
+  <link rel="stylesheet" href="/assets/css/home-lib.min.css" integrity="sha384-VZz84ZOQ/umYAilVrBDsA0hrPvobrwdihhhi3PRbvLXvy/2+V8Jm171xLVRvEgzj" crossorigin="anonymous">
+
+  <title>Consulte com um psicólogo online de qualquer lugar - Psicologia Viva</title>
+  <style>
+    /* Esconda o link com base no texto do atributo href */
+    a[href*="api.whatsapp.com"][href*="Olá,%20estou%20vindo%20do%20site,%20preciso%20de%20suporte."] {
+      position: absolute !important;
+      left: -9999px !important;
+    }
+
+    .whatsapp-widget {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 9999999;
+      background-color: #25D366;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-widget img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .whatsapp-widget:hover {
+      background-color: #128C7E;
+    }
+    #depoimentosPrincipaisEdit .row {
+    background: #EAEAEA;
+    height: 100%;
+}
+  </style>
+
+<style type="text/css" media="screen">#comodoTL {display:block;font-size:8px;padding-left:18px;}</style></head>
+
+<body>
+
+  <!-- <a href="https://api.whatsapp.com/send?phone=5521966964821" target="_blank" class="whatsapp-widget">
+    <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-4-1-140x140.png" alt="WhatsApp">
+  </a> -->
+
+  <a class="typeform-share link typeform-link" href="https://psicologiaviva.typeform.com/to/QXSCkf" data-mode="drawer_left" id="btnOpenModalQuest" data-hide-headers="true" data-hide-footer="true" data-submit-close-delay="2" target="_self">
+  </a>
+
+
+  <header id="headFix" class="header">
+    <div class="row">
+      <div class="col-md-2 mobile-grid-parent" id="navbarMobile">
+        <div class="logo">
+          <a class="ancora" href="https://www.psicologiaviva.com.br/" title="Logomarca">
+            <img src="../assets/img/logo/logo_conexa_psicologia_viva.png" alt="Logomarca" class="logo-pv"></a>
+        </div>
+        <div class="nav-mobile no-desktop"><i class="icon-menu"></i></div>
+      </div>
+      <div class="col-md-9">
+        <nav class="menu no-mobile animated">
+          <ul>
+            <li class="logo-close no-desktop">
+              <a class="logo-mobile" href="https://www.psicologiaviva.com.br/" title="Logo Marca">
+                <img src="../assets/img/logo/logo_conexa_psicologia_viva.png" alt="Logo Marca">
+              </a>
+              <i class="icon-cancel"></i>
+            </li>
+            <!-- <li>
+              <a class="ancora" href="https://consultorioonline.psicologiaviva.com.br/cadastro/paciente/planoDeSaude"
+                title="Plano de saude" target="_self">Plano de saúde</a>
+            </li> -->
+            <!-- <li>
+              <a class="ancora" href="https://www.psicologiaviva.com.br/psicologo/" title="Nossos Especialistas"
+                target="_self">Nossos Especialistas</a>
+            </li> -->
+            <!-- <li>
+              <a class="ancora" href="https://corporate.psicologiaviva.com.br/psicologo-pagina-de-cadastro-2023/"
+                title="Sou psicólogo" target="_self">Sou psicólogo</a>
+            </li> -->
+            <!-- <li>
+              <a href="https://corporate.psicologiaviva.com.br/" title="Empresarial" target="_self">Para sua Empresa</a>
+            </li>
+            <li>
+              <a href="https://corporate.psicologiaviva.com.br/etica/" title="Empresarial" target="_self">Ética</a>
+            </li> -->
+            <li>
+              <a href="https://blog.psicologiaviva.com.br/" title="Blog" target="_self">Blog</a>
+            </li>
+            <li>
+              <a class="ancora" href="https://paciente.conexasaude.com.br/cadastro/cpf" title="Criar Conta" onclick="dataLayer.push({'event': 'BTN_Home_Cadastrar'});" target="_self">Criar Conta</a>
+            </li>
+            <li>
+              <a class="login" onclick="dataLayer.push({'event': 'BTN_Home_Entrar'});" href="https://consultorioonline.psicologiaviva.com.br/login" title="Entrar" target="_self">Entrar</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="pg-home" class="pg-home">
+      <section class="home" id="home">
+        <div class="row" id="conteudoPrincipal">
+          <div class="col-xs-12 col-md-6" id="descricaoPrincipal">
+            <h1 class="cabecalhoPrincipal">Psicologia Viva agora é Conexa!</h1>
+            <div class="txt">
+              <p class=" text-dark" style="font-size: 2rem; font-family: Manrope, sans-serif;">Já é nosso cliente? Siga os comunicados que estão sendo enviados sobre a forma de acesso.</p>
+              <p class=" text-dark" style="font-size: 2rem; font-family: Manrope, sans-serif;">Não recebeu comunicados ainda? Continue acessando <a href="https://consultorioonline.psicologiaviva.com.br/">aqui</a>  e aguarde as novidades.</p>
+              
+           
+
+            </div>
+            <!-- <div class="home-login-panel p-4 text-center" id="botaoAgendamentoConsulta"
+              onclick="verificaAcessoMobile()">
+              <h4 class="text-white">Agende já sua consulta</h4>
+            </div> -->
+          </div>
+          <div class="col-md-6" id="ilustracaoPrincipal">
+            <figure>
+              <img src="/assets/img/site/ilustracao-principal.svg" alt="Ilustração de uma moça sentada pensando" title="Ilustração de uma moça sentada pensando">
+            </figure>
+          </div>
+        </div>
+      </section>
+      <!-- <section>
+        <div class="container-fluid sectionProfissionaisLicenciados">
+          <div class="wrapperProfissionaisLicenciados">
+            <section class="terapia" id="terapia">
+              <div class="row">
+                <div class="col-md-6 no-padding">
+                  <figure>
+                    <img src="/assets/img/site/profissionais-licenciados.svg"
+                      alt="Ilustração de um profissional atendendo online"
+                      title="Ilustração de um profissional atendendo online">
+                  </figure>
+                </div>
+                <div class="col-xs-12 col-md-6" id="txtProfissionaisLicencidos">
+                  <div class="content">
+                    <h2 class="tituloProfissionais">Conheça nossos profissionais licenciados</h2>
+                    <div class="txt">
+                      <p>Profissionais de psicologia graduados e registrados no Conselho
+                        Regional de Psicologia para o exercício da profissão, com cadastro
+                        específico – e-Psi – para atendimento por chamadas de vídeo. Todos passam por um
+                        processo seguro de verificação e credenciamento, além de
+                        aderirem a rigorosos códigos de ética e sigilo.</p>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 pv-bannerTextContent">
+                    <div class="dobra-busca cf">
+                      <div class="busca-psicologo">
+                        <select id="especialidades" class="input-busca ui-autocomplete-input especialidades">
+                          <option disabled selected value="">Selecione um assunto</option>
+                        </select>
+                        <input type="text" id="tags" class="input-busca btn-old hidden"
+                          placeholder="Procure por tema de interesse">
+                      </div>
+                      <div class="d-flex pt-2">
+                        <div class="row" id="opcoesBusca">
+                          <div class="col-xs-12 col-md-6 my-auto">
+                            <input class="form-check-input" type="checkbox" value="" id="atendeLibras">
+                            <label class="form-check-label" for="atendeLibras">
+                              Atendimento em Libras
+                            </label>
+                          </div>
+                          <div class="col-xs-12 col-md-6">
+                            <input class="btn-primary-alt" type="button" onclick="verificaAcessoMobile()"
+                              value="Procurar">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <a href="" id="btCatalogo" target="_self" class="hidden"></a>
+                </p>
+                <p>
+                  <a href="" id="btLibras" target="_self" class="hidden"></a>
+                </p>
+              </div>
+          </div>
+        </div>
+      </section> -->
+    </div>
+    
+    <div class="container-fluid" id="carrosselDepoimentos">
+      <section class="depoimentos">
+        <h2 class="tituloDepoimentos">Alguns de nossos clientes</h2>
+        <br>
+
+        <div class="slider">
+          <div class="slide-track">
+            <div class="slide">
+              <img src="/assets/img/planossaude/11.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/2.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/9.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/8.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/5.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/6.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/1.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/3.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/10.png" height="100" width="250" alt="">
+            </div>
+            <div class="slide">
+              <img src="/assets/img/planossaude/12.png" height="100" width="250" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section class="blog">
+      <div class="wrapperBlog">
+        <div class="row">
+          <div class="col-12 justify-content-center pt-4">
+            <h2 class="h">Blog</h2>
+          </div>
+          <div class="col-md-6 align-self-center">
+            <figure>
+              <img src="/assets/img/site/ilustracao-blog.svg" alt="Ilustração de um homem explicando sobre como navegar no blog" title="Ilustração de um homem explicando sobre como navegar no blog" class="pl-6">
+            </figure>
+          </div>
+          <div class="col-md-6 d-flex justify-content-center">
+
+            <div class="card" id="blogposts">
+              <div id="rssFeed" class="card-body">
+                <ul>
+                  <a href="https://blog.psicologiaviva.com.br/terapia-pode-ajudar-a-autoestima/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Como a terapia pode me ajudar a recuperar a autoestima?</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/como-funciona-a-psicoterapia-de-grupo-familiar/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Como funciona a psicoterapia de grupo familiar</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/trabalho-e-orientacao-vocacional-profissional/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Tortura ou realização? Os estreitos laços entre trabalho e orientação
+                        vocacional/profissional</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/psicologia-escolar-ajuda-na-defasagem-estudantil/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Como a psicologia escolar pode ajudar na defasagem estudantil</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/ansiedade-e-seu-principio/" target="_blank" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Ansiedade e seu princípio</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/saude-mental-nos-pais-durante-a-gestacao/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Como promover saúde mental nos pais e famílias durante a gestação?</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/a-crise-existencial/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Crise existencial</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/a-importancia-das-emocoes-na-tomada-de-decisao/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Qual a importância das emoções na tomada de decisão?</h3>
+                    </li>
+                  </a>
+                  <hr>
+                  <a href="https://blog.psicologiaviva.com.br/o-que-e-transtorno-de-panico/" rel="noopener">
+                    <li class="d-flex flex-row">
+                      <img src="/assets/img/site/icon-rss.svg" alt="Ilustração de uma carta aberta" title="Ilustração de uma carta aberta" class="mr-4">
+                      <h3>Transtorno de Pânico: O que é e como trata-lo?</h3>
+                    </li>
+                  </a>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+      <!-- <section class="como-funciona" id="como-funciona">
+        <div class="row justify-content-center">
+          <h2 class="h">Como funciona a terapia na Psicologia Viva </h2>
+        </div>
+        <div class="content row" id="conteudoTerapia">
+          <div class="col-md-5">
+            <div class="row">
+              <div class="col-md-10 offset-md-2">
+                <div class="slider-como-funciona">
+                  <div class="item">
+                    <h3>Encontre o psicólogo ideal para você</h3>
+                    <p>Na <strong>Psicologia Viva</strong>, você
+                      tem
+                      acesso a profissionais qualificados independente da distância. Faça
+                      a pesquisa e use os filtros para encontrar os psicólogos mais
+                      adequados
+                      para a sua necessidade.</p>
+                  </div>
+                  <div class="item">
+                    <h3>Agende sua consulta</h3>
+                    <p class="larger-font">Escolha o melhor horário para a sua consulta.
+                      Após realizar o pagamento, o horário do psicólogo estará totalmente disponível
+                      para você.</p>
+                  </div>
+                  <div class="item">
+                    <h3>Faça a consulta</h3>
+                    <p class="larger-font">Agora é hora de aproveitar o seu horário agendado,
+                      fazer sua terapia online e cuidar de você!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7" id="dispositivo">
+            <figure>
+              <img src="/assets/img/site/dispositivo.svg" alt="Ilustração de uma consulta online por celular"
+                title="Ilustração de uma consulta online por celular">
+            </figure>
+          </div>
+        </div>
+      </section> -->
+   
+    <!-- <section class="dispositivos" id="dispositivos">
+      <div class="col-md-7">
+        <figure><img src="/assets/img/site/mockups-site.png"
+            alt="Vários dispositivos mostrando diferentes modos de acessar a Psicologia Viva"
+            title="Vários dispositivos mostrando diferentes modos de acessar a Psicologia Viva"></figure>
+      </div>
+      <div class="col-md-5">
+        <div class="content">
+          <h2>A qualquer hora</h2>
+          <div class="txt">
+            <p>Agende uma consulta online de qualquer dispositivo no conforto da sua casa ou onde
+              estiver.
+              <br>Não se preocupe com trânsito ou falta de tempo.
+              <br>Com a <strong>Psicologia Viva</strong> você pode agendar sua consulta também em
+              horários não comerciais.
+              <br>Tudo para sua maior comodidade.
+            </p>
+          </div>
+          <div class="apps">
+            <a href="https://apps.apple.com/us/app/psicologia-viva-psyalive/id6444342819" title="Baixar na App Store"
+              target="_self"><img class="app-store" src="/assets/img/selo/app-store-badge.svg"
+                alt="Baixar na App Store"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.psicologiaviva&pli=1"
+              title="Disponível no Google Play" target="_self"><img class="play-store"
+                src="/assets/img/selo/google-play-badge.svg" alt="Disponível no Google Play"
+                title="Disponível no Google Play">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- <section class="servicos" id="servicos">
+      <div class="row" id="terapiaParaJovens">
+        <div class="col-md-6" style="background-color: #d9d9d9!important">
+          <div class="row justify-content-center">
+            <h2 class="h">Terapia para jovens</h2>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <figure>
+                <img src="/assets/img/site/terapia-para-jovens.svg" alt="Ilustração de um jovem sentado em uma poltrona"
+                  title="Ilustração de um jovem sentado em uma poltrona">
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="background-color: #d9d9d9!important">
+          <div class="row justify-content-center">
+            <div class="card bgCardRoxo">
+              <a href="https://consultorioonline.psicologiaviva.com.br/cadastro/paciente/planoDeSaude">
+                <div class="titulo">
+                  <h2>Plano de Saúde</h2>
+                </div>
+                <div class="row justify-content-center">
+                  <p class="descricao">Solicite o seu código de autorização. Clique no botão abaixo e
+                    preencha os campos. Você receberá as orientações por e-mail. É simples e rápido.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="card bgCardAzul">
+              <a href="https://corporate.psicologiaviva.com.br/empresarial-2/">
+                <div class="titulo">
+                  <h2>Programa online para empresas</h2>
+                </div>
+                <div class="row justify-content-center">
+                  <p class="descricao">Com o nosso programa corporativo é possível aumentar a
+                    produtividade, identificar competências e reduzir perdas por falta de foco,
+                    concentração e afastamento por demandas emocionais. Alcance melhores resultados com
+                    a terapia online.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <section id="psicologiaEscolar" hidden="">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <h2>Psicologia Escolar</h2>
+          <p>Aqui, Psicólogos podem atuar com psicologia escolar. Atendendo a grupos institucionais, esses profissionais
+            melhoram o clima escolar e zelam pela saúde mental dos alunos, familiares, responsáveis e profissionais da
+            educação.
+          </p>
+        </div>
+        <div class="col-12 col-lg-6"><img id="acessoEscolas" src="assets/img/acesso-escolas.png" alt=""></div>
+      </div>
+    </section>
+
+    <section id="depoimentosPrincipaisEdit">
+      <div class="row">
+        <div class="col-md-6" id="chatbubbles">
+          <div class="card" id="primeiroDepoimento">
+            <p id="textoDepoimentos">"Plataforma muito bem organizada. Realmente uma grande utilidade para pacientes e
+              profissionais, nestes difíceis momentos de pandemia pela qual o país vem passando"</p>
+            <h3 id="tituloDepoimentos">Norton de S. - Psicólogo</h3>
+          </div>
+
+          <div class="card" id="segundoDepoimento">
+            <p id="textoDepoimentos">"Sinceramente, estou surpreso com tanto carinho e agilidade desta plataforma no
+              qual sou muito bem atendido. Gratidão e que sirva de exemplo de atendimento."</p>
+            <h3 id="tituloDepoimentos">Eduardo S. - Paciente</h3>
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <figure>
+            <img src="/assets/img/site/menina-depoimentos.png" alt="Ilustração de uma menina dentro de um celular" title="Ilustração de uma menina dentro de um celular">
+          </figure>
+        </div>
+      </div>
+    </section>
+    
+
+
+
+
+  </main>
+
+  
+  <footer id="fraseConsulta">
+    <div class="row">
+      <div class="col-12 text-center">
+        <figure>
+          <img src="/assets/img/site/icon-coracao.svg" alt="Ilustração de um coração" title="Ilustração de um coração">
+        </figure>
+        <h2>Consulta online por videoconferência é tão eficaz quanto a presencial.</h2>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn-consulta mt-4" id="botaoDescobrir" onclick="location.href='https://www.psicologiaviva.com.br/eficacia.html'">Descobrir
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <footer id="rodape">
+    <div class="container">
+      <div class="row">
+        <div class="col mb-3">
+          <ul class="footer-menu">
+            <li class="footer-menu-titulo">Psicologia Viva</li>
+            <!-- <li>
+              <a href="https://blog.psicologiaviva.com.br/sobre-nos/" title="Sobre Nós">Sobre Nós</a>
+            </li>
+            <li>
+              <a href="https://jobs.solides.com/psicologiaviva" alt="Carreiras" title="Carreiras">Carreiras</a>
+            </li>
+            <li>
+              <a href="https://corporate.psicologiaviva.com.br/contato" alt="Contato" title="Contato">Contato</a>
+            </li> -->
+            <li>
+              <a href="mailto:contato@psicologiaviva.com.br" alt="Empresa" title="Imprensa">Imprensa</a>
+            </li>
+            <!-- <li>
+              <a href="https://ouvidoriaconexa.zendesk.com/hc/pt-br/requests/new"
+                alt="Ouvidoria" title="Ouvidoria">Ouvidoria</a>
+            </li> -->
+          </ul>
+        </div>
+        <div class="col mb-3">
+          <ul class="footer-menu">
+            <li class="footer-menu-titulo">Plataforma</li>
+            <!-- <li>
+              <a href="../eficacia.html" title="É eficaz online?" alt="É eficaz online">É eficaz online?</a>
+            </li> -->
+            <li>
+              <a href="https://blog.psicologiaviva.com.br/termos-de-uso/" title="Termos de uso" alt="Termos de uso">Termos de
+                uso</a>
+            </li>
+            <li>
+              <a href="../privacidade.html" title="Política de privacidade" alt="Política de privacidade">
+                Política de privacidade
+              </a>
+            </li>
+            <li>
+              <a href="https://site.cfp.org.br/wp-content/uploads/2012/07/codigo_etica.pdf" title="Código de ética" alt="Código de ética">Código de ética</a>
+            </li>
+            <li>
+              <a href="/assets/anexos/RESOLU%C3%87%C3%83O-N%C2%BA-11-DE-11-DE-MAIO-DE-2018.pdf" title="Resolução do CFP" alt="Resolução do CFP">Resolução do CFP</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col mb-3">
+          <ul class="footer-menu">
+            <li class="footer-menu-titulo">Explore</li>
+            <li>
+              <a href="https://blog.psicologiaviva.com.br" title="Blog" alt="Blog">Blog</a>
+            </li>
+            <!-- <li>
+              <a href="https://consultorioonline.psicologiaviva.com.br/cadastro/" title="Cadastro"
+                alt="Cadastro">Cadastro</a>
+            </li>
+            <li>
+              <a href="https://www.psicologiaviva.com.br/psicologo/" title="Buscar psicólogos"
+                alt="Buscar psicólogos">Buscar psicólogos</a>
+            </li> -->
+          </ul>
+        </div>
+        <!-- <div class="col mb-3">
+          <ul class="footer-menu">
+            <li class="footer-menu-quartaColuna">
+              <a href="https://consultorioonline.psicologiaviva.com.br/login" title="Para você" alt="Para você">Para
+                você</a>
+            </li>
+            <li>
+              <a href="https://corporate.psicologiaviva.com.br/" title="Para empresas" alt="Para empresas">Para
+                empresas</a>
+            </li>
+            <li>
+              <a href="https://corporate.psicologiaviva.com.br/psicologo-pagina-de-cadastro-2023/"
+                title="Para psicólogos" alt="Para psicólogos">Para psicólogos</a>
+            </li>
+            <li class="footer-menu-baixeOApp">Baixe o app</li>
+            <a href="https://apps.apple.com/us/app/psicologia-viva-psyalive/id6444342819" title="Baixar na App Store"
+              target="_self">
+              <img class="app-store" src="/assets/img/selo/app-store-badge.svg" alt="Baixar na App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.psicologiaviva&pli=1"
+              title="Disponível no Google Play" target="_self">
+              <img class="play-store" src="/assets/img/selo/google-play-badge.svg" alt="Disponível no Google Play"
+                title="Disponível no Google Play">
+            </a>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+  </footer>
+  <footer id="atencao">
+    <div class="row">
+      <div class="col">
+        ATENÇÃO: Este site não oferece tratamento ou aconselhamento imediato para pessoas em crise suicida. Em caso
+        de crise, ligue para 188 (CVV) ou acesse o site <a href="https://www.cvv.org.br" target="blank">www.cvv.org.br.</a>
+        Em caso de emergência, procure atendimento em um hospital mais próximo.
+      </div>
+    </div>
+  </footer>
+  <footer id="responsibilidade-tecnica">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Responsabilidade Técnica</h3>
+        <h2 class="pt-4">Karen Valéria as Silva </h2>
+        <h2>CRP - 04 / IS01467</h2>
+        <p></p>
+      </div>
+      <div class="col-md-6" id="certificados">
+        <h3>Certificados de segurança</h3>
+        <a href="https://selo.brazillab.org.br/startups" target="_self">
+          <img src="./assets/img/govtech.png" alt="Selo Govtech de segurança" title="Selo Govtech de segurança">
+        </a>
+        <a href="https://transparencyreport.google.com/safe-browsing/search?url=psicologiaviva.com.br" target="_self" id="iconGoogleSafeBrowsing">
+          <img src="./assets/img/site/safe-browsing.png" alt="Certificado de segurança do Google Safe Browsing" title="Certificado de segurança do Google Safe Browsing">
+        </a>
+        <a href="https://www.positivessl.com/">
+          <img src="./assets/img/site/positivessl-logo.jpg" alt="Certificado de Segurança do Positive SSL" title="Logomarca da Positive SSL" class="positiveSSL">
+        </a>
+      </div>
+    </div>
+  </footer>
+  <hr>
+  <!-- <footer id="escolhaPais">
+    <div class="row">
+      <div class="col-md-1">
+        <h2 class="tituloFooter">Alterar país</h2>
+      </div>
+      <div class="col mb-4 pb-2 text-center text-md-left country-flags">
+        <ul>
+          <li><img src="./assets/img/flag/brazil.svg" title="Brasil" alt="Brasil" class="flag-footer"></li>
+          <li><a target="_self" href="https://www.psyalive.com"><img src="./assets/img/flag/chile.svg" title="Chile"
+                alt="Chile" class="flag-footer"></a></li>
+          <li><a target="_self" href="https://www.psyalive.com"><img src="./assets/img/flag/colombia.svg"
+                title="Colombia" alt="Colombia" class="flag-footer"></a></li>
+          <li><a target="_self" href="https://www.psyalive.com"><img src="./assets/img/flag/mexico.svg" title="México"
+                alt="México" class="flag-footer"></a></li>
+          <li><a target="_self" href="https://www.psyalive.com"><img src="./assets/img/flag/spain.svg" title="Espanha"
+                alt="Espanha" class="flag-footer"></a></li>
+          <li><a target="_self" href="https://www.psyalive.com"><img src="./assets/img/flag/uruguay.svg" title="Uruguai"
+                alt="Uruguai" class="flag-footer uruguai"></a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </footer> -->
+  <hr>
+  <footer id="psicologiaViva">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="tituloFooter">© 2021 Psicologia Viva S.A. 28.567.713.0001/50 </h2>
+        <h2 class="tituloFooter">Cadastro Nacional de Estabelecimento de Saúde CNES 9.455.434</h2>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="d-flex flex-row-reverse">
+          <ul id="listaRedesSociais">
+            <li class="d-inline"><a target="_blank" href="https://www.facebook.com/psicologiavivabrasil"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li class="d-inline"><a target="_blank" href="https://www.instagram.com/psicologiavivabr"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li class="d-inline"><a target="_blank" href="https://twitter.com/psicologia_viva"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li class="d-inline"><a target="_blank" href="https://pt.linkedin.com/company/psicologia-viva"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            <li class="d-inline"><a target="_blank" href="https://www.youtube.com/channel/UCOz12wmi76JSlotrZrwsZFw"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- <div class="col-md-6 mt-4">
+        <img src="./assets/img/site/selo-gptw.svg" id="selo-gptw"
+          alt="A Psicologia Viva foi condecorada como uma empresa ótima para se trabalhar!"
+          title="A Psicologia Viva foi condecorada como uma empresa ótima para se trabalhar!">
+      </div> -->
+    </div>
+  </footer>
+  <div class="cookie-container">
+    <p>
+      Olá! Nós utilizamos, de acordo com nossa <a href="../privacidade.html" target="_blank">Política de
+        Privacidade</a>,
+      cookies e tecnologias semelhantes para melhorar sua experiência. Ao continuar navegando, você concorda com essas
+      condições.
+    </p>
+    <button class="cookie-btn">OK</button>
+  </div>
+  <div class="modal-super-app" id="modal-super-app">
+    <div class="conteudo-modal">
+      <figure>
+        <img src="/assets/img/site/menina-depoimentos.svg" alt="Ilustração de uma menina dentro de um celular">
+      </figure>
+      <h2> Parece que você está acessando pelo seu
+        dispositivo móvel! </h2>
+      <p> Clique abaixo para baixar nosso aplicativo:</p>
+      <a href="https://apps.apple.com/br/app/psicologia-viva-sa%C3%BAde-online/id1554961051" title="Baixar na App Store" target="_self">
+        <img class="app-store" src="/assets/img/selo/app-store-badge.svg" alt="Baixar na App Store">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=br.com.psicologiavivaapp2&amp;hl=pt_BR&amp;gl=US" title="Disponível no Google Play" target="_self">
+        <img class="play-store" src="/assets/img/selo/google-play-badge.svg" alt="Disponível no Google Play" title="Disponível no Google Play">
+      </a>
+      <button class="botao-fechar-modal" id="botao-fechar-modal" onclick="toggleModalSuperApp()">Clique aqui para
+        fechar</button>
+    </div>
+  </div>
+
+  <!-- script src="https://cdn.siteblindado.com/aw.js?v=123123123"></script> -->
+  <script src="https://www.psicologiaviva.com.br/assets/js/jquery/jquery.min.js?v=122342343"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js?v=563232" integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js?v=2131312313" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js?v=123123123" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+  <script src="/assets/js/marketing.js?v=5465656"></script>
+  <script src="/assets/js/scripts.min.js?version=1.0.2"></script><script src="https://secure.trust-provider.com/trustlogo/javascript/trustlogo.js" type="text/javascript"></script>
+  <script src="/assets/js/jquery.maskedinput.js?v=156658"></script>
+  <script src="/assets/js/home-lib.min.js?v=21312323"></script>
+  <script src="/assets/js/sweetalert.min.js?v=12313123"></script>
+  <script src="/assets/js/trustlogo.js?v=1231313123123"></script>
+  <script>
+
+    //Regex que verifica se o acesso está sendo feito por um celular.  Função não inclui tablets.
+    window.mobileCheck = function () {
+      let check = false;
+      (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
+      return check;
+    };
+
+    //Abre uma modal que redireciona para os links do Super App.
+    function toggleModalSuperApp() {
+      if ($('#modal-super-app').is(':visible')) {
+        $('#modal-super-app').hide().parentsUntil('body').andSelf().siblings().show();
+      } else {
+        $('#modal-super-app').show().parentsUntil('body').andSelf().siblings().hide();
+      }
+    }
+
+    function verificaAcessoMobile() {
+      // if(mobileCheck()){
+      // toggleModalSuperApp();
+      // }else{
+      realizarBusca(); //Redireciona para a busca do consultório online para desktop.
+      // }
+    }
+
+ 
+// 
+
+  </script>
+
+
+
+</body></html>

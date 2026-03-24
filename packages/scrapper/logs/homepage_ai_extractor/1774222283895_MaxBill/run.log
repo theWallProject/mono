@@ -1,0 +1,72 @@
+[2026-03-22T23:31:23.895Z] === Homepage AI Extractor: MaxBill ===
+[2026-03-22T23:31:23.896Z] Started at: 2026-03-22T23:31:23.896Z
+[2026-03-22T23:31:23.896Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774222283895_MaxBill
+[2026-03-22T23:31:23.896Z] Company: MaxBill
+[2026-03-22T23:31:23.896Z] Website: maxbill.com
+[2026-03-22T23:31:23.896Z] cbRank: 336459
+[2026-03-22T23:31:23.896Z] Reasons: f
+[2026-03-22T23:31:23.896Z] Fetching: https://maxbill.com
+[2026-03-22T23:31:33.614Z] Redirected: https://maxbill.com -> https://maxbill.com/
+[2026-03-22T23:31:33.624Z] Saved HTML (393562 bytes) to page.html
+[2026-03-22T23:31:33.627Z] Extracted 67 unique links from page
+[2026-03-22T23:31:33.628Z] Saved 67 links to links.json
+[2026-03-22T23:31:33.631Z] Extracted footer HTML (17470 chars)
+[2026-03-22T23:31:33.631Z] Extracted header HTML (29738 chars)
+[2026-03-22T23:31:33.636Z] Website (post-redirect): https://maxbill.com/ → origin: https://maxbill.com
+[2026-03-22T23:31:33.636Z] External links: 4 (of 67 total)
+[2026-03-22T23:31:33.636Z] ── All external links ──
+[2026-03-22T23:31:33.637Z]   EXT: https://twitter.com/MaxBill_
+[2026-03-22T23:31:33.637Z]   EXT: https://www.facebook.com/ModernBilling
+[2026-03-22T23:31:33.637Z]   EXT: https://www.linkedin.com/company/max-bill
+[2026-03-22T23:31:33.637Z]   EXT: https://www.youtube.com/@maxbillmodernbilling4932
+[2026-03-22T23:31:33.637Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T23:31:33.637Z]   REGEX: tw <- https://twitter.com/MaxBill_
+[2026-03-22T23:31:33.637Z]   REGEX: fb <- https://www.facebook.com/ModernBilling
+[2026-03-22T23:31:33.637Z]   REGEX: li <- https://www.linkedin.com/company/max-bill
+[2026-03-22T23:31:33.637Z]   REGEX: ytp <- https://www.youtube.com/@maxbillmodernbilling4932
+[2026-03-22T23:31:33.637Z] Programmatic result: ws:1, tw:1, fb:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-22T23:31:33.637Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T23:31:33.641Z] Saved AI prompt (10673 chars) to ai_prompt.txt
+[2026-03-22T23:31:33.641Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T23:31:33.645Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T23:32:15.271Z]   AI: First token received, streaming...
+[2026-03-22T23:32:24.058Z] AI response complete: 159 chars in 50.4s
+[2026-03-22T23:32:24.059Z] Saved AI response to ai_response.json
+[2026-03-22T23:32:24.060Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T23:32:24.060Z]   AI LINK: https://www.linkedin.com/company/max-bill
+[2026-03-22T23:32:24.060Z]   AI LINK: https://www.facebook.com/ModernBilling
+[2026-03-22T23:32:24.060Z]   AI LINK: https://twitter.com/MaxBill_
+[2026-03-22T23:32:24.060Z]   AI LINK: https://www.youtube.com/@maxbillmodernbilling4932
+[2026-03-22T23:32:24.061Z] AI returned 4 valid links
+[2026-03-22T23:32:24.061Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T23:32:24.061Z]   AI→REGEX: li <- https://www.linkedin.com/company/max-bill (duplicate, skipped)
+[2026-03-22T23:32:24.061Z]   AI→REGEX: fb <- https://www.facebook.com/ModernBilling (duplicate, skipped)
+[2026-03-22T23:32:24.061Z]   AI→REGEX: tw <- https://twitter.com/MaxBill_ (duplicate, skipped)
+[2026-03-22T23:32:24.062Z]   AI→REGEX: ytp <- https://www.youtube.com/@maxbillmodernbilling4932 (duplicate, skipped)
+[2026-03-22T23:32:24.063Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T23:32:24.063Z] Footer/header origins (5):
+[2026-03-22T23:32:24.063Z]   FOOTER/HEADER ORIGIN: https://maxbill.com
+[2026-03-22T23:32:24.063Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T23:32:24.064Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T23:32:24.064Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T23:32:24.064Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T23:32:24.064Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T23:32:24.064Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T23:32:24.064Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T23:32:24.064Z] ── Step 3: Final dedup ──
+[2026-03-22T23:32:24.064Z] No urls to dedup
+[2026-03-22T23:32:24.065Z] ── FINAL RESULT ──
+[2026-03-22T23:32:24.065Z]   ws (1):
+[2026-03-22T23:32:24.065Z]     - https://maxbill.com
+[2026-03-22T23:32:24.065Z]   li (1):
+[2026-03-22T23:32:24.065Z]     - https://www.linkedin.com/company/max-bill
+[2026-03-22T23:32:24.065Z]   fb (1):
+[2026-03-22T23:32:24.065Z]     - https://www.facebook.com/modernbilling
+[2026-03-22T23:32:24.065Z]   tw (1):
+[2026-03-22T23:32:24.065Z]     - https://x.com/maxbill_
+[2026-03-22T23:32:24.065Z]   ytp (1):
+[2026-03-22T23:32:24.065Z]     - https://www.youtube.com/@maxbillmodernbilling4932
+[2026-03-22T23:32:24.065Z] Summary: ws:1, tw:1, fb:1, li:1, ytp:1
+[2026-03-22T23:32:24.066Z] Saved final result to result.json
+[2026-03-22T23:32:24.066Z] Override fields: ws, li, fb, tw, ytp
+[2026-03-22T23:32:24.066Z] Finished at: 2026-03-22T23:32:24.066Z

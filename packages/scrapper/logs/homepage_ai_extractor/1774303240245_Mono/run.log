@@ -1,0 +1,71 @@
+[2026-03-23T22:00:40.245Z] === Homepage AI Extractor: Mono ===
+[2026-03-23T22:00:40.245Z] Started at: 2026-03-23T22:00:40.245Z
+[2026-03-23T22:00:40.245Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774303240245_Mono
+[2026-03-23T22:00:40.245Z] Company: Mono
+[2026-03-23T22:00:40.245Z] Website: mono.co
+[2026-03-23T22:00:40.245Z] cbRank: 24737
+[2026-03-23T22:00:40.245Z] Reasons: i
+[2026-03-23T22:00:40.245Z] Fetching: https://mono.co
+[2026-03-23T22:00:42.964Z] Dismissed cookie consent popup via: button:has-text("Agree")
+[2026-03-23T22:00:45.944Z] Redirected: https://mono.co -> https://mono.co/
+[2026-03-23T22:00:46.060Z] Saved HTML (6377753 bytes) to page.html
+[2026-03-23T22:00:46.063Z] Extracted 59 unique links from page
+[2026-03-23T22:00:46.064Z] Saved 59 links to links.json
+[2026-03-23T22:00:46.067Z] No footer section found in DOM
+[2026-03-23T22:00:46.067Z] No header section found in DOM
+[2026-03-23T22:00:46.069Z] Website (post-redirect): https://mono.co/ → origin: https://mono.co
+[2026-03-23T22:00:46.069Z]   SUBDOMAIN: app.mono.co (added to ws)
+[2026-03-23T22:00:46.070Z]   SUBDOMAIN: docs.mono.co (added to ws)
+[2026-03-23T22:00:46.070Z]   SUBDOMAIN: status.mono.co (added to ws)
+[2026-03-23T22:00:46.070Z]   SUBDOMAIN: support.mono.co (added to ws)
+[2026-03-23T22:00:46.070Z] Website subdomains found: 4
+[2026-03-23T22:00:46.070Z] External links: 4 (of 59 total)
+[2026-03-23T22:00:46.070Z] ── All external links ──
+[2026-03-23T22:00:46.070Z]   EXT: https://mono.brilstack.com
+[2026-03-23T22:00:46.070Z]   EXT: https://www.linkedin.com/company/withmono
+[2026-03-23T22:00:46.070Z]   EXT: https://x.com/mono_hq?lang=en
+[2026-03-23T22:00:46.070Z]   EXT: https://youtu.be/wNK52-7g6s8?si=ueq1H7JTPXiz0Oo4
+[2026-03-23T22:00:46.070Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T22:00:46.071Z]   UNCATEGORIZED: https://mono.brilstack.com
+[2026-03-23T22:00:46.071Z]   REGEX: li <- https://www.linkedin.com/company/withmono
+[2026-03-23T22:00:46.071Z]   REGEX: tw <- https://x.com/mono_hq?lang=en
+[2026-03-23T22:00:46.072Z]   UNCATEGORIZED: https://youtu.be/wNK52-7g6s8?si=ueq1H7JTPXiz0Oo4
+[2026-03-23T22:00:46.072Z] Programmatic result: ws:5, li:1, tw:1 | 2 uncategorized
+[2026-03-23T22:00:46.072Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T22:00:46.075Z] Saved AI prompt (1998 chars) to ai_prompt.txt
+[2026-03-23T22:00:46.076Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T22:00:46.079Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T22:00:52.652Z]   AI: First token received, streaming...
+[2026-03-23T22:00:53.118Z] AI response complete: 26 chars in 7.0s
+[2026-03-23T22:00:53.119Z] Saved AI response to ai_response.json
+[2026-03-23T22:00:53.119Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T22:00:53.119Z]   AI LINK: https://mono.brilstack.com
+[2026-03-23T22:00:53.119Z] AI returned 1 valid links
+[2026-03-23T22:00:53.120Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T22:00:53.120Z]   AI→URLS: https://mono.brilstack.com
+[2026-03-23T22:00:53.120Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T22:00:53.120Z] Footer/header origins (0):
+[2026-03-23T22:00:53.120Z]   SKIP (AI claimed): https://mono.brilstack.com
+[2026-03-23T22:00:53.120Z]   SKIP (not in footer/header): https://youtu.be/wNK52-7g6s8?si=ueq1H7JTPXiz0Oo4
+[2026-03-23T22:00:53.120Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T22:00:53.121Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T22:00:53.121Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T22:00:53.121Z] ── Step 3: Final dedup ──
+[2026-03-23T22:00:53.121Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T22:00:53.121Z] ── FINAL RESULT ──
+[2026-03-23T22:00:53.121Z]   ws (5):
+[2026-03-23T22:00:53.121Z]     - https://app.mono.co
+[2026-03-23T22:00:53.121Z]     - https://docs.mono.co
+[2026-03-23T22:00:53.121Z]     - https://mono.co
+[2026-03-23T22:00:53.121Z]     - https://status.mono.co
+[2026-03-23T22:00:53.121Z]     - https://support.mono.co
+[2026-03-23T22:00:53.121Z]   li (1):
+[2026-03-23T22:00:53.121Z]     - https://www.linkedin.com/company/withmono
+[2026-03-23T22:00:53.121Z]   tw (1):
+[2026-03-23T22:00:53.121Z]     - https://x.com/mono_hq
+[2026-03-23T22:00:53.121Z]   urls (1):
+[2026-03-23T22:00:53.122Z]     - https://mono.brilstack.com
+[2026-03-23T22:00:53.122Z] Summary: ws:5, li:1, tw:1, urls:1
+[2026-03-23T22:00:53.123Z] Saved final result to result.json
+[2026-03-23T22:00:53.123Z] Override fields: ws, li, tw
+[2026-03-23T22:00:53.124Z] Finished at: 2026-03-23T22:00:53.124Z

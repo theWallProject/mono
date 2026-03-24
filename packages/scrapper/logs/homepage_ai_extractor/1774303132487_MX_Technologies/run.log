@@ -1,0 +1,76 @@
+[2026-03-23T21:58:52.487Z] === Homepage AI Extractor: MX Technologies ===
+[2026-03-23T21:58:52.488Z] Started at: 2026-03-23T21:58:52.488Z
+[2026-03-23T21:58:52.488Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774303132487_MX_Technologies
+[2026-03-23T21:58:52.488Z] Company: MX Technologies
+[2026-03-23T21:58:52.488Z] Website: mx.com
+[2026-03-23T21:58:52.488Z] cbRank: 24567
+[2026-03-23T21:58:52.488Z] Reasons: i
+[2026-03-23T21:58:52.488Z] Fetching: https://mx.com
+[2026-03-23T21:58:56.936Z] Redirected: https://mx.com -> https://www.mx.com/
+[2026-03-23T21:58:56.955Z] Saved HTML (771876 bytes) to page.html
+[2026-03-23T21:58:56.958Z] Extracted 55 unique links from page
+[2026-03-23T21:58:56.959Z] Saved 55 links to links.json
+[2026-03-23T21:58:56.961Z] Extracted footer HTML (13907 chars)
+[2026-03-23T21:58:56.961Z] Extracted header HTML (3194 chars)
+[2026-03-23T21:58:56.964Z] Website (post-redirect): https://www.mx.com/ → origin: https://www.mx.com
+[2026-03-23T21:58:56.964Z]   SUBDOMAIN: dashboard.mx.com (added to ws)
+[2026-03-23T21:58:56.964Z]   SUBDOMAIN: docs.mx.com (added to ws)
+[2026-03-23T21:58:56.965Z]   SUBDOMAIN: status.mx.com (added to ws)
+[2026-03-23T21:58:56.965Z]   SUBDOMAIN: support.mx.com (added to ws)
+[2026-03-23T21:58:56.965Z] Website subdomains found: 4
+[2026-03-23T21:58:56.965Z] External links: 3 (of 55 total)
+[2026-03-23T21:58:56.965Z] ── All external links ──
+[2026-03-23T21:58:56.965Z]   EXT: https://github.com/mxenabled
+[2026-03-23T21:58:56.965Z]   EXT: https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.mx.com%2F&screen_name=mX
+[2026-03-23T21:58:56.965Z]   EXT: https://www.linkedin.com/company/425337?isFollowingPage=true
+[2026-03-23T21:58:56.965Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:58:56.965Z]   REGEX: gh <- https://github.com/mxenabled
+[2026-03-23T21:58:56.966Z]   REGEX: li <- https://www.linkedin.com/company/425337?isFollowingPage=true
+[2026-03-23T21:58:56.966Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T21:58:56.966Z]   SKIP (regex domain, no match): https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.mx.com%2F&screen_name=mX
+[2026-03-23T21:58:56.966Z] Programmatic result: ws:5, gh:1, li:1 | 0 uncategorized
+[2026-03-23T21:58:56.966Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:58:56.969Z] Saved AI prompt (9803 chars) to ai_prompt.txt
+[2026-03-23T21:58:56.969Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:58:56.973Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:59:34.188Z]   AI: First token received, streaming...
+[2026-03-23T21:59:47.360Z] AI response complete: 183 chars in 50.4s
+[2026-03-23T21:59:47.361Z] Saved AI response to ai_response.json
+[2026-03-23T21:59:47.361Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T21:59:47.362Z]   AI LINK: https://www.linkedin.com/company/425337?isFollowingPage=true
+[2026-03-23T21:59:47.362Z]   AI LINK: https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.mx.com%2F&screen_name=mX
+[2026-03-23T21:59:47.362Z]   AI LINK: https://github.com/mxenabled
+[2026-03-23T21:59:47.362Z] AI returned 3 valid links
+[2026-03-23T21:59:47.362Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T21:59:47.362Z]   AI→REGEX: li <- https://www.linkedin.com/company/425337?isFollowingPage=true (duplicate, skipped)
+[2026-03-23T21:59:47.363Z]   AI→SKIP (regex domain, no match): https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.mx.com%2F&screen_name=mX
+[2026-03-23T21:59:47.363Z]   AI→REGEX: gh <- https://github.com/mxenabled (duplicate, skipped)
+[2026-03-23T21:59:47.365Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:59:47.365Z] Footer/header origins (7):
+[2026-03-23T21:59:47.365Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:59:47.365Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T21:59:47.366Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-23T21:59:47.366Z]   FOOTER/HEADER ORIGIN: https://docs.mx.com
+[2026-03-23T21:59:47.366Z]   FOOTER/HEADER ORIGIN: https://status.mx.com
+[2026-03-23T21:59:47.366Z]   FOOTER/HEADER ORIGIN: https://support.mx.com
+[2026-03-23T21:59:47.366Z]   FOOTER/HEADER ORIGIN: https://dashboard.mx.com
+[2026-03-23T21:59:47.366Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:59:47.366Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:59:47.366Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:59:47.366Z] ── Step 3: Final dedup ──
+[2026-03-23T21:59:47.366Z] No urls to dedup
+[2026-03-23T21:59:47.366Z] ── FINAL RESULT ──
+[2026-03-23T21:59:47.366Z]   ws (5):
+[2026-03-23T21:59:47.366Z]     - https://dashboard.mx.com
+[2026-03-23T21:59:47.366Z]     - https://docs.mx.com
+[2026-03-23T21:59:47.366Z]     - https://status.mx.com
+[2026-03-23T21:59:47.367Z]     - https://support.mx.com
+[2026-03-23T21:59:47.367Z]     - https://www.mx.com
+[2026-03-23T21:59:47.367Z]   li (1):
+[2026-03-23T21:59:47.367Z]     - https://www.linkedin.com/company/425337
+[2026-03-23T21:59:47.367Z]   gh (1):
+[2026-03-23T21:59:47.367Z]     - https://github.com/mxenabled
+[2026-03-23T21:59:47.367Z] Summary: ws:5, gh:1, li:1
+[2026-03-23T21:59:47.368Z] Saved final result to result.json
+[2026-03-23T21:59:47.368Z] Override fields: ws, li, gh
+[2026-03-23T21:59:47.368Z] Finished at: 2026-03-23T21:59:47.368Z

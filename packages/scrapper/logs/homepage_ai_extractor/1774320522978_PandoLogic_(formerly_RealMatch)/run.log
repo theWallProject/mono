@@ -1,0 +1,80 @@
+[2026-03-24T02:48:42.979Z] === Homepage AI Extractor: PandoLogic (formerly RealMatch) ===
+[2026-03-24T02:48:42.979Z] Started at: 2026-03-24T02:48:42.979Z
+[2026-03-24T02:48:42.979Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774320522978_PandoLogic_(formerly_RealMatch)
+[2026-03-24T02:48:42.979Z] Company: PandoLogic (formerly RealMatch)
+[2026-03-24T02:48:42.979Z] Website: pandologic.com
+[2026-03-24T02:48:42.979Z] cbRank: 241293
+[2026-03-24T02:48:42.979Z] Reasons: i
+[2026-03-24T02:48:42.979Z] Fetching: https://pandologic.com
+[2026-03-24T02:48:47.761Z] Redirected: https://pandologic.com -> https://pandologic.com/
+[2026-03-24T02:48:47.771Z] Saved HTML (325379 bytes) to page.html
+[2026-03-24T02:48:47.774Z] Extracted 49 unique links from page
+[2026-03-24T02:48:47.778Z] Saved 49 links to links.json
+[2026-03-24T02:48:47.782Z] No footer section found in DOM
+[2026-03-24T02:48:47.782Z] Extracted header HTML (15552 chars)
+[2026-03-24T02:48:47.787Z] Website (post-redirect): https://pandologic.com/ → origin: https://pandologic.com
+[2026-03-24T02:48:47.788Z]   SUBDOMAIN: go.pandologic.com (added to ws)
+[2026-03-24T02:48:47.788Z]   SUBDOMAIN: unlock.pandologic.com (added to ws)
+[2026-03-24T02:48:47.788Z] Website subdomains found: 2
+[2026-03-24T02:48:47.788Z] External links: 7 (of 49 total)
+[2026-03-24T02:48:47.788Z] ── All external links ──
+[2026-03-24T02:48:47.788Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-24T02:48:47.788Z]   EXT: https://unlock.veritone.com/hire-contact-us
+[2026-03-24T02:48:47.788Z]   EXT: https://www.facebook.com/veritoneinc
+[2026-03-24T02:48:47.788Z]   EXT: https://www.linkedin.com/showcase/veritone-hire
+[2026-03-24T02:48:47.788Z]   EXT: https://www.veritone.com/blog/?vertical%5B%5D=hr-solutions
+[2026-03-24T02:48:47.788Z]   EXT: https://www.veritone.com/solutions/hire
+[2026-03-24T02:48:47.788Z]   EXT: https://x.com/veritonehire
+[2026-03-24T02:48:47.788Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:48:47.788Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-24T02:48:47.789Z]   UNCATEGORIZED: https://unlock.veritone.com/hire-contact-us
+[2026-03-24T02:48:47.789Z]   REGEX: fb <- https://www.facebook.com/veritoneinc
+[2026-03-24T02:48:47.789Z]   REGEX: li <- https://www.linkedin.com/showcase/veritone-hire
+[2026-03-24T02:48:47.789Z]   UNCATEGORIZED: https://www.veritone.com/blog/?vertical%5B%5D=hr-solutions
+[2026-03-24T02:48:47.789Z]   UNCATEGORIZED: https://www.veritone.com/solutions/hire
+[2026-03-24T02:48:47.789Z]   REGEX: tw <- https://x.com/veritonehire
+[2026-03-24T02:48:47.789Z] Programmatic result: ws:3, fb:1, li:1, tw:1 | 4 uncategorized
+[2026-03-24T02:48:47.789Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:48:47.790Z] Saved AI prompt (2190 chars) to ai_prompt.txt
+[2026-03-24T02:48:47.790Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:48:47.794Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:48:53.934Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-24T02:48:53.935Z] AI response complete: 0 chars in 6.1s
+[2026-03-24T02:48:53.936Z] Saved AI response to ai_response.json
+[2026-03-24T02:48:53.936Z] ── Parsing AI response (1 lines) ──
+[2026-03-24T02:48:53.936Z] AI returned 0 valid links
+[2026-03-24T02:48:53.937Z] ── Categorizing 0 AI-returned links ──
+[2026-03-24T02:48:53.937Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T02:48:53.937Z] Footer/header origins (4):
+[2026-03-24T02:48:53.937Z]   FOOTER/HEADER ORIGIN: https://pandologic.com
+[2026-03-24T02:48:53.938Z]   FOOTER/HEADER ORIGIN: https://www.veritone.com
+[2026-03-24T02:48:53.938Z]   FOOTER/HEADER ORIGIN: https://unlock.pandologic.com
+[2026-03-24T02:48:53.938Z]   FOOTER/HEADER ORIGIN: https://unlock.veritone.com
+[2026-03-24T02:48:53.938Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-24T02:48:53.938Z]   ADDED: urls <- https://unlock.veritone.com/hire-contact-us
+[2026-03-24T02:48:53.938Z]   ADDED: urls <- https://www.veritone.com/blog (cleaned from https://www.veritone.com/blog/?vertical%5B%5D=hr-solutions)
+[2026-03-24T02:48:53.938Z]   ADDED: urls <- https://www.veritone.com/solutions/hire
+[2026-03-24T02:48:53.939Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-24T02:48:53.939Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T02:48:53.939Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T02:48:53.939Z] ── Step 3: Final dedup ──
+[2026-03-24T02:48:53.939Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-24T02:48:53.939Z] ── FINAL RESULT ──
+[2026-03-24T02:48:53.939Z]   ws (3):
+[2026-03-24T02:48:53.939Z]     - https://go.pandologic.com
+[2026-03-24T02:48:53.939Z]     - https://pandologic.com
+[2026-03-24T02:48:53.939Z]     - https://unlock.pandologic.com
+[2026-03-24T02:48:53.939Z]   li (1):
+[2026-03-24T02:48:53.939Z]     - https://www.linkedin.com/company/veritone-hire
+[2026-03-24T02:48:53.940Z]   fb (1):
+[2026-03-24T02:48:53.940Z]     - https://www.facebook.com/veritoneinc
+[2026-03-24T02:48:53.940Z]   tw (1):
+[2026-03-24T02:48:53.940Z]     - https://x.com/veritonehire
+[2026-03-24T02:48:53.940Z]   urls (3):
+[2026-03-24T02:48:53.940Z]     - https://unlock.veritone.com/hire-contact-us
+[2026-03-24T02:48:53.940Z]     - https://www.veritone.com/blog
+[2026-03-24T02:48:53.940Z]     - https://www.veritone.com/solutions/hire
+[2026-03-24T02:48:53.940Z] Summary: ws:3, fb:1, li:1, tw:1, urls:3
+[2026-03-24T02:48:53.942Z] Saved final result to result.json
+[2026-03-24T02:48:53.942Z] Override fields: ws, li, fb, tw, urls
+[2026-03-24T02:48:53.942Z] Finished at: 2026-03-24T02:48:53.942Z

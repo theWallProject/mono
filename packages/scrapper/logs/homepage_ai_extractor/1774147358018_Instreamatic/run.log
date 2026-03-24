@@ -1,0 +1,58 @@
+[2026-03-22T02:42:38.020Z] === Homepage AI Extractor: Instreamatic ===
+[2026-03-22T02:42:38.020Z] Started at: 2026-03-22T02:42:38.020Z
+[2026-03-22T02:42:38.020Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774147358018_Instreamatic
+[2026-03-22T02:42:38.020Z] Company: Instreamatic
+[2026-03-22T02:42:38.020Z] Website: instreamatic.com
+[2026-03-22T02:42:38.020Z] cbRank: 38329
+[2026-03-22T02:42:38.020Z] Reasons: f
+[2026-03-22T02:42:38.020Z] Fetching: https://instreamatic.com
+[2026-03-22T02:42:40.326Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-22T02:42:43.304Z] Redirected: https://instreamatic.com -> https://instreamatic.com/
+[2026-03-22T02:42:43.309Z] Saved HTML (76625 bytes) to page.html
+[2026-03-22T02:42:43.310Z] Extracted 21 unique links from page
+[2026-03-22T02:42:43.312Z] Saved 21 links to links.json
+[2026-03-22T02:42:43.314Z] Extracted footer HTML (1868 chars)
+[2026-03-22T02:42:43.314Z] Extracted header HTML (3831 chars)
+[2026-03-22T02:42:43.320Z] Website (post-redirect): https://instreamatic.com/ → origin: https://instreamatic.com
+[2026-03-22T02:42:43.320Z] External links: 2 (of 21 total)
+[2026-03-22T02:42:43.320Z] ── All external links ──
+[2026-03-22T02:42:43.320Z]   EXT: https://epg.agro.uba.ar/carreras/carreras-de-especializacion
+[2026-03-22T02:42:43.320Z]   EXT: https://www.facebook.com/instreamatic
+[2026-03-22T02:42:43.320Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:42:43.321Z]   UNCATEGORIZED: https://epg.agro.uba.ar/carreras/carreras-de-especializacion
+[2026-03-22T02:42:43.321Z]   REGEX: fb <- https://www.facebook.com/instreamatic
+[2026-03-22T02:42:43.321Z] Programmatic result: ws:1, fb:1 | 1 uncategorized
+[2026-03-22T02:42:43.321Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:42:43.322Z] Saved AI prompt (3009 chars) to ai_prompt.txt
+[2026-03-22T02:42:43.322Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:42:43.326Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:42:54.007Z]   AI: First token received, streaming...
+[2026-03-22T02:42:55.169Z] AI response complete: 38 chars in 11.8s
+[2026-03-22T02:42:55.170Z] Saved AI response to ai_response.json
+[2026-03-22T02:42:55.170Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T02:42:55.171Z]   AI LINK: https://www.facebook.com/instreamatic/
+[2026-03-22T02:42:55.171Z] AI returned 1 valid links
+[2026-03-22T02:42:55.171Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T02:42:55.171Z]   AI→REGEX: fb <- https://www.facebook.com/instreamatic/ (duplicate, skipped)
+[2026-03-22T02:42:55.172Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:42:55.172Z] Footer/header origins (3):
+[2026-03-22T02:42:55.172Z]   FOOTER/HEADER ORIGIN: https://instreamatic.com
+[2026-03-22T02:42:55.172Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T02:42:55.172Z]   FOOTER/HEADER ORIGIN: https://epg.agro.uba.ar
+[2026-03-22T02:42:55.172Z]   ADDED: urls <- https://epg.agro.uba.ar/carreras/carreras-de-especializacion
+[2026-03-22T02:42:55.172Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T02:42:55.173Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:42:55.173Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:42:55.173Z] ── Step 3: Final dedup ──
+[2026-03-22T02:42:55.173Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T02:42:55.173Z] ── FINAL RESULT ──
+[2026-03-22T02:42:55.173Z]   ws (1):
+[2026-03-22T02:42:55.173Z]     - https://instreamatic.com
+[2026-03-22T02:42:55.173Z]   fb (1):
+[2026-03-22T02:42:55.173Z]     - https://www.facebook.com/instreamatic
+[2026-03-22T02:42:55.173Z]   urls (1):
+[2026-03-22T02:42:55.174Z]     - https://epg.agro.uba.ar/carreras/carreras-de-especializacion
+[2026-03-22T02:42:55.174Z] Summary: ws:1, fb:1, urls:1
+[2026-03-22T02:42:55.175Z] Saved final result to result.json
+[2026-03-22T02:42:55.175Z] Override fields: ws, fb, urls
+[2026-03-22T02:42:55.175Z] Finished at: 2026-03-22T02:42:55.175Z

@@ -1,0 +1,68 @@
+[2026-03-21T19:08:44.312Z] === Homepage AI Extractor: KALITVI ===
+[2026-03-21T19:08:44.312Z] Started at: 2026-03-21T19:08:44.312Z
+[2026-03-21T19:08:44.312Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774120124312_KALITVI
+[2026-03-21T19:08:44.312Z] Company: KALITVI
+[2026-03-21T19:08:44.312Z] Website: kalitvi.com
+[2026-03-21T19:08:44.313Z] cbRank: 3700614
+[2026-03-21T19:08:44.313Z] Reasons: h
+[2026-03-21T19:08:44.313Z] Fetching: https://kalitvi.com
+[2026-03-21T19:08:45.487Z] Redirected: https://kalitvi.com -> https://kalitvi.com/
+[2026-03-21T19:08:45.491Z] Saved HTML (60136 bytes) to page.html
+[2026-03-21T19:08:45.494Z] Extracted 4 unique links from page
+[2026-03-21T19:08:45.494Z] Saved 4 links to links.json
+[2026-03-21T19:08:45.497Z] Extracted footer HTML (2369 chars)
+[2026-03-21T19:08:45.497Z] Extracted header HTML (4205 chars)
+[2026-03-21T19:08:45.500Z] Website (post-redirect): https://kalitvi.com/ → origin: https://kalitvi.com
+[2026-03-21T19:08:45.500Z]   SUBDOMAIN: hub.kalitvi.com (added to ws)
+[2026-03-21T19:08:45.500Z] Website subdomains found: 1
+[2026-03-21T19:08:45.500Z] External links: 2 (of 4 total)
+[2026-03-21T19:08:45.500Z] ── All external links ──
+[2026-03-21T19:08:45.500Z]   EXT: https://www.linkedin.com/company/kalitvi
+[2026-03-21T19:08:45.500Z]   EXT: https://www.youtube.com/channel/UC-K7eDYbX2zRen0OFbZp3yw
+[2026-03-21T19:08:45.500Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T19:08:45.501Z]   REGEX: li <- https://www.linkedin.com/company/kalitvi
+[2026-03-21T19:08:45.501Z]   REGEX: ytc <- https://www.youtube.com/channel/UC-K7eDYbX2zRen0OFbZp3yw
+[2026-03-21T19:08:45.501Z] Programmatic result: ws:2, li:1, ytc:1 | 0 uncategorized
+[2026-03-21T19:08:45.501Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T19:08:45.504Z] Saved AI prompt (2734 chars) to ai_prompt.txt
+[2026-03-21T19:08:45.504Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T19:08:45.508Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T19:08:56.118Z]   AI: First token received, streaming...
+[2026-03-21T19:08:59.197Z] AI response complete: 64 chars in 13.7s
+[2026-03-21T19:08:59.199Z] Saved AI response to ai_response.json
+[2026-03-21T19:08:59.199Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T19:08:59.199Z]   AI LINK: https://www.kalitvi.com
+[2026-03-21T19:08:59.199Z]   AI LINK: https://www.linkedin.com/company/kalitvi
+[2026-03-21T19:08:59.199Z] AI returned 2 valid links
+[2026-03-21T19:08:59.199Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T19:08:59.200Z]   AI→URLS: https://www.kalitvi.com
+[2026-03-21T19:08:59.200Z]   AI→REGEX: li <- https://www.linkedin.com/company/kalitvi (duplicate, skipped)
+[2026-03-21T19:08:59.200Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T19:08:59.201Z] Footer/header origins (4):
+[2026-03-21T19:08:59.201Z]   FOOTER/HEADER ORIGIN: https://www.kalitvi.com
+[2026-03-21T19:08:59.201Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T19:08:59.201Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T19:08:59.201Z]   FOOTER/HEADER ORIGIN: https://hub.kalitvi.com
+[2026-03-21T19:08:59.201Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T19:08:59.201Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T19:08:59.202Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T19:08:59.527Z]   YOUTUBE: resolved UC-K7eDYbX2zRen0OFbZp3yw → @KALITVIAPITechTalks
+[2026-03-21T19:08:59.527Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T19:08:59.527Z] ── Step 3: Final dedup ──
+[2026-03-21T19:08:59.528Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T19:08:59.528Z] ── FINAL RESULT ──
+[2026-03-21T19:08:59.528Z]   ws (2):
+[2026-03-21T19:08:59.528Z]     - https://hub.kalitvi.com
+[2026-03-21T19:08:59.528Z]     - https://kalitvi.com
+[2026-03-21T19:08:59.528Z]   li (1):
+[2026-03-21T19:08:59.528Z]     - https://www.linkedin.com/company/kalitvi
+[2026-03-21T19:08:59.528Z]   ytp (1):
+[2026-03-21T19:08:59.528Z]     - https://www.youtube.com/@KALITVIAPITechTalks
+[2026-03-21T19:08:59.528Z]   ytc (1):
+[2026-03-21T19:08:59.528Z]     - https://www.youtube.com/channel/UC-K7eDYbX2zRen0OFbZp3yw
+[2026-03-21T19:08:59.528Z]   urls (1):
+[2026-03-21T19:08:59.528Z]     - https://www.kalitvi.com
+[2026-03-21T19:08:59.528Z] Summary: ws:2, li:1, ytc:1, urls:1, ytp:1
+[2026-03-21T19:08:59.529Z] Saved final result to result.json
+[2026-03-21T19:08:59.529Z] Override fields: ws, li, ytp, ytc
+[2026-03-21T19:08:59.529Z] Finished at: 2026-03-21T19:08:59.529Z

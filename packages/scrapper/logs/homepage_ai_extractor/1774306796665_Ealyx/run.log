@@ -1,0 +1,59 @@
+[2026-03-23T22:59:56.666Z] === Homepage AI Extractor: Ealyx ===
+[2026-03-23T22:59:56.666Z] Started at: 2026-03-23T22:59:56.666Z
+[2026-03-23T22:59:56.666Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774306796665_Ealyx
+[2026-03-23T22:59:56.666Z] Company: Ealyx
+[2026-03-23T22:59:56.666Z] Website: ealyx.com
+[2026-03-23T22:59:56.666Z] cbRank: 35213
+[2026-03-23T22:59:56.666Z] Reasons: i
+[2026-03-23T22:59:56.666Z] Fetching: https://ealyx.com
+[2026-03-23T23:00:03.293Z] Redirected: https://ealyx.com -> https://ealyx.com/
+[2026-03-23T23:00:03.302Z] Saved HTML (241346 bytes) to page.html
+[2026-03-23T23:00:03.306Z] Extracted 21 unique links from page
+[2026-03-23T23:00:03.306Z] Saved 21 links to links.json
+[2026-03-23T23:00:03.310Z] Extracted footer HTML (15925 chars)
+[2026-03-23T23:00:03.310Z] Extracted header HTML (17782 chars)
+[2026-03-23T23:00:03.313Z] Website (post-redirect): https://ealyx.com/ → origin: https://ealyx.com
+[2026-03-23T23:00:03.314Z] External links: 2 (of 21 total)
+[2026-03-23T23:00:03.314Z] ── All external links ──
+[2026-03-23T23:00:03.314Z]   EXT: https://docs.ealyx.tech
+[2026-03-23T23:00:03.314Z]   EXT: https://www.linkedin.com/company/ealyx
+[2026-03-23T23:00:03.314Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:00:03.315Z]   UNCATEGORIZED: https://docs.ealyx.tech
+[2026-03-23T23:00:03.315Z]   REGEX: li <- https://www.linkedin.com/company/ealyx
+[2026-03-23T23:00:03.315Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-23T23:00:03.315Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:00:03.316Z] Saved AI prompt (9648 chars) to ai_prompt.txt
+[2026-03-23T23:00:03.317Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:00:03.324Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:01:01.914Z]   AI: First token received, streaming...
+[2026-03-23T23:01:04.955Z] AI response complete: 62 chars in 61.6s
+[2026-03-23T23:01:04.956Z] Saved AI response to ai_response.json
+[2026-03-23T23:01:04.956Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T23:01:04.956Z]   AI LINK: https://www.linkedin.com/company/ealyx
+[2026-03-23T23:01:04.957Z]   AI LINK: https://docs.ealyx.tech
+[2026-03-23T23:01:04.957Z] AI returned 2 valid links
+[2026-03-23T23:01:04.957Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T23:01:04.957Z]   AI→REGEX: li <- https://www.linkedin.com/company/ealyx (duplicate, skipped)
+[2026-03-23T23:01:04.958Z]   AI→URLS: https://docs.ealyx.tech
+[2026-03-23T23:01:04.959Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:01:04.959Z] Footer/header origins (3):
+[2026-03-23T23:01:04.959Z]   FOOTER/HEADER ORIGIN: https://ealyx.com
+[2026-03-23T23:01:04.960Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:01:04.960Z]   FOOTER/HEADER ORIGIN: https://docs.ealyx.tech
+[2026-03-23T23:01:04.960Z]   SKIP (AI claimed): https://docs.ealyx.tech
+[2026-03-23T23:01:04.960Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:01:04.960Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:01:04.960Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:01:04.960Z] ── Step 3: Final dedup ──
+[2026-03-23T23:01:04.960Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T23:01:04.960Z] ── FINAL RESULT ──
+[2026-03-23T23:01:04.960Z]   ws (1):
+[2026-03-23T23:01:04.960Z]     - https://ealyx.com
+[2026-03-23T23:01:04.960Z]   li (1):
+[2026-03-23T23:01:04.960Z]     - https://www.linkedin.com/company/ealyx
+[2026-03-23T23:01:04.960Z]   urls (1):
+[2026-03-23T23:01:04.960Z]     - https://docs.ealyx.tech
+[2026-03-23T23:01:04.961Z] Summary: ws:1, li:1, urls:1
+[2026-03-23T23:01:04.961Z] Saved final result to result.json
+[2026-03-23T23:01:04.962Z] Override fields: ws, li
+[2026-03-23T23:01:04.962Z] Finished at: 2026-03-23T23:01:04.962Z

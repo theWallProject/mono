@@ -1,0 +1,58 @@
+[2026-03-21T21:00:55.660Z] === Homepage AI Extractor: GrowthSpace ===
+[2026-03-21T21:00:55.661Z] Started at: 2026-03-21T21:00:55.661Z
+[2026-03-21T21:00:55.661Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774126855660_GrowthSpace
+[2026-03-21T21:00:55.661Z] Company: GrowthSpace
+[2026-03-21T21:00:55.661Z] Website: growthspace.com
+[2026-03-21T21:00:55.661Z] cbRank: N/A
+[2026-03-21T21:00:55.661Z] Reasons: h
+[2026-03-21T21:00:55.661Z] Fetching: https://growthspace.com
+[2026-03-21T21:00:58.673Z] Redirected: https://growthspace.com -> https://www.growthspace.com/
+[2026-03-21T21:00:58.680Z] Saved HTML (227102 bytes) to page.html
+[2026-03-21T21:00:58.684Z] Extracted 33 unique links from page
+[2026-03-21T21:00:58.685Z] Saved 33 links to links.json
+[2026-03-21T21:00:58.688Z] Extracted footer HTML (6635 chars)
+[2026-03-21T21:00:58.688Z] Extracted header HTML (89752 chars)
+[2026-03-21T21:00:58.703Z] Website (post-redirect): https://www.growthspace.com/ → origin: https://www.growthspace.com
+[2026-03-21T21:00:58.703Z]   SUBDOMAIN: app.growthspace.com (added to ws)
+[2026-03-21T21:00:58.703Z] Website subdomains found: 1
+[2026-03-21T21:00:58.703Z] External links: 3 (of 33 total)
+[2026-03-21T21:00:58.703Z] ── All external links ──
+[2026-03-21T21:00:58.703Z]   EXT: https://open.spotify.com/show/5Fy5pfOacDh5Rp3TUfM3VC?si=f4RSU9l4T5KvWwd8NZiiKQ&nd=1&dlsi=0228bfa6e7ac4eb4
+[2026-03-21T21:00:58.704Z]   EXT: https://www.linkedin.com/company/growthspaceus
+[2026-03-21T21:00:58.704Z]   EXT: https://www.youtube.com/@Growthspaceus
+[2026-03-21T21:00:58.704Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:00:58.704Z]   UNCATEGORIZED: https://open.spotify.com/show/5Fy5pfOacDh5Rp3TUfM3VC?si=f4RSU9l4T5KvWwd8NZiiKQ&nd=1&dlsi=0228bfa6e7ac4eb4
+[2026-03-21T21:00:58.704Z]   REGEX: li <- https://www.linkedin.com/company/growthspaceus
+[2026-03-21T21:00:58.704Z]   REGEX: ytp <- https://www.youtube.com/@Growthspaceus
+[2026-03-21T21:00:58.704Z] Programmatic result: ws:2, li:1, ytp:1 | 1 uncategorized
+[2026-03-21T21:00:58.704Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:00:58.705Z] Saved AI prompt (2046 chars) to ai_prompt.txt
+[2026-03-21T21:00:58.705Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:00:58.709Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:01:04.938Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-21T21:01:04.939Z] AI response complete: 0 chars in 6.2s
+[2026-03-21T21:01:04.940Z] Saved AI response to ai_response.json
+[2026-03-21T21:01:04.940Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T21:01:04.941Z] AI returned 0 valid links
+[2026-03-21T21:01:04.941Z] ── Categorizing 0 AI-returned links ──
+[2026-03-21T21:01:04.943Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:01:04.943Z] Footer/header origins (1):
+[2026-03-21T21:01:04.943Z]   FOOTER/HEADER ORIGIN: https://app.growthspace.com
+[2026-03-21T21:01:04.943Z]   SKIP (not in footer/header): https://open.spotify.com/show/5Fy5pfOacDh5Rp3TUfM3VC?si=f4RSU9l4T5KvWwd8NZiiKQ&nd=1&dlsi=0228bfa6e7ac4eb4
+[2026-03-21T21:01:04.944Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:01:04.944Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:01:04.944Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T21:01:04.944Z] ── Step 3: Final dedup ──
+[2026-03-21T21:01:04.944Z] No urls to dedup
+[2026-03-21T21:01:04.944Z] ── FINAL RESULT ──
+[2026-03-21T21:01:04.944Z]   ws (2):
+[2026-03-21T21:01:04.944Z]     - https://app.growthspace.com
+[2026-03-21T21:01:04.945Z]     - https://www.growthspace.com
+[2026-03-21T21:01:04.945Z]   li (1):
+[2026-03-21T21:01:04.945Z]     - https://www.linkedin.com/company/growthspaceus
+[2026-03-21T21:01:04.945Z]   ytp (1):
+[2026-03-21T21:01:04.945Z]     - https://www.youtube.com/@growthspaceus
+[2026-03-21T21:01:04.945Z] Summary: ws:2, li:1, ytp:1
+[2026-03-21T21:01:04.947Z] Saved final result to result.json
+[2026-03-21T21:01:04.947Z] Override fields: ws, li, ytp
+[2026-03-21T21:01:04.947Z] Finished at: 2026-03-21T21:01:04.947Z

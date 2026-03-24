@@ -1,0 +1,75 @@
+[2026-03-23T14:48:19.373Z] === Homepage AI Extractor: Datasset ===
+[2026-03-23T14:48:19.373Z] Started at: 2026-03-23T14:48:19.373Z
+[2026-03-23T14:48:19.373Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774277299372_Datasset
+[2026-03-23T14:48:19.373Z] Company: Datasset
+[2026-03-23T14:48:19.373Z] Website: datasset.vc
+[2026-03-23T14:48:19.373Z] cbRank: 1082542
+[2026-03-23T14:48:19.373Z] Reasons: f
+[2026-03-23T14:48:19.373Z] Fetching: https://datasset.vc
+[2026-03-23T14:48:22.361Z] Redirected: https://datasset.vc -> https://www.datasset.vc/
+[2026-03-23T14:48:22.364Z] Saved HTML (87479 bytes) to page.html
+[2026-03-23T14:48:22.367Z] Extracted 23 unique links from page
+[2026-03-23T14:48:22.370Z] Saved 23 links to links.json
+[2026-03-23T14:48:22.373Z] Extracted footer HTML (5662 chars)
+[2026-03-23T14:48:22.373Z] Extracted header HTML (5644 chars)
+[2026-03-23T14:48:22.377Z] Website (post-redirect): https://www.datasset.vc/ → origin: https://www.datasset.vc
+[2026-03-23T14:48:22.377Z]   SUBDOMAIN: app.datasset.vc (added to ws)
+[2026-03-23T14:48:22.377Z] Website subdomains found: 1
+[2026-03-23T14:48:22.377Z] External links: 5 (of 23 total)
+[2026-03-23T14:48:22.377Z] ── All external links ──
+[2026-03-23T14:48:22.377Z]   EXT: http://google.fr
+[2026-03-23T14:48:22.377Z]   EXT: https://twitter.com/datasset_vc
+[2026-03-23T14:48:22.377Z]   EXT: https://webflow.com/?utm_campaign=brandjs
+[2026-03-23T14:48:22.377Z]   EXT: https://www.dripple.finance
+[2026-03-23T14:48:22.377Z]   EXT: https://www.linkedin.com/company/datasset
+[2026-03-23T14:48:22.377Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T14:48:22.377Z]   UNCATEGORIZED: http://google.fr
+[2026-03-23T14:48:22.377Z]   REGEX: tw <- https://twitter.com/datasset_vc
+[2026-03-23T14:48:22.378Z]   UNCATEGORIZED: https://webflow.com/?utm_campaign=brandjs
+[2026-03-23T14:48:22.378Z]   UNCATEGORIZED: https://www.dripple.finance
+[2026-03-23T14:48:22.378Z]   REGEX: li <- https://www.linkedin.com/company/datasset
+[2026-03-23T14:48:22.378Z] Programmatic result: ws:2, tw:1, li:1 | 3 uncategorized
+[2026-03-23T14:48:22.378Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T14:48:22.378Z] Saved AI prompt (5207 chars) to ai_prompt.txt
+[2026-03-23T14:48:22.379Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T14:48:22.382Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T14:48:44.484Z]   AI: First token received, streaming...
+[2026-03-23T14:48:49.336Z] AI response complete: 103 chars in 27.0s
+[2026-03-23T14:48:49.337Z] Saved AI response to ai_response.json
+[2026-03-23T14:48:49.337Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T14:48:49.337Z]   AI LINK: https://www.linkedin.com/company/datasset/
+[2026-03-23T14:48:49.337Z]   AI LINK: https://twitter.com/datasset_vc
+[2026-03-23T14:48:49.338Z]   AI LINK: https://www.dripple.finance/
+[2026-03-23T14:48:49.338Z] AI returned 3 valid links
+[2026-03-23T14:48:49.338Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T14:48:49.338Z]   AI→REGEX: li <- https://www.linkedin.com/company/datasset/ (duplicate, skipped)
+[2026-03-23T14:48:49.338Z]   AI→REGEX: tw <- https://twitter.com/datasset_vc (duplicate, skipped)
+[2026-03-23T14:48:49.338Z]   AI→URLS: https://www.dripple.finance (cleaned from https://www.dripple.finance/)
+[2026-03-23T14:48:49.339Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T14:48:49.339Z] Footer/header origins (4):
+[2026-03-23T14:48:49.339Z]   FOOTER/HEADER ORIGIN: https://www.dripple.finance
+[2026-03-23T14:48:49.339Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T14:48:49.340Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T14:48:49.340Z]   FOOTER/HEADER ORIGIN: https://app.datasset.vc
+[2026-03-23T14:48:49.340Z]   SKIP (not in footer/header): http://google.fr
+[2026-03-23T14:48:49.340Z]   SKIP (not in footer/header): https://webflow.com/?utm_campaign=brandjs
+[2026-03-23T14:48:49.340Z]   SKIP (AI claimed): https://www.dripple.finance
+[2026-03-23T14:48:49.340Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T14:48:49.340Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T14:48:49.340Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T14:48:49.340Z] ── Step 3: Final dedup ──
+[2026-03-23T14:48:49.340Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T14:48:49.340Z] ── FINAL RESULT ──
+[2026-03-23T14:48:49.340Z]   ws (2):
+[2026-03-23T14:48:49.340Z]     - https://app.datasset.vc
+[2026-03-23T14:48:49.341Z]     - https://www.datasset.vc
+[2026-03-23T14:48:49.341Z]   li (1):
+[2026-03-23T14:48:49.341Z]     - https://www.linkedin.com/company/datasset
+[2026-03-23T14:48:49.341Z]   tw (1):
+[2026-03-23T14:48:49.341Z]     - https://x.com/datasset_vc
+[2026-03-23T14:48:49.341Z]   urls (1):
+[2026-03-23T14:48:49.341Z]     - https://www.dripple.finance
+[2026-03-23T14:48:49.341Z] Summary: ws:2, tw:1, li:1, urls:1
+[2026-03-23T14:48:49.342Z] Saved final result to result.json
+[2026-03-23T14:48:49.342Z] Override fields: ws, li, tw, urls
+[2026-03-23T14:48:49.342Z] Finished at: 2026-03-23T14:48:49.342Z

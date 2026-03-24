@@ -1,0 +1,70 @@
+[2026-03-22T01:05:36.322Z] === Homepage AI Extractor: Gravyty (formerly Graduway) ===
+[2026-03-22T01:05:36.322Z] Started at: 2026-03-22T01:05:36.322Z
+[2026-03-22T01:05:36.322Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774141536321_Gravyty_(formerly_Graduway)
+[2026-03-22T01:05:36.322Z] Company: Gravyty (formerly Graduway)
+[2026-03-22T01:05:36.322Z] Website: gravyty.com
+[2026-03-22T01:05:36.322Z] cbRank: 18631
+[2026-03-22T01:05:36.322Z] Reasons: f
+[2026-03-22T01:05:36.322Z] Fetching: https://gravyty.com
+[2026-03-22T01:05:39.712Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T01:05:42.706Z] Redirected: https://gravyty.com -> https://gravyty.com/
+[2026-03-22T01:05:42.722Z] Saved HTML (657547 bytes) to page.html
+[2026-03-22T01:05:42.725Z] Extracted 67 unique links from page
+[2026-03-22T01:05:42.726Z] Saved 67 links to links.json
+[2026-03-22T01:05:42.729Z] Extracted footer HTML (20714 chars)
+[2026-03-22T01:05:42.729Z] Extracted header HTML (14463 chars)
+[2026-03-22T01:05:42.733Z] Website (post-redirect): https://gravyty.com/ → origin: https://gravyty.com
+[2026-03-22T01:05:42.733Z]   SUBDOMAIN: trust.gravyty.com (added to ws)
+[2026-03-22T01:05:42.733Z] Website subdomains found: 1
+[2026-03-22T01:05:42.733Z] External links: 4 (of 67 total)
+[2026-03-22T01:05:42.734Z] ── All external links ──
+[2026-03-22T01:05:42.734Z]   EXT: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T01:05:42.734Z]   EXT: https://gravyty.bamboohr.com/careers
+[2026-03-22T01:05:42.734Z]   EXT: https://www.linkedin.com/company/gravytyco
+[2026-03-22T01:05:42.734Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-22T01:05:42.734Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:05:42.734Z]   UNCATEGORIZED: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T01:05:42.734Z]   UNCATEGORIZED: https://gravyty.bamboohr.com/careers
+[2026-03-22T01:05:42.734Z]   REGEX: li <- https://www.linkedin.com/company/gravytyco
+[2026-03-22T01:05:42.735Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-22T01:05:42.735Z] Programmatic result: ws:2, li:1 | 3 uncategorized
+[2026-03-22T01:05:42.735Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:05:42.737Z] Saved AI prompt (4953 chars) to ai_prompt.txt
+[2026-03-22T01:05:42.737Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:05:42.741Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:06:00.339Z]   AI: First token received, streaming...
+[2026-03-22T01:06:04.793Z] AI response complete: 80 chars in 22.1s
+[2026-03-22T01:06:04.795Z] Saved AI response to ai_response.json
+[2026-03-22T01:06:04.795Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T01:06:04.795Z]   AI LINK: https://gravyty.bamboohr.com/careers
+[2026-03-22T01:06:04.795Z]   AI LINK: https://www.linkedin.com/company/gravytyco/
+[2026-03-22T01:06:04.795Z] AI returned 2 valid links
+[2026-03-22T01:06:04.796Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T01:06:04.796Z]   AI→URLS: https://gravyty.bamboohr.com/careers
+[2026-03-22T01:06:04.796Z]   AI→REGEX: li <- https://www.linkedin.com/company/gravytyco/ (duplicate, skipped)
+[2026-03-22T01:06:04.797Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:06:04.797Z] Footer/header origins (4):
+[2026-03-22T01:06:04.797Z]   FOOTER/HEADER ORIGIN: https://gravyty.com
+[2026-03-22T01:06:04.797Z]   FOOTER/HEADER ORIGIN: https://gravyty.bamboohr.com
+[2026-03-22T01:06:04.798Z]   FOOTER/HEADER ORIGIN: https://trust.gravyty.com
+[2026-03-22T01:06:04.798Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:06:04.798Z]   SKIP (not in footer/header): https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T01:06:04.798Z]   SKIP (AI claimed): https://gravyty.bamboohr.com/careers
+[2026-03-22T01:06:04.798Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-22T01:06:04.798Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:06:04.798Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:06:04.799Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:06:04.799Z] ── Step 3: Final dedup ──
+[2026-03-22T01:06:04.799Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T01:06:04.799Z] ── FINAL RESULT ──
+[2026-03-22T01:06:04.799Z]   ws (2):
+[2026-03-22T01:06:04.799Z]     - https://gravyty.com
+[2026-03-22T01:06:04.799Z]     - https://trust.gravyty.com
+[2026-03-22T01:06:04.800Z]   li (1):
+[2026-03-22T01:06:04.800Z]     - https://www.linkedin.com/company/gravytyco
+[2026-03-22T01:06:04.800Z]   urls (1):
+[2026-03-22T01:06:04.800Z]     - https://gravyty.bamboohr.com/careers
+[2026-03-22T01:06:04.800Z] Summary: ws:2, li:1, urls:1
+[2026-03-22T01:06:04.801Z] Saved final result to result.json
+[2026-03-22T01:06:04.802Z] Override fields: ws, li, urls
+[2026-03-22T01:06:04.802Z] Finished at: 2026-03-22T01:06:04.802Z

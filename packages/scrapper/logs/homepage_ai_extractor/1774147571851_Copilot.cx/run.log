@@ -1,0 +1,76 @@
+[2026-03-22T02:46:11.852Z] === Homepage AI Extractor: Copilot.cx ===
+[2026-03-22T02:46:11.852Z] Started at: 2026-03-22T02:46:11.852Z
+[2026-03-22T02:46:11.852Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774147571851_Copilot.cx
+[2026-03-22T02:46:11.852Z] Company: Copilot.cx
+[2026-03-22T02:46:11.852Z] Website: copilot.cx
+[2026-03-22T02:46:11.852Z] cbRank: 39232
+[2026-03-22T02:46:11.852Z] Reasons: f, i
+[2026-03-22T02:46:11.852Z] Fetching: https://copilot.cx
+[2026-03-22T02:46:16.642Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T02:46:18.655Z] Redirected: https://copilot.cx -> https://www.copilot.cx/
+[2026-03-22T02:46:18.668Z] Saved HTML (520681 bytes) to page.html
+[2026-03-22T02:46:18.671Z] Extracted 36 unique links from page
+[2026-03-22T02:46:18.672Z] Saved 36 links to links.json
+[2026-03-22T02:46:18.676Z] Extracted footer HTML (24011 chars)
+[2026-03-22T02:46:18.676Z] Extracted header HTML (49599 chars)
+[2026-03-22T02:46:18.680Z] Website (post-redirect): https://www.copilot.cx/ → origin: https://www.copilot.cx
+[2026-03-22T02:46:18.680Z]   SUBDOMAIN: docs.copilot.cx (added to ws)
+[2026-03-22T02:46:18.680Z] Website subdomains found: 1
+[2026-03-22T02:46:18.680Z] External links: 5 (of 36 total)
+[2026-03-22T02:46:18.680Z] ── All external links ──
+[2026-03-22T02:46:18.680Z]   EXT: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T02:46:18.680Z]   EXT: https://twitter.com/CopilotCX
+[2026-03-22T02:46:18.680Z]   EXT: https://www.facebook.com/copilot.cx
+[2026-03-22T02:46:18.680Z]   EXT: https://www.linkedin.com/company/copilot-cx
+[2026-03-22T02:46:18.680Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-22T02:46:18.681Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:46:18.681Z]   UNCATEGORIZED: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T02:46:18.681Z]   REGEX: tw <- https://twitter.com/CopilotCX
+[2026-03-22T02:46:18.682Z]   REGEX: fb <- https://www.facebook.com/copilot.cx
+[2026-03-22T02:46:18.682Z]   REGEX: li <- https://www.linkedin.com/company/copilot-cx
+[2026-03-22T02:46:18.682Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-22T02:46:18.682Z] Programmatic result: ws:2, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-22T02:46:18.682Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:46:18.686Z] Saved AI prompt (2947 chars) to ai_prompt.txt
+[2026-03-22T02:46:18.686Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:46:18.690Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:46:28.310Z]   AI: First token received, streaming...
+[2026-03-22T02:46:33.812Z] AI response complete: 110 chars in 15.1s
+[2026-03-22T02:46:33.814Z] Saved AI response to ai_response.json
+[2026-03-22T02:46:33.814Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T02:46:33.814Z]   AI LINK: https://www.facebook.com/copilot.cx
+[2026-03-22T02:46:33.814Z]   AI LINK: https://www.linkedin.com/company/copilot-cx/
+[2026-03-22T02:46:33.815Z]   AI LINK: https://twitter.com/CopilotCX
+[2026-03-22T02:46:33.815Z] AI returned 3 valid links
+[2026-03-22T02:46:33.815Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T02:46:33.815Z]   AI→REGEX: fb <- https://www.facebook.com/copilot.cx (duplicate, skipped)
+[2026-03-22T02:46:33.815Z]   AI→REGEX: li <- https://www.linkedin.com/company/copilot-cx/ (duplicate, skipped)
+[2026-03-22T02:46:33.815Z]   AI→REGEX: tw <- https://twitter.com/CopilotCX (duplicate, skipped)
+[2026-03-22T02:46:33.816Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:46:33.816Z] Footer/header origins (5):
+[2026-03-22T02:46:33.816Z]   FOOTER/HEADER ORIGIN: https://copilot.cx
+[2026-03-22T02:46:33.816Z]   FOOTER/HEADER ORIGIN: https://docs.copilot.cx
+[2026-03-22T02:46:33.816Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T02:46:33.817Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T02:46:33.817Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T02:46:33.817Z]   SKIP (not in footer/header): https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-22T02:46:33.817Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-22T02:46:33.817Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T02:46:33.817Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:46:33.817Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:46:33.817Z] ── Step 3: Final dedup ──
+[2026-03-22T02:46:33.817Z] No urls to dedup
+[2026-03-22T02:46:33.818Z] ── FINAL RESULT ──
+[2026-03-22T02:46:33.818Z]   ws (2):
+[2026-03-22T02:46:33.818Z]     - https://docs.copilot.cx
+[2026-03-22T02:46:33.818Z]     - https://www.copilot.cx
+[2026-03-22T02:46:33.818Z]   li (1):
+[2026-03-22T02:46:33.818Z]     - https://www.linkedin.com/company/copilot-cx
+[2026-03-22T02:46:33.818Z]   fb (1):
+[2026-03-22T02:46:33.818Z]     - https://www.facebook.com/copilot.cx
+[2026-03-22T02:46:33.818Z]   tw (1):
+[2026-03-22T02:46:33.819Z]     - https://x.com/copilotcx
+[2026-03-22T02:46:33.819Z] Summary: ws:2, tw:1, fb:1, li:1
+[2026-03-22T02:46:33.820Z] Saved final result to result.json
+[2026-03-22T02:46:33.820Z] Override fields: ws, li, fb, tw
+[2026-03-22T02:46:33.821Z] Finished at: 2026-03-22T02:46:33.821Z

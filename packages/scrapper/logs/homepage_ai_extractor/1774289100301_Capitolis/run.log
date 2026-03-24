@@ -1,0 +1,73 @@
+[2026-03-23T18:05:00.302Z] === Homepage AI Extractor: Capitolis ===
+[2026-03-23T18:05:00.302Z] Started at: 2026-03-23T18:05:00.302Z
+[2026-03-23T18:05:00.302Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774289100301_Capitolis
+[2026-03-23T18:05:00.302Z] Company: Capitolis
+[2026-03-23T18:05:00.303Z] Website: capitolis.com
+[2026-03-23T18:05:00.303Z] cbRank: 3672
+[2026-03-23T18:05:00.303Z] Reasons: i
+[2026-03-23T18:05:00.303Z] Fetching: https://capitolis.com
+[2026-03-23T18:05:02.447Z] Dismissed cookie consent popup via: button:has-text("I Accept")
+[2026-03-23T18:05:05.431Z] Redirected: https://capitolis.com -> https://capitolis.com/
+[2026-03-23T18:05:05.436Z] Saved HTML (106324 bytes) to page.html
+[2026-03-23T18:05:05.452Z] Extracted 31 unique links from page
+[2026-03-23T18:05:05.453Z] Saved 31 links to links.json
+[2026-03-23T18:05:05.457Z] Extracted footer HTML (7988 chars)
+[2026-03-23T18:05:05.457Z] Extracted header HTML (8863 chars)
+[2026-03-23T18:05:05.461Z] Website (post-redirect): https://capitolis.com/ → origin: https://capitolis.com
+[2026-03-23T18:05:05.462Z] External links: 4 (of 31 total)
+[2026-03-23T18:05:05.462Z] ── All external links ──
+[2026-03-23T18:05:05.462Z]   EXT: https://twitter.com/Capitolis_Inc
+[2026-03-23T18:05:05.462Z]   EXT: https://www.instagram.com/lifeatcapitolis
+[2026-03-23T18:05:05.462Z]   EXT: https://www.linkedin.com/company/capitolis.com
+[2026-03-23T18:05:05.462Z]   EXT: https://www.youtube.com/@capitolis4615
+[2026-03-23T18:05:05.462Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T18:05:05.463Z]   REGEX: tw <- https://twitter.com/Capitolis_Inc
+[2026-03-23T18:05:05.463Z]   REGEX: ig <- https://www.instagram.com/lifeatcapitolis
+[2026-03-23T18:05:05.463Z]   REGEX: li <- https://www.linkedin.com/company/capitolis.com
+[2026-03-23T18:05:05.464Z]   REGEX: ytp <- https://www.youtube.com/@capitolis4615
+[2026-03-23T18:05:05.464Z] Programmatic result: ws:1, tw:1, ig:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-23T18:05:05.464Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T18:05:05.465Z] Saved AI prompt (5521 chars) to ai_prompt.txt
+[2026-03-23T18:05:05.465Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T18:05:05.470Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T18:05:26.904Z]   AI: First token received, streaming...
+[2026-03-23T18:05:37.148Z] AI response complete: 163 chars in 31.7s
+[2026-03-23T18:05:37.149Z] Saved AI response to ai_response.json
+[2026-03-23T18:05:37.149Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T18:05:37.150Z]   AI LINK: https://twitter.com/Capitolis_Inc
+[2026-03-23T18:05:37.150Z]   AI LINK: https://www.linkedin.com/company/capitolis.com/
+[2026-03-23T18:05:37.150Z]   AI LINK: https://www.instagram.com/lifeatcapitolis/
+[2026-03-23T18:05:37.150Z]   AI LINK: https://www.youtube.com/@capitolis4615
+[2026-03-23T18:05:37.150Z] AI returned 4 valid links
+[2026-03-23T18:05:37.150Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T18:05:37.151Z]   AI→REGEX: tw <- https://twitter.com/Capitolis_Inc (duplicate, skipped)
+[2026-03-23T18:05:37.151Z]   AI→REGEX: li <- https://www.linkedin.com/company/capitolis.com/ (duplicate, skipped)
+[2026-03-23T18:05:37.151Z]   AI→REGEX: ig <- https://www.instagram.com/lifeatcapitolis/ (duplicate, skipped)
+[2026-03-23T18:05:37.151Z]   AI→REGEX: ytp <- https://www.youtube.com/@capitolis4615 (duplicate, skipped)
+[2026-03-23T18:05:37.152Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T18:05:37.152Z] Footer/header origins (5):
+[2026-03-23T18:05:37.152Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T18:05:37.152Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T18:05:37.152Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T18:05:37.152Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T18:05:37.152Z]   FOOTER/HEADER ORIGIN: https://capitolis.com
+[2026-03-23T18:05:37.152Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T18:05:37.152Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T18:05:37.153Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T18:05:37.153Z] ── Step 3: Final dedup ──
+[2026-03-23T18:05:37.153Z] No urls to dedup
+[2026-03-23T18:05:37.153Z] ── FINAL RESULT ──
+[2026-03-23T18:05:37.153Z]   ws (1):
+[2026-03-23T18:05:37.153Z]     - https://capitolis.com
+[2026-03-23T18:05:37.153Z]   li (1):
+[2026-03-23T18:05:37.153Z]     - https://www.linkedin.com/company/capitolis.com
+[2026-03-23T18:05:37.153Z]   tw (1):
+[2026-03-23T18:05:37.153Z]     - https://x.com/capitolis_inc
+[2026-03-23T18:05:37.153Z]   ig (1):
+[2026-03-23T18:05:37.153Z]     - https://www.instagram.com/lifeatcapitolis
+[2026-03-23T18:05:37.153Z]   ytp (1):
+[2026-03-23T18:05:37.153Z]     - https://www.youtube.com/@capitolis4615
+[2026-03-23T18:05:37.154Z] Summary: ws:1, tw:1, ig:1, li:1, ytp:1
+[2026-03-23T18:05:37.154Z] Saved final result to result.json
+[2026-03-23T18:05:37.155Z] Override fields: ws, li, tw, ig, ytp
+[2026-03-23T18:05:37.155Z] Finished at: 2026-03-23T18:05:37.155Z

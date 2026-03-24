@@ -1,0 +1,72 @@
+[2026-03-21T22:26:26.054Z] === Homepage AI Extractor: Avride ===
+[2026-03-21T22:26:26.055Z] Started at: 2026-03-21T22:26:26.055Z
+[2026-03-21T22:26:26.055Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774131986054_Avride
+[2026-03-21T22:26:26.055Z] Company: Avride
+[2026-03-21T22:26:26.055Z] Website: avride.ai
+[2026-03-21T22:26:26.055Z] cbRank: 1978
+[2026-03-21T22:26:26.055Z] Reasons: f
+[2026-03-21T22:26:26.055Z] Fetching: https://avride.ai
+[2026-03-21T22:26:28.468Z] Redirected: https://avride.ai -> https://www.avride.ai/
+[2026-03-21T22:26:28.471Z] Saved HTML (39843 bytes) to page.html
+[2026-03-21T22:26:28.473Z] Extracted 13 unique links from page
+[2026-03-21T22:26:28.473Z] Saved 13 links to links.json
+[2026-03-21T22:26:28.474Z] Extracted footer HTML (1919 chars)
+[2026-03-21T22:26:28.475Z] Extracted header HTML (3776 chars)
+[2026-03-21T22:26:28.479Z] Website (post-redirect): https://www.avride.ai/ → origin: https://www.avride.ai
+[2026-03-21T22:26:28.479Z] External links: 4 (of 13 total)
+[2026-03-21T22:26:28.479Z] ── All external links ──
+[2026-03-21T22:26:28.479Z]   EXT: https://instagram.com/avride.ai
+[2026-03-21T22:26:28.479Z]   EXT: https://linkedin.com/company/avrideai
+[2026-03-21T22:26:28.479Z]   EXT: https://medium.com/avride
+[2026-03-21T22:26:28.479Z]   EXT: https://x.com/avrideai
+[2026-03-21T22:26:28.479Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:26:28.479Z]   REGEX: ig <- https://instagram.com/avride.ai
+[2026-03-21T22:26:28.479Z]   REGEX: li <- https://linkedin.com/company/avrideai
+[2026-03-21T22:26:28.479Z]   UNCATEGORIZED: https://medium.com/avride
+[2026-03-21T22:26:28.480Z]   REGEX: tw <- https://x.com/avrideai
+[2026-03-21T22:26:28.480Z] Programmatic result: ws:1, ig:1, li:1, tw:1 | 1 uncategorized
+[2026-03-21T22:26:28.480Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:26:28.483Z] Saved AI prompt (3005 chars) to ai_prompt.txt
+[2026-03-21T22:26:28.483Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:26:28.487Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:26:40.093Z]   AI: First token received, streaming...
+[2026-03-21T22:26:47.333Z] AI response complete: 119 chars in 18.9s
+[2026-03-21T22:26:47.334Z] Saved AI response to ai_response.json
+[2026-03-21T22:26:47.334Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T22:26:47.334Z]   AI LINK: https://medium.com/avride
+[2026-03-21T22:26:47.334Z]   AI LINK: https://linkedin.com/company/avrideai
+[2026-03-21T22:26:47.335Z]   AI LINK: https://instagram.com/avride.ai/
+[2026-03-21T22:26:47.335Z]   AI LINK: https://x.com/avrideai
+[2026-03-21T22:26:47.335Z] AI returned 4 valid links
+[2026-03-21T22:26:47.335Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T22:26:47.335Z]   AI→URLS: https://medium.com/avride
+[2026-03-21T22:26:47.335Z]   AI→REGEX: li <- https://linkedin.com/company/avrideai (duplicate, skipped)
+[2026-03-21T22:26:47.335Z]   AI→REGEX: ig <- https://instagram.com/avride.ai/ (duplicate, skipped)
+[2026-03-21T22:26:47.335Z]   AI→REGEX: tw <- https://x.com/avrideai (duplicate, skipped)
+[2026-03-21T22:26:47.336Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:26:47.336Z] Footer/header origins (4):
+[2026-03-21T22:26:47.336Z]   FOOTER/HEADER ORIGIN: https://medium.com
+[2026-03-21T22:26:47.336Z]   FOOTER/HEADER ORIGIN: https://linkedin.com
+[2026-03-21T22:26:47.337Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-21T22:26:47.337Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T22:26:47.337Z]   SKIP (AI claimed): https://medium.com/avride
+[2026-03-21T22:26:47.337Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:26:47.337Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:26:47.337Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:26:47.337Z] ── Step 3: Final dedup ──
+[2026-03-21T22:26:47.337Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T22:26:47.337Z] ── FINAL RESULT ──
+[2026-03-21T22:26:47.337Z]   ws (1):
+[2026-03-21T22:26:47.338Z]     - https://www.avride.ai
+[2026-03-21T22:26:47.338Z]   li (1):
+[2026-03-21T22:26:47.338Z]     - https://www.linkedin.com/company/avrideai
+[2026-03-21T22:26:47.338Z]   tw (1):
+[2026-03-21T22:26:47.338Z]     - https://x.com/avrideai
+[2026-03-21T22:26:47.338Z]   ig (1):
+[2026-03-21T22:26:47.338Z]     - https://www.instagram.com/avride.ai
+[2026-03-21T22:26:47.338Z]   urls (1):
+[2026-03-21T22:26:47.338Z]     - https://medium.com/avride
+[2026-03-21T22:26:47.339Z] Summary: ws:1, ig:1, li:1, tw:1, urls:1
+[2026-03-21T22:26:47.340Z] Saved final result to result.json
+[2026-03-21T22:26:47.340Z] Override fields: ws, li, tw, ig, urls
+[2026-03-21T22:26:47.340Z] Finished at: 2026-03-21T22:26:47.340Z

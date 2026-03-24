@@ -1,0 +1,56 @@
+[2026-03-23T23:01:28.253Z] === Homepage AI Extractor: Jigso ===
+[2026-03-23T23:01:28.253Z] Started at: 2026-03-23T23:01:28.253Z
+[2026-03-23T23:01:28.253Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774306888252_Jigso
+[2026-03-23T23:01:28.253Z] Company: Jigso
+[2026-03-23T23:01:28.253Z] Website: jigso.io
+[2026-03-23T23:01:28.253Z] cbRank: 35287
+[2026-03-23T23:01:28.253Z] Reasons: i
+[2026-03-23T23:01:28.253Z] Fetching: https://jigso.io
+[2026-03-23T23:01:31.014Z] Redirected: https://jigso.io -> https://www.jigso.io/
+[2026-03-23T23:01:31.027Z] Saved HTML (480197 bytes) to page.html
+[2026-03-23T23:01:31.029Z] Extracted 27 unique links from page
+[2026-03-23T23:01:31.029Z] Saved 27 links to links.json
+[2026-03-23T23:01:31.031Z] Extracted footer HTML (2838 chars)
+[2026-03-23T23:01:31.031Z] Extracted header HTML (991 chars)
+[2026-03-23T23:01:31.035Z] Website (post-redirect): https://www.jigso.io/ → origin: https://www.jigso.io
+[2026-03-23T23:01:31.036Z]   SUBDOMAIN: app.jigso.io (added to ws)
+[2026-03-23T23:01:31.036Z] Website subdomains found: 1
+[2026-03-23T23:01:31.036Z] External links: 2 (of 27 total)
+[2026-03-23T23:01:31.036Z] ── All external links ──
+[2026-03-23T23:01:31.036Z]   EXT: http://www.moxiemethod.com
+[2026-03-23T23:01:31.036Z]   EXT: https://www.linkedin.com/company/jigsoio/about
+[2026-03-23T23:01:31.036Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:01:31.036Z]   UNCATEGORIZED: http://www.moxiemethod.com
+[2026-03-23T23:01:31.037Z]   REGEX: li <- https://www.linkedin.com/company/jigsoio/about
+[2026-03-23T23:01:31.037Z] Programmatic result: ws:2, li:1 | 1 uncategorized
+[2026-03-23T23:01:31.037Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:01:31.038Z] Saved AI prompt (3231 chars) to ai_prompt.txt
+[2026-03-23T23:01:31.038Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:01:31.042Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:01:43.071Z]   AI: First token received, streaming...
+[2026-03-23T23:01:44.912Z] AI response complete: 47 chars in 13.9s
+[2026-03-23T23:01:44.913Z] Saved AI response to ai_response.json
+[2026-03-23T23:01:44.913Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T23:01:44.914Z]   AI LINK: https://www.linkedin.com/company/jigsoio/about/
+[2026-03-23T23:01:44.914Z] AI returned 1 valid links
+[2026-03-23T23:01:44.914Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T23:01:44.914Z]   AI→REGEX: li <- https://www.linkedin.com/company/jigsoio/about/ (duplicate, skipped)
+[2026-03-23T23:01:44.915Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:01:44.915Z] Footer/header origins (1):
+[2026-03-23T23:01:44.915Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:01:44.915Z]   SKIP (not in footer/header): http://www.moxiemethod.com
+[2026-03-23T23:01:44.915Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:01:44.915Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:01:44.915Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:01:44.915Z] ── Step 3: Final dedup ──
+[2026-03-23T23:01:44.916Z] No urls to dedup
+[2026-03-23T23:01:44.916Z] ── FINAL RESULT ──
+[2026-03-23T23:01:44.916Z]   ws (2):
+[2026-03-23T23:01:44.916Z]     - https://app.jigso.io
+[2026-03-23T23:01:44.916Z]     - https://www.jigso.io
+[2026-03-23T23:01:44.916Z]   li (1):
+[2026-03-23T23:01:44.916Z]     - https://www.linkedin.com/company/jigsoio
+[2026-03-23T23:01:44.916Z] Summary: ws:2, li:1
+[2026-03-23T23:01:44.917Z] Saved final result to result.json
+[2026-03-23T23:01:44.917Z] Override fields: ws, li
+[2026-03-23T23:01:44.917Z] Finished at: 2026-03-23T23:01:44.917Z

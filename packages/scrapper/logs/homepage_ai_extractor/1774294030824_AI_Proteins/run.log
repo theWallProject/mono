@@ -1,0 +1,61 @@
+[2026-03-23T19:27:10.825Z] === Homepage AI Extractor: AI Proteins ===
+[2026-03-23T19:27:10.825Z] Started at: 2026-03-23T19:27:10.825Z
+[2026-03-23T19:27:10.825Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774294030824_AI_Proteins
+[2026-03-23T19:27:10.825Z] Company: AI Proteins
+[2026-03-23T19:27:10.825Z] Website: aiproteins.com
+[2026-03-23T19:27:10.826Z] cbRank: 9267
+[2026-03-23T19:27:10.826Z] Reasons: i
+[2026-03-23T19:27:10.826Z] Fetching: https://aiproteins.com
+[2026-03-23T19:27:12.800Z] Redirected: https://aiproteins.com -> https://www.aiproteins.com/
+[2026-03-23T19:27:12.837Z] Saved HTML (1453873 bytes) to page.html
+[2026-03-23T19:27:12.840Z] Extracted 13 unique links from page
+[2026-03-23T19:27:12.841Z] Saved 13 links to links.json
+[2026-03-23T19:27:12.842Z] No footer section found in DOM
+[2026-03-23T19:27:12.842Z] Extracted header HTML (16144 chars)
+[2026-03-23T19:27:12.845Z] Website (post-redirect): https://www.aiproteins.com/ → origin: https://www.aiproteins.com
+[2026-03-23T19:27:12.845Z] External links: 4 (of 13 total)
+[2026-03-23T19:27:12.845Z] ── All external links ──
+[2026-03-23T19:27:12.846Z]   EXT: https://bsky.app/profile/aiproteins.com
+[2026-03-23T19:27:12.846Z]   EXT: https://twitter.com/AI_Proteins
+[2026-03-23T19:27:12.846Z]   EXT: https://www.bunsenstudio.com
+[2026-03-23T19:27:12.846Z]   EXT: https://www.linkedin.com/company/aiproteins
+[2026-03-23T19:27:12.846Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:27:12.846Z]   UNCATEGORIZED: https://bsky.app/profile/aiproteins.com
+[2026-03-23T19:27:12.846Z]   REGEX: tw <- https://twitter.com/AI_Proteins
+[2026-03-23T19:27:12.846Z]   UNCATEGORIZED: https://www.bunsenstudio.com
+[2026-03-23T19:27:12.846Z]   REGEX: li <- https://www.linkedin.com/company/aiproteins
+[2026-03-23T19:27:12.846Z] Programmatic result: ws:1, tw:1, li:1 | 2 uncategorized
+[2026-03-23T19:27:12.846Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:27:12.850Z] Saved AI prompt (2012 chars) to ai_prompt.txt
+[2026-03-23T19:27:12.850Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:27:12.854Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:27:19.750Z]   AI: First token received, streaming...
+[2026-03-23T19:27:20.888Z] AI response complete: 39 chars in 8.0s
+[2026-03-23T19:27:20.890Z] Saved AI response to ai_response.json
+[2026-03-23T19:27:20.890Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T19:27:20.890Z]   AI LINK: https://bsky.app/profile/aiproteins.com
+[2026-03-23T19:27:20.891Z] AI returned 1 valid links
+[2026-03-23T19:27:20.891Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T19:27:20.891Z]   AI→URLS: https://bsky.app/profile/aiproteins.com
+[2026-03-23T19:27:20.891Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:27:20.891Z] Footer/header origins (0):
+[2026-03-23T19:27:20.891Z]   SKIP (AI claimed): https://bsky.app/profile/aiproteins.com
+[2026-03-23T19:27:20.892Z]   SKIP (not in footer/header): https://www.bunsenstudio.com
+[2026-03-23T19:27:20.892Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:27:20.892Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:27:20.892Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:27:20.892Z] ── Step 3: Final dedup ──
+[2026-03-23T19:27:20.892Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T19:27:20.892Z] ── FINAL RESULT ──
+[2026-03-23T19:27:20.892Z]   ws (1):
+[2026-03-23T19:27:20.892Z]     - https://www.aiproteins.com
+[2026-03-23T19:27:20.892Z]   li (1):
+[2026-03-23T19:27:20.892Z]     - https://www.linkedin.com/company/aiproteins
+[2026-03-23T19:27:20.892Z]   tw (1):
+[2026-03-23T19:27:20.892Z]     - https://x.com/ai_proteins
+[2026-03-23T19:27:20.893Z]   urls (1):
+[2026-03-23T19:27:20.893Z]     - https://bsky.app/profile/aiproteins.com
+[2026-03-23T19:27:20.893Z] Summary: ws:1, tw:1, li:1, urls:1
+[2026-03-23T19:27:20.897Z] Saved final result to result.json
+[2026-03-23T19:27:20.898Z] Override fields: ws, li, tw, urls
+[2026-03-23T19:27:20.898Z] Finished at: 2026-03-23T19:27:20.898Z

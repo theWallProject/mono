@@ -1,0 +1,72 @@
+[2026-03-23T22:08:06.814Z] === Homepage AI Extractor: NextNav ===
+[2026-03-23T22:08:06.814Z] Started at: 2026-03-23T22:08:06.814Z
+[2026-03-23T22:08:06.814Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774303686814_NextNav
+[2026-03-23T22:08:06.814Z] Company: NextNav
+[2026-03-23T22:08:06.814Z] Website: nextnav.com
+[2026-03-23T22:08:06.814Z] cbRank: 25904
+[2026-03-23T22:08:06.814Z] Reasons: i
+[2026-03-23T22:08:06.815Z] Fetching: https://nextnav.com
+[2026-03-23T22:08:10.881Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T22:08:13.865Z] Redirected: https://nextnav.com -> https://nextnav.com/
+[2026-03-23T22:08:13.872Z] Saved HTML (164796 bytes) to page.html
+[2026-03-23T22:08:13.874Z] Extracted 29 unique links from page
+[2026-03-23T22:08:13.875Z] Saved 29 links to links.json
+[2026-03-23T22:08:13.880Z] Extracted footer HTML (2845 chars)
+[2026-03-23T22:08:13.880Z] Extracted header HTML (25854 chars)
+[2026-03-23T22:08:13.883Z] Website (post-redirect): https://nextnav.com/ → origin: https://nextnav.com
+[2026-03-23T22:08:13.883Z]   SUBDOMAIN: ir.nextnav.com (added to ws)
+[2026-03-23T22:08:13.883Z] Website subdomains found: 1
+[2026-03-23T22:08:13.883Z] External links: 4 (of 29 total)
+[2026-03-23T22:08:13.883Z] ── All external links ──
+[2026-03-23T22:08:13.883Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T22:08:13.883Z]   EXT: https://www.linkedin.com/company/nextnav
+[2026-03-23T22:08:13.883Z]   EXT: https://www.youtube.com/results?search_query=Nextnav
+[2026-03-23T22:08:13.883Z]   EXT: https://x.com/NextNav
+[2026-03-23T22:08:13.883Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T22:08:13.884Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T22:08:13.884Z]   REGEX: li <- https://www.linkedin.com/company/nextnav
+[2026-03-23T22:08:13.884Z]   REGEX: tw <- https://x.com/NextNav
+[2026-03-23T22:08:13.884Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T22:08:13.884Z]   SKIP (regex domain, no match): https://www.youtube.com/results?search_query=Nextnav
+[2026-03-23T22:08:13.884Z] Programmatic result: ws:2, li:1, tw:1 | 1 uncategorized
+[2026-03-23T22:08:13.884Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T22:08:13.887Z] Saved AI prompt (2824 chars) to ai_prompt.txt
+[2026-03-23T22:08:13.887Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T22:08:13.891Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T22:08:23.512Z]   AI: First token received, streaming...
+[2026-03-23T22:08:29.372Z] AI response complete: 115 chars in 15.5s
+[2026-03-23T22:08:29.377Z] Saved AI response to ai_response.json
+[2026-03-23T22:08:29.377Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T22:08:29.377Z]   AI LINK: https://www.linkedin.com/company/nextnav
+[2026-03-23T22:08:29.377Z]   AI LINK: https://x.com/NextNav
+[2026-03-23T22:08:29.377Z]   AI LINK: https://www.youtube.com/results?search_query=Nextnav
+[2026-03-23T22:08:29.377Z] AI returned 3 valid links
+[2026-03-23T22:08:29.378Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T22:08:29.378Z]   AI→REGEX: li <- https://www.linkedin.com/company/nextnav (duplicate, skipped)
+[2026-03-23T22:08:29.378Z]   AI→REGEX: tw <- https://x.com/NextNav (duplicate, skipped)
+[2026-03-23T22:08:29.378Z]   AI→SKIP (regex domain, no match): https://www.youtube.com/results?search_query=Nextnav
+[2026-03-23T22:08:29.379Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T22:08:29.380Z] Footer/header origins (5):
+[2026-03-23T22:08:29.380Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T22:08:29.380Z]   FOOTER/HEADER ORIGIN: https://nextnav.com
+[2026-03-23T22:08:29.380Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T22:08:29.380Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T22:08:29.380Z]   FOOTER/HEADER ORIGIN: https://ir.nextnav.com
+[2026-03-23T22:08:29.381Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T22:08:29.381Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T22:08:29.381Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T22:08:29.381Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T22:08:29.381Z] ── Step 3: Final dedup ──
+[2026-03-23T22:08:29.381Z] No urls to dedup
+[2026-03-23T22:08:29.381Z] ── FINAL RESULT ──
+[2026-03-23T22:08:29.381Z]   ws (2):
+[2026-03-23T22:08:29.381Z]     - https://ir.nextnav.com
+[2026-03-23T22:08:29.382Z]     - https://nextnav.com
+[2026-03-23T22:08:29.382Z]   li (1):
+[2026-03-23T22:08:29.382Z]     - https://www.linkedin.com/company/nextnav
+[2026-03-23T22:08:29.382Z]   tw (1):
+[2026-03-23T22:08:29.382Z]     - https://x.com/nextnav
+[2026-03-23T22:08:29.382Z] Summary: ws:2, li:1, tw:1
+[2026-03-23T22:08:29.383Z] Saved final result to result.json
+[2026-03-23T22:08:29.383Z] Override fields: ws, li, tw
+[2026-03-23T22:08:29.383Z] Finished at: 2026-03-23T22:08:29.383Z

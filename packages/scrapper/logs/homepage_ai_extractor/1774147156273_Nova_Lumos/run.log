@@ -1,0 +1,84 @@
+[2026-03-22T02:39:16.274Z] === Homepage AI Extractor: Nova Lumos ===
+[2026-03-22T02:39:16.274Z] Started at: 2026-03-22T02:39:16.274Z
+[2026-03-22T02:39:16.274Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774147156273_Nova_Lumos
+[2026-03-22T02:39:16.274Z] Company: Nova Lumos
+[2026-03-22T02:39:16.275Z] Website: lumos-global.com
+[2026-03-22T02:39:16.275Z] cbRank: 37783
+[2026-03-22T02:39:16.275Z] Reasons: f
+[2026-03-22T02:39:16.275Z] Fetching: https://lumos-global.com
+[2026-03-22T02:39:26.927Z] Network idle timeout — continuing with current state
+[2026-03-22T02:39:26.966Z] Redirected: https://lumos-global.com -> https://www.lumos-global.com/
+[2026-03-22T02:39:26.987Z] Saved HTML (876004 bytes) to page.html
+[2026-03-22T02:39:26.990Z] Extracted 12 unique links from page
+[2026-03-22T02:39:26.991Z] Saved 12 links to links.json
+[2026-03-22T02:39:26.994Z] Extracted footer HTML (16082 chars)
+[2026-03-22T02:39:26.994Z] Extracted header HTML (5665 chars)
+[2026-03-22T02:39:26.998Z] Website (post-redirect): https://www.lumos-global.com/ → origin: https://www.lumos-global.com
+[2026-03-22T02:39:26.998Z] External links: 5 (of 12 total)
+[2026-03-22T02:39:26.998Z] ── All external links ──
+[2026-03-22T02:39:26.998Z]   EXT: http://linkedin.com/company/3179519
+[2026-03-22T02:39:26.999Z]   EXT: http://lumos.ci
+[2026-03-22T02:39:26.999Z]   EXT: https://twitter.com/LumosGlobal
+[2026-03-22T02:39:26.999Z]   EXT: https://www.facebook.com/LumosGlobal
+[2026-03-22T02:39:26.999Z]   EXT: https://www.lumos.com.ng
+[2026-03-22T02:39:26.999Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:39:26.999Z]   REGEX: li <- http://linkedin.com/company/3179519
+[2026-03-22T02:39:26.999Z]   UNCATEGORIZED: http://lumos.ci
+[2026-03-22T02:39:26.999Z]   REGEX: tw <- https://twitter.com/LumosGlobal
+[2026-03-22T02:39:26.999Z]   REGEX: fb <- https://www.facebook.com/LumosGlobal
+[2026-03-22T02:39:26.999Z]   UNCATEGORIZED: https://www.lumos.com.ng
+[2026-03-22T02:39:26.999Z] Programmatic result: ws:1, li:1, tw:1, fb:1 | 2 uncategorized
+[2026-03-22T02:39:26.999Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:39:27.001Z] Saved AI prompt (9108 chars) to ai_prompt.txt
+[2026-03-22T02:39:27.001Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:39:27.004Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:40:22.701Z]   AI: First token received, streaming...
+[2026-03-22T02:40:34.900Z] AI response complete: 175 chars in 67.9s
+[2026-03-22T02:40:34.902Z] Saved AI response to ai_response.json
+[2026-03-22T02:40:34.902Z] ── Parsing AI response (6 lines) ──
+[2026-03-22T02:40:34.902Z]   AI LINK: https://www.lumos-global.com
+[2026-03-22T02:40:34.903Z]   AI LINK: http://linkedin.com/company/3179519
+[2026-03-22T02:40:34.903Z]   AI LINK: https://www.facebook.com/LumosGlobal
+[2026-03-22T02:40:34.903Z]   AI LINK: https://twitter.com/LumosGlobal
+[2026-03-22T02:40:34.903Z]   AI LINK: https://www.lumos.com.ng/
+[2026-03-22T02:40:34.903Z]   AI LINK: http://lumos.ci
+[2026-03-22T02:40:34.903Z] AI returned 6 valid links
+[2026-03-22T02:40:34.903Z] ── Categorizing 6 AI-returned links ──
+[2026-03-22T02:40:34.904Z]   AI→URLS: https://www.lumos-global.com
+[2026-03-22T02:40:34.904Z]   AI→REGEX: li <- http://linkedin.com/company/3179519 (duplicate, skipped)
+[2026-03-22T02:40:34.904Z]   AI→REGEX: fb <- https://www.facebook.com/LumosGlobal (duplicate, skipped)
+[2026-03-22T02:40:34.904Z]   AI→REGEX: tw <- https://twitter.com/LumosGlobal (duplicate, skipped)
+[2026-03-22T02:40:34.904Z]   AI→URLS: https://www.lumos.com.ng (cleaned from https://www.lumos.com.ng/)
+[2026-03-22T02:40:34.905Z]   AI→URLS: http://lumos.ci
+[2026-03-22T02:40:34.905Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:40:34.905Z] Footer/header origins (6):
+[2026-03-22T02:40:34.905Z]   FOOTER/HEADER ORIGIN: https://www.lumos-global.com
+[2026-03-22T02:40:34.905Z]   FOOTER/HEADER ORIGIN: http://linkedin.com
+[2026-03-22T02:40:34.905Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T02:40:34.905Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T02:40:34.905Z]   FOOTER/HEADER ORIGIN: https://www.lumos.com.ng
+[2026-03-22T02:40:34.906Z]   FOOTER/HEADER ORIGIN: http://lumos.ci
+[2026-03-22T02:40:34.906Z]   SKIP (AI claimed): http://lumos.ci
+[2026-03-22T02:40:34.906Z]   SKIP (AI claimed): https://www.lumos.com.ng
+[2026-03-22T02:40:34.906Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T02:40:34.906Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:40:34.906Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:40:34.906Z] ── Step 3: Final dedup ──
+[2026-03-22T02:40:34.906Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T02:40:34.906Z] ── FINAL RESULT ──
+[2026-03-22T02:40:34.907Z]   ws (1):
+[2026-03-22T02:40:34.907Z]     - https://www.lumos-global.com
+[2026-03-22T02:40:34.907Z]   li (1):
+[2026-03-22T02:40:34.907Z]     - https://www.linkedin.com/company/3179519
+[2026-03-22T02:40:34.907Z]   fb (1):
+[2026-03-22T02:40:34.907Z]     - https://www.facebook.com/lumosglobal
+[2026-03-22T02:40:34.907Z]   tw (1):
+[2026-03-22T02:40:34.907Z]     - https://x.com/lumosglobal
+[2026-03-22T02:40:34.908Z]   urls (3):
+[2026-03-22T02:40:34.908Z]     - http://lumos.ci
+[2026-03-22T02:40:34.908Z]     - https://www.lumos-global.com
+[2026-03-22T02:40:34.908Z]     - https://www.lumos.com.ng
+[2026-03-22T02:40:34.908Z] Summary: ws:1, li:1, tw:1, fb:1, urls:3
+[2026-03-22T02:40:34.909Z] Saved final result to result.json
+[2026-03-22T02:40:34.910Z] Override fields: ws, li, fb, tw
+[2026-03-22T02:40:34.910Z] Finished at: 2026-03-22T02:40:34.910Z

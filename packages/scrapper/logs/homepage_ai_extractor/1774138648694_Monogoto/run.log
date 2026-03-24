@@ -1,0 +1,83 @@
+[2026-03-22T00:17:28.695Z] === Homepage AI Extractor: Monogoto ===
+[2026-03-22T00:17:28.695Z] Started at: 2026-03-22T00:17:28.695Z
+[2026-03-22T00:17:28.695Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774138648694_Monogoto
+[2026-03-22T00:17:28.695Z] Company: Monogoto
+[2026-03-22T00:17:28.695Z] Website: monogoto.io
+[2026-03-22T00:17:28.695Z] cbRank: 11880
+[2026-03-22T00:17:28.695Z] Reasons: f
+[2026-03-22T00:17:28.695Z] Fetching: https://monogoto.io
+[2026-03-22T00:17:30.522Z] Redirected: https://monogoto.io -> https://monogoto.io/
+[2026-03-22T00:17:30.531Z] Saved HTML (353583 bytes) to page.html
+[2026-03-22T00:17:30.535Z] Extracted 55 unique links from page
+[2026-03-22T00:17:30.536Z] Saved 55 links to links.json
+[2026-03-22T00:17:30.539Z] Extracted footer HTML (72785 chars)
+[2026-03-22T00:17:30.539Z] Extracted header HTML (35884 chars)
+[2026-03-22T00:17:30.542Z] Website (post-redirect): https://monogoto.io/ → origin: https://monogoto.io
+[2026-03-22T00:17:30.542Z]   SUBDOMAIN: lp.monogoto.io (added to ws)
+[2026-03-22T00:17:30.542Z]   SUBDOMAIN: docs.monogoto.io (added to ws)
+[2026-03-22T00:17:30.542Z]   SUBDOMAIN: forum.monogoto.io (added to ws)
+[2026-03-22T00:17:30.542Z]   SUBDOMAIN: hub.monogoto.io (added to ws)
+[2026-03-22T00:17:30.542Z]   SUBDOMAIN: status.monogoto.io (added to ws)
+[2026-03-22T00:17:30.542Z] Website subdomains found: 5
+[2026-03-22T00:17:30.543Z] External links: 2 (of 55 total)
+[2026-03-22T00:17:30.543Z] ── All external links ──
+[2026-03-22T00:17:30.543Z]   EXT: https://www.linkedin.com/company/11517116/admin
+[2026-03-22T00:17:30.543Z]   EXT: https://www.youtube.com/channel/UCoS7AeirwgbcBPcdLX2hocQ
+[2026-03-22T00:17:30.543Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:17:30.543Z]   REGEX: li <- https://www.linkedin.com/company/11517116/admin
+[2026-03-22T00:17:30.544Z]   REGEX: ytc <- https://www.youtube.com/channel/UCoS7AeirwgbcBPcdLX2hocQ
+[2026-03-22T00:17:30.544Z] Programmatic result: ws:6, li:1, ytc:1 | 0 uncategorized
+[2026-03-22T00:17:30.544Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:17:30.545Z] Saved AI prompt (4098 chars) to ai_prompt.txt
+[2026-03-22T00:17:30.545Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:17:30.549Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:17:45.864Z]   AI: First token received, streaming...
+[2026-03-22T00:17:56.100Z] AI response complete: 132 chars in 25.6s
+[2026-03-22T00:17:56.101Z] Saved AI response to ai_response.json
+[2026-03-22T00:17:56.101Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:17:56.102Z]   AI LINK: https://www.linkedin.com/company/11517116/admin/
+[2026-03-22T00:17:56.102Z]   AI LINK: https://www.youtube.com/channel/UCoS7AeirwgbcBPcdLX2hocQ
+[2026-03-22T00:17:56.102Z]   AI LINK: https://forum.monogoto.io/
+[2026-03-22T00:17:56.102Z] AI returned 3 valid links
+[2026-03-22T00:17:56.102Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:17:56.103Z]   AI→REGEX: li <- https://www.linkedin.com/company/11517116/admin/ (duplicate, skipped)
+[2026-03-22T00:17:56.103Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCoS7AeirwgbcBPcdLX2hocQ (duplicate, skipped)
+[2026-03-22T00:17:56.104Z]   AI→URLS: https://forum.monogoto.io (cleaned from https://forum.monogoto.io/)
+[2026-03-22T00:17:56.105Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:17:56.105Z] Footer/header origins (9):
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: https://monogoto.io
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: https://docs.monogoto.io
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: https://forum.monogoto.io
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: https://status.monogoto.io
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: https://lp.monogoto.io
+[2026-03-22T00:17:56.105Z]   FOOTER/HEADER ORIGIN: http://lp.monogoto.io
+[2026-03-22T00:17:56.106Z]   FOOTER/HEADER ORIGIN: https://hub.monogoto.io
+[2026-03-22T00:17:56.106Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:17:56.106Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:17:56.106Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T00:17:56.391Z]   YOUTUBE: resolved UCoS7AeirwgbcBPcdLX2hocQ → @monogoto3459
+[2026-03-22T00:17:56.392Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T00:17:56.392Z] ── Step 3: Final dedup ──
+[2026-03-22T00:17:56.392Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T00:17:56.392Z] ── FINAL RESULT ──
+[2026-03-22T00:17:56.392Z]   ws (6):
+[2026-03-22T00:17:56.392Z]     - https://docs.monogoto.io
+[2026-03-22T00:17:56.392Z]     - https://forum.monogoto.io
+[2026-03-22T00:17:56.392Z]     - https://hub.monogoto.io
+[2026-03-22T00:17:56.392Z]     - https://lp.monogoto.io
+[2026-03-22T00:17:56.392Z]     - https://monogoto.io
+[2026-03-22T00:17:56.392Z]     - https://status.monogoto.io
+[2026-03-22T00:17:56.392Z]   li (1):
+[2026-03-22T00:17:56.392Z]     - https://www.linkedin.com/company/11517116
+[2026-03-22T00:17:56.392Z]   ytp (1):
+[2026-03-22T00:17:56.392Z]     - https://www.youtube.com/@monogoto3459
+[2026-03-22T00:17:56.392Z]   ytc (1):
+[2026-03-22T00:17:56.393Z]     - https://www.youtube.com/channel/UCoS7AeirwgbcBPcdLX2hocQ
+[2026-03-22T00:17:56.393Z]   urls (1):
+[2026-03-22T00:17:56.393Z]     - https://forum.monogoto.io
+[2026-03-22T00:17:56.393Z] Summary: ws:6, li:1, ytc:1, urls:1, ytp:1
+[2026-03-22T00:17:56.393Z] Saved final result to result.json
+[2026-03-22T00:17:56.393Z] Override fields: ws, li, ytp, ytc
+[2026-03-22T00:17:56.393Z] Finished at: 2026-03-22T00:17:56.393Z

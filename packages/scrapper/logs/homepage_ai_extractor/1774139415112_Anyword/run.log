@@ -1,0 +1,66 @@
+[2026-03-22T00:30:15.112Z] === Homepage AI Extractor: Anyword ===
+[2026-03-22T00:30:15.112Z] Started at: 2026-03-22T00:30:15.112Z
+[2026-03-22T00:30:15.112Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774139415112_Anyword
+[2026-03-22T00:30:15.112Z] Company: Anyword
+[2026-03-22T00:30:15.112Z] Website: anyword.com
+[2026-03-22T00:30:15.112Z] cbRank: 13559
+[2026-03-22T00:30:15.113Z] Reasons: f, i
+[2026-03-22T00:30:15.113Z] Fetching: https://anyword.com
+[2026-03-22T00:30:18.006Z] Redirected: https://anyword.com -> https://www.anyword.com/
+[2026-03-22T00:30:18.011Z] Saved HTML (175280 bytes) to page.html
+[2026-03-22T00:30:18.013Z] Extracted 42 unique links from page
+[2026-03-22T00:30:18.014Z] Saved 42 links to links.json
+[2026-03-22T00:30:18.016Z] Extracted footer HTML (886 chars)
+[2026-03-22T00:30:18.017Z] Extracted header HTML (5010 chars)
+[2026-03-22T00:30:18.020Z] Website (post-redirect): https://www.anyword.com/ → origin: https://www.anyword.com
+[2026-03-22T00:30:18.020Z]   SUBDOMAIN: go.anyword.com (added to ws)
+[2026-03-22T00:30:18.020Z]   SUBDOMAIN: support.anyword.com (added to ws)
+[2026-03-22T00:30:18.020Z] Website subdomains found: 2
+[2026-03-22T00:30:18.020Z] External links: 5 (of 42 total)
+[2026-03-22T00:30:18.020Z] ── All external links ──
+[2026-03-22T00:30:18.020Z]   EXT: https://kmp.keywee.io/content_creator_platform/authentication/google_oauth2?state=%7B%22mixpanel_distinct_id%22%3A%22%22%2C%22request_origin%22%3A%22https%3A%2F%2Fgo.anyword.com%22%7D&signUpDevice=desktop
+[2026-03-22T00:30:18.021Z]   EXT: https://twitter.com/getanyword?lang=en
+[2026-03-22T00:30:18.021Z]   EXT: https://venturebeat.com/ai/what-enterprises-need-to-know-about-adopting-generative-ai
+[2026-03-22T00:30:18.021Z]   EXT: https://www.facebook.com/getanyword
+[2026-03-22T00:30:18.021Z]   EXT: https://www.linkedin.com/company/getanyword
+[2026-03-22T00:30:18.021Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:30:18.021Z]   UNCATEGORIZED: https://kmp.keywee.io/content_creator_platform/authentication/google_oauth2?state=%7B%22mixpanel_distinct_id%22%3A%22%22%2C%22request_origin%22%3A%22https%3A%2F%2Fgo.anyword.com%22%7D&signUpDevice=desktop
+[2026-03-22T00:30:18.021Z]   REGEX: tw <- https://twitter.com/getanyword?lang=en
+[2026-03-22T00:30:18.021Z]   UNCATEGORIZED: https://venturebeat.com/ai/what-enterprises-need-to-know-about-adopting-generative-ai
+[2026-03-22T00:30:18.021Z]   REGEX: fb <- https://www.facebook.com/getanyword
+[2026-03-22T00:30:18.021Z]   REGEX: li <- https://www.linkedin.com/company/getanyword
+[2026-03-22T00:30:18.021Z] Programmatic result: ws:3, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-22T00:30:18.021Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:30:18.022Z] Saved AI prompt (2670 chars) to ai_prompt.txt
+[2026-03-22T00:30:18.022Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:30:18.025Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:30:27.355Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-22T00:30:27.356Z] AI response complete: 0 chars in 9.3s
+[2026-03-22T00:30:27.357Z] Saved AI response to ai_response.json
+[2026-03-22T00:30:27.357Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T00:30:27.357Z] AI returned 0 valid links
+[2026-03-22T00:30:27.357Z] ── Categorizing 0 AI-returned links ──
+[2026-03-22T00:30:27.358Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:30:27.358Z] Footer/header origins (0):
+[2026-03-22T00:30:27.358Z]   SKIP (not in footer/header): https://kmp.keywee.io/content_creator_platform/authentication/google_oauth2?state=%7B%22mixpanel_distinct_id%22%3A%22%22%2C%22request_origin%22%3A%22https%3A%2F%2Fgo.anyword.com%22%7D&signUpDevice=desktop
+[2026-03-22T00:30:27.358Z]   SKIP (not in footer/header): https://venturebeat.com/ai/what-enterprises-need-to-know-about-adopting-generative-ai
+[2026-03-22T00:30:27.358Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:30:27.358Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:30:27.359Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:30:27.359Z] ── Step 3: Final dedup ──
+[2026-03-22T00:30:27.359Z] No urls to dedup
+[2026-03-22T00:30:27.359Z] ── FINAL RESULT ──
+[2026-03-22T00:30:27.359Z]   ws (3):
+[2026-03-22T00:30:27.359Z]     - https://go.anyword.com
+[2026-03-22T00:30:27.359Z]     - https://support.anyword.com
+[2026-03-22T00:30:27.359Z]     - https://www.anyword.com
+[2026-03-22T00:30:27.359Z]   li (1):
+[2026-03-22T00:30:27.359Z]     - https://www.linkedin.com/company/getanyword
+[2026-03-22T00:30:27.360Z]   fb (1):
+[2026-03-22T00:30:27.360Z]     - https://www.facebook.com/getanyword
+[2026-03-22T00:30:27.360Z]   tw (1):
+[2026-03-22T00:30:27.360Z]     - https://x.com/getanyword
+[2026-03-22T00:30:27.360Z] Summary: ws:3, tw:1, fb:1, li:1
+[2026-03-22T00:30:27.361Z] Saved final result to result.json
+[2026-03-22T00:30:27.361Z] Override fields: ws, li, fb, tw
+[2026-03-22T00:30:27.361Z] Finished at: 2026-03-22T00:30:27.361Z

@@ -1,0 +1,84 @@
+[2026-03-22T03:58:11.826Z] === Homepage AI Extractor: Tonkean ===
+[2026-03-22T03:58:11.826Z] Started at: 2026-03-22T03:58:11.826Z
+[2026-03-22T03:58:11.826Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774151891825_Tonkean
+[2026-03-22T03:58:11.826Z] Company: Tonkean
+[2026-03-22T03:58:11.826Z] Website: tonkean.com
+[2026-03-22T03:58:11.826Z] cbRank: 63150
+[2026-03-22T03:58:11.826Z] Reasons: f, i
+[2026-03-22T03:58:11.827Z] Fetching: https://tonkean.com
+[2026-03-22T03:58:22.711Z] Network idle timeout — continuing with current state
+[2026-03-22T03:58:27.363Z] Redirected: https://tonkean.com -> https://www.tonkean.com/
+[2026-03-22T03:58:27.387Z] Saved HTML (340684 bytes) to page.html
+[2026-03-22T03:58:27.406Z] Extracted 72 unique links from page
+[2026-03-22T03:58:27.407Z] Saved 72 links to links.json
+[2026-03-22T03:58:27.448Z] Extracted footer HTML (10618 chars)
+[2026-03-22T03:58:27.448Z] Extracted header HTML (15698 chars)
+[2026-03-22T03:58:27.461Z] Website (post-redirect): https://www.tonkean.com/ → origin: https://www.tonkean.com
+[2026-03-22T03:58:27.461Z]   SUBDOMAIN: docs.tonkean.com (added to ws)
+[2026-03-22T03:58:27.462Z]   SUBDOMAIN: tracks.tonkean.com (added to ws)
+[2026-03-22T03:58:27.462Z] Website subdomains found: 2
+[2026-03-22T03:58:27.462Z] External links: 4 (of 72 total)
+[2026-03-22T03:58:27.462Z] ── All external links ──
+[2026-03-22T03:58:27.462Z]   EXT: https://twitter.com/tonkean
+[2026-03-22T03:58:27.462Z]   EXT: https://www.cookieyes.com/product/cookie-consent
+[2026-03-22T03:58:27.462Z]   EXT: https://www.facebook.com/tonkean.com
+[2026-03-22T03:58:27.462Z]   EXT: https://www.linkedin.com/company/tonkean
+[2026-03-22T03:58:27.462Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T03:58:27.463Z]   REGEX: tw <- https://twitter.com/tonkean
+[2026-03-22T03:58:27.463Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent
+[2026-03-22T03:58:27.463Z]   REGEX: fb <- https://www.facebook.com/tonkean.com
+[2026-03-22T03:58:27.464Z]   REGEX: li <- https://www.linkedin.com/company/tonkean
+[2026-03-22T03:58:27.464Z] Programmatic result: ws:3, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-22T03:58:27.464Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T03:58:27.493Z] Saved AI prompt (6504 chars) to ai_prompt.txt
+[2026-03-22T03:58:27.493Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T03:58:27.497Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T03:58:53.614Z]   AI: First token received, streaming...
+[2026-03-22T03:59:05.954Z] AI response complete: 185 chars in 38.5s
+[2026-03-22T03:59:05.956Z] Saved AI response to ai_response.json
+[2026-03-22T03:59:05.956Z] ── Parsing AI response (6 lines) ──
+[2026-03-22T03:59:05.956Z]   AI LINK: https://www.facebook.com/tonkean.com
+[2026-03-22T03:59:05.956Z]   AI LINK: https://twitter.com/tonkean
+[2026-03-22T03:59:05.956Z]   AI LINK: https://www.linkedin.com/company/tonkean
+[2026-03-22T03:59:05.957Z]   AI LINK: https://docs.tonkean.com
+[2026-03-22T03:59:05.957Z]   AI LINK: https://community.tonkean.com
+[2026-03-22T03:59:05.957Z]   AI LINK: https://blog.tonkean.com
+[2026-03-22T03:59:05.957Z] AI returned 6 valid links
+[2026-03-22T03:59:05.957Z] ── Categorizing 6 AI-returned links ──
+[2026-03-22T03:59:05.957Z]   AI→REGEX: fb <- https://www.facebook.com/tonkean.com (duplicate, skipped)
+[2026-03-22T03:59:05.958Z]   AI→REGEX: tw <- https://twitter.com/tonkean (duplicate, skipped)
+[2026-03-22T03:59:05.958Z]   AI→REGEX: li <- https://www.linkedin.com/company/tonkean (duplicate, skipped)
+[2026-03-22T03:59:05.959Z]   AI→URLS: https://docs.tonkean.com
+[2026-03-22T03:59:05.959Z]   AI→URLS: https://community.tonkean.com
+[2026-03-22T03:59:05.960Z]   AI→URLS: https://blog.tonkean.com
+[2026-03-22T03:59:05.961Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T03:59:05.961Z] Footer/header origins (4):
+[2026-03-22T03:59:05.962Z]   FOOTER/HEADER ORIGIN: https://docs.tonkean.com
+[2026-03-22T03:59:05.962Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T03:59:05.962Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T03:59:05.962Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T03:59:05.962Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent
+[2026-03-22T03:59:05.962Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T03:59:05.962Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T03:59:05.963Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T03:59:05.963Z] ── Step 3: Final dedup ──
+[2026-03-22T03:59:05.963Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T03:59:05.963Z] ── FINAL RESULT ──
+[2026-03-22T03:59:05.963Z]   ws (3):
+[2026-03-22T03:59:05.964Z]     - https://docs.tonkean.com
+[2026-03-22T03:59:05.964Z]     - https://tracks.tonkean.com
+[2026-03-22T03:59:05.964Z]     - https://www.tonkean.com
+[2026-03-22T03:59:05.964Z]   li (1):
+[2026-03-22T03:59:05.964Z]     - https://www.linkedin.com/company/tonkean
+[2026-03-22T03:59:05.964Z]   fb (1):
+[2026-03-22T03:59:05.965Z]     - https://www.facebook.com/tonkean.com
+[2026-03-22T03:59:05.965Z]   tw (1):
+[2026-03-22T03:59:05.965Z]     - https://x.com/tonkean
+[2026-03-22T03:59:05.965Z]   urls (3):
+[2026-03-22T03:59:05.965Z]     - https://blog.tonkean.com
+[2026-03-22T03:59:05.966Z]     - https://community.tonkean.com
+[2026-03-22T03:59:05.966Z]     - https://docs.tonkean.com
+[2026-03-22T03:59:05.966Z] Summary: ws:3, tw:1, fb:1, li:1, urls:3
+[2026-03-22T03:59:05.967Z] Saved final result to result.json
+[2026-03-22T03:59:05.968Z] Override fields: ws, li, fb, tw
+[2026-03-22T03:59:05.968Z] Finished at: 2026-03-22T03:59:05.968Z

@@ -1,0 +1,68 @@
+[2026-03-22T02:29:53.799Z] === Homepage AI Extractor: PayZen ===
+[2026-03-22T02:29:53.799Z] Started at: 2026-03-22T02:29:53.799Z
+[2026-03-22T02:29:53.799Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774146593798_PayZen
+[2026-03-22T02:29:53.799Z] Company: PayZen
+[2026-03-22T02:29:53.799Z] Website: payzen.com
+[2026-03-22T02:29:53.799Z] cbRank: 35345
+[2026-03-22T02:29:53.799Z] Reasons: f, i
+[2026-03-22T02:29:53.799Z] Fetching: https://payzen.com
+[2026-03-22T02:29:57.643Z] Redirected: https://payzen.com -> https://payzen.com/
+[2026-03-22T02:29:57.673Z] Saved HTML (1066480 bytes) to page.html
+[2026-03-22T02:29:57.677Z] Extracted 34 unique links from page
+[2026-03-22T02:29:57.678Z] Saved 34 links to links.json
+[2026-03-22T02:29:57.680Z] Extracted footer HTML (13775 chars)
+[2026-03-22T02:29:57.680Z] Extracted header HTML (11050 chars)
+[2026-03-22T02:29:57.684Z] Website (post-redirect): https://payzen.com/ → origin: https://payzen.com
+[2026-03-22T02:29:57.684Z]   SUBDOMAIN: account.payzen.com (added to ws)
+[2026-03-22T02:29:57.684Z] Website subdomains found: 1
+[2026-03-22T02:29:57.684Z] External links: 3 (of 34 total)
+[2026-03-22T02:29:57.684Z] ── All external links ──
+[2026-03-22T02:29:57.684Z]   EXT: https://nmlsconsumeraccess.org
+[2026-03-22T02:29:57.685Z]   EXT: https://twitter.com/PayZenCare
+[2026-03-22T02:29:57.685Z]   EXT: https://www.linkedin.com/company/payzen
+[2026-03-22T02:29:57.685Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:29:57.685Z]   UNCATEGORIZED: https://nmlsconsumeraccess.org
+[2026-03-22T02:29:57.685Z]   REGEX: tw <- https://twitter.com/PayZenCare
+[2026-03-22T02:29:57.685Z]   REGEX: li <- https://www.linkedin.com/company/payzen
+[2026-03-22T02:29:57.685Z] Programmatic result: ws:2, tw:1, li:1 | 1 uncategorized
+[2026-03-22T02:29:57.685Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:29:57.688Z] Saved AI prompt (8706 chars) to ai_prompt.txt
+[2026-03-22T02:29:57.688Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:29:57.693Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:30:35.313Z]   AI: First token received, streaming...
+[2026-03-22T02:30:38.651Z] AI response complete: 71 chars in 41.0s
+[2026-03-22T02:30:38.652Z] Saved AI response to ai_response.json
+[2026-03-22T02:30:38.652Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T02:30:38.652Z]   AI LINK: https://twitter.com/PayZenCare
+[2026-03-22T02:30:38.652Z]   AI LINK: https://www.linkedin.com/company/payzen/
+[2026-03-22T02:30:38.653Z] AI returned 2 valid links
+[2026-03-22T02:30:38.653Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T02:30:38.653Z]   AI→REGEX: tw <- https://twitter.com/PayZenCare (duplicate, skipped)
+[2026-03-22T02:30:38.653Z]   AI→REGEX: li <- https://www.linkedin.com/company/payzen/ (duplicate, skipped)
+[2026-03-22T02:30:38.654Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:30:38.654Z] Footer/header origins (5):
+[2026-03-22T02:30:38.654Z]   FOOTER/HEADER ORIGIN: https://payzen.com
+[2026-03-22T02:30:38.654Z]   FOOTER/HEADER ORIGIN: https://account.payzen.com
+[2026-03-22T02:30:38.654Z]   FOOTER/HEADER ORIGIN: https://nmlsconsumeraccess.org
+[2026-03-22T02:30:38.655Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T02:30:38.655Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T02:30:38.655Z]   ADDED: urls <- https://nmlsconsumeraccess.org
+[2026-03-22T02:30:38.655Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T02:30:38.655Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:30:38.655Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:30:38.655Z] ── Step 3: Final dedup ──
+[2026-03-22T02:30:38.655Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T02:30:38.656Z] ── FINAL RESULT ──
+[2026-03-22T02:30:38.656Z]   ws (2):
+[2026-03-22T02:30:38.656Z]     - https://account.payzen.com
+[2026-03-22T02:30:38.656Z]     - https://payzen.com
+[2026-03-22T02:30:38.656Z]   li (1):
+[2026-03-22T02:30:38.656Z]     - https://www.linkedin.com/company/payzen
+[2026-03-22T02:30:38.656Z]   tw (1):
+[2026-03-22T02:30:38.656Z]     - https://x.com/payzencare
+[2026-03-22T02:30:38.657Z]   urls (1):
+[2026-03-22T02:30:38.657Z]     - https://nmlsconsumeraccess.org
+[2026-03-22T02:30:38.657Z] Summary: ws:2, tw:1, li:1, urls:1
+[2026-03-22T02:30:38.658Z] Saved final result to result.json
+[2026-03-22T02:30:38.658Z] Override fields: ws, li, tw, urls
+[2026-03-22T02:30:38.659Z] Finished at: 2026-03-22T02:30:38.659Z

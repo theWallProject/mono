@@ -1,0 +1,67 @@
+[2026-03-21T17:00:55.590Z] === Homepage AI Extractor: MasAmerica ===
+[2026-03-21T17:00:55.590Z] Started at: 2026-03-21T17:00:55.590Z
+[2026-03-21T17:00:55.590Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774112455589_MasAmerica
+[2026-03-21T17:00:55.590Z] Company: MasAmerica
+[2026-03-21T17:00:55.590Z] Website: masamerica.co.il
+[2026-03-21T17:00:55.590Z] cbRank: 3571445
+[2026-03-21T17:00:55.590Z] Reasons: h
+[2026-03-21T17:00:55.590Z] Fetching: https://masamerica.co.il
+[2026-03-21T17:00:57.682Z] Redirected: https://masamerica.co.il -> https://masamerica.co.il/
+[2026-03-21T17:00:57.704Z] Saved HTML (664818 bytes) to page.html
+[2026-03-21T17:00:57.708Z] Extracted 41 unique links from page
+[2026-03-21T17:00:57.709Z] Saved 41 links to links.json
+[2026-03-21T17:00:57.713Z] Extracted footer HTML (33629 chars)
+[2026-03-21T17:00:57.713Z] Extracted header HTML (31843 chars)
+[2026-03-21T17:00:57.717Z] Website (post-redirect): https://masamerica.co.il/ → origin: https://masamerica.co.il
+[2026-03-21T17:00:57.717Z] External links: 3 (of 41 total)
+[2026-03-21T17:00:57.718Z] ── All external links ──
+[2026-03-21T17:00:57.718Z]   EXT: https://asael.digital
+[2026-03-21T17:00:57.718Z]   EXT: https://www.facebook.com/masamericatax
+[2026-03-21T17:00:57.718Z]   EXT: https://www.linkedin.com/company/bfpmasamericaltd
+[2026-03-21T17:00:57.718Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T17:00:57.718Z]   UNCATEGORIZED: https://asael.digital
+[2026-03-21T17:00:57.718Z]   REGEX: fb <- https://www.facebook.com/masamericatax
+[2026-03-21T17:00:57.718Z]   REGEX: li <- https://www.linkedin.com/company/bfpmasamericaltd
+[2026-03-21T17:00:57.718Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-21T17:00:57.718Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T17:00:57.720Z] Saved AI prompt (5238 chars) to ai_prompt.txt
+[2026-03-21T17:00:57.720Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T17:00:57.725Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T17:01:37.315Z]   AI: First token received, streaming...
+[2026-03-21T17:01:44.288Z] AI response complete: 115 chars in 46.6s
+[2026-03-21T17:01:44.289Z] Saved AI response to ai_response.json
+[2026-03-21T17:01:44.289Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T17:01:44.290Z]   AI LINK: https://masamerica.co.il
+[2026-03-21T17:01:44.290Z]   AI LINK: https://www.facebook.com/masamericatax/
+[2026-03-21T17:01:44.290Z]   AI LINK: https://www.linkedin.com/company/bfpmasamericaltd/
+[2026-03-21T17:01:44.290Z] AI returned 3 valid links
+[2026-03-21T17:01:44.290Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T17:01:44.290Z]   AI→URLS: https://masamerica.co.il
+[2026-03-21T17:01:44.290Z]   AI→REGEX: fb <- https://www.facebook.com/masamericatax/ (duplicate, skipped)
+[2026-03-21T17:01:44.290Z]   AI→REGEX: li <- https://www.linkedin.com/company/bfpmasamericaltd/ (duplicate, skipped)
+[2026-03-21T17:01:44.291Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T17:01:44.291Z] Footer/header origins (4):
+[2026-03-21T17:01:44.291Z]   FOOTER/HEADER ORIGIN: https://masamerica.co.il
+[2026-03-21T17:01:44.291Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T17:01:44.291Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T17:01:44.291Z]   FOOTER/HEADER ORIGIN: https://asael.digital
+[2026-03-21T17:01:44.291Z]   ADDED: urls <- https://asael.digital
+[2026-03-21T17:01:44.291Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T17:01:44.291Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T17:01:44.291Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T17:01:44.291Z] ── Step 3: Final dedup ──
+[2026-03-21T17:01:44.292Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T17:01:44.292Z] ── FINAL RESULT ──
+[2026-03-21T17:01:44.292Z]   ws (1):
+[2026-03-21T17:01:44.292Z]     - https://masamerica.co.il
+[2026-03-21T17:01:44.292Z]   li (1):
+[2026-03-21T17:01:44.292Z]     - https://www.linkedin.com/company/bfpmasamericaltd
+[2026-03-21T17:01:44.292Z]   fb (1):
+[2026-03-21T17:01:44.292Z]     - https://www.facebook.com/masamericatax
+[2026-03-21T17:01:44.292Z]   urls (2):
+[2026-03-21T17:01:44.292Z]     - https://asael.digital
+[2026-03-21T17:01:44.292Z]     - https://masamerica.co.il
+[2026-03-21T17:01:44.292Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-21T17:01:44.293Z] Saved final result to result.json
+[2026-03-21T17:01:44.293Z] Override fields: ws, li, fb, urls
+[2026-03-21T17:01:44.293Z] Finished at: 2026-03-21T17:01:44.293Z

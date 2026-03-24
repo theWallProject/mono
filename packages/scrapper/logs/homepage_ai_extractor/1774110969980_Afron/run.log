@@ -1,0 +1,73 @@
+[2026-03-21T16:36:09.981Z] === Homepage AI Extractor: Afron ===
+[2026-03-21T16:36:09.981Z] Started at: 2026-03-21T16:36:09.981Z
+[2026-03-21T16:36:09.981Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774110969980_Afron
+[2026-03-21T16:36:09.981Z] Company: Afron
+[2026-03-21T16:36:09.981Z] Website: afron.com
+[2026-03-21T16:36:09.981Z] cbRank: 3551910
+[2026-03-21T16:36:09.981Z] Reasons: h
+[2026-03-21T16:36:09.981Z] Fetching: https://afron.com
+[2026-03-21T16:36:16.352Z] Redirected: https://afron.com -> https://www.afron.com/
+[2026-03-21T16:36:16.359Z] Saved HTML (182006 bytes) to page.html
+[2026-03-21T16:36:16.362Z] Extracted 83 unique links from page
+[2026-03-21T16:36:16.363Z] Saved 83 links to links.json
+[2026-03-21T16:36:16.365Z] Extracted footer HTML (3979 chars)
+[2026-03-21T16:36:16.365Z] Extracted header HTML (13317 chars)
+[2026-03-21T16:36:16.369Z] Website (post-redirect): https://www.afron.com/ → origin: https://www.afron.com
+[2026-03-21T16:36:16.369Z] External links: 4 (of 83 total)
+[2026-03-21T16:36:16.369Z] ── All external links ──
+[2026-03-21T16:36:16.369Z]   EXT: https://goo.gl/maps/XJDVivcx6VCE67eq8
+[2026-03-21T16:36:16.369Z]   EXT: https://www.facebook.com/afron.machines
+[2026-03-21T16:36:16.369Z]   EXT: https://www.mxi.co.il
+[2026-03-21T16:36:16.369Z]   EXT: https://www.youtube.com/channel/UC8RUPdGqB0ZZvgSgegY7bOw
+[2026-03-21T16:36:16.369Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T16:36:16.370Z]   UNCATEGORIZED: https://goo.gl/maps/XJDVivcx6VCE67eq8
+[2026-03-21T16:36:16.370Z]   REGEX: fb <- https://www.facebook.com/afron.machines
+[2026-03-21T16:36:16.370Z]   UNCATEGORIZED: https://www.mxi.co.il
+[2026-03-21T16:36:16.370Z]   REGEX: ytc <- https://www.youtube.com/channel/UC8RUPdGqB0ZZvgSgegY7bOw
+[2026-03-21T16:36:16.370Z] Programmatic result: ws:1, fb:1, ytc:1 | 2 uncategorized
+[2026-03-21T16:36:16.370Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T16:36:16.371Z] Saved AI prompt (3425 chars) to ai_prompt.txt
+[2026-03-21T16:36:16.371Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T16:36:16.376Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T16:36:29.685Z]   AI: First token received, streaming...
+[2026-03-21T16:36:37.381Z] AI response complete: 96 chars in 21.0s
+[2026-03-21T16:36:37.383Z] Saved AI response to ai_response.json
+[2026-03-21T16:36:37.383Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T16:36:37.383Z]   AI LINK: https://www.facebook.com/afron.machines
+[2026-03-21T16:36:37.383Z]   AI LINK: https://www.youtube.com/channel/UC8RUPdGqB0ZZvgSgegY7bOw
+[2026-03-21T16:36:37.383Z] AI returned 2 valid links
+[2026-03-21T16:36:37.383Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T16:36:37.384Z]   AI→REGEX: fb <- https://www.facebook.com/afron.machines (duplicate, skipped)
+[2026-03-21T16:36:37.384Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC8RUPdGqB0ZZvgSgegY7bOw (duplicate, skipped)
+[2026-03-21T16:36:37.384Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T16:36:37.385Z] Footer/header origins (5):
+[2026-03-21T16:36:37.385Z]   FOOTER/HEADER ORIGIN: https://www.mxi.co.il
+[2026-03-21T16:36:37.385Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T16:36:37.385Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T16:36:37.385Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-21T16:36:37.385Z]   FOOTER/HEADER ORIGIN: https://www.afron.com
+[2026-03-21T16:36:37.385Z]   ADDED: urls <- https://goo.gl/maps/XJDVivcx6VCE67eq8
+[2026-03-21T16:36:37.386Z]   ADDED: urls <- https://www.mxi.co.il
+[2026-03-21T16:36:37.386Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-21T16:36:37.386Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T16:36:37.386Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T16:36:37.659Z]   YOUTUBE: resolved UC8RUPdGqB0ZZvgSgegY7bOw → @AFRONMACHINERY
+[2026-03-21T16:36:37.659Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T16:36:37.659Z] ── Step 3: Final dedup ──
+[2026-03-21T16:36:37.660Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T16:36:37.660Z] ── FINAL RESULT ──
+[2026-03-21T16:36:37.660Z]   ws (1):
+[2026-03-21T16:36:37.660Z]     - https://www.afron.com
+[2026-03-21T16:36:37.660Z]   fb (1):
+[2026-03-21T16:36:37.660Z]     - https://www.facebook.com/afron.machines
+[2026-03-21T16:36:37.660Z]   ytp (1):
+[2026-03-21T16:36:37.660Z]     - https://www.youtube.com/@AFRONMACHINERY
+[2026-03-21T16:36:37.660Z]   ytc (1):
+[2026-03-21T16:36:37.660Z]     - https://www.youtube.com/channel/UC8RUPdGqB0ZZvgSgegY7bOw
+[2026-03-21T16:36:37.660Z]   urls (2):
+[2026-03-21T16:36:37.660Z]     - https://goo.gl/maps/XJDVivcx6VCE67eq8
+[2026-03-21T16:36:37.661Z]     - https://www.mxi.co.il
+[2026-03-21T16:36:37.661Z] Summary: ws:1, fb:1, ytc:1, urls:2, ytp:1
+[2026-03-21T16:36:37.662Z] Saved final result to result.json
+[2026-03-21T16:36:37.662Z] Override fields: ws, fb, ytp, ytc, urls
+[2026-03-21T16:36:37.662Z] Finished at: 2026-03-21T16:36:37.662Z

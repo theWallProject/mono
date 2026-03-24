@@ -1,0 +1,67 @@
+[2026-03-23T16:20:53.795Z] === Homepage AI Extractor: Negina Online ===
+[2026-03-23T16:20:53.795Z] Started at: 2026-03-23T16:20:53.795Z
+[2026-03-23T16:20:53.795Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774282853794_Negina_Online
+[2026-03-23T16:20:53.795Z] Company: Negina Online
+[2026-03-23T16:20:53.795Z] Website: liederlernen.de
+[2026-03-23T16:20:53.795Z] cbRank: 2347832
+[2026-03-23T16:20:53.795Z] Reasons: f
+[2026-03-23T16:20:53.795Z] Fetching: https://liederlernen.de
+[2026-03-23T16:20:55.203Z] Redirected: https://liederlernen.de -> https://liederlernen.de/
+[2026-03-23T16:20:55.207Z] Saved HTML (92615 bytes) to page.html
+[2026-03-23T16:20:55.208Z] Extracted 35 unique links from page
+[2026-03-23T16:20:55.209Z] Saved 35 links to links.json
+[2026-03-23T16:20:55.210Z] Extracted footer HTML (7187 chars)
+[2026-03-23T16:20:55.210Z] Extracted header HTML (359 chars)
+[2026-03-23T16:20:55.213Z] Website (post-redirect): https://liederlernen.de/ → origin: https://liederlernen.de
+[2026-03-23T16:20:55.213Z] External links: 3 (of 35 total)
+[2026-03-23T16:20:55.213Z] ── All external links ──
+[2026-03-23T16:20:55.213Z]   EXT: https://www.facebook.com/Liederlernen
+[2026-03-23T16:20:55.214Z]   EXT: https://www.iceservices.com
+[2026-03-23T16:20:55.214Z]   EXT: https://www.youtube.com/channel/UCHjgN1jRhT2nNTnzGY8dOWQ
+[2026-03-23T16:20:55.214Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T16:20:55.214Z]   REGEX: fb <- https://www.facebook.com/Liederlernen
+[2026-03-23T16:20:55.214Z]   UNCATEGORIZED: https://www.iceservices.com
+[2026-03-23T16:20:55.214Z]   REGEX: ytc <- https://www.youtube.com/channel/UCHjgN1jRhT2nNTnzGY8dOWQ
+[2026-03-23T16:20:55.214Z] Programmatic result: ws:1, fb:1, ytc:1 | 1 uncategorized
+[2026-03-23T16:20:55.214Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T16:20:55.215Z] Saved AI prompt (5816 chars) to ai_prompt.txt
+[2026-03-23T16:20:55.215Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T16:20:55.217Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T16:21:16.376Z]   AI: First token received, streaming...
+[2026-03-23T16:21:23.126Z] AI response complete: 94 chars in 27.9s
+[2026-03-23T16:21:23.127Z] Saved AI response to ai_response.json
+[2026-03-23T16:21:23.127Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T16:21:23.128Z]   AI LINK: https://www.youtube.com/channel/UCHjgN1jRhT2nNTnzGY8dOWQ
+[2026-03-23T16:21:23.128Z]   AI LINK: https://www.facebook.com/Liederlernen
+[2026-03-23T16:21:23.128Z] AI returned 2 valid links
+[2026-03-23T16:21:23.128Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T16:21:23.128Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCHjgN1jRhT2nNTnzGY8dOWQ (duplicate, skipped)
+[2026-03-23T16:21:23.128Z]   AI→REGEX: fb <- https://www.facebook.com/Liederlernen (duplicate, skipped)
+[2026-03-23T16:21:23.129Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T16:21:23.129Z] Footer/header origins (3):
+[2026-03-23T16:21:23.129Z]   FOOTER/HEADER ORIGIN: https://www.iceservices.com
+[2026-03-23T16:21:23.129Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T16:21:23.129Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T16:21:23.129Z]   ADDED: urls <- https://www.iceservices.com
+[2026-03-23T16:21:23.129Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T16:21:23.130Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T16:21:23.130Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T16:21:23.550Z]   YOUTUBE: resolved UCHjgN1jRhT2nNTnzGY8dOWQ → @liederlernende4268
+[2026-03-23T16:21:23.550Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T16:21:23.550Z] ── Step 3: Final dedup ──
+[2026-03-23T16:21:23.550Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T16:21:23.550Z] ── FINAL RESULT ──
+[2026-03-23T16:21:23.550Z]   ws (1):
+[2026-03-23T16:21:23.550Z]     - https://liederlernen.de
+[2026-03-23T16:21:23.550Z]   fb (1):
+[2026-03-23T16:21:23.550Z]     - https://www.facebook.com/liederlernen
+[2026-03-23T16:21:23.550Z]   ytp (1):
+[2026-03-23T16:21:23.550Z]     - https://www.youtube.com/@liederlernende4268
+[2026-03-23T16:21:23.550Z]   ytc (1):
+[2026-03-23T16:21:23.550Z]     - https://www.youtube.com/channel/UCHjgN1jRhT2nNTnzGY8dOWQ
+[2026-03-23T16:21:23.550Z]   urls (1):
+[2026-03-23T16:21:23.550Z]     - https://www.iceservices.com
+[2026-03-23T16:21:23.550Z] Summary: ws:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-23T16:21:23.551Z] Saved final result to result.json
+[2026-03-23T16:21:23.551Z] Override fields: ws, fb, ytp, ytc, urls
+[2026-03-23T16:21:23.551Z] Finished at: 2026-03-23T16:21:23.551Z

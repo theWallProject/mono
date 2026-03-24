@@ -1,0 +1,72 @@
+[2026-03-23T21:03:18.150Z] === Homepage AI Extractor: Root ===
+[2026-03-23T21:03:18.150Z] Started at: 2026-03-23T21:03:18.150Z
+[2026-03-23T21:03:18.150Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774299798149_Root
+[2026-03-23T21:03:18.150Z] Company: Root
+[2026-03-23T21:03:18.150Z] Website: root.io
+[2026-03-23T21:03:18.150Z] cbRank: 18812
+[2026-03-23T21:03:18.150Z] Reasons: i
+[2026-03-23T21:03:18.150Z] Fetching: https://root.io
+[2026-03-23T21:03:20.968Z] Dismissed cookie consent popup via: button:has-text("Allow all")
+[2026-03-23T21:03:23.906Z] Redirected: https://root.io -> https://www.root.io/
+[2026-03-23T21:03:24.246Z] Saved HTML (15116877 bytes) to page.html
+[2026-03-23T21:03:24.248Z] Extracted 25 unique links from page
+[2026-03-23T21:03:24.252Z] Saved 25 links to links.json
+[2026-03-23T21:03:24.254Z] Extracted footer HTML (18254 chars)
+[2026-03-23T21:03:24.254Z] No header section found in DOM
+[2026-03-23T21:03:24.257Z] Website (post-redirect): https://www.root.io/ → origin: https://www.root.io
+[2026-03-23T21:03:24.257Z]   SUBDOMAIN: docs.root.io (added to ws)
+[2026-03-23T21:03:24.257Z] Website subdomains found: 1
+[2026-03-23T21:03:24.257Z] External links: 6 (of 25 total)
+[2026-03-23T21:03:24.257Z] ── All external links ──
+[2026-03-23T21:03:24.257Z]   EXT: https://business.safety.google/privacy
+[2026-03-23T21:03:24.257Z]   EXT: https://legal.hubspot.com/privacy-policy
+[2026-03-23T21:03:24.257Z]   EXT: https://start-chat.com/slack/Root/ghdO0t?UID=4a6d7dac-4e94-4ec2-821b-e423a088ad36.1774299792726
+[2026-03-23T21:03:24.257Z]   EXT: https://www.cookiehub.com
+[2026-03-23T21:03:24.257Z]   EXT: https://www.cookiehub.com/privacy-policy
+[2026-03-23T21:03:24.257Z]   EXT: https://www.linkedin.com/legal/privacy-policy
+[2026-03-23T21:03:24.258Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:03:24.258Z]   UNCATEGORIZED: https://business.safety.google/privacy
+[2026-03-23T21:03:24.258Z]   UNCATEGORIZED: https://legal.hubspot.com/privacy-policy
+[2026-03-23T21:03:24.258Z]   UNCATEGORIZED: https://start-chat.com/slack/Root/ghdO0t?UID=4a6d7dac-4e94-4ec2-821b-e423a088ad36.1774299792726
+[2026-03-23T21:03:24.258Z]   UNCATEGORIZED: https://www.cookiehub.com
+[2026-03-23T21:03:24.258Z]   UNCATEGORIZED: https://www.cookiehub.com/privacy-policy
+[2026-03-23T21:03:24.258Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T21:03:24.258Z]   SKIP (regex domain, no match): https://www.linkedin.com/legal/privacy-policy
+[2026-03-23T21:03:24.258Z] Programmatic result: ws:2 | 5 uncategorized
+[2026-03-23T21:03:24.258Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:03:24.259Z] Saved AI prompt (9770 chars) to ai_prompt.txt
+[2026-03-23T21:03:24.259Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:03:24.263Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:04:04.388Z]   AI: First token received, streaming...
+[2026-03-23T21:04:04.856Z] AI response complete: 21 chars in 40.6s
+[2026-03-23T21:04:04.857Z] Saved AI response to ai_response.json
+[2026-03-23T21:04:04.858Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T21:04:04.858Z]   AI LINK: https://docs.root.io/
+[2026-03-23T21:04:04.858Z] AI returned 1 valid links
+[2026-03-23T21:04:04.858Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T21:04:04.858Z]   AI→URLS: https://docs.root.io (cleaned from https://docs.root.io/)
+[2026-03-23T21:04:04.859Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:04:04.859Z] Footer/header origins (2):
+[2026-03-23T21:04:04.859Z]   FOOTER/HEADER ORIGIN: https://start-chat.com
+[2026-03-23T21:04:04.859Z]   FOOTER/HEADER ORIGIN: https://docs.root.io
+[2026-03-23T21:04:04.859Z]   SKIP (not in footer/header): https://business.safety.google/privacy
+[2026-03-23T21:04:04.859Z]   SKIP (not in footer/header): https://legal.hubspot.com/privacy-policy
+[2026-03-23T21:04:04.859Z]   ADDED: urls <- https://start-chat.com/slack/Root/ghdO0t (cleaned from https://start-chat.com/slack/Root/ghdO0t?UID=4a6d7dac-4e94-4ec2-821b-e423a088ad36.1774299792726)
+[2026-03-23T21:04:04.860Z]   SKIP (not in footer/header): https://www.cookiehub.com
+[2026-03-23T21:04:04.860Z]   SKIP (not in footer/header): https://www.cookiehub.com/privacy-policy
+[2026-03-23T21:04:04.860Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T21:04:04.860Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:04:04.860Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:04:04.860Z] ── Step 3: Final dedup ──
+[2026-03-23T21:04:04.860Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T21:04:04.860Z] ── FINAL RESULT ──
+[2026-03-23T21:04:04.860Z]   ws (2):
+[2026-03-23T21:04:04.860Z]     - https://docs.root.io
+[2026-03-23T21:04:04.860Z]     - https://www.root.io
+[2026-03-23T21:04:04.860Z]   urls (2):
+[2026-03-23T21:04:04.860Z]     - https://docs.root.io
+[2026-03-23T21:04:04.860Z]     - https://start-chat.com/slack/Root/ghdO0t
+[2026-03-23T21:04:04.860Z] Summary: ws:2, urls:2
+[2026-03-23T21:04:04.861Z] Saved final result to result.json
+[2026-03-23T21:04:04.861Z] Override fields: ws, urls
+[2026-03-23T21:04:04.862Z] Finished at: 2026-03-23T21:04:04.862Z

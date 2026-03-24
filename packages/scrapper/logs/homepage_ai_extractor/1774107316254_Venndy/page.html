@@ -1,0 +1,4943 @@
+<!DOCTYPE html><html lang="en" ng-app="" class="ng-scope"><head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="sanjeev puspam">
+  <meta name="p:domain_verify" content="557a58d477ae631ea0bfed74e6766bb2">
+
+  <meta name="csrf-token" content="T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU">
+  <title>Venndy</title>
+  <!-- Bootstrap 3.3.2 -->
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link href="https://www.venndy.com/bower_components/css/bootstrap.min.css?var=1" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/jquery-te/jquery-te-1.4.0.css?html-editor=yes" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/css/style.css?var=19" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/css/media.css?var=1" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/css/custom.css?var=9" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/css/newCss.css?var=2" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/css/jquery.bxslider.css?var=1" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/css/mobile.css?var=5" rel="stylesheet" type="text/css">
+
+  <link href="https://www.venndy.com/bower_components/css/landing_page_style.css?var=1" rel="stylesheet" type="text/css">
+
+  <!-- Font Awesome Icons -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Ionicons -->
+  <link href="https://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css">
+  <link href="https://www.venndy.com/bower_components/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css">
+  <script src="https://connect.facebook.net/en_US/bundle/sdk.js/" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style>
+  <script type="text/javascript" async="" src="https://www.venndy.com/bower_components/jquery-te/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+
+  <!--[if IE]>
+	<style>
+		.main-story-img .img-responsive{
+			 width: auto;
+			 height:auto;
+			 margin:0 auto;
+		}
+	</style>
+	<![endif]-->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+
+  <style>
+    .fixed-header .navbar-inverse {
+      margin-bottom: 0px;
+    }
+
+    .loader1 {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: url('images/logo-loading-1.gif') 50% 50% no-repeat rgb(249, 249, 249);
+    }
+  </style>
+  <script src="https://www.venndy.com/bower_components/js/jQuery-2.1.3.min.js"></script>
+
+    <script>
+    /******************************Image croper*****************************************/
+    function imagecrop(url, itemID, flag) {
+      var ua = navigator.userAgent,
+        mob = (ua.match(/iPad/i) || ua.match(/iPhone/) || ua.match(/Android/)) ? 1 : 0;
+      console.log(mob);
+      var img = new Image();
+
+      img.onload = function() {
+        var width = parseInt(img.width);
+        var height = parseInt(img.height);
+        if (mob == 1) {
+          getFormatImageMob(height, width, flag, url, itemID);
+        } else {
+          getFormatImage(height, width, flag, url, itemID);
+        }
+      }
+      img.src = url;
+
+
+      //alert(html);
+    }
+
+    function getFormatImage(height, width, flag, url, itemID) {
+      var aspectRat;
+      var margin;
+      var style;
+      var html;
+
+      if (height > width) {
+        if (flag === 1) {
+          aspectRat = (height / width);
+          margin = (aspectRat * 200) - 200;
+          margin = Math.ceil(margin);
+          style = "margin-top:-" + margin + 'px;';
+          html = "<img src='" + url + "' id='square'  style='" + style + "' class='img1' />";
+        } else {
+          aspectRat = (height / width);
+          margin = (aspectRat * 105) - 105;
+          margin = Math.ceil(margin);
+          style = "margin-top:-" + margin + 'px;';
+          html = "<img src='" + url + "'  style='" + style + "' class='img1' />";
+        }
+
+      } else if (height < width) {
+        if (flag === 1) {
+          aspectRat = (width / height);
+          margin = (aspectRat * 200) - 200;
+          margin = Math.ceil(margin);
+          style = "margin-left:-" + margin + 'px;';
+          html = "<img src='" + url + "' id='square'  style='" + style + "' class='img2' />";
+
+
+        } else {
+          aspectRat = (width / height);
+          margin = (aspectRat * 105) - 105;
+          margin = Math.ceil(margin);
+          style = "margin-left:-" + margin + 'px;';
+          style = "max-width: 100%;object-fit: cover;background-color: #ffffff !important;";
+          html = "<img src='" + url + "' style='" + style + "' class='img2' />";
+        }
+
+      } else {
+        html = "<img src='" + url + "' class='img2' />";
+      }
+
+      $('#' + itemID).html(html);
+      //document.getElementById(itemID).innerHTML=html;
+      //return html;
+    }
+
+    function getFormatImageMob(height, width, flag, url, itemID) {
+      var aspectRat;
+      var margin;
+      var style;
+      var html;
+
+      if (height > width) {
+        if (flag === 1) {
+          // aspectRat = (height/width);
+          // margin = (aspectRat*200)-200;
+          // margin = Math.ceil(margin);
+          // style = "margin-top:-"+margin+'px;';
+          html = "<img src='" + url + "' id='square' class='img1' />";
+        } else {
+          aspectRat = (height / width);
+          margin = (aspectRat * 105) - 105;
+          margin = Math.ceil(margin);
+          style = "margin-top:-" + margin + 'px;';
+          html = "<img src='" + url + "'  style='" + style + "' class='img1' />";
+        }
+
+      } else if (height < width) {
+        if (flag === 1) {
+          //  aspectRat = (width/height);
+          //  margin = (aspectRat*200)-200;
+          //  margin = Math.ceil(margin);
+          margin = 39;
+           style = "margin-left:-"+margin+'px;';
+          html = "<img src='" + url + "' id='square'  style='" + style + "' class='img2' />";
+
+        } else {
+          // aspectRat = (width/height);
+          // margin = (aspectRat*105)-105;
+          //margin = Math.ceil(margin);
+          // style = "margin-left:-"+margin+'px;';
+          style = "max-width: 100%;object-fit: cover;background-color: #ffffff !important;";
+          html = "<img src='" + url + "' style='" + style + "' class='img2' />";
+        }
+
+      } else {
+        html = "<img src='" + url + "' class='img2' />";
+      }
+
+      $('#' + itemID).html(html);
+      //document.getElementById(itemID).innerHTML=html;
+      //return html;
+    }
+    /*********************************************************************/
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-86115542-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2R9LVX1J7V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2R9LVX1J7V');
+</script>
+
+<style type="text/css">#mc_embed_signup input.mce_inline_error { border-color:#6B0505; } #mc_embed_signup div.mce_inline_error { margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff; }</style><style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+
+.fb_dialog{background:#525252b3;position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:700;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) #fff no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:#0006;inset:0;min-height:100%;position:absolute;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba),to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:#fff 0 1px 1px -1px inset;color:#fff;font:700 14px Helvetica,sans-serif;text-overflow:ellipsis;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2),to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:700 12px Helvetica,sans-serif;margin:2px -12px;padding:2px 6px 3px;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:700;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4A4A4A;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4A4A4A;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/y2/r/onuUJj0tCqE.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+</style></head>
+
+<body style="zoom: 1;">
+  <div class="loader1" style="display:none;"></div>
+  <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '772029069592154',
+        xfbml: true,
+        version: 'v2.5'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '772029069592154',
+        xfbml: true,
+        version: 'v2.5'
+      });
+      FB.Event.subscribe('auth.authResponseChange', function(response) {
+        if (response.status === 'connected') {
+          document.getElementById("facebook-btn").innerHTML += "<br>Connected to Facebook";
+          //SUCCESS
+        } else if (response.status === 'not_authorized') {
+          document.getElementById("facebook-btn").innerHTML += "<br>Failed to Connect";
+          //FAILED
+        } else {
+          document.getElementById("facebook-btn").innerHTML += "<br>Logged Out";
+          //UNKNOWN ERROR
+        }
+      });
+    }; /**/
+    function venndyFacebookLogin() {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          getFBUserInfo();
+        } else {
+          console.log('User cancelled login or did not fully authorize.');
+        }
+      }, {
+        scope: 'email,user_photos,user_videos'
+      });
+    }
+
+    function venndyFacebookLogout() {
+      FB.logout(function() {
+        document.location.reload();
+      });
+    }
+
+    function getFBUserInfo() {
+      var fbid = '';
+      var fbname = '';
+      var fbemail = '';
+      var fbemail = '';
+      var fbgender = '';
+      var fbpic = '';
+
+      FB.api('/me?fields=id,name,email,gender', function(response) {
+        fbid = response.id;
+        fbname = response.name;
+        fbemail = response.email;
+        fbgender = response.gender;
+      });
+      FB.api('/me/picture?type=large', function(response) {
+        fbpic = response.data.url;
+      });
+      $('#facebook-btn').text('please wait...');
+      $('body>div.sign-up>div.facebook-btn > div').text('please wait...');
+      setTimeout(function() {
+        var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+        $.ajax({
+          url: "/home/facebooklogin",
+          headers: {
+            'X-CSRF-TOKEN': token
+          },
+          type: "POST", //
+          data: {
+            fbid: fbid,
+            fbname: fbname,
+            fbemail: fbemail,
+            fbpic: fbpic,
+            fbgender: fbgender
+          },
+          beforeSend: function() {
+            $('#facebook-btn').text('please wait...');
+            $('#facebook-btn1').text('please wait...');
+          },
+          success: function(data) {
+            var jsonData = JSON.parse(data);
+            if (jsonData.action == 'insert') {
+              window.location.href = "/user/profile";
+            } else if (jsonData.action == 'exists') {
+              window.location.href = "/home";
+            } else {
+              $('#facebook-btn').text('Error in connected to Facebook');
+            }
+
+          },
+          error: function() {}
+        });
+      }, 3000);
+    }
+  </script>
+  <div id="modalConfirmYesNo" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content" style="border: 10px solid #444;">
+        <div class="modal-header" style="border-bottom:none">
+          <button type="button" class="close1" style="float:right;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <img class="img-responsive" src="/images/confirmlogo.png" alt="">
+            </div>
+            <div class="col-sm-9">
+              <h4 id="lblTitleConfirmYesNo" class="modal-title">Confirmation</h4>
+              <p id="lblMsgConfirmYesNo"></p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="border-top:none">
+          <button id="btnNoConfirmYesNo" type="button" class="btn btn-default">CANCEL</button>
+          <button id="btnYesConfirmYesNo" type="button" class="btn btn-default">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      <div id="unregisteruser" class="modal fade" role="dialog" style="z-index:99999999;">
+      <div class="modal-dialog">
+        <div class="modal-content" style="border: 10px solid #444;">
+          <div class="modal-header" style="border-bottom:none">
+            <button type="button" class="close1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <img class="img-responsive" src="/images/confirmlogo.png" alt="">
+              </div>
+              <div class="col-sm-9">
+                <h4 id="lblTitleConfirmYesNo" class="modal-title">Hey there. Please SIGN IN or SIGN UP before continuing.</h4>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="border-top:none">
+            <button id="btnNoConfirmYesNo" type="button" data-dismiss="modal" aria-label="Close" class="btn btn-default">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" value="" id="Cuserid">
+  <!-- signup popup -->
+<div class="sign-up">
+	<div class="head">
+		Sign up
+	</div>
+	<!--<div class="facebook-btn" onClick="venndyFacebookLogin();" style="margin-bottom:15px;">
+				<i class="fa fa-facebook"></i>
+				<div>Sign up with Facebook</div>
+			</div>-->
+	<div class="alert alert-danger" id="messagedisplay" style="display:none;width:95%;margin-left:2%">
+		<a href="#" class="close1" data-dismiss="alert">×</a>
+		<span id="messagetext"></span>
+	</div>
+	<div class="sign-form">
+		<p>SIGN UP WITH EMAIL</p>
+		<form role="form" ng-controller="FrmController" id="userForm" name="userForm" ng-submit="submitForm()" novalidate="" class="ng-scope ng-pristine ng-invalid ng-invalid-required">
+			<span ng-class="{ 'has-error' : userForm.email.$invalid &amp;&amp; !userForm.email.$pristine }">
+				<input type="email" name="email" ng-model="useremail" id="email" placeholder="Email" ng-model-options="{ updateOn: 'blur' }" required="" autocomplete="off" class="ng-pristine ng-invalid ng-invalid-required ng-valid-email">
+				<p class="erromessage">
+					<span style="color: red; display: none;" ng-show="userForm.email.$dirty &amp;&amp; userForm.email.$invalid">
+						<span ng-show="userForm.email.$error.required">Email is required.</span>
+						<span ng-show="userForm.email.$error.email" style="display: none;">Invalid email address.</span>
+					</span>
+				</p>
+			</span>
+			<span ng-class="{ 'has-error' : userForm.username.$invalid &amp;&amp; !userForm.username.$pristine }">
+				<input type="text" ng-model="username" ng-minlength="5" ng-maxlength="30" name="username" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Shopname" required="" autocomplete="off" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-minlength ng-valid-pattern">
+				<p class="erromessage">
+					<span style="color: red; display: none;" ng-show="userForm.username.$dirty &amp;&amp; userForm.username.$invalid">
+						<span ng-show="userForm.username.$error.required">Shopname is required.</span>
+						<span ng-show="userForm.username.$error.pattern" style="display: none;">Shopname must be alphanumeric</span>
+						<span ng-show="!userForm.username.$error.required &amp;&amp; (userForm.username.$error.minlength || userForm.username.$error.maxlength) &amp;&amp; userForm.username.$dirty" style="display: none;">Shopname must be between 5 and 30 characters.</span>
+					</span>
+				</p>
+			</span>
+			<span ng-class="{'has-error':userForm.password.$invalid &amp;&amp; !userForm.password.$pristine }">
+				<input type="password" name="password" id="password" ng-minlength="8" ng-maxlength="20" ng-model="userpassword" placeholder="Password" required="" autocomplete="off" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-minlength">
+				<p class="erromessage">
+					<span style="color: red; display: none;" ng-show="userForm.password.$dirty &amp;&amp; userForm.password.$invalid">
+						<span ng-show="userForm.password.$error.required &amp;&amp; userForm.password.$dirty" style="display: none;">Passwords is required</span>
+						<span ng-show="!userForm.password.$error.required &amp;&amp; (userForm.password.$error.minlength || userForm.password.$error.maxlength) &amp;&amp; userForm.password.$dirty" style="display: none;">Passwords must be between 8 and 20 characters.</span>
+					</span>
+				</p>
+			</span>
+			<span ng-class="{ 'has-error' : userForm.confirmpassword.$invalid &amp;&amp; !userForm.confirmpassword.$pristine }">
+				<input type="password" name="confirmpassword" ng-model="confirmpassword" placeholder="Confirm Password" compare-to="userForm.user.password" required="" autocomplete="off" class="ng-pristine ng-invalid ng-invalid-required"></span>
+
+			<p class="erromessage">
+				<span style="color: red; display: none;" ng-show="userForm.confirmpassword.$viewValue != '' &amp;&amp; (userForm.password.$viewValue != userForm.confirmpassword.$viewValue)" class="help-block">Password do not match!</span>
+			</p>
+			<span ng-class="{'has-error':userForm.captchacode.$invalid &amp;&amp; !userForm.captchacode.$pristine }">
+				<p>
+					<img class="img-thumbnail captcha" src="/captcha/venndy-captcha.php?_CAPTCHA&amp;t=0.88356900+1774107304" alt="Captch code">					<span><img class="captchrefresh" src="/images/refresh.png" alt="refresh"></span>
+				</p>
+				<input type="text" ng-model="captchacode" name="captchacode" placeholder="captcha code" required="" autocomplete="off" class="ng-pristine ng-invalid ng-invalid-required">
+				<p class="erromessage">
+					<span style="color: red; display: none;" ng-show="userForm.captchacode.$dirty &amp;&amp; userForm.captchacode.$invalid">
+						<span ng-show="userForm.captchacode.$error.required">captcha is required.</span>
+					</span>
+				</p>
+			</span>
+
+			<div class="checkbox" style="display:none;">
+				<span>
+					<label><input type="checkbox" ng-checked="true" name="termandcondition" id="termandcondition" ng-model="termandcondition" class="ng-valid ng-dirty ng-pristine" checked="checked"><label class="custom"></label> I accept the terms and conditions</label>
+					<p class="erromessage termandcondition" style="margin-left:30px !important;display:none;">
+						<span style="color:red">
+							<span>Please confirm the Terms and Conditions.</span>
+						</span>
+					</p>
+
+				</span>
+				<label><input type="checkbox" ng-init="checked=true" name="subscribe" id="subscribe" ng-model="subscribe" class="ng-valid ng-dirty ng-pristine"><label class="custom"></label> Send me emails with latest updates</label>
+			</div>
+
+			<input type="button" ng-click="SignUp();" value="Sign up" ng-disabled="userForm.$invalid" disabled="disabled"><br>
+			<p style="font-size:10px;text-align:center;">By creating a VENNDY account, you’re agreeing to accept the <br><a href="https://www.venndy.com/home/term">VENNDY Terms of Use.</a>
+				We’re committed to your privacy. VENNDY uses the information<br> you
+				provided to us to contact you about our relevant content, products,
+				and services. <br>You may unsubscribe from these communications at
+				any time. For more information,<br> check out our <a href="https://www.venndy.com/home/privacy-and-cookies">Privacy Policy.</a>
+			</p>
+			<div class="bottom">Already have an account? <a href="javascript:void(0)" class="signin-btn">Sign in</a></div>
+		</form>
+	</div>
+</div>
+
+
+<!-- /signup popup -->
+
+
+<!-- signin popup -->
+<div class="sign-in">
+	<div class="head">
+		Sign in
+	</div>
+	<!--<div class="facebook-btn">
+				<i class="fa fa-facebook"></i>
+				<div id="facebook-btn" onClick="venndyFacebookLogin();">Sign in with Facebook</div>
+			</div>-->
+	<div class="sign-email">SIGN IN WITH E-MAIL</div>
+	<div class="alert alert-danger" id="loginmessagedisplay" style="display:none;width:95%;margin-left:2%">
+		<a href="#" class="close2">×</a>
+		<span id="loginmessagetext"></span>
+	</div>
+	<div class="sign-form">
+		<form role="form" ng-controller="FrmController" name="userLoginForm" id="userLoginForm" ng-submit="submitForm()" novalidate="" class="ng-scope ng-pristine ng-invalid ng-invalid-required">
+
+			<span ng-class="{ 'has-error' : userLoginForm.username.$invalid &amp;&amp; !userLoginForm.username.$pristine }">
+				<input type="text" ng-model="username" name="username" placeholder="E-mail / Shopname" required="" class="ng-pristine ng-invalid ng-invalid-required">
+				<p class="erromessage">
+					<span style="color: red; display: none;" ng-show="userLoginForm.username.$dirty &amp;&amp; userLoginForm.username.$invalid">
+						<span ng-show="userLoginForm.username.$error.required">Shopname is required.</span>
+					</span>
+				</p>
+			</span>
+			<span ng-class="{ 'has-error' : userLoginForm.password.$invalid &amp;&amp; !userLoginForm.password.$pristine }">
+				<input type="password" name="password" id="password" ng-model="userpassword" placeholder="Password" required="" class="ng-pristine ng-invalid ng-invalid-required">
+				<p class="erromessage">
+					<span style="color: red; display: none;" ng-show="userLoginForm.password.$invalid &amp;&amp; !userLoginForm.password.$pristine" class="help-block">Password is required.</span>
+				</p>
+			</span>
+
+			<input type="button" ng-click="SignIn();" value="Sign in" ng-disabled="userLoginForm.$invalid" disabled="disabled">
+		</form>
+		<div class="bottom">Forgot your <a href="#" id="forget-pass">password</a>?</div>
+		<div class="bottom">New to VENNDY? <a href="javascript:void(0)" class="signup-btn">Sign up!</a></div>
+	</div>
+</div>
+<div class="forget-pass">
+	<div class="head">
+		Forget Password
+	</div>
+
+	<div class="sign-email">Enter your E-mail / Shopname and we will send you a link to reset your password.</div>
+	<form role="form" ng-controller="FrmController" name="userResetPassword" id="userResetPassword" ng-submit="submitForm()" novalidate="" class="ng-scope ng-pristine ng-invalid ng-invalid-required">
+		<div class="sign-form">
+			<input type="text" name="resetuser" ng-model="forgotUser" ng-minlength="2" id="resetuser" placeholder="E-mail / Shopname" ng-model-options="{ updateOn: 'blur' }" required="" class="ng-pristine ng-invalid ng-invalid-required ng-valid-minlength">
+			<p class="erromessage">
+				<span style="color: red; display: none;" ng-show="userResetPassword.resetuser.$dirty &amp;&amp; userResetPassword.resetuser.$invalid">
+					<span ng-show="userResetPassword.resetuser.$error.required">E-mail / Shopname is required.</span>
+					<span ng-show="userResetPassword.resetuser.$error.minlength" style="display: none;">E-mail / Shopname is too short.</span>
+				</span>
+			</p>
+			<input type="button" ng-click="resetPassword();" value="Submit" ng-disabled="userResetPassword.$invalid" disabled="disabled">
+		</div>
+	</form>
+</div>
+<style>
+	.erromessage {
+		margin-left: 12%;
+		text-align: left;
+		width: 100%;
+	}
+
+	.close1 {
+		float: right;
+		font-size: 21px;
+		font-weight: 700;
+		line-height: 1;
+		color: #000;
+		text-shadow: 0 1px 0 #fff;
+		filter: alpha(opacity=20);
+		opacity: .2;
+	}
+
+	.sign-form input[type="button"] {
+		background: #ec2416;
+	}
+</style><link href="https://www.venndy.com/landing-page/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+<link href="https://www.venndy.com/landing-page/css/style.css" rel="stylesheet">
+<!-- Quantcast Choice. Consent Manager Tag -->
+<style>
+    .subMenu {
+        transition: unset;
+    }
+
+    .header {
+        position: unset;
+    }
+</style>
+<div class="wrapper"></div>
+<section class="wrapper-landing">
+    <div class="overlayBody"></div>
+    <!--- header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img src="landing-page/images/logo.png">
+                        </a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse in">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="javascript:void(0)">How &amp; Why</a>
+                                <ul class="subMenu">
+                                    <li>
+                                        <a data-scroll="How_VENNDY_Works" href="javascript:void(0)">How VENNDY Works</a>
+                                    </li>
+                                    <li>
+                                        <a data-scroll="How_to_Use_VENNDY" href="javascript:void(0)">How to Use VENNDY</a>
+                                    </li>
+                                    <li>
+                                        <a data-scroll="Who_is_VENNDY_For" href="javascript:void(0)">Who is VENNDY For</a>
+                                    </li>
+                                    <!-- <li>
+                                            <a href="javascript:void(0)">Passive Income</a>
+                                        </li> -->
+                                    <li>
+                                        <a data-scroll="The_VENNDY_Advantage" href="javascript:void(0)">The VENNDY Advantage</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- <li>
+                                    <a href="https://www.venndy.com/pricing">PRICING</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.venndy.com/marketplace">Marketplace</a>
+                                </li> -->
+
+                            <!-- <li>
+                                    <a href="javascript:void(0)">Why</a>
+                                    <ul class="subMenu">
+                                        <li>
+                                            <a data-scroll="Who_is_VENNDY_For" href="javascript:void(0)">Who is VENNDY For</a>
+                                        </li>
+                                        <li>
+                                            <a data-scroll="The_VENNDY_Advantage" href="javascript:void(0)">The VENNDY Advantage</a>
+                                        </li>
+                                    </ul>
+                                </li> -->
+                            <!-- <li>
+                                    <a href="javascript:void(0)">TUTORIALS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">PRICING</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">NOT A CREATOR YET?</a>
+                                </li> -->
+                        </ul>
+                        <ul class="nav navbar-nav pull-right">
+
+                            <!--<li><a href="javascript:void(0);"  class="nav-btn signup-btn">Get Started</a></li>-->
+                            <!--<li ><a href="javascript:void(0);" class="nav-btn blue signin-btn">Sign In</a></li>-->
+
+
+                            <li>
+                                <button class="btn primaryBtn signup-btn" id="chromeExtension">get started </button>
+                            </li>
+                            <li>
+                                <button class="btn secondryBtn signin-btn">Sign in</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+
+                </div>
+                <!--/.container-fluid -->
+            </nav>
+        </div>
+    </header>
+    <!--- /header -->
+
+    <section class="mainContent">
+        <!-- Monetization -->
+        <div class="monetizationSec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="monetization">
+                            <h1 class="heading">BUILD YOUR SHOP OF FAVORITE FINDS AND PROMOTED ITEMS</h1>
+
+                            <div class="font18">
+                                <h2><span>As a creator, you have knowledge, experience, and
+                                        passion.</span></h2>
+                            </div>
+
+                            <div class="font18">
+                                <h2><span>Our mission is to help you better monetize your digital
+                                        content by optimizing your social reach.</span></h2>
+                            </div>
+                            <div class="font18">
+                                <p> VENNDY is a marketplace for online creators. If you are a business
+                                    owner, blogger, influencer, coach, consultant, or service provider of any kind, invite followers to
+                                    shop for your favorites. Watch the video to learn more.</p>
+                                <p>Download the free VENNDY LinkCollector to start sharing your everyday finds and promoted
+                                    products across all platforms. <a href="/home/term">Beta Disclaimer </a></p>
+                            </div>
+
+                            <div class="font18" style="text-align: center;padding-top: 27px;">
+                                <p><button class="btn primaryBtn signup-btn">get started </button></p>
+                                <!-- <p><button class="btn primaryBtn youtube-link" youtubeid="mfSwY8GpYzk">Learn More <i class="fa fa-play" aria-hidden="true"></i></button></p>-->
+                                <p>Free forever. No credit card required.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <!-- <div class="monetizationimg">
+                                  <img src="landing-page/images/monetization-img.png"/>
+                              </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="monetizationimg">
+                <img src="landing-page/images/monetization-img.png">
+                <i class="fa fa-play fa-4x play youtube-link" youtubeid="mfSwY8GpYzk" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <!-- Venndy Work -->
+        <section id="How_VENNDY_Works" class="venndyWorkSec" data-anchor="How_VENNDY_Works">
+            <div class="container customContainer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="venndyWorkTopSec">
+                            <h1 class="heading">
+                                How VENNDY Works
+                            </h1>
+                            <h2>
+                                <span>With VENNDY, you create your content once, and share it across </span>
+                                <span>any platform you choose, increasing your social reach, growing your </span>
+                                <span>influence and boosting your income all at the same time</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="venndyWorkBottomSec clearfix">
+
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="venddyWorkBox">
+                                <div class="circle step_Second">
+                                    <span class="stepSec">
+                                        step 1
+                                    </span>
+                                </div>
+                                <div class="venndyBottomBox">
+                                    <h2>Join VENNDY
+                                    </h2>
+                                    <div class="font18">
+                                        <p>Sign up to VENNDY and download the VENNDY LinkCollector, which is a Chrome extension.
+                                            When you discover something your audience will love, you collect it in VENNDY
+                                            and add your affiliate link so that you can monetize your recommendations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="venddyWorkBox">
+                                <div class="circle step_First">
+                                    <span class="stepSec">
+                                        step 2
+                                    </span>
+                                </div>
+                                <div class="venndyBottomBox">
+                                    <h2>Join Affiliate Networks
+                                    </h2>
+                                    <div class="font18">
+                                        <p>Become an affiliate at your choice of top-tier affiliate networks. You can also
+                                            join independent affiliate programs and add those as well. Many networks
+                                            and programs accept beginners, too.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="venddyWorkBox">
+                                <div class="circle step_Third">
+                                    <span class="stepSec">
+                                        step 3
+                                    </span>
+                                </div>
+                                <div class="venndyBottomBox">
+                                    <h2>Earn Commissions
+                                    </h2>
+                                    <div class="font18">
+                                        <p>Share your recommendations on your favorite digital platforms and start earning
+                                            affiliate commissions on products and services your followers buy through
+                                            your links.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn primaryBtn signup-btn">get started </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Venndy  -->
+        <section id="Who_is_VENNDY_For" class="who_venndySec" data-anchor="Who_is_VENNDY_For">
+            <div class="who_venndy_bg">
+                <div class="overlaySec"></div>
+                <div class="container customContainer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="who_venndyText">
+                                <div class="displ-cell">
+                                    <h1 class="heading">
+                                        Who is VENNDY for?
+                                    </h1>
+                                    <h2>
+                                        <span>VENNDY is perfect for digital entrepreneurs, influencers, bloggers and content</span>
+                                        <span>
+                                            creators who want to
+                                            <strong>be different and make a difference </strong> in people’s lives.</span>
+
+
+                                    </h2>
+                                    <h2>
+                                        <span>
+                                            <strong>Connect with Your Audience </strong>
+                                        </span>
+                                    </h2>
+                                    <h2>
+                                        <span> If you want to connect to your audience in a meaningful way, if you’re </span>
+                                        <span> determined to provide quality, valuable, helpful information, and you want to
+                                        </span>
+                                        <span> generate an income at the same time, then VENNDY is a great fit.</span>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <div class="testimonialSec">
+            <div class="container customContainer">
+                <div id="tcb-testimonial-carousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <!-- <ol class="carousel-indicators">
+                            <li data-target="#tcb-testimonial-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#tcb-testimonial-carousel" data-slide-to="1"></li>
+                            <li data-target="#tcb-testimonial-carousel" data-slide-to="2"></li>
+                        </ol> -->
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <figure class="clearfix">
+                                        <div class="col-md-12">
+                                            <div class="imgTestimonial testimonialTop">
+                                                <!-- <img src="landing-page/images/test.png" /> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <figcaption class="caption">
+                                                <h2>"By uploading shoppable content to the VENNDY platform, you’ll not only
+                                                    monetize your efforts, but you’ll also drive more traffic to your
+                                                    blog and grow your following."</h2>
+                                                <blockquote class="font18">
+                                                    -
+                                                    <span>Summer Telban,</span>
+                                                    <a href="http://www.coffeewithsummer.com" target="_blank">Coffee with Summer</a>
+                                                </blockquote>
+                                            </figcaption>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Controls -->
+                    <!-- <a class="left carousel-control" href="#tcb-testimonial-carousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#tcb-testimonial-carousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a> -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- How to use Venndy  -->
+        <section id="How_to_Use_VENNDY" class="how_use_venndySec" data-anchor="How_to_Use_VENNDY">
+            <div class="container customContainer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="how_use_venndy_TopSec">
+                            <h1 class="heading">
+                                How to Use VENNDY
+                            </h1>
+                            <h2>
+                                <span>VENNDY’s tools offer you a simple, fast and effective way to collect all your </span>
+                                <span>lifestyle experiences in one place. You’ll build trust by offering useful tips and </span>
+                                <span>reviews and, when you’re ready, you can add affiliate links to promote your</span>
+                                <span>stories on your blog, website and social media sites.</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <!-- Slider Sect -->
+                    <div class="sliderSec">
+                        <div id="myCarousel" class="carousel slide customContainer" data-ride="carousel" data-interval="12000">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="itemWrap">
+                                        <div class="col-sm-7 col-xs-12">
+                                            <div class="sliderImg">
+                                                <img src="landing-page/images/slider1.png">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 col-xs-12">
+                                            <div class="sliderText">
+                                                <div class="font18">
+                                                    <p>Turn your tips, views and reviews into Stories (Items Collections)
+                                                        which connect everything together. A Story is a complete experience
+                                                        - where you went, what you wore, what you did, how you felt -
+                                                        whatever you want to tell your audience about.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="item">
+                                    <div class="itemWrap">
+                                        <div class="col-md-a">
+                                            <div class="sliderImg">
+                                                <img src="landing-page/images/slider2.png">
+                                            </div>
+                                            <div class="slderBottomText">
+                                                <div class="font18">
+                                                    <span>With VENNDY all your everyday and special adventures can quickly
+                                                        be converted into</span>
+                                                    <span>clickable links to help your readers either buy a product you recommend
+                                                        or save</span>
+                                                    <span>something to their wish lists - no matter where you share your content.</span>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="item">
+                                    <div class="itemWrap">
+                                        <div class="col-md-a">
+                                            <div class="sliderImg">
+                                                <img src="landing-page/images/slider4.png">
+                                            </div>
+                                            <div class="slderBottomText">
+                                                <div class="font18">
+                                                    <span>Help others by collating useful information in your stories, sharing
+                                                        your tips and finds across</span>
+                                                    <span>many verticals. Using your original creative content, you can help
+                                                        improve the way consumers</span>
+                                                    <span>discover new products and businesses online.</span>
+                                                    <span>If you're excited about helping a tourist find the best walking tours,
+                                                        or a busy working mother the </span>
+                                                    <span>perfect mix-and-match wardrobe, or a foodie the tastiest pasta in
+                                                        town, then VENNDY is for you.</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="arrow_left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="arrow_right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Flexible Life Style  -->
+        <div class="flexible_venddy_lifeStyle_Sec">
+            <div class="flexible_venddy_bg">
+                <div class="overlaySec"></div>
+                <div class="container customContainer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="flexible_venddyText">
+                                <div class="displ-cell">
+                                    <h1 class="heading">
+                                        Passive Income for Flexible Lifestyles
+                                    </h1>
+                                    <h2>
+                                        <span>
+                                            Help your tribe find valuable, useful products and services, and generate more commissions at the same time.
+                                            <strong>What could be better than that?</strong>
+                                        </span>
+                                    </h2>
+                                    <h2>
+                                        <span> With VENNDY, you only need to curate the product, place or service once. You
+                                            can then easily generate links or shopping widgets to share on your blog
+                                            and on Facebook, Instagram, Twitter, Pinterest or any other websites.
+                                        </span>
+                                    </h2>
+                                    <h2>
+                                        <span> You can insert all your finds from the very beginning and add related affiliate
+                                            links once you are ready to join the affiliate networks of your choice.</span>
+
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- logo Slider -->
+        <div class="sliderSec logoSlider">
+            <div class="container customContainer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bx-wrapper" style="max-width: 940px; margin: 0px auto;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 67px;"><ul class="logo_slider" style="width: 715%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                            <li style="float: left; list-style: none; position: relative; width: 168px; margin-right: 25px;">
+
+                                <div class="brand">
+                                    <img src="landing-page/images/Ebay.png">
+                                </div>
+                            </li>
+                            <li style="float: left; list-style: none; position: relative; width: 168px; margin-right: 25px;">
+                                <div class="brand">
+                                    <img src="landing-page/images/Shareasale.png">
+                                </div>
+                            </li>
+                            <li style="float: left; list-style: none; position: relative; width: 168px; margin-right: 25px;">
+                                <div class="brand">
+                                    <img src="landing-page/images/Awin.png">
+                                </div>
+                            </li>
+                            <!-- <li> -->
+
+                            <!-- <div class="brand"> -->
+                            <!-- <img src="landing-page/images/Rekuten.png" /> -->
+                            <!-- </div> -->
+                            <!-- </li> -->
+                            <li style="float: left; list-style: none; position: relative; width: 168px; margin-right: 25px;">
+
+                                <div class="brand">
+                                    <img src="landing-page/images/Booking.png">
+                                </div>
+                            </li>
+                            <li style="float: left; list-style: none; position: relative; width: 168px; margin-right: 25px;">
+                                <div class="brand">
+                                    <img src="landing-page/images/Affiliate.png">
+                                </div>
+                            </li>
+
+
+
+                        </ul></div><div class="bx-controls bx-has-controls-direction"><div class="bx-controls-direction"><a class="bx-prev disabled" href="">Prev</a><a class="bx-next disabled" href="">Next</a></div></div></div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="font18 logoSliderBottom">
+                            For a full list of affiliate networks check our
+                            <a href="http://blog.venndy.com/the-best-affiliate-networks-for-beginners" style="color:#666666;text-decoration:underline;">blog</a>
+                            <div class="logoSliderTextBottom">
+                                <span>We are an independent service provider for monetization tools and do not</span>
+                                <span>
+                                    have a partnership relationship with any of these affiliate networks.</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Venndy Advantage -->
+        <section id="The_VENNDY_Advantage" class="venndy_advantage_Sec" data-anchor="The_VENNDY_Advantage">
+            <div class="container customContainer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="venndy_advantage_top">
+                            <h1 class="heading">The VENNDY Advantage</h1>
+                            <h2>With VENNDY you can multiply your income potential and build your audience while doing what
+                                you love.
+                                <strong> And you can do it when you want, where you want.</strong>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="venndy_beginners_sec  clearfix">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="netWork">
+                                <img src="landing-page/images/beginners.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="venndy_bignners">
+                                <h2>For Beginners and Experts Alike</h2>
+                                <div class="font18">
+                                    <p>New bloggers and content creators can start to make money from the start, without
+                                        waiting to build up a massive following. VENNDY levels the monetization playing-field,
+                                        allowing every voice to be heard. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="multiple_monetization_sec  clearfix">
+                        <div class="col-sm-6 col-xs-12 mobile">
+                            <div class="multiple_monetization_img">
+                                <img src="landing-page/images/multiple_monetization.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="multiple_monetization">
+                                <h2>Multiple Monetization Options</h2>
+                                <div class="font18">
+                                    <p>VENNDY supports content monetization via almost any platform you choose to publish
+                                        on, using links from almost any affiliate network you join (as long as it complies with the network terms and restrictions). That means more choices and greater potential earnings for you. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12  desktop">
+                            <div class="multiple_monetization_img">
+                                <img src="landing-page/images/multiple_monetization.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="complete_control_sec  clearfix">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="complete_control_img">
+                                <img src="landing-page/images/complete_control.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="complete_control_text">
+                                <h2>Complete Control and Report Tracking</h2>
+                                <div class="font18">
+                                    <p>You’re always in full control of your affiliate relationships, with affiliate sales
+                                        and commission tracking coming straight from your affiliate networks. You’re
+                                        also in direct contact with your favorite brands and retailers, as more and more
+                                        of them start their own affiliate programs - we don't get in the middle and we
+                                        don’t take a cut of your sales.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="relationship_build_sec clearfix">
+                        <div class="col-sm-6 col-xs-12 mobile">
+                            <div class="relationship_build_img">
+                                <img src="landing-page/images/relationship_build.png">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="relationship_build">
+                                <h2>Relationship Building</h2>
+                                <div class="font18">
+                                    <p>VENNDY helps you position yourself as an expert and someone to trust. When you share and recommend your personal lifestyle choices (and associated products and services), your followers build a genuine relationship with you as a respected creator in your field – whether your love is for travel, fashion, wellness, food or more.</p>
+                                </div>
+                                <div class="font18">
+                                    <p>Find other creators to collaborate with. By sharing each other’s recommended ideas, you support each other’s growth and monetization while offering your followers reliable advice from the firsthand experience of others.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 desktop">
+                            <div class="relationship_build_img">
+                                <img src="landing-page/images/relationship_build.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Testimonial -->
+        <div class="testimonialSec">
+            <div class="container customContainer">
+                <div id="tcb-testimonial-carousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <!-- <ol class="carousel-indicators">
+                            <li data-target="#tcb-testimonial-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#tcb-testimonial-carousel" data-slide-to="1"></li>
+                            <li data-target="#tcb-testimonial-carousel" data-slide-to="2"></li>
+                        </ol> -->
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <figure class="clearfix">
+                                        <div class="col-md-12">
+                                            <div class="imgTestimonial testimonialBottom">
+                                                <!-- <img src="landing-page/images/test2.jpg" /> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <figcaption class="caption">
+                                                <h2>"The biggest advantage is being able to combine links from different
+                                                    affiliate programs (and even non-affiliate links) into one carousel
+                                                    or a post."</h2>
+                                                <blockquote class="font18">
+                                                    -
+                                                    <span>Cara Newhart,</span>
+                                                    <a href="http://www.neverskipbrunch.com" target="_blank">Never Skip Brunch</a>
+                                                </blockquote>
+                                            </figcaption>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Controls -->
+                    <!-- <a class="left carousel-control" href="#tcb-testimonial-carousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#tcb-testimonial-carousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a> -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Get Start ( Affilited )-->
+        <div class="affiliatedSec">
+            <div class="container customContainer">
+                <div class="row">
+                    <div class="affiliated clearfix">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="affiliatedBox">
+                                <!-- <div class="circle step_First">
+                                        <span class="stepSec">
+                                            step 1
+                                        </span>
+                                    </div> -->
+                                <div class="affiliatedimgSec">
+                                    <img src="landing-page/images/80.png">
+                                </div>
+                                <div class="affiliatedBottomBox">
+                                    <h2>Over 80% of brands use affiliate marketing
+                                    </h2>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="affiliatedBox">
+                                <!-- <div class="circle step_Second">
+                                        <span class="stepSec">
+                                            step 2
+                                        </span>
+                                    </div> -->
+                                <div class="affiliatedimgSec">
+                                    <img src="landing-page/images/cart.png">
+                                </div>
+                                <div class="affiliatedBottomBox">
+                                    <h2>16% of all ecommerce orders are generated via affiliate marketing
+                                    </h2>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="affiliatedBox">
+                                <!-- <div class="circle step_Third">
+                                        <span class="stepSec">
+                                            step 3
+                                        </span>
+                                    </div> -->
+                                <div class="affiliatedimgSec">
+                                    <img src="landing-page/images/market.png">
+                                </div>
+                                <div class="affiliatedBottomBox">
+                                    <h2>Affiliate marketing is voted one of the top two revenue generators for publishers
+                                    </h2>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn primaryBtn signup-btn">get started </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container customContainer">
+            <div class="row">
+                <div class="footerSecTop clearfix">
+                    <div class="col-sm-5 col-xs-12">
+                        <div class="footerLinks">
+                            <ul>
+                                <li>
+                                    <a href="https://www.venndy.com/home/about">About</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.venndy.com/home/qa">Q&amp;A</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.venndy.com/home/term">Terms of Use</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.venndy.com/home/privacy-and-cookies">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.venndy.com/home/privacy-and-cookies#cookies">Cookies Policy</a>
+                                </li>
+
+                                <li>
+                                    <a class="blueText" href="javascript:void(0)">info@venndy.com</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="footerLinks">
+                            <ul>
+                                <li>
+                                    <a href="http://blog.venndy.com/">Blog</a>
+                                </li>
+                                <li>
+                                    <a href=" http://blog.venndy.com/venndy-blog-Get-Started">Guides </a>
+                                </li>
+                                <li>
+                                    <a href="http://blog.venndy.com/tools">Tutorials</a>
+                                </li>
+                                <li>
+                                    <a href="/home/plugin/">Plugins</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="https://www.venndy.com/pricing">Pricing</a>
+                                </li> -->
+                                <li>
+                                    <a href="http://blog.venndy.com/the-best-affiliate-networks-for-beginners">Affiliate Networks</a>
+                                </li>
+                                <!--<li>
+                                        <a href="javascript:void(0)">Affiliate Program</a>
+                                    </li>-->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-xs-12">
+                        <div class="footerLogoSec">
+                            <a href="/" class="footerlogo">
+                                <img src="landing-page/images/logo.png">
+                            </a>
+                            <!-- <a href="https://www.venndy.com/home/plugin" class="plugins">Marketplace</a> -->
+
+                            <a href="javascript:void(0)" class="btn_links signin-btn"> sign in </a>
+                        </div>
+
+                        <div id="mc_embed_signup" class="newsletterSec">
+
+
+                            <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+                            <form action="https://app.convertkit.com/forms/754497/subscriptions" class="seva-form formkit-form newsletterForm ng-pristine ng-valid" method="post" data-sv-form="754497" data-uid="40feeec2d0" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now please check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;modal&quot;:{&quot;trigger&quot;:null,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:null,&quot;devices&quot;:null,&quot;show_once_every&quot;:null},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:null,&quot;trigger&quot;:null,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:null,&quot;devices&quot;:null,&quot;show_once_every&quot;:null}}}" min-width="400 500 600 700 800">
+                                <h6>Sign up to our newsletter</h6>
+                                <div data-style="clean">
+
+                                    <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+                                    <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+                                        <div class="formkit-field">
+                                            <input class="email" name="email_address" placeholder="you@email.com" required="" type="text">
+                                        </div>
+
+                                        <button data-element="submit" class="btn_links" style="background: transparent;">
+                                            <div class="formkit-spinner">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                            </div><span>SEND</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="socialIcons clearfix">
+
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/VENNDYapp/" target="_blank" class="socialImg">
+                                <span class="social-cell">
+                                    <i class="fa fa-facebook"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/VENNDYapp" target="_blank" class="socialImg">
+                                <span class="social-cell">
+                                    <i class="fa fa-twitter"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/venndyapp/" target="_blank" class="socialImg">
+                                <span class="social-cell">
+                                    <i class="fa fa-instagram"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <!--<li>
+                                <a href="https://plus.google.com/u/0/111913210587517897343"  target="_blank" class="socialImg">
+                                    <span class="social-cell">
+                                        <i class="fa fa-google-plus"></i>
+                                    </span>
+                                </a>
+                            </li>-->
+                        <li>
+                            <a href="https://www.pinterest.com/venndyapp/" target="_blank" class="socialImg">
+                                <span class="social-cell">
+                                    <i class="fa  fa-pinterest"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCHQuAhmpiIMWwDjeG_YdSew" target="_blank" class="socialImg">
+                                <span class="social-cell">
+                                    <i class="fa  fa-youtube"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+    </div></footer>
+</section>
+
+<!-- /Wrapper -->
+
+<!-- jQuery -->
+
+
+
+<script src="https://www.venndy.com/landing-page/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="https://www.venndy.com/landing-page/js/jquery.bxslider.min.js"></script>
+<script src="https://www.venndy.com/landing-page/js/script.js"></script>
+<script>
+	
+		var popupUrl = '/user/itemdetailsview';
+		var storyviewurl = "/story/storydetailsview";
+		var create_username = "";
+
+	</script>
+<input type="hidden" id="token" value="T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU">
+
+
+<!-- Bootstrap 3.3.2 JS -->
+<script src="https://www.venndy.com/bower_components/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://www.venndy.com/bower_components/js/bootbox.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="https://www.venndy.com/bower_components/js/plugins.js"></script>
+<script type="text/javascript" src="https://www.venndy.com/bower_components/js/sly.min.js"></script>
+<script type="text/javascript" src="https://www.venndy.com/bower_components/js/horizontal.js"></script>
+
+<!-- jQuery -->
+<script src="https://www.venndy.com/bower_components/js/jquery.bxslider.js"></script>
+<script src="https://www.venndy.com/bower_components/js/jquery.zclip.js"></script>
+
+<!-- AdminLTE App -->
+<script type="text/javascript">
+	function changeValue(cName, type) {
+		var totalfol = $('.' + cName).html();
+		if (totalfol != 0) {
+			totalfol = parseInt(totalfol) + type;
+		} else {
+			totalfol = 0;
+		}
+
+		$('.' + cName).html(totalfol);
+	}
+	if (jQuery == undefined) {
+		jQuery = $;
+	}
+
+	$(".later-btn").click(function() {
+		$(".post-popup").hide();
+		$(".wrapper").hide();
+	});
+
+	function reposition() {
+		if ($(window).scrollTop() >= 300 && $(window).width() > 1200) {
+			$('.sticky').addClass('fixed-header');
+			$('body').addClass('body-padd');
+			//$('.product-details').removeClass('top-sticy-gap');
+		} else {
+			$('.sticky').removeClass('fixed-header');
+			$('body').removeClass('body-padd');
+			// $('.product-details').addClass('top-sticy-gap');
+		}
+	};
+	$("#sotire-details, .wrapper").click(function() {
+		var scrollpostion = $(document).scrollTop();
+		$('#story-detail-On-index').css('top', scrollpostion);
+		$("#story-detail-On-index, .wrapper").css({
+			'display': 'block'
+		});
+	});
+
+	$(".wrapper").click(function() {
+		$("#story-detail-On-index, .wrapper, .wrapper-left").css({
+			'display': 'none'
+		});
+	});
+	$(".signup-btn").click(function() {
+		$("#menu-close").click();
+		var scrollpostion = $(document).scrollTop();
+		$('.sign-up').css('top', scrollpostion);
+		$(".sign-in").hide();
+		$(".sign-up").show();
+		$(".sign-in").hide();
+		$(".wrapper").show();
+		$(".venndy-prowrapper").hide();
+		$('#subscribe').trigger("click");
+	});
+	$(".signin-btn").click(function() {
+		var scrollpostion = $(document).scrollTop();
+		$('.sign-in').css('top', scrollpostion);
+		$(".sign-up").hide();
+		$(".sign-in").show();
+		$(".sign-up").hide();
+		$(".wrapper").show();
+		$(".venndy-prowrapper").hide();
+	});
+	$(".wrapper").click(function() {
+		$(".sign-up").hide();
+		$(".wrapper").hide();
+		$(".sign-in").hide();
+		$(".forget-pass").hide();
+		$(".venndy-prowrapper").hide();
+		$(".post-popup").hide();
+		$('.user-detail').show();
+	});
+	$(".venndy-prowrapper .close").click(function() {
+		$(".venndy-prowrapper").hide();
+		$(".wrapper").hide();
+	});
+	$("#menu").click(function() {
+		$(".wrapper-left").show();
+	});
+	$(".left-menu a img").click(function() {
+		$(".wrapper-left").hide();
+	});
+	$("#signin").click(function() {
+		$(".sign-up").hide();
+		$(".sign-in").show();
+	});
+	$("#sign-up").click(function() {
+		$(".sign-in").hide();
+		$(".sign-up").show();
+	});
+	$("#forget-pass").click(function() {
+		$(".sign-in").hide();
+		$(".forget-pass").show();
+	});
+	$(".doted").click(function() {
+		$(".report").toggle();
+	});
+	$("#comment").click(function() {
+		$("#comments").slideToggle();
+		$("#comment .stories").toggle();
+		$("#comment .close").toggle();
+	});
+
+	/* added by sanjeev for Ajax search  */
+	function SearchController($scope, $http) {
+		$scope.isActive = false;
+		$scope.venndySearch = function() {
+			if ($scope.searchstring == undefined) {
+				$scope.isActive = !$scope.isActive;
+			} else {
+				var searchstring = $('#searchstring').val();
+				if (searchstring == '') {
+					var searchstring = $('#searchstring').val();
+				}
+				$scope._token = $('#token').val();
+				window.location.href = "/home/serach/" + encodeURI(searchstring);
+			}
+		}
+	}
+
+	function SearchControllerHome($scope, $http) {
+		$scope.isActive = false;
+		$scope.venndySearch = function() {
+			if ($scope.searchstrings == undefined) {
+				$scope.isActive = !$scope.isActive;
+			} else {
+				var searchstrings = $('#searchstrings').val();
+				$scope._token = $('#token').val();
+				window.location.href = "/home/serach/" + encodeURI(searchstrings);
+			}
+		}
+	}
+	$("#searchstrings").keyup(function(event) {
+		if (event.which == 13) {
+			var searchstrings = $(this).val();
+			var token = $('#token').val();
+			window.location.href = "/home/serach/" + encodeURI(searchstrings);
+		}
+	});
+
+	$("#menu").click(function() {
+		/*<
+		!--$(".left-menu").addClass("no-margin");
+		-- >/** */
+		$("#landingdialog").hide();
+		$(".wrapper").hide();
+		$("body").addClass("left_body");
+	});
+	$("#menu-close").click(function() {
+		$(".post-popup").hide();
+		$(".wrapper").hide();
+		$(".layerwrapper").hide();
+		$(".wrapper-left").hide();
+		$("#landingdialog").hide();
+		$("body").removeClass('left_body');
+	});
+	$('.collapse').on('shown.bs.collapse', function() {
+		$(this).parent().find(".panel-heading").addClass("add_class");
+		$(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+
+	}).on('hidden.bs.collapse', function() {
+		$(this).parent().find(".panel-heading").removeClass("add_class");
+		$(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+	});
+
+	$(document).ready(function() {
+		$(window).on('resize scroll', reposition).trigger('scroll');
+	});
+
+	function reposition() {
+		if ($(window).scrollTop() >= 300 && $(window).width() > 1200) {
+			$('.sticky').addClass('fixed-header');
+			$('body').addClass('body-padd');
+		} else {
+			$('.sticky').removeClass('fixed-header');
+			$('body').removeClass('body-padd');
+		}
+	}
+
+	function FrmController($scope, $http) {
+		//console.log($scope);
+		$scope.errors = [];
+		$scope.msgs = [];
+		$scope.SignUp = function() {
+			$scope._token = $('#token').val();
+			$scope.errors.splice(0, $scope.errors.length); // remove all error messages
+			$scope.msgs.splice(0, $scope.msgs.length);
+
+			if ($('#termandcondition').prop("checked") == false) {
+				$('#termandcondition').focus();
+				$('p.termandcondition').css('display', 'block');
+				return false;
+			} else {
+				$('p.termandcondition').css('display', 'none');
+			}
+
+			$http.post('/home/signupuser', {
+					'uname': $scope.username,
+					'captcha': $scope.captchacode,
+					'pswd': $scope.userpassword,
+					'cpswd': $scope.confirmpassword,
+					'email': $scope.useremail,
+					'subscribe': $scope.subscribe,
+					'action': 'signup'
+				} /* added captcha code by sanjeev */
+
+			).success(function(data, status, headers, config) {
+				//console.log("====="+data.error);console.log(data);console.log("<<<<====="+data.action);
+				if (data.action == 'insert') {
+					window.location.href = "/user/profile";
+				} else if (data.action == 'exist') {
+					$('#messagedisplay').show();
+					$('.alert').addClass('alert-danger').removeClass('alert-success');
+					$('#messagetext').html(data.error);
+				}
+
+				$('html, body').animate({
+					scrollTop: $(".sign-email").offset().top
+				}, 900);
+
+			}).error(function(data, status) { // called asynchronously if an error occurs
+				// or server returns response with an error status.
+				$scope.errors.push(status);
+			});
+		}
+
+		$scope.SignIn = function() {
+			$scope.errors.splice(0, $scope.errors.length); // remove all error messages
+			$scope.msgs.splice(0, $scope.msgs.length);
+			$scope._token = $('#token').val();
+			$http.post('/home/signinuser', {
+				'uname': $scope.username,
+				'pswd': $scope.userpassword,
+				'action': 'signin',
+				'_token': $scope._token
+			}).success(function(data, status, headers, config) {
+				console.log(data);
+				//return false;
+				if (data.action == 'error') {
+					$('#loginmessagedisplay').show();
+					$('.alert').addClass('alert-danger').removeClass('alert-success');
+					$('#loginmessagetext').html(data.error);
+				} else {
+					window.location.href = "/";
+				}
+				$('html, body').animate({
+					scrollTop: $(".sign-email").offset().top
+				}, 900);
+
+			}).error(function(data, status) { // called asynchronously if an error occurs
+				// or server returns response with an error status.
+				$scope.errors.push(status);
+			});
+		}
+		/* added by sanjeev */
+		$scope.resetPassword = function($id) {
+			$scope.errors.splice(0, $scope.errors.length); // remove all error messages
+			$scope.msgs.splice(0, $scope.msgs.length);
+			$scope._token = $('#token').val();
+			$http.post('/mail/forgetpassword', {
+				'user_id': $scope.forgotUser,
+				'action': 'resetpass',
+				'_token': $scope._token
+			}).success(function(data, status, headers, config) {
+				//console.log(data);
+				$('.forget-pass .sign-email').empty();
+				$('.forget-pass .sign-email').html(data.msg);
+			}).error(function(data, status) {
+				$scope.errors.push(status);
+			});
+		}
+		$scope.changePassword = function() {
+			$scope.errors.splice(0, $scope.errors.length); // remove all error messages
+			$scope.msgs.splice(0, $scope.msgs.length);
+			$scope._token = $('#token').val();
+			$scope._resetkey = $('#resetkey').val();
+			$http.post('/home/setpassword', {
+				'password1': $scope.password1,
+				'password2': $scope.password2,
+				'_reset_key': $scope._resetkey,
+				'action': 'resetpass',
+				'_token': $scope._token
+			}).success(function(data, status, headers, config) {
+				//console.log(data);
+				$('#resetmessage').empty();
+				$('#resetmessage').html(data.msg);
+			}).error(function(data, status) {
+				//$scope.errors.push(status);
+			});
+		}
+	}
+	/* added js code by sanjeev  */
+	function displayIframe(uid, url, height, width) {
+		var domain = 'https://www.venndy.com/home/plugin/';
+		var ext = '/' + uid.toLowerCase(); /* '.html'; */
+		var fullUrl = domain + url + ext;
+
+		var nheight = height + 20;
+		var nwidth = width + 20;
+		if (url == 'pro') {
+			nheight = '100%';
+		}
+		var iframeCode = '<iframe width="' + nheight + '" height="' + nwidth + '" src="' + fullUrl + '" frameborder="0" style="display: block;margin: 0 auto;"></iframe>';
+
+		$('div.embedpro').slideUp("slow");
+		$('code#embedpro').text(iframeCode);
+		$('div.embedpro').slideDown("slow");
+		$('html, body').animate({
+			scrollTop: $("div.scrollToTop").offset().top
+		}, 2000);
+		$('#embedpro').css({
+			'background-color': '#fff',
+			'color': '#333'
+		});
+		$('.embedpro').css('visibility', 'visible');
+		return true;
+	}
+	$("a#copy-dynamic").zclip({
+		path: 'https://www.venndy.com/bower_components/js/ZeroClipboard.swf',
+		copy: function() {
+			return $('code#embedpro').text();
+		}
+	});
+
+	function itemHitCount(id, url) {
+		$('.url_not_found').remove();
+		if (url == '' || url == null) {
+							$('#usernotes').after($('<p class="url_not_found" style="color:red">shop url not found.</p>').fadeIn('slow'));
+						return false;
+		}
+		var token = $('#token').val();
+		var shopVid = $('#shopTextlabel').attr('shopTextlabel');
+		var itemData = {
+			'item_id': id,
+			'_token': token
+		};
+		$.ajax({
+			type: "POST",
+			url: "https://www.venndy.com/home/itemhitcount/" + id,
+			data: itemData,
+			beforeSend: function() {
+				$(this).text('Wait...');
+				$('.shop_now').html('Wait...');
+			},
+			beforeSend: function() {},
+			success: function(data) {
+				if (data == 'update') {
+					$('.shop_now').html(shopVid);
+				} else if (data == 'error') {
+					$('#usernotes_edit').css('display', 'block');
+					$('#usernotes_edit').text('something wrong in click to count, url not redirect');
+				} else {
+					$('#usernotes_edit').css('display', 'block');
+					$('#usernotes_edit').text('something wrong url not redirect');
+				}
+			},
+			complete: function(data) {
+				$('#go_to_shop').remove();
+				$('.shop_now').html(shopVid);
+				//  	$('.shop_now').html('SHOP');
+			},
+			error: function() {
+				$('#usernotes_edit').css('display', 'block');
+				$('#usernotes_edit').text('something wrong url not redirect');
+			}
+		});
+		return true;
+	}
+
+	function venndySocialShare(obj, url, title, description, img, w, h) {
+		var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+		var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+		width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+		height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+		title = title.replace(/(\||,)/g, "");
+		var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+		var top = ((height / 2) - (h / 2)) + dualScreenTop;
+
+		var whichSocial = $(obj).attr('class');
+		if (whichSocial == 'fa fa-facebook') {
+
+			var hrefUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+		} else if (whichSocial == 'fa fa-twitter') {
+			var hrefUrl = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title + "&via=VENNDYapp";
+		} else if (whichSocial == 'fa fa-google-plus') {
+			var hrefUrl = "https://plus.google.com/share?url=" + url;
+		} else if (whichSocial == 'fa fa-pinterest') {
+			img = encodeURI(img);
+			var hrefUrl = "http://pinterest.com/pin/create/bookmarklet/?media=" + img + "&amp;url=" + url + "&amp;is_video=false&amp;description=" + description;
+		} else {
+
+			return false;
+		}
+		var newWindow = window.open(hrefUrl, '', 'scrollbars=yes, width=' + w + ',height=' + h + ',top=' + top + ',left=' + left);
+		if (window.focus) {
+			newWindow.focus();
+		}
+		var i = setInterval(function() {
+			if (newWindow.closed) {
+				return getVenndySocialCount();
+			}
+		}, 500);
+		if (newWindow.closed) {
+			setTimeout(function() {
+					clearTimeout(i);
+				},
+				5000);
+		}
+	}
+	$('.captchrefresh').click(function() {
+		var token = $('#token').val();
+		var itemData = {
+			'_token': token
+		};
+		$.ajax({
+			type: "GET",
+			url: "https://www.venndy.com/home/captchrefresh/",
+			data: itemData,
+			beforeSend: function() {
+				$('#userForm .img-thumbnail.captcha').attr('src', '/images/bx_loader.gif');
+			},
+			success: function(data) {
+				$('#userForm .img-thumbnail.captcha').attr('src', data);
+			}
+		});
+		return false;
+	});
+
+	function saveWishlist(uid, id, action) {
+		var token = $('#token').val();
+		var itemData = {
+			'item_id': id,
+			'_token': token,
+			'action': action
+		};
+
+		$.ajax({
+			type: "POST",
+			url: "https://www.venndy.com/user/savewishlist/" + id,
+			data: itemData,
+			beforeSend: function(data) {
+
+			},
+			success: function(data) {
+				if (data === 'save successfully') {
+					//$('.venndy-prowrapper .btn.wishlist').css({'pointer-events':'none','background':'#8c8c8c','color':'#fff','border':'2px solid #8c8c8c'});
+				} else {
+
+					//return false;
+				}
+			},
+			error: function() {
+
+			}
+		});
+		return false;
+	}
+
+
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-Token': $('input[name="_token"]').val()
+		}
+	});
+	$(window).on("scroll", function() {
+		var scrollHeight = $(document).height();
+		var scrollPosition = $(window).height() + $(window).scrollTop();
+		if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+			var pagenum = 10;
+			//getresult('/user/updatepic');
+			if ($(".pagenum:last").val() <= $(".rowcount").val()) {
+				var pagenum = parseInt($(".pagenum:last").val()) + 1;
+
+			}
+		}
+	});
+
+	function closepopup() {
+		$(".venndy-prowrapper").hide();
+		$(".wrapper").hide();
+	}
+
+	function addcomment() {
+		$("#comments").slideToggle();
+		$("#comment .stories").toggle();
+		$("#comment .close").toggle();
+	}
+
+	function storeusercomment(txtcontent) {
+		var userid = $('#txt_user_id').attr('userid');
+		var itemid = $('#txt_user_id').attr('itemid');
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: "/user/storeusercomment", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				userid: userid,
+				itemid: itemid,
+				txtcontent: txtcontent
+			},
+
+			success: function(data) {
+				console.log(data);
+			}
+
+		});
+	}
+
+	function addusercomment(image, username) {
+		var textContent = $('textarea#textComment').val();
+		if (textContent == '') {
+
+			return false;
+		} else {
+			var commentstring = '<div style="padding-top: 12px;" class="col-md-10 commentClass"><div class="col-md-1"><img class="circle" src="/upload/' + image + '"></div><div class="col-md-11"><p><label>@' + username + ' </label>' + textContent + '</p></div></div>';
+			$("#commentArea").before(commentstring);
+			$('textarea#textComment').val('');
+			storeusercomment(textContent);
+			$('#commentcount').html((parseInt($('#commentcount').html()) + 1));
+		}
+
+
+	}
+
+	function likedbyuser(userid, itemid, action) {
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$('#likebtn').css('pointer-events', 'none');
+		$.ajax({
+			url: "/user/storeuserlike", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				userid: userid,
+				itemid: itemid,
+				type: 1,
+				action: action
+			},
+
+			success: function(data) {
+				//$('#likecount').html(' '+(parseInt($('#likecount').html())+1));
+			}
+
+		});
+	}
+
+	function getiteminfo(id, likes, token, itemtype, storycreator) {
+		$("#itemresult1").html('');
+		$("#itemresult1").html('<img src="https://www.venndy.com/images/logo-loading-1.gif" class="ajax-loader"/>');
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: popupUrl + "/" + id, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			async: true,
+			data: {
+				catid: id,
+				likes: likes,
+				action: 'useraction',
+				itemtype: itemtype,
+				storycreator: storycreator
+			},
+			beforeSend: function() {
+				$('#loader-icon').show();
+			},
+			complete: function() {
+
+				$('#loader-icon').hide();
+			},
+			success: function(data) {
+
+				$("#itemresult1").html(data);
+				$('#itemresult1 .details-body').find("span").removeAttr("style");
+			},
+			error: function() {}
+		});
+
+	}
+
+	function updateContentNotesValue(itemid, userselectedtext, usernotes, headertext, meta_description, childId, rating, affiliated, shoptext) {
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: "/user/updateContentNotesValue", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				itemid: itemid,
+				selectedtext: userselectedtext,
+				noted: usernotes,
+				headertext: headertext,
+				meta_description: meta_description,
+				childId: childId,
+				rating: rating,
+				affiliated: affiliated,
+				shoptext: shoptext
+			},
+			beforeSend: function() {
+				$('#loader-icon').show();
+			},
+			complete: function() {
+
+				$('#loader-icon').hide();
+			},
+			success: function(data) {
+				//$("#itemresult").html(data);
+			},
+			error: function() {}
+		});
+	}
+
+	function deleteitem(id, selectedtext, noted) {
+		var id = $('#txt_user_id').attr('itemid');
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: "/user/deleteitem", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				itemid: id
+			},
+			beforeSend: function() {
+				$('#loader-icon').show();
+			},
+			complete: function() {
+				$('#loader-icon').hide();
+			},
+			success: function(data) {
+				//window.location.href = "/user/useritems";
+				var catName = $("#putcatname").text();
+				var mainCatName = catName.toLowerCase();
+				var catId = $("." + catName).val();
+				$('.user-detail').show();
+				$(".venndy-prowrapper").hide();
+				$(".wrapper").hide();
+				var userID = null;
+				getexplore(catId, "user-item-content", userID, 1);
+				var count = $('#' + catId).find('.' + mainCatName).text() === "0" ? "0" : $('#' + catId).find('.' + mainCatName).text() - 1;
+				$('#' + catId).find('.' + mainCatName).text(count);
+
+				//location.reload();
+			},
+			error: function() {}
+		});
+	}
+
+	function createuserstory() {
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		var itemid = $('#txt_user_id').attr('itemid');
+		var cateId = $('#categoryValue').val();
+		var name = $("#name").val();
+		var slug = $("#slugupdateurl").val();
+		var storydescription = $("#storydescription").val();
+		var catVisibility = $('.off-button.active').html() == 'PRIVATE' ? 1 : 2;
+		$.ajax({
+			url: "/user/createuserstory", // Url to which the request is send
+			// headers: {'X-CSRF-TOKEN': token},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				itemid: itemid,
+				cateId: cateId,
+				name: name,
+				storydescription: storydescription,
+				catVisibility: catVisibility,
+				slug: slug
+			},
+			beforeSend: function() {
+				$('#loader-icon').show();
+			},
+			complete: function() {
+				$('#loader-icon').hide();
+			},
+			success: function(data) {
+				window.location.href = "/story/venndyinfo";
+			},
+			error: function() {}
+		});
+
+	}
+
+	//$(".block-item a .block-img").click(function(){
+	//    var catId = $(this).parent().parent().attr('id');
+	//	var likes = $(this).parent().parent().attr('like');
+	//	var color = $(this).parent().parent().attr('color');
+	//	var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+	//	var scrollpostion =$(document).scrollTop();
+	//	$('.venndy-prowrapper').css('top',scrollpostion+'px');
+	//	getiteminfo(catId,likes,token);
+	//	$(".venndy-prowrapper").show();
+	//	$(".wrapper").show();
+	//	$('.user-detail').hide();
+	//});
+	$(document.body).on('click', '.block-item-view', function() {
+		// $(".wrapper").show().css("z-index","100");
+		// $(".wrapper-left").css("display","block");
+		if ($(this).hasClass("addItem")) {
+			$('.add-item-popup').hide();
+			var catId = $(this).attr('id');
+			var likes = $(this).attr('like');
+			var token = $('#token').val();
+			var itemtype = 'additem';
+
+			var storycreator = $('#txt_story').attr('storycreator');
+			getiteminfo(catId, likes, token, itemtype, storycreator);
+
+		} else {
+			var catId = $(this).attr('id');
+			var likes = $(this).attr('like');
+			var storyaboveitem = $(this).attr('storyaboveitem');
+			var token = $('#token').val();
+							var homeUrl = 'https://www.venndy.com' + '/';
+				if (document.URL == homeUrl) {
+					var scrollpostion = $(document).scrollTop() - 627;
+
+				} else {
+					var scrollpostion = $(document).scrollTop() - 0;
+
+				}
+						$('.venndy-prowrapper').css('top', scrollpostion + 'px');
+
+			if (storyaboveitem === undefined) {
+				getiteminfo(catId, likes, token);
+			} else {
+				getitemInfoAboveStory(catId, likes, token, storyaboveitem);
+			}
+
+			$('.user-detail').hide();
+		}
+
+		$(".venndy-prowrapper").show();
+		$(".wrapper").show();
+
+	});
+
+
+	$(".wrapper").click(function() {
+
+		$(".wrapper").hide();
+
+		$(".post-popup").hide();
+		$(".venndy-prowrapper").hide();
+	});
+	// Edit item
+	$(document.body).on('click', '#edititem', function() {
+		var action = $('#edititem').html();
+
+		if (action == 'SAVE') {
+			var itemid = $('#txt_user_id').attr('itemid');
+			var userselectedtext = $("#user_selected_text_area").val()
+			var usernotes = $("#user_notes_text_area").val();
+			var affiliated = $("#affiliated_edit_text_area").val();
+			var headertext = $("#headertext_edit").html();
+			var meta_description = $("#meta_description_text_area").val();
+			var childId = $("#setcategory3Id").val();
+			var rating = $("#itemrating").val();
+			var parentCatName = $('#categorynamelabel').attr('parentcatname');
+			var ChildCatName = $('#categorynamelabel').attr('childcatname');
+			//added code for shoptext shopButton text
+			var shoptext = $('#shopTextlabel').attr('shopTextlabel');
+			//end here
+			var color = getCategoryColor(parentCatName);
+			var archiveItem = $('#archiveitem');
+			$('.ranking').removeClass('changeranking');
+			if (ChildCatName == 'Select') {
+				$('#edit_sub-pop button').css('border', '2px solid red');
+				return false;
+			}
+
+			updateContentNotesValue(itemid, userselectedtext, usernotes, headertext, meta_description, childId, rating, affiliated, shoptext);
+			$('#userselectedtext').show().html(userselectedtext);
+			$('#userselectedtext_edit').hide().val(userselectedtext);
+
+			$('#meta_description').show().html(meta_description);
+			$('#meta_description_edit').hide().val(meta_description);
+			$('#headertext').show().html(headertext);
+			$('#headertext_edit').hide().val(meta_description);
+			$('#catsubcatlistId,#changerating').hide();
+			$('#deleteitem,#labelcatsubcat').show();
+			$('#usernotes').show().html(usernotes);
+			//$('#affiliated').show().text(affiliated).attr('href',affiliated);
+
+			$('#putcatname').html('');
+			$('#subcatName').html('');
+			$('#putcatname').html(parentCatName).show();
+			$('#subcatName').html(ChildCatName).show();
+			$('#usernotes_edit').hide().val(usernotes);
+			$('#affiliated_edit').hide().val(affiliated);
+			$('#shop_edit').hide().val(shoptext);
+			$('#shoptextId').text(shoptext).show();
+			$("#edititem").html('EDIT').css('background', '').css('color', '');
+			archiveItem.show();
+
+		} else {
+			$('.ranking').addClass('changeranking');
+			$("textarea").jqte();
+			$("#edititem").html('SAVE').css('background', '#8c8c8c').css('color', 'white');
+			$('#userselectedtext_edit,#usernotes_edit,#headertext_edit,#catsubcatlistId,#changerating,#affiliated_edit,#shop_edit').show();
+			$('#userselectedtext,#usernotes,#headertext,#meta_description,#deleteitem,#labelcatsubcat,#affiliated,#shoptextId').hide();
+			$('#archiveitem').hide()
+
+		}
+
+	});
+
+
+
+	// Delete items
+	$(document.body).on('click', '#deleteitem', function() {
+		/* var itemid = $('#txt_user_id').attr('itemid');
+		   var x = confirm("Are you sure you want to delete this Item?");
+		   if (x)
+				deleteitem(itemid);
+				venndyConfirmModal('ARE YOU SURE?','Are you sure you want to delete this Item?',deleteitem(itemid));
+		   else
+		       return true; */
+		venndyConfirmModal('ARE YOU SURE ?', 'Are you sure you want to delete this Item ?', deleteitem);
+
+	});
+
+
+	$(document.body).on('click', '.doted', function() {
+		$(".report").toggle();
+	});
+
+	$(document.body).on('click', '.close', function() {
+
+		$(".venndy-prowrapper").toggle();
+		$(".wrapper").hide();
+		//$(".wrapper-left").hide();
+		$('.user-detail').show();
+	});
+
+	$(document.body).on('click', '#stories', function() {
+		$("#pick-stroy").toggle();
+	});
+	$(document.body).on('click', '.close-pick-story', function() {
+		$("#pick-stroy").hide();
+	});
+	$(document.body).on('click', '#show-create-story', function() {
+		$("#pick-stroy").hide();
+		$("#create-story").show();
+
+	});
+	$(document.body).on('click', '.close-create-story', function() {
+		$("#create-story").hide();
+	});
+
+	$(document.body).on('click', '.off-on-button div', function() {
+		$('#invitelist').val('');
+		$('#invitelist').attr('disabled', false)
+		var strytype = $(this).html();
+		if (strytype == 'OPEN') {
+			$('#invitelist').attr('disabled', true)
+		}
+		$(".off-button").removeClass("active");
+		$(this).addClass("active");
+	});
+
+	$(document.body).on('click', '#cancel-popup', function() {
+		$("#create-story").hide();
+		$("#pick-stroy").show();
+		return false;
+	});
+	$(document.body).on('click', '#create_new_story', function() {
+		createuserstory();
+	});
+	// show user arrow
+	$('.profile-arrow').show();
+	$('.nav-tabs > li.active').css("background", "none")
+
+	$(document.body).on('click', '.dropdown-menu li', function() {
+		var ele = $(this);
+
+		$('#setcategory').html($(this).attr('class'));
+		var imgurl = $('.' + $(this).attr('class') + ' img').attr('src');
+
+		$('#setimagurl').attr('src', imgurl);
+		$('#categoryValue').val($(this).attr('value'));
+	});
+
+	$(document.body).on('click', '.dropdownChangeCat ul li', function() {
+		var ele = $(this);
+
+
+		$('#setcategoryChangeCat').html($(this).attr('class'));
+		var imgurl = $('.' + $(this).attr('class') + ' img').attr('src');
+
+		$('#setimagurlChangeCat').attr('src', imgurl);
+		$('#categoryValueChangeCat').val($(this).attr('value'));
+		$('.dropdownChangeCat').hasclass('open').removeClass('open');
+		//$('.dropdown-menu').hide();
+	});
+	$('input:radio').change(function() {
+		if ($(this).is(":checked")) {
+			$(".scroller-stories label").removeClass('bold-me');
+			$(this).closest("label").addClass('bold-me');
+		} else {
+			$(this).closest("label").removeClass('bold-me');
+		};
+	});
+	$('body').on('click', '.all-menu li', function() {
+		var elem = $(this);
+		$('#setcategory1').html($(this).text());
+		var imgurl = $('.' + $(this).attr('class')).attr('src');
+		$('#all_menu').hide();
+		$('#setimagurl').attr('src', imgurl);
+	})
+
+	$(document).ready(function() {
+		var showChar = 120; // How many characters are shown by default
+		var ellipsestext = "...";
+		var moretext = "Read more >";
+		var lesstext = "< Read less";
+		$('.more').each(function() {
+			var content = $(this).html();
+			if (content.length > showChar) {
+				var c = content.substr(0, showChar);
+				var h = content.substr(showChar, content.length - showChar);
+				var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="read-more">' + moretext + '</a></span>';
+				$(this).html(html);
+			}
+		});
+		$(".read-more").click(function() {
+			if ($(this).hasClass("less")) {
+				$(this).removeClass("less");
+				$(this).html(moretext);
+			} else {
+				$(this).addClass("less");
+				$(this).html(lesstext);
+			}
+			$(this).parent().prev().toggle();
+			$(this).prev().toggle();
+			return false;
+		});
+		$("#searchstring").keyup(function(event) {
+			if (event.which == 13) {
+				var searchstring = $(this).val();
+				var token = $('#token').val();
+				window.location.href = "/home/serach/" + encodeURI(searchstring);
+			}
+		});
+		$(".left-nav li.menu_seacrh input[type=search]").keyup(function(event) {
+			if (event.which == 13) {
+				var searchstring = $(this).val();
+				var token = $('#token').val();
+				window.location.href = "/home/serach/" + encodeURI(searchstring);
+			}
+		});
+	});
+
+	function setArchiveItem(userId, itemId) {
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: "/user/setarchiveitem",
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST",
+			data: {
+				'userid': userId,
+				'itemid': itemId
+			},
+			beforeSend: function() {
+				$('#loader-icon').show();
+			},
+			success: function(data) {
+				if (data == 'Set Item in archive successfully') {
+					$('#archiveitem').css('display', 'none');
+				} else {
+					$('#archiveitem').css({
+						'color': 'red'
+					});
+				}
+			},
+			error: function() {}
+		});
+		return false;
+	}
+
+	function storyLikedbyuser(userid, storyid, action) {
+		$('#storyLikedbyuser').css('pointer-events', 'none');
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		//var curentCount = parseInt($('#storyLikedbyuser span').text())+1;
+
+		$.ajax({
+			url: "/user/storeuserlike", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				userid: userid,
+				itemid: storyid,
+				type: 2,
+				action: action
+			},
+			success: function(data) {
+				//$('#storyLikedbyuser').html('<i class="fa fa-heart"></i><span>'+curentCount+'<br><span>Likes</span>');
+				//$('#storyLikedbyuser').css({'background-color':'#d3d3d3','color':'#fff'});
+			}
+		});
+		return false;
+	}
+
+	$(document.body).on('click', '.add-item-login', function() {
+		$('#story-detail-On-index').hide();
+		$('#itemresult1').hide();
+		var scrollpostion = $(document).scrollTop();
+		$('.sign-in').css('top', scrollpostion);
+		$(".sign-up").hide();
+		$(".sign-in").show();
+		$(".sign-up").hide();
+		$(".wrapper").show();
+	});
+	$(document.body).on('click', '.adfollow', function() {
+		var followIdVal = $(this).attr('id');
+		followId = followIdVal.split('ad-')[1];
+		var followadID = 'rm-' + followId;
+		var token = $('#token').val();
+		$.ajax({
+			url: "/home/ajaxfollow/" + followId, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				followId: followId,
+				userid: null,
+				type: 2
+			},
+			success: function(data) {
+				changeValue('userfollowing', +1);
+				$('#vrm-' + followId).remove();
+				$('#nav_unfollow-' + followId).html('<div class="later-btn nav_unfollow" style="display:block;" id=' + followadID + '>UNFOLLOW</div>');
+				$('#ad-' + followId).removeClass("later-btn");
+				$('#unfollow-' + followId).html('<div  class="later-btn hover_follow dark">FOLLOWING<div class="later-btn hover_unfollow" id=' + followadID + '>UNFOLLOW</div></div>');
+			},
+			error: function() {}
+		});
+	})
+	$(document.body).on('click', '.hover_unfollow', function() {
+		var followIdVal = $(this).attr('id');
+		followId = followIdVal.split('rm-')[1];
+		var followadID = 'ad-' + followId;
+		var token = $('#token').val();
+		$.ajax({
+			url: "/home/ajaxfollow/" + followId, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				followId: followId,
+				userid: null,
+				type: 1
+			},
+			success: function(data) {
+				changeValue('userfollowing', -1);
+				$('#vrm-' + followId).remove();
+				$('#nav_unfollow-' + followId).html('<div class="later-btn navadfollow" id=' + followadID + ' style="">FOLLOW+</div>');
+				$('#unfollow-' + followId).html('<div class="later-btn adfollow" id=' + followadID + ' style="">FOLLOW+</div>');
+			},
+			error: function() {}
+		});
+	})
+	$(document.body).on('click', '.nav_unfollow', function() {
+		var followIdVal = $(this).attr('id');
+		var followId = followIdVal.split('rm-')[1];
+		var followadID = 'ad-' + followId;
+		var token = $('#token').val();
+		$.ajax({
+			url: "/home/ajaxfollow/" + followId, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				followId: followId,
+				userid: null,
+				type: 1
+			},
+			success: function(data) {
+				$('#nav_unfollow-' + followId).html('<div class="later-btn navadfollow" id=' + followadID + ' style="">FOLLOW+</div>');
+				$('#unfollow-' + followId).html('<div class="later-btn adfollow" id=' + followadID + ' style="">FOLLOW+</div>');
+			},
+			error: function() {}
+		});
+	})
+	$(document.body).on('click', '.navadfollow', function() {
+		var followIdVal = $(this).attr('id');
+		followId = followIdVal.split('ad-')[1];
+		var followadID = 'rm-' + followId;
+		var token = $('#token').val();
+		$.ajax({
+			url: "/home/ajaxfollow/" + followId, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				followId: followId,
+				userid: null,
+				type: 2
+			},
+			success: function(data) {
+				$('#nav_unfollow-' + followId).html('<div class="later-btn nav_unfollow" style="display:block;" id=' + followadID + '>UNFOLLOW</div>');
+				$('#unfollow-' + followId).html('<div  class="later-btn hover_follow dark">FOLLOWING<div class="later-btn hover_unfollow" id=' + followadID + '>UNFOLLOW</div></div>');
+			},
+			error: function() {}
+		});
+	})
+	$('.img-counter.dropdown-toggle').click(function() {
+		var close = $(this).attr('aria-expanded');
+		var token = $('#token').val();
+		var userid = $(this).attr('userid');
+		$.ajax({
+			url: "/user/setnotificationoff", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				userid: userid
+			},
+			success: function(data) {
+				if (data == 'update successfully') {
+					/* $('.dropdown ul#style-2').remove(); */
+					$('.dropdown .img-counter').css({
+						'border-color': '#d3d3d3',
+						'color': '#d3d3d3'
+					});
+					$('.dropdown .img-counter').text(0);
+					$('#style-2').css('border', '2px solid #f5f5f5 !important');
+					$('#style-2 .user-pic').attr('style', '');
+				}
+			},
+			error: function() {}
+		});
+	});
+	/*************************************User_content*******************************************/
+	//$("form#data").submit(function(){
+	$(document.body).on('submit', 'form#data', function() {
+		//var formData = new FormData($(this)[0]);
+		var itemid = $('#txt_user_id').attr('itemid');
+
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		var itemid = $('#txt_user_id').attr('itemid');
+		var cateId = $('#categoryValue').val();
+		var name = $("#name").val();
+		var slug = $("#slugupdateurl").val();
+		var storydescription = $("#storydescription").val();
+		var image = $('#filenamevalue').val();
+		var colabr = $('#invitelist').val();
+		var catVisibility = $('.off-button.active').html() == 'CLOSED' ? 1 : 2;
+
+
+		if (name == '') {
+			venndyAlert('Enter name of the story');
+			return false;
+		} else if (cateId == '') {
+			venndyAlert('Select category from list');
+			return false;
+		} else {
+			$.ajax({
+				url: '/user/createuserstory',
+				headers: {
+					'X-CSRF-TOKEN': token
+				},
+				type: 'POST',
+				data: {
+					image: image,
+					itemid: itemid,
+					cateId: cateId,
+					name: name,
+					storydescription: storydescription,
+					catVisibility: catVisibility,
+					colabr: colabr,
+					action: 'insert',
+					slug: slug
+				},
+
+				success: function(lastinsertedId) {
+					if (image.indexOf("http") == 0) {
+						window.location.href = "/story/view/" + lastinsertedId;
+
+					} else {
+						//ajaxFileUpload(lastinsertedId);
+						ajaxFileUpload(lastinsertedId)
+							.then(function(data) {
+								$("#create_new_story").prop('disabled', false);
+								console.log(data)
+								window.location.href = "/story/view/" + lastinsertedId;
+							}).catch(function(err) {
+								// Run this when promise was rejected via reject()
+								console.log(err)
+							});
+					}
+
+				}
+
+			});
+		}
+
+		return false;
+	});
+
+
+
+	$(document.body).on('change', '#file', function() {
+		$("#message").empty(); // To remove the previous error message
+
+		var file = this.files[0];
+		var imagefile = file.type;
+		var imagename = file.name;
+		var imagefilesize = file.size;
+		var match = ["image/jpeg", "image/png", "image/jpg"];
+		if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+			$('input[type=file]').val('');
+			$('#previewing').attr('src', '../images/noimage.jpg');
+			$("#message").html("<p id='error' style='color:red;'>Please Select A valid Image File</p><span id='error_message'>(Only jpeg, jpg and png Images type allowed</span>)");
+			return false;
+		} else if (imagefilesize > 5000000) {
+
+			$('input[type=file]').val('');
+			$('#previewing').attr('src', '../images/noimage.jpg');
+			$("#message").html("<p id='error' style='color:red;'>Image size must be under 5 MB</p>");
+			return false;
+		} else {
+
+			var reader = new FileReader();
+			reader.onload = imageIsLoaded;
+			$('#filenamevalue').val(imagename);
+			reader.readAsDataURL(this.files[0]);
+
+		}
+	});
+
+	function imageIsLoaded(e) {
+		$("#file").css("color", "green");
+		$('#image_preview').css("display", "block");
+		$('#previewing').attr('src', e.target.result);
+		$('#previewing').attr('width', '250px');
+		$('#previewing').attr('height', '230px');
+	};
+
+	function ajaxFileUpload(storyid) {
+
+
+		$("#message").empty();
+		$('#loading').show();
+		var formData = new FormData();
+
+		formData.append('file', $('input[type=file]')[0].files[0]);
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: "/user/addstorypic/" + storyid, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: formData, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+			contentType: false, // The content type used when sending data to the server.
+			cache: false, // To unable request pages to be cached
+			processData: false, // To send DOMDocument or non processed data file it is set to false
+			success: function(data) // A function to be called if request succeeds
+			{
+				if (data == 'success') {
+					window.location.href = "/story/view/" + storyid;
+					//window.location.href = "/story/venndyinfo";
+				}
+
+			}
+		});
+	}
+
+
+	// function add item in existing story
+	function addinexistingstory(storyId, itemid, token) {
+		$.ajax({
+			url: '/user/createuserstory',
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: 'POST',
+			data: {
+				storyId: storyId,
+				itemid: itemid,
+				action: 'update'
+			},
+			success: function(data) {
+				window.location.href = "/story/view/" + storyId;
+
+			}
+
+		});
+
+	}
+
+
+
+	//$('#bird').on('keydown', function(){
+	$(document.body).on('keyup', '#searchstory', function() {
+		$("#searchstory").autocomplete({
+
+			source: function(request, response) {
+				$('#searchStories').show();
+				var str = '';
+				$.ajax({
+					type: "POST",
+					headers: {
+						'X-CSRF-TOKEN': $('#token').val()
+					},
+					contentType: "application/json; charset=utf-8",
+					url: "/user/filterstory/?term=" + request.term,
+					dataType: "json",
+					data: '{QueryFilter: "' + request.term + '"}',
+					success: function(data) {
+						$.each(data, function(key, value) {
+							//str +='<li class="ui-menu-item" id="story_'+value.id+'" tabindex="-1">'+value.value+'</li>';
+							str += '<label><input type="radio" class="storyRadioClass" name="care" value="' + value.id + '" />';
+							str += '<label class="custom"></label>' + value.value + '</label><br/>';
+						});
+						$("#searchStories").html(str);
+					}
+				});
+
+			},
+			minLength: 2
+		});
+
+		if ($(this).val().length == 0) {
+			$('#searchStories').show();
+			var str = '';
+			$.ajax({
+				type: "POST",
+				headers: {
+					'X-CSRF-TOKEN': $('#token').val()
+				},
+				contentType: "application/json; charset=utf-8",
+				url: "/user/userstories/",
+				dataType: "json",
+				data: '{QueryFilter: "' + $(this).val() + '"}',
+				success: function(data) {
+					$.each(data, function(key, value) {
+						//str +='<li class="ui-menu-item" id="story_'+value.id+'" tabindex="-1">'+value.value+'</li>';
+						str += '<label><input type="radio" class="storyRadioClass" name="care" value="' + value.id + '" />';
+						str += '<label class="custom"></label>' + value.value + '</label><br/>';
+						console.log(value.date + '==');
+					});
+					$("#searchStories").html(str);
+				}
+			});
+		}
+
+	});
+
+
+	$(document.body).on('click', '.storyRadioClass', function() {
+		$('#insertSotryId').val($(this).val());
+	});
+
+	// Add in existing Story
+
+	$(document.body).on('click', '#addInExisting', function() {
+		var storyId = $('#insertSotryId').val();
+		var itemid = $('#txt_user_id').attr('itemid');
+		var token = $('#token').val();
+		if (storyId == '') {
+			venndyAlert('Please select story');
+			return false;
+		} else {
+			addinexistingstory(storyId, itemid, token);
+		}
+	});
+
+	function saveBasicSetting() {
+		var token = $('#token').val();
+		var userid = $('#settinguserid').val();
+		var oldPass = $('#settingoldpassword').val();
+		var newPass = $('#settingpassword').val();
+		var langague = $("#settingLangague option:selected").val();
+		var country = $('#settingCountry option:selected').text();
+
+		if (oldPass.indexOf(" ") == 0) {
+			$('#basic-addon').text("Password field can't be left blank");
+			$('#basic-addon').css('color', 'red');
+			$('#settingoldpassword').focus();
+			return false;
+		} else if (oldPass.length != oldPass.trim().length) {
+			$('#basic-addon').text("Password field can't be right blank");
+			$('#basic-addon').css('color', 'red');
+			$('#settingoldpassword').focus();
+			return false;
+		} else {
+			$('#basic-addon').text("your password...");
+			$('#basic-addon').css('color', '#51b9e6');
+		}
+
+		if (newPass.indexOf(" ") == 0) {
+			$('#basic-addon2').text("Password field can't be left blank");
+			$('#basic-addon2').css('color', 'red');
+			$('#settingpassword').focus();
+			return false;
+		} else if (newPass.length != newPass.trim().length) {
+			$('#basic-addon2').text("Password field can't be right blank");
+			$('#basic-addon2').css('color', 'red');
+			$('#settingoldpassword').focus();
+			return false;
+		} else {
+			$('#basic-addon2').text("your new password...");
+			$('#basic-addon2').css('color', '#51b9e6');
+		}
+
+		if (oldPass != '' && newPass == '') {
+			$('#basic-addon2').text("Password field can't be blank");
+			$('#basic-addon2').css('color', 'red');
+			$('#settingpassword').focus();
+			return false;
+		}
+		if (newPass.length < 8 || newPass.length > 20) {
+			$('#basic-addon2').text("Password must be min 8 and max 20 characters");
+			$('#basic-addon2').css('color', 'red');
+			$('#settingpassword').focus();
+			return false;
+		}
+
+		if (country == '--- Select ---') {
+			$('span#cerror').show();
+			$('span#cerror').text('Country is required.');
+			return false;
+		}
+
+		$.ajax({
+			url: '/user/savesettings',
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: 'POST',
+			data: {
+				userid: userid,
+				oldpass: oldPass,
+				pass: newPass,
+				langague: langague,
+				country: country,
+				action: 'update',
+				'_token': token
+			},
+			success: function(data) {
+				var jsonData = JSON.parse(data);
+				if (jsonData.action == 'error') {
+					$('.setting-basic .alert').addClass('alert-danger');
+					$('.setting-basic .alert-danger').css('display', 'block');
+					$('.setting-basic .alert-danger span').text(jsonData.msg);
+					$('.setting-basic .col-sm-9').css({
+						'max-height': '730px',
+						'min-height': '730px'
+					});
+					setTimeout(function() {
+						location.reload();
+					}, 5000);
+				} else {
+					$('.setting-basic .alert').addClass('alert-success');
+					$('.setting-basic .alert-success').css('display', 'block');
+					$('.setting-basic .alert-success span').text('updated Successfully !!!');
+					$('.setting-basic .col-sm-9').css({
+						'max-height': '730px',
+						'min-height': '730px'
+					});
+					setTimeout(function() {
+						location.reload();
+					}, 5000);
+				}
+				console.log(data);
+			}
+
+		});
+		return false;
+	}
+
+	function deactivateAccount() {
+		venndyConfirmModal('ARE YOU SURE?', 'Are you sure you want to deactivate this account?', deactivateAccountRun);
+	}
+
+	function deactivateAccountRun() {
+		var userid = $('#settinguserid').val();
+		var token = $('#token').val();
+		$.ajax({
+			url: '/user/deactivateaccount',
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: 'POST',
+			data: {
+				userid: userid
+			},
+			success: function(data) {
+				if (data == 'success') {
+					window.location.href = "/home";
+					console.log(data);
+				}
+			}
+		});
+	}
+	/*************************************getexplore**************************************/
+	function getexplore(id, htmltag, userid, myvenndy, action) {
+		$('.profile-arrow > img').remove();
+		var token = $('#token').val();
+		$.ajax({
+			url: "/home/ajaxgetexplore/" + id, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				catid: id,
+				action: '',
+				userid: userid,
+				myvenndy: myvenndy,
+				action: action
+			},
+			success: function(data) {
+				//    console.log(data);
+				$("#" + htmltag).html(data);
+				$("#navbar ul li").click(function() {
+					$($('.navbar-toggle')[0]).trigger('click');
+				});
+				/*if(htmltag=='addItems'){
+				    var className = $('ul.additemcolor>li.active>a>div').attr('class');
+				    var Ary = className.split(' ');
+				    var theColorIs = $('ul.additemcolor>li.active>a>.'+Ary[1]).css("background");
+				    var color = theColorIs.split(')');
+				    $(".subcatmenu.active>a").attr('style', 'color: '+color[0]+') !important');
+				 }
+				  if(htmltag=='feed-content'){
+				   /* var className = $('ul.additemcolor2>li.active>a>div').attr('class');
+				    var Ary = className.split(' ');
+				    var theColorIs = $('ul.additemcolor2>li.active>a>.'+Ary[1]).css("background-color");
+				    var color = theColorIs.split(')');
+				    //$(".subcatmenu.active>a").attr('style', 'color: '+color[0]+') !important');
+				    $(".navbar-nav>.active>a").css("color", "red");
+				 }/**/
+				autoArrangeImgIe();
+			},
+			error: function() {}
+		});
+
+	}
+
+	/*************************************getexplore END getfavitem start**************************************/
+	function getfavitem(id, htmltag, userid) {
+		$('.profile-arrow > img').remove();
+		var token = $('#token').val();
+		$.ajax({
+			url: "/home/ajaxgetfav/" + id, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				catid: id,
+				userid: userid
+			},
+			success: function(data) {
+				$("#" + htmltag).html(data);
+
+			},
+			error: function() {}
+		});
+	}
+	/*************************************getexplore END getfavitem end**************************************/
+	$("#sotire-details, .wrapper").click(function() {
+		var scrollpostion = $(document).scrollTop();
+		$('#story-detail-On-index').css('top', scrollpostion + 'px');
+		$("#story-detail-On-index, .wrapper").css({
+			'display': 'block'
+		});
+	});
+	$(".wrapper").click(function() {
+		$("#story-detail-On-index, .wrapper").css({
+			'display': 'none'
+		});
+	});
+
+	function saveNotificationSetting(uid) {
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		var commentItemDefault = document.getElementById("comment_item_default").value;
+		var commentStoryDefault = document.getElementById("comment_story_default").value;
+		var collaborateDefault = document.getElementById("collaborate_default").value;
+		$.ajax({
+			url: '/user/savenotificationsetting',
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: 'POST',
+			data: {
+				comment_item_default: commentItemDefault,
+				comment_story_default: commentStoryDefault,
+				user_id: uid,
+				collaborate_default: collaborateDefault
+			},
+			success: function(data) {
+				if (data == 'success') {
+					$('.setting-notification .alert-success').css('display', 'block');
+					$('.setting-notification .alert-success span').text('updated Successfully !!!');
+					setTimeout(function() {
+						$('.setting-notification .alert-success').fadeOut("slow");
+					}, 2000);
+				}
+				console.log(data);
+			}
+		});
+	}
+	//start style chart js
+	function chartlikedbyuser(userid, itemid, chartid, category_id) {
+		var token = $('#token').val();
+		//$('#likebtn').css('pointer-events','none');
+		$.ajax({
+			url: "/user/storeuserchartlike", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				userid: userid,
+				itemid: itemid,
+				chartid: chartid,
+				category_id: category_id
+			},
+
+			success: function(data) {
+				//$('#likecount').html(' '+(parseInt($('#likecount').html())+1));
+			}
+
+		});
+	}
+	$(document.body).on('click', '#chart .review-circle', function() {
+
+		var countLikes = parseInt($('.chart-circles').find('.active').children(':first-child').next().html());
+
+		if (countLikes) {
+			countLikes = countLikes > 0 ? (countLikes - 1) : 0;
+			$('.chart-circles').find('.active').children(':first-child').next().html(countLikes)
+		}
+		$("#chart .reviews").removeClass("active");
+		//$( "#chart .reviews" ).removeClass("review-circle");
+		$(this).addClass("active");
+
+		//$('.reviews').css('cursor', 'default');
+		var userid = $('#txt_user_id').attr('userid');
+		var itemid = $('#txt_user_id').attr('itemid');
+		var category_id = $('#txt_user_id').attr('category_id');
+		var chartid = $(this).attr('charttype');
+		var count = $(this).children(':first-child').next().html(parseInt($(this).children(':first-child').next().html()) + 1);
+
+		chartlikedbyuser(userid, itemid, chartid, category_id);
+	});
+
+	function venndyConfirmModal(title, content, callFun) {
+		AsyncConfirmYesNo(title, content, callFun, MyNoFunction);
+	}
+
+	function MyNoFunction() {
+		return false;
+	}
+
+	function AsyncConfirmYesNo(title, msg, yesFn, noFn) {
+		var $confirm = $("#modalConfirmYesNo");
+		$confirm.modal('show');
+		$("#lblTitleConfirmYesNo").html(title);
+		$("#lblMsgConfirmYesNo").html(msg);
+		$("#btnYesConfirmYesNo").off('click').click(function() {
+			yesFn();
+			$confirm.modal("hide");
+		});
+		$("#btnNoConfirmYesNo").off('click').click(function() {
+			noFn();
+			$confirm.modal("hide");
+		});
+	}
+	$('#style-2').find('ul').each(function() {
+		var txt = $("li", this).text();
+		if (txt.length <= 0) {
+			$(this).hide();
+		}
+	});
+	if (!$('#style-2').find('ul:visible').length) {
+		$('#style-2').css('border', 'none !important');
+	}
+
+	$(document).ready(function() {
+		//$('[data-toggle="popover"]').popover();
+		$(".popover-show").popover({
+			trigger: "hover"
+		});
+	});
+	$(".popover-show").popover({
+		trigger: "hover"
+	});
+	$('.close2').click(function() {
+		$(this).parent().hide();
+		return false;
+	});
+	$("#userLoginForm input[name=username]").keyup(function(event) {
+		if (event.which == 13) {
+			$('#userLoginForm input#password').focus();
+			return false;
+		}
+	});
+	$("#userLoginForm input#password").keyup(function(event) {
+		if (event.which == 13) {
+			$("#userLoginForm input[type=button]").click();
+			return false;
+		}
+	});
+
+
+	$(document.body).on('click', '.subcatmenu', function() {
+		var classname = $(this).attr('class').split(' ')[0];
+		$('.itemsdiaplay ').hide();
+		$('.' + classname).show();
+		var explore = $('#exploreidurl').attr('class');
+		if (explore == '') {
+			$matchAll = 'All';
+		} else {
+			$matchAll = 'All' + $('#Cuserid').val();
+		}
+		//$matchAll = 'All';
+		if (classname == $matchAll) {
+			$('.itemsdiaplay ').show();
+		}
+
+	})
+	$('#exploreidurl').click(function() {
+		$('.itemsdiaplay ').show();
+	});
+	$('#feedidurl').click(function() {
+		$('.itemsdiaplay ').show();
+	});
+
+	$(document.body).on('click', '.edit-main li', function() {
+		var catId = $(this).val();
+		var value = $(this).html();
+		var catname = $(this).attr('class');
+		$('.setcategory23').html(value);
+		$('#categorynamelabel').attr('parentcatname', catname);
+		$('#categorynamelabel').attr('childcatname', 'Select');
+		getsubcategoryName(catId, 'item', '');
+	});
+	//add method for select the shop text value
+	$(document.body).on('click', '.edit-shop-main li', function() {
+		var value = $(this).html();
+		$("#shoptext").html(value);
+		$('#shopTextlabel').attr('shopTextlabel', value);
+	});
+	//end here
+	$(document.body).on('click', '.edit-sub li', function() {
+		var value = $(this).html();
+		var classVal = $(this).attr('class');
+		$('.setcategory3').html(value);
+		$('#setcategory3Id').val(classVal);
+		$('#categorynamelabel').attr('childcatname', value);
+	});
+
+	function getsubcategoryName(parentId, type, storyid) {
+		var token = $('#token').val();
+		$.ajax({
+			url: "/user/ajaxgetsubcategoryName", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				parentId: parentId,
+				type: type,
+				storyid: storyid
+			},
+
+			success: function(data) {
+				$('.setcategory3').html('Select');
+				$('#setcategory3Id').val();
+				$('.edit-sub').html(data);
+
+			}
+
+		});
+	}
+	//$('.ranking i').click(function(){
+	$(document.body).on('click', '.changeranking i', function() {
+		$(this).prevAll().removeClass('un');
+		$(this).removeClass('un');
+		$(this).nextAll().addClass('un');
+		var count = $(this).prevAll().length;
+		var totalRating = count + 1;
+		var itemid = $('#txt_user_id').attr('itemid');
+		$('#itemrating').val(totalRating);
+		//edititemrating(itemid,totalRating);
+
+
+	})
+	// change rating of item by user
+	function edititemrating(itemid, totalRating) {
+		var token = $('#token').val();
+		$('#likebtn').css('pointer-events', 'none');
+		$.ajax({
+			url: "/user/edititemrating", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				itemid: itemid,
+				rating: totalRating
+			},
+
+			success: function(data) {
+
+			}
+
+		});
+	}
+
+	function changestatusofstoryitem(statusType, itemId, userid, storyid) {
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: "/story/changeStatusofStoryItem", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				userid: userid,
+				storyid: storyid,
+				itemId: itemId,
+				statusType: statusType
+			},
+			success: function(data) {
+				if (data == 'approve') {
+					var statusString = '<a href="javascript:void(0)" class="fa fa-check"   style="cursor: pointer; color:green" ></a>APPROVED';
+					$('#item_' + itemId + ' .changestatus').html(statusString);
+
+					setTimeout(function() {
+						// $("#item_'+itemId+' .changestatus").fadeIn('slow').animate({opacity: 1.0}, 1500).effect("pulsate", { times: 2 }, 800).fadeOut('slow');
+						$('#item_' + itemId).parent().removeClass('pending');
+						$('#item_' + itemId + ' .changestatus').hide();
+
+					}, 2000);
+				} else {
+					setTimeout(function() {
+
+						$('#' + itemId).closest('.col-sm-6').remove();
+					}, 2000);
+				}
+
+
+			}
+
+
+		});
+		return true;
+	}
+
+	$('.approvestatus').click(function() {
+		var token = $('#token').val();
+		var statusType = $(this).attr('status');
+		var itemstatus = statusType == 0 ? 'approve' : 'delete';
+		var storyid = $(this).parent().parent().attr('storyid');
+		var approve_userid = $(this).parent().parent().attr('userid');
+		var itemId = $(this).parent().parent().attr('itemid');
+		var userid = $('.dropdown .img-counter.dropdown-toggle').attr('userid');
+		var notyid = $(this).parent().parent().attr('id');
+
+		$.ajax({
+			url: "/user/approveitemonstory", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				notyid: notyid,
+				status_type: statusType
+			},
+			beforeSend: function() {
+				$(this).css('background-image', 'url(/images/bx_loader.gif)');
+			},
+			success: function(data) {
+				if (data == 'update successfully') {
+					$('.dropdown .img-counter').css({
+						'border-color': '#d3d3d3',
+						'color': '#d3d3d3'
+					});
+					$('.dropdown .img-counter').text(0);
+					$('#style-2').css('border', '2px solid #f5f5f5 !important');
+					if (changestatusofstoryitem(itemstatus, itemId, approve_userid, storyid)) {
+						//$('#'+notyid+' a').remove();
+						//$('#'+notyid+' .item-event').css('display','block');
+						if (statusType == 0) {
+							$('#' + notyid + ' .approved').remove();
+						} else {
+							$('#' + notyid).parent().remove();
+						}
+						$('#style-2 .user-pic').css('border', 'none');
+					}
+				}
+			},
+			error: function() {}
+		});
+	});
+
+
+
+	$(document.body).on('click', '#report_item', function() {
+		var type = $(this).attr('type');
+		if (type == 'story') {
+			var itemId = $('#txt_story').attr('storyid');
+			var userId = $('#txt_story').attr('userid');
+		} else if (type == 'item') {
+			var itemId = $('#txt_user_id').attr('itemid');
+			var userId = $('#txt_user_id').attr('userid');
+		}
+		if (type == 'story' || type == 'item') {
+			var $confirm = $("#modalConfirmYesNo");
+			var title = 'ARE YOU SURE ?';
+			var msg = 'Are you sure you want to report inappropriate content of this ' + type + '?';
+			$confirm.modal('show');
+			$("#lblTitleConfirmYesNo").html(title);
+			$("#lblMsgConfirmYesNo").html(msg);
+			$("#btnYesConfirmYesNo").off('click').click(function() {
+				mailReportItemOrStory(type, itemId, userId);
+			});
+			$("#btnNoConfirmYesNo").off('click').click(function() {
+				$confirm.modal("hide");
+			});
+		} else {
+			return false;
+		}
+		$(".report").toggle();
+	});
+
+	function mailReportItemOrStory(type, itemId, userId) {
+		var token = $('#token').val();
+		var $confirm = $("#modalConfirmYesNo");
+		$.ajax({
+			url: "/mail/report", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			cache: false,
+			data: {
+				item_id: itemId,
+				user_id: userId,
+				type: type
+			},
+			beforeSend: function() {
+				$("#lblMsgConfirmYesNo").text('Please wait...');
+			},
+			success: function(data) {
+				if (data == 'mail sent') {
+					$("#lblMsgConfirmYesNo").text('report sent');
+					setTimeout(function() {
+						$confirm.modal("hide");
+					}, 2000);
+				}
+			},
+			error: function() {}
+		});
+	}
+
+	$(document).ready(function() {
+		/* var offset = $("#submenuid").offset();
+		 var topPadding = 15;
+		 $(window).scroll(function() {
+		    if($(window).scrollTop() > 320) {
+		               $("#submenuid").removeClass("fixmenucss");
+		               $("#submenuid").addClass('fixsmallmenucss');
+
+
+		     } else {
+
+		             $("#submenuid").removeClass('fixsmallmenucss');
+		             $("#submenuid").addClass('fixmenucss');
+
+
+		     };
+		 });/**/
+	});
+	$(document.body).on('click', '.wishlist123', function() {
+
+		var type = $(this).attr('class');
+		var userid = $('#txt_user_id').attr('userid');
+		var itemid = $('#txt_user_id').attr('itemid');
+		//saveWishlist(userid,itemid)
+	});
+	$(document.body).on('click', '#wishlistbtn', function() {
+		var action = '';
+		var type = $(this).attr('class');
+		if ($(this).hasClass('likedwishlist')) {
+
+			$(this).removeClass('likedwishlist').addClass('likewishlist')
+			action = 'delete';
+
+		} else {
+
+			$(this).removeClass('likewishlist').addClass('likedwishlist')
+			action = 'insert';
+		}
+
+		var userid = $('#txt_user_id').attr('userid');
+		var itemid = $('#txt_user_id').attr('itemid');
+		saveWishlist(userid, itemid, action)
+	});
+	$(document.body).on('click', '#likebtn', function() {
+		var action = '';
+		var type = $(this).attr('class');
+		if ($(this).hasClass('likeditem')) {
+			var count = parseInt($('#likecount').html()) - 1;
+			$(this).removeClass('likeditem').addClass('likeitem')
+			action = 'delete';
+
+		} else {
+			var count = parseInt($('#likecount').html()) + 1;
+			$(this).removeClass('likeitem').addClass('likeditem')
+			action = 'insert';
+		}
+
+		$('#likecount').html(count);
+		var userid = $('#txt_user_id').attr('userid');
+		var itemid = $('#txt_user_id').attr('itemid');
+		likedbyuser(userid, itemid, action);
+	});
+
+
+	function createClass() {
+		console.log('pankaj');
+		var ht = $('.story-detail .blocks').height();
+		console.log(ht);
+		var name = '.blockht';
+		var rules = 'height:' + ht + 'px;';
+		var style = document.createElement('style');
+		style.type = 'text/css';
+		document.getElementsByTagName('head')[0].appendChild(style);
+		if (!(style.sheet || {}).insertRule)
+			(style.styleSheet || style.sheet).addRule(name, rules);
+		else
+			style.sheet.insertRule(name + "{" + rules + "}", 0);
+		$('.block-item').addClass('blockht');
+	}
+
+
+
+	/* BLock height */
+	/*
+	var ht = $(".story-detail .blocks").height();
+	function createClass(name,rules){
+	    var style = document.createElement('style');
+	    style.type = 'text/css';
+	    document.getElementsByTagName('head')[0].appendChild(style);
+	    if(!(style.sheet||{}).insertRule)
+	        (style.styleSheet || style.sheet).addRule(name, rules);
+	    else
+	        style.sheet.insertRule(name+"{"+rules+"}",0);
+	}
+	createClass('.blockht',"height:"+ht+"px;");
+	$(".story-detail .blocks").addClass("blockht");
+	/**/
+	/* Block height end */
+	function getCategoryColor(parentCatName) {
+		var token = $('#token').val();
+		$.ajax({
+			url: "/user/getcategorycolorbyname", // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				parent_cat_name: parentCatName
+			},
+			success: function(data) {
+				console.log(data);
+				$('#labelcatsubcat #subcatName').css('background', data + ' none repeat scroll 0 0');
+			},
+			error: function() {}
+		});
+	}
+
+	$(document.body).on('click', '.pendingitemstatus', function() {
+		var catId = $(this).attr('id');
+		var likes = $(this).attr('like');
+		var token = $('#token').val();
+
+					var homeUrl = 'https://www.venndy.com';
+			if (document.URL == homeUrl) {
+				var scrollpostion = $(document).scrollTop() - 627;
+			} else {
+				var scrollpostion = $(document).scrollTop() - 0;
+			}
+				$('.venndy-prowrapper').css('top', scrollpostion + 'px');
+		getiteminfo(catId, likes, 'useraction', 'approve');
+		$(".venndy-prowrapper").show();
+		$(".wrapper").show();
+		$('.user-detail').hide();
+	});
+
+	function getitemInfoAboveStory(catId, likes, token, storyaboveitem) {
+		$("#itemresult1").html('');
+		$("#itemresult1").html('<img src="https://www.venndy.com/images/logo-loading-1.gif" class="ajax-loader"/>');
+		var token = "T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU";
+		$.ajax({
+			url: popupUrl + "/" + catId, // Url to which the request is send
+			headers: {
+				'X-CSRF-TOKEN': token
+			},
+			type: "POST", // Type of request to be send, called as method
+			data: {
+				catid: catId,
+				likes: likes,
+				action: 'useraction',
+				storyaboveitem: storyaboveitem
+			},
+			beforeSend: function() {
+				$('#loader-icon').show();
+			},
+			complete: function() {
+
+				$('#loader-icon').hide();
+			},
+			success: function(data) {
+
+				$("#itemresult1").html(data);
+			},
+			error: function() {}
+		});
+	}
+	$(document.body).on('click', '.product-details .close2', function() {
+		$('#itemresult1').css('display', 'none');
+		return false;
+	});
+	
+	function autoArrangeImgIe() {
+		if (!('object-fit' in document.body.style)) {
+			console.log("Seems like Modernizr.objectfit property is not supported by your browser.");
+			setTimeout(function() {
+				$('img').each(function() {
+					if ($(this).attr('style') != undefined && $(this).attr('style').indexOf('object-fit') != -1) {
+						var src = $(this).attr('src');
+						$(this).addClass('transparent');
+						$($(this).parent()).addClass('box-image');
+						$($(this).parent()).css('background-image', 'url(' + src + ')');
+					}
+				});
+			}, 1000);
+		}
+	}
+
+	function venndyAlert(msg) {
+		var $confirm = $("#modalConfirmYesNo");
+		$("#lblTitleConfirmYesNo").html('Notice!');
+
+		$confirm.modal('show');
+		$("#btnNoConfirmYesNo").hide();
+		$("#lblMsgConfirmYesNo").html(msg);
+		$("#btnYesConfirmYesNo").off('click').click(function() {
+			$confirm.modal("hide");
+		});
+		return false;
+	}
+
+	$(document).ready(function() {
+		autoArrangeImgIe();
+
+
+		$("#goBackbtn").click(function() {
+			$(".layerwrapper,#landingdialog").hide();
+			$("#connectCollaborate").show();
+			$("#skip").hide();
+		});
+		$(".layerwrapper").click(function() {
+			$(".layerwrapper").hide();
+			$("#skip").hide();
+		});
+
+		$("#instantaccess").click(function() {
+			$("#instantAcess").show();
+			$(".wrapper").show();
+		});
+
+		$("#connectcollaborate").click(function() {
+			$("#connectCollaborate").show();
+			$(".wrapper").show();
+		});
+
+		$(".wrapper").click(function() {
+			$("#skip").hide();
+			$("#connectCollaborate").hide();
+			$("#instantAcess").hide();
+			$("#landingdialog").hide();
+			$(".web_dialog").css("z-index", 10);
+			$(".wrapper").hide();
+			$(".wrapper-left").hide();
+			$(".post-popup").hide();
+		})
+
+
+		/*$(document.body).on('click','#skip.skip a.skip-btn',function(e){
+			$(this).parent().parent().parent().hide();
+			$(".wrapper,#landingdialog").hide();
+			//$("#connectCollaborate").show();
+			return false;
+			e.stopPropagation();
+		});*/
+
+		$(document.body).on('click', '#skip.skip a#goBackbtn', function(e) {
+			$(this).parent().parent().parent().hide();
+			$("#layerwrapper").hide();
+			e.stopPropagation();
+			return false;
+		});
+
+		/*$(document.body).on('click','#connectCollaborate .get-venndy-btn',function(e){
+			$(".wrapper").hide();
+			$(".wrapper-left").hide();
+			$("#landingoverlay").hide();
+			$('div#connectCollaborate').hide();
+			openMailTo();
+			return false;
+			e.stopPropagation();
+		});
+
+		$(document.body).on('click','.post-popup .get-venndy-btn',function(e){
+			/*$(".wrapper").hide();
+			$(".wrapper-left").hide();
+			$("#landingoverlay").hide();
+			$('div#connectCollaborate').hide();
+			openMailTo();
+			return false;
+			e.stopPropagation();
+		});*/
+
+		$(document.body).on('click', '.post-popup .later-btn', function(e) {
+			$(location).attr('href', 'https://www.venndy.com/story/venndyinfo');
+			e.stopPropagation();
+		});
+
+		$(document.body).on('click', '.wrapper', function() {
+			$('.sign-up').hide();
+			$('.sign-in').hide();
+			$('.wrapper').hide();
+			$('ul.pull-right>li').show();
+		});
+
+		$('.wrapper-left').click(function() {
+			$(document.body).removeClass('left_body');
+			$('.wrapper').hide();
+			$(this).hide();
+		});
+
+	});
+
+	function venndyfacebookgroup() {
+		$('.wrapper').show();
+		$("#instantAcess").show();
+		$("html, body").animate({
+			scrollTop: 0
+		}, "slow");
+		return false;
+	}
+	$('#getInstantAccess').click(function() {
+		var subemail = $('#mce-EMAIL1').val();
+		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,7}$/i;
+		if ((subemail == "") || (subemail.search(emailRegEx) == -1)) {
+			$('#emailNotValid').show().text("Please enter your email");
+			return false;
+		}
+	});
+
+	//Added By Jyoti : new function to subscribe for facebook newsletter and facebook group redirection
+	$(document.body).on('submit', '#mc-embedded-subscribe-form1', function(e) {
+		if (e) e.preventDefault();
+		var name = $('#mce-FNAME').val();
+		var email = $('#mce-EMAIL1').val();
+		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,7}$/i;
+
+		if (name == '' || email == '') {
+			$('#emailNotValid').show().text("Please enter your email");
+			$('#nameNotValid').show().text("Please enter your name");
+			return false;
+		} else if (email.search(emailRegEx) == -1) {
+			$('#emailNotValid').show().text("Please enter valid email address");
+			return false;
+		} else {
+			var popUp = window.open("https://www.facebook.com/groups/673462142830636/");
+			if (popUp == null || typeof(popUp) == 'undefined') {
+				alert('Please disable your pop-up blocker and click the "Get Instant Access" link again.');
+			} else {
+				popUp.focus();
+				submitSubscribeForm($("#mc-embedded-subscribe-form1"));
+			}
+		}
+	});
+
+	function submitSubscribeForm($form) {
+		$.ajax({
+			type: "GET",
+			url: $form.attr("action"),
+			data: $form.serialize(),
+			cache: false,
+			dataType: "jsonp",
+			jsonp: "c",
+			contentType: "application/json; charset=utf-8",
+
+			error: function(data) {
+				if (data.result != "success") {
+					$('.instantAcessAlert').show();
+					$('.instantAcessAlert').removeClass('alert-success');
+					$('.instantAcessAlert').addClass('alert-danger');
+					$('.instantAcessAlert span').text('Sorry. Unable to subscribe. Please try again later.');
+					$('#getInstantAccessEmail').focus();
+
+					if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+						$('.instantAcessAlert').show();
+						$('.instantAcessAlert').removeClass('alert-success');
+						$('.instantAcessAlert').addClass('alert-danger');
+						$('.instantAcessAlert span').text('You are already in our subscription list.Please check your mail to confirm subscription.');
+						$('#getInstantAccessEmail').focus();
+					}
+
+					$resultElement.html(message);
+
+				}
+			},
+
+			success: function(data) {
+				if (data.result != "success") {
+					$('.instantAcessAlert').show();
+					$('.instantAcessAlert').removeClass('alert-success');
+					$('.instantAcessAlert').addClass('alert-danger');
+					$('.instantAcessAlert span').text('Sorry subscription cannot be done at this moment.Try again after sometime');
+					$('#getInstantAccessEmail').focus();
+
+					if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+						$('.instantAcessAlert').show();
+						$('.instantAcessAlert').removeClass('alert-success');
+						$('.instantAcessAlert').addClass('alert-danger');
+						$('.instantAcessAlert span').text('You are already in our subscription list.Please check your mail to confirm subscription.');
+						$('#getInstantAccessEmail').focus();
+					}
+
+				} else {
+					$('.instantAcessAlert').show();
+					$('.instantAcessAlert').removeClass('alert-danger');
+					$('.instantAcessAlert').addClass('alert-success');
+					$('.instantAcessAlert span').text('Thanks for signing up for the VENNDY Chrome Extension.Please check your inbox for an email with the details in a couple of minutes.Now, join us - click below to get access to our Facebook community.');
+					$('#getInstantAccessEmail').focus();
+				}
+			}
+		});
+	}
+	//commented by jyoti
+	/* $(document.body).on('click','#instantAcess #getInstantAccess',function(e){
+		var token 	= $('#token').val();
+		//var name  	= $('#getInstantAccessName').val();
+		//var email  	= $('#getInstantAccessEmail').val();
+		var name  	= $('#mce-FNAME').val();
+		var email  	= $('#mce-EMAIL1').val();
+		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+
+	 	if(name=='' || email==''){
+			$('#emailNotValid').show().text("Please enter your email");
+			$('#nameNotValid').show().text("Please enter your name");
+			return false;
+		}else if (email.search(emailRegEx) == -1) {
+				$('#emailNotValid').show().text("Please enter valid email address");
+				return false;
+		}else {
+			//if(e) e.preventDefault();
+			$.ajax({
+					url: "/home/instantacess",
+					headers: {'X-CSRF-TOKEN': token},
+					type: "POST", // Type of request to be send, called as method
+					data:  {name:name,email:email},
+					success: function(data){
+						console.log(data);
+						if(data=='error'){
+							$('.instantAcessAlert').show();
+							$('.instantAcessAlert').removeClass('alert-success');
+							$('.instantAcessAlert').addClass('alert-danger');
+							$('.instantAcessAlert span').text('You are already in our subscription list.Please check your mail to confirm subscription.');
+							$('#getInstantAccessEmail').focus();
+							var popUp =window.open("https://www.facebook.com/groups/673462142830636/");
+							if (popUp == null || typeof(popUp)=='undefined') {
+								alert('Please disable your pop-up blocker and click the "Get Instant Access" link again.');
+							}
+							else {
+								popUp.focus();
+							}
+							/* $(".instantAcessAlert").fadeTo(10000, 500).slideUp(500, function() {
+								$('.instantAcessAlert').hide();
+							});
+						} else {
+							$('.instantAcessAlert').show();
+							$('.instantAcessAlert').removeClass('alert-danger');
+							$('.instantAcessAlert').addClass('alert-success');
+							$('.instantAcessAlert span').text('Thanks for signing up for the VENNDY Chrome Extension.Please check your inbox for an email with the details in a couple of minutes.Now, join us - click below to get access to our Facebook community.');
+							$('#getInstantAccessEmail').focus();
+							var popUp =window.open("https://www.facebook.com/groups/673462142830636/");
+							if (popUp == null || typeof(popUp)=='undefined') {
+								alert('Please disable your pop-up blocker and click the "Get Instant Access" link again.');
+							}
+							else {
+								popUp.focus();
+							}
+							/* $(".instantAcessAlert").fadeTo(10000, 500).slideUp(500, function() {
+								$('.instantAcessAlert').hide();
+							});
+						}
+					},
+					error: function(){}
+			   });
+		}
+	});  */
+
+	function venndyRecommendations() {
+		$(".wrapper").show();
+		//$("#landingdialog").show();
+		$('#connectCollaborate').show();
+		//$("#landingdialog .landing-bottom_popup a").show();
+		//$('#skip.skip').show().css({'display':'block','position': 'relative','margin-top':'0px'});
+
+		$('html,body').animate({
+			scrollTop: 0
+		}, 'slow');
+	}
+
+	function venndyRecommendationsLanding() {
+		$(".wrapper").show();
+		$("#landingdialog").show();
+		$("#landingdialog .landing-bottom_popup a").hide();
+		$('html,body').animate({
+			scrollTop: 0
+		}, 'slow');
+	}
+	$(".post").click(function() {
+		$(".wrapper").show();
+		$("#connectCollaborate").show();
+	});
+
+	$(document.body).on('click', '#landingdialog #skipbtn', function() {
+		$(".layerwrapper").show();
+		$("div#skip").show();
+	});
+	$('#getInstantAccessEmail').first().keyup(function(e) {
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		var email = $(this).val();
+		if (email == '' || email == null) {
+			$(this).css('color', 'red');
+			$('#emailNotValid').show().text("Email cant't be empty");
+		} else if (!emailReg.test(email)) {
+			$(this).css('color', 'red');
+			$('#emailNotValid').show().text("Email not valid");;
+		} else {
+			$(this).css('color', '#999999');
+			$('#emailNotValid').hide();
+		}
+		e.stopPropagation();
+	});
+
+	$('#getInstantAccessName').first().keyup(function(e) {
+		var name = $(this).val();
+		if (name == '' || name == null) {
+			$(this).css('color', 'red');
+			$('#nameNotValid').show().text("Name cant't be empty");
+		} else if (name.length < 2) {
+			$(this).css('color', 'red');
+			$('#nameNotValid').show().text("Name not valid");;
+		} else {
+			$(this).css('color', '#999999');
+			$('#nameNotValid').hide();
+		}
+		e.stopPropagation();
+	});
+	$('.alert a.close').click(function() {
+		$(this).parent().hide();
+		return false;
+	});
+	$(document.body).on('click', 'li.share-iconbutton', function(e) {
+		$(".social.details-social").toggle("slow");
+		return false;
+	});
+	$(document.body).on('click', '.btn.share-iconbutton', function(e) {
+		$(".details-social.text-center").toggle("slow");
+		return false;
+	});
+
+	$(document.body).on('blur', '.right-popup #name', function(e) {
+		var title = $(this).val();
+		var slug = convertToSlug(title);
+		$('#slugupdateurl').val(slug);
+	});
+
+	function convertToSlug(Text) {
+		return Text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+	}
+
+	function destroyPostPopup() {
+		$('#connectCollaborate').hide();
+		$('#landingdialog').show();
+		$('#skip.skip').show().css({
+			'display': 'block',
+			'position': 'relative',
+			'margin-top': '0px'
+		});
+
+		//$('.wrapper').hide();
+		//$('.wrapper-left').hide();
+		//window.location.replace('/story/venndyinfo'+create_username);
+		return false;
+	}
+
+
+	$(document.body).ready(function(e) {
+		var _consentCookie = getCookie('cookie_consent');
+		if (!_consentCookie) {
+			$('#cookie-consent').show();
+			$('#cookie-consent').after().on('click', function() {
+				setCookie('cookie_consent', true, 365);
+				$('#cookie-consent').remove();
+			});
+			$('#cookie-consent > a.button').on('click', function(e) {
+				setCookie('cookie_consent', true, 365);
+				$('#cookie-consent').remove();
+			});
+		} else {
+			$('#cookie-consent').remove();
+		}
+	});
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return false;
+	}
+
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+</script>
+<section>
+	<!-- Landing page popup-->
+	<div id="landing-page" class="landing-pop-up">
+		<!--  CHROME EXTENSION POPUP --->
+		<div id="landingdialog" class="web_dialog">
+			<div class="layerwrapper"></div>
+			<!--  SKIP POPUP --->
+			<div id="skip" class="skip">
+				<div class="inner_popup">
+					<h3>Skip this step?</h3>
+					<div class="skip-content">
+						<p>Without the LinkCollector you will not be able to collect your tips and recommendations, add your affiliate links, and share across all platforms. </p>
+
+						<p>You will miss the opportunity to connect with targeted audiences and share your inspiring stories. </p>
+					</div>
+					<div class="landing-bottom_popup">
+						<a href="javascript:void(0)" id="goBackbtn" class="get-it-now-btn123">go back</a>
+												<a href="https://www.venndy.com/story/venndyinfo" class="skip-btn">Later</a></div>
+				</div>
+			</div>
+			<!--  /SKIP POPUP --->
+		</div>
+		<!--  /CHROME EXTENSION POPUP --->
+
+		<!--  INSTANT ACCESS POPUP --->
+		<div id="instantAcess" class="instantAcess">
+			<div class="inner_popup">
+				<div class="instantAcess-Top">
+					<a href="javascript:void(0)" class="logo"><img src="https://www.venndy.com/images/landingpage/logo.png" title="Venndy" alt="Venndy"></a>
+					<p>We are looking forward to your contribution <br>
+						and collaboration with others.</p>
+					<p>To curate content from around the web you will need<br>
+						the handy VENNDY Chrome Extension. </p>
+				</div>
+				<!--<div class="instantAcess-Bottom">
+			<p>Enter your name and email address below<br>
+			to get all the details and instant access now!</p>
+			<form method="post">
+				<p>
+					<input type="text" placeholder="First Name" id="getInstantAccessName"  required><br />
+					<span style="color:red" id="nameNotValid">Name not valid</span>
+				<p>
+				<p>
+					<input type="email" placeholder="Email Address" id="getInstantAccessEmail" required><br />
+					<span style="color:red" id="emailNotValid"></span>
+				</p>
+				<div class="alert instantAcessAlert"><span></span></div>
+				<div class="landing-bottom_popup">
+					<a href="javascript:void(0)" id="getInstantAccess" class="get-it-now-btn">get instant access</a>
+					<p>100% Secure. We never share your email.</p>
+				</div>
+		   </form>
+		</div>-->
+
+
+				<!-- Begin MailChimp Signup Form -->
+				<div id="mc_embed_signup" class="instantAcess-Bottom">
+					<p>Enter your name and email address below<br>
+						to get all the details and instant access now!</p>
+					<form action="//venndy.us14.list-manage.com/subscribe/post-json?u=ba8944b3b982fdfd44aab6bee&amp;id=2d3b1ac930" method="post" id="mc-embedded-subscribe-form1" name="mc-embedded-subscribe-form" class="validate ng-pristine ng-valid" target="_blank" novalidate="novalidate">
+						<div id="mc_embed_signup_scroll">
+							<div class="mc-field-group">
+								<p>
+									<input type="text" name="FNAME" class="" id="mce-FNAME" placeholder="First Name"><br>
+									<span style="color:red" id="nameNotValid">Name not valid</span>
+								</p>
+							</div>
+							<div class="mc-field-group">
+								<p><input type="email" name="EMAIL" class="required email" id="mce-EMAIL1" placeholder="Email Address"><br>
+									<span style="color:red" id="emailNotValid"></span>
+								</p>
+							</div>
+							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba8944b3b982fdfd44aab6bee_2d3b1ac930" tabindex="-1" value=""></div>
+							<div class="alert instantAcessAlert"><a href="#" class="close" aria-label="close">×</a><span></span></div>
+							<div class="clear landing-bottom_popup"><input type="submit" value="GET INSTANT ACCESS" name="subscribe" id="getInstantAccess" class="get-it-now-btn" style="
+    background-color: #f5f5f5;">
+								<p>100% Secure. We never share your email.</p>
+							</div>
+						</div>
+					</form>
+				</div>
+				<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+				<script type="text/javascript">
+					(function($) {
+						window.fnames = new Array();
+						window.ftypes = new Array();
+						fnames[0] = 'EMAIL';
+						ftypes[0] = 'email';
+						fnames[1] = 'FNAME';
+						ftypes[1] = 'text';
+						fnames[2] = 'LNAME';
+						ftypes[2] = 'text';
+					}(jQuery));
+					var $mcj = jQuery.noConflict(true);
+				</script>
+				<!--End mc_embed_signup-->
+
+
+
+			</div>
+		</div>
+
+		<div id="connectCollaborate" class="connectCollaborate">
+			<div class="inner_popup">
+				<div class="collaborate-content">
+					<p class="text-center">Start uploading your favorite items <br>
+						Add your affiliate links <br>
+						Create Shop-the-Post widgets for your blog and social media posts.</p>
+					<p>Post to VENNDY from anywhere on the web.</p>
+
+					<div class="landing-bottom_popup">
+						<a href="https://chrome.google.com/webstore/detail/build-a-venndy-affiliate/jfnbnlldcglmpobjmphofigdpciadnnj" class="get-venndy-btn" target="_blank"><img src="https://www.venndy.com/images/landingpage/get-venndy.png"><span>get venndy LinkCollector</span></a>
+						<a href="javascript:void(0);" class="later-btn" onclick="destroyPostPopup();">later</a></div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</section>
+
+
+<div id="cookie-consent" class="clearfix" style="">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-xs-12">
+				<p>This site uses cookies. By continuing to use this site or clicking “Accept”, you agree to the use of cookies. For more information read our Privacy Policy and Cookies Policy
+					<a href="/home/privacy-and-cookies" class="btn-link" target="_blank">here</a>.</p>
+			</div>
+			<div class="col-sm-2 col-xs-12 text-center">
+				<a href="" class="btn btn-lg btn_links">Accept</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#subscribe-email').click(function() {
+            var subemail = $('#subemail').val();
+            var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+            if ((subemail == "") || (subemail.search(emailRegEx) == -1)) { // If something was entered
+                $('.alert').css('display', 'block');
+                $('.alert').addClass('alert-danger');
+                $('.alert span').text('Please enter valid email address.');
+                $('#email').focus();
+                $(".alert").fadeTo(2000, 500).slideUp(500, function() {
+                    //$(this).alert('close');
+                });
+                return false;
+            }
+
+
+            var token = 'T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU';
+            $.ajax({
+                url: 'subscribe_email',
+                headers: {
+                    'X-CSRF-TOKEN': token
+                },
+                type: 'POST',
+                data: {
+                    subemail: subemail,
+                    '_token': token
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data == 'error') {
+                        $('.alert').css('display', 'block');
+                        $('.alert').addClass('alert-danger');
+                        $('.alert span').text('You are already in our subscription list.');
+                        $('#subemail').val("");
+                        $('#subemail').focus();
+                        $(".alert").fadeTo(2000, 500).slideUp(500, function() {
+                            //$(this).alert('close');
+                        });
+                        return false;
+                    } else {
+                        $('.alert').css('display', 'block');
+                        $('.alert').removeClass('alert-danger');
+                        $('.alert').addClass('alert-success');
+                        $('.alert span').text('E-mail id successfully added to subscription list.');
+                        $('#subemail').val("");
+                        $(".alert").fadeTo(2000, 500).slideUp(500, function() {
+                            //$(this).alert('close');
+                        });
+                        return false;
+                    }
+                }
+            });
+        });
+
+        $('#mc-embedded-subscribe').click(function() {
+            var subemail = $('#mce-EMAIL').val();
+            var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+            if ((subemail == "") || (subemail.search(emailRegEx) == -1)) { // If something was entered
+                $('.alert').css('display', 'block');
+                $('.alert').addClass('alert-danger');
+                $('.alert span').text('Please enter valid email address.');
+                $('#email').focus();
+                $(".alert").fadeTo(2000, 500).slideUp(500, function() {
+                    //$(this).alert('close');
+                });
+                return false;
+            }
+
+            var token = 'T1RIcOTBTTzdEj5jhAhUFInMN2INdRalGsjt2ENU';
+            $.ajax({
+                url: 'subscribe_email',
+                headers: {
+                    'X-CSRF-TOKEN': token
+                },
+                type: 'POST',
+                data: {
+                    subemail: subemail,
+                    '_token': token
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data == 'error') {
+                        $('.alert').css('display', 'block');
+                        $('.alert').addClass('alert-danger');
+                        $('.alert span').text('You are already in our subscription list.');
+                        $('#subemail').val("");
+                        $('#subemail').focus();
+                        $(".alert").fadeTo(2000, 500).slideUp(5000, function() {
+                            //$(this).alert('close');
+                        });
+                        return false;
+                    } else {
+                        $('.alert').css('display', 'block');
+                        $('.alert').removeClass('alert-danger');
+                        $('.alert').addClass('alert-success');
+                        $('.alert span').text('E-mail id successfully added to subscription list. Please check your email to confirm subscription.');
+                        $('#subemail').val("");
+                        $(".alert").fadeTo(2000, 500).slideUp(5000, function() {
+                            //$(this).alert('close');
+                        });
+                        return false;
+                    }
+                }
+            });
+        });
+        $('.alert a.close').click(function() {
+            $(this).parent().hide();
+            return false;
+        });
+    });
+</script>
+<style>
+    .venndyWorkSec {
+        padding-top: 0px;
+    }
+
+    .monetizationSec {
+        padding: 17px 0px 23px;
+        position: relative;
+    }
+
+    .monetizationimg {
+        right: 0px;
+        top: 25px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .cbold {
+        font-weight: bold;
+    }
+
+    ;
+
+    .formkit-form[data-uid="40feeec2d0"] legend {
+        border: none;
+        font-size: inherit;
+        margin-bottom: 10px;
+        padding: 0;
+        position: relative;
+        display: table;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] fieldset {
+        border: 0;
+        padding: 0.01em 0 0 0;
+        margin: 0;
+        min-width: 0;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] body:not(:-moz-handler-blocked) fieldset {
+        display: table-cell;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] p {
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"][data-format="modal"] {
+        display: none;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"][data-format="slide in"] {
+        display: none;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-input,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-select,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-checkboxes {
+        width: 100%;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-button,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit {
+        border: 0;
+        border-radius: 5px;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        margin-bottom: 15px;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-button:hover,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit:hover,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-button:focus,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit:focus {
+        outline: none;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-button:hover>span,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit:hover>span,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-button:focus>span,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit:focus>span {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-button>span,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit>span {
+        display: block;
+        -webkit-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+        padding: 12px 24px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-input {
+        background: #ffffff;
+        font-size: 15px;
+        padding: 12px;
+        border: 1px solid #e3e3e3;
+        -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        line-height: 1.4;
+        margin: 0;
+        -webkit-transition: border-color ease-out 300ms;
+        transition: border-color ease-out 300ms;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-input:focus {
+        outline: none;
+        border-color: #1677be;
+        -webkit-transition: border-color ease 300ms;
+        transition: border-color ease 300ms;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-input::-webkit-input-placeholder {
+        color: #848585;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-input::-moz-placeholder {
+        color: #848585;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-input:-ms-input-placeholder {
+        color: #848585;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-input::placeholder {
+        color: #848585;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="dropdown"] {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="dropdown"]::before {
+        content: "";
+        top: calc(50% - 2.5px);
+        right: 10px;
+        position: absolute;
+        pointer-events: none;
+        border-color: #333333 transparent transparent transparent;
+        border-style: solid;
+        border-width: 6px 5px 0 5px;
+        height: 0;
+        width: 0;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="dropdown"] select {
+        height: auto;
+        width: 100%;
+        cursor: pointer;
+        color: #333333;
+        line-height: 1.4;
+        margin-bottom: 0;
+        padding: 0 6px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        font-size: 15px;
+        padding: 12px;
+        padding-right: 25px;
+        border: 1px solid #e3e3e3;
+        background: #ffffff;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="dropdown"] select:focus {
+        outline: none;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] {
+        text-align: left;
+        margin: 0;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] {
+        margin-bottom: 10px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] * {
+        cursor: pointer;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"]:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"] {
+        display: none;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]+label::after {
+        content: none;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]:checked+label::after {
+        border-color: #ffffff;
+        content: "";
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]:checked+label::before {
+        background: #10bf7a;
+        border-color: #10bf7a;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] label {
+        position: relative;
+        display: inline-block;
+        padding-left: 28px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] label::before,
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] label::after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] label::before {
+        height: 16px;
+        width: 16px;
+        border: 1px solid #e3e3e3;
+        background: #ffffff;
+        left: 0px;
+        top: 3px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-group="checkboxes"] [data-group="checkbox"] label::after {
+        height: 4px;
+        width: 8px;
+        border-left: 2px solid #4d4d4d;
+        border-bottom: 2px solid #4d4d4d;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        left: 4px;
+        top: 8px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-alert {
+        background: #f9fafb;
+        border: 1px solid #e3e3e3;
+        border-radius: 5px;
+        -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        list-style: none;
+        margin: 25px auto;
+        padding: 12px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-alert:empty {
+        display: none;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-alert-success {
+        background: #d3fbeb;
+        border-color: #10bf7a;
+        color: #0c905c;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-alert-error {
+        background: #fde8e2;
+        border-color: #f2643b;
+        color: #ea4110;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-spinner {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 0px;
+        width: 0px;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 0px;
+        overflow: hidden;
+        text-align: center;
+        -webkit-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-spinner>div {
+        margin: auto;
+        width: 12px;
+        height: 12px;
+        background-color: #fff;
+        opacity: 0.3;
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: formkit-bouncedelay-formkit-form-data-uid-40feeec2d0- 1.4s infinite ease-in-out both;
+        animation: formkit-bouncedelay-formkit-form-data-uid-40feeec2d0- 1.4s infinite ease-in-out both;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-spinner>div:nth-child(1) {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-spinner>div:nth-child(2) {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit[data-active] .formkit-spinner {
+        opacity: 1;
+        height: 100%;
+        width: 50px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit[data-active] .formkit-spinner~span {
+        opacity: 0;
+    }
+
+    @-webkit-keyframes formkit-bouncedelay-formkit-form-data-uid-40feeec2d0- {
+
+        0%,
+        80%,
+        100% {
+            -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+            transform: scale(0);
+        }
+
+        40% {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    @keyframes  formkit-bouncedelay-formkit-form-data-uid-40feeec2d0- {
+
+        0%,
+        80%,
+        100% {
+            -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+            transform: scale(0);
+        }
+
+        40% {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] {
+        max-width: 700px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] [data-style="clean"] {
+        width: 100%;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-fields {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-field,
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit {
+        margin: 0 0 15px 0;
+        -webkit-flex: 1 0 100%;
+        -ms-flex: 1 0 100%;
+        flex: 1 0 100%;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-powered-by {
+        color: #7d7d7d;
+        display: block;
+        font-size: 12px;
+        margin: 0;
+        text-align: center;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-powered-by[data-active="false"] {
+        opacity: 0.5;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"][min-width~="700"] [data-style="clean"],
+    .formkit-form[data-uid="40feeec2d0"][min-width~="800"] [data-style="clean"] {
+        padding: 10px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"][min-width~="700"] .formkit-fields[data-stacked="false"],
+    .formkit-form[data-uid="40feeec2d0"][min-width~="800"] .formkit-fields[data-stacked="false"] {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"][min-width~="700"] .formkit-fields[data-stacked="false"] .formkit-field,
+    .formkit-form[data-uid="40feeec2d0"][min-width~="800"] .formkit-fields[data-stacked="false"] .formkit-field,
+    .formkit-form[data-uid="40feeec2d0"][min-width~="700"] .formkit-fields[data-stacked="false"] .formkit-submit,
+    .formkit-form[data-uid="40feeec2d0"][min-width~="800"] .formkit-fields[data-stacked="false"] .formkit-submit {
+        margin: 0 5px 0px 5px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"][min-width~="700"] .formkit-fields[data-stacked="false"] .formkit-field,
+    .formkit-form[data-uid="40feeec2d0"][min-width~="800"] .formkit-fields[data-stacked="false"] .formkit-field {
+        -webkit-flex: 100 1 auto;
+        -ms-flex: 100 1 auto;
+        flex: 100 1 auto;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"][min-width~="700"] .formkit-fields[data-stacked="false"] .formkit-submit,
+    .formkit-form[data-uid="40feeec2d0"][min-width~="800"] .formkit-fields[data-stacked="false"] .formkit-submit {
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-fields {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-field {
+        width: 100%;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit {
+        width: 33%;
+        color: #26a8e0;
+        border: 2px solid #26a8e0;
+        font-size: 18px;
+    }
+
+    .formkit-form[data-uid="40feeec2d0"] .formkit-submit:hover {
+        color: #fff !important;
+        background-color: #26a8e0 !important;
+    }
+
+    @media (min-width: 1661px) {
+        .monetization {
+            margin: 109px 0px 109px 0px;
+        }
+    }
+
+    .grtvideo-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 99999;
+    }
+
+    .grtvideo-popup-content {
+        margin-top: 150px;
+        width: 95%;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.4);
+        -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.4);
+        box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.4);
+        position: relative;
+    }
+
+    .grtvideo-popup-close {
+        position: absolute;
+        top: -35px;
+        right: 0;
+        color: #fff;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    .grtyoutube-iframe {
+        width: 100%;
+        height: 480px;
+    }
+
+    .fleft {
+        float: left;
+    }
+
+    .monetizationimg .play {
+        position: absolute;
+        top: 45%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        color: red;
+        box-sizing: border-box;
+        display: block;
+        width: 200px;
+        height: 200px;
+        padding-top: 7%;
+        padding-left: 8.5%;
+        border: -5px solid rgba(0, 0, 0, 0);
+        border-radius: 50%;
+        text-decoration: none;
+        background-color: rgba(208, 206, 206, 0.6);
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .monetizationimg .play:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+        cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
+        .grtyoutube-iframe {
+            width: 100%;
+            height: 350px;
+        }
+
+        .fleft {
+            float: none;
+        }
+
+        .monetizationimg .play {
+            position: absolute;
+            top: 80%;
+            left: 62%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            color: red;
+            width: 150px;
+            height: 150px;
+            padding-top: 10%;
+            padding-left: 15%;
+        }
+    }
+</style>
+<script>
+    /*!
+     * GRT Youtube Popup - jQuery Plugin
+     * Version: 1.0
+     * Author: GRT107
+     *
+     * Copyright (c) 2017 GRT107
+     * Released under the MIT license
+     */
+
+    (function($) {
+        $.fn.grtyoutube = function(options) {
+            return this.each(function() {
+                // Get video ID
+                var getvideoid = $(this).attr('youtubeid');
+
+                // Default options
+                var settings = $.extend({
+                        videoID: getvideoid,
+                        autoPlay: true,
+                    },
+                    options
+                );
+
+                // Convert some values
+                if (settings.autoPlay === true) {
+                    settings.autoPlay = 1;
+                } else {
+                    settings.autoPlay = 0;
+                }
+
+                // Initialize on click
+                if (getvideoid) {
+                    $(this).on('click', function() {
+                        $('body').append(
+                            '<div class="grtvideo-popup">' +
+                            '<div class="grtvideo-popup-content">' +
+                            '<span class="grtvideo-popup-close">X</span>' +
+                            '<iframe class="grtyoutube-iframe" src="https://www.youtube.com/embed/' +
+                            settings.videoID +
+                            '?rel=0&wmode=transparent&autoplay=' +
+                            settings.autoPlay +
+                            '&iv_load_policy=3" allowfullscreen frameborder="0"></iframe>' +
+                            '</div>' +
+                            '</div>'
+                        );
+                    });
+                }
+
+                // Close the box on click or escape
+                $(this).on('click', function(event) {
+                    event.preventDefault();
+                    $('.grtvideo-popup-close, .grtvideo-popup').click(function() {
+                        $('.grtvideo-popup').remove();
+                    });
+                });
+
+                $(document).keyup(function(event) {
+                    if (event.keyCode == 27) {
+                        $('.grtvideo-popup').remove();
+                    }
+                });
+            });
+        };
+    })(jQuery);
+</script>
+<script>
+    $('.youtube-link').grtyoutube({
+        autoPlay: true,
+    });
+</script>
+
+
+</body></html>

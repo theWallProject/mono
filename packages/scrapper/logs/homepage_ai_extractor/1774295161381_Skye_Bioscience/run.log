@@ -1,0 +1,69 @@
+[2026-03-23T19:46:01.382Z] === Homepage AI Extractor: Skye Bioscience ===
+[2026-03-23T19:46:01.382Z] Started at: 2026-03-23T19:46:01.382Z
+[2026-03-23T19:46:01.382Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774295161381_Skye_Bioscience
+[2026-03-23T19:46:01.382Z] Company: Skye Bioscience
+[2026-03-23T19:46:01.382Z] Website: skyebioscience.com
+[2026-03-23T19:46:01.382Z] cbRank: 11112
+[2026-03-23T19:46:01.382Z] Reasons: i
+[2026-03-23T19:46:01.382Z] Fetching: https://skyebioscience.com
+[2026-03-23T19:46:05.109Z] Redirected: https://skyebioscience.com -> https://skyebioscience.com/
+[2026-03-23T19:46:05.116Z] Saved HTML (140899 bytes) to page.html
+[2026-03-23T19:46:05.118Z] Extracted 36 unique links from page
+[2026-03-23T19:46:05.119Z] Saved 36 links to links.json
+[2026-03-23T19:46:05.121Z] Extracted footer HTML (12601 chars)
+[2026-03-23T19:46:05.122Z] Extracted header HTML (3290 chars)
+[2026-03-23T19:46:05.126Z] Website (post-redirect): https://skyebioscience.com/ → origin: https://skyebioscience.com
+[2026-03-23T19:46:05.127Z]   SUBDOMAIN: ir.skyebioscience.com (added to ws)
+[2026-03-23T19:46:05.127Z] Website subdomains found: 1
+[2026-03-23T19:46:05.127Z] External links: 3 (of 36 total)
+[2026-03-23T19:46:05.127Z] ── All external links ──
+[2026-03-23T19:46:05.127Z]   EXT: https://www.facebook.com/skyebioscience
+[2026-03-23T19:46:05.127Z]   EXT: https://www.linkedin.com/company/skyebioscience
+[2026-03-23T19:46:05.127Z]   EXT: https://x.com/skyebioscience
+[2026-03-23T19:46:05.127Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:46:05.127Z]   REGEX: fb <- https://www.facebook.com/skyebioscience
+[2026-03-23T19:46:05.127Z]   REGEX: li <- https://www.linkedin.com/company/skyebioscience
+[2026-03-23T19:46:05.127Z]   REGEX: tw <- https://x.com/skyebioscience
+[2026-03-23T19:46:05.127Z] Programmatic result: ws:2, fb:1, li:1, tw:1 | 0 uncategorized
+[2026-03-23T19:46:05.127Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:46:05.131Z] Saved AI prompt (4543 chars) to ai_prompt.txt
+[2026-03-23T19:46:05.131Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:46:05.136Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:46:21.998Z]   AI: First token received, streaming...
+[2026-03-23T19:46:29.359Z] AI response complete: 118 chars in 24.2s
+[2026-03-23T19:46:29.361Z] Saved AI response to ai_response.json
+[2026-03-23T19:46:29.361Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T19:46:29.361Z]   AI LINK: https://www.facebook.com/skyebioscience/
+[2026-03-23T19:46:29.361Z]   AI LINK: https://x.com/skyebioscience
+[2026-03-23T19:46:29.361Z]   AI LINK: https://www.linkedin.com/company/skyebioscience/
+[2026-03-23T19:46:29.362Z] AI returned 3 valid links
+[2026-03-23T19:46:29.362Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T19:46:29.362Z]   AI→REGEX: fb <- https://www.facebook.com/skyebioscience/ (duplicate, skipped)
+[2026-03-23T19:46:29.362Z]   AI→REGEX: tw <- https://x.com/skyebioscience (duplicate, skipped)
+[2026-03-23T19:46:29.362Z]   AI→REGEX: li <- https://www.linkedin.com/company/skyebioscience/ (duplicate, skipped)
+[2026-03-23T19:46:29.363Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:46:29.363Z] Footer/header origins (5):
+[2026-03-23T19:46:29.363Z]   FOOTER/HEADER ORIGIN: https://skyebioscience.com
+[2026-03-23T19:46:29.363Z]   FOOTER/HEADER ORIGIN: https://ir.skyebioscience.com
+[2026-03-23T19:46:29.363Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T19:46:29.364Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-23T19:46:29.364Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:46:29.364Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:46:29.364Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:46:29.364Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:46:29.364Z] ── Step 3: Final dedup ──
+[2026-03-23T19:46:29.364Z] No urls to dedup
+[2026-03-23T19:46:29.364Z] ── FINAL RESULT ──
+[2026-03-23T19:46:29.364Z]   ws (2):
+[2026-03-23T19:46:29.364Z]     - https://ir.skyebioscience.com
+[2026-03-23T19:46:29.364Z]     - https://skyebioscience.com
+[2026-03-23T19:46:29.365Z]   li (1):
+[2026-03-23T19:46:29.365Z]     - https://www.linkedin.com/company/skyebioscience
+[2026-03-23T19:46:29.365Z]   fb (1):
+[2026-03-23T19:46:29.365Z]     - https://www.facebook.com/skyebioscience
+[2026-03-23T19:46:29.365Z]   tw (1):
+[2026-03-23T19:46:29.365Z]     - https://x.com/skyebioscience
+[2026-03-23T19:46:29.365Z] Summary: ws:2, fb:1, li:1, tw:1
+[2026-03-23T19:46:29.366Z] Saved final result to result.json
+[2026-03-23T19:46:29.366Z] Override fields: ws, li, fb, tw
+[2026-03-23T19:46:29.366Z] Finished at: 2026-03-23T19:46:29.366Z

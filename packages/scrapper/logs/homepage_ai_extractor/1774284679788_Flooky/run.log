@@ -1,0 +1,71 @@
+[2026-03-23T16:51:19.788Z] === Homepage AI Extractor: Flooky ===
+[2026-03-23T16:51:19.788Z] Started at: 2026-03-23T16:51:19.788Z
+[2026-03-23T16:51:19.788Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774284679788_Flooky
+[2026-03-23T16:51:19.788Z] Company: Flooky
+[2026-03-23T16:51:19.788Z] Website: flookyhk.com
+[2026-03-23T16:51:19.788Z] cbRank: 3048607
+[2026-03-23T16:51:19.788Z] Reasons: f
+[2026-03-23T16:51:19.788Z] Fetching: https://flookyhk.com
+[2026-03-23T16:51:24.186Z] Redirected: https://flookyhk.com -> https://flookyhk.com/
+[2026-03-23T16:51:24.192Z] Saved HTML (168206 bytes) to page.html
+[2026-03-23T16:51:24.196Z] Extracted 23 unique links from page
+[2026-03-23T16:51:24.196Z] Saved 23 links to links.json
+[2026-03-23T16:51:24.198Z] Extracted footer HTML (4094 chars)
+[2026-03-23T16:51:24.199Z] Extracted header HTML (8849 chars)
+[2026-03-23T16:51:24.203Z] Website (post-redirect): https://flookyhk.com/ → origin: https://flookyhk.com
+[2026-03-23T16:51:24.203Z] External links: 4 (of 23 total)
+[2026-03-23T16:51:24.203Z] ── All external links ──
+[2026-03-23T16:51:24.203Z]   EXT: https://www.exex.co.il
+[2026-03-23T16:51:24.204Z]   EXT: https://www.facebook.com/Flooky-177616963141144/?modal=admin_todo_tour
+[2026-03-23T16:51:24.204Z]   EXT: https://www.linkedin.com/company/funky-fish-ltd-
+[2026-03-23T16:51:24.204Z]   EXT: https://www.pinterest.com/flookycom
+[2026-03-23T16:51:24.204Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T16:51:24.204Z]   UNCATEGORIZED: https://www.exex.co.il
+[2026-03-23T16:51:24.204Z]   REGEX: fb <- https://www.facebook.com/Flooky-177616963141144/?modal=admin_todo_tour
+[2026-03-23T16:51:24.204Z]   REGEX: li <- https://www.linkedin.com/company/funky-fish-ltd-
+[2026-03-23T16:51:24.204Z]   UNCATEGORIZED: https://www.pinterest.com/flookycom
+[2026-03-23T16:51:24.205Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-23T16:51:24.205Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T16:51:24.208Z] Saved AI prompt (3549 chars) to ai_prompt.txt
+[2026-03-23T16:51:24.208Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T16:51:24.213Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T16:51:36.969Z]   AI: First token received, streaming...
+[2026-03-23T16:51:48.862Z] AI response complete: 157 chars in 24.7s
+[2026-03-23T16:51:48.863Z] Saved AI response to ai_response.json
+[2026-03-23T16:51:48.864Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T16:51:48.864Z]   AI LINK: https://www.facebook.com/Flooky-177616963141144/?modal=admin_todo_tour
+[2026-03-23T16:51:48.864Z]   AI LINK: https://www.linkedin.com/company/funky-fish-ltd-/
+[2026-03-23T16:51:48.864Z]   AI LINK: https://www.pinterest.com/flookycom/
+[2026-03-23T16:51:48.864Z] AI returned 3 valid links
+[2026-03-23T16:51:48.864Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T16:51:48.864Z]   AI→REGEX: fb <- https://www.facebook.com/Flooky-177616963141144/?modal=admin_todo_tour (duplicate, skipped)
+[2026-03-23T16:51:48.864Z]   AI→REGEX: li <- https://www.linkedin.com/company/funky-fish-ltd-/ (duplicate, skipped)
+[2026-03-23T16:51:48.865Z]   AI→URLS: https://www.pinterest.com/flookycom (cleaned from https://www.pinterest.com/flookycom/)
+[2026-03-23T16:51:48.865Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T16:51:48.865Z] Footer/header origins (5):
+[2026-03-23T16:51:48.865Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T16:51:48.865Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T16:51:48.865Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-23T16:51:48.865Z]   FOOTER/HEADER ORIGIN: https://www.exex.co.il
+[2026-03-23T16:51:48.865Z]   FOOTER/HEADER ORIGIN: https://flookyhk.com
+[2026-03-23T16:51:48.865Z]   ADDED: urls <- https://www.exex.co.il
+[2026-03-23T16:51:48.866Z]   SKIP (AI claimed): https://www.pinterest.com/flookycom
+[2026-03-23T16:51:48.866Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T16:51:48.866Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T16:51:48.866Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T16:51:48.866Z] ── Step 3: Final dedup ──
+[2026-03-23T16:51:48.866Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T16:51:48.866Z] ── FINAL RESULT ──
+[2026-03-23T16:51:48.866Z]   ws (1):
+[2026-03-23T16:51:48.866Z]     - https://flookyhk.com
+[2026-03-23T16:51:48.866Z]   li (1):
+[2026-03-23T16:51:48.866Z]     - https://www.linkedin.com/company/funky-fish-ltd-
+[2026-03-23T16:51:48.866Z]   fb (1):
+[2026-03-23T16:51:48.866Z]     - https://www.facebook.com/flooky-177616963141144
+[2026-03-23T16:51:48.866Z]   urls (2):
+[2026-03-23T16:51:48.866Z]     - https://www.exex.co.il
+[2026-03-23T16:51:48.867Z]     - https://www.pinterest.com/flookycom
+[2026-03-23T16:51:48.867Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-23T16:51:48.867Z] Saved final result to result.json
+[2026-03-23T16:51:48.868Z] Override fields: ws, li, fb, urls
+[2026-03-23T16:51:48.868Z] Finished at: 2026-03-23T16:51:48.868Z

@@ -1,0 +1,76 @@
+[2026-03-21T20:22:58.366Z] === Homepage AI Extractor: Kenafayim ===
+[2026-03-21T20:22:58.366Z] Started at: 2026-03-21T20:22:58.366Z
+[2026-03-21T20:22:58.366Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774124578365_Kenafayim
+[2026-03-21T20:22:58.366Z] Company: Kenafayim
+[2026-03-21T20:22:58.366Z] Website: kenafayim.org
+[2026-03-21T20:22:58.366Z] cbRank: 3800206
+[2026-03-21T20:22:58.367Z] Reasons: h
+[2026-03-21T20:22:58.367Z] Fetching: https://kenafayim.org
+[2026-03-21T20:23:09.117Z] Network idle timeout — continuing with current state
+[2026-03-21T20:23:09.157Z] Redirected: https://kenafayim.org -> https://www.kenafayim.org/
+[2026-03-21T20:23:09.198Z] Saved HTML (1820714 bytes) to page.html
+[2026-03-21T20:23:09.202Z] Extracted 27 unique links from page
+[2026-03-21T20:23:09.202Z] Saved 27 links to links.json
+[2026-03-21T20:23:09.206Z] Extracted footer HTML (16942 chars)
+[2026-03-21T20:23:09.206Z] Extracted header HTML (23548 chars)
+[2026-03-21T20:23:09.210Z] Website (post-redirect): https://www.kenafayim.org/ → origin: https://www.kenafayim.org
+[2026-03-21T20:23:09.210Z] External links: 4 (of 27 total)
+[2026-03-21T20:23:09.210Z] ── All external links ──
+[2026-03-21T20:23:09.210Z]   EXT: https://wix.com/?utm_campaign=vir_created_with
+[2026-03-21T20:23:09.210Z]   EXT: https://www.facebook.com/kenafayimart
+[2026-03-21T20:23:09.210Z]   EXT: https://www.instagram.com/kenafayim_art
+[2026-03-21T20:23:09.210Z]   EXT: https://www.youtube.com/channel/UCAQIVTZ7cOAYCPamcHec5BQ
+[2026-03-21T20:23:09.210Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T20:23:09.211Z]   UNCATEGORIZED: https://wix.com/?utm_campaign=vir_created_with
+[2026-03-21T20:23:09.211Z]   REGEX: fb <- https://www.facebook.com/kenafayimart
+[2026-03-21T20:23:09.211Z]   REGEX: ig <- https://www.instagram.com/kenafayim_art
+[2026-03-21T20:23:09.211Z]   REGEX: ytc <- https://www.youtube.com/channel/UCAQIVTZ7cOAYCPamcHec5BQ
+[2026-03-21T20:23:09.211Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 1 uncategorized
+[2026-03-21T20:23:09.211Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T20:23:09.212Z] Saved AI prompt (2386 chars) to ai_prompt.txt
+[2026-03-21T20:23:09.212Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T20:23:09.217Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T20:23:19.214Z]   AI: First token received, streaming...
+[2026-03-21T20:23:29.417Z] AI response complete: 135 chars in 20.2s
+[2026-03-21T20:23:29.419Z] Saved AI response to ai_response.json
+[2026-03-21T20:23:29.419Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T20:23:29.419Z]   AI LINK: https://www.youtube.com/channel/UCAQIVTZ7cOAYCPamcHec5BQ
+[2026-03-21T20:23:29.419Z]   AI LINK: https://www.facebook.com/kenafayimart
+[2026-03-21T20:23:29.420Z]   AI LINK: https://www.instagram.com/kenafayim_art/
+[2026-03-21T20:23:29.420Z] AI returned 3 valid links
+[2026-03-21T20:23:29.420Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T20:23:29.420Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCAQIVTZ7cOAYCPamcHec5BQ (duplicate, skipped)
+[2026-03-21T20:23:29.420Z]   AI→REGEX: fb <- https://www.facebook.com/kenafayimart (duplicate, skipped)
+[2026-03-21T20:23:29.421Z]   AI→REGEX: ig <- https://www.instagram.com/kenafayim_art/ (duplicate, skipped)
+[2026-03-21T20:23:29.421Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T20:23:29.421Z] Footer/header origins (5):
+[2026-03-21T20:23:29.421Z]   FOOTER/HEADER ORIGIN: https://www.kenafayim.org
+[2026-03-21T20:23:29.421Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T20:23:29.422Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T20:23:29.422Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T20:23:29.422Z]   FOOTER/HEADER ORIGIN: https://wix.com
+[2026-03-21T20:23:29.422Z]   ADDED: urls <- https://wix.com (cleaned from https://wix.com/?utm_campaign=vir_created_with)
+[2026-03-21T20:23:29.422Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T20:23:29.422Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T20:23:29.422Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T20:23:29.909Z]   YOUTUBE: resolved UCAQIVTZ7cOAYCPamcHec5BQ → @kenafayim
+[2026-03-21T20:23:29.910Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T20:23:29.910Z] ── Step 3: Final dedup ──
+[2026-03-21T20:23:29.910Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T20:23:29.910Z] ── FINAL RESULT ──
+[2026-03-21T20:23:29.910Z]   ws (1):
+[2026-03-21T20:23:29.910Z]     - https://www.kenafayim.org
+[2026-03-21T20:23:29.910Z]   fb (1):
+[2026-03-21T20:23:29.910Z]     - https://www.facebook.com/kenafayimart
+[2026-03-21T20:23:29.910Z]   ig (1):
+[2026-03-21T20:23:29.910Z]     - https://www.instagram.com/kenafayim_art
+[2026-03-21T20:23:29.910Z]   ytp (1):
+[2026-03-21T20:23:29.910Z]     - https://www.youtube.com/@kenafayim
+[2026-03-21T20:23:29.910Z]   ytc (1):
+[2026-03-21T20:23:29.910Z]     - https://www.youtube.com/channel/UCAQIVTZ7cOAYCPamcHec5BQ
+[2026-03-21T20:23:29.910Z]   urls (1):
+[2026-03-21T20:23:29.910Z]     - https://wix.com
+[2026-03-21T20:23:29.911Z] Summary: ws:1, fb:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-21T20:23:29.912Z] Saved final result to result.json
+[2026-03-21T20:23:29.912Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-21T20:23:29.912Z] Finished at: 2026-03-21T20:23:29.912Z

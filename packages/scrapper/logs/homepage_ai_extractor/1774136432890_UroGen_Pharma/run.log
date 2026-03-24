@@ -1,0 +1,74 @@
+[2026-03-21T23:40:32.891Z] === Homepage AI Extractor: UroGen Pharma ===
+[2026-03-21T23:40:32.891Z] Started at: 2026-03-21T23:40:32.891Z
+[2026-03-21T23:40:32.891Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774136432890_UroGen_Pharma
+[2026-03-21T23:40:32.892Z] Company: UroGen Pharma
+[2026-03-21T23:40:32.892Z] Website: urogen.com
+[2026-03-21T23:40:32.892Z] cbRank: 7363
+[2026-03-21T23:40:32.892Z] Reasons: f
+[2026-03-21T23:40:32.892Z] Fetching: https://urogen.com
+[2026-03-21T23:40:43.899Z] Network idle timeout — continuing with current state
+[2026-03-21T23:40:43.978Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T23:40:51.936Z] Redirected: https://urogen.com -> https://www.urogen.com/
+[2026-03-21T23:40:51.941Z] Saved HTML (142299 bytes) to page.html
+[2026-03-21T23:40:51.943Z] Extracted 40 unique links from page
+[2026-03-21T23:40:51.944Z] Saved 40 links to links.json
+[2026-03-21T23:40:51.946Z] Extracted footer HTML (7203 chars)
+[2026-03-21T23:40:51.946Z] Extracted header HTML (9754 chars)
+[2026-03-21T23:40:51.949Z] Website (post-redirect): https://www.urogen.com/ → origin: https://www.urogen.com
+[2026-03-21T23:40:51.949Z]   SUBDOMAIN: investors.urogen.com (added to ws)
+[2026-03-21T23:40:51.949Z] Website subdomains found: 1
+[2026-03-21T23:40:51.949Z] External links: 3 (of 40 total)
+[2026-03-21T23:40:51.949Z] ── All external links ──
+[2026-03-21T23:40:51.949Z]   EXT: https://urogenmedicalaffairs.com/congress-materials
+[2026-03-21T23:40:51.950Z]   EXT: https://www.linkedin.com/company/urogenpharma
+[2026-03-21T23:40:51.950Z]   EXT: https://www.twitter.com/UroGenPharma
+[2026-03-21T23:40:51.950Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T23:40:51.950Z]   UNCATEGORIZED: https://urogenmedicalaffairs.com/congress-materials
+[2026-03-21T23:40:51.950Z]   REGEX: li <- https://www.linkedin.com/company/urogenpharma
+[2026-03-21T23:40:51.950Z]   REGEX: tw <- https://www.twitter.com/UroGenPharma
+[2026-03-21T23:40:51.950Z] Programmatic result: ws:2, li:1, tw:1 | 1 uncategorized
+[2026-03-21T23:40:51.950Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T23:40:51.953Z] Saved AI prompt (3240 chars) to ai_prompt.txt
+[2026-03-21T23:40:51.953Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T23:40:51.957Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T23:41:03.795Z]   AI: First token received, streaming...
+[2026-03-21T23:41:12.853Z] AI response complete: 165 chars in 20.9s
+[2026-03-21T23:41:12.854Z] Saved AI response to ai_response.json
+[2026-03-21T23:41:12.854Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T23:41:12.855Z]   AI LINK: https://urogenmedicalaffairs.com/congress-materials
+[2026-03-21T23:41:12.855Z]   AI LINK: https://investors.urogen.com/
+[2026-03-21T23:41:12.855Z]   AI LINK: https://www.linkedin.com/company/urogenpharma/
+[2026-03-21T23:41:12.855Z]   AI LINK: https://www.twitter.com/UroGenPharma
+[2026-03-21T23:41:12.855Z] AI returned 4 valid links
+[2026-03-21T23:41:12.855Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T23:41:12.856Z]   AI→URLS: https://urogenmedicalaffairs.com/congress-materials
+[2026-03-21T23:41:12.856Z]   AI→URLS: https://investors.urogen.com (cleaned from https://investors.urogen.com/)
+[2026-03-21T23:41:12.856Z]   AI→REGEX: li <- https://www.linkedin.com/company/urogenpharma/ (duplicate, skipped)
+[2026-03-21T23:41:12.856Z]   AI→REGEX: tw <- https://www.twitter.com/UroGenPharma (duplicate, skipped)
+[2026-03-21T23:41:12.857Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T23:41:12.857Z] Footer/header origins (4):
+[2026-03-21T23:41:12.857Z]   FOOTER/HEADER ORIGIN: https://investors.urogen.com
+[2026-03-21T23:41:12.857Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T23:41:12.858Z]   FOOTER/HEADER ORIGIN: https://www.twitter.com
+[2026-03-21T23:41:12.858Z]   FOOTER/HEADER ORIGIN: https://urogenmedicalaffairs.com
+[2026-03-21T23:41:12.858Z]   SKIP (AI claimed): https://urogenmedicalaffairs.com/congress-materials
+[2026-03-21T23:41:12.858Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T23:41:12.858Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T23:41:12.858Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T23:41:12.858Z] ── Step 3: Final dedup ──
+[2026-03-21T23:41:12.858Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T23:41:12.858Z] ── FINAL RESULT ──
+[2026-03-21T23:41:12.858Z]   ws (2):
+[2026-03-21T23:41:12.859Z]     - https://investors.urogen.com
+[2026-03-21T23:41:12.859Z]     - https://www.urogen.com
+[2026-03-21T23:41:12.859Z]   li (1):
+[2026-03-21T23:41:12.859Z]     - https://www.linkedin.com/company/urogenpharma
+[2026-03-21T23:41:12.859Z]   tw (1):
+[2026-03-21T23:41:12.859Z]     - https://x.com/urogenpharma
+[2026-03-21T23:41:12.859Z]   urls (2):
+[2026-03-21T23:41:12.859Z]     - https://investors.urogen.com
+[2026-03-21T23:41:12.860Z]     - https://urogenmedicalaffairs.com/congress-materials
+[2026-03-21T23:41:12.860Z] Summary: ws:2, li:1, tw:1, urls:2
+[2026-03-21T23:41:12.861Z] Saved final result to result.json
+[2026-03-21T23:41:12.861Z] Override fields: ws, li, tw, urls
+[2026-03-21T23:41:12.862Z] Finished at: 2026-03-21T23:41:12.862Z

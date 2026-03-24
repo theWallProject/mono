@@ -1,0 +1,59 @@
+[2026-03-21T12:37:45.353Z] === Homepage AI Extractor: Exact Ad ===
+[2026-03-21T12:37:45.353Z] Started at: 2026-03-21T12:37:45.353Z
+[2026-03-21T12:37:45.353Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774096665353_Exact_Ad
+[2026-03-21T12:37:45.353Z] Company: Exact Ad
+[2026-03-21T12:37:45.354Z] Website: exact-ad.com
+[2026-03-21T12:37:45.354Z] cbRank: 3356975
+[2026-03-21T12:37:45.354Z] Reasons: h
+[2026-03-21T12:37:45.354Z] Fetching: https://exact-ad.com
+[2026-03-21T12:37:56.150Z] Network idle timeout — continuing with current state
+[2026-03-21T12:37:56.182Z] Redirected: https://exact-ad.com -> https://www.exact-ad.com/
+[2026-03-21T12:37:56.195Z] Saved HTML (643345 bytes) to page.html
+[2026-03-21T12:37:56.198Z] Extracted 5 unique links from page
+[2026-03-21T12:37:56.198Z] Saved 5 links to links.json
+[2026-03-21T12:37:56.200Z] Extracted footer HTML (2822 chars)
+[2026-03-21T12:37:56.200Z] Extracted header HTML (10827 chars)
+[2026-03-21T12:37:56.204Z] Website (post-redirect): https://www.exact-ad.com/ → origin: https://www.exact-ad.com
+[2026-03-21T12:37:56.204Z] External links: 2 (of 5 total)
+[2026-03-21T12:37:56.205Z] ── All external links ──
+[2026-03-21T12:37:56.205Z]   EXT: https://www.facebook.com/ExactAd-104055371656820/?view_public_for=104055371656820
+[2026-03-21T12:37:56.205Z]   EXT: https://www.linkedin.com/company/exact-ad
+[2026-03-21T12:37:56.205Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T12:37:56.205Z]   REGEX: fb <- https://www.facebook.com/ExactAd-104055371656820/?view_public_for=104055371656820
+[2026-03-21T12:37:56.205Z]   REGEX: li <- https://www.linkedin.com/company/exact-ad
+[2026-03-21T12:37:56.205Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-21T12:37:56.205Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T12:37:56.206Z] Saved AI prompt (4093 chars) to ai_prompt.txt
+[2026-03-21T12:37:56.206Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T12:37:56.210Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T12:38:16.486Z]   AI: First token received, streaming...
+[2026-03-21T12:38:28.776Z] AI response complete: 123 chars in 32.6s
+[2026-03-21T12:38:28.777Z] Saved AI response to ai_response.json
+[2026-03-21T12:38:28.778Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T12:38:28.778Z]   AI LINK: https://www.facebook.com/ExactAd-104055371656820/?view_public_for=104055371656820
+[2026-03-21T12:38:28.778Z]   AI LINK: https://www.linkedin.com/company/exact-ad
+[2026-03-21T12:38:28.778Z] AI returned 2 valid links
+[2026-03-21T12:38:28.778Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T12:38:28.779Z]   AI→REGEX: fb <- https://www.facebook.com/ExactAd-104055371656820/?view_public_for=104055371656820 (duplicate, skipped)
+[2026-03-21T12:38:28.779Z]   AI→REGEX: li <- https://www.linkedin.com/company/exact-ad (duplicate, skipped)
+[2026-03-21T12:38:28.779Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T12:38:28.779Z] Footer/header origins (3):
+[2026-03-21T12:38:28.779Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T12:38:28.779Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T12:38:28.780Z]   FOOTER/HEADER ORIGIN: https://www.exact-ad.com
+[2026-03-21T12:38:28.780Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T12:38:28.780Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T12:38:28.780Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T12:38:28.780Z] ── Step 3: Final dedup ──
+[2026-03-21T12:38:28.780Z] No urls to dedup
+[2026-03-21T12:38:28.780Z] ── FINAL RESULT ──
+[2026-03-21T12:38:28.780Z]   ws (1):
+[2026-03-21T12:38:28.780Z]     - https://www.exact-ad.com
+[2026-03-21T12:38:28.781Z]   li (1):
+[2026-03-21T12:38:28.781Z]     - https://www.linkedin.com/company/exact-ad
+[2026-03-21T12:38:28.781Z]   fb (1):
+[2026-03-21T12:38:28.781Z]     - https://www.facebook.com/exactad-104055371656820
+[2026-03-21T12:38:28.781Z] Summary: ws:1, fb:1, li:1
+[2026-03-21T12:38:28.782Z] Saved final result to result.json
+[2026-03-21T12:38:28.782Z] Override fields: ws, li, fb
+[2026-03-21T12:38:28.782Z] Finished at: 2026-03-21T12:38:28.782Z

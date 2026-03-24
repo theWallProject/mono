@@ -1,0 +1,68 @@
+[2026-03-22T05:54:48.680Z] === Homepage AI Extractor: Jump.bio ===
+[2026-03-22T05:54:48.680Z] Started at: 2026-03-22T05:54:48.680Z
+[2026-03-22T05:54:48.680Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774158888679_Jump.bio
+[2026-03-22T05:54:48.680Z] Company: Jump.bio
+[2026-03-22T05:54:48.680Z] Website: jump.bio
+[2026-03-22T05:54:48.680Z] cbRank: 163084
+[2026-03-22T05:54:48.680Z] Reasons: f
+[2026-03-22T05:54:48.680Z] Fetching: https://jump.bio
+[2026-03-22T05:54:50.570Z] Redirected: https://jump.bio -> https://jump.bio/
+[2026-03-22T05:54:50.580Z] Saved HTML (411878 bytes) to page.html
+[2026-03-22T05:54:50.583Z] Extracted 25 unique links from page
+[2026-03-22T05:54:50.584Z] Saved 25 links to links.json
+[2026-03-22T05:54:50.587Z] Extracted footer HTML (62425 chars)
+[2026-03-22T05:54:50.587Z] Extracted header HTML (42907 chars)
+[2026-03-22T05:54:50.590Z] Website (post-redirect): https://jump.bio/ → origin: https://jump.bio
+[2026-03-22T05:54:50.591Z] External links: 3 (of 25 total)
+[2026-03-22T05:54:50.591Z] ── All external links ──
+[2026-03-22T05:54:50.591Z]   EXT: https://ok.ru/group/53873579982983
+[2026-03-22T05:54:50.591Z]   EXT: https://vk.com/jumpbio
+[2026-03-22T05:54:50.591Z]   EXT: https://www.youtube.com/channel/UCiN_L61EO0kVCRvPDJdPwoA
+[2026-03-22T05:54:50.591Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T05:54:50.591Z]   UNCATEGORIZED: https://ok.ru/group/53873579982983
+[2026-03-22T05:54:50.591Z]   UNCATEGORIZED: https://vk.com/jumpbio
+[2026-03-22T05:54:50.591Z]   REGEX: ytc <- https://www.youtube.com/channel/UCiN_L61EO0kVCRvPDJdPwoA
+[2026-03-22T05:54:50.591Z] Programmatic result: ws:1, ytc:1 | 2 uncategorized
+[2026-03-22T05:54:50.591Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T05:54:50.595Z] Saved AI prompt (2292 chars) to ai_prompt.txt
+[2026-03-22T05:54:50.595Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T05:54:50.599Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T05:54:59.156Z]   AI: First token received, streaming...
+[2026-03-22T05:55:05.429Z] AI response complete: 79 chars in 14.8s
+[2026-03-22T05:55:05.430Z] Saved AI response to ai_response.json
+[2026-03-22T05:55:05.431Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T05:55:05.431Z]   AI LINK: https://vk.com/jumpbio
+[2026-03-22T05:55:05.431Z]   AI LINK: https://www.youtube.com/channel/UCiN_L61EO0kVCRvPDJdPwoA
+[2026-03-22T05:55:05.431Z] AI returned 2 valid links
+[2026-03-22T05:55:05.431Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T05:55:05.432Z]   AI→URLS: https://vk.com/jumpbio
+[2026-03-22T05:55:05.432Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCiN_L61EO0kVCRvPDJdPwoA (duplicate, skipped)
+[2026-03-22T05:55:05.433Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T05:55:05.433Z] Footer/header origins (4):
+[2026-03-22T05:55:05.433Z]   FOOTER/HEADER ORIGIN: https://ok.ru
+[2026-03-22T05:55:05.434Z]   FOOTER/HEADER ORIGIN: https://vk.com
+[2026-03-22T05:55:05.434Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T05:55:05.434Z]   FOOTER/HEADER ORIGIN: https://jump.bio
+[2026-03-22T05:55:05.434Z]   ADDED: urls <- https://ok.ru/group/53873579982983
+[2026-03-22T05:55:05.434Z]   SKIP (AI claimed): https://vk.com/jumpbio
+[2026-03-22T05:55:05.434Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T05:55:05.434Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T05:55:05.435Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T05:55:05.683Z]   YOUTUBE: resolved UCiN_L61EO0kVCRvPDJdPwoA → @jump-6139
+[2026-03-22T05:55:05.683Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T05:55:05.683Z] ── Step 3: Final dedup ──
+[2026-03-22T05:55:05.684Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T05:55:05.684Z] ── FINAL RESULT ──
+[2026-03-22T05:55:05.684Z]   ws (1):
+[2026-03-22T05:55:05.684Z]     - https://jump.bio
+[2026-03-22T05:55:05.684Z]   ytp (1):
+[2026-03-22T05:55:05.684Z]     - https://www.youtube.com/@jump-6139
+[2026-03-22T05:55:05.684Z]   ytc (1):
+[2026-03-22T05:55:05.684Z]     - https://www.youtube.com/channel/UCiN_L61EO0kVCRvPDJdPwoA
+[2026-03-22T05:55:05.684Z]   urls (2):
+[2026-03-22T05:55:05.684Z]     - https://ok.ru/group/53873579982983
+[2026-03-22T05:55:05.684Z]     - https://vk.com/jumpbio
+[2026-03-22T05:55:05.684Z] Summary: ws:1, ytc:1, urls:2, ytp:1
+[2026-03-22T05:55:05.685Z] Saved final result to result.json
+[2026-03-22T05:55:05.686Z] Override fields: ws, ytp, ytc, urls
+[2026-03-22T05:55:05.686Z] Finished at: 2026-03-22T05:55:05.686Z

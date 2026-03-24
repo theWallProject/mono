@@ -1,0 +1,72 @@
+[2026-03-21T22:49:54.378Z] === Homepage AI Extractor: Sepio ===
+[2026-03-21T22:49:54.378Z] Started at: 2026-03-21T22:49:54.378Z
+[2026-03-21T22:49:54.378Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774133394377_Sepio
+[2026-03-21T22:49:54.378Z] Company: Sepio
+[2026-03-21T22:49:54.378Z] Website: sepiocyber.com
+[2026-03-21T22:49:54.378Z] cbRank: 3328
+[2026-03-21T22:49:54.378Z] Reasons: f, i
+[2026-03-21T22:49:54.378Z] Fetching: https://sepiocyber.com
+[2026-03-21T22:49:56.062Z] Redirected: https://sepiocyber.com -> https://sepiocyber.com/
+[2026-03-21T22:49:56.068Z] Saved HTML (193829 bytes) to page.html
+[2026-03-21T22:49:56.071Z] Extracted 56 unique links from page
+[2026-03-21T22:49:56.071Z] Saved 56 links to links.json
+[2026-03-21T22:49:56.073Z] Extracted footer HTML (10804 chars)
+[2026-03-21T22:49:56.073Z] Extracted header HTML (27583 chars)
+[2026-03-21T22:49:56.076Z] Website (post-redirect): https://sepiocyber.com/ → origin: https://sepiocyber.com
+[2026-03-21T22:49:56.076Z] External links: 4 (of 56 total)
+[2026-03-21T22:49:56.076Z] ── All external links ──
+[2026-03-21T22:49:56.076Z]   EXT: https://twitter.com/sepiosys
+[2026-03-21T22:49:56.076Z]   EXT: https://www.facebook.com/cybersepio
+[2026-03-21T22:49:56.076Z]   EXT: https://www.linkedin.com/company/sepiocyber
+[2026-03-21T22:49:56.076Z]   EXT: https://www.youtube.com/c/Sepio
+[2026-03-21T22:49:56.076Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:49:56.076Z]   REGEX: tw <- https://twitter.com/sepiosys
+[2026-03-21T22:49:56.076Z]   REGEX: fb <- https://www.facebook.com/cybersepio
+[2026-03-21T22:49:56.076Z]   REGEX: li <- https://www.linkedin.com/company/sepiocyber
+[2026-03-21T22:49:56.077Z]   REGEX: ytp <- https://www.youtube.com/c/Sepio
+[2026-03-21T22:49:56.077Z] Programmatic result: ws:1, tw:1, fb:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-21T22:49:56.077Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:49:56.078Z] Saved AI prompt (7547 chars) to ai_prompt.txt
+[2026-03-21T22:49:56.078Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:49:56.081Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:50:28.586Z]   AI: First token received, streaming...
+[2026-03-21T22:50:37.139Z] AI response complete: 141 chars in 41.1s
+[2026-03-21T22:50:37.141Z] Saved AI response to ai_response.json
+[2026-03-21T22:50:37.141Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T22:50:37.141Z]   AI LINK: https://twitter.com/sepiosys
+[2026-03-21T22:50:37.141Z]   AI LINK: https://www.facebook.com/cybersepio
+[2026-03-21T22:50:37.141Z]   AI LINK: https://www.youtube.com/c/Sepio
+[2026-03-21T22:50:37.142Z]   AI LINK: https://www.linkedin.com/company/sepiocyber/
+[2026-03-21T22:50:37.142Z] AI returned 4 valid links
+[2026-03-21T22:50:37.142Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T22:50:37.142Z]   AI→REGEX: tw <- https://twitter.com/sepiosys (duplicate, skipped)
+[2026-03-21T22:50:37.142Z]   AI→REGEX: fb <- https://www.facebook.com/cybersepio (duplicate, skipped)
+[2026-03-21T22:50:37.142Z]   AI→REGEX: ytp <- https://www.youtube.com/c/Sepio (duplicate, skipped)
+[2026-03-21T22:50:37.142Z]   AI→REGEX: li <- https://www.linkedin.com/company/sepiocyber/ (duplicate, skipped)
+[2026-03-21T22:50:37.143Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:50:37.143Z] Footer/header origins (5):
+[2026-03-21T22:50:37.143Z]   FOOTER/HEADER ORIGIN: https://sepiocyber.com
+[2026-03-21T22:50:37.144Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T22:50:37.144Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T22:50:37.144Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T22:50:37.144Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:50:37.144Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:50:37.144Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:50:37.144Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:50:37.144Z] ── Step 3: Final dedup ──
+[2026-03-21T22:50:37.144Z] No urls to dedup
+[2026-03-21T22:50:37.145Z] ── FINAL RESULT ──
+[2026-03-21T22:50:37.145Z]   ws (1):
+[2026-03-21T22:50:37.145Z]     - https://sepiocyber.com
+[2026-03-21T22:50:37.145Z]   li (1):
+[2026-03-21T22:50:37.145Z]     - https://www.linkedin.com/company/sepiocyber
+[2026-03-21T22:50:37.145Z]   fb (1):
+[2026-03-21T22:50:37.145Z]     - https://www.facebook.com/cybersepio
+[2026-03-21T22:50:37.145Z]   tw (1):
+[2026-03-21T22:50:37.145Z]     - https://x.com/sepiosys
+[2026-03-21T22:50:37.145Z]   ytp (1):
+[2026-03-21T22:50:37.145Z]     - https://www.youtube.com/@sepio
+[2026-03-21T22:50:37.146Z] Summary: ws:1, tw:1, fb:1, li:1, ytp:1
+[2026-03-21T22:50:37.147Z] Saved final result to result.json
+[2026-03-21T22:50:37.147Z] Override fields: ws, li, fb, tw, ytp
+[2026-03-21T22:50:37.147Z] Finished at: 2026-03-21T22:50:37.147Z

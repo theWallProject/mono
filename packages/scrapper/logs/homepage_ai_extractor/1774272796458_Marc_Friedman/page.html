@@ -1,0 +1,1287 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript">
+/* <![CDATA[ */
+ var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,initializeOnLoaded:function(o){gform.domLoaded&&gform.scriptsLoaded?o():!gform.domLoaded&&gform.scriptsLoaded?window.addEventListener("DOMContentLoaded",o):document.addEventListener("gform_main_scripts_loaded",o)},hooks:{action:{},filter:{}},addAction:function(o,n,r,t){gform.addHook("action",o,n,r,t)},addFilter:function(o,n,r,t){gform.addHook("filter",o,n,r,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,n){gform.removeHook("action",o,n)},removeFilter:function(o,n,r){gform.removeHook("filter",o,n,r)},addHook:function(o,n,r,t,i){null==gform.hooks[o][n]&&(gform.hooks[o][n]=[]);var e=gform.hooks[o][n];null==i&&(i=n+"_"+e.length),gform.hooks[o][n].push({tag:i,callable:r,priority:t=null==t?10:t})},doHook:function(n,o,r){var t;if(r=Array.prototype.slice.call(r,1),null!=gform.hooks[n][o]&&((o=gform.hooks[n][o]).sort(function(o,n){return o.priority-n.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==n?t.apply(null,r):r[0]=t.apply(null,r)})),"filter"==n)return r[0]},removeHook:function(o,n,t,i){var r;null!=gform.hooks[o][n]&&(r=(r=gform.hooks[o][n]).filter(function(o,n,r){return!!(null!=i&&i!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][n]=r)}}); 
+/* ]]> */
+</script>
+
+	<link rel="pingback" href="https://amzingppc.com/xmlrpc.php">
+
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+
+	<script>var et_site_url='https://amzingppc.com';var et_post_id='793';function et_core_page_resource_fallback(a,b){"undefined"===typeof b&&(b=a.sheet.cssRules&&0===a.sheet.cssRules.length);b&&(a.onerror=null,a.onload=null,a.href?a.href=et_site_url+"/?et_core_page_resource="+a.id+et_post_id:a.src&&(a.src=et_site_url+"/?et_core_page_resource="+a.id+et_post_id))}
+</script>	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+		<!-- Meta Tag Manager -->
+		<meta name="google-site-verification" content="geQJlAWxgiSiC9QqcB4idwsecATTPxvDL6oLRmUYg-c">
+		<!-- / Meta Tag Manager -->
+
+<!-- Search Engine Optimization by Rank Math PRO - https://rankmath.com/ -->
+<title>AMZingPPC: Leading Digital Marketing &amp; PPC Management Agency</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3Ainherit%2C400%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=latin%2Clatin-ext&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3Ainherit%2C400%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=latin%2Clatin-ext&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3Ainherit%2C400%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap" /></noscript>
+<meta name="description" content="Elevate your business with AMZingPPC. Experience top-tier PPC management, Google Ads and Amazon PPC expertise, and a holistic digital marketing approach.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://amzingppc.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AMZingPPC: Leading Digital Marketing &amp; PPC Management Agency">
+<meta property="og:description" content="Elevate your business with AMZingPPC. Experience top-tier PPC management, Google Ads and Amazon PPC expertise, and a holistic digital marketing approach.">
+<meta property="og:url" content="https://amzingppc.com/">
+<meta property="og:site_name" content="AMZing PPC">
+<meta property="og:updated_time" content="2025-03-12T15:44:31-04:00">
+<meta property="article:published_time" content="2019-08-20T09:21:48-04:00">
+<meta property="article:modified_time" content="2025-03-12T15:44:31-04:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AMZingPPC: Leading Digital Marketing &amp; PPC Management Agency">
+<meta name="twitter:description" content="Elevate your business with AMZingPPC. Experience top-tier PPC management, Google Ads and Amazon PPC expertise, and a holistic digital marketing approach.">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="AMZing PPC">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="17 minutes">
+<script type="application/ld+json" class="rank-math-schema-pro">{"@context":"https://schema.org","@graph":[{"@type":["Organization","Person"],"@id":"https://amzingppc.com/#person","name":"AMZing PPC","url":"https://amzingppc.com","logo":{"@type":"ImageObject","@id":"https://amzingppc.com/#logo","url":"https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo-150x80.png","contentUrl":"https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo-150x80.png","caption":"AMZing PPC","inLanguage":"en-US"},"image":{"@id":"https://amzingppc.com/#logo"}},{"@type":"WebSite","@id":"https://amzingppc.com/#website","url":"https://amzingppc.com","name":"AMZing PPC","publisher":{"@id":"https://amzingppc.com/#person"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":"https://amzingppc.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://amzingppc.com/#webpage","url":"https://amzingppc.com/","name":"AMZingPPC: Leading Digital Marketing &amp; PPC Management Agency","datePublished":"2019-08-20T09:21:48-04:00","dateModified":"2025-03-12T15:44:31-04:00","about":{"@id":"https://amzingppc.com/#person"},"isPartOf":{"@id":"https://amzingppc.com/#website"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://amzingppc.com/author/amzing-ppc/","name":"AMZing PPC","url":"https://amzingppc.com/author/amzing-ppc/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/38b0e205a35dd37b51c03be606338df3?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/38b0e205a35dd37b51c03be606338df3?s=96&amp;d=mm&amp;r=g","caption":"AMZing PPC","inLanguage":"en-US"}},{"@type":"Article","headline":"AMZingPPC: Leading Digital Marketing &amp; PPC Management Agency","keywords":"PPC Management Agency","datePublished":"2019-08-20T09:21:48-04:00","dateModified":"2025-03-12T15:44:31-04:00","author":{"@id":"https://amzingppc.com/author/amzing-ppc/","name":"AMZing PPC"},"publisher":{"@id":"https://amzingppc.com/#person"},"description":"Elevate your business with AMZingPPC. Experience top-tier PPC management, Google Ads and Amazon PPC expertise, and a holistic digital marketing approach.","name":"AMZingPPC: Leading Digital Marketing &amp; PPC Management Agency","@id":"https://amzingppc.com/#richSnippet","isPartOf":{"@id":"https://amzingppc.com/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://amzingppc.com/#webpage"}}]}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel="dns-prefetch" href="//cdn.apigateway.co">
+<link rel="dns-prefetch" href="//js.stripe.com">
+<link rel="dns-prefetch" href="//checkout.stripe.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="AMZing PPC » Feed" href="https://amzingppc.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="AMZing PPC » Comments Feed" href="https://amzingppc.com/comments/feed/">
+<meta content="SBC v.1.0" name="generator"><style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id="rank-math-toc-block-style-inline-css" type="text/css">
+.wp-block-rank-math-toc-block nav ol{counter-reset:item}.wp-block-rank-math-toc-block nav ol li{display:block}.wp-block-rank-math-toc-block nav ol li:before{content:counters(item, ".") ". ";counter-increment:item}
+
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="affwp-forms-css" href="https://amzingppc.com/wp-content/plugins/affiliate-wp/assets/css/forms.min.css?ver=2.5.6" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="stripe-checkout-button-css" href="https://amzingppc.com/wp-content/cache/min/1/v3/checkout/button.css?ver=1773224609" type="text/css" media="all">
+<link rel="stylesheet" id="simpay-public-css" href="https://amzingppc.com/wp-content/plugins/wp-simple-pay-pro-3/includes/core/assets/css/simpay-public.min.css?ver=4.8.0" type="text/css" media="all">
+<link rel="stylesheet" id="simpay-public-pro-css" href="https://amzingppc.com/wp-content/plugins/wp-simple-pay-pro-3/includes/pro/assets/css/simpay-public-pro.min.css?ver=4.8.0" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="parent-style-css" href="https://amzingppc.com/wp-content/cache/min/1/wp-content/themes/Divi/style.css?ver=1773224609" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="divi-style-css" href="https://amzingppc.com/wp-content/cache/min/1/wp-content/themes/AMZing%20PPC/style.css?ver=1773224609" type="text/css" media="all">
+
+<link data-minify="1" rel="stylesheet" id="mm-compiled-options-mobmenu-css" href="https://amzingppc.com/wp-content/cache/min/1/wp-content/uploads/dynamic-mobmenu.css?ver=1773224609" type="text/css" media="all">
+
+<link rel="stylesheet" id="gforms_reset_css-css" href="https://amzingppc.com/wp-content/plugins/gravityforms/legacy/css/formreset.min.css?ver=2.8.18" type="text/css" media="all">
+<link rel="stylesheet" id="gforms_formsmain_css-css" href="https://amzingppc.com/wp-content/plugins/gravityforms/legacy/css/formsmain.min.css?ver=2.8.18" type="text/css" media="all">
+<link rel="stylesheet" id="gforms_ready_class_css-css" href="https://amzingppc.com/wp-content/plugins/gravityforms/legacy/css/readyclass.min.css?ver=2.8.18" type="text/css" media="all">
+<link rel="stylesheet" id="gforms_browsers_css-css" href="https://amzingppc.com/wp-content/plugins/gravityforms/legacy/css/browsers.min.css?ver=2.8.18" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="dashicons-css" href="https://amzingppc.com/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1773224609" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://amzingppc.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.27.6" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-277641-css" href="https://amzingppc.com/wp-content/uploads/elementor/css/post-277641.css?ver=1773224771" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="cssmobmenu-icons-css" href="https://amzingppc.com/wp-content/cache/min/1/wp-content/plugins/mobile-menu/includes/css/mobmenu-icons.css?ver=1773224609" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="cssmobmenu-css" href="https://amzingppc.com/wp-content/cache/min/1/wp-content/plugins/mobile-menu/includes/css/mobmenu.css?ver=1773224609" type="text/css" media="all">
+
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-widget-id="879ef527-090e-11f0-b065-c22361f45edd" defer="" src="https://amzingppc.com/wp-content/cache/min/1/webchat-client..prod/sdk.js?ver=1742996697" id="web-chat-widget-script-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<script type="text/javascript" id="jquery-cookie-js-extra">
+/* <![CDATA[ */
+var affwp_scripts = {"ajaxurl":"https:\/\/amzingppc.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/plugins/affiliate-wp/assets/js/jquery.cookie.min.js?ver=1.4.0" id="jquery-cookie-js" defer=""></script>
+<script type="text/javascript" id="affwp-tracking-js-extra">
+/* <![CDATA[ */
+var affwp_debug_vars = {"integrations":{"stripe":"Stripe (through WP Simple Pay)"},"version":"2.5.6","currency":"USD"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/plugins/affiliate-wp/assets/js/tracking.min.js?ver=2.5.6" id="affwp-tracking-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/themes/Divi/core/admin/js/es6-promise.auto.min.js?ver=6.7.5" id="es6-promise-js" defer=""></script>
+<script type="text/javascript" id="et-core-api-spam-recaptcha-js-extra">
+/* <![CDATA[ */
+var et_core_api_spam_recaptcha = {"site_key":"","page_action":{"action":"amzingppc_com"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/cache/min/1/wp-content/themes/Divi/core/admin/js/recaptcha.js?ver=1742996697" id="et-core-api-spam-recaptcha-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer="defer" src="https://amzingppc.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.8.18" id="gform_json-js"></script>
+<script type="text/javascript" id="gform_gravityforms-js-extra">
+/* <![CDATA[ */
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https:\/\/amzingppc.com\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/amzingppc.com\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","version_hash":"95e27406bf6623150b6c53055e422dfd","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+var gform_i18n = {"datepicker":{"days":{"monday":"Mo","tuesday":"Tu","wednesday":"We","thursday":"Th","friday":"Fr","saturday":"Sa","sunday":"Su"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
+var gf_legacy_multi = {"6":"1"};
+var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled"},"vars":{"images_url":"https:\/\/amzingppc.com\/wp-content\/plugins\/gravityforms\/images"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="gform_gravityforms-js-before">
+/* <![CDATA[ */
+
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer="defer" src="https://amzingppc.com/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.8.18" id="gform_gravityforms-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer="defer" src="https://amzingppc.com/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=50c7bea9c2320e16728e44ae9fde5f26" id="gform_gravityforms_utils-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/cache/min/1/wp-content/plugins/mobile-menu/includes/js/mobmenu.js?ver=1742996697" id="mobmenujs-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://amzingppc.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://amzingppc.com/wp-json/wp/v2/pages/793"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://amzingppc.com/xmlrpc.php?rsd">
+<link rel="shortlink" href="https://amzingppc.com/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://amzingppc.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Famzingppc.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://amzingppc.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Famzingppc.com%2F&amp;format=xml">
+<meta name="viewport" content="width=device-width, minimum-scale=1">		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		var AFFWP = AFFWP || {};
+		AFFWP.referral_var = 'ref';
+		AFFWP.expiration = 1;
+		AFFWP.debug = 0;
+
+
+		AFFWP.referral_credit_last = 0;
+		</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><link rel="shortcut icon" href="https://amzingppc.com/files/amzing-ppc_amazon-campaign-management_favicon.png"><meta name="generator" content="Elementor 3.27.6; features: e_font_icon_svg, additional_custom_breakpoints, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="stylesheet" id="et-core-unified-793-cached-inline-styles" href="https://amzingppc.com/wp-content/et-cache/793/et-core-unified-793-17727493362508.min.css" onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)"><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	
+	
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P5JJZ54');</script>
+<!-- End Google Tag Manager -->
+	
+<!-- Global site tag (gtag.js) - Google Analytics Arturo -->
+<script type="rocketlazyloadscript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-216690049-1"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-216690049-1');
+</script>
+
+<meta name="theme-color" content="#263238">
+
+<meta name="google-site-verification" content="gOAWeDR6tg05QZWAb28frueZ4A16SG70pXTWuEZGzg0">
+	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Slick Slider -->
+	<link data-minify="1" rel="stylesheet" type="text/css" href="https://amzingppc.com/wp-content/cache/min/1/ajax/libs/slick-carousel/1.8.1/slick.css?ver=1773224609">
+	<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/cache/min/1/ajax/libs/slick-carousel/1.8.1/slick.min.js?ver=1742996697" defer=""></script>	
+	
+<link href="https://www.googletagmanager.com" rel="preconnect"><link href="https://js.stripe.com" rel="preconnect"></head>
+<body data-rsssl="1" class="home page-template-default page page-id-793 wp-custom-logo et_button_icon_visible et_button_no_icon et_button_custom_icon et_pb_button_helper_class et_transparent_nav et_fixed_nav et_show_nav et_secondary_nav_enabled et_primary_nav_dropdown_animation_expand et_secondary_nav_dropdown_animation_slide et_header_style_left et_pb_footer_columns4 et_cover_background et_pb_gutter osx et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db et_minified_js et_minified_css mob-menu-slideout-over elementor-default elementor-kit-277641 elementor-page elementor-page-793">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5JJZ54"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+	<div id="page-container">
+
+					<div id="top-header">
+			<div class="container clearfix">
+
+			
+				<div id="et-info">
+									<span id="et-info-phone">855-534-3768</span>
+				
+									<a href="mailto:hello@amzingppc.com"><span id="et-info-email">hello@amzingppc.com</span></a>
+				
+								</div> <!-- #et-info -->
+
+			
+				<div id="et-secondary-menu">
+								</div> <!-- #et-secondary-menu -->
+
+			</div> <!-- .container -->
+		</div> <!-- #top-header -->
+		
+	
+			<header id="main-header" data-height-onload="60">
+			<div class="container clearfix et_menu_container">
+							<div class="logo_container">
+					<span class="logo_helper"></span>
+					<a href="https://amzingppc.com/">
+						<img src="https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo.png" alt="AMZing PPC" id="logo" data-height-percentage="46">
+					</a>
+					
+					<!------------- Comment out Company Branch		
+					<div class="company-branch">
+						<span class=''>A <a href='http://simchabrownconsulting.com'>Simcha Brown Consulting, LLC</a > Company</span>
+					</div>
+					------------- End Comment out Company Branch -->
+					
+				</div>
+							<div id="et-top-navigation" data-height="60" data-fixed-height="60">
+											<nav id="top-menu-nav">
+						<ul id="top-menu" class="nav"><li id="menu-item-1231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1231"><a href="https://amzingppc.com/services/">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-1235" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1235"><a href="https://amzingppc.com/services#services-ppc">PPC Advertising</a>
+	<ul class="sub-menu">
+		<li id="menu-item-277234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277234"><a href="https://amzingppc.com/services/amazon-ads/">Amazon Services</a></li>
+		<li id="menu-item-277235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277235"><a href="https://amzingppc.com/services/google-ads/">Google Services</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1239"><a href="https://amzingppc.com/services/web/">Web Design Solutions</a></li>
+	<li id="menu-item-1237" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1237"><a href="https://amzingppc.com/services#services-sm">Social Media Advertising</a></li>
+	<li id="menu-item-277712" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277712"><a href="https://amzingppc.com/remove-negative-google-reviews/">Remove Negative Reviews</a></li>
+	<li id="menu-item-277769" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277769"><a href="https://amzingppc.com/local-listing-seo/">Local Listing SEO</a></li>
+</ul>
+</li>
+<li id="menu-item-1017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="https://amzingppc.com/about-us/">About Us</a></li>
+<li id="menu-item-1229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1229"><a href="https://amzingppc.com/contact/">Contact Us</a></li>
+<li id="menu-item-6006" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6006"><a href="https://amzingppc.com/blog/">Blog</a></li>
+<li id="menu-item-1257" class="menu-btn-featured menu-item menu-item-type-post_type menu-item-object-page menu-item-1257"><a href="https://amzingppc.com/onboarding/">Get Started</a></li>
+</ul>						</nav>
+					
+					
+					
+					
+					<div id="et_mobile_nav_menu">
+				<div class="mobile_nav closed">
+					<span class="select_page">Select Page</span>
+					<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+				</div>
+			</div>				</div> <!-- #et-top-navigation -->
+			</div> <!-- .container -->
+			<div class="et_search_outer">
+				<div class="container et_search_form_container">
+					<form role="search" method="get" class="et-search-form" action="https://amzingppc.com/">
+					<input type="search" class="et-search-field" placeholder="Search …" value="" name="s" title="Search for:">					</form>
+					<span class="et_close_search_field"></span>
+				</div>
+			</div>
+		</header> <!-- #main-header -->
+			<div id="et-main-area">
+	
+<div id="main-content">
+
+
+			
+				<article id="post-793" class="post-793 page type-page status-publish hentry">
+
+				
+					<div class="entry-content">
+					<div id="et-boc" class="et-boc">
+			
+		<div class="et-l et-l--post">
+			<div class="et_builder_inner_content et_pb_gutters3">
+		<div id="homepage_hero" class="et_pb_section et_pb_section_0 et_pb_fullwidth_section et_section_regular section_has_divider et_pb_bottom_divider">
+				
+				
+				
+				
+					<section class="et_pb_module et_pb_fullwidth_header et_pb_fullwidth_header_0 et_pb_header_with_image et_pb_text_align_left et_pb_bg_layout_dark">
+				
+				
+				<div class="et_pb_fullwidth_header_container left">
+					<div class="header-content-container center">
+					<div class="header-content">
+						
+						
+						
+						<div class="et_pb_header_content_wrapper"><p><span class="et_pb_module_header">Your Online Presence<br><span style="font-size: 1.5em;">Can Be AMAZING</span></span></p>
+<h1 class="et_pb_fullwidth_header_subhead">Sales-driven &amp; data oriented digital marketing</h1>
+
+                <div class="gf_browser_chrome gform_wrapper gform_legacy_markup_wrapper gform-theme--no-framework form_cta-email_wrapper" data-form-theme="legacy" data-form-index="0" id="gform_wrapper_6"><div id="gf_6" class="gform_anchor" tabindex="-1"></div><form method="post" enctype="multipart/form-data" target="gform_ajax_frame_6" id="gform_6" class="form_cta-email" action="/#gf_6" data-formid="6" novalidate="">
+                        <div class="gform-body gform_body"><ul id="gform_fields_6" class="gform_fields top_label form_sublabel_below description_below validation_below"><li id="field_6_1" class="gfield gfield--type-email form_cta-email--field field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible" data-js-reload="field_6_1"><label class="gfield_label gform-field-label" for="input_6_1">Email</label><div class="ginput_container ginput_container_email">
+                            <input name="input_1" id="input_6_1" type="email" value="" class="large" tabindex="6" placeholder="Enter your email to" aria-invalid="false">
+                        </div></li><li id="field_6_2" class="gfield gfield--type-hidden gform_hidden field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_6_2"><div class="ginput_container ginput_container_text"><input name="input_2" id="input_6_2" type="hidden" class="gform_hidden" aria-invalid="false" value=""></div></li><li id="field_6_3" class="gfield gfield--type-honeypot gform_validation_container field_sublabel_below gfield--has-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_6_3"><label class="gfield_label gform-field-label" for="input_6_3">Name</label><div class="ginput_container"><input name="input_3" id="input_6_3" type="text" value="" autocomplete="new-password"></div><div class="gfield_description" id="gfield_description_6_3">This field is for validation purposes and should be left unchanged.</div></li></ul></div>
+        <div class="gform_footer top_label"> <input type="submit" id="gform_submit_button_6" class="gform_button button" value="Learn How" tabindex="7" onclick="if(window[&quot;gf_submitting_6&quot;]){return false;}  if( !jQuery(&quot;#gform_6&quot;)[0].checkValidity || jQuery(&quot;#gform_6&quot;)[0].checkValidity()){window[&quot;gf_submitting_6&quot;]=true;}  " onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_6&quot;]){return false;} if( !jQuery(&quot;#gform_6&quot;)[0].checkValidity || jQuery(&quot;#gform_6&quot;)[0].checkValidity()){window[&quot;gf_submitting_6&quot;]=true;}  jQuery(&quot;#gform_6&quot;).trigger(&quot;submit&quot;,[true]); }"> <input type="hidden" name="gform_ajax" value="form_id=6&amp;title=&amp;description=&amp;tabindex=6&amp;theme=legacy">
+            <input type="hidden" class="gform_hidden" name="is_submit_6" value="1">
+            <input type="hidden" class="gform_hidden" name="gform_submit" value="6">
+            
+            <input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
+            <input type="hidden" class="gform_hidden" name="state_6" value="WyJbXSIsImJlOTI4YWNjZDExYTYzYmQ2M2EzNGVlZTY1NjBjYTY2Il0=">
+            <input type="hidden" class="gform_hidden" name="gform_target_page_number_6" id="gform_target_page_number_6" value="0">
+            <input type="hidden" class="gform_hidden" name="gform_source_page_number_6" id="gform_source_page_number_6" value="1">
+            <input type="hidden" name="gform_field_values" value="">
+            
+        </div>
+                        </form>
+                        </div>
+		                <iframe style="display:none;width:0px;height:0px;" src="about:blank" name="gform_ajax_frame_6" id="gform_ajax_frame_6" title="This iframe contains the logic required to handle Ajax powered Gravity Forms."></iframe>
+		                <script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {gformInitSpinner( 6, 'https://amzingppc.com/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery('#gform_ajax_frame_6').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_6');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_6').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_6').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_6').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_6').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */ jQuery(document).scrollTop(jQuery('#gform_wrapper_6').offset().top - mt); }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_6').val();gformInitSpinner( 6, 'https://amzingppc.com/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery(document).trigger('gform_page_loaded', [6, current_page]);window['gf_submitting_6'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}jQuery('#gform_wrapper_6').replaceWith(confirmation_content);jQuery(document).scrollTop(jQuery('#gf_6').offset().top - mt);jQuery(document).trigger('gform_confirmation_loaded', [6]);window['gf_submitting_6'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_6').text());}else{jQuery('#gform_6').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger("gform_pre_post_render", [{ formId: "6", currentPage: "current_page", abort: function() { this.preventDefault(); } }]);                if (event && event.defaultPrevented) {                return;         }        const gformWrapperDiv = document.getElementById( "gform_wrapper_6" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_6";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_6" );        let postRenderFired = false;                function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            jQuery( document ).trigger( 'gform_post_render', [6, current_page] );            gform.utils.trigger( { event: 'gform/postRender', native: false, data: { formId: 6, currentPage: current_page } } );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );} ); 
+/* ]]&gt; */
+});</script>
+</div>
+						
+					</div>
+				</div>
+					<div class="header-image-container center">
+					<div class="header-image">
+					<img decoding="async" src="https://amzingppc.com/files/laptop2-tiny-2.png" alt="" title="" data-lazy-src="https://amzingppc.com/files/laptop2-tiny-2.png" data-ll-status="error" class="entered error"><noscript><img decoding="async" src="https://amzingppc.com/files/laptop2-tiny-2.png" alt="" title="" /></noscript>
+					</div>
+				</div>
+				</div>
+				<div class="et_pb_fullwidth_header_overlay"></div>
+				<div class="et_pb_fullwidth_header_scroll"></div>
+			</section>
+				
+				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_1 et_section_regular">
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_0">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_code et_pb_code_0">
+				
+				
+				<div class="et_pb_code_inner"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "AMZing PPC",
+  "image": "https://amzingppc.com/files/amzing-ppc_amazon-campaign-management_favicon.png",
+  "@id": "https://amzingppc.com/?local=true&location=&utm_source=organic&utm_medium=gmb",
+  "url": "https://amzingppc.com/?local=true&location=&utm_source=organic&utm_medium=gmb",
+  "telephone": "(855) 534-3768",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "440 9th Avenue, Manhattan",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "postalCode": "10001",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.753835480646224,
+    "longitude": -73.9955705315163
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "18:00"
+  } 
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AMZing PPC",
+  "alternateName": "AMZing PPC - Marketing Agency",
+  "url": "https://amzingppc.com/?local=true&location=&utm_source=organic&utm_medium=gmb",
+  "logo": "https://amzingppc.com/files/amzing-ppc_amazon-campaign-management_logo.png"
+}
+</script></div>
+			</div> <!-- .et_pb_code --><div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h2>Strategic digital marketing to skyrocket your sales</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_1  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>Acquiring traffic through sponsored traffic (PPC) has now become essential to stay visible in the competitive online world.</p>
+<p>Our proven strategies help you convert:</p></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_1">
+				<div class="et_pb_column et_pb_column_1_3 et_pb_column_1  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_0 mi mi-target  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Hyper Targeted Audience</span></h4>
+						<div class="et_pb_blurb_description"><p>High-intent traffic is key to running sponsored campaigns profitably. We’ll generate scalable, hyper-targeted traffic, more likely to convert on the first visit.</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_2  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_1 mi mi-check  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Conversion-Oriented Sites</span></h4>
+						<div class="et_pb_blurb_description"><p>Setting up campaigns to drive traffic to your website or products is only half the battle. We’ll design and execute landing pages that convey your message and meet your conversion goals.</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_button_module_wrapper et_pb_button_0_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" href="https://amzingppc.com/services/" target="_blank">Know more</a>
+			</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_3  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_2 mi mi-stats  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Effective Tracking &amp; Reporting</span></h4>
+						<div class="et_pb_blurb_description"><p>Digital marketing is only effective if you can measure results. Whether it’s a sale, lead or subscription, we’ll help you track every single conversion and provide insights on your KPIs.</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_2 et_section_regular section_has_divider et_pb_bottom_divider">
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_2">
+				<div class="et_pb_column et_pb_column_1_3 et_pb_column_4  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_number_counter et_pb_number_counter_0  et_pb_text_align_center et_pb_bg_layout_light et_pb_with_title" data-number-value="15000000000" data-number-separator=",">
+				
+				
+				<div class="percent"><p><span class="percent-value"></span><span class="percent-sign"></span></p></div>
+				<h3 class="title">in annual revenue</h3>
+			</div><!-- .et_pb_number_counter -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_5  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_number_counter et_pb_number_counter_1  et_pb_text_align_center et_pb_bg_layout_light et_pb_with_title" data-number-value="200" data-number-separator="">
+				
+				
+				<div class="percent"><p><span class="percent-value"></span><span class="percent-sign"></span></p></div>
+				<h3 class="title">satisfied clients</h3>
+			</div><!-- .et_pb_number_counter -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_6  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_number_counter et_pb_number_counter_2  et_pb_text_align_center et_pb_bg_layout_light et_pb_with_title" data-number-value="5" data-number-separator="">
+				
+				
+				<div class="percent"><p><span class="percent-value"></span><span class="percent-sign"></span></p></div>
+				<h3 class="title">COUNTRIES</h3>
+			</div><!-- .et_pb_number_counter -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_3 et_pb_with_background et_section_regular section_has_divider et_pb_bottom_divider">
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_3">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_7  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_2  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">How we achieve results</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_3  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>No business is the same. Whether you’re running a small business or a global network, we’ll architect unique solutions, tailored to your business. We combine:</p></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_4">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_8  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_4  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h3>Amazon Ads</h3></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_5  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>We’ll bring your listings to the top of search results with budget-conscious &amp; sales-oriented listing optimizations and campaign management.</p></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_button_module_wrapper et_pb_button_1_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_1 et_pb_bg_layout_light" href="https://amzingppc.com/services/amazon-ads/" target="_blank">Amazon PPC Services</a>
+			</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_2 et_pb_column_9  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_0">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="amazon ads" data-lazy-src="https://amzingppc.com/files/amazon-ads.png"><noscript><img decoding="async" src="https://amzingppc.com/files/amazon-ads.png" alt="" title="amazon ads" /></noscript></span>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_5">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_10 carousel--item-third  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_3 mi mi-photo  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Sponsored Products</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_4 mi mi-class  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Sponsored Brands*</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_5 mi mi-image  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Sponsored Display*</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_6">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_11  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_6  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>*When available. You must be enrolled on Amazon Brand Program.</p></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_7">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_12  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_1">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="" data-lazy-src="https://amzingppc.com/files/main-ggl-tiny.jpg"><noscript><img decoding="async" src="https://amzingppc.com/files/main-ggl-tiny.jpg" alt="" title="" /></noscript></span>
+			</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_2 et_pb_column_13  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_7  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Google Ads</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_8  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>We’ll help potential customers find your products or services at the exact moment they need it with conversion oriented campaigns.</p></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_button_module_wrapper et_pb_button_2_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_2 et_pb_bg_layout_light" href="https://amzingppc.com/services/google-ads/" target="_blank">Google Ads Management</a>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_8">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_14 carousel--item-third  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_6 mi mi-cart  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Shopping</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_7 mi mi-search  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Search</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_8 mi mi-img  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Display</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_9 mi mi-video  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>YouTube</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_9">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_15  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_9  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Social Media Advertising</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_10  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>We’ll increase your brand awareness by engaging your target audience where they hang on their spare time.</p></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_button_module_wrapper et_pb_button_3_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_3 et_pb_bg_layout_light" href="https://amzingppc.com/services#services-sm" target="_blank">Paid Social Services</a>
+			</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_2 et_pb_column_16  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_2">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="" data-lazy-src="https://amzingppc.com/files/main-social-t.png"><noscript><img decoding="async" src="https://amzingppc.com/files/main-social-t.png" alt="" title="" /></noscript></span>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_10">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_17 carousel--item-third  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_10 mi mi-face  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Facebook</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_11 mi mi-ebc  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Instagram</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_12 mi mi-star-dev  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Pinterest</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_13 mi mi-balance  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>LinkedIn</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_11">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_18  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_3">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="" data-lazy-src="https://amzingppc.com/files/main-web-tiny.jpg"><noscript><img decoding="async" src="https://amzingppc.com/files/main-web-tiny.jpg" alt="" title="" /></noscript></span>
+			</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_2 et_pb_column_19  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_11  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Web Design &amp; Optimization</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_12  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>We’ll build a responsive, user friendly web experience that matches your brand personality and meets your conversion goals.</p></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_button_module_wrapper et_pb_button_4_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_4 et_pb_bg_layout_light" href="https://amzingppc.com/services/web/">Website Design Services</a>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_12">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_20 carousel--item-third  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_14 mi mi-basket  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Shopify</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_15 mi mi-dvr  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>WordPress</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_module et_pb_blurb et_pb_blurb_16 mi mi-code  et_pb_text_align_center  et_pb_blurb_position_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">N</span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>HTML5 + CSS</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_4 et_pb_with_background et_section_regular">
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_13">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_21  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_13  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Why choose us?</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_14  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p>Our passion and sole focus is to help online businesses grow, and our core values make us stand out:</p></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_14">
+				<div class="et_pb_column et_pb_column_1_3 et_pb_column_22  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_17 mi mi-person  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Data driven minds (not machines) optimizing every account</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_23  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_18 mi mi-star  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Complete honesty in our assessments and results</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_24  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_19 mi mi-money  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						
+						<div class="et_pb_blurb_description"><p>Cost-effective management for small or corporate budgets alike</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_5 et_pb_with_background et_section_regular section_has_divider et_pb_bottom_divider et_pb_top_divider">
+				<div class="et_pb_top_inside_divider et-no-transition"></div>
+				
+				
+				
+					<div class="et_pb_row et_pb_row_15">
+				<div class="et_pb_column et_pb_column_2_5 et_pb_column_25  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_15  et_pb_text_align_center et_pb_bg_layout_dark">
+				
+				
+				<div class="et_pb_text_inner"><h2>Proven MOM Growth</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_16  et_pb_text_align_center et_pb_bg_layout_dark">
+				
+				
+				<div class="et_pb_text_inner"><p>This is how we grow businesses from nothing to off-the-charts success.</p></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_3_5 et_pb_column_26 carousel--item-single  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_4">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="" data-lazy-src="https://amzingppc.com/files/proven04-tiny.png"><noscript><img decoding="async" src="https://amzingppc.com/files/proven04-tiny.png" alt="" title="" /></noscript></span>
+			</div><div class="et_pb_module et_pb_image et_pb_image_5">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="" data-lazy-src="https://amzingppc.com/files/proven02-tiny.png"><noscript><img decoding="async" src="https://amzingppc.com/files/proven02-tiny.png" alt="" title="" /></noscript></span>
+			</div><div class="et_pb_module et_pb_image et_pb_image_6">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="" data-lazy-src="https://amzingppc.com/files/proven03-tiny.png"><noscript><img decoding="async" src="https://amzingppc.com/files/proven03-tiny.png" alt="" title="" /></noscript></span>
+			</div><div class="et_pb_module et_pb_image et_pb_image_7">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="" data-lazy-src="https://amzingppc.com/files/proven01-tiny.png"><noscript><img decoding="async" src="https://amzingppc.com/files/proven01-tiny.png" alt="" title="" /></noscript></span>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
+			</div> <!-- .et_pb_section --><div id="cta" class="et_pb_section et_pb_section_7 et_pb_with_background et_section_regular">
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_16">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_27  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_17  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">PROVEN RESULTS</h2>
+<p>Proven MOM growth.&nbsp;<span style="font-weight: 400;">Our results speak for them selves.&nbsp;</span><span style="font-weight: 400;">Ready to be part of the AMZing PPC family? </span></p></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_2 et_pb_column_28  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_8">
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="MAC COMPUTER 1" data-lazy-src="https://amzingppc.com/files/MAC-COMPUTER-1.png"><noscript><img decoding="async" src="https://amzingppc.com/files/MAC-COMPUTER-1.png" alt="" title="MAC COMPUTER 1" /></noscript></span>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section -->		</div><!-- .et_builder_inner_content -->
+	</div><!-- .et-l -->
+	
+			
+		</div><!-- #et-boc -->
+							</div> <!-- .entry-content -->
+
+				
+				</article> <!-- .et_pb_post -->
+
+			
+
+</div> <!-- #main-content -->
+
+
+			<footer id="main-footer">
+				
+<div class="container">
+    <div id="footer-widgets" class="clearfix">
+		<div class="footer-widget"><div id="media_image-2" class="fwidget et_pb_widget widget_media_image"><a href="/"><img width="300" height="57" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%2057'%3E%3C/svg%3E" class="image wp-image-139  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" data-lazy-srcset="https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo-300x57.png 300w, https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo.png 424w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo-300x57.png"><noscript><img width="300" height="57" src="https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo-300x57.png" class="image wp-image-139  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" srcset="https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo-300x57.png 300w, https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo.png 424w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></a></div> <!-- end .fwidget --><div id="text-2" class="fwidget et_pb_widget widget_text"><h4 class="title">About Us</h4>			<div class="textwidget"><p>We are all about digital marketing. We are passionate about turning Sponsored Campaigns and Websites into profitable businesses.</p>
+</div>
+		</div> <!-- end .fwidget --></div> <!-- end .footer-widget --><div class="footer-widget"><div id="custom_html-2" class="widget_text fwidget et_pb_widget widget_custom_html"><h4 class="title">Our Offices</h4><div class="textwidget custom-html-widget"><h5>United States</h5>
+<ul>
+	<li>440 9th Avenue,<br>Manhattan, NY 10018</li>
+	<li>
+		3479 NE 163rd St, North Miami Beach, FL 33160
+	</li>
+</ul> 
+<h5>Portugal</h5>
+<ul>
+	<li>Av. da Liberdade 229, 1250-096 Lisboa</li>
+</ul>
+<h5>Spain</h5>
+<ul>
+	<li>Avinguda Diagonal, 371, 08037 Barcelona, Espanha</li>
+</ul>
+<h5>Colombia</h5>
+<ul>
+	<li>Calle 93 # 19-55 - 
+Bogotá 110221</li>
+</ul></div></div> <!-- end .fwidget --></div> <!-- end .footer-widget --><div class="footer-widget"><div id="nav_menu-4" class="fwidget et_pb_widget widget_nav_menu"><h4 class="title">Our Services</h4><div class="menu-services-container"><ul id="menu-services" class="menu"><li id="menu-item-1270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1270"><a href="https://amzingppc.com/services#services-ppc">PPC Advertising</a>
+<ul class="sub-menu">
+	<li id="menu-item-1414" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1414"><a href="https://amzingppc.com/?page_id=1365">Amazon</a></li>
+	<li id="menu-item-1415" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1415"><a href="https://amzingppc.com/?page_id=1360">Google</a></li>
+</ul>
+</li>
+<li id="menu-item-1265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1265"><a href="https://amzingppc.com/services/web/">Web Design Solutions</a></li>
+<li id="menu-item-1271" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1271"><a href="https://amzingppc.com/services#services-sm">Social Media Advertising</a></li>
+</ul></div></div> <!-- end .fwidget --></div> <!-- end .footer-widget --><div class="footer-widget"><div id="nav_menu-3" class="fwidget et_pb_widget widget_nav_menu"><h4 class="title">Quick Links</h4><div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-1441" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1441"><a href="https://amzingppc.com/onboarding/">Get Started</a></li>
+<li id="menu-item-1442" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1442"><a href="https://amzingppc.com/contact/">Contact Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="tel:18555343768">Call</a></li>
+	<li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="mailto:hello@amzingppc.com">Email</a></li>
+</ul>
+</li>
+<li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="https://amzingppc.com/terms-conditions/">Terms &amp; Conditions</a></li>
+<li id="menu-item-97" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="https://amzingppc.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-4193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4193"><a href="https://amzingppc.com/refund-policy/">Refund Policy</a></li>
+</ul></div></div> <!-- end .fwidget --></div> <!-- end .footer-widget -->    </div> <!-- #footer-widgets -->
+</div>    <!-- .container -->
+
+		
+				<div id="footer-bottom">
+					<div class="container clearfix">
+										
+						<p id="footer-info"><script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+							jQuery(document).ready( function($) {
+								$("#footer-info").html("&copy; " + (new Date).getFullYear() + " AMZing PPC");
+							});
+							});</script></p>
+						
+					</div>	<!-- .container -->
+				</div>
+			</footer> <!-- #main-footer -->
+		</div> <!-- #et-main-area -->
+
+
+	</div> <!-- #page-container -->
+
+	<div class="mobmenu-overlay"></div><div class="mob-menu-header-holder mobmenu" data-menu-display="mob-menu-slideout-over" data-open-icon="down-open" data-close-icon="up-open"><div class="mobmenul-container"><a href="#" class="mobmenu-left-bt mobmenu-trigger-action" data-panel-target="mobmenu-left-panel" aria-label="Left Menu Button"><i class="mob-icon-menu mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i></a></div><div class="mob-menu-logo-holder"><a href="https://amzingppc.com" class="headertext"><img class="mob-standard-logo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="AMZing PPC" data-lazy-src="https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo.png"><noscript><img class="mob-standard-logo"   src="https://amzingppc.com/wp-content/uploads/amzing-ppc_amazon-campaign-management_logo.png"  alt="AMZing PPC"></noscript><img class="mob-retina-logo" src="" alt="Logo Header Menu"></a></div><div class="mobmenur-container"><a href="https://amzingppc.com/onboarding/" target="_self" id="mobmenu-center"><i class="mob-icon-menu mob-menu-icon"></i><i class="mob-icon-cancel mob-cancel-button"></i><span class="right-menu-icon-text">Get Started</span></a></div></div>
+		<div class="mobmenu-left-alignment mobmenu-panel mobmenu-left-panel  ">
+		<a href="#" class="mobmenu-left-bt" aria-label="Left Menu Button"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+
+		<div class="mobmenu-content">
+		<div class="menu-full-site-main-menu-container"><ul id="mobmenuleft" class="wp-mobile-menu" role="menubar" aria-label="Main navigation for mobile devices"><li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1231"><a href="https://amzingppc.com/services/" role="menuitem" class="">Services</a>
+<ul role="menu" class="sub-menu ">
+	<li role="none" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1235"><a href="https://amzingppc.com/services#services-ppc" role="menuitem" class="">PPC Advertising</a>
+	<ul role="menu" class="sub-menu ">
+		<li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277234"><a href="https://amzingppc.com/services/amazon-ads/" role="menuitem" class="">Amazon Services</a></li>		<li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277235"><a href="https://amzingppc.com/services/google-ads/" role="menuitem" class="">Google Services</a></li>	</ul>
+</li>	<li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1239"><a href="https://amzingppc.com/services/web/" role="menuitem" class="">Web Design Solutions</a></li>	<li role="none" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1237"><a href="https://amzingppc.com/services#services-sm" role="menuitem" class="">Social Media Advertising</a></li>	<li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277712"><a href="https://amzingppc.com/remove-negative-google-reviews/" role="menuitem" class="">Remove Negative Reviews</a></li>	<li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277769"><a href="https://amzingppc.com/local-listing-seo/" role="menuitem" class="">Local Listing SEO</a></li></ul>
+</li><li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="https://amzingppc.com/about-us/" role="menuitem" class="">About Us</a></li><li role="none" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1229"><a href="https://amzingppc.com/contact/" role="menuitem" class="">Contact Us</a></li><li role="none" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6006"><a href="https://amzingppc.com/blog/" role="menuitem" class="">Blog</a></li><li role="none" class="menu-btn-featured menu-item menu-item-type-post_type menu-item-object-page menu-item-1257"><a href="https://amzingppc.com/onboarding/" role="menuitem" class="">Get Started</a></li></ul></div>
+		</div><div class="mob-menu-left-bg-holder"></div></div>
+
+						<div class="mobmenu-right-alignment mobmenu-panel mobmenu-right-panel  ">
+				<a href="#" class="mobmenu-right-bt" aria-label="Right Menu Button"><i class="mob-icon-cancel mob-cancel-button"></i></a>
+					<div class="mobmenu-content">
+			
+			</div><div class="mob-menu-right-bg-holder"></div></div>
+
+					<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://js.stripe.com/v3/" id="sandhills-stripe-js-v3-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/plugins/wp-simple-pay-pro-3/includes/core/assets/js/vendor/accounting.min.js?ver=4.8.0" id="simpay-accounting-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js" defer=""></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/wp-util.min.js?ver=6.7.5" id="wp-util-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/backbone.min.js?ver=1.6.0" id="backbone-js" defer=""></script>
+<script type="text/javascript" id="wp-api-request-js-extra">
+/* <![CDATA[ */
+var wpApiSettings = {"root":"https:\/\/amzingppc.com\/wp-json\/","nonce":"1e3e558755","versionString":"wp\/v2\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/api-request.min.js?ver=6.7.5" id="wp-api-request-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/wp-api.min.js?ver=6.7.5" id="wp-api-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/dist/a11y.min.js?ver=3156534cc54473497e14" id="wp-a11y-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="simpay-shared-js-extra">
+/* <![CDATA[ */
+var spGeneral = {"strings":{"currency":"USD","currencySymbol":"$","currencyPosition":"left","decimalSeparator":".","thousandSeparator":",","ajaxurl":"https:\/\/amzingppc.com\/wp-admin\/admin-ajax.php","customAmountLabel":"starting at %s","recurringIntervals":{"day":["day","days"],"week":["week","weeks"],"month":["month","months"],"year":["year","years"]},"recurringIntervalDisplay":"%1$s every %2$s %3$s","recurringIntervalDisplayLimitedDiscount":"%1$s every %2$s %3$s for %4$s months then %5$s","recurringIntervalDisplayAutomaticTaxDiscount":"%1$s every %2$s %3$s until coupon expires","recurringIntervalDisplayInvoiceLimit":"%1$d payments of %2$s every %3$s %4$s","recurringIntervalDisplayInvoiceLimitWithCoupon":"%1$d payments of %2$s (for the duration of the coupon) every %3$s %4$s","addressRequired":"Enter address to calculate","addressInvalid":"Please enter a valid address"},"booleans":{"isTestMode":false,"isZeroDecimal":false,"scriptDebug":false},"i18n":{"mediaTitle":"Insert Media","mediaButtonText":"Use Image","couponPercentOffText":"%s off","couponAmountOffText":"%s off"},"integers":{"decimalPlaces":2,"minAmount":1}};
+var spGeneral = {"strings":{"currency":"USD","currencySymbol":"$","currencyPosition":"left","decimalSeparator":".","thousandSeparator":",","ajaxurl":"https:\/\/amzingppc.com\/wp-admin\/admin-ajax.php","customAmountLabel":"starting at %s","recurringIntervals":{"day":["day","days"],"week":["week","weeks"],"month":["month","months"],"year":["year","years"]},"recurringIntervalDisplay":"%1$s every %2$s %3$s","recurringIntervalDisplayLimitedDiscount":"%1$s every %2$s %3$s for %4$s months then %5$s","recurringIntervalDisplayAutomaticTaxDiscount":"%1$s every %2$s %3$s until coupon expires","recurringIntervalDisplayInvoiceLimit":"%1$d payments of %2$s every %3$s %4$s","recurringIntervalDisplayInvoiceLimitWithCoupon":"%1$d payments of %2$s (for the duration of the coupon) every %3$s %4$s","addressRequired":"Enter address to calculate","addressInvalid":"Please enter a valid address"},"booleans":{"isTestMode":false,"isZeroDecimal":false,"scriptDebug":false},"i18n":{"mediaTitle":"Insert Media","mediaButtonText":"Use Image","couponPercentOffText":"%s off","couponAmountOffText":"%s off"},"integers":{"decimalPlaces":2,"minAmount":1}};
+var spGeneral = {"strings":{"currency":"USD","currencySymbol":"$","currencyPosition":"left","decimalSeparator":".","thousandSeparator":",","ajaxurl":"https:\/\/amzingppc.com\/wp-admin\/admin-ajax.php","customAmountLabel":"starting at %s","recurringIntervals":{"day":["day","days"],"week":["week","weeks"],"month":["month","months"],"year":["year","years"]},"recurringIntervalDisplay":"%1$s every %2$s %3$s","recurringIntervalDisplayLimitedDiscount":"%1$s every %2$s %3$s for %4$s months then %5$s","recurringIntervalDisplayAutomaticTaxDiscount":"%1$s every %2$s %3$s until coupon expires","recurringIntervalDisplayInvoiceLimit":"%1$d payments of %2$s every %3$s %4$s","recurringIntervalDisplayInvoiceLimitWithCoupon":"%1$d payments of %2$s (for the duration of the coupon) every %3$s %4$s","addressRequired":"Enter address to calculate","addressInvalid":"Please enter a valid address"},"booleans":{"isTestMode":false,"isZeroDecimal":false,"scriptDebug":false},"i18n":{"mediaTitle":"Insert Media","mediaButtonText":"Use Image","couponPercentOffText":"%s off","couponAmountOffText":"%s off"},"integers":{"decimalPlaces":2,"minAmount":1}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/plugins/wp-simple-pay-pro-3/includes/core/assets/js/simpay-public-shared.min.js?ver=4.8.0" id="simpay-shared-js" defer=""></script>
+<script type="text/javascript" id="simpay-public-js-extra">
+/* <![CDATA[ */
+var simplePayForms = [];
+var simplePayForms = [];
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/plugins/wp-simple-pay-pro-3/includes/core/assets/js/simpay-public.min.js?ver=4.8.0" id="simpay-public-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/plugins/wp-simple-pay-pro-3/includes/pro/assets/js/simpay-public-pro.min.js?ver=4.8.0" id="simpay-public-pro-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/amzingppc.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+/* ]]> */
+</script>
+<script type="text/javascript" id="divi-custom-script-js-extra">
+/* <![CDATA[ */
+var DIVI = {"item_count":"%d Item","items_count":"%d Items"};
+var et_shortcodes_strings = {"previous":"Previous","next":"Next"};
+var et_pb_custom = {"ajaxurl":"https:\/\/amzingppc.com\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/amzingppc.com\/wp-content\/themes\/Divi\/images","builder_images_uri":"https:\/\/amzingppc.com\/wp-content\/themes\/Divi\/includes\/builder\/images","et_frontend_nonce":"e90a66333a","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"c59bedc9f2","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","wrong_checkbox":"Checkbox","ignore_waypoints":"no","is_divi_theme_used":"1","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"793","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"yes","is_shortcode_tracking":"","tinymce_uri":""}; var et_frontend_scripts = {"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+var et_pb_box_shadow_elements = [];
+var et_pb_motion_elements = {"desktop":[],"tablet":[],"phone":[]};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/cache/min/1/wp-content/themes/Divi/js/custom.unified.js?ver=1742996697" id="divi-custom-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer="defer" src="https://amzingppc.com/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.8.18" id="gform_placeholder-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer="defer" src="https://amzingppc.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=54e7080aa7a02c83aa61fae430b9d869" id="gform_gravityforms_theme_vendors-js"></script>
+<script type="text/javascript" id="gform_gravityforms_theme-js-extra">
+/* <![CDATA[ */
+var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"95e27406bf6623150b6c53055e422dfd"}}},"hmr_dev":"","public_path":"https:\/\/amzingppc.com\/wp-content\/plugins\/gravityforms\/assets\/js\/dist\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer="defer" src="https://amzingppc.com/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=bab19fd84843dabc070e73326d787910" id="gform_gravityforms_theme-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://amzingppc.com/wp-content/cache/min/1/wp-content/themes/Divi/core/admin/js/common.js?ver=1742996697" id="et-core-common-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 6) {if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } ); 
+/* ]]> */
+});</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "6", currentPage: "1", abort: function() { this.preventDefault(); } }]);                if (event && event.defaultPrevented) {                return;         }        const gformWrapperDiv = document.getElementById( "gform_wrapper_6" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_6";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_6" );        let postRenderFired = false;                function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            jQuery( document ).trigger( 'gform_post_render', [6, 1] );            gform.utils.trigger( { event: 'gform/postRender', native: false, data: { formId: 6, currentPage: 1 } } );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } ); 
+/* ]]> */
+});</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://amzingppc.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>
+<!------------- Comment out Company Branch
+<script type="rocketlazyloadscript">
+	var mobileLogo = document.querySelector('.mob-menu-logo-holder');
+	var companyBranch = document.createElement("DIV");
+	mobileLogo.appendChild(companyBranch);
+	companyBranch.classList.add("company-branch");
+	companyBranch.innerHTML = "<span class=''>A <a href='http://simchabrownconsulting.com'>Simcha Brown Cons.</a > Company</span>"
+</script>
+------------- End Comment out Company Branch -->	
+<!-- Custom scripts -->
+
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery(document).ready(function($) {
+		$('.carousel--item-single').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			dots: true,
+			arrows: false
+		});
+		$('.carousel--item-half').slick({
+			slidesToShow: 2,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			dots: true,
+			arrows: false,
+			responsive: [
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
+			]
+		});
+		$('.carousel--item-third').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			dots: true,
+			arrows: false,
+			responsive: [
+				{
+					breakpoint: 640,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1
+					}
+				}
+			]
+		});
+		$('.carousel--item-five').slick({
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			dots: true,
+			arrows: false,
+			responsive: [
+				{
+					breakpoint: 640,
+					settings: {
+						slidesToShow: 5,
+						slidesToScroll: 1
+					}
+				}
+			]
+		});
+		$('.carousel--item-six').slick({
+			slidesToShow: 6,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			dots: true,
+			arrows: false,
+			responsive: [
+				{
+					breakpoint: 640,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1
+					}
+				}
+			]
+		});
+	});	
+});</script>
+
+
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>

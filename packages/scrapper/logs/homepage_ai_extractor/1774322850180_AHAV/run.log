@@ -1,0 +1,69 @@
+[2026-03-24T03:27:30.181Z] === Homepage AI Extractor: AHAV ===
+[2026-03-24T03:27:30.181Z] Started at: 2026-03-24T03:27:30.181Z
+[2026-03-24T03:27:30.181Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774322850180_AHAV
+[2026-03-24T03:27:30.181Z] Company: AHAV
+[2026-03-24T03:27:30.181Z] Website: www.ahava.com
+[2026-03-24T03:27:30.181Z] cbRank: N/A
+[2026-03-24T03:27:30.181Z] Reasons: BDS_PRIO
+[2026-03-24T03:27:30.181Z] Fetching: https://www.ahava.com
+[2026-03-24T03:27:41.870Z] Network idle timeout — continuing with current state
+[2026-03-24T03:27:45.967Z] Redirected: https://www.ahava.com -> https://www.ahava.com/
+[2026-03-24T03:27:45.982Z] Saved HTML (633438 bytes) to page.html
+[2026-03-24T03:27:45.986Z] Extracted 92 unique links from page
+[2026-03-24T03:27:45.986Z] Saved 92 links to links.json
+[2026-03-24T03:27:45.989Z] Extracted footer HTML (819 chars)
+[2026-03-24T03:27:45.989Z] Extracted header HTML (21582 chars)
+[2026-03-24T03:27:46.001Z] Website (post-redirect): https://www.ahava.com/ → origin: https://www.ahava.com
+[2026-03-24T03:27:46.001Z]   SUBDOMAIN: global.ahava.com (added to ws)
+[2026-03-24T03:27:46.002Z] Website subdomains found: 1
+[2026-03-24T03:27:46.002Z] External links: 5 (of 92 total)
+[2026-03-24T03:27:46.002Z] ── All external links ──
+[2026-03-24T03:27:46.002Z]   EXT: https://ahavacom.aftership.com
+[2026-03-24T03:27:46.002Z]   EXT: https://fsc.org/en
+[2026-03-24T03:27:46.002Z]   EXT: https://www.ahava.co.il
+[2026-03-24T03:27:46.002Z]   EXT: https://www.facebook.com/ahavaus
+[2026-03-24T03:27:46.002Z]   EXT: https://www.instagram.com/ahava/?hl=en
+[2026-03-24T03:27:46.002Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T03:27:46.002Z]   UNCATEGORIZED: https://ahavacom.aftership.com
+[2026-03-24T03:27:46.002Z]   UNCATEGORIZED: https://fsc.org/en
+[2026-03-24T03:27:46.003Z]   UNCATEGORIZED: https://www.ahava.co.il
+[2026-03-24T03:27:46.003Z]   REGEX: fb <- https://www.facebook.com/ahavaus
+[2026-03-24T03:27:46.003Z]   REGEX: ig <- https://www.instagram.com/ahava/?hl=en
+[2026-03-24T03:27:46.003Z] Programmatic result: ws:2, fb:1, ig:1 | 3 uncategorized
+[2026-03-24T03:27:46.003Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T03:27:46.006Z] Saved AI prompt (2175 chars) to ai_prompt.txt
+[2026-03-24T03:27:46.006Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T03:27:46.011Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T03:27:53.486Z]   AI: First token received, streaming...
+[2026-03-24T03:27:53.938Z] AI response complete: 23 chars in 7.9s
+[2026-03-24T03:27:53.940Z] Saved AI response to ai_response.json
+[2026-03-24T03:27:53.940Z] ── Parsing AI response (1 lines) ──
+[2026-03-24T03:27:53.940Z]   AI LINK: https://www.ahava.co.il
+[2026-03-24T03:27:53.940Z] AI returned 1 valid links
+[2026-03-24T03:27:53.940Z] ── Categorizing 1 AI-returned links ──
+[2026-03-24T03:27:53.941Z]   AI→URLS: https://www.ahava.co.il
+[2026-03-24T03:27:53.942Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T03:27:53.942Z] Footer/header origins (1):
+[2026-03-24T03:27:53.942Z]   FOOTER/HEADER ORIGIN: https://www.ahava.com
+[2026-03-24T03:27:53.942Z]   SKIP (not in footer/header): https://ahavacom.aftership.com
+[2026-03-24T03:27:53.942Z]   SKIP (not in footer/header): https://fsc.org/en
+[2026-03-24T03:27:53.942Z]   SKIP (AI claimed): https://www.ahava.co.il
+[2026-03-24T03:27:53.943Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T03:27:53.943Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T03:27:53.943Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T03:27:53.943Z] ── Step 3: Final dedup ──
+[2026-03-24T03:27:53.943Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T03:27:53.943Z] ── FINAL RESULT ──
+[2026-03-24T03:27:53.943Z]   ws (2):
+[2026-03-24T03:27:53.943Z]     - https://global.ahava.com
+[2026-03-24T03:27:53.943Z]     - https://www.ahava.com
+[2026-03-24T03:27:53.943Z]   fb (1):
+[2026-03-24T03:27:53.943Z]     - https://www.facebook.com/ahavaus
+[2026-03-24T03:27:53.943Z]   ig (1):
+[2026-03-24T03:27:53.944Z]     - https://www.instagram.com/ahava
+[2026-03-24T03:27:53.944Z]   urls (1):
+[2026-03-24T03:27:53.944Z]     - https://www.ahava.co.il
+[2026-03-24T03:27:53.944Z] Summary: ws:2, fb:1, ig:1, urls:1
+[2026-03-24T03:27:53.945Z] Saved final result to result.json
+[2026-03-24T03:27:53.945Z] Override fields: ws, fb, ig
+[2026-03-24T03:27:53.945Z] Finished at: 2026-03-24T03:27:53.945Z

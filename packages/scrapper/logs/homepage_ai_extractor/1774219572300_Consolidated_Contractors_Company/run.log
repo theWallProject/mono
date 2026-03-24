@@ -1,0 +1,79 @@
+[2026-03-22T22:46:12.301Z] === Homepage AI Extractor: Consolidated Contractors Company ===
+[2026-03-22T22:46:12.301Z] Started at: 2026-03-22T22:46:12.301Z
+[2026-03-22T22:46:12.301Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774219572300_Consolidated_Contractors_Company
+[2026-03-22T22:46:12.302Z] Company: Consolidated Contractors Company
+[2026-03-22T22:46:12.302Z] Website: ccc.net
+[2026-03-22T22:46:12.302Z] cbRank: 282034
+[2026-03-22T22:46:12.302Z] Reasons: f
+[2026-03-22T22:46:12.302Z] Fetching: https://ccc.net
+[2026-03-22T22:46:17.578Z] Redirected: https://ccc.net -> https://www.ccc.net/
+[2026-03-22T22:46:17.583Z] Saved HTML (160037 bytes) to page.html
+[2026-03-22T22:46:17.586Z] Extracted 35 unique links from page
+[2026-03-22T22:46:17.587Z] Saved 35 links to links.json
+[2026-03-22T22:46:17.589Z] Extracted footer HTML (6129 chars)
+[2026-03-22T22:46:17.589Z] Extracted header HTML (12342 chars)
+[2026-03-22T22:46:17.592Z] Website (post-redirect): https://www.ccc.net/ → origin: https://www.ccc.net
+[2026-03-22T22:46:17.592Z]   SUBDOMAIN: scm.ccc.net (added to ws)
+[2026-03-22T22:46:17.592Z] Website subdomains found: 1
+[2026-03-22T22:46:17.592Z] External links: 4 (of 35 total)
+[2026-03-22T22:46:17.593Z] ── All external links ──
+[2026-03-22T22:46:17.593Z]   EXT: https://backbone.digital
+[2026-03-22T22:46:17.593Z]   EXT: https://gr.linkedin.com/company/consolidated-contractors-international-company
+[2026-03-22T22:46:17.593Z]   EXT: https://www.facebook.com/ConsolidatedContractorsCo
+[2026-03-22T22:46:17.593Z]   EXT: https://www.youtube.com/channel/UCIZhkDY_vcLxizfC7H8uDbg
+[2026-03-22T22:46:17.593Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:46:17.593Z]   UNCATEGORIZED: https://backbone.digital
+[2026-03-22T22:46:17.593Z]   REGEX: li <- https://gr.linkedin.com/company/consolidated-contractors-international-company
+[2026-03-22T22:46:17.593Z]   REGEX: fb <- https://www.facebook.com/ConsolidatedContractorsCo
+[2026-03-22T22:46:17.593Z]   REGEX: ytc <- https://www.youtube.com/channel/UCIZhkDY_vcLxizfC7H8uDbg
+[2026-03-22T22:46:17.593Z] Programmatic result: ws:2, li:1, fb:1, ytc:1 | 1 uncategorized
+[2026-03-22T22:46:17.593Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:46:17.596Z] Saved AI prompt (3315 chars) to ai_prompt.txt
+[2026-03-22T22:46:17.597Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:46:17.601Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:46:28.930Z]   AI: First token received, streaming...
+[2026-03-22T22:46:39.953Z] AI response complete: 187 chars in 22.4s
+[2026-03-22T22:46:39.954Z] Saved AI response to ai_response.json
+[2026-03-22T22:46:39.954Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T22:46:39.955Z]   AI LINK: https://gr.linkedin.com/company/consolidated-contractors-international-company
+[2026-03-22T22:46:39.955Z]   AI LINK: https://www.facebook.com/ConsolidatedContractorsCo/
+[2026-03-22T22:46:39.955Z]   AI LINK: https://www.youtube.com/channel/UCIZhkDY_vcLxizfC7H8uDbg
+[2026-03-22T22:46:39.955Z] AI returned 3 valid links
+[2026-03-22T22:46:39.955Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T22:46:39.956Z]   AI→REGEX: li <- https://gr.linkedin.com/company/consolidated-contractors-international-company (duplicate, skipped)
+[2026-03-22T22:46:39.956Z]   AI→REGEX: fb <- https://www.facebook.com/ConsolidatedContractorsCo/ (duplicate, skipped)
+[2026-03-22T22:46:39.956Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCIZhkDY_vcLxizfC7H8uDbg (duplicate, skipped)
+[2026-03-22T22:46:39.957Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:46:39.957Z] Footer/header origins (6):
+[2026-03-22T22:46:39.957Z]   FOOTER/HEADER ORIGIN: https://www.ccc.net
+[2026-03-22T22:46:39.958Z]   FOOTER/HEADER ORIGIN: https://gr.linkedin.com
+[2026-03-22T22:46:39.958Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T22:46:39.958Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T22:46:39.958Z]   FOOTER/HEADER ORIGIN: https://backbone.digital
+[2026-03-22T22:46:39.958Z]   FOOTER/HEADER ORIGIN: https://scm.ccc.net
+[2026-03-22T22:46:39.958Z]   ADDED: urls <- https://backbone.digital
+[2026-03-22T22:46:39.958Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T22:46:39.958Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:46:39.959Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T22:46:40.217Z]   YOUTUBE: resolved UCIZhkDY_vcLxizfC7H8uDbg → @showroomccc
+[2026-03-22T22:46:40.217Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T22:46:40.217Z] ── Step 3: Final dedup ──
+[2026-03-22T22:46:40.218Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T22:46:40.218Z] ── FINAL RESULT ──
+[2026-03-22T22:46:40.218Z]   ws (2):
+[2026-03-22T22:46:40.218Z]     - https://scm.ccc.net
+[2026-03-22T22:46:40.218Z]     - https://www.ccc.net
+[2026-03-22T22:46:40.218Z]   li (1):
+[2026-03-22T22:46:40.218Z]     - https://www.linkedin.com/company/consolidated-contractors-international-company
+[2026-03-22T22:46:40.218Z]   fb (1):
+[2026-03-22T22:46:40.218Z]     - https://www.facebook.com/consolidatedcontractorsco
+[2026-03-22T22:46:40.218Z]   ytp (1):
+[2026-03-22T22:46:40.218Z]     - https://www.youtube.com/@showroomccc
+[2026-03-22T22:46:40.218Z]   ytc (1):
+[2026-03-22T22:46:40.219Z]     - https://www.youtube.com/channel/UCIZhkDY_vcLxizfC7H8uDbg
+[2026-03-22T22:46:40.219Z]   urls (1):
+[2026-03-22T22:46:40.219Z]     - https://backbone.digital
+[2026-03-22T22:46:40.219Z] Summary: ws:2, li:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-22T22:46:40.219Z] Saved final result to result.json
+[2026-03-22T22:46:40.220Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-22T22:46:40.220Z] Finished at: 2026-03-22T22:46:40.220Z

@@ -1,0 +1,82 @@
+[2026-03-21T10:23:53.610Z] === Homepage AI Extractor: E.D Marketing ===
+[2026-03-21T10:23:53.610Z] Started at: 2026-03-21T10:23:53.610Z
+[2026-03-21T10:23:53.610Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774088633609_E.D_Marketing
+[2026-03-21T10:23:53.610Z] Company: E.D Marketing
+[2026-03-21T10:23:53.610Z] Website: e-d-agency.com
+[2026-03-21T10:23:53.610Z] cbRank: 3243321
+[2026-03-21T10:23:53.610Z] Reasons: h
+[2026-03-21T10:23:53.610Z] Fetching: https://e-d-agency.com
+[2026-03-21T10:24:05.777Z] Network idle timeout — continuing with current state
+[2026-03-21T10:24:05.823Z] Redirected: https://e-d-agency.com -> https://e-d-agency.com/
+[2026-03-21T10:24:05.827Z] Saved HTML (91004 bytes) to page.html
+[2026-03-21T10:24:05.829Z] Extracted 46 unique links from page
+[2026-03-21T10:24:05.829Z] Saved 46 links to links.json
+[2026-03-21T10:24:05.836Z] Extracted footer HTML (9209 chars)
+[2026-03-21T10:24:05.836Z] Extracted header HTML (16500 chars)
+[2026-03-21T10:24:05.839Z] Website (post-redirect): https://e-d-agency.com/ → origin: https://e-d-agency.com
+[2026-03-21T10:24:05.840Z] External links: 6 (of 46 total)
+[2026-03-21T10:24:05.840Z] ── All external links ──
+[2026-03-21T10:24:05.840Z]   EXT: https://europeanagency.sharepoint.com/sites/MyAgency
+[2026-03-21T10:24:05.840Z]   EXT: https://www.linkedin.com/company/easnie
+[2026-03-21T10:24:05.840Z]   EXT: https://www.slideshare.net/EASNIE
+[2026-03-21T10:24:05.840Z]   EXT: https://www.youtube.com/@EASNIE
+[2026-03-21T10:24:05.840Z]   EXT: https://www.youtube.com/channel/UCPk9Umi9JhPKtiIuTQzLiiw
+[2026-03-21T10:24:05.840Z]   EXT: https://zenodo.org/communities/EASNIE/search?page=1&size=20&sort=-publication_date
+[2026-03-21T10:24:05.840Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T10:24:05.840Z]   UNCATEGORIZED: https://europeanagency.sharepoint.com/sites/MyAgency
+[2026-03-21T10:24:05.841Z]   REGEX: li <- https://www.linkedin.com/company/easnie
+[2026-03-21T10:24:05.841Z]   UNCATEGORIZED: https://www.slideshare.net/EASNIE
+[2026-03-21T10:24:05.841Z]   REGEX: ytp <- https://www.youtube.com/@EASNIE
+[2026-03-21T10:24:05.841Z]   REGEX: ytc <- https://www.youtube.com/channel/UCPk9Umi9JhPKtiIuTQzLiiw
+[2026-03-21T10:24:05.841Z]   UNCATEGORIZED: https://zenodo.org/communities/EASNIE/search?page=1&size=20&sort=-publication_date
+[2026-03-21T10:24:05.841Z] Programmatic result: ws:1, li:1, ytp:1, ytc:1 | 3 uncategorized
+[2026-03-21T10:24:05.841Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T10:24:05.844Z] Saved AI prompt (5500 chars) to ai_prompt.txt
+[2026-03-21T10:24:05.844Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T10:24:05.848Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T10:24:27.770Z]   AI: First token received, streaming...
+[2026-03-21T10:24:37.426Z] AI response complete: 130 chars in 31.6s
+[2026-03-21T10:24:37.428Z] Saved AI response to ai_response.json
+[2026-03-21T10:24:37.428Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T10:24:37.428Z]   AI LINK: https://www.linkedin.com/company/easnie
+[2026-03-21T10:24:37.428Z]   AI LINK: https://www.youtube.com/channel/UCPk9Umi9JhPKtiIuTQzLiiw
+[2026-03-21T10:24:37.429Z]   AI LINK: https://www.slideshare.net/EASNIE
+[2026-03-21T10:24:37.429Z] AI returned 3 valid links
+[2026-03-21T10:24:37.429Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T10:24:37.429Z]   AI→REGEX: li <- https://www.linkedin.com/company/easnie (duplicate, skipped)
+[2026-03-21T10:24:37.429Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCPk9Umi9JhPKtiIuTQzLiiw (duplicate, skipped)
+[2026-03-21T10:24:37.430Z]   AI→URLS: https://www.slideshare.net/EASNIE
+[2026-03-21T10:24:37.431Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T10:24:37.431Z] Footer/header origins (5):
+[2026-03-21T10:24:37.431Z]   FOOTER/HEADER ORIGIN: https://europeanagency.sharepoint.com
+[2026-03-21T10:24:37.431Z]   FOOTER/HEADER ORIGIN: https://zenodo.org
+[2026-03-21T10:24:37.431Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T10:24:37.431Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T10:24:37.431Z]   FOOTER/HEADER ORIGIN: https://www.slideshare.net
+[2026-03-21T10:24:37.431Z]   ADDED: urls <- https://europeanagency.sharepoint.com/sites/MyAgency
+[2026-03-21T10:24:37.431Z]   SKIP (AI claimed): https://www.slideshare.net/EASNIE
+[2026-03-21T10:24:37.431Z]   ADDED: urls <- https://zenodo.org/communities/EASNIE/search (cleaned from https://zenodo.org/communities/EASNIE/search?page=1&size=20&sort=-publication_date)
+[2026-03-21T10:24:37.431Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-21T10:24:37.431Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T10:24:37.431Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T10:24:37.814Z]   YOUTUBE: resolved UCPk9Umi9JhPKtiIuTQzLiiw → @EASNIE (already in ytp, skipped)
+[2026-03-21T10:24:37.815Z]   YOUTUBE: no new ytp URLs resolved
+[2026-03-21T10:24:37.815Z] ── Step 3: Final dedup ──
+[2026-03-21T10:24:37.815Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-21T10:24:37.815Z] ── FINAL RESULT ──
+[2026-03-21T10:24:37.815Z]   ws (1):
+[2026-03-21T10:24:37.815Z]     - https://e-d-agency.com
+[2026-03-21T10:24:37.815Z]   li (1):
+[2026-03-21T10:24:37.815Z]     - https://www.linkedin.com/company/easnie
+[2026-03-21T10:24:37.815Z]   ytp (1):
+[2026-03-21T10:24:37.815Z]     - https://www.youtube.com/@easnie
+[2026-03-21T10:24:37.815Z]   ytc (1):
+[2026-03-21T10:24:37.816Z]     - https://www.youtube.com/channel/UCPk9Umi9JhPKtiIuTQzLiiw
+[2026-03-21T10:24:37.816Z]   urls (3):
+[2026-03-21T10:24:37.816Z]     - https://europeanagency.sharepoint.com/sites/MyAgency
+[2026-03-21T10:24:37.816Z]     - https://www.slideshare.net/EASNIE
+[2026-03-21T10:24:37.816Z]     - https://zenodo.org/communities/EASNIE/search
+[2026-03-21T10:24:37.816Z] Summary: ws:1, li:1, ytp:1, ytc:1, urls:3
+[2026-03-21T10:24:37.816Z] Saved final result to result.json
+[2026-03-21T10:24:37.817Z] Override fields: ws, li, ytp, ytc, urls
+[2026-03-21T10:24:37.817Z] Finished at: 2026-03-21T10:24:37.817Z

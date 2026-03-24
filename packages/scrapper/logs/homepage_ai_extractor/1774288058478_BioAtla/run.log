@@ -1,0 +1,61 @@
+[2026-03-23T17:47:38.478Z] === Homepage AI Extractor: BioAtla ===
+[2026-03-23T17:47:38.478Z] Started at: 2026-03-23T17:47:38.478Z
+[2026-03-23T17:47:38.478Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774288058478_BioAtla
+[2026-03-23T17:47:38.479Z] Company: BioAtla
+[2026-03-23T17:47:38.479Z] Website: bioatla.com
+[2026-03-23T17:47:38.479Z] cbRank: 2356
+[2026-03-23T17:47:38.479Z] Reasons: i
+[2026-03-23T17:47:38.479Z] Fetching: https://bioatla.com
+[2026-03-23T17:47:41.158Z] Redirected: https://bioatla.com -> https://www.bioatla.com/
+[2026-03-23T17:47:41.161Z] Saved HTML (81819 bytes) to page.html
+[2026-03-23T17:47:41.164Z] Extracted 24 unique links from page
+[2026-03-23T17:47:41.164Z] Saved 24 links to links.json
+[2026-03-23T17:47:41.166Z] Extracted footer HTML (3818 chars)
+[2026-03-23T17:47:41.166Z] Extracted header HTML (9209 chars)
+[2026-03-23T17:47:41.170Z] Website (post-redirect): https://www.bioatla.com/ → origin: https://www.bioatla.com
+[2026-03-23T17:47:41.170Z]   SUBDOMAIN: ir.bioatla.com (added to ws)
+[2026-03-23T17:47:41.171Z] Website subdomains found: 1
+[2026-03-23T17:47:41.171Z] External links: 3 (of 24 total)
+[2026-03-23T17:47:41.171Z] ── All external links ──
+[2026-03-23T17:47:41.171Z]   EXT: https://vimeo.com/162002091
+[2026-03-23T17:47:41.171Z]   EXT: https://www.cookieyes.com
+[2026-03-23T17:47:41.171Z]   EXT: https://www.linkedin.com/company/bioatla
+[2026-03-23T17:47:41.171Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T17:47:41.172Z]   UNCATEGORIZED: https://vimeo.com/162002091
+[2026-03-23T17:47:41.172Z]   UNCATEGORIZED: https://www.cookieyes.com
+[2026-03-23T17:47:41.172Z]   REGEX: li <- https://www.linkedin.com/company/bioatla
+[2026-03-23T17:47:41.172Z] Programmatic result: ws:2, li:1 | 2 uncategorized
+[2026-03-23T17:47:41.172Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T17:47:41.176Z] Saved AI prompt (3726 chars) to ai_prompt.txt
+[2026-03-23T17:47:41.176Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T17:47:41.181Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T17:47:55.567Z]   AI: First token received, streaming...
+[2026-03-23T17:47:56.953Z] AI response complete: 40 chars in 15.8s
+[2026-03-23T17:47:56.954Z] Saved AI response to ai_response.json
+[2026-03-23T17:47:56.955Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T17:47:56.955Z]   AI LINK: https://www.linkedin.com/company/bioatla
+[2026-03-23T17:47:56.955Z] AI returned 1 valid links
+[2026-03-23T17:47:56.955Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T17:47:56.955Z]   AI→REGEX: li <- https://www.linkedin.com/company/bioatla (duplicate, skipped)
+[2026-03-23T17:47:56.957Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T17:47:56.957Z] Footer/header origins (3):
+[2026-03-23T17:47:56.957Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T17:47:56.957Z]   FOOTER/HEADER ORIGIN: https://www.bioatla.com
+[2026-03-23T17:47:56.957Z]   FOOTER/HEADER ORIGIN: https://ir.bioatla.com
+[2026-03-23T17:47:56.957Z]   SKIP (not in footer/header): https://vimeo.com/162002091
+[2026-03-23T17:47:56.958Z]   SKIP (not in footer/header): https://www.cookieyes.com
+[2026-03-23T17:47:56.958Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T17:47:56.958Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T17:47:56.958Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T17:47:56.958Z] ── Step 3: Final dedup ──
+[2026-03-23T17:47:56.958Z] No urls to dedup
+[2026-03-23T17:47:56.958Z] ── FINAL RESULT ──
+[2026-03-23T17:47:56.958Z]   ws (2):
+[2026-03-23T17:47:56.958Z]     - https://ir.bioatla.com
+[2026-03-23T17:47:56.958Z]     - https://www.bioatla.com
+[2026-03-23T17:47:56.958Z]   li (1):
+[2026-03-23T17:47:56.958Z]     - https://www.linkedin.com/company/bioatla
+[2026-03-23T17:47:56.958Z] Summary: ws:2, li:1
+[2026-03-23T17:47:56.959Z] Saved final result to result.json
+[2026-03-23T17:47:56.959Z] Override fields: ws, li
+[2026-03-23T17:47:56.960Z] Finished at: 2026-03-23T17:47:56.960Z

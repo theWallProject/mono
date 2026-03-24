@@ -1,0 +1,71 @@
+[2026-03-21T14:48:45.245Z] === Homepage AI Extractor: Ma'agalim ===
+[2026-03-21T14:48:45.245Z] Started at: 2026-03-21T14:48:45.245Z
+[2026-03-21T14:48:45.246Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774104525245_Ma'agalim
+[2026-03-21T14:48:45.246Z] Company: Ma'agalim
+[2026-03-21T14:48:45.246Z] Website: maagalimds.co.il
+[2026-03-21T14:48:45.246Z] cbRank: 3467412
+[2026-03-21T14:48:45.246Z] Reasons: h
+[2026-03-21T14:48:45.246Z] Fetching: https://maagalimds.co.il
+[2026-03-21T14:48:57.900Z] Network idle timeout — continuing with current state
+[2026-03-21T14:48:57.936Z] Redirected: https://maagalimds.co.il -> https://www.maagalimds.co.il/
+[2026-03-21T14:48:57.949Z] Saved HTML (592823 bytes) to page.html
+[2026-03-21T14:48:57.955Z] Extracted 17 unique links from page
+[2026-03-21T14:48:57.956Z] Saved 17 links to links.json
+[2026-03-21T14:48:57.960Z] Extracted footer HTML (13250 chars)
+[2026-03-21T14:48:57.960Z] Extracted header HTML (8445 chars)
+[2026-03-21T14:48:57.963Z] Website (post-redirect): https://www.maagalimds.co.il/ → origin: https://www.maagalimds.co.il
+[2026-03-21T14:48:57.964Z] External links: 6 (of 17 total)
+[2026-03-21T14:48:57.964Z] ── All external links ──
+[2026-03-21T14:48:57.964Z]   EXT: http://elbitsystems.com
+[2026-03-21T14:48:57.964Z]   EXT: http://www.intel.co.il
+[2026-03-21T14:48:57.964Z]   EXT: https://www.facebook.com/Maagalim.DS
+[2026-03-21T14:48:57.964Z]   EXT: https://www.linkedin.com/company/ma%27agalim-d-s-ltd-
+[2026-03-21T14:48:57.964Z]   EXT: https://www.medtronic.com
+[2026-03-21T14:48:57.964Z]   EXT: https://www.nvidia.com
+[2026-03-21T14:48:57.964Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:48:57.964Z]   UNCATEGORIZED: http://elbitsystems.com
+[2026-03-21T14:48:57.964Z]   UNCATEGORIZED: http://www.intel.co.il
+[2026-03-21T14:48:57.964Z]   REGEX: fb <- https://www.facebook.com/Maagalim.DS
+[2026-03-21T14:48:57.964Z]   REGEX: li <- https://www.linkedin.com/company/ma%27agalim-d-s-ltd-
+[2026-03-21T14:48:57.964Z]   UNCATEGORIZED: https://www.medtronic.com
+[2026-03-21T14:48:57.965Z]   UNCATEGORIZED: https://www.nvidia.com
+[2026-03-21T14:48:57.965Z] Programmatic result: ws:1, fb:1, li:1 | 4 uncategorized
+[2026-03-21T14:48:57.965Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:48:57.968Z] Saved AI prompt (8466 chars) to ai_prompt.txt
+[2026-03-21T14:48:57.968Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:48:57.973Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:49:43.346Z]   AI: First token received, streaming...
+[2026-03-21T14:49:49.559Z] AI response complete: 90 chars in 51.6s
+[2026-03-21T14:49:49.560Z] Saved AI response to ai_response.json
+[2026-03-21T14:49:49.560Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T14:49:49.561Z]   AI LINK: https://www.facebook.com/Maagalim.DS
+[2026-03-21T14:49:49.561Z]   AI LINK: https://www.linkedin.com/company/ma%27agalim-d-s-ltd-
+[2026-03-21T14:49:49.561Z] AI returned 2 valid links
+[2026-03-21T14:49:49.561Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T14:49:49.561Z]   AI→REGEX: fb <- https://www.facebook.com/Maagalim.DS (duplicate, skipped)
+[2026-03-21T14:49:49.561Z]   AI→REGEX: li <- https://www.linkedin.com/company/ma%27agalim-d-s-ltd- (duplicate, skipped)
+[2026-03-21T14:49:49.562Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:49:49.562Z] Footer/header origins (3):
+[2026-03-21T14:49:49.562Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T14:49:49.562Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T14:49:49.562Z]   FOOTER/HEADER ORIGIN: https://www.maagalimds.co.il
+[2026-03-21T14:49:49.562Z]   SKIP (not in footer/header): http://elbitsystems.com
+[2026-03-21T14:49:49.562Z]   SKIP (not in footer/header): http://www.intel.co.il
+[2026-03-21T14:49:49.562Z]   SKIP (not in footer/header): https://www.medtronic.com
+[2026-03-21T14:49:49.563Z]   SKIP (not in footer/header): https://www.nvidia.com
+[2026-03-21T14:49:49.563Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T14:49:49.563Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:49:49.563Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:49:49.563Z] ── Step 3: Final dedup ──
+[2026-03-21T14:49:49.563Z] No urls to dedup
+[2026-03-21T14:49:49.563Z] ── FINAL RESULT ──
+[2026-03-21T14:49:49.563Z]   ws (1):
+[2026-03-21T14:49:49.563Z]     - https://www.maagalimds.co.il
+[2026-03-21T14:49:49.563Z]   li (1):
+[2026-03-21T14:49:49.563Z]     - https://www.linkedin.com/company/ma%27agalim-d-s-ltd-
+[2026-03-21T14:49:49.564Z]   fb (1):
+[2026-03-21T14:49:49.564Z]     - https://www.facebook.com/maagalim.ds
+[2026-03-21T14:49:49.564Z] Summary: ws:1, fb:1, li:1
+[2026-03-21T14:49:49.565Z] Saved final result to result.json
+[2026-03-21T14:49:49.565Z] Override fields: ws, li, fb
+[2026-03-21T14:49:49.565Z] Finished at: 2026-03-21T14:49:49.565Z

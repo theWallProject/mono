@@ -1,0 +1,67 @@
+[2026-03-22T04:52:10.770Z] === Homepage AI Extractor: MyQuest ===
+[2026-03-22T04:52:10.770Z] Started at: 2026-03-22T04:52:10.770Z
+[2026-03-22T04:52:10.770Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774155130769_MyQuest
+[2026-03-22T04:52:10.770Z] Company: MyQuest
+[2026-03-22T04:52:10.770Z] Website: myquest.co
+[2026-03-22T04:52:10.770Z] cbRank: 97192
+[2026-03-22T04:52:10.770Z] Reasons: f
+[2026-03-22T04:52:10.770Z] Fetching: https://myquest.co
+[2026-03-22T04:52:13.001Z] Redirected: https://myquest.co -> https://www.myquest.co/
+[2026-03-22T04:52:13.005Z] Saved HTML (55717 bytes) to page.html
+[2026-03-22T04:52:13.009Z] Extracted 31 unique links from page
+[2026-03-22T04:52:13.010Z] Saved 31 links to links.json
+[2026-03-22T04:52:13.013Z] No footer section found in DOM
+[2026-03-22T04:52:13.013Z] Extracted header HTML (4294 chars)
+[2026-03-22T04:52:13.017Z] Website (post-redirect): https://www.myquest.co/ → origin: https://www.myquest.co
+[2026-03-22T04:52:13.017Z]   SUBDOMAIN: app.myquest.co (added to ws)
+[2026-03-22T04:52:13.017Z] Website subdomains found: 1
+[2026-03-22T04:52:13.017Z] External links: 5 (of 31 total)
+[2026-03-22T04:52:13.017Z] ── All external links ──
+[2026-03-22T04:52:13.017Z]   EXT: https://calendly.com/partnerships-10/myquest-parternship-call-website/?utm_source=pepperjam
+[2026-03-22T04:52:13.017Z]   EXT: https://calendly.com/partnerships-10/myquest-parternship-call-website/?utm_source=website
+[2026-03-22T04:52:13.017Z]   EXT: https://twitter.com/myquestt
+[2026-03-22T04:52:13.017Z]   EXT: https://www.facebook.com/myQuestTraining
+[2026-03-22T04:52:13.017Z]   EXT: https://www.linkedin.com/company/myquest-ltd
+[2026-03-22T04:52:13.017Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:52:13.018Z]   UNCATEGORIZED: https://calendly.com/partnerships-10/myquest-parternship-call-website/?utm_source=pepperjam
+[2026-03-22T04:52:13.019Z]   UNCATEGORIZED: https://calendly.com/partnerships-10/myquest-parternship-call-website/?utm_source=website
+[2026-03-22T04:52:13.019Z]   REGEX: tw <- https://twitter.com/myquestt
+[2026-03-22T04:52:13.019Z]   REGEX: fb <- https://www.facebook.com/myQuestTraining
+[2026-03-22T04:52:13.019Z]   REGEX: li <- https://www.linkedin.com/company/myquest-ltd
+[2026-03-22T04:52:13.019Z] Programmatic result: ws:2, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-22T04:52:13.019Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:52:13.022Z] Saved AI prompt (2113 chars) to ai_prompt.txt
+[2026-03-22T04:52:13.023Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:52:13.027Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:52:18.676Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-22T04:52:18.676Z] AI response complete: 0 chars in 5.7s
+[2026-03-22T04:52:18.678Z] Saved AI response to ai_response.json
+[2026-03-22T04:52:18.678Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T04:52:18.678Z] AI returned 0 valid links
+[2026-03-22T04:52:18.678Z] ── Categorizing 0 AI-returned links ──
+[2026-03-22T04:52:18.679Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:52:18.679Z] Footer/header origins (1):
+[2026-03-22T04:52:18.679Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-22T04:52:18.679Z]   ADDED: urls <- https://calendly.com/partnerships-10/myquest-parternship-call-website (cleaned from https://calendly.com/partnerships-10/myquest-parternship-call-website/?utm_source=pepperjam)
+[2026-03-22T04:52:18.679Z]   SKIP (duplicate): https://calendly.com/partnerships-10/myquest-parternship-call-website
+[2026-03-22T04:52:18.679Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T04:52:18.680Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:52:18.680Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T04:52:18.680Z] ── Step 3: Final dedup ──
+[2026-03-22T04:52:18.680Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T04:52:18.680Z] ── FINAL RESULT ──
+[2026-03-22T04:52:18.680Z]   ws (2):
+[2026-03-22T04:52:18.680Z]     - https://app.myquest.co
+[2026-03-22T04:52:18.681Z]     - https://www.myquest.co
+[2026-03-22T04:52:18.681Z]   li (1):
+[2026-03-22T04:52:18.681Z]     - https://www.linkedin.com/company/myquest-ltd
+[2026-03-22T04:52:18.681Z]   fb (1):
+[2026-03-22T04:52:18.681Z]     - https://www.facebook.com/myquesttraining
+[2026-03-22T04:52:18.681Z]   tw (1):
+[2026-03-22T04:52:18.681Z]     - https://x.com/myquestt
+[2026-03-22T04:52:18.681Z]   urls (1):
+[2026-03-22T04:52:18.681Z]     - https://calendly.com/partnerships-10/myquest-parternship-call-website
+[2026-03-22T04:52:18.681Z] Summary: ws:2, tw:1, fb:1, li:1, urls:1
+[2026-03-22T04:52:18.682Z] Saved final result to result.json
+[2026-03-22T04:52:18.683Z] Override fields: ws, li, fb, tw, urls
+[2026-03-22T04:52:18.683Z] Finished at: 2026-03-22T04:52:18.683Z

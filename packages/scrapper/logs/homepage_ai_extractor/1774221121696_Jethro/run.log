@@ -1,0 +1,75 @@
+[2026-03-22T23:12:01.697Z] === Homepage AI Extractor: Jethro ===
+[2026-03-22T23:12:01.697Z] Started at: 2026-03-22T23:12:01.697Z
+[2026-03-22T23:12:01.697Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774221121696_Jethro
+[2026-03-22T23:12:01.697Z] Company: Jethro
+[2026-03-22T23:12:01.697Z] Website: jethro.io
+[2026-03-22T23:12:01.697Z] cbRank: 317484
+[2026-03-22T23:12:01.697Z] Reasons: f, i
+[2026-03-22T23:12:01.698Z] Fetching: https://jethro.io
+[2026-03-22T23:12:03.970Z] Redirected: https://jethro.io -> https://jethro.io/
+[2026-03-22T23:12:03.973Z] Saved HTML (40213 bytes) to page.html
+[2026-03-22T23:12:03.975Z] Extracted 27 unique links from page
+[2026-03-22T23:12:03.976Z] Saved 27 links to links.json
+[2026-03-22T23:12:03.978Z] Extracted footer HTML (2114 chars)
+[2026-03-22T23:12:03.978Z] Extracted header HTML (3153 chars)
+[2026-03-22T23:12:03.982Z] Website (post-redirect): https://jethro.io/ → origin: https://jethro.io
+[2026-03-22T23:12:03.982Z]   SUBDOMAIN: docs.jethro.io (added to ws)
+[2026-03-22T23:12:03.982Z]   SUBDOMAIN: info.jethro.io (added to ws)
+[2026-03-22T23:12:03.982Z] Website subdomains found: 2
+[2026-03-22T23:12:03.982Z] External links: 5 (of 27 total)
+[2026-03-22T23:12:03.983Z] ── All external links ──
+[2026-03-22T23:12:03.983Z]   EXT: http://facebook.com/Jethrodata
+[2026-03-22T23:12:03.983Z]   EXT: http://twitter.com/jethrodata
+[2026-03-22T23:12:03.983Z]   EXT: https://cdn2.hubspot.net/hubfs/429615/Tata-Communications-Case-Study.pdf
+[2026-03-22T23:12:03.983Z]   EXT: https://fast.wistia.net/embed/iframe/xa9psk88om?videoFoam=true
+[2026-03-22T23:12:03.983Z]   EXT: https://www.youtube.com/embed/YFqFDdF_zRg?autoplay=1
+[2026-03-22T23:12:03.983Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T23:12:03.983Z]   REGEX: fb <- http://facebook.com/Jethrodata
+[2026-03-22T23:12:03.983Z]   REGEX: tw <- http://twitter.com/jethrodata
+[2026-03-22T23:12:03.983Z]   UNCATEGORIZED: https://cdn2.hubspot.net/hubfs/429615/Tata-Communications-Case-Study.pdf
+[2026-03-22T23:12:03.983Z]   UNCATEGORIZED: https://fast.wistia.net/embed/iframe/xa9psk88om?videoFoam=true
+[2026-03-22T23:12:03.984Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-22T23:12:03.984Z]   SKIP (regex domain, no match): https://www.youtube.com/embed/YFqFDdF_zRg?autoplay=1
+[2026-03-22T23:12:03.984Z] Programmatic result: ws:3, fb:1, tw:1 | 2 uncategorized
+[2026-03-22T23:12:03.984Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T23:12:03.987Z] Saved AI prompt (3711 chars) to ai_prompt.txt
+[2026-03-22T23:12:03.987Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T23:12:03.991Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T23:12:18.151Z]   AI: First token received, streaming...
+[2026-03-22T23:12:21.815Z] AI response complete: 69 chars in 17.8s
+[2026-03-22T23:12:21.816Z] Saved AI response to ai_response.json
+[2026-03-22T23:12:21.817Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T23:12:21.817Z]   AI LINK: http://info.jethro.io/contact-us
+[2026-03-22T23:12:21.817Z]   AI LINK: http://info.jethro.io/press-releases
+[2026-03-22T23:12:21.817Z] AI returned 2 valid links
+[2026-03-22T23:12:21.817Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T23:12:21.818Z]   AI→URLS: http://info.jethro.io/contact-us
+[2026-03-22T23:12:21.818Z]   AI→URLS: http://info.jethro.io/press-releases
+[2026-03-22T23:12:21.819Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T23:12:21.819Z] Footer/header origins (3):
+[2026-03-22T23:12:21.819Z]   FOOTER/HEADER ORIGIN: http://info.jethro.io
+[2026-03-22T23:12:21.819Z]   FOOTER/HEADER ORIGIN: https://info.jethro.io
+[2026-03-22T23:12:21.820Z]   FOOTER/HEADER ORIGIN: http://docs.jethro.io
+[2026-03-22T23:12:21.820Z]   SKIP (noise): https://cdn2.hubspot.net/hubfs/429615/Tata-Communications-Case-Study.pdf
+[2026-03-22T23:12:21.820Z]   SKIP (not in footer/header): https://fast.wistia.net/embed/iframe/xa9psk88om?videoFoam=true
+[2026-03-22T23:12:21.820Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T23:12:21.820Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T23:12:21.820Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T23:12:21.820Z] ── Step 3: Final dedup ──
+[2026-03-22T23:12:21.820Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T23:12:21.821Z] ── FINAL RESULT ──
+[2026-03-22T23:12:21.821Z]   ws (3):
+[2026-03-22T23:12:21.821Z]     - https://docs.jethro.io
+[2026-03-22T23:12:21.821Z]     - https://info.jethro.io
+[2026-03-22T23:12:21.821Z]     - https://jethro.io
+[2026-03-22T23:12:21.821Z]   fb (1):
+[2026-03-22T23:12:21.821Z]     - https://www.facebook.com/jethrodata
+[2026-03-22T23:12:21.821Z]   tw (1):
+[2026-03-22T23:12:21.822Z]     - https://x.com/jethrodata
+[2026-03-22T23:12:21.822Z]   urls (2):
+[2026-03-22T23:12:21.822Z]     - http://info.jethro.io/contact-us
+[2026-03-22T23:12:21.822Z]     - http://info.jethro.io/press-releases
+[2026-03-22T23:12:21.822Z] Summary: ws:3, fb:1, tw:1, urls:2
+[2026-03-22T23:12:21.823Z] Saved final result to result.json
+[2026-03-22T23:12:21.824Z] Override fields: ws, fb, tw, urls
+[2026-03-22T23:12:21.824Z] Finished at: 2026-03-22T23:12:21.824Z

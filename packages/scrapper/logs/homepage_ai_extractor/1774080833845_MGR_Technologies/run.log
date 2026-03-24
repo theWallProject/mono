@@ -1,0 +1,60 @@
+[2026-03-21T08:13:53.846Z] === Homepage AI Extractor: MGR Technologies ===
+[2026-03-21T08:13:53.846Z] Started at: 2026-03-21T08:13:53.846Z
+[2026-03-21T08:13:53.846Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774080833845_MGR_Technologies
+[2026-03-21T08:13:53.846Z] Company: MGR Technologies
+[2026-03-21T08:13:53.846Z] Website: mgr.co.il
+[2026-03-21T08:13:53.846Z] cbRank: 3145391
+[2026-03-21T08:13:53.846Z] Reasons: h
+[2026-03-21T08:13:53.846Z] Fetching: https://mgr.co.il
+[2026-03-21T08:14:04.511Z] Network idle timeout — continuing with current state
+[2026-03-21T08:14:04.555Z] Redirected: https://mgr.co.il -> https://mgr.co.il/
+[2026-03-21T08:14:04.562Z] Saved HTML (151231 bytes) to page.html
+[2026-03-21T08:14:04.566Z] Extracted 23 unique links from page
+[2026-03-21T08:14:04.569Z] Saved 23 links to links.json
+[2026-03-21T08:14:04.577Z] Extracted footer HTML (13064 chars)
+[2026-03-21T08:14:04.577Z] Extracted header HTML (26423 chars)
+[2026-03-21T08:14:04.581Z] Website (post-redirect): https://mgr.co.il/ → origin: https://mgr.co.il
+[2026-03-21T08:14:04.593Z] External links: 2 (of 23 total)
+[2026-03-21T08:14:04.597Z] ── All external links ──
+[2026-03-21T08:14:04.608Z]   EXT: https://www.facebook.com/mgr.technologies.ltd
+[2026-03-21T08:14:04.608Z]   EXT: https://www.linkedin.com/company/m.g.r.-technologies
+[2026-03-21T08:14:04.608Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:14:04.609Z]   REGEX: fb <- https://www.facebook.com/mgr.technologies.ltd
+[2026-03-21T08:14:04.609Z]   REGEX: li <- https://www.linkedin.com/company/m.g.r.-technologies
+[2026-03-21T08:14:04.609Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-21T08:14:04.609Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:14:04.613Z] Saved AI prompt (5145 chars) to ai_prompt.txt
+[2026-03-21T08:14:04.613Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:14:04.618Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:14:25.067Z]   AI: First token received, streaming...
+[2026-03-21T08:14:30.007Z] AI response complete: 99 chars in 25.4s
+[2026-03-21T08:14:30.008Z] Saved AI response to ai_response.json
+[2026-03-21T08:14:30.008Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T08:14:30.008Z]   AI LINK: https://www.facebook.com/mgr.technologies.ltd/
+[2026-03-21T08:14:30.009Z]   AI LINK: https://www.linkedin.com/company/m.g.r.-technologies
+[2026-03-21T08:14:30.009Z] AI returned 2 valid links
+[2026-03-21T08:14:30.009Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T08:14:30.009Z]   AI→REGEX: fb <- https://www.facebook.com/mgr.technologies.ltd/ (duplicate, skipped)
+[2026-03-21T08:14:30.009Z]   AI→REGEX: li <- https://www.linkedin.com/company/m.g.r.-technologies (duplicate, skipped)
+[2026-03-21T08:14:30.010Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:14:30.010Z] Footer/header origins (4):
+[2026-03-21T08:14:30.010Z]   FOOTER/HEADER ORIGIN: http://mgr.co.il
+[2026-03-21T08:14:30.010Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T08:14:30.010Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T08:14:30.010Z]   FOOTER/HEADER ORIGIN: https://mgr.co.il
+[2026-03-21T08:14:30.010Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T08:14:30.011Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:14:30.011Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T08:14:30.011Z] ── Step 3: Final dedup ──
+[2026-03-21T08:14:30.011Z] No urls to dedup
+[2026-03-21T08:14:30.011Z] ── FINAL RESULT ──
+[2026-03-21T08:14:30.011Z]   ws (1):
+[2026-03-21T08:14:30.011Z]     - https://mgr.co.il
+[2026-03-21T08:14:30.011Z]   li (1):
+[2026-03-21T08:14:30.011Z]     - https://www.linkedin.com/company/m.g.r.-technologies
+[2026-03-21T08:14:30.011Z]   fb (1):
+[2026-03-21T08:14:30.011Z]     - https://www.facebook.com/mgr.technologies.ltd
+[2026-03-21T08:14:30.011Z] Summary: ws:1, fb:1, li:1
+[2026-03-21T08:14:30.012Z] Saved final result to result.json
+[2026-03-21T08:14:30.012Z] Override fields: ws, li, fb
+[2026-03-21T08:14:30.012Z] Finished at: 2026-03-21T08:14:30.012Z

@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Wizard's Apprentice</title>
+  <link rel="stylesheet" type="text/css" href="wizapp.css" title="WizApp">
+</head>
+<body bgcolor="#cccccc">
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+            <td bgcolor="black" valign="top" width="140" align="center">
+                <img src="wizapp.png" alt="Wizard's Apprentice" width="140" height="260">
+                    <br><br>
+                    <table cellpadding="4"><tbody><tr><td>
+                    <h3>
+                        Main
+                    </h3>
+                    </td></tr>
+                    <tr><td>
+                    <h3>
+                        <a href="manual.html">Manual</a>
+                    </h3>
+                    </td></tr>
+                    <tr><td>
+                    <h3>
+                        <a href="forum.html">Forum</a>
+                    </h3>
+                    </td></tr>
+                    <tr><td>
+                    <h3>
+                        <a href="download.html">Download</a>
+                    </h3>
+                    </td></tr>
+                    </tbody></table>
+                <p><font color="white">
+                    <br><br>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=61827&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo"></a>            
+                </font></p>
+            </td>
+            <td>
+                <table cellpadding="6" cellspacing="0" bgcolor="white">
+                    <tbody><tr><td bgcolor="black">
+                            <h1><br>
+                                <img src="hat.png" width="32" height="32" alt="*">&nbsp;
+                                The Wizard's Apprentice
+                                &nbsp;<img src="hat.png" width="32" height="32" alt="*">
+                            <br></h1>
+                            <div align="center"><font color="red"><b>Adding a face to your scripts</b></font></div>
+                        </td></tr>
+                        <tr><td>
+                                
+<a name="intro"></a><h2><img src="hat.png" width="32" height="32" alt="*">Introduction</h2>
+<p>
+Scripts are everywhere. As long as you use the right tool for the right job,
+scripts are short, fast and effective. There is one area where they usually
+lack: user interactivity. It is difficult to create a good user interface
+in most script languages.
+</p>
+<p>
+Now there is the Wizard's Apprentice. It will allow you to ask questions from
+a script file, using Windows dialog boxes in the so-called Wizard style: large
+dialogs asking one question at a time, with a Back button, a Next button and
+a Cancel button. Using a well-described and portable API you can create a
+wealth of commonly used dialog controls.
+With a few common scripting techniques, the Wizard's Apprentice
+will allow you to create wizards with style!
+</p>
+<h3><img src="smallhat.png" width="16" height="16" alt="-">What does it look like?</h3>
+<p>Here is a screenshot of the Wizard's Apprentice showing a welcome text.</p>
+<div align="center"><img src="welcome.png" alt="Screenshot of Welcome dialog"></div>
+<p>Here is another screenshot from the same program, asking to choose a 
+language from a list.</p>
+<div align="center"><img src="language.png" alt="Screenshot of language
+    selection dialog"></div>
+<p>Here's a message box, that allows you to ask Yes/No questions:</p>
+<div align="center"><img src="sure.png" alt="Screenshot of messagebox"></div>
+<h3><img src="smallhat.png" width="16" height="16" alt="-">How does it work?</h3>
+<p>
+Communication with the Wizard's Apprentice is done through environment 
+variables and error levels. Here's how you would code the messagebox above in Perl:
+</p>
+<table class="ex"><tbody><tr><td>
+<ol>
+    <li><tt>&nbsp;$ENV{"watitle"}="Cancel installer";</tt>
+    </li><li><tt>&nbsp;$ENV{"watext"}="This will abort the installation.~Are you sure?~~Press OK to abort the installation.~Press Cancel to continue installing.";</tt>
+    </li><li><tt>&nbsp;system("wizapp LB");</tt>
+    </li><li><tt>&nbsp;$errlevel = $? &gt;&gt; 8;</tt>
+    </li><li><tt>&nbsp;print("You're not sure.") if ($errlevel == 2);</tt>
+    </li><li><tt>&nbsp;print("You're sure.")     if ($errlevel == 0);</tt>
+</li></ol>
+</td></tr></tbody></table>
+<p>
+The following batch code could be used to display the language selection 
+dialog: 
+</p>
+<table class="ex"><tbody><tr><td>
+
+<ol>
+
+    <li><tt>&nbsp;
+
+set watitle=Choose a language
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+set watext=~~~~Choose a language you want the program to run in:
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+set wainput= ^&amp;English; ^&amp;French; ^&amp;German; ^&amp;Italian; ^&amp;Spanish; ^&amp;Dutch
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+set waoutnum=0
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+set wabmp=language.bmp
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+set wabat=%TEMP%\wabat.bat
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+start /w wizapp RB
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if errorlevel 2 goto :cancel
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if errorlevel 1 goto :previous
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+call %wabat%
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if "%waoutnum%"=="0" echo Choice is English
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if "%waoutnum%"=="1" echo Choice is French
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if "%waoutnum%"=="2" echo Choice is German
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if "%waoutnum%"=="3" echo Choice is Italian
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if "%waoutnum%"=="4" echo Choice is Spanish
+
+    </tt>
+
+    </li><li><tt>&nbsp;
+
+if "%waoutnum%"=="5" echo Choice is Dutch
+
+    </tt>
+
+</li></ol>
+
+</td></tr></tbody></table>
+
+<h3><img src="smallhat.png" width="16" height="16" alt="-">Features</h3>
+<ul>
+    <li>When you run the Wizard's Apprentice, it will display a dialog on the 
+    screen. The Wizard's Apprentice can display the following types of
+    dialogs.
+    <dl>
+        <dt><b>Message box</b>
+        </dt><dd>A Message box with the information, exclamation or stop icon,
+        or with the question icon and an OK and a Cancel button.
+        </dd><dt><b>Text screen</b>
+        </dt><dd>A wizard-style dialog displaying only text, e.g. a welcome screen.
+        </dd><dt><b>File contents</b>
+        </dt><dd>A wizard-style dialog with a box with a scroll bar on it, in which
+        a file is displayed. Can be used to display a license text.
+        </dd><dt><b>Edit field</b>
+        </dt><dd>A wizard-style dialog with an edit field on it, where the user can
+        type text.
+        </dd><dt><b>Radio buttons</b>
+        </dt><dd>A wizard-style dialog with a set of radio buttons on it.
+        </dd><dt><b>Checkboxes</b>
+        </dt><dd>A wizard-style dialog with a set of check boxes on it.
+        </dd><dt><b>Listbox</b>
+        </dt><dd>A wizard-style dialog with a listbox on it. This listbox is either
+        a single-selection box, where you can select exactly one item, or a 
+        multiple-selection listbox, from which you can select zero or more items.
+        </dd><dt><b>Combo box</b>
+        </dt><dd>A wizard-style dialog with a combo box on it. A combo box allows you
+        to select an item from a list, or type it yourself.
+        </dd><dt><b>File- or directory browser</b>
+        </dt><dd>A wizard-style dialog with an edit field on it with a Browse button
+        next to it. Pressing the Browse button will either show an open file
+        dialog, or a directory tree dialog.
+        </dd><dt><b>Progress bar</b>
+        </dt><dd>A dialog with a progress bar to display during lengthy operations.
+        In between parts of the operation you can update the progress bar
+        to a new percentage.
+        </dd><dt><b>Splash screen</b>
+        </dt><dd>A splash screen that appears e.g. at program startup. Your program
+        can perform initialisation in the background, after which you close the
+        splash screen.
+    </dd></dl>
+    </li><li>The Wizard's Apprentice will return an errorlevel that indicates
+    which button the user pressed.
+    </li><li>The appearance of the wizard-style dialog can be completely controlled:
+    <ul>
+        <li>Set the title of the dialog
+        </li><li>Set the text contents of the dialog
+        </li><li>Set the sidebar picture of the dialog
+        </li><li>Set the labels of the buttons
+        </li><li>Set the icon of the dialog
+        </li><li>Set the signature text on the bottom-left corner of the dialog
+        </li><li>You can even play a sound when the dialog appears.
+    </li></ul>
+    </li><li>The choice that the user made, or the text that was typed, is returned
+    in environment variables.
+</li></ul>
+<h3><img src="smallhat.png" width="16" height="16" alt="-">What's new</h3>
+<h4>June 2012</h4>
+<blockquote>
+    Version 1.61 was released. It fixes a bug cancelling progress bar dialogs.
+</blockquote>
+<h4>May 2012</h4>
+<blockquote>
+    Version 1.6 was released. Improvements in this version:
+    <ul>
+        <li>Text and appearance of progress bar and splash screen will 
+        change when an <tt>UPDATE</tt> command is done.
+        </li><li>Fixed a bug which would make it impossible to open a progress bar 
+        dialog or a splash screen.
+    </li></ul>
+</blockquote>
+<h4>February 2006</h4>
+<blockquote>
+    After a long period of silence the Wizard's Apprentice 1.5 was released.
+    The Wizard's Apprentice is no longer strictly for batch files, but can 
+    be used with any script language, e.g. Perl, PHP, VB or batch language.
+    The manual was largely rewritten to reflect that change.
+    Other changes include:
+    <ul>
+        <li>A progress bar to display during long operations.
+        </li><li>A splash screen to show at program startup.
+        </li><li>'Continuation variables' to display longer texts with less code.
+    </li></ul>
+    All in all, the Wizard's Apprentice makes it even easier to make your 
+    scripts look professional!
+</blockquote>
+<h4>April 2003</h4>
+<blockquote>
+    The latest version of the Wizard's Apprentice is version 1.3. These are the
+    most important improvements in this version:
+    <ul>
+        <li>The Wizard's Apprentice now supports unlimited size for the value
+        of environment variables. This is especially useful if you select
+        many items from a listbox.
+        </li><li>A new feature was added to the file browser: filter strings.
+        They will allow you to let the user choose files with a certain
+        extension more easily.
+    </li></ul>
+</blockquote>
+
+<br>
+<address>
+    Dion Nicolaas<br> 
+    <a href="mailto:dionnicolaas@users.sourceforge.net">dionnicolaas@users.sourceforge.net</a><br>
+    <br>
+    The Wizard's Apprentice's Home<br>
+    <a href="http://wizapp.sf.net/">http://wizapp.sf.net</a>
+</address>
+</td></tr>
+</tbody></table>
+</td></tr></tbody></table>
+
+
+</body></html>

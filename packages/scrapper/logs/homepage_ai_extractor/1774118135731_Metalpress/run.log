@@ -1,0 +1,73 @@
+[2026-03-21T18:35:35.731Z] === Homepage AI Extractor: Metalpress ===
+[2026-03-21T18:35:35.731Z] Started at: 2026-03-21T18:35:35.731Z
+[2026-03-21T18:35:35.731Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774118135731_Metalpress
+[2026-03-21T18:35:35.732Z] Company: Metalpress
+[2026-03-21T18:35:35.732Z] Website: metalpress.co.il
+[2026-03-21T18:35:35.732Z] cbRank: 3661914
+[2026-03-21T18:35:35.732Z] Reasons: h
+[2026-03-21T18:35:35.732Z] Fetching: https://metalpress.co.il
+[2026-03-21T18:35:45.284Z] Redirected: https://metalpress.co.il -> https://www.metalpress.co.il/
+[2026-03-21T18:35:45.291Z] Saved HTML (220858 bytes) to page.html
+[2026-03-21T18:35:45.295Z] Extracted 67 unique links from page
+[2026-03-21T18:35:45.296Z] Saved 67 links to links.json
+[2026-03-21T18:35:45.301Z] Extracted footer HTML (4292 chars)
+[2026-03-21T18:35:45.302Z] Extracted header HTML (88496 chars)
+[2026-03-21T18:35:45.306Z] Website (post-redirect): https://www.metalpress.co.il/ → origin: https://www.metalpress.co.il
+[2026-03-21T18:35:45.306Z] External links: 5 (of 67 total)
+[2026-03-21T18:35:45.306Z] ── All external links ──
+[2026-03-21T18:35:45.306Z]   EXT: https://the-cleaner.me
+[2026-03-21T18:35:45.306Z]   EXT: https://www.cochav.co.il
+[2026-03-21T18:35:45.306Z]   EXT: https://www.facebook.com/share/1ME7NuBNzo
+[2026-03-21T18:35:45.306Z]   EXT: https://www.instagram.com/metalpress_israel?igsh=eHBmYjZvamlucWZw
+[2026-03-21T18:35:45.306Z]   EXT: https://www.richkid.co.il
+[2026-03-21T18:35:45.306Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T18:35:45.307Z]   UNCATEGORIZED: https://the-cleaner.me
+[2026-03-21T18:35:45.307Z]   UNCATEGORIZED: https://www.cochav.co.il
+[2026-03-21T18:35:45.307Z]   REGEX: ig <- https://www.instagram.com/metalpress_israel?igsh=eHBmYjZvamlucWZw
+[2026-03-21T18:35:45.307Z]   UNCATEGORIZED: https://www.richkid.co.il
+[2026-03-21T18:35:45.307Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-21T18:35:45.307Z]   SKIP (regex domain, no match): https://www.facebook.com/share/1ME7NuBNzo
+[2026-03-21T18:35:45.307Z] Programmatic result: ws:1, ig:1 | 3 uncategorized
+[2026-03-21T18:35:45.307Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T18:35:45.309Z] Saved AI prompt (3793 chars) to ai_prompt.txt
+[2026-03-21T18:35:45.309Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T18:35:45.313Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T18:36:00.440Z]   AI: First token received, streaming...
+[2026-03-21T18:36:08.626Z] AI response complete: 108 chars in 23.3s
+[2026-03-21T18:36:08.628Z] Saved AI response to ai_response.json
+[2026-03-21T18:36:08.628Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T18:36:08.628Z]   AI LINK: https://www.facebook.com/share/1ME7NuBNzo/
+[2026-03-21T18:36:08.628Z]   AI LINK: https://www.instagram.com/metalpress_israel?igsh=eHBmYjZvamlucWZw
+[2026-03-21T18:36:08.628Z] AI returned 2 valid links
+[2026-03-21T18:36:08.629Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T18:36:08.629Z]   AI→SKIP (regex domain, no match): https://www.facebook.com/share/1ME7NuBNzo/
+[2026-03-21T18:36:08.629Z]   AI→REGEX: ig <- https://www.instagram.com/metalpress_israel?igsh=eHBmYjZvamlucWZw (duplicate, skipped)
+[2026-03-21T18:36:08.633Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T18:36:08.633Z] Footer/header origins (6):
+[2026-03-21T18:36:08.633Z]   FOOTER/HEADER ORIGIN: https://www.cochav.co.il
+[2026-03-21T18:36:08.634Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T18:36:08.634Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T18:36:08.634Z]   FOOTER/HEADER ORIGIN: https://www.richkid.co.il
+[2026-03-21T18:36:08.634Z]   FOOTER/HEADER ORIGIN: https://the-cleaner.me
+[2026-03-21T18:36:08.634Z]   FOOTER/HEADER ORIGIN: https://www.metalpress.co.il
+[2026-03-21T18:36:08.634Z]   ADDED: urls <- https://the-cleaner.me
+[2026-03-21T18:36:08.634Z]   ADDED: urls <- https://www.cochav.co.il
+[2026-03-21T18:36:08.634Z]   ADDED: urls <- https://www.richkid.co.il
+[2026-03-21T18:36:08.634Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-21T18:36:08.634Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T18:36:08.635Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T18:36:08.635Z] ── Step 3: Final dedup ──
+[2026-03-21T18:36:08.635Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-21T18:36:08.635Z] ── FINAL RESULT ──
+[2026-03-21T18:36:08.635Z]   ws (1):
+[2026-03-21T18:36:08.635Z]     - https://www.metalpress.co.il
+[2026-03-21T18:36:08.635Z]   ig (1):
+[2026-03-21T18:36:08.635Z]     - https://www.instagram.com/metalpress_israel
+[2026-03-21T18:36:08.635Z]   urls (3):
+[2026-03-21T18:36:08.635Z]     - https://the-cleaner.me
+[2026-03-21T18:36:08.635Z]     - https://www.cochav.co.il
+[2026-03-21T18:36:08.635Z]     - https://www.richkid.co.il
+[2026-03-21T18:36:08.636Z] Summary: ws:1, ig:1, urls:3
+[2026-03-21T18:36:08.636Z] Saved final result to result.json
+[2026-03-21T18:36:08.636Z] Override fields: ws, ig, urls
+[2026-03-21T18:36:08.636Z] Finished at: 2026-03-21T18:36:08.636Z

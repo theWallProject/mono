@@ -1,0 +1,1372 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!-- SEO-->
+    <meta name="description" content="Pepper will coordinate all of your meetings between multiple participants, in a simple and easy way.">
+    <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/pepper.ai\/","name":"pepper.ai"}}</script>
+    <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/pepper.ai\/","name":"pepper.ai","logo":"https:\/\/tutorial.pepper.ai\/img\/logo.svg"}</script>
+    <!-- Base-->
+    <meta charset="utf-8">
+    <title>Pepper</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <!-- Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="static/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="static/css/libs.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.min.css">
+    <style>
+        /*.btn_social:disabled{*/
+            /*-webkit-filter: grayscale(100%);*/
+            /*filter: grayscale(100%);*/
+        /*}*/
+        .welcome {
+            min-height: 35.020833vw;
+        }
+        .welcome__main {
+            margin-top: 15vw;
+            margin-bottom: 1.8125vw;
+        }
+        .btn_social {
+            position: relative;
+        }
+        @media (max-width: 992px) {
+            .welcome {
+                min-height: 101.33333333333334vw;
+            }
+            .welcome__main {
+            margin-top: 20vw;
+            }
+        }
+        .btn_social {
+            width: 15vw;
+            padding-left: 20px;
+        }
+        .btn_windows {
+            padding-bottom: 15px;
+        }
+        .btn_windows::after {
+            content: 'Outlook';
+            color: #919191;
+            font-size: 12px;
+
+            position: absolute;
+            left: 5.9vw;
+            top: calc(50% + 5px);
+        }
+        @media (max-width: 992px) {
+            .btn_social {
+                width: 43vw;
+            }
+            .btn_google {
+                padding-left: 7vw;
+            }
+            .btn_windows {
+                padding-left: 12.25vw;
+            }
+            .btn_windows::after {
+                left: 19vw;
+                top: calc(50% + 10px);
+                font-size: 19px;
+            }
+            .join__btn {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .security {
+                margin-bottom: 15px;
+            }
+        }
+        @media (max-width: 526px) {
+            .btn_windows::after {
+                left: 19vw;
+                top: calc(50% + 2px);
+                font-size: 12px;
+            }
+            .security {margin-bottom: 0;}
+        }
+        .footer .container-fluid:last-child{
+            background-color: transparent;
+        }
+        .wrapper{
+            padding-bottom: 0;
+        }
+        .terms__btn{
+            border: .052083333333333vw solid #ff9b2f;
+        }
+        .terms__btn__active{
+            background-color: #ff9b2f;
+        }
+        .terms__btn.validate:before{
+            color: #ff0000;
+        }
+        .preloader-cool{
+            pointer-events: none;
+
+            position: fixed;
+            left:0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            transition: opacity 500ms ease-in;
+            opacity: 1;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .home-loaded .preloader-cool svg{
+            top: 100%;
+        }
+        .logotype {
+            background-image: url("../img/svg/logo_with_copiright.svg");
+        }
+        /*animate load*/
+        .preloader__block {
+            max-width: 610px;
+            height: 163px;
+            animation: preloader 4s 1 linear;
+            margin: 200px auto 0;
+            display: flex;
+            justify-content: center;
+        }
+        .home-loaded .preloader-cool {
+            display: none;
+        }
+        /*.pepper {*/
+        /*    width: 610px;*/
+        /*}*/
+        /*#hat, #dot {*/
+        /*    animation: down 2s 1 linear;*/
+        /*    transform: translateY(0px);*/
+        /*}*/
+        /*.preloader__progress {*/
+        /*    width: 100%;*/
+        /*    height: 10px;*/
+        /*    overflow: hidden;*/
+        /*}*/
+        /*.progress__line {*/
+        /*    background-color: #003c79;*/
+        /*    width: 100%;*/
+        /*    height: 100%;*/
+        /*    transform: translateX(-610px);*/
+        /*    animation: progress 4s infinite linear;*/
+        /*}*/
+
+        /*@keyframes  preloader {*/
+        /*    0% {*/
+        /*        transform: translateY(0);*/
+        /*        width: 0px;*/
+        /*    }*/
+        /*    25% {*/
+        /*        width: 610px;*/
+        /*    }*/
+        /*}*/
+        /*@keyframes  down {*/
+        /*    0%{*/
+        /*        transform: translateZ(0px);*/
+        /*        transform: translateY(-10px);*/
+        /*    }*/
+        /*    70% {*/
+        /*        transform: translateY(-10px);*/
+        /*    }*/
+        /*    80% {*/
+        /*        transform: translateY(0px);*/
+        /*    }*/
+        /*    85% {*/
+        /*        transform: translateY(-5px);*/
+        /*    }*/
+        /*    90% {*/
+        /*        transform: translateY(0px);*/
+        /*    }*/
+        /*    95% {*/
+        /*        transform: translateY(-2px);*/
+        /*    }*/
+        /*    100% {*/
+        /*        transform: translateY(0px);*/
+        /*    }*/
+        /*}*/
+        /*@keyframes  progress {*/
+        /*    0% {*/
+        /*        transform: translateX(-610px);*/
+        /*    }*/
+        /*    100% {*/
+        /*        transform: translateX(610px);*/
+        /*    }*/
+        /*}*/
+        /*@media (max-width: 576px) {*/
+        /*    .preloader__block {*/
+        /*        width: 320px;*/
+        /*    }*/
+        /*    .pepper {*/
+        /*        width: 320px;*/
+        /*        margin: 0 auto;*/
+        /*        display: block;*/
+        /*    }*/
+        /*    .preloader__progress {*/
+        /*        width: 320px;*/
+        /*        margin: 0 auto;*/
+        /*    }*/
+        /*    @keyframes  preloader {*/
+        /*        0% {*/
+        /*            transform: translateY(0);*/
+        /*            width: 0px;*/
+        /*        }*/
+        /*        25% {*/
+        /*            width: 320px;*/
+        /*        }*/
+        /*    }*/
+        /*    @keyframes  progress {*/
+        /*        0% {*/
+        /*            transform: translateX(-320px);*/
+        /*        }*/
+        /*        100% {*/
+        /*            transform: translateX(320px);*/
+        /*        }*/
+        /*    }*/
+        /*}*/
+        @keyframes  ldio-isv64bf3vvq {
+            0% {
+                width: 12px;
+                height: 12px;
+                background: rgba(47, 77, 135, 0.14564516129032257);
+            }
+            25% {
+                width: 12px;
+                height: 12px;
+                background: rgba(47, 77, 135, 0.14564516129032257);
+            }
+            50% {
+                width: 20px;
+                height: 20px;
+                background: #2f4d87;
+            }
+            75% {
+                width: 12px;
+                height: 12px;
+                background: rgba(47, 77, 135, 0.14564516129032257);
+            }
+            100% {
+                width: 12px;
+                height: 12px;
+                background: rgba(47, 77, 135, 0.14564516129032257);
+            }
+        }
+        .ldio-isv64bf3vvq {
+            position: relative;
+        }
+        .ldio-isv64bf3vvq div {
+            position: absolute;
+            transform: translate(-50%,-50%);
+            animation: ldio-isv64bf3vvq 1s linear infinite;
+            border-radius: 50%;
+        }
+        .ldio-isv64bf3vvq div:nth-child(1) {
+            animation-delay: -0.9285714285714286s;
+            left: 170px;
+            top: 100px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(2) {
+            animation-delay: -0.8571428571428571s;
+            left: 163.06782075316934px;
+            top: 130.37186173822906px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(3) {
+            animation-delay: -0.7857142857142857s;
+            left: 143.64428613011137px;
+            top: 154.72820377276207px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(4) {
+            animation-delay: -0.7142857142857143s;
+            left: 115.57646537694201px;
+            top: 168.24495385272763px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(5) {
+            animation-delay: -0.6428571428571429s;
+            left: 84.423534623058px;
+            top: 168.24495385272763px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(6) {
+            animation-delay: -0.5714285714285714s;
+            left: 56.35571386988865px;
+            top: 154.7282037727621px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(7) {
+            animation-delay: -0.5s;
+            left: 36.93217924683067px;
+            top: 130.3718617382291px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(8) {
+            animation-delay: -0.42857142857142855s;
+            left: 30px;
+            top: 100.00000000000001px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(9) {
+            animation-delay: -0.35714285714285715s;
+            left: 36.93217924683066px;
+            top: 69.62813826177094px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(10) {
+            animation-delay: -0.2857142857142857s;
+            left: 56.35571386988864px;
+            top: 45.27179622723792px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(11) {
+            animation-delay: -0.21428571428571427s;
+            left: 84.42353462305798px;
+            top: 31.755046147272353px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(12) {
+            animation-delay: -0.14285714285714285s;
+            left: 115.57646537694194px;
+            top: 31.755046147272324px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(13) {
+            animation-delay: -0.07142857142857142s;
+            left: 143.64428613011134px;
+            top: 45.27179622723791px;
+        }
+        .ldio-isv64bf3vvq div:nth-child(14) {
+            animation-delay: 0s;
+            left: 163.06782075316937px;
+            top: 69.62813826177097px;
+        }
+        .loadingio-spinner-default-mpf3svlr9a {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            overflow: hidden;
+            background: none;
+        }
+        .ldio-isv64bf3vvq {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform: translateZ(0) scale(1);
+            backface-visibility: hidden;
+            transform-origin: 0 0; /* see note above */
+        }
+        .ldio-isv64bf3vvq div { box-sizing: content-box; }
+    </style>
+    <style>
+        .cookies-block {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #0057e2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 90px;
+        }
+        .block__text {
+            color: #ffffff;
+            line-height: 25px;
+            font-size: 16px;
+        }
+        .text__link, .text__link:hover {
+            color: #ff9b2f;
+        }
+        .text__link:hover {
+            text-decoration: underline;
+        }
+        .block__buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .button__link {
+            border: 0;
+            background-color: transparent;
+            display: block;
+            color: #ffffff;
+            line-height: 25px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .button__link:hover {
+            color: #ff9b2f;
+        }
+        .llink {
+            color: #28b446;
+        }
+        .llink:hover {
+            color: #28b446;
+            text-decoration: underline;
+        }
+        /*.llink2 {*/
+        /*    color: #003c79;*/
+        /*}*/
+        /*.llink2:hover {*/
+        /*    color: #003c79;*/
+        /*    text-decoration: underline;*/
+        /*}*/
+        @media (max-width: 540px) {
+            .cookies-block {
+                padding: 22px 20px;
+                flex-direction: column;
+            }
+            .block__buttons {
+                margin-top: 20px;
+            }
+        }
+        .security {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            color: #28b446;
+        }
+        .security__icon {
+            margin-right: 10px;
+            fill: #28b446;
+        }
+        .join {
+            padding-bottom: 1.822916666666667vw;
+        }
+    </style>
+    <style>
+        .security__information {
+            display: flex;
+            justify-content: space-between;
+        }
+        .information__block {
+            margin-top: 17px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 22px 0;
+            width: calc(100% - 2px);
+        }
+        .bl__text {
+            margin-top: 9px;
+            padding: 0 58px;
+        }
+        .bl__headline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .info_icon {
+            margin-right: 14.5px;
+        }
+        .slide__l {
+            transform: translateX(-3px);
+        }
+        .slide__r {
+            transform: translateX(3px);
+        }
+
+        .footer-patent {
+            display: flex;
+            align-items: center;
+            color: #003c79;
+        }
+
+        @media (max-width: 992px) {
+            .footer-patent {
+                justify-content: center;
+            }
+        }
+        .welcome__logo {
+            margin-top: 100px;
+        }
+    </style>
+    <style>
+       .text_26 {
+            font-size: 2.354166666666667vw
+        }
+        .header__mobile  {
+            display: none;
+        }
+        .header__sign .how-it-link {
+            background: none;
+        }
+        .header__sign .sign-in-link {
+            background: #ff9b2f;
+            color: #ffffff;
+        }
+        .soccials {
+            width: 100%;
+            padding: 79px 10vw;
+        }
+        .soccials div {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+                    max-width: 500px;
+    margin: 0 auto;
+        }
+        .soccials img {
+            display:  block;
+            width: 4vw;
+        }
+        .box_lg {
+            top: -4.395833vw;
+        }
+        @media (max-width: 992px) {
+            .text_26 {
+                font-size: 4.8vw
+            }
+            .soccials {
+                padding: 7vw 10vw;
+            }
+            .soccials img {
+                width: 4.5vw;
+            }
+            .header__sign {
+                display: none;
+            }
+            .header__mobile  {
+                display: block;
+            }
+            .mobile-block {
+                background: #FFFFFF;
+                position: fixed;
+                top: -300%;
+                left: 0;
+                right: 0;
+                -webkit-transition: 1s;
+                -o-transition: 1s;
+                transition: 1s;
+                padding-top: 28px;
+                padding-bottom: 20px;
+                padding-right: 4vw;
+                padding-left: 4vw;
+            }
+            .header__mobile button {
+                background: transparent;
+                border: 0;
+            }
+            .header__mobile .active {
+                top: 0;
+            }
+            .mobile-block .logotype_icon__this {
+                fill: #0057E2;
+            }
+            .mobile-block .sign-in-link {
+                background-color: #ff9b2f;
+                width: 20vw;
+            }
+            .mobile-block .how-it-link {
+                background-color: #ffffff;
+                width: 30vw;
+                border: 1px solid #0057E2;
+                color: #0057E2;
+            }
+            .mobile-block .logotype_icon button {
+                border: 0;
+                background: transparent;
+                position: absolute;
+                right: 4vw;
+            }
+            .mobile-block .logotype_icon button img {
+                width: 3vw;
+            }
+            .contact-us {
+                text-align: center;
+            }
+            .contact-us a {
+                font-size: 2.666666666666667vw;
+                color: #94A1AE;
+            }
+            .sticky .header__mobile button img {
+                -webkit-filter: invert(1);
+                        filter: invert(1);
+            }
+            .sticky .btn_global.sign_in span {
+                color: #ffffff;
+            }
+            .text_32 {
+                font-size: 2.333333vw;
+            }
+            .logotype_icon {
+                width: 26.333333vw;
+            }
+        }
+
+        .join__wrap-support .btn-blue{
+            background: #0057E2;
+            border-radius: 21px;
+            color: #fff;
+            display: inline-block;
+            padding: 13px 44px;
+            font-size: 14px;
+            transition: all 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+        .join__wrap-support .btn-blue:hover{
+            background: #0344ab;
+        }
+        .join__wrap-support .js-join-buttons{
+            min-height: unset;
+        }
+
+        .join__wrap-support .support__title{
+            color: #003C79;
+            font-weight: bold;
+            font-size: 24px;
+            
+        }
+        .join__wrap-support .support__text{
+            color: #003C79;
+            margin: 34px 0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+
+    <!-- Hotjar Tracking Code for https://pepper.ai/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1708605,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script><script async="" src="https://static.hotjar.com/c/hotjar-1708605.js?sv=6"></script>
+    <script>
+        function mobileActive () {
+            console.log('Work!');
+            let mobileMenu = document.querySelector('.mobile-block');
+            mobileMenu.classList.add('active');
+        }
+        function mobileUnActive () {
+            console.log('Work!');
+            let mobileMenu = document.querySelector('.mobile-block');
+            mobileMenu.classList.remove('active');
+        }
+    </script>
+
+
+    
+        
+        
+            
+            
+        
+
+    
+<script async="" src="https://script.hotjar.com/modules.6a0f3932cb1341a35c18.js" charset="utf-8"></script><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css">.rtl { direction: rtl; } .vdp-datepicker { position: relative; text-align: left; } .vdp-datepicker * { box-sizing: border-box; } .vdp-datepicker__calendar { position: absolute; z-index: 100; background: #fff; width: 300px; border: 1px solid #ccc; } .vdp-datepicker__calendar header { display: block; line-height: 40px; } .vdp-datepicker__calendar header span { display: inline-block; text-align: center; width: 71.42857142857143%; float: left; } .vdp-datepicker__calendar header .prev, .vdp-datepicker__calendar header .next { width: 14.285714285714286%; float: left; text-indent: -10000px; position: relative; } .vdp-datepicker__calendar header .prev:after, .vdp-datepicker__calendar header .next:after { content: ''; position: absolute; left: 50%; top: 50%; -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); border: 6px solid transparent; } .vdp-datepicker__calendar header .prev:after { border-right: 10px solid #000; margin-left: -5px; } .vdp-datepicker__calendar header .prev.disabled:after { border-right: 10px solid #ddd; } .vdp-datepicker__calendar header .next:after { border-left: 10px solid #000; margin-left: 5px; } .vdp-datepicker__calendar header .next.disabled:after { border-left: 10px solid #ddd; } .vdp-datepicker__calendar header .prev:not(.disabled), .vdp-datepicker__calendar header .next:not(.disabled), .vdp-datepicker__calendar header .up:not(.disabled) { cursor: pointer; } .vdp-datepicker__calendar header .prev:not(.disabled):hover, .vdp-datepicker__calendar header .next:not(.disabled):hover, .vdp-datepicker__calendar header .up:not(.disabled):hover { background: #eee; } .vdp-datepicker__calendar .disabled { color: #ddd; cursor: default; } .vdp-datepicker__calendar .flex-rtl { display: flex; width: inherit; flex-wrap: wrap; } .vdp-datepicker__calendar .cell { display: inline-block; padding: 0 5px; width: 14.285714285714286%; height: 40px; line-height: 40px; text-align: center; vertical-align: middle; border: 1px solid transparent; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year { cursor: pointer; } .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover { border: 1px solid #4bd; } .vdp-datepicker__calendar .cell.selected { background: #4bd; } .vdp-datepicker__calendar .cell.selected:hover { background: #4bd; } .vdp-datepicker__calendar .cell.selected.highlighted { background: #4bd; } .vdp-datepicker__calendar .cell.highlighted { background: #cae5ed; } .vdp-datepicker__calendar .cell.highlighted.disabled { color: #a3a3a3; } .vdp-datepicker__calendar .cell.grey { color: #888; } .vdp-datepicker__calendar .cell.grey:hover { background: inherit; } .vdp-datepicker__calendar .cell.day-header { font-size: 75%; white-space: nowrap; cursor: inherit; } .vdp-datepicker__calendar .cell.day-header:hover { background: inherit; } .vdp-datepicker__calendar .month, .vdp-datepicker__calendar .year { width: 33.333%; } .vdp-datepicker__clear-button, .vdp-datepicker__calendar-button { cursor: pointer; font-style: normal; } .vdp-datepicker__clear-button.disabled, .vdp-datepicker__calendar-button.disabled { color: #999; cursor: default; } </style><style type="text/css">.ti-tag-input[data-v-108f4f13] {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  line-height: inherit;
+}
+.ti-tag-input[data-v-108f4f13]::-ms-clear {
+  display: none;
+}
+input[data-v-108f4f13]:focus {
+  outline: none;
+}
+input[disabled][data-v-108f4f13] {
+  background-color: transparent;
+}
+
+/*# sourceURL=C:/Users/johan/dev/vue-tags-input/vue-tags-input/C:/Users/johan/dev/vue-tags-input/vue-tags-input/tag-input.vue */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6L1VzZXJzL2pvaGFuL2Rldi92dWUtdGFncy1pbnB1dC92dWUtdGFncy1pbnB1dC9DOi9Vc2Vycy9qb2hhbi9kZXYvdnVlLXRhZ3MtaW5wdXQvdnVlLXRhZ3MtaW5wdXQvdGFnLWlucHV0LnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDhCQUE4QjtFQUM5QixlQUFlO0VBQ2YsYUFBYTtFQUNiLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztFQUNkLFNBQVM7RUFDVCxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLHFCQUFxQjtDQUFFO0FBRXpCO0VBQ0UsY0FBYztDQUFFO0FBRWxCO0VBQ0UsY0FBYztDQUFFO0FBRWxCO0VBQ0UsOEJBQThCO0NBQUUiLCJmaWxlIjoidGFnLWlucHV0LnZ1ZT92dWUmdHlwZT1zdHlsZSZpbmRleD0wJmlkPTEwOGY0ZjEzJmxhbmc9Y3NzJnNjb3BlZD10cnVlJiIsInNvdXJjZXNDb250ZW50IjpbIi50aS10YWctaW5wdXQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgY29sb3I6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogMHB4O1xuICBtYXJnaW46IDBweDtcbiAgZGlzcGxheTogZmxleDtcbiAgdG9wOiAwcHg7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIGxpbmUtaGVpZ2h0OiBpbmhlcml0OyB9XG5cbi50aS10YWctaW5wdXQ6Oi1tcy1jbGVhciB7XG4gIGRpc3BsYXk6IG5vbmU7IH1cblxuaW5wdXQ6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lOyB9XG5cbmlucHV0W2Rpc2FibGVkXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyB9XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style type="text/css">@font-face {
+  font-family: 'icomoon';
+  src: url(data:application/vnd.ms-fontobject;base64,aAUAAMQEAAABAAIAAAAAAAAAAAAAAAAAAAABAJABAAAAAExQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAUdPJHwAAAAAAAAAAAAAAAAAAAAAAAA4AaQBjAG8AbQBvAG8AbgAAAA4AUgBlAGcAdQBsAGEAcgAAABYAVgBlAHIAcwBpAG8AbgAgADEALgAwAAAADgBpAGMAbwBtAG8AbwBuAAAAAAAAAQAAAAsAgAADADBPUy8yDxIFrAAAALwAAABgY21hcBdW0okAAAEcAAAAVGdhc3AAAAAQAAABcAAAAAhnbHlmpZ+jMAAAAXgAAAD8aGVhZA/FmAgAAAJ0AAAANmhoZWEHgAPIAAACrAAAACRobXR4EgABvgAAAtAAAAAcbG9jYQCSAOIAAALsAAAAEG1heHAACQAfAAAC/AAAACBuYW1lmUoJ+wAAAxwAAAGGcG9zdAADAAAAAASkAAAAIAADA4ABkAAFAAACmQLMAAAAjwKZAswAAAHrADMBCQAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAEAAAOkCA8D/wABAA8AAQAAAAAEAAAAAAAAAAAAAACAAAAAAAAMAAAADAAAAHAABAAMAAAAcAAMAAQAAABwABAA4AAAACgAIAAIAAgABACDpAv/9//8AAAAAACDpAP/9//8AAf/jFwQAAwABAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAVgEBA74CgQAcAAABMhceARcWFwcmJy4BJyYjIgYHFyERFzY3PgE3NgIWSkNDbykpF2QQIB9VMzQ5P3AtnP6AmB0iIkspKAJVFxhSODlCIDMrKz4REislmgGAmhkVFBwICAABANYAgQMqAtUACwAAAQcXBycHJzcnNxc3Ayru7jzu7jzu7jzu7gKZ7u487u487u487u4AAQCSAIEDgAK9AAUAACUBFwEnNwGAAcQ8/gDuPPkBxDz+AO48AAAAAAEAAAAAAAAfydNRXw889QALBAAAAAAA1nUqGwAAAADWdSobAAAAAAO+AtUAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAAA74AAQAAAAAAAAAAAAAAAAAAAAcEAAAAAAAAAAAAAAACAAAABAAAVgQAANYEAACSAAAAAAAKABQAHgBQAGoAfgABAAAABwAdAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEABwAAAAEAAAAAAAIABwBgAAEAAAAAAAMABwA2AAEAAAAAAAQABwB1AAEAAAAAAAUACwAVAAEAAAAAAAYABwBLAAEAAAAAAAoAGgCKAAMAAQQJAAEADgAHAAMAAQQJAAIADgBnAAMAAQQJAAMADgA9AAMAAQQJAAQADgB8AAMAAQQJAAUAFgAgAAMAAQQJAAYADgBSAAMAAQQJAAoANACkaWNvbW9vbgBpAGMAbwBtAG8AbwBuVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwaWNvbW9vbgBpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuUmVndWxhcgBSAGUAZwB1AGwAYQByaWNvbW9vbgBpAGMAbwBtAG8AbwBuRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==);
+  src: url(data:application/vnd.ms-fontobject;base64,aAUAAMQEAAABAAIAAAAAAAAAAAAAAAAAAAABAJABAAAAAExQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAUdPJHwAAAAAAAAAAAAAAAAAAAAAAAA4AaQBjAG8AbQBvAG8AbgAAAA4AUgBlAGcAdQBsAGEAcgAAABYAVgBlAHIAcwBpAG8AbgAgADEALgAwAAAADgBpAGMAbwBtAG8AbwBuAAAAAAAAAQAAAAsAgAADADBPUy8yDxIFrAAAALwAAABgY21hcBdW0okAAAEcAAAAVGdhc3AAAAAQAAABcAAAAAhnbHlmpZ+jMAAAAXgAAAD8aGVhZA/FmAgAAAJ0AAAANmhoZWEHgAPIAAACrAAAACRobXR4EgABvgAAAtAAAAAcbG9jYQCSAOIAAALsAAAAEG1heHAACQAfAAAC/AAAACBuYW1lmUoJ+wAAAxwAAAGGcG9zdAADAAAAAASkAAAAIAADA4ABkAAFAAACmQLMAAAAjwKZAswAAAHrADMBCQAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAEAAAOkCA8D/wABAA8AAQAAAAAEAAAAAAAAAAAAAACAAAAAAAAMAAAADAAAAHAABAAMAAAAcAAMAAQAAABwABAA4AAAACgAIAAIAAgABACDpAv/9//8AAAAAACDpAP/9//8AAf/jFwQAAwABAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAVgEBA74CgQAcAAABMhceARcWFwcmJy4BJyYjIgYHFyERFzY3PgE3NgIWSkNDbykpF2QQIB9VMzQ5P3AtnP6AmB0iIkspKAJVFxhSODlCIDMrKz4REislmgGAmhkVFBwICAABANYAgQMqAtUACwAAAQcXBycHJzcnNxc3Ayru7jzu7jzu7jzu7gKZ7u487u487u487u4AAQCSAIEDgAK9AAUAACUBFwEnNwGAAcQ8/gDuPPkBxDz+AO48AAAAAAEAAAAAAAAfydNRXw889QALBAAAAAAA1nUqGwAAAADWdSobAAAAAAO+AtUAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAAA74AAQAAAAAAAAAAAAAAAAAAAAcEAAAAAAAAAAAAAAACAAAABAAAVgQAANYEAACSAAAAAAAKABQAHgBQAGoAfgABAAAABwAdAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEABwAAAAEAAAAAAAIABwBgAAEAAAAAAAMABwA2AAEAAAAAAAQABwB1AAEAAAAAAAUACwAVAAEAAAAAAAYABwBLAAEAAAAAAAoAGgCKAAMAAQQJAAEADgAHAAMAAQQJAAIADgBnAAMAAQQJAAMADgA9AAMAAQQJAAQADgB8AAMAAQQJAAUAFgAgAAMAAQQJAAYADgBSAAMAAQQJAAoANACkaWNvbW9vbgBpAGMAbwBtAG8AbwBuVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwaWNvbW9vbgBpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuUmVndWxhcgBSAGUAZwB1AGwAYQByaWNvbW9vbgBpAGMAbwBtAG8AbwBuRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==#iefix) format("embedded-opentype"), url(data:font/ttf;base64,AAEAAAALAIAAAwAwT1MvMg8SBawAAAC8AAAAYGNtYXAXVtKJAAABHAAAAFRnYXNwAAAAEAAAAXAAAAAIZ2x5ZqWfozAAAAF4AAAA/GhlYWQPxZgIAAACdAAAADZoaGVhB4ADyAAAAqwAAAAkaG10eBIAAb4AAALQAAAAHGxvY2EAkgDiAAAC7AAAABBtYXhwAAkAHwAAAvwAAAAgbmFtZZlKCfsAAAMcAAABhnBvc3QAAwAAAAAEpAAAACAAAwOAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADpAgPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADAAAAHAADAAEAAAAcAAQAOAAAAAoACAACAAIAAQAg6QL//f//AAAAAAAg6QD//f//AAH/4xcEAAMAAQAAAAAAAAAAAAAAAQAB//8ADwABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAFYBAQO+AoEAHAAAATIXHgEXFhcHJicuAScmIyIGBxchERc2Nz4BNzYCFkpDQ28pKRdkECAfVTM0OT9wLZz+gJgdIiJLKSgCVRcYUjg5QiAzKys+ERIrJZoBgJoZFRQcCAgAAQDWAIEDKgLVAAsAAAEHFwcnByc3JzcXNwMq7u487u487u487u4Cme7uPO7uPO7uPO7uAAEAkgCBA4ACvQAFAAAlARcBJzcBgAHEPP4A7jz5AcQ8/gDuPAAAAAABAAAAAAAAH8nTUV8PPPUACwQAAAAAANZ1KhsAAAAA1nUqGwAAAAADvgLVAAAACAACAAAAAAAAAAEAAAPA/8AAAAQAAAAAAAO+AAEAAAAAAAAAAAAAAAAAAAAHBAAAAAAAAAAAAAAAAgAAAAQAAFYEAADWBAAAkgAAAAAACgAUAB4AUABqAH4AAQAAAAcAHQABAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA4ArgABAAAAAAABAAcAAAABAAAAAAACAAcAYAABAAAAAAADAAcANgABAAAAAAAEAAcAdQABAAAAAAAFAAsAFQABAAAAAAAGAAcASwABAAAAAAAKABoAigADAAEECQABAA4ABwADAAEECQACAA4AZwADAAEECQADAA4APQADAAEECQAEAA4AfAADAAEECQAFABYAIAADAAEECQAGAA4AUgADAAEECQAKADQApGljb21vb24AaQBjAG8AbQBvAG8AblZlcnNpb24gMS4wAFYAZQByAHMAaQBvAG4AIAAxAC4AMGljb21vb24AaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AblJlZ3VsYXIAUgBlAGcAdQBsAGEAcmljb21vb24AaQBjAG8AbQBvAG8AbkZvbnQgZ2VuZXJhdGVkIGJ5IEljb01vb24uAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4ALgAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("truetype"), url(data:font/woff;base64,d09GRgABAAAAAAUQAAsAAAAABMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAABCAAAAGAAAABgDxIFrGNtYXAAAAFoAAAAVAAAAFQXVtKJZ2FzcAAAAbwAAAAIAAAACAAAABBnbHlmAAABxAAAAPwAAAD8pZ+jMGhlYWQAAALAAAAANgAAADYPxZgIaGhlYQAAAvgAAAAkAAAAJAeAA8hobXR4AAADHAAAABwAAAAcEgABvmxvY2EAAAM4AAAAEAAAABAAkgDibWF4cAAAA0gAAAAgAAAAIAAJAB9uYW1lAAADaAAAAYYAAAGGmUoJ+3Bvc3QAAATwAAAAIAAAACAAAwAAAAMDgAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAA6QIDwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADgAAAAKAAgAAgACAAEAIOkC//3//wAAAAAAIOkA//3//wAB/+MXBAADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQBWAQEDvgKBABwAAAEyFx4BFxYXByYnLgEnJiMiBgcXIREXNjc+ATc2AhZKQ0NvKSkXZBAgH1UzNDk/cC2c/oCYHSIiSykoAlUXGFI4OUIgMysrPhESKyWaAYCaGRUUHAgIAAEA1gCBAyoC1QALAAABBxcHJwcnNyc3FzcDKu7uPO7uPO7uPO7uApnu7jzu7jzu7jzu7gABAJIAgQOAAr0ABQAAJQEXASc3AYABxDz+AO48+QHEPP4A7jwAAAAAAQAAAAAAAB/J01FfDzz1AAsEAAAAAADWdSobAAAAANZ1KhsAAAAAA74C1QAAAAgAAgAAAAAAAAABAAADwP/AAAAEAAAAAAADvgABAAAAAAAAAAAAAAAAAAAABwQAAAAAAAAAAAAAAAIAAAAEAABWBAAA1gQAAJIAAAAAAAoAFAAeAFAAagB+AAEAAAAHAB0AAQAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAHAAAAAQAAAAAAAgAHAGAAAQAAAAAAAwAHADYAAQAAAAAABAAHAHUAAQAAAAAABQALABUAAQAAAAAABgAHAEsAAQAAAAAACgAaAIoAAwABBAkAAQAOAAcAAwABBAkAAgAOAGcAAwABBAkAAwAOAD0AAwABBAkABAAOAHwAAwABBAkABQAWACAAAwABBAkABgAOAFIAAwABBAkACgA0AKRpY29tb29uAGkAYwBvAG0AbwBvAG5WZXJzaW9uIDEuMABWAGUAcgBzAGkAbwBuACAAMQAuADBpY29tb29uAGkAYwBvAG0AbwBvAG5pY29tb29uAGkAYwBvAG0AbwBvAG5SZWd1bGFyAFIAZQBnAHUAbABhAHJpY29tb29uAGkAYwBvAG0AbwBvAG5Gb250IGdlbmVyYXRlZCBieSBJY29Nb29uLgBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABJAGMAbwBNAG8AbwBuAC4AAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="ti-icon-"][data-v-61d92e31], [class*=" ti-icon-"][data-v-61d92e31] {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ti-icon-check[data-v-61d92e31]:before {
+  content: "\e902";
+}
+.ti-icon-close[data-v-61d92e31]:before {
+  content: "\e901";
+}
+.ti-icon-undo[data-v-61d92e31]:before {
+  content: "\e900";
+}
+ul[data-v-61d92e31] {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+*[data-v-61d92e31], *[data-v-61d92e31]:before, *[data-v-61d92e31]:after {
+  box-sizing: border-box;
+}
+input[data-v-61d92e31]:focus {
+  outline: none;
+}
+input[disabled][data-v-61d92e31] {
+  background-color: transparent;
+}
+.vue-tags-input[data-v-61d92e31] {
+  max-width: 450px;
+  position: relative;
+  background-color: #fff;
+}
+div.vue-tags-input.disabled[data-v-61d92e31] {
+  opacity: 0.5;
+}
+div.vue-tags-input.disabled *[data-v-61d92e31] {
+    cursor: default;
+}
+.ti-input[data-v-61d92e31] {
+  border: 1px solid #ccc;
+  display: flex;
+  padding: 4px;
+  flex-wrap: wrap;
+}
+.ti-tags[data-v-61d92e31] {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  line-height: 1em;
+}
+.ti-tag[data-v-61d92e31] {
+  background-color: #5C6BC0;
+  color: #fff;
+  border-radius: 2px;
+  display: flex;
+  padding: 3px 5px;
+  margin: 2px;
+  font-size: .85em;
+}
+.ti-tag[data-v-61d92e31]:focus {
+    outline: none;
+}
+.ti-tag .ti-content[data-v-61d92e31] {
+    display: flex;
+    align-items: center;
+}
+.ti-tag .ti-tag-center[data-v-61d92e31] {
+    position: relative;
+}
+.ti-tag span[data-v-61d92e31] {
+    line-height: .85em;
+}
+.ti-tag span.ti-hidden[data-v-61d92e31] {
+    padding-left: 14px;
+    visibility: hidden;
+    height: 0px;
+    white-space: pre;
+}
+.ti-tag .ti-actions[data-v-61d92e31] {
+    margin-left: 2px;
+    display: flex;
+    align-items: center;
+    font-size: 1.15em;
+}
+.ti-tag .ti-actions i[data-v-61d92e31] {
+      cursor: pointer;
+}
+.ti-tag[data-v-61d92e31]:last-child {
+    margin-right: 4px;
+}
+.ti-tag.ti-invalid[data-v-61d92e31], .ti-tag.ti-tag.ti-deletion-mark[data-v-61d92e31] {
+    background-color: #e54d42;
+}
+.ti-new-tag-input-wrapper[data-v-61d92e31] {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 3px 5px;
+  margin: 2px;
+  font-size: .85em;
+}
+.ti-new-tag-input-wrapper input[data-v-61d92e31] {
+    flex: 1 0 auto;
+    min-width: 100px;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+.ti-new-tag-input[data-v-61d92e31] {
+  line-height: initial;
+}
+.ti-autocomplete[data-v-61d92e31] {
+  border: 1px solid #ccc;
+  border-top: none;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  z-index: 20;
+}
+.ti-item > div[data-v-61d92e31] {
+  cursor: pointer;
+  padding: 3px 6px;
+  width: 100%;
+}
+.ti-selected-item[data-v-61d92e31] {
+  background-color: #5C6BC0;
+  color: #fff;
+}
+
+/*# sourceURL=C:/Users/johan/dev/vue-tags-input/vue-tags-input/C:/Users/johan/dev/vue-tags-input/vue-tags-input/vue-tags-input.scss */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6L1VzZXJzL2pvaGFuL2Rldi92dWUtdGFncy1pbnB1dC92dWUtdGFncy1pbnB1dC9DOi9Vc2Vycy9qb2hhbi9kZXYvdnVlLXRhZ3MtaW5wdXQvdnVlLXRhZ3MtaW5wdXQvdnVlLXRhZ3MtaW5wdXQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHVCQUF1QjtFQUN2QixtQ0FBOEM7RUFDOUMsK0pBQXVNO0VBQ3ZNLG9CQUFvQjtFQUNwQixtQkFBbUI7Q0FBRTtBQUV2QjtFQUNFLGtDQUFrQztFQUNsQyxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLG9CQUFvQjtFQUNwQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixvQ0FBb0M7RUFDcEMsbUNBQW1DO0NBQUU7QUFFdkM7RUFDRSxpQkFBaUI7Q0FBRTtBQUVyQjtFQUNFLGlCQUFpQjtDQUFFO0FBRXJCO0VBQ0UsaUJBQWlCO0NBQUU7QUFFckI7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLHNCQUFzQjtDQUFFO0FBRTFCO0VBQ0UsdUJBQXVCO0NBQUU7QUFFM0I7RUFDRSxjQUFjO0NBQUU7QUFFbEI7RUFDRSw4QkFBOEI7Q0FBRTtBQUVsQztFQUNFLGlCQUFpQjtFQUNqQixtQkFBbUI7RUFDbkIsdUJBQXVCO0NBQUU7QUFFM0I7RUFDRSxhQUFhO0NBQUU7QUFDZjtJQUNFLGdCQUFnQjtDQUFFO0FBRXRCO0VBQ0UsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCxhQUFhO0VBQ2IsZ0JBQWdCO0NBQUU7QUFFcEI7RUFDRSxjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixpQkFBaUI7Q0FBRTtBQUVyQjtFQUNFLDBCQUEwQjtFQUMxQixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGlCQUFpQjtDQUFFO0FBQ25CO0lBQ0UsY0FBYztDQUFFO0FBQ2xCO0lBQ0UsY0FBYztJQUNkLG9CQUFvQjtDQUFFO0FBQ3hCO0lBQ0UsbUJBQW1CO0NBQUU7QUFDdkI7SUFDRSxtQkFBbUI7Q0FBRTtBQUN2QjtJQUNFLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaLGlCQUFpQjtDQUFFO0FBQ3JCO0lBQ0UsaUJBQWlCO0lBQ2pCLGNBQWM7SUFDZCxvQkFBb0I7SUFDcEIsa0JBQWtCO0NBQUU7QUFDcEI7TUFDRSxnQkFBZ0I7Q0FBRTtBQUN0QjtJQUNFLGtCQUFrQjtDQUFFO0FBQ3RCO0lBQ0UsMEJBQTBCO0NBQUU7QUFFaEM7RUFDRSxjQUFjO0VBQ2QsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osaUJBQWlCO0NBQUU7QUFDbkI7SUFDRSxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLGFBQWE7SUFDYixhQUFhO0lBQ2IsWUFBWTtDQUFFO0FBRWxCO0VBQ0UscUJBQXFCO0NBQUU7QUFFekI7RUFDRSx1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osdUJBQXVCO0VBQ3ZCLFlBQVk7Q0FBRTtBQUVoQjtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsWUFBWTtDQUFFO0FBRWhCO0VBQ0UsMEJBQTBCO0VBQzFCLFlBQVk7Q0FBRSIsImZpbGUiOiJ2dWUtdGFncy1pbnB1dC5zY3NzP3Z1ZSZ0eXBlPXN0eWxlJmluZGV4PTAmaWQ9NjFkOTJlMzEmbGFuZz1zY3NzJnNjb3BlZD10cnVlJiIsInNvdXJjZXNDb250ZW50IjpbIkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ2ljb21vb24nO1xuICBzcmM6IHVybChcIi4vYXNzZXRzL2ZvbnRzL2ljb21vb24uZW90PzdncmxzZVwiKTtcbiAgc3JjOiB1cmwoXCIuL2Fzc2V0cy9mb250cy9pY29tb29uLmVvdD83Z3Jsc2UjaWVmaXhcIikgZm9ybWF0KFwiZW1iZWRkZWQtb3BlbnR5cGVcIiksIHVybChcIi4vYXNzZXRzL2ZvbnRzL2ljb21vb24udHRmPzdncmxzZVwiKSBmb3JtYXQoXCJ0cnVldHlwZVwiKSwgdXJsKFwiLi9hc3NldHMvZm9udHMvaWNvbW9vbi53b2ZmPzdncmxzZVwiKSBmb3JtYXQoXCJ3b2ZmXCIpO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBmb250LXN0eWxlOiBub3JtYWw7IH1cblxuW2NsYXNzXj1cInRpLWljb24tXCJdLCBbY2xhc3MqPVwiIHRpLWljb24tXCJdIHtcbiAgZm9udC1mYW1pbHk6ICdpY29tb29uJyAhaW1wb3J0YW50O1xuICBzcGVhazogbm9uZTtcbiAgZm9udC1zdHlsZTogbm9ybWFsO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBmb250LXZhcmlhbnQ6IG5vcm1hbDtcbiAgdGV4dC10cmFuc2Zvcm06IG5vbmU7XG4gIGxpbmUtaGVpZ2h0OiAxO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTsgfVxuXG4udGktaWNvbi1jaGVjazpiZWZvcmUge1xuICBjb250ZW50OiBcIlxcZTkwMlwiOyB9XG5cbi50aS1pY29uLWNsb3NlOmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwiXFxlOTAxXCI7IH1cblxuLnRpLWljb24tdW5kbzpiZWZvcmUge1xuICBjb250ZW50OiBcIlxcZTkwMFwiOyB9XG5cbnVsIHtcbiAgbWFyZ2luOiAwcHg7XG4gIHBhZGRpbmc6IDBweDtcbiAgbGlzdC1zdHlsZS10eXBlOiBub25lOyB9XG5cbiosICo6YmVmb3JlLCAqOmFmdGVyIHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDsgfVxuXG5pbnB1dDpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7IH1cblxuaW5wdXRbZGlzYWJsZWRdIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7IH1cblxuLnZ1ZS10YWdzLWlucHV0IHtcbiAgbWF4LXdpZHRoOiA0NTBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmOyB9XG5cbmRpdi52dWUtdGFncy1pbnB1dC5kaXNhYmxlZCB7XG4gIG9wYWNpdHk6IDAuNTsgfVxuICBkaXYudnVlLXRhZ3MtaW5wdXQuZGlzYWJsZWQgKiB7XG4gICAgY3Vyc29yOiBkZWZhdWx0OyB9XG5cbi50aS1pbnB1dCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHBhZGRpbmc6IDRweDtcbiAgZmxleC13cmFwOiB3cmFwOyB9XG5cbi50aS10YWdzIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICB3aWR0aDogMTAwJTtcbiAgbGluZS1oZWlnaHQ6IDFlbTsgfVxuXG4udGktdGFnIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVDNkJDMDtcbiAgY29sb3I6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgZGlzcGxheTogZmxleDtcbiAgcGFkZGluZzogM3B4IDVweDtcbiAgbWFyZ2luOiAycHg7XG4gIGZvbnQtc2l6ZTogLjg1ZW07IH1cbiAgLnRpLXRhZzpmb2N1cyB7XG4gICAgb3V0bGluZTogbm9uZTsgfVxuICAudGktdGFnIC50aS1jb250ZW50IHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7IH1cbiAgLnRpLXRhZyAudGktdGFnLWNlbnRlciB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlOyB9XG4gIC50aS10YWcgc3BhbiB7XG4gICAgbGluZS1oZWlnaHQ6IC44NWVtOyB9XG4gIC50aS10YWcgc3Bhbi50aS1oaWRkZW4ge1xuICAgIHBhZGRpbmctbGVmdDogMTRweDtcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XG4gICAgaGVpZ2h0OiAwcHg7XG4gICAgd2hpdGUtc3BhY2U6IHByZTsgfVxuICAudGktdGFnIC50aS1hY3Rpb25zIHtcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBmb250LXNpemU6IDEuMTVlbTsgfVxuICAgIC50aS10YWcgLnRpLWFjdGlvbnMgaSB7XG4gICAgICBjdXJzb3I6IHBvaW50ZXI7IH1cbiAgLnRpLXRhZzpsYXN0LWNoaWxkIHtcbiAgICBtYXJnaW4tcmlnaHQ6IDRweDsgfVxuICAudGktdGFnLnRpLWludmFsaWQsIC50aS10YWcudGktdGFnLnRpLWRlbGV0aW9uLW1hcmsge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlNTRkNDI7IH1cblxuLnRpLW5ldy10YWctaW5wdXQtd3JhcHBlciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXg6IDEgMCBhdXRvO1xuICBwYWRkaW5nOiAzcHggNXB4O1xuICBtYXJnaW46IDJweDtcbiAgZm9udC1zaXplOiAuODVlbTsgfVxuICAudGktbmV3LXRhZy1pbnB1dC13cmFwcGVyIGlucHV0IHtcbiAgICBmbGV4OiAxIDAgYXV0bztcbiAgICBtaW4td2lkdGg6IDEwMHB4O1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBwYWRkaW5nOiAwcHg7XG4gICAgbWFyZ2luOiAwcHg7IH1cblxuLnRpLW5ldy10YWctaW5wdXQge1xuICBsaW5lLWhlaWdodDogaW5pdGlhbDsgfVxuXG4udGktYXV0b2NvbXBsZXRlIHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgYm9yZGVyLXRvcDogbm9uZTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAwJTtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgei1pbmRleDogMjA7IH1cblxuLnRpLWl0ZW0gPiBkaXYge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHBhZGRpbmc6IDNweCA2cHg7XG4gIHdpZHRoOiAxMDAlOyB9XG5cbi50aS1zZWxlY3RlZC1pdGVtIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVDNkJDMDtcbiAgY29sb3I6ICNmZmY7IH1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style type="text/css">.toasted{padding:0 20px}.toasted.rounded{border-radius:24px}.toasted .primary,.toasted.toasted-primary{border-radius:2px;min-height:38px;line-height:1.1em;background-color:#353535;padding:0 20px;font-size:15px;font-weight:300;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}.toasted .primary.success,.toasted.toasted-primary.success{background:#4caf50}.toasted .primary.error,.toasted.toasted-primary.error{background:#f44336}.toasted .primary.info,.toasted.toasted-primary.info{background:#3f51b5}.toasted .primary .action,.toasted.toasted-primary .action{color:#a1c2fa}.toasted.bubble{border-radius:30px;min-height:38px;line-height:1.1em;background-color:#ff7043;padding:0 20px;font-size:15px;font-weight:300;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}.toasted.bubble.success{background:#4caf50}.toasted.bubble.error{background:#f44336}.toasted.bubble.info{background:#3f51b5}.toasted.bubble .action{color:#8e2b0c}.toasted.outline{border-radius:30px;min-height:38px;line-height:1.1em;background-color:#fff;border:1px solid #676767;padding:0 20px;font-size:15px;color:#676767;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);font-weight:700}.toasted.outline.success{color:#4caf50;border-color:#4caf50}.toasted.outline.error{color:#f44336;border-color:#f44336}.toasted.outline.info{color:#3f51b5;border-color:#3f51b5}.toasted.outline .action{color:#607d8b}.toasted-container{position:fixed;z-index:10000}.toasted-container,.toasted-container.full-width{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column}.toasted-container.full-width{max-width:86%;width:100%}.toasted-container.full-width.fit-to-screen{min-width:100%}.toasted-container.full-width.fit-to-screen .toasted:first-child{margin-top:0}.toasted-container.full-width.fit-to-screen.top-right{top:0;right:0}.toasted-container.full-width.fit-to-screen.top-left{top:0;left:0}.toasted-container.full-width.fit-to-screen.top-center{top:0;left:0;-webkit-transform:translateX(0);transform:translateX(0)}.toasted-container.full-width.fit-to-screen.bottom-right{right:0;bottom:0}.toasted-container.full-width.fit-to-screen.bottom-left{left:0;bottom:0}.toasted-container.full-width.fit-to-screen.bottom-center{left:0;bottom:0;-webkit-transform:translateX(0);transform:translateX(0)}.toasted-container.top-right{top:10%;right:7%}.toasted-container.top-left{top:10%;left:7%}.toasted-container.top-center{top:10%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.toasted-container.bottom-right{right:5%;bottom:7%}.toasted-container.bottom-left{left:5%;bottom:7%}.toasted-container.bottom-center{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);bottom:7%}.toasted-container.bottom-left .toasted,.toasted-container.top-left .toasted{float:left}.toasted-container.bottom-right .toasted,.toasted-container.top-right .toasted{float:right}.toasted-container .toasted{top:35px;width:auto;clear:both;margin-top:10px;position:relative;max-width:100%;height:auto;word-break:normal;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;box-sizing:inherit}.toasted-container .toasted .fa,.toasted-container .toasted .fab,.toasted-container .toasted .far,.toasted-container .toasted .fas,.toasted-container .toasted .material-icons,.toasted-container .toasted .mdi{margin-right:.5rem;margin-left:-.4rem}.toasted-container .toasted .fa.after,.toasted-container .toasted .fab.after,.toasted-container .toasted .far.after,.toasted-container .toasted .fas.after,.toasted-container .toasted .material-icons.after,.toasted-container .toasted .mdi.after{margin-left:.5rem;margin-right:-.4rem}.toasted-container .toasted .action{text-decoration:none;font-size:.8rem;padding:8px;margin:5px -7px 5px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:.03em;font-weight:600;cursor:pointer}.toasted-container .toasted .action.icon{padding:4px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}.toasted-container .toasted .action.icon .fa,.toasted-container .toasted .action.icon .material-icons,.toasted-container .toasted .action.icon .mdi{margin-right:0;margin-left:4px}.toasted-container .toasted .action.icon:hover{text-decoration:none}.toasted-container .toasted .action:hover{text-decoration:underline}@media only screen and (max-width:600px){#toasted-container{min-width:100%}#toasted-container .toasted:first-child{margin-top:0}#toasted-container.top-right{top:0;right:0}#toasted-container.top-left{top:0;left:0}#toasted-container.top-center{top:0;left:0;-webkit-transform:translateX(0);transform:translateX(0)}#toasted-container.bottom-right{right:0;bottom:0}#toasted-container.bottom-left{left:0;bottom:0}#toasted-container.bottom-center{left:0;bottom:0;-webkit-transform:translateX(0);transform:translateX(0)}#toasted-container.bottom-center,#toasted-container.top-center{-ms-flex-align:stretch!important;align-items:stretch!important}#toasted-container.bottom-left .toasted,#toasted-container.bottom-right .toasted,#toasted-container.top-left .toasted,#toasted-container.top-right .toasted{float:none}#toasted-container .toasted{border-radius:0}}</style></head>
+<body class="index-page home-loaded">
+<div id="app"><!----></div>
+<div class="preloader-cool">
+
+    <div class="preloader__block">
+        <div class="loadingio-spinner-default-mpf3svlr9a">
+            <div class="ldio-isv64bf3vvq">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="wrapper">
+    <header class="header_wrap" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
+        <div class="container-fluid">
+            <div class="header">
+                <div class="header__logo">
+                    <div class="logotype_icon">
+                        <svg class="icon icon-logo logotype_icon__this" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.69 31.78">
+                                <path d="M110.41,12V6.38a0.79,0.79,0,0,0-.06-0.3,0.81,0.81,0,0,0-.17-0.25,0.79,0.79,0,0,0-.56-0.23h-6.79v7.2h2V7.6h3.65v5.2h1.18a0.78,0.78,0,0,0,.73-0.49,0.76,0.76,0,0,0,.06-0.3h0Z"></path>
+                                <path d="M113.32,5.6v7.23h1.18a0.79,0.79,0,0,0,.79-0.78V6.38a0.78,0.78,0,0,0-.78-0.78h-1.19Z"></path>
+                                <path d="M102.83,0.41v2h6.79a0.78,0.78,0,0,0,.72-0.48,0.79,0.79,0,0,0,.06-0.3V1.19A0.78,0.78,0,0,0,109.62.4h-6.79Z"></path>
+                                <path d="M114.3,0l-1.39,1.39,1.39,1.39,1.39-1.39Z"></path>
+                                <path d="M17.61,14.32v3.21H28.07a1.31,1.31,0,0,0,1.31-1.31V15.63a1.31,1.31,0,0,0-1.31-1.31H17.61Z"></path>
+                                <path d="M70.48,23v3.24H80.92A1.31,1.31,0,0,0,82.24,25V24.34A1.31,1.31,0,0,0,81,23H70.48Z"></path>
+                                <path d="M70.48,5.52V8.81H80.92a1.31,1.31,0,0,0,1.32-1.3h0V6.84a1.31,1.31,0,0,0-1.31-1.31H70.48Z"></path>
+                                <path d="M70.48,14.32v3.2H80.92a1.31,1.31,0,0,0,1.31-1.31V15.64a1.31,1.31,0,0,0-1.31-1.31H70.48Z"></path>
+                                <path d="M29.38,25V24.34A1.31,1.31,0,0,0,28.1,23H17.61v3.24H28.07a1.31,1.31,0,0,0,1.31-1.31h0v0Z"></path>
+                                <path d="M17.61,5.52V8.83H28.07a1.31,1.31,0,0,0,1.31-1.31V6.84a1.31,1.31,0,0,0-1.31-1.31H17.61Z"></path>
+                                <path d="M10.43,5.52L0,5.5V8.83H8.52v5.51H0V26.26H3.07V17.55h7.36a1.31,1.31,0,0,0,1.31-1.31V6.83a1.31,1.31,0,0,0-1.3-1.32h0Z"></path>
+                                <path d="M45.49,5.52H35.24V8.83h8.43v5.5H35.24V26.26h3V17.61h7.3A1.35,1.35,0,0,0,47,16.37s0,0,0-.07V6.84a1.35,1.35,0,0,0-1.37-1.33H45.49Z"></path>
+                                <path d="M55.78,17.64h7.44a1.31,1.31,0,0,0,1.31-1.31h0V6.87a1.31,1.31,0,0,0-1.31-1.31H52.82V8.85H61.4v5.52H52.83V26.3h3V17.64H55.78Z"></path>
+                                <path d="M88.09,8.82h8.47v5.52H88.09V26.26h3.16V17.54H98.5a1.31,1.31,0,0,0,1.31-1.31V6.82A1.31,1.31,0,0,0,98.5,5.51H88.09v3.3h0Z"></path>
+                                <path d="M93.4,21.4l4.84,4.86,1.07-1.07a1.79,1.79,0,0,0,0-2.53l-3.58-3.6Z"></path>
+                                <path d="M102.83,26.32a5.71,5.71,0,0,1,.68-2.75,5.14,5.14,0,0,1,1.9-2,5,5,0,0,1,5.24,0,5.08,5.08,0,0,1,1.89,2,5.66,5.66,0,0,1,.69,2.75,5.74,5.74,0,0,1-.66,2.7,5.23,5.23,0,0,1-1.87,2,4.89,4.89,0,0,1-2.66.76,4.94,4.94,0,0,1-2.66-.75,5.25,5.25,0,0,1-1.87-2A5.72,5.72,0,0,1,102.83,26.32Zm0.84,0a4.82,4.82,0,0,0,.59,2.34,4.38,4.38,0,0,0,1.59,1.68,4.21,4.21,0,0,0,4.37,0,4.38,4.38,0,0,0,1.59-1.68,4.77,4.77,0,0,0,.58-2.32,4.72,4.72,0,0,0-.58-2.31,4.27,4.27,0,0,0-1.58-1.67,4.21,4.21,0,0,0-4.37,0,4.31,4.31,0,0,0-1.6,1.67,4.78,4.78,0,0,0-.58,2.29h0Zm3.28,0.55v2.48h-1V23.13h2a2.75,2.75,0,0,1,1.74.48,1.64,1.64,0,0,1,.62,1.39,1.49,1.49,0,0,1-.94,1.38,1.46,1.46,0,0,1,.9,1.49v0.45a2.4,2.4,0,0,0,.13.91v0.12h-1.06a2.9,2.9,0,0,1-.1-0.94,7.6,7.6,0,0,0,0-.81,0.87,0.87,0,0,0-1-.73h-1.3Zm0-.94h1.12a1.45,1.45,0,0,0,.85-0.26,0.76,0.76,0,0,0,.32-0.64,0.9,0.9,0,0,0-.28-0.75,1.69,1.69,0,0,0-1-.23h-1v1.88h0Z"></path>
+                            </svg>
+                    </div>
+                </div>
+                <div class="header__sign">
+                    <a class="btn_global text_18 how-it-link" target="_blank" href="https://tutorial.pepper.ai/">
+                        <span class="btn_global__tilt">How it works?</span>
+                    </a>
+               
+                    <a class="btn_global sign_in text_18 sign-in-link" href="/login">
+                        <span class="btn_global__tilt">Sign in</span>
+                    </a>
+                    
+
+                </div>
+                <div class="header__mobile">
+                    <button onclick="mobileActive()">
+                        <img src="static/img/general/menu.svg" alt="menu-icon">
+                    </button>
+                    <div class="mobile-block">
+                        <div class="logotype_icon">
+                            <svg class="icon icon-logo logotype_icon__this" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.69 31.78">
+                                <path d="M110.41,12V6.38a0.79,0.79,0,0,0-.06-0.3,0.81,0.81,0,0,0-.17-0.25,0.79,0.79,0,0,0-.56-0.23h-6.79v7.2h2V7.6h3.65v5.2h1.18a0.78,0.78,0,0,0,.73-0.49,0.76,0.76,0,0,0,.06-0.3h0Z"></path>
+                                <path d="M113.32,5.6v7.23h1.18a0.79,0.79,0,0,0,.79-0.78V6.38a0.78,0.78,0,0,0-.78-0.78h-1.19Z"></path>
+                                <path d="M102.83,0.41v2h6.79a0.78,0.78,0,0,0,.72-0.48,0.79,0.79,0,0,0,.06-0.3V1.19A0.78,0.78,0,0,0,109.62.4h-6.79Z"></path>
+                                <path d="M114.3,0l-1.39,1.39,1.39,1.39,1.39-1.39Z"></path>
+                                <path d="M17.61,14.32v3.21H28.07a1.31,1.31,0,0,0,1.31-1.31V15.63a1.31,1.31,0,0,0-1.31-1.31H17.61Z"></path>
+                                <path d="M70.48,23v3.24H80.92A1.31,1.31,0,0,0,82.24,25V24.34A1.31,1.31,0,0,0,81,23H70.48Z"></path>
+                                <path d="M70.48,5.52V8.81H80.92a1.31,1.31,0,0,0,1.32-1.3h0V6.84a1.31,1.31,0,0,0-1.31-1.31H70.48Z"></path>
+                                <path d="M70.48,14.32v3.2H80.92a1.31,1.31,0,0,0,1.31-1.31V15.64a1.31,1.31,0,0,0-1.31-1.31H70.48Z"></path>
+                                <path d="M29.38,25V24.34A1.31,1.31,0,0,0,28.1,23H17.61v3.24H28.07a1.31,1.31,0,0,0,1.31-1.31h0v0Z"></path>
+                                <path d="M17.61,5.52V8.83H28.07a1.31,1.31,0,0,0,1.31-1.31V6.84a1.31,1.31,0,0,0-1.31-1.31H17.61Z"></path>
+                                <path d="M10.43,5.52L0,5.5V8.83H8.52v5.51H0V26.26H3.07V17.55h7.36a1.31,1.31,0,0,0,1.31-1.31V6.83a1.31,1.31,0,0,0-1.3-1.32h0Z"></path>
+                                <path d="M45.49,5.52H35.24V8.83h8.43v5.5H35.24V26.26h3V17.61h7.3A1.35,1.35,0,0,0,47,16.37s0,0,0-.07V6.84a1.35,1.35,0,0,0-1.37-1.33H45.49Z"></path>
+                                <path d="M55.78,17.64h7.44a1.31,1.31,0,0,0,1.31-1.31h0V6.87a1.31,1.31,0,0,0-1.31-1.31H52.82V8.85H61.4v5.52H52.83V26.3h3V17.64H55.78Z"></path>
+                                <path d="M88.09,8.82h8.47v5.52H88.09V26.26h3.16V17.54H98.5a1.31,1.31,0,0,0,1.31-1.31V6.82A1.31,1.31,0,0,0,98.5,5.51H88.09v3.3h0Z"></path>
+                                <path d="M93.4,21.4l4.84,4.86,1.07-1.07a1.79,1.79,0,0,0,0-2.53l-3.58-3.6Z"></path>
+                                <path d="M102.83,26.32a5.71,5.71,0,0,1,.68-2.75,5.14,5.14,0,0,1,1.9-2,5,5,0,0,1,5.24,0,5.08,5.08,0,0,1,1.89,2,5.66,5.66,0,0,1,.69,2.75,5.74,5.74,0,0,1-.66,2.7,5.23,5.23,0,0,1-1.87,2,4.89,4.89,0,0,1-2.66.76,4.94,4.94,0,0,1-2.66-.75,5.25,5.25,0,0,1-1.87-2A5.72,5.72,0,0,1,102.83,26.32Zm0.84,0a4.82,4.82,0,0,0,.59,2.34,4.38,4.38,0,0,0,1.59,1.68,4.21,4.21,0,0,0,4.37,0,4.38,4.38,0,0,0,1.59-1.68,4.77,4.77,0,0,0,.58-2.32,4.72,4.72,0,0,0-.58-2.31,4.27,4.27,0,0,0-1.58-1.67,4.21,4.21,0,0,0-4.37,0,4.31,4.31,0,0,0-1.6,1.67,4.78,4.78,0,0,0-.58,2.29h0Zm3.28,0.55v2.48h-1V23.13h2a2.75,2.75,0,0,1,1.74.48,1.64,1.64,0,0,1,.62,1.39,1.49,1.49,0,0,1-.94,1.38,1.46,1.46,0,0,1,.9,1.49v0.45a2.4,2.4,0,0,0,.13.91v0.12h-1.06a2.9,2.9,0,0,1-.1-0.94,7.6,7.6,0,0,0,0-.81,0.87,0.87,0,0,0-1-.73h-1.3Zm0-.94h1.12a1.45,1.45,0,0,0,.85-0.26,0.76,0.76,0,0,0,.32-0.64,0.9,0.9,0,0,0-.28-0.75,1.69,1.69,0,0,0-1-.23h-1v1.88h0Z"></path>
+                            </svg>
+                            <button onclick="mobileUnActive()">
+                                <img src="static/img/svg/close.svg" alt="close">
+                            </button>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; margin: 44px 0;">
+                                
+                            <a class="btn_global text_18 how-it-link" target="_blank" href="https://tutorial.pepper.ai/">
+                                <span class="btn_global__tilt">How it works?</span>
+                            </a>
+                        </div>
+                        <div class="contact-us">
+                            <a href="https://pepper.ai/support">Contact us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="welcome__wrap">
+            <div class="welcome__bg" style="display: block; overflow: hidden; height: 47.034px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;"></div>
+            <div class="container">
+                <div class="welcome">
+                    <div class="welcome__main" data-aos="zoom-in">
+
+
+
+                        <h1 class="welcome__title title_66" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500">Virtual personal assistant</h1>
+                        <p style="opacity: 0.72;" class="welcome__sub text_26" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="600">Schedule your meetings automatically from your email and social networks</p>
+                        <div class="soccials">
+                            <div style="height: 50px;">
+                                <img src="static/img/socials_icons/goog.svg" alt="google">
+                                <img src="static/img/socials_icons/outlook.svg" alt="outlook">
+                                <img src="static/img/socials_icons/whatsapp-original.svg" alt="WhatsApp">
+                                <img src="static/img/socials_icons/telegram-original.svg" alt="telegram">
+                             
+                                <img src="static/img/socials_icons/zoom.svg" alt="zoom">
+                                <img src="static/img/socials_icons/linkedin.svg" alt="Linkedin">
+                                
+                                
+                            </div>
+
+                        </div>
+                        <p class="welcome__sub text_32" style="margin: 20px 0;">Patent Solution "US Patent No. 10,510,050"</p>
+                        <span class="welcome__line line_xl"></span><span class="welcome__line line_md"></span><span class="welcome__line line_sm"></span><span class="welcome__box box_lg"></span><span class="welcome__box box_md"></span><span class="welcome__box box_sm"></span><span class="welcome__box box_xs"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="all_content" data-aos="fade-in" data-aos-easing="linear" data-aos-delay="800" data-aos-duration="500">
+        
+            <div class="join__wrap">
+                <div class="container">
+                    <div class="join js-join-buttons">
+                        <p style="padding-bottom: 20px;" class="join__text text_30">Join Pepper <a href="#" class="__mPS2id">for free</a>, Start immediately.<br>No credit card required. Connect your calendar and go!</p>
+
+
+                        <div class="join__btn">
+                            <button class="btn_social text_18 btn_google disabled" href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;access_type=offline&amp;client_id=953425154512-oc5i0a5og8sq6rt5h0uvk5hcph6t0ddh.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fpepper.ai%2Findex&amp;state=google&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.events%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&amp;include_granted_scopes=true">Google</button>
+                            <button class="btn_social text_18 btn_windows disabled" href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?state=0e01b43b3051385424892fb093a38e9a&amp;scope=openid%20profile%20offline_access%20User.Read%20Calendars.ReadWrite%20Contacts.Read&amp;response_type=code&amp;approval_prompt=auto&amp;redirect_uri=https%3A%2F%2Fpepper.ai%2Findex&amp;client_id=c42d300a-2b2a-4cc1-b626-83c3e0db794e">Microsoft</button>
+                        </div>
+                        <div class="terms">
+                            <button class="terms__btn text_18" type="button" name="terms" data-label="I agree to the"></button>
+                            <input class="terms__checkbox" type="checkbox" name="check" hidden=""><a style="margin-right: 0" class="terms__link text_18" href="/pdf/eula.pdf">Terms of Use and Privacy</a>
+                        </div>
+                        <div style="height: 23px" class="security">
+                            <svg class="security__icon" width="23px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 347.971 347.971" style="enable-background:new 0 0 347.971 347.971;" xml:space="preserve">
+                                <path d="M317.309,54.367C257.933,54.367,212.445,37.403,173.98,0C135.519,37.403,90.033,54.367,30.662,54.367
+                                    c0,97.405-20.155,236.937,143.317,293.604C337.463,291.305,317.309,151.773,317.309,54.367z M162.107,225.773l-47.749-47.756
+                                    l21.379-21.378l26.37,26.376l50.121-50.122l21.378,21.378L162.107,225.773z"></path>
+                            </svg>
+                            <p><a class="llink text_18" href="https://pepper.ai/security">Fully secured</a></p>
+                        </div>
+                        <div class="security__information row">
+                            <div class="information__block slide__l col-lg-6 col-md-12">
+                                <h3 class="bl__headline text_18">
+                                    <svg class="info_icon" xmlns="http://www.w3.org/2000/svg" width="32.544" height="38.731" viewBox="0 0 32.544 38.731">
+                                        <defs>
+                                            <style>
+                                                .cls-1{fill:#28b446}
+                                            </style>
+                                        </defs>
+                                        <g id="Group_271" data-name="Group 271" transform="translate(-674 -857.703)">
+                                            <path id="Path_224" d="M49.615 9.973c-.02-1.046-.039-2.034-.039-2.989a1.356 1.356 0 0 0-1.356-1.356c-5.8 0-10.212-1.666-13.892-5.244a1.355 1.355 0 0 0-1.89 0c-3.679 3.578-8.093 5.244-13.89 5.244a1.356 1.356 0 0 0-1.356 1.356c0 .956-.019 1.944-.039 2.99-.186 9.731-.44 23.059 15.786 28.683a1.354 1.354 0 0 0 .888 0C50.055 33.032 49.8 19.7 49.615 9.973zM33.383 35.937c-13.916-5.055-13.705-16.129-13.518-25.912.011-.587.022-1.156.03-1.714A20.905 20.905 0 0 0 33.383 3.2a20.908 20.908 0 0 0 13.491 5.111c.008.558.018 1.126.03 1.713.186 9.783.396 20.858-13.521 25.913z" data-name="Path 224" transform="translate(656.888 857.702)"></path>
+                                            <path id="Path_225" d="M80.159 79.283l-6.543 6.543-2.792-2.792a1.356 1.356 0 0 0-1.917 1.917l3.75 3.749a1.356 1.356 0 0 0 1.917 0l7.5-7.5a1.356 1.356 0 0 0-1.917-1.917z" data-name="Path 225" transform="translate(614.781 793.076)"></path>
+                                        </g>
+                                    </svg>
+                                    Collaboration with Google and Microsoft
+                                </h3>
+                                <p class="bl__text text_18">Pepper is authorized by Google and Outlook to send meeting invites by email to Google Calendar and Outlook Calendar.</p>
+                            </div>
+                            <div class="information__block slide__r col-lg-6 col-md-12">
+                                <h3 class="bl__headline text_18">
+                                    <svg class="info_icon" xmlns="http://www.w3.org/2000/svg" width="29.138" height="38.106" viewBox="0 0 29.138 38.106">
+                                        <g id="Group_272" data-name="Group 272" transform="translate(-1207 -857.907)">
+                                            <path id="Path_222" d="M88.271 13.453h-1.125v-1.126a12.327 12.327 0 1 0-24.654 0v1.126h-1.126a1.116 1.116 0 0 0-1.116 1.116V36.99a1.116 1.116 0 0 0 1.116 1.116h26.905a1.116 1.116 0 0 0 1.116-1.116V14.569a1.116 1.116 0 0 0-1.116-1.116zm-7.824 0H69.19v-1.126a5.628 5.628 0 0 1 11.257 0zm-15.722-1.126a10.094 10.094 0 1 1 20.188 0v1.126H82.68v-1.126a7.861 7.861 0 1 0-15.723 0v1.126h-2.232zm22.43 23.547H62.483V15.685h24.672z" data-name="Path 222" transform="translate(1146.75 857.907)"></path>
+                                            <path id="Path_223" d="M213.117 277.65v3.559a1.116 1.116 0 0 0 2.233 0v-3.559a3.358 3.358 0 1 0-2.233 0zm1.116-4.293a1.126 1.126 0 1 1-1.126 1.126 1.127 1.127 0 0 1 1.126-1.125z" data-name="Path 223" transform="translate(1007.335 606.961)"></path>
+                                        </g>
+                                    </svg>
+                                    User privacy
+                                </h3>
+                                <p class="bl__text text_18">Pepper does not have access to the contents of your calendar or emails. The system only checks for available dates and times in your calendar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="about__wrap">
+                <div class="container">
+                    <div class="about">
+
+
+
+                        <h2 class="about__title title_66">Pepper’s capabilities</h2>
+                        <p class="about__text text_26">Pepper coordinates meetings between multiple participants in a confidential manner, without sharing calendars. Pepper differentiates between your working hours and your social &amp; family time.</p>
+                        <p class="about__sub text_32">Just one email effort for automatic scheduling,<br>Simply cc<a class="about__link" href="mailto:?subject=New meeting&amp;cc=pepper@pepper.ai">pepper@pepper.ai</a>to your correspondence.</p>
+                        <div class="panel">
+                            <div class="panel__item">
+                                <div class="panel__image fix_img">
+                                    <picture>
+                                        <source class="panel__img" srcset="static/img/general/panel1.webp" type="image/webp"><img class="panel__img" src="static/img/general/panel1.png" alt="img">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="panel__item">
+                                <div class="panel__image">
+                                    <picture>
+                                        <source class="panel__img" srcset="static/img/general/panel2.webp" type="image/webp"><img class="panel__img" src="static/img/general/panel2.png" alt="img">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="how_works__wrap" id="how-works">
+                <div class="container">
+                    <div class="how_works">
+                        <h2 class="how_works__title title_66">How it works</h2>
+                        <div class="how_works__box_wrap">
+                            <div class="how_works__box">
+                                <div class="how_works__info" data-aos="fade-up" data-aos-duration="1000">
+                                    <h3 class="how_works__sub title_47">Create a meeting<br>from your email</h3>
+                                </div>
+                                <div class="how_works__image" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
+                                    <picture>
+                                        <source class="how_works__img" srcset="static/img/general/phone1.webp" type="image/webp"><img class="how_works__img" src="static/img/general/phone1.png" alt="img">
+                                    </picture>
+                                </div>
+                                <div class="how_works__way"></div>
+                            </div>
+                            <div class="how_works__box">
+                                <div class="how_works__info" data-aos="fade-down" data-aos-duration="1000">
+                                    <h3 class="how_works__sub title_47">Create a priority<br>meeting</h3>
+                                </div>
+                                <div class="how_works__image" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+                                    <picture>
+                                        <source class="how_works__img" srcset="static/img/general/phone2.webp" type="image/webp"><img class="how_works__img" src="static/img/general/phone2.png" alt="img">
+                                    </picture>
+                                </div>
+                                <div class="how_works__way"></div>
+                            </div>
+                            
+                            <div class="how_works__box">
+                                <div class="how_works__info" data-aos="fade-left" data-aos-duration="1000">
+                                    <h3 class="how_works__sub title_47">Pepper<br>email message</h3>
+                                </div>
+                                <div class="how_works__image" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+                                    <picture>
+                                        <source class="how_works__img" srcset="static/img/general/phone4.webp" type="image/webp"><img class="how_works__img" src="static/img/general/phone4.png" alt="img">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="welcome"><span class="welcome__line line_sm hw_sm_line1"></span><span class="welcome__line line_sm hw_sm_line2"></span><span class="welcome__box box_lg hw_lg_box1"></span><span class="welcome__box box_lg hw_lg_box2"></span><span class="welcome__box box_sm hw_sm_box1"></span><span class="welcome__box box_sm hw_sm_box2"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="features__wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="features__title title_66">Pepper features</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-collaboration_2 features__icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#collaboration_2"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Schedule meetings
+                                    between multiple
+                                    participants
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-organize features__icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#organize"></use>
+                                </svg>
+                                <p class="features__text text_18">Reschedule</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-checklist features__icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#checklist"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Clear my day and
+                                    reschedule
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-promotion features__icon fix_icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#promotion"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Define high-priority
+                                    participants
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-sun features__icon fix_icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#sun"></use>
+                                </svg>
+                                <p class="features__text text_18">Clear my day</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                            
+                                <img style="transform: scale(2);" class="icon icon-collaboration features__icon fix_icon" src="static/img/icons_socnetworks/Zoom.svg" alt="">
+                                
+                                <p class="features__text text_18">
+                                    Integration with Zoom
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-time-zone features__icon fix_icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#time-zone"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Coordinate between
+                                    different time zones
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-responsive features__icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#responsive"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Support for all
+                                    devices
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-fast features__icon fix_icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#fast"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Schedule ASAP
+                                    meetings
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-appointment features__icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#appointment"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Define a range of
+                                    possible dates and
+                                    times for a meeting
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-address features__icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#address"></use>
+                                </svg>
+                                <p class="features__text text_18">
+                                    Set meeting location
+                                    and provide map to
+                                    the location
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="features">
+                                <svg class="icon icon-chat features__icon">
+                                    <use xlink:href="static/img/svg-sprites/symbol/sprite.svg#chat"></use>
+                                </svg>
+                                <p class="features__text text_18">Identify keywords</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="join__wrap">
+                <div class="container">
+                    <div class="join js-join-buttons">
+                        <p class="join__text text_30">Join Pepper<a href="#" class="__mPS2id">for free</a>,<br>Start immediately.</p>
+                        <p class="join__text text_30 fix_pad">No credit card required.</p>
+                        <p class="join__title text_30">Connect your calendar and go!</p>
+                        <div class="join__btn">
+                            <button class="btn_social text_18 btn_google disabled" href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;access_type=offline&amp;client_id=953425154512-oc5i0a5og8sq6rt5h0uvk5hcph6t0ddh.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fpepper.ai%2Findex&amp;state=google&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.events%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&amp;include_granted_scopes=true">Google</button>
+                            <button class="btn_social text_18 btn_windows disabled" href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?state=0e01b43b3051385424892fb093a38e9a&amp;scope=openid%20profile%20offline_access%20User.Read%20Calendars.ReadWrite%20Contacts.Read&amp;response_type=code&amp;approval_prompt=auto&amp;redirect_uri=https%3A%2F%2Fpepper.ai%2Findex&amp;client_id=c42d300a-2b2a-4cc1-b626-83c3e0db794e">Microsoft</button>
+                        </div>
+                        <div class="terms">
+                            <button class="terms__btn text_18" type="button" name="terms" data-label="I agree to the"></button>
+                            <input class="terms__checkbox" type="checkbox" name="check" hidden="">
+                            <a style="margin-right: 0" class="terms__link text_18" href="/pdf/eula.pdf">Terms of Use and Privacy</a>
+                        </div>
+                        <div style="height: 23px;" class="security">
+                            <svg class="security__icon" width="23px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 347.971 347.971" style="enable-background:new 0 0 347.971 347.971;" xml:space="preserve">
+                                <path d="M317.309,54.367C257.933,54.367,212.445,37.403,173.98,0C135.519,37.403,90.033,54.367,30.662,54.367
+                                    c0,97.405-20.155,236.937,143.317,293.604C337.463,291.305,317.309,151.773,317.309,54.367z M162.107,225.773l-47.749-47.756
+                                    l21.379-21.378l26.37,26.376l50.121-50.122l21.378,21.378L162.107,225.773z"></path>
+                            </svg>
+                            <p><a class="llink text_18" href="https://pepper.ai/security">Fully secured</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="footer_menu">
+
+                        <a class="contacts text_18" href="https://pepper.ai/support">Contact</a>
+                        <a class="privacy text_18" target="_blank" href="/pdf/eula.pdf">Terms of Use and Privacy</a>
+                        <div class="security" style="margin: 0">
+                            <p><a class="privacy text_18" href="https://pepper.ai/security">Security</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-patent text_18">"US Patent No. 10,510,050"</div>
+                <div class="col-lg-5">
+                    <div class="footer_btn">
+                        <div class="footer_btn__item"><a class="footer_btn__link">
+                                <picture>
+                                    <source class="footer_btn__img link_google" srcset="static/img/general/google.webp" type="image/webp"><img class="footer_btn__img link_google" src="static/img/general/google.png" alt="img">
+                                </picture></a><a class="footer_btn__link">
+                                <picture>
+                                    <source class="footer_btn__img link_outlook" srcset="static/img/general/outlook.webp" type="image/webp"><img class="footer_btn__img link_outlook" src="static/img/general/outlook.png" alt="img">
+                                </picture></a></div>
+                        <div class="footer_btn__item"><a class="footer_btn__link">
+                                <picture>
+                                    <source class="footer_btn__img link_android" srcset="static/img/general/android.webp" type="image/webp"><img class="footer_btn__img link_android" src="static/img/general/android.png" alt="img">
+                                </picture></a><a class="footer_btn__link">
+                                <picture>
+                                    <source class="footer_btn__img link_ios" srcset="static/img/general/ios.webp" type="image/webp"><img class="footer_btn__img link_ios" src="static/img/general/ios.png" alt="img">
+                                </picture></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <div class="cookies-block">
+        <div class="left__block">
+            <p class="block__text">
+                We use cookies to ensure that we give you the best experience on our website. If you wish to disable third party cookies you can do so here.
+            </p>
+            <p class="block__text">
+                You can read more about cookies and our privacy policies <a class="text__link" href="https://pepper.ai/pdf/eula.pdf">here.</a>
+            </p>
+        </div>
+        <div class="block__buttons">
+            <button class="button__link accept" id="accept">Accept</button>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem('cookies-display') !== null) {
+            let showCookieQuestion = localStorage.getItem('cookies-display');
+            document.getElementsByClassName('cookies-block')[0].style.display = showCookieQuestion;
+        }
+        document.getElementById('accept').onclick = function () {
+            console.log('work');
+            document.getElementsByClassName('cookies-block')[0].style.display = 'none';
+            localStorage.setItem('cookies-display', 'none');
+        }
+    }
+</script>
+<script src="static/js/libs.min.js"></script>
+<script src="static/js/main.js"></script>
+<script src="https://pepper.ai/js/app.js?v=version"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+        
+
+
+        
+
+
+    
+    
+    
+        
+            
+        
+
+
+    
+
+
+
+
+        
+                
+
+
+
+
+    
+
+<iframe id="_hjSafeContext_37358885" title="_hjSafeContext" tabindex="-1" aria-hidden="true" src="about:blank" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe></body></html>

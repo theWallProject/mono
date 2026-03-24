@@ -1,0 +1,89 @@
+[2026-03-23T20:20:47.681Z] === Homepage AI Extractor: Everlane ===
+[2026-03-23T20:20:47.681Z] Started at: 2026-03-23T20:20:47.681Z
+[2026-03-23T20:20:47.681Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774297247680_Everlane
+[2026-03-23T20:20:47.681Z] Company: Everlane
+[2026-03-23T20:20:47.681Z] Website: everlane.com
+[2026-03-23T20:20:47.682Z] cbRank: 14745
+[2026-03-23T20:20:47.682Z] Reasons: i
+[2026-03-23T20:20:47.682Z] Fetching: https://everlane.com
+[2026-03-23T20:20:59.278Z] Network idle timeout — continuing with current state
+[2026-03-23T20:21:01.353Z] Redirected: https://everlane.com -> https://www.everlane.com/
+[2026-03-23T20:21:01.374Z] Saved HTML (894740 bytes) to page.html
+[2026-03-23T20:21:01.380Z] Extracted 186 unique links from page
+[2026-03-23T20:21:01.381Z] Saved 186 links to links.json
+[2026-03-23T20:21:01.390Z] Extracted footer HTML (126420 chars)
+[2026-03-23T20:21:01.390Z] Extracted header HTML (236117 chars)
+[2026-03-23T20:21:01.404Z] Website (post-redirect): https://www.everlane.com/ → origin: https://www.everlane.com
+[2026-03-23T20:21:01.404Z]   SUBDOMAIN: account.everlane.com (added to ws)
+[2026-03-23T20:21:01.404Z]   SUBDOMAIN: blog.everlane.com (added to ws)
+[2026-03-23T20:21:01.404Z]   SUBDOMAIN: support.everlane.com (added to ws)
+[2026-03-23T20:21:01.404Z] Website subdomains found: 3
+[2026-03-23T20:21:01.405Z] External links: 6 (of 186 total)
+[2026-03-23T20:21:01.405Z] ── All external links ──
+[2026-03-23T20:21:01.405Z]   EXT: https://useonward.com/for-shoppers?utm_source=widget
+[2026-03-23T20:21:01.405Z]   EXT: https://www.instagram.com/everlane
+[2026-03-23T20:21:01.405Z]   EXT: https://www.instagram.com/everlane/#
+[2026-03-23T20:21:01.405Z]   EXT: https://www.pinterest.com/everlane
+[2026-03-23T20:21:01.405Z]   EXT: https://www.tiktok.com/@everlane
+[2026-03-23T20:21:01.405Z]   EXT: https://www.youtube.com/everlane
+[2026-03-23T20:21:01.405Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:21:01.406Z]   UNCATEGORIZED: https://useonward.com/for-shoppers?utm_source=widget
+[2026-03-23T20:21:01.407Z]   REGEX: ig <- https://www.instagram.com/everlane
+[2026-03-23T20:21:01.407Z]   REGEX: ig <- https://www.instagram.com/everlane/# (duplicate, skipped)
+[2026-03-23T20:21:01.407Z]   UNCATEGORIZED: https://www.pinterest.com/everlane
+[2026-03-23T20:21:01.407Z]   REGEX: tt <- https://www.tiktok.com/@everlane
+[2026-03-23T20:21:01.407Z]   REGEX: ytp <- https://www.youtube.com/everlane
+[2026-03-23T20:21:01.407Z] Programmatic result: ws:4, ig:1, tt:1, ytp:1 | 2 uncategorized
+[2026-03-23T20:21:01.407Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:21:01.410Z] Saved AI prompt (2850 chars) to ai_prompt.txt
+[2026-03-23T20:21:01.410Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:21:01.415Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:21:11.641Z]   AI: First token received, streaming...
+[2026-03-23T20:21:19.576Z] AI response complete: 137 chars in 18.2s
+[2026-03-23T20:21:19.577Z] Saved AI response to ai_response.json
+[2026-03-23T20:21:19.577Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T20:21:19.577Z]   AI LINK: https://www.instagram.com/everlane/
+[2026-03-23T20:21:19.578Z]   AI LINK: https://www.tiktok.com/@everlane
+[2026-03-23T20:21:19.578Z]   AI LINK: https://www.youtube.com/everlane
+[2026-03-23T20:21:19.578Z]   AI LINK: https://www.pinterest.com/everlane/
+[2026-03-23T20:21:19.578Z] AI returned 4 valid links
+[2026-03-23T20:21:19.578Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T20:21:19.578Z]   AI→REGEX: ig <- https://www.instagram.com/everlane/ (duplicate, skipped)
+[2026-03-23T20:21:19.578Z]   AI→REGEX: tt <- https://www.tiktok.com/@everlane (duplicate, skipped)
+[2026-03-23T20:21:19.579Z]   AI→REGEX: ytp <- https://www.youtube.com/everlane (duplicate, skipped)
+[2026-03-23T20:21:19.579Z]   AI→URLS: https://www.pinterest.com/everlane (cleaned from https://www.pinterest.com/everlane/)
+[2026-03-23T20:21:19.593Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:21:19.594Z] Footer/header origins (8):
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://account.everlane.com
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://support.everlane.com
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://blog.everlane.com
+[2026-03-23T20:21:19.594Z]   FOOTER/HEADER ORIGIN: https://www.everlane.com
+[2026-03-23T20:21:19.594Z]   SKIP (not in footer/header): https://useonward.com/for-shoppers?utm_source=widget
+[2026-03-23T20:21:19.594Z]   SKIP (AI claimed): https://www.pinterest.com/everlane
+[2026-03-23T20:21:19.594Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T20:21:19.595Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:21:19.595Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:21:19.595Z] ── Step 3: Final dedup ──
+[2026-03-23T20:21:19.595Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T20:21:19.595Z] ── FINAL RESULT ──
+[2026-03-23T20:21:19.595Z]   ws (4):
+[2026-03-23T20:21:19.595Z]     - https://account.everlane.com
+[2026-03-23T20:21:19.595Z]     - https://blog.everlane.com
+[2026-03-23T20:21:19.596Z]     - https://support.everlane.com
+[2026-03-23T20:21:19.596Z]     - https://www.everlane.com
+[2026-03-23T20:21:19.596Z]   ig (1):
+[2026-03-23T20:21:19.596Z]     - https://www.instagram.com/everlane
+[2026-03-23T20:21:19.596Z]   ytp (1):
+[2026-03-23T20:21:19.596Z]     - https://www.youtube.com/@everlane
+[2026-03-23T20:21:19.596Z]   tt (1):
+[2026-03-23T20:21:19.596Z]     - https://www.tiktok.com/@everlane
+[2026-03-23T20:21:19.596Z]   urls (1):
+[2026-03-23T20:21:19.596Z]     - https://www.pinterest.com/everlane
+[2026-03-23T20:21:19.596Z] Summary: ws:4, ig:1, tt:1, ytp:1, urls:1
+[2026-03-23T20:21:19.597Z] Saved final result to result.json
+[2026-03-23T20:21:19.598Z] Override fields: ws, ig, ytp, tt, urls
+[2026-03-23T20:21:19.598Z] Finished at: 2026-03-23T20:21:19.598Z

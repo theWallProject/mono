@@ -1,0 +1,56 @@
+[2026-03-21T07:04:24.715Z] === Homepage AI Extractor: WDI ===
+[2026-03-21T07:04:24.715Z] Started at: 2026-03-21T07:04:24.715Z
+[2026-03-21T07:04:24.715Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774076664714_WDI
+[2026-03-21T07:04:24.715Z] Company: WDI
+[2026-03-21T07:04:24.715Z] Website: wdi.co.il
+[2026-03-21T07:04:24.715Z] cbRank: 3090038
+[2026-03-21T07:04:24.715Z] Reasons: h
+[2026-03-21T07:04:24.715Z] Fetching: https://wdi.co.il
+[2026-03-21T07:04:31.956Z] Redirected: https://wdi.co.il -> https://wdi.co.il/
+[2026-03-21T07:04:31.959Z] Saved HTML (27510 bytes) to page.html
+[2026-03-21T07:04:31.960Z] Extracted 25 unique links from page
+[2026-03-21T07:04:31.961Z] Saved 25 links to links.json
+[2026-03-21T07:04:31.963Z] Extracted footer HTML (3209 chars)
+[2026-03-21T07:04:31.963Z] Extracted header HTML (2364 chars)
+[2026-03-21T07:04:31.966Z] Website (post-redirect): https://wdi.co.il/ → origin: https://wdi.co.il
+[2026-03-21T07:04:31.966Z] External links: 2 (of 25 total)
+[2026-03-21T07:04:31.966Z] ── All external links ──
+[2026-03-21T07:04:31.966Z]   EXT: https://www.facebook.com/share/1AoubCtseL
+[2026-03-21T07:04:31.966Z]   EXT: https://www.linkedin.com/company/wdi-ltd
+[2026-03-21T07:04:31.966Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T07:04:31.966Z]   REGEX: li <- https://www.linkedin.com/company/wdi-ltd
+[2026-03-21T07:04:31.966Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-21T07:04:31.966Z]   SKIP (regex domain, no match): https://www.facebook.com/share/1AoubCtseL
+[2026-03-21T07:04:31.966Z] Programmatic result: ws:1, li:1 | 0 uncategorized
+[2026-03-21T07:04:31.966Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T07:04:31.968Z] Saved AI prompt (4269 chars) to ai_prompt.txt
+[2026-03-21T07:04:31.968Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T07:04:31.971Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T07:04:50.037Z]   AI: First token received, streaming...
+[2026-03-21T07:04:55.136Z] AI response complete: 83 chars in 23.2s
+[2026-03-21T07:04:55.137Z] Saved AI response to ai_response.json
+[2026-03-21T07:04:55.137Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T07:04:55.138Z]   AI LINK: https://www.linkedin.com/company/wdi-ltd
+[2026-03-21T07:04:55.138Z]   AI LINK: https://www.facebook.com/share/1AoubCtseL/
+[2026-03-21T07:04:55.138Z] AI returned 2 valid links
+[2026-03-21T07:04:55.138Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T07:04:55.138Z]   AI→REGEX: li <- https://www.linkedin.com/company/wdi-ltd (duplicate, skipped)
+[2026-03-21T07:04:55.138Z]   AI→SKIP (regex domain, no match): https://www.facebook.com/share/1AoubCtseL/
+[2026-03-21T07:04:55.139Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T07:04:55.140Z] Footer/header origins (2):
+[2026-03-21T07:04:55.140Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T07:04:55.140Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T07:04:55.140Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T07:04:55.140Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T07:04:55.140Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T07:04:55.140Z] ── Step 3: Final dedup ──
+[2026-03-21T07:04:55.141Z] No urls to dedup
+[2026-03-21T07:04:55.141Z] ── FINAL RESULT ──
+[2026-03-21T07:04:55.141Z]   ws (1):
+[2026-03-21T07:04:55.141Z]     - https://wdi.co.il
+[2026-03-21T07:04:55.141Z]   li (1):
+[2026-03-21T07:04:55.141Z]     - https://www.linkedin.com/company/wdi-ltd
+[2026-03-21T07:04:55.141Z] Summary: ws:1, li:1
+[2026-03-21T07:04:55.142Z] Saved final result to result.json
+[2026-03-21T07:04:55.142Z] Override fields: ws, li
+[2026-03-21T07:04:55.143Z] Finished at: 2026-03-21T07:04:55.143Z

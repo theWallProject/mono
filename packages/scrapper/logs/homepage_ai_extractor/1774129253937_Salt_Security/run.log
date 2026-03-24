@@ -1,0 +1,90 @@
+[2026-03-21T21:40:53.937Z] === Homepage AI Extractor: Salt Security ===
+[2026-03-21T21:40:53.937Z] Started at: 2026-03-21T21:40:53.937Z
+[2026-03-21T21:40:53.937Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774129253937_Salt_Security
+[2026-03-21T21:40:53.937Z] Company: Salt Security
+[2026-03-21T21:40:53.937Z] Website: salt.security
+[2026-03-21T21:40:53.937Z] cbRank: 473
+[2026-03-21T21:40:53.937Z] Reasons: f, i
+[2026-03-21T21:40:53.937Z] Fetching: https://salt.security
+[2026-03-21T21:41:04.555Z] Network idle timeout — continuing with current state
+[2026-03-21T21:41:04.644Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T21:41:10.342Z] Redirected: https://salt.security -> https://salt.security/
+[2026-03-21T21:41:10.358Z] Saved HTML (676687 bytes) to page.html
+[2026-03-21T21:41:10.361Z] Extracted 72 unique links from page
+[2026-03-21T21:41:10.362Z] Saved 72 links to links.json
+[2026-03-21T21:41:10.365Z] Extracted footer HTML (15384 chars)
+[2026-03-21T21:41:10.365Z] Extracted header HTML (22260 chars)
+[2026-03-21T21:41:10.369Z] Website (post-redirect): https://salt.security/ → origin: https://salt.security
+[2026-03-21T21:41:10.369Z]   SUBDOMAIN: content.salt.security (added to ws)
+[2026-03-21T21:41:10.369Z]   SUBDOMAIN: events.salt.security (added to ws)
+[2026-03-21T21:41:10.369Z] Website subdomains found: 2
+[2026-03-21T21:41:10.369Z] External links: 6 (of 72 total)
+[2026-03-21T21:41:10.369Z] ── All external links ──
+[2026-03-21T21:41:10.369Z]   EXT: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T21:41:10.369Z]   EXT: https://www.facebook.com/SaltAPIProtectionInc
+[2026-03-21T21:41:10.369Z]   EXT: https://www.linkedin.com/company/saltsecurity
+[2026-03-21T21:41:10.369Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T21:41:10.369Z]   EXT: https://www.youtube.com/channel/UCh4xsM0PaDFcPiDpSbtV28w
+[2026-03-21T21:41:10.370Z]   EXT: https://x.com/SaltSecurity
+[2026-03-21T21:41:10.370Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:41:10.370Z]   UNCATEGORIZED: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T21:41:10.370Z]   REGEX: fb <- https://www.facebook.com/SaltAPIProtectionInc
+[2026-03-21T21:41:10.370Z]   REGEX: li <- https://www.linkedin.com/company/saltsecurity
+[2026-03-21T21:41:10.370Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T21:41:10.370Z]   REGEX: ytc <- https://www.youtube.com/channel/UCh4xsM0PaDFcPiDpSbtV28w
+[2026-03-21T21:41:10.370Z]   REGEX: tw <- https://x.com/SaltSecurity
+[2026-03-21T21:41:10.370Z] Programmatic result: ws:3, fb:1, li:1, ytc:1, tw:1 | 2 uncategorized
+[2026-03-21T21:41:10.370Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:41:10.373Z] Saved AI prompt (6720 chars) to ai_prompt.txt
+[2026-03-21T21:41:10.373Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:41:10.378Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:41:38.547Z]   AI: First token received, streaming...
+[2026-03-21T21:41:49.771Z] AI response complete: 177 chars in 39.4s
+[2026-03-21T21:41:49.773Z] Saved AI response to ai_response.json
+[2026-03-21T21:41:49.773Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T21:41:49.773Z]   AI LINK: https://x.com/SaltSecurity
+[2026-03-21T21:41:49.773Z]   AI LINK: https://www.linkedin.com/company/saltsecurity/
+[2026-03-21T21:41:49.774Z]   AI LINK: https://www.facebook.com/SaltAPIProtectionInc/
+[2026-03-21T21:41:49.774Z]   AI LINK: https://www.youtube.com/channel/UCh4xsM0PaDFcPiDpSbtV28w
+[2026-03-21T21:41:49.774Z] AI returned 4 valid links
+[2026-03-21T21:41:49.774Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T21:41:49.774Z]   AI→REGEX: tw <- https://x.com/SaltSecurity (duplicate, skipped)
+[2026-03-21T21:41:49.775Z]   AI→REGEX: li <- https://www.linkedin.com/company/saltsecurity/ (duplicate, skipped)
+[2026-03-21T21:41:49.775Z]   AI→REGEX: fb <- https://www.facebook.com/SaltAPIProtectionInc/ (duplicate, skipped)
+[2026-03-21T21:41:49.775Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCh4xsM0PaDFcPiDpSbtV28w (duplicate, skipped)
+[2026-03-21T21:41:49.777Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:41:49.777Z] Footer/header origins (6):
+[2026-03-21T21:41:49.777Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T21:41:49.777Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T21:41:49.777Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T21:41:49.778Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T21:41:49.778Z]   FOOTER/HEADER ORIGIN: https://content.salt.security
+[2026-03-21T21:41:49.778Z]   FOOTER/HEADER ORIGIN: https://events.salt.security
+[2026-03-21T21:41:49.778Z]   SKIP (not in footer/header): https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T21:41:49.778Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-21T21:41:49.778Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:41:49.778Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:41:49.778Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T21:41:50.083Z]   YOUTUBE: resolved UCh4xsM0PaDFcPiDpSbtV28w → @SaltSecurity
+[2026-03-21T21:41:50.083Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T21:41:50.083Z] ── Step 3: Final dedup ──
+[2026-03-21T21:41:50.083Z] No urls to dedup
+[2026-03-21T21:41:50.083Z] ── FINAL RESULT ──
+[2026-03-21T21:41:50.083Z]   ws (3):
+[2026-03-21T21:41:50.083Z]     - https://content.salt.security
+[2026-03-21T21:41:50.084Z]     - https://events.salt.security
+[2026-03-21T21:41:50.084Z]     - https://salt.security
+[2026-03-21T21:41:50.084Z]   li (1):
+[2026-03-21T21:41:50.084Z]     - https://www.linkedin.com/company/saltsecurity
+[2026-03-21T21:41:50.084Z]   fb (1):
+[2026-03-21T21:41:50.084Z]     - https://www.facebook.com/saltapiprotectioninc
+[2026-03-21T21:41:50.084Z]   tw (1):
+[2026-03-21T21:41:50.084Z]     - https://x.com/saltsecurity
+[2026-03-21T21:41:50.084Z]   ytp (1):
+[2026-03-21T21:41:50.084Z]     - https://www.youtube.com/@SaltSecurity
+[2026-03-21T21:41:50.084Z]   ytc (1):
+[2026-03-21T21:41:50.084Z]     - https://www.youtube.com/channel/UCh4xsM0PaDFcPiDpSbtV28w
+[2026-03-21T21:41:50.084Z] Summary: ws:3, fb:1, li:1, ytc:1, tw:1, ytp:1
+[2026-03-21T21:41:50.085Z] Saved final result to result.json
+[2026-03-21T21:41:50.085Z] Override fields: ws, li, fb, tw, ytp, ytc
+[2026-03-21T21:41:50.085Z] Finished at: 2026-03-21T21:41:50.085Z

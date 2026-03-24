@@ -1,0 +1,65 @@
+[2026-03-23T22:39:40.714Z] === Homepage AI Extractor: Peregrine.ai ===
+[2026-03-23T22:39:40.715Z] Started at: 2026-03-23T22:39:40.714Z
+[2026-03-23T22:39:40.715Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774305580713_Peregrine.ai
+[2026-03-23T22:39:40.715Z] Company: Peregrine.ai
+[2026-03-23T22:39:40.715Z] Website: peregrine.ai
+[2026-03-23T22:39:40.715Z] cbRank: 30729
+[2026-03-23T22:39:40.715Z] Reasons: i
+[2026-03-23T22:39:40.715Z] Fetching: https://peregrine.ai
+[2026-03-23T22:39:42.493Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T22:39:45.458Z] Redirected: https://peregrine.ai -> https://peregrine.ai/
+[2026-03-23T22:39:45.476Z] Saved HTML (679488 bytes) to page.html
+[2026-03-23T22:39:45.479Z] Extracted 23 unique links from page
+[2026-03-23T22:39:45.480Z] Saved 23 links to links.json
+[2026-03-23T22:39:45.482Z] Extracted footer HTML (15547 chars)
+[2026-03-23T22:39:45.482Z] Extracted header HTML (10291 chars)
+[2026-03-23T22:39:45.485Z] Website (post-redirect): https://peregrine.ai/ → origin: https://peregrine.ai
+[2026-03-23T22:39:45.485Z] External links: 4 (of 23 total)
+[2026-03-23T22:39:45.485Z] ── All external links ──
+[2026-03-23T22:39:45.486Z]   EXT: https://de.linkedin.com/company/peregrine-ai
+[2026-03-23T22:39:45.486Z]   EXT: https://www.cookieyes.com/product/cookie-consent
+[2026-03-23T22:39:45.486Z]   EXT: https://www.youtube.com/@peregrine4195
+[2026-03-23T22:39:45.486Z]   EXT: https://www.youtube.com/watch?v=4pxWd6HrijI
+[2026-03-23T22:39:45.486Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T22:39:45.486Z]   REGEX: li <- https://de.linkedin.com/company/peregrine-ai
+[2026-03-23T22:39:45.486Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent
+[2026-03-23T22:39:45.486Z]   REGEX: ytp <- https://www.youtube.com/@peregrine4195
+[2026-03-23T22:39:45.486Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T22:39:45.486Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=4pxWd6HrijI
+[2026-03-23T22:39:45.486Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-23T22:39:45.486Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T22:39:45.489Z] Saved AI prompt (8714 chars) to ai_prompt.txt
+[2026-03-23T22:39:45.490Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T22:39:45.493Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T22:40:27.394Z]   AI: First token received, streaming...
+[2026-03-23T22:40:32.755Z] AI response complete: 83 chars in 47.3s
+[2026-03-23T22:40:32.756Z] Saved AI response to ai_response.json
+[2026-03-23T22:40:32.756Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T22:40:32.756Z]   AI LINK: https://de.linkedin.com/company/peregrine-ai
+[2026-03-23T22:40:32.756Z]   AI LINK: https://www.youtube.com/@peregrine4195
+[2026-03-23T22:40:32.756Z] AI returned 2 valid links
+[2026-03-23T22:40:32.757Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T22:40:32.757Z]   AI→REGEX: li <- https://de.linkedin.com/company/peregrine-ai (duplicate, skipped)
+[2026-03-23T22:40:32.757Z]   AI→REGEX: ytp <- https://www.youtube.com/@peregrine4195 (duplicate, skipped)
+[2026-03-23T22:40:32.757Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T22:40:32.757Z] Footer/header origins (3):
+[2026-03-23T22:40:32.757Z]   FOOTER/HEADER ORIGIN: https://peregrine.ai
+[2026-03-23T22:40:32.757Z]   FOOTER/HEADER ORIGIN: https://de.linkedin.com
+[2026-03-23T22:40:32.757Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T22:40:32.758Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent
+[2026-03-23T22:40:32.758Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T22:40:32.758Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T22:40:32.758Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T22:40:32.758Z] ── Step 3: Final dedup ──
+[2026-03-23T22:40:32.758Z] No urls to dedup
+[2026-03-23T22:40:32.758Z] ── FINAL RESULT ──
+[2026-03-23T22:40:32.758Z]   ws (1):
+[2026-03-23T22:40:32.758Z]     - https://peregrine.ai
+[2026-03-23T22:40:32.758Z]   li (1):
+[2026-03-23T22:40:32.758Z]     - https://www.linkedin.com/company/peregrine-ai
+[2026-03-23T22:40:32.758Z]   ytp (1):
+[2026-03-23T22:40:32.758Z]     - https://www.youtube.com/@peregrine4195
+[2026-03-23T22:40:32.758Z] Summary: ws:1, li:1, ytp:1
+[2026-03-23T22:40:32.759Z] Saved final result to result.json
+[2026-03-23T22:40:32.759Z] Override fields: ws, li, ytp
+[2026-03-23T22:40:32.759Z] Finished at: 2026-03-23T22:40:32.759Z

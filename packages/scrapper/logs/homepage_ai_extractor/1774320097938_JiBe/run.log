@@ -1,0 +1,63 @@
+[2026-03-24T02:41:37.938Z] === Homepage AI Extractor: JiBe ===
+[2026-03-24T02:41:37.938Z] Started at: 2026-03-24T02:41:37.938Z
+[2026-03-24T02:41:37.938Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774320097938_JiBe
+[2026-03-24T02:41:37.938Z] Company: JiBe
+[2026-03-24T02:41:37.938Z] Website: jibe.com.sg
+[2026-03-24T02:41:37.938Z] cbRank: 219272
+[2026-03-24T02:41:37.938Z] Reasons: i
+[2026-03-24T02:41:37.938Z] Fetching: https://jibe.com.sg
+[2026-03-24T02:41:48.603Z] Network idle timeout — continuing with current state
+[2026-03-24T02:41:48.651Z] Redirected: https://jibe.com.sg -> https://www.jibe.com.sg/
+[2026-03-24T02:41:48.683Z] Saved HTML (1384656 bytes) to page.html
+[2026-03-24T02:41:48.687Z] Extracted 21 unique links from page
+[2026-03-24T02:41:48.688Z] Saved 21 links to links.json
+[2026-03-24T02:41:48.691Z] Extracted footer HTML (12292 chars)
+[2026-03-24T02:41:48.691Z] Extracted header HTML (51209 chars)
+[2026-03-24T02:41:48.695Z] Website (post-redirect): https://www.jibe.com.sg/ → origin: https://www.jibe.com.sg
+[2026-03-24T02:41:48.695Z] External links: 2 (of 21 total)
+[2026-03-24T02:41:48.695Z] ── All external links ──
+[2026-03-24T02:41:48.695Z]   EXT: https://www.facebook.com/JibeERP
+[2026-03-24T02:41:48.695Z]   EXT: https://www.linkedin.com/company/jibe-erp
+[2026-03-24T02:41:48.695Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:41:48.696Z]   REGEX: fb <- https://www.facebook.com/JibeERP
+[2026-03-24T02:41:48.696Z]   REGEX: li <- https://www.linkedin.com/company/jibe-erp
+[2026-03-24T02:41:48.696Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-24T02:41:48.696Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:41:48.699Z] Saved AI prompt (7090 chars) to ai_prompt.txt
+[2026-03-24T02:41:48.699Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:41:48.704Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:42:25.389Z]   AI: First token received, streaming...
+[2026-03-24T02:42:30.468Z] AI response complete: 100 chars in 41.8s
+[2026-03-24T02:42:30.469Z] Saved AI response to ai_response.json
+[2026-03-24T02:42:30.469Z] ── Parsing AI response (3 lines) ──
+[2026-03-24T02:42:30.469Z]   AI LINK: https://www.jibe.com.sg
+[2026-03-24T02:42:30.470Z]   AI LINK: https://www.linkedin.com/company/jibe-erp/
+[2026-03-24T02:42:30.470Z]   AI LINK: https://www.facebook.com/JibeERP/
+[2026-03-24T02:42:30.470Z] AI returned 3 valid links
+[2026-03-24T02:42:30.470Z] ── Categorizing 3 AI-returned links ──
+[2026-03-24T02:42:30.472Z]   AI→URLS: https://www.jibe.com.sg
+[2026-03-24T02:42:30.473Z]   AI→REGEX: li <- https://www.linkedin.com/company/jibe-erp/ (duplicate, skipped)
+[2026-03-24T02:42:30.473Z]   AI→REGEX: fb <- https://www.facebook.com/JibeERP/ (duplicate, skipped)
+[2026-03-24T02:42:30.473Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T02:42:30.473Z] Footer/header origins (3):
+[2026-03-24T02:42:30.473Z]   FOOTER/HEADER ORIGIN: https://www.jibe.com.sg
+[2026-03-24T02:42:30.473Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T02:42:30.473Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T02:42:30.473Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T02:42:30.474Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T02:42:30.474Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T02:42:30.474Z] ── Step 3: Final dedup ──
+[2026-03-24T02:42:30.474Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T02:42:30.474Z] ── FINAL RESULT ──
+[2026-03-24T02:42:30.474Z]   ws (1):
+[2026-03-24T02:42:30.474Z]     - https://www.jibe.com.sg
+[2026-03-24T02:42:30.474Z]   li (1):
+[2026-03-24T02:42:30.474Z]     - https://www.linkedin.com/company/jibe-erp
+[2026-03-24T02:42:30.474Z]   fb (1):
+[2026-03-24T02:42:30.474Z]     - https://www.facebook.com/jibeerp
+[2026-03-24T02:42:30.475Z]   urls (1):
+[2026-03-24T02:42:30.475Z]     - https://www.jibe.com.sg
+[2026-03-24T02:42:30.475Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-24T02:42:30.476Z] Saved final result to result.json
+[2026-03-24T02:42:30.476Z] Override fields: ws, li, fb
+[2026-03-24T02:42:30.476Z] Finished at: 2026-03-24T02:42:30.476Z

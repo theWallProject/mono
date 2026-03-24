@@ -1,0 +1,79 @@
+[2026-03-22T22:33:53.578Z] === Homepage AI Extractor: Flexitricity ===
+[2026-03-22T22:33:53.579Z] Started at: 2026-03-22T22:33:53.579Z
+[2026-03-22T22:33:53.579Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774218833578_Flexitricity
+[2026-03-22T22:33:53.579Z] Company: Flexitricity
+[2026-03-22T22:33:53.579Z] Website: flexitricity.com
+[2026-03-22T22:33:53.579Z] cbRank: 269741
+[2026-03-22T22:33:53.579Z] Reasons: f
+[2026-03-22T22:33:53.579Z] Fetching: https://flexitricity.com
+[2026-03-22T22:34:03.992Z] Network idle timeout — continuing with current state
+[2026-03-22T22:34:04.074Z] Dismissed cookie consent popup via: [aria-label="Accept cookies"]
+[2026-03-22T22:34:12.059Z] Redirected: https://flexitricity.com -> https://flexitricity.com/
+[2026-03-22T22:34:12.063Z] Saved HTML (121457 bytes) to page.html
+[2026-03-22T22:34:12.066Z] Extracted 42 unique links from page
+[2026-03-22T22:34:12.067Z] Saved 42 links to links.json
+[2026-03-22T22:34:12.070Z] Extracted footer HTML (4872 chars)
+[2026-03-22T22:34:12.070Z] Extracted header HTML (7875 chars)
+[2026-03-22T22:34:12.075Z] Website (post-redirect): https://flexitricity.com/ → origin: https://flexitricity.com
+[2026-03-22T22:34:12.076Z]   SUBDOMAIN: cms.flexitricity.com (added to ws)
+[2026-03-22T22:34:12.076Z]   SUBDOMAIN: portal.flexitricity.com (added to ws)
+[2026-03-22T22:34:12.076Z] Website subdomains found: 2
+[2026-03-22T22:34:12.076Z] External links: 4 (of 42 total)
+[2026-03-22T22:34:12.077Z] ── All external links ──
+[2026-03-22T22:34:12.077Z]   EXT: https://flexassure.org.uk
+[2026-03-22T22:34:12.077Z]   EXT: https://flexgo.energy
+[2026-03-22T22:34:12.077Z]   EXT: https://www.linkedin.com/company/flexitricity
+[2026-03-22T22:34:12.077Z]   EXT: https://www.youtube.com/user/FlexitricityLtd
+[2026-03-22T22:34:12.077Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:34:12.078Z]   UNCATEGORIZED: https://flexassure.org.uk
+[2026-03-22T22:34:12.079Z]   UNCATEGORIZED: https://flexgo.energy
+[2026-03-22T22:34:12.079Z]   REGEX: li <- https://www.linkedin.com/company/flexitricity
+[2026-03-22T22:34:12.079Z]   REGEX: ytp <- https://www.youtube.com/user/FlexitricityLtd
+[2026-03-22T22:34:12.079Z] Programmatic result: ws:3, li:1, ytp:1 | 2 uncategorized
+[2026-03-22T22:34:12.079Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:34:12.083Z] Saved AI prompt (4101 chars) to ai_prompt.txt
+[2026-03-22T22:34:12.084Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:34:12.089Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:34:27.777Z]   AI: First token received, streaming...
+[2026-03-22T22:34:35.551Z] AI response complete: 139 chars in 23.5s
+[2026-03-22T22:34:35.553Z] Saved AI response to ai_response.json
+[2026-03-22T22:34:35.554Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T22:34:35.554Z]   AI LINK: https://www.youtube.com/user/FlexitricityLtd
+[2026-03-22T22:34:35.555Z]   AI LINK: https://www.linkedin.com/company/flexitricity/
+[2026-03-22T22:34:35.555Z]   AI LINK: https://flexassure.org.uk
+[2026-03-22T22:34:35.555Z]   AI LINK: https://flexgo.energy
+[2026-03-22T22:34:35.555Z] AI returned 4 valid links
+[2026-03-22T22:34:35.555Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T22:34:35.556Z]   AI→REGEX: ytp <- https://www.youtube.com/user/FlexitricityLtd (duplicate, skipped)
+[2026-03-22T22:34:35.556Z]   AI→REGEX: li <- https://www.linkedin.com/company/flexitricity/ (duplicate, skipped)
+[2026-03-22T22:34:35.556Z]   AI→URLS: https://flexassure.org.uk
+[2026-03-22T22:34:35.557Z]   AI→URLS: https://flexgo.energy
+[2026-03-22T22:34:35.558Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:34:35.558Z] Footer/header origins (4):
+[2026-03-22T22:34:35.558Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T22:34:35.559Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T22:34:35.559Z]   FOOTER/HEADER ORIGIN: https://cms.flexitricity.com
+[2026-03-22T22:34:35.559Z]   FOOTER/HEADER ORIGIN: https://flexassure.org.uk
+[2026-03-22T22:34:35.559Z]   SKIP (AI claimed): https://flexassure.org.uk
+[2026-03-22T22:34:35.559Z]   SKIP (AI claimed): https://flexgo.energy
+[2026-03-22T22:34:35.559Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T22:34:35.559Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:34:35.560Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T22:34:35.560Z] ── Step 3: Final dedup ──
+[2026-03-22T22:34:35.560Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T22:34:35.561Z] ── FINAL RESULT ──
+[2026-03-22T22:34:35.561Z]   ws (3):
+[2026-03-22T22:34:35.561Z]     - https://cms.flexitricity.com
+[2026-03-22T22:34:35.561Z]     - https://flexitricity.com
+[2026-03-22T22:34:35.561Z]     - https://portal.flexitricity.com
+[2026-03-22T22:34:35.561Z]   li (1):
+[2026-03-22T22:34:35.561Z]     - https://www.linkedin.com/company/flexitricity
+[2026-03-22T22:34:35.562Z]   ytp (1):
+[2026-03-22T22:34:35.562Z]     - https://www.youtube.com/@flexitricityltd
+[2026-03-22T22:34:35.562Z]   urls (2):
+[2026-03-22T22:34:35.562Z]     - https://flexassure.org.uk
+[2026-03-22T22:34:35.562Z]     - https://flexgo.energy
+[2026-03-22T22:34:35.562Z] Summary: ws:3, li:1, ytp:1, urls:2
+[2026-03-22T22:34:35.564Z] Saved final result to result.json
+[2026-03-22T22:34:35.565Z] Override fields: ws, li, ytp, urls
+[2026-03-22T22:34:35.566Z] Finished at: 2026-03-22T22:34:35.566Z

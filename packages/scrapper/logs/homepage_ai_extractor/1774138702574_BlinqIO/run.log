@@ -1,0 +1,71 @@
+[2026-03-22T00:18:22.574Z] === Homepage AI Extractor: BlinqIO ===
+[2026-03-22T00:18:22.575Z] Started at: 2026-03-22T00:18:22.575Z
+[2026-03-22T00:18:22.575Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774138702574_BlinqIO
+[2026-03-22T00:18:22.575Z] Company: BlinqIO
+[2026-03-22T00:18:22.575Z] Website: blinq.io
+[2026-03-22T00:18:22.575Z] cbRank: 12023
+[2026-03-22T00:18:22.575Z] Reasons: f
+[2026-03-22T00:18:22.575Z] Fetching: https://blinq.io
+[2026-03-22T00:18:24.762Z] Redirected: https://blinq.io -> https://blinq.io/
+[2026-03-22T00:18:24.765Z] Saved HTML (60646 bytes) to page.html
+[2026-03-22T00:18:24.767Z] Extracted 15 unique links from page
+[2026-03-22T00:18:24.767Z] Saved 15 links to links.json
+[2026-03-22T00:18:24.770Z] Extracted footer HTML (3310 chars)
+[2026-03-22T00:18:24.770Z] Extracted header HTML (4628 chars)
+[2026-03-22T00:18:24.773Z] Website (post-redirect): https://blinq.io/ → origin: https://blinq.io
+[2026-03-22T00:18:24.773Z]   SUBDOMAIN: docs.blinq.io (added to ws)
+[2026-03-22T00:18:24.773Z]   SUBDOMAIN: app.blinq.io (added to ws)
+[2026-03-22T00:18:24.773Z] Website subdomains found: 2
+[2026-03-22T00:18:24.773Z] External links: 3 (of 15 total)
+[2026-03-22T00:18:24.773Z] ── All external links ──
+[2026-03-22T00:18:24.773Z]   EXT: https://vimeo.com/1158594490?fl=pl&fe=sh
+[2026-03-22T00:18:24.773Z]   EXT: https://www.linkedin.com/company/blinq-io
+[2026-03-22T00:18:24.773Z]   EXT: https://youtube.com/@blinqio?feature=shared
+[2026-03-22T00:18:24.773Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:18:24.774Z]   UNCATEGORIZED: https://vimeo.com/1158594490?fl=pl&fe=sh
+[2026-03-22T00:18:24.774Z]   REGEX: li <- https://www.linkedin.com/company/blinq-io
+[2026-03-22T00:18:24.774Z]   REGEX: ytp <- https://youtube.com/@blinqio?feature=shared
+[2026-03-22T00:18:24.774Z] Programmatic result: ws:3, li:1, ytp:1 | 1 uncategorized
+[2026-03-22T00:18:24.774Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:18:24.777Z] Saved AI prompt (2885 chars) to ai_prompt.txt
+[2026-03-22T00:18:24.777Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:18:24.780Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:18:35.632Z]   AI: First token received, streaming...
+[2026-03-22T00:18:42.179Z] AI response complete: 112 chars in 17.4s
+[2026-03-22T00:18:42.181Z] Saved AI response to ai_response.json
+[2026-03-22T00:18:42.181Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:18:42.181Z]   AI LINK: https://www.linkedin.com/company/blinq-io
+[2026-03-22T00:18:42.181Z]   AI LINK: https://youtube.com/@blinqio?feature=shared
+[2026-03-22T00:18:42.181Z]   AI LINK: https://www.docs.blinq.io/
+[2026-03-22T00:18:42.182Z] AI returned 3 valid links
+[2026-03-22T00:18:42.182Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:18:42.182Z]   AI→REGEX: li <- https://www.linkedin.com/company/blinq-io (duplicate, skipped)
+[2026-03-22T00:18:42.182Z]   AI→REGEX: ytp <- https://youtube.com/@blinqio?feature=shared (duplicate, skipped)
+[2026-03-22T00:18:42.182Z]   AI→URLS: https://www.docs.blinq.io (cleaned from https://www.docs.blinq.io/)
+[2026-03-22T00:18:42.183Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:18:42.183Z] Footer/header origins (4):
+[2026-03-22T00:18:42.183Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:18:42.183Z]   FOOTER/HEADER ORIGIN: https://youtube.com
+[2026-03-22T00:18:42.183Z]   FOOTER/HEADER ORIGIN: https://www.docs.blinq.io
+[2026-03-22T00:18:42.183Z]   FOOTER/HEADER ORIGIN: https://docs.blinq.io
+[2026-03-22T00:18:42.183Z]   SKIP (not in footer/header): https://vimeo.com/1158594490?fl=pl&fe=sh
+[2026-03-22T00:18:42.183Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:18:42.184Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:18:42.184Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:18:42.184Z] ── Step 3: Final dedup ──
+[2026-03-22T00:18:42.184Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T00:18:42.184Z] ── FINAL RESULT ──
+[2026-03-22T00:18:42.184Z]   ws (3):
+[2026-03-22T00:18:42.184Z]     - https://app.blinq.io
+[2026-03-22T00:18:42.184Z]     - https://blinq.io
+[2026-03-22T00:18:42.184Z]     - https://docs.blinq.io
+[2026-03-22T00:18:42.184Z]   li (1):
+[2026-03-22T00:18:42.184Z]     - https://www.linkedin.com/company/blinq-io
+[2026-03-22T00:18:42.185Z]   ytp (1):
+[2026-03-22T00:18:42.185Z]     - https://www.youtube.com/@blinqio
+[2026-03-22T00:18:42.185Z]   urls (1):
+[2026-03-22T00:18:42.185Z]     - https://www.docs.blinq.io
+[2026-03-22T00:18:42.185Z] Summary: ws:3, li:1, ytp:1, urls:1
+[2026-03-22T00:18:42.186Z] Saved final result to result.json
+[2026-03-22T00:18:42.186Z] Override fields: ws, li, ytp
+[2026-03-22T00:18:42.186Z] Finished at: 2026-03-22T00:18:42.186Z

@@ -1,0 +1,80 @@
+[2026-03-21T10:43:54.316Z] === Homepage AI Extractor: B&G Guitars ===
+[2026-03-21T10:43:54.317Z] Started at: 2026-03-21T10:43:54.317Z
+[2026-03-21T10:43:54.317Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774089834316_B&G_Guitars
+[2026-03-21T10:43:54.317Z] Company: B&G Guitars
+[2026-03-21T10:43:54.317Z] Website: bngguitars.com
+[2026-03-21T10:43:54.317Z] cbRank: 3259607
+[2026-03-21T10:43:54.317Z] Reasons: h
+[2026-03-21T10:43:54.317Z] Fetching: https://bngguitars.com
+[2026-03-21T10:43:58.911Z] Redirected: https://bngguitars.com -> https://www.bngguitars.com/
+[2026-03-21T10:43:58.929Z] Saved HTML (903215 bytes) to page.html
+[2026-03-21T10:43:58.933Z] Extracted 103 unique links from page
+[2026-03-21T10:43:58.934Z] Saved 103 links to links.json
+[2026-03-21T10:43:58.937Z] Extracted footer HTML (14174 chars)
+[2026-03-21T10:43:58.937Z] Extracted header HTML (122434 chars)
+[2026-03-21T10:43:58.942Z] Website (post-redirect): https://www.bngguitars.com/ → origin: https://www.bngguitars.com
+[2026-03-21T10:43:58.942Z]   SUBDOMAIN: pb.bngguitars.com (added to ws)
+[2026-03-21T10:43:58.942Z] Website subdomains found: 1
+[2026-03-21T10:43:58.942Z] External links: 7 (of 103 total)
+[2026-03-21T10:43:58.943Z] ── All external links ──
+[2026-03-21T10:43:58.943Z]   EXT: http://instagram.com/bngguitars
+[2026-03-21T10:43:58.943Z]   EXT: https://vee.co.il
+[2026-03-21T10:43:58.943Z]   EXT: https://vee.co.il/pricing
+[2026-03-21T10:43:58.943Z]   EXT: https://www.facebook.com/bngguitars
+[2026-03-21T10:43:58.943Z]   EXT: https://www.youtube.com/@BGHandmadeGuitars
+[2026-03-21T10:43:58.943Z]   EXT: https://www.youtube.com/watch?v=HXDabn5c57Y
+[2026-03-21T10:43:58.943Z]   EXT: https://www.youtube.com/watch?v=NXUzyob7a4g
+[2026-03-21T10:43:58.943Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T10:43:58.943Z]   REGEX: ig <- http://instagram.com/bngguitars
+[2026-03-21T10:43:58.943Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-21T10:43:58.943Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-21T10:43:58.943Z]   REGEX: fb <- https://www.facebook.com/bngguitars
+[2026-03-21T10:43:58.943Z]   REGEX: ytp <- https://www.youtube.com/@BGHandmadeGuitars
+[2026-03-21T10:43:58.943Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-21T10:43:58.944Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=HXDabn5c57Y
+[2026-03-21T10:43:58.944Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=NXUzyob7a4g
+[2026-03-21T10:43:58.944Z] Programmatic result: ws:2, ig:1, fb:1, ytp:1 | 2 uncategorized
+[2026-03-21T10:43:58.944Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T10:43:58.945Z] Saved AI prompt (6925 chars) to ai_prompt.txt
+[2026-03-21T10:43:58.945Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T10:43:58.948Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T10:44:28.111Z]   AI: First token received, streaming...
+[2026-03-21T10:44:34.906Z] AI response complete: 111 chars in 36.0s
+[2026-03-21T10:44:34.907Z] Saved AI response to ai_response.json
+[2026-03-21T10:44:34.908Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T10:44:34.908Z]   AI LINK: https://www.facebook.com/bngguitars/
+[2026-03-21T10:44:34.908Z]   AI LINK: http://instagram.com/bngguitars
+[2026-03-21T10:44:34.908Z]   AI LINK: https://www.youtube.com/@BGHandmadeGuitars
+[2026-03-21T10:44:34.908Z] AI returned 3 valid links
+[2026-03-21T10:44:34.909Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T10:44:34.909Z]   AI→REGEX: fb <- https://www.facebook.com/bngguitars/ (duplicate, skipped)
+[2026-03-21T10:44:34.909Z]   AI→REGEX: ig <- http://instagram.com/bngguitars (duplicate, skipped)
+[2026-03-21T10:44:34.909Z]   AI→REGEX: ytp <- https://www.youtube.com/@BGHandmadeGuitars (duplicate, skipped)
+[2026-03-21T10:44:34.911Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T10:44:34.912Z] Footer/header origins (5):
+[2026-03-21T10:44:34.912Z]   FOOTER/HEADER ORIGIN: https://www.bngguitars.com
+[2026-03-21T10:44:34.912Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T10:44:34.912Z]   FOOTER/HEADER ORIGIN: http://instagram.com
+[2026-03-21T10:44:34.912Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T10:44:34.912Z]   FOOTER/HEADER ORIGIN: https://pb.bngguitars.com
+[2026-03-21T10:44:34.912Z]   SKIP (not in footer/header): https://vee.co.il
+[2026-03-21T10:44:34.912Z]   SKIP (not in footer/header): https://vee.co.il/pricing
+[2026-03-21T10:44:34.913Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T10:44:34.913Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T10:44:34.913Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T10:44:34.913Z] ── Step 3: Final dedup ──
+[2026-03-21T10:44:34.913Z] No urls to dedup
+[2026-03-21T10:44:34.913Z] ── FINAL RESULT ──
+[2026-03-21T10:44:34.913Z]   ws (2):
+[2026-03-21T10:44:34.914Z]     - https://pb.bngguitars.com
+[2026-03-21T10:44:34.914Z]     - https://www.bngguitars.com
+[2026-03-21T10:44:34.914Z]   fb (1):
+[2026-03-21T10:44:34.914Z]     - https://www.facebook.com/bngguitars
+[2026-03-21T10:44:34.914Z]   ig (1):
+[2026-03-21T10:44:34.914Z]     - https://www.instagram.com/bngguitars
+[2026-03-21T10:44:34.914Z]   ytp (1):
+[2026-03-21T10:44:34.914Z]     - https://www.youtube.com/@bghandmadeguitars
+[2026-03-21T10:44:34.915Z] Summary: ws:2, ig:1, fb:1, ytp:1
+[2026-03-21T10:44:34.916Z] Saved final result to result.json
+[2026-03-21T10:44:34.916Z] Override fields: ws, fb, ig, ytp
+[2026-03-21T10:44:34.916Z] Finished at: 2026-03-21T10:44:34.916Z

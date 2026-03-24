@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><meta property="og:image" content="https://sfo2.digitaloceanspaces.com/bagel/playworks/og.jpg"><title>Play.Works is the #1 provider of CTV Games and Original TV Channels.</title><link href="/css/chunk-01bb0ba3.48c3e10b.css" rel="prefetch"><link href="/css/chunk-3429fa3a.84bc2599.css" rel="prefetch"><link href="/css/chunk-5165ad53.2d8250a8.css" rel="prefetch"><link href="/css/chunk-e669e6b8.7185cfb3.css" rel="prefetch"><link href="/js/chunk-01bb0ba3.d6dfd609.js" rel="prefetch"><link href="/js/chunk-2d0b5a71.fab7f476.js" rel="prefetch"><link href="/js/chunk-3429fa3a.bd54ec6e.js" rel="prefetch"><link href="/js/chunk-5165ad53.2b293fca.js" rel="prefetch"><link href="/js/chunk-e669e6b8.3946c205.js" rel="prefetch"><link href="/css/app.59f7666f.css" rel="preload" as="style"><link href="/js/app.60770555.js" rel="preload" as="script"><link href="/js/chunk-vendors.4bca90f1.js" rel="preload" as="script"><link href="/css/app.59f7666f.css" rel="stylesheet"><style type="text/css">/**
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+/*
+ *  Owl Carousel - Core
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1; }
+  .owl-carousel .owl-stage {
+    position: relative;
+    -ms-touch-action: pan-Y;
+    touch-action: manipulation;
+    -moz-backface-visibility: hidden;
+    /* fix firefox animation glitch */ }
+  .owl-carousel .owl-stage:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0; }
+  .owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: hidden;
+    /* fix for flashing background */
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  .owl-carousel .owl-wrapper,
+  .owl-carousel .owl-item {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0); }
+  .owl-carousel .owl-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; }
+  .owl-carousel .owl-item img {
+    display: block;
+    width: 100%; }
+  .owl-carousel .owl-nav.disabled,
+  .owl-carousel .owl-dots.disabled {
+    display: none; }
+  .owl-carousel .owl-nav .owl-prev,
+  .owl-carousel .owl-nav .owl-next,
+  .owl-carousel .owl-dot {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .owl-carousel .owl-nav button.owl-prev,
+  .owl-carousel .owl-nav button.owl-next,
+  .owl-carousel button.owl-dot {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit; }
+  .owl-carousel.owl-loaded {
+    display: block; }
+  .owl-carousel.owl-loading {
+    opacity: 0;
+    display: block; }
+  .owl-carousel.owl-hidden {
+    opacity: 0; }
+  .owl-carousel.owl-refresh .owl-item {
+    visibility: hidden; }
+  .owl-carousel.owl-drag .owl-item {
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .owl-carousel.owl-grab {
+    cursor: move;
+    cursor: grab; }
+  .owl-carousel.owl-rtl {
+    direction: rtl; }
+  .owl-carousel.owl-rtl .owl-item {
+    float: right; }
+
+/* No Js */
+.no-js .owl-carousel {
+  display: block; }
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+.owl-carousel .animated {
+  animation-duration: 1000ms;
+  animation-fill-mode: both; }
+
+.owl-carousel .owl-animated-in {
+  z-index: 0; }
+
+.owl-carousel .owl-animated-out {
+  z-index: 1; }
+
+.owl-carousel .fadeOut {
+  animation-name: fadeOut; }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+  transition: height 500ms ease-in-out; }
+
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item {
+  /**
+			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+			calculation of the height of the owl-item that breaks page layouts
+		 */ }
+  .owl-carousel .owl-item .owl-lazy {
+    opacity: 0;
+    transition: opacity 400ms ease; }
+  .owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
+    max-height: 0; }
+  .owl-carousel .owl-item img.owl-lazy {
+    transform-style: preserve-3d; }
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000; }
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url(4a37f8008959c75f619bf0a3a4e2d7a2.png) no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform 100ms ease; }
+
+.owl-carousel .owl-video-play-icon:hover {
+  -ms-transform: scale(1.3, 1.3);
+      transform: scale(1.3, 1.3); }
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none; }
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 400ms ease; }
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%; }
+</style><style type="text/css">/**
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+/*
+ * 	Default theme - Owl Carousel CSS File
+ */
+.owl-theme .owl-nav {
+  margin-top: 10px;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent; }
+  .owl-theme .owl-nav [class*='owl-'] {
+    color: #FFF;
+    font-size: 14px;
+    margin: 5px;
+    padding: 4px 7px;
+    background: #D6D6D6;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px; }
+    .owl-theme .owl-nav [class*='owl-']:hover {
+      background: #869791;
+      color: #FFF;
+      text-decoration: none; }
+  .owl-theme .owl-nav .disabled {
+    opacity: 0.5;
+    cursor: default; }
+
+.owl-theme .owl-nav.disabled + .owl-dots {
+  margin-top: 10px; }
+
+.owl-theme .owl-dots {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent; }
+  .owl-theme .owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+    *display: inline; }
+    .owl-theme .owl-dots .owl-dot span {
+      width: 10px;
+      height: 10px;
+      margin: 5px 7px;
+      background: #D6D6D6;
+      display: block;
+      -webkit-backface-visibility: visible;
+      transition: opacity 200ms ease;
+      border-radius: 30px; }
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+      background: #869791; }
+</style></head><body><noscript><strong>We're sorry but bagel-empty doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"><div><div class="menu-back-wrap"><div class="menu-back"></div></div><div class="top-menu"><a href="/" aria-current="page" class="top-logo router-link-exact-active router-link-active"><img src="/img/logo-top.1445cf54.svg" class="top-logo"></a><div class="nav-links-wrap"><button class="close-menu"><img src="/img/close.91b69f40.svg"></button><div class="drop wrap"><div class="top-drop"> Games </div><div class="top-cont"><div class="top-cont-inner"><a href="/games" class="drop-link">Games</a><a href="/adverGaming" class="drop-link">AdverGaming</a><img src="/img/pattern1 blue copy.f304d31d.svg" class="menu-tab1-img"></div></div><div class="top-drop"> Video </div><div class="top-cont"><div class="top-cont-inner"><a href="/tv-channels" class="drop-link">TV Channels</a><a href="/tv-channels#AVOD" class="drop-link">AVOD</a><a href="/tv-channels#FAST" class="drop-link">FAST</a><a href="/tv-channels#stars" class="drop-link">Our Stars</a><a href="/tv-channels#Primetime" class="drop-link">Ready for Primetime</a><img src="/img/pattern1 blue copy 143.b8ff4c9a.svg" class="tab-icon-2"></div></div><div class="top-drop"> About </div><div class="top-cont"><div class="top-cont-inner"><div class="top-drop-col"><a href="/team" class="drop-link">Team</a><a href="/news" class="drop-link">News</a><a href="/careers" class="drop-link">Careers</a><a href="/support" class="drop-link">Support</a></div><img src="/img/pattern1 blue copy 2.cc2db958.svg" class="tab-icon-3"></div></div></div><a href="/lets-play" class="btn top-btn">Contact Us</a></div><div class="manu-background"></div><button class="menu"><img src="/img/Menu.46eb96af.svg"></button></div><div class="main-carousel-wrap"><div class="sh-v-owl-carousel"><span id="carousel_prev_sorutq3rcmfeusztxt7ep7"></span> <div id="carousel_utl9thylwssiko826t06w9" class="owl-carousel owl-theme owl-loaded"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all; width: 9216px;"><div class="owl-item active" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>Turn up<br>the fun!</h1><p class="slide-sub">Ben Azelart is live on Play.Works</p><!----><div class="main-slide-btn-wrap"><a href="https://play.works/news/ben-azelart-is-now-live-via-the-playworks-network-on-connected-tv" class="btn">Read More </a></div><!----></div><div class="main-slide-img"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d6mj1ga23akg00ap2l7g.png"></div></div></div><div class="owl-item" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>Your new <br>puzzle fix</h1><p class="slide-sub">Fruit Match on CTV!</p><!----><div class="main-slide-btn-wrap"><a href="https://play.works/news/fruit-match-live-on-ctv" class="btn">Read More </a></div><!----></div><div class="main-slide-img"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d6anirq23akg00etnmm0.png"></div></div></div><div class="owl-item" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>Law By <br>Mike</h1><p class="slide-sub">Now on CTV!</p><!----><div class="main-slide-btn-wrap"><a href="https://play.works/news/playworks-launches-law-by-mike-on-connected-tv" class="btn">Read More </a></div><!----></div><div class="main-slide-img"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d6292ha23akg00en518g.png"></div></div></div><div class="owl-item" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>Escape:<br>Neo Cinema <br>Live on CTV</h1><p class="slide-sub">A new universe for <br>Connected TV.</p><!----><div class="main-slide-btn-wrap"><a href="https://play.works/news/escapeai-and-playworks-bring-escape-neo-cinema-and-beyond-to-roku-and-the-roku-channel-amazon-fire-tv-lg-and-samsung-smart-tvs" class="btn">Read More </a></div><!----></div><div class="main-slide-img"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5mujni23akg0093991g.png" style="max-width: 600px;"></div></div></div><div class="owl-item" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>Family Feud <br>The Game<br>Now On CTV</h1><p class="slide-sub">Play Just Like On TV &amp; Enjoy The Funniest Clips</p><!----><div class="main-slide-btn-wrap"><a href="https://play.works/news/family-feud-the-game-now-live-on-ctv" class="btn">Read More </a></div><!----></div><div class="main-slide-img"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d4e7bci23akg009i3r60.png"></div></div></div><div class="owl-item" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>Play.Works Featured In Forbes</h1><p class="slide-sub">How Play.Works and Samsung Games Are Driving Audience Engagement</p><!----><div class="main-slide-btn-wrap"><a href="https://play.works/news/games-from-playworks-and-samsung-boost-audience-engagement" class="btn">Read More </a></div><!----></div><div class="main-slide-img under-title"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d50mej223akg008r48fg.png"></div></div></div><div class="owl-item" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>Play.Works X Vibe.Co</h1><p class="slide-sub">Bringing more growth <br>opportunities to CTV</p><!----><div class="main-slide-btn-wrap"><a href="https://play.works/news/playworks-is-available-on-vibeco" class="btn">Read More </a></div><!----></div><div class="main-slide-img under-title"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d3vnaiq23akg009q16o0.png"></div></div></div><div class="owl-item" style="width: 1152px;"><div class="main-slide-wrap"><div class="main-slide-wrap-txt"><h1>READY TO PLAY ON<br>CONNECTED TVs?</h1><p class="slide-sub">Level Up with the #1 provider of CTV Games and Original TV Channels.</p><!----><!----><!----></div><div class="main-slide-img" style="width: 40%;"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=ch326lq23aks73c2poa0.svg"></div></div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div> <span id="carousel_next_ctzn3va88mwx0y10ghf3"></span></div></div><div class="scroll-apps"><div class="scroll-apps-wrap"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3udg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbeg22a23aks73b65nc0.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13absq23akg00eb4430.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3ucg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cvmehaq23akg00dd4pjg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13abt223akg00eb4450.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d3179a223akg00b5tglg.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3u7g.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5dn5e223akg00ad8dlg.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3ubg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3u90.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d1n37da23akg00eor6c0.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5d120q23akg00cndrl0.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbeg21i23aks73b65n90.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13adc223akg00eb45cg.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3udg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbeg22a23aks73b65nc0.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13absq23akg00eb4430.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3ucg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cvmehaq23akg00dd4pjg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13abt223akg00eb4450.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d3179a223akg00b5tglg.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3u7g.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5dn5e223akg00ad8dlg.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3ubg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13a31q23akg00eb3u90.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d1n37da23akg00eor6c0.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5d120q23akg00cndrl0.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbeg21i23aks73b65n90.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13adc223akg00eb45cg.jpg&amp;resize=400" class="app-scroll"></div><div class="scroll-apps-wrap rev"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cn53noq23akg00f1ph8g.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cid8gqi23akg008hkkug.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d64718a23akg00dadefg.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbuc5fa23aks739t8k20.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbeg3c223aks73b65os0.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d610dpq23akg00emfsr0.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5dn4v223akg00ad8d50.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13apdq23akg00eb4a40.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13apdq23akg00eb4ab0.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13apdq23akg00eb4a2g.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13apdq23akg00eb4aa0.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5dn65i23akg00ad8eg0.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d64718a23akg00dadegg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5dn4v223akg00ad8d40.jpg&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13ariq23akg00eb4bqg.png&amp;resize=400" class="app-scroll"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13ariq23akg00eb4brg.png&amp;resize=400" class="app-scroll"></div></div><div class="who-sec"><div class="side-txt-box who"><div class="side-who-top-wrap"><div class="side-head-wrap"><h3 class="txt60">Who are We?&nbsp;</h3></div><div class="side-txt-wrap"><p> Play.Works develops and publishes games across a network of over 400m televisions via its proprietary technology platform. Play.Works can be found on Sky, LG, Samsung, ROKU, Fire TV, Comcast, Cox, Videotron, Rogers, British Telecom, Vizio, and most major pay TV platforms in North America and the UK </p><p> Delivering rich casual games and entertainment to the primary screen in the home, the company continues to grow exponentially and has become a must have addition for major pay TV, CTV and OTT operators. Play.Works’ extensive library of games and video content positions it firmly as the primary player in the explosive CTV market. </p></div></div><div class="num-info-wrap"><div class="num-box"><p class="big-num">150+</p><p class="small-num-txt">Games</p></div><div class="num-box"><p class="big-num">60%</p><p class="small-num-txt">Weekly Retention</p></div><div class="num-box"><p class="big-num">400m</p><p class="small-num-txt">HH Reach</p></div></div></div></div><div class="partners-sec"><div class="w700"><h3 class="txt90 red">Partners</h3><p class="txt18"> Play.Works has long-standing relationships with the biggest and most innovative TV platforms in the world. </p></div><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12o9sa23akg00earbj0.png" alt="LG" class="partner-logo big"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cogho5i23akg009p13og.png" alt="sky" class="partner-logo big"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=ccetr0223aks73b03peg.png" alt="comcast" class="partner-logo big"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbq1jkq23aks73ftiv30.png" alt="roku" class="partner-logo big"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12o9gq23akg00earb2g.png" alt="samsung" class="partner-logo big"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cj11jva23akg00d38pn0.png" alt="vizio" class="partner-logo big"><div class="small-logos-wrap"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cj11jtq23akg00d38pj0.png" alt="Xumo" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegk6q23aks73b67afg.png" alt="atnt" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d24ifdi23akg009s6j90.png" alt="Tubi" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12ob1q23akg00earem0.png" alt="Charter Communications" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=ccm5shi23aks73fhg350.png" alt="Jio" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=coghlji23akg009p0rng.png" alt="apple tv" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbq1jbq23aks73ftiu50.png" alt="freebox" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbq1kgq23aks73ftj1ng.png" alt="amazon" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5obg2a23akg00b27npg.png" alt="Spotify" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegk9a23aks73b67amg.png" alt="videotron" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d24ifh223akg009s6jg0.png" alt="Deutsche Telekom" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbq1ij223aks73ftis5g.png" alt="sfr" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegn8223aks73b67gmg.png" alt="sky de" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbq1jpq23aks73ftivjg.png" alt="Fire tv" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbq1irq23aks73ftisug.png" alt="rogers" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegllq23aks73b67e2g.png" alt="virgin media" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegloa23aks73b67eag.png" alt="hisense" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=coghlna23akg009p0rr0.png" alt="SlingTV" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbqdmra23aks73em0ngg.jpg" alt="xclass tv" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegm3a23aks73b67er0.png" alt="sky class" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegmca23aks73b67f20.png" alt="sky italia" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegmoi23aks73b67fp0.png" alt="Cox" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegmrq23aks73b67g20.png" alt="BT" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegmv223aks73b67g9g.png" alt="TalkTalk" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=coghlr223akg009p0s00.png" alt="Telly" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cbegn3223aks73b67gj0.png" alt="Shaw" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cv4nnda23akg00a0rt9g.png" alt="Fetch TV" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=cvmdp4i23akg00dd48rg.png" alt="Hilton" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d13tg4q23akg00ebck2g.png" alt="Sony" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5oduai23akg00b29okg.png" alt="Titan OS" class="partner-logo"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d5obfoa23akg00b27mug.png" alt="Orange" class="partner-logo"></div></div><div class="big-vid-wrap homepage"><div class="big-vid"><iframe src="https://cdn.jwplayer.com/players/sWEcVjTL-4DULHiTS.html" allowfullscreen="allowfullscreen" frameborder="0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"></iframe></div></div><div class="games-sec"><h3 class="txt90">Games</h3><div class="w700"><p class="txt18"> Play.Works was one of the first to understand how best to engage viewers through games &amp; video apps on Connected TVs. Our proprietary technology allows for real time monetization and content synchronization across our distribution channels. </p></div><div class="games-home-wrap"><div class="game-home-box"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12nls223akg00eaqn80.jpg" class="game-img-box"><h4 class="txt30">Wheel Of Fortune™<br></h4><p class="game-box-txt"><p>Spin the wheel, solve puzzles and train your brain as you play the official Wheel of Fortune game with family and friends! Guess letters and watch them appear on the iconic puzzle board! It’s WHEEL...OF...FORTUNE - based on the popular TV game show, and now you can play like a contestant!</p></p></div><div class="game-home-box"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12o7q223akg00ear77g.jpg" class="game-img-box"><h4 class="txt30">SpongeBob Squarepants Bounce<br></h4><p class="game-box-txt"><p><span>Bounce through Bikini Bottom with SpongeBob! Avoid hazards, collect boosters, and reach new heights in this bouncy bonanza!</span></p></p></div><div class="game-home-box"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12nm7223akg00eaqni0.jpg" class="game-img-box"><h4 class="txt30">PAC-MAN<br></h4><p class="game-box-txt"><p>The most iconic game of all time is back! Collect dots in the mazes without getting eaten by the ghosts.</p></p></div><div class="game-home-box"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12nmti23akg00eaqokg.png" class="game-img-box"><h4 class="txt30">Trivia Crack<br></h4><p class="game-box-txt"><p>Test your knowledge and learn amazing facts in the worldwide #1 hit trivia game</p></p></div><div class="game-home-box"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12nmfq23akg00eaqno0.png" class="game-img-box"><h4 class="txt30">Breakout<br></h4><p class="game-box-txt"><p>Smash your way through colorful levels in one of the greatest Atari® hits of all time!</p></p></div><div class="game-home-box"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d12o8lq23akg00ear97g.png" class="game-img-box"><h4 class="txt30">Tetris<br></h4><p class="game-box-txt"><p>Stack geometric shapes in one of the most popular and addictive games of all time!</p></p></div></div><a href="/games" class="btn bigger blue games-btn">All Games</a></div><div class="influencers-sec"><div class="side-head-wrap influ"><h3 class="txt60">TV's New Voices</h3></div><div class="influ-imgs-wrap desktop"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d6471hq23akg00dadfeg.jpg" alt="TV's New Voices"></div><div class="influ-imgs-wrap mobile"><img src="https://images-2-gvwk7ffjaa-uc.a.run.app?imageID=d6471hq23akg00dadff0.jpg" alt="TV's New Voices"></div><div class="influ-txt-box"><div class="txt18"><p><strong style="font-weight: bold;">Play.Works is redefining what entertainment looks like on Connected TV—bringing the most engaging digital creators to the biggest screen in the home</strong>. With 150+ AVOD, SVOD and FAST channels, we deliver premium, high-performing content that today’s streaming audiences crave. From global sensations like Khaby Lame, Alexa Rivera, and Jordan &amp; Salish Matter to fan favorites like EYstreem, Ninja Kidz, and DanTDM—Play.Works connects distributors with the creators shaping the future of entertainment.</p>
+<p>&nbsp;</p></div><a href="/tv-channels#stars" class="btn bigger influ-btn">More</a><img src="/img/pattern1 blue copy 144.6a907e2e.svg" class="influ-icon"></div></div><div class="footer"><div class="footer-box"></div><div class="footer-links-wrap"><a href="/terms" class="footer-link">Terms</a><a href="/privacy-policy" class="footer-link red" style="font-weight: 600;"><b> Privacy Policy </b></a><a href="/privacy-policy-kids" class="footer-link red" style="font-weight: 600;"><b> Kids Privacy Policy</b></a><a href="https://bagelstudio.co.il/" target="_blank" class="bagel"><img src="/img/bagel.2d3312df.svg"></a></div></div></div></div><script src="/js/chunk-vendors.4bca90f1.js"></script><script src="/js/app.60770555.js"></script></body></html>

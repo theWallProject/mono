@@ -1,0 +1,60 @@
+[2026-03-22T07:11:29.578Z] === Homepage AI Extractor: SonoFusion ===
+[2026-03-22T07:11:29.578Z] Started at: 2026-03-22T07:11:29.578Z
+[2026-03-22T07:11:29.578Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774163489578_SonoFusion
+[2026-03-22T07:11:29.578Z] Company: SonoFusion
+[2026-03-22T07:11:29.579Z] Website: sono-fusion.com
+[2026-03-22T07:11:29.579Z] cbRank: 250264
+[2026-03-22T07:11:29.579Z] Reasons: f
+[2026-03-22T07:11:29.579Z] Fetching: https://sono-fusion.com
+[2026-03-22T07:11:40.206Z] Network idle timeout — continuing with current state
+[2026-03-22T07:11:40.242Z] Redirected: https://sono-fusion.com -> https://www.sono-fusion.com/
+[2026-03-22T07:11:40.254Z] Saved HTML (498299 bytes) to page.html
+[2026-03-22T07:11:40.257Z] Extracted 3 unique links from page
+[2026-03-22T07:11:40.257Z] Saved 3 links to links.json
+[2026-03-22T07:11:40.260Z] Extracted footer HTML (18678 chars)
+[2026-03-22T07:11:40.260Z] Extracted header HTML (3801 chars)
+[2026-03-22T07:11:40.264Z] Website (post-redirect): https://www.sono-fusion.com/ → origin: https://www.sono-fusion.com
+[2026-03-22T07:11:40.264Z] External links: 2 (of 3 total)
+[2026-03-22T07:11:40.264Z] ── All external links ──
+[2026-03-22T07:11:40.265Z]   EXT: https://weba.co
+[2026-03-22T07:11:40.265Z]   EXT: https://www.linkedin.com/company/sonofusionplatform
+[2026-03-22T07:11:40.265Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T07:11:40.265Z]   UNCATEGORIZED: https://weba.co
+[2026-03-22T07:11:40.265Z]   REGEX: li <- https://www.linkedin.com/company/sonofusionplatform
+[2026-03-22T07:11:40.265Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-22T07:11:40.265Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T07:11:40.266Z] Saved AI prompt (10464 chars) to ai_prompt.txt
+[2026-03-22T07:11:40.266Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T07:11:40.270Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T07:12:30.735Z]   AI: First token received, streaming...
+[2026-03-22T07:12:33.904Z] AI response complete: 67 chars in 53.6s
+[2026-03-22T07:12:33.906Z] Saved AI response to ai_response.json
+[2026-03-22T07:12:33.906Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T07:12:33.906Z]   AI LINK: https://www.linkedin.com/company/sonofusionplatform
+[2026-03-22T07:12:33.907Z]   AI LINK: https://weba.co
+[2026-03-22T07:12:33.907Z] AI returned 2 valid links
+[2026-03-22T07:12:33.907Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T07:12:33.907Z]   AI→REGEX: li <- https://www.linkedin.com/company/sonofusionplatform (duplicate, skipped)
+[2026-03-22T07:12:33.907Z]   AI→URLS: https://weba.co
+[2026-03-22T07:12:33.907Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T07:12:33.908Z] Footer/header origins (3):
+[2026-03-22T07:12:33.908Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T07:12:33.908Z]   FOOTER/HEADER ORIGIN: https://weba.co
+[2026-03-22T07:12:33.908Z]   FOOTER/HEADER ORIGIN: https://www.sono-fusion.com
+[2026-03-22T07:12:33.908Z]   SKIP (AI claimed): https://weba.co
+[2026-03-22T07:12:33.908Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T07:12:33.908Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T07:12:33.908Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T07:12:33.909Z] ── Step 3: Final dedup ──
+[2026-03-22T07:12:33.909Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T07:12:33.909Z] ── FINAL RESULT ──
+[2026-03-22T07:12:33.909Z]   ws (1):
+[2026-03-22T07:12:33.909Z]     - https://www.sono-fusion.com
+[2026-03-22T07:12:33.909Z]   li (1):
+[2026-03-22T07:12:33.909Z]     - https://www.linkedin.com/company/sonofusionplatform
+[2026-03-22T07:12:33.909Z]   urls (1):
+[2026-03-22T07:12:33.909Z]     - https://weba.co
+[2026-03-22T07:12:33.910Z] Summary: ws:1, li:1, urls:1
+[2026-03-22T07:12:33.910Z] Saved final result to result.json
+[2026-03-22T07:12:33.911Z] Override fields: ws, li, urls
+[2026-03-22T07:12:33.911Z] Finished at: 2026-03-22T07:12:33.911Z

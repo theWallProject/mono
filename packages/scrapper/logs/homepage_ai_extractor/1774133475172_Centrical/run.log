@@ -1,0 +1,66 @@
+[2026-03-21T22:51:15.172Z] === Homepage AI Extractor: Centrical ===
+[2026-03-21T22:51:15.173Z] Started at: 2026-03-21T22:51:15.173Z
+[2026-03-21T22:51:15.173Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774133475172_Centrical
+[2026-03-21T22:51:15.173Z] Company: Centrical
+[2026-03-21T22:51:15.173Z] Website: centrical.com
+[2026-03-21T22:51:15.173Z] cbRank: 3410
+[2026-03-21T22:51:15.173Z] Reasons: f
+[2026-03-21T22:51:15.173Z] Fetching: https://centrical.com
+[2026-03-21T22:51:19.466Z] Redirected: https://centrical.com -> https://centrical.com/
+[2026-03-21T22:51:19.480Z] Saved HTML (657786 bytes) to page.html
+[2026-03-21T22:51:19.484Z] Extracted 65 unique links from page
+[2026-03-21T22:51:19.484Z] Saved 65 links to links.json
+[2026-03-21T22:51:19.487Z] Extracted footer HTML (16522 chars)
+[2026-03-21T22:51:19.487Z] Extracted header HTML (70809 chars)
+[2026-03-21T22:51:19.496Z] Website (post-redirect): https://centrical.com/ → origin: https://centrical.com
+[2026-03-21T22:51:19.496Z] External links: 3 (of 65 total)
+[2026-03-21T22:51:19.496Z] ── All external links ──
+[2026-03-21T22:51:19.496Z]   EXT: https://centrical.typeform.com/to/UL1uRPjA
+[2026-03-21T22:51:19.497Z]   EXT: https://www.linkedin.com/company/centrical/posts/?feedView=all
+[2026-03-21T22:51:19.497Z]   EXT: https://www.youtube.com/user/GamEffective
+[2026-03-21T22:51:19.497Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T22:51:19.497Z]   UNCATEGORIZED: https://centrical.typeform.com/to/UL1uRPjA
+[2026-03-21T22:51:19.497Z]   REGEX: li <- https://www.linkedin.com/company/centrical/posts/?feedView=all
+[2026-03-21T22:51:19.497Z]   REGEX: ytp <- https://www.youtube.com/user/GamEffective
+[2026-03-21T22:51:19.497Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-21T22:51:19.497Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T22:51:19.498Z] Saved AI prompt (2679 chars) to ai_prompt.txt
+[2026-03-21T22:51:19.498Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T22:51:19.502Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T22:51:28.687Z]   AI: First token received, streaming...
+[2026-03-21T22:51:37.050Z] AI response complete: 147 chars in 17.6s
+[2026-03-21T22:51:37.051Z] Saved AI response to ai_response.json
+[2026-03-21T22:51:37.051Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T22:51:37.051Z]   AI LINK: https://centrical.typeform.com/to/UL1uRPjA
+[2026-03-21T22:51:37.051Z]   AI LINK: https://www.linkedin.com/company/centrical/posts/?feedView=all
+[2026-03-21T22:51:37.052Z]   AI LINK: https://www.youtube.com/user/GamEffective
+[2026-03-21T22:51:37.052Z] AI returned 3 valid links
+[2026-03-21T22:51:37.052Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T22:51:37.052Z]   AI→URLS: https://centrical.typeform.com/to/UL1uRPjA
+[2026-03-21T22:51:37.052Z]   AI→REGEX: li <- https://www.linkedin.com/company/centrical/posts/?feedView=all (duplicate, skipped)
+[2026-03-21T22:51:37.052Z]   AI→REGEX: ytp <- https://www.youtube.com/user/GamEffective (duplicate, skipped)
+[2026-03-21T22:51:37.054Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T22:51:37.054Z] Footer/header origins (4):
+[2026-03-21T22:51:37.054Z]   FOOTER/HEADER ORIGIN: https://centrical.com
+[2026-03-21T22:51:37.055Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T22:51:37.055Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T22:51:37.055Z]   FOOTER/HEADER ORIGIN: https://centrical.typeform.com
+[2026-03-21T22:51:37.055Z]   SKIP (AI claimed): https://centrical.typeform.com/to/UL1uRPjA
+[2026-03-21T22:51:37.055Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T22:51:37.055Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T22:51:37.055Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T22:51:37.055Z] ── Step 3: Final dedup ──
+[2026-03-21T22:51:37.056Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T22:51:37.056Z] ── FINAL RESULT ──
+[2026-03-21T22:51:37.056Z]   ws (1):
+[2026-03-21T22:51:37.056Z]     - https://centrical.com
+[2026-03-21T22:51:37.056Z]   li (1):
+[2026-03-21T22:51:37.056Z]     - https://www.linkedin.com/company/centrical
+[2026-03-21T22:51:37.057Z]   ytp (1):
+[2026-03-21T22:51:37.057Z]     - https://www.youtube.com/@gameffective
+[2026-03-21T22:51:37.057Z]   urls (1):
+[2026-03-21T22:51:37.057Z]     - https://centrical.typeform.com/to/UL1uRPjA
+[2026-03-21T22:51:37.057Z] Summary: ws:1, li:1, ytp:1, urls:1
+[2026-03-21T22:51:37.058Z] Saved final result to result.json
+[2026-03-21T22:51:37.059Z] Override fields: ws, li, ytp, urls
+[2026-03-21T22:51:37.059Z] Finished at: 2026-03-21T22:51:37.059Z

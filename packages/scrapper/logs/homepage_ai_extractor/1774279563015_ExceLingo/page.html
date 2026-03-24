@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="ExceLingo - Learn a language on the go">
+<meta name="keywords" content="excelingo,excel,lingo,learn,language,mobile,app,hebrew,hebrewscool,java,j2me,iphone">
+<link rel="stylesheet" href="/main.css" type="text/css">
+<title>ExceLingo</title>
+
+<!-- analytics -->
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16796002-1']);
+  _gaq.push(['_setDomainName', '.excelingo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<script type="text/javascript" src="js/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="js/jquery.tools.min.js"></script>
+<style type="text/css">
+.overlayvideo {
+	display:none;
+	z-index:10000;
+        background-image:url(/images/white.png);
+	border:1px solid #eee;
+	-moz-box-shadow:0 0 40px 5px #000;
+	-webkit-box-shadow: 0 0 40px #000;
+}
+
+.overlayvideo .close {
+	background-image:url(/images/close.png);
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- header -->
+<div style="text-align: center; margin-top: 3em; margin-bottom: 0em;">
+<a href="/"><img src="images/excelingo_logo.png" alt="ExceLingo"></a>
+</div>
+
+
+
+<!-- body -->
+<div style="text-align: center; width: 720px;" class="content">
+<div style="margin-top: 2.5em;">
+<a href=""><img src="/images/promo2thumb.jpg" rel="#vid1" alt="ExceLingo Promo"></a>
+</div>
+
+<div id="vid1" class="overlayvideo" style="width: 400px; margin: 0 auto;"><a class="close"></a>
+<!-- player -->
+<a id="player" style="display: block; width: 400px; height: 320px;"><h2>Flash version 9,0 or greater is required</h2><h3>You have no flash plugin installed</h3><p>Click here to download latest version</p></a> 
+<script type="text/javascript">
+    var player = flowplayer('player', { src: '/video/flowplayer-3.2.7.swf', wmode: 'transparent' }, {
+        //canvas: { backgroundGradient: 'none' },
+        clip: {
+            url: escape('/flvstreamer?file=public%2Fpromo2small.flv&bw=mid'),
+            provider: 'lighttpd',
+            scaling: 'fit',
+            autoBuffering: true,
+            autoPlay: false
+        },
+        plugins: {
+            lighttpd: {
+	        url: '/video/flowplayer.pseudostreaming-3.2.7.swf',
+                queryString: escape('start=${start}')
+	    }
+        }
+    });
+
+    $(document).ready(function() {
+        $("img[rel]").overlay({
+            mask: '#666',
+            effect: 'apple',
+            top: '18%',
+            onLoad: function() { player.play(); },
+            onClose: function() { player.stop(); }
+        });
+    });
+</script>
+
+</div>
+<div style="margin: 0.8em auto 7em;">
+<span class="tagline1">Learn a language on the go!</span>
+</div>
+</div>
+
+<!-- menu -->
+<p style="text-align: center; margin-top: 5em;" class="menu">
+<a href="/">Home</a>&nbsp;&nbsp;|&nbsp;
+<a href="/about">About Us</a>&nbsp;&nbsp;|&nbsp;
+<a href="/news">News</a>&nbsp;&nbsp;|&nbsp;
+<a href="/products">Products</a>&nbsp;&nbsp;|&nbsp;
+<a href="/methodology">Methodology</a>&nbsp;&nbsp;|&nbsp;
+<a href="/technology">Technology</a>&nbsp;&nbsp;|&nbsp;
+<a href="/demo">Demo</a>&nbsp;&nbsp;|&nbsp;
+<a href="/contact">Contact</a>
+</p>
+
+
+<!-- footer -->
+<div style="text-align: center; margin-top: 5em;" class="textfooter">
+<p style="vertical-align: middle; height: 2em;">Copyright © 2010-2011 by ExceLingo. All Rights Reserved.</p>
+</div>
+
+
+
+
+
+
+</body></html>

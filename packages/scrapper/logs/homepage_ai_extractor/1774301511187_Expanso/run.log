@@ -1,0 +1,75 @@
+[2026-03-23T21:31:51.188Z] === Homepage AI Extractor: Expanso ===
+[2026-03-23T21:31:51.188Z] Started at: 2026-03-23T21:31:51.188Z
+[2026-03-23T21:31:51.188Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774301511187_Expanso
+[2026-03-23T21:31:51.188Z] Company: Expanso
+[2026-03-23T21:31:51.188Z] Website: expanso.io
+[2026-03-23T21:31:51.188Z] cbRank: 21464
+[2026-03-23T21:31:51.188Z] Reasons: i
+[2026-03-23T21:31:51.188Z] Fetching: https://expanso.io
+[2026-03-23T21:31:56.439Z] Redirected: https://expanso.io -> https://expanso.io/
+[2026-03-23T21:31:56.443Z] Saved HTML (102170 bytes) to page.html
+[2026-03-23T21:31:56.447Z] Extracted 81 unique links from page
+[2026-03-23T21:31:56.447Z] Saved 81 links to links.json
+[2026-03-23T21:31:56.449Z] No footer section found in DOM
+[2026-03-23T21:31:56.449Z] Extracted header HTML (795 chars)
+[2026-03-23T21:31:56.453Z] Website (post-redirect): https://expanso.io/ → origin: https://expanso.io
+[2026-03-23T21:31:56.453Z]   SUBDOMAIN: cloud.expanso.io (added to ws)
+[2026-03-23T21:31:56.453Z]   SUBDOMAIN: docs.expanso.io (added to ws)
+[2026-03-23T21:31:56.453Z]   SUBDOMAIN: newsroom.expanso.io (added to ws)
+[2026-03-23T21:31:56.453Z] Website subdomains found: 3
+[2026-03-23T21:31:56.453Z] External links: 5 (of 81 total)
+[2026-03-23T21:31:56.453Z] ── All external links ──
+[2026-03-23T21:31:56.453Z]   EXT: https://expanso-inc.breezy.hr
+[2026-03-23T21:31:56.453Z]   EXT: https://exso.cloud/slack
+[2026-03-23T21:31:56.453Z]   EXT: https://www.linkedin.com/company/expanso-io
+[2026-03-23T21:31:56.453Z]   EXT: https://www.youtube.com/@ExpansoIO
+[2026-03-23T21:31:56.453Z]   EXT: https://x.com/ExpansoIO
+[2026-03-23T21:31:56.453Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:31:56.454Z]   UNCATEGORIZED: https://expanso-inc.breezy.hr
+[2026-03-23T21:31:56.454Z]   UNCATEGORIZED: https://exso.cloud/slack
+[2026-03-23T21:31:56.455Z]   REGEX: li <- https://www.linkedin.com/company/expanso-io
+[2026-03-23T21:31:56.455Z]   REGEX: ytp <- https://www.youtube.com/@ExpansoIO
+[2026-03-23T21:31:56.455Z]   REGEX: tw <- https://x.com/ExpansoIO
+[2026-03-23T21:31:56.455Z] Programmatic result: ws:4, li:1, ytp:1, tw:1 | 2 uncategorized
+[2026-03-23T21:31:56.455Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:31:56.458Z] Saved AI prompt (1986 chars) to ai_prompt.txt
+[2026-03-23T21:31:56.458Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:31:56.462Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:32:03.275Z]   AI: First token received, streaming...
+[2026-03-23T21:32:05.963Z] AI response complete: 54 chars in 9.5s
+[2026-03-23T21:32:05.964Z] Saved AI response to ai_response.json
+[2026-03-23T21:32:05.964Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T21:32:05.965Z]   AI LINK: https://expanso-inc.breezy.hr
+[2026-03-23T21:32:05.965Z]   AI LINK: https://exso.cloud/slack
+[2026-03-23T21:32:05.965Z] AI returned 2 valid links
+[2026-03-23T21:32:05.965Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T21:32:05.965Z]   AI→URLS: https://expanso-inc.breezy.hr
+[2026-03-23T21:32:05.965Z]   AI→URLS: https://exso.cloud/slack
+[2026-03-23T21:32:05.966Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:32:05.966Z] Footer/header origins (0):
+[2026-03-23T21:32:05.966Z]   SKIP (AI claimed): https://expanso-inc.breezy.hr
+[2026-03-23T21:32:05.966Z]   SKIP (AI claimed): https://exso.cloud/slack
+[2026-03-23T21:32:05.966Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:32:05.966Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:32:05.966Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:32:05.966Z] ── Step 3: Final dedup ──
+[2026-03-23T21:32:05.966Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T21:32:05.967Z] ── FINAL RESULT ──
+[2026-03-23T21:32:05.967Z]   ws (4):
+[2026-03-23T21:32:05.967Z]     - https://cloud.expanso.io
+[2026-03-23T21:32:05.967Z]     - https://docs.expanso.io
+[2026-03-23T21:32:05.967Z]     - https://expanso.io
+[2026-03-23T21:32:05.967Z]     - https://newsroom.expanso.io
+[2026-03-23T21:32:05.967Z]   li (1):
+[2026-03-23T21:32:05.967Z]     - https://www.linkedin.com/company/expanso-io
+[2026-03-23T21:32:05.967Z]   tw (1):
+[2026-03-23T21:32:05.967Z]     - https://x.com/expansoio
+[2026-03-23T21:32:05.967Z]   ytp (1):
+[2026-03-23T21:32:05.967Z]     - https://www.youtube.com/@expansoio
+[2026-03-23T21:32:05.967Z]   urls (2):
+[2026-03-23T21:32:05.967Z]     - https://expanso-inc.breezy.hr
+[2026-03-23T21:32:05.967Z]     - https://exso.cloud/slack
+[2026-03-23T21:32:05.967Z] Summary: ws:4, li:1, ytp:1, tw:1, urls:2
+[2026-03-23T21:32:05.968Z] Saved final result to result.json
+[2026-03-23T21:32:05.968Z] Override fields: ws, li, tw, ytp, urls
+[2026-03-23T21:32:05.969Z] Finished at: 2026-03-23T21:32:05.969Z

@@ -1,0 +1,70 @@
+[2026-03-23T19:17:53.007Z] === Homepage AI Extractor: Behavidence ===
+[2026-03-23T19:17:53.007Z] Started at: 2026-03-23T19:17:53.007Z
+[2026-03-23T19:17:53.007Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774293473006_Behavidence
+[2026-03-23T19:17:53.007Z] Company: Behavidence
+[2026-03-23T19:17:53.007Z] Website: behavidence.com
+[2026-03-23T19:17:53.007Z] cbRank: 8437
+[2026-03-23T19:17:53.007Z] Reasons: i
+[2026-03-23T19:17:53.007Z] Fetching: https://behavidence.com
+[2026-03-23T19:18:04.104Z] Network idle timeout — continuing with current state
+[2026-03-23T19:18:04.145Z] Redirected: https://behavidence.com -> https://www.behavidence.com/
+[2026-03-23T19:18:04.813Z] Saved HTML (26954894 bytes) to page.html
+[2026-03-23T19:18:04.829Z] Extracted 16 unique links from page
+[2026-03-23T19:18:04.830Z] Saved 16 links to links.json
+[2026-03-23T19:18:04.833Z] Extracted footer HTML (8576 chars)
+[2026-03-23T19:18:04.833Z] Extracted header HTML (10298 chars)
+[2026-03-23T19:18:04.838Z] Website (post-redirect): https://www.behavidence.com/ → origin: https://www.behavidence.com
+[2026-03-23T19:18:04.839Z]   SUBDOMAIN: care.behavidence.com (added to ws)
+[2026-03-23T19:18:04.839Z] Website subdomains found: 1
+[2026-03-23T19:18:04.839Z] External links: 4 (of 16 total)
+[2026-03-23T19:18:04.839Z] ── All external links ──
+[2026-03-23T19:18:04.839Z]   EXT: http://behavidence.accountablehq.com
+[2026-03-23T19:18:04.839Z]   EXT: https://apps.apple.com/us/app/id1600102496
+[2026-03-23T19:18:04.839Z]   EXT: https://play.google.com/store/apps/details?id=com.cohen.behavidence
+[2026-03-23T19:18:04.839Z]   EXT: https://pubmed.ncbi.nlm.nih.gov/35420993
+[2026-03-23T19:18:04.839Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:18:04.840Z]   UNCATEGORIZED: http://behavidence.accountablehq.com
+[2026-03-23T19:18:04.840Z]   UNCATEGORIZED: https://apps.apple.com/us/app/id1600102496
+[2026-03-23T19:18:04.840Z]   REGEX: android_app_ids <- com.cohen.behavidence (from https://play.google.com/store/apps/details?id=com.cohen.behavidence)
+[2026-03-23T19:18:04.840Z]   UNCATEGORIZED: https://pubmed.ncbi.nlm.nih.gov/35420993
+[2026-03-23T19:18:04.840Z] Programmatic result: ws:2, android_app_ids:1 | 3 uncategorized
+[2026-03-23T19:18:04.841Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:18:04.842Z] Saved AI prompt (5268 chars) to ai_prompt.txt
+[2026-03-23T19:18:04.842Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:18:04.847Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:18:24.664Z]   AI: First token received, streaming...
+[2026-03-23T19:18:29.966Z] AI response complete: 79 chars in 25.1s
+[2026-03-23T19:18:29.967Z] Saved AI response to ai_response.json
+[2026-03-23T19:18:29.967Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T19:18:29.967Z]   AI LINK: http://behavidence.accountablehq.com
+[2026-03-23T19:18:29.968Z]   AI LINK: https://apps.apple.com/us/app/id1600102496
+[2026-03-23T19:18:29.968Z] AI returned 2 valid links
+[2026-03-23T19:18:29.968Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T19:18:29.968Z]   AI→URLS: http://behavidence.accountablehq.com
+[2026-03-23T19:18:29.968Z]   AI→URLS: https://apps.apple.com/us/app/id1600102496
+[2026-03-23T19:18:29.968Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:18:29.969Z] Footer/header origins (3):
+[2026-03-23T19:18:29.969Z]   FOOTER/HEADER ORIGIN: https://www.behavidence.com
+[2026-03-23T19:18:29.969Z]   FOOTER/HEADER ORIGIN: http://behavidence.accountablehq.com
+[2026-03-23T19:18:29.969Z]   FOOTER/HEADER ORIGIN: https://care.behavidence.com
+[2026-03-23T19:18:29.969Z]   SKIP (AI claimed): http://behavidence.accountablehq.com
+[2026-03-23T19:18:29.969Z]   SKIP (AI claimed): https://apps.apple.com/us/app/id1600102496
+[2026-03-23T19:18:29.969Z]   SKIP (not in footer/header): https://pubmed.ncbi.nlm.nih.gov/35420993
+[2026-03-23T19:18:29.969Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:18:29.969Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:18:29.969Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:18:29.969Z] ── Step 3: Final dedup ──
+[2026-03-23T19:18:29.969Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T19:18:29.969Z] ── FINAL RESULT ──
+[2026-03-23T19:18:29.970Z]   ws (2):
+[2026-03-23T19:18:29.970Z]     - https://care.behavidence.com
+[2026-03-23T19:18:29.970Z]     - https://www.behavidence.com
+[2026-03-23T19:18:29.970Z]   urls (2):
+[2026-03-23T19:18:29.970Z]     - http://behavidence.accountablehq.com
+[2026-03-23T19:18:29.970Z]     - https://apps.apple.com/us/app/id1600102496
+[2026-03-23T19:18:29.970Z]   android_app_ids (1):
+[2026-03-23T19:18:29.970Z]     - com.cohen.behavidence
+[2026-03-23T19:18:29.970Z] Summary: ws:2, android_app_ids:1, urls:2
+[2026-03-23T19:18:29.975Z] Saved final result to result.json
+[2026-03-23T19:18:29.975Z] Override fields: ws, urls, android_app_ids
+[2026-03-23T19:18:29.975Z] Finished at: 2026-03-23T19:18:29.975Z

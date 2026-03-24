@@ -1,0 +1,70 @@
+[2026-03-23T14:55:49.182Z] === Homepage AI Extractor: Brighttonix ===
+[2026-03-23T14:55:49.182Z] Started at: 2026-03-23T14:55:49.182Z
+[2026-03-23T14:55:49.182Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774277749181_Brighttonix
+[2026-03-23T14:55:49.182Z] Company: Brighttonix
+[2026-03-23T14:55:49.182Z] Website: btonix.com
+[2026-03-23T14:55:49.182Z] cbRank: 1166929
+[2026-03-23T14:55:49.182Z] Reasons: f
+[2026-03-23T14:55:49.182Z] Fetching: https://btonix.com
+[2026-03-23T14:56:00.064Z] Network idle timeout — continuing with current state
+[2026-03-23T14:56:00.103Z] Redirected: https://btonix.com -> https://www.btonix.com/
+[2026-03-23T14:56:00.114Z] Saved HTML (424065 bytes) to page.html
+[2026-03-23T14:56:00.116Z] Extracted 15 unique links from page
+[2026-03-23T14:56:00.117Z] Saved 15 links to links.json
+[2026-03-23T14:56:00.119Z] Extracted footer HTML (5406 chars)
+[2026-03-23T14:56:00.119Z] Extracted header HTML (7175 chars)
+[2026-03-23T14:56:00.124Z] Website (post-redirect): https://www.btonix.com/ → origin: https://www.btonix.com
+[2026-03-23T14:56:00.124Z] External links: 3 (of 15 total)
+[2026-03-23T14:56:00.124Z] ── All external links ──
+[2026-03-23T14:56:00.124Z]   EXT: https://twitter.com/BrightTonix
+[2026-03-23T14:56:00.124Z]   EXT: https://www.linkedin.com/company/brighttonix
+[2026-03-23T14:56:00.124Z]   EXT: https://www.youtube.com/channel/UCJDnDTp9FjHkCrrVgBmkQWw
+[2026-03-23T14:56:00.124Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T14:56:00.124Z]   REGEX: tw <- https://twitter.com/BrightTonix
+[2026-03-23T14:56:00.124Z]   REGEX: li <- https://www.linkedin.com/company/brighttonix
+[2026-03-23T14:56:00.125Z]   REGEX: ytc <- https://www.youtube.com/channel/UCJDnDTp9FjHkCrrVgBmkQWw
+[2026-03-23T14:56:00.125Z] Programmatic result: ws:1, tw:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-23T14:56:00.125Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T14:56:00.126Z] Saved AI prompt (5556 chars) to ai_prompt.txt
+[2026-03-23T14:56:00.126Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T14:56:00.131Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T14:56:28.202Z]   AI: First token received, streaming...
+[2026-03-23T14:56:38.122Z] AI response complete: 133 chars in 38.0s
+[2026-03-23T14:56:38.123Z] Saved AI response to ai_response.json
+[2026-03-23T14:56:38.123Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T14:56:38.124Z]   AI LINK: https://www.linkedin.com/company/brighttonix
+[2026-03-23T14:56:38.124Z]   AI LINK: https://www.youtube.com/channel/UCJDnDTp9FjHkCrrVgBmkQWw
+[2026-03-23T14:56:38.124Z]   AI LINK: https://twitter.com/BrightTonix
+[2026-03-23T14:56:38.124Z] AI returned 3 valid links
+[2026-03-23T14:56:38.124Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T14:56:38.124Z]   AI→REGEX: li <- https://www.linkedin.com/company/brighttonix (duplicate, skipped)
+[2026-03-23T14:56:38.125Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCJDnDTp9FjHkCrrVgBmkQWw (duplicate, skipped)
+[2026-03-23T14:56:38.125Z]   AI→REGEX: tw <- https://twitter.com/BrightTonix (duplicate, skipped)
+[2026-03-23T14:56:38.125Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T14:56:38.125Z] Footer/header origins (4):
+[2026-03-23T14:56:38.125Z]   FOOTER/HEADER ORIGIN: https://www.btonix.com
+[2026-03-23T14:56:38.125Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T14:56:38.125Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T14:56:38.125Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T14:56:38.125Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T14:56:38.125Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T14:56:38.126Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T14:56:38.580Z]   YOUTUBE: resolved UCJDnDTp9FjHkCrrVgBmkQWw → @brighttonixmedical5588
+[2026-03-23T14:56:38.580Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T14:56:38.580Z] ── Step 3: Final dedup ──
+[2026-03-23T14:56:38.581Z] No urls to dedup
+[2026-03-23T14:56:38.581Z] ── FINAL RESULT ──
+[2026-03-23T14:56:38.581Z]   ws (1):
+[2026-03-23T14:56:38.581Z]     - https://www.btonix.com
+[2026-03-23T14:56:38.581Z]   li (1):
+[2026-03-23T14:56:38.581Z]     - https://www.linkedin.com/company/brighttonix
+[2026-03-23T14:56:38.581Z]   tw (1):
+[2026-03-23T14:56:38.582Z]     - https://x.com/brighttonix
+[2026-03-23T14:56:38.582Z]   ytp (1):
+[2026-03-23T14:56:38.582Z]     - https://www.youtube.com/@brighttonixmedical5588
+[2026-03-23T14:56:38.582Z]   ytc (1):
+[2026-03-23T14:56:38.582Z]     - https://www.youtube.com/channel/UCJDnDTp9FjHkCrrVgBmkQWw
+[2026-03-23T14:56:38.582Z] Summary: ws:1, tw:1, li:1, ytc:1, ytp:1
+[2026-03-23T14:56:38.583Z] Saved final result to result.json
+[2026-03-23T14:56:38.583Z] Override fields: ws, li, tw, ytp, ytc
+[2026-03-23T14:56:38.583Z] Finished at: 2026-03-23T14:56:38.583Z

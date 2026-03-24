@@ -1,0 +1,69 @@
+[2026-03-22T02:00:21.648Z] === Homepage AI Extractor: Milagro AI ===
+[2026-03-22T02:00:21.648Z] Started at: 2026-03-22T02:00:21.648Z
+[2026-03-22T02:00:21.648Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774144821648_Milagro_AI
+[2026-03-22T02:00:21.648Z] Company: Milagro AI
+[2026-03-22T02:00:21.648Z] Website: milagroai.com
+[2026-03-22T02:00:21.648Z] cbRank: 28958
+[2026-03-22T02:00:21.648Z] Reasons: f, i
+[2026-03-22T02:00:21.648Z] Fetching: https://milagroai.com
+[2026-03-22T02:00:29.445Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-22T02:00:32.422Z] Redirected: https://milagroai.com -> https://milagroai.com/
+[2026-03-22T02:00:32.431Z] Saved HTML (326851 bytes) to page.html
+[2026-03-22T02:00:32.433Z] Extracted 16 unique links from page
+[2026-03-22T02:00:32.434Z] Saved 16 links to links.json
+[2026-03-22T02:00:32.436Z] Extracted footer HTML (620 chars)
+[2026-03-22T02:00:32.436Z] Extracted header HTML (12352 chars)
+[2026-03-22T02:00:32.440Z] Website (post-redirect): https://milagroai.com/ → origin: https://milagroai.com
+[2026-03-22T02:00:32.440Z] External links: 4 (of 16 total)
+[2026-03-22T02:00:32.440Z] ── All external links ──
+[2026-03-22T02:00:32.440Z]   EXT: http://imaginet.co.il
+[2026-03-22T02:00:32.440Z]   EXT: https://calendly.com/milagroai/30min
+[2026-03-22T02:00:32.440Z]   EXT: https://www.codenroll.co.il
+[2026-03-22T02:00:32.440Z]   EXT: https://www.linkedin.com/company/milagroai
+[2026-03-22T02:00:32.440Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:00:32.441Z]   UNCATEGORIZED: http://imaginet.co.il
+[2026-03-22T02:00:32.441Z]   UNCATEGORIZED: https://calendly.com/milagroai/30min
+[2026-03-22T02:00:32.441Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-22T02:00:32.441Z]   REGEX: li <- https://www.linkedin.com/company/milagroai
+[2026-03-22T02:00:32.441Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-22T02:00:32.441Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:00:32.444Z] Saved AI prompt (2392 chars) to ai_prompt.txt
+[2026-03-22T02:00:32.444Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:00:32.449Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:00:40.925Z]   AI: First token received, streaming...
+[2026-03-22T02:00:44.592Z] AI response complete: 77 chars in 12.1s
+[2026-03-22T02:00:44.594Z] Saved AI response to ai_response.json
+[2026-03-22T02:00:44.594Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T02:00:44.594Z]   AI LINK: https://milagroai.com/privacy-policy/
+[2026-03-22T02:00:44.594Z]   AI LINK: https://milagroai.com/terms-of-service/
+[2026-03-22T02:00:44.594Z] AI returned 2 valid links
+[2026-03-22T02:00:44.595Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T02:00:44.595Z]   AI→URLS: https://milagroai.com/privacy-policy (cleaned from https://milagroai.com/privacy-policy/)
+[2026-03-22T02:00:44.595Z]   AI→URLS: https://milagroai.com/terms-of-service (cleaned from https://milagroai.com/terms-of-service/)
+[2026-03-22T02:00:44.596Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:00:44.596Z] Footer/header origins (3):
+[2026-03-22T02:00:44.596Z]   FOOTER/HEADER ORIGIN: http://imaginet.co.il
+[2026-03-22T02:00:44.596Z]   FOOTER/HEADER ORIGIN: https://milagroai.com
+[2026-03-22T02:00:44.596Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-22T02:00:44.596Z]   ADDED: urls <- http://imaginet.co.il
+[2026-03-22T02:00:44.596Z]   ADDED: urls <- https://calendly.com/milagroai/30min
+[2026-03-22T02:00:44.597Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-22T02:00:44.597Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-22T02:00:44.597Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:00:44.597Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:00:44.597Z] ── Step 3: Final dedup ──
+[2026-03-22T02:00:44.598Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-22T02:00:44.598Z] ── FINAL RESULT ──
+[2026-03-22T02:00:44.598Z]   ws (1):
+[2026-03-22T02:00:44.598Z]     - https://milagroai.com
+[2026-03-22T02:00:44.598Z]   li (1):
+[2026-03-22T02:00:44.598Z]     - https://www.linkedin.com/company/milagroai
+[2026-03-22T02:00:44.598Z]   urls (4):
+[2026-03-22T02:00:44.599Z]     - http://imaginet.co.il
+[2026-03-22T02:00:44.599Z]     - https://calendly.com/milagroai/30min
+[2026-03-22T02:00:44.599Z]     - https://milagroai.com/privacy-policy
+[2026-03-22T02:00:44.599Z]     - https://milagroai.com/terms-of-service
+[2026-03-22T02:00:44.599Z] Summary: ws:1, li:1, urls:4
+[2026-03-22T02:00:44.600Z] Saved final result to result.json
+[2026-03-22T02:00:44.601Z] Override fields: ws, li, urls
+[2026-03-22T02:00:44.601Z] Finished at: 2026-03-22T02:00:44.601Z

@@ -1,0 +1,63 @@
+[2026-03-21T14:34:06.078Z] === Homepage AI Extractor: My World ===
+[2026-03-21T14:34:06.078Z] Started at: 2026-03-21T14:34:06.078Z
+[2026-03-21T14:34:06.078Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774103646077_My_World
+[2026-03-21T14:34:06.078Z] Company: My World
+[2026-03-21T14:34:06.078Z] Website: mwc.co.il
+[2026-03-21T14:34:06.078Z] cbRank: 3450563
+[2026-03-21T14:34:06.078Z] Reasons: h
+[2026-03-21T14:34:06.078Z] Fetching: https://mwc.co.il
+[2026-03-21T14:34:08.238Z] Redirected: https://mwc.co.il -> https://mwc.co.il/en/home.aspx
+[2026-03-21T14:34:08.248Z] Saved HTML (428607 bytes) to page.html
+[2026-03-21T14:34:08.251Z] Extracted 17 unique links from page
+[2026-03-21T14:34:08.252Z] Saved 17 links to links.json
+[2026-03-21T14:34:08.253Z] Extracted footer HTML (5313 chars)
+[2026-03-21T14:34:08.253Z] Extracted header HTML (2578 chars)
+[2026-03-21T14:34:08.256Z] Website (post-redirect): https://mwc.co.il/en/home.aspx → origin: https://mwc.co.il
+[2026-03-21T14:34:08.256Z] External links: 4 (of 17 total)
+[2026-03-21T14:34:08.256Z] ── All external links ──
+[2026-03-21T14:34:08.256Z]   EXT: http://www.facebook.com/MyWorldLtd
+[2026-03-21T14:34:08.256Z]   EXT: http://www.linkedin.com/company/my-world-ltd.?trk=biz-companies-cym
+[2026-03-21T14:34:08.256Z]   EXT: https://www.enable.co.il
+[2026-03-21T14:34:08.256Z]   EXT: https://www.upress.co.il
+[2026-03-21T14:34:08.256Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:34:08.256Z]   REGEX: fb <- http://www.facebook.com/MyWorldLtd
+[2026-03-21T14:34:08.257Z]   REGEX: li <- http://www.linkedin.com/company/my-world-ltd.?trk=biz-companies-cym
+[2026-03-21T14:34:08.257Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-21T14:34:08.257Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-21T14:34:08.257Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-21T14:34:08.257Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:34:08.258Z] Saved AI prompt (3925 chars) to ai_prompt.txt
+[2026-03-21T14:34:08.258Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:34:08.260Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:34:23.093Z]   AI: First token received, streaming...
+[2026-03-21T14:34:28.814Z] AI response complete: 102 chars in 20.6s
+[2026-03-21T14:34:28.815Z] Saved AI response to ai_response.json
+[2026-03-21T14:34:28.816Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T14:34:28.816Z]   AI LINK: http://www.linkedin.com/company/my-world-ltd.?trk=biz-companies-cym
+[2026-03-21T14:34:28.816Z]   AI LINK: http://www.facebook.com/MyWorldLtd
+[2026-03-21T14:34:28.816Z] AI returned 2 valid links
+[2026-03-21T14:34:28.816Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T14:34:28.817Z]   AI→REGEX: li <- http://www.linkedin.com/company/my-world-ltd.?trk=biz-companies-cym (duplicate, skipped)
+[2026-03-21T14:34:28.817Z]   AI→REGEX: fb <- http://www.facebook.com/MyWorldLtd (duplicate, skipped)
+[2026-03-21T14:34:28.818Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:34:28.818Z] Footer/header origins (2):
+[2026-03-21T14:34:28.818Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-21T14:34:28.818Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-21T14:34:28.818Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-21T14:34:28.818Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-21T14:34:28.818Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T14:34:28.818Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:34:28.819Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:34:28.819Z] ── Step 3: Final dedup ──
+[2026-03-21T14:34:28.819Z] No urls to dedup
+[2026-03-21T14:34:28.819Z] ── FINAL RESULT ──
+[2026-03-21T14:34:28.819Z]   ws (1):
+[2026-03-21T14:34:28.819Z]     - https://mwc.co.il
+[2026-03-21T14:34:28.819Z]   li (1):
+[2026-03-21T14:34:28.819Z]     - https://www.linkedin.com/company/my-world-ltd.
+[2026-03-21T14:34:28.819Z]   fb (1):
+[2026-03-21T14:34:28.819Z]     - https://www.facebook.com/myworldltd
+[2026-03-21T14:34:28.819Z] Summary: ws:1, fb:1, li:1
+[2026-03-21T14:34:28.821Z] Saved final result to result.json
+[2026-03-21T14:34:28.821Z] Override fields: ws, li, fb
+[2026-03-21T14:34:28.821Z] Finished at: 2026-03-21T14:34:28.821Z

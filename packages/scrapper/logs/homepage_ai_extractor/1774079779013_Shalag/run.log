@@ -1,0 +1,67 @@
+[2026-03-21T07:56:19.014Z] === Homepage AI Extractor: Shalag ===
+[2026-03-21T07:56:19.014Z] Started at: 2026-03-21T07:56:19.014Z
+[2026-03-21T07:56:19.014Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774079779013_Shalag
+[2026-03-21T07:56:19.014Z] Company: Shalag
+[2026-03-21T07:56:19.014Z] Website: shalag.com
+[2026-03-21T07:56:19.014Z] cbRank: 3132113
+[2026-03-21T07:56:19.015Z] Reasons: h
+[2026-03-21T07:56:19.015Z] Fetching: https://shalag.com
+[2026-03-21T07:56:21.204Z] Dismissed cookie consent popup via: button:has-text("I Accept")
+[2026-03-21T07:56:24.174Z] Redirected: https://shalag.com -> https://shalag.com/
+[2026-03-21T07:56:24.181Z] Saved HTML (224120 bytes) to page.html
+[2026-03-21T07:56:24.184Z] Extracted 44 unique links from page
+[2026-03-21T07:56:24.184Z] Saved 44 links to links.json
+[2026-03-21T07:56:24.186Z] Extracted footer HTML (6126 chars)
+[2026-03-21T07:56:24.186Z] Extracted header HTML (1565 chars)
+[2026-03-21T07:56:24.189Z] Website (post-redirect): https://shalag.com/ → origin: https://shalag.com
+[2026-03-21T07:56:24.189Z] External links: 5 (of 44 total)
+[2026-03-21T07:56:24.189Z] ── All external links ──
+[2026-03-21T07:56:24.189Z]   EXT: https://app.legalblink.it/api/documents/6486d23a38b9dd0019b63263/cookie-policy-en
+[2026-03-21T07:56:24.189Z]   EXT: https://it.linkedin.com/company/shalag
+[2026-03-21T07:56:24.189Z]   EXT: https://noam-urim.com
+[2026-03-21T07:56:24.189Z]   EXT: https://www.codenroll.co.il
+[2026-03-21T07:56:24.189Z]   EXT: https://www.legalblink.it
+[2026-03-21T07:56:24.189Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T07:56:24.190Z]   UNCATEGORIZED: https://app.legalblink.it/api/documents/6486d23a38b9dd0019b63263/cookie-policy-en
+[2026-03-21T07:56:24.190Z]   REGEX: li <- https://it.linkedin.com/company/shalag
+[2026-03-21T07:56:24.190Z]   UNCATEGORIZED: https://noam-urim.com
+[2026-03-21T07:56:24.190Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-21T07:56:24.190Z]   UNCATEGORIZED: https://www.legalblink.it
+[2026-03-21T07:56:24.190Z] Programmatic result: ws:1, li:1 | 4 uncategorized
+[2026-03-21T07:56:24.190Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T07:56:24.194Z] Saved AI prompt (4451 chars) to ai_prompt.txt
+[2026-03-21T07:56:24.194Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T07:56:24.198Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T07:56:43.963Z]   AI: First token received, streaming...
+[2026-03-21T07:56:45.149Z] AI response complete: 38 chars in 21.0s
+[2026-03-21T07:56:45.150Z] Saved AI response to ai_response.json
+[2026-03-21T07:56:45.151Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T07:56:45.151Z]   AI LINK: https://it.linkedin.com/company/shalag
+[2026-03-21T07:56:45.151Z] AI returned 1 valid links
+[2026-03-21T07:56:45.151Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T07:56:45.152Z]   AI→REGEX: li <- https://it.linkedin.com/company/shalag (duplicate, skipped)
+[2026-03-21T07:56:45.152Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T07:56:45.152Z] Footer/header origins (3):
+[2026-03-21T07:56:45.152Z]   FOOTER/HEADER ORIGIN: https://shalag.com
+[2026-03-21T07:56:45.152Z]   FOOTER/HEADER ORIGIN: https://it.linkedin.com
+[2026-03-21T07:56:45.152Z]   FOOTER/HEADER ORIGIN: https://noam-urim.com
+[2026-03-21T07:56:45.153Z]   SKIP (not in footer/header): https://app.legalblink.it/api/documents/6486d23a38b9dd0019b63263/cookie-policy-en
+[2026-03-21T07:56:45.153Z]   ADDED: urls <- https://noam-urim.com
+[2026-03-21T07:56:45.153Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-21T07:56:45.153Z]   SKIP (not in footer/header): https://www.legalblink.it
+[2026-03-21T07:56:45.153Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T07:56:45.153Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T07:56:45.153Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T07:56:45.153Z] ── Step 3: Final dedup ──
+[2026-03-21T07:56:45.154Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T07:56:45.154Z] ── FINAL RESULT ──
+[2026-03-21T07:56:45.154Z]   ws (1):
+[2026-03-21T07:56:45.154Z]     - https://shalag.com
+[2026-03-21T07:56:45.154Z]   li (1):
+[2026-03-21T07:56:45.154Z]     - https://www.linkedin.com/company/shalag
+[2026-03-21T07:56:45.154Z]   urls (1):
+[2026-03-21T07:56:45.154Z]     - https://noam-urim.com
+[2026-03-21T07:56:45.154Z] Summary: ws:1, li:1, urls:1
+[2026-03-21T07:56:45.155Z] Saved final result to result.json
+[2026-03-21T07:56:45.155Z] Override fields: ws, li, urls
+[2026-03-21T07:56:45.156Z] Finished at: 2026-03-21T07:56:45.156Z

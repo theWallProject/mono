@@ -1,0 +1,76 @@
+[2026-03-22T01:12:44.067Z] === Homepage AI Extractor: At-Bay ===
+[2026-03-22T01:12:44.067Z] Started at: 2026-03-22T01:12:44.067Z
+[2026-03-22T01:12:44.068Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774141964067_At-Bay
+[2026-03-22T01:12:44.068Z] Company: At-Bay
+[2026-03-22T01:12:44.068Z] Website: at-bay.com
+[2026-03-22T01:12:44.068Z] cbRank: 20387
+[2026-03-22T01:12:44.068Z] Reasons: f, i
+[2026-03-22T01:12:44.068Z] Fetching: https://at-bay.com
+[2026-03-22T01:12:47.029Z] Redirected: https://at-bay.com -> https://www.at-bay.com/
+[2026-03-22T01:12:47.035Z] Saved HTML (153216 bytes) to page.html
+[2026-03-22T01:12:47.041Z] Extracted 44 unique links from page
+[2026-03-22T01:12:47.041Z] Saved 44 links to links.json
+[2026-03-22T01:12:47.045Z] Extracted footer HTML (16129 chars)
+[2026-03-22T01:12:47.045Z] Extracted header HTML (37499 chars)
+[2026-03-22T01:12:47.049Z] Website (post-redirect): https://www.at-bay.com/ → origin: https://www.at-bay.com
+[2026-03-22T01:12:47.049Z]   SUBDOMAIN: keeprisk.at-bay.com (added to ws)
+[2026-03-22T01:12:47.049Z]   SUBDOMAIN: stance.at-bay.com (added to ws)
+[2026-03-22T01:12:47.049Z] Website subdomains found: 2
+[2026-03-22T01:12:47.049Z] External links: 3 (of 44 total)
+[2026-03-22T01:12:47.049Z] ── All external links ──
+[2026-03-22T01:12:47.049Z]   EXT: https://twitter.com/keeprisk_atbay
+[2026-03-22T01:12:47.049Z]   EXT: https://www.linkedin.com/company/at-bay
+[2026-03-22T01:12:47.049Z]   EXT: https://www.youtube.com/channel/UCLSL_42Kl39l2h2zPaKgaWA
+[2026-03-22T01:12:47.049Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:12:47.050Z]   REGEX: tw <- https://twitter.com/keeprisk_atbay
+[2026-03-22T01:12:47.050Z]   REGEX: li <- https://www.linkedin.com/company/at-bay
+[2026-03-22T01:12:47.050Z]   REGEX: ytc <- https://www.youtube.com/channel/UCLSL_42Kl39l2h2zPaKgaWA
+[2026-03-22T01:12:47.050Z] Programmatic result: ws:3, tw:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-22T01:12:47.050Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:12:47.053Z] Saved AI prompt (3384 chars) to ai_prompt.txt
+[2026-03-22T01:12:47.053Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:12:47.057Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:12:59.251Z]   AI: First token received, streaming...
+[2026-03-22T01:13:09.018Z] AI response complete: 131 chars in 22.0s
+[2026-03-22T01:13:09.020Z] Saved AI response to ai_response.json
+[2026-03-22T01:13:09.020Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T01:13:09.020Z]   AI LINK: https://twitter.com/keeprisk_atbay
+[2026-03-22T01:13:09.020Z]   AI LINK: https://www.linkedin.com/company/at-bay
+[2026-03-22T01:13:09.021Z]   AI LINK: https://www.youtube.com/channel/UCLSL_42Kl39l2h2zPaKgaWA
+[2026-03-22T01:13:09.021Z] AI returned 3 valid links
+[2026-03-22T01:13:09.021Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T01:13:09.021Z]   AI→REGEX: tw <- https://twitter.com/keeprisk_atbay (duplicate, skipped)
+[2026-03-22T01:13:09.021Z]   AI→REGEX: li <- https://www.linkedin.com/company/at-bay (duplicate, skipped)
+[2026-03-22T01:13:09.022Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCLSL_42Kl39l2h2zPaKgaWA (duplicate, skipped)
+[2026-03-22T01:13:09.023Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:13:09.023Z] Footer/header origins (6):
+[2026-03-22T01:13:09.023Z]   FOOTER/HEADER ORIGIN: https://www.at-bay.com
+[2026-03-22T01:13:09.023Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T01:13:09.023Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:13:09.023Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:13:09.023Z]   FOOTER/HEADER ORIGIN: https://stance.at-bay.com
+[2026-03-22T01:13:09.024Z]   FOOTER/HEADER ORIGIN: https://keeprisk.at-bay.com
+[2026-03-22T01:13:09.024Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:13:09.024Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:13:09.024Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T01:13:09.291Z]   YOUTUBE: resolved UCLSL_42Kl39l2h2zPaKgaWA → @keeprisk_atbay
+[2026-03-22T01:13:09.291Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T01:13:09.291Z] ── Step 3: Final dedup ──
+[2026-03-22T01:13:09.291Z] No urls to dedup
+[2026-03-22T01:13:09.291Z] ── FINAL RESULT ──
+[2026-03-22T01:13:09.292Z]   ws (3):
+[2026-03-22T01:13:09.292Z]     - https://keeprisk.at-bay.com
+[2026-03-22T01:13:09.292Z]     - https://stance.at-bay.com
+[2026-03-22T01:13:09.292Z]     - https://www.at-bay.com
+[2026-03-22T01:13:09.292Z]   li (1):
+[2026-03-22T01:13:09.292Z]     - https://www.linkedin.com/company/at-bay
+[2026-03-22T01:13:09.292Z]   tw (1):
+[2026-03-22T01:13:09.292Z]     - https://x.com/keeprisk_atbay
+[2026-03-22T01:13:09.292Z]   ytp (1):
+[2026-03-22T01:13:09.292Z]     - https://www.youtube.com/@keeprisk_atbay
+[2026-03-22T01:13:09.292Z]   ytc (1):
+[2026-03-22T01:13:09.292Z]     - https://www.youtube.com/channel/UCLSL_42Kl39l2h2zPaKgaWA
+[2026-03-22T01:13:09.292Z] Summary: ws:3, tw:1, li:1, ytc:1, ytp:1
+[2026-03-22T01:13:09.293Z] Saved final result to result.json
+[2026-03-22T01:13:09.294Z] Override fields: ws, li, tw, ytp, ytc
+[2026-03-22T01:13:09.294Z] Finished at: 2026-03-22T01:13:09.294Z

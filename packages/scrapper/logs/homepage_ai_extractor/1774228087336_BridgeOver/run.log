@@ -1,0 +1,60 @@
+[2026-03-23T01:08:07.337Z] === Homepage AI Extractor: BridgeOver ===
+[2026-03-23T01:08:07.337Z] Started at: 2026-03-23T01:08:07.337Z
+[2026-03-23T01:08:07.337Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774228087336_BridgeOver
+[2026-03-23T01:08:07.337Z] Company: BridgeOver
+[2026-03-23T01:08:07.337Z] Website: bridgeover.io
+[2026-03-23T01:08:07.337Z] cbRank: 480163
+[2026-03-23T01:08:07.337Z] Reasons: f
+[2026-03-23T01:08:07.337Z] Fetching: https://bridgeover.io
+[2026-03-23T01:08:10.229Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T01:08:13.222Z] Redirected: https://bridgeover.io -> https://bridgeover.io/
+[2026-03-23T01:08:13.230Z] Saved HTML (271449 bytes) to page.html
+[2026-03-23T01:08:13.232Z] Extracted 16 unique links from page
+[2026-03-23T01:08:13.233Z] Saved 16 links to links.json
+[2026-03-23T01:08:13.236Z] No footer section found in DOM
+[2026-03-23T01:08:13.236Z] Extracted header HTML (8131 chars)
+[2026-03-23T01:08:13.239Z] Website (post-redirect): https://bridgeover.io/ → origin: https://bridgeover.io
+[2026-03-23T01:08:13.239Z] External links: 3 (of 16 total)
+[2026-03-23T01:08:13.239Z] ── All external links ──
+[2026-03-23T01:08:13.240Z]   EXT: https://apps.apple.com/us/app/bridgeover/id6449384243?platform=iphone
+[2026-03-23T01:08:13.240Z]   EXT: https://play.google.com/store/apps/details?id=io.bridgeover.mobile
+[2026-03-23T01:08:13.240Z]   EXT: https://www.linkedin.com/company/bridgeoverio
+[2026-03-23T01:08:13.240Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T01:08:13.241Z]   UNCATEGORIZED: https://apps.apple.com/us/app/bridgeover/id6449384243?platform=iphone
+[2026-03-23T01:08:13.241Z]   REGEX: android_app_ids <- io.bridgeover.mobile (from https://play.google.com/store/apps/details?id=io.bridgeover.mobile)
+[2026-03-23T01:08:13.241Z]   REGEX: li <- https://www.linkedin.com/company/bridgeoverio
+[2026-03-23T01:08:13.241Z] Programmatic result: ws:1, android_app_ids:1, li:1 | 1 uncategorized
+[2026-03-23T01:08:13.241Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T01:08:13.242Z] Saved AI prompt (2008 chars) to ai_prompt.txt
+[2026-03-23T01:08:13.242Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T01:08:13.246Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T01:08:19.556Z]   AI: First token received, streaming...
+[2026-03-23T01:08:24.286Z] AI response complete: 69 chars in 11.0s
+[2026-03-23T01:08:24.288Z] Saved AI response to ai_response.json
+[2026-03-23T01:08:24.288Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T01:08:24.288Z]   AI LINK: https://apps.apple.com/us/app/bridgeover/id6449384243?platform=iphone
+[2026-03-23T01:08:24.288Z] AI returned 1 valid links
+[2026-03-23T01:08:24.289Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T01:08:24.290Z]   AI→URLS: https://apps.apple.com/us/app/bridgeover/id6449384243 (cleaned from https://apps.apple.com/us/app/bridgeover/id6449384243?platform=iphone)
+[2026-03-23T01:08:24.291Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T01:08:24.291Z] Footer/header origins (1):
+[2026-03-23T01:08:24.291Z]   FOOTER/HEADER ORIGIN: https://bridgeover.io
+[2026-03-23T01:08:24.291Z]   SKIP (AI claimed): https://apps.apple.com/us/app/bridgeover/id6449384243?platform=iphone
+[2026-03-23T01:08:24.292Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T01:08:24.292Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T01:08:24.292Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T01:08:24.292Z] ── Step 3: Final dedup ──
+[2026-03-23T01:08:24.292Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T01:08:24.292Z] ── FINAL RESULT ──
+[2026-03-23T01:08:24.292Z]   ws (1):
+[2026-03-23T01:08:24.292Z]     - https://bridgeover.io
+[2026-03-23T01:08:24.292Z]   li (1):
+[2026-03-23T01:08:24.293Z]     - https://www.linkedin.com/company/bridgeoverio
+[2026-03-23T01:08:24.293Z]   urls (1):
+[2026-03-23T01:08:24.293Z]     - https://apps.apple.com/us/app/bridgeover/id6449384243
+[2026-03-23T01:08:24.293Z]   android_app_ids (1):
+[2026-03-23T01:08:24.293Z]     - io.bridgeover.mobile
+[2026-03-23T01:08:24.293Z] Summary: ws:1, android_app_ids:1, li:1, urls:1
+[2026-03-23T01:08:24.294Z] Saved final result to result.json
+[2026-03-23T01:08:24.295Z] Override fields: ws, li, urls, android_app_ids
+[2026-03-23T01:08:24.295Z] Finished at: 2026-03-23T01:08:24.295Z

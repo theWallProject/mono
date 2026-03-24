@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/flutter-web/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="larafood_cliente">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <title>larafood_cliente</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- DEEP LINK: Corrigir URL IMEDIATAMENTE para nunca mostrar /flutter-web -->
+  <script>
+    (function() {
+      // Salvar o pathname original da URL (ex: /burguer-food)
+      var originalPath = window.location.pathname;
+      var originalHref = window.location.href;
+      
+      // Se NÃO estamos em /flutter-web/, salvar e corrigir preventivamente
+      if (originalPath.indexOf('/flutter-web') !== 0) {
+        window.__ORIGINAL_PATHNAME__ = originalPath;
+        window.__ORIGINAL_HREF__ = originalHref;
+        console.log('[DEEP_LINK_INIT] Pathname original:', originalPath);
+        
+        // CORREÇÃO INSTANTÂNEA: Interceptar pushState/replaceState do Flutter
+        var originalPushState = history.pushState;
+        var originalReplaceState = history.replaceState;
+        
+        history.pushState = function(state, title, url) {
+          // Se Flutter tentar mudar para /flutter-web/, bloquear
+          if (url && url.toString().indexOf('/flutter-web') !== -1) {
+            console.log('[DEEP_LINK_BLOCK] Bloqueando pushState para:', url);
+            return; // Não fazer nada
+          }
+          return originalPushState.apply(this, arguments);
+        };
+        
+        history.replaceState = function(state, title, url) {
+          // Se Flutter tentar mudar para /flutter-web/, usar path original
+          if (url && url.toString().indexOf('/flutter-web') !== -1) {
+            console.log('[DEEP_LINK_BLOCK] Bloqueando replaceState para:', url);
+            url = window.__ORIGINAL_PATHNAME__ || '/';
+          }
+          return originalReplaceState.apply(this, arguments);
+        };
+      } else {
+        // Já estamos em /flutter-web/, não interceptar
+        window.__ORIGINAL_PATHNAME__ = originalPath;
+      }
+    })();
+  </script>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async=""></script>
+
+
+</body></html>

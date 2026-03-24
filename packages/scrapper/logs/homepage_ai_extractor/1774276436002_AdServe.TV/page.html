@@ -1,0 +1,880 @@
+<!DOCTYPE html><html><head><script src="https://s0.2mdn.net/instream/video/client.js" async="" type="text/javascript"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-4QHQ2GPTML&amp;cx=c&amp;gtm=4e63i0"></script><script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js" async=""></script>
+    <meta charset="UTF-8">
+    <title>Video Ad Serving Platform for Publishers &amp; Ad Networks - AdServe</title>
+    <meta name="description" content="Video Ad Serving Platform: Take full control of your video advertising with AdServe – the world's leading independent ad serving platform.">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/blog-styles.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5JGW"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4QHQ2GPTML"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-4QHQ2GPTML');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5JGW');</script>
+    <!-- End Google Tag Manager -->
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8886203596762131"
+            crossorigin="anonymous"></script>-->
+<style>.adsrv-player:before,
+.adsrv-player:after {
+    content: unset;
+}
+.adsrv-player {
+    width: 100%;
+    height: 100%;
+}
+
+.adsrv-player,
+.adsrv-player:before,
+.adsrv-player:after,
+.adsrv-player * {
+    -webkit-hyphens: manual;
+            hyphens: manual;
+    font-size: 16px; /*inherit*/
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color: inherit;
+    background: 0 0;
+    border: 0;
+    border-radius: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    box-sizing: content-box;
+    clear: none;
+    float: none;
+    font-variant: normal;
+    font-weight: inherit;
+    letter-spacing: normal;
+    line-height: 1.4; /*normal*/
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    min-height: 0;
+    min-width: 0;
+    outline: 0;
+    padding: 0;
+    position: static;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    text-transform: none;
+    vertical-align: baseline;
+    visibility: inherit;
+    word-spacing: normal;
+}
+.adsrv-player {
+    position: relative;
+}
+.adsrv-player.adsrv-sticky .adsrv-wrapper {
+    position: fixed;
+    z-index: 99999;
+}
+.adsrv-player .adsrv-video-container {
+    padding-bottom: 56.25%;
+}
+.adsrv-player .adsrv-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.adsrv-player .adsrv-resizer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: none;
+    background-color: transparent
+}
+.adsrv-player .adsrv-ad-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.adsrv-player .adsrv-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    opacity: 1;
+    text-align: left;
+    /*border: 6px solid rgba($primary-background-color, $primary-background-transparency);*/
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    background-clip: padding-box;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    visibility: hidden;
+}
+.adsrv-player.adsrv-waiting .adsrv-spinner {
+    display: block;
+    animation: adsrv-spinner-show 0s linear 0.3s forwards;
+}
+.adsrv-player .adsrv-spinner:before,
+.adsrv-player .adsrv-spinner:after {
+    content: "";
+    position: absolute;
+    margin: -4px;
+    box-sizing: inherit;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    opacity: 1;
+    border: inherit;
+    border-color: transparent;
+    border-top-color: white;
+}
+.adsrv-player.adsrv-waiting .adsrv-spinner:before,
+.adsrv-player.adsrv-waiting .adsrv-spinner:after {
+    /*-webkit-animation: spinner-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.1s linear infinite;*/
+    animation: adsrv-spinner-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, adsrv-spinner-fade 1.1s linear infinite;
+}
+.adsrv-player.adsrv-waiting .adsrv-spinner:before {
+    border-top-color: rgb(255,255,255);
+}
+.adsrv-player.adsrv-waiting .adsrv-spinner:after {
+    border-top-color: rgb(255,255,255);
+    /*-webkit-animation-delay: 0.44s;*/
+    animation-delay: 0.44s;
+}
+@keyframes adsrv-spinner-show {
+    to {
+        visibility: visible;
+    }
+}
+/*
+@-webkit-keyframes adsrv-spinner-show {
+    to {
+        visibility: visible;
+    }
+}
+ */
+@keyframes adsrv-spinner-spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/*
+@-webkit-keyframes adsrv-spinner-spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+ */
+@keyframes adsrv-spinner-fade {
+    0% {
+        border-top-color: white;
+    }
+    20% {
+        border-top-color: white;
+    }
+    35% {
+        border-top-color: white;
+    }
+    60% {
+        border-top-color: white;
+    }
+    100% {
+        border-top-color: white;
+    }
+}
+/*
+@-webkit-keyframes adsrv-spinner-fade {
+    0% {
+        border-top-color: white;
+    }
+    20% {
+        border-top-color: white;
+    }
+    35% {
+        border-top-color: white;
+    }
+    60% {
+        border-top-color: white;
+    }
+    100% {
+        border-top-color: white;
+    }
+}
+ */
+.adsrv-player .adsrv-gradient {
+    transition: opacity 250ms ease 0s, visibility 250ms ease 0s;
+    opacity: 0.01;
+    visibility: hidden;
+}
+.adsrv-player .adsrv-gradient.adsrv-show {
+    opacity: 1;
+    visibility: visible;
+}
+.adsrv-player .adsrv-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    /*pointer-events: none;*/
+}
+
+
+.adsrv-player .adsrv-title-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1;
+    padding: 25px 20px;
+    color: rgb(255, 255, 255);
+
+    transition: opacity 250ms ease 0s, visibility 250ms ease 0s;
+    opacity: 0.01;
+    visibility: hidden;
+}
+.adsrv-player .adsrv-title-bar .adsrv-title {
+     overflow: hidden;
+     white-space: nowrap;
+     text-overflow: ellipsis;
+     width: 100%;
+     font-size: 18px;
+}
+.adsrv-player .adsrv-title-bar .adsrv-description {
+     font-size: 14px;
+}
+
+.adsrv-player.adsrv-user-active .adsrv-title-bar,
+.adsrv-player.adsrv-slider-active .adsrv-title-bar,
+.adsrv-player.adsrv-paused .adsrv-title-bar {
+    opacity: 1;
+    visibility: visible;
+}
+/*.adsrv-player.adsrv-sticky .adsrv-description { display: none }*/
+
+/*
+.adsrv-player .adsrv-header {
+    transition: opacity 250ms ease 0s, visibility 250ms ease 0s;
+    opacity: 0.01;
+    visibility: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    line-height: 22px;
+    padding: 25px 20px;
+    font-size: 17px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+ */
+/*.adsrv--player.adsrv-hovered .adsrv-header,*/
+/*
+.adsrv-player.adsrv-user-active .adsrv-header,
+.adsrv-player.adsrv-slider-active .adsrv-header,
+.adsrv-player.adsrv-paused .adsrv-header {
+    opacity: 1;
+    visibility: visible;
+}
+.adsrv-player .adsrv-title {
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    Xcursor: pointer;
+    text-decoration: none;
+    background-image: none;
+    color: rgb(247, 247, 247);
+    user-select: none;
+    pointer-events: auto;
+}
+*/
+
+
+.adsrv-player .adsrv-gradient {
+    transition: opacity 250ms ease 0s, visibility 250ms ease 0s;
+    opacity: 0.01;
+    visibility: hidden;
+}
+/*.adsrv-player.adsrv-hovered .adsrv-gradient,*/
+.adsrv-player.adsrv-user-active .adsrv-gradient,
+.adsrv-player.adsrv-slider-active .adsrv-gradient,
+.adsrv-player.adsrv-paused .adsrv-gradient {
+    opacity: 1;
+    visibility: visible;
+}
+.adsrv-player .adsrv-gradient-top {
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0));
+    height: 40%;
+    top: 0px;
+}
+.adsrv-player .adsrv-gradient-bottom {
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0));
+    bottom: 0px;
+    height: 66%;
+}
+.adsrv-player .adsrv-control-bar {
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: 65px;
+}
+.adsrv-player .adsrv-controls {
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    /*-webkit-box-pack: start;*/
+    justify-content: flex-start;
+    position: absolute;
+    width: 100%;
+    color: rgb(247, 247, 247);
+    padding: 0px 20px 20px;
+    height: 45px;
+    /*-webkit-box-align: center;*/
+    align-items: center;
+    z-index: 10;
+    pointer-events: all;
+    transition: opacity 250ms ease 0s, visibility 250ms ease 0s;
+    opacity: 0.01;
+    visibility: hidden;
+    box-sizing: border-box;
+}
+/*.as-player.hovered .controls,*/
+.adsrv-player.adsrv-user-active .adsrv-controls,
+.adsrv-player.adsrv-slider-active .adsrv-controls,
+.adsrv-player.adsrv-paused .adsrv-controls {
+    opacity: 1;
+    visibility: visible;
+}
+.adsrv-player .adsrv-timeline {
+    position: absolute;
+    height: 4px;
+    left: 20px;
+    right: 20px;
+    bottom: 56px;
+    cursor: pointer;
+    background: rgb(100, 100, 100);
+    background: rgba(255, 255, 255, 0.5);
+    /*-webkit-box-shadow: 0 0 3px 0 rgb(0 0 0 / 10%);*/
+    /*-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);*/
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 10%);
+
+    transition: opacity 250ms ease 0s, visibility 250ms ease 0s;
+    opacity: 0.01;
+    visibility: hidden;
+}
+.adsrv-player.adsrv-slider-active .adsrv-timeline,
+.adsrv-player .adsrv-timeline:hover,
+.adsrv-player .adsrv-timeline.sliding {
+    height: 8px;
+    bottom: 54px;
+}
+/*.as-player.hovered .timeline,*/
+.adsrv-player.adsrv-user-active .adsrv-timeline,
+.adsrv-player.adsrv-slider-active .adsrv-timeline,
+.adsrv-player.adsrv-paused .adsrv-timeline {
+    opacity: 1;
+    visibility: visible;
+}
+.adsrv-player .adsrv-timeline:before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 100%
+}
+.adsrv-player .adsrv-timeline-buffer {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: #fff;
+}
+.adsrv-player .adsrv-timeline-progress {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: red;
+}
+.adsrv-player .adsrv-timeline-progress:before {
+    /*-webkit-transition-timing-function: cubic-bezier(0,0,0.2,1);*/
+    transition-timing-function: cubic-bezier(0,0,0.2,1);
+    /*-webkit-transition-duration: 167ms;*/
+    transition-duration: 167ms;
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    /*-webkit-box-shadow: 0 1px 1px 1px rgb(0 0 0 / 40%);*/
+    box-shadow: 0 1px 1px 1px rgb(0 0 0 / 40%);
+    top: 50%;
+    right: -5px;
+    margin-top: -5px;
+}
+.adsrv-player .adsrv-timeline:hover .adsrv-timeline-progress:before {
+    /*-webkit-transform: scale(1.5);*/
+    transform: scale(1.5);
+}
+.adsrv-player .adsrv-time-tooltip {
+    /*-webkit-transition-timing-function: cubic-bezier(0,0,0.2,1);*/
+    transition-timing-function: cubic-bezier(0,0,0.2,1);
+    /*-webkit-transition-duration: 167ms;*/
+    transition-duration: 167ms;
+    background-color: rgba(0,0,0,0.75);
+    /*-webkit-box-shadow: 0 0 0 1px rgb(255 255 255 / 10%);*/
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 10%);
+    border-radius: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*font-size: 1.2rem;
+    line-height: 1.33333;
+    font-weight: 600;*/
+    color: #fff;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 80%);
+    pointer-events: none;
+    position: static;
+    padding: 4px 8px;
+    max-width: 240px;
+    /*-webkit-transition-property: opacity;*/
+    transition-property: opacity;
+    display: none;
+    position: absolute;
+    bottom: 22px;
+}
+.adsrv-player .adsrv-play {
+    Xbackground-image: url(data:image/svg+xml;base64,DQo8c3ZnIHdpZHRoPSIzM3B4IiBoZWlnaHQ9IjM4cHgiIHZpZXdCb3g9IjMxIDI0IDMzIDM4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPg0KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDIgKDM2NzgxKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4NCiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4NCiAgICA8ZGVmcz48L2RlZnM+DQogICAgPHBhdGggZD0iTTQ2Ljc1MjQ1OTcsMjcuMjk5NDI0MSBDNDYuOTYzMzE0MiwyNi45Mzk3MDM4IDQ3LjMwNzMyNDEsMjYuOTQzMzY3IDQ3LjUxNjAzMTQsMjcuMjk5NDI0MSBMNjUuNDQxMzE5Nyw1Ny44ODAxODQ1IEM2NS42NTIxNzQyLDU4LjIzOTkwNDggNjUuNDg4NTU1OCw1OC41MzE1MTU4IDY1LjA3NjQ3MTUsNTguNTMxNTE1OCBMMjkuMTkyMDE5Niw1OC41MzE1MTU4IEMyOC43Nzk2NjUsNTguNTMxNTE1OCAyOC42MTg0NjQxLDU4LjIzNjI0MTYgMjguODI3MTcxNCw1Ny44ODAxODQ1IEw0Ni43NTI0NTk3LDI3LjI5OTQyNDEgWiIgaWQ9IlRyaWFuZ2xlIiBzdHJva2U9Im5vbmUiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDcuMTM0NjkzLCA0Mi43ODEyNjEpIHJvdGF0ZSgtMjcwLjAwMDAwMCkgdHJhbnNsYXRlKC00Ny4xMzQ2OTMsIC00Mi43ODEyNjEpICI+PC9wYXRoPg0KPC9zdmc+);
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA3NTIgMTAyNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNzUyIDEwMjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iNzUyLDUxMiAwLDAgMCwxMDI0ICIvPg0KPC9zdmc+DQo=);
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    background-size: 15px;
+    cursor: pointer;
+}
+.adsrv-player .adsrv-play.adsrv-pause {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA3ODQgMTAyNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNzg0IDEwMjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01ODIuMiwwaDkuOGMzOSwwLDY4LjMsMjkuMyw2OC4zLDY4LjN2ODg3LjVjMCwzOS0yOS4zLDY4LjMtNjguMyw2OC4zaC05LjhjLTM5LDAtNjguMy0yOS4zLTY4LjMtNjguM1Y2OC4zDQoJQzUxMy45LDI5LjMsNTQzLjIsMCw1ODIuMiwwTDU4Mi4yLDB6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTkyLjEsMGg5LjhjMzksMCw2OC4zLDI5LjMsNjguMyw2OC4zdjg4Ny41YzAsMzktMjkuMyw2OC4zLTY4LjMsNjguM2gtOS44Yy0zOSwwLTY4LjMtMjkuMy02OC4zLTY4LjNWNjguMw0KCUMxMjMuOCwyOS4zLDE1My4xLDAsMTkyLjEsMEwxOTIuMSwweiIvPg0KPC9zdmc+DQo=);
+    background-size: 14px;
+}
+.adsrv-player.adsrv-ended .adsrv-play {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMDEwLjQgOTc2LjEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEwMTAuNCA5NzYuMTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTE1Ny4yLDU0djI3Ny4zYzAsMzQuMS0yOS45LDY0LTY0LDY0aC00LjNjLTM0LjEsMC01OS43LTI1LjYtNTkuNy01OS43VjExMy43QzI5LjIsNzkuNiw1NC44LDU0LDg4LjksNTQNCglDODguOSw1NCwxNTcuMiw1NCwxNTcuMiw1NHoiLz4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MDguOSwzMTQuMkgxMTguOGMtMjkuOSwwLTU1LjUsMjUuNi01NS41LDU1LjVsMCwwYzAsMjkuOSwyNS42LDU1LjUsNTUuNSw1NS41aDIzMC40DQoJYzM0LjEsMCw1OS43LTI1LjYsNTkuNy01OS43VjMxNC4yTDQwOC45LDMxNC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEyNi4xLDI0OS45QzI1OC4zLDMyLjMsNTM5LjktMzYsNzU3LjUsOTYuM3MyOTAuMSw0MTMuOSwxNTcuOSw2MzEuNXMtNDEzLjksMjgxLjYtNjMxLjUsMTUzLjYNCgljLTIxLjMtMTcuMS0yOS45LTQ2LjktMTcuMS03Mi41YzEyLjgtMjUuNiw0Ni45LTI5LjksNjguMy0xNy4xYzE3MC43LDEwMi40LDM4OC4zLDQ2LjksNDkwLjctMTE5LjUNCglDOTI4LjIsNTAxLjYsODcyLjcsMjg0LDcwMi4xLDE4MS42cy0zODguMy00Ni45LTQ5MC43LDExOS41Yy0xMi44LDI1LjYtNDYuOSwyOS45LTY4LjMsMTcuMVMxMTMuMywyNzUuNSwxMjYuMSwyNDkuOUwxMjYuMSwyNDkuOXoiDQoJLz4NCjwvc3ZnPg0K);
+    background-size: 20px;
+}
+.adsrv-player .adsrv-next {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA4ODAgMTAyNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgODgwIDEwMjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04MDAuOCwwaDkuOGMzOSwwLDY4LjMsMjkuMyw2OC4zLDY4LjN2ODg3LjVjMCwzOS0yOS4zLDY4LjMtNjguMyw2OC4zaC05LjhjLTM5LDAtNjguMy0yOS4zLTY4LjMtNjguM1Y2OC4zDQoJQzczMi42LDI5LjMsNzYxLjgsMCw4MDAuOCwwTDgwMC44LDB6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMS4xLDEwMjRjMCwwLDAtMzQxLjMsMC0xMDI0YzAsMCwyNDMuOCwxNjAuOSw3MzEuNCw0ODcuNmMwLDE5LjUsMCwyNC40LDAsNDguOA0KCUM3MzIuNiw1MjEuOCw0ODguOCw2ODIuNywxLjEsMTAyNHoiLz4NCjwvc3ZnPg0K);
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    background-size: 16px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+.adsrv-player .adsrv-volume {
+    Xbackground-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE0NyIgaGVpZ2h0PSIxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogPGc+CiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPgogIDxnIGlkPSJzdmdfMSIgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsMCw5NjApICI+CiAgIDxwYXRoIGlkPSJzdmdfMiIgZD0ibTc5NSw3OThxLTksMCAtMTUsLTZ0LTYsLTE1bDAsLTQycTAsLTkgNiwtMTUuNXQxNSwtNi41cTUxLC0zIDk1LjUsLTI1dDc3LjUsLTU3LjV0NTIsLTgydDE5LC05OC41dC0xOSwtOTh0LTUyLC04MS41dC03Ny41LC01Ny41dC05NS41LC0yNnEtOSwwIC0xNSwtNnQtNiwtMTVsMCwtNDJxMCwtOSA2LC0xNXQxNSwtNnE2OSw0IDEyOC41LDMzdDEwMy41LDc2dDY5LjUsMTA4LjV0MjUuNSwxMjkuNXEwLDY5IC0yNS41LDEzMC41dC02OS41LDEwOHQtMTAzLjUsNzZ0LTEyOC41LDMzLjVsMCwwem01LC00NzlxNDYsOSA3Niw0NXQzMCw4NHQtMzAsODR0LTc2LDQ1cS0xMSwyIC0xOC41LC00dC03LjUsLTE3bDAsLTIxNnEwLC05IDcuNSwtMTZ0MTguNSwtNWwwLDB6bS0yNTEsNTI4bC0zMTcsLTE5OWwtMTcwLDBxLTI2LDAgLTQ0LjUsLTE4LjV0LTE4LjUsLTQ1LjVsMCwtMjg2cTAsLTI3IDE4LjUsLTQ1LjV0NDQuNSwtMTguNWwxOTUsMGwyODcsLTE4NXEyMywtMTYgNTUsLTUuNXQzMiw0MC41bDAsNzI4cTIsMzAgLTI5LDM5LjV0LTUzLC00LjVsMCwweiIgZmlsbD0iI2Y3ZjdmNyIvPgogIDwvZz4KIDwvZz4KPC9zdmc+Cg==);
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMjE2IDEwMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyMTYgMTAyNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTAsNzExLjloMjYzLjNMNjc3LjgsMTAyNFYwTDI2My4zLDMxMi4xSDBWNzExLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNODc3LjcsMzQxLjNsLTY4LjMsNjguM2M1My42LDU4LjUsNTMuNiwxNDYuMywwLDIwNC44bDY4LjMsNjguM0M5NzAuNCw1OTAsOTcwLjQsNDM0LDg3Ny43LDM0MS4zTDg3Ny43LDM0MS4zeg0KCSIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwODcuNCwyMDQuOGwtNzMuMSw3OGM2OC4zLDczLjEsMTAyLjQsMTY1LjgsMTAyLjQsMjYzLjNjMCwxMDIuNC0zNC4xLDE5NS0xMDIuNCwyNjMuM2w3My4xLDc4DQoJYzgyLjktOTIuNiwxMzEuNy0yMTQuNiwxMzEuNy0zNDEuM1MxMTcwLjMsMjk3LjQsMTA4Ny40LDIwNC44TDEwODcuNCwyMDQuOHoiLz4NCjwvc3ZnPg0K);
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.adsrv-player .adsrv-volume.adsrv-mid {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMjE2IDEwMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyMTYgMTAyNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTAsNzExLjloMjYzLjNMNjc3LjgsMTAyNFYwTDI2My4zLDMxMi4xSDBWNzExLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNODc3LjcsMzQxLjNsLTY4LjMsNjguM2M1My42LDU4LjUsNTMuNiwxNDYuMywwLDIwNC44bDY4LjMsNjguM0M5NzAuNCw1OTAsOTcwLjQsNDM0LDg3Ny43LDM0MS4zTDg3Ny43LDM0MS4zeg0KCSIvPg0KPC9zdmc+DQo=);
+}
+.adsrv-player .adsrv-volume.adsrv-muted {
+    Xbackground-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE0NCIgaGVpZ2h0PSIxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogPGc+CiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPgogIDxnIGlkPSJzdmdfMSIgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsLTEsMCw5NjApICI+CiAgIDxwYXRoIGlkPSJzdmdfMiIgZD0ibTEwMTUsNDQxbDg5LDg5cTEyLDEzIDEyLDMwdC0xMiwyOXQtMjkuNSwxMnQtMjkuNSwtMTJsLTg5LC04OWwtODksODlxLTEzLDEyIC0zMCwxMnQtMjksLTEydC0xMiwtMjl0MTIsLTMwbDg5LC04OWwtODksLTg5cS0xMiwtMTMgLTEyLC0zMHQxMiwtMjlxNywtNyAxNC41LC05LjV0MTUuNSwtMi41cTksMCAxNi41LDMuNXQxNC41LDguNWw4OSw4OWw4OSwtODlxOCwtNyAxNSwtOS41dDE2LC0yLjV0MTYuNSwzLjV0MTQuNSw4LjVxMTIsMTIgMTIsMjl0LTEyLDMwbC05NCw4OWwwLDB6bS00NjgsNDA0bC0zMTQsLTE5N2wtMTcyLDBxLTI2LDAgLTQ0LjUsLTE4LjV0LTE4LjUsLTQ1LjVsMCwtMjg2cTAsLTI3IDE4LjUsLTQ1LjV0NDQuNSwtMTguNWwxOTUsMGwyODcsLTE4NXEyMiwtMTYgNTQsLTUuNXQzMiw0MC41bDAsNzI2cTIsMzAgLTI3LjUsNDAuNXQtNTQuNSwtNS41bDAsMHoiIGZpbGw9IiNmN2Y3ZjciLz4KICA8L2c+CiA8L2c+Cjwvc3ZnPgo=);
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMjE2IDEwMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyMTYgMTAyNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTAsNzExLjloMjYzLjNMNjc3LjgsMTAyNFYwTDI2My4zLDMxMi4xSDBWNzExLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTE4Ny4xLDY4NC4ybC0zOC4xLDM1LjdjLTkuMyw4LjctMjMuOCw4LjItMzIuNS0xLjFMNzczLjEsMzUyLjJjLTguNy05LjMtOC4yLTIzLjgsMS4xLTMyLjVsMzguMS0zNS43DQoJYzkuMy04LjcsMjMuOC04LjIsMzIuNSwxLjFsMzQzLjUsMzY2LjZDMTE5Ni44LDY2MSwxMTk2LjMsNjc1LjYsMTE4Ny4xLDY4NC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTc3NC4xLDY4NC4ybDM4LjEsMzUuN2M5LjMsOC43LDIzLjgsOC4yLDMyLjUtMS4xbDM0My41LTM2Ni42YzguNy05LjMsOC4yLTIzLjgtMS4xLTMyLjVsLTM4LjEtMzUuNw0KCWMtOS4zLTguNy0yMy44LTguMi0zMi41LDEuMUw3NzMuMSw2NTEuOEM3NjQuNCw2NjEsNzY0LjksNjc1LjYsNzc0LjEsNjg0LjJ6Ii8+DQo8L3N2Zz4NCg==);
+}
+.adsrv-player .adsrv-timer {
+    margin-left: 10px;
+    display: flex;
+    flex: auto;
+    height: 24px;
+}
+.adsrv-player .adsrv-playback-rate {
+    padding: 0px;
+    border: none;
+    min-width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.adsrv-player .adsrv-playback-rate-value {
+    font-weight: bold;
+    text-align: center;
+    padding: 0 3px;
+}
+.adsrv-player ul.adsrv-list-items {
+    display: none;
+    background-color: #2b333f;
+    background-color: rgba(43,51,63,.7);
+    bottom: 45px;
+    max-height: 15em;
+    position: absolute;
+    width: 10em;
+    right: 0;
+}
+.adsrv-player ul.adsrv-list-items li {
+    Xfont-size: 1.2em;
+    Xline-height: 1.4em;
+    list-style: none;
+    margin: 0;
+    padding: 3px 6px;
+    text-align: center;
+    Xtext-transform: lowercase;
+}
+.adsrv-player ul.adsrv-list-items li:hover,
+.adsrv-player ul.adsrv-list-items li:focus {
+    background-color: #73859f;
+    background-color: rgba(115,133,159,.5);
+}
+.adsrv-player ul.adsrv-list-items li.adsrv-selected,
+.adsrv-player ul.adsrv-list-items li.adsrv-selected:hover,
+.adsrv-player ul.adsrv-list-items li.adsrv-selected:focus {
+    background-color: #fff;
+    color: #2b333f;
+}
+.adsrv-player .adsrv-hover ul.adsrv-list-items {
+    display: block;
+}
+.adsrv-player .adsrv-fullscreen {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA5OTIgMTAyNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTkyIDEwMjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik05MDEuMSw0MTguNWgtMTcuOGMtMjIuMywwLTQ0LjUtMTcuOC00NC41LTQ0LjVWMTY5LjJINjM0Yy0yMi4zLDAtNDQuNS0xNy44LTQ0LjUtNDQuNVY4OQ0KCWMwLTIyLjMsMTcuOC00NC41LDQ0LjUtNDQuNWgzMjkuNVYzNzRjMCwyMi4zLTE3LjgsNDQuNS00NC41LDQ0LjVIOTAxLjFMOTAxLjEsNDE4LjV6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTg5LjUsOTE3LjF2LTE3LjhjMC0yMi4zLDE3LjgtNDQuNSw0NC41LTQ0LjVoMjA0LjhWNjUwYzAtMjIuMywxNy44LTQ0LjUsNDQuNS00NC41SDkxOQ0KCWMyMi4zLDAsNDQuNSwxNy44LDQ0LjUsNDQuNXYzMjkuNUg2MzRjLTIyLjMsMC00NC41LTE3LjgtNDQuNS00NC41VjkxNy4xTDU4OS41LDkxNy4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTkwLjksNjA1LjVoMTcuOGMyMi4zLDAsNDQuNSwxNy44LDQ0LjUsNDQuNXYyMDQuOEgzNThjMjIuMywwLDQ0LjUsMTcuOCw0NC41LDQ0LjVWOTM1DQoJYzAsMjIuMy0xNy44LDQ0LjUtNDQuNSw0NC41SDI4LjVWNjUwYzAtMjIuMywxNy44LTQ0LjUsNDQuNS00NC41SDkwLjlMOTAuOSw2MDUuNXoiLz4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MDIuNSwxMDYuOXYxNy44YzAsMjIuMy0xNy44LDQ0LjUtNDQuNSw0NC41SDE1My4yVjM3NGMwLDIyLjMtMTcuOCw0NC41LTQ0LjUsNDQuNUg3Mw0KCWMtMjIuMywwLTQ0LjUtMTcuOC00NC41LTQ0LjVWNDQuNUgzNThjMjIuMywwLDQ0LjUsMTcuOCw0NC41LDQ0LjVWMTA2LjlMNDAyLjUsMTA2Ljl6Ii8+DQo8L3N2Zz4NCg==);
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    background-size: 18px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.adsrv-player .adsrv-fullscreen.adsrv-off {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEwMjQgMTAyNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTY4Mi43LDBoMjAuNUM3MzAuNSwwLDc1MSwyMC41LDc1MSw0Ny44djIyNS4zaDIyNS4zYzI3LjMsMCw0Ny44LDIwLjUsNDcuOCw0Ny44djQxDQoJYzAsMjcuMy0yMC41LDQ3LjgtNDcuOCw0Ny44SDYxNC40VjQ3LjhjMC0yNy4zLDIwLjUtNDcuOCw0Ny44LTQ3LjhINjgyLjdMNjgyLjcsMHoiLz4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDI0LDY4Mi43djIwLjVjMCwyNy4zLTIwLjUsNDcuOC00Ny44LDQ3LjhINzUwLjl2MjI1LjNjMCwyNy4zLTIwLjUsNDcuOC00Ny44LDQ3LjhoLTQxDQoJYy0yNy4zLDAtNDcuOC0yMC41LTQ3LjgtNDcuOFY2MTQuNGgzNjEuOGMyNy4zLDAsNDcuOCwyMC41LDQ3LjgsNDcuOEwxMDI0LDY4Mi43TDEwMjQsNjgyLjd6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCwzNDEuM3YtMjAuNUMwLDI5My41LDIwLjUsMjczLDQ3LjgsMjczaDIyNS4zVjQ3LjhjMC0yNy4zLDIwLjUtNDcuOCw0Ny44LTQ3LjhoNDENCgljMjcuMywwLDQ3LjgsMjAuNSw0Ny44LDQ3Ljh2MzYxLjhINDcuOEMyMC41LDQwOS42LDAsMzg5LjEsMCwzNjEuOFYzNDEuM0wwLDM0MS4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTM0MS4zLDEwMjRoLTIwLjVjLTI3LjMsMC00Ny44LTIwLjUtNDcuOC00Ny44Vjc1MC45SDQ3LjhDMjAuNSw3NTAuOSwwLDczMC41LDAsNzAzLjF2LTQxDQoJYzAtMjcuMywyMC41LTQ3LjgsNDcuOC00Ny44aDM2MS44djM2MS44YzAsMjcuMy0yMC41LDQ3LjgtNDcuOCw0Ny44TDM0MS4zLDEwMjRMMzQxLjMsMTAyNHoiLz4NCjwvc3ZnPg0K);
+}
+.adsrv-player .adsrv-cc {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJjbG9zZWQtY2FwdGlvbmluZyIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLWNsb3NlZC1jYXB0aW9uaW5nIGZhLXctMTYiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQ2NCA2NEg0OEMyMS41IDY0IDAgODUuNSAwIDExMnYyODhjMCAyNi41IDIxLjUgNDggNDggNDhoNDE2YzI2LjUgMCA0OC0yMS41IDQ4LTQ4VjExMmMwLTI2LjUtMjEuNS00OC00OC00OHpNMjE4LjEgMjg3LjdjMi44LTIuNSA3LjEtMi4xIDkuMi45bDE5LjUgMjcuN2MxLjcgMi40IDEuNSA1LjYtLjUgNy43LTUzLjYgNTYuOC0xNzIuOCAzMi4xLTE3Mi44LTY3LjkgMC05Ny4zIDEyMS43LTExOS41IDE3Mi41LTcwLjEgMi4xIDIgMi41IDMuMiAxIDUuN2wtMTcuNSAzMC41Yy0xLjkgMy4xLTYuMiA0LTkuMSAxLjctNDAuOC0zMi05NC42LTE0LjktOTQuNiAzMS4yLjEgNDggNTEuMSA3MC41IDkyLjMgMzIuNnptMTkwLjQgMGMyLjgtMi41IDcuMS0yLjEgOS4yLjlsMTkuNSAyNy43YzEuNyAyLjQgMS41IDUuNi0uNSA3LjctNTMuNSA1Ni45LTE3Mi43IDMyLjEtMTcyLjctNjcuOSAwLTk3LjMgMTIxLjctMTE5LjUgMTcyLjUtNzAuMSAyLjEgMiAyLjUgMy4yIDEgNS43TDQyMCAyMjIuMmMtMS45IDMuMS02LjIgNC05LjEgMS43LTQwLjgtMzItOTQuNi0xNC45LTk0LjYgMzEuMiAwIDQ4IDUxIDcwLjUgOTIuMiAzMi42eiI+PC9wYXRoPjwvc3ZnPg==);
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.adsrv-player .adsrv-cc.adsrv-off {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhciIgZGF0YS1pY29uPSJjbG9zZWQtY2FwdGlvbmluZyIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLWNsb3NlZC1jYXB0aW9uaW5nIGZhLXctMTYiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTQ2NCA2NEg0OEMyMS41IDY0IDAgODUuNSAwIDExMnYyODhjMCAyNi41IDIxLjUgNDggNDggNDhoNDE2YzI2LjUgMCA0OC0yMS41IDQ4LTQ4VjExMmMwLTI2LjUtMjEuNS00OC00OC00OHptLTYgMzM2SDU0Yy0zLjMgMC02LTIuNy02LTZWMTE4YzAtMy4zIDIuNy02IDYtNmg0MDRjMy4zIDAgNiAyLjcgNiA2djI3NmMwIDMuMy0yLjcgNi02IDZ6bS0yMTEuMS04NS43YzEuNyAyLjQgMS41IDUuNi0uNSA3LjctNTMuNiA1Ni44LTE3Mi44IDMyLjEtMTcyLjgtNjcuOSAwLTk3LjMgMTIxLjctMTE5LjUgMTcyLjUtNzAuMSAyLjEgMiAyLjUgMy4yIDEgNS43bC0xNy41IDMwLjVjLTEuOSAzLjEtNi4yIDQtOS4xIDEuNy00MC44LTMyLTk0LjYtMTQuOS05NC42IDMxLjIgMCA0OCA1MSA3MC41IDkyLjIgMzIuNiAyLjgtMi41IDcuMS0yLjEgOS4yLjlsMTkuNiAyNy43em0xOTAuNCAwYzEuNyAyLjQgMS41IDUuNi0uNSA3LjctNTMuNiA1Ni45LTE3Mi44IDMyLjEtMTcyLjgtNjcuOSAwLTk3LjMgMTIxLjctMTE5LjUgMTcyLjUtNzAuMSAyLjEgMiAyLjUgMy4yIDEgNS43TDQyMCAyMjAuMmMtMS45IDMuMS02LjIgNC05LjEgMS43LTQwLjgtMzItOTQuNi0xNC45LTk0LjYgMzEuMiAwIDQ4IDUxIDcwLjUgOTIuMiAzMi42IDIuOC0yLjUgNy4xLTIuMSA5LjIuOWwxOS42IDI3Ljd6Ij48L3BhdGg+PC9zdmc+);
+}
+
+.adsrv-player .adsrv-close {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    margin: 0;
+    border: 1px solid #000;
+    padding: 0;
+    background-color: #fff;
+    right: 0;
+    top: -24px;
+    display: none;
+    cursor: pointer;
+}
+.adsrv-player .adsrv-close svg {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 16px;
+    width: 16px;
+    stroke: #000;
+    fill: #000;
+    stroke-width: 1.25px;
+}
+.adsrv-player.adsrv-sticky .adsrv-close {
+    display: block;
+}
+
+.adsrv-player.adsrv-ads .adsrv-overlay,
+.adsrv-player.adsrv-ads .adsrv-gradient,
+.adsrv-player.adsrv-ads .adsrv-title-bar,
+.adsrv-player.adsrv-ads .adsrv-timeline,
+.adsrv-player.adsrv-ads .adsrv-controls {
+    transition: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.adsrv-player.adsrv-hidden:not(.adsrv-ads) > * {
+    visibility: hidden;
+}
+.adsrv-player.adsrv-hidden:not(adsrv-ads) .adsrv-overlay,
+.adsrv-player.adsrv-hidden:not(adsrv-ads) .adsrv-gradient,
+.adsrv-player.adsrv-hidden:not(adsrv-ads) .adsrv-title-bar,
+.adsrv-player.adsrv-hidden:not(adsrv-ads) .adsrv-timeline,
+.adsrv-player.adsrv-hidden:not(adsrv-ads) .adsrv-controls {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.adsrv-ended {
+    /* TODO */
+}
+</style><style>.adsrv-player-4c7hEcAlmmxIyMT6iIdECGgpFx5ho18I .adsrv-video-container {
+        padding-bottom: 56.25%
+      }</style></head>
+<body class="m-0">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JGW"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="container-fluid bg-light-grey">
+    <div class="main">
+        <div class="container">
+            <div class="navbar">
+                <div class="d-flex">
+                    <a href="/" class="logo"><span>Ad</span>Serve</a>
+                </div>
+                <div class="order-lg-3">
+                    <!--<button class="navbar-toggler collapsed">
+                        <span class="icon-bar top-bar mt-0"></span>
+                        <span class="icon-bar middle-bar"></span>
+                        <span class="icon-bar bottom-bar"></span>
+                    </button>-->
+                </div>
+                <div class="navbar-collapse">
+                    <!--
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="/video-ad-player/">Video Player</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://blog.adserve.tv">Blog</a></li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <h1>Video Ad Serving Platform</h1>
+                    <p class="lead">Take full control of your video advertising with AdServe – the world's leading independent ad serving platform.</p>
+                    <a class="btn btn-outline-danger mb-3" href="https://forms.gle/gH4yTDdunmKn5jWg7" target="_blank">Contact Us</a>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div id="player1" class="paused adsrv-player adsrv-player-4c7hEcAlmmxIyMT6iIdECGgpFx5ho18I adsrv-user-active adsrv-error" style="aspect-ratio: 16 / 9;"><div class="adsrv-wrapper"><div class="adsrv-video-container"><video webkit-playsinline="true" playsinline="true" preload="metadata" tabindex="-1" class="adsrv-video" src="https://va.media.tumblr.com/tumblr_ptc9j9pX4j1rkfg7k_480.mp4" style="background-color: rgb(0, 0, 0);"></video><iframe class="adsrv-resizer" allowtransparency="true"></iframe><div class="adsrv-ad-container"><div style="position: absolute;"><div style="display: none;"><video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); height: 100%; width: 100%; position: absolute; left: 0px; top: 0px;"></video><div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div></div><div style="display: none;"><video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); height: 100%; width: 100%; position: absolute; left: 0px; top: 0px;"></video><div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div></div><iframe src="https://imasdk.googleapis.com/js/core/bridge3.752.0_en.html?gdpr=1#deid=%22%22&amp;eventfe_experiment_ids=%5B%5D&amp;fid=%22goog_958525743%22&amp;genotype_experiment_data=%7B%22experimentStateProto%22%3A%22%5B%5B%5B45713128%2Cnull%2Cnull%2C%5B%5D%5D%2C%5Bnull%2C745150931%2Cnull%2C%5Bnull%2C1%5D%5D%2C%5Bnull%2C749060184%2Cnull%2C%5Bnull%2C128%5D%5D%2C%5B841585769%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45761044%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45722344%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45706017%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45740207%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45668885%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45685340%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45765927%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45734716%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45735891%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45663239%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45715032%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45661356%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B839547366%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45676441%2Cnull%2Cnull%2C%5B%5D%5D%2C%5Bnull%2C45645574%2Cnull%2C%5B%5D%5D%2C%5B45688859%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45656766%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45710689%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45710688%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45685601%2Cnull%2Cnull%2C%5B%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5Bnull%2C500%5D%5D%2C%5Bnull%2C45767902%2Cnull%2C%5Bnull%2C500%5D%5D%2C%5B45756824%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45747172%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B775241416%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B781107959%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B781107958%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B792614055%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B781107957%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45729602%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45753603%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45753604%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45658982%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45725657%2Cnull%2Cnull%2C%5B%5D%5D%5D%2C%5B%5B16%2C%5B%5B1%2C%5B%5B31089630%5D%2C%5B31089631%2C%5B%5B45668885%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B1000%2C%5B%5B95332046%5D%5D%5D%2C%5Bnull%2C%5B%5B95332047%5D%5D%5D%2C%5B10%2C%5B%5B95338769%2C%5B%5Bnull%2C45645574%2Cnull%2C%5Bnull%2C1%5D%5D%5D%5D%2C%5B95338770%2C%5B%5Bnull%2C45645574%2Cnull%2C%5Bnull%2C2%5D%5D%5D%5D%5D%5D%2C%5B50%2C%5B%5B95345206%5D%2C%5B95345207%2C%5B%5B45661356%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B1%2C%5B%5B95351425%5D%2C%5B95351426%2C%5B%5B45676441%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B20%2C%5B%5B95356068%5D%2C%5B95356069%2C%5B%5B45685601%2Cnull%2Cnull%2C%5B%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5B%5D%5D%5D%5D%2C%5B95356070%2C%5B%5B45685601%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5B%5D%5D%5D%5D%2C%5B95356071%2C%5B%5B45685601%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5Bnull%2C100%5D%5D%5D%5D%5D%5D%2C%5B1%2C%5B%5B95373378%2C%5B%5B792614055%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95373379%2C%5B%5B45747172%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B781107959%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B792614055%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B781107957%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5Bnull%2C%5B%5B95375930%5D%2C%5B95375931%2C%5B%5B45734716%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95376520%2C%5B%5B45734716%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45735891%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5Bnull%2C%5B%5B95378095%5D%2C%5B95378096%2C%5B%5B45740207%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95378629%5D%2C%5B95378630%2C%5B%5B45729602%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95381582%2C%5B%5B45729602%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45753603%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95381583%2C%5B%5B45729602%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45753604%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95382403%5D%2C%5B95386528%2C%5B%5Bnull%2C45767902%2Cnull%2C%5B%5D%5D%2C%5B45756824%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95386532%2C%5B%5Bnull%2C45767902%2Cnull%2C%5Bnull%2C100%5D%5D%2C%5B45756824%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95386533%2C%5B%5Bnull%2C45767902%2Cnull%2C%5Bnull%2C300%5D%5D%2C%5B45756824%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95386534%2C%5B%5Bnull%2C45767902%2Cnull%2C%5Bnull%2C500%5D%5D%2C%5B45756824%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B1%2C%5B%5B95384561%5D%2C%5B95384562%2C%5B%5B846355750%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95385117%5D%2C%5B95385118%2C%5B%5B45761044%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5Bnull%2C%5B%5B95385193%5D%2C%5B95385194%2C%5B%5B45765927%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%5D%5D%5D%2Cnull%2Cnull%2C%5Bnull%2C1000%2C1%2C1000%5D%5D%22%7D&amp;imalib_experiments=%5B95342169%2C95322027%2C95331589%2C95332046%2C95345207%5D&amp;is_eap_loader=false&amp;managed_js_experiment_id=0&amp;page_correlator=314446572101095&amp;pvsid=7324587812547595&amp;top_accessible_page_url=%22https%3A%2F%2Fadserve.tv%2F%22" allowfullscreen="" allow="autoplay" id="goog_958525743" title="Advertisement" style="border: 0px; opacity: 0; margin: 0px; padding: 0px; position: relative; color-scheme: light;"></iframe><iframe title="Advertisement" style="visibility: hidden; width: 0px; height: 0px; position: absolute; left: 0px; top: 0px;"></iframe></div><div style="position: absolute; width: 487px; height: 274px;"><video webkit-playsinline="true" playsinline="true" style="width: 100%; height: 100%; background-color: rgb(0, 0, 0); display: none;"></video><div style="position: absolute; inset: 0px;"></div></div></div></div><div class="adsrv-overlay"><div class="adsrv-gradient"><div class="adsrv-gradient-top"></div><div class="adsrv-gradient-bottom"></div></div><div class="adsrv-title-bar"></div><div class="adsrv-spinner"></div><div class="adsrv-big-play"></div><div class="adsrv-control-bar"><div class="adsrv-timeline"><div class="adsrv-timeline-buffer"></div><div class="adsrv-timeline-progress" style="width: 0%;"><div class="adsrv-time-tooltip">00:00</div></div></div><div class="adsrv-controls"><button class="adsrv-prev" style="display: none;"></button><button class="adsrv-play"></button><button class="adsrv-next" style="display: none;"></button><div class="adsrv-volume adsrv-muted"></div><div class="adsrv-timer">00:00 / 00:00</div><button class="adsrv-fullscreen"></button></div></div></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="fw-bold text-uppercase">Committed to providing a brand-safe, fully-transparent environment</div>
+                </div>
+                <div class="marquee pt-3 table-responsive">
+                    <ul class="marquee__group">
+                        <li><img src="https://basil79.github.io/media/img/ias.png" alt="IAS Integral Ad Science"></li>
+                        <li><img src="https://basil79.github.io/media/img/protected-media.png" alt="Protected Media"></li>
+                        <li><img src="https://basil79.github.io/media/img/moat.png" alt="Moat"></li>
+                        <li><img src="https://basil79.github.io/media/img/white-ops.png" alt="White Ops"></li>
+                        <li><img src="https://basil79.github.io/media/img/forensiq.png" alt="Forensiq"></li>
+                        <li><img src="https://basil79.github.io/media/img/doubleverify.png" alt="DoubleVerify"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="container">
+        <div class="section">
+            <div class="left">
+                <div class="article">
+
+                    <p>AdServe is a video ad serving platform that handles tens of billions of ad requests per day. The AdServe platform collects video advertising opportunities from a network of publishers, distributes them to real-time bidders, and serves the winning ads on the publishers’ properties—all in under 100 milliseconds. Demand and supply-side customers are then able to optimize their current and future advertising allocations with AdServe’s dashboard-rich UI, which provides a transparent view of the market through granular, real-time campaign metrics.</p>
+                    <h2>Video Ad Server</h2>
+                    <p>As a <a href="/video-ad-server/" title="Video Ad Server">video-first ad server</a>, the AdServe platform is capable of supporting the full range of businesses.</p>
+                    <ul>
+                        <!--<li>Broadcasters &amp; OTT</li>-->
+                        <li>DSPs &amp; Trade Desks</li>
+                        <li>Publishers &amp; Ad Networks</li>
+                        <li>SSPs</li>
+                    </ul>
+
+                    <h3>Monetize your Video Ad Inventory</h3>
+                    <p>For every opportunity created, AdServe will generate more revenue. Our experience in tech and advertising makes that difference.</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="sticky">
+                    <div class="block"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main pt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-6 mb-4">
+                <div class="fw-bold mb-3">Products</div>
+                <ul class="nav">
+                    <li><a href="/video-ad-server/" title="Video Ad Server">Video Ad Server</a></li>
+                    <li><a href="/video-ad-player/" title="Video Player">Video Player</a></li>
+                    <li><a href="/outstream-video-player/" title="Outstream Video Player">Outstream Video Player</a></li>
+                    <li><a href="/vast-inspector/" title="VAST Inspector &amp; Video Ad Tag Tester">VAST Inspector</a></li>
+                    <li><a href="/display-ads-sdk/" title="Display Ads SDK">Display Ads SDK</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-6 mb-4">
+                <div class="fw-bold mb-3">Resources</div>
+                <ul class="nav">
+                    <li><a href="https://blog.adserve.tv" title="Blog">Blog</a></li>
+                    <li><a href="/ad-calculators/" title="Ad Calculators">Ad Calculators</a></li>
+                    <li><a href="/glossary/" title="Glossary of Advertising Terms">Glossary of Advertising Terms</a></li>
+                    <!--<li><a href="/length-converter/" title="Length conversion">Length converter</a></li>-->
+                </ul>
+            </div>
+            <div class="col-lg-3 col-6 mb-4">
+                <div class="fw-bold mb-3">Company</div>
+                <ul class="nav">
+                    <li><a href="https://forms.gle/gH4yTDdunmKn5jWg7" target="_blank">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+        Copyright © 2024 AdServe.TV. All rights reserved. <a href="/privacy-policy/">Privacy Policy</a>
+        <br>
+        <br>
+    </div>
+</div>
+
+<script src="https://basil79.github.io/media/js/player.js"></script>
+<script>
+    (function() {
+        const player1 = new adserve.Player(document.getElementById('player1'), {
+            width: 'auto',
+            height: 'auto',
+            src: 'https://va.media.tumblr.com/tumblr_ptc9j9pX4j1rkfg7k_480.mp4',
+            autoplay: 'muted',
+            loop: true,
+            controls: true,
+            ads: {
+                enabled: true,
+                desktop: {
+                    becomeInView: true,
+                    inView: {
+                        preroll: true,
+                        midroll: true,
+                        vastUrl: 'https://basil79.github.io/vast-sample-tags/pg/vast-vpaid.xml', //'http://localhost:3000/?ad=http%3A%2F%2Flocalhost%3A3031%2Fads%2Flist1.json%3Fsti%3D1%26w%3D331%26h%3D187%26v%3D1%26cb%3D667748775%26pid%3Dventurebeatcom_f%26sid%3DgQFGJOn5MTOhCMwFNbDbDOa6nktICwXj%26cid%3DAWIDVPifq0jfH7w59ZzV%26wid%3D0011r00001omyud_297%26dom%3Dlocalhost%26abc%3D%26geo%3D%26dev%3D1%26bw%3D%26os%3D%26ip%3D87.70.14.10%26url%3Dhttp%253A%252F%252F192.168.1.107%253A8000%252F%26gdpr%3D%26consent%3D%26schain%3D1.0%2C1%21anyclip.com%2C0011r00001omyudAAA%2C1%2C%2C%2C%26us_privacy%3D%26utm%3D%26pl%3Da%26ima%3D5%26clipPlayCounter%3D1%26tid%3D%24%5Btid%5D%26amznbid%3D%26amzniid%3D%26ua%3DMozilla%252F5.0%2520%28Macintosh%253B%2520Intel%2520Mac%2520OS%2520X%252010_15_7%29%2520AppleWebKit%252F605.1.15%2520%28KHTML%252C%2520like%2520Gecko%29%2520Version%252F15.6.1%2520Safari%252F605.1.15%26domain%3D192.168.1.107%26ac_custom_tag%3Dhttps%253A%252F%252Fa.com%253Fguid%253D827a41b7-7de8-40f4-b1b3-a06a71085ae4%2526c%253D1670428631366%2526site%253Dwplg&mavs=0&rqcm=1&m=0&ast=-1&smb=1&sid=gQFGJOn5MTOhCMwFNbDbDOa6nktICwXj&imaw=0&amd=1&sf=0&page_url=http%3A%2F%2F192.168.1.107%3A8000%2F&wf=1&iiq=1&iiq_pid=2016043915&iiq_t=3000&spb=0', //'https://v.adserve.tv/pg/vast-vpaid.xml', //'https://v.adserve.tv/pg/vast-vpaid.xml?cb=[CACHEBUSTER]&ts=[TIMESTAMP]&w=[WIDTH]&h=[HEIGHT]&schain=[SCHAIN]&dur=[DURATION]&v=[IS_VISIBLE]&ua=[USER_AGENT]&dnt=[DNT]&dev=[DEVICE]&domain=[DOMAIN]&url=[URL]&categories=[CATEGORIES]&tags=[TAGS]&gdpr=[GDPR]&gdpr_consent=[GDPR_CONSENT]&usp=[US_PRIVACY]&ab=[ABC]',
+                        interval: 10000, // ad request interval after AdImpression
+                        retryInterval: 10000 // ad request retry interval after AdError
+                    },
+                    notInView: {
+                        preroll: true,
+                        midroll: true,
+                        vastUrl: 'https://basil79.github.io/vast-sample-tags/rama/vast-vpaid.xml', //'https://v.adserve.tv/rama/vast.xml',
+                        interval: 15000,
+                        retryInterval: 10000
+                    },
+                },
+                mobile: {
+                    inView: {
+                        preroll: true,
+                        vastUrl: 'https://basil79.github.io/vast-sample-tags/rama/vast-vpaid.xml', //'https://v.adserve.tv/rama/vast.xml',
+                        interval: 10000, // ad request interval after AdImpression
+                        retryInterval: 10000 // ad request retry interval after AdError
+                    },
+                    notInView: {
+                        vastUrl: 'https://basil79.github.io/vast-sample-tags/pg/vast-vpaid.xml', //'https://v.adserve.tv/pg/vast-vpaid.xml?cb=[CACHEBUSTER]&ts=[TIMESTAMP]&w=[WIDTH]&h=[HEIGHT]&schain=[SCHAIN]&dur=[DURATION]&v=[IS_VISIBLE]&ua=[USER_AGENT]&dnt=[DNT]&dev=[DEVICE]&domain=[DOMAIN]&url=[URL]&categories=[CATEGORIES]&tags=[TAGS]&gdpr=[GDPR]&gdpr_consent=[GDPR_CONSENT]&usp=[US_PRIVACY]&ab=[ABC]',
+                        interval: 15000,
+                        retryInterval: 10000
+                    },
+                },
+                gdpr: true, // if true check GDPR (EU)
+                usp: true, // if true check CCPA (US Privacy)
+                schain: { // Supply Chain Object
+                    ver: '1.0',
+                    complete: 1,
+                    nodes: [{
+                        asi: 'adserve.tv',
+                        hp: 1,
+                        sid: ''
+                    }]
+                },
+                customMacros: {
+                    gptTargeting: function(key) {
+                        if(window.googletag && googletag.apiReady) {
+                            const data = googletag.pubads().getTargeting(key);
+                            return data.length != 0 ? data.toString() : '';
+                        } else {
+                            return '';
+                        }
+                    },
+                    'CATEGORIES': function() {
+                        return this.gptTargeting('categories');
+                    },
+                    'TAGS': '1,2,3'
+                }
+            },
+        }, () => {
+
+        });
+    })();
+</script>
+
+
+<script type="text/javascript" id="" charset="">window._getPPID=function(){return"test"};</script></body></html>

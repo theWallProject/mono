@@ -1,0 +1,79 @@
+[2026-03-23T23:19:26.995Z] === Homepage AI Extractor: Fanplayr ===
+[2026-03-23T23:19:26.995Z] Started at: 2026-03-23T23:19:26.995Z
+[2026-03-23T23:19:26.995Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774307966994_Fanplayr
+[2026-03-23T23:19:26.995Z] Company: Fanplayr
+[2026-03-23T23:19:26.995Z] Website: fanplayr.com
+[2026-03-23T23:19:26.995Z] cbRank: 40620
+[2026-03-23T23:19:26.995Z] Reasons: i
+[2026-03-23T23:19:26.995Z] Fetching: https://fanplayr.com
+[2026-03-23T23:19:37.459Z] Network idle timeout — continuing with current state
+[2026-03-23T23:19:37.497Z] Redirected: https://fanplayr.com -> https://fanplayr.com/
+[2026-03-23T23:19:37.505Z] Saved HTML (286245 bytes) to page.html
+[2026-03-23T23:19:37.509Z] Extracted 36 unique links from page
+[2026-03-23T23:19:37.510Z] Saved 36 links to links.json
+[2026-03-23T23:19:37.514Z] Extracted footer HTML (4984 chars)
+[2026-03-23T23:19:37.514Z] Extracted header HTML (101297 chars)
+[2026-03-23T23:19:37.522Z] Website (post-redirect): https://fanplayr.com/ → origin: https://fanplayr.com
+[2026-03-23T23:19:37.522Z]   SUBDOMAIN: 360.fanplayr.com (added to ws)
+[2026-03-23T23:19:37.522Z]   SUBDOMAIN: docs.fanplayr.com (added to ws)
+[2026-03-23T23:19:37.522Z]   SUBDOMAIN: portal.fanplayr.com (added to ws)
+[2026-03-23T23:19:37.522Z] Website subdomains found: 3
+[2026-03-23T23:19:37.522Z] External links: 4 (of 36 total)
+[2026-03-23T23:19:37.522Z] ── All external links ──
+[2026-03-23T23:19:37.522Z]   EXT: https://privacyid.ai
+[2026-03-23T23:19:37.522Z]   EXT: https://www.iubenda.com/privacy-policy/43327124/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-23T23:19:37.522Z]   EXT: https://www.linkedin.com/company/fanplayr
+[2026-03-23T23:19:37.523Z]   EXT: https://www.youtube.com/fanplayr
+[2026-03-23T23:19:37.523Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:19:37.523Z]   UNCATEGORIZED: https://privacyid.ai
+[2026-03-23T23:19:37.523Z]   UNCATEGORIZED: https://www.iubenda.com/privacy-policy/43327124/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-23T23:19:37.523Z]   REGEX: li <- https://www.linkedin.com/company/fanplayr
+[2026-03-23T23:19:37.523Z]   REGEX: ytp <- https://www.youtube.com/fanplayr
+[2026-03-23T23:19:37.523Z] Programmatic result: ws:4, li:1, ytp:1 | 2 uncategorized
+[2026-03-23T23:19:37.523Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:19:37.527Z] Saved AI prompt (5378 chars) to ai_prompt.txt
+[2026-03-23T23:19:37.527Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:19:37.531Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:19:58.534Z]   AI: First token received, streaming...
+[2026-03-23T23:20:04.955Z] AI response complete: 101 chars in 27.4s
+[2026-03-23T23:20:04.956Z] Saved AI response to ai_response.json
+[2026-03-23T23:20:04.956Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T23:20:04.956Z]   AI LINK: https://www.linkedin.com/company/fanplayr/
+[2026-03-23T23:20:04.956Z]   AI LINK: https://www.youtube.com/fanplayr
+[2026-03-23T23:20:04.957Z]   AI LINK: https://360.fanplayr.com/
+[2026-03-23T23:20:04.957Z] AI returned 3 valid links
+[2026-03-23T23:20:04.957Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T23:20:04.957Z]   AI→REGEX: li <- https://www.linkedin.com/company/fanplayr/ (duplicate, skipped)
+[2026-03-23T23:20:04.957Z]   AI→REGEX: ytp <- https://www.youtube.com/fanplayr (duplicate, skipped)
+[2026-03-23T23:20:04.957Z]   AI→URLS: https://360.fanplayr.com (cleaned from https://360.fanplayr.com/)
+[2026-03-23T23:20:04.958Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:20:04.958Z] Footer/header origins (5):
+[2026-03-23T23:20:04.958Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:20:04.959Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T23:20:04.959Z]   FOOTER/HEADER ORIGIN: https://privacyid.ai
+[2026-03-23T23:20:04.959Z]   FOOTER/HEADER ORIGIN: https://360.fanplayr.com
+[2026-03-23T23:20:04.959Z]   FOOTER/HEADER ORIGIN: https://docs.fanplayr.com
+[2026-03-23T23:20:04.959Z]   ADDED: urls <- https://privacyid.ai
+[2026-03-23T23:20:04.959Z]   SKIP (not in footer/header): https://www.iubenda.com/privacy-policy/43327124/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-23T23:20:04.959Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T23:20:04.959Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:20:04.959Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:20:04.959Z] ── Step 3: Final dedup ──
+[2026-03-23T23:20:04.959Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T23:20:04.959Z] ── FINAL RESULT ──
+[2026-03-23T23:20:04.960Z]   ws (4):
+[2026-03-23T23:20:04.960Z]     - https://360.fanplayr.com
+[2026-03-23T23:20:04.960Z]     - https://docs.fanplayr.com
+[2026-03-23T23:20:04.960Z]     - https://fanplayr.com
+[2026-03-23T23:20:04.960Z]     - https://portal.fanplayr.com
+[2026-03-23T23:20:04.960Z]   li (1):
+[2026-03-23T23:20:04.960Z]     - https://www.linkedin.com/company/fanplayr
+[2026-03-23T23:20:04.960Z]   ytp (1):
+[2026-03-23T23:20:04.961Z]     - https://www.youtube.com/@fanplayr
+[2026-03-23T23:20:04.961Z]   urls (2):
+[2026-03-23T23:20:04.961Z]     - https://360.fanplayr.com
+[2026-03-23T23:20:04.961Z]     - https://privacyid.ai
+[2026-03-23T23:20:04.961Z] Summary: ws:4, li:1, ytp:1, urls:2
+[2026-03-23T23:20:04.962Z] Saved final result to result.json
+[2026-03-23T23:20:04.962Z] Override fields: ws, li, ytp, urls
+[2026-03-23T23:20:04.962Z] Finished at: 2026-03-23T23:20:04.962Z

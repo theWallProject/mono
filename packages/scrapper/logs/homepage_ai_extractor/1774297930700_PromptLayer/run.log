@@ -1,0 +1,68 @@
+[2026-03-23T20:32:10.701Z] === Homepage AI Extractor: PromptLayer ===
+[2026-03-23T20:32:10.701Z] Started at: 2026-03-23T20:32:10.701Z
+[2026-03-23T20:32:10.701Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774297930700_PromptLayer
+[2026-03-23T20:32:10.701Z] Company: PromptLayer
+[2026-03-23T20:32:10.701Z] Website: promptlayer.com
+[2026-03-23T20:32:10.701Z] cbRank: 15830
+[2026-03-23T20:32:10.701Z] Reasons: i
+[2026-03-23T20:32:10.701Z] Fetching: https://promptlayer.com
+[2026-03-23T20:32:13.977Z] Redirected: https://promptlayer.com -> https://www.promptlayer.com/
+[2026-03-23T20:32:14.047Z] Saved HTML (3504389 bytes) to page.html
+[2026-03-23T20:32:14.052Z] Extracted 23 unique links from page
+[2026-03-23T20:32:14.053Z] Saved 23 links to links.json
+[2026-03-23T20:32:14.056Z] No footer section found in DOM
+[2026-03-23T20:32:14.056Z] Extracted header HTML (7402 chars)
+[2026-03-23T20:32:14.059Z] Website (post-redirect): https://www.promptlayer.com/ → origin: https://www.promptlayer.com
+[2026-03-23T20:32:14.059Z]   SUBDOMAIN: dashboard.promptlayer.com (added to ws)
+[2026-03-23T20:32:14.059Z]   SUBDOMAIN: docs.promptlayer.com (added to ws)
+[2026-03-23T20:32:14.059Z] Website subdomains found: 2
+[2026-03-23T20:32:14.059Z] External links: 4 (of 23 total)
+[2026-03-23T20:32:14.059Z] ── All external links ──
+[2026-03-23T20:32:14.059Z]   EXT: https://discord.com/invite/DBAhQbW39S
+[2026-03-23T20:32:14.059Z]   EXT: https://github.com/MagnivOrg/prompt-layer-library
+[2026-03-23T20:32:14.060Z]   EXT: https://twitter.com/promptlayer
+[2026-03-23T20:32:14.060Z]   EXT: https://www.linkedin.com/company/promptlayer
+[2026-03-23T20:32:14.060Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T20:32:14.060Z]   UNCATEGORIZED: https://discord.com/invite/DBAhQbW39S
+[2026-03-23T20:32:14.060Z]   REGEX: gh <- https://github.com/MagnivOrg/prompt-layer-library
+[2026-03-23T20:32:14.060Z]   REGEX: tw <- https://twitter.com/promptlayer
+[2026-03-23T20:32:14.060Z]   REGEX: li <- https://www.linkedin.com/company/promptlayer
+[2026-03-23T20:32:14.060Z] Programmatic result: ws:3, gh:1, tw:1, li:1 | 1 uncategorized
+[2026-03-23T20:32:14.060Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T20:32:14.063Z] Saved AI prompt (1979 chars) to ai_prompt.txt
+[2026-03-23T20:32:14.064Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T20:32:14.068Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T20:32:20.393Z]   AI: First token received, streaming...
+[2026-03-23T20:32:22.849Z] AI response complete: 37 chars in 8.8s
+[2026-03-23T20:32:22.851Z] Saved AI response to ai_response.json
+[2026-03-23T20:32:22.851Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T20:32:22.851Z]   AI LINK: https://discord.com/invite/DBAhQbW39S
+[2026-03-23T20:32:22.851Z] AI returned 1 valid links
+[2026-03-23T20:32:22.851Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T20:32:22.852Z]   AI→URLS: https://discord.com/invite/DBAhQbW39S
+[2026-03-23T20:32:22.852Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T20:32:22.852Z] Footer/header origins (1):
+[2026-03-23T20:32:22.852Z]   FOOTER/HEADER ORIGIN: https://dashboard.promptlayer.com
+[2026-03-23T20:32:22.853Z]   SKIP (AI claimed): https://discord.com/invite/DBAhQbW39S
+[2026-03-23T20:32:22.853Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T20:32:22.853Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T20:32:22.853Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T20:32:22.853Z] ── Step 3: Final dedup ──
+[2026-03-23T20:32:22.853Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T20:32:22.853Z] ── FINAL RESULT ──
+[2026-03-23T20:32:22.853Z]   ws (3):
+[2026-03-23T20:32:22.853Z]     - https://dashboard.promptlayer.com
+[2026-03-23T20:32:22.853Z]     - https://docs.promptlayer.com
+[2026-03-23T20:32:22.854Z]     - https://www.promptlayer.com
+[2026-03-23T20:32:22.854Z]   li (1):
+[2026-03-23T20:32:22.854Z]     - https://www.linkedin.com/company/promptlayer
+[2026-03-23T20:32:22.854Z]   tw (1):
+[2026-03-23T20:32:22.854Z]     - https://x.com/promptlayer
+[2026-03-23T20:32:22.854Z]   gh (1):
+[2026-03-23T20:32:22.854Z]     - https://github.com/magnivorg
+[2026-03-23T20:32:22.854Z]   urls (1):
+[2026-03-23T20:32:22.854Z]     - https://discord.com/invite/DBAhQbW39S
+[2026-03-23T20:32:22.854Z] Summary: ws:3, gh:1, tw:1, li:1, urls:1
+[2026-03-23T20:32:22.855Z] Saved final result to result.json
+[2026-03-23T20:32:22.855Z] Override fields: ws, li, tw, gh, urls
+[2026-03-23T20:32:22.856Z] Finished at: 2026-03-23T20:32:22.856Z

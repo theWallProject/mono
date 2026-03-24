@@ -1,0 +1,64 @@
+[2026-03-21T09:35:03.630Z] === Homepage AI Extractor: OutOfScreens ===
+[2026-03-21T09:35:03.630Z] Started at: 2026-03-21T09:35:03.630Z
+[2026-03-21T09:35:03.630Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774085703630_OutOfScreens
+[2026-03-21T09:35:03.630Z] Company: OutOfScreens
+[2026-03-21T09:35:03.630Z] Website: outofscreens.com
+[2026-03-21T09:35:03.630Z] cbRank: 3202811
+[2026-03-21T09:35:03.630Z] Reasons: h
+[2026-03-21T09:35:03.630Z] Fetching: https://outofscreens.com
+[2026-03-21T09:35:15.369Z] Network idle timeout — continuing with current state
+[2026-03-21T09:35:15.400Z] Redirected: https://outofscreens.com -> https://www.outofscreens.com/
+[2026-03-21T09:35:15.414Z] Saved HTML (705081 bytes) to page.html
+[2026-03-21T09:35:15.417Z] Extracted 8 unique links from page
+[2026-03-21T09:35:15.418Z] Saved 8 links to links.json
+[2026-03-21T09:35:15.420Z] Extracted footer HTML (383 chars)
+[2026-03-21T09:35:15.420Z] Extracted header HTML (1541 chars)
+[2026-03-21T09:35:15.424Z] Website (post-redirect): https://www.outofscreens.com/ → origin: https://www.outofscreens.com
+[2026-03-21T09:35:15.424Z] External links: 4 (of 8 total)
+[2026-03-21T09:35:15.424Z] ── All external links ──
+[2026-03-21T09:35:15.424Z]   EXT: http://www.facebook.com/wix
+[2026-03-21T09:35:15.424Z]   EXT: http://www.twitter.com/wix
+[2026-03-21T09:35:15.424Z]   EXT: https://instagram.com/wix
+[2026-03-21T09:35:15.424Z]   EXT: https://www.pinterest.com/wixcom
+[2026-03-21T09:35:15.424Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T09:35:15.425Z]   REGEX: fb <- http://www.facebook.com/wix
+[2026-03-21T09:35:15.425Z]   REGEX: tw <- http://www.twitter.com/wix
+[2026-03-21T09:35:15.425Z]   REGEX: ig <- https://instagram.com/wix
+[2026-03-21T09:35:15.425Z]   UNCATEGORIZED: https://www.pinterest.com/wixcom
+[2026-03-21T09:35:15.425Z] Programmatic result: ws:1, fb:1, tw:1, ig:1 | 1 uncategorized
+[2026-03-21T09:35:15.425Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T09:35:15.426Z] Saved AI prompt (2239 chars) to ai_prompt.txt
+[2026-03-21T09:35:15.426Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T09:35:15.430Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T09:35:23.043Z]   AI: First token received, streaming...
+[2026-03-21T09:35:23.960Z] AI response complete: 32 chars in 8.5s
+[2026-03-21T09:35:23.961Z] Saved AI response to ai_response.json
+[2026-03-21T09:35:23.962Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T09:35:23.962Z]   AI LINK: https://www.pinterest.com/wixcom
+[2026-03-21T09:35:23.962Z] AI returned 1 valid links
+[2026-03-21T09:35:23.962Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T09:35:23.962Z]   AI→URLS: https://www.pinterest.com/wixcom
+[2026-03-21T09:35:23.963Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T09:35:23.963Z] Footer/header origins (1):
+[2026-03-21T09:35:23.963Z]   FOOTER/HEADER ORIGIN: https://www.outofscreens.com
+[2026-03-21T09:35:23.963Z]   SKIP (AI claimed): https://www.pinterest.com/wixcom
+[2026-03-21T09:35:23.963Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T09:35:23.963Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T09:35:23.963Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T09:35:23.963Z] ── Step 3: Final dedup ──
+[2026-03-21T09:35:23.963Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T09:35:23.964Z] ── FINAL RESULT ──
+[2026-03-21T09:35:23.964Z]   ws (1):
+[2026-03-21T09:35:23.964Z]     - https://www.outofscreens.com
+[2026-03-21T09:35:23.964Z]   fb (1):
+[2026-03-21T09:35:23.964Z]     - https://www.facebook.com/wix
+[2026-03-21T09:35:23.964Z]   tw (1):
+[2026-03-21T09:35:23.964Z]     - https://x.com/wix
+[2026-03-21T09:35:23.964Z]   ig (1):
+[2026-03-21T09:35:23.964Z]     - https://www.instagram.com/wix
+[2026-03-21T09:35:23.964Z]   urls (1):
+[2026-03-21T09:35:23.965Z]     - https://www.pinterest.com/wixcom
+[2026-03-21T09:35:23.965Z] Summary: ws:1, fb:1, tw:1, ig:1, urls:1
+[2026-03-21T09:35:23.966Z] Saved final result to result.json
+[2026-03-21T09:35:23.966Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-21T09:35:23.966Z] Finished at: 2026-03-21T09:35:23.966Z

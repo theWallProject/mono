@@ -1,0 +1,1281 @@
+<!DOCTYPE html><html data-wf-domain="volumez.com" data-wf-page="697f0ed10fa3efb03f6269f6" data-wf-site="697f0ed00fa3efb03f6269c4" lang="en" class=" w-mod-js"><head><style>.wf-force-outline-none[tabindex="-1"]:focus{outline:none;}</style><meta charset="utf-8"><title>Deploy &amp; Operate AI Agents at Scale | Volumez</title><meta content="Agentic AI is ready—enterprise infrastructure isn’t. Ship agentic AI to production faster with one governed platform that lowers TCO and reduces risk." name="description"><meta content="Deploy &amp; Operate AI Agents at Scale | Volumez" property="og:title"><meta content="Agentic AI is ready—enterprise infrastructure isn’t. Ship agentic AI to production faster with one governed platform that lowers TCO and reduces risk." property="og:description"><meta content="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698dc3c03de73edbaf042a8a_Share%20thumbnail%20(1).jpg" property="og:image"><meta content="Deploy &amp; Operate AI Agents at Scale | Volumez" property="twitter:title"><meta content="Agentic AI is ready—enterprise infrastructure isn’t. Ship agentic AI to production faster with one governed platform that lowers TCO and reduces risk." property="twitter:description"><meta property="og:type" content="website"><meta content="summary_large_image" name="twitter:card"><meta content="width=device-width, initial-scale=1" name="viewport"><meta content="Webflow" name="generator"><link href="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/css/volumez-staging.webflow.shared.21748b71d.css" rel="stylesheet" type="text/css" integrity="sha384-IXSLcdE1Z55oL+aWqmo/6yD8MVLwylfRu8kJovkhvRdT8t+927Ml3F7MRSaldKRB" crossorigin="anonymous"><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6980353945438548a4a66b21_favicon-dark.png" rel="shortcut icon" type="image/x-icon"><link href="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698036696dfbb91e86e3c955_webclip-dark.png" rel="apple-touch-icon"><link href="https://volumez.com" rel="canonical"><style>
+[data-split-text-item] {
+  overflow: visible;
+}
+
+[data-split-text-item] .word {
+  white-space: nowrap;
+  display: inline-block;
+  overflow: visible;
+}
+
+[data-split-text-item] .char {
+  display: inline-block;
+  will-change: opacity;
+}
+</style></head><body><div class="css w-embed"><style>
+  :root {
+    --font-from: 11;
+    --font-to: 11;
+    --vw-from: calc(1920 / 100);
+    --vw-to: calc(2560 / 100);
+    --coefficient: calc((var(--font-to) - var(--font-from)) / (var(--vw-to) - var(--vw-from)));
+    --base: calc((var(--font-from) - var(--vw-from) * var(--coefficient)) / 16);
+  }
+
+  html {
+    font-size: calc(var(--base) * 1rem + var(--coefficient) * 1vw);
+  }
+
+  @media screen and (max-width: 1920px) {
+    :root {
+      --font-from: 10;
+      --font-to: 11;
+      --vw-from: calc(1280 / 100);
+      --vw-to: calc(1920 / 100);
+      }
+  }
+
+  @media screen and (max-width: 1280px) {
+    :root {
+      --font-from: 9;
+      --font-to: 10;
+      --vw-from: calc(992 / 100);
+      --vw-to: calc(1280 / 100);
+      }
+  }
+
+  @media screen and (max-width: 992px) {
+    :root {
+      --font-from: 10;
+      --font-to: 10;
+      --vw-from: calc(1 / 100);
+      --vw-to: calc(992 / 100);
+      }
+  }
+</style></div><div class="css w-embed"><style>
+/* CSS Grid Pattern Background */
+body {
+  background-color: var(--colors--near-black);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 2px);
+  background-size: 32px 32px;
+  background-position: 0 0, 0 0;
+}
+
+/* Hide elements with [hide-tablet] on 991px and below */
+@media (max-width: 991px) {
+  [hide-tablet] {
+    display: none !important;
+  }
+}
+
+/* Hide elements with [hide-desktop] on 992px and above */
+@media (min-width: 992px) {
+  [hide-desktop] {
+    display: none !important;
+  }
+}
+
+/* Gradient Text with Stroke - Based on Figma Design */
+
+/* Apply this to your text element using a custom attribute like data-gradient="card-text" */
+
+/* Gradient Text with Stroke - Version 1 */
+/* Light mint to dark green gradient (left to right diagonal) */
+
+[data-gradient="gradient-v1"] {
+  background: linear-gradient(96deg, #1EC289 0%, #D0FFF5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 0.75px #1EC289;
+  
+  /* Inner Shadows */
+  text-shadow: 
+    0px 4px 2px rgba(255, 255, 255, 0.08),
+    -2px -4px 8px rgba(29, 29, 29, 0.20);
+}
+
+/* Gradient Text with Stroke - Version 2 */
+/* Light mint to gray gradient */
+
+[data-gradient="gradient-v2"] {
+  background: linear-gradient(96deg, #5C5C5C 0%, #D0FFF5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 0.75px #FFFFFF;
+  
+  /* Inner Shadows */
+  text-shadow: 
+    0px 4px 2px rgba(255, 255, 255, 0.08),
+    -2px -4px 8px rgba(29, 29, 29, 0.20);
+}
+
+[data-gradient="gradient-v3"] {
+  background: linear-gradient(91deg, #38CA97 49%, #7ADFBD 82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 0.2px #DDFFF5;
+	text-shadow: 
+    0px 4px 2px rgba(255, 255, 255, 0.08),
+    -2px -4px 8px rgba(29, 29, 29, 0.2);
+}
+
+[data-gradient="gradient-v4"] {
+  background: linear-gradient(2deg, #22AC7B 0%, #22AC7B 60%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-gradient-green] {
+  background: linear-gradient(-9deg, #FFFFFF 0%, #22AC7B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hp-articles_text-w {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.legal_rt h2:first-child, .legal_rt p:first-child {
+	margin-top: 0;
+}
+
+.legal_rt p:last-child, .legal_rt ul:last-child {
+	margin-bottom: 0;
+}
+
+.legal_rt ul li {
+  margin-bottom: 1.6rem;
+}
+
+@media (max-width: 991px) {
+	.hp-hero_content .button,
+  .nav_menu-buttons-w .button {
+    width: 100%;
+  }
+}
+</style></div><div class="nav_holder"><div class="nav_border"><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav"><div class="container full-width"><div class="nav_inner"><a href="/" aria-current="page" class="nav_logo-link w-nav-brand w--current" aria-label="home"><img loading="lazy" src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69804e1de082299197c3d5f6_logo_primary-light.svg" alt="" class="nav_logo-img"></a><nav role="navigation" class="nav_menu w-nav-menu"><div hide-desktop="" class="blank"></div><div class="nav_menu-links-w"><div data-delay="100" data-hover="true" class="nav_dropdown w-dropdown"><div class="dropdown-toggle w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="nav_link">Case Studies / Industries</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none" class="icon-14 dropdown-icon"><path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><nav class="nav_dropdown-list w-dropdown-list" id="w-dropdown-list-0" aria-labelledby="w-dropdown-toggle-0"><div class="nav_dropdown-outer"><div class="nav_dropdown-w"><div class="nav_dropdown-inner"><ul role="list" class="nav_dropdown-inner-links w-list-unstyled"><li><div class="nav_link-w"><a href="/case-studies/the-billion-dollar-rescue" class="nav_dropdown-link font-weight_400" tabindex="0">The Billion-Dollar Rescue</a><div class="nav_link-underline"></div></div></li><li><div class="nav_link-w"><a href="/case-studies/the-zero-hour-threat-hunter" class="nav_dropdown-link font-weight_400" tabindex="0">The "Zero-Hour" Threat Hunter</a><div class="nav_link-underline"></div></div></li><li><div class="nav_link-w"><a href="/case-studies/the-time-travel-quality-guardian" class="nav_dropdown-link font-weight_400" tabindex="0">The "Time-Travel" Quality Guardian</a><div class="nav_link-underline"></div></div></li><li><div class="nav_link-w"><a href="/case-studies/the-day-zero-perception-leap" class="nav_dropdown-link font-weight_400" tabindex="0">The “Day-Zero” Perception Leap</a><div class="nav_link-underline"></div></div></li><li><div class="nav_link-w"><a href="/case-studies/the-instant-fraud-aml-sentinel" class="nav_dropdown-link font-weight_400" tabindex="0">The "Instant" Fraud &amp; AML Sentinel</a><div class="nav_link-underline"></div></div></li><li><div class="nav_link-w"><a href="/case-studies/the-wildfire-outage-prevention-commander" class="nav_dropdown-link font-weight_400" tabindex="0">The Wildfire &amp; Outage Prevention Commander</a><div class="nav_link-underline"></div></div></li></ul></div></div></div></nav></div><div class="nav_link-w"><a href="/about" class="nav_link w-nav-link">About Us</a><div class="nav_link-underline"></div></div><div class="nav_link-w"><a href="/solutions" class="nav_link w-nav-link">Block Solution</a><div class="nav_link-underline"></div></div><div class="nav_link-w"><a href="/open-positions" class="nav_link w-nav-link">Careers</a><div class="nav_link-underline"></div></div></div><div hide-desktop="" class="nav_menu-buttons-w"><a href="/contact-us" class="button is--tertiary w-inline-block"><div class="button-text">Contact Us</div></a><div class="button-w"><a href="/contact-us" class="button w-inline-block"><div class="button-text">Get a Demo</div></a><div class="button-hover-border"></div><div class="button_css w-embed"><style>
+/* ============================================
+   PRIMARY BUTTON (complex structure with .button-w)
+   ============================================ */
+
+/* Add transitions to elements that will change */
+.button-w {
+  transition: box-shadow 0.3s ease;
+}
+
+.button-hover-border {
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state */
+.button-w:hover .button-hover-border {
+  background-color: var(--colors--primary);
+}
+
+.button-w:hover {
+  box-shadow: none;
+}
+
+/* Active/Pressed state */
+.button-w:active .button-hover-border {
+  background-color: var(--colors--transparent);
+}
+
+.button-w:active {
+  box-shadow: none;
+}
+</style></div></div></div></nav><div class="nav_button-w"><div hide-tablet="" class="hide-tablet"><div class="button-w"><a href="/contact-us" class="button w-inline-block"><div class="button-text">Get a Demo</div></a><div class="button-hover-border"></div><div class="button_css w-embed"><style>
+/* ============================================
+   PRIMARY BUTTON (complex structure with .button-w)
+   ============================================ */
+
+/* Add transitions to elements that will change */
+.button-w {
+  transition: box-shadow 0.3s ease;
+}
+
+.button-hover-border {
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state */
+.button-w:hover .button-hover-border {
+  background-color: var(--colors--primary);
+}
+
+.button-w:hover {
+  box-shadow: none;
+}
+
+/* Active/Pressed state */
+.button-w:active .button-hover-border {
+  background-color: var(--colors--transparent);
+}
+
+.button-w:active {
+  box-shadow: none;
+}
+</style></div></div></div><div class="nav_button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 menu"><path d="M4 8.5L20 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 15.5L20 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 close"><path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div></div></div><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div></div><div class="nav_css w-embed"><style>
+[data-nav-menu-open] {
+	display: flex !important;
+}
+
+.w-nav-button.w--open .icon-24.menu {
+  opacity: 0;
+}
+
+.w-nav-button.w--open .icon-24.close {
+  opacity: 1;
+}
+
+.dropdown-toggle.w--open .icon-14.dropdown-icon {
+	transform: rotate(180deg);
+  color: var(--colors--primary);
+}
+
+@media (min-width: 992px) {
+	.nav_dropdown-list {
+    display: block !important;
+  }
+}
+
+.nav_dropdown-list {
+	opacity: 0;
+  background-color: transparent;
+  pointer-events: none;
+  transition-property: opacity;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+}
+
+.nav_dropdown-list.w--open {
+	opacity: 1 !important;
+  pointer-events: auto;
+}
+
+.nav_dropdown:hover .nav_link {
+	color: var(--colors--primary);
+}
+
+
+.nav_link-w:hover .nav_link-underline {
+	transform: translateX(0%);
+  background-color: var(--colors--primary);
+}
+
+.nav_link-w:hover .nav_link,
+.nav_link-w:hover .nav_dropdown-link {
+	color: var(--colors--primary);
+}
+
+
+</style></div></div><main class="main overflow-visible"><section class="hp-hero_section"><div class="container _1210"><div class="hp-hero_wrap"><div class="hp-hero_video-w"><div class="hp-hero_video-embed w-embed"><video autoplay="" muted="" playsinline="" id="rubiks-video" poster="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69881bd0fa5989f56bb401a7_Rubiks-animation_000.webp" style="width:100%; height:auto; display:block; background:transparent;">
+<source src="https://volumez-matrix-website.s3.amazonaws.com/Chrome/Regular+size.webm" type="video/webm"></video></div></div><div class="hp-hero_content"><h1 class="h2 line-hight_1-2">Solve infrastructure challenges.<br>Deploy and Operate AI Agents At Scale <span class="font-weight_700 color_primary-light">With Volumez</span></h1><div class="button-w"><a href="/contact-us" class="button w-inline-block"><div class="button-text">Get a Demo</div></a><div class="button-hover-border"></div><div class="button_css w-embed"><style>
+/* ============================================
+   PRIMARY BUTTON (complex structure with .button-w)
+   ============================================ */
+
+/* Add transitions to elements that will change */
+.button-w {
+  transition: box-shadow 0.3s ease;
+}
+
+.button-hover-border {
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state */
+.button-w:hover .button-hover-border {
+  background-color: var(--colors--primary);
+}
+
+.button-w:hover {
+  box-shadow: none;
+}
+
+/* Active/Pressed state */
+.button-w:active .button-hover-border {
+  background-color: var(--colors--transparent);
+}
+
+.button-w:active {
+  box-shadow: none;
+}
+</style></div></div></div></div></div></section><section class="hp-claim_section"><div class="container full-width"><div data-split-text-trigger="" class="hp-clain_wrap"><h2 data-split-text-item="" class="h1 mobile-h2"><span class="claim-text_green" style="display: inline-block; position: relative;"><div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">A</div><div class="char" style="display: inline-block; opacity: 0.05;">g</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">c</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">A</div><div class="char" style="display: inline-block; opacity: 0.05;">I</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">s</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">R</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">a</div><div class="char" style="display: inline-block; opacity: 0.05;">d</div><div class="char" style="display: inline-block; opacity: 0.05;">y</div></div></span><br><span class="claim-text_red" style="display: inline-block; position: relative;"><div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">E</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">p</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">s</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">f</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">a</div><div class="char" style="display: inline-block; opacity: 0.05;">s</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">u</div><div class="char" style="display: inline-block; opacity: 0.05;">c</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">u</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">s</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">’</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">.</div></div></span></h2></div></div></section><section class="hp-articles_section"><div class="container full-width"><div class="hp-articles_wrap"><div class="hp-articles_collection w-dyn-list"><div id="cards" role="list" class="hp-articles_list w-dyn-items"><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"Laying the right data foundation today is what turns the vision of AI-enabled supply chains into reality tomorrow."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">October 14, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"By 2030, 70% of governments will enforce digital sovereignty laws, requiring CIOs to redesign data architectures for compliance and cross-border resilience."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">November 19, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"An agentic AI safety and security playbook provides a blueprint for deploying agentic AI in a way that's more secure."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">September 12, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"By 2026, 50% of Global 2000 firms will prioritize data governance, curate valuable data assets, and build data product capabilities to achieve AI maturity."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">October 8, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"Leaders should implement assessment and monitoring processes, and deploy AI governance platforms to streamline assessment, auditing, and remediation."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">November 4, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"Large providers will establish expansive, integrated ecosystems that significantly improve agentic performance, leading to more reliable products targeted at specific business outcomes."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">October 7, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"Critical decisions around technology, trust, governance, what to buy versus what to build... are important to drive a wider transformation."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">October 1, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"Firms will build MCP servers to secure access to enterprise data and correlate information from disparate sources and assets."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">November 5, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"Through 2027, GenAI and AI agent use will create the first true challenge to mainstream productivity tools in 30 years."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">October 21, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"This could enable near-zero marginal costs for goods and services and allow humans and agents to work side by side."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">September 26, 2025</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"To scale this transformation responsibly, organizations must adopt agentic platforms and architectures... provide reusable, high-performing 'atomic' agents and data products equipped with safety guardrails."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">January 9, 2026</div></div></div></div><div role="listitem" class="hp-articles_item w-dyn-item"><div class="hp-articles_card"><div class="hp-articles_text-w"><p class="body-lg">"This will force businesses to quantify ROI and address governance challenges before expanding to larger transformation initiatives and higher-value use cases."</p></div><div class="hp-articles_bottom"><div class="body-sm">Gartner</div><div class="hp-articles_divider"></div><div class="body-sm">October 28, 2025</div></div></div></div></div></div><div class="css w-embed"><style>
+/* Transform every second column down by 4rem on desktop only */
+@media (min-width: 992px) {
+  .hp-articles_list .w-dyn-item:nth-child(4n+2),
+  .hp-articles_list .w-dyn-item:nth-child(4n+4) {
+    transform: translateY(4rem);
+  }
+}
+
+/* Glow Card Effect Styles - DESKTOP ONLY */
+:root {
+    --bg-color: rgb(20, 20, 20);
+    --card-color: rgb(23, 23, 23);
+}
+
+/* Only apply glow effects on desktop (992px and above) */
+@media (min-width: 992px) {
+    .hp-articles_item {
+        position: relative;
+    }
+
+    #cards:hover > .hp-articles_item::after {
+        opacity: 1;
+    }
+
+    .hp-articles_item:hover::before {
+        opacity: 1;
+    }
+
+    .hp-articles_item::before,
+    .hp-articles_item::after {
+        border-radius: inherit;
+        content: "";
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
+        pointer-events: none;
+    }
+
+    .hp-articles_item::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%
+        );
+        z-index: 3;
+    }
+
+    .hp-articles_item::after {
+        background: radial-gradient(
+            600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.4),
+            transparent 40%
+        );
+        z-index: 1;
+    }
+
+    .hp-articles_card {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+
+/* Marquee Animation - Tablet Only */
+@media (max-width: 991px) {
+  /* Ensure collection wrapper handles overflow */
+  .hp-articles_collection {
+    overflow: hidden !important;
+    position: relative;
+  }
+  
+  /* Row containers */
+  .hp-articles_marquee-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem; /* Match your row-gap */
+    width: 100%;
+  }
+  
+  /* Individual rows */
+  .hp-articles_marquee-row {
+    display: flex;
+    gap: 2.4rem;
+    flex-wrap: nowrap;
+    width: max-content;
+    will-change: transform; /* Performance optimization */
+  }
+  
+  /* Bottom row: reverse flex direction so it starts from the right */
+  .hp-articles_row-bottom {
+    flex-direction: row-reverse;
+  }
+  
+  /* Ensure cards maintain their styling */
+  .hp-articles_marquee-row .hp-articles_item {
+    flex-shrink: 0; /* Prevent cards from shrinking */
+  }
+}
+</style></div></div></div></section><section class="hp-platform_section"><div class="container full-width"><div data-split-text-trigger="" class="hp-platform_wrap"><h2 data-split-text-item="" class="h1 font-weight_500 color_primary mobile-h2"><div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">T</div><div class="char" style="display: inline-block; opacity: 0.05;">h</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">V</div><div class="char" style="display: inline-block; opacity: 0.05;">o</div><div class="char" style="display: inline-block; opacity: 0.05;">l</div><div class="char" style="display: inline-block; opacity: 0.05;">u</div><div class="char" style="display: inline-block; opacity: 0.05;">m</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">z</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">A</div><div class="char" style="display: inline-block; opacity: 0.05;">g</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">c</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">P</div><div class="char" style="display: inline-block; opacity: 0.05;">l</div><div class="char" style="display: inline-block; opacity: 0.05;">a</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">f</div><div class="char" style="display: inline-block; opacity: 0.05;">o</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">m</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">s</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">y</div><div class="char" style="display: inline-block; opacity: 0.05;">o</div><div class="char" style="display: inline-block; opacity: 0.05;">u</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">p</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">o</div><div class="char" style="display: inline-block; opacity: 0.05;">d</div><div class="char" style="display: inline-block; opacity: 0.05;">u</div><div class="char" style="display: inline-block; opacity: 0.05;">c</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">o</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">a</div><div class="char" style="display: inline-block; opacity: 0.05;">d</div><div class="char" style="display: inline-block; opacity: 0.05;">y</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">b</div><div class="char" style="display: inline-block; opacity: 0.05;">a</div><div class="char" style="display: inline-block; opacity: 0.05;">c</div><div class="char" style="display: inline-block; opacity: 0.05;">k</div><div class="char" style="display: inline-block; opacity: 0.05;">b</div><div class="char" style="display: inline-block; opacity: 0.05;">o</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">f</div><div class="char" style="display: inline-block; opacity: 0.05;">o</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">p</div><div class="char" style="display: inline-block; opacity: 0.05;">r</div><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">s</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">a</div><div class="char" style="display: inline-block; opacity: 0.05;">g</div><div class="char" style="display: inline-block; opacity: 0.05;">e</div><div class="char" style="display: inline-block; opacity: 0.05;">n</div><div class="char" style="display: inline-block; opacity: 0.05;">t</div><div class="char" style="display: inline-block; opacity: 0.05;">i</div><div class="char" style="display: inline-block; opacity: 0.05;">c</div></div> <div class="word" style="display: inline-block;"><div class="char" style="display: inline-block; opacity: 0.05;">A</div><div class="char" style="display: inline-block; opacity: 0.05;">I</div></div></h2></div></div></section><section class="hp-stats_section"><div class="container _1046"><div hide-tablet="" class="hp-stats_wrap"><div class="hp-stats_track"><div class="hp-stats_cards-sticky" style="translate: none; rotate: none; scale: none; opacity: 1; filter: blur(0px); transform: translate(0px, 0px);"><div class="hp-stats_cards-inner"><div class="hp-stats_card-w"><div class="hp-stats_card is--01"><div class="h4 font-weight_500 color_primary">Volumez Solution</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v1" class="h1 font-weight_700">&gt;13</div><div class="h4 font-weight_500 color_primary-light">TB/Sec</div></div><div class="h5">GPU Direct Bandwidth</div><div class="hp-stats_bottom-text"><p class="body-md">LLM training/fine-tuning, multimodal training, and large-scale embedding + index builds.</p><p class="body-md">Keeps GPUs fed for GPU-ETL and high-throughput inference with large inputs.</p></div></div></div><div class="hp-stats_card-w is--smaller"><div class="hp-stats_card is--02"><div class="h4 font-weight_500">Others</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v2" class="h1 font-weight_700">&lt;2</div><div class="h4 font-weight_500">TB/Sec</div></div><div class="h5">GPU Direct Bandwidth</div></div></div></div></div><div class="hp-stats_cards-sticky" style="translate: none; rotate: none; scale: none; opacity: 1; filter: blur(0px); transform: translate(0px, 0px);"><div class="hp-stats_cards-inner"><div class="hp-stats_card-w"><div class="hp-stats_card is--01"><div class="h4 font-weight_500 color_primary">Volumez Solution</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v1" class="h1 font-weight_700 tablet-7">&lt;500ms</div><div class="h4 font-weight_500 color_primary-light">TB/Sec</div></div><div class="h5">GPU Direct Bandwidth</div><div class="hp-stats_bottom-text"><p class="body-md">Freshness-critical RAG and agentic workflows where new data must be searchable fast.</p><p class="body-md">Enables near-real-time telemetry, continuous evals, and incremental CDC updates.</p></div></div></div><div class="hp-stats_card-w is--smaller"><div class="hp-stats_card is--02"><div class="h4 font-weight_500">Others</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v2" class="h1 font-weight_700">&gt;5</div><div class="h4 font-weight_500">Minutes​</div></div><div class="h5">Inline Ingestion</div></div></div></div></div><div class="hp-stats_cards-sticky" style="translate: none; rotate: none; scale: none; opacity: 1; filter: blur(0px); transform: translate(0px, 0px);"><div class="hp-stats_cards-inner"><div class="hp-stats_card-w"><div class="hp-stats_card is--03"><div class="h4 font-weight_500 color_primary">Volumez Solution</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v1" class="h1 font-weight_700">&gt;80%</div><div class="h4 font-weight_500 color_primary-light">Hot Metadata</div></div><div class="h5">Met Agents Workloads</div><div class="hp-stats_bottom-text"><p class="body-md">RAG and agentic discovery across massive namespaces and billions of objects.</p><p class="body-md">Accelerates small-file pipelines, vector index segments, and ACL/stat lookups.</p></div></div></div><div class="hp-stats_card-w is--smaller"><div class="hp-stats_card is--04"><div class="h4 font-weight_500">Others</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v2" class="h1 font-weight_700">&lt;20%</div><div class="h4 font-weight_500">Hot Metadata</div></div><div class="h5">Met Agents Workloads</div></div></div></div></div></div></div><div hide-desktop="" class="hp-stats_wrap"><div class="hp-stats_track"><div class="hp-stats_card-w hp-stats_cards-sticky" style="translate: none; rotate: none; scale: none; opacity: 0; filter: blur(10px); transform: scale(0.92, 0.92);"><div class="hp-stats_card is--tablet-01"><div class="hp-stats_col"><div class="h5 font-weight_500 color_primary">Volumez Solution</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v1" class="h2 font-weight_700">&gt;13</div><div class="h5 font-weight_500 color_primary-light">TB/Sec</div></div></div><div id="w-node-_3d731e0b-a22f-8991-0ca6-f17bef86ea2a-3f6269f6" class="hp-stats_col"><div class="h5 font-weight_500">Others</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v2" class="h2 font-weight_700">&lt;2</div><div class="h5 font-weight_500">TB/Sec</div></div></div><div id="w-node-_9e5ad7ee-a932-60a5-8ef7-a1a048468e77-3f6269f6" class="hp-stats_bottom"><div id="w-node-_239e56a3-2e63-6c3a-8cf0-7bc30a285165-3f6269f6" class="h5">GPU Direct Bandwidth</div><div class="hp-stats_bottom-text"><div class="hp-stats_bottom-divider"></div><div class="body-sm font-weight_500 color_primary">With Volumez:</div><p class="body-sm color_primary-light">LLM training/fine-tuning, multimodal training, and large-scale embedding + index builds.</p><p class="body-sm color_primary-light">Keeps GPUs fed for GPU-ETL and high-throughput inference with large inputs.</p></div></div></div></div><div class="hp-stats_card-w hp-stats_cards-sticky" style="translate: none; rotate: none; scale: none; opacity: 0; filter: blur(10px); transform: scale(0.92, 0.92);"><div class="hp-stats_card is--tablet-02"><div class="hp-stats_col"><div class="h5 font-weight_500 color_primary">Volumez Solution</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v1" class="h2 font-weight_700">&lt;500</div><div class="h5 font-weight_500 color_primary-light">ms in Catalog</div></div></div><div id="w-node-_8b26922b-4642-a8b9-af20-aa1c2da5d350-3f6269f6" class="hp-stats_col"><div class="h5 font-weight_500">Others</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v2" class="h2 font-weight_700">&gt;5</div><div class="h5 font-weight_500">Minutes​</div></div></div><div id="w-node-e04659af-62b4-d737-d296-990a273080b5-3f6269f6" class="hp-stats_bottom"><div id="w-node-e04659af-62b4-d737-d296-990a273080b6-3f6269f6" class="h5">Inline Ingestion</div><div class="hp-stats_bottom-text"><div class="hp-stats_bottom-divider"></div><div class="body-sm font-weight_500 color_primary">With Volumez:</div><p class="body-sm color_primary-light">Freshness-critical RAG and agentic workflows where new data must be searchable fast.</p><p class="body-sm color_primary-light">Enables near-real-time telemetry, continuous evals, and incremental CDC updates.</p></div></div></div></div><div class="hp-stats_card-w hp-stats_cards-sticky"><div class="hp-stats_card is--tablet-03"><div class="hp-stats_col"><div class="h5 font-weight_500 color_primary">Volumez Solution</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v1" class="h2 font-weight_700">&gt;80%</div><div class="h5 font-weight_500 color_primary-light">Hot Metadata</div></div></div><div id="w-node-fa9d3337-9024-83ee-d16e-be07b443c06e-3f6269f6" class="hp-stats_col"><div class="h5 font-weight_500">Others</div><div class="hp-stats_inner-text"><div data-gradient="gradient-v2" class="h2 font-weight_700">&lt;20%</div><div class="h5 font-weight_500">Hot Metadata</div></div></div><div id="w-node-_4a3a6f17-48d5-59c7-cf7f-7d5a125777ea-3f6269f6" class="hp-stats_bottom"><div id="w-node-_4a3a6f17-48d5-59c7-cf7f-7d5a125777eb-3f6269f6" class="h5">Met Agents Workloads</div><div class="hp-stats_bottom-text"><div class="hp-stats_bottom-divider"></div><div class="body-sm font-weight_500 color_primary">With Volumez:</div><p class="body-sm color_primary-light">RAG and agentic discovery across massive namespaces and billions of objects.</p><p class="body-sm color_primary-light">Accelerates small-file pipelines, vector index segments, and ACL/stat lookups.</p></div></div></div></div></div></div></div><div class="css w-embed"><style>
+.hp-stats_card {
+  transform-origin: center center;
+  will-change: transform, filter;
+}
+</style></div></section><section class="hp-era_section"><div class="container full-width"><div class="hp-era_wrap"><div class="hp-era_title"><h2 class="h2 color_primary-light">A new era of Agentic Infra</h2></div><div class="marquee-holder"><div class="hp-era_marquee-w"><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Ship agentic AI to production faster</h3></div><p class="body-md">Move from pilots to reliable production outcomes—without multi-year rebuilds.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">One platform. Fewer tools. Less risk.</h3></div><p class="body-md">Reduce vendor sprawl and operational burden by consolidating your AI data stack into one standard.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Lower TCO through efficiency, not compromise</h3></div><p class="body-md">Cut infrastructure and operating costs by eliminating overlapping platforms, redundant data, and wasted capacity.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Scale with confidence as demand grows</h3></div><p class="body-md">Support enterprise-wide adoption with a platform designed for reliability, repeatability, and growth.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Real-time decisions, not delayed answers</h3></div><p class="body-md">Deliver “interactive” agent experiences that keep users engaged and businesses responsive.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">One trusted data foundation for the enterprise</h3></div><p class="body-md">Give every team and every agent consistent access to governed data—without duplicate copies and conflicting truths.</p></div></div></div><div class="hp-era_marquee-w"><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Ship agentic AI to production faster</h3></div><p class="body-md">Move from pilots to reliable production outcomes—without multi-year rebuilds.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">One platform. Fewer tools. Less risk.</h3></div><p class="body-md">Reduce vendor sprawl and operational burden by consolidating your AI data stack into one standard.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Lower TCO through efficiency, not compromise</h3></div><p class="body-md">Cut infrastructure and operating costs by eliminating overlapping platforms, redundant data, and wasted capacity.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Scale with confidence as demand grows</h3></div><p class="body-md">Support enterprise-wide adoption with a platform designed for reliability, repeatability, and growth.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Real-time decisions, not delayed answers</h3></div><p class="body-md">Deliver “interactive” agent experiences that keep users engaged and businesses responsive.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">One trusted data foundation for the enterprise</h3></div><p class="body-md">Give every team and every agent consistent access to governed data—without duplicate copies and conflicting truths.</p></div></div></div><div class="hp-era_marquee-w"><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Ship agentic AI to production faster</h3></div><p class="body-md">Move from pilots to reliable production outcomes—without multi-year rebuilds.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">One platform. Fewer tools. Less risk.</h3></div><p class="body-md">Reduce vendor sprawl and operational burden by consolidating your AI data stack into one standard.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Lower TCO through efficiency, not compromise</h3></div><p class="body-md">Cut infrastructure and operating costs by eliminating overlapping platforms, redundant data, and wasted capacity.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Scale with confidence as demand grows</h3></div><p class="body-md">Support enterprise-wide adoption with a platform designed for reliability, repeatability, and growth.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">Real-time decisions, not delayed answers</h3></div><p class="body-md">Deliver “interactive” agent experiences that keep users engaged and businesses responsive.</p></div></div><div class="hp-era_card-w"><div class="hp-era_card"><div class="hp-era_title-wrapper"><h3 class="h3 font-weight_700 mobile-h4">One trusted data foundation for the enterprise</h3></div><p class="body-md">Give every team and every agent consistent access to governed data—without duplicate copies and conflicting truths.</p></div></div></div><div class="marquee_css w-embed"><style>
+.hp-era_marquee-w {
+  animation: scrollUp 40s linear infinite;
+}
+
+@keyframes scrollUp {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1.6rem));
+  }
+}
+</style></div></div></div></div></section><section class="hp-solution_section"><div class="container _1032"><div data-animation-trigger="" class="hp-solution_wrap"><h2 class="h2">Solution Architecture</h2><div class="hp-solution_visual-w"><div class="hp-solution_visual-left"><div class="hp-solution_text-w" style="translate: none; rotate: none; scale: none; transform: translate(0px, 30px); opacity: 0;"><div class="hp-solution_text color_primary-light">Volumez Agentic Data Platform</div></div><div class="hp-solution_vertical-line" style="translate: none; rotate: none; scale: none; transform: scale(1, 0); transform-origin: 50% 100%;"><div class="hp-solution_vertical-dot is-top" style="opacity: 0;"></div><div class="hp-solution_vertical-dot is-bottom" style="opacity: 0;"></div></div></div><img class="hp-solution_visual-img" src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6982c79e24bbc7b08e99ea79_home_solution-img.webp" width="408" height="Auto" alt="" sizes="(max-width: 479px) 100vw, 408px" id="w-node-_1214eb92-ead6-ecfb-5468-3cebc543361a-3f6269f6" loading="lazy" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6982c79e24bbc7b08e99ea79_home_solution-img-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6982c79e24bbc7b08e99ea79_home_solution-img-p-800.webp 800w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6982c79e24bbc7b08e99ea79_home_solution-img.webp 840w" style="opacity: 0;"><div id="w-node-_7ca13689-4f1b-e006-ab65-9c339922da1a-3f6269f6" class="hp-solution_visual-right"><div class="hp-solution_right-text-w"><div class="hp-solution_horizontal-line is-light" style="translate: none; rotate: none; scale: none; transform: scale(0, 1); transform-origin: 0% 50%;"><div class="hp-solution_horizontal-dot is-light" style="opacity: 0;"></div></div><div class="hp-solution_text color_primary-light" style="opacity: 0;">Agents</div></div><div class="hp-solution_right-text-w"><div class="hp-solution_horizontal-line is-green" style="translate: none; rotate: none; scale: none; transform: scale(0, 1); transform-origin: 0% 50%;"><div class="hp-solution_horizontal-dot is-green" style="opacity: 0;"></div></div><div class="hp-solution_text color_green-100" style="opacity: 0;">Humans + Agent Access Points</div></div><div class="hp-solution_right-text-w"><div class="hp-solution_horizontal-line is-green" style="translate: none; rotate: none; scale: none; transform: scale(0, 1); transform-origin: 0% 50%;"><div class="hp-solution_horizontal-dot is-green" style="opacity: 0;"></div></div><div class="hp-solution_text color_green-100" style="opacity: 0;">Agentic Workflows</div></div><div class="hp-solution_right-text-w"><div class="hp-solution_horizontal-line is-green" style="translate: none; rotate: none; scale: none; transform: scale(0, 1); transform-origin: 0% 50%;"><div class="hp-solution_horizontal-dot is-green" style="opacity: 0;"></div></div><div class="hp-solution_text color_green-100" style="opacity: 0;">High Performance Data Services</div></div><div class="hp-solution_right-text-w"><div class="hp-solution_horizontal-line is-light" style="translate: none; rotate: none; scale: none; transform: scale(0, 1); transform-origin: 0% 50%;"><div class="hp-solution_horizontal-dot is-light" style="opacity: 0;"></div></div><div class="hp-solution_text color_primary-light" style="opacity: 0;">Data Sources</div></div></div></div></div></div><div class="hp-solution-gradient-w"></div></section><section class="hp-infra_section"><div class="container"><div class="hp-infra_wrap"><div class="hp-infra_top"><div class="hp-infra_title"><h2 class="h3 color_green-20">Infrastructure ready for anything agents demand.</h2><p class="body-md">Built to deliver ROI.</p></div><div class="hp-infra_buttons-w"><a data-wf--button-secondary--variant="base" href="/contact-us" class="button is--secondary w-inline-block"><div class="button-text">Contact Us</div></a><div class="button-w"><a href="/contact-us" class="button w-inline-block"><div class="button-text">Book a Demo</div></a><div class="button-hover-border"></div><div class="button_css w-embed"><style>
+/* ============================================
+   PRIMARY BUTTON (complex structure with .button-w)
+   ============================================ */
+
+/* Add transitions to elements that will change */
+.button-w {
+  transition: box-shadow 0.3s ease;
+}
+
+.button-hover-border {
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state */
+.button-w:hover .button-hover-border {
+  background-color: var(--colors--primary);
+}
+
+.button-w:hover {
+  box-shadow: none;
+}
+
+/* Active/Pressed state */
+.button-w:active .button-hover-border {
+  background-color: var(--colors--transparent);
+}
+
+.button-w:active {
+  box-shadow: none;
+}
+</style></div></div></div></div><div class="hp-infra_bottom"><div class="cs-tab_holder"><div class="cs-tab_item active"><div class="cs-tab_wrap"><div class="cs-tab_inner is--01"><div class="cs-tab_content" style="display: flex; opacity: 1; pointer-events: auto;"><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698d428a3d5f9a423a67ba9c_card-icon_04.png" loading="lazy" alt="" class="cs-tab_icon height-39"><div class="cs-tab_text"><h3 class="h5 font-weight_500">The “Day-Zero” Perception Leap</h3><div class="body-md">Autonomous Driving</div></div><a data-wf--button-secondary--variant="transparent" href="/case-studies/the-day-zero-perception-leap" class="button is--secondary w-variant-dbd4f91b-ed45-ff35-a539-340b9fe27aa9 w-inline-block"><div class="button-text">Read More</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 is--button-icon"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69831934b373cf1e5e040391_tab-img-01.webp" loading="lazy" sizes="(max-width: 594px) 100vw, 594px, 100vw" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69831934b373cf1e5e040391_tab-img-01-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69831934b373cf1e5e040391_tab-img-01.webp 594w" alt="" class="cs-tab_bg-img is--01"><div class="cs-tab_overlay"></div></div></div></div><div class="cs-tab_item"><div class="cs-tab_wrap"><div class="cs-tab_inner is--02"><div class="cs-tab_content"><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698d428b800cce10eeecc434_card-icon_05.png" loading="lazy" alt="" class="cs-tab_icon height-39"><div class="cs-tab_text"><h3 class="h5 font-weight_500">The "Instant" Fraud &amp; AML Sentinel</h3><div class="body-md">Financial Services</div></div><a data-wf--button-secondary--variant="transparent" href="/case-studies/the-instant-fraud-aml-sentinel" class="button is--secondary w-variant-dbd4f91b-ed45-ff35-a539-340b9fe27aa9 w-inline-block"><div class="button-text">Read More</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 is--button-icon"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698319364271a2e45c6b5765_tab-img-02.webp" loading="lazy" sizes="(max-width: 594px) 100vw, 594px, 100vw" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698319364271a2e45c6b5765_tab-img-02-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698319364271a2e45c6b5765_tab-img-02.webp 594w" alt="" class="cs-tab_bg-img is--02"><div class="cs-tab_overlay"></div></div></div></div><div class="cs-tab_item"><div class="cs-tab_wrap"><div class="cs-tab_inner is--03"><div class="cs-tab_content"><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698d428e7217de30e6312678_card-icon_06.png" loading="lazy" alt="" class="cs-tab_icon height-39"><div class="cs-tab_text"><h3 class="h5 font-weight_500">The Wildfire &amp; Outage Prevention Commander</h3><div class="body-md">Energy &amp; Utilities</div></div><a data-wf--button-secondary--variant="transparent" href="/case-studies/the-wildfire-outage-prevention-commander" class="button is--secondary w-variant-dbd4f91b-ed45-ff35-a539-340b9fe27aa9 w-inline-block"><div class="button-text">Read More</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 is--button-icon"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69842407f3b7432d4b3be94b_tab-img-03.webp" loading="lazy" sizes="(max-width: 594px) 100vw, 594px, 100vw" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69842407f3b7432d4b3be94b_tab-img-03-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69842407f3b7432d4b3be94b_tab-img-03.webp 594w" alt="" class="cs-tab_bg-img is--03"><div class="cs-tab_overlay"></div></div></div></div><div class="cs-tab_item"><div class="cs-tab_wrap"><div class="cs-tab_inner is--04"><div class="cs-tab_content"><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698d42882f077e8f60800f3f_card-icon_03.png" loading="lazy" alt="" class="cs-tab_icon height-30"><div class="cs-tab_text"><h3 class="h5 font-weight_500">The "Time-Travel" Quality Guardian</h3><div class="body-md">Automotive Manufacturing</div></div><a data-wf--button-secondary--variant="transparent" href="/case-studies/the-time-travel-quality-guardian" class="button is--secondary w-variant-dbd4f91b-ed45-ff35-a539-340b9fe27aa9 w-inline-block"><div class="button-text">Read More</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 is--button-icon"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193a72259bd6d3ae89cd_tab-img-04.webp" loading="lazy" sizes="(max-width: 594px) 100vw, 594px, 100vw" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193a72259bd6d3ae89cd_tab-img-04-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193a72259bd6d3ae89cd_tab-img-04.webp 594w" alt="" class="cs-tab_bg-img is--04"><div class="cs-tab_overlay"></div></div></div></div><div class="cs-tab_item"><div class="cs-tab_wrap"><div class="cs-tab_inner is--05"><div class="cs-tab_content"><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698d41b2827a2320dbebb54f_card-icon_01.png" loading="lazy" alt="" class="cs-tab_icon"><div class="cs-tab_text"><h3 class="h5 font-weight_500">The "Zero-Hour" Threat Hunter</h3><div class="body-md">Defense &amp; Intelligence</div></div><a data-wf--button-secondary--variant="transparent" href="/case-studies/the-zero-hour-threat-hunter" class="button is--secondary w-variant-dbd4f91b-ed45-ff35-a539-340b9fe27aa9 w-inline-block"><div class="button-text">Read More</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 is--button-icon"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193c966bd564af02156f_tab-img-05.webp" loading="lazy" sizes="(max-width: 594px) 100vw, 594px, 100vw" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193c966bd564af02156f_tab-img-05-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193c966bd564af02156f_tab-img-05.webp 594w" alt="" class="cs-tab_bg-img is--05"><div class="cs-tab_overlay"></div></div></div></div><div class="cs-tab_item"><div class="cs-tab_wrap"><div class="cs-tab_inner is--06"><div class="cs-tab_content"><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/698d4276a9bf6c7747a19b02_card-icon_02.png" loading="lazy" alt="" class="cs-tab_icon"><div class="cs-tab_text"><h3 class="h5 font-weight_500">The Billion-Dollar Rescue</h3><div class="body-md">Pharmaceutical R&amp;D</div></div><a data-wf--button-secondary--variant="transparent" href="/case-studies/the-billion-dollar-rescue" class="button is--secondary w-variant-dbd4f91b-ed45-ff35-a539-340b9fe27aa9 w-inline-block"><div class="button-text">Read More</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none" class="icon-24 is--button-icon"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div><img src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193ee48670888dbccc4a_tab-img-06.webp" loading="lazy" sizes="(max-width: 594px) 100vw, 594px, 100vw" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193ee48670888dbccc4a_tab-img-06-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6983193ee48670888dbccc4a_tab-img-06.webp 594w" alt="" class="cs-tab_bg-img is--06"><div class="cs-tab_overlay"></div></div></div></div></div><div class="tabs_css w-embed"><style>
+
+/* Simplified CSS - Only targets .cs-tab_item with .active class */
+
+/* Base state for all cards */
+.cs-tab_item {
+  flex: 1 1 0%; /* Equal size by default */
+  transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* All child elements are set to width: 100% in Webflow */
+/* They automatically inherit the parent's width */
+
+/* Active (hovered) card expands */
+.cs-tab_item.active {
+  flex-grow: 2.5; /* Adjust this number to control expansion size */
+  /* Or use: flex: 2.5 1 0%; */
+  overflow: visible; /* Allow content to overflow when expanded */
+}
+
+/* Content styling - starts hidden */
+.cs-tab_content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* JS handles opacity change on .cs-tab_content */
+/* No need for .active class on child elements */
+
+/* Responsive - disable on mobile */
+@media (max-width: 992px) {
+  .cs-tab_item {
+    flex: 1 1 auto;
+  }
+  
+  .cs-tab_item.active {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 991px) {
+  /* All cards equal size and "open" state on mobile */
+  .cs-tab_item {
+    flex: 1 1 auto !important;
+    overflow: visible !important;
+  }
+  
+  /* Show all content on mobile */
+  .cs-tab_content {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+</style></div></div></div></div><div class="hp-infra-gradient-w"></div></section><section class="cta"><div class="container _1232"><div hide-tablet="" class="cta_wrap"><div class="cta_holder"><div class="cta_content"><div class="cta_text"><h2 class="h2">AI Agentic Infrastructure <span class="font-weight_700">Solved.</span></h2><div class="body-md">Send Your ROI With Volumez.</div></div><div class="button-w"><a href="/contact-us" class="button w-inline-block"><div class="button-text">GET STARTED</div></a><div class="button-hover-border"></div><div class="button_css w-embed"><style>
+/* ============================================
+   PRIMARY BUTTON (complex structure with .button-w)
+   ============================================ */
+
+/* Add transitions to elements that will change */
+.button-w {
+  transition: box-shadow 0.3s ease;
+}
+
+.button-hover-border {
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state */
+.button-w:hover .button-hover-border {
+  background-color: var(--colors--primary);
+}
+
+.button-w:hover {
+  box-shadow: none;
+}
+
+/* Active/Pressed state */
+.button-w:active .button-hover-border {
+  background-color: var(--colors--transparent);
+}
+
+.button-w:active {
+  box-shadow: none;
+}
+</style></div></div></div><img loading="lazy" src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6989bdf2cc9dfd12cdc769cb_cta-bg.webp" alt="" class="cta-svg"></div></div><div hide-desktop="" class="cta_wrap"><img sizes="(max-width: 559px) 100vw, (max-width: 991px) 559px, 100vw" srcset="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6989c1a818da3e945b5e06e5_cta-front--tablet-p-500.webp 500w, https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6989c1a818da3e945b5e06e5_cta-front--tablet.webp 559w" alt="" src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6989c1a818da3e945b5e06e5_cta-front--tablet.webp" loading="lazy" class="cta-front"><img loading="lazy" src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/6989c2568ae060b3da81da71_cta-back--tablet.png" alt="" class="cta-back"><div class="cta_holder"><div class="cta_inner"><div class="cta_content"><div class="cta_text"><h2 class="h2">AI Agentic Infrastructure <span class="font-weight_700">Solved.</span></h2><div class="body-md">Send Your ROI With Volumez.</div></div><div class="button-w"><a href="/contact-us" class="button w-inline-block"><div class="button-text">GET STARTED</div></a><div class="button-hover-border"></div><div class="button_css w-embed"><style>
+/* ============================================
+   PRIMARY BUTTON (complex structure with .button-w)
+   ============================================ */
+
+/* Add transitions to elements that will change */
+.button-w {
+  transition: box-shadow 0.3s ease;
+}
+
+.button-hover-border {
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state */
+.button-w:hover .button-hover-border {
+  background-color: var(--colors--primary);
+}
+
+.button-w:hover {
+  box-shadow: none;
+}
+
+/* Active/Pressed state */
+.button-w:active .button-hover-border {
+  background-color: var(--colors--transparent);
+}
+
+.button-w:active {
+  box-shadow: none;
+}
+</style></div></div></div></div></div></div></div></section></main><footer class="footer"><div class="container"><div class="footer_wrap"><div class="footer_row"><img loading="lazy" src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69844c68be6f7e74a59f34db_footer_logo.svg" alt="" class="footer_logo-img"><div class="w-layout-grid footer_links-grid"><div class="footer_links-col"><h5 class="body-sm font-weight_600">Company</h5><ul role="list" class="footer_links-list"><li class="footer_links-item"><a href="/about" class="footer_link">About us</a></li><li class="footer_links-item"><a href="/contact-us" class="footer_link">Contact us</a></li><li class="footer_links-item"><a href="/open-positions" class="footer_link">Careers</a></li></ul></div><div id="w-node-a8a3687a-d1bc-d6c4-c8ff-7adceb3d96a7-eb3d9697" class="footer_links-col is--solution"><h5 class="body-sm font-weight_600">Solution</h5><ul role="list" class="footer_links-list w-list-unstyled"><li><a href="/case-studies/the-billion-dollar-rescue" class="footer_link">Pharmaceutical R&amp;D</a></li><li><a href="/case-studies/the-zero-hour-threat-hunter" class="footer_link">Defense &amp; Intelligence</a></li><li><a href="/case-studies/the-time-travel-quality-guardian" class="footer_link">Automotive Manufacturing</a></li><li><a href="/case-studies/the-day-zero-perception-leap" class="footer_link">Autonomous Driving</a></li><li><a href="/case-studies/the-instant-fraud-aml-sentinel" class="footer_link">Financial Services</a></li><li><a href="/case-studies/the-wildfire-outage-prevention-commander" class="footer_link">Energy &amp; Utilities</a></li></ul></div><div id="w-node-a8a3687a-d1bc-d6c4-c8ff-7adceb3d96b1-eb3d9697" class="footer_links-col"><h5 class="body-sm font-weight_600">Legal</h5><ul role="list" class="footer_links-list"><li class="footer_links-item"><a href="/terms-of-use" class="footer_link">Terms of use</a></li><li class="footer_links-item"><a href="/website-cookie-policy" class="footer_link">Website Cookie Policy</a></li><li class="footer_links-item"><a href="/privacy-policy" class="footer_link">Privacy Policy</a></li><li class="footer_links-item"><a href="/certifications" class="footer_link">Certifications</a></li></ul></div></div></div><div class="footer_divider"></div><div class="footer_row"><div class="note color_dark-40 w-embed w-script"><p id="copyright">©<span id="year_desktop">2026</span> Volumez. All rights reserved.</p>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const yearSpan = document.getElementById("year_desktop");
+    yearSpan.textContent = new Date().getFullYear();
+  });
+</script></div></div></div></div><div class="footer_css w-embed"><style>
+/* Hover effect for footer links - desktop only */
+@media (min-width: 992px) {
+  .footer_link {
+    transition: opacity 0.3s ease;
+  }
+  
+  .footer_links-list:has(.footer_link:hover) .footer_link {
+    opacity: 0.6;
+  }
+  
+  .footer_link:hover {
+    opacity: 1 !important;
+  }
+}
+</style></div></footer><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=697f0ed00fa3efb03f6269c4" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/js/webflow.75bd4d11.30904441ad3b471a.js" type="text/javascript" integrity="sha384-q/ZFAmXxxJjEE9vFVfdTXi3oonWXzH8I762IocoA0dmaAPKer36UZyY3A3X4zEMj" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+
+<script>
+/* ============================================================
+   LENIS SMOOTH SCROLL
+============================================================ */
+const lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+  
+
+/* ============================================================
+   PREVENT PAGE SCROLLING WHEN MOBILE NAV IS OPEN
+============================================================ */  
+// Select the nav button
+const navButton = document.querySelector('.nav_button.w-nav-button');
+
+// Check if the button exists
+if (navButton) {
+  // Create a MutationObserver to watch for class changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        // Check if the button has the w--open class
+        if (navButton.classList.contains('w--open')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  });
+
+  // Start observing the nav button for class changes
+  observer.observe(navButton, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
+}
+</script><!-- GSAP Core -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<!-- ScrollTrigger Plugin -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<!-- SplitType Plugin -->
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+<script>
+// ============================================================================
+// COMBINED SCRIPTS - Main Initialization
+// ============================================================================
+(function() {
+  'use strict';
+  
+  // --------------------------------------------------------------------------
+  // 1. VIDEO LAZY LOADING WITH SCROLL CONTROL
+  // --------------------------------------------------------------------------
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua);
+  const isSafariDesktop = /^((?!chrome|android).)*safari/i.test(ua);
+
+  function setupVideo(videoId, safariLarge, safariSmall, webmLarge, webmSmall, posterLarge, posterSmall) {
+    const player = document.getElementById(videoId);
+    if (!player) return;
+
+    const width = window.innerWidth;
+    const isMobile = width < 992;
+
+    // Set poster image immediately
+    player.poster = isMobile ? posterSmall : posterLarge;
+
+    // Remove loop attribute - we want it to play once
+    player.removeAttribute('loop');
+    
+    let hasPlayed = false; // Track if video has played once
+
+    // Create observer to lazy load only when visible
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasPlayed) {
+            let src, type;
+            
+            if (isIOS || isSafariDesktop) {
+              src = isMobile ? safariSmall : safariLarge;
+              type = "video/mp4; codecs=hvc1";
+            } else {
+              src = isMobile ? webmSmall : webmLarge;
+              type = "video/webm";
+            }
+
+            const source = document.createElement("source");
+            source.src = src;
+            source.type = type;
+            player.appendChild(source);
+
+            // Load video
+            player.load();
+            
+            // Play and mark as played
+            player.play().then(() => {
+              hasPlayed = true;
+              console.log('Video: Playing once');
+            }).catch(() => {});
+
+            // Unobserve initial load trigger
+            obs.unobserve(player);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(player);
+
+    // GSAP ScrollTrigger: Reset video when scrolled out of view
+    gsap.registerPlugin(ScrollTrigger);
+    
+    ScrollTrigger.create({
+      trigger: player,
+      start: "top bottom", // When top of video hits bottom of viewport
+      end: "bottom top",   // When bottom of video hits top of viewport
+      onLeave: () => {
+        // User scrolled past the video (going down)
+        console.log('Video: Scrolled out of view - resetting');
+        resetVideo();
+      },
+      onEnterBack: () => {
+        // User scrolled back up and video is in view
+        console.log('Video: Back in view - playing');
+        playVideoOnce();
+      },
+      // Uncomment to see markers during development
+      // markers: true
+    });
+
+    // Function to reset video to beginning
+    function resetVideo() {
+      player.pause();
+      player.currentTime = 0;
+      hasPlayed = false;
+    }
+
+    // Function to play video once
+    function playVideoOnce() {
+      if (!hasPlayed && player.readyState >= 2) { // Check if video is loaded
+        player.play().then(() => {
+          hasPlayed = true;
+        }).catch(() => {});
+      }
+    }
+
+    // When video ends, make sure it stays on last frame
+    player.addEventListener('ended', () => {
+      console.log('Video: Ended - staying on last frame');
+      // Video naturally stays on last frame when ended
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 2. CARD HOVER INTERACTION (cs-tab_item) - DESKTOP ONLY
+  // --------------------------------------------------------------------------
+  function initCardHover() {
+    // Only run on desktop (992px and above)
+    if (window.innerWidth < 992) {
+      console.log('Card hover: Disabled on tablet/mobile');
+      return;
+    }
+    
+    const tabItems = document.querySelectorAll('.cs-tab_item');
+    let contentTimeouts = new Map(); // Track timeouts for each card
+    let isAnimating = false; // Prevent overlapping animations
+    let hoverTimeout = null; // Debounce hover
+    let targetCard = null; // Track which card we want to activate
+    
+    // Set first card as active by default
+    if (tabItems.length > 0) {
+      const firstCard = tabItems[0];
+      firstCard.classList.add('active');
+      const firstContent = firstCard.querySelector('.cs-tab_content');
+      if (firstContent) {
+        firstContent.style.display = 'flex'; // or whatever display value you need
+        firstContent.style.opacity = '1';
+        firstContent.style.pointerEvents = 'auto';
+      }
+      console.log('Card hover: First card set to active');
+    }
+    
+    // Function to activate a card
+    function activateCard(currentCard) {
+      if (isAnimating) return;
+      if (currentCard.classList.contains('active')) return;
+      
+      isAnimating = true;
+      
+      const currentContent = currentCard.querySelector('.cs-tab_content');
+      
+      // STEP 1: Hide content from ALL cards IMMEDIATELY
+      tabItems.forEach(otherItem => {
+        const otherContent = otherItem.querySelector('.cs-tab_content');
+        if (otherContent) {
+          otherContent.style.transition = 'opacity 0.08s ease';
+          otherContent.style.opacity = '0';
+          otherContent.style.pointerEvents = 'none';
+        }
+      });
+      
+      // STEP 2: After 60ms, hide content completely AND swap active classes
+      // This happens SIMULTANEOUSLY for old and new cards
+      setTimeout(() => {
+        tabItems.forEach(otherItem => {
+          const otherContent = otherItem.querySelector('.cs-tab_content');
+          if (otherContent) {
+            otherContent.style.display = 'none';
+          }
+          
+          // Remove active from old cards, add to current card
+          if (otherItem !== currentCard) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Add active to new card (starts expansion at same time old card shrinks)
+        currentCard.classList.add('active');
+        
+      }, 60);
+      
+      // STEP 3: Wait 400ms - card FULLY expanded with buffer, NOW show content
+      // Extra buffer to ensure no visible line breaking
+      const timeout = setTimeout(() => {
+        if (currentContent) {
+          currentContent.style.display = 'flex';
+          
+          requestAnimationFrame(() => {
+            currentContent.style.transition = 'opacity 0.15s ease';
+            currentContent.style.opacity = '1';
+            currentContent.style.pointerEvents = 'auto';
+          });
+        }
+        isAnimating = false;
+      }, 400);
+      
+      contentTimeouts.set(currentCard, timeout);
+    }
+    
+    tabItems.forEach((item, index) => {
+      item.addEventListener('mouseenter', function() {
+        // Clear any existing hover timeout
+        if (hoverTimeout) {
+          clearTimeout(hoverTimeout);
+        }
+        
+        // Store which card we're hovering
+        targetCard = this;
+        
+        // Wait 150ms - if cursor is still on this card, activate it
+        hoverTimeout = setTimeout(() => {
+          if (targetCard) {
+            activateCard(targetCard);
+            targetCard = null;
+          }
+        }, 150);
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        // Clear timeout if we leave before delay completes
+        if (hoverTimeout) {
+          clearTimeout(hoverTimeout);
+          hoverTimeout = null;
+        }
+        // Clear target if we leave
+        if (targetCard === this) {
+          targetCard = null;
+        }
+      });
+    });
+    
+    console.log('Card hover: Initialized for desktop');
+  }
+
+  // --------------------------------------------------------------------------
+  // 3. GLOW CARD EFFECT (hp-articles_item) - DESKTOP ONLY (992px+)
+  // --------------------------------------------------------------------------
+  function initGlowCards() {
+    // Only run on desktop
+    if (window.innerWidth < 992) {
+      console.log('Glow cards: Disabled on tablet/mobile');
+      return;
+    }
+    
+    // Find your cards container
+    const cardsContainer = document.querySelector('.w-dyn-items');
+    
+    if (!cardsContainer) {
+      console.warn('Glow cards: Container not found');
+      return;
+    }
+    
+    // Add ID for easier targeting
+    cardsContainer.id = 'cards';
+    
+    // Track mouse position and update CSS variables
+    cardsContainer.addEventListener('mousemove', function(e) {
+      const cards = document.getElementsByClassName('hp-articles_item');
+      
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+      }
+    });
+    
+    console.log('Glow cards: Initialized for desktop');
+  }
+  
+  // --------------------------------------------------------------------------
+  // 4. MARQUEE SCROLL - TABLET ONLY (below 992px)
+  // --------------------------------------------------------------------------
+  function initMarqueeScroll() {
+    // Only run on tablet and below
+    if (window.innerWidth >= 992) {
+      console.log('Marquee: Disabled on desktop');
+      return;
+    }
+    
+    const originalList = document.querySelector('.hp-articles_list');
+    if (!originalList) {
+      console.warn('Marquee: Card list not found');
+      return;
+    }
+
+    const collection = originalList.closest('.hp-articles_collection');
+    if (!collection) {
+      console.warn('Marquee: Collection wrapper not found');
+      return;
+    }
+    
+    // Check if marquee already exists (prevent duplicates)
+    if (collection.querySelector('.hp-articles_marquee-wrapper')) {
+      console.log('Marquee: Already initialized');
+      return;
+    }
+    
+    // Get all original cards
+    const allCards = Array.from(originalList.querySelectorAll('.hp-articles_item'));
+    
+    if (allCards.length === 0) {
+      console.warn('Marquee: No cards found');
+      return;
+    }
+    
+    // Split cards into two rows (half and half)
+    const midpoint = Math.ceil(allCards.length / 2);
+    const topRowCards = allCards.slice(0, midpoint);
+    const bottomRowCards = allCards.slice(midpoint);
+    
+    // Create marquee wrapper
+    const marqueeWrapper = document.createElement('div');
+    marqueeWrapper.className = 'hp-articles_marquee-wrapper';
+    
+    // Create top row
+    const topRow = document.createElement('div');
+    topRow.className = 'hp-articles_marquee-row hp-articles_row-top';
+    
+    // Create bottom row
+    const bottomRow = document.createElement('div');
+    bottomRow.className = 'hp-articles_marquee-row hp-articles_row-bottom';
+    
+    // Clone cards multiple times for seamless loop (4x for smooth infinite scroll)
+    function populateRow(row, cards) {
+      for (let i = 0; i < 4; i++) {
+        cards.forEach(card => {
+          const clone = card.cloneNode(true);
+          row.appendChild(clone);
+        });
+      }
+    }
+    
+    populateRow(topRow, topRowCards);
+    populateRow(bottomRow, bottomRowCards);
+    
+    // Append rows to wrapper
+    marqueeWrapper.appendChild(topRow);
+    marqueeWrapper.appendChild(bottomRow);
+    
+    // IMPORTANT: Insert BEFORE hiding original (so it renders first)
+    collection.insertBefore(marqueeWrapper, originalList);
+    
+    // NOW hide original list
+    originalList.style.display = 'none';
+    
+    // Wait for render, then animate
+    requestAnimationFrame(() => {
+      // Calculate width based on ONE set of cards (divide by 4 because we cloned 4x)
+      const rowWidth = topRow.scrollWidth / 4;
+      
+      // Top row: scroll LEFT continuously (→ to ←)
+      gsap.fromTo(topRow, 
+        { x: 0 },
+        {
+          x: -rowWidth,
+          duration: 40,
+          ease: 'none',
+          repeat: -1
+        }
+      );
+      
+      // Bottom row: scroll RIGHT continuously (← to →)
+      gsap.fromTo(bottomRow,
+        { x: -rowWidth },
+        {
+          x: 0,
+          duration: 40,
+          ease: 'none',
+          repeat: -1
+        }
+      );
+      
+      console.log('Marquee: Initialized for tablet', {
+        topCards: topRowCards.length,
+        bottomCards: bottomRowCards.length,
+        rowWidth: rowWidth
+      });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+// 5. STICKY CARDS SCALE & BLUR EFFECT - ALL BREAKPOINTS
+// --------------------------------------------------------------------------
+function initStickyCardsEffect() {
+  // NOW RUNS ON ALL BREAKPOINTS (desktop, tablet, mobile)
+  // Removed the desktop-only check
+  
+  // Get all sticky card rows
+  const stickyRows = gsap.utils.toArray('.hp-stats_cards-sticky');
+  
+  if (stickyRows.length === 0) {
+    console.warn('Sticky cards: No sticky rows found');
+    return;
+  }
+  
+  // Animate each row EXCEPT the last one
+  stickyRows.forEach((row, index) => {
+    // Skip the last row
+    if (index === stickyRows.length - 1) return;
+    
+    // Animate current row based on ITS OWN scroll position
+    gsap.fromTo(row,
+      {
+        scale: 1,
+        filter: 'blur(0px)',
+        opacity: 1,
+      },
+      {
+        scale: 0.92,
+        filter: 'blur(10px)',
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: row,
+          start: 'top top+=15rem', // When this row reaches sticky position
+          end: 'bottom top+=20rem', // When this row is almost scrolled out
+          scrub: 1,
+          // markers: true // Enable for debugging
+        }
+      }
+    );
+    
+    console.log(`Sticky cards: Animated row ${index + 1}`);
+  });
+  
+  console.log('Sticky cards: Initialized', {
+    totalRows: stickyRows.length,
+    breakpoint: window.innerWidth < 992 ? 'mobile/tablet' : 'desktop'
+  });
+}
+
+  // --------------------------------------------------------------------------
+  // 6. SOLUTION ARCHITECTURE ANIMATION
+  // --------------------------------------------------------------------------
+  function initSolutionArchitectureAnimation() {
+    const trigger = document.querySelector('[data-animation-trigger]');
+    
+    if (!trigger) {
+      console.warn('Solution architecture: Trigger element not found');
+      return;
+    }
+
+    // Force all animated elements to be hidden initially
+    gsap.set('.hp-solution_text-w', { opacity: 0, y: 30 });
+    gsap.set('.hp-solution_vertical-line', { scaleY: 0 });
+    gsap.set('.hp-solution_vertical-dot', { opacity: 0 });
+    gsap.set('.hp-solution_visual-img', { opacity: 0 });
+    gsap.set('.hp-solution_horizontal-line', { scaleX: 0 });
+    gsap.set('.hp-solution_horizontal-dot', { opacity: 0 });
+    // Only target .hp-solution_text that are inside .hp-solution_right-text-w
+    gsap.set('.hp-solution_right-text-w .hp-solution_text', { opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: trigger,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+        markers: false
+      }
+    });
+
+    // Steps 1 & 2: Fade in text and scale vertical line together
+    tl.fromTo(
+      '.hp-solution_text-w',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+    )
+    .fromTo(
+      '.hp-solution_vertical-line',
+      { scaleY: 0, transformOrigin: 'bottom' },
+      { scaleY: 1, duration: 0.8, ease: 'power2.out' },
+      '<' // Start at same time as previous
+    );
+
+    // Steps 3 & 4: Fade in dot and image together
+    tl.fromTo(
+      '.hp-solution_vertical-dot',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.4, ease: 'power2.out' },
+      '-=0.3'
+    )
+    .fromTo(
+      '.hp-solution_visual-img',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.6, ease: 'power2.out' },
+      '<'
+    );
+
+    // Step 5: Stagger animations for right side items
+    const rightTextContainers = gsap.utils.toArray('.hp-solution_right-text-w');
+    
+    // Create a sub-timeline for each item with proper stagger
+    let currentTime = tl.duration() - 0.2; // Start slightly before previous animations end
+    
+    rightTextContainers.forEach((container, index) => {
+      // Each item animates: line → dot → text (in sequence)
+      const itemStartTime = currentTime + (index * 0.08); // 0.08s stagger between items
+      
+      // Horizontal line scale
+      tl.fromTo(
+        container.querySelector('.hp-solution_horizontal-line'),
+        { scaleX: 0, transformOrigin: 'left' },
+        { scaleX: 1, duration: 0.3, ease: 'power2.out' },
+        itemStartTime
+      );
+      
+      // Horizontal dot fade (starts slightly before line finishes)
+      tl.fromTo(
+        container.querySelector('.hp-solution_horizontal-dot'),
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: 'power2.out' },
+        itemStartTime + 0.15
+      );
+      
+      // Solution text fade (starts slightly before dot finishes)
+      tl.fromTo(
+        container.querySelector('.hp-solution_text'),
+        { opacity: 0 },
+        { opacity: 1, duration: 0.25, ease: 'power2.out' },
+        itemStartTime + 0.25
+      );
+    });
+    
+    console.log('Solution architecture: Animation initialized');
+  }
+
+  // --------------------------------------------------------------------------
+  // INITIALIZE ALL ON DOM READY
+  // --------------------------------------------------------------------------
+  function init() {
+    // Initialize video
+    setupVideo(
+      "rubiks-video",
+      "https://volumez-matrix-website.s3.amazonaws.com/Safari/HQ-Rubiks-animation-1.mov",
+      "https://volumez-matrix-website.s3.amazonaws.com/Safari/Rubiks-animation-sm-1.mov",
+      "https://volumez-matrix-website.s3.amazonaws.com/Chrome/Regular+size.webm",
+      "https://volumez-matrix-website.s3.amazonaws.com/Chrome/Small.webm",
+      "https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69881bd0fa5989f56bb401a7_Rubiks-animation_000.webp",
+      "https://cdn.prod.website-files.com/697f0ed00fa3efb03f6269c4/69881bd51f2e445fc46fc329_Rubiks-animation_sm-000.webp"
+    );
+    
+    // Initialize card hover (desktop only)
+    initCardHover();
+    
+    // Initialize glow cards (desktop only)
+    initGlowCards();
+    
+    // Initialize marquee scroll (tablet only)
+    initMarqueeScroll();
+    
+    // Initialize sticky cards scale/blur effect (desktop only)
+    initStickyCardsEffect();
+    
+    // Initialize solution architecture animation
+    initSolutionArchitectureAnimation();
+  }
+
+  // Run when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+
+<script>
+// ============================================================================
+// GSAP SCROLL TRIGGER - Keep separate (uses window.matchMedia)
+// ============================================================================
+(function() {
+  'use strict';
+  
+  // Register GSAP ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Detect mobile devices
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  // Get all trigger elements
+  const triggers = document.querySelectorAll("[data-split-text-trigger]");
+
+  // Loop through each trigger and set up animation
+  triggers.forEach((trigger) => {
+    // Find the text item inside this specific trigger
+    const textItem = trigger.querySelector("[data-split-text-item]");
+    
+    if (textItem) {
+      // Split the text into characters
+      const split = new SplitType(textItem, {
+        types: "words, chars"
+      });
+      
+      // Animate characters on scroll
+      gsap.fromTo(
+        split.chars,
+        { 
+          opacity: 0.05 
+        },
+        {
+          opacity: 1,
+          ease: "none",
+          stagger: 0.02,
+          scrollTrigger: {
+            trigger: trigger,
+            start: isMobile ? "top 95%" : "top 80%",
+            end: isMobile ? "bottom 50%" : "top 40%",
+            scrub: true,
+            // Uncomment below to see markers during development
+            // markers: true
+          }
+        }
+      );
+    }
+  });
+
+})();
+</script></body></html>

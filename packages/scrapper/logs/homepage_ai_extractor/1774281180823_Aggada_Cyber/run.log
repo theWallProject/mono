@@ -1,0 +1,60 @@
+[2026-03-23T15:53:00.823Z] === Homepage AI Extractor: Aggada Cyber ===
+[2026-03-23T15:53:00.824Z] Started at: 2026-03-23T15:53:00.824Z
+[2026-03-23T15:53:00.824Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774281180823_Aggada_Cyber
+[2026-03-23T15:53:00.824Z] Company: Aggada Cyber
+[2026-03-23T15:53:00.824Z] Website: aggadacyber.com
+[2026-03-23T15:53:00.824Z] cbRank: 1868582
+[2026-03-23T15:53:00.824Z] Reasons: f
+[2026-03-23T15:53:00.824Z] Fetching: https://aggadacyber.com
+[2026-03-23T15:53:03.247Z] Redirected: https://aggadacyber.com -> https://aggadacyber.com/
+[2026-03-23T15:53:03.254Z] Saved HTML (69906 bytes) to page.html
+[2026-03-23T15:53:03.257Z] Extracted 30 unique links from page
+[2026-03-23T15:53:03.258Z] Saved 30 links to links.json
+[2026-03-23T15:53:03.260Z] Extracted footer HTML (1022 chars)
+[2026-03-23T15:53:03.260Z] Extracted header HTML (9373 chars)
+[2026-03-23T15:53:03.264Z] Website (post-redirect): https://aggadacyber.com/ → origin: https://aggadacyber.com
+[2026-03-23T15:53:03.264Z] External links: 3 (of 30 total)
+[2026-03-23T15:53:03.264Z] ── All external links ──
+[2026-03-23T15:53:03.264Z]   EXT: https://twitter.com/ronmoritz
+[2026-03-23T15:53:03.264Z]   EXT: https://wordpress.org
+[2026-03-23T15:53:03.264Z]   EXT: https://www.linkedin.com/in/ronmoritz
+[2026-03-23T15:53:03.264Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T15:53:03.265Z]   REGEX: tw <- https://twitter.com/ronmoritz
+[2026-03-23T15:53:03.265Z]   UNCATEGORIZED: https://wordpress.org
+[2026-03-23T15:53:03.266Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T15:53:03.266Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/ronmoritz
+[2026-03-23T15:53:03.266Z] Programmatic result: ws:1, tw:1 | 1 uncategorized
+[2026-03-23T15:53:03.266Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T15:53:03.269Z] Saved AI prompt (2563 chars) to ai_prompt.txt
+[2026-03-23T15:53:03.269Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T15:53:03.274Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T15:53:12.342Z]   AI: First token received, streaming...
+[2026-03-23T15:53:13.461Z] AI response complete: 39 chars in 10.2s
+[2026-03-23T15:53:13.462Z] Saved AI response to ai_response.json
+[2026-03-23T15:53:13.462Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T15:53:13.462Z]   AI LINK: https://aggadacyber.com/privacy-policy/
+[2026-03-23T15:53:13.463Z] AI returned 1 valid links
+[2026-03-23T15:53:13.463Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T15:53:13.463Z]   AI→URLS: https://aggadacyber.com/privacy-policy (cleaned from https://aggadacyber.com/privacy-policy/)
+[2026-03-23T15:53:13.463Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T15:53:13.463Z] Footer/header origins (2):
+[2026-03-23T15:53:13.463Z]   FOOTER/HEADER ORIGIN: https://aggadacyber.com
+[2026-03-23T15:53:13.463Z]   FOOTER/HEADER ORIGIN: https://wordpress.org
+[2026-03-23T15:53:13.463Z]   ADDED: urls <- https://wordpress.org
+[2026-03-23T15:53:13.464Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T15:53:13.464Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T15:53:13.464Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T15:53:13.464Z] ── Step 3: Final dedup ──
+[2026-03-23T15:53:13.464Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T15:53:13.464Z] ── FINAL RESULT ──
+[2026-03-23T15:53:13.464Z]   ws (1):
+[2026-03-23T15:53:13.464Z]     - https://aggadacyber.com
+[2026-03-23T15:53:13.464Z]   tw (1):
+[2026-03-23T15:53:13.464Z]     - https://x.com/ronmoritz
+[2026-03-23T15:53:13.464Z]   urls (2):
+[2026-03-23T15:53:13.464Z]     - https://aggadacyber.com/privacy-policy
+[2026-03-23T15:53:13.464Z]     - https://wordpress.org
+[2026-03-23T15:53:13.464Z] Summary: ws:1, tw:1, urls:2
+[2026-03-23T15:53:13.465Z] Saved final result to result.json
+[2026-03-23T15:53:13.465Z] Override fields: ws, tw, urls
+[2026-03-23T15:53:13.466Z] Finished at: 2026-03-23T15:53:13.466Z

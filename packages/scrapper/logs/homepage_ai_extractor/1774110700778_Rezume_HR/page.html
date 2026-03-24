@@ -1,0 +1,772 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>Rezume | כח אדם והשמה</title><link rel="preload" as="image" href="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-2336-1.svg" fetchpriority="high">
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="alternate" type="application/rss+xml" title="Rezume | כח אדם והשמה » Feed" href="https://www.rezume.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="Rezume | כח אדם והשמה » Comments Feed" href="https://www.rezume.co.il/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.rezume.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.rezume.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.rezume.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.rezume.co.il%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="hello-elementor-css" href="https://www.rezume.co.il/wp-content/themes/hello-elementor/style.min.css?ver=3.0.10" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://www.rezume.co.il/wp-content/themes/hello-elementor/theme.min.css?ver=3.0.10" media="all">
+<link rel="stylesheet" id="hello-elementor-header-footer-css" href="https://www.rezume.co.il/wp-content/themes/hello-elementor/header-footer.min.css?ver=3.0.10" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="elementor-post-6-css" href="https://www.rezume.co.il/wp-content/uploads/elementor/css/post-6.css?ver=1773257861" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="e-sticky-css" href="https://www.rezume.co.il/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="widget-image-box-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/css/widget-image-box.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="widget-gallery-css" href="https://www.rezume.co.il/wp-content/plugins/elementor-pro/assets/css/widget-gallery.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="elementor-gallery-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/lib/e-gallery/css/e-gallery.min.css?ver=1.2.0" media="all">
+<link rel="stylesheet" id="e-transitions-css" href="https://www.rezume.co.il/wp-content/plugins/elementor-pro/assets/css/conditionals/transitions.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="swiper-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="widget-image-carousel-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="widget-icon-box-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://www.rezume.co.il/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.29.0" media="all">
+<link rel="stylesheet" id="elementor-post-12-css" href="https://www.rezume.co.il/wp-content/cache/background-css/www.rezume.co.il/wp-content/uploads/elementor/css/post-12.css?ver=1773257862&amp;wpr_t=1773511343" media="all">
+<link rel="stylesheet" id="elementor-post-179-css" href="https://www.rezume.co.il/wp-content/uploads/elementor/css/post-179.css?ver=1773257862" media="all">
+<link rel="stylesheet" id="elementor-post-187-css" href="https://www.rezume.co.il/wp-content/uploads/elementor/css/post-187.css?ver=1773257862" media="all">
+<link rel="stylesheet" id="elementor-gf-local-roboto-css" href="https://www.rezume.co.il/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1748253518" media="all">
+<link rel="stylesheet" id="elementor-gf-local-robotoslab-css" href="https://www.rezume.co.il/wp-content/uploads/elementor/google-fonts/css/robotoslab.css?ver=1748253521" media="all">
+<link rel="stylesheet" id="elementor-gf-local-rubik-css" href="https://www.rezume.co.il/wp-content/uploads/elementor/google-fonts/css/rubik.css?ver=1748253524" media="all">
+<link rel="stylesheet" id="elementor-gf-local-poppins-css" href="https://www.rezume.co.il/wp-content/uploads/elementor/google-fonts/css/poppins.css?ver=1748253526" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+
+<!-- Google Analytics snippet added by Site Kit -->
+<script type="rocketlazyloadscript" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=GT-5MJPBMC" id="google_gtagjs-js" async=""></script>
+<script type="rocketlazyloadscript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["www.rezume.co.il"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-5MJPBMC");
+ window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throttledEvents = []; window._googlesitekit.gtagEvent = (name, data) => { var key = JSON.stringify( { name, data } ); if ( !! window._googlesitekit.throttledEvents[ key ] ) { return; } window._googlesitekit.throttledEvents[ key ] = true; setTimeout( () => { delete window._googlesitekit.throttledEvents[ key ]; }, 5 ); gtag( "event", name, { ...data, event_source: "site-kit" } ); }; 
+//# sourceURL=google_gtagjs-js-after
+</script>
+
+<!-- End Google tag (gtag.js) snippet added by Site Kit -->
+<link rel="https://api.w.org/" href="https://www.rezume.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.rezume.co.il/wp-json/wp/v2/pages/12"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.rezume.co.il/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="canonical" href="https://www.rezume.co.il/">
+<link rel="shortlink" href="https://www.rezume.co.il/">
+<meta name="generator" content="Site Kit by Google 1.154.0"><meta name="google-site-verification" content="Tt5LuK9GKXf3_Y5S15E0Q9xeEW2WHE1GV_hXnRV45tY"><meta name="generator" content="Elementor 3.29.0; features: e_font_icon_svg, additional_custom_breakpoints, e_local_google_fonts, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://www.rezume.co.il/wp-content/uploads/2024/07/cropped-Group-2156-2-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.rezume.co.il/wp-content/uploads/2024/07/cropped-Group-2156-2-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.rezume.co.il/wp-content/uploads/2024/07/cropped-Group-2156-2-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.rezume.co.il/wp-content/uploads/2024/07/cropped-Group-2156-2-270x270.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpr-lazyload-bg-container"></style><style>.elementor-12 .elementor-element.elementor-element-68d1f78:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-68d1f78 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-375457ab-488c-4dca-a026-49065af201af: url('https://www.rezume.co.il/wp-content/uploads/2024/04/decor_mobile.svg');}</style><style id="wpr-lazyload-bg-exclusion">.elementor-12 .elementor-element.elementor-element-68d1f78:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-68d1f78 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-888a8aac-c290-4f0b-8561-ad094b6cfbc1: url('https://www.rezume.co.il/wp-content/uploads/2024/03/Group-2336-1.svg');}</style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.elementor-12 .elementor-element.elementor-element-68d1f78:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-68d1f78 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-375457ab-488c-4dca-a026-49065af201af: url('https://www.rezume.co.il/wp-content/uploads/2024/04/decor_mobile.svg');}.elementor-12 .elementor-element.elementor-element-0449b7f:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-0449b7f > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-1d4beae0-fdce-4534-a632-609f26b2edd8: url('https://www.rezume.co.il/wp-content/uploads/2024/05/bg_organizations_desktop.svg');}.elementor-12 .elementor-element.elementor-element-0449b7f:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-0449b7f > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-da6eb427-3954-438f-bd17-75807874eaee: url('https://www.rezume.co.il/wp-content/uploads/2024/05/bg_organizations_mobile.svg');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".elementor-12 .elementor-element.elementor-element-68d1f78:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-68d1f78 > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-12 .elementor-element.elementor-element-68d1f78:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-68d1f78 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-375457ab-488c-4dca-a026-49065af201af: url('https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/04\/decor_mobile.svg');}","hash":"375457ab-488c-4dca-a026-49065af201af","url":"https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/04\/decor_mobile.svg"},{"selector":".elementor-12 .elementor-element.elementor-element-0449b7f:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-0449b7f > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-12 .elementor-element.elementor-element-0449b7f:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-0449b7f > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-1d4beae0-fdce-4534-a632-609f26b2edd8: url('https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/05\/bg_organizations_desktop.svg');}","hash":"1d4beae0-fdce-4534-a632-609f26b2edd8","url":"https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/05\/bg_organizations_desktop.svg"},{"selector":".elementor-12 .elementor-element.elementor-element-0449b7f:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-0449b7f > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-12 .elementor-element.elementor-element-0449b7f:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-0449b7f > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-da6eb427-3954-438f-bd17-75807874eaee: url('https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/05\/bg_organizations_mobile.svg');}","hash":"da6eb427-3954-438f-bd17-75807874eaee","url":"https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/05\/bg_organizations_mobile.svg"}]; const rocket_excluded_pairs = [{"selector":".elementor-12 .elementor-element.elementor-element-68d1f78:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-68d1f78 > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-12 .elementor-element.elementor-element-68d1f78:not(.elementor-motion-effects-element-type-background), .elementor-12 .elementor-element.elementor-element-68d1f78 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-888a8aac-c290-4f0b-8561-ad094b6cfbc1: url('https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/03\/Group-2336-1.svg');}","hash":"888a8aac-c290-4f0b-8561-ad094b6cfbc1","url":"https:\/\/www.rezume.co.il\/wp-content\/uploads\/2024\/03\/Group-2336-1.svg"}];</script><link href="https://www.googletagmanager.com" rel="preconnect"></head>
+<body class="home wp-singular page-template-default page page-id-12 wp-custom-logo wp-theme-hello-elementor elementor-default elementor-kit-6 elementor-page elementor-page-12">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-elementor-type="header" data-elementor-id="179" class="elementor elementor-179 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-a194988 e-con-full e-flex e-con e-parent" data-id="a194988" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+		<div class="elementor-element elementor-element-7c651a6e e-con-full e-flex e-con e-child" data-id="7c651a6e" data-element_type="container">
+				<div class="elementor-element elementor-element-341c9d90 elementor-align-left elementor-widget elementor-widget-button" data-id="341c9d90" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="mailto:office@rezume.co.il">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">כתבו לנו</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-5725bb17 e-con-full e-flex e-con e-child" data-id="5725bb17" data-element_type="container">
+				<div class="elementor-element elementor-element-6caf66a3 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="6caf66a3" data-element_type="widget" data-widget_type="theme-site-logo.default">
+											<a href="https://www.rezume.co.il">
+			<img width="134" height="42" src="https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-62.svg" class="attachment-full size-full wp-image-197" alt="">				</a>
+											</div>
+				</div>
+				</div>
+				</header>
+		
+<main id="content" class="site-main post-12 page type-page status-publish hentry">
+
+	
+	<div class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="12" class="elementor elementor-12" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-7827b73 fontPloni e-flex e-con-boxed e-con e-parent" data-id="7827b73" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-10bdf72 e-con-full e-flex e-con e-child" data-id="10bdf72" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-72e04de title_h2_p elementor-widget elementor-widget-text-editor" data-id="72e04de" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>הרזומה שלנו</p>								</div>
+				<div class="elementor-element elementor-element-f4ca252 title_h2_p elementor-widget elementor-widget-text-editor" data-id="f4ca252" data-element_type="widget" data-widget_type="text-editor.default">
+									<p style="text-align: right;">הולך לפניך</p>								</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-ea02092 b_numbers fontPloni e-flex e-con-boxed e-con e-parent" data-id="ea02092" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-fc7b902 e-con-full e-flex e-con e-child" data-id="fc7b902" data-element_type="container">
+				<div class="elementor-element elementor-element-64938cd elementor-widget__width-inherit elementor-widget elementor-widget-text-editor" data-id="64938cd" data-element_type="widget" data-widget_type="text-editor.default">
+									<h3 style="text-align: center; margin: 0;"><span style="color: #152e45;"><strong>15</strong><span style="color: #0000ff;">+</span></span></h3>
+<p style="text-align: center; margin: 0;"><span style="color: #152e45;">מומחים לגיוס והשמה</span></p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-66a8cce e-con-full e-flex e-con e-child" data-id="66a8cce" data-element_type="container">
+				<div class="elementor-element elementor-element-f97288b elementor-widget__width-inherit elementor-widget elementor-widget-text-editor" data-id="f97288b" data-element_type="widget" data-widget_type="text-editor.default">
+									<h3 style="text-align: center;margin: 0;"><span style="color: #152e45;"><strong>11500</strong><span style="color: #0000ff;">+</span></span></h3>
+<p style="text-align: center;margin: 0;"><span style="color: #152e45;">נציגים שגוייסו עד כה</span></p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-be77964 e-con-full e-flex e-con e-child" data-id="be77964" data-element_type="container">
+				<div class="elementor-element elementor-element-628caaa elementor-widget__width-inherit elementor-widget elementor-widget-text-editor" data-id="628caaa" data-element_type="widget" data-widget_type="text-editor.default">
+									<h3 style="text-align: center; margin: 0;"><span style="color: #152e45;"><strong>360</strong><span style="color: #0000ff;">+</span></span></h3><p style="text-align: center; margin: 0;"><span style="color: #152e45;">גיוסים מתחילת השנה</span></p>								</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-437d1de elementor-hidden-desktop custom_galery custom_galery_mobile fontPloni e-flex e-con-boxed e-con e-parent" data-id="437d1de" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-0946c78 e-con-full e-flex e-con e-child" data-id="0946c78" data-element_type="container">
+		<div class="elementor-element elementor-element-7deb052 column_2_3 e-flex e-con-boxed e-con e-child" data-id="7deb052" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b419238 elementor-widget elementor-widget-gallery" data-id="b419238" data-element_type="widget" data-settings="{&quot;columns&quot;:1,&quot;columns_tablet&quot;:1,&quot;lazyload&quot;:&quot;yes&quot;,&quot;gallery_layout&quot;:&quot;grid&quot;,&quot;columns_mobile&quot;:1,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;aspect_ratio&quot;:&quot;3:2&quot;,&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-2368-1-1.gif" data-width="109" data-height="116" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513187-1.svg" data-width="207" data-height="207" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-58fbd20 column_1_3 e-flex e-con-boxed e-con e-child" data-id="58fbd20" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-0e19416 elementor-widget elementor-widget-gallery" data-id="0e19416" data-element_type="widget" data-settings="{&quot;columns&quot;:1,&quot;columns_tablet&quot;:1,&quot;lazyload&quot;:&quot;yes&quot;,&quot;gallery_layout&quot;:&quot;grid&quot;,&quot;columns_mobile&quot;:1,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;aspect_ratio&quot;:&quot;3:2&quot;,&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-3484-1.svg" data-width="109" data-height="158" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3d5becd e-con-full e-flex e-con e-child" data-id="3d5becd" data-element_type="container">
+		<div class="elementor-element elementor-element-3401e55 e-con-full column_2_3 e-flex e-con e-child" data-id="3401e55" data-element_type="container">
+				<div class="elementor-element elementor-element-8c19786 elementor-widget elementor-widget-gallery" data-id="8c19786" data-element_type="widget" data-settings="{&quot;columns&quot;:1,&quot;gallery_layout&quot;:&quot;masonry&quot;,&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:14,&quot;sizes&quot;:[]},&quot;columns_tablet&quot;:1,&quot;lazyload&quot;:&quot;yes&quot;,&quot;columns_mobile&quot;:1,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-3409-1.gif" data-width="233" data-height="248" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-913a757 column_1_3 e-flex e-con-boxed e-con e-child" data-id="913a757" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2710114 elementor-widget elementor-widget-gallery" data-id="2710114" data-element_type="widget" data-settings="{&quot;columns&quot;:1,&quot;gallery_layout&quot;:&quot;masonry&quot;,&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:14,&quot;sizes&quot;:[]},&quot;columns_tablet&quot;:1,&quot;lazyload&quot;:&quot;yes&quot;,&quot;columns_mobile&quot;:1,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-3408-1.svg" data-width="233" data-height="158" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+					</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-202e4ab elementor-hidden-mobile custom_galery fontPloni e-con-full elementor-hidden-tablet e-flex e-con e-parent" data-id="202e4ab" data-element_type="container">
+		<div class="elementor-element elementor-element-00459dd e-con-full e-flex e-con e-child" data-id="00459dd" data-element_type="container">
+				<div class="elementor-element elementor-element-752c1aa elementor-widget elementor-widget-gallery" data-id="752c1aa" data-element_type="widget" data-settings="{&quot;columns&quot;:1,&quot;aspect_ratio&quot;:&quot;1:1&quot;,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;lazyload&quot;:&quot;yes&quot;,&quot;gallery_layout&quot;:&quot;grid&quot;,&quot;columns_tablet&quot;:2,&quot;columns_mobile&quot;:1,&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-2370.svg" data-width="447" data-height="459" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-ce6c097 e-con-full e-flex e-con e-child" data-id="ce6c097" data-element_type="container">
+		<div class="elementor-element elementor-element-46bdf5f e-flex e-con-boxed e-con e-child" data-id="46bdf5f" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b049747 elementor-widget elementor-widget-gallery" data-id="b049747" data-element_type="widget" data-settings="{&quot;columns&quot;:1,&quot;aspect_ratio&quot;:&quot;21:9&quot;,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;lazyload&quot;:&quot;yes&quot;,&quot;gallery_layout&quot;:&quot;grid&quot;,&quot;columns_tablet&quot;:2,&quot;columns_mobile&quot;:1,&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-3490.svg" data-width="434" data-height="253" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-d3b6144 e-flex e-con-boxed e-con e-child" data-id="d3b6144" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-c8c1cd5 elementor-widget elementor-widget-gallery" data-id="c8c1cd5" data-element_type="widget" data-settings="{&quot;columns&quot;:2,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]},&quot;lazyload&quot;:&quot;yes&quot;,&quot;gallery_layout&quot;:&quot;grid&quot;,&quot;columns_tablet&quot;:2,&quot;columns_mobile&quot;:1,&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;aspect_ratio&quot;:&quot;3:2&quot;,&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513187-1.svg" data-width="207" data-height="207" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513186-1.svg" data-width="208" data-height="207" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-388cfa4 e-con-full e-flex e-con e-child" data-id="388cfa4" data-element_type="container">
+				<div class="elementor-element elementor-element-d3616c4 elementor-widget elementor-widget-gallery" data-id="d3616c4" data-element_type="widget" data-settings="{&quot;columns&quot;:1,&quot;aspect_ratio&quot;:&quot;1:1&quot;,&quot;lazyload&quot;:&quot;yes&quot;,&quot;gallery_layout&quot;:&quot;grid&quot;,&quot;columns_tablet&quot;:2,&quot;columns_mobile&quot;:1,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
+							<div class="elementor-gallery__container">
+							<div class="e-gallery-item elementor-gallery-item elementor-animated-content">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513080.gif" data-width="293" data-height="300" aria-label="" role="img"></div>
+											<div class="elementor-gallery-item__overlay"></div>
+														</div>
+					</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-57b15ad fontPloni e-flex e-con-boxed e-con e-parent" data-id="57b15ad" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-9b5bdbc elementor-widget elementor-widget-image-carousel" data-id="9b5bdbc" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;10&quot;,&quot;slides_to_scroll&quot;:&quot;10&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;autoplay_speed&quot;:1000,&quot;slides_to_show_mobile&quot;:&quot;3&quot;,&quot;pause_on_interaction&quot;:&quot;no&quot;,&quot;speed&quot;:9000,&quot;pause_on_hover&quot;:&quot;no&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]},&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="image-carousel.default">
+							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 31"><figure class="swiper-slide-inner"><img width="91" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513139.svg" alt="Frame 513139"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 31"><figure class="swiper-slide-inner"><img width="81" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513138.svg" alt="Frame 513138"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 31"><figure class="swiper-slide-inner"><img width="58" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513137.svg" alt="Frame 513137"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 31"><figure class="swiper-slide-inner"><img width="120" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513136.svg" alt="Frame 513136"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 of 31"><figure class="swiper-slide-inner"><img width="86" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513134.svg" alt="Frame 513134"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="6 of 31"><figure class="swiper-slide-inner"><img width="71" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513135.svg" alt="Frame 513135"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="7 of 31"><figure class="swiper-slide-inner"><img width="125" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513126.svg" alt="Frame 513126"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="8 of 31"><figure class="swiper-slide-inner"><img width="74" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513127.svg" alt="Frame 513127"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="9 of 31"><figure class="swiper-slide-inner"><img width="36" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513128.svg" alt="Frame 513128"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="10 of 31"><figure class="swiper-slide-inner"><img width="61" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513129.svg" alt="Frame 513129"></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="11 of 31"><figure class="swiper-slide-inner"><img width="28" height="53" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2028%2053'%3E%3C/svg%3E" alt="Frame 513130" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513130.svg"><noscript><img width="28" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513130.svg" alt="Frame 513130" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="12 of 31"><figure class="swiper-slide-inner"><img width="88" height="53" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2088%2053'%3E%3C/svg%3E" alt="Frame 513132" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513132.svg"><noscript><img width="88" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513132.svg" alt="Frame 513132" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="13 of 31"><figure class="swiper-slide-inner"><img width="27" height="53" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2027%2053'%3E%3C/svg%3E" alt="Frame 513131" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513131.svg"><noscript><img width="27" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513131.svg" alt="Frame 513131" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="14 of 31"><figure class="swiper-slide-inner"><img width="46" height="53" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2053'%3E%3C/svg%3E" alt="Frame 513133" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513133.svg"><noscript><img width="46" height="53" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513133.svg" alt="Frame 513133" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="15 of 31"><figure class="swiper-slide-inner"><img width="34" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2034%2052'%3E%3C/svg%3E" alt="Frame 513147" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513147.svg"><noscript><img width="34" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513147.svg" alt="Frame 513147" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="16 of 31"><figure class="swiper-slide-inner"><img width="120" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%2052'%3E%3C/svg%3E" alt="Frame 513144" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513144.svg"><noscript><img width="120" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513144.svg" alt="Frame 513144" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="17 of 31"><figure class="swiper-slide-inner"><img width="62" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2062%2052'%3E%3C/svg%3E" alt="Frame 513143" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513143.svg"><noscript><img width="62" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513143.svg" alt="Frame 513143" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="18 of 31"><figure class="swiper-slide-inner"><img width="110" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20110%2052'%3E%3C/svg%3E" alt="Frame 513142" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513142.svg"><noscript><img width="110" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513142.svg" alt="Frame 513142" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="19 of 31"><figure class="swiper-slide-inner"><img width="80" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2052'%3E%3C/svg%3E" alt="Frame 513141" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513141.svg"><noscript><img width="80" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513141.svg" alt="Frame 513141" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="20 of 31"><figure class="swiper-slide-inner"><img width="65" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2065%2052'%3E%3C/svg%3E" alt="Frame 513115" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513115.svg"><noscript><img width="65" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513115.svg" alt="Frame 513115" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="21 of 31"><figure class="swiper-slide-inner"><img width="49" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2049%2052'%3E%3C/svg%3E" alt="Frame 513116" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513116.svg"><noscript><img width="49" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513116.svg" alt="Frame 513116" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="22 of 31"><figure class="swiper-slide-inner"><img width="101" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20101%2052'%3E%3C/svg%3E" alt="Frame 513117" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513117.svg"><noscript><img width="101" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513117.svg" alt="Frame 513117" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="23 of 31"><figure class="swiper-slide-inner"><img width="66" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2066%2052'%3E%3C/svg%3E" alt="Frame 513118" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513118.svg"><noscript><img width="66" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513118.svg" alt="Frame 513118" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="24 of 31"><figure class="swiper-slide-inner"><img width="23" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2023%2052'%3E%3C/svg%3E" alt="Frame 513120" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513120.svg"><noscript><img width="23" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513120.svg" alt="Frame 513120" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="25 of 31"><figure class="swiper-slide-inner"><img width="65" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2065%2052'%3E%3C/svg%3E" alt="Frame 513121" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513121.svg"><noscript><img width="65" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513121.svg" alt="Frame 513121" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="26 of 31"><figure class="swiper-slide-inner"><img width="74" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2074%2052'%3E%3C/svg%3E" alt="Frame 513159" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513159.svg"><noscript><img width="74" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513159.svg" alt="Frame 513159" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="27 of 31"><figure class="swiper-slide-inner"><img width="72" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2072%2052'%3E%3C/svg%3E" alt="Frame 513119 (1)" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513119-1-1.svg"><noscript><img width="72" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513119-1-1.svg" alt="Frame 513119 (1)" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="28 of 31"><figure class="swiper-slide-inner"><img width="158" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20158%2052'%3E%3C/svg%3E" alt="Frame 513140 (2)" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513140-2.svg"><noscript><img width="158" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513140-2.svg" alt="Frame 513140 (2)" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="29 of 31"><figure class="swiper-slide-inner"><img width="214" height="45" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20214%2045'%3E%3C/svg%3E" alt="Group" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/07/Group.svg"><noscript><img width="214" height="45" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/07/Group.svg" alt="Group" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="30 of 31"><figure class="swiper-slide-inner"><img width="203" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20203%2052'%3E%3C/svg%3E" alt="Group 3494_v2" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/07/Group-3494_v2.svg"><noscript><img width="203" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/07/Group-3494_v2.svg" alt="Group 3494_v2" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="31 of 31"><figure class="swiper-slide-inner"><img width="172" height="52" decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20172%2052'%3E%3C/svg%3E" alt="Group 3496_v2" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/07/Group-3496_v2.svg"><noscript><img width="172" height="52" decoding="async" class="swiper-slide-image" src="https://www.rezume.co.il/wp-content/uploads/2024/07/Group-3496_v2.svg" alt="Group 3496_v2" /></noscript></figure></div>			</div>
+							
+									</div>
+						</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-68d1f78 fontPloni e-flex e-con-boxed e-con e-parent" data-id="68d1f78" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-rocket-lazy-bg-888a8aac-c290-4f0b-8561-ad094b6cfbc1="excluded" data-rocket-lazy-bg-375457ab-488c-4dca-a026-49065af201af="loaded">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-08a5c46 e-flex e-con-boxed e-con e-child" data-id="08a5c46" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-7d23527 e-con-full max_width_550 e-flex e-con e-child" data-id="7d23527" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-f287e3a elementor-widget-tablet__width-inherit title_h2 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="f287e3a" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2 style="text-align: right;">רזומה חברת השמה וכח אדם</h2><p style="text-align: right;">רזומה היא חברת השמה בוטיקית ובעלת רישיון לשכה פרטית וקבלן כח אדם מטעם משרד הכלכלה. רזומה מתמחה בגיוסי מאסות לעולמות של מוקדי שירות לקוחות ומכירות. החברה נוסדה בשנת 2016 על ידי שלושה יזמים בעלי ניסיון רב בתחום הגיוס והמכירות. החברה מציעה מגוון פתרונות לארגונים המובילים במשק בגיוס עובדים הן בהשמה והן בהעסקה. רזומה בעלת מוניטין רב בתחום הגיוס, מובילה את ענף גיוסי המאסות לעולמות המוקדים עם עשרות אלפי גיוסים מיום הקמתה. החברה מספקת פתרונות לארגונים בתחום הביטוח , תקשורת, סלולר, פיננסים , אשראי, בנקאות, קמעונאות, ועוד</p>								</div>
+				</div>
+					</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-42d6933 fontPloni e-flex e-con-boxed e-con e-parent" data-id="42d6933" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b375bd1 title_h2 elementor-widget elementor-widget-text-editor" data-id="b375bd1" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2 style="text-align: center;">השירותים שלנו</h2>								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-88497d2 fontPloni e-flex e-con-boxed e-con e-parent" data-id="88497d2" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-a843e13 e-con-full e-flex e-con e-child" data-id="a843e13" data-element_type="container">
+		<div class="elementor-element elementor-element-a24e364 e-con-full e-flex e-con e-child" data-id="a24e364" data-element_type="container">
+		<div class="elementor-element elementor-element-2029c91 e-con-full e-flex e-con e-child" data-id="2029c91" data-element_type="container">
+				<div class="elementor-element elementor-element-6790059 title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="6790059" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2 style="text-align: right;">רזומה</h2>								</div>
+				<div class="elementor-element elementor-element-f1570ca title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="f1570ca" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2><span style="color: #ffffff;">&nbsp;שירותי השמה&nbsp;</span></h2>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-7f3a30e e-flex e-con-boxed e-con e-child" data-id="7f3a30e" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-6890858 elementor-widget elementor-widget-text-editor" data-id="6890858" data-element_type="widget" data-widget_type="text-editor.default">
+									<p style="text-align: right;">רזומה מתמחה בהשמת עובדים למגוון משרות, כולל משרות במוקדי שירות לקוחות, מכירות טלפוניות, מכירות פרונטליות, תמיכה טכנית, תפקידי מטה, אדמיסטרציה ועוד. שוק גיוסי המאסות במוקדי שירות ומכירות דינמי מאוד והארגונים נאלצים להתאים את עצמם לרוח התקופה. רזומה דואגת להוביל את השוק, להכיר את שינוי המגמה שמתרחש וכך יודעת לספק פתרון הוליסטי ללקוחותיה הכולל ייעוץ והכוונה בבניית פרופיל המשרה וכמובן איתור וגיוס מועמדים</p>								</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-fcc52ab e-con-full e-flex e-con e-child" data-id="fcc52ab" data-element_type="container">
+		<div class="elementor-element elementor-element-9580c5d e-con-full e-flex e-con e-child" data-id="9580c5d" data-element_type="container">
+				<div class="elementor-element elementor-element-3c55913 elementor-widget elementor-widget-image" data-id="3c55913" data-element_type="widget" data-widget_type="image.default">
+															<img fetchpriority="high" decoding="async" width="354" height="518" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20354%20518'%3E%3C/svg%3E" class="attachment-large size-large wp-image-46" alt="" data-lazy-srcset="https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-2274-2.jpg 354w, https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-2274-2-205x300.jpg 205w" data-lazy-sizes="(max-width: 354px) 100vw, 354px" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-2274-2.jpg"><noscript><img fetchpriority="high" decoding="async" width="354" height="518" src="https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-2274-2.jpg" class="attachment-large size-large wp-image-46" alt="" srcset="https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-2274-2.jpg 354w, https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-2274-2-205x300.jpg 205w" sizes="(max-width: 354px) 100vw, 354px" /></noscript>															</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-1b1f296 fontPloni e-flex e-con-boxed e-con e-parent" data-id="1b1f296" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-339c3ad e-con-full e-flex e-con e-child" data-id="339c3ad" data-element_type="container">
+		<div class="elementor-element elementor-element-cce08fc e-con-full e-flex e-con e-child" data-id="cce08fc" data-element_type="container">
+		<div class="elementor-element elementor-element-319e739 e-con-full e-flex e-con e-child" data-id="319e739" data-element_type="container">
+				<div class="elementor-element elementor-element-ef37042 title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="ef37042" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2 style="text-align: right;">שירותי</h2>								</div>
+				<div class="elementor-element elementor-element-d78ef21 title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="d78ef21" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2><span style="color: #ffffff;">&nbsp;כח אדם ואוטסורסינג&nbsp;</span></h2>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-cc468fe e-con-full e-flex e-con e-child" data-id="cc468fe" data-element_type="container">
+				<div class="elementor-element elementor-element-d938e58 elementor-widget elementor-widget-text-editor" data-id="d938e58" data-element_type="widget" data-widget_type="text-editor.default">
+									<p style="text-align: right;">רזומה מעסיקה מאות עובדים במודל העסקה עבור לקוחותיה. פיתרון זה כולל איתור וגיוס מועמדים והעסקתם למשך התקופה המבוקשת. במודל זה אנו נספק פתרון מלא משלב הגיוס, העסקה, הסכם העבודה, הפרשות ותנאים סוציאליים, שימור העובדים, סיומי העסקה, רווחה ועוד</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-9c03751 e-con-full e-flex e-con e-child" data-id="9c03751" data-element_type="container">
+		<div class="elementor-element elementor-element-95dd17a e-con-full e-flex e-con e-child" data-id="95dd17a" data-element_type="container">
+				<div class="elementor-element elementor-element-5cd22aa elementor-widget elementor-widget-image" data-id="5cd22aa" data-element_type="widget" data-widget_type="image.default">
+															<img decoding="async" width="529" height="478" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20529%20478'%3E%3C/svg%3E" class="attachment-large size-large wp-image-175" alt="" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513043.svg"><noscript><img decoding="async" width="529" height="478" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-513043.svg" class="attachment-large size-large wp-image-175" alt="" /></noscript>															</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-1f0d469 fontPloni e-flex e-con-boxed e-con e-parent" data-id="1f0d469" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-221d43a e-con-full e-flex e-con e-child" data-id="221d43a" data-element_type="container">
+		<div class="elementor-element elementor-element-4760d02 e-con-full e-flex e-con e-child" data-id="4760d02" data-element_type="container">
+				<div class="elementor-element elementor-element-f50783f elementor-position-right elementor-mobile-position-right elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="f50783f" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 24.0068C0 37.1717 10.6723 47.844 23.8372 47.844C37.0021 47.844 47.6744 37.1717 47.6744 24.0068C47.6744 10.8419 37.0021 0.169678 23.8372 0.169678C10.6723 0.169678 0 10.8419 0 24.0068Z" fill="#E8F5FF"></path><path d="M38.1845 17.5998L36.0912 11.3332C35.9371 10.8678 35.6404 10.4627 35.2431 10.1755C34.8458 9.8883 34.3681 9.73353 33.8779 9.73315L14.4645 9.73315C13.9743 9.73353 13.4966 9.8883 13.0993 10.1755C12.702 10.4627 12.4053 10.8678 12.2512 11.3332L10.1579 17.5998C9.94481 18.2451 9.83677 18.9203 9.83785 19.5998L9.83785 20.5465C9.82225 21.6427 10.2104 22.7064 10.9283 23.535C11.6463 24.3636 12.6439 24.8992 13.7312 25.0398C14.3345 25.1019 14.9441 25.0367 15.5206 24.8484C16.0971 24.66 16.6276 24.3528 17.0779 23.9465C17.2304 23.8198 17.3731 23.6816 17.5045 23.5332C17.9123 24.0191 18.4228 24.4087 18.9991 24.6738C19.5755 24.939 20.2035 25.0731 20.8379 25.0665C21.4715 25.0685 22.098 24.9323 22.6737 24.6675C23.2493 24.4027 23.7604 24.0156 24.1712 23.5332C24.5819 24.0226 25.0966 24.4143 25.6779 24.6796C26.2592 24.9449 26.8923 25.077 27.5312 25.0665C28.1623 25.0604 28.7846 24.9179 29.3554 24.6486C29.9262 24.3793 30.4319 23.9897 30.8379 23.5065C30.9697 23.6629 31.1123 23.8099 31.2645 23.9465C31.7143 24.3535 32.2448 24.6612 32.8214 24.8496C33.398 25.0379 34.0079 25.1028 34.6112 25.0398C35.6985 24.8992 36.6961 24.3636 37.4141 23.535C38.132 22.7064 38.5201 21.6427 38.5045 20.5465L38.5045 19.5998C38.5056 18.9203 38.3976 18.2451 38.1845 17.5998Z" fill="#152E45"></path><path d="M27.5093 31.7332L20.8426 31.7332C20.7542 31.7332 20.6694 31.7683 20.6069 31.8308C20.5444 31.8933 20.5093 31.9781 20.5093 32.0665L20.5093 38.3998L27.8426 38.3998L27.8426 32.0665C27.8426 31.9781 27.8075 31.8933 27.745 31.8308C27.6825 31.7683 27.5977 31.7332 27.5093 31.7332Z" fill="#152E45"></path><path d="M34.8368 27.0399L34.2101 27.0399C33.0219 27.0537 31.8535 26.735 30.8368 26.1199C29.8361 26.7411 28.6812 27.0691 27.5034 27.0665C26.3191 27.069 25.1568 26.7461 24.1434 26.1332C23.1472 26.7405 22.0036 27.0633 20.8368 27.0665C19.6615 27.0641 18.5091 26.7414 17.5034 26.1332C16.5058 26.7487 15.3556 27.0721 14.1834 27.0665L13.5568 27.0665C12.7266 26.9852 11.9227 26.7308 11.1968 26.3199L11.1968 36.0665C11.2002 36.6797 11.4435 37.2672 11.8746 37.7033C12.3057 38.1394 12.8903 38.3894 13.5034 38.3999L18.5034 38.3999L18.5034 31.7332C18.5034 31.2028 18.7142 30.6941 19.0892 30.319C19.4643 29.9439 19.973 29.7332 20.5034 29.7332L27.8368 29.7332C28.3672 29.7332 28.8759 29.9439 29.251 30.319C29.6261 30.6941 29.8368 31.2028 29.8368 31.7332L29.8368 38.3999L34.8368 38.3999C35.4545 38.3964 36.046 38.1494 36.4828 37.7126C36.9197 37.2758 37.1666 36.6843 37.1701 36.0665L37.1701 26.2932C36.4523 26.7006 35.6578 26.9549 34.8368 27.0399Z" fill="#152E45"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span>
+							וואן סטופ שופ						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						במקום להגיש עשרות קורות חיים ולענות לעשרות<br>   מראיינים/ות טלפונית רזומה מרכזת את כל המשרות הכי <br>  אטרקטיביות בשוק במקום אחד					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-e797d29 elementor-position-right elementor-mobile-position-right elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="e797d29" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 24.0068C0 37.1717 10.6723 47.844 23.8372 47.844C37.0021 47.844 47.6744 37.1717 47.6744 24.0068C47.6744 10.8419 37.0021 0.169678 23.8372 0.169678C10.6723 0.169678 0 10.8419 0 24.0068Z" fill="#E8F5FF"></path><g clip-path="url(#clip0_2182_7837)"><g clip-path="url(#clip1_2182_7837)"><path d="M15.8842 17.2003C14.8175 16.1336 10.2842 15.867 8.8175 15.7336C8.68419 15.7336 8.55082 15.7336 8.4175 15.867C8.28419 16.0003 8.15088 16.267 8.15088 16.4003L8.15088 28.4003C8.15088 28.8003 8.41757 29.067 8.81757 29.067L12.8176 29.067C13.0843 29.067 13.3509 28.9337 13.4843 28.667C13.4843 28.267 15.8843 21.2003 16.1509 17.7337C16.1509 17.6003 16.1509 17.3337 15.8842 17.2003Z" fill="#152E45"></path><path d="M30.1539 20.4011C28.8206 20.0011 27.6206 19.4678 26.5539 19.0678C24.1539 18.0011 23.0872 18.5344 20.9539 20.6678C20.0206 21.6011 19.3539 22.9344 19.4872 23.4678C19.4872 23.6011 19.4872 23.6011 19.7539 23.7344C20.4206 24.0011 21.3539 24.1344 22.2872 22.6678C22.4205 22.5344 22.5539 22.4011 22.8205 22.4011C23.2205 22.4011 23.3538 22.2678 23.7538 22.1344C24.0205 22.0011 24.2871 21.8677 24.6871 21.7344C24.8204 21.7344 24.8204 21.7344 24.9538 21.7344C25.0871 21.7344 25.3538 21.8677 25.4871 21.8677C26.1539 22.5344 27.3539 23.4678 28.5539 24.5344C30.4206 26.0011 32.2872 27.6011 33.2206 28.8011L33.3539 28.8011C32.4206 26.1344 30.8206 21.6011 30.1539 20.4011Z" fill="#152E45"></path><path d="M39.4846 17.0668C34.2846 17.0668 31.3512 18.4001 31.2179 18.4001C31.0846 18.5334 30.9512 18.6668 30.8179 18.8001C30.8179 18.9334 30.8179 19.2001 30.9512 19.3334C31.7512 20.6667 34.4179 28.0001 34.8179 29.8667C34.9512 30.1334 35.2179 30.4 35.4846 30.4L39.4846 30.4C39.8846 30.4 40.1512 30.1333 40.1512 29.7333L40.1512 17.7333C40.1512 17.3335 39.8846 17.0668 39.4846 17.0668Z" fill="#152E45"></path><path d="M32.281 30.1338C31.7477 28.9338 29.481 27.2004 27.481 25.6005C26.4144 24.6671 25.3477 23.8671 24.5477 23.2004C24.4144 23.3337 24.1477 23.3337 24.1477 23.4671C23.7477 23.6004 23.6144 23.7338 23.081 23.7338C22.0144 25.0671 20.681 25.6004 19.2144 25.0671C18.5477 24.9338 18.1477 24.4004 18.0144 23.8671C17.7477 22.5338 18.9477 20.6671 19.8811 19.7338L17.2144 19.7338C16.6811 22.4005 15.7477 25.8671 15.0811 27.7338C15.6144 28.2671 16.1477 28.9338 16.5477 29.2004C19.0811 31.3338 22.0144 33.4671 22.5477 33.8671C22.9477 34.1338 23.7477 34.4004 24.1477 34.4004C24.2811 34.4004 24.4144 34.4004 24.5477 34.4004L22.4144 32.2671C22.1477 32.0004 22.1477 31.6004 22.4144 31.3338C22.6811 31.0671 23.0811 31.0671 23.3477 31.3338L26.0144 34.0004C26.2811 34.2671 26.5477 34.1338 26.8144 34.1338C27.2144 34.0004 27.3477 33.7338 27.4811 33.3338L24.4144 30.2671C24.1477 30.0004 24.1477 29.6004 24.4144 29.3338C24.6811 29.0671 25.0811 29.0671 25.3477 29.3338L28.681 32.6671C28.8143 32.8004 29.3477 32.8004 29.7477 32.6671C29.881 32.5338 30.1477 32.4004 30.281 32.1338L26.5477 28.4004C26.281 28.1337 26.281 27.7337 26.5477 27.4671C26.8144 27.2004 27.2144 27.2004 27.481 27.4671L31.3477 31.3338C31.6144 31.4671 31.881 31.3338 32.1477 31.2004C32.281 31.0671 32.5477 30.6671 32.281 30.1338Z" fill="#152E45"></path></g></g><defs><clipPath id="clip0_2182_7837"><rect width="32" height="32" fill="white" transform="translate(8 8.16968)"></rect></clipPath><clipPath id="clip1_2182_7837"><rect width="32" height="32" fill="white" transform="translate(8.16406 9.06714)"></rect></clipPath></defs></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span>
+							ליווי והכנה						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						ליווי והכנה לראיון עבודה ללא עלות					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-7b1fcbf elementor-position-right elementor-mobile-position-right elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="7b1fcbf" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 24.0068C0 37.1717 10.6723 47.844 23.8372 47.844C37.0021 47.844 47.6744 37.1717 47.6744 24.0068C47.6744 10.8419 37.0021 0.169678 23.8372 0.169678C10.6723 0.169678 0 10.8419 0 24.0068Z" fill="#E8F5FF"></path><path d="M23.8797 25.3003C25.1986 25.3003 26.2677 24.2312 26.2677 22.9123C26.2677 21.5935 25.1986 20.5243 23.8797 20.5243C22.5609 20.5243 21.4918 21.5935 21.4918 22.9123C21.4918 24.2312 22.5609 25.3003 23.8797 25.3003Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path><path d="M29.8082 29.5164L29.8923 29.4248L29.7935 29.3492C28.0954 28.0508 26.0172 27.3472 23.8795 27.3472C21.7419 27.3472 19.6637 28.0508 17.9656 29.3492L17.8668 29.4248L17.9509 29.5164C18.7045 30.338 19.6207 30.994 20.6413 31.4427C21.6619 31.8915 22.7646 32.1232 23.8795 32.1232C24.9944 32.1232 26.0972 31.8915 27.1178 31.4427C28.1384 30.994 29.0546 30.338 29.8082 29.5164Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path><path d="M28.4284 22.9123C28.4284 21.7059 27.9492 20.549 27.0962 19.696C26.2432 18.843 25.0862 18.3637 23.8799 18.3637C22.6735 18.3637 21.5166 18.843 20.6636 19.696C19.8106 20.549 19.3314 21.7059 19.3314 22.9123L28.4284 22.9123ZM30.9409 27.6537L31.0498 27.7365L31.8398 24.0494L31.9536 24.0494C31.9536 24.0493 31.9536 24.0492 31.9536 24.0491C31.9535 21.908 31.1029 19.8545 29.5888 18.3405C28.0747 16.8264 26.0212 15.9758 23.8799 15.9758C21.7386 15.9758 19.6851 16.8264 18.171 18.3405C16.6569 19.8546 15.8063 21.9081 15.8062 24.0493C15.803 25.2873 16.0916 26.5086 16.6485 27.6143L16.71 27.7365L16.8189 27.6537C17.8812 26.8459 19.078 26.2322 20.354 25.8411L20.5142 25.792L20.4094 25.6613C19.7843 24.8815 19.4441 23.9118 19.4451 22.9124V22.9123C19.4451 21.7361 19.9123 20.6081 20.744 19.7764C21.5757 18.9447 22.7037 18.4775 23.8799 18.4775C25.0561 18.4775 26.1841 18.9447 27.0158 19.7764C27.8475 20.6081 28.3147 21.7361 28.3147 22.9123V22.9124C28.3157 23.9118 27.9755 24.8815 27.3504 25.6613L27.2456 25.792L27.4058 25.8411C28.6818 26.2322 29.8786 26.8459 30.9409 27.6537Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path><path d="M9.3845 20.6117L9.35111 20.7517L9.49512 20.7517L14.237 20.7517L14.3173 20.7517L14.3441 20.6761C14.8486 19.2554 15.6635 17.9651 16.7295 16.8991C17.7955 15.8331 19.0859 15.0182 20.5065 14.5137L20.5822 14.4868L20.5822 14.4065L20.5822 9.66467L20.5822 9.52067L20.4421 9.55406C17.7566 10.1942 15.3013 11.5666 13.3492 13.5188C11.3971 15.4709 10.0246 17.9262 9.3845 20.6117ZM27.3176 9.55406L27.1776 9.52067L27.1776 9.66467L27.1776 14.4065L27.1776 14.4868L27.2532 14.5137C28.6739 15.0182 29.9642 15.8331 31.0302 16.8991C32.0962 17.9651 32.9111 19.2554 33.4156 20.6761L33.4425 20.7517L33.5228 20.7517L38.2646 20.7517L38.4086 20.7517L38.3752 20.6117C37.7351 17.9262 36.3627 15.4709 34.4106 13.5188C32.4584 11.5666 30.0031 10.1942 27.3176 9.55406ZM16.4923 30.9541L16.4916 30.9534C15.9621 30.3923 15.5018 29.7697 15.1205 29.099L15.1199 29.0979C14.8095 28.5651 14.5498 28.0043 14.3442 27.4229L14.3174 27.3471L14.237 27.3471L9.49512 27.3471L9.35111 27.3471L9.3845 27.4872C10.0246 30.1727 11.3971 32.628 13.3492 34.5801C15.3013 36.5322 17.7566 37.9047 20.4421 38.5448L20.5822 38.5782L20.5822 38.4342L20.5822 33.6923L20.5822 33.6117L20.5061 33.585C18.9737 33.0484 17.5957 32.1452 16.4923 30.9541ZM33.5228 27.3471L33.4424 27.3471L33.4156 27.4229C33.21 28.0043 32.9503 28.5651 32.6399 29.0979L32.6393 29.099C32.258 29.7697 31.7977 30.3923 31.2681 30.9534L31.2674 30.9541C30.164 32.1452 28.7861 33.0484 27.2537 33.585L27.1776 33.6117L27.1776 33.6923L27.1776 38.4342L27.1776 38.5782L27.3176 38.5448C30.0031 37.9047 32.4584 36.5322 34.4106 34.5801C36.3627 32.628 37.7351 30.1727 38.3752 27.4872L38.4086 27.3471L38.2646 27.3471L33.5228 27.3471Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path><path d="M22.9953 14.6998C23.2299 14.9344 23.5481 15.0662 23.8798 15.0662C24.2116 15.0662 24.5297 14.9344 24.7643 14.6998C24.9989 14.4652 25.1307 14.1471 25.1307 13.8153L25.1307 9.26677C25.1307 8.93503 24.9989 8.61687 24.7643 8.38229C24.5297 8.14771 24.2116 8.01593 23.8798 8.01593C23.5481 8.01593 23.2299 8.14771 22.9953 8.38229C22.7607 8.61687 22.629 8.93503 22.629 9.26677L22.629 13.8153C22.629 14.1471 22.7607 14.4652 22.9953 14.6998Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path><path d="M9.0971 25.3003L13.6456 25.3003C13.9774 25.3003 14.2955 25.1686 14.5301 24.934C14.7647 24.6994 14.8965 24.3812 14.8965 24.0495C14.8965 23.7177 14.7647 23.3996 14.5301 23.165C14.2955 22.9304 13.9774 22.7986 13.6456 22.7986L9.0971 22.7986C8.76535 22.7986 8.44719 22.9304 8.21261 23.165C7.97803 23.3996 7.84625 23.7177 7.84625 24.0495C7.84625 24.3812 7.97803 24.6994 8.21261 24.934C8.44719 25.1686 8.76535 25.3003 9.0971 25.3003Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path><path d="M22.9953 39.7168C23.2299 39.9513 23.5481 40.0831 23.8798 40.0831C24.2116 40.0831 24.5297 39.9513 24.7643 39.7168C24.9989 39.4822 25.1307 39.164 25.1307 38.8323L25.1307 34.2837C25.1307 33.952 24.9989 33.6338 24.7643 33.3993C24.5297 33.1647 24.2116 33.0329 23.8798 33.0329C23.5481 33.0329 23.2299 33.1647 22.9953 33.3993C22.7607 33.6338 22.629 33.952 22.629 34.2837L22.629 38.8323C22.629 39.164 22.7607 39.4822 22.9953 39.7168Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path><path d="M34.1142 25.3003L38.6627 25.3003C38.9945 25.3003 39.3126 25.1686 39.5472 24.934C39.7818 24.6994 39.9136 24.3812 39.9136 24.0495C39.9136 23.7177 39.7818 23.3996 39.5472 23.165C39.3126 22.9304 38.9945 22.7986 38.6627 22.7986L34.1142 22.7986C33.7824 22.7986 33.4643 22.9304 33.2297 23.165C32.9951 23.3996 32.8633 23.7177 32.8633 24.0495C32.8633 24.3812 32.9951 24.6994 33.2297 24.934C33.4643 25.1686 33.7824 25.3003 34.1142 25.3003Z" fill="#152E45" stroke="#152E45" stroke-width="0.227427"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span>
+							התאמת המשרה						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						תהליך ידידותי ומקצועי שבסופו נזקק את <br> המשרות שיתאימו לכל מועמד באופן אישי לאחר <br>  ראיון טלפוני מעמיק					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-1c783a1 elementor-position-right elementor-mobile-position-right elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="1c783a1" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 24.0068C0 37.1717 10.6723 47.844 23.8372 47.844C37.0021 47.844 47.6744 37.1717 47.6744 24.0068C47.6744 10.8419 37.0021 0.169678 23.8372 0.169678C10.6723 0.169678 0 10.8419 0 24.0068Z" fill="#E8F5FF"></path><g clip-path="url(#clip0_2182_7881)"><path d="M15.8443 32.5215L9.39062 32.5215C8.87287 32.5215 8.45312 32.9412 8.45312 33.459L8.45312 39.129C8.45312 39.6467 8.87287 40.0665 9.39062 40.0665L16.7818 40.0665L16.7818 33.459C16.7817 32.9412 16.3621 32.5215 15.8443 32.5215Z" fill="#152E45"></path><path d="M25.1099 27.2715L19.5938 27.2715C19.076 27.2715 18.6562 27.6912 18.6562 28.209L18.6562 40.0665L26.0474 40.0665L26.0474 28.209C26.0474 27.6912 25.6277 27.2715 25.1099 27.2715Z" fill="#152E45"></path><path d="M38.0232 13.1295L39.9126 11.0789C40.1651 10.8052 40.2313 10.4083 40.0819 10.0677C39.9326 9.72641 39.5957 9.50641 39.2232 9.50641L33.1795 9.50641L33.1795 9.00391C33.1795 8.48641 32.7601 8.06641 32.242 8.06641C31.7245 8.06641 31.3045 8.48641 31.3045 9.00391L31.3045 19.9414L28.8589 19.9414C28.3411 19.9414 27.9214 20.3612 27.9214 20.8789L27.9214 40.0664L35.4719 40.0664C35.9901 40.0664 36.4094 39.6464 36.4094 39.1289L36.4094 20.8789C36.4094 20.3614 35.9901 19.9414 35.4719 19.9414L33.1795 19.9414L33.1795 16.587L39.2232 16.587C39.6026 16.587 39.9444 16.3583 40.0894 16.0077C40.2344 15.657 40.1538 15.2533 39.8851 14.9858L38.0232 13.1295Z" fill="#152E45"></path><path d="M24.0732 16.1155C24.3032 16.5794 24.8656 16.7689 25.3296 16.5389C25.7934 16.3088 25.983 15.7463 25.7529 15.2824C24.0533 11.8551 24.2252 12.2006 24.2006 12.1541C24.0244 11.8212 23.6619 11.6202 23.2758 11.6602C23.2732 11.6604 23.2705 11.661 23.2678 11.6613C23.1911 11.6699 23.3959 11.6298 19.8451 12.377C19.3384 12.4836 19.0141 12.9808 19.1207 13.4875C19.2136 13.9291 19.6032 14.2321 20.0371 14.2321C20.1676 14.2321 20.0836 14.2429 21.7324 13.8959C20.503 16.3091 18.9029 18.5082 16.9599 20.4514C14.5784 22.8329 11.8116 24.6999 8.73612 26.0007C8.25925 26.2024 8.03618 26.7524 8.23787 27.2293C8.43968 27.7066 8.99 27.9291 9.4665 27.7276C12.7654 26.3323 15.7326 24.3303 18.2856 21.7772C20.3664 19.6964 22.0809 17.3411 23.3989 14.7561L24.0732 16.1155Z" fill="#152E45"></path></g><defs><clipPath id="clip0_2182_7881"><rect width="32" height="32" fill="white" transform="translate(8 8.16956)"></rect></clipPath></defs></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span>
+							כל הדרך לקריירה						</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						ייעוץ קריירה והכוונה					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-e246057 e-con-full e-flex e-con e-child" data-id="e246057" data-element_type="container">
+		<div class="elementor-element elementor-element-33b6162 h2_control e-flex e-con-boxed e-con e-child" data-id="33b6162" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-a2df6ea elementor-widget__width-auto title_h2_p elementor-widget elementor-widget-text-editor" data-id="a2df6ea" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2 style="text-align: right;"><span style="color: #ffffff;">אז למה</span></h2>								</div>
+				<div class="elementor-element elementor-element-2880bb7 elementor-widget__width-auto title_h2_p elementor-widget elementor-widget-text-editor" data-id="2880bb7" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2><span style="color: #152e45;">?רזומה כמועמד</span></h2>								</div>
+					</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3ba9f85 e-con-full e-flex e-con e-child" data-id="3ba9f85" data-element_type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
+				<div class="elementor-element elementor-element-9b06ac4 elementor-widget__width-auto decor_image elementor-widget elementor-widget-image" data-id="9b06ac4" data-element_type="widget" data-widget_type="image.default">
+															<img decoding="async" width="1052" height="424" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201052%20424'%3E%3C/svg%3E" class="attachment-full size-full wp-image-324" alt="" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-2351-1.svg"><noscript><img loading="lazy" decoding="async" width="1052" height="424" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Frame-2351-1.svg" class="attachment-full size-full wp-image-324" alt="" /></noscript>															</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-0449b7f e-con-full fontPloni e-flex e-con e-parent" data-id="0449b7f" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-c968238 e-con-full e-flex e-con e-child" data-id="c968238" data-element_type="container">
+				<div class="elementor-element elementor-element-f8e4025 elementor-widget elementor-widget-heading" data-id="f8e4025" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">?למה ארגונים עובדים איתנו</h2>				</div>
+		<div class="elementor-element elementor-element-b701bf7 blocks_list e-flex e-con-boxed e-con e-child" data-id="b701bf7" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-c67588c e-con-full e-flex e-con e-child" data-id="c67588c" data-element_type="container">
+				<div class="elementor-element elementor-element-dc2efc8 elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="dc2efc8" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						רזומה היא חברה מקצועית וצעירה עם מוניטין רב בתחום הגיוס וההשמה					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-b063932 e-con-full e-flex e-con e-child" data-id="b063932" data-element_type="container">
+				<div class="elementor-element elementor-element-656d9dc elementor-widget-mobile__width-inherit elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="656d9dc" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						רכזי הגיוס של רזומה מגיעים עם ניסיון בעבודה במוקדי שירות ומכירות ועוברים הכשרה והסבה לעולם הגיוס ולמתודולוגיית העבודה שהחברה פיתחה במשך השנים					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-6abe944 e-con-full e-flex e-con e-child" data-id="6abe944" data-element_type="container">
+				<div class="elementor-element elementor-element-399088a elementor-widget-mobile__width-inherit elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="399088a" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						היתרון המרכזי של רכזי הגיוס של רזומה הוא הכרת השטח והיכולת להבין את פרופיל המשרה ולאבחן בצורה אידיאלית את המועמדים ואת התאמתם למשרה					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-94b004a e-con-full e-flex e-con e-child" data-id="94b004a" data-element_type="container">
+				<div class="elementor-element elementor-element-cefb471 elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="cefb471" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						ממוצע ותק של רכזי הגיוס ברזומה הוא כ5 שנים, השילוב המנצח של ניסיון וידע חוסך הרבה מאוד זמן ומשאבים לארגונים המגייסים					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-53ece00 e-con-full e-flex e-con e-child" data-id="53ece00" data-element_type="container">
+				<div class="elementor-element elementor-element-57b280f elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="57b280f" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						רזומה מתחייבת לספק ללקוחותיה את העובדים הטובים ביותר בתחומם ונותנת תקופת אחריות שמהווה רשת ביטחון לארגון					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-9241fc7 e-con-full e-flex e-con e-child" data-id="9241fc7" data-element_type="container">
+				<div class="elementor-element elementor-element-3d9fe94 elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="3d9fe94" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+				
+									<p class="elementor-icon-box-description">
+						רזומה מעניקה שירות אישי וליווי צמוד של מנהל תיק לקוח שמתכלל את כל התהליך מול הלקוח ועובד באופן צמוד עם הפונקציות בארגון עד להשלמת יעדי הגיוס					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-25b992e fontPloni section_columns e-flex e-con-boxed e-con e-parent" data-id="25b992e" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-6c73c4c e-con-full e-flex e-con e-child" data-id="6c73c4c" data-element_type="container">
+		<div class="elementor-element elementor-element-b3667e4 e-con-full e-flex e-con e-child" data-id="b3667e4" data-element_type="container">
+		<div class="elementor-element elementor-element-fe53ac4 e-con-full e-flex e-con e-child" data-id="fe53ac4" data-element_type="container">
+				<div class="elementor-element elementor-element-3d2e3b2 title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="3d2e3b2" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2 style="text-align: right;">מחפשים</h2>								</div>
+				<div class="elementor-element elementor-element-9c3ae92 title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="9c3ae92" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2><span style="color: #ffffff;">?עובדים</span></h2>								</div>
+				</div>
+				<div class="elementor-element elementor-element-654f3d8 elementor-widget elementor-widget-text-editor" data-id="654f3d8" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>רזומה היא המקום בשבילכם.<br><span style="color: var( --e-global-color-text );">צרו קשר עוד היום ואנחנו נעזור לכם למצוא את מה שאתם מחפשים.</span></p>								</div>
+				<div class="elementor-element elementor-element-380e112 elementor-align-center elementor-widget elementor-widget-button" data-id="380e112" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-lg" href="mailto:office@rezume.co.il">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">כתבו לנו</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-cfa39b8 e-con-full e-flex e-con e-child" data-id="cfa39b8" data-element_type="container">
+		<div class="elementor-element elementor-element-6e89847 e-con-full e-flex e-con e-child" data-id="6e89847" data-element_type="container">
+				<div class="elementor-element elementor-element-79e255f title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="79e255f" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2 style="text-align: right;">מחפשים</h2>								</div>
+				<div class="elementor-element elementor-element-e192af8 title_h2_p title_h2 elementor-widget elementor-widget-text-editor" data-id="e192af8" data-element_type="widget" data-widget_type="text-editor.default">
+									<h2><span style="color: #152e45;">?עבודה</span></h2>								</div>
+				</div>
+				<div class="elementor-element elementor-element-0f05f02 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="0f05f02" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>יש אצלנו מגוון משרות שיכולות להתאים  בול בשבילך! <br> תן לנו למצוא עבורך את עבודת חלומותייך</p>								</div>
+				<div class="elementor-element elementor-element-80c6090 elementor-align-center elementor-widget elementor-widget-button" data-id="80c6090" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-lg" href="https://www.job-x.co.il/businesses/rezume" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">לחצו כאן</span>
+					</span>
+					</a>
+								</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				<div class="post-tags">
+					</div>
+			</div>
+
+	
+</main>
+
+			<div data-elementor-type="footer" data-elementor-id="187" class="elementor elementor-187 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-650f218 e-con-full e-flex e-con e-parent" data-id="650f218" data-element_type="container">
+		<div class="elementor-element elementor-element-82489a3 e-con-full e-flex e-con e-child" data-id="82489a3" data-element_type="container">
+		<div class="elementor-element elementor-element-d04dc69 e-con-full e-flex e-con e-child" data-id="d04dc69" data-element_type="container">
+				<div class="elementor-element elementor-element-5ef1f1e0 elementor-position-left elementor-vertical-align-middle elementor-position-top elementor-widget elementor-widget-image-box" data-id="5ef1f1e0" data-element_type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="134" height="42" src="https://www.rezume.co.il/wp-content/uploads/2024/02/Frame-62.svg" class="attachment-full size-full wp-image-197" alt=""></figure></div>				</div>
+				<div class="elementor-element elementor-element-7f20131 title_h2_p elementor-widget elementor-widget-text-editor" data-id="7f20131" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><span style="white-space-collapse: preserve;">2024 Rezume כל הזכויות שמורות ©</span></p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-0613f63 e-con-full e-flex e-con e-child" data-id="0613f63" data-element_type="container">
+				<div class="elementor-element elementor-element-fe9f3f8 elementor-widget elementor-widget-text-editor" data-id="fe9f3f8" data-element_type="widget" data-widget_type="text-editor.default">
+									<p style="text-align: right;">Office@rezume.co.il&nbsp;</p>								</div>
+				<div class="elementor-element elementor-element-d8ec059 elementor-widget elementor-widget-text-editor" data-id="d8ec059" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>•</p>								</div>
+				<div class="elementor-element elementor-element-6a6feba elementor-widget elementor-widget-text-editor" data-id="6a6feba" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>עמל 58, פתח תקווה</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-25fa714 e-con-full e-flex e-con e-child" data-id="25fa714" data-element_type="container">
+				<div class="elementor-element elementor-element-7600e1d title_h2_p elementor-widget elementor-widget-text-editor" data-id="7600e1d" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>עוצב ופותח ע״י</p>								</div>
+				<div class="elementor-element elementor-element-e884a3a elementor-widget elementor-widget-image" data-id="e884a3a" data-element_type="widget" data-widget_type="image.default">
+																<a href="https://www.prpl.io/" target="_blank">
+							<img width="61" height="12" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2061%2012'%3E%3C/svg%3E" class="attachment-full size-full wp-image-265" alt="" data-lazy-src="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-3087.svg"><noscript><img width="61" height="12" src="https://www.rezume.co.il/wp-content/uploads/2024/03/Group-3087.svg" class="attachment-full size-full wp-image-265" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.rezume.co.il","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+//# sourceMappingURL=lazyload-css.min.js.map
+
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=3.0.10" id="hello-theme-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.29.0" id="elementor-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.29.0" id="elementor-frontend-modules-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.29.0","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"e_local_google_fonts":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"editor_v2":true,"e_element_cache":true,"home_screen":true,"cloud-library":true,"e_opt_in_v4_page":true},"urls":{"assets":"https:\/\/www.rezume.co.il\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.rezume.co.il\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.rezume.co.il\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"6c11deed78"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":12,"title":"Rezume%20%7C%20%D7%9B%D7%97%20%D7%90%D7%93%D7%9D%20%D7%95%D7%94%D7%A9%D7%9E%D7%94","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.29.0" id="elementor-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.29.0" id="e-sticky-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor/assets/lib/e-gallery/js/e-gallery.min.js?ver=1.2.0" id="elementor-gallery-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.29.0" id="elementor-pro-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.rezume.co.il\/wp-admin\/admin-ajax.php","nonce":"05e35f49ba","urls":{"assets":"https:\/\/www.rezume.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.rezume.co.il\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.rezume.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.29.0" id="elementor-pro-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.rezume.co.il/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.29.0" id="pro-elements-handlers-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.rezume.co.il/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://www.rezume.co.il/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://www.rezume.co.il/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

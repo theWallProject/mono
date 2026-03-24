@@ -1,0 +1,72 @@
+[2026-03-24T00:43:45.879Z] === Homepage AI Extractor: Cogsy ===
+[2026-03-24T00:43:45.879Z] Started at: 2026-03-24T00:43:45.879Z
+[2026-03-24T00:43:45.879Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774313025879_Cogsy
+[2026-03-24T00:43:45.879Z] Company: Cogsy
+[2026-03-24T00:43:45.879Z] Website: cogsy.com
+[2026-03-24T00:43:45.879Z] cbRank: 65248
+[2026-03-24T00:43:45.879Z] Reasons: i
+[2026-03-24T00:43:45.879Z] Fetching: https://cogsy.com
+[2026-03-24T00:43:47.740Z] Redirected: https://cogsy.com -> https://cogsy.com/
+[2026-03-24T00:43:47.744Z] Saved HTML (107007 bytes) to page.html
+[2026-03-24T00:43:47.746Z] Extracted 22 unique links from page
+[2026-03-24T00:43:47.747Z] Saved 22 links to links.json
+[2026-03-24T00:43:47.748Z] Extracted footer HTML (7411 chars)
+[2026-03-24T00:43:47.748Z] Extracted header HTML (4596 chars)
+[2026-03-24T00:43:47.752Z] Website (post-redirect): https://cogsy.com/ → origin: https://cogsy.com
+[2026-03-24T00:43:47.752Z]   SUBDOMAIN: go.cogsy.com (added to ws)
+[2026-03-24T00:43:47.752Z]   SUBDOMAIN: help.cogsy.com (added to ws)
+[2026-03-24T00:43:47.752Z] Website subdomains found: 2
+[2026-03-24T00:43:47.752Z] External links: 3 (of 22 total)
+[2026-03-24T00:43:47.752Z] ── All external links ──
+[2026-03-24T00:43:47.752Z]   EXT: https://twitter.com/cogsyapp
+[2026-03-24T00:43:47.752Z]   EXT: https://www.facebook.com/cogsyapp
+[2026-03-24T00:43:47.752Z]   EXT: https://www.linkedin.com/company/cogsyapp
+[2026-03-24T00:43:47.752Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:43:47.753Z]   REGEX: tw <- https://twitter.com/cogsyapp
+[2026-03-24T00:43:47.753Z]   REGEX: fb <- https://www.facebook.com/cogsyapp
+[2026-03-24T00:43:47.753Z]   REGEX: li <- https://www.linkedin.com/company/cogsyapp
+[2026-03-24T00:43:47.753Z] Programmatic result: ws:3, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-24T00:43:47.753Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:43:47.756Z] Saved AI prompt (4669 chars) to ai_prompt.txt
+[2026-03-24T00:43:47.756Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:43:47.760Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:44:06.401Z]   AI: First token received, streaming...
+[2026-03-24T00:44:12.079Z] AI response complete: 105 chars in 24.3s
+[2026-03-24T00:44:12.080Z] Saved AI response to ai_response.json
+[2026-03-24T00:44:12.080Z] ── Parsing AI response (3 lines) ──
+[2026-03-24T00:44:12.080Z]   AI LINK: https://twitter.com/cogsyapp
+[2026-03-24T00:44:12.080Z]   AI LINK: https://www.linkedin.com/company/cogsyapp/
+[2026-03-24T00:44:12.080Z]   AI LINK: https://www.facebook.com/cogsyapp
+[2026-03-24T00:44:12.081Z] AI returned 3 valid links
+[2026-03-24T00:44:12.081Z] ── Categorizing 3 AI-returned links ──
+[2026-03-24T00:44:12.081Z]   AI→REGEX: tw <- https://twitter.com/cogsyapp (duplicate, skipped)
+[2026-03-24T00:44:12.081Z]   AI→REGEX: li <- https://www.linkedin.com/company/cogsyapp/ (duplicate, skipped)
+[2026-03-24T00:44:12.081Z]   AI→REGEX: fb <- https://www.facebook.com/cogsyapp (duplicate, skipped)
+[2026-03-24T00:44:12.081Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:44:12.081Z] Footer/header origins (6):
+[2026-03-24T00:44:12.081Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T00:44:12.081Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T00:44:12.081Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T00:44:12.081Z]   FOOTER/HEADER ORIGIN: https://cogsy.com
+[2026-03-24T00:44:12.082Z]   FOOTER/HEADER ORIGIN: https://go.cogsy.com
+[2026-03-24T00:44:12.082Z]   FOOTER/HEADER ORIGIN: https://help.cogsy.com
+[2026-03-24T00:44:12.082Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T00:44:12.082Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:44:12.082Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:44:12.082Z] ── Step 3: Final dedup ──
+[2026-03-24T00:44:12.082Z] No urls to dedup
+[2026-03-24T00:44:12.082Z] ── FINAL RESULT ──
+[2026-03-24T00:44:12.082Z]   ws (3):
+[2026-03-24T00:44:12.082Z]     - https://cogsy.com
+[2026-03-24T00:44:12.083Z]     - https://go.cogsy.com
+[2026-03-24T00:44:12.083Z]     - https://help.cogsy.com
+[2026-03-24T00:44:12.083Z]   li (1):
+[2026-03-24T00:44:12.083Z]     - https://www.linkedin.com/company/cogsyapp
+[2026-03-24T00:44:12.083Z]   fb (1):
+[2026-03-24T00:44:12.083Z]     - https://www.facebook.com/cogsyapp
+[2026-03-24T00:44:12.083Z]   tw (1):
+[2026-03-24T00:44:12.083Z]     - https://x.com/cogsyapp
+[2026-03-24T00:44:12.083Z] Summary: ws:3, tw:1, fb:1, li:1
+[2026-03-24T00:44:12.084Z] Saved final result to result.json
+[2026-03-24T00:44:12.085Z] Override fields: ws, li, fb, tw
+[2026-03-24T00:44:12.085Z] Finished at: 2026-03-24T00:44:12.085Z

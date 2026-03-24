@@ -1,0 +1,67 @@
+[2026-03-22T22:53:02.622Z] === Homepage AI Extractor: Simbla ===
+[2026-03-22T22:53:02.622Z] Started at: 2026-03-22T22:53:02.622Z
+[2026-03-22T22:53:02.622Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774219982621_Simbla
+[2026-03-22T22:53:02.622Z] Company: Simbla
+[2026-03-22T22:53:02.622Z] Website: simbla.com
+[2026-03-22T22:53:02.622Z] cbRank: 293680
+[2026-03-22T22:53:02.622Z] Reasons: f
+[2026-03-22T22:53:02.623Z] Fetching: https://simbla.com
+[2026-03-22T22:53:05.920Z] Redirected: https://simbla.com -> https://www.simbla.com/
+[2026-03-22T22:53:05.925Z] Saved HTML (163908 bytes) to page.html
+[2026-03-22T22:53:05.929Z] Extracted 29 unique links from page
+[2026-03-22T22:53:05.929Z] Saved 29 links to links.json
+[2026-03-22T22:53:05.932Z] No footer section found in DOM
+[2026-03-22T22:53:05.932Z] Extracted header HTML (64886 chars)
+[2026-03-22T22:53:05.935Z] Website (post-redirect): https://www.simbla.com/ → origin: https://www.simbla.com
+[2026-03-22T22:53:05.935Z] External links: 4 (of 29 total)
+[2026-03-22T22:53:05.936Z] ── All external links ──
+[2026-03-22T22:53:05.936Z]   EXT: https://app.impact.com/advertiser-advertiser-info/Simbla.brand
+[2026-03-22T22:53:05.936Z]   EXT: https://twitter.com/SimblaNoCode
+[2026-03-22T22:53:05.936Z]   EXT: https://www.facebook.com/TheSimbla
+[2026-03-22T22:53:05.936Z]   EXT: https://www.youtube.com/channel/UCCKewfPNUX4QALhnQrg_kwQ
+[2026-03-22T22:53:05.936Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:53:05.936Z]   UNCATEGORIZED: https://app.impact.com/advertiser-advertiser-info/Simbla.brand
+[2026-03-22T22:53:05.936Z]   REGEX: tw <- https://twitter.com/SimblaNoCode
+[2026-03-22T22:53:05.937Z]   REGEX: fb <- https://www.facebook.com/TheSimbla
+[2026-03-22T22:53:05.937Z]   REGEX: ytc <- https://www.youtube.com/channel/UCCKewfPNUX4QALhnQrg_kwQ
+[2026-03-22T22:53:05.937Z] Programmatic result: ws:1, tw:1, fb:1, ytc:1 | 1 uncategorized
+[2026-03-22T22:53:05.937Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:53:05.940Z] Saved AI prompt (1989 chars) to ai_prompt.txt
+[2026-03-22T22:53:05.940Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:53:05.944Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:53:12.523Z]   AI: First token received, streaming...
+[2026-03-22T22:53:14.770Z] AI response complete: 62 chars in 8.8s
+[2026-03-22T22:53:14.771Z] Saved AI response to ai_response.json
+[2026-03-22T22:53:14.772Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T22:53:14.772Z]   AI LINK: https://app.impact.com/advertiser-advertiser-info/Simbla.brand
+[2026-03-22T22:53:14.772Z] AI returned 1 valid links
+[2026-03-22T22:53:14.772Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T22:53:14.772Z]   AI→URLS: https://app.impact.com/advertiser-advertiser-info/Simbla.brand
+[2026-03-22T22:53:14.773Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:53:14.774Z] Footer/header origins (1):
+[2026-03-22T22:53:14.774Z]   FOOTER/HEADER ORIGIN: https://www.simbla.com
+[2026-03-22T22:53:14.774Z]   SKIP (AI claimed): https://app.impact.com/advertiser-advertiser-info/Simbla.brand
+[2026-03-22T22:53:14.774Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T22:53:14.774Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:53:14.774Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T22:53:15.182Z]   YOUTUBE: resolved UCCKewfPNUX4QALhnQrg_kwQ → @SimblaOfficial
+[2026-03-22T22:53:15.182Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T22:53:15.182Z] ── Step 3: Final dedup ──
+[2026-03-22T22:53:15.182Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T22:53:15.182Z] ── FINAL RESULT ──
+[2026-03-22T22:53:15.182Z]   ws (1):
+[2026-03-22T22:53:15.183Z]     - https://www.simbla.com
+[2026-03-22T22:53:15.183Z]   fb (1):
+[2026-03-22T22:53:15.183Z]     - https://www.facebook.com/thesimbla
+[2026-03-22T22:53:15.183Z]   tw (1):
+[2026-03-22T22:53:15.183Z]     - https://x.com/simblanocode
+[2026-03-22T22:53:15.183Z]   ytp (1):
+[2026-03-22T22:53:15.183Z]     - https://www.youtube.com/@SimblaOfficial
+[2026-03-22T22:53:15.183Z]   ytc (1):
+[2026-03-22T22:53:15.183Z]     - https://www.youtube.com/channel/UCCKewfPNUX4QALhnQrg_kwQ
+[2026-03-22T22:53:15.183Z]   urls (1):
+[2026-03-22T22:53:15.183Z]     - https://app.impact.com/advertiser-advertiser-info/Simbla.brand
+[2026-03-22T22:53:15.183Z] Summary: ws:1, tw:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-22T22:53:15.184Z] Saved final result to result.json
+[2026-03-22T22:53:15.184Z] Override fields: ws, fb, tw, ytp, ytc, urls
+[2026-03-22T22:53:15.184Z] Finished at: 2026-03-22T22:53:15.184Z

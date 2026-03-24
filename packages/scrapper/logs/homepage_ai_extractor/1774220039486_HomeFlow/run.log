@@ -1,0 +1,74 @@
+[2026-03-22T22:53:59.487Z] === Homepage AI Extractor: HomeFlow ===
+[2026-03-22T22:53:59.487Z] Started at: 2026-03-22T22:53:59.487Z
+[2026-03-22T22:53:59.487Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774220039486_HomeFlow
+[2026-03-22T22:53:59.487Z] Company: HomeFlow
+[2026-03-22T22:53:59.487Z] Website: homeflow.co.uk
+[2026-03-22T22:53:59.487Z] cbRank: 294372
+[2026-03-22T22:53:59.487Z] Reasons: f
+[2026-03-22T22:53:59.487Z] Fetching: https://homeflow.co.uk
+[2026-03-22T22:54:01.895Z] Redirected: https://homeflow.co.uk -> https://www.homeflow.co.uk/
+[2026-03-22T22:54:01.900Z] Saved HTML (155536 bytes) to page.html
+[2026-03-22T22:54:01.902Z] Extracted 38 unique links from page
+[2026-03-22T22:54:01.902Z] Saved 38 links to links.json
+[2026-03-22T22:54:01.904Z] Extracted footer HTML (5689 chars)
+[2026-03-22T22:54:01.904Z] Extracted header HTML (15177 chars)
+[2026-03-22T22:54:01.908Z] Website (post-redirect): https://www.homeflow.co.uk/ → origin: https://www.homeflow.co.uk
+[2026-03-22T22:54:01.909Z]   SUBDOMAIN: admin.content.homeflow.co.uk (added to ws)
+[2026-03-22T22:54:01.909Z]   SUBDOMAIN: help.homeflow.co.uk (added to ws)
+[2026-03-22T22:54:01.909Z] Website subdomains found: 2
+[2026-03-22T22:54:01.909Z] External links: 4 (of 38 total)
+[2026-03-22T22:54:01.909Z] ── All external links ──
+[2026-03-22T22:54:01.909Z]   EXT: http://www.youtube.com/@homeflow
+[2026-03-22T22:54:01.909Z]   EXT: https://cookie-script.com
+[2026-03-22T22:54:01.909Z]   EXT: https://www.facebook.com/homeflow.co.uk
+[2026-03-22T22:54:01.910Z]   EXT: https://www.linkedin.com/company/homeflow/posts/?feedView=all
+[2026-03-22T22:54:01.910Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:54:01.910Z]   REGEX: ytp <- http://www.youtube.com/@homeflow
+[2026-03-22T22:54:01.910Z]   UNCATEGORIZED: https://cookie-script.com
+[2026-03-22T22:54:01.910Z]   REGEX: fb <- https://www.facebook.com/homeflow.co.uk
+[2026-03-22T22:54:01.910Z]   REGEX: li <- https://www.linkedin.com/company/homeflow/posts/?feedView=all
+[2026-03-22T22:54:01.910Z] Programmatic result: ws:3, ytp:1, fb:1, li:1 | 1 uncategorized
+[2026-03-22T22:54:01.910Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:54:01.913Z] Saved AI prompt (7158 chars) to ai_prompt.txt
+[2026-03-22T22:54:01.914Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:54:01.917Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:54:47.802Z]   AI: First token received, streaming...
+[2026-03-22T22:54:54.381Z] AI response complete: 134 chars in 52.5s
+[2026-03-22T22:54:54.382Z] Saved AI response to ai_response.json
+[2026-03-22T22:54:54.383Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T22:54:54.383Z]   AI LINK: https://www.facebook.com/homeflow.co.uk
+[2026-03-22T22:54:54.383Z]   AI LINK: https://www.linkedin.com/company/homeflow/posts/?feedView=all
+[2026-03-22T22:54:54.383Z]   AI LINK: http://www.youtube.com/@homeflow
+[2026-03-22T22:54:54.383Z] AI returned 3 valid links
+[2026-03-22T22:54:54.383Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T22:54:54.384Z]   AI→REGEX: fb <- https://www.facebook.com/homeflow.co.uk (duplicate, skipped)
+[2026-03-22T22:54:54.384Z]   AI→REGEX: li <- https://www.linkedin.com/company/homeflow/posts/?feedView=all (duplicate, skipped)
+[2026-03-22T22:54:54.384Z]   AI→REGEX: ytp <- http://www.youtube.com/@homeflow (duplicate, skipped)
+[2026-03-22T22:54:54.386Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:54:54.386Z] Footer/header origins (5):
+[2026-03-22T22:54:54.386Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T22:54:54.386Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T22:54:54.386Z]   FOOTER/HEADER ORIGIN: http://www.youtube.com
+[2026-03-22T22:54:54.386Z]   FOOTER/HEADER ORIGIN: https://help.homeflow.co.uk
+[2026-03-22T22:54:54.386Z]   FOOTER/HEADER ORIGIN: https://admin.content.homeflow.co.uk
+[2026-03-22T22:54:54.386Z]   SKIP (not in footer/header): https://cookie-script.com
+[2026-03-22T22:54:54.386Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T22:54:54.387Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:54:54.387Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T22:54:54.387Z] ── Step 3: Final dedup ──
+[2026-03-22T22:54:54.387Z] No urls to dedup
+[2026-03-22T22:54:54.387Z] ── FINAL RESULT ──
+[2026-03-22T22:54:54.387Z]   ws (3):
+[2026-03-22T22:54:54.388Z]     - https://admin.content.homeflow.co.uk
+[2026-03-22T22:54:54.388Z]     - https://help.homeflow.co.uk
+[2026-03-22T22:54:54.388Z]     - https://www.homeflow.co.uk
+[2026-03-22T22:54:54.388Z]   li (1):
+[2026-03-22T22:54:54.388Z]     - https://www.linkedin.com/company/homeflow
+[2026-03-22T22:54:54.388Z]   fb (1):
+[2026-03-22T22:54:54.388Z]     - https://www.facebook.com/homeflow.co.uk
+[2026-03-22T22:54:54.389Z]   ytp (1):
+[2026-03-22T22:54:54.389Z]     - https://www.youtube.com/@homeflow
+[2026-03-22T22:54:54.389Z] Summary: ws:3, ytp:1, fb:1, li:1
+[2026-03-22T22:54:54.390Z] Saved final result to result.json
+[2026-03-22T22:54:54.390Z] Override fields: ws, li, fb, ytp
+[2026-03-22T22:54:54.391Z] Finished at: 2026-03-22T22:54:54.391Z

@@ -1,0 +1,1080 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Introduction to the Computer Vision Wiki | CloudFactory Computer Vision Wiki</title>
+
+    <meta name="description" content="An introduction to the Model Playground wiki.">
+
+<meta name="robots" content="all">
+
+    <link rel="canonical" href="https://hasty.ai/docs/mp-wiki/getting-started/introduction">
+<meta content="CloudFactory Computer Vision Wiki" property="og:site_name">
+<meta content="https://hasty.ai/docs/mp-wiki/getting-started/introduction" property="og:url">
+<meta content="website" property="og:type">
+<meta content="Introduction to the Computer Vision Wiki | CloudFactory Computer Vision Wiki" property="og:title">
+<meta content="An introduction to the Model Playground wiki." property="og:description">
+<meta content="https://hasty.ai/media/site/898f7b55fb-1702984142/og-image-1200x630-crop.webp" property="og:image">
+<meta content="1200" property="og:image:width">
+<meta content="630" property="og:image:height">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://hasty.ai/#website","url":"https://hasty.ai","name":"CloudFactory Computer Vision Wiki","description":""}]}</script>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&amp;display=swap" rel="stylesheet">
+
+    <link href="https://hasty.ai/dist/assets/main-Dh8EiKoC.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favs/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favs/favicon.ico" ?="">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favs/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favs/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favs/android-chrome-512x512.png">
+  </head>
+  <body>
+<div class="uk-sticky-placeholder" style="height: 0px; width: 0px; margin: 0px;"></div><header class="docsNavbar uk-sticky uk-sticky-fixed" uk-sticky="cls-active: uk-navbar-sticky" style="position: sticky; top: 0px;">
+  <div class="uk-container uk-container-large">
+    <nav class="uk-navbar uk-navbar-container" uk-navbar="">
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="https://www.cloudfactory.com/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 90">
+  <path fill="#065da3" d="M 248.19 19.25L 258.99 19.25Q 259.49 19.25 259.49 19.75L 259.50 24.50A 0.50 0.50 0.0 0 1 259.00 25.00L 248.00 25.00Q 247.50 25.00 247.50 25.50L 247.50 71.00Q 247.50 71.25 247.25 71.25L 240.25 71.25A 0.25 0.25 0.0 0 1 240.00 71.00L 240.00 25.50Q 240.00 25.00 239.50 25.00L 231.00 24.99Q 230.75 24.99 230.75 24.75L 230.75 19.50Q 230.75 19.25 231.00 19.25L 239.49 19.25Q 240.05 19.25 240.02 18.69C 239.61 8.70 243.31 0.14 254.37 0.19Q 258.06 0.20 261.47 0.46Q 262.25 0.52 262.25 1.29L 262.25 6.52Q 262.25 7.46 261.32 7.30C 258.02 6.72 255.13 6.36 252.01 7.53C 247.80 9.12 247.31 14.65 247.47 18.56Q 247.49 19.25 248.19 19.25Z"></path>
+  <rect fill="#065da3" x="51.25" y="1.00" width="15.24" height="70.24" rx="0.32"></rect>
+  <path fill="#065da3" d="M 210.59 24.18A 0.23 0.23 0.0 0 0 211.00 24.04L 211.00 2.25Q 211.00 1.00 212.25 1.00L 225.25 1.00A 0.75 0.75 0.0 0 1 226.00 1.75L 226.00 70.75Q 226.00 71.25 225.50 71.25L 212.25 71.25A 0.50 0.50 0.0 0 1 211.75 70.75L 211.75 65.28Q 211.75 63.74 210.94 65.04C 208.18 69.47 203.79 72.47 198.68 72.62C 187.96 72.93 181.05 65.58 178.82 55.54C 176.01 42.87 177.93 22.35 193.38 18.36C 199.84 16.69 206.49 18.97 210.59 24.18ZM 203.15 28.74C 193.68 28.32 193.14 42.11 193.73 48.96C 194.12 53.40 195.27 59.36 200.08 61.08C 205.76 63.11 210.77 57.82 210.93 52.40Q 211.14 45.11 210.93 37.25C 210.81 32.89 207.86 28.94 203.15 28.74Z"></path>
+  <path fill="#065da3" d="M 355.32 25.00L 347.25 25.00Q 347.00 25.00 347.00 24.75L 347.01 19.50Q 347.01 19.25 347.25 19.25L 355.50 19.25Q 356.00 19.25 356.00 18.75L 356.00 7.04Q 356.00 6.82 356.22 6.80L 363.54 6.09Q 363.75 6.07 363.75 6.29L 363.75 18.75Q 363.75 19.25 364.25 19.25L 375.25 19.25Q 375.75 19.25 375.75 19.75L 375.75 24.50Q 375.75 25.00 375.25 25.00L 364.26 25.00Q 363.77 25.00 363.76 25.50Q 363.68 40.89 363.82 54.57Q 363.84 57.31 364.41 60.32C 365.54 66.32 371.76 66.70 376.56 65.32Q 377.49 65.05 377.49 66.01L 377.50 70.84Q 377.50 71.95 376.42 72.22C 373.48 72.93 371.31 72.66 368.49 72.55C 363.47 72.37 359.40 69.44 357.21 64.93C 356.25 62.97 356.01 59.10 356.01 56.84Q 355.97 41.83 356.03 25.71Q 356.03 25.00 355.32 25.00Z"></path>
+  <path fill="#065da3" d="M 0.00 49.78L 0.00 40.79Q 1.06 34.07 3.79 29.47Q 8.63 21.31 17.23 18.88Q 25.38 16.57 32.92 19.06Q 44.17 22.77 46.74 37.22Q 46.85 37.83 46.23 37.90L 33.72 39.15Q 33.09 39.21 33.05 38.57Q 32.80 34.50 30.23 31.32C 25.28 25.20 18.25 29.89 16.80 35.90C 15.21 42.48 14.68 53.78 19.45 59.24C 24.47 64.98 31.42 60.97 33.04 54.75Q 33.40 53.37 33.64 51.95Q 33.76 51.23 34.48 51.32L 46.26 52.81Q 46.92 52.89 46.80 53.55Q 43.94 69.43 29.14 72.21C 21.14 73.71 12.68 71.66 6.99 65.46Q 1.20 59.15 0.00 49.78Z"></path>
+  <path fill="#065da3" d="M 71.66 49.05C 70.25 31.45 79.56 17.35 98.04 17.79C 117.27 18.25 125.46 35.64 122.06 52.75C 120.02 62.99 112.26 70.87 101.82 72.30Q 93.56 73.43 86.76 70.83C 77.94 67.44 72.42 58.55 71.66 49.05ZM 95.36 28.67C 86.20 30.41 86.87 46.33 88.02 52.60C 88.88 57.32 91.90 62.12 97.32 61.97C 108.20 61.67 107.58 44.45 106.16 37.52C 105.04 32.03 101.62 27.47 95.36 28.67Z"></path>
+  <path fill="#065da3" d="M 293.40 62.73Q 287.34 72.69 276.14 72.62Q 269.81 72.58 264.92 68.86C 259.12 64.43 257.51 55.52 261.07 49.07C 266.47 39.28 283.41 38.29 293.18 38.82Q 293.74 38.85 293.76 38.29Q 293.84 35.99 293.70 33.78C 293.13 24.80 283.67 23.03 276.52 24.81Q 269.58 26.54 268.14 33.03A 0.35 0.34 10.8 0 1 267.75 33.29L 261.03 32.23Q 260.76 32.19 260.83 31.92Q 263.03 22.70 270.98 19.74C 279.92 16.41 295.69 16.03 299.71 27.20Q 301.76 32.89 301.41 39.47Q 301.28 42.04 301.27 44.64C 301.24 53.40 300.69 62.51 302.85 71.04Q 302.90 71.24 302.69 71.24L 295.32 71.25Q 295.10 71.25 295.04 71.04Q 293.98 67.19 293.99 62.90Q 293.99 61.77 293.40 62.73ZM 281.52 65.33C 290.32 62.69 294.50 54.68 293.76 45.53Q 293.71 45.02 293.21 44.98C 286.38 44.35 273.27 44.64 269.07 51.62C 265.91 56.88 268.54 64.28 274.76 65.57Q 278.30 66.30 281.52 65.33Z"></path>
+  <path fill="#065da3" d="M 306.89 37.65C 308.77 26.51 316.14 18.24 327.95 17.80C 339.25 17.38 345.82 25.69 347.01 36.21A 0.30 0.30 0.0 0 1 346.75 36.54L 340.02 37.56Q 339.79 37.60 339.77 37.37Q 338.78 28.88 332.21 25.43C 328.12 23.29 322.76 24.88 319.73 28.12C 312.47 35.89 312.52 56.00 320.68 63.25C 324.58 66.72 330.29 66.96 334.41 63.64C 337.49 61.16 339.09 57.87 339.90 54.02Q 340.09 53.11 340.99 53.29L 346.29 54.35Q 347.10 54.51 346.94 55.32C 344.97 65.13 339.18 72.48 328.57 72.63C 308.95 72.92 304.21 53.57 306.89 37.65Z"></path>
+  <path fill="#065da3" d="M 378.23 52.85C 375.61 37.71 380.78 18.71 399.03 17.83C 410.89 17.25 419.56 24.87 422.11 36.15C 425.26 50.10 421.26 69.89 404.15 72.35C 390.69 74.29 380.49 65.89 378.23 52.85ZM 414.63 48.85C 415.28 41.90 414.46 34.96 410.08 29.29Q 407.30 25.70 403.20 24.80C 394.50 22.88 388.58 28.98 386.73 37.27C 384.76 46.07 385.49 62.36 396.82 65.52C 407.84 68.59 413.78 57.98 414.63 48.85Z"></path>
+  <path fill="#065da3" d="M 436.58 29.04C 439.23 21.26 444.86 17.08 453.28 17.82Q 453.50 17.84 453.50 18.05L 453.50 25.47A 0.26 0.25 -0.0 0 1 453.24 25.72C 441.73 25.58 436.23 34.77 436.24 45.25Q 436.26 58.35 436.24 70.97Q 436.24 71.25 435.97 71.25L 428.75 71.25A 0.25 0.25 0.0 0 1 428.50 71.00L 428.50 19.50A 0.25 0.25 0.0 0 1 428.75 19.25L 435.85 19.27Q 436.01 19.27 436.00 19.43Q 435.90 24.19 436.12 28.98Q 436.17 30.24 436.58 29.04Z"></path>
+  <path fill="#065da3" d="M 500.00 17.83L 500.00 18.67Q 489.63 47.65 479.53 76.58C 478.86 78.48 477.77 80.32 476.86 82.11C 473.38 88.93 464.97 90.48 458.20 88.64Q 457.75 88.52 457.75 88.05L 457.75 82.00A 0.38 0.37 -28.6 0 1 458.23 81.64Q 461.41 82.52 465.04 82.25C 471.14 81.79 473.12 76.48 474.67 71.41Q 475.20 69.66 474.64 68.06Q 466.11 43.98 457.16 17.98A 0.16 0.16 0.0 0 1 457.31 17.76L 464.70 17.75Q 464.91 17.75 464.97 17.94L 478.95 58.75Q 479.16 59.35 479.37 58.75L 493.22 18.39Q 493.41 17.83 494.00 17.83L 500.00 17.83Z"></path>
+  <path fill="#065da3" d="M 158.27 64.77C 153.74 72.23 145.34 74.02 137.35 71.76C 130.24 69.76 127.62 62.53 127.57 55.52Q 127.43 37.33 127.52 19.77Q 127.52 19.25 128.04 19.25L 141.71 19.25Q 142.28 19.25 142.28 19.83Q 142.17 36.44 142.29 52.16C 142.32 55.71 143.13 59.60 146.66 60.97Q 149.83 62.20 152.78 60.53Q 157.93 57.60 157.97 50.54Q 158.04 34.77 157.98 19.80A 0.55 0.55 0.0 0 1 158.53 19.25L 172.25 19.25Q 172.75 19.25 172.75 19.75L 172.75 70.75A 0.50 0.50 0.0 0 1 172.25 71.25L 159.62 71.25Q 159.00 71.25 159.00 70.62L 159.00 64.97Q 159.00 63.57 158.27 64.77Z"></path>
+</svg>
+        </a>
+      </div>
+        
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav uk-visible@s">
+                    <li>
+            <a href="https://www.cloudfactory.com" target="_blank">Homepage</a>
+            
+                      </li>
+                    <li>
+            <a href="" target="_blank" role="button" aria-haspopup="true" aria-expanded="false">Solutions <span uk-navbar-parent-icon="" class="uk-icon uk-navbar-parent-icon"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><polyline fill="none" stroke="#000" stroke-width="1.1" points="1 3.5 6 8.5 11 3.5"></polyline></svg></span></a>
+            
+                        <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-drop" hidden="">
+              <div class="uk-grid uk-drop-grid uk-child-width-1-2 uk-grid-stack" uk-grid="">
+                                <div>
+                  <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-nav-header">Data Labeling</li>
+                    <li class="uk-nav-divider"></li>
+
+                                                            <li><a href="https://www.cloudfactory.com/solutions/accelerated-annotation" target="_blank">
+                      <div>
+                        Accelerated Annotation                        <div class="uk-nav-subtitle">AI-powered labeling technology for 2-D images and video integrated with expert annotators and optimized processes</div>                      </div>
+                    </a></li>
+                                                            <li><a href="https://www.cloudfactory.com/solutions/workforce-plus" target="_blank">
+                      <div>
+                        Workforce Plus                        <div class="uk-nav-subtitle">Our Managed Workforce bundled with tooling for video, LiDAR, and more</div>                      </div>
+                    </a></li>
+                                                            <li><a href="https://www.cloudfactory.com/solutions/data-labeling" target="_blank">
+                      <div>
+                        Managed Workforce                        <div class="uk-nav-subtitle">Workforce services for Vision AI use cases</div>                      </div>
+                    </a></li>
+                                      </ul>
+                </div>
+                                <div>
+                  <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-nav-header">Human-in-the-Loop Automation</li>
+                    <li class="uk-nav-divider"></li>
+
+                                                            <li><a href="https://www.cloudfactory.com/solutions/hitl-automation" target="_blank">
+                      <div>
+                        Managed Workforce                        <div class="uk-nav-subtitle">Support workflows and fill gaps in AI and automation</div>                      </div>
+                    </a></li>
+                                      </ul>
+                </div>
+                              </div>
+            </div>
+                      </li>
+                    <li>
+            <a href="" target="_blank" role="button" aria-haspopup="true" aria-expanded="false">Resources <span uk-navbar-parent-icon="" class="uk-icon uk-navbar-parent-icon"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><polyline fill="none" stroke="#000" stroke-width="1.1" points="1 3.5 6 8.5 11 3.5"></polyline></svg></span></a>
+            
+                        <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-drop" hidden="">
+              <div class="uk-grid uk-drop-grid uk-child-width-1-2 uk-grid-stack" uk-grid="">
+                                <div>
+                  <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-nav-header">Popular Guides</li>
+                    <li class="uk-nav-divider"></li>
+
+                                                            <li><a href="https://www.cloudfactory.com/data-labeling-guide" target="_blank">
+                      <div>
+                        Data Labeling Guide                        <div class="uk-nav-subtitle">Mastering data labeling for ML in 2024: A comprehensive guide</div>                      </div>
+                    </a></li>
+                                                            <li><a href="https://www.cloudfactory.com/computer-vision-guide" target="_blank">
+                      <div>
+                        Computer Vision Guide                        <div class="uk-nav-subtitle">Vision AI Applications, Data Quality, and Your Workforce</div>                      </div>
+                    </a></li>
+                                                            <li><a href="https://www.cloudfactory.com/natural-language-processing-guide" target="_blank">
+                      <div>
+                        NLP Guide                        <div class="uk-nav-subtitle">Natural Language Processing Techniques, Workforces, and Use Cases</div>                      </div>
+                    </a></li>
+                                                            <li><a href="https://www.cloudfactory.com/data-processing-guide" target="_blank">
+                      <div>
+                        Data Processing Guide                        <div class="uk-nav-subtitle">Outsourcing Data Cleansing, Transcription, and Enrichment at Scale</div>                      </div>
+                    </a></li>
+                                      </ul>
+                </div>
+                                <div>
+                  <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-nav-header">Key Resources</li>
+                    <li class="uk-nav-divider"></li>
+
+                                                            <li><a href="https://blog.cloudfactory.com" target="_blank">
+                      <div>
+                        Blog                                              </div>
+                    </a></li>
+                                                            <li><a href="https://wiki.cloudfactory.com" target="_blank">
+                      <div>
+                        Wiki                                              </div>
+                    </a></li>
+                                                            <li><a href="https://www.cloudfactory.com/webinars" target="_blank">
+                      <div>
+                        Webinars                                              </div>
+                    </a></li>
+                                                            <li><a href="https://www.cloudfactory.com/use-cases" target="_blank">
+                      <div>
+                        Use Cases                                              </div>
+                    </a></li>
+                                        <li class="uk-nav-divider"></li>                    <li><a href="https://www.cloudfactory.com/resources" target="_blank">
+                      <div>
+                        Explore All Resources                                              </div>
+                    </a></li>
+                                      </ul>
+                </div>
+                              </div>
+            </div>
+                      </li>
+                  </ul>
+
+                <hr class="uk-divider-vertical uk-visible@s">
+        
+        <div class="uk-navbar-item uk-visible@m">
+          <a class="uk-button uk-button-small uk-button-primary" href="https://www.cloudfactory.com/contact" target="_blank">Contact Us</a>
+        </div>
+
+        
+                <button class="uk-navbar-toggle uk-hidden@l uk-icon uk-navbar-toggle-icon" type="button" uk-navbar-toggle-icon="" uk-toggle="target: #docsNavMobile" aria-label="Open menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><style>.uk-navbar-toggle-icon svg&gt;[class*="line-"]{transition:0.2s ease-in-out;transition-property:transform, opacity;transform-origin:center;opacity:1}.uk-navbar-toggle-icon svg&gt;.line-3{opacity:0}[aria-expanded="true"].uk-navbar-toggle-icon svg&gt;.line-3,[aria-expanded="true"]&gt;.uk-navbar-toggle-icon svg&gt;.line-3{opacity:1}[aria-expanded="true"].uk-navbar-toggle-icon svg&gt;.line-2,[aria-expanded="true"]&gt;.uk-navbar-toggle-icon svg&gt;.line-2{transform:rotate(45deg)}[aria-expanded="true"].uk-navbar-toggle-icon svg&gt;.line-3,[aria-expanded="true"]&gt;.uk-navbar-toggle-icon svg&gt;.line-3{transform:rotate(-45deg)}[aria-expanded="true"].uk-navbar-toggle-icon svg&gt;.line-1,[aria-expanded="true"]&gt;.uk-navbar-toggle-icon svg&gt;.line-1,[aria-expanded="true"].uk-navbar-toggle-icon svg&gt;.line-4,[aria-expanded="true"]&gt;.uk-navbar-toggle-icon svg&gt;.line-4{opacity:0}[aria-expanded="true"].uk-navbar-toggle-icon svg&gt;.line-1,[aria-expanded="true"]&gt;.uk-navbar-toggle-icon svg&gt;.line-1{transform:translateY(6px) scaleX(0)}[aria-expanded="true"].uk-navbar-toggle-icon svg&gt;.line-4,[aria-expanded="true"]&gt;.uk-navbar-toggle-icon svg&gt;.line-4{transform:translateY(-6px) scaleX(0)}</style><rect width="20" height="2" y="3" class="line-1"></rect><rect width="20" height="2" y="9" class="line-2"></rect><rect width="20" height="2" y="9" class="line-3"></rect><rect width="20" height="2" y="15" class="line-4"></rect></svg></button>
+              </div>
+    </nav>
+
+        <nav class="docsMobileToc uk-navbar uk-hidden@m" uk-navbar="">
+      <ul class="uk-navbar-nav">
+        <li>
+          <a href="" role="button" aria-haspopup="true" aria-expanded="false">Table of Contents <span uk-drop-parent-icon="" class="uk-icon uk-drop-parent-icon"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><polyline fill="none" stroke="#000" stroke-width="1.1" points="1 3.5 6 8.5 11 3.5"></polyline></svg></span></a>
+          <div class="uk-dropbar uk-dropbar-top uk-drop" uk-drop="stretch: x; animation: slide-top; animate-out: true">
+            <ul class="uk-nav uk-navbar-dropdown-nav" uk-scrollspy-nav="closest: li; scroll: true; offset: 40">
+              <li><a href="#introduction">Introduction</a></li>
+<li><a href="#what-is-the-computer-vision-wiki-about">What is the Computer Vision Wiki&nbsp;about?</a></li>
+<li><a href="#who-is-this-wiki-for">Who is this Wiki&nbsp;for?</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+      </div>
+</header>
+
+<main class="uk-container uk-container-large">
+  <div class="uk-grid" uk-grid="">
+    <aside class="docsSidebar uk-width-medium uk-visible@l uk-first-column">
+      <div class="docsSearch"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"><svg width="15" height="15" class="DocSearch-Control-Key-Icon"><path d="M4.505 4.496h2M5.505 5.496v5M8.216 4.496l.055 5.993M10 7.5c.333.333.5.667.5 1v2M12.326 4.5v5.996M8.384 4.496c1.674 0 2.116 0 2.116 1.5s-.442 1.5-2.116 1.5M3.205 9.303c-.09.448-.277 1.21-1.241 1.203C1 10.5.5 9.513.5 8V7c0-1.57.5-2.5 1.464-2.494.964.006 1.134.598 1.24 1.342M12.553 10.5h1.953" stroke-width="1.2" stroke="currentColor" fill="none" stroke-linecap="square"></path></svg></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div>
+      <ul class="docsNav uk-nav uk-nav-primary">
+    <li class="uk-active">
+    <a href="https://hasty.ai/docs/mp-wiki">
+      <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+  <path d="M8.372 1.349a.75.75 0 0 0-.744 0l-4.81 2.748L8 7.131l5.182-3.034-4.81-2.748ZM14 5.357 8.75 8.43v6.005l4.872-2.784A.75.75 0 0 0 14 11V5.357ZM7.25 14.435V8.43L2 5.357V11c0 .27.144.518.378.651l4.872 2.784Z"></path>
+</svg>              </div>
+      Computer Vision Wiki    </a>
+  </li>
+    <li>
+    <a href="https://hasty.ai/docs/userdocs">
+      <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+  <path d="M7.25 3.688a8.035 8.035 0 0 0-4.872-.523A.48.48 0 0 0 2 3.64v7.994c0 .345.342.588.679.512a6.02 6.02 0 0 1 4.571.81V3.688ZM8.75 12.956a6.02 6.02 0 0 1 4.571-.81c.337.075.679-.167.679-.512V3.64a.48.48 0 0 0-.378-.475 8.034 8.034 0 0 0-4.872.523v9.268Z"></path>
+</svg>              </div>
+      User Docs    </a>
+  </li>
+      <li>
+    <a href="https://docs.hasty.ai/" target="_blank">
+      <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+  <path fill-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm4.78 1.97a.75.75 0 0 1 0 1.06L5.81 8l.97.97a.75.75 0 1 1-1.06 1.06l-1.5-1.5a.75.75 0 0 1 0-1.06l1.5-1.5a.75.75 0 0 1 1.06 0Zm2.44 1.06a.75.75 0 0 1 1.06-1.06l1.5 1.5a.75.75 0 0 1 0 1.06l-1.5 1.5a.75.75 0 1 1-1.06-1.06l.97-.97-.97-.97Z" clip-rule="evenodd"></path>
+</svg>      </span>
+      API Reference    </a>
+  </li>
+  </ul>
+
+<ul class="docsNav uk-nav uk-nav-default" uk-nav="">
+    <li class="uk-nav-header">Getting started</li>
+      <li class="uk-active">
+    <a href="https://hasty.ai/docs/mp-wiki/getting-started/introduction">Introduction to the Computer Vision Wiki</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/getting-started/overview-of-topics">Overview of topics</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/getting-started/general-best-practices">General best practices</a>
+  </li>
+    <li class="uk-nav-header">Key principles of Computer Vision</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/convolution">Convolutional layer</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/advanced-convolution-techniques-and-layers">Advanced convolutional layers</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/pooling">Pooling</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/overfitting">Overfitting</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/underfitting">Underfitting</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/overfitting-vs-underfitting-in-machine-learning">Overfitting Vs. Underfitting</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/upsampling-and-downsampling-techniques-in-machine-learning">Downsampling and Upsampling in Machine Learning</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision tasks</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/the-complete-glossary-of-the-modern-computer-vision-tasks">The complete glossary of the modern Computer Vision tasks</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/classifier-tagger">Image Classification</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/object-detector">Object Detection</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/semantic-segmentor">Semantic Segmentation</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/instance-segmentor">Instance Segmentation</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/panoptic-segmentation">Panoptic Segmentation</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/attributor">Attribute Prediction</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision model architectures</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/resnet">ResNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/faster-r-cnn">Faster R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/mask-r-cnn">Mask R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/deeplabv3">DeepLabv3+</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/u-net">U-Net</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fbnetv3">FBNetV3</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/u-net-plus-plus">U-Net++</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/efficient-net">Efficient Net</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/pan">PAN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/pspnet">PSPNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/linknet">LinkNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fpn">FPN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/retinanet">RetinaNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/cascade-rcnn">Cascade R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fbnetv3is">FBNetV3IS</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fbnetv3od">FBNetV3OD</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/cascademask-r-cnn">CascadeMask R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/hybridtask-cascade">HybridTask Cascade</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision metrics</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/confusion-matrix">Confusion Matrix</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/iou-intersection-over-union">Intersection over Union (IoU)</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/accuracy">Accuracy score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/hamming-score">Hamming score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/precision">Precision score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/recall">Recall score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/precision-recall-curve-and-auc-pr">Precision-Recall curve</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/f-beta-score">F-score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/average-precision">Average Precision</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/map-mean-average-precision">mean Average Precision (mAP)</a>
+  </li>
+    <li class="uk-nav-header">Loss functions in Machine Learning</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/comprehensive-overview-of-loss-functions-in-machine-learning">Comprehensive overview of loss functions in Machine Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/cross-entropy-loss">Cross-Entropy Loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/binary-cross-entropy-loss">Binary Cross-Entropy Loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/focal-loss">Focal loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/bounding-box-regression-loss">Bounding Box Regression Loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/crossentropyiouloss2d">CrossEntropyIoULoss2D</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/average-loss">Average Loss</a>
+  </li>
+    <li class="uk-nav-header">Solver / Optimizer</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/comprehensive-overview-of-solvers-optimizers-in-deep-learning">Comprehensive overview of solvers/optimizers in Deep Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adam">Adam</a>
+    <ul class="uk-nav-sub">
+            <li>
+        <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adam/amsgrad-variant-adam">AMSgrad Variant (Adam)</a>
+      </li>
+          </ul>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/sgd">SGD</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adadelta">Adadelta</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adagrad">Adagrad</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adamax">AdaMax</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adamw">Adamw</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/asgd">ASGD</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/rprop">Rprop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/rmsprop">RMSprop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/lion">Lion</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/weight-decay">Weight Decay</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/base-learning-rate">Base Learning Rate</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/momentum-sgd">Momentum (SGD)</a>
+    <ul class="uk-nav-sub">
+            <li>
+        <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/momentum-sgd/dampening-sgd">Dampening (SGD)</a>
+      </li>
+          </ul>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/epsilon-coefficient">Epsilon Coefficient</a>
+  </li>
+    <li class="uk-nav-header">Training Parameters</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/patience">Patience</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/min-delta">Min delta</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/seed">Seed</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/everything-you-need-to-know-about-batches-in-machine-learning">Everything you need to know about batches in Machine Learning</a>
+    <ul class="uk-nav-sub">
+            <li>
+        <a href="https://hasty.ai/docs/mp-wiki/training-parameters/everything-you-need-to-know-about-batches-in-machine-learning/batch-size">Batch Size</a>
+      </li>
+          </ul>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/iterations">Iterations</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/epoch">Epoch</a>
+  </li>
+    <li class="uk-nav-header">Scheduler</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/overview-of-learning-rate-schedulers-in-ml">Comprehensive overview of learning rate schedulers in Machine Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/exponentiallr">ExponentialLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/cycliclr">CyclicLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/steplr">StepLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/multisteplr">MultiStepLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/reducelronplateau">ReduceLROnPlateau</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/cosineannealinglr">CosineAnnealingLR</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision augmentations</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/overview-of-augmentations-in-ml">Comprehensive overview of data augmentations in Machine Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/horizontal-flip">Horizontal Flip</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/vertical-flip">Vertical Flip</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/random-crop">Random Crop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/random-sized-crop">Random Sized Crop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/rotate">Rotate</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/resize">Resize</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/blur">Blur</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/smallest-max-size">Smallest max size</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/center-crop">Center Crop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/color-jitter">Color Jitter</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/gaussian-noise">Gaussian Noise</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/shift-scale-rotate">Shift Scale Rotate</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/longest-max-size">Longest max size</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/equalize">Equalize</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/to-gray">To gray</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/shear">Shear</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/mosaic">Mosaic</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/copy-paste">Copy Paste</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/extrapolation-methods">Extrapolation methods</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/interpolation-methods">Interpolation methods</a>
+  </li>
+    <li class="uk-nav-header">Deployment</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/primitive-deployment-using-web-frameworks">Primitive deployment using web frameworks</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/commonly-used-web-frameworks">Commonly used web frameworks</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/containerized-deployment">Containerized Deployment</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/orchestrated-deployment">Orchestrated Deployment</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/challenges-of-deployment">Challenges of Deployment</a>
+  </li>
+    <li class="uk-nav-header">Splits</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/splits/data-splitting-in-machine-learning">Dataset Split in Machine Learning</a>
+  </li>
+  </ul>
+    </aside>
+
+    <section class="uk-width-expand">
+      <div class="uk-grid uk-grid-large" uk-grid="">
+        <article class="docsWrapper uk-width-expand uk-first-column">
+          <div class="docsHeading uk-margin-medium-bottom">
+            <ul class="uk-breadcrumb uk-margin-small-bottom">
+  <li><a href="https://hasty.ai/docs/mp-wiki">Computer Vision Wiki</a></li>
+  <li><a href="https://hasty.ai/docs/mp-wiki/getting-started">Getting started</a></li>
+  <li><a href="https://hasty.ai/docs/mp-wiki/getting-started/introduction">Introduction to the Computer Vision Wiki</a></li>
+</ul>
+
+<h1 class="uk-margin-remove">Introduction to the Computer Vision Wiki</h1>
+
+          </div>
+
+          <div class="docsContent">
+            
+<h2 id="introduction" class="uk-link-reset uk-visible-toggle">
+    <a href="#introduction" uk-scroll="offset: 40">
+    <div class="anchor uk-invisible-hover uk-visible@l">
+      <svg width="12" height="12" fill="none" aria-hidden="true"><path d="M3.75 1v10M8.25 1v10M1 3.75h10M1 8.25h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>    </div>
+    Introduction  </a>
+  </h2>
+<p>CloudFactory's IT team has been creating internal documentation throughout the years. This documentation condenses the most relevant terms, tips, tricks, and techniques related to Computer Vision (CV) and Vision AI. This wealth of knowledge is the foundation for building the Computer Vision Wiki we use today.</p><p>Data scientists built this robust Wiki by revising, structuring, enhancing, and compiling comprehensive materials to solidify their understanding of the field.</p>
+<h2 id="what-is-the-computer-vision-wiki-about" class="uk-link-reset uk-visible-toggle">
+    <a href="#what-is-the-computer-vision-wiki-about" uk-scroll="offset: 40">
+    <div class="anchor uk-invisible-hover uk-visible@l">
+      <svg width="12" height="12" fill="none" aria-hidden="true"><path d="M3.75 1v10M8.25 1v10M1 3.75h10M1 8.25h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>    </div>
+    What is the Computer Vision Wiki about?  </a>
+  </h2>
+<p>CloudFactory's Computer Vision Wiki offers a comprehensive exploration of this exciting field, a subdomain of Machine Learning (ML). We understand the entire ML lifecycle at CloudFactory, and within that, we specialize in a variety of CV tasks trusted by our clients:</p><ul><li><a href="/docs/mp-wiki/model-families/classifier-tagger" title="Classification / Tagging"><strong>Image Classification;</strong></a></li><li><a href="/docs/mp-wiki/model-families/classifier-tagger" title="Classification / Tagging"><strong>Tagging</strong></a><strong>;</strong></li><li><a href="/docs/mp-wiki/model-families/object-detector" title="Object Detection"><strong>Object Detection</strong></a><strong>;</strong></li><li><a href="/docs/mp-wiki/model-families/instance-segmentor" title="Instance Segmentation"><strong>Instance Segmentation</strong></a><strong>;</strong></li><li><a href="/docs/mp-wiki/model-families/semantic-segmentor" title="Semantic Segmentation"><strong>Semantic Segmentation</strong></a><strong>;</strong></li><li><a href="/docs/mp-wiki/model-families/panoptic-segmentation" title="Panoptic Segmentation"><strong>Panoptic Segmentation</strong></a><strong>;</strong></li><li><a href="/docs/mp-wiki/model-families/attributor" title="Attribute Prediction"><strong>Attribute Prediction</strong></a><strong>.</strong></li></ul><p>The Computer Vision Wiki goes beyond theory, focusing on the practical application of key concepts within core tasks like Image Classification, Object Detection, and more.&nbsp; We aim to equip you with the knowledge you need to implement these concepts in your projects.</p><p>All terms contain a description, including a brief explanation, some context on applying the concept in practice, links for further theoretical understanding, and, if applicable, a code example for the implementation.</p><p>This combination of explanations, practical contexts, and code makes this Wiki a valuable resource for anyone who wants to apply Computer Vision to their work.</p><p>Check the Computer Vision Wiki <a href="/docs/mp-wiki/getting-started/overview-of-topics" title="Overview of topics">overview</a> to see what topics are already covered.</p>
+<h2 id="who-is-this-wiki-for" class="uk-link-reset uk-visible-toggle">
+    <a href="#who-is-this-wiki-for" uk-scroll="offset: 40">
+    <div class="anchor uk-invisible-hover uk-visible@l">
+      <svg width="12" height="12" fill="none" aria-hidden="true"><path d="M3.75 1v10M8.25 1v10M1 3.75h10M1 8.25h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>    </div>
+    Who is this Wiki for?  </a>
+  </h2>
+<p>The CloudFactory Computer Vision Wiki will be helpful for:</p><ul><li>Newbies who are at the very basic level in CV and looking for in-depth explanations and valuable resources for terms, concepts, and code they stumble across during their work;</li><li>Experts who want to refresh their knowledge on a specific topic or look to connect theory with real-life use cases.</li><li>Teams that discuss the same concepts but use different terms and are looking for ground truth for their terminology use.</li></ul><p>While the Wiki offers a comprehensive overview, it assumes some prior knowledge of Computer Vision. For beginners, we recommend starting with the introductory CV lecture series by Joseph Redmon. Once you have grasped the fundamentals through the lectures, the Wiki will serve as a valuable resource for deeper exploration.</p><figure>
+  <iframe allow="fullscreen" allowfullscreen="" src="https://www.youtube.com/embed/videoseries?list=PLjMXczUzEYcHvw5YYSU92WrY8IwhTuq7p" style="width: 100%; aspect-ratio: 16 / 9"></iframe>  </figure>
+          </div>
+
+          <div class="docsFooter uk-margin-medium-top">
+            
+<div class="docsCta uk-background-cover uk-padding" data-src="https://hasty.ai/media/pages/ctas/322c5a839c-1709536726/texture-q80.webp" uk-img="">
+  <img class="cf-logo" src="https://hasty.ai/assets/images/cf-logo.svg">
+  <h3 class="heading uk-heading-small uk-margin-large-bottom"><mark>Boost model performance quickly</mark> with AI-powered labeling and 100% QA.</h3>
+  <a class="uk-button uk-button-secondary uk-border-rounded" href="https://cta-service-cms2.hubspot.com/web-interactives/public/v1/track/redirect?encryptedPayload=AVxigLLWfqzwI%2BgcPfyphV6C8%2FWnoDc6VRLJDAzpbEugWCx2OjnYrKxUNCTSXk2W6AWtWgpw%2BtBL0e%2F2A0X3nuPzRKJll3t5vd%2Fou%2Fxayx7YcOtquL25P5Ot9ntR09XIWxLnjtdmZj1ZdSrTCR1ZrlbV9TwvCIe8ck%2FfTbvrhHb%2FzWvGkfeFoTI2OzlZv%2BLtpJrGslPYF2E54gwrdqYyxEfj4%2B8%3D&amp;webInteractiveContentId=129179677063&amp;portalId=351374" target="_blank">Learn more</a>
+</div>
+
+<div class="uk-flex uk-flex-middle uk-text-meta uk-margin">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>  <div class="uk-margin-xsmall-left">Last modified <time title="04/23/2025, 1:45 PM">11mo ago</time></div>
+</div>
+
+<div class="docsPagination uk-grid uk-grid-small uk-grid-match uk-child-width-1-1@m uk-grid-stack" uk-grid="">
+  
+      <div class="uk-first-column">
+      <a href="https://hasty.ai/docs/mp-wiki/getting-started/overview-of-topics" class="paginate uk-flex uk-flex-middle uk-flex-between uk-link-heading">
+        <div>
+          <div class="uk-text-xsmall">Next - Getting started</div>
+          <div class="uk-text-bold">Overview of topics</div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+</svg>      </a>
+    </div>
+  </div>
+
+<hr class="uk-margin-medium-top">
+
+<footer class="uk-grid uk-grid-small uk-flex-center uk-flex-between@m uk-text-meta" uk-grid="">
+  <span class="uk-first-column">© 2010-2026 CloudFactory Limited. All rights reserved.</span>
+  <div class="uk-text-meta">
+    <a class="uk-margin-small-right" href="https://app.hasty.ai/terms" target="_blank">Terms</a>
+    <a class="uk-margin-small-right" href="https://hasty.cloudfactory.com/imprint" target="_blank">Imprint</a>
+    <a class="uk-margin-small-right" href="https://www.cloudfactory.com/privacy" target="_blank">Privacy Policy</a>
+  </div>
+</footer>
+          </div>
+        </article>
+
+        <nav class="docsToc uk-width-1-4 uk-visible@m">
+          <ul class="uk-nav uk-nav-default" uk-nav="" uk-scrollspy-nav="closest: li; scroll: true; offset: 40">
+    <li class="uk-nav-header uk-padding-remove-top uk-margin-small-bottom">Table of Contents</li>
+  <li><a href="#introduction">Introduction</a></li>
+<li><a href="#what-is-the-computer-vision-wiki-about">What is the Computer Vision Wiki&nbsp;about?</a></li>
+<li><a href="#who-is-this-wiki-for">Who is this Wiki&nbsp;for?</a></li>
+  <li class="uk-nav-divider"></li>
+  
+    <li>
+    <a href="https://hasty.atlassian.net/servicedesk/customer/portal/1" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"></path>
+</svg>      <span class="uk-margin-xsmall-left">Report issue</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://hasty.atlassian.net/servicedesk/customer/portal/1" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"></path>
+</svg>      <span class="uk-margin-xsmall-left">Get help</span>
+    </a>
+  </li>
+  <li>
+    <a href="#" uk-scroll="">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>      <span class="uk-margin-xsmall-left">Back to top</span>
+    </a>
+  </li>
+</ul>
+        </nav>
+      </div>
+    </section>
+  </div>
+</main>
+
+        <nav id="docsNavMobile" class="uk-offcanvas" uk-offcanvas="overlay: true">
+      <div class="uk-offcanvas-bar" role="dialog" aria-modal="true">
+        <ul class="docsNav uk-nav uk-nav-primary">
+    <li class="uk-active">
+    <a href="https://hasty.ai/docs/mp-wiki">
+      <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+  <path d="M8.372 1.349a.75.75 0 0 0-.744 0l-4.81 2.748L8 7.131l5.182-3.034-4.81-2.748ZM14 5.357 8.75 8.43v6.005l4.872-2.784A.75.75 0 0 0 14 11V5.357ZM7.25 14.435V8.43L2 5.357V11c0 .27.144.518.378.651l4.872 2.784Z"></path>
+</svg>              </div>
+      Computer Vision Wiki    </a>
+  </li>
+    <li>
+    <a href="https://hasty.ai/docs/userdocs">
+      <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+  <path d="M7.25 3.688a8.035 8.035 0 0 0-4.872-.523A.48.48 0 0 0 2 3.64v7.994c0 .345.342.588.679.512a6.02 6.02 0 0 1 4.571.81V3.688ZM8.75 12.956a6.02 6.02 0 0 1 4.571-.81c.337.075.679-.167.679-.512V3.64a.48.48 0 0 0-.378-.475 8.034 8.034 0 0 0-4.872.523v9.268Z"></path>
+</svg>              </div>
+      User Docs    </a>
+  </li>
+      <li>
+    <a href="https://docs.hasty.ai/" target="_blank">
+      <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16">
+  <path fill-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm4.78 1.97a.75.75 0 0 1 0 1.06L5.81 8l.97.97a.75.75 0 1 1-1.06 1.06l-1.5-1.5a.75.75 0 0 1 0-1.06l1.5-1.5a.75.75 0 0 1 1.06 0Zm2.44 1.06a.75.75 0 0 1 1.06-1.06l1.5 1.5a.75.75 0 0 1 0 1.06l-1.5 1.5a.75.75 0 1 1-1.06-1.06l.97-.97-.97-.97Z" clip-rule="evenodd"></path>
+</svg>      </span>
+      API Reference    </a>
+  </li>
+  </ul>
+
+<ul class="docsNav uk-nav uk-nav-default" uk-nav="">
+    <li class="uk-nav-header">Getting started</li>
+      <li class="uk-active">
+    <a href="https://hasty.ai/docs/mp-wiki/getting-started/introduction">Introduction to the Computer Vision Wiki</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/getting-started/overview-of-topics">Overview of topics</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/getting-started/general-best-practices">General best practices</a>
+  </li>
+    <li class="uk-nav-header">Key principles of Computer Vision</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/convolution">Convolutional layer</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/advanced-convolution-techniques-and-layers">Advanced convolutional layers</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/pooling">Pooling</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/overfitting">Overfitting</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/underfitting">Underfitting</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/overfitting-vs-underfitting-in-machine-learning">Overfitting Vs. Underfitting</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/key-principles-of-computer-vision/upsampling-and-downsampling-techniques-in-machine-learning">Downsampling and Upsampling in Machine Learning</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision tasks</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/the-complete-glossary-of-the-modern-computer-vision-tasks">The complete glossary of the modern Computer Vision tasks</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/classifier-tagger">Image Classification</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/object-detector">Object Detection</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/semantic-segmentor">Semantic Segmentation</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/instance-segmentor">Instance Segmentation</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/panoptic-segmentation">Panoptic Segmentation</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-families/attributor">Attribute Prediction</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision model architectures</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/resnet">ResNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/faster-r-cnn">Faster R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/mask-r-cnn">Mask R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/deeplabv3">DeepLabv3+</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/u-net">U-Net</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fbnetv3">FBNetV3</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/u-net-plus-plus">U-Net++</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/efficient-net">Efficient Net</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/pan">PAN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/pspnet">PSPNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/linknet">LinkNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fpn">FPN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/retinanet">RetinaNet</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/cascade-rcnn">Cascade R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fbnetv3is">FBNetV3IS</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/fbnetv3od">FBNetV3OD</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/cascademask-r-cnn">CascadeMask R-CNN</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/model-architectures/hybridtask-cascade">HybridTask Cascade</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision metrics</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/confusion-matrix">Confusion Matrix</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/iou-intersection-over-union">Intersection over Union (IoU)</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/accuracy">Accuracy score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/hamming-score">Hamming score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/precision">Precision score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/recall">Recall score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/precision-recall-curve-and-auc-pr">Precision-Recall curve</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/f-beta-score">F-score</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/average-precision">Average Precision</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/metrics/map-mean-average-precision">mean Average Precision (mAP)</a>
+  </li>
+    <li class="uk-nav-header">Loss functions in Machine Learning</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/comprehensive-overview-of-loss-functions-in-machine-learning">Comprehensive overview of loss functions in Machine Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/cross-entropy-loss">Cross-Entropy Loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/binary-cross-entropy-loss">Binary Cross-Entropy Loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/focal-loss">Focal loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/bounding-box-regression-loss">Bounding Box Regression Loss</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/crossentropyiouloss2d">CrossEntropyIoULoss2D</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/loss/average-loss">Average Loss</a>
+  </li>
+    <li class="uk-nav-header">Solver / Optimizer</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/comprehensive-overview-of-solvers-optimizers-in-deep-learning">Comprehensive overview of solvers/optimizers in Deep Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adam">Adam</a>
+    <ul class="uk-nav-sub">
+            <li>
+        <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adam/amsgrad-variant-adam">AMSgrad Variant (Adam)</a>
+      </li>
+          </ul>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/sgd">SGD</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adadelta">Adadelta</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adagrad">Adagrad</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adamax">AdaMax</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/adamw">Adamw</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/asgd">ASGD</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/rprop">Rprop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/rmsprop">RMSprop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/lion">Lion</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/weight-decay">Weight Decay</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/base-learning-rate">Base Learning Rate</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/momentum-sgd">Momentum (SGD)</a>
+    <ul class="uk-nav-sub">
+            <li>
+        <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/momentum-sgd/dampening-sgd">Dampening (SGD)</a>
+      </li>
+          </ul>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/solvers-optimizers/epsilon-coefficient">Epsilon Coefficient</a>
+  </li>
+    <li class="uk-nav-header">Training Parameters</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/patience">Patience</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/min-delta">Min delta</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/seed">Seed</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/everything-you-need-to-know-about-batches-in-machine-learning">Everything you need to know about batches in Machine Learning</a>
+    <ul class="uk-nav-sub">
+            <li>
+        <a href="https://hasty.ai/docs/mp-wiki/training-parameters/everything-you-need-to-know-about-batches-in-machine-learning/batch-size">Batch Size</a>
+      </li>
+          </ul>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/iterations">Iterations</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/training-parameters/epoch">Epoch</a>
+  </li>
+    <li class="uk-nav-header">Scheduler</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/overview-of-learning-rate-schedulers-in-ml">Comprehensive overview of learning rate schedulers in Machine Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/exponentiallr">ExponentialLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/cycliclr">CyclicLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/steplr">StepLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/multisteplr">MultiStepLR</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/reducelronplateau">ReduceLROnPlateau</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/scheduler/cosineannealinglr">CosineAnnealingLR</a>
+  </li>
+    <li class="uk-nav-header">Computer Vision augmentations</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/overview-of-augmentations-in-ml">Comprehensive overview of data augmentations in Machine Learning</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/horizontal-flip">Horizontal Flip</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/vertical-flip">Vertical Flip</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/random-crop">Random Crop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/random-sized-crop">Random Sized Crop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/rotate">Rotate</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/resize">Resize</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/blur">Blur</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/smallest-max-size">Smallest max size</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/center-crop">Center Crop</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/color-jitter">Color Jitter</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/gaussian-noise">Gaussian Noise</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/shift-scale-rotate">Shift Scale Rotate</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/longest-max-size">Longest max size</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/equalize">Equalize</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/to-gray">To gray</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/shear">Shear</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/mosaic">Mosaic</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/copy-paste">Copy Paste</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/extrapolation-methods">Extrapolation methods</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/augmentations/interpolation-methods">Interpolation methods</a>
+  </li>
+    <li class="uk-nav-header">Deployment</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/primitive-deployment-using-web-frameworks">Primitive deployment using web frameworks</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/commonly-used-web-frameworks">Commonly used web frameworks</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/containerized-deployment">Containerized Deployment</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/orchestrated-deployment">Orchestrated Deployment</a>
+  </li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/deployment/challenges-of-deployment">Challenges of Deployment</a>
+  </li>
+    <li class="uk-nav-header">Splits</li>
+      <li>
+    <a href="https://hasty.ai/docs/mp-wiki/splits/data-splitting-in-machine-learning">Dataset Split in Machine Learning</a>
+  </li>
+  </ul>
+      </div>
+    </nav>
+        
+    <script defer="" src="https://hasty.ai/dist/assets/main-CmSdgqQg.js" type="module"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/uikit@3/dist/js/uikit-core.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/copy-tex.min.js"></script>
+    
+  
+
+</body></html>

@@ -1,0 +1,66 @@
+[2026-03-22T02:36:36.240Z] === Homepage AI Extractor: Somatix ===
+[2026-03-22T02:36:36.240Z] Started at: 2026-03-22T02:36:36.240Z
+[2026-03-22T02:36:36.240Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774146996239_Somatix
+[2026-03-22T02:36:36.240Z] Company: Somatix
+[2026-03-22T02:36:36.240Z] Website: somatix.com
+[2026-03-22T02:36:36.240Z] cbRank: 37447
+[2026-03-22T02:36:36.240Z] Reasons: f
+[2026-03-22T02:36:36.240Z] Fetching: https://somatix.com
+[2026-03-22T02:36:42.180Z] Redirected: https://somatix.com -> https://www.somatix.com/
+[2026-03-22T02:36:42.186Z] Saved HTML (259204 bytes) to page.html
+[2026-03-22T02:36:42.190Z] Extracted 21 unique links from page
+[2026-03-22T02:36:42.190Z] Saved 21 links to links.json
+[2026-03-22T02:36:42.193Z] No footer section found in DOM
+[2026-03-22T02:36:42.193Z] Extracted header HTML (3887 chars)
+[2026-03-22T02:36:42.198Z] Website (post-redirect): https://www.somatix.com/ → origin: https://www.somatix.com
+[2026-03-22T02:36:42.198Z]   SUBDOMAIN: safebeing-dashboard.somatix.com (added to ws)
+[2026-03-22T02:36:42.199Z] Website subdomains found: 1
+[2026-03-22T02:36:42.199Z] External links: 4 (of 21 total)
+[2026-03-22T02:36:42.199Z] ── All external links ──
+[2026-03-22T02:36:42.199Z]   EXT: https://aws.amazon.com/what-is-cloud-computing
+[2026-03-22T02:36:42.199Z]   EXT: https://medium.com/get-a-sense
+[2026-03-22T02:36:42.199Z]   EXT: https://www.linkedin.com/company/somatix
+[2026-03-22T02:36:42.199Z]   EXT: https://x.com/somatix
+[2026-03-22T02:36:42.199Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:36:42.199Z]   UNCATEGORIZED: https://aws.amazon.com/what-is-cloud-computing
+[2026-03-22T02:36:42.199Z]   UNCATEGORIZED: https://medium.com/get-a-sense
+[2026-03-22T02:36:42.199Z]   REGEX: li <- https://www.linkedin.com/company/somatix
+[2026-03-22T02:36:42.199Z]   REGEX: tw <- https://x.com/somatix
+[2026-03-22T02:36:42.199Z] Programmatic result: ws:2, li:1, tw:1 | 2 uncategorized
+[2026-03-22T02:36:42.199Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:36:42.203Z] Saved AI prompt (2009 chars) to ai_prompt.txt
+[2026-03-22T02:36:42.203Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:36:42.207Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:36:48.646Z]   AI: First token received, streaming...
+[2026-03-22T02:36:49.565Z] AI response complete: 30 chars in 7.4s
+[2026-03-22T02:36:49.566Z] Saved AI response to ai_response.json
+[2026-03-22T02:36:49.566Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T02:36:49.566Z]   AI LINK: https://medium.com/get-a-sense
+[2026-03-22T02:36:49.567Z] AI returned 1 valid links
+[2026-03-22T02:36:49.567Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T02:36:49.567Z]   AI→URLS: https://medium.com/get-a-sense
+[2026-03-22T02:36:49.568Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:36:49.568Z] Footer/header origins (2):
+[2026-03-22T02:36:49.568Z]   FOOTER/HEADER ORIGIN: https://www.somatix.com
+[2026-03-22T02:36:49.568Z]   FOOTER/HEADER ORIGIN: https://medium.com
+[2026-03-22T02:36:49.568Z]   SKIP (not in footer/header): https://aws.amazon.com/what-is-cloud-computing
+[2026-03-22T02:36:49.568Z]   SKIP (AI claimed): https://medium.com/get-a-sense
+[2026-03-22T02:36:49.568Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T02:36:49.568Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:36:49.568Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:36:49.569Z] ── Step 3: Final dedup ──
+[2026-03-22T02:36:49.569Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T02:36:49.569Z] ── FINAL RESULT ──
+[2026-03-22T02:36:49.569Z]   ws (2):
+[2026-03-22T02:36:49.569Z]     - https://safebeing-dashboard.somatix.com
+[2026-03-22T02:36:49.569Z]     - https://www.somatix.com
+[2026-03-22T02:36:49.570Z]   li (1):
+[2026-03-22T02:36:49.570Z]     - https://www.linkedin.com/company/somatix
+[2026-03-22T02:36:49.570Z]   tw (1):
+[2026-03-22T02:36:49.570Z]     - https://x.com/somatix
+[2026-03-22T02:36:49.570Z]   urls (1):
+[2026-03-22T02:36:49.570Z]     - https://medium.com/get-a-sense
+[2026-03-22T02:36:49.571Z] Summary: ws:2, li:1, tw:1, urls:1
+[2026-03-22T02:36:49.571Z] Saved final result to result.json
+[2026-03-22T02:36:49.572Z] Override fields: ws, li, tw, urls
+[2026-03-22T02:36:49.572Z] Finished at: 2026-03-22T02:36:49.572Z

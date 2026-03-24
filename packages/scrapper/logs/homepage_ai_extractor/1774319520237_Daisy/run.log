@@ -1,0 +1,79 @@
+[2026-03-24T02:32:00.237Z] === Homepage AI Extractor: Daisy ===
+[2026-03-24T02:32:00.237Z] Started at: 2026-03-24T02:32:00.237Z
+[2026-03-24T02:32:00.237Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774319520237_Daisy
+[2026-03-24T02:32:00.238Z] Company: Daisy
+[2026-03-24T02:32:00.238Z] Website: joindaisy.com
+[2026-03-24T02:32:00.238Z] cbRank: 173461
+[2026-03-24T02:32:00.238Z] Reasons: i
+[2026-03-24T02:32:00.238Z] Fetching: https://joindaisy.com
+[2026-03-24T02:32:04.763Z] Redirected: https://joindaisy.com -> https://www.joindaisy.com/
+[2026-03-24T02:32:04.770Z] Saved HTML (266898 bytes) to page.html
+[2026-03-24T02:32:04.775Z] Extracted 19 unique links from page
+[2026-03-24T02:32:04.775Z] Saved 19 links to links.json
+[2026-03-24T02:32:04.778Z] Extracted footer HTML (11757 chars)
+[2026-03-24T02:32:04.778Z] Extracted header HTML (2337 chars)
+[2026-03-24T02:32:04.783Z] Website (post-redirect): https://www.joindaisy.com/ → origin: https://www.joindaisy.com
+[2026-03-24T02:32:04.783Z]   SUBDOMAIN: carboncurve.ai.joindaisy.com (added to ws)
+[2026-03-24T02:32:04.783Z]   SUBDOMAIN: dashboard.joindaisy.com (added to ws)
+[2026-03-24T02:32:04.783Z] Website subdomains found: 2
+[2026-03-24T02:32:04.783Z] External links: 4 (of 19 total)
+[2026-03-24T02:32:04.783Z] ── All external links ──
+[2026-03-24T02:32:04.783Z]   EXT: https://apps.apple.com/us/app/daisy-neighbors-app/id1521473478
+[2026-03-24T02:32:04.783Z]   EXT: https://play.google.com/store/apps/details?id=com.joindaisy.daisy&hl=en&gl=US
+[2026-03-24T02:32:04.783Z]   EXT: https://www.instagram.com/joindaisy
+[2026-03-24T02:32:04.783Z]   EXT: https://www.linkedin.com/company/joindaisy
+[2026-03-24T02:32:04.784Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T02:32:04.784Z]   UNCATEGORIZED: https://apps.apple.com/us/app/daisy-neighbors-app/id1521473478
+[2026-03-24T02:32:04.784Z]   REGEX: android_app_ids <- com.joindaisy.daisy (from https://play.google.com/store/apps/details?id=com.joindaisy.daisy&hl=en&gl=US)
+[2026-03-24T02:32:04.784Z]   REGEX: ig <- https://www.instagram.com/joindaisy
+[2026-03-24T02:32:04.784Z]   REGEX: li <- https://www.linkedin.com/company/joindaisy
+[2026-03-24T02:32:04.784Z] Programmatic result: ws:3, android_app_ids:1, ig:1, li:1 | 1 uncategorized
+[2026-03-24T02:32:04.784Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T02:32:04.787Z] Saved AI prompt (4293 chars) to ai_prompt.txt
+[2026-03-24T02:32:04.787Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T02:32:04.791Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T02:32:21.664Z]   AI: First token received, streaming...
+[2026-03-24T02:32:35.467Z]   AI streaming: 202 chars received (30.7s elapsed)
+[2026-03-24T02:32:36.860Z] AI response complete: 228 chars in 32.1s
+[2026-03-24T02:32:36.861Z] Saved AI response to ai_response.json
+[2026-03-24T02:32:36.861Z] ── Parsing AI response (4 lines) ──
+[2026-03-24T02:32:36.862Z]   AI LINK: https://www.linkedin.com/company/joindaisy/
+[2026-03-24T02:32:36.862Z]   AI LINK: https://www.instagram.com/joindaisy
+[2026-03-24T02:32:36.862Z]   AI LINK: https://apps.apple.com/us/app/daisy-neighbors-app/id1521473478
+[2026-03-24T02:32:36.862Z]   AI LINK: https://play.google.com/store/apps/details?id=com.joindaisy.daisy&amp;hl=en&amp;gl=US
+[2026-03-24T02:32:36.862Z] AI returned 4 valid links
+[2026-03-24T02:32:36.862Z] ── Categorizing 4 AI-returned links ──
+[2026-03-24T02:32:36.863Z]   AI→REGEX: li <- https://www.linkedin.com/company/joindaisy/ (duplicate, skipped)
+[2026-03-24T02:32:36.863Z]   AI→REGEX: ig <- https://www.instagram.com/joindaisy (duplicate, skipped)
+[2026-03-24T02:32:36.863Z]   AI→URLS: https://apps.apple.com/us/app/daisy-neighbors-app/id1521473478
+[2026-03-24T02:32:36.863Z]   AI→REGEX: android_app_ids <- com.joindaisy.daisy (duplicate, skipped)
+[2026-03-24T02:32:36.864Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T02:32:36.864Z] Footer/header origins (5):
+[2026-03-24T02:32:36.864Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T02:32:36.864Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-24T02:32:36.864Z]   FOOTER/HEADER ORIGIN: https://carboncurve.ai.joindaisy.com
+[2026-03-24T02:32:36.864Z]   FOOTER/HEADER ORIGIN: https://apps.apple.com
+[2026-03-24T02:32:36.864Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-24T02:32:36.865Z]   SKIP (AI claimed): https://apps.apple.com/us/app/daisy-neighbors-app/id1521473478
+[2026-03-24T02:32:36.865Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T02:32:36.865Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T02:32:36.865Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T02:32:36.865Z] ── Step 3: Final dedup ──
+[2026-03-24T02:32:36.865Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T02:32:36.865Z] ── FINAL RESULT ──
+[2026-03-24T02:32:36.865Z]   ws (3):
+[2026-03-24T02:32:36.865Z]     - https://carboncurve.ai.joindaisy.com
+[2026-03-24T02:32:36.865Z]     - https://dashboard.joindaisy.com
+[2026-03-24T02:32:36.865Z]     - https://www.joindaisy.com
+[2026-03-24T02:32:36.866Z]   li (1):
+[2026-03-24T02:32:36.866Z]     - https://www.linkedin.com/company/joindaisy
+[2026-03-24T02:32:36.866Z]   ig (1):
+[2026-03-24T02:32:36.866Z]     - https://www.instagram.com/joindaisy
+[2026-03-24T02:32:36.866Z]   urls (1):
+[2026-03-24T02:32:36.866Z]     - https://apps.apple.com/us/app/daisy-neighbors-app/id1521473478
+[2026-03-24T02:32:36.866Z]   android_app_ids (1):
+[2026-03-24T02:32:36.866Z]     - com.joindaisy.daisy
+[2026-03-24T02:32:36.866Z] Summary: ws:3, android_app_ids:1, ig:1, li:1, urls:1
+[2026-03-24T02:32:36.867Z] Saved final result to result.json
+[2026-03-24T02:32:36.868Z] Override fields: ws, li, ig, urls, android_app_ids
+[2026-03-24T02:32:36.868Z] Finished at: 2026-03-24T02:32:36.868Z

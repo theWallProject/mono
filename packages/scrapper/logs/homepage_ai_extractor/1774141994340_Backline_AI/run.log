@@ -1,0 +1,58 @@
+[2026-03-22T01:13:14.341Z] === Homepage AI Extractor: Backline AI ===
+[2026-03-22T01:13:14.341Z] Started at: 2026-03-22T01:13:14.341Z
+[2026-03-22T01:13:14.341Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774141994340_Backline_AI
+[2026-03-22T01:13:14.341Z] Company: Backline AI
+[2026-03-22T01:13:14.341Z] Website: backline.ai
+[2026-03-22T01:13:14.342Z] cbRank: 20396
+[2026-03-22T01:13:14.342Z] Reasons: f, i
+[2026-03-22T01:13:14.342Z] Fetching: https://backline.ai
+[2026-03-22T01:13:18.660Z] Redirected: https://backline.ai -> https://backline.ai/
+[2026-03-22T01:13:18.666Z] Saved HTML (165259 bytes) to page.html
+[2026-03-22T01:13:18.670Z] Extracted 10 unique links from page
+[2026-03-22T01:13:18.671Z] Saved 10 links to links.json
+[2026-03-22T01:13:18.673Z] Extracted footer HTML (13563 chars)
+[2026-03-22T01:13:18.673Z] Extracted header HTML (26745 chars)
+[2026-03-22T01:13:18.677Z] Website (post-redirect): https://backline.ai/ → origin: https://backline.ai
+[2026-03-22T01:13:18.677Z] External links: 2 (of 10 total)
+[2026-03-22T01:13:18.677Z] ── All external links ──
+[2026-03-22T01:13:18.677Z]   EXT: https://www.linkedin.com/company/backline-ai-inc
+[2026-03-22T01:13:18.677Z]   EXT: https://www.youtube.com/@BacklineAI-Inc
+[2026-03-22T01:13:18.677Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:13:18.677Z]   REGEX: li <- https://www.linkedin.com/company/backline-ai-inc
+[2026-03-22T01:13:18.678Z]   REGEX: ytp <- https://www.youtube.com/@BacklineAI-Inc
+[2026-03-22T01:13:18.678Z] Programmatic result: ws:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-22T01:13:18.678Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:13:18.681Z] Saved AI prompt (7392 chars) to ai_prompt.txt
+[2026-03-22T01:13:18.681Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:13:18.685Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:13:49.725Z]   AI: First token received, streaming...
+[2026-03-22T01:13:54.161Z] AI response complete: 88 chars in 35.5s
+[2026-03-22T01:13:54.162Z] Saved AI response to ai_response.json
+[2026-03-22T01:13:54.162Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T01:13:54.163Z]   AI LINK: https://www.youtube.com/@BacklineAI-Inc
+[2026-03-22T01:13:54.163Z]   AI LINK: https://www.linkedin.com/company/backline-ai-inc
+[2026-03-22T01:13:54.163Z] AI returned 2 valid links
+[2026-03-22T01:13:54.163Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T01:13:54.164Z]   AI→REGEX: ytp <- https://www.youtube.com/@BacklineAI-Inc (duplicate, skipped)
+[2026-03-22T01:13:54.164Z]   AI→REGEX: li <- https://www.linkedin.com/company/backline-ai-inc (duplicate, skipped)
+[2026-03-22T01:13:54.165Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:13:54.165Z] Footer/header origins (3):
+[2026-03-22T01:13:54.165Z]   FOOTER/HEADER ORIGIN: https://backline.ai
+[2026-03-22T01:13:54.165Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:13:54.165Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:13:54.165Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:13:54.165Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:13:54.165Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T01:13:54.166Z] ── Step 3: Final dedup ──
+[2026-03-22T01:13:54.166Z] No urls to dedup
+[2026-03-22T01:13:54.166Z] ── FINAL RESULT ──
+[2026-03-22T01:13:54.166Z]   ws (1):
+[2026-03-22T01:13:54.166Z]     - https://backline.ai
+[2026-03-22T01:13:54.166Z]   li (1):
+[2026-03-22T01:13:54.166Z]     - https://www.linkedin.com/company/backline-ai-inc
+[2026-03-22T01:13:54.166Z]   ytp (1):
+[2026-03-22T01:13:54.167Z]     - https://www.youtube.com/@backlineai-inc
+[2026-03-22T01:13:54.167Z] Summary: ws:1, li:1, ytp:1
+[2026-03-22T01:13:54.168Z] Saved final result to result.json
+[2026-03-22T01:13:54.168Z] Override fields: ws, li, ytp
+[2026-03-22T01:13:54.169Z] Finished at: 2026-03-22T01:13:54.169Z

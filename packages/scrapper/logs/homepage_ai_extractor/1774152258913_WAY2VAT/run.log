@@ -1,0 +1,76 @@
+[2026-03-22T04:04:18.914Z] === Homepage AI Extractor: WAY2VAT ===
+[2026-03-22T04:04:18.914Z] Started at: 2026-03-22T04:04:18.914Z
+[2026-03-22T04:04:18.914Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774152258913_WAY2VAT
+[2026-03-22T04:04:18.914Z] Company: WAY2VAT
+[2026-03-22T04:04:18.914Z] Website: way2vat.com
+[2026-03-22T04:04:18.914Z] cbRank: 65941
+[2026-03-22T04:04:18.914Z] Reasons: f
+[2026-03-22T04:04:18.915Z] Fetching: https://way2vat.com
+[2026-03-22T04:04:19.870Z] Redirected: https://way2vat.com -> https://way2vat.com/
+[2026-03-22T04:04:19.879Z] Saved HTML (270402 bytes) to page.html
+[2026-03-22T04:04:19.882Z] Extracted 22 unique links from page
+[2026-03-22T04:04:19.882Z] Saved 22 links to links.json
+[2026-03-22T04:04:19.885Z] Extracted footer HTML (4980 chars)
+[2026-03-22T04:04:19.885Z] Extracted header HTML (5549 chars)
+[2026-03-22T04:04:19.888Z] Website (post-redirect): https://way2vat.com/ → origin: https://way2vat.com
+[2026-03-22T04:04:19.889Z]   SUBDOMAIN: app.way2vat.com (added to ws)
+[2026-03-22T04:04:19.889Z] Website subdomains found: 1
+[2026-03-22T04:04:19.889Z] External links: 4 (of 22 total)
+[2026-03-22T04:04:19.889Z] ── All external links ──
+[2026-03-22T04:04:19.889Z]   EXT: https://vimeo.com/1108806184
+[2026-03-22T04:04:19.889Z]   EXT: https://www.facebook.com/way2vat
+[2026-03-22T04:04:19.889Z]   EXT: https://www.linkedin.com/company/way2vat
+[2026-03-22T04:04:19.889Z]   EXT: https://www.youtube.com/channel/UCL2qucwkvT5bxWGT-tdtzfA
+[2026-03-22T04:04:19.889Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T04:04:19.889Z]   UNCATEGORIZED: https://vimeo.com/1108806184
+[2026-03-22T04:04:19.890Z]   REGEX: fb <- https://www.facebook.com/way2vat
+[2026-03-22T04:04:19.890Z]   REGEX: li <- https://www.linkedin.com/company/way2vat
+[2026-03-22T04:04:19.890Z]   REGEX: ytc <- https://www.youtube.com/channel/UCL2qucwkvT5bxWGT-tdtzfA
+[2026-03-22T04:04:19.890Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-22T04:04:19.890Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T04:04:19.893Z] Saved AI prompt (5209 chars) to ai_prompt.txt
+[2026-03-22T04:04:19.893Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T04:04:19.898Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T04:04:41.349Z]   AI: First token received, streaming...
+[2026-03-22T04:04:50.480Z] AI response complete: 131 chars in 30.6s
+[2026-03-22T04:04:50.481Z] Saved AI response to ai_response.json
+[2026-03-22T04:04:50.481Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T04:04:50.482Z]   AI LINK: https://www.linkedin.com/company/way2vat/
+[2026-03-22T04:04:50.482Z]   AI LINK: https://www.youtube.com/channel/UCL2qucwkvT5bxWGT-tdtzfA
+[2026-03-22T04:04:50.482Z]   AI LINK: https://www.facebook.com/way2vat
+[2026-03-22T04:04:50.482Z] AI returned 3 valid links
+[2026-03-22T04:04:50.482Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T04:04:50.483Z]   AI→REGEX: li <- https://www.linkedin.com/company/way2vat/ (duplicate, skipped)
+[2026-03-22T04:04:50.483Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCL2qucwkvT5bxWGT-tdtzfA (duplicate, skipped)
+[2026-03-22T04:04:50.483Z]   AI→REGEX: fb <- https://www.facebook.com/way2vat (duplicate, skipped)
+[2026-03-22T04:04:50.484Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T04:04:50.484Z] Footer/header origins (5):
+[2026-03-22T04:04:50.484Z]   FOOTER/HEADER ORIGIN: https://way2vat.com
+[2026-03-22T04:04:50.484Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T04:04:50.484Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T04:04:50.484Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T04:04:50.484Z]   FOOTER/HEADER ORIGIN: https://app.way2vat.com
+[2026-03-22T04:04:50.485Z]   SKIP (not in footer/header): https://vimeo.com/1108806184
+[2026-03-22T04:04:50.485Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T04:04:50.485Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T04:04:50.485Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T04:04:50.758Z]   YOUTUBE: resolved UCL2qucwkvT5bxWGT-tdtzfA → @way2vatw2v24
+[2026-03-22T04:04:50.759Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T04:04:50.759Z] ── Step 3: Final dedup ──
+[2026-03-22T04:04:50.759Z] No urls to dedup
+[2026-03-22T04:04:50.759Z] ── FINAL RESULT ──
+[2026-03-22T04:04:50.759Z]   ws (2):
+[2026-03-22T04:04:50.759Z]     - https://app.way2vat.com
+[2026-03-22T04:04:50.759Z]     - https://way2vat.com
+[2026-03-22T04:04:50.759Z]   li (1):
+[2026-03-22T04:04:50.759Z]     - https://www.linkedin.com/company/way2vat
+[2026-03-22T04:04:50.759Z]   fb (1):
+[2026-03-22T04:04:50.759Z]     - https://www.facebook.com/way2vat
+[2026-03-22T04:04:50.760Z]   ytp (1):
+[2026-03-22T04:04:50.760Z]     - https://www.youtube.com/@way2vatw2v24
+[2026-03-22T04:04:50.760Z]   ytc (1):
+[2026-03-22T04:04:50.760Z]     - https://www.youtube.com/channel/UCL2qucwkvT5bxWGT-tdtzfA
+[2026-03-22T04:04:50.760Z] Summary: ws:2, fb:1, li:1, ytc:1, ytp:1
+[2026-03-22T04:04:50.760Z] Saved final result to result.json
+[2026-03-22T04:04:50.761Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-22T04:04:50.761Z] Finished at: 2026-03-22T04:04:50.761Z

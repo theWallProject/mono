@@ -1,0 +1,60 @@
+[2026-03-21T17:58:10.834Z] === Homepage AI Extractor: ERA Consulting ===
+[2026-03-21T17:58:10.834Z] Started at: 2026-03-21T17:58:10.834Z
+[2026-03-21T17:58:10.835Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774115890834_ERA_Consulting
+[2026-03-21T17:58:10.835Z] Company: ERA Consulting
+[2026-03-21T17:58:10.835Z] Website: era-il.com
+[2026-03-21T17:58:10.835Z] cbRank: 3623071
+[2026-03-21T17:58:10.835Z] Reasons: h
+[2026-03-21T17:58:10.835Z] Fetching: https://era-il.com
+[2026-03-21T17:58:16.352Z] Redirected: https://era-il.com -> https://era-il.com/
+[2026-03-21T17:58:16.360Z] Saved HTML (233657 bytes) to page.html
+[2026-03-21T17:58:16.363Z] Extracted 28 unique links from page
+[2026-03-21T17:58:16.363Z] Saved 28 links to links.json
+[2026-03-21T17:58:16.366Z] No footer section found in DOM
+[2026-03-21T17:58:16.366Z] Extracted header HTML (5916 chars)
+[2026-03-21T17:58:16.369Z] Website (post-redirect): https://era-il.com/ → origin: https://era-il.com
+[2026-03-21T17:58:16.369Z] External links: 3 (of 28 total)
+[2026-03-21T17:58:16.369Z] ── All external links ──
+[2026-03-21T17:58:16.369Z]   EXT: https://www.facebook.com/ERAconsultingIL
+[2026-03-21T17:58:16.369Z]   EXT: https://www.linkedin.com/company/era-consultants
+[2026-03-21T17:58:16.370Z]   EXT: https://www.youtube.com/channel/UCY7_llskAJzHqgEVrKnmmLQ?view_as=subscriber
+[2026-03-21T17:58:16.370Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T17:58:16.370Z]   REGEX: fb <- https://www.facebook.com/ERAconsultingIL
+[2026-03-21T17:58:16.370Z]   REGEX: li <- https://www.linkedin.com/company/era-consultants
+[2026-03-21T17:58:16.370Z]   REGEX: ytc <- https://www.youtube.com/channel/UCY7_llskAJzHqgEVrKnmmLQ?view_as=subscriber
+[2026-03-21T17:58:16.370Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-21T17:58:16.370Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T17:58:16.373Z] Saved AI prompt (1949 chars) to ai_prompt.txt
+[2026-03-21T17:58:16.374Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T17:58:16.378Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T17:58:21.944Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-21T17:58:21.945Z] AI response complete: 0 chars in 5.6s
+[2026-03-21T17:58:21.946Z] Saved AI response to ai_response.json
+[2026-03-21T17:58:21.946Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T17:58:21.946Z] AI returned 0 valid links
+[2026-03-21T17:58:21.947Z] ── Categorizing 0 AI-returned links ──
+[2026-03-21T17:58:21.947Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T17:58:21.947Z] Footer/header origins (1):
+[2026-03-21T17:58:21.948Z]   FOOTER/HEADER ORIGIN: https://era-il.com
+[2026-03-21T17:58:21.948Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T17:58:21.948Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T17:58:21.948Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T17:58:22.287Z]   YOUTUBE: resolved UCY7_llskAJzHqgEVrKnmmLQ → @eraconsulting2045
+[2026-03-21T17:58:22.287Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T17:58:22.287Z] ── Step 3: Final dedup ──
+[2026-03-21T17:58:22.287Z] No urls to dedup
+[2026-03-21T17:58:22.287Z] ── FINAL RESULT ──
+[2026-03-21T17:58:22.287Z]   ws (1):
+[2026-03-21T17:58:22.287Z]     - https://era-il.com
+[2026-03-21T17:58:22.287Z]   li (1):
+[2026-03-21T17:58:22.287Z]     - https://www.linkedin.com/company/era-consultants
+[2026-03-21T17:58:22.288Z]   fb (1):
+[2026-03-21T17:58:22.288Z]     - https://www.facebook.com/eraconsultingil
+[2026-03-21T17:58:22.288Z]   ytp (1):
+[2026-03-21T17:58:22.288Z]     - https://www.youtube.com/@eraconsulting2045
+[2026-03-21T17:58:22.288Z]   ytc (1):
+[2026-03-21T17:58:22.288Z]     - https://www.youtube.com/channel/UCY7_llskAJzHqgEVrKnmmLQ
+[2026-03-21T17:58:22.288Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-21T17:58:22.289Z] Saved final result to result.json
+[2026-03-21T17:58:22.289Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-21T17:58:22.289Z] Finished at: 2026-03-21T17:58:22.289Z

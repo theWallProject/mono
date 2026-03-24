@@ -1,0 +1,57 @@
+[2026-03-22T06:38:07.303Z] === Homepage AI Extractor: CredCompare ===
+[2026-03-22T06:38:07.303Z] Started at: 2026-03-22T06:38:07.303Z
+[2026-03-22T06:38:07.303Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774161487302_CredCompare
+[2026-03-22T06:38:07.303Z] Company: CredCompare
+[2026-03-22T06:38:07.303Z] Website: credcompare.com
+[2026-03-22T06:38:07.303Z] cbRank: 214501
+[2026-03-22T06:38:07.303Z] Reasons: f, i
+[2026-03-22T06:38:07.303Z] Fetching: https://credcompare.com
+[2026-03-22T06:38:10.686Z] Redirected: https://credcompare.com -> https://credcompare.com/
+[2026-03-22T06:38:10.689Z] Saved HTML (66840 bytes) to page.html
+[2026-03-22T06:38:10.690Z] Extracted 2 unique links from page
+[2026-03-22T06:38:10.691Z] Saved 2 links to links.json
+[2026-03-22T06:38:10.694Z] Extracted footer HTML (4209 chars)
+[2026-03-22T06:38:10.694Z] Extracted header HTML (2941 chars)
+[2026-03-22T06:38:10.698Z] Website (post-redirect): https://credcompare.com/ → origin: https://credcompare.com
+[2026-03-22T06:38:10.698Z] External links: 2 (of 2 total)
+[2026-03-22T06:38:10.698Z] ── All external links ──
+[2026-03-22T06:38:10.698Z]   EXT: https://www.facebook.com/CredCompare
+[2026-03-22T06:38:10.698Z]   EXT: https://www.linkedin.com/company/credcompare
+[2026-03-22T06:38:10.699Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:38:10.699Z]   REGEX: fb <- https://www.facebook.com/CredCompare
+[2026-03-22T06:38:10.699Z]   REGEX: li <- https://www.linkedin.com/company/credcompare
+[2026-03-22T06:38:10.699Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-22T06:38:10.699Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:38:10.702Z] Saved AI prompt (2847 chars) to ai_prompt.txt
+[2026-03-22T06:38:10.702Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:38:10.706Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:38:20.572Z]   AI: First token received, streaming...
+[2026-03-22T06:38:24.056Z] AI response complete: 82 chars in 13.4s
+[2026-03-22T06:38:24.058Z] Saved AI response to ai_response.json
+[2026-03-22T06:38:24.058Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T06:38:24.058Z]   AI LINK: https://www.linkedin.com/company/credcompare
+[2026-03-22T06:38:24.059Z]   AI LINK: https://www.facebook.com/CredCompare/
+[2026-03-22T06:38:24.059Z] AI returned 2 valid links
+[2026-03-22T06:38:24.059Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T06:38:24.059Z]   AI→REGEX: li <- https://www.linkedin.com/company/credcompare (duplicate, skipped)
+[2026-03-22T06:38:24.060Z]   AI→REGEX: fb <- https://www.facebook.com/CredCompare/ (duplicate, skipped)
+[2026-03-22T06:38:24.060Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:38:24.060Z] Footer/header origins (2):
+[2026-03-22T06:38:24.061Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T06:38:24.061Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T06:38:24.061Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:38:24.061Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:38:24.061Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T06:38:24.061Z] ── Step 3: Final dedup ──
+[2026-03-22T06:38:24.061Z] No urls to dedup
+[2026-03-22T06:38:24.062Z] ── FINAL RESULT ──
+[2026-03-22T06:38:24.062Z]   ws (1):
+[2026-03-22T06:38:24.062Z]     - https://credcompare.com
+[2026-03-22T06:38:24.062Z]   li (1):
+[2026-03-22T06:38:24.062Z]     - https://www.linkedin.com/company/credcompare
+[2026-03-22T06:38:24.062Z]   fb (1):
+[2026-03-22T06:38:24.062Z]     - https://www.facebook.com/credcompare
+[2026-03-22T06:38:24.062Z] Summary: ws:1, fb:1, li:1
+[2026-03-22T06:38:24.064Z] Saved final result to result.json
+[2026-03-22T06:38:24.064Z] Override fields: ws, li, fb
+[2026-03-22T06:38:24.064Z] Finished at: 2026-03-22T06:38:24.064Z

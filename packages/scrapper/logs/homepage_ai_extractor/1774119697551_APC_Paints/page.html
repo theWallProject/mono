@@ -1,0 +1,1700 @@
+<!DOCTYPE html><html lang="ar"><!--<![endif]--><head>
+    <title>العربية | الرئيسية</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="APC PAINT, Nablus">
+    <meta name="author" content="Corotba.net">
+	
+	<meta property="og:image" content="https://apcpaints.ps/assets/img/web.png">
+	<meta property="og:description" content="APC PAINT, Nablus">
+	
+ <!-- CSS Theme -->
+    <link rel="stylesheet" type="text/css" id="main-css" href="https://apcpaints.ps//assets/special/css/style_arabic.css">    
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/css/theme-skins/dark.css">
+	<link rel="stylesheet" href="https://apcpaints.ps//assets/css/pages/portfolio-v2.css">
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/css/pages/feature_timeline1.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://apcpaints.ps//assets/faviconf.ico">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/css/style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://apcpaints.ps/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/plugins/fancybox/source/jquery.fancybox.css">  
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/plugins/flexslider/flexslider.css">     
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
+    <!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"><![endif]-->
+	<link rel="stylesheet" href="https://apcpaints.ps/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.css">  
+	
+   	<!-- CSS Customization -->
+    <link rel="stylesheet" href="https://apcpaints.ps//assets/css/custom.css">
+    
+	<!-- JS Global Compulsory -->           
+	<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="https://apcpaints.ps/assets/js/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+
+    
+    <script>
+    	URL="https://apcpaints.ps/";
+    	
+    </script>
+    <script>
+	$(document).ready(function(){
+		
+		$(document).on("click", ".pagein", function(e) {
+	        e.preventDefault();
+	        var limit= $(this).data("v");
+	        
+	        $( "li" ).each(function( index ) {
+			  $( this ).removeClass("active");
+			});
+	        
+	        
+	        $(this).parent("li").addClass("active");
+	        
+	        
+	        $.ajax({ 
+		          url: URL+"main/getprod",
+		          data: {limit:limit}, 
+		          dataType: 'json', 
+		          type: "POST",
+		          success: function(data) 
+		          {
+		          	var htmlstring="";
+		          	var translate3d=0;
+		          	var translate3d2=0;
+		          	var j=0;
+		          	for (var i = 0; i < data.length; i++) {
+		          		
+		          		var img=data[i].images;
+							img= img.split(",");
+							img=img[0];
+						var cat=data[i].category;
+							if(cat==1){
+								cat="motion";
+							}
+							else{
+								if(cat==2)
+									cat="design";
+								else
+									if(cat==3)
+										cat="illustration";
+									else
+										cat="motion design illustration";
+							}
+							
+						var id=data[i].id;
+						var link=data[i].link;
+						
+						
+						var vr1='';
+						var addition="";
+						if(vr1){
+							addition='<div data-tid="'+id+'" class="deleteicon4">'+
+										'<img src="'+URL+"assets/img/delete.png"+'" />'+
+									'</div><div data-tid="'+id+'" class="editicon4" data-toggle="collapse" data-target="#collapseedit" aria-expanded="false" aria-controls="collapseedit" >'+
+										'<img src="'+URL+"assets/img/edit.png"+'" />'+
+									'</div>';
+						}
+						
+						htmlstring=htmlstring+
+									'<li class="cbp-item '+cat+'" style="width: 270px; height: 241px; -webkit-transform: translate3d('+translate3d+'px,'+translate3d2+'px, 0px); opacity: 1;" >'+
+									'<div class="cbp-item-wrapper">'+
+									addition
+									+'<a href="'+URL+"product_a/productDetails/"+id+'" class="cbp-caption " data-title="'+data[i].name_a+'">'+
+								    '<div class="cbp-caption-defaultWrap"><img src="'+URL+"/assets/img/new/"+img+'" alt="" width="100%">'+
+								    '</div></a><div class="product-description">'+
+								    '<h3><a href="'+URL+"product_a/productDetails/"+id+'">'+data[i].name_a+'</a></h3>';
+						if(link!=""){
+							htmlstring=htmlstring+
+										'<span data-toggle="tooltip" class="tooltiper " title="" data-original-title="Download Datasheet">'+
+									    '<a style="color: #831c56" href="'+URL+"assets/pdf/"+link+'" download >'+ ' ملف Datasheet' +
+										'</a></span></div></div></li>';
+						}	
+		          		j++;
+		          		translate3d=translate3d + 290;
+		          		if(j%4==0){
+		          			translate3d=0;
+		          			translate3d2=translate3d2+261;
+		          		}
+		          	}
+		          	
+		          	$('.listprod').html(htmlstring);
+		          	
+		          }    
+	        });
+	    });
+	    
+	    
+	});
+</script>   
+</head> 
+
+<body class="boxed-layout container">
+<div id="top"></div>
+
+<div class="wrapper">
+
+    <!--=== Header ===-->    
+     <div class="header">
+
+        <!-- Navbar -->
+        <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+             
+                  
+                     <a class="navbar-brand" href="https://apcpaints.ps/"><img id="logo-header" src="https://apcpaints.ps//assets/img/logo.png" alt="logo">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+
+                    <ul class="nav navbar-nav">
+                        <!-- Home -->
+                        <li>
+                            <a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="https://apcpaints.ps/arabic" class="dropdown-toggle">
+                                الرئيسية
+                            </a>
+                      
+                        </li>
+                        <!-- End Home -->
+                        <!--Company-->
+                         <li class="dropdown">
+                            <a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                الشركة
+                            </a>
+                                <ul class="dropdown-menu" style="text-align: right" dir="rtl">
+                                    <li><a href="https://apcpaints.ps/arabic/board">مجلس الإدارة و كبار المساهمين</a></li>
+                                    <li><a href="https://apcpaints.ps/arabic/supervisionCertificate">شهادات الإشراف</a></li>
+                                    <li><a href="https://apcpaints.ps/arabic/annualreport">التقارير السنوية</a></li>
+                                    <li class="last"><a href="https://apcpaints.ps/arabic/about">رؤية الشركة و أهدافها</a></li>
+                                </ul>
+                            </li>
+
+                        <!--End Company-->
+                        <!-- point of sale -->
+						<li>
+                            <a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="https://apcpaints.ps/arabic/pointsOfSale" class="dropdown-toggle">
+                                مراكز البيع
+                            </a>
+                      
+                        </li>
+                        <!-- Contacts -->
+                         <li>
+                            <a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="https://apcpaints.ps/product_a" class="dropdown-toggle">
+                                منتجاتنا
+                            </a>
+                        </li>
+                         <li>
+                            <a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="https://apcpaints.ps/catalogs_a" class="dropdown-toggle">
+                                كاتالوجات
+                            </a>
+                        </li>
+                            <li><a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="https://apcpaints.ps/gallary_a" class="dropdown-toggle">
+                                معرض الصور
+                            </a>
+                        </li>
+                         
+                            <li><a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="https://apcpaints.ps/arabic/areYouAPainter" class="dropdown-toggle">
+                                هل انت فنّي دهان؟
+                            </a>
+                        </li>
+
+                        <li>
+                            <a style="font-weight: bold;font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important" href="https://apcpaints.ps/arabic/contact" class="dropdown-toggle">
+                                تواصل معنا
+                            </a>
+                        </li>
+
+                        <!-- Search Block -->
+                        <li id="search">
+                            
+                                <form method="post" action="https://apcpaints.ps/arabic/search">
+                                    <input type="text" name="s" class="s">
+                                    <input type="submit" name="sub" class="sub">
+                                </form>
+                             
+                        </li>
+                        <!-- End Search Block -->
+
+                        <li class="last">
+                            <div id="social">
+                            	                            	                                <a class="lange" href="https://apcpaints.ps/main"><!--<img src="https://apcpaints.ps//assets/img/e2.png" />--></a>
+                                <a class="fb" href="https://www.facebook.com/APCPaints"><!--<img src="https://apcpaints.ps//assets/img/f.png" />--></a>
+                                
+                            </div><!--End social-->  
+                        </li>
+                                            </ul>
+                </div><!--/navbar-collapse-->
+            </div>
+        </div><!-- End Navbar -->
+    </div><!--===/Header ===-->
+    <!--===/End Header ===-->
+  
+
+    
+  
+
+    <!--=== Slider ===-->
+    <div class="tp-banner-container" style="overflow: visible;">
+        <div class="tp-banner revslider-initialised tp-simpleresponsive" id="revslider-893" style="height: 350px;">
+            <ul class="tp-revslider-mainul" style="display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">
+            	
+                                <!-- SLIDE -->
+                <li class="revolution-mch-1 tp-revslider-slidesli active-revslide" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1" style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1;">
+                    <!-- MAIN IMAGE -->
+                    <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="left top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="https://apcpaints.ps//assets/img/sliders/1425815543_.jpg" data-src="https://apcpaints.ps//assets/img/sliders/1425815543_.jpg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;https://apcpaints.ps//assets/img/sliders/1425815543_.jpg&quot;); background-size: cover; background-position: left top; width: 100%; height: 100%; opacity: 0;"></div><div class="slot" style="position:absolute;top:0px;left:0px;overflow:hidden;width:1170.6px;height:350px"><div class="slotslide" style="position: absolute; top: 0px; left: 0px; width: 1170.6px; height: 350px; overflow: hidden; visibility: inherit; opacity: 0.868928; transform: translate3d(0px, 0px, 0px);"><div style="background-color:rgba(0, 0, 0, 0);position:absolute;top:0px;left:0px;width:1170px;height:350px;background-image:url(https://apcpaints.ps//assets/img/sliders/1425815543_.jpg);background-repeat:no-repeat;background-size:cover;background-position:left top;"></div></div></div></div>
+
+                    
+                </li>
+                <!-- END SLIDE -->
+                                <!-- SLIDE -->
+                <li class="revolution-mch-1 tp-revslider-slidesli" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1" style="width: 100%; height: 100%; overflow: hidden;">
+                    <!-- MAIN IMAGE -->
+                    <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="left top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="https://apcpaints.ps//assets/img/sliders/1425817408_.jpg" data-src="https://apcpaints.ps//assets/img/sliders/1425817408_.jpg" style="background-color:rgba(0, 0, 0, 0);background-repeat:no-repeat;background-image:url(https://apcpaints.ps//assets/img/sliders/1425817408_.jpg);background-size:cover;background-position:left top;width:100%;height:100%;"></div></div>
+
+                    
+                </li>
+                <!-- END SLIDE -->
+                                <!-- SLIDE -->
+                <li class="revolution-mch-1 tp-revslider-slidesli" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1" style="width: 100%; height: 100%; overflow: hidden; visibility: hidden; opacity: 0; z-index: 18;">
+                    <!-- MAIN IMAGE -->
+                    <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="left top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="https://apcpaints.ps//assets/img/sliders/1599553549_.jpg" data-src="https://apcpaints.ps//assets/img/sliders/1599553549_.jpg" style="background-color:rgba(0, 0, 0, 0);background-repeat:no-repeat;background-image:url(https://apcpaints.ps//assets/img/sliders/1599553549_.jpg);background-size:cover;background-position:left top;width:100%;height:100%;"></div></div>
+
+                    
+                </li>
+                <!-- END SLIDE -->
+                                
+            </ul>
+            <div class="tp-bannertimer tp-bottom" style="width: 0%; visibility: visible;"></div>            
+        <div class="tp-loader spinner0" style="display: none;"><div class="dot1"></div><div class="dot2"></div><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>
+    <div class="tp-bullets hidebullets simplebullets preview4" style="bottom: 20px; left: 50%; margin-left: -27px;"><div class="bullet first selected"></div><div class="bullet"></div><div class="bullet last"></div><div class="tpclear"></div></div><div style="position: absolute; top: 175px; margin-top: -55px; left: 0px;" class="tp-leftarrow hidearrows tparrows default preview4"><div class="tp-arr-allwrapper"><div class="tp-arr-iwrapper"><div class="tp-arr-imgholder"></div><div class="tp-arr-imgholder2" style="background-image: url(&quot;https://apcpaints.ps//assets/img/sliders/1599553549_.jpg&quot;);"></div><div class="tp-arr-titleholder">Slide 1</div><div class="tp-arr-subtitleholder"></div></div></div></div><div style="position: absolute; top: 175px; margin-top: -55px; right: 0px;" class="tp-rightarrow hidearrows tparrows default preview4 hashoveralready"><div class="tp-arr-allwrapper"><div class="tp-arr-iwrapper"><div class="tp-arr-imgholder"></div><div class="tp-arr-imgholder2" style="background-image: url(&quot;https://apcpaints.ps//assets/img/sliders/1425817408_.jpg&quot;);"></div><div class="tp-arr-titleholder">Slide 1</div><div class="tp-arr-subtitleholder"></div></div></div></div></div>
+    <!--=== End Slider ===-->
+
+
+
+    <!--=== Content Part ===-->
+    <div class="container content"> 
+        <!-- Service Blocks -->
+        <div class="row margin-bottom-30">
+
+            <!-- Welcome -->
+            <div class="col-md-4 posts">
+                <div class="service welcomesection">
+                	                     <div class="headline">
+                     	<h2>
+	                     	                		
+                     	من نحن                     		
+	                     	                     	</h2>
+                     </div>
+                                         <p>
+                    			                	</p><p></p><p></p><p></p><p></p><p></p><p></p><p>الشركة العربية لصناعة الدهانات هي شركة مساهمة عامة تأسست عام 1989 في مدينة نابلس وعدد مساهميها الحاليين 300 مساهم يديرها <a href="http://apcpaints.ps/arabic/board">مجلس إدارة الشركة</a> المكون من خمسة أعضاء برئاسة رجل الأعمال الفلسطيني السيد <a href="http://apcpaints.ps/arabic/director/20">ميشيل الصايغ</a>.</p><p></p><p></p><p></p><p></p><p></p><p></p>
+
+<p></p><p></p><p></p><p>تختص الشركة بصناعة جميع انواع الدهانات المائية والزيتية والزخرفية والمعاجين ولوازم العزل حيث
+تفخر الشركة بإسهامها في تنفيذ آلاف ا		                	                		
+                    </p>
+                   
+                    <p>
+                    			            		
+		            		</p><div class="news-read-more pull-right welcomesee">
+	                            <i class="fa fa-plus"></i>
+	                           رؤية المزيد
+	                        </div>
+		            		
+		              	
+                    	
+                    <p></p>
+                </div>
+            </div>
+            <!--End Welcome-->
+
+            <!--News-->
+            <div class="col-md-4 posts">
+                <div class="service">
+                    <div class="desc">
+                        <div class="headline">
+                        	<h2>اخبار العربيه للدهانات</h2>
+                        </div>
+                        <ul data-brackets-id="12674" id="sortable" style="padding-right: 0px !important" class="list-unstyled ui-sortable">
+                        		                            <strong class="pull-right primary-font">
+		                            <a href="https://apcpaints.ps/arabic/news_single/72">
+		                            	8 نصائح يجب اتباعها قبل البدء بدهان غرفتك		                            </a>
+	                            </strong>
+	                            <small class="pull-left text-muted">
+	                                <span class="glyphicon glyphicon-time"></span>2023-01-14</small>
+	                            <br>
+	                            <li class="ui-state-default">
+	                            	.8 نصائح يجب اتباعها قبل البدء بدهان غرفتك
+
+
+1. استخدام الشريط اللاصق
+أول ما يتوجب عليك القيام به قب	                            </li>
+	                            <br>
+								                            <strong class="pull-right primary-font">
+		                            <a href="https://apcpaints.ps/arabic/news_single/70">
+		                            	الشركة العربية للدهانات تشارك في معرض الصناعات الانشائية 		                            </a>
+	                            </strong>
+	                            <small class="pull-left text-muted">
+	                                <span class="glyphicon glyphicon-time"></span>2022-10-22</small>
+	                            <br>
+	                            <li class="ui-state-default">
+	                            	شاركت الشركة العربية للدهانات في معرض فلسطين للصناعات الإنشائية يوم السبت الموافق 2022\10\15 في مدين	                            </li>
+	                            <br>
+								                            <strong class="pull-right primary-font">
+		                            <a href="https://apcpaints.ps/arabic/news_single/68">
+		                            	ورشه بمدينه غزه		                            </a>
+	                            </strong>
+	                            <small class="pull-left text-muted">
+	                                <span class="glyphicon glyphicon-time"></span>2020-09-08</small>
+	                            <br>
+	                            <li class="ui-state-default">
+	                            	ايماناً منا بأهمية توطيد العلاقة مع فنيي الدهان في فلسطين أقامت الشركة العربية لصناعة الدهانات و شرك	                            </li>
+	                            <br>
+							                         </ul>
+                        <div class="news-read-more pull-right">
+                            <i class="fa fa-plus"></i>
+                            <a href="https://apcpaints.ps/arabic/news">رؤية المزيد</a>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <!--End News-->
+
+
+            <!--Gallary-->
+            <div class="col-md-4 posts">
+                <div class="service">
+                    <div class="headline">
+                    	<h2>معرض الصور</h2>
+                    	
+                    </div>
+                                        <dl class="dl-horizontal">
+                        <dt><a href="https://apcpaints.ps/gallary_a/gallaryDitals/62"><img src="https://apcpaints.ps/assets/img/new/15995553490_.jpg" alt=""></a></dt>
+                        <dd>
+                            <strong class="primary-font">
+	                            	<a href="https://apcpaints.ps/gallary_a/gallaryDitals/62">
+	                           
+	                            
+	                            	لاكاسا مول	                            </a>
+                            </strong>
+                            <br>
+                       		نفذت الشركة العربية لصناعة الدهانات مشروع لاكاسا مول والذي يقع في مدينة رام الله في ضاحية الريحان .
+                       </dd>
+                    </dl>
+                                        <dl class="dl-horizontal">
+                        <dt><a href="https://apcpaints.ps/gallary_a/gallaryDitals/58"><img src="https://apcpaints.ps/assets/img/new/14245959500_.jpg" alt=""></a></dt>
+                        <dd>
+                            <strong class="primary-font">
+	                            	<a href="https://apcpaints.ps/gallary_a/gallaryDitals/58">
+	                           
+	                            
+	                            	الحي الدبلوماسي - رام الله	                            </a>
+                            </strong>
+                            <br>
+                       		تم طلاء منازل الحي الدبلوماسي في مدينة رام الله بمنتجات الدهانات العربية                       </dd>
+                    </dl>
+                                        <dl class="dl-horizontal">
+                        <dt><a href="https://apcpaints.ps/gallary_a/gallaryDitals/57"><img src="https://apcpaints.ps/assets/img/new/14245228480_.jpg" alt=""></a></dt>
+                        <dd>
+                            <strong class="primary-font">
+	                            	<a href="https://apcpaints.ps/gallary_a/gallaryDitals/57">
+	                           
+	                            
+	                            	جدارية نابلس	                            </a>
+                            </strong>
+                            <br>
+                       		تم استخدام الوان ودهانات العربية في طلاء وتلوين جدارية نابلس                        </dd>
+                    </dl>
+                                        
+                    
+                     <div class="news-read-more pull-right">
+                            <i class="fa fa-plus"></i>
+                            <a href="https://apcpaints.ps/gallary_a">رؤية المزيد</a>
+                        </div>
+                </div>
+
+            </div>
+            <!--End Gallary-->
+        </div>
+   
+    <!-- End Service Blokcs -->
+
+    <!-- Our Products -->
+    <div class="headline"><h2>منتجاتنا</h2></div>
+    <div class="row margin-bottom-20">
+    	        <div class="col-md-4 col-sm-6">
+            <div class="thumbnails thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden">
+                    	                        <img class="img-responsive" src="https://apcpaints.ps/assets/img/main/de.png" alt="">
+                    </div>
+                    <a class="btn-more hover-effect" href="https://apcpaints.ps/product_a/1">+رؤية المزيد</a>                   
+                </div>
+                    
+                <div class="caption">
+                    <h3>
+                    	                    		<a class="hover-effect" href="https://apcpaints.ps/product_a/1">
+                    	                    	
+                    	                    	دهانات داخلية                    	
+                   		 	</a>
+                    </h3>
+                    <p>
+                    	                    تتكون من مواد تساعد على منع العفن، كما تتميز بالمقاومة العالية للغسيل وقوة التغطية ونعومة الملمس.                    	                    </p>
+                </div>
+
+            </div>
+        </div>
+                <div class="col-md-4 col-sm-6">
+            <div class="thumbnails thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden">
+                    	                        <img class="img-responsive" src="https://apcpaints.ps/assets/img/main/in.png" alt="">
+                    </div>
+                    <a class="btn-more hover-effect" href="https://apcpaints.ps/product_a/2">+رؤية المزيد</a>                   
+                </div>
+                    
+                <div class="caption">
+                    <h3>
+                    	                    		<a class="hover-effect" href="https://apcpaints.ps/product_a/2">
+                    	                    	
+                    	                    	دهانات خارجية                    	
+                   		 	</a>
+                    </h3>
+                    <p>
+                    	                    تحتوي على مواد اكريليكية عالية الجودة لمقاومة العوامل الخارجية وثباتية اللون لفترة طويلة.                    	                    </p>
+                </div>
+
+            </div>
+        </div>
+                <div class="col-md-4 col-sm-6">
+            <div class="thumbnails thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden">
+                    	                        <img class="img-responsive" src="https://apcpaints.ps/assets/img/main/de2.png" alt="">
+                    </div>
+                    <a class="btn-more hover-effect" href="https://apcpaints.ps/product_a/3">+رؤية المزيد</a>                   
+                </div>
+                    
+                <div class="caption">
+                    <h3>
+                    	                    		<a class="hover-effect" href="https://apcpaints.ps/product_a/3">
+                    	                    	
+                    	                    	الدهانات الديكورية                    	
+                   		 	</a>
+                    </h3>
+                    <p>
+                    	                    تعطي جمالية خاصة للجدران، فيمكن الاختيار بين العديد من منتجاتنا الديكورية لاضفاء منظرا جماليا مميزا.                    	                    </p>
+                </div>
+
+            </div>
+        </div>
+            </div>
+    <!-- End Our Products-->
+</div>
+   
+<!--=== Footer Version 1 ===-->
+<div class="footer-v1">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Address -->
+                                <div class="col-md-3 col-xs-12 md-margin-bottom-40">
+                    <div class="headline"><h2>تواصل معنا</h2></div>                         
+                    <address class="md-margin-bottom-40">
+                        فلسطين - نابلس - المنطقة الصناعية <br>
+                        صندوق بريد : (Nablus-469)<br>
+                        الهاتف: <font dir="rtl" style="direction: ltr; unicode-bidi:bidi-override;">+970-9-2311303 </font> <br>
+                        فاكس: <font dir="rtl" style="direction: ltr; unicode-bidi:bidi-override;">+970-9-2311302</font> <br>
+                        البريد الالكتروني: <a href="mailto:info@apcpaints.ps" class="">info@apcpaints.ps</a>
+                    </address>
+                </div><!--/col-md-3-->
+                <!-- End Address -->
+
+                <!-- Link List -->
+                <div class="col-md-3 col-xs-12 md-margin-bottom-40">
+                    <div class="headline"><h2>روابط مهمه</h2></div>
+                    <ul class="list-unstyled link-list">
+                        <li><a href="https://apcpaints.ps/arabic/about">عن الشركه</a><i class="fa fa-angle-left arabic_icon_footer"></i></li>
+                        <li><a href="https://apcpaints.ps/product_a">منتجاتنا</a><i class="fa fa-angle-left arabic_icon_footer"></i></li>
+                        <li><a href="https://apcpaints.ps/arabic/news">اخبارنا</a><i class="fa fa-angle-left arabic_icon_footer"></i></li>
+                        <li><a href="https://apcpaints.ps/gallary_a">معرض الصور</a><i class="fa fa-angle-left arabic_icon_footer"></i></li>
+                        <li><a href="https://apcpaints.ps/arabic/contact">تواصل معنا</a><i class="fa fa-angle-left arabic_icon_footer"></i></li>
+                    </ul>
+                </div><!--/col-md-3-->
+                <!-- End Link List -->
+
+                <!--Last Post-->
+                <div class="col-md-3 col-xs-12 md-margin-bottom-40">
+                    <div class="posts">
+                        <div class="headline"><h2>اخر المنشورات</h2></div>
+                        <ul class="list-unstyled latest-list">
+                        	                            <li>
+                                <a href="https://apcpaints.ps/arabic/news_single/72">8 نصائح يجب اتباعها قبل البدء بدهان غرفتك</a>
+                                <small>2023-01-14</small>
+                            </li>
+                                                        <li>
+                                <a href="https://apcpaints.ps/arabic/news_single/70">الشركة العربية للدهانات تشارك في معرض الصناعات الانشائية </a>
+                                <small>2022-10-22</small>
+                            </li>
+                                                        <li>
+                                <a href="https://apcpaints.ps/arabic/news_single/68">ورشه بمدينه غزه</a>
+                                <small>2020-09-08</small>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div><!--/col-md-3-->
+                <!--End last Post-->
+
+                <!--last project-->
+                <div class="col-md-3 col-xs-12  md-margin-bottom-40">
+                    <div class="headline"><h2>اخر المشاريع</h2></div>
+                    <ul class="list-unstyled blog-photos margin-bottom-35">
+                    	                        <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/62"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/15995553490_.jpg"></a></li>
+                                                <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/58"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/14245959500_.jpg"></a></li>
+                                                <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/57"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/14245228480_.jpg"></a></li>
+                                                <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/56"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/14245221220_.jpg"></a></li>
+                                                <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/55"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/14245217720_.jpg"></a></li>
+                                                <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/54"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/14245216480_.jpg"></a></li>
+                                                <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/53"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/14245215120_.jpg"></a></li>
+                                                <li><a href="https://apcpaints.ps/gallary_a/gallaryDitals/52"><img class="hover-effect" alt="" src="https://apcpaints.ps/assets/img/new/14245213670_.jpg"></a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div><!--/footer-->
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 pull-left" style="direction: ltr !important;">                     
+                    <p>
+                        © APC PAINTS 2015
+                    </p>
+                </div>
+
+                <!-- Powerd by -->
+                <div class="col-md-6 pull-right" style="direction: ltr !important;">
+                    <p>
+                        Powerd by &nbsp;
+                        <a href="cortoba.net"><img height="19" src="https://apcpaints.ps//assets/special/css/imgs/logo.white.png"></a>
+                    </p>
+                </div>
+                <!--End Powerd by-->
+            </div>
+        </div>
+    </div><!--/copyright-->
+</div><!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+
+
+<!-- JS Page Level -->           
+<script type="text/javascript" src="https://apcpaints.ps//assets/js/app.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps//assets/js/plugins/fancy-box.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps//assets/js/pages/page_portfolio.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/js/plugins/cube-portfolio.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/js/plugins/owl-recent-works.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/js/plugins/revolution-slider.js"></script>
+
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps//assets/plugins/jquery.mixitup.min.js"></script> 
+<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/flexslider/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="https://apcpaints.ps/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="https://apcpaints.ps/assets/js/custom.js"></script>
+<!-- editable bootstrap-->
+   	<link href="https://apcpaints.ps//assets/css/bootstrap-editable.css" rel="stylesheet">
+   	<script src="https://apcpaints.ps//assets/js/bootstrap-editable.js"></script>
+   	<link href="https://apcpaints.ps//assets/css/bootstrap-markdown.min.css" rel="stylesheet">
+   	<script src="https://apcpaints.ps//assets/js/bootstrap-markdown.js"></script>
+   	<script src="https://apcpaints.ps//assets/js/markdown.js"></script>
+   	<script src="https://apcpaints.ps//assets/js/to-markdown.js"></script>
+   	
+   	
+<script type="text/javascript">
+    $(document).ready(function() {
+    	 App.init();
+        App.initSliders();
+        StyleSwitcher.initStyleSwitcher();        
+        RevolutionSlider.initRSfullWidth();
+        
+        PortfolioPage.init();   
+         FancyBox.initFancybox();                          
+        StyleSwitcher.initStyleSwitcher();        
+        OwlRecentWorks.initOwlRecentWorksV1();
+        
+        
+        
+        $(".saave").click(function (e) {
+    		e.preventDefault();
+		    desc1 = $('#lala').data('markdown').parseContent();
+		    //console.log(post)
+		     $.ajax({ 
+			          url: URL+"main/changewelcome",
+			          data: {name:"desc1_a",value:desc1}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	window.location.href=URL;
+			          	
+			          	
+			          }
+		          
+	        	});
+		});
+    	$(".saave2").click(function (e) {
+    		e.preventDefault();
+		    desc2 = $('#lala2').data('markdown').parseContent();
+		    //console.log(post)
+		     $.ajax({ 
+			          url: URL+"main/changewelcome",
+			          data: {name:"desc2_a",value:desc2}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	window.location.href=URL;
+			          	
+			          	
+			          }
+		          
+	        	});
+		});
+    	
+    	
+    	 $(".saavem").click(function (e) {
+    		e.preventDefault();
+		    desc1 = $('#lala').data('markdown').parseContent();
+		    //console.log(post)
+		     $.ajax({ 
+			          url: URL+"main/changeMis",
+			          data: {name:"mission_a",value:desc1}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	window.location.href=URL+"arabic/about/";
+			          	
+			          	
+			          }
+		          
+	        	});
+		});
+    	$(".saavem2").click(function (e) {
+    		e.preventDefault();
+		    desc2 = $('#lala2').data('markdown').parseContent();
+		    //console.log(post)
+		     $.ajax({ 
+			          url: URL+"main/changeMis",
+			          data: {name:"mission_2a",value:desc2}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	window.location.href=URL+"arabic/about/";
+			          	
+			          	
+			          }
+		          
+	        	});
+		});
+    	
+    	
+    	$("body").delegate("input.number","keyup",function(){
+			if(isNaN( $('.number').val() )){
+				$('.number').val('');
+			}
+		});
+    	
+    	$(document).on("click", "#newcat", function(e) {
+			e.preventDefault();
+			newinput=$(".ncname").val();
+			newinput_a=$(".ncname_a").val();
+			if(newinput){
+				oldhid=$("#newcathid").val();
+				oldhid_a=$("#newcathid_a").val();
+				if(oldhid){
+					$("#newcathid").val(oldhid+","+newinput);
+					$("#newcathid_a").val(oldhid_a+","+newinput_a);
+				}else{
+					$("#newcathid").val(newinput+",");
+					$("#newcathid_a").val(newinput_a+",");
+				}
+				htmlold=$("#fornew").html();
+				htmlstring=htmlold+'<div class="c'+newinput+'" style="margin-right: 10px;">'+
+				'<div data-tid="c'+newinput+'" class="deletecat">'+
+            		'<img src="'+URL+'assets/img/delete.png" />'+
+            	'</div>'+
+				'<div class="checkbox">'+
+					'<label style="color: #000;" style="margin-right:10px">'+
+						'<input type="checkbox" name="ncat[]"  value="'+newinput+'"/><font style="padding-right: 20px;">'+newinput+","+newinput_a
+					'</font></label>'+
+				'</div></div>';
+				htmlold=$("#fornew").html(htmlstring);
+				newinput=$(".ncname").val("");
+				newinput=$(".ncname_a").val("");
+			}
+			
+		});
+		$(document).on("click", "#enewcat", function(e) {
+			e.preventDefault();
+			newinput=$(".encname").val();
+			newinput_a=$(".encname_a").val();
+			if(newinput){
+				oldhid=$("#enewcathid").val();
+				oldhid_a=$("#enewcathid_a").val();
+				if(oldhid){
+					$("#enewcathid").val(oldhid+","+newinput);
+					$("#enewcathid_a").val(oldhid_a+","+newinput_a);
+				}else{
+					$("#enewcathid").val(newinput+",");
+					$("#enewcathid_a").val(newinput_a+",");
+				}
+				htmlold=$("#efornew").html();
+				htmlstring=htmlold+'<div class="c'+newinput+'" style="margin-right: 10px;">'+
+				'<div data-tid="c'+newinput+'" class="deletecat">'+
+            		'<img src="'+URL+'assets/img/delete.png" />'+
+            	'</div>'+
+				'<div class="checkbox">'+
+					'<label style="color: #000;" style="margin-right:10px">'+
+						'<input type="checkbox" name="ncat[]"  value="'+newinput+'"/><font style="padding-right: 20px;">'+newinput+","+newinput_a
+					'</font></label>'+
+				'</div></div>';
+				htmlold=$("#efornew").html(htmlstring);
+				newinput=$(".encname").val("");
+				newinput=$(".encname_a").val("");
+			}
+			
+		});
+		$(document).on("click", "#newsol", function(e) {
+			e.preventDefault();
+			newinput=$(".nsname").val();
+			newinput_a=$(".nsname_a").val();
+			if(newinput){
+				oldhid=$("#newshid").val();
+				oldhid_a=$("#newshid_a").val();
+				if(oldhid){
+					$("#newshid").val(oldhid+","+newinput);
+					$("#newshid_a").val(oldhid_a+","+newinput_a);
+				}else{
+					$("#newshid").val(newinput+",");
+					$("#newshid_a").val(newinput_a+",");
+				}
+				htmlold=$("#fornew").html();
+				htmlstring=htmlold+
+				'<div class="checkbox">'+
+					'<label style="color: #000;">'+
+						'<input type="checkbox" name="solvents[]" checked  value="'+newinput+'"/>'+newinput+","+newinput_a
+					'</label>'+
+				'</div>';
+				htmlold=$("#fornew").html(htmlstring);
+				newinput=$(".nsname").val("");
+				newinput=$(".nsname_a").val("");
+			}
+			
+		});
+		$(document).on("click", "#newcatg", function(e) {
+			e.preventDefault();
+			newinput=$(".nsname").val();
+			newinput_a=$(".nsname_a").val();
+			if(newinput){
+				oldhid=$("#newshid").val();
+				oldhid_a=$("#newshid_a").val();
+				if(oldhid){
+					$("#newshid").val(oldhid+","+newinput);
+					$("#newshid_a").val(oldhid_a+","+newinput_a);
+				}else{
+					$("#newshid").val(newinput+",");
+					$("#newshid_a").val(newinput_a+",");
+				}
+				htmlold=$("#fornew").html();
+				htmlstring=htmlold+
+				'<div class="s'+newinput+'" style="margin-left: 10px;" >'+
+				'<div data-tid="'+newinput+'" class="deletecatg">'+
+	        		'<img src="'+URL+'assets/img/delete.png" />'+
+	        	'</div>'+
+				'<div class="checkbox">'+
+					'<label style="color: #000;">'+
+						'<input type="checkbox" name="cats[]"  value="'+newinput+'"/><font style="padding-right: 20px">'+newinput+","+newinput_a
+					'</font></label>'+
+				'</div></div>';
+				htmlold=$("#fornew").html(htmlstring);
+				newinput=$(".nsname").val("");
+				newinput=$(".nsname_a").val("");
+			}
+			
+		});
+		$(document).on("click", "#newcatg2", function(e) {
+			e.preventDefault();
+			newinput=$(".nsname2").val();
+			newinput_a=$(".nsname_a2").val();
+			if(newinput){
+				oldhid=$("#newshid2").val();
+				oldhid_a=$("#newshid_a2").val();
+				if(oldhid){
+					$("#newshid2").val(oldhid+","+newinput);
+					$("#newshid_a2").val(oldhid_a+","+newinput_a);
+				}else{
+					$("#newshid2").val(newinput+",");
+					$("#newshid_a2").val(newinput_a+",");
+				}
+				htmlold=$("#fornew2").html();
+				htmlstring=htmlold+
+				'<div class="s'+newinput+'" style="margin-left: 10px;" >'+
+				'<div data-tid="'+newinput+'" class="deletecatg">'+
+	        		'<img src="'+URL+'assets/img/delete.png" />'+
+	        	'</div>'+
+				'<div class="checkbox">'+
+					'<label style="color: #000;">'+
+						'<input type="checkbox" name="cats[]"  value="'+newinput+'"/><font style="padding-right: 20px">'+newinput+","+newinput_a
+					'</font</label>'+
+				'</div></div>';
+				htmlold=$("#fornew2").html(htmlstring);
+				newinput=$(".nsname2").val("");
+				newinput=$(".nsname_a2").val("");
+			}
+			
+		});
+		$(document).on("click", "#enewsol", function(e) {
+			e.preventDefault();
+			newinput=$(".ensname").val();
+			newinput_a=$(".ensname_a").val();
+			if(newinput){
+				oldhid=$("#enewshid").val();
+				oldhid_a=$("#enewshid_a").val();
+				if(oldhid){
+					$("#enewshid").val(oldhid+","+newinput);
+					$("#enewshid_a").val(oldhid_a+","+newinput_a);
+				}else{
+					$("#enewshid").val(newinput+",");
+					$("#enewshid_a").val(newinput_a+",");
+				}
+				htmlold=$("#fornew").html();
+				htmlstring=htmlold+
+				'<div class="checkbox">'+
+					'<label style="color: #000;">'+
+						'<input type="checkbox" name="solvents[]" checked  value="'+newinput+'"/>'+newinput+","+newinput_a
+					'</label>'+
+				'</div>';
+				htmlold=$("#efornew").html(htmlstring);
+				newinput=$(".ensname").val("");
+				newinput=$(".ensname_a").val("");
+			}
+			
+		});
+		$(document).on("click", "#newsize", function(e) {
+			e.preventDefault();
+			newinput=$(".nsize").val();
+			if(newinput){
+				oldhid=$("#newsihid").val();
+				if(oldhid){
+					$("#newsihid").val(oldhid+","+newinput);
+				}else{
+					$("#newsihid").val(newinput+",");
+				}
+				htmlold=$("#fornew2").html();
+				htmlstring=htmlold+
+				'<div class="checkbox">'+
+					'<label style="color: #000;">'+
+						'<input type="checkbox" name="size[]" checked  value="'+newinput+'"/>'+newinput
+					'</label>'+
+				'</div>';
+				htmlold=$("#fornew2").html(htmlstring);
+				newinput=$(".nsize").val("");
+			}
+			
+		});
+		$(document).on("click", "#enewsize", function(e) {
+			e.preventDefault();
+			newinput=$(".ensize").val();
+			if(newinput){
+				oldhid=$("#enewsihid").val();
+				if(oldhid){
+					$("#enewsihid").val(oldhid+","+newinput);
+				}else{
+					$("#enewsihid").val(newinput+",");
+				}
+				htmlold=$("#efornew2").html();
+				htmlstring=htmlold+
+				'<div class="checkbox">'+
+					'<label style="color: #000;">'+
+						'<input type="checkbox" name="esize[]" checked  value="'+newinput+'"/>'+newinput
+					'</label>'+
+				'</div>';
+				htmlold=$("#efornew2").html(htmlstring);
+				newinput=$(".ensize").val("");
+			}
+			
+		});
+		function html_entity_decode(str) {
+		    try {
+				var  tarea=document.createElement('textarea');
+				tarea.innerHTML = str; return tarea.value;
+				tarea.parentNode.removeChild(tarea);
+			} catch(e) {
+				//for IE add <div id="htmlconverter" style="display:none;"></div> to the page
+				document.getElementById("htmlconverter").innerHTML = '<textarea id="innerConverter">' + str + '</textarea>';
+				var content = document.getElementById("innerConverter").value;
+				document.getElementById("htmlconverter").innerHTML = "";
+				return content;
+			}
+		}
+		$(document).on("click", ".welcomesee", function(e) {
+			
+				tid=0;
+				htmlstring="";
+		        $.ajax({ 
+			          url: URL+"main/getwelcomesec",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	htmlstring='<div class="headline"><h2>'+
+									done['welcome_title_a']+
+									'</h2></div><p>'+
+									html_entity_decode(done['desc1_a'])+'</p><p>'+
+									html_entity_decode(done['desc2_a'])+'</p>';
+			          	$('.welcomesection').html(htmlstring);
+			          	
+			          }
+		          
+	        	});
+		   
+		});
+		
+		$(document).on("click", ".deleteicon", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+				$parentdiv=$this.parent(".funny-boxes");
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deleteNews",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$parentdiv.slideUp("slow");
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		$(document).on("click", ".deleteiconpoint", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+				$parentdiv=$this.parent("tr");
+				$parentdiv.slideUp("slow");
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deletepint",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$parentdiv.slideUp("slow");
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		
+		$(document).on("click", ".deleteiconCert", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+				$parentdiv=$this.parent(".col-md-2");
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deleteCert",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$parentdiv.slideUp("slow");
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		$(document).on("click", ".deleteiconbord", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+				$parentdiv=$this.parent(".bord");
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deletebord",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$parentdiv.slideUp("slow");
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		$(document).on("click", ".deleteicongal", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+				$parentdiv=$this.parent("li");
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"gallary/deleteGal",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$parentdiv.slideUp("slow");
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		
+		$(document).on("click", ".deleteicon2", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+				$parentdiv=$this.closest("tr");
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deleteShare",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$parentdiv.hide();
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		
+		$(document).on("click", ".deleteicon3", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+				$parentdiv=$this.closest("li");
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deleteReport",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$parentdiv.hide();
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		
+		
+		
+		$(document).on("click", ".deletesolv", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deletesolv",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$(".s"+tid).slideUp("slow");
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		
+		$(document).on("click", ".deletecatg", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+		        tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"main/deletecatg",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	
+			          	$(".s"+tid).slideUp("slow");
+			          	
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		$(document).on("click", ".deletecat", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$this=$(this);
+		        tid=$(this).data("tid");
+		        if(!isNaN(tid)){
+			        $.ajax({ 
+				          url: URL+"main/deletecat",
+				          data: {tid:tid}, 
+				          dataType: 'json', 
+				          type: "POST",
+				          success: function(done) 
+				          {
+				          	
+				          	$(".c"+tid).slideUp("slow");
+				          	
+				          }
+			          
+		        	});
+		        	
+	        	}
+	        	$("."+tid).slideUp("slow");
+		    }
+			
+		});
+		
+		$(document).on("click", ".deleteicon4", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				tid=$(this).data("tid");
+		        $.ajax({ 
+			          url: URL+"product/deleteProduct",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	window.location.href=URL+"product";
+			          }
+		          
+	        	});
+		    }
+			
+		});
+		$(document).on("click", ".editicon4", function(e) {
+				//e.preventDefault();
+				tid=$(this).data("tid");
+				
+		        $.ajax({ 
+			          url: URL+"main/getProductajax",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	//console.log(done);
+			          	$(".eid").val(done['id']);
+			          	$(".ename").val(done['name']);
+			          	$(".ename_a").val(done['name_a']);
+			          	$(".edesc").val(done['desc']);
+			          	$(".edesc_a").val(done['desc_a']);
+			          	$images=done['images'];
+			          	$(".eimagehid").val($images);
+			          	$images=$images.split(",");
+			          	var htmlstring="";
+			          	for (var i=0; i < $images.length; i++) {
+			          		if($images[i]){
+								htmlstring=htmlstring+
+											'<div class="imgedit col-md-3">'+
+												'<div data-tid="'+i+'" class="deleteicon5">'+
+								            		'<img src="'+URL+'assets/img/delete.png" />'+
+								            	'</div>'+
+							            		'<img class="pimg" src="'+URL+"/assets/img/new/"+$images[i]+'" />'+
+							            	'</div>';
+								
+								$(".forcurrimages").html(htmlstring);
+							}
+							
+							
+						};
+						$pdf=done['link'];
+						htmllink='<a href="'+URL+'assets/pdf/'+$pdf+'">'+$pdf+'</a>';
+						$(".forcurrpdf").html(htmllink);
+						$size=done['sizes'];
+						$size=$size.split(",");
+						htmlstring="";
+						for (var i=0; i < $size.length; i++) {
+							if($size[i]!=""){
+								htmlstring=htmlstring+
+									'<div class="row">'+
+									'<div class="checkbox">'+
+										'<label style="color: #000;">'+
+											'<input type="checkbox" name="esize[]" checked  value='+$size[i]+'>'+
+												'<font style="padding-right:20px">'+$size[i]+'</font>'+
+										'</label>'+
+									'</div></div>';
+							}
+						};
+						$("#eforold2").html(htmlstring);
+						cat=done['category'];
+						cat=cat.split(",");
+						for (var i=0; i < cat.length; i++) {
+							$("input:checkbox[value="+cat[i]+"]").attr("checked", true);
+						};
+						
+						solv=done['Solventid'];
+						solv=solv.split(",");
+						for (var i=0; i < solv.length; i++) {
+							if(solv[i]){
+								document.getElementById("s"+solv[i]).checked = true;
+							}
+						};
+						
+						
+			          }
+		          
+	        	});
+		    
+			
+		});
+		
+		$('.editicongal').click(function(){
+				//e.preventDefault();
+				tid=$(this).data("tid");
+				
+		        $.ajax({ 
+			          url: URL+"gallary/getgalajax",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	$(".id").val(done['id']);
+			          	$(".gname").val(done['gtitle']);
+			          	$(".gtext").val(done['gtext']);
+			          	$(".gtitle_a").val(done['gtitle_a']);
+			          	$(".gtext_a").val(done['gtext_a']);
+			          	$(".isimage").val(done['image']);
+			          	
+			          	
+			          	$images=done['gimage'];
+			          	$(".eimagehid").val($images);
+			          	$images=$images.split(",");
+			          	var htmlstring="";
+			          	for (var i=0; i < $images.length; i++) {
+			          		if($images[i]){
+								htmlstring=htmlstring+
+											'<div class="imgedit col-md-3">'+
+												'<div data-tid="'+i+'" class="deleteicongal1">'+
+								            		'<img src="'+URL+'assets/img/delete.png" />'+
+								            	'</div>'+
+							            		'<img class="pimg" src="'+URL+"/assets/img/new/"+$images[i]+'" />'+
+							            	'</div>';
+								
+								$(".forcurrimages").html(htmlstring);
+							}
+						};	
+			          }
+	        	});
+		});
+		
+		
+		$('.editiconpoint').click(function(){
+				//e.preventDefault();
+				tid=$(this).data("tid");
+				
+		        $.ajax({ 
+			          url: URL+"main/getpajax",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	$(".id").val(done['id']);
+			          	$(".name").val(done['name']);
+			          	$(".name_a").val(done['name_a']);
+			          	$(".tele").val(done['tele']);
+			          	$(".address").val(done['address']);
+			          	$(".address_a").val(done['address_a']);
+			          	$(".link").val(done['link']);
+			          	
+			          	$city=done['city'];
+			          	$('select.city').find('option[value="'+$city+'"]').prop('selected', true); 	
+			          }
+	        	});
+		});
+		
+		$('.editiconbord').click(function(){
+				//e.preventDefault();
+				tid=$(this).data("tid");
+				
+		        $.ajax({ 
+			          url: URL+"main/getbordajax",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	console.log(done);
+			          	
+			          	$(".id").val(done['id']);
+			          	$(".gname").val(done['gtitle']);
+			          	$(".gtext").val(done['gtext']);
+			          	$(".gtitle_a").val(done['gtitle_a']);
+			          	$(".gtext_a").val(done['gtext_a']);
+			          	
+			          	
+			          	
+			          	$images=done['gimage'];
+			          	$(".eimagehid").val($images);
+			          	$images=$images.split(",");
+			          	var htmlstring="";
+			          	for (var i=0; i < $images.length; i++) {
+			          		if($images[i]){
+								htmlstring=htmlstring+
+											'<div class="imgedit col-md-3">'+
+												'<div data-tid="'+i+'" class="deleteicongal1">'+
+								            		'<img src="'+URL+'assets/img/delete.png" />'+
+								            	'</div>'+
+							            		'<img class="pimg" src="'+URL+"/assets/img/new/"+$images[i]+'" />'+
+							            	'</div>';
+								
+								$(".forcurrimages").html(htmlstring);
+							}
+						};	
+			          }
+	        	});
+		});
+		
+		
+		
+		$('.editiconan').click(function(){
+				//e.preventDefault();
+				tid=$(this).data("tid");
+				
+		        $.ajax({ 
+			          url: URL+"main/getannajax",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	console.log(done);
+			          	
+			          	$(".id").val(done['id']);
+			          	$(".year").val(done['year']);
+			          	
+			          	$images=done['image'];
+			          	if($images){
+				          	$(".eimagehid").val($images);
+				          	
+				          	
+				          	htmlstring='<div class="imgedit col-md-3">'+
+											'<div  class="deleteiconiman">'+
+							            		'<img src="'+URL+'assets/img/delete.png" />'+
+							            	'</div>'+
+						            		'<img class="pimg" src="'+URL+"/assets/img/team/"+$images+'" />'+
+						            	'</div>';
+									
+							$(".forcurrimages").html(htmlstring);
+						}
+						$pdf=done['pdf'];
+						$(".forcurrpdf").html($pdf);
+						
+			          }
+	        	});
+		});
+		
+		
+		$('.editicon6').click(function(){
+				//e.preventDefault();
+				tid=$(this).data("tid");
+				
+		        $.ajax({ 
+			          url: URL+"main/getNewsajax",
+			          data: {tid:tid}, 
+			          dataType: 'json', 
+			          type: "POST",
+			          success: function(done) 
+			          {
+			          	console.log(done);
+			          	$(".id").val(done['id']);
+			          	$(".nname").val(done['title']);
+			          	$(".nname_a").val(done['title_a']);
+			          	$(".ntext").val(done['text']);
+			          	$(".ntext_a").val(done['text_a']);
+			          	$images=done['image'];
+			          	$(".eimagehid").val($images);
+			          	$images=$images.split(",");
+			          	var htmlstring="";
+			          	for (var i=0; i < $images.length; i++) {
+			          		if($images[i]){
+								htmlstring=htmlstring+
+											'<div class="imgedit col-md-3">'+
+												'<div data-tid="'+i+'" class="deleteicon6">'+
+								            		'<img src="'+URL+'assets/img/delete.png" />'+
+								            	'</div>'+
+							            		'<img class="pimg" src="'+URL+"/assets/img/new/"+$images[i]+'" />'+
+							            	'</div>';
+								
+								$(".forcurrimages").html(htmlstring);
+							}
+							
+							
+						};
+					
+						parantid=done['parantid'];
+						parantid=parantid.split(",");
+						for (var i=0; i < parantid.length; i++) {
+							if(parantid[i]){
+								document.getElementById("c"+parantid[i]).checked = true;
+							}
+						};
+						
+						
+			          }
+		          
+	        	});
+		    
+			
+		});
+		
+		
+		
+		
+    	$(document).on("click", ".deleteicon5", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				tid=$(this).data("tid");
+				$parant=$(this).closest(".imgedit");
+		       	$imgs=$(".eimagehid").val();
+		       	$imgs=$imgs.split(",");
+		       	$imgs.splice(tid, 1);
+		       	$imgstring="";
+		       	for (var i=0; i < $imgs.length; i++) {
+		       		if($imgs[i]){
+		       			$imgstring=$imgstring+$imgs[i]+",";
+		       		}
+		       	};
+		       	
+		       	$(".eimagehid").val($imgstring);
+		       	$parant.hide();
+		       	
+		    }
+			
+		});
+		
+		
+		$(document).on("click", ".deleteicongal1", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				tid=$(this).data("tid");
+				$parant=$(this).closest(".imgedit");
+		       	$imgs=$(".eimagehid").val();
+		       	$imgs=$imgs.split(",");
+		       	$imgs.splice(tid, 1);
+		       	$imgstring="";
+		       	for (var i=0; i < $imgs.length; i++) {
+		       		if($imgs[i]){
+		       			$imgstring=$imgstring+$imgs[i]+",";
+		       		}
+		       	};
+		       	
+		       	$(".eimagehid").val($imgstring);
+		       	$parant.hide();
+		       	
+		    }
+			
+		});
+		
+		
+		$(document).on("click", ".deleteicon6", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				tid=$(this).data("tid");
+				$parant=$(this).closest(".imgedit");
+		       	$imgs=$(".eimagehid").val();
+		       	$imgs=$imgs.split(",");
+		       	$imgs.splice(tid, 1);
+		       	$imgstring="";
+		       	for (var i=0; i < $imgs.length; i++) {
+		       		if($imgs[i]){
+		       			$imgstring=$imgstring+$imgs[i]+",";
+		       		}
+		       	};
+		       	
+		       	$(".eimagehid").val($imgstring);
+		       	$parant.hide();
+		       	
+		    }
+			
+		});
+		$(document).on("click", ".deleteiconiman", function(e) {
+			if(confirm('Are you sure you want to delete this ?')){
+				$parant=$(this).closest(".imgedit");
+		       	
+		       	
+		       	$(".eimagehid").val("");
+		       	$parant.hide();
+		       	
+		    }
+			
+		});
+		
+		
+    	
+    //toggle `popup` / `inline` mode
+	    $.fn.editable.defaults.mode = 'inline';     
+	    
+	    //welcome section
+	    $('#welcome_title_a').editable();
+	    $('#desc1_a').editable();
+	    $('#desc2_a').editable();
+	    $('#li1_a').editable();
+	    $('#li2_a').editable();
+	    $('#li3_a').editable();
+	    $('#li4_a').editable();
+	    
+	    
+	    
+	    var solvents=[{"id":"18","name":"\u0632\u064a\u062a\u064a","name_a":""},{"id":"17","name":"Tenner","name_a":"\u062a\u0646\u0631 \u0639\u0646\u062f \u0627\u0644\u0644\u0632\u0648\u0645 "},{"id":"15","name":"Tenner 121","name_a":"\u0627\u0644\u062a\u0646\u0631 121"},{"id":"14","name":"Turpentine","name_a":"\u062a\u0631\u0628\u0646\u062a\u064a\u0646"},{"id":"13","name":"Ready-made","name_a":"\u062c\u0627\u0647\u0632 "},{"id":"11","name":"Not recommended easing","name_a":"\u0644\u0627 \u064a\u0646\u0635\u062d \u0628\u062a\u062e\u0641\u064a\u0641\u0647 "},{"id":"1","name":"water","name_a":"\u0645\u0627\u0621"}];
+	    var sols=[];
+	    for (j = 0; j < solvents.length; j++) {
+	    	sols.push({
+	    		value:solvents[j]['id'],
+	    		text:solvents[j]['name']
+	    	});
+	    	
+	    }
+	    
+	    $('#Solventid').editable({   
+	        source:sols
+	    });
+	    
+	     //gallaries
+	    var galsnum=18;
+	    for (i = 0; i < galsnum; i++) { 
+		    $('#gtitle_'+i).editable();
+		    $('#gtext_'+i).editable();
+	    }
+	    
+	    //dirs
+	    var galsnum=5;
+	    for (i = 0; i < galsnum; i++) { 
+		    $('#name_a-'+i).editable();
+		    $('#position_a-'+i).editable();
+		    $('#description_a-'+i).editable();
+	    }
+	    
+	    //new record shareholders
+	    $('.myeditable1').editable();
+	    $('.myeditable').editable({
+		    url: '/post' //this url will not be used for creating new user, it is only for update
+		});
+	    
+	    $('#new_name').editable('option', 'validate', function(v) {
+		    if(!v) return 'Required field!';
+		});
+			
+		 $ieshi=0;	    
+	     //automatically show next editable
+		 $('.myeditable').on('save.newuser', function(){
+		       var that = this;
+		       if($ieshi<3){
+			       setTimeout(function() {
+			       	var cont=".eshi"+$ieshi;
+			       $(cont).editable('show');
+			       		//console.log($ieshi);
+			       }, 200);
+			       $ieshi++;
+		       }
+		     
+		   });
+		   
+		   //create new user
+		   $('#save-btn').click(function() {
+		       $('.myeditable').editable('submit', { 
+		           url: URL+'main/newShareholders', 
+		           ajaxOptions: {
+		               dataType: 'json' //assuming json response
+		           },           
+		           success: function(data, config) {
+		               window.location=document.URL;           
+		           },
+		           error: function(errors) {
+		           		window.location=document.URL;
+		           }
+		       });
+		   }); 
+		   
+		   //reset
+		   $('#reset-btn').click(function() {
+		       $('.myeditable').editable('setValue', null)
+		                       .editable('option', 'pk', null)
+		                       .removeClass('editable-unsaved');
+		                       
+		       $('#save-btn').show();
+		       $('#msg').hide();                
+		   });
+	    
+	    	$('#category').editable({   
+		        source: [
+		              {value: 1, text: 'Interval Paint'},
+		              {value: 2, text: 'External Paint'},
+		              {value: 3, text: 'Decoration Paint'}
+		           ]
+		    });
+	    
+	    $(function () {
+		  $('[data-toggle="tooltip"]').tooltip()
+		});
+	});
+    
+</script>
+<!--[if lt IE 9]>
+    <script src="assets/plugins/respond.js"></script>
+    <script src="assets/plugins/html5shiv.js"></script>
+    <script src="assets/js/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+
+ 
+<div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"></div></body></html>

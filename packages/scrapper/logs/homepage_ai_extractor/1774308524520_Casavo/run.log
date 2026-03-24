@@ -1,0 +1,91 @@
+[2026-03-23T23:28:44.521Z] === Homepage AI Extractor: Casavo ===
+[2026-03-23T23:28:44.521Z] Started at: 2026-03-23T23:28:44.521Z
+[2026-03-23T23:28:44.521Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774308524520_Casavo
+[2026-03-23T23:28:44.521Z] Company: Casavo
+[2026-03-23T23:28:44.521Z] Website: casavo.com
+[2026-03-23T23:28:44.521Z] cbRank: 42737
+[2026-03-23T23:28:44.521Z] Reasons: i
+[2026-03-23T23:28:44.521Z] Fetching: https://casavo.com
+[2026-03-23T23:28:46.060Z] Redirected: https://casavo.com -> https://casavo.com/en/
+[2026-03-23T23:28:46.067Z] Saved HTML (304372 bytes) to page.html
+[2026-03-23T23:28:46.069Z] Extracted 22 unique links from page
+[2026-03-23T23:28:46.070Z] Saved 22 links to links.json
+[2026-03-23T23:28:46.072Z] Extracted footer HTML (6524 chars)
+[2026-03-23T23:28:46.072Z] Extracted header HTML (1791 chars)
+[2026-03-23T23:28:46.074Z] Website (post-redirect): https://casavo.com/en/ → origin: https://casavo.com
+[2026-03-23T23:28:46.074Z]   SUBDOMAIN: blog.casavo.com (added to ws)
+[2026-03-23T23:28:46.074Z]   SUBDOMAIN: valuation.casavo.com (added to ws)
+[2026-03-23T23:28:46.075Z] Website subdomains found: 2
+[2026-03-23T23:28:46.075Z] External links: 5 (of 22 total)
+[2026-03-23T23:28:46.075Z] ── All external links ──
+[2026-03-23T23:28:46.075Z]   EXT: https://www.facebook.com/CasavoItalia
+[2026-03-23T23:28:46.075Z]   EXT: https://www.instagram.com/casavo.it
+[2026-03-23T23:28:46.075Z]   EXT: https://www.iubenda.com/privacy-policy/13885083/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-23T23:28:46.075Z]   EXT: https://www.linkedin.com/company/casavo-group
+[2026-03-23T23:28:46.075Z]   EXT: https://www.youtube.com/channel/UC_Sb0XWFOlAKjp7reB8q8kQ
+[2026-03-23T23:28:46.075Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:28:46.075Z]   REGEX: fb <- https://www.facebook.com/CasavoItalia
+[2026-03-23T23:28:46.076Z]   REGEX: ig <- https://www.instagram.com/casavo.it
+[2026-03-23T23:28:46.076Z]   UNCATEGORIZED: https://www.iubenda.com/privacy-policy/13885083/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-23T23:28:46.076Z]   REGEX: li <- https://www.linkedin.com/company/casavo-group
+[2026-03-23T23:28:46.077Z]   REGEX: ytc <- https://www.youtube.com/channel/UC_Sb0XWFOlAKjp7reB8q8kQ
+[2026-03-23T23:28:46.077Z] Programmatic result: ws:3, fb:1, ig:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-23T23:28:46.077Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:28:46.078Z] Saved AI prompt (6633 chars) to ai_prompt.txt
+[2026-03-23T23:28:46.078Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:28:46.081Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:29:11.670Z]   AI: First token received, streaming...
+[2026-03-23T23:29:25.889Z]   AI streaming: 203 chars received (39.8s elapsed)
+[2026-03-23T23:29:25.889Z] AI response complete: 206 chars in 39.8s
+[2026-03-23T23:29:25.891Z] Saved AI response to ai_response.json
+[2026-03-23T23:29:25.891Z] ── Parsing AI response (5 lines) ──
+[2026-03-23T23:29:25.891Z]   AI LINK: https://www.instagram.com/casavo.it/
+[2026-03-23T23:29:25.891Z]   AI LINK: https://www.facebook.com/CasavoItalia/
+[2026-03-23T23:29:25.891Z]   AI LINK: https://www.linkedin.com/company/casavo-group/
+[2026-03-23T23:29:25.891Z]   AI LINK: https://www.youtube.com/channel/UC_Sb0XWFOlAKjp7reB8q8kQ
+[2026-03-23T23:29:25.892Z]   AI LINK: https://blog.casavo.com/en
+[2026-03-23T23:29:25.892Z] AI returned 5 valid links
+[2026-03-23T23:29:25.892Z] ── Categorizing 5 AI-returned links ──
+[2026-03-23T23:29:25.892Z]   AI→REGEX: ig <- https://www.instagram.com/casavo.it/ (duplicate, skipped)
+[2026-03-23T23:29:25.892Z]   AI→REGEX: fb <- https://www.facebook.com/CasavoItalia/ (duplicate, skipped)
+[2026-03-23T23:29:25.892Z]   AI→REGEX: li <- https://www.linkedin.com/company/casavo-group/ (duplicate, skipped)
+[2026-03-23T23:29:25.892Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC_Sb0XWFOlAKjp7reB8q8kQ (duplicate, skipped)
+[2026-03-23T23:29:25.893Z]   AI→URLS: https://blog.casavo.com/en
+[2026-03-23T23:29:25.894Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:29:25.894Z] Footer/header origins (7):
+[2026-03-23T23:29:25.894Z]   FOOTER/HEADER ORIGIN: https://valuation.casavo.com
+[2026-03-23T23:29:25.894Z]   FOOTER/HEADER ORIGIN: https://casavo.com
+[2026-03-23T23:29:25.894Z]   FOOTER/HEADER ORIGIN: https://blog.casavo.com
+[2026-03-23T23:29:25.894Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T23:29:25.894Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T23:29:25.894Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:29:25.894Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T23:29:25.895Z]   SKIP (not in footer/header): https://www.iubenda.com/privacy-policy/13885083/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-23T23:29:25.895Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:29:25.895Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:29:25.895Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T23:29:26.349Z]   YOUTUBE: resolved UC_Sb0XWFOlAKjp7reB8q8kQ → @casavo1638
+[2026-03-23T23:29:26.350Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T23:29:26.350Z] ── Step 3: Final dedup ──
+[2026-03-23T23:29:26.350Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T23:29:26.350Z] ── FINAL RESULT ──
+[2026-03-23T23:29:26.350Z]   ws (3):
+[2026-03-23T23:29:26.350Z]     - https://blog.casavo.com
+[2026-03-23T23:29:26.350Z]     - https://casavo.com
+[2026-03-23T23:29:26.350Z]     - https://valuation.casavo.com
+[2026-03-23T23:29:26.351Z]   li (1):
+[2026-03-23T23:29:26.351Z]     - https://www.linkedin.com/company/casavo-group
+[2026-03-23T23:29:26.351Z]   fb (1):
+[2026-03-23T23:29:26.351Z]     - https://www.facebook.com/casavoitalia
+[2026-03-23T23:29:26.351Z]   ig (1):
+[2026-03-23T23:29:26.351Z]     - https://www.instagram.com/casavo.it
+[2026-03-23T23:29:26.351Z]   ytp (1):
+[2026-03-23T23:29:26.351Z]     - https://www.youtube.com/@casavo1638
+[2026-03-23T23:29:26.351Z]   ytc (1):
+[2026-03-23T23:29:26.351Z]     - https://www.youtube.com/channel/UC_Sb0XWFOlAKjp7reB8q8kQ
+[2026-03-23T23:29:26.351Z]   urls (1):
+[2026-03-23T23:29:26.351Z]     - https://blog.casavo.com/en
+[2026-03-23T23:29:26.351Z] Summary: ws:3, fb:1, ig:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-23T23:29:26.352Z] Saved final result to result.json
+[2026-03-23T23:29:26.352Z] Override fields: ws, li, fb, ig, ytp, ytc
+[2026-03-23T23:29:26.352Z] Finished at: 2026-03-23T23:29:26.352Z

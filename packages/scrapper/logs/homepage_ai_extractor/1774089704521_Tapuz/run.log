@@ -1,0 +1,65 @@
+[2026-03-21T10:41:44.521Z] === Homepage AI Extractor: Tapuz ===
+[2026-03-21T10:41:44.521Z] Started at: 2026-03-21T10:41:44.521Z
+[2026-03-21T10:41:44.521Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774089704521_Tapuz
+[2026-03-21T10:41:44.522Z] Company: Tapuz
+[2026-03-21T10:41:44.522Z] Website: tapuz.co.il
+[2026-03-21T10:41:44.522Z] cbRank: 3257851
+[2026-03-21T10:41:44.522Z] Reasons: h
+[2026-03-21T10:41:44.522Z] Fetching: https://tapuz.co.il
+[2026-03-21T10:41:55.073Z] Network idle timeout — continuing with current state
+[2026-03-21T10:41:55.106Z] Redirected: https://tapuz.co.il -> https://www.tapuz.co.il/
+[2026-03-21T10:41:55.111Z] Saved HTML (101391 bytes) to page.html
+[2026-03-21T10:41:55.114Z] Extracted 124 unique links from page
+[2026-03-21T10:41:55.115Z] Saved 124 links to links.json
+[2026-03-21T10:41:55.116Z] Extracted footer HTML (1578 chars)
+[2026-03-21T10:41:55.116Z] Extracted header HTML (368 chars)
+[2026-03-21T10:41:55.120Z] Website (post-redirect): https://www.tapuz.co.il/ → origin: https://www.tapuz.co.il
+[2026-03-21T10:41:55.120Z]   SUBDOMAIN: money.tapuz.co.il (added to ws)
+[2026-03-21T10:41:55.120Z] Website subdomains found: 1
+[2026-03-21T10:41:55.120Z] External links: 3 (of 124 total)
+[2026-03-21T10:41:55.120Z] ── All external links ──
+[2026-03-21T10:41:55.120Z]   EXT: https://facebook.com/tapuz.co.il
+[2026-03-21T10:41:55.120Z]   EXT: https://www.idanbenor.co.il
+[2026-03-21T10:41:55.120Z]   EXT: https://xenforo.com
+[2026-03-21T10:41:55.120Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T10:41:55.121Z]   REGEX: fb <- https://facebook.com/tapuz.co.il
+[2026-03-21T10:41:55.121Z]   UNCATEGORIZED: https://www.idanbenor.co.il
+[2026-03-21T10:41:55.121Z]   UNCATEGORIZED: https://xenforo.com
+[2026-03-21T10:41:55.121Z] Programmatic result: ws:2, fb:1 | 2 uncategorized
+[2026-03-21T10:41:55.121Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T10:41:55.122Z] Saved AI prompt (2761 chars) to ai_prompt.txt
+[2026-03-21T10:41:55.122Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T10:41:55.125Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T10:42:05.729Z]   AI: First token received, streaming...
+[2026-03-21T10:42:06.893Z] AI response complete: 32 chars in 11.8s
+[2026-03-21T10:42:06.894Z] Saved AI response to ai_response.json
+[2026-03-21T10:42:06.895Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T10:42:06.895Z]   AI LINK: https://facebook.com/tapuz.co.il
+[2026-03-21T10:42:06.895Z] AI returned 1 valid links
+[2026-03-21T10:42:06.895Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T10:42:06.895Z]   AI→REGEX: fb <- https://facebook.com/tapuz.co.il (duplicate, skipped)
+[2026-03-21T10:42:06.896Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T10:42:06.896Z] Footer/header origins (4):
+[2026-03-21T10:42:06.896Z]   FOOTER/HEADER ORIGIN: https://facebook.com
+[2026-03-21T10:42:06.896Z]   FOOTER/HEADER ORIGIN: https://www.tapuz.co.il
+[2026-03-21T10:42:06.896Z]   FOOTER/HEADER ORIGIN: https://money.tapuz.co.il
+[2026-03-21T10:42:06.896Z]   FOOTER/HEADER ORIGIN: https://www.idanbenor.co.il
+[2026-03-21T10:42:06.896Z]   ADDED: urls <- https://www.idanbenor.co.il
+[2026-03-21T10:42:06.897Z]   SKIP (not in footer/header): https://xenforo.com
+[2026-03-21T10:42:06.897Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T10:42:06.897Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T10:42:06.897Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T10:42:06.897Z] ── Step 3: Final dedup ──
+[2026-03-21T10:42:06.897Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T10:42:06.897Z] ── FINAL RESULT ──
+[2026-03-21T10:42:06.897Z]   ws (2):
+[2026-03-21T10:42:06.897Z]     - https://money.tapuz.co.il
+[2026-03-21T10:42:06.898Z]     - https://www.tapuz.co.il
+[2026-03-21T10:42:06.898Z]   fb (1):
+[2026-03-21T10:42:06.898Z]     - https://www.facebook.com/tapuz.co.il
+[2026-03-21T10:42:06.898Z]   urls (1):
+[2026-03-21T10:42:06.898Z]     - https://www.idanbenor.co.il
+[2026-03-21T10:42:06.898Z] Summary: ws:2, fb:1, urls:1
+[2026-03-21T10:42:06.899Z] Saved final result to result.json
+[2026-03-21T10:42:06.899Z] Override fields: ws, fb, urls
+[2026-03-21T10:42:06.899Z] Finished at: 2026-03-21T10:42:06.899Z

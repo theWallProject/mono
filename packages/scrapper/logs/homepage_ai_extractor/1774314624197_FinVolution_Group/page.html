@@ -1,0 +1,1060 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" async="" defer="" src="//stats.drivetheweb.com/piwik.js"></script><script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ=="></script>
+<script type="text/javascript" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">webDriver.push_jQuery();</script>
+<script type="text/javascript" src="js/jquery.touchwipe.min.js" wd_script_id="jquery.touchwipe.min.js" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ=="></script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<style type="text/css" wd_script_id="template teaser_list:newsfeed_releases:system style" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+.wd_newsfeed_releases-teaser .wd_date {
+	font-weight: bold;
+}
+.wd_newsfeed_releases-teaser .wd_title {
+	font-weight: bold;
+}
+.wd_newsfeed_releases-teaser .subscribe_link {
+	margin-bottom: 1em;
+}
+.wd_newsfeed_releases-teaser span.wd_subscribe_email-icon {  
+	font-size: 1.2em; 
+}</style>
+<script type="text/javascript" wd_script_id="featurebox_financial_script" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+			var ir_featurebox = {
+				featureboxes: new Array,
+				ticker_data: new Array,
+
+				update: function(index, ticker, filer) {
+					var item_id = ticker || filer;
+					if (!this.featureboxes[index]) {
+						this.featureboxes[index] = {
+							ticker: ticker,
+							filer: filer,
+							chart: false,
+							size: false
+						};
+					}
+
+					if (!this.ticker_data[item_id])
+						this.ticker_data[item_id] = {};
+
+					if (ticker && webDriver.jQuery("#ir_featurebox_"+index+"-quote").length)
+						this.update_quote(index, ticker);
+
+					if (ticker && webDriver.jQuery("#ir_featurebox_"+index+"-chart").length)
+						this.update_chart(index, ticker);
+
+					if (ticker && webDriver.jQuery("#ir_featurebox_"+index+"-data").length)
+						this.update_data(index, ticker);
+
+					if (filer && webDriver.jQuery("#ir_featurebox_"+index+"-filings").length)
+						this.update_filings(index, filer);
+
+					if (webDriver.jQuery("#ir_featurebox_"+index+"-footer").length)
+						this.update_labels(index, ticker, filer);
+				},
+
+				update_labels: function(index, ticker, filer) {
+					var item_id = ticker || filer;
+					if (!this.ticker_data[item_id]["labels"]) {
+						webDriver.jQuery("#ir_featurebox_"+index+"-footer").html("");
+						webDriver.jQuery.getJSON(
+							"index.php",
+							{
+								ajax: "ir_featurebox",
+								ticker: ticker,
+								filer: filer,
+								data: "labels"
+							},
+							function(data) {
+								ir_featurebox.ticker_data[item_id]["labels"] = data;
+								ir_featurebox.update_labels(index, ticker, filer);
+							}
+						);
+					} else {
+						webDriver.jQuery("#ir_featurebox_"+index+"-footer").html(this.ticker_data[item_id]["labels"].footer);
+					}
+				}
+			};
+		</script>
+<style type="text/css" wd_script_id="ir_ticker_label_style" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+				div.wd_ticker_label {
+					text-align: right;
+					margin: 5px 0;
+				}
+				div.wd_ticker_label span.wd_exchange {
+					color: #999999;
+				}
+
+				div.wd_ticker_label span.wd_exchange:after {
+					content: ": ";
+				}
+			</style>
+<script type="text/javascript" src="js/highstock/highstock.src.js" wd_script_id="highstock.src.js" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ=="></script>
+<link href="css/jquery-ui/jquery-ui.css" type="text/css" rel="stylesheet" wd_script_id="jquery-ui.css">
+<script type="text/javascript" wd_script_id="highcharts_locale_script" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+webDriver.jQuery(function($){
+	Highcharts.setOptions({
+		lang: {
+			loading: "Loading...",
+			months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+			shortMonths: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+			weekdays: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+		}
+	});
+});
+</script>
+<style type="text/css" wd_script_id="ir_featurebox_chart_style" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+				div.wd_chart-ranges {
+					width: 100%;
+					margin: 3px 0 0 0;
+					overflow: auto;
+				}
+
+				div.wd_chart-range {
+					background: #777777;
+					color: #ffffff;
+					cursor: pointer;
+					float: left;
+					width: 19%;
+					text-align: center;
+					border-left: 1px solid #ffffff;
+					border-bottom: 1px solid #777777;
+				}
+
+				div.wd_chart-range:first_child {
+					border-left: 0;
+				}
+
+				div.wd_chart-range-active {
+					background: #ffffff;
+					color: #000000;
+					border-left: 1px solid #777777;
+					border-right: 1px solid #777777;
+				}
+				</style>
+<link href="css/wd_wcag.css" type="text/css" rel="stylesheet" wd_script_id="wd_wcag.css">
+<script type="text/javascript" wd_script_id="ir_featurebox_chart_script" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+					ir_featurebox.update_chart = function(index, ticker) {
+						if (!this.featureboxes[index].chart) {
+							var groupingUnits = [[
+								"minute",
+								[5, 10, 15, 30]
+							], [
+								"hour",
+								[1, 2, 3, 4]
+							], [
+								"day",
+								[1]
+							], [
+								"week",
+								[1]
+							], [
+								"month",
+								[1, 2, 3, 4, 6]
+							]];
+							
+							var chart = new Highcharts.StockChart({
+								chart: {
+									renderTo: "ir_featurebox_"+index+"-chart",
+									spacingTop: 0,
+									spacingBottom: 5,
+									spacingLeft: 0,
+									spacingRight: 0,
+									backgroundColor: null,
+									borderColor: "#CCCCCC",
+									borderWidth: 0,
+									borderRadius: 5,
+									plotBackgroundColor: "#FFFFFF",
+									plotBorderColor: "#CCCCCC",
+									plotBorderWidth: 0,
+
+									events: {
+										load: function() {
+											ir_featurebox.featureboxes[index].chart = this;
+											ir_featurebox.update_chart(index, ticker);
+										}
+									}
+								},
+
+								rangeSelector: {enabled: false},
+								navigator: {enabled: false},
+								scrollbar: {enabled: false},
+								credits: {enabled: false},
+
+								xAxis: {
+									dayOffset: 57600000,
+									lineWidth: 2,
+									lineColor: "#CCCCCC",
+									gridLineWidth: 0,
+									gridLineColor: "#CCCCCC",
+									tickWidth: 1,
+									tickColor: "#CCCCCC",
+									dateTimeLabelFormats: {
+			millisecond: "%H:%M:%S.%L",
+			second: "%H:%M:%S",
+			minute: "%H:%M",
+			hour: "%H:%M",
+			day: "%b %e",
+			week: "%b %e",
+			month: "%b '%y",
+			year: "%Y"
+		},
+									labels: {
+										style: {
+											color: "#808080",
+											fontWeight: "normal"
+										}
+									}
+								},
+
+								yAxis: {
+									opposite: true,
+									lineWidth: 2,
+									lineColor: "#CCCCCC",
+									gridLineWidth: 1,
+									gridLineColor: "#CCCCCC",
+									tickWidth: 0,
+									tickColor: "#CCCCCC",
+									labels: {
+										align: "left",
+										x: 2,
+										formatter: function() {
+											return Highcharts.currencyFormat(this.value,["${V}","-${V}"],-2,".",",");
+										},
+										style: {
+											color: "#808080",
+											fontWeight: "normal"
+										}
+									}
+								},
+
+								tooltip: {
+									backgroundColor: "rgba(255,255,255,.85)",
+									borderColor: null,
+									borderWidth: 2,
+									borderRadius: 3,
+									shadow: true,
+									crosshairs: [
+										{
+											color: "#CCCCCC",
+											width: 1
+										},
+										{
+											color: "#CCCCCC",
+											width: 0
+										}
+									],
+									useHTML: true,
+									style: {
+										color: null,
+										fontSize: "12px",
+										padding: "5px",
+										whiteSpace: "nowrap",
+										width: 300
+									}
+								},
+
+								series: [{
+									name: "Price",
+									id: "price",
+									color: "#0079D6",
+									lineColor: "#0079D6",
+									marker: {
+										states: {
+											hover: {
+												lineColor: "#FFFFFF"
+											}
+										}
+									},
+									fillColor: "rgba(223, 235, 247, 0.75)",
+									fillOpacity: "0.3",
+									type: "area",
+									threshold: null,
+									data: [],
+									tooltip: {
+										pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+										valueFormatter: function(value) {return Highcharts.currencyFormat(value,["${V}","-${V}"],[2,4],".",",");}
+									},
+									dataGrouping: {
+										approximation: "close",
+										timeOffset: 1,
+										forced: true,
+										dateTimeLabelFormats: {
+				millisecond: ["", "%A, %b %e, %H:%M:%S.%L", ""],
+				second: ["", "%A, %b %e, %H:%M:%S", ""],
+				minute: ["", "%A, %b %e, %H:%M", ""],
+				hour: ["", "%A, %b %e, %H:%M", ""],
+				day: ["", "%A, %b %e, %Y", ""],
+				week: ["", "%A, %b %e, %Y", ""],
+				month: ["", "%B %Y", ""],
+				year: ["", "%Y", ""]
+			},
+										groupTime: "last",
+										tooltipAdjust: false,
+										units: groupingUnits
+									}
+								}]
+							});
+							return;
+						}
+						
+						if (!this.ticker_data[ticker]["chart"]) {
+							webDriver.jQuery("#wd_chart_"+index+"-ranges .wd_chart-range").hide();
+							this.featureboxes[index].chart.showLoading('<span class="wd_loading_rotate" ><span class="fa-spin fa-fw fa fa-circle-o-notch" style="font-size: 3em;"></span><span class="wd_sr-only">Loading...</span></span>');
+							webDriver.jQuery.getJSON(
+								"index.php",
+								{
+									ajax: "ir_featurebox",
+									ticker: ticker,
+									data: "chart"
+								},
+								function(data) {
+									data.quotes = new Array;
+									ir_featurebox.ticker_data[ticker]["chart"] = data;
+									
+									ir_featurebox.featureboxes[index].chart.hideLoading();
+									ir_featurebox.update_chart(index, ticker);
+								}
+							);
+						} else {
+							this.featureboxes[index].ticker = ticker;
+
+							webDriver.jQuery("#wd_chart_"+index+"-ranges .wd_chart-range").hide();
+							for (range in this.ticker_data[ticker].chart.ranges)
+								webDriver.jQuery("#wd_chart_"+index+"-range-"+range).show();
+
+							var range = webDriver.jQuery("#wd_chart_"+index+"-ranges").attr("wd_default_range") || "1mo";
+							this.chart_set_range(index, range, true);
+						}
+					}
+					
+					ir_featurebox.chart_set_range = function(index, range, ticker_changed) {
+						webDriver.jQuery("#wd_chart_"+index+"-ranges .wd_chart-range")
+							.removeClass("wd_chart-range-active")
+							.attr("aria-checked", "false")
+							.attr("tabindex", -1)
+						;
+						webDriver.jQuery("#wd_chart_"+index+"-range-"+range)
+							.addClass("wd_chart-range-active")
+							.attr("aria-checked", "true")
+							.attr("tabindex", 0)
+						;
+
+						var ticker = this.featureboxes[index].ticker;
+						var size = (range == "1dy") ? "minute" : "day";
+						
+						if (!this.ticker_data[ticker].chart.quotes[size]) {
+							this.featureboxes[index].chart.showLoading('<span class="wd_loading_rotate" ><span class="fa-spin fa-fw fa fa-circle-o-notch" style="font-size: 3em;"></span><span class="wd_sr-only">Loading...</span></span>');
+							webDriver.jQuery.getJSON(
+								"index.php",
+								{
+									ajax: "ir_quotes",
+									ticker: ticker,
+									data: "X",
+									size: size,
+									mult: (size == "day") ? 1 : 5,
+									min: this.ticker_data[ticker].chart.mins[size]
+								},
+								function(data) {
+									ir_featurebox.ticker_data[ticker].chart.quotes[size] = data;
+
+									ir_featurebox.featureboxes[index].chart.hideLoading();
+									ir_featurebox.chart_set_range(index, range, ticker_changed);
+								}
+							);
+						} else {
+							if (ticker_changed || size != this.featureboxes[index].size) {
+								this.featureboxes[index].chart.get("price").setData(this.ticker_data[ticker].chart.quotes[size], false);
+								this.featureboxes[index].size = size;
+							}
+							this.featureboxes[index].chart.xAxis[0].setExtremes(this.ticker_data[ticker].chart.ranges[range], this.ticker_data[ticker].chart.last);
+						}
+					}
+				</script>
+<script type="text/javascript" src="js/wd_wcag.js" wd_script_id="wd_wcag.js" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ=="></script>
+<style type="text/css" wd_script_id="featurebox_financial_style" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+			div.wd_chart-quote-footer {
+				margin: 5px 0 0 0;
+				font-size: .75em;
+				color: #999999;
+			}
+		</style>
+<style type="text/css" wd_script_id="ir_featurebox_data_style" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+				div.wd_chart-quote {
+					width: 100%;
+					overflow: auto;
+				}
+
+				div.wd_chart-quote-item {
+					width: 49%;
+					float: left;
+					margin: 10px 0;
+				}
+
+				div.wd_chart-quote-value {
+					margin: 0;
+					font-weight: bold;
+				}
+
+				div.wd_chart-quote-value-down {
+					color: #cc0000;
+				}
+
+				div.wd_chart-quote-value-up {
+					color: #00cc00;
+				}
+
+				div.wd_chart-quote-label {
+					margin: 0;
+					color: #999999;
+				}
+
+				div.wd_chart-quote-footer {
+					margin: 5px 0 0 0;
+					font-size: .75em;
+					color: #999999;
+				}
+				</style>
+<script type="text/javascript" wd_script_id="ir_featurebox_data_script" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+					ir_featurebox.update_data = function(index, ticker) {
+						if (!this.ticker_data[ticker]["data"]) {
+							webDriver.jQuery("#ir_featurebox_"+index+"-data").html('<center><span class="wd_loading_rotate" ><span class="fa-spin fa-fw fa fa-circle-o-notch" style="font-size: 3em;"></span><span class="wd_sr-only">Loading...</span></span></center>');
+							webDriver.jQuery.get(
+								"index.php",
+								{
+									ajax: "ir_featurebox",
+									ticker: ticker,
+									data: "data"
+								},
+								function(data) {
+									ir_featurebox.ticker_data[ticker]["data"] = data;
+									ir_featurebox.update_data(index, ticker);
+								}
+							);
+						} else {
+							webDriver.jQuery("#ir_featurebox_"+index+"-data").html(this.ticker_data[ticker]["data"]);
+						}
+					}
+				</script>
+<style type="text/css" wd_script_id="featureboxes_style" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+		.wd_featurebox_icon {
+			display: inline;
+		}
+		.wd_featurebox_icon img {
+			vertical-align: middle;
+		}
+		div.wd_featurebox_group div.wd_tabs_wrapper {
+			border: none;
+			border-bottom: 1px solid #E1E1E1;
+			padding: 0 0 5px 0;
+		}
+		div.wd_featurebox_group div.wd_featurebox {
+			border: none;
+			padding: 8px 0 0 0;
+		}
+		div.wd_featurebox_group li.wd_tab {
+			float: none;
+			color: #666666;
+		}
+		div.wd_featurebox_group li.wd_tab-active {
+			border: none;
+			background-color: transparent;
+			color: #000000;
+			font-weight: bold;
+		}
+		div.wd_featurebox_group li.wd_tab-inactive {
+			cursor: auto;
+		}
+	</style>
+<script type="text/javascript" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">webDriver.pop_jQuery();</script>
+
+<!-- end spin_special_output(head_start) -->
+
+	<meta charset="utf-8">
+	
+ <meta name="keywords" content="">
+ <meta name="description" content="">
+ <meta name="twitter:card" content="summary">
+ <meta property="og:site_name" content="InvestorRoom ">
+ <meta property="og:url" content="https://ir.finvgroup.com/Home">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>InvestorRoom  - Investor Relations Home</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+
+<!-- begin spin_special_output(head_end) -->
+<link href="css/single_slider_responsive.css" type="text/css" rel="stylesheet" wd_script_id="single_slider_responsive.css">
+<script type="text/javascript" wd_script_id="single_slider_carousel_function" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+!function ($) {
+
+  "use strict"; // jshint ;_;
+
+
+  /* CSS TRANSITION SUPPORT (http://www.modernizr.com/)
+   * ======================================================= */
+
+  webDriver.jQuery(function ($) {
+
+    $.support.transition = (function () {
+
+      var transitionEnd = (function () {
+
+        var el = document.createElement("bootstrap")
+          , transEndEventNames = {
+               "WebkitTransition" : "webkitTransitionEnd"
+            ,  "MozTransition"    : "transitionend"
+            ,  "OTransition"      : "oTransitionEnd otransitionend"
+            ,  "transition"       : "transitionend"
+            }
+          , name
+
+        for (name in transEndEventNames){
+          if (el.style[name] !== undefined) {
+            return transEndEventNames[name]
+          }
+        }
+
+      }())
+
+      return transitionEnd && {
+        end: transitionEnd
+      }
+
+    })()
+
+  })
+
+}(webDriver.jQuery);
+
+!function ($) {
+
+  "use strict"; // jshint ;_;
+
+
+ /* CAROUSEL CLASS DEFINITION
+  * ========================= */
+
+  var Carousel = function (element, options) {
+    this.$element = $(element)
+    this.$indicators = this.$element.find(".single_slider_carousel_indicators")
+    this.options = options
+    this.options.pause == "hover" && this.$element
+      .on("mouseenter", $.proxy(this.pause, this))
+      .on("mouseleave", $.proxy(this.cycle, this))
+  }
+
+  Carousel.prototype = {
+
+    cycle: function (e) {
+      if (!e) this.paused = false
+      if (this.interval) clearInterval(this.interval);
+      this.options.interval
+        && !this.paused
+        && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
+      return this
+    }
+
+  , getActiveIndex: function () {
+      this.$active = this.$element.find(".item.active")
+      this.$items = this.$active.parent().children()
+      return this.$items.index(this.$active)
+    }
+
+  , to: function (pos) {
+      var activeIndex = this.getActiveIndex()
+        , that = this
+
+      if (pos > (this.$items.length - 1) || pos < 0) return
+
+      if (this.sliding) {
+        return this.$element.one("slid", function () {
+          that.to(pos)
+        })
+      }
+
+      if (activeIndex == pos) {
+        return this.pause().cycle()
+      }
+
+      return this.slide(pos > activeIndex ? "next" : "prev", $(this.$items[pos]))
+    }
+
+  , pause: function (e) {
+      if (!e) this.paused = true
+      if (this.$element.find(".next, .prev").length && $.support.transition.end) {
+        this.$element.trigger($.support.transition.end)
+        this.cycle(true)
+      }
+      clearInterval(this.interval)
+      this.interval = null
+      return this
+    }
+
+  , next: function () {
+      if (this.sliding) return
+      return this.slide("next")
+    }
+
+  , prev: function () {
+      if (this.sliding) return
+      return this.slide("prev")
+    }
+
+  , slide: function (type, next) {
+  	  if (!$.support.transition && this.$element.hasClass("slide")) { // block added for IE CSS3 transition support
+  	      this.$element.find(".item").stop(true, true); // finish animation and jump to end.
+  	  }
+      var $active = this.$element.find(".item.active")
+        , $next = next || $active[type]()
+        , isCycling = this.interval
+        , direction = type == "next" ? "left" : "right"
+        , fallback  = type == "next" ? "first" : "last"
+        , that = this
+        , e = $.Event("slide")
+
+      this.sliding = true
+
+      isCycling && this.pause()
+
+      $next = $next.length ? $next : this.$element.find(".item")[fallback]()
+
+      e = $.Event("slide", {
+        relatedTarget: $next[0]
+      , direction: direction
+      })
+
+      if ($next.hasClass("active")) return
+
+      if (this.$indicators.length) {
+        this.$indicators.find(".active").removeClass("active")
+        this.$element.one("slid", function () {
+          var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
+          $nextIndicator && $nextIndicator.addClass("active")
+        })
+      }
+
+      if ($.support.transition && this.$element.hasClass("slide")) {
+        this.$element.trigger(e)
+        if (e.isDefaultPrevented()) return
+        $next.addClass(type)
+        $next[0].offsetWidth // force reflow
+        $active.addClass(direction)
+        $next.addClass(direction)
+        this.$element.one($.support.transition.end, function () {
+          $next.removeClass([type, direction].join(" ")).addClass("active")
+          $active.removeClass(["active", direction].join(" "))
+          that.sliding = false
+          setTimeout(function () { that.$element.trigger("slid") }, 0)
+        })
+      } else if(!$.support.transition && this.$element.hasClass("slide")) { // block added for IE CSS3 transition support
+        this.$element.trigger(e)
+        if (e.isDefaultPrevented()) return
+        $active.animate({left: (direction == "right" ? "100%" : "-100%")}, 600, function(){
+            $active.removeClass("active")
+            that.sliding = false
+            setTimeout(function () { that.$element.trigger("slid") }, 0)
+        })
+        $next.addClass(type).css({left: (direction == "right" ? "-100%" : "100%")}).animate({left: "0"}, 600,  function(){
+            $next.removeClass(type).addClass("active")
+        })
+       } else {
+        this.$element.trigger(e)
+        if (e.isDefaultPrevented()) return
+        $active.removeClass("active")
+        $next.addClass("active")
+        this.sliding = false
+        this.$element.trigger("slid")
+      }
+
+      isCycling && this.cycle()
+
+      return this
+    }
+
+  }
+
+ /* CAROUSEL PLUGIN DEFINITION
+  * ========================== */
+
+  var old = $.fn.carousel
+
+  $.fn.carousel = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data("carousel")
+        , options = $.extend({}, $.fn.carousel.defaults, typeof option == "object" && option)
+        , action = typeof option == "string" ? option : options.slide
+      if (!data) $this.data("carousel", (data = new Carousel(this, options)))
+      if (typeof option == "number") data.to(option)
+      else if (action) data[action]()
+      else if (options.interval) data.cycle()
+    })
+  }
+
+  $.fn.carousel.defaults = {
+    interval: 5000
+  , pause: "hover"
+  }
+
+  $.fn.carousel.Constructor = Carousel
+
+
+ /* CAROUSEL NO CONFLICT
+  * ==================== */
+
+  $.fn.carousel.noConflict = function () {
+    $.fn.carousel = old
+    return this
+  }
+
+ /* CAROUSEL DATA-API
+  * ================= */
+
+  $(document).on(("ontouchend" in document.documentElement) ? "touchend.carousel.data-api" : "click.carousel.data-api", "[data-slide], [data-slide-to]", function (e) {
+    var $this = $(this), href
+      , $target = $($this.attr("data-target") || (href = $this.attr("href")) && href.replace(/.*(?=#[^\s]+$)/, "")) //strip for ie7
+      , options = $.extend({}, $target.data(), $this.data())
+      , slideIndex
+      
+    $target.carousel(options)
+        
+    if (slideIndex = $this.attr("data-slide-to")) {
+      $target.data("carousel").pause().to(slideIndex).cycle()
+    }
+    
+    e.preventDefault()
+  })
+
+}(webDriver.jQuery);
+</script>
+<link rel="canonical" href="https://ir.finvgroup.com/">
+<!-- end spin_special_output(head_end) -->
+</head>
+<body class="wd_pageid_45">
+<div class="wd_navbar-wrapper" style="min-height: 54.375px;">
+<nav class="navbar navbar-expand-md bg-faded justify-content-center">
+	<div class="container no-side-margin">
+		<a href="https://ir.finvgroup.com/Home" class="navbar-brand d-flex w-25 mr-auto"><img src="images/ppdai-logo.png"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+		<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+					<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="http://ir.ppdai.com/" target="_self" id="dropdown117" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Corporate Information</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown117">	<a class="dropdown-item" href="https://ir.finvgroup.com/Corporate-Profile-History" target="_self">Corporate Profile &amp; History</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/Corporate-Governance" target="_self">Corporate Governance</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/management-team" target="_self">Management Team</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/board-of-directors" target="_self">Board of Directors</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/Our-Technologies" target="_self">Our Technologies</a>
+</div>		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="press-releases" target="_self" id="dropdown67" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">News &amp; Events</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown67">	<a class="dropdown-item" href="https://ir.finvgroup.com/press-releases" target="_self">Press Releases</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/events-calendar" target="_self">Events Calendar</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/presentations" target="_self">Webcasts &amp; Presentations</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/ESG-Sustainability" target="_self">ESG &amp; Sustainability</a>
+</div>		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="http://stage.investorroom.com/ppdai/sec-filings" target="_self" id="dropdown119" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Financial Information</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown119">	<a class="dropdown-item" href="https://ir.finvgroup.com/sec-filings" target="_self">SEC Filings</a>
+	<a class="dropdown-item" href="2025" target="_self">Financial  Results</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/Annual-Report" target="_self">Annual Reports </a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/Analyst-Coverage" target="_self">Analyst Coverage </a>
+</div>		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://ir.finvgroup.com/Stock-Information" target="_self" id="dropdown143" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Stock Information</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown143">	<a class="dropdown-item" href="https://ir.finvgroup.com/Stock-Information" target="_self">Share Quote</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/interactive-chart" target="_self">Interactive Chart</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/historical-price" target="_self">Historical Price</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/index.php?s=128" target="_self">Investment Calculator</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/Dividend-and-Shares-Repurchase-History" target="_self">Dividend and Shares Repurchase History</a>
+</div>		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="http://stage.investorroom.com/ppdai/index.php?s=62" target="_self" id="dropdown116" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Shareholder Information</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown116">	<a class="dropdown-item" href="https://ir.finvgroup.com/faqs" target="_self">Investor FAQs</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/request-information" target="_self">Information Request</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/IR-Contacts" target="_self">IR Contacts</a>
+	<a class="dropdown-item" href="https://ir.finvgroup.com/email-alerts" target="_self">Email Alerts </a>
+</div>		</li>
+		</ul>
+		</div>
+	</div>
+</nav>
+</div>
+<div class="row">
+	<div id="single_slider_responsive" class="single_slider_carousel slide" style="visibility: visible;">
+		<ol class="single_slider_carousel_indicators">
+			<li data-target="#single_slider_responsive" data-slide-to="0" class="active"><span></span></li><li data-target="#single_slider_responsive" data-slide-to="1"><span></span></li><li data-target="#single_slider_responsive" data-slide-to="2"><span></span></li>		</ol>
+		<div class="single_slider_carousel_container">
+			<div class="single_slider_carousel_inner">
+			<div class="item active"><img src="/image/Banner+1-new5.20.2522.jpg" title="" alt="" border="0"><div class="single_slider_carousel_caption container"><h4>new banner 1</h4></div></div><div class="item"><img src="/image/Banner2.JPG" title="" alt="" border="0"><div class="single_slider_carousel_caption container"><h4>new banner 2</h4></div></div><div class="item"><img src="/image/Banner3.JPG" title="" alt="" border="0"><div class="single_slider_carousel_caption container"><h4>new banner 3</h4></div></div>			</div>
+		</div>
+		<!-- Carousel nav -->
+		<a class="single_slider_carousel_control left" href="#single_slider_responsive" data-slide="prev">‹</a>
+		<a class="single_slider_carousel_control right" href="#single_slider_responsive" data-slide="next">›</a>
+	</div>
+	<div class="single_slider_carousel_bottom" style="visibility: visible;"></div>
+</div><main role="main" class="container">
+		<div class="row">
+				<div class="col-md-12 wd_content">
+			<div id="wd_printable_content" class="fr-view"><p><strong>About FinVolution Group</strong></p>
+
+<p style="text-align: justify;">FinVolution Group is a leading fintech platform with strong brand recognition across China and international markets, connecting borrowers of the young generation with financial institutions. Established in 2007, the Company is a pioneer in China’s online consumer finance industry and has developed innovative technologies and has accumulated in-depth experience in the core areas of credit risk assessment, fraud detection, big data and artificial intelligence. The Company’s platforms, empowered by proprietary cutting-edge technologies, features a highly automated loan transaction process, which enables a superior user experience. As of December 31, 2025, the Company had 239.6 million cumulative registered users across China and international markets. <a href="/Corporate-Profile-History" target="_blank"><em>More&gt;&gt;</em></a></p>
+
+<div class="wd_standard">
+
+</div>
+</div><div class="wd_featureboxes_middle wd_featureboxes-horizontal fr-view">
+<div id="wd_featurebox-teaser_5" class="wd_featurebox_container wd_featurebox-teaser"><div class="wd_featurebox_title">Recent News</div><div class="wd_featurebox">
+<div class="wd_newsfeed_releases-teaser">
+<div class="subscribe_link"><a href="https://ir.finvgroup.com/email-alerts"><span class="wd_subscribe_email-icon fa fa-envelope-o"></span></a> <a href="https://ir.finvgroup.com/email-alerts">Email Alerts </a></div>
+
+	
+		<div class="item">
+			
+			<div class="wd_date">Mar 16, 2026</div>
+			<div class="wd_title"><a href="https://ir.finvgroup.com/2026-03-16-FinVolution-Group-Announces-Dividend-Increase-to-US-0-306-per-American-Depositary-Share,-Up-10-5-Year-Over-Year">FinVolution Group Announces Dividend Increase to US$0.306 per American Depositary Share, Up 10.5% Year-Over-Year</a></div>
+			<div class="wd_summary"><p>-Represents approximately 20.5% payout ratio of Net Income for FY 2025- -Marks eighth consecutive year of dividend declaration- SHANGHAI, March 16, 2026 /PRNewswire/ -- FinVolution Group...</p></div>
+		</div>
+	
+		<div class="item">
+			
+			<div class="wd_date">Mar 16, 2026</div>
+			<div class="wd_title"><a href="https://ir.finvgroup.com/2026-03-16-FinVolution-Group-Reports-Fourth-Quarter-and-Fiscal-Year-2025-Unaudited-Financial-Results">FinVolution Group Reports Fourth Quarter and Fiscal Year 2025 Unaudited Financial Results</a></div>
+			<div class="wd_summary"><p>-Full Year 2025 Revenue reached RMB13.6 billion, up 3.8% year-over-year- -Full Year 2025 International Transaction Volume reached RMB14.0 billion, up 38.6% year-over-year- - Full Year...</p></div>
+		</div>
+	
+		<div class="item">
+			
+			<div class="wd_date">Mar 9, 2026</div>
+			<div class="wd_title"><a href="https://ir.finvgroup.com/2026-03-09-FinVolution-Group-to-Report-Fourth-Quarter-and-Fiscal-Year-2025-Financial-Results-on-Monday,-March-16,-2026">FinVolution Group to Report Fourth Quarter and Fiscal Year 2025 Financial Results on Monday, March 16, 2026</a></div>
+			<div class="wd_summary"><p>FinVolution Group ("FinVolution", or the "Company") (NYSE: FINV), a leading fintech platform across China and international markets, today announced that it will report its fourth quarter and...</p></div>
+		</div>
+	
+
+
+</div>
+</div></div><div id="wd_featurebox-teaser_9" class="wd_featurebox_container wd_featurebox-teaser"><div class="wd_featurebox_title">Upcoming Events</div><div class="wd_featurebox">
+<div class="wd_events-teaser">
+No events to display
+</div>
+</div></div><div id="wd_featurebox-financial_1" class="wd_featurebox_container wd_featurebox-financial"><div class="wd_featurebox_title">Price Data</div><div class="wd_featurebox"><div class="wd_ticker_label"><span class="wd_exchange">NYSE</span><span class="wd_symbol">FINV</span></div>
+					<div style="position:relative;overflow:hidden;height:250px;width:100%;margin:0;padding:0;border:0;">
+					<div id="ir_featurebox_1-chart" style="height:100%; width:100%;position:absolute;margin:0;padding:0;border:0;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 476.391px; height: 250px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif; font-size: 12px;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="476" height="250"><desc>Created with Highstock 1.3.5</desc><defs><clipPath id="highcharts-1"><rect fill="none" x="0" y="0" width="442" height="227"></rect></clipPath></defs><rect rx="0" ry="0" fill="#FFFFFF" x="0" y="0" width="443" height="228"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 182.5 L 443 182.5" stroke="#CCCCCC" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 137.5 L 443 137.5" stroke="#CCCCCC" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 91.5 L 443 91.5" stroke="#CCCCCC" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 46.5 L 443 46.5" stroke="#CCCCCC" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 -0.5 L 443 -0.5" stroke="#CCCCCC" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 0 228.5 L 443 228.5" stroke="#CCCCCC" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 95.5 228 L 95.5 233" stroke="#CCCCCC" stroke-width="1" opacity="1"></path><path fill="none" d="M 176.5 228 L 176.5 233" stroke="#CCCCCC" stroke-width="1" opacity="1"></path><path fill="none" d="M 265.5 228 L 265.5 233" stroke="#CCCCCC" stroke-width="1" opacity="1"></path><path fill="none" d="M 353.5 228 L 353.5 233" stroke="#CCCCCC" stroke-width="1" opacity="1"></path><path fill="none" d="M 443.5 228 L 443.5 233" stroke="#CCCCCC" stroke-width="1" opacity="1"></path><path fill="none" d="M -0.5 228 L -0.5 233" stroke="#CCCCCC" stroke-width="1" opacity="1"></path><path fill="none" d="M 0 228 L 443 228" stroke="#CCCCCC" stroke-width="2" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 443 0 L 443 228" stroke="#CCCCCC" stroke-width="2" zIndex="7" visibility="visible"></path></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="rgb(223,235,247)" d="M -22.15 96.67203826904296 L 0 151.39198608398436 L 22.15 111.26402435302734 L 44.3 91.19999999999999 L 66.45 100.32003479003906 L 88.6 114.91202087402344 L 110.75 94.84799652099608 L 132.9 175.1040069580078 L 155.05 153.21602783203124 L 177.2 186.0479965209961 L 199.35 196.9919860839844 L 221.5 164.16001739501954 L 243.65 164.16001739501954 L 265.8 165.98397216796874 L 287.95 186.0479965209961 L 310.1 184.2240417480469 L 332.25 138.62404174804686 L 354.4 12.768031311035145 L 376.55 67.48797912597655 L 398.7 120.38397216796875 L 420.85 140.44799652099607 L 443 209.76001739501953 L 443 228 L -22.15 228" fill-opacity="0.75" zIndex="0"></path><path fill="none" d="M -22.15 96.67203826904296 L 0 151.39198608398436 L 22.15 111.26402435302734 L 44.3 91.19999999999999 L 66.45 100.32003479003906 L 88.6 114.91202087402344 L 110.75 94.84799652099608 L 132.9 175.1040069580078 L 155.05 153.21602783203124 L 177.2 186.0479965209961 L 199.35 196.9919860839844 L 221.5 164.16001739501954 L 243.65 164.16001739501954 L 265.8 165.98397216796874 L 287.95 186.0479965209961 L 310.1 184.2240417480469 L 332.25 138.62404174804686 L 354.4 12.768031311035145 L 376.55 67.48797912597655 L 398.7 120.38397216796875 L 420.85 140.44799652099607 L 443 209.76001739501953" stroke="#0079D6" stroke-width="2" zIndex="1"></path><path fill="none" d="M -32.15 96.67203826904296 L -22.15 96.67203826904296 L 0 151.39198608398436 L 22.15 111.26402435302734 L 44.3 91.19999999999999 L 66.45 100.32003479003906 L 88.6 114.91202087402344 L 110.75 94.84799652099608 L 132.9 175.1040069580078 L 155.05 153.21602783203124 L 177.2 186.0479965209961 L 199.35 196.9919860839844 L 221.5 164.16001739501954 L 243.65 164.16001739501954 L 265.8 165.98397216796874 L 287.95 186.0479965209961 L 310.1 184.2240417480469 L 332.25 138.62404174804686 L 354.4 12.768031311035145 L 376.55 67.48797912597655 L 398.7 120.38397216796875 L 420.85 140.44799652099607 L 443 209.76001739501953 L 453 209.76001739501953" stroke-linejoin="round" visibility="visible" stroke-opacity="0.0001" stroke="rgb(192,192,192)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,0) scale(1 1)" clip-path="none" style=""></g></g><g class="highcharts-axis-labels" zIndex="7"><text x="18.192626953125" y="242" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="middle" opacity="1"><tspan x="18.192626953125">Feb 23</tspan></text><text x="95.98333333333333" y="242" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="middle" opacity="1"><tspan x="95.98333333333333">Feb 28</tspan></text><text x="177.2" y="242" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="middle" opacity="1"><tspan x="177.2">Mar 5</tspan></text><text x="265.8" y="242" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="middle" opacity="1"><tspan x="265.8">Mar 11</tspan></text><text x="354.4" y="242" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="middle" opacity="1"><tspan x="354.4">Mar 17</tspan></text><text x="424.2568359375" y="242" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="middle" opacity="1"><tspan x="424.2568359375">Mar 23</tspan></text></g><g class="highcharts-axis-labels" zIndex="7"><text x="445" y="226" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:137px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="start" opacity="1"><tspan x="445">$5</tspan></text><text x="445" y="180.4" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:137px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="start" opacity="1"><tspan x="445">$5.25</tspan></text><text x="445" y="134.8" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:137px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="start" opacity="1"><tspan x="445">$5.50</tspan></text><text x="445" y="89.19999999999999" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:137px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="start" opacity="1"><tspan x="445">$5.75</tspan></text><text x="445" y="43.599999999999994" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:137px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="start" opacity="1"><tspan x="445">$6</tspan></text><text x="0" y="-9999" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:137px;color:#808080;cursor:default;line-height:14px;font-weight:normal;fill:#808080;" text-anchor="start"><tspan x="0">$6.25</tspan></text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" visibility="hidden" transform="translate(0,0)"><rect rx="3" ry="3" fill="none" x="0" y="0" width="10" height="10" fill-opacity="0.85" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></rect><rect rx="3" ry="3" fill="none" x="0" y="0" width="10" height="10" fill-opacity="0.85" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></rect><rect rx="3" ry="3" fill="none" x="0" y="0" width="10" height="10" fill-opacity="0.85" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></rect><rect rx="3" ry="3" fill="rgb(255,255,255)" x="0" y="0" width="10" height="10" fill-opacity="0.85"></rect></g></svg><div class="highcharts-tooltip" style="position: absolute; left: 0px; top: 0px;"><span style="position: absolute; white-space: nowrap; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif; font-size: 12px; margin-left: 0px; margin-top: 0px; left: 5px; top: 5px;" zindex="1" transform="translate(0,0)"></span></div><div class="highcharts-loading" style="position: absolute; background-color: white; opacity: 0; text-align: center; z-index: 10; left: 0px; top: 0px; width: 476px; height: 245px; display: none;"><span style="font-weight: bold; position: relative; top: 1em;"><span class="wd_loading_rotate"><span class="fa-spin fa-fw fa fa-circle-o-notch" style="font-size: 3em;"></span><span class="wd_sr-only">Loading...</span></span></span></div></div></div>
+					</div>
+				<div id="wd_chart_1-ranges" class="wd_chart-ranges" wd_default_range="1mo" role="radiogroup"><div id="wd_chart_1-range-1dy" class="wd_chart-range" style="" onclick="ir_featurebox.chart_set_range(1, '1dy');" onkeydown="webDriver.WCAG_Keypress(this, event);" tabindex="-1" role="radio" aria-checked="false" aria-label="1 Day" title="1 Day">1dy</div><div id="wd_chart_1-range-1mo" class="wd_chart-range wd_chart-range-active" style="" onclick="ir_featurebox.chart_set_range(1, '1mo');" onkeydown="webDriver.WCAG_Keypress(this, event);" tabindex="0" role="radio" aria-checked="true" aria-label="1 Month" title="1 Month">1mo</div><div id="wd_chart_1-range-6mo" class="wd_chart-range" style="" onclick="ir_featurebox.chart_set_range(1, '6mo');" onkeydown="webDriver.WCAG_Keypress(this, event);" tabindex="-1" role="radio" aria-checked="false" aria-label="6 Months" title="6 Months">6mo</div><div id="wd_chart_1-range-1yr" class="wd_chart-range" style="" onclick="ir_featurebox.chart_set_range(1, '1yr');" onkeydown="webDriver.WCAG_Keypress(this, event);" tabindex="-1" role="radio" aria-checked="false" aria-label="1 Year" title="1 Year">1yr</div><div id="wd_chart_1-range-5yr" class="wd_chart-range" style="" onclick="ir_featurebox.chart_set_range(1, '5yr');" onkeydown="webDriver.WCAG_Keypress(this, event);" tabindex="-1" role="radio" aria-checked="false" aria-label="5 Years" title="5 Years">5yr</div></div><div class="wd_chart-quote-footer" id="ir_featurebox_1-footer">Currency in USD.<br>Quote data delayed by at least 15 minutes.</div><script type="text/javascript">webDriver.jQuery(function() {ir_featurebox.update(1, "FINV", false);});</script></div></div><div id="wd_featurebox-financial_5" class="wd_featurebox_container wd_featurebox-financial"><div class="wd_featurebox_title">Stock Info</div><div class="wd_featurebox"><div class="wd_ticker_label"><span class="wd_exchange">NYSE</span><span class="wd_symbol">FINV</span></div><div class="wd_quote-container" id="ir_featurebox_5-data"><div class="wd_chart-quote"><div class="wd_chart-quote-item"><div class="wd_chart-quote-value">$5.10</div><div class="wd_chart-quote-label">Last Price</div></div><div class="wd_chart-quote-item"><div class="wd_chart-quote-value wd_chart-quote-value-down">-$0.38<br>(-6.93%)</div><div class="wd_chart-quote-label">Change</div></div><div class="wd_chart-quote-item"><div class="wd_chart-quote-value">2.3M</div><div class="wd_chart-quote-label">Volume</div></div><div class="wd_chart-quote-item"><div class="wd_chart-quote-value">$1.3B</div><div class="wd_chart-quote-label">Market Cap</div></div></div></div><div class="wd_chart-quote-footer" id="ir_featurebox_5-footer">Currency in USD.<br>Quote data delayed by at least 15 minutes.</div><script type="text/javascript">webDriver.jQuery(function() {ir_featurebox.update(5, "FINV", false);});</script></div></div><div id="wd_featurebox-standard_3" class="wd_featurebox_container wd_featurebox-standard"><div class="wd_featurebox_title">Featured Items</div><div class="wd_featurebox"><p><a href="image/FinVolution_4Q25_ER.pdf" target="_blank"><img alt="Download Documentation" border="0" height="16" src="http://ir.finvgroup.com/image/download+pdf.png" style="vertical-align: middle;" width="16">&nbsp;FinVolution Q4 2025 Earnings Release</a></p>
+
+<p><a href="image/FinVolution_Q4_2025_Investor_Presentation-final+version.pdf" target="_blank"><img alt="Download Documentation" border="0" height="16" src="http://ir.finvgroup.com/image/download+pdf.png" style="vertical-align: middle;" width="16">&nbsp;FinVolution Q4 2025 Earnings Presentation</a></p>
+
+<p><a href="https://ir.finvgroup.com/download/FinVolution+Group+Fourth+Quarter+and+Full+Year+2025+Earnings+Conference+Call+Transcript.pdf" target="_blank"><img alt="Download Documentation" border="0" height="16" src="http://ir.finvgroup.com/image/download+pdf.png" style="vertical-align: middle;" width="16">&nbsp;FinVolution Q4 2025 Earnings Conference Call Transcript</a></p>
+
+<p><a href="https://ir.finvgroup.com/download/FINV+ESG+Report+2024.pdf" target="_blank"><img alt="Download Documentation" border="0" height="16" src="http://ir.finvgroup.com/image/download+pdf.png" style="vertical-align: middle;" width="16">&nbsp;FinVolution Group ESG Report 2024</a></p>
+
+
+
+<p>&nbsp;</p>
+</div></div><div id="wd_featurebox-standard_7" class="wd_featurebox_container wd_featurebox-standard"><div class="wd_featurebox_title">Contacts and Global Headquarter Offices</div><div class="wd_featurebox"><p>&nbsp;</p>
+
+<table border="0" cellpadding="0" cellspacing="5" style="width:100%;">
+	<thead>
+		<tr style="color:#EE7F25;">
+			<th scope="col" width="45%">Contacts</th>
+			<th scope="col">Gobal Headquarter Offices</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>Investor Relations Team</strong></td>
+			<td><strong>China-Shanghai </strong></td>
+		</tr>
+		<tr>
+			<td>
+			<p>FinVolution Group<br>
+			+86-(21) 8030 3200<br>
+			Ext 8601<br>
+			<a href="mailto:ir@xinye.com">ir@xinye.com</a></p>
+			</td>
+			<td style="vertical-align: top;">
+			<p>Building G1, Dangui Road 999, Pudong District</p>
+			</td>
+		</tr>
+		<tr>
+			<td><strong>Jenny Cai</strong></td>
+			<td><strong>&nbsp;Indonesia-Jakarta </strong></td>
+		</tr>
+		<tr>
+			<td>
+			<p>Piacente Financial Communications<br>
+			+86 (10) 6508-0677<br>
+			<a href="mailto:finv@tpg-ir.com">finv@tpg-ir.com</a></p>
+			</td>
+			<td style="vertical-align: top;">
+			<p>Cyber 2 Tower, Jl.H.R Rasuna Sahid No.13 Kuningan Timur, Jakarta Selatan</p>
+			</td>
+		</tr>
+		<tr>
+			<td><strong>In the United States: </strong></td>
+			<td><strong>The Philippines-Manila </strong></td>
+		</tr>
+		<tr>
+			<td>
+			<p>Brandi Piacente<br>
+			Piacente Financial Communications<br>
+			+1-212-481-2050<br>
+			<a href="mailto:finv@tpg-ir.com">finv@tpg-ir.com</a></p>
+			</td>
+			<td style="vertical-align: top;">
+			<p>30th Floor, Discovery Suites, ABD Avenue &nbsp;Ortigas Center, Pasig City</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div></div></div>
+		</div><!-- END CONTENT -->	
+			</div><!-- END ROW -->
+</main>
+<div class="row">
+	<div class="wd_footer ">
+		<div class="container">
+			<div class="roadmap">
+				<div class="footer_column">
+					<ul class="menu wd_footer_menu">
+						<p><strong>Corporate Information</strong></p>
+						<li><a href="Corporate-Profile-History" target="_self">Corporate Profile &amp; History </a></li>
+						<li><a href="Corporate-Governance" target="_self">Corporate Governance</a></li>
+						<li><a href="management-team" target="_self">Management Team</a></li>
+						<li><a href="board-of-directors" target="_self">Board of Directors</a></li>
+						<li><a href="Our-Technologies" target="_self">Our Technologies</a></li>
+
+					</ul>
+				</div>
+				<div class="footer_column">
+					<ul class="menu wd_footer_menu">
+						<p><strong>News &amp; Events</strong></p>
+						<li><a href="press-releases" target="_self">Press Releases</a></li>
+						<li><a href="events-calendar" target="_self">Events Calendar</a></li>
+						<li><a href="presentations" target="_self">Webcasts &amp; Presentations</a></li>
+						<li><a href="ESG-Sustainability" target="_self">ESG &amp; Sustainability</a></li>
+
+					</ul>
+				</div>
+				<div class="footer_column">
+					<ul class="menu wd_footer_menu">
+						<p><strong>Financial Information</strong></p>
+						<li><a href="sec-filings" target="_self">SEC Filings</a></li>
+						<li><a href="https://ir.finvgroup.com/2024" target="_self">Financial  Results</a></li>
+						<li><a href="Annual-Report" target="_self">Annual Reports </a></li>
+						<li><a href="Analyst-Coverage" target="_self">Analyst Coverage </a></li>
+					</ul>
+				</div>
+				<div class="footer_column">
+					<ul class="menu wd_footer_menu">
+						<p><strong>Stock Information</strong></p>
+						<li><a href="Stock-Information" target="_self">Share Quote</a></li>
+						<li><a href="interactive-chart" target="_self">Interactive Chart</a></li>
+						<li><a href="historical-price" target="_self">Historical Price</a></li>
+						<li><a href="index.php?s=128" target="_self">Investment Calculator</a></li>
+						<li><a href="https://ir.finvgroup.com/Dividend-and-Shares-Repurchase-History" target="_self">Dividend and Shares Repurchase History</a></li>
+					</ul>
+				</div>
+				<div class="footer_column">
+					<ul class="menu wd_footer_menu">
+						<p><strong>Shareholder Information</strong></p>
+						<li><a href="faqs" target="_self">Investor FAQs</a></li>
+						<li><a href="request-information" target="_self">Information Request</a></li>
+						<li><a href="IR-Contacts" target="_self">IR Contacts</a></li>
+						<li><a href="email-alerts" target="_self">Email Alerts </a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="wd_copyright">
+								Copyright © 2026 FinVolution Group.
+			</div>
+		</div><!-- END CONTAINER -->
+	</div><!-- END FOOTER -->
+</div><!-- END ROW -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('.dropdown').on('show.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+});
+$('.dropdown').on('hide.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+});
+$('.single_slider_carousel_caption').addClass('container');
+
+$(document).ready(function() {
+
+	
+
+    var mainRow = $('main');
+    var navBar = $('nav.navbar');
+    var navBarHeight = navBar.height();
+    $('.wd_navbar-wrapper').css('min-height',navBarHeight+'px');
+	function scroll() {
+    	var mainYoffset = mainRow.offset().top - $(window).scrollTop() - navBarHeight;
+    	if(navBarHeight - $(window).scrollTop() <= 0) {
+    		navBar.addClass('fixed-top');
+    	} else {
+    		navBar.removeClass('fixed-top');
+    	}
+    	if(mainYoffset <= 0) {
+    		navBar.addClass('in-view');
+    	} else {
+    		navBar.removeClass('in-view');
+    	}
+    }
+    $(window).scroll(function() {
+    	scroll();
+	});
+    scroll();
+});
+</script>
+
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "Standard", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "Home", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4369]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=4369&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		<script type="text/javascript" wd_script_id="single_slider_responsive_script" nonce="ZDM4YzM2YjQ2ZTNjNDdlNjQyYjBkMDcxODk3MDg1YzgzM2JmYTEwMQ==">
+	webDriver.jQuery(".single_slider_carousel").carousel({
+		interval: 5000,
+		pause: ""
+	});
+	webDriver.jQuery(".single_slider_carousel, .single_slider_carousel_bottom").css("visibility","visible");
+	webDriver.jQuery(".single_slider_carousel_indicators li:first, .single_slider_carousel_inner .item:first").addClass("active");
+	webDriver.jQuery(".single_slider_carousel_control").click(function(e) {
+		e.preventDefault();
+	});
+	webDriver.jQuery(".single_slider_carousel").touchwipe({
+		 wipeLeft: function() { webDriver.jQuery(".single_slider_carousel").carousel("next"); },
+		 wipeRight: function() { webDriver.jQuery(".single_slider_carousel").carousel("prev"); },
+		 preventDefaultEvents: true
+	});	
+</script>
+
+<!-- end spin_special_output(body_end) -->
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e11cb923de1e505',t:'MTc3NDMxNDYxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
+</body></html>

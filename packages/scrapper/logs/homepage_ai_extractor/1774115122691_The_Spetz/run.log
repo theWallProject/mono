@@ -1,0 +1,63 @@
+[2026-03-21T17:45:22.692Z] === Homepage AI Extractor: The Spetz ===
+[2026-03-21T17:45:22.692Z] Started at: 2026-03-21T17:45:22.692Z
+[2026-03-21T17:45:22.692Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774115122691_The_Spetz
+[2026-03-21T17:45:22.692Z] Company: The Spetz
+[2026-03-21T17:45:22.692Z] Website: thespetz.com
+[2026-03-21T17:45:22.692Z] cbRank: 3607203
+[2026-03-21T17:45:22.692Z] Reasons: h
+[2026-03-21T17:45:22.692Z] Fetching: https://thespetz.com
+[2026-03-21T17:45:24.625Z] Redirected: https://thespetz.com -> https://www.thespetz.com/
+[2026-03-21T17:45:24.629Z] Saved HTML (26377 bytes) to page.html
+[2026-03-21T17:45:24.631Z] Extracted 6 unique links from page
+[2026-03-21T17:45:24.631Z] Saved 6 links to links.json
+[2026-03-21T17:45:24.633Z] Extracted footer HTML (1704 chars)
+[2026-03-21T17:45:24.633Z] Extracted header HTML (1825 chars)
+[2026-03-21T17:45:24.635Z] Website (post-redirect): https://www.thespetz.com/ → origin: https://www.thespetz.com
+[2026-03-21T17:45:24.636Z]   SUBDOMAIN: blog.thespetz.com (added to ws)
+[2026-03-21T17:45:24.636Z] Website subdomains found: 1
+[2026-03-21T17:45:24.636Z] External links: 3 (of 6 total)
+[2026-03-21T17:45:24.636Z] ── All external links ──
+[2026-03-21T17:45:24.636Z]   EXT: https://il.linkedin.com/company/the-spetz
+[2026-03-21T17:45:24.636Z]   EXT: https://www.facebook.com/TheSpetzUX
+[2026-03-21T17:45:24.636Z]   EXT: https://www.instagram.com/the_spetz
+[2026-03-21T17:45:24.636Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T17:45:24.636Z]   REGEX: li <- https://il.linkedin.com/company/the-spetz
+[2026-03-21T17:45:24.637Z]   REGEX: fb <- https://www.facebook.com/TheSpetzUX
+[2026-03-21T17:45:24.637Z]   REGEX: ig <- https://www.instagram.com/the_spetz
+[2026-03-21T17:45:24.637Z] Programmatic result: ws:2, li:1, fb:1, ig:1 | 0 uncategorized
+[2026-03-21T17:45:24.637Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T17:45:24.640Z] Saved AI prompt (2641 chars) to ai_prompt.txt
+[2026-03-21T17:45:24.640Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T17:45:24.645Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T17:45:36.445Z]   AI: First token received, streaming...
+[2026-03-21T17:45:52.118Z] AI response complete: 106 chars in 27.5s
+[2026-03-21T17:45:52.119Z] Saved AI response to ai_response.json
+[2026-03-21T17:45:52.119Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T17:45:52.119Z]   AI LINK: https://blog.thespetz.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA/
+[2026-03-21T17:45:52.119Z] AI returned 1 valid links
+[2026-03-21T17:45:52.119Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T17:45:52.119Z]   AI→URLS: https://blog.thespetz.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA (cleaned from https://blog.thespetz.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA/)
+[2026-03-21T17:45:52.119Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T17:45:52.119Z] Footer/header origins (1):
+[2026-03-21T17:45:52.119Z]   FOOTER/HEADER ORIGIN: https://blog.thespetz.com
+[2026-03-21T17:45:52.119Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T17:45:52.120Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T17:45:52.120Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T17:45:52.120Z] ── Step 3: Final dedup ──
+[2026-03-21T17:45:52.120Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T17:45:52.120Z] ── FINAL RESULT ──
+[2026-03-21T17:45:52.120Z]   ws (2):
+[2026-03-21T17:45:52.120Z]     - https://blog.thespetz.com
+[2026-03-21T17:45:52.120Z]     - https://www.thespetz.com
+[2026-03-21T17:45:52.120Z]   li (1):
+[2026-03-21T17:45:52.120Z]     - https://www.linkedin.com/company/the-spetz
+[2026-03-21T17:45:52.120Z]   fb (1):
+[2026-03-21T17:45:52.120Z]     - https://www.facebook.com/thespetzux
+[2026-03-21T17:45:52.120Z]   ig (1):
+[2026-03-21T17:45:52.120Z]     - https://www.instagram.com/the_spetz
+[2026-03-21T17:45:52.120Z]   urls (1):
+[2026-03-21T17:45:52.120Z]     - https://blog.thespetz.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA
+[2026-03-21T17:45:52.121Z] Summary: ws:2, li:1, fb:1, ig:1, urls:1
+[2026-03-21T17:45:52.121Z] Saved final result to result.json
+[2026-03-21T17:45:52.121Z] Override fields: ws, li, fb, ig
+[2026-03-21T17:45:52.121Z] Finished at: 2026-03-21T17:45:52.121Z

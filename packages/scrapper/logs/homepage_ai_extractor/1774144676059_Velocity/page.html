@@ -1,0 +1,1759 @@
+<!DOCTYPE html><html data-wf-domain="www.velocity.tech" data-wf-page="681bafd2d129953bc9072d83" data-wf-site="681bafd1d129953bc9072ccf" lang="en" class="w-mod-js wf-inter-i4-active wf-inter-n7-active wf-inter-n4-active wf-inter-n5-active wf-inter-n3-active wf-inter-n6-active wf-inter-n8-active wf-inter-n9-active wf-active w-mod-ix"><head><style>.wf-force-outline-none[tabindex="-1"]:focus{outline:none;}</style><meta charset="utf-8"><title>AI SRE for Incident Resolution &amp; Production Engineering – Velocity</title><meta content="Velocity is an AI SRE platform built for production engineering organizations to triage, investigate, and resolve production incidents efficiently at scale while reducing MTTR." name="description"><meta content="AI SRE for Incident Resolution &amp; Production Engineering – Velocity" property="og:title"><meta content="Velocity is an AI SRE platform built for production engineering organizations to triage, investigate, and resolve production incidents efficiently at scale while reducing MTTR." property="og:description"><meta content="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/6846c167fdf00e430cccf6bd_SEO%20-%20resized.png" property="og:image"><meta content="AI SRE for Incident Resolution &amp; Production Engineering – Velocity" property="twitter:title"><meta content="Velocity is an AI SRE platform built for production engineering organizations to triage, investigate, and resolve production incidents efficiently at scale while reducing MTTR." property="twitter:description"><meta property="og:type" content="website"><meta content="summary_large_image" name="twitter:card"><meta content="width=device-width, initial-scale=1" name="viewport"><meta content="FbqfZb02RRN7_R9KN83d4ARjLKIvSlN0hn_XrGzF2T4" name="google-site-verification"><meta content="Webflow" name="generator"><link href="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/css/velocitytech.webflow.shared.bb7b71fad.min.css" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"><script type="text/javascript" async="" src="https://js.driftt.com/include/1774144800000/wii4yytc8d82.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-G5KHN8GE6M&amp;cx=c&amp;gtm=4e63i0"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-K4G7JNN"></script><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,regular,500,600,700,800,900,italic" media="all"><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,regular,500,600,700,800,900,italic"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/6848256f4c3721d419694edb_66b46f8318b300b453806060_63a1cc63c8ea88854f32910b_velocitylogo-fav.png" rel="shortcut icon" type="image/x-icon"><link href="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/68482564e01e500aa4ce5c6a_Velocity%20Logo%20Webclip.png" rel="apple-touch-icon"><link href="https://www.velocity.tech" rel="canonical">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4G7JNN');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Clearbit -->
+<script src="https://tag.clearbitscripts.com/v1/pk_6b9d2f6750f237253ccbf4f2280708aa/tags.js" referrerpolicy="strict-origin-when-cross-origin"></script>
+
+<!-- End of Clearbit -->
+
+<!-- Cookie Consent -->
+<script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/751c275aa3d64fe38fd2fa837dd24ba6.js"></script>
+<!-- End Cookie Consent --><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"USD","symbol":"$","decimal":".","fractionDigits":2,"group":",","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script><style type="text/css">.drift-conductor-item iframe,
+.drift-frame-controller {
+  display: block;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  max-height: none;
+}
+
+.drift-conductor-item iframe {
+  color-scheme: light only;
+  border: none !important;
+  background: transparent !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+}
+
+.drift-conductor-item.with-transition {
+  -webkit-transition: opacity .5s ease, -webkit-transform .5s ease;
+  transition: opacity .5s ease, -webkit-transform .5s ease;
+  -o-transition: opacity .5s ease, -o-transform .5s ease;
+  -moz-transition: opacity .5s ease, transform .5s ease, -moz-transform .5s ease;
+  transition: opacity .5s ease, transform .5s ease;
+  transition: opacity .5s ease, transform .5s ease, -webkit-transform .5s ease, -moz-transform .5s ease, -o-transform .5s ease;
+}
+
+.drift-frame-chat.with-transition.drift-frame-chat__takeover {
+  -webkit-transition: opacity .5s ease;
+  -o-transition: opacity .5s ease;
+  -moz-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+}
+
+.drift-conductor-item.with-height-transition {
+  -webkit-transition: max-height .5s ease, opacity .5s ease, -webkit-transform .5s ease;
+  transition: max-height .5s ease, opacity .5s ease, -webkit-transform .5s ease;
+  -o-transition: max-height .5s ease, opacity .5s ease, -o-transform .5s ease;
+  -moz-transition: max-height .5s ease, opacity .5s ease, transform .5s ease, -moz-transform .5s ease;
+  transition: max-height .5s ease, opacity .5s ease, transform .5s ease;
+  transition: max-height .5s ease, opacity .5s ease, transform .5s ease, -webkit-transform .5s ease, -moz-transform .5s ease, -o-transform .5s ease;
+}
+
+.drift-conductor-item {
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.drift-frame-controller {
+  bottom: 24px;
+}
+
+.drift-frame-controller-align-left {
+  left: 24px;
+}
+
+.drift-frame-controller-align-right {
+  right: 24px;
+}
+
+.drift-frame-chat:not(iframe) {
+  bottom: -webkit-calc(12px + 52px + 24px);
+  bottom: -moz-calc(12px + 52px + 24px);
+  bottom: calc(12px + 52px + 24px); /* vertical margin x 2 + widget icon size*/
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  opacity: 0;
+  visibility: hidden;
+
+  -webkit-transform: translateY(88px);
+
+     -moz-transform: translateY(88px);
+
+      -ms-transform: translateY(88px);
+
+       -o-transform: translateY(88px);
+
+          transform: translateY(88px);
+}
+
+.drift-frame-chat:not(iframe).drift-chat-open {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+.drift-frame-chat.drift-frame-chat__takeover:not(iframe):not(.drift-frame--mobile) {
+  min-width: 600px;
+}
+
+.drift-frame-chat-align-left {
+  left: 12px;
+}
+
+.drift-frame-chat-align-right {
+  right: 12px;
+}
+
+.drift-frame-takeover,
+.drift-frame-landingPage,
+.drift-frame-chat__takeover {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.drift-frame-chat__takeover.hide-frame {
+  visibility: hidden;
+}
+
+.drift-frame-emailCapture {
+  bottom: 0;
+  height: -webkit-calc(100% + 30px);
+  height: -moz-calc(100% + 30px);
+  height: calc(100% + 30px);
+}
+
+.drift-frame-emailCapture-align-left {
+  left: 0;
+}
+
+.drift-frame-emailCapture-align-right {
+  right: 0;
+}
+
+.drift-frame-slider {
+  bottom: 18px;
+  height: -webkit-calc(100% + 20px);
+  height: -moz-calc(100% + 20px);
+  height: calc(100% + 20px);
+}
+
+.drift-frame-slider-align-left {
+  left: 96px;
+}
+
+.drift-frame-slider-align-right {
+  right: 96px;
+}
+
+.drift-frame--mobile.drift-frame-slider-align-left {
+  left: 68px;
+}
+
+.drift-frame--mobile.drift-frame-slider-align-right {
+  right: 68px;
+}
+
+.drift-widget-content-box {
+  background: rgba(0,0,0,.5);
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+}
+
+.drift-widget-content-box > * {
+  margin: 0 auto;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-height: 80%;
+
+}
+
+/* Site Concierge Classes */
+.drift-frame-chat__sc-loaded:not(.drift-chat-open),
+.drift-frame-controller__sc-loaded {
+  max-height: 0px !important;
+  visibility: hidden !important;
+}
+
+.drift-frame-chat__sc-loaded {
+  bottom: 0px !important;
+}
+
+@media
+(max-height: 685px),
+(min-width: 369px) and (max-width: 380px),
+(max-width: 367px),
+
+(min-device-width: 320px)
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait)
+
+{
+  .drift-frame--mobile.drift-frame-chat.drift-chat-open {
+    bottom: 0 !important;
+    right: 0;
+    left: 0;
+    z-index: 2147483647 !important;
+  }
+
+  .drift-frame--mobile.drift-frame-controller {
+    bottom: 0;
+  }
+
+  .drift-frame--mobile.drift-frame-controller.drift-frame-controller-align-left {
+    left: 0;
+  }
+
+  .drift-frame--mobile.drift-frame-controller.drift-frame-controller-align-right {
+    right: 0;
+  }
+
+
+  .drift-frame--mobile.drift-frame-controller.drift-chat-open {
+    display: none;
+  }
+
+  .drift-frame--mobile.drift-frame-slider {
+    bottom: 0;
+    max-width: 320px;
+  }
+
+  .drift-frame--mobile iframe.drift-frame-chat {
+    width: 1px !important;
+    min-width: 100%;
+
+    height: 1px !important;
+    min-height: 100%;
+  }
+
+  html.drift-widget-parent--chat-open,
+  html.drift-widget-parent--chat-open > body {
+    height: 100vh !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    position: static !important;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  .drift-frame--mobile.drift-frame-controller.drift-chat-open {
+    display: none;
+  }
+
+  .drift-frame--mobile.drift-frame-controller {
+    bottom: 0;
+  }
+
+  .drift-frame--mobile.drift-frame-controller-align-right {
+    right: 0;
+  }
+
+  .drift-frame--mobile.drift-frame-controller-align-left {
+    left: 0;
+  }
+}
+
+.drift-frame-chat.widget--xs.drift-chat-open {
+  bottom: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+}
+
+.drift-frame-controller.widget--xs.drift-chat-open {
+  display: none;
+}
+
+</style></head><body><div class="page-wrapper"><div class="nav-section"><div class="section-spacing"><div class="container"><div class="nav-layout"><div class="nav-left-wrap"><div class="nav-left"><a href="/" aria-current="page" class="logo-wrap w-inline-block w--current"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681c029550979ac177825c90_Velocity_Logo.svg" loading="lazy" alt="" class="logo"></a></div></div><div class="nav-middle"><div class="nav-menu"><a href="/" aria-current="page" class="nav-link w--current">Home</a><a href="/integrations" class="nav-link">Integrations</a><a href="https://docs.velocity.tech" target="_blank" class="nav-link">Documentation</a><a href="/blog" class="nav-link">Blog</a><a href="/contact" class="nav-link">Contact Us</a><div class="show-mobile"><a href="/schedule-a-demo" class="btn-white nav-btn-mobile w-inline-block"><div class="btn-inner-2"><div>Get a Demo</div></div></a></div></div></div><div class="nav-right"><div class="slot"></div><div class="nav-open"><div class="nav-bar _1"></div><div class="nav-bar _2"></div><div class="nav-bar _3"></div></div><div class="hide-mobile"><a href="/schedule-a-demo" class="btn-white w-inline-block"><div class="btn-inner-2"><div>Get a Demo</div></div></a></div></div></div></div></div></div><div class="main-wrapper"><section class="hero-section"><div class="section-spacing"><div class="container"><div class="velocity-announcement"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/690bc7f233ae66b142e945c6_bigpanda-velocity-white.png" loading="lazy" width="504" sizes="(max-width: 767px) 100vw, 504px" alt="" srcset="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/690bc7f233ae66b142e945c6_bigpanda-velocity-white-p-500.png 500w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/690bc7f233ae66b142e945c6_bigpanda-velocity-white-p-800.png 800w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/690bc7f233ae66b142e945c6_bigpanda-velocity-white.png 943w"><div class="hero-title-wrap" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><h1 class="hero-title">Velocity is now part of BigPanda</h1></div><div class="hero-text-wrap" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><p class="hero-text">Together, we’re accelerating the shift to agentic IT operations where AI augments human expertise to drive resiliency, speed, and innovation.</p></div><div class="hero-btn-group" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><a href="https://www.bigpanda.io/press-release/bigpanda-acquires-velocity" target="_blank" class="btn-primary w-inline-block"><div class="btn-inner-2"><div>Read the news</div></div></a></div></div><div class="feature-hero-gap"></div><div class="hero-content"><div class="hero-sub-title-wrap" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072dd4_circle-line.svg" loading="lazy" alt="circle-line" class="hero-sub-title-icon"><div class="hero-sub-title">The future of AI in On Call and Incident Triaging</div></div><div class="hero-title-wrap" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><h1 class="hero-title">AI-Powered SRE</h1></div><div class="hero-text-wrap" style="opacity: 0;"><p class="hero-text">Resolve incidents faster and reduce MTTR with your new AI&nbsp;teammate</p></div><div class="hero-btn-group" style="opacity: 0;"><a href="/schedule-a-demo" class="btn-primary w-inline-block"><div class="btn-inner-2"><div>Get a Demo</div></div></a><a href="/contact" class="btn-white hover-dark w-inline-block"><div class="btn-inner-2"><div>Contact Us</div></div></a></div></div><div class="hero-thumb-wrap" style="opacity: 0;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bb3564bdab3646a70b3ec_66bdb41a8568f2067760e40d_integrations.png" loading="lazy" width="Auto" sizes="(max-width: 2273px) 100vw, 2273px" alt="Velocity integrations diamgram" srcset="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bb3564bdab3646a70b3ec_66bdb41a8568f2067760e40d_integrations-p-500.png 500w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bb3564bdab3646a70b3ec_66bdb41a8568f2067760e40d_integrations-p-800.png 800w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bb3564bdab3646a70b3ec_66bdb41a8568f2067760e40d_integrations-p-1080.png 1080w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bb3564bdab3646a70b3ec_66bdb41a8568f2067760e40d_integrations-p-1600.png 1600w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bb3564bdab3646a70b3ec_66bdb41a8568f2067760e40d_integrations-p-2000.png 2000w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bb3564bdab3646a70b3ec_66bdb41a8568f2067760e40d_integrations.png 2273w" class="hero-thumb"></div></div></div><div class="hero-shape-wrap"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072e05_c-shape-1.svg" loading="lazy" alt="c-shape-1" class="hero-shape"></div><div class="hero-shape-wrap-2"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072e15_c-shape-2.svg" loading="lazy" alt="c-shape-2" class="hero-shape-2"></div></section><div class="feature-hero-gap"><div class="features-layout"><div data-w-id="b52cb5f3-7480-b9b7-3545-999e6299dc0c" class="features-item" style="opacity: 0;"><div class="features-item-top"><div class="features-item-title-wrap"><div class="w-layout-grid grid-2"><h2 id="w-node-b52cb5f3-7480-b9b7-3545-999e6299dc11-6299dc0b" class="features-item-title">Accelerate<br>Incident Resolution<br></h2><div id="w-node-b52cb5f3-7480-b9b7-3545-999e6299dc0f-6299dc0b" class="features-item-icon w-embed"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.261 1.03462C12.6971 1.15253 13 1.54819 13 1.99997V8.99997H19C19.3581 8.99997 19.6888 9.19141 19.8671 9.50191C20.0455 9.8124 20.0442 10.1945 19.8638 10.5038L12.8638 22.5038C12.6361 22.8941 12.1751 23.0832 11.739 22.9653C11.3029 22.8474 11 22.4517 11 22V15H5C4.64193 15 4.3112 14.8085 4.13286 14.498C3.95452 14.1875 3.9558 13.8054 4.13622 13.4961L11.1362 1.4961C11.3639 1.10586 11.8249 0.916719 12.261 1.03462ZM6.74104 13H12C12.5523 13 13 13.4477 13 14V18.301L17.259 11H12C11.4477 11 11 10.5523 11 9.99997V5.69889L6.74104 13Z" fill="#000000"></path> </g></svg></div></div></div></div><div class="w-layout-grid grid"><div id="w-node-_93fd8c0b-8030-0461-c38d-aeb3c9f99512-6299dc0b"><div class="features-item-text-wrap"><p class="features-item-text"><em>Resolve issues faster with AI-powered clarity and context—root causes surfaced, signals correlated, and next steps made obvious.</em></p></div></div></div></div><div data-w-id="b52cb5f3-7480-b9b7-3545-999e6299dc16" class="features-item" style="opacity: 0;"><div class="features-item-top"><div class="features-item-title-wrap"><div class="w-layout-grid grid-2"><h2 id="w-node-b52cb5f3-7480-b9b7-3545-999e6299dc1b-6299dc0b" class="features-item-title">AI-Powered<br>Incident Response</h2><div id="w-node-b52cb5f3-7480-b9b7-3545-999e6299dc19-6299dc0b" class="features-item-icon w-embed"><svg fill="#000000" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M199.77344,125.2334,149.3457,106.6543,130.7666,56.22656a19.9996,19.9996,0,0,0-37.5332,0L74.6543,106.6543,24.22656,125.2334a19.9996,19.9996,0,0,0,0,37.5332L74.6543,181.3457l18.5791,50.42774a19.9996,19.9996,0,0,0,37.5332,0l18.5791-50.42774,50.42774-18.5791a19.9996,19.9996,0,0,0,0-37.5332Zm-60.45606,34.22949a19.97179,19.97179,0,0,0-11.85449,11.85449l.001-.001L112,213.28906,96.53711,171.31738a19.96863,19.96863,0,0,0-11.85352-11.85351L42.71094,144l41.97168-15.46289a19.96863,19.96863,0,0,0,11.85351-11.85352L112,74.71094l15.46289,41.97168a19.96863,19.96863,0,0,0,11.85352,11.85351L181.28906,144ZM140,40a12.0006,12.0006,0,0,1,12-12h12V16a12,12,0,0,1,24,0V28h12a12,12,0,0,1,0,24H188V64a12,12,0,0,1-24,0V52H152A12.0006,12.0006,0,0,1,140,40ZM252,88a12.0006,12.0006,0,0,1-12,12h-4v4a12,12,0,0,1-24,0v-4h-4a12,12,0,0,1,0-24h4V72a12,12,0,0,1,24,0v4h4A12.0006,12.0006,0,0,1,252,88Z"></path> </g></svg></div></div></div></div><div class="w-layout-grid grid"><div id="w-node-_73a10e90-6de4-96e3-5c86-4ef0e3a4400a-6299dc0b"><div class="features-item-text-wrap"><p class="features-item-text"><em>AI-driven insights eliminate manual analysis and reduce coordination overhead. Smaller teams resolve issues faster</em></p></div></div></div></div><div data-w-id="b52cb5f3-7480-b9b7-3545-999e6299dc20" class="features-item" style="opacity: 0;"><div class="features-item-top"><div class="features-item-icon-wrap"><div class="w-layout-grid grid-2"><h2 id="w-node-ffbda0e0-c0bc-431c-48c6-d2bab9e848dd-6299dc0b" class="features-item-title">Reduce Number of<br>Escalations</h2><div id="w-node-ffbda0e0-c0bc-431c-48c6-d2bab9e848e1-6299dc0b" class="features-item-icon w-embed"><svg width="100" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M32 6L2 58H62L32 6Z" fill="black"></path>
+  <rect x="30" y="24" width="4" height="20" fill="white"></rect>
+  <circle cx="32" cy="50" r="3" fill="white"></circle>
+</svg></div></div></div><p class="features-item-text"><em>Velocity delivers clearer, more actionable insights, leading to fewer escalations. This allows engineers to focus on their core responsibilities rather than being pulled into incident resolution.</em></p></div><div class="w-layout-grid grid"><div id="w-node-fe7ae54e-ec84-6de8-f510-5e3de481cbaf-6299dc0b"><div class="features-item-text-wrap"><p class="features-item-text"><em></em></p></div></div></div></div></div></div><div class="features-section-3"><div class="section-spacing"><div class="container"><div class="features-layout-2"><div class="section-heading about-heading"><div class="section-sub-title-wrap" style="opacity: 0;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072dd4_circle-line.svg" loading="lazy" alt="circle-line" class="section-sub-title-icon"><div class="section-sub-title">Features</div></div><div class="section-title-wrap f-heading-title" style="opacity: 0;"><h2 class="section-title">Resolve Incidents Faster with AI-Guided Investigation</h2></div><ul role="list" class="features-list-wrap" style="opacity: 0;"><li class="features-list-text">On-call engineers get instant context and a guided path to root cause, so they can understand and resolve incidents faster.</li></ul><div class="feature-btn-wrap" style="opacity: 0;"><a href="/schedule-a-demo" class="btn-white hover-dark w-inline-block"><div class="btn-inner-2"><div>Get a Demo</div></div></a></div></div><div class="features-thumb-wrap" style="opacity: 0;"><img width="521" height="407" alt="" src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d2fa8bdd8d5b186d8d82d_3rd%20Image.avif" loading="lazy" srcset="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d2fa8bdd8d5b186d8d82d_3rd%20Image.avif 500w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d2fa8bdd8d5b186d8d82d_3rd%20Image.avif 1041w" sizes="(max-width: 767px) 100vw, 521px" class="hp-data-image"><img width="521" height="407" alt="Video showing the Velocity product" src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/685cfc420757d57a9613e8cd_Integration%20Velocity%20Small%20Animation.gif" loading="lazy" class="hp-data-image"></div></div></div></div></div><div class="features-section-2"><div class="section-spacing"><div class="container"><div class="features-layout-2"><div class="features-thumb-wrap" style="opacity: 0;"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d2fe671bdc8362ef89f65_2nd%20Image.avif 500w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d2fe671bdc8362ef89f65_2nd%20Image.avif 1072w" alt="" src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d2fe671bdc8362ef89f65_2nd%20Image.avif" loading="lazy" class="hp-data-image"></div><div class="section-heading about-heading"><div class="section-sub-title-wrap" style="opacity: 0;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072dd4_circle-line.svg" loading="lazy" alt="circle-line" class="section-sub-title-icon"><div class="section-sub-title">Features</div></div><div class="section-title-wrap f-heading-title" style="opacity: 0;"><h2 class="section-title">Enhance, Don’t Replace, Your Existing Tools</h2></div><ul role="list" class="features-list-wrap" style="opacity: 0;"><li class="features-list-text">Velocity enriches the tools you already use: PagerDuty, OpsGenie, Datadog, Grafana, Slack, and more. Velocity adds AI-powered insights without adding another tool to manage.</li></ul><div class="feature-btn-wrap" style="opacity: 0;"><a href="/schedule-a-demo" class="btn-white hover-dark w-inline-block"><div class="btn-inner-2"><div>Get a Demo</div></div></a></div></div></div></div></div></div><div class="features-section-3"><div class="section-spacing"><div class="container"><div class="features-layout-2"><div class="section-heading about-heading"><div class="section-sub-title-wrap" style="opacity: 0;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072dd4_circle-line.svg" loading="lazy" alt="circle-line" class="section-sub-title-icon"><div class="section-sub-title">Features</div></div><div class="section-title-wrap f-heading-title" style="opacity: 0;"><h2 class="section-title">Instant Setup - Simple No-Code and No-Config Integration</h2></div><ul role="list" class="features-list-wrap" style="opacity: 0;"><li class="features-list-text">Get started in minutes, no agents, no code, no setup headaches. Velocity fits right in and delivers value immediately.</li></ul><div class="feature-btn-wrap" style="opacity: 0;"><a href="/schedule-a-demo" class="btn-white hover-dark w-inline-block"><div class="btn-inner-2"><div>Get a Demo</div></div></a></div></div><div class="features-thumb-wrap" style="opacity: 0;"><img loading="lazy" src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d41dc61508bd70409edb5_4946ccb72655931f19487559e8e38e00_open%20grafana%20gif.gif" alt="Grafana integration flow" class="hp-data-image"></div></div></div></div></div><div class="works-section"><div class="section-spacing"><div class="container"><div class="works-main-layout"><div class="section-heading features-heading"><div class="section-sub-title-wrap work" style="opacity: 0;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072dd4_circle-line.svg" loading="lazy" alt="circle-line" class="section-sub-title-icon"><div class="section-sub-title">ONBOARDING&nbsp;STEPS</div></div><div class="section-title-wrap works-heading-title" style="opacity: 0;"><h2 class="section-title">From Alert To Resolution, But Faster</h2></div><div class="section-text-wrap works-heading-text" style="opacity: 0;"><p class="section-text">Create your account, integrate your stack, and let Velocity guide your team through incidents, faster and with less stress.</p></div></div><div class="works-layout"><div class="works-content-item"><div data-w-id="1146d427-75a8-6a76-d9bb-a0293cb855f9" class="works-item" style="opacity: 0;"><div class="works-item-tag-wrap"><div class="works-item-tag">Step - 1</div></div><div class="works-item-text-wrap"><p class="works-item-text"><strong class="works-item-text-bold">Sign Up:</strong> Create your account and customize your settings in minutes.</p></div></div><div data-w-id="1146d427-75a8-6a76-d9bb-a0293cb85602" class="works-item" style="opacity: 0;"><div class="works-item-tag-wrap"><div class="works-item-tag">Step - 2</div></div><div class="works-item-text-wrap"><p class="works-item-text"><strong class="works-item-text-bold">Integrate:</strong> Connect your existing tech stack like Grafana, DataDog, GitHub, Gitlab, PagerDuty, Slack, etc.</p></div></div><div data-w-id="1146d427-75a8-6a76-d9bb-a0293cb8560b" class="works-item last" style="opacity: 0;"><div class="works-item-tag-wrap"><div class="works-item-tag">Step - 3</div></div><div class="works-item-text-wrap"><p class="works-item-text"><strong class="works-item-text-bold">Tune:</strong> Collaborate with Velocity’s AI by sharing feedback and context to continuously improve accuracy and incident handling.</p></div></div></div><div class="works-thumb-wrap" style="opacity: 0;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM.png" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM-p-500.png 500w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM-p-800.png 800w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM-p-1080.png 1080w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM-p-1600.png 1600w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM-p-2000.png 2000w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM-p-2600.png 2600w, https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681d306cdc74071d78c6e386_Screenshot%202025-05-08%20at%203.29.43%E2%80%AFPM.png 2704w" alt="" class="works-thumb"></div></div><div class="common-shape-wrap"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072e05_c-shape-1.svg" loading="lazy" alt="c-shape-1" class="hero-shape"></div><div class="common-shape-wrap-2"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072e15_c-shape-2.svg" loading="lazy" alt="c-shape-2" class="hero-shape-2"></div></div></div></div></div><div class="blog-section"><div class="section-spacing"><div class="container"><div class="section-heading brand-heading"><div class="section-sub-title-wrap" style="opacity: 0;"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072dd4_circle-line.svg" loading="lazy" alt="circle-line" class="section-sub-title-icon"><div class="section-sub-title">Latest Blogs</div></div><div class="section-title-wrap blogs-heading-title" style="opacity: 0;"><h2 class="section-title"><strong>Trends &amp; Tips for SREs, DevOps, and Engineering </strong></h2></div><div class="section-text-wrap blogs-heading-text" style="opacity: 0;"><p class="section-text">Stay up to date with best practices, tooling strategies, and innovations in SRE, DevOps, and production engineering.</p></div></div><div data-w-id="276d7c1e-b04f-1f32-6f52-c93071f18a55" style="opacity: 0;" class="w-dyn-list"><div role="list" class="blog-layout w-dyn-items"><div role="listitem" class="w-dyn-item"><div class="blog-item"><a href="/blogs/bigpanda-acquires-velocity" class="blog-thumb-wrap w-inline-block"><img src="https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/690bd1ea0bcb1a038bcfc5f6_bigpanda-velocity-white.png" loading="lazy" alt="" class="blog-thumb" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></a><div class="blog-content"><div class="blog-info-wrap"><div class="blog-info-date-wrap"><div class="blog-info-date-icon-wrap"><div class="blog-info-date-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.333 1.99984H13.9997C14.1765 1.99984 14.3461 2.07008 14.4711 2.1951C14.5961 2.32012 14.6663 2.48969 14.6663 2.6665V13.3332C14.6663 13.51 14.5961 13.6796 14.4711 13.8046C14.3461 13.9296 14.1765 13.9998 13.9997 13.9998H1.99967C1.82286 13.9998 1.65329 13.9296 1.52827 13.8046C1.40325 13.6796 1.33301 13.51 1.33301 13.3332V2.6665C1.33301 2.48969 1.40325 2.32012 1.52827 2.1951C1.65329 2.07008 1.82286 1.99984 1.99967 1.99984H4.66634V0.666504H5.99967V1.99984H9.99967V0.666504H11.333V1.99984ZM13.333 7.33317H2.66634V12.6665H13.333V7.33317ZM9.99967 3.33317H5.99967V4.6665H4.66634V3.33317H2.66634V5.99984H13.333V3.33317H11.333V4.6665H9.99967V3.33317ZM3.99967 8.6665H5.33301V9.99984H3.99967V8.6665ZM7.33301 8.6665H8.66634V9.99984H7.33301V8.6665ZM10.6663 8.6665H11.9997V9.99984H10.6663V8.6665Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-date-text-wrap"><p class="blog-info-date-text">Nov 10, 2025</p></div></div><div class="blog-info-time-wrap"><div class="blog-info-time-icon-wrap"><div class="blog-info-time-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.99967 14.6668C4.31767 14.6668 1.33301 11.6822 1.33301 8.00016C1.33301 4.31816 4.31767 1.3335 7.99967 1.3335C11.6817 1.3335 14.6663 4.31816 14.6663 8.00016C14.6663 11.6822 11.6817 14.6668 7.99967 14.6668ZM7.99967 13.3335C9.41416 13.3335 10.7707 12.7716 11.7709 11.7714C12.7711 10.7712 13.333 9.41465 13.333 8.00016C13.333 6.58567 12.7711 5.22912 11.7709 4.22893C10.7707 3.22873 9.41416 2.66683 7.99967 2.66683C6.58519 2.66683 5.22863 3.22873 4.22844 4.22893C3.22824 5.22912 2.66634 6.58567 2.66634 8.00016C2.66634 9.41465 3.22824 10.7712 4.22844 11.7714C5.22863 12.7716 6.58519 13.3335 7.99967 13.3335ZM8.66634 8.00016H11.333V9.3335H7.33301V4.66683H8.66634V8.00016Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-time-text-wrap"><p class="blog-info-time-text w-dyn-bind-empty"></p></div></div></div><div class="blog-title-wrap"><a href="/blogs/bigpanda-acquires-velocity" class="blog-title">BigPanda acquires Velocity</a></div><div class="blog-text-wrap"><p class="blog-text w-dyn-bind-empty"></p></div><div class="blog-btn-wrap"><a href="/blogs/bigpanda-acquires-velocity" class="blog-btn">Read More</a></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="blog-item"><a href="/blogs/the-true-cost-of-a-high-severity-production-incident" class="blog-thumb-wrap w-inline-block"><img src="https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6680758c5c1fe0cb7b88_675062a912c5b75efd228624_Healthy%20Customers%20Can%20Churn%20Image%20(5).png" loading="lazy" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6680758c5c1fe0cb7b88_675062a912c5b75efd228624_Healthy%20Customers%20Can%20Churn%20Image%20(5)-p-500.png 500w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6680758c5c1fe0cb7b88_675062a912c5b75efd228624_Healthy%20Customers%20Can%20Churn%20Image%20(5)-p-800.png 800w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6680758c5c1fe0cb7b88_675062a912c5b75efd228624_Healthy%20Customers%20Can%20Churn%20Image%20(5)-p-1080.png 1080w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6680758c5c1fe0cb7b88_675062a912c5b75efd228624_Healthy%20Customers%20Can%20Churn%20Image%20(5)-p-1600.png 1600w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6680758c5c1fe0cb7b88_675062a912c5b75efd228624_Healthy%20Customers%20Can%20Churn%20Image%20(5).png 1648w" class="blog-thumb" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></a><div class="blog-content"><div class="blog-info-wrap"><div class="blog-info-date-wrap"><div class="blog-info-date-icon-wrap"><div class="blog-info-date-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.333 1.99984H13.9997C14.1765 1.99984 14.3461 2.07008 14.4711 2.1951C14.5961 2.32012 14.6663 2.48969 14.6663 2.6665V13.3332C14.6663 13.51 14.5961 13.6796 14.4711 13.8046C14.3461 13.9296 14.1765 13.9998 13.9997 13.9998H1.99967C1.82286 13.9998 1.65329 13.9296 1.52827 13.8046C1.40325 13.6796 1.33301 13.51 1.33301 13.3332V2.6665C1.33301 2.48969 1.40325 2.32012 1.52827 2.1951C1.65329 2.07008 1.82286 1.99984 1.99967 1.99984H4.66634V0.666504H5.99967V1.99984H9.99967V0.666504H11.333V1.99984ZM13.333 7.33317H2.66634V12.6665H13.333V7.33317ZM9.99967 3.33317H5.99967V4.6665H4.66634V3.33317H2.66634V5.99984H13.333V3.33317H11.333V4.6665H9.99967V3.33317ZM3.99967 8.6665H5.33301V9.99984H3.99967V8.6665ZM7.33301 8.6665H8.66634V9.99984H7.33301V8.6665ZM10.6663 8.6665H11.9997V9.99984H10.6663V8.6665Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-date-text-wrap"><p class="blog-info-date-text">Feb 15, 2025</p></div></div><div class="blog-info-time-wrap"><div class="blog-info-time-icon-wrap"><div class="blog-info-time-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.99967 14.6668C4.31767 14.6668 1.33301 11.6822 1.33301 8.00016C1.33301 4.31816 4.31767 1.3335 7.99967 1.3335C11.6817 1.3335 14.6663 4.31816 14.6663 8.00016C14.6663 11.6822 11.6817 14.6668 7.99967 14.6668ZM7.99967 13.3335C9.41416 13.3335 10.7707 12.7716 11.7709 11.7714C12.7711 10.7712 13.333 9.41465 13.333 8.00016C13.333 6.58567 12.7711 5.22912 11.7709 4.22893C10.7707 3.22873 9.41416 2.66683 7.99967 2.66683C6.58519 2.66683 5.22863 3.22873 4.22844 4.22893C3.22824 5.22912 2.66634 6.58567 2.66634 8.00016C2.66634 9.41465 3.22824 10.7712 4.22844 11.7714C5.22863 12.7716 6.58519 13.3335 7.99967 13.3335ZM8.66634 8.00016H11.333V9.3335H7.33301V4.66683H8.66634V8.00016Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-time-text-wrap"><p class="blog-info-time-text">5 min read</p></div></div></div><div class="blog-title-wrap"><a href="/blogs/the-true-cost-of-a-high-severity-production-incident" class="blog-title">The True Cost of a High-Severity Production Incident?</a></div><div class="blog-text-wrap"><p class="blog-text">How Outages Bleed Revenue, Burn Out Engineers, and Break Trust</p></div><div class="blog-btn-wrap"><a href="/blogs/the-true-cost-of-a-high-severity-production-incident" class="blog-btn">Read More</a></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="blog-item"><a href="/blogs/goodbye-logs-hello-traces-part-3-show-me-the-money" class="blog-thumb-wrap w-inline-block"><img src="https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d67bb074e278afa542d88_674345e07649b770d13b4110_6377c5703c4abf70b3eb53fa_thumb-part3.jpeg" loading="lazy" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d67bb074e278afa542d88_674345e07649b770d13b4110_6377c5703c4abf70b3eb53fa_thumb-part3-p-500.jpeg 500w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d67bb074e278afa542d88_674345e07649b770d13b4110_6377c5703c4abf70b3eb53fa_thumb-part3-p-800.jpeg 800w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d67bb074e278afa542d88_674345e07649b770d13b4110_6377c5703c4abf70b3eb53fa_thumb-part3-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d67bb074e278afa542d88_674345e07649b770d13b4110_6377c5703c4abf70b3eb53fa_thumb-part3.jpeg 1216w" class="blog-thumb" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></a><div class="blog-content"><div class="blog-info-wrap"><div class="blog-info-date-wrap"><div class="blog-info-date-icon-wrap"><div class="blog-info-date-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.333 1.99984H13.9997C14.1765 1.99984 14.3461 2.07008 14.4711 2.1951C14.5961 2.32012 14.6663 2.48969 14.6663 2.6665V13.3332C14.6663 13.51 14.5961 13.6796 14.4711 13.8046C14.3461 13.9296 14.1765 13.9998 13.9997 13.9998H1.99967C1.82286 13.9998 1.65329 13.9296 1.52827 13.8046C1.40325 13.6796 1.33301 13.51 1.33301 13.3332V2.6665C1.33301 2.48969 1.40325 2.32012 1.52827 2.1951C1.65329 2.07008 1.82286 1.99984 1.99967 1.99984H4.66634V0.666504H5.99967V1.99984H9.99967V0.666504H11.333V1.99984ZM13.333 7.33317H2.66634V12.6665H13.333V7.33317ZM9.99967 3.33317H5.99967V4.6665H4.66634V3.33317H2.66634V5.99984H13.333V3.33317H11.333V4.6665H9.99967V3.33317ZM3.99967 8.6665H5.33301V9.99984H3.99967V8.6665ZM7.33301 8.6665H8.66634V9.99984H7.33301V8.6665ZM10.6663 8.6665H11.9997V9.99984H10.6663V8.6665Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-date-text-wrap"><p class="blog-info-date-text">Feb 15, 2025</p></div></div><div class="blog-info-time-wrap"><div class="blog-info-time-icon-wrap"><div class="blog-info-time-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.99967 14.6668C4.31767 14.6668 1.33301 11.6822 1.33301 8.00016C1.33301 4.31816 4.31767 1.3335 7.99967 1.3335C11.6817 1.3335 14.6663 4.31816 14.6663 8.00016C14.6663 11.6822 11.6817 14.6668 7.99967 14.6668ZM7.99967 13.3335C9.41416 13.3335 10.7707 12.7716 11.7709 11.7714C12.7711 10.7712 13.333 9.41465 13.333 8.00016C13.333 6.58567 12.7711 5.22912 11.7709 4.22893C10.7707 3.22873 9.41416 2.66683 7.99967 2.66683C6.58519 2.66683 5.22863 3.22873 4.22844 4.22893C3.22824 5.22912 2.66634 6.58567 2.66634 8.00016C2.66634 9.41465 3.22824 10.7712 4.22844 11.7714C5.22863 12.7716 6.58519 13.3335 7.99967 13.3335ZM8.66634 8.00016H11.333V9.3335H7.33301V4.66683H8.66634V8.00016Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-time-text-wrap"><p class="blog-info-time-text">6 min read</p></div></div></div><div class="blog-title-wrap"><a href="/blogs/goodbye-logs-hello-traces-part-3-show-me-the-money" class="blog-title">Goodbye Logs, Hello Traces: Part 3 - Show me the $$$</a></div><div class="blog-text-wrap"><p class="blog-text">This is part three in a multi-part series on using OpenTelemetry and distributed tracing.</p></div><div class="blog-btn-wrap"><a href="/blogs/goodbye-logs-hello-traces-part-3-show-me-the-money" class="blog-btn">Read More</a></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="blog-item"><a href="/blogs/goodbye-logs-hello-traces-part-2-see-it-in-the-wild" class="blog-thumb-wrap w-inline-block"><img src="https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6785523d3e61b1e3d001_674345e08e26c18813838757_6377c7966418194b1d676a2a_thumb-part2.jpeg" loading="lazy" alt="" sizes="100vw" srcset="https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6785523d3e61b1e3d001_674345e08e26c18813838757_6377c7966418194b1d676a2a_thumb-part2-p-500.jpeg 500w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6785523d3e61b1e3d001_674345e08e26c18813838757_6377c7966418194b1d676a2a_thumb-part2-p-800.jpeg 800w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6785523d3e61b1e3d001_674345e08e26c18813838757_6377c7966418194b1d676a2a_thumb-part2-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/681bafd2d129953bc9072da2/681d6785523d3e61b1e3d001_674345e08e26c18813838757_6377c7966418194b1d676a2a_thumb-part2.jpeg 1216w" class="blog-thumb" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></a><div class="blog-content"><div class="blog-info-wrap"><div class="blog-info-date-wrap"><div class="blog-info-date-icon-wrap"><div class="blog-info-date-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.333 1.99984H13.9997C14.1765 1.99984 14.3461 2.07008 14.4711 2.1951C14.5961 2.32012 14.6663 2.48969 14.6663 2.6665V13.3332C14.6663 13.51 14.5961 13.6796 14.4711 13.8046C14.3461 13.9296 14.1765 13.9998 13.9997 13.9998H1.99967C1.82286 13.9998 1.65329 13.9296 1.52827 13.8046C1.40325 13.6796 1.33301 13.51 1.33301 13.3332V2.6665C1.33301 2.48969 1.40325 2.32012 1.52827 2.1951C1.65329 2.07008 1.82286 1.99984 1.99967 1.99984H4.66634V0.666504H5.99967V1.99984H9.99967V0.666504H11.333V1.99984ZM13.333 7.33317H2.66634V12.6665H13.333V7.33317ZM9.99967 3.33317H5.99967V4.6665H4.66634V3.33317H2.66634V5.99984H13.333V3.33317H11.333V4.6665H9.99967V3.33317ZM3.99967 8.6665H5.33301V9.99984H3.99967V8.6665ZM7.33301 8.6665H8.66634V9.99984H7.33301V8.6665ZM10.6663 8.6665H11.9997V9.99984H10.6663V8.6665Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-date-text-wrap"><p class="blog-info-date-text">Feb 15, 2025</p></div></div><div class="blog-info-time-wrap"><div class="blog-info-time-icon-wrap"><div class="blog-info-time-icon w-embed"><svg width=" 100%" height=" 100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.99967 14.6668C4.31767 14.6668 1.33301 11.6822 1.33301 8.00016C1.33301 4.31816 4.31767 1.3335 7.99967 1.3335C11.6817 1.3335 14.6663 4.31816 14.6663 8.00016C14.6663 11.6822 11.6817 14.6668 7.99967 14.6668ZM7.99967 13.3335C9.41416 13.3335 10.7707 12.7716 11.7709 11.7714C12.7711 10.7712 13.333 9.41465 13.333 8.00016C13.333 6.58567 12.7711 5.22912 11.7709 4.22893C10.7707 3.22873 9.41416 2.66683 7.99967 2.66683C6.58519 2.66683 5.22863 3.22873 4.22844 4.22893C3.22824 5.22912 2.66634 6.58567 2.66634 8.00016C2.66634 9.41465 3.22824 10.7712 4.22844 11.7714C5.22863 12.7716 6.58519 13.3335 7.99967 13.3335ZM8.66634 8.00016H11.333V9.3335H7.33301V4.66683H8.66634V8.00016Z" fill="currentColor"></path>
+</svg></div></div><div class="blog-info-time-text-wrap"><p class="blog-info-time-text">10 min read</p></div></div></div><div class="blog-title-wrap"><a href="/blogs/goodbye-logs-hello-traces-part-2-see-it-in-the-wild" class="blog-title">Goodbye Logs, Hello Traces: Part 2 - In the wild</a></div><div class="blog-text-wrap"><p class="blog-text">This is part two in a multi-part series on using OpenTelemetry and distributed tracing.</p></div><div class="blog-btn-wrap"><a href="/blogs/goodbye-logs-hello-traces-part-2-see-it-in-the-wild" class="blog-btn">Read More</a></div></div></div></div></div></div></div></div></div></div><div data-wf--footer-section--variant="with-cta"><div><div class="cta-section"><div class="section-spacing"><div class="container"><div class="cta-layout"><div class="common-shape-wrap _2"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072e05_c-shape-1.svg" loading="lazy" alt="c-shape-1" class="hero-shape"></div><div class="common-shape-wrap-2 _2"><img src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681bafd2d129953bc9072e15_c-shape-2.svg" loading="lazy" alt="c-shape-2" class="hero-shape-2"></div><div class="cta-title-wrap" style="opacity: 0;"><h2 class="cta-title">Resolve Production Incidents in Minutes, Not Hours</h2></div><div class="cta-content"><div class="cta-text-wrap" style="opacity: 0;"><p class="cta-text">Give your team the AI advantage for faster investigations, fewer escalations, and less on-call stress.</p></div><div class="cta-btn-wrap" style="opacity: 0;"><a href="/schedule-a-demo" class="btn-white hover-dark cta-btn w-inline-block"><div class="btn-inner-2"><div>Get a Demo Now</div><div class="btn-icon-wrap"><div class="btn-icon w-embed" style="transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><svg width=" 100%" height=" 100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.78166 5.33312L5.20566 1.75712L6.14833 0.814453L11.3337 5.99979L6.14833 11.1851L5.20566 10.2425L8.78166 6.66645H0.666992V5.33312H8.78166Z" fill="currentColor"></path>
+</svg></div><div class="btn-icon w-embed" style="transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><svg width=" 100%" height=" 100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.78166 5.33312L5.20566 1.75712L6.14833 0.814453L11.3337 5.99979L6.14833 11.1851L5.20566 10.2425L8.78166 6.66645H0.666992V5.33312H8.78166Z" fill="currentColor"></path>
+</svg></div></div></div></a></div></div></div></div></div></div></div><div class="footer-section w-variant-f942638b-acfc-53c2-36df-00ba76906827"><div class="section-spacing"><div class="container"><div class="footer-layout"><div class="footer-left"><a href="/" aria-current="page" class="footer-logo-wrap w-inline-block w--current"><img loading="lazy" src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/681c02e08120b20c6a1933b1_Velocity_Logo%20-%20WHITE.svg" alt="" class="footer-logo"></a></div><div class="footer-right"><div class="footer-widget"><div class="footer-widget-title-wrap"><h2 class="footer-widget-title">Pages</h2></div><div class="footer-widget-link-text-wrap"><a href="/" aria-current="page" class="footer-widget-link-text w--current">Home</a><a href="/integrations" class="footer-widget-link-text">Integrations</a><a href="https://docs.velocity.tech" target="_blank" class="footer-widget-link-text">Documentation</a><a href="/blog" class="footer-widget-link-text">Blog</a><a href="/contact" class="footer-widget-link-text">Contact Us</a></div></div><div class="footer-widget"><div class="footer-widget-title-wrap"><h2 class="footer-widget-title">Social</h2></div><div class="footer-widget-link-text-wrap"><a href="https://www.linkedin.com/company/techvelocity" target="_blank" class="footer-widget-link-text">Linkedin</a><a href="https://twitter.com/velocitytechhq" target="_blank" class="footer-widget-link-text">X</a><a href="https://www.youtube.com/@velocitytechhq" target="_blank" class="footer-widget-link-text">YouTube</a></div></div></div></div><div class="footer-bottom"><div class="footer-bottom-layout w-variant-f942638b-acfc-53c2-36df-00ba76906827"><div class="footer-copyright-text-wrap"><p class="footer-copyright-text">2025 Velocity T.K., Inc.</p></div><div class="footer-bottom-link-text-wrap"><a href="/terms-conditions" class="footer-bottom-link-text">Terms &amp; Conditions</a><a href="/privacy-policy" class="footer-bottom-link-text">Privacy Policy</a><a href="/legal-center" class="footer-bottom-link-text">Legal Center</a><a href="https://trust.velocity.tech/" class="footer-bottom-link-text">Trust Center</a></div></div></div></div></div></div></div></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=681bafd1d129953bc9072ccf" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/js/webflow.schunk.0e77e8610c42c2bf.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/js/webflow.schunk.6ba5e1f84cf914b6.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/681bafd1d129953bc9072ccf/js/webflow.efd99b0c.249822c9e9d41804.js" type="text/javascript"></script>
+<script type="text/javascript" id="" charset="">!function(){var a=window.driftt=window.drift=window.driftt||[];if(!a.init){if(a.invoked)return void(window.console&&console.error&&console.error("Drift snippet included twice."));a.invoked=!0;a.methods="identify config track reset debug show ping page hide off on".split(" ");a.factory=function(c){return function(){var b=Array.prototype.slice.call(arguments);return b.unshift(c),a.push(b),a}};a.methods.forEach(function(c){a[c]=a.factory(c)});a.load=function(c){var b=3E5,d=Math.ceil(new Date/b)*b;b=
+document.createElement("script");b.type="text/javascript";b.async=!0;b.crossorigin="anonymous";b.src="https://js.driftt.com/include/"+d+"/"+c+".js";c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}}}();drift.SNIPPET_VERSION="0.3.1";drift.load("wii4yytc8d82");</script>
+<script type="text/javascript" id="" charset="">window.addEventListener("message",function(a){"hsFormCallback"===a.data.type&&"onFormSubmitted"===a.data.eventName&&window.dataLayer.push({event:"hubspot-form-success","hs-form-guid":a.data.id})});</script>
+<div id="drift-frame-chat" class="drift-conductor-item drift-frame-chat drift-frame-chat-align-right with-transition" style="right: 12px; width: 400px !important; max-width: none; position: fixed; z-index: 2147483647; max-height: 0px; bottom: 88px; visibility: hidden; min-width: 320px; height: 100% !important;"><iframe class="drift-frame-chat" scrolling="no" title="Drift Widget Chat Window" allow="autoplay; encrypted-media; fullscreen;" frameborder="0" src="https://js.driftt.com/core/chat?d=1&amp;region=US&amp;driftEnableLog=false&amp;pageLoadStartTime=1774144676509" style="background: transparent; width: 400px !important; max-width: 100%; height: 100%; border: none;"></iframe></div><div id="drift-frame-controller" class="drift-conductor-item drift-frame-controller drift-frame-controller-align-right" style="right: 24px; width: 76px !important; max-width: none; position: fixed; z-index: 2147483647; height: 0px !important; bottom: 24px;"><iframe class="drift-frame-controller" scrolling="no" title="Drift Widget Chat Controller" allow="autoplay; encrypted-media; fullscreen;" frameborder="0" src="https://js.driftt.com/core?d=1&amp;embedId=wii4yytc8d82&amp;eId=wii4yytc8d82&amp;region=US&amp;forceShow=false&amp;skipCampaigns=false&amp;sessionId=649da7c8-5859-496b-b32b-1ac9681e354c&amp;sessionStarted=1774144677.776&amp;campaignRefreshToken=34a7c052-3eb6-4bbc-927e-4dbe29148cde&amp;hideController=false&amp;pageLoadStartTime=1774144676509&amp;mode=CHAT&amp;driftEnableLog=false&amp;secureIframe=false&amp;u=https%3A%2F%2Fwww.velocity.tech%2F" style="background: transparent; width: 100%; max-width: 100%; height: 100%; border: none;"></iframe></div>
+    <style data-type="cookiescriptstyles">
+      #cookiescript_injected {
+    background-color: #1C1C1C;
+    z-index: 999997;
+    opacity: 1;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'Open Sans', Arial, 'Trebuchet MS', 'Segoe UI', 'Helvetica', sans-serif;
+    box-shadow: 1px 2px 8px 0 rgba(0, 0, 0, 0.35);
+    color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.cookiescript_overlay {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.cookiescript_checkbox_label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding:0 4px;
+    line-height: 1.5;
+    margin:0;
+	text-align: left;
+}
+.cookiescript_pre_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+#cookiescript_close {
+    font-size: 29px;
+    line-height: 13px;
+    cursor: pointer;
+    color: #FFFFFF;
+    height: 15px;
+    width: 15px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    overflow: hidden;
+    letter-spacing: 0;
+    font-family: 'Trebuchet MS', 'Arial', sans-serif;
+    font-weight: 100;
+    opacity: 0.85;
+    z-index: 999999;
+    position: relative;
+    top: -1px;
+}
+
+#cookiescript_buttons {
+    display: flex;
+    flex-direction: row;
+    font-weight: 700;
+}
+#cookiescript_manage_wrap {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+}
+#cookiescript_manage {
+    display: inline;
+    cursor: pointer;
+    color: #FFFFFF;
+    opacity:0.85;
+    margin-left:-15px;
+}
+#cookiescript_manage #cookiescript_manageicon .cookiescript_gear {
+    fill: #FFFFFF;
+}
+#cookiescript_manage:hover #cookiescript_manageicon .cookiescript_gear {
+    fill: #674ea7;
+}
+
+svg#cookiescript_manageicon {
+    width: 15px;
+    height: 15px;
+    display: inline;
+    margin: 0 5px 0 0;
+    padding: 0;
+    position: relative;
+    top: 3px;
+    vertical-align: baseline;
+}
+
+.cookiescript-extra-links{
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
+#cookiescript_injected.hascookiereport .cookiescript-extra-links{
+    display:none;
+}
+.cookiescript-extra-links a{
+    color: #b49bf4;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0 15px;
+    transition: all 100ms ease 0s;
+    background-color: transparent;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+.cookiescript-extra-links a:hover{
+    color: #745daf;
+    text-decoration: underline;
+}
+
+
+#cookiescript_header {
+    background-color: transparent;
+    z-index: 999998;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    opacity:1;
+}
+.cookiescript_checkbox {
+    display: flex;
+    flex-direction: row;
+}
+input.cookiescript_checkbox_input {
+}
+span.cookiescript_checkbox_text {
+    display: inline-block;
+    font-size: 12px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+}
+
+#cookiescript_save {
+    border: 0;
+    transition: all 0.25s ease 0s;
+    background-color: #674ea7;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    line-height: 3.2;
+    letter-spacing: 0.4px;
+}
+/*IE 9 fixes*/
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) {
+    .cookiescript_checkbox_label {
+        position: relative;
+        top:-10px;
+    }
+    #cookiescript_accept, #cookiescript_reject, #cookiescript_save{
+    	display: inline-block;
+    }
+    #cookiescript_buttons{
+    	text-align:center;
+    }
+}
+#cookiescript_save{
+}
+#cookiescript_reject {
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    line-height: 3;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #FFFFFF;
+    background: #1C1C1C;
+}
+#cookiescript_accept {
+	transition: all 0.25s ease 0s;
+	text-transform: uppercase;
+	font-size: 12px;
+	text-align: center;
+	letter-spacing: 0.4px;
+	border: 0;
+	background-color: #674ea7;
+	color: #ffffff;
+	line-height: 3.2;
+}
+
+#cookiescript_accept, #cookiescript_reject, #cookiescript_save {
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+    min-width: 103px;
+}
+.cookiescript_bigger {
+    transform: scale(1.1);
+}
+#cookiescript_link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 11px;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0.8;
+	display:inline !important;
+}
+
+#cookiescript_readmore,
+#cookiescript_reportlink,
+#cookiescript_cookiescriptlink {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    transition: all 100ms ease 0s;
+    background-color: transparent;
+    display: inline;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#cookiescript_readmore,
+#cookiescript_description a{
+    color: #b49bf4;
+}
+#cookiescript_reportlink,
+#cookiescript_cookiescriptlink {
+    color: #FFFFFF;
+}
+
+
+#cookiescript_readmore:hover,
+#cookiescript_reportlink:hover,
+#cookiescript_cookiescriptlink:hover,
+#cookiescript_description a:hover{
+    text-decoration: underline;
+    color: #b49bf4;
+
+}
+
+#cookiescript_description {
+    color: #FFFFFF;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+#cookiescript_checkboxs {
+display:none !important;}
+#cookiescript_close:hover,
+#cookiescript_manage:hover,
+#cookiescript_link:hover
+{
+    opacity: 1;
+}
+
+#cookiescript_reject:hover {
+    background-color: #2f2f2f;
+}
+
+#cookiescript_accept:hover{
+	background-color: #745daf;
+}
+#cookiescript_save:hover {
+    background-color: #745daf;
+}
+
+#cookiescript_readmore:hover,
+#cookiescript_reportlink:hover,
+#cookiescript_cookiescriptlink:hover
+{
+    color: #745daf;
+}
+
+.cookiescript_globe {
+    fill:#1c1c1c;
+}
+
+@media print{
+    #cookiescript_injected{
+        display:none;
+    }
+}
+
+
+
+
+#cookiescript_injected_fsd {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.5) !important;
+    z-index: 999996;
+	overflow-y: auto;
+}
+
+#cookiescript_fsd_wrapper {
+    /*animation: expandBox 2s forwards;*/
+    max-width: 950px;
+	width: 95%;
+    margin: 0 auto 3% auto;
+	top: 5%;
+    line-height: 18px;
+    letter-spacing: normal;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+	background-color: #f3f3f3;
+    z-index: 999997;
+    opacity: 1;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'Open Sans', Arial, 'Trebuchet MS', 'Segoe UI', 'Helvetica', sans-serif;
+    box-shadow: 1px 2px 8px 0 rgba(0, 0, 0, 0.35);
+    color: #1C1C1C;
+    align-items: center;
+    overflow: visible;
+    outline: none;
+    max-height: 90%;
+    box-sizing: border-box;
+	cursor: default;
+	min-height: 500px;
+}
+@keyframes expandBox {
+    from {
+        width: 10%;
+        margin-left:0;
+        overflow: hidden;
+        top:90%;
+        height: 5%;
+    }
+    to {
+        width: 95%;
+        margin-left:auto;
+        overflow: hidden;
+        top:5%;
+        height: 90%;
+    }
+}
+
+.cookiescript_fsd_header {
+	min-height: 57px;
+	border-bottom: 1px solid #e2e2e2;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #ffffff;
+}
+.cookiescript_fsd_logo_a{
+	margin-left: 23px;
+    text-decoration: none;
+}
+.cookiescript_fsd_logo{
+	height: 27px;
+	width: auto;
+	display: block;
+	max-width: 100%;
+}
+.cookiescript_fsd_powered {
+    color: #666666;
+    font-size: 11px;
+    position: relative;
+    left: 31px;
+    top: 0;
+    line-height: 1;
+    text-decoration: none;
+    display: block;
+    height: 8px;
+}
+.cookiescript_fsd_language_drop_down {
+    position: absolute;
+    right: 67px;
+	top: 19px;
+}
+
+.cookiescript_fsd_main {
+    width: 100%;
+	background-color: #ffffff;
+}
+
+.cookiescript_fsd_main_info {
+    padding: 20px 53px 30px 53px;
+    }
+
+.cookiescript_fsd_title {
+    background-color: transparent;
+    z-index: 999998;
+    color: #1C1C1C;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 700;
+    opacity:1;
+}
+
+.cookiescript_fsd_description {
+    color: #1C1C1C;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 400;
+	margin-top: 9px;
+}
+.cookiescript_fsd_description > span{
+    opacity: 0.85;
+}
+
+#cookiescript_fsd_wrapper .cookiescript-extra-links{
+    margin-top: 10px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+#cookiescript_fsd_wrapper .cookiescript-extra-links a {
+    color: #674ea7;
+    font-size: 14px;
+    display: block;
+    margin: 0 20px 0 0;
+}
+
+
+#cookiescript_fsd_wrapper #cookiescript_readmore{
+	font-size: 14px;
+	color: #674ea7;
+	text-decoration: none;
+}
+#cookiescript_fsd_wrapper #cookiescript_readmore:hover{
+	text-decoration: underline;
+}
+
+.cookiescript_fsd_tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+	flex-direction: row;
+    width: 100%;
+}
+
+.cookiescript_fsd_tabs > div {
+	cursor: pointer;
+	width: 50%;
+	text-transform: uppercase;
+	font-size: 16px;
+	text-align: center;
+	line-height: 1.6;
+	font-weight: bold;
+	border-top: 2px solid transparent;
+	transition: all 300ms ease 0s;
+	padding: 10px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+}
+
+.cookiescript_fsd_tabs > .cookiescript_active {
+    border-top: 2px solid #674ea7;
+    background-color: #f3f3f3;
+    color: #674ea7;
+}
+
+.cookiescript_fsd_tabs_content {
+    background-color: #f3f3f3;
+    padding: 5px 50px 10px 50px;
+    width: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    flex-grow: 1;
+	--scrollbar-width: 8px;
+	--mask-height: 35px;
+	--mask-image-content: linear-gradient( to bottom, transparent, black var(--mask-height), black calc(100% - var(--mask-height)), transparent );
+	--mask-size-content: calc(100% - var(--scrollbar-width)) 100%;
+	--mask-image-scrollbar: linear-gradient(black, black);
+	--mask-size-scrollbar: var(--scrollbar-width) 100%;
+	mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+	mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+	mask-position: 0 0, 100% 0;
+	mask-repeat: no-repeat, no-repeat;
+	-webkit-mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+	-webkit-mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+	-webkit-mask-position: 0 0, 100% 0;
+	-webkit-mask-repeat: no-repeat, no-repeat;
+}
+
+.cookiescript_fsd_tabs_content .cookiescript_hidden {
+    opacity: 0;
+    height: 0 !important;
+    overflow: hidden;
+	padding: 0 !important;
+	min-height: 0 !important;
+}
+
+.cookiescript_fsd_category {
+    border-bottom: 1px solid #e2e2e2;
+    padding-top: 23px;
+    padding-bottom: 17px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cookiescript_fsd_category:last-child {
+    border-bottom: 0;
+}
+
+.cookiescript_fsd_category .cookiescript_hidden {
+    opacity: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 0 !important;
+	max-height: 0;
+	margin: 0;
+	height: auto !important;
+		transition: max-height 300ms ease 200ms, opacity ease 200ms, margin-top 100ms ease 100ms;
+	}
+
+.cookiescript_fsd_category_main {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    order: 1;
+}
+
+.cookiescript_fsd_category_info {
+    flex: 9;
+    padding-right: 10px;
+}
+
+.cookiescript_fsd_category_control {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.cookiescript_fsd__category_name {
+    font-size: 16px;
+    font-weight: 700;
+	margin-bottom: 6px;
+}
+
+.cookiescript_category_description {
+	font-size: 13px;
+	padding-bottom: 5px;
+	line-height: 1.6;
+}
+
+.cookiescript_fsd_cookies {
+	border: 1px solid #e2e2e2;
+	border-radius: 10px;
+	overflow-y: auto;
+	margin-top: 15px;
+	max-height: 222px;
+    order: 2;
+		transition: max-height 300ms ease, opacity 200ms ease 300ms, margin-top 100ms ease 100ms;
+	}
+
+.cookiescript_fsd_cookies caption {
+    font-weight: 600;
+    padding: 10px;
+    text-align: left;
+    color: #1C1C1C;
+    caption-side: top;
+}
+
+
+.cookiescript_fsd_cookies_control {
+    color: #674ea7;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-top: 10px;
+    cursor: pointer;
+    order: 3
+}
+
+.cookiescript_fsd_cookies_control .cookiescript_hidden {
+    display: none;
+}
+
+.cookiescript_fsd_cookies_control  span{
+	margin-right: 7px;
+}
+
+.cookiescript_fsd_cookies_control svg {
+    width: 10px;
+    height: 10px;
+    font-size: 10px;
+}
+
+.cookiescript_fsd_cookies_control.active svg {
+    width: 10px;
+    height: 10px;
+    font-size: 10px;
+    transform: rotate(180deg);
+}
+
+.cookiescript_fsd_cookies_table {
+    width: 100%;
+}
+
+.cookiescript_fsd_cookies_table,
+.cookiescript_fsd_cookies_table tbody,
+.cookiescript_fsd_cookies_table thead,
+.cookiescript_fsd_cookies_table tr,
+.cookiescript_fsd_cookies_table th,
+.cookiescript_fsd_cookies_table td {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background-color: #ffffff;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+
+.cookiescript_fsd_cookies_table tr:last-child td{
+    border-bottom: 0;
+}
+
+.cookiescript_fsd_cookies_table td, .cookiescript_fsd_cookies_table th {
+    white-space: normal;
+    font-size: 13px;
+    text-align: left;
+    margin: 0;
+}
+.cookiescript_fsd_cookies_table th {
+	font-weight: 600;
+	padding: 8px 8px;
+	line-height: 1.4;
+	word-break: keep-all;
+	vertical-align: middle;
+}
+
+.cookiescript_fsd_cookies_table td {
+	padding: 7px 8px;
+	line-height: 1.6;
+	vertical-align: top;
+	font-weight: 400;
+	border: 0;
+	border-top: 1px solid #e2e2e2;
+	color: #1C1C1C;
+}
+
+.cookiescript_fsd_cookies_table th:last-child {
+    padding-right: 10px;
+}
+
+    .cookiescript_fsd_cookies_table td:nth-child(1), .cookiescript_fsd_cookies_table th:nth-child(1) {
+    padding-left: 15px;
+    word-break: normal;
+}
+
+.cookiescript_fsd_cookies_table td:nth-child(2) {
+    color: #674ea7;
+}
+
+.cookiescript_fsd_cookies_table td:nth-child(3), .cookiescript_fsd_cookies_table th:nth-child(3) {
+    text-align: center;
+}
+
+.cookiescript_fsd_cookies_table.cookiescript_fsd_storage_table td:nth-child(2) {
+     color: #1C1C1C;
+}
+
+.cookiescript_vendor_name a{
+	text-decoration: underline;
+	font-weight: bold;
+	color: #674ea7;
+	line-height: normal;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	font-size: 13px;
+}
+.cookiescript_vendor_name a:hover {
+	text-decoration: underline;
+	color: #674ea7;
+}
+.cookiescript_vendor_address {
+    margin-top: 10px;
+    font-style: italic;
+}
+.cookiescript_vendor_address > span {
+    font-weight: 600;
+    font-style: normal;
+}
+
+.cookiescript_fsd_footer {
+    border-top: 1px solid #e2e2e2;
+    width: 100%;
+	background-color: #ffffff;
+    position: relative;
+}
+#cookiescript_fsd_wrapper #cookiescript_declarationwrap{
+		transition: opacity 200ms ease 0ms, height 0ms ease 200ms;
+	}
+#cookiescript_fsd_wrapper #cookiescript_aboutwrap{
+	font-size: 13px;
+	padding: 23px 0;
+	line-height: 1.6;
+	text-align: left;
+	font-weight: normal;
+	box-sizing: border-box;
+	transition: opacity 200ms ease 0ms;
+	overflow: auto;
+	min-height: 181px;
+}
+#cookiescript_fsd_wrapper #cookiescript_aboutwrap a,
+#cookiescript_fsd_wrapper #cookiescript_aboutwrap a:hover{
+    color: #674ea7;
+    text-decoration: underline;
+}
+
+#cookiescript_setting_advertising_wrap {
+    font-size: 12px;
+}
+.cookiescript_cross_domain{
+    margin-top:10px;
+}
+#cookiescript_iab_type {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e2e2;
+    flex-wrap: wrap;
+}
+
+#cookiescript_iab_type > div {
+    cursor: pointer;
+    padding: 0 9px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #f5f5f5;
+    color: #1C1C1C;
+    line-height: 2;
+    margin: 3px 5px;
+    white-space: nowrap;
+}
+
+#cookiescript_iab_type .cookiescript_active {
+    background: #674ea7;
+    color: #FEFEFE;
+}
+
+
+.cookiescript_fsd_cookies::-webkit-scrollbar-track,
+.cookiescript_fsd_tabs_content::-webkit-scrollbar-track {
+    background-color: #DADADA;
+}
+
+.cookiescript_fsd_cookies::-webkit-scrollbar,
+.cookiescript_fsd_tabs_content::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.cookiescript_fsd_cookies::-webkit-scrollbar-thumb,
+.cookiescript_fsd_tabs_content::-webkit-scrollbar-thumb {
+    background-color: #674ea7;
+}
+
+
+
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) {
+    #cookiescript_iab_type > div{
+        display:inline-block;
+    }
+}
+
+/* --- OVERRIDE ----*/
+
+#cookiescript_injected_fsd #cookiescript_close {
+	top: 20px;
+	font-size: 37px;
+	right: 20px;
+	color: #1C1C1C;
+	height: 18px;
+	width: 18px;
+    position: absolute;
+    margin:0;
+}
+
+#cookiescript_injected_fsd #cookiescript_show_all_partners_button {
+    color: #674ea7;
+    margin-bottom: 0;
+    margin-top: 12px;
+    display: inline-block;
+}
+
+#cookiescript_injected_fsd #cookiescript_buttons {
+    justify-content: flex-start;
+    padding: 5px 15px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#cookiescript_injected_fsd #cookiescript_accept, #cookiescript_injected_fsd #cookiescript_save, #cookiescript_injected_fsd #cookiescript_reject {
+		flex-grow: unset;
+		padding: 0px 25px;
+	margin: 10px 5px;
+	font-size: 13px;
+	line-height: 3;
+}
+#cookiescript_injected_fsd #cookiescript_buttons{
+	flex-direction: row;
+}
+#cookiescript_injected_fsd #cookiescript_buttons #cookiescript_reject {
+    margin-right: auto;
+}
+
+#cookiescript_injected_fsd .cookiescript-iab-itemContainer {
+    border: 1px solid #e2e2e2;
+	background-color: #ffffff;
+	padding: 10px;
+}
+
+#cookiescript_injected_fsd .cookiescript-iab-header,
+#cookiescript_injected_fsd .cookiescript-iab-itemHeader,
+#cookiescript_injected_fsd .cookiescript-iab-itemHeaderAction {
+    color: #1C1C1C;
+}
+
+#cookiescript_injected_fsd .cookiescript-iab-itemHeaderAction {
+    border-color: #1C1C1C;
+}
+
+#cookiescript_injected_fsd #cookiescript_accept {
+    background-color: #ffffff;
+    color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    order: 1}
+
+#cookiescript_injected_fsd #cookiescript_accept:hover {
+    background-color: #ebebeb;
+}
+
+#cookiescript_injected_fsd #cookiescript_reject {
+    background-color: #ffffff;
+    color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    order: 2}
+
+#cookiescript_injected_fsd #cookiescript_reject:hover {
+    background-color: #ebebeb;
+}
+
+#cookiescript_injected_fsd #cookiescript_save {
+    display: inline-block;
+    background-color: #674ea7;
+    color: #ffffff;
+    border: 1px solid #674ea7;
+    order: 3}
+
+#cookiescript_injected_fsd #cookiescript_save:hover {
+    background-color: #745daf;
+}
+.cookiescript_fsd_reportby{
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    color: #FFFFFF;
+    display: inline;
+    font-size: 13px;
+}
+#cookiescript_fsd_reportlink, #cookiescript_fsd_cookiescriptlink {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    transition: all 100ms ease 0s;
+    background-color: transparent;
+    color: #FFFFFF;
+    display: inline;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+/*Switches color reload*/
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after {
+    background: #674ea7;
+}
+
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus):not(:active) .mdc-switch__handle::after {
+    background: #6c54aa;
+}
+
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:focus:not(:active) .mdc-switch__handle::after {
+    background: #6c54aa;
+}
+
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__handle::after {
+    background: #6c54aa;
+}
+
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus) .mdc-switch__ripple::before,
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus) .mdc-switch__ripple::after{
+    background: #674ea7;
+}
+
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:focus .mdc-switch__ripple::before,
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:focus .mdc-switch__ripple::after {
+    background: #674ea7;
+}
+
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__ripple::before,
+#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__ripple::after {
+    background: #674ea7;
+}
+
+#cookiescript_injected_fsd .mdc-switch:enabled .mdc-switch__track::after {
+    background: #674ea7;
+    opacity: 0.3;
+}
+
+#cookiescript_injected_fsd .mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::after {
+    background: #674ea7;
+    opacity: 0.3;
+}
+
+#cookiescript_injected_fsd .mdc-switch:enabled:focus:not(:active) .mdc-switch__track::after {
+    background: #674ea7;
+    opacity: 0.3;
+}
+
+#cookiescript_injected_fsd .mdc-switch:enabled:active .mdc-switch__track::after {
+    background: #674ea7;
+    opacity: 0.3;
+}
+
+
+#cookiescript_fsd_wrapper {
+    border-radius: 25px;
+}
+.cookiescript_fsd_header {
+    border-radius: 25px 25px 0 0;
+}
+.cookiescript_fsd_footer {
+    border-radius: 0 0 25px 25px;
+}
+#cookiescript_iab_type > div {
+    border-radius: 25px;
+}
+.cookiescript_fsd_cookies::-webkit-scrollbar-track,
+.cookiescript_fsd_tabs_content::-webkit-scrollbar-track
+#cookiescript_iabwrap::-webkit-scrollbar-thumb,
+#cookiescript_aboutwrap::-webkit-scrollbar-thumb{
+    border-radius: 6px;
+}
+.cookiescript_fsd_cookies::-webkit-scrollbar-thumb,
+.cookiescript_fsd_tabs_content::-webkit-scrollbar-thumb,
+#cookiescript_iabwrap::-webkit-scrollbar-thumb,
+#cookiescript_aboutwrap::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+}
+#cookiescript_injected_fsd #cookiescript_accept,
+#cookiescript_injected_fsd #cookiescript_save,
+#cookiescript_injected_fsd #cookiescript_reject{
+    border-radius: 30px;
+}
+
+@media only screen and (max-width: 440px) {
+    .cookiescript_fsd_header {
+        border-radius: 0;
+    }
+    .cookiescript_fsd_footer {
+        border-radius: 0;
+    }
+}
+@media only screen and (max-width: 440px) {
+	#cookiescript_fsd_wrapper {
+		width: 100%;
+		height: 100%;
+		max-height: 100%;
+		top: 0;
+		border-radius: 0;
+		margin: 0;
+	}
+
+	.cookiescript_fsd_main_info {
+		padding: 13px 20px;
+		overflow-y: auto;
+		max-height: 140px;
+	}
+	.cookiescript_fsd_description{
+		margin-top: 8px;
+	}
+	.cookiescript_fsd_tabs > div {
+		padding: 6px;
+		font-size: 12px;
+	}
+
+	.cookiescript_fsd_tabs_content {
+		padding: 5px 20px 10px 20px;
+	}
+
+	.cookiescript_fsd_cookies_table thead {
+		display: none;
+	}
+
+	.cookiescript_fsd_cookies_table td {
+		display: flex;
+		border-bottom: 0px;
+	}
+
+	.cookiescript_fsd_cookies_table tr td:last-child {
+		border-bottom: 0;
+	}
+
+	.cookiescript_fsd_cookies_table td {
+		border-top: 0;
+	}
+
+	.cookiescript_fsd_cookies_table td::before {
+		content: attr(label);
+		font-weight: bold;
+		width: 120px;
+		min-width: 120px;
+		text-align: left;
+	}
+
+	.cookiescript_fsd_cookies_table td:nth-child(2):before {
+		color: #1C1C1C;
+	}
+
+	.cookiescript_category_description {
+		text-align: left;
+	}
+
+	.cookiescript_fsd_cookies_table td:nth-child(1),
+	.cookiescript_fsd_cookies_table th:nth-child(1) {
+		padding-left: 7px;
+		font-weight: bold;
+		border-top: 1px solid #e2e2e2;
+	}
+
+	.cookiescript_fsd_cookies_table tr:nth-child(1) td:nth-child(1),
+	.cookiescript_fsd_cookies_table tr:nth-child(1) th:nth-child(1) {
+		border-top: 0px;
+	}
+
+	.cookiescript_fsd_cookies_table td:last-child {
+		border-bottom: none;
+	}
+
+	.cookiescript_fsd_cookies_table tr:nth-child(even) {
+		background: #f5f5f5;
+	}
+
+	.cookiescript_fsd_cookies_table tr:nth-child(even) td {
+		border-bottom: 0px solid #FFF;
+	}
+
+	#cookiescript_injected_fsd #cookiescript_buttons {
+		margin-bottom: 0;
+	}
+
+	#cookiescript_injected_fsd #cookiescript_buttons #cookiescript_accept,
+	#cookiescript_injected_fsd #cookiescript_buttons #cookiescript_save,
+	#cookiescript_injected_fsd #cookiescript_buttons #cookiescript_reject {
+		flex-grow: 1;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		padding: 0 15px;
+	}
+
+	.cookiescript_fsd_language_drop_down {
+		right: 40px;
+	}
+
+	#cookiescript_injected_fsd #cookiescript_close{
+		right:14px;
+	}
+    .cookiescript_fsd_reportby {
+        position: relative;
+        bottom: 0;
+        right: auto;
+        color: #1C1C1C;
+        font-size: 12px;
+        padding: 0 20px 10px 21px;
+        max-width: 100%;
+        opacity: 0.8;
+        display: none;
+    }
+    #cookiescript_fsd_reportlink, #cookiescript_fsd_cookiescriptlink{
+        color: #1C1C1C;
+        font-size: 12px;
+    }
+
+    #cookiescript_fsd_wrapper .cookiescript-extra-links{
+        flex-direction: column;
+    }
+
+}
+
+
+
+
+
+.cookiescript_rtl {
+    direction:rtl;
+}
+
+/*Start Checkboxes*/
+#cookiescript_injected_fsd .mdc-checkbox,
+#cookiescript_injected .mdc-checkbox {
+    box-sizing: content-box !important;
+}
+#cookiescript_injected_fsd .mdc-checkbox__native-control,
+#cookiescript_injected .mdc-checkbox__native-control {
+    display: block;
+    z-index: 1;
+}
+#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control:focus~.mdc-checkbox__background::before, 
+#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:focus~.mdc-checkbox__background::before, 
+#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before,
+#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before {
+    background-color: #FFFFFF;
+}
+#cookiescript_injected .mdc-checkbox,#cookiescript_injected_fsd .mdc-checkbox{display:inline-block;position:relative;flex:0 0 18px;box-sizing:content-box;width:18px;height:18px;line-height:0;white-space:nowrap;cursor:pointer;vertical-align:bottom;padding:11px}#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:checked~.mdc-checkbox__background::before,#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control:checked~.mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before{background-color:#674ea7}@supports not (-ms-ime-align:auto){#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:checked~.mdc-checkbox__background::before,#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control:checked~.mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before{background-color:var(--mdc-theme-secondary, #674ea7)}}#cookiescript_injected .mdc-checkbox .mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__background{top:11px;left:11px}#cookiescript_injected .mdc-checkbox .mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__background::before{top:-13px;left:-13px;width:40px;height:40px}#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control,#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control{top:0;right:0;left:0;width:40px;height:40px}#cookiescript_injected .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate)~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate)~.mdc-checkbox__background{border-color:#FFFFFF;background-color:transparent}#cookiescript_injected .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,#cookiescript_injected .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background{border-color:#674ea7;background-color:#674ea7}#cookiescript_injected .mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate)~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate)~.mdc-checkbox__background{border-color:rgba(103,78,167,0.26);background-color:transparent}#cookiescript_injected .mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,#cookiescript_injected .mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background{border-color:transparent;background-color:rgba(103,78,167,0.26)}#cookiescript_injected .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark,#cookiescript_injected_fsd .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#1C1C1C}#cookiescript_injected .mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark,#cookiescript_injected_fsd .mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#1C1C1C}#cookiescript_injected .mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__background{display:inline-flex;position:absolute;align-items:center;justify-content:center;box-sizing:border-box;width:18px;height:18px;border:2px solid #674ea7;border-radius:2px;background-color:transparent;pointer-events:none;will-change:background-color,border-color;transition:background-color 90ms 0s cubic-bezier(.4,0,.6,1),border-color 90ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox__background .mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox__background .mdc-checkbox__background::before{background-color:#000}@supports not (-ms-ime-align:auto){#cookiescript_injected .mdc-checkbox__checkmark,#cookiescript_injected_fsd .mdc-checkbox__checkmark{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;opacity:0;transition:opacity 180ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox__checkmark-path,#cookiescript_injected_fsd .mdc-checkbox__checkmark-path{transition:stroke-dashoffset 180ms 0s cubic-bezier(.4,0,.6,1);stroke:currentColor;stroke-width:5px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}#cookiescript_injected .mdc-checkbox__native-control:checked~.mdc-checkbox__background,#cookiescript_injected .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control:checked~.mdc-checkbox__background,#cookiescript_injected_fsd .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background{transition:border-color 90ms 0s cubic-bezier(0,0,.2,1),background-color 90ms 0s cubic-bezier(0,0,.2,1)}#cookiescript_injected .mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark-path,#cookiescript_injected .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark-path,#cookiescript_injected_fsd .mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark-path,#cookiescript_injected_fsd .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark-path{stroke-dashoffset:0}#cookiescript_injected .mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox__background::before{position:absolute;-webkit-transform:scale(0,0);transform:scale(0,0);border-radius:50%;opacity:0;pointer-events:none;content:"";will-change:opacity,transform;transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox__native-control:focus~.mdc-checkbox__background::before,#cookiescript_injected_fsd .mdc-checkbox__native-control:focus~.mdc-checkbox__background::before{-webkit-transform:scale(1);transform:scale(1);opacity:.12;transition:opacity 80ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 80ms 0s cubic-bezier(0,0,.2,1);transition:opacity 80ms 0s cubic-bezier(0,0,.2,1),transform 80ms 0s cubic-bezier(0,0,.2,1);transition:opacity 80ms 0s cubic-bezier(0,0,.2,1),transform 80ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 80ms 0s cubic-bezier(0,0,.2,1)}#cookiescript_injected .mdc-checkbox__native-control,#cookiescript_injected_fsd .mdc-checkbox__native-control{position:absolute;margin:0;padding:0;opacity:0;cursor:inherit}#cookiescript_injected .mdc-checkbox__native-control:disabled,#cookiescript_injected_fsd .mdc-checkbox__native-control:disabled{cursor:default;pointer-events:none}#cookiescript_injected .mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark,#cookiescript_injected_fsd .mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark{transition:opacity 180ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 180ms 0s cubic-bezier(0,0,.2,1);transition:opacity 180ms 0s cubic-bezier(0,0,.2,1),transform 180ms 0s cubic-bezier(0,0,.2,1);transition:opacity 180ms 0s cubic-bezier(0,0,.2,1),transform 180ms 0s cubic-bezier(0,0,.2,1),-webkit-transform 180ms 0s cubic-bezier(0,0,.2,1);opacity:1}#cookiescript_injected .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark,#cookiescript_injected_fsd .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark{-webkit-transform:rotate(45deg);transform:rotate(45deg);opacity:0;transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1);transition:opacity 90ms 0s cubic-bezier(.4,0,.6,1),transform 90ms 0s cubic-bezier(.4,0,.6,1),-webkit-transform 90ms 0s cubic-bezier(.4,0,.6,1)}#cookiescript_injected .mdc-checkbox,#cookiescript_injected_fsd .mdc-checkbox{-webkit-tap-highlight-color:transparent}}
+/*updated checkboxes*/
+#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control, #cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control{
+    width:47px;
+    height:47px;
+}
+#cookiescript_injected .mdc-checkbox, #cookiescript_injected_fsd .mdc-checkbox{
+    flex: 0 0 25px;
+    width: 25px;
+    height: 25px;
+}
+#cookiescript_injected .mdc-checkbox .mdc-checkbox__background::before, #cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__background::before{
+    width:0;
+    height: 0;
+}
+#cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control:focus~.mdc-checkbox__background,
+#cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control:focus~.mdc-checkbox__background{
+    outline: 1px auto highlight;
+}
+
+
+#cookiescript_injected .mdc-checkbox__background{
+    width: 25px;
+    height: 25px;
+    border-radius:8px;
+}
+/*End Checkboxes*/
+
+
+/*Start Toggle*/
+
+#cookiescript_injected .mdc-elevation-overlay,#cookiescript_injected_fsd .mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity 280ms cubic-bezier(.4,0,.2,1);background-color:#fff}#cookiescript_injected .mdc-switch,#cookiescript_injected_fsd .mdc-switch{align-items:center;background:0 0;border:none;cursor:pointer;display:inline-flex;flex-shrink:0;margin:0;outline:0;overflow:visible;padding:0;position:relative}#cookiescript_injected .mdc-switch:disabled,#cookiescript_injected_fsd .mdc-switch:disabled{cursor:default;pointer-events:none}#cookiescript_injected .mdc-switch input[type=checkbox],#cookiescript_injected_fsd .mdc-switch input[type=checkbox]{display:none;visibility:hidden}#cookiescript_injected .mdc-switch__track,#cookiescript_injected_fsd .mdc-switch__track{overflow:hidden;position:relative;width:100%}#cookiescript_injected .mdc-switch__track::after,#cookiescript_injected .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch__track::after,#cookiescript_injected_fsd .mdc-switch__track::before{border:1px solid transparent;border-radius:inherit;box-sizing:border-box;content:"";height:100%;left:0;position:absolute;width:100%}#cookiescript_injected .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch__track::before{transition:-webkit-transform 75ms 0s cubic-bezier(0,0,.2,1);transition:transform 75ms 0s cubic-bezier(0,0,.2,1);-webkit-transform:translateX(0);transform:translateX(0)}#cookiescript_injected .mdc-switch__track::after,#cookiescript_injected_fsd .mdc-switch__track::after{transition:-webkit-transform 75ms 0s cubic-bezier(.4,0,.6,1);transition:transform 75ms 0s cubic-bezier(.4,0,.6,1);-webkit-transform:translateX(-100%);transform:translateX(-100%)}#cookiescript_injected .mdc-switch__track[dir=rtl]::after,#cookiescript_injected [dir=rtl] .mdc-switch__track::after,#cookiescript_injected_fsd .mdc-switch__track[dir=rtl]::after,#cookiescript_injected_fsd [dir=rtl] .mdc-switch__track::after{-webkit-transform:translateX(100%);transform:translateX(100%)}#cookiescript_injected .mdc-switch--selected .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch--selected .mdc-switch__track::before{transition:-webkit-transform 75ms 0s cubic-bezier(.4,0,.6,1);transition:transform 75ms 0s cubic-bezier(.4,0,.6,1);-webkit-transform:translateX(100%);transform:translateX(100%)}#cookiescript_injected .mdc-switch--selected .mdc-switch__track[dir=rtl]::before,#cookiescript_injected [dir=rtl] .mdc-switch--selected .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch--selected .mdc-switch__track[dir=rtl]::before,#cookiescript_injected_fsd [dir=rtl] .mdc-switch--selected .mdc-switch__track::before{-webkit-transform:translateX(-100%);transform:translateX(-100%)}#cookiescript_injected .mdc-switch--selected .mdc-switch__track::after,#cookiescript_injected_fsd .mdc-switch--selected .mdc-switch__track::after{transition:-webkit-transform 75ms 0s cubic-bezier(0,0,.2,1);transition:transform 75ms 0s cubic-bezier(0,0,.2,1);-webkit-transform:translateX(0);transform:translateX(0)}#cookiescript_injected .mdc-switch__handle-track,#cookiescript_injected_fsd .mdc-switch__handle-track{height:100%;pointer-events:none;position:absolute;top:0;transition:-webkit-transform 75ms 0s cubic-bezier(.4,0,.2,1);transition:transform 75ms 0s cubic-bezier(.4,0,.2,1);left:0;right:auto;-webkit-transform:translateX(0);transform:translateX(0)}#cookiescript_injected .mdc-switch__handle-track[dir=rtl],#cookiescript_injected [dir=rtl] .mdc-switch__handle-track,#cookiescript_injected_fsd .mdc-switch__handle-track[dir=rtl],#cookiescript_injected_fsd [dir=rtl] .mdc-switch__handle-track{left:auto;right:0}#cookiescript_injected .mdc-switch--selected .mdc-switch__handle-track,#cookiescript_injected_fsd .mdc-switch--selected .mdc-switch__handle-track{-webkit-transform:translateX(100%);transform:translateX(100%)}#cookiescript_injected .mdc-switch--selected .mdc-switch__handle-track[dir=rtl],#cookiescript_injected [dir=rtl] .mdc-switch--selected .mdc-switch__handle-track,#cookiescript_injected_fsd .mdc-switch--selected .mdc-switch__handle-track[dir=rtl],#cookiescript_injected_fsd [dir=rtl] .mdc-switch--selected .mdc-switch__handle-track{-webkit-transform:translateX(-100%);transform:translateX(-100%)}#cookiescript_injected .mdc-switch__handle,#cookiescript_injected_fsd .mdc-switch__handle{display:flex;pointer-events:auto;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:0;right:auto}#cookiescript_injected .mdc-switch__handle[dir=rtl],#cookiescript_injected [dir=rtl] .mdc-switch__handle,#cookiescript_injected_fsd .mdc-switch__handle[dir=rtl],#cookiescript_injected_fsd [dir=rtl] .mdc-switch__handle{left:auto;right:0}#cookiescript_injected .mdc-switch__handle::after,#cookiescript_injected .mdc-switch__handle::before,#cookiescript_injected_fsd .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch__handle::before{border:1px solid transparent;border-radius:inherit;box-sizing:border-box;content:"";width:100%;height:100%;left:0;position:absolute;top:0;transition:background-color 75ms 0s cubic-bezier(.4,0,.2,1),border-color 75ms 0s cubic-bezier(.4,0,.2,1);z-index:-1}#cookiescript_injected .mdc-switch__shadow,#cookiescript_injected_fsd .mdc-switch__shadow{border-radius:inherit;bottom:0;left:0;position:absolute;right:0;top:0}#cookiescript_injected .mdc-elevation-overlay,#cookiescript_injected_fsd .mdc-elevation-overlay{bottom:0;left:0;right:0;top:0}#cookiescript_injected .mdc-switch__ripple,#cookiescript_injected_fsd .mdc-switch__ripple{left:50%;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:-1}#cookiescript_injected .mdc-switch:disabled .mdc-switch__ripple,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__ripple{display:none}#cookiescript_injected .mdc-switch__icons,#cookiescript_injected_fsd .mdc-switch__icons{height:100%;position:relative;width:100%;z-index:1}#cookiescript_injected .mdc-switch__icon,#cookiescript_injected_fsd .mdc-switch__icon{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;opacity:0;transition:opacity 30ms 0s cubic-bezier(.4,0,1,1)}#cookiescript_injected .mdc-switch--selected .mdc-switch__icon--on,#cookiescript_injected .mdc-switch--unselected .mdc-switch__icon--off,#cookiescript_injected_fsd .mdc-switch--selected .mdc-switch__icon--on,#cookiescript_injected_fsd .mdc-switch--unselected .mdc-switch__icon--off{opacity:1;transition:opacity 45ms 30ms cubic-bezier(0,0,.2,1)}#cookiescript_injected .mdc-switch,#cookiescript_injected_fsd .mdc-switch{will-change:transform,opacity}@-webkit-keyframes mdc-ripple-fg-radius-in{from{-webkit-animation-timing-function:cubic-bezier(.4,0,.2,1);animation-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transform:translate(0) scale(1);transform:translate(0) scale(1)}to{-webkit-transform:translate(0) scale(1);transform:translate(0) scale(1)}}@keyframes mdc-ripple-fg-radius-in{from{-webkit-animation-timing-function:cubic-bezier(.4,0,.2,1);animation-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transform:translate(0) scale(1);transform:translate(0) scale(1)}to{-webkit-transform:translate(0) scale(1);transform:translate(0) scale(1)}}@-webkit-keyframes mdc-ripple-fg-opacity-in{from{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:0}to{opacity:.1}}@keyframes mdc-ripple-fg-opacity-in{from{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:0}to{opacity:.1}}@-webkit-keyframes mdc-ripple-fg-opacity-out{from{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:.1}to{opacity:0}}@keyframes mdc-ripple-fg-opacity-out{from{-webkit-animation-timing-function:linear;animation-timing-function:linear;opacity:.1}to{opacity:0}}#cookiescript_injected .mdc-switch .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch .mdc-switch__ripple::before{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}#cookiescript_injected .mdc-switch .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch .mdc-switch__ripple::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1}#cookiescript_injected .mdc-switch .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch .mdc-switch__ripple::after{z-index:0}#cookiescript_injected .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::before{-webkit-transform:scale(1);transform:scale(1)}#cookiescript_injected .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::after{top:0;left:0;-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:center center;transform-origin:center center}#cookiescript_injected .mdc-switch.mdc-ripple-upgraded--unbounded .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded--unbounded .mdc-switch__ripple::after{top:0;left:0}#cookiescript_injected .mdc-switch.mdc-ripple-upgraded--foreground-activation .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded--foreground-activation .mdc-switch__ripple::after{-webkit-animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards;animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}#cookiescript_injected .mdc-switch.mdc-ripple-upgraded--foreground-deactivation .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded--foreground-deactivation .mdc-switch__ripple::after{-webkit-animation:mdc-ripple-fg-opacity-out 150ms;animation:mdc-ripple-fg-opacity-out 150ms;-webkit-transform:translate(0) scale(1);transform:translate(0) scale(1)}#cookiescript_injected .mdc-switch .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch .mdc-switch__ripple::before{top:calc(50% - 50%);left:calc(50% - 50%);width:100%;height:100%}#cookiescript_injected .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::before{top:0;left:0;width:0;height:0}#cookiescript_injected .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-ripple-upgraded .mdc-switch__ripple::after{width:0;height:0}#cookiescript_injected .mdc-switch,#cookiescript_injected_fsd .mdc-switch{width:36px}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after{background:}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus):not(:active) .mdc-switch__handle::after{background:}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:focus:not(:active) .mdc-switch__handle::after{background:}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__handle::after{background:}#cookiescript_injected .mdc-switch.mdc-switch--selected:disabled .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:disabled .mdc-switch__handle::after{background:#424242}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled .mdc-switch__handle::after{background:#616161}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus):not(:active) .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus):not(:active) .mdc-switch__handle::after{background:#212121}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:focus:not(:active) .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:focus:not(:active) .mdc-switch__handle::after{background:#212121}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__handle::after{background:#212121}#cookiescript_injected .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__handle::after{background:#424242}#cookiescript_injected .mdc-switch .mdc-switch__handle::before,#cookiescript_injected_fsd .mdc-switch .mdc-switch__handle::before{background:#fff}#cookiescript_injected .mdc-switch:enabled .mdc-switch__shadow,#cookiescript_injected_fsd .mdc-switch:enabled .mdc-switch__shadow{box-shadow:0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12);--mdc-elevation-box-shadow-for-gss:0px 2px 1px -1px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 1px 3px 0px rgba(0, 0, 0, 0.12)}#cookiescript_injected .mdc-switch:disabled .mdc-switch__shadow,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__shadow{box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12);--mdc-elevation-box-shadow-for-gss:0px 0px 0px 0px rgba(0, 0, 0, 0.2),0px 0px 0px 0px rgba(0, 0, 0, 0.14),0px 0px 0px 0px rgba(0, 0, 0, 0.12)}#cookiescript_injected .mdc-switch .mdc-switch__handle,#cookiescript_injected_fsd .mdc-switch .mdc-switch__handle{height:20px}#cookiescript_injected .mdc-switch:disabled .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__handle::after{opacity:.38}#cookiescript_injected .mdc-switch .mdc-switch__handle,#cookiescript_injected_fsd .mdc-switch .mdc-switch__handle{border-radius:10px}#cookiescript_injected .mdc-switch .mdc-switch__handle,#cookiescript_injected_fsd .mdc-switch .mdc-switch__handle{width:20px}#cookiescript_injected .mdc-switch .mdc-switch__handle-track,#cookiescript_injected_fsd .mdc-switch .mdc-switch__handle-track{width:calc(100% - 20px)}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled .mdc-switch__icon,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled .mdc-switch__icon{fill:#fff}#cookiescript_injected .mdc-switch.mdc-switch--selected:disabled .mdc-switch__icon,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:disabled .mdc-switch__icon{fill:#fff}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled .mdc-switch__icon,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled .mdc-switch__icon{fill:#fff}#cookiescript_injected .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__icon,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__icon{fill:#fff}#cookiescript_injected .mdc-switch.mdc-switch--selected:disabled .mdc-switch__icons,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:disabled .mdc-switch__icons{opacity:.38}#cookiescript_injected .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__icons,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__icons{opacity:.38}#cookiescript_injected .mdc-switch.mdc-switch--selected .mdc-switch__icon,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected .mdc-switch__icon{width:18px;height:18px}#cookiescript_injected .mdc-switch.mdc-switch--unselected .mdc-switch__icon,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected .mdc-switch__icon{width:18px;height:18px}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus) .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus) .mdc-switch__ripple::before{background-color:}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:focus .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:focus .mdc-switch__ripple::before{background-color:}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__ripple::before{background-color:}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus) .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus) .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus) .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus) .mdc-switch__ripple::before{background-color:#424242}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:focus .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:focus .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:focus .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:focus .mdc-switch__ripple::before{background-color:#424242}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__ripple::after,#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:active .mdc-switch__ripple::before{background-color:#424242}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus).mdc-ripple-surface--hover .mdc-switch__ripple::before,#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus):hover .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus).mdc-ripple-surface--hover .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:hover:not(:focus):hover .mdc-switch__ripple::before{opacity:.04}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:focus.mdc-ripple-upgraded--background-focused .mdc-switch__ripple::before,#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:focus:not(.mdc-ripple-upgraded):focus .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:focus.mdc-ripple-upgraded--background-focused .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:focus:not(.mdc-ripple-upgraded):focus .mdc-switch__ripple::before{transition-duration:75ms;opacity:.12}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:active:not(.mdc-ripple-upgraded) .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:active:not(.mdc-ripple-upgraded) .mdc-switch__ripple::after{transition:opacity 150ms linear}#cookiescript_injected .mdc-switch.mdc-switch--selected:enabled:active:not(.mdc-ripple-upgraded):active .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:enabled:active:not(.mdc-ripple-upgraded):active .mdc-switch__ripple::after{transition-duration:75ms;opacity:.1}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus).mdc-ripple-surface--hover .mdc-switch__ripple::before,#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus):hover .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus).mdc-ripple-surface--hover .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:hover:not(:focus):hover .mdc-switch__ripple::before{opacity:.04}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:focus.mdc-ripple-upgraded--background-focused .mdc-switch__ripple::before,#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:focus:not(.mdc-ripple-upgraded):focus .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:focus.mdc-ripple-upgraded--background-focused .mdc-switch__ripple::before,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:focus:not(.mdc-ripple-upgraded):focus .mdc-switch__ripple::before{transition-duration:75ms;opacity:.12}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:active:not(.mdc-ripple-upgraded) .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:active:not(.mdc-ripple-upgraded) .mdc-switch__ripple::after{transition:opacity 150ms linear}#cookiescript_injected .mdc-switch.mdc-switch--unselected:enabled:active:not(.mdc-ripple-upgraded):active .mdc-switch__ripple::after,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:enabled:active:not(.mdc-ripple-upgraded):active .mdc-switch__ripple::after{transition-duration:75ms;opacity:.1}#cookiescript_injected .mdc-switch .mdc-switch__ripple,#cookiescript_injected_fsd .mdc-switch .mdc-switch__ripple{height:48px;width:48px}#cookiescript_injected .mdc-switch .mdc-switch__track,#cookiescript_injected_fsd .mdc-switch .mdc-switch__track{height:14px}#cookiescript_injected .mdc-switch:disabled .mdc-switch__track,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__track{opacity:.12}#cookiescript_injected .mdc-switch:enabled .mdc-switch__track::after{background:;opacity:0.3}#cookiescript_injected .mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::after{background:;opacity:0.3}#cookiescript_injected .mdc-switch:enabled:focus:not(:active) .mdc-switch__track::after{background:;opacity:0.3}#cookiescript_injected .mdc-switch:enabled:active .mdc-switch__track::after{background:;opacity:0.3}#cookiescript_injected .mdc-switch:disabled .mdc-switch__track::after,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__track::after{background:#424242}#cookiescript_injected .mdc-switch:enabled .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch:enabled .mdc-switch__track::before{background:#e0e0e0}#cookiescript_injected .mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::before{background:#e0e0e0}#cookiescript_injected .mdc-switch:enabled:focus:not(:active) .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch:enabled:focus:not(:active) .mdc-switch__track::before{background:#e0e0e0}#cookiescript_injected .mdc-switch:enabled:active .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch:enabled:active .mdc-switch__track::before{background:#e0e0e0}#cookiescript_injected .mdc-switch:disabled .mdc-switch__track::before,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__track::before{background:#424242}#cookiescript_injected .mdc-switch .mdc-switch__track,#cookiescript_injected_fsd .mdc-switch .mdc-switch__track{border-radius:7px}@media screen and (forced-colors:active),(-ms-high-contrast:active){#cookiescript_injected .mdc-switch:disabled .mdc-switch__handle::after,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__handle::after{opacity:1}#cookiescript_injected .mdc-switch.mdc-switch--selected:disabled .mdc-switch__icons,#cookiescript_injected_fsd .mdc-switch.mdc-switch--selected:disabled .mdc-switch__icons{opacity:1}#cookiescript_injected .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__icons,#cookiescript_injected_fsd .mdc-switch.mdc-switch--unselected:disabled .mdc-switch__icons{opacity:1}#cookiescript_injected .mdc-switch:disabled .mdc-switch__track,#cookiescript_injected_fsd .mdc-switch:disabled .mdc-switch__track{opacity:1}}
+/*End Toggle*/
+
+#cookiescript_injected {
+bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    padding: 15px 20px 10px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    align-items: center;
+    max-height: 85%;
+    overflow-y: auto;
+}
+
+.cookiescript-extra-links{
+    padding-top:0;
+}
+.cookiescript-extra-links a{
+    margin-left:0;
+    margin-right: 25px;
+}
+
+#cookiescript_copyright {
+    line-height: 1;
+    text-align: center;
+}
+#cookiescript_buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 0 10px 0;
+}
+#cookiescript_manage_wrap {
+    margin: 0 0 14px 0;
+}
+#cookiescript_header {
+    padding: 3px 0 8px;
+    margin: 0 60px;
+    text-align: center;
+}
+#cookiescript_checkboxs {
+    margin: -5px auto 8px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cookiescript_checkbox {
+    margin: 0;
+}
+#cookiescript_accept, #cookiescript_reject, #cookiescript_save {
+    margin: 5px 7px;
+    flex-shrink: 1;
+    padding: 0 23px;
+    white-space: normal;
+}
+#cookiescript_description {
+    margin: 0 auto 8px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.cookiescript_checkbox_label{
+    padding: 0;
+    margin: 0 10px 0 -2px;
+}
+#cookiescript_cookietablewrap {
+    transition: height 300ms 0ms, min-height 300ms 0ms, max-height 300ms 0ms, opacity 200ms 300ms;
+}
+#cookiescript_cookietablewrap.cookiescript_hidden {
+    transition: height 300ms 0ms, min-height 300ms 0ms, max-height 300ms 0ms, opacity 200ms 0ms;
+}
+
+@media only screen and (max-width: 440px) {
+    #cookiescript_injected{
+    bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        text-align:left;
+        align-items: center;
+    }
+    #cookiescript_description{
+        text-align: left;
+    }
+    #cookiescript_description,
+    #cookiescript_buttons,
+    #cookiescript_manage_wrap,
+    #cookiescript_checkboxs
+    {
+        margin-bottom: 8px;
+    }
+    #cookiescript_header{
+        padding-top:5px;
+        margin-left:0;
+        text-align: left;
+        align-self: baseline;
+                margin-right: 25px;
+            }
+    
+    #cookiescript_show_all_partners_button{
+        width: 100%;
+    }
+    #cookiescript_buttons {
+        flex-wrap: wrap;
+        width:100%;
+    }
+    #cookiescript_accept, #cookiescript_reject, #cookiescript_save {
+		width:100%;
+	}
+	#cookiescript_injected {
+		max-height: 100%;
+	}
+}
+
+#cookiescript_accept, #cookiescript_reject, #cookiescript_save {
+	border-radius: 20px;
+}
+
+/*IE 9 fixes*/
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) {
+	.cookiescript_checkbox{
+		display: inline-block;
+	}
+}
+@media screen and (min-width:0\0) and (min-resolution: .001dpcm) and (min-width: 1140px) {
+	#cookiescript_cookietablewrap {
+		left: calc(50% - 570px);
+	}
+}
+
+    </style>
+  <div id="cookiescript_injected_wrapper" data-cs-id="cookiescript_injected">
+	<div id="cookiescript_injected" tabindex="0" role="dialog" aria-label="Cookie consent dialog" data-nosnippet="" class="" style="">
+    <div class="cookiescript_pre_header">
+              <div id="cookiescript_close" tabindex="0" role="button" aria-label="Close">×</div>
+    </div>
+      <div id="cookiescript_header" data-cs-i18n-text="">
+    This website uses cookies  </div>
+  <div id="cookiescript_description">
+		  <div style="display:block !important; background-color:#C62C2C !important; color:#FFF !important; opacity: 1 !important; border-radius:10px; padding:1px 7px 0 7px;">This Cookie Banner was deleted and is no longer working. Please contact the website administrator.</div>
+      <span data-cs-desc-box="true" data-cs-i18n-text="" data-cs-i18n-read="This website uses cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookie Policy.">
+      This website uses cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookie Policy.    </span>
+
+    
+      
+      <a id="cookiescript_readmore" data-cs-i18n-text="{&quot;en&quot;:&quot;Read more&quot;}" data-cs-i18n-url="{&quot;en&quot;:&quot;\/policy.html&quot;}" target="_blank" aria-label="Read more, opens a new window" href="/policy.html">
+        Read more      </a>
+
+          </div>
+  <div id="cookiescript_checkboxs">
+          
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input tabindex="0" id="cookiescript_category_strict" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="strict" disabled="" checked="">
+          <div class="mdc-checkbox__background">
+            <svg role="none" class="mdc-checkbox__checkmark" viewBox="0 0 40 40">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M9.47,20.975 15.84,27.345 30.53,12.655"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_strict">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="">
+            Strictly necessary          </span>
+        </label>
+      </div>
+
+          
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input tabindex="0" id="cookiescript_category_performance" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="performance">
+          <div class="mdc-checkbox__background">
+            <svg role="none" class="mdc-checkbox__checkmark" viewBox="0 0 40 40">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M9.47,20.975 15.84,27.345 30.53,12.655"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_performance">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="">
+            Performance          </span>
+        </label>
+      </div>
+
+          
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input tabindex="0" id="cookiescript_category_targeting" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="targeting">
+          <div class="mdc-checkbox__background">
+            <svg role="none" class="mdc-checkbox__checkmark" viewBox="0 0 40 40">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M9.47,20.975 15.84,27.345 30.53,12.655"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_targeting">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="">
+            Targeting          </span>
+        </label>
+      </div>
+
+          
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input tabindex="0" id="cookiescript_category_functionality" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="functionality">
+          <div class="mdc-checkbox__background">
+            <svg role="none" class="mdc-checkbox__checkmark" viewBox="0 0 40 40">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M9.47,20.975 15.84,27.345 30.53,12.655"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_functionality">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="">
+            Functionality          </span>
+        </label>
+      </div>
+
+          
+            <div class="cookiescript_checkbox">
+        <div class="mdc-checkbox">
+          <input tabindex="0" id="cookiescript_category_unclassified" data-cookiescript="checkbox-input" type="checkbox" class="mdc-checkbox__native-control cookiescript_checkbox_input" value="unclassified">
+          <div class="mdc-checkbox__background">
+            <svg role="none" class="mdc-checkbox__checkmark" viewBox="0 0 40 40">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M9.47,20.975 15.84,27.345 30.53,12.655"></path>
+            </svg>
+          </div>
+        </div>
+        <label class="cookiescript_checkbox_label" for="cookiescript_category_unclassified">
+          <span class="cookiescript_checkbox_text" data-cs-i18n-text="">
+            Unclassified          </span>
+        </label>
+      </div>
+
+      </div>
+  <div id="cookiescript_buttons">
+              <div id="cookiescript_accept" tabindex="0" role="button" data-cs-i18n-text="">
+        Accept all      </div>
+              <div id="cookiescript_reject" tabindex="0" role="button" data-cs-i18n-text="">
+        Decline all      </div>
+      </div>
+
+  <div id="cookiescript_manage_wrap" tabindex="0" role="button">
+    <div id="cookiescript_manage">
+      <svg role="none" id="cookiescript_manageicon" viewBox="0 0 9.62 9.57">
+        <g id="cs-manage-btn">
+          <g id="cs-manage-btn-1-2">
+            <path class="cookiescript_gear" d="M9.46,6.06l-1.1-.78c0-.16.06-.31.06-.47a1.27,1.27,0,0,0-.06-.47L9.57,3.4l-1.15-2L7,1.93a2.74,2.74,0,0,0-.83-.47L6,0H3.61L3.35,1.46a7.14,7.14,0,0,0-.79.47L1.15,1.36,0,3.4l1.15.94c0,.16,0,.31,0,.47a1.51,1.51,0,0,0,0,.47l-1,.78A.75.75,0,0,0,0,6.17l1.15,2,1.41-.58a2.49,2.49,0,0,0,.84.47l.21,1.47H6a.53.53,0,0,1,0-.21L6.22,8.1a4,4,0,0,0,.84-.47l1.41.58,1.15-2A.75.75,0,0,0,9.46,6.06Zm-4.65.19A1.47,1.47,0,1,1,6.28,4.78,1.47,1.47,0,0,1,4.81,6.25Z"></path>
+          </g>
+        </g>
+      </svg>
+      <span data-cs-show-title="cookie-script" data-cs-i18n-text="">
+        Show details      </span>
+      <span style="display: none" data-cs-hide-title="cookie-script" data-cs-i18n-text="">
+        Hide details      </span>
+    </div>
+  </div>
+		<div class="cookiescript_hidden" id="cookiescript_cookietablewrap">
+					</div>
+		
+
+
+	</div>
+</div>
+</body></html>

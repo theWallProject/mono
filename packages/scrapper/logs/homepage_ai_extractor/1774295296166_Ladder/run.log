@@ -1,0 +1,67 @@
+[2026-03-23T19:48:16.167Z] === Homepage AI Extractor: Ladder ===
+[2026-03-23T19:48:16.167Z] Started at: 2026-03-23T19:48:16.167Z
+[2026-03-23T19:48:16.167Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774295296166_Ladder
+[2026-03-23T19:48:16.167Z] Company: Ladder
+[2026-03-23T19:48:16.167Z] Website: teams.joinladder.com
+[2026-03-23T19:48:16.167Z] cbRank: 11282
+[2026-03-23T19:48:16.167Z] Reasons: i
+[2026-03-23T19:48:16.167Z] Fetching: https://teams.joinladder.com
+[2026-03-23T19:48:19.333Z] Redirected: https://teams.joinladder.com -> https://www.joinladder.com/
+[2026-03-23T19:48:19.339Z] Saved HTML (188442 bytes) to page.html
+[2026-03-23T19:48:19.342Z] Extracted 36 unique links from page
+[2026-03-23T19:48:19.343Z] Saved 36 links to links.json
+[2026-03-23T19:48:19.345Z] No footer section found in DOM
+[2026-03-23T19:48:19.345Z] Extracted header HTML (655 chars)
+[2026-03-23T19:48:19.350Z] Website (post-redirect): https://www.joinladder.com/ → origin: https://www.joinladder.com
+[2026-03-23T19:48:19.351Z]   SUBDOMAIN: blog.joinladder.com (added to ws)
+[2026-03-23T19:48:19.351Z]   SUBDOMAIN: shop.joinladder.com (added to ws)
+[2026-03-23T19:48:19.351Z] Website subdomains found: 2
+[2026-03-23T19:48:19.351Z] External links: 4 (of 36 total)
+[2026-03-23T19:48:19.351Z] ── All external links ──
+[2026-03-23T19:48:19.351Z]   EXT: https://facebook.com/joinladder
+[2026-03-23T19:48:19.351Z]   EXT: https://instagram.com/joinladder
+[2026-03-23T19:48:19.351Z]   EXT: https://jobs.ashbyhq.com/ladder
+[2026-03-23T19:48:19.351Z]   EXT: https://tiktok.com/@joinladder
+[2026-03-23T19:48:19.351Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:48:19.351Z]   REGEX: fb <- https://facebook.com/joinladder
+[2026-03-23T19:48:19.351Z]   REGEX: ig <- https://instagram.com/joinladder
+[2026-03-23T19:48:19.351Z]   UNCATEGORIZED: https://jobs.ashbyhq.com/ladder
+[2026-03-23T19:48:19.351Z]   REGEX: tt <- https://tiktok.com/@joinladder
+[2026-03-23T19:48:19.351Z] Programmatic result: ws:3, fb:1, ig:1, tt:1 | 1 uncategorized
+[2026-03-23T19:48:19.351Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:48:19.355Z] Saved AI prompt (1958 chars) to ai_prompt.txt
+[2026-03-23T19:48:19.355Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:48:19.359Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:48:26.176Z]   AI: First token received, streaming...
+[2026-03-23T19:48:27.096Z] AI response complete: 31 chars in 7.7s
+[2026-03-23T19:48:27.097Z] Saved AI response to ai_response.json
+[2026-03-23T19:48:27.097Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T19:48:27.097Z]   AI LINK: https://jobs.ashbyhq.com/ladder
+[2026-03-23T19:48:27.098Z] AI returned 1 valid links
+[2026-03-23T19:48:27.098Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T19:48:27.098Z]   AI→URLS: https://jobs.ashbyhq.com/ladder
+[2026-03-23T19:48:27.098Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:48:27.098Z] Footer/header origins (0):
+[2026-03-23T19:48:27.098Z]   SKIP (AI claimed): https://jobs.ashbyhq.com/ladder
+[2026-03-23T19:48:27.098Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:48:27.098Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:48:27.098Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:48:27.098Z] ── Step 3: Final dedup ──
+[2026-03-23T19:48:27.099Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T19:48:27.099Z] ── FINAL RESULT ──
+[2026-03-23T19:48:27.099Z]   ws (3):
+[2026-03-23T19:48:27.099Z]     - https://blog.joinladder.com
+[2026-03-23T19:48:27.099Z]     - https://shop.joinladder.com
+[2026-03-23T19:48:27.099Z]     - https://www.joinladder.com
+[2026-03-23T19:48:27.099Z]   fb (1):
+[2026-03-23T19:48:27.099Z]     - https://www.facebook.com/joinladder
+[2026-03-23T19:48:27.099Z]   ig (1):
+[2026-03-23T19:48:27.099Z]     - https://www.instagram.com/joinladder
+[2026-03-23T19:48:27.099Z]   tt (1):
+[2026-03-23T19:48:27.099Z]     - https://www.tiktok.com/@joinladder
+[2026-03-23T19:48:27.099Z]   urls (1):
+[2026-03-23T19:48:27.100Z]     - https://jobs.ashbyhq.com/ladder
+[2026-03-23T19:48:27.100Z] Summary: ws:3, fb:1, ig:1, tt:1, urls:1
+[2026-03-23T19:48:27.101Z] Saved final result to result.json
+[2026-03-23T19:48:27.101Z] Override fields: ws, fb, ig, tt, urls
+[2026-03-23T19:48:27.101Z] Finished at: 2026-03-23T19:48:27.101Z

@@ -1,0 +1,65 @@
+[2026-03-23T00:05:09.034Z] === Homepage AI Extractor: Seemore Data ===
+[2026-03-23T00:05:09.034Z] Started at: 2026-03-23T00:05:09.034Z
+[2026-03-23T00:05:09.034Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774224309034_Seemore_Data
+[2026-03-23T00:05:09.034Z] Company: Seemore Data
+[2026-03-23T00:05:09.034Z] Website: seemoredata.io
+[2026-03-23T00:05:09.034Z] cbRank: 383392
+[2026-03-23T00:05:09.034Z] Reasons: f
+[2026-03-23T00:05:09.034Z] Fetching: https://seemoredata.io
+[2026-03-23T00:05:10.237Z] Redirected: https://seemoredata.io -> https://seemoredata.io/
+[2026-03-23T00:05:10.245Z] Saved HTML (313328 bytes) to page.html
+[2026-03-23T00:05:10.247Z] Extracted 57 unique links from page
+[2026-03-23T00:05:10.248Z] Saved 57 links to links.json
+[2026-03-23T00:05:10.251Z] Extracted footer HTML (7940 chars)
+[2026-03-23T00:05:10.251Z] Extracted header HTML (37095 chars)
+[2026-03-23T00:05:10.254Z] Website (post-redirect): https://seemoredata.io/ → origin: https://seemoredata.io
+[2026-03-23T00:05:10.254Z]   SUBDOMAIN: docs.seemoredata.io (added to ws)
+[2026-03-23T00:05:10.254Z]   SUBDOMAIN: login.app.seemoredata.io (added to ws)
+[2026-03-23T00:05:10.254Z] Website subdomains found: 2
+[2026-03-23T00:05:10.255Z] External links: 2 (of 57 total)
+[2026-03-23T00:05:10.255Z] ── All external links ──
+[2026-03-23T00:05:10.255Z]   EXT: https://www.linkedin.com/company/seemore-data/about
+[2026-03-23T00:05:10.255Z]   EXT: https://www.youtube.com/@SeemoreData
+[2026-03-23T00:05:10.255Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:05:10.255Z]   REGEX: li <- https://www.linkedin.com/company/seemore-data/about
+[2026-03-23T00:05:10.255Z]   REGEX: ytp <- https://www.youtube.com/@SeemoreData
+[2026-03-23T00:05:10.255Z] Programmatic result: ws:3, li:1, ytp:1 | 0 uncategorized
+[2026-03-23T00:05:10.255Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:05:10.259Z] Saved AI prompt (6043 chars) to ai_prompt.txt
+[2026-03-23T00:05:10.259Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:05:10.263Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:05:37.909Z]   AI: First token received, streaming...
+[2026-03-23T00:05:42.298Z] AI response complete: 89 chars in 32.0s
+[2026-03-23T00:05:42.299Z] Saved AI response to ai_response.json
+[2026-03-23T00:05:42.300Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T00:05:42.300Z]   AI LINK: https://www.youtube.com/@SeemoreData
+[2026-03-23T00:05:42.300Z]   AI LINK: https://www.linkedin.com/company/seemore-data/about/
+[2026-03-23T00:05:42.300Z] AI returned 2 valid links
+[2026-03-23T00:05:42.300Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T00:05:42.301Z]   AI→REGEX: ytp <- https://www.youtube.com/@SeemoreData (duplicate, skipped)
+[2026-03-23T00:05:42.301Z]   AI→REGEX: li <- https://www.linkedin.com/company/seemore-data/about/ (duplicate, skipped)
+[2026-03-23T00:05:42.301Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:05:42.301Z] Footer/header origins (5):
+[2026-03-23T00:05:42.302Z]   FOOTER/HEADER ORIGIN: https://seemoredata.io
+[2026-03-23T00:05:42.302Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T00:05:42.302Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:05:42.302Z]   FOOTER/HEADER ORIGIN: https://login.app.seemoredata.io
+[2026-03-23T00:05:42.302Z]   FOOTER/HEADER ORIGIN: https://docs.seemoredata.io
+[2026-03-23T00:05:42.302Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T00:05:42.302Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:05:42.302Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:05:42.303Z] ── Step 3: Final dedup ──
+[2026-03-23T00:05:42.303Z] No urls to dedup
+[2026-03-23T00:05:42.303Z] ── FINAL RESULT ──
+[2026-03-23T00:05:42.303Z]   ws (3):
+[2026-03-23T00:05:42.303Z]     - https://docs.seemoredata.io
+[2026-03-23T00:05:42.303Z]     - https://login.app.seemoredata.io
+[2026-03-23T00:05:42.303Z]     - https://seemoredata.io
+[2026-03-23T00:05:42.303Z]   li (1):
+[2026-03-23T00:05:42.303Z]     - https://www.linkedin.com/company/seemore-data
+[2026-03-23T00:05:42.304Z]   ytp (1):
+[2026-03-23T00:05:42.304Z]     - https://www.youtube.com/@seemoredata
+[2026-03-23T00:05:42.304Z] Summary: ws:3, li:1, ytp:1
+[2026-03-23T00:05:42.305Z] Saved final result to result.json
+[2026-03-23T00:05:42.305Z] Override fields: ws, li, ytp
+[2026-03-23T00:05:42.306Z] Finished at: 2026-03-23T00:05:42.306Z

@@ -1,0 +1,75 @@
+[2026-03-23T19:17:00.324Z] === Homepage AI Extractor: Sesame ===
+[2026-03-23T19:17:00.324Z] Started at: 2026-03-23T19:17:00.324Z
+[2026-03-23T19:17:00.324Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774293420323_Sesame
+[2026-03-23T19:17:00.324Z] Company: Sesame
+[2026-03-23T19:17:00.324Z] Website: sesamecare.com
+[2026-03-23T19:17:00.324Z] cbRank: 8406
+[2026-03-23T19:17:00.324Z] Reasons: i
+[2026-03-23T19:17:00.324Z] Fetching: https://sesamecare.com
+[2026-03-23T19:17:04.444Z] Redirected: https://sesamecare.com -> https://sesamecare.com/
+[2026-03-23T19:17:04.483Z] Saved HTML (1343757 bytes) to page.html
+[2026-03-23T19:17:04.488Z] Extracted 96 unique links from page
+[2026-03-23T19:17:04.491Z] Saved 96 links to links.json
+[2026-03-23T19:17:04.495Z] No footer section found in DOM
+[2026-03-23T19:17:04.495Z] Extracted header HTML (7634 chars)
+[2026-03-23T19:17:04.501Z] Website (post-redirect): https://sesamecare.com/ → origin: https://sesamecare.com
+[2026-03-23T19:17:04.501Z]   SUBDOMAIN: doctors.sesamecare.com (added to ws)
+[2026-03-23T19:17:04.501Z]   SUBDOMAIN: share.sesamecare.com (added to ws)
+[2026-03-23T19:17:04.501Z] Website subdomains found: 2
+[2026-03-23T19:17:04.501Z] External links: 6 (of 96 total)
+[2026-03-23T19:17:04.501Z] ── All external links ──
+[2026-03-23T19:17:04.501Z]   EXT: https://instagram.com/sesamecare
+[2026-03-23T19:17:04.501Z]   EXT: https://jobs.lever.co/sesame
+[2026-03-23T19:17:04.501Z]   EXT: https://twitter.com/Sesamecare
+[2026-03-23T19:17:04.502Z]   EXT: https://www.facebook.com/sesamecare
+[2026-03-23T19:17:04.502Z]   EXT: https://www.legitscript.com/websites/?checker_keywords=sesamecare.com
+[2026-03-23T19:17:04.502Z]   EXT: https://www.linkedin.com/company/sesamecare
+[2026-03-23T19:17:04.502Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:17:04.502Z]   REGEX: ig <- https://instagram.com/sesamecare
+[2026-03-23T19:17:04.503Z]   UNCATEGORIZED: https://jobs.lever.co/sesame
+[2026-03-23T19:17:04.503Z]   REGEX: tw <- https://twitter.com/Sesamecare
+[2026-03-23T19:17:04.503Z]   REGEX: fb <- https://www.facebook.com/sesamecare
+[2026-03-23T19:17:04.503Z]   UNCATEGORIZED: https://www.legitscript.com/websites/?checker_keywords=sesamecare.com
+[2026-03-23T19:17:04.503Z]   REGEX: li <- https://www.linkedin.com/company/sesamecare
+[2026-03-23T19:17:04.503Z] Programmatic result: ws:3, ig:1, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-23T19:17:04.503Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:17:04.504Z] Saved AI prompt (2027 chars) to ai_prompt.txt
+[2026-03-23T19:17:04.504Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:17:04.509Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:17:11.310Z]   AI: First token received, streaming...
+[2026-03-23T19:17:12.227Z] AI response complete: 28 chars in 7.7s
+[2026-03-23T19:17:12.228Z] Saved AI response to ai_response.json
+[2026-03-23T19:17:12.228Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T19:17:12.229Z]   AI LINK: https://jobs.lever.co/sesame
+[2026-03-23T19:17:12.229Z] AI returned 1 valid links
+[2026-03-23T19:17:12.229Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T19:17:12.229Z]   AI→URLS: https://jobs.lever.co/sesame
+[2026-03-23T19:17:12.230Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:17:12.230Z] Footer/header origins (1):
+[2026-03-23T19:17:12.230Z]   FOOTER/HEADER ORIGIN: https://share.sesamecare.com
+[2026-03-23T19:17:12.230Z]   SKIP (AI claimed): https://jobs.lever.co/sesame
+[2026-03-23T19:17:12.230Z]   SKIP (not in footer/header): https://www.legitscript.com/websites/?checker_keywords=sesamecare.com
+[2026-03-23T19:17:12.230Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:17:12.230Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:17:12.230Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:17:12.231Z] ── Step 3: Final dedup ──
+[2026-03-23T19:17:12.231Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T19:17:12.231Z] ── FINAL RESULT ──
+[2026-03-23T19:17:12.231Z]   ws (3):
+[2026-03-23T19:17:12.231Z]     - https://doctors.sesamecare.com
+[2026-03-23T19:17:12.231Z]     - https://sesamecare.com
+[2026-03-23T19:17:12.231Z]     - https://share.sesamecare.com
+[2026-03-23T19:17:12.231Z]   li (1):
+[2026-03-23T19:17:12.231Z]     - https://www.linkedin.com/company/sesamecare
+[2026-03-23T19:17:12.231Z]   fb (1):
+[2026-03-23T19:17:12.231Z]     - https://www.facebook.com/sesamecare
+[2026-03-23T19:17:12.231Z]   tw (1):
+[2026-03-23T19:17:12.232Z]     - https://x.com/sesamecare
+[2026-03-23T19:17:12.232Z]   ig (1):
+[2026-03-23T19:17:12.232Z]     - https://www.instagram.com/sesamecare
+[2026-03-23T19:17:12.232Z]   urls (1):
+[2026-03-23T19:17:12.232Z]     - https://jobs.lever.co/sesame
+[2026-03-23T19:17:12.232Z] Summary: ws:3, ig:1, tw:1, fb:1, li:1, urls:1
+[2026-03-23T19:17:12.233Z] Saved final result to result.json
+[2026-03-23T19:17:12.233Z] Override fields: ws, li, fb, tw, ig, urls
+[2026-03-23T19:17:12.233Z] Finished at: 2026-03-23T19:17:12.233Z

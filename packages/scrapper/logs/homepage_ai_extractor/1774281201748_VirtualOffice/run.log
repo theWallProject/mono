@@ -1,0 +1,75 @@
+[2026-03-23T15:53:21.749Z] === Homepage AI Extractor: VirtualOffice ===
+[2026-03-23T15:53:21.749Z] Started at: 2026-03-23T15:53:21.749Z
+[2026-03-23T15:53:21.749Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774281201748_VirtualOffice
+[2026-03-23T15:53:21.749Z] Company: VirtualOffice
+[2026-03-23T15:53:21.749Z] Website: customvirtualoffice.com
+[2026-03-23T15:53:21.749Z] cbRank: 1873215
+[2026-03-23T15:53:21.749Z] Reasons: f
+[2026-03-23T15:53:21.749Z] Fetching: https://customvirtualoffice.com
+[2026-03-23T15:53:35.374Z] Network idle timeout — continuing with current state
+[2026-03-23T15:53:35.415Z] Redirected: https://customvirtualoffice.com -> https://www.customvirtualoffice.com/
+[2026-03-23T15:53:35.452Z] Saved HTML (1616623 bytes) to page.html
+[2026-03-23T15:53:35.457Z] Extracted 66 unique links from page
+[2026-03-23T15:53:35.461Z] Saved 66 links to links.json
+[2026-03-23T15:53:35.464Z] Extracted footer HTML (23655 chars)
+[2026-03-23T15:53:35.464Z] Extracted header HTML (44305 chars)
+[2026-03-23T15:53:35.468Z] Website (post-redirect): https://www.customvirtualoffice.com/ → origin: https://www.customvirtualoffice.com
+[2026-03-23T15:53:35.469Z] External links: 5 (of 66 total)
+[2026-03-23T15:53:35.469Z] ── All external links ──
+[2026-03-23T15:53:35.469Z]   EXT: https://support.zoom.us/hc/en-us/articles/210707503-Virtual-Background
+[2026-03-23T15:53:35.469Z]   EXT: https://twitter.com/VLabsCo
+[2026-03-23T15:53:35.469Z]   EXT: https://www.linkedin.com/company/v-labsco
+[2026-03-23T15:53:35.469Z]   EXT: https://www.notion.so/vlabsltd/V-Labs-Press-Kit-4fb4110e30db4fad9b752467973c7422
+[2026-03-23T15:53:35.469Z]   EXT: https://www.v-labs.co
+[2026-03-23T15:53:35.469Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T15:53:35.469Z]   UNCATEGORIZED: https://support.zoom.us/hc/en-us/articles/210707503-Virtual-Background
+[2026-03-23T15:53:35.470Z]   REGEX: tw <- https://twitter.com/VLabsCo
+[2026-03-23T15:53:35.470Z]   REGEX: li <- https://www.linkedin.com/company/v-labsco
+[2026-03-23T15:53:35.470Z]   UNCATEGORIZED: https://www.notion.so/vlabsltd/V-Labs-Press-Kit-4fb4110e30db4fad9b752467973c7422
+[2026-03-23T15:53:35.470Z]   UNCATEGORIZED: https://www.v-labs.co
+[2026-03-23T15:53:35.470Z] Programmatic result: ws:1, tw:1, li:1 | 3 uncategorized
+[2026-03-23T15:53:35.470Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T15:53:35.471Z] Saved AI prompt (2810 chars) to ai_prompt.txt
+[2026-03-23T15:53:35.471Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T15:53:35.474Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T15:53:45.594Z]   AI: First token received, streaming...
+[2026-03-23T15:53:50.381Z] AI response complete: 92 chars in 14.9s
+[2026-03-23T15:53:50.382Z] Saved AI response to ai_response.json
+[2026-03-23T15:53:50.383Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T15:53:50.383Z]   AI LINK: https://www.v-labs.co/
+[2026-03-23T15:53:50.383Z]   AI LINK: https://twitter.com/VLabsCo
+[2026-03-23T15:53:50.383Z]   AI LINK: https://www.linkedin.com/company/v-labsco
+[2026-03-23T15:53:50.383Z] AI returned 3 valid links
+[2026-03-23T15:53:50.383Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T15:53:50.383Z]   AI→URLS: https://www.v-labs.co (cleaned from https://www.v-labs.co/)
+[2026-03-23T15:53:50.384Z]   AI→REGEX: tw <- https://twitter.com/VLabsCo (duplicate, skipped)
+[2026-03-23T15:53:50.384Z]   AI→REGEX: li <- https://www.linkedin.com/company/v-labsco (duplicate, skipped)
+[2026-03-23T15:53:50.384Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T15:53:50.384Z] Footer/header origins (5):
+[2026-03-23T15:53:50.384Z]   FOOTER/HEADER ORIGIN: https://www.customvirtualoffice.com
+[2026-03-23T15:53:50.384Z]   FOOTER/HEADER ORIGIN: https://www.v-labs.co
+[2026-03-23T15:53:50.384Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T15:53:50.384Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T15:53:50.385Z]   FOOTER/HEADER ORIGIN: https://www.notion.so
+[2026-03-23T15:53:50.385Z]   SKIP (not in footer/header): https://support.zoom.us/hc/en-us/articles/210707503-Virtual-Background
+[2026-03-23T15:53:50.385Z]   ADDED: urls <- https://www.notion.so/vlabsltd/V-Labs-Press-Kit-4fb4110e30db4fad9b752467973c7422
+[2026-03-23T15:53:50.385Z]   SKIP (AI claimed): https://www.v-labs.co
+[2026-03-23T15:53:50.385Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T15:53:50.385Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T15:53:50.385Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T15:53:50.385Z] ── Step 3: Final dedup ──
+[2026-03-23T15:53:50.385Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T15:53:50.385Z] ── FINAL RESULT ──
+[2026-03-23T15:53:50.385Z]   ws (1):
+[2026-03-23T15:53:50.385Z]     - https://www.customvirtualoffice.com
+[2026-03-23T15:53:50.386Z]   li (1):
+[2026-03-23T15:53:50.386Z]     - https://www.linkedin.com/company/v-labsco
+[2026-03-23T15:53:50.386Z]   tw (1):
+[2026-03-23T15:53:50.386Z]     - https://x.com/vlabsco
+[2026-03-23T15:53:50.386Z]   urls (2):
+[2026-03-23T15:53:50.386Z]     - https://www.notion.so/vlabsltd/V-Labs-Press-Kit-4fb4110e30db4fad9b752467973c7422
+[2026-03-23T15:53:50.386Z]     - https://www.v-labs.co
+[2026-03-23T15:53:50.386Z] Summary: ws:1, tw:1, li:1, urls:2
+[2026-03-23T15:53:50.387Z] Saved final result to result.json
+[2026-03-23T15:53:50.388Z] Override fields: ws, li, tw, urls
+[2026-03-23T15:53:50.388Z] Finished at: 2026-03-23T15:53:50.388Z

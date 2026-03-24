@@ -1,0 +1,69 @@
+[2026-03-22T00:20:27.703Z] === Homepage AI Extractor: Underline Infrastructure ===
+[2026-03-22T00:20:27.703Z] Started at: 2026-03-22T00:20:27.703Z
+[2026-03-22T00:20:27.703Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774138827703_Underline_Infrastructure
+[2026-03-22T00:20:27.703Z] Company: Underline Infrastructure
+[2026-03-22T00:20:27.704Z] Website: underline.com
+[2026-03-22T00:20:27.704Z] cbRank: 12552
+[2026-03-22T00:20:27.704Z] Reasons: f
+[2026-03-22T00:20:27.704Z] Fetching: https://underline.com
+[2026-03-22T00:20:31.237Z] Redirected: https://underline.com -> https://www.underline.com/
+[2026-03-22T00:20:31.243Z] Saved HTML (248839 bytes) to page.html
+[2026-03-22T00:20:31.246Z] Extracted 18 unique links from page
+[2026-03-22T00:20:31.246Z] Saved 18 links to links.json
+[2026-03-22T00:20:31.248Z] Extracted footer HTML (1429 chars)
+[2026-03-22T00:20:31.248Z] Extracted header HTML (6116 chars)
+[2026-03-22T00:20:31.251Z] Website (post-redirect): https://www.underline.com/ → origin: https://www.underline.com
+[2026-03-22T00:20:31.251Z]   SUBDOMAIN: app.underline.com (added to ws)
+[2026-03-22T00:20:31.251Z] Website subdomains found: 1
+[2026-03-22T00:20:31.251Z] External links: 3 (of 18 total)
+[2026-03-22T00:20:31.251Z] ── All external links ──
+[2026-03-22T00:20:31.251Z]   EXT: https://www.facebook.com/underlineinfra
+[2026-03-22T00:20:31.251Z]   EXT: https://www.instagram.com/underlineinfra
+[2026-03-22T00:20:31.251Z]   EXT: https://www.linkedin.com/company/underlineinfra
+[2026-03-22T00:20:31.251Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:20:31.252Z]   REGEX: fb <- https://www.facebook.com/underlineinfra
+[2026-03-22T00:20:31.252Z]   REGEX: ig <- https://www.instagram.com/underlineinfra
+[2026-03-22T00:20:31.252Z]   REGEX: li <- https://www.linkedin.com/company/underlineinfra
+[2026-03-22T00:20:31.252Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-22T00:20:31.252Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:20:31.253Z] Saved AI prompt (2745 chars) to ai_prompt.txt
+[2026-03-22T00:20:31.253Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:20:31.256Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:20:40.492Z]   AI: First token received, streaming...
+[2026-03-22T00:20:46.083Z] AI response complete: 130 chars in 14.8s
+[2026-03-22T00:20:46.084Z] Saved AI response to ai_response.json
+[2026-03-22T00:20:46.084Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:20:46.085Z]   AI LINK: https://www.facebook.com/underlineinfra
+[2026-03-22T00:20:46.085Z]   AI LINK: https://www.instagram.com/underlineinfra/
+[2026-03-22T00:20:46.085Z]   AI LINK: https://www.linkedin.com/company/underlineinfra/
+[2026-03-22T00:20:46.085Z] AI returned 3 valid links
+[2026-03-22T00:20:46.085Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:20:46.085Z]   AI→REGEX: fb <- https://www.facebook.com/underlineinfra (duplicate, skipped)
+[2026-03-22T00:20:46.085Z]   AI→REGEX: ig <- https://www.instagram.com/underlineinfra/ (duplicate, skipped)
+[2026-03-22T00:20:46.086Z]   AI→REGEX: li <- https://www.linkedin.com/company/underlineinfra/ (duplicate, skipped)
+[2026-03-22T00:20:46.086Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:20:46.086Z] Footer/header origins (5):
+[2026-03-22T00:20:46.086Z]   FOOTER/HEADER ORIGIN: https://www.underline.com
+[2026-03-22T00:20:46.086Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T00:20:46.086Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T00:20:46.087Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:20:46.087Z]   FOOTER/HEADER ORIGIN: https://app.underline.com
+[2026-03-22T00:20:46.087Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:20:46.087Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:20:46.087Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:20:46.087Z] ── Step 3: Final dedup ──
+[2026-03-22T00:20:46.087Z] No urls to dedup
+[2026-03-22T00:20:46.087Z] ── FINAL RESULT ──
+[2026-03-22T00:20:46.087Z]   ws (2):
+[2026-03-22T00:20:46.087Z]     - https://app.underline.com
+[2026-03-22T00:20:46.087Z]     - https://www.underline.com
+[2026-03-22T00:20:46.087Z]   li (1):
+[2026-03-22T00:20:46.087Z]     - https://www.linkedin.com/company/underlineinfra
+[2026-03-22T00:20:46.087Z]   fb (1):
+[2026-03-22T00:20:46.087Z]     - https://www.facebook.com/underlineinfra
+[2026-03-22T00:20:46.088Z]   ig (1):
+[2026-03-22T00:20:46.088Z]     - https://www.instagram.com/underlineinfra
+[2026-03-22T00:20:46.088Z] Summary: ws:2, fb:1, ig:1, li:1
+[2026-03-22T00:20:46.088Z] Saved final result to result.json
+[2026-03-22T00:20:46.088Z] Override fields: ws, li, fb, ig
+[2026-03-22T00:20:46.089Z] Finished at: 2026-03-22T00:20:46.089Z

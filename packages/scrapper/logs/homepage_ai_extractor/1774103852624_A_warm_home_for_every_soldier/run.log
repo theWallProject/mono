@@ -1,0 +1,61 @@
+[2026-03-21T14:37:32.624Z] === Homepage AI Extractor: A warm home for every soldier ===
+[2026-03-21T14:37:32.624Z] Started at: 2026-03-21T14:37:32.624Z
+[2026-03-21T14:37:32.624Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774103852624_A_warm_home_for_every_soldier
+[2026-03-21T14:37:32.624Z] Company: A warm home for every soldier
+[2026-03-21T14:37:32.624Z] Website: baitcham.org.il
+[2026-03-21T14:37:32.625Z] cbRank: 3455812
+[2026-03-21T14:37:32.625Z] Reasons: h
+[2026-03-21T14:37:32.625Z] Fetching: https://baitcham.org.il
+[2026-03-21T14:37:35.922Z] Redirected: https://baitcham.org.il -> https://baitcham.org.il/
+[2026-03-21T14:37:35.928Z] Saved HTML (168278 bytes) to page.html
+[2026-03-21T14:37:35.931Z] Extracted 30 unique links from page
+[2026-03-21T14:37:35.931Z] Saved 30 links to links.json
+[2026-03-21T14:37:35.934Z] Extracted footer HTML (20670 chars)
+[2026-03-21T14:37:35.934Z] Extracted header HTML (31203 chars)
+[2026-03-21T14:37:35.938Z] Website (post-redirect): https://baitcham.org.il/ → origin: https://baitcham.org.il
+[2026-03-21T14:37:35.938Z]   SUBDOMAIN: en.baitcham.org.il (added to ws)
+[2026-03-21T14:37:35.938Z] Website subdomains found: 1
+[2026-03-21T14:37:35.938Z] External links: 3 (of 30 total)
+[2026-03-21T14:37:35.938Z] ── All external links ──
+[2026-03-21T14:37:35.938Z]   EXT: https://main.knesset.gov.il/Activity/committees/Labor/Pages/CommitteeTVarchive.aspx?TopicID=20786
+[2026-03-21T14:37:35.938Z]   EXT: https://www.facebook.com/137296922999339/videos/369741220614676
+[2026-03-21T14:37:35.938Z]   EXT: https://www.facebook.com/awarmhome
+[2026-03-21T14:37:35.938Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:37:35.938Z]   UNCATEGORIZED: https://main.knesset.gov.il/Activity/committees/Labor/Pages/CommitteeTVarchive.aspx?TopicID=20786
+[2026-03-21T14:37:35.938Z]   REGEX: fb <- https://www.facebook.com/137296922999339/videos/369741220614676
+[2026-03-21T14:37:35.938Z]   REGEX: fb <- https://www.facebook.com/awarmhome
+[2026-03-21T14:37:35.939Z] Programmatic result: ws:2, fb:2 | 1 uncategorized
+[2026-03-21T14:37:35.939Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:37:35.939Z] Saved AI prompt (11735 chars) to ai_prompt.txt
+[2026-03-21T14:37:35.939Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:37:35.943Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:38:33.872Z]   AI: First token received, streaming...
+[2026-03-21T14:38:35.341Z] AI response complete: 35 chars in 59.4s
+[2026-03-21T14:38:35.342Z] Saved AI response to ai_response.json
+[2026-03-21T14:38:35.342Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T14:38:35.343Z]   AI LINK: https://www.facebook.com/awarmhome/
+[2026-03-21T14:38:35.343Z] AI returned 1 valid links
+[2026-03-21T14:38:35.343Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T14:38:35.343Z]   AI→REGEX: fb <- https://www.facebook.com/awarmhome/ (duplicate, skipped)
+[2026-03-21T14:38:35.344Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:38:35.344Z] Footer/header origins (3):
+[2026-03-21T14:38:35.344Z]   FOOTER/HEADER ORIGIN: https://baitcham.org.il
+[2026-03-21T14:38:35.344Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T14:38:35.344Z]   FOOTER/HEADER ORIGIN: https://en.baitcham.org.il
+[2026-03-21T14:38:35.344Z]   SKIP (not in footer/header): https://main.knesset.gov.il/Activity/committees/Labor/Pages/CommitteeTVarchive.aspx?TopicID=20786
+[2026-03-21T14:38:35.345Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T14:38:35.345Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:38:35.345Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:38:35.345Z] ── Step 3: Final dedup ──
+[2026-03-21T14:38:35.345Z] No urls to dedup
+[2026-03-21T14:38:35.345Z] ── FINAL RESULT ──
+[2026-03-21T14:38:35.345Z]   ws (2):
+[2026-03-21T14:38:35.345Z]     - https://baitcham.org.il
+[2026-03-21T14:38:35.345Z]     - https://en.baitcham.org.il
+[2026-03-21T14:38:35.345Z]   fb (2):
+[2026-03-21T14:38:35.346Z]     - https://www.facebook.com/137296922999339
+[2026-03-21T14:38:35.346Z]     - https://www.facebook.com/awarmhome
+[2026-03-21T14:38:35.346Z] Summary: ws:2, fb:2
+[2026-03-21T14:38:35.347Z] Saved final result to result.json
+[2026-03-21T14:38:35.347Z] Override fields: ws, fb
+[2026-03-21T14:38:35.347Z] Finished at: 2026-03-21T14:38:35.347Z

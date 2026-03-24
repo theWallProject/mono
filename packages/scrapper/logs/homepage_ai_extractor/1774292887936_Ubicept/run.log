@@ -1,0 +1,62 @@
+[2026-03-23T19:08:07.936Z] === Homepage AI Extractor: Ubicept ===
+[2026-03-23T19:08:07.937Z] Started at: 2026-03-23T19:08:07.937Z
+[2026-03-23T19:08:07.937Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774292887936_Ubicept
+[2026-03-23T19:08:07.937Z] Company: Ubicept
+[2026-03-23T19:08:07.937Z] Website: ubicept.com
+[2026-03-23T19:08:07.937Z] cbRank: 7735
+[2026-03-23T19:08:07.937Z] Reasons: i
+[2026-03-23T19:08:07.937Z] Fetching: https://ubicept.com
+[2026-03-23T19:08:19.313Z] Network idle timeout — continuing with current state
+[2026-03-23T19:08:19.384Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T19:08:27.362Z] Redirected: https://ubicept.com -> https://www.ubicept.com/
+[2026-03-23T19:08:27.371Z] Saved HTML (94222 bytes) to page.html
+[2026-03-23T19:08:27.374Z] Extracted 23 unique links from page
+[2026-03-23T19:08:27.375Z] Saved 23 links to links.json
+[2026-03-23T19:08:27.377Z] Extracted footer HTML (6835 chars)
+[2026-03-23T19:08:27.377Z] Extracted header HTML (4480 chars)
+[2026-03-23T19:08:27.380Z] Website (post-redirect): https://www.ubicept.com/ → origin: https://www.ubicept.com
+[2026-03-23T19:08:27.380Z] External links: 3 (of 23 total)
+[2026-03-23T19:08:27.380Z] ── All external links ──
+[2026-03-23T19:08:27.380Z]   EXT: https://www.businesswire.com/news/home/20251125596915/en/Ubicept-Extends-Availability-of-Perception-Technology-to-Make-Autonomous-Systems-Using-Conventional-Cameras-More-Reliable
+[2026-03-23T19:08:27.380Z]   EXT: https://www.linkedin.com/company/ubicept
+[2026-03-23T19:08:27.380Z]   EXT: https://www.youtube.com/@ubicept
+[2026-03-23T19:08:27.381Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:08:27.381Z]   UNCATEGORIZED: https://www.businesswire.com/news/home/20251125596915/en/Ubicept-Extends-Availability-of-Perception-Technology-to-Make-Autonomous-Systems-Using-Conventional-Cameras-More-Reliable
+[2026-03-23T19:08:27.382Z]   REGEX: li <- https://www.linkedin.com/company/ubicept
+[2026-03-23T19:08:27.382Z]   REGEX: ytp <- https://www.youtube.com/@ubicept
+[2026-03-23T19:08:27.382Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-23T19:08:27.382Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:08:27.383Z] Saved AI prompt (4662 chars) to ai_prompt.txt
+[2026-03-23T19:08:27.383Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:08:27.387Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:08:47.013Z]   AI: First token received, streaming...
+[2026-03-23T19:08:50.836Z] AI response complete: 73 chars in 23.5s
+[2026-03-23T19:08:50.838Z] Saved AI response to ai_response.json
+[2026-03-23T19:08:50.838Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T19:08:50.838Z]   AI LINK: https://www.linkedin.com/company/ubicept
+[2026-03-23T19:08:50.838Z]   AI LINK: https://www.youtube.com/@ubicept
+[2026-03-23T19:08:50.838Z] AI returned 2 valid links
+[2026-03-23T19:08:50.838Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T19:08:50.839Z]   AI→REGEX: li <- https://www.linkedin.com/company/ubicept (duplicate, skipped)
+[2026-03-23T19:08:50.839Z]   AI→REGEX: ytp <- https://www.youtube.com/@ubicept (duplicate, skipped)
+[2026-03-23T19:08:50.840Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:08:50.840Z] Footer/header origins (2):
+[2026-03-23T19:08:50.841Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T19:08:50.841Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T19:08:50.841Z]   SKIP (not in footer/header): https://www.businesswire.com/news/home/20251125596915/en/Ubicept-Extends-Availability-of-Perception-Technology-to-Make-Autonomous-Systems-Using-Conventional-Cameras-More-Reliable
+[2026-03-23T19:08:50.841Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:08:50.841Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:08:50.841Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:08:50.842Z] ── Step 3: Final dedup ──
+[2026-03-23T19:08:50.842Z] No urls to dedup
+[2026-03-23T19:08:50.842Z] ── FINAL RESULT ──
+[2026-03-23T19:08:50.842Z]   ws (1):
+[2026-03-23T19:08:50.842Z]     - https://www.ubicept.com
+[2026-03-23T19:08:50.842Z]   li (1):
+[2026-03-23T19:08:50.842Z]     - https://www.linkedin.com/company/ubicept
+[2026-03-23T19:08:50.842Z]   ytp (1):
+[2026-03-23T19:08:50.842Z]     - https://www.youtube.com/@ubicept
+[2026-03-23T19:08:50.842Z] Summary: ws:1, li:1, ytp:1
+[2026-03-23T19:08:50.843Z] Saved final result to result.json
+[2026-03-23T19:08:50.844Z] Override fields: ws, li, ytp
+[2026-03-23T19:08:50.844Z] Finished at: 2026-03-23T19:08:50.844Z

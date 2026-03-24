@@ -1,0 +1,1091 @@
+<!DOCTYPE html><html lang="en-US" class=""><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="msapplication-TileColor" content="#243d4d">
+	<meta name="theme-color" content="#243d4d">
+	<meta name="facebook-domain-verification" content="11rbtb56f9yczl5xn79kw7ofugyu5v">
+
+	
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.2 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Frontegg | The Identity Layer for Every SaaS Entry Point</title>
+<link data-rocket-prefetch="" href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://x.clearbitjs.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://tags.srv.stackadapt.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://bat.bing.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://ws.zoominfo.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://static.ads-twitter.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://snap.licdn.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://static.hotjar.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://a.quora.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.google-analytics.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.redditstatic.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://js.hs-banner.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://js.hs-analytics.net" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.googleoptimize.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://dev.visualwebsiteoptimizer.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://script.crazyegg.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://a.omappapi.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://static.addtoany.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://tracking.g2crowd.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.clickcease.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://cdn.cr-relay.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://script.hotjar.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://js.hs-scripts.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://tag.clearbitscripts.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://pulse.clickguard.com" rel="dns-prefetch"><link rel="preload" data-rocket-preload="" as="image" href="https://frontegg.com/wp-content/uploads/2026/02/Agen-Image-1.webp" fetchpriority="high">
+	<meta name="description" content="Secure every entry point with Frontegg, the first identity layer for agentic SaaS. Protect APIs and scale with enterprise-grade CIAM.">
+	<link rel="canonical" href="https://frontegg.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Frontegg | The Identity Layer for Every SaaS Entry Point">
+	<meta property="og:description" content="Secure every entry point with Frontegg, the first identity layer for agentic SaaS. Protect APIs and scale with enterprise-grade CIAM.">
+	<meta property="og:url" content="https://frontegg.com/">
+	<meta property="og:site_name" content="Frontegg">
+	<meta property="article:modified_time" content="2026-03-12T08:11:32+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://frontegg.com/","url":"https://frontegg.com/","name":"Frontegg | The Identity Layer for Every SaaS Entry Point","isPartOf":{"@id":"https://frontegg.com/#website"},"datePublished":"2026-01-27T09:52:10+00:00","dateModified":"2026-03-12T08:11:32+00:00","description":"Secure every entry point with Frontegg, the first identity layer for agentic SaaS. Protect APIs and scale with enterprise-grade CIAM.","breadcrumb":{"@id":"https://frontegg.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://frontegg.com/"]}]},{"@type":"BreadcrumbList","@id":"https://frontegg.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://frontegg.com/#website","url":"https://frontegg.com/","name":"Frontegg","description":"Identity and Access Management for B2B SaaS Apps","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://frontegg.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//static.addtoany.com">
+<link rel="dns-prefetch" href="//a.omappapi.com">
+
+<link rel="alternate" type="application/rss+xml" title="Frontegg » Feed" href="https://frontegg.com/feed">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://frontegg.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffrontegg.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://frontegg.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffrontegg.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link data-minify="1" rel="stylesheet" id="cookie-law-info-css" href="https://frontegg.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=1773775208" type="text/css" media="all" onload="this.media='all'">
+<link data-minify="1" rel="stylesheet" id="cookie-law-info-gdpr-css" href="https://frontegg.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=1773775208" type="text/css" media="all" onload="this.media='all'">
+<link rel="stylesheet" id="leaflet-css-css" href="https://frontegg.com/wp-content/plugins/meow-lightbox/app/style.min.css?ver=1773472779" type="text/css" media="all">
+<link rel="stylesheet" id="ivory-search-styles-css" href="https://frontegg.com/wp-content/plugins/add-search-to-menu/public/css/ivory-search.min.css?ver=5.5.14" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="home-v8-css" href="https://frontegg.com/wp-content/cache/min/1/wp-content/themes/frontegg/css/home-v8.css?ver=1773775208" type="text/css" media="">
+<link data-minify="1" rel="stylesheet" id="frontegg-style-css" href="https://frontegg.com/wp-content/cache/min/1/wp-content/themes/frontegg/style.css?ver=1773775208" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="header-ss-css" href="https://frontegg.com/wp-content/cache/min/1/wp-content/themes/frontegg/css/header-v4.css?ver=1773775208" type="text/css" media="">
+<link rel="stylesheet" id="addtoany-css" href="https://frontegg.com/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.16" type="text/css" media="all">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://frontegg.com/xmlrpc.php?rsd">
+<link rel="shortlink" href="https://frontegg.com/">
+
+
+<!-- Anti-flicker snippet (recommended) --> 
+<style>.async-hide { opacity: 0 !important} </style> 
+<script>
+if ( !navigator.userAgent.match(/nux.*oto\sG|x11.*fox\/54|x11.*ome\/39|x11.*ome\/62|oid\s6.*1.*xus\s5.*MRA58N.*ome|JWR66Y.*ome\/62|woobot|speed|ighth|tmetr|eadle/i)) {
+(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'OPT-NF6DRBP':true});
+}
+</script>
+<!-- <script src="https://www.googleoptimize.com/optimize.js?id=OPT-NF6DRBP"></script> -->
+
+<script>
+if ( !navigator.userAgent.match(/nux.*oto\sG|x11.*fox\/54|x11.*ome\/39|x11.*ome\/62|oid\s6.*1.*xus\s5.*MRA58N.*ome|JWR66Y.*ome\/62|woobot|speed|ighth|tmetr|eadle/i)) {
+ (function () {
+  var zi = document.createElement('script');
+  zi.type = 'text/javascript';
+  zi.src = 'https://www.googleoptimize.com/optimize.js?id=OPT-NF6DRBP';
+  var head = document.getElementsByTagName('head')[0];
+  head.appendChild(zi);
+ })();
+}
+</script><script type="text/javascript" src="https://www.googleoptimize.com/optimize.js?id=OPT-NF6DRBP"></script>
+<!-- Google Tag Manager -->
+<script type="text/rocketlazyloadscript">
+if ( !navigator.userAgent.match(/nux.*oto\sG|x11.*fox\/54|x11.*ome\/39|x11.*ome\/62|oid\s6.*1.*xus\s5.*MRA58N.*ome|JWR66Y.*ome\/62|woobot|speed|ighth|tmetr|eadle/i)) {
+	window.addEventListener('load',function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MG2M58X');})
+}
+</script>
+
+<!-- Start VWO SmartCode --> 
+<script type="text/rocketlazyloadscript" referrerpolicy="no-referrer-when-downgrade" data-rocket-src="https://dev.visualwebsiteoptimizer.com/lib/551388.js" id="vwoCode" data-rocket-defer="" defer=""></script> 
+<!-- End VWO SmartCode -->
+
+<!-- Start cookieyes banner --> 
+<!-- <script type="text/rocketlazyloadscript" id="cookieyes" data-rocket-type="text/javascript" data-rocket-src="https://cdn-cookieyes.com/client_data/91d7ecd5235a23e7fe522211/script.js"></script>  -->
+<!-- End cookieyes banner -->
+
+<!-- Stat Clearbit -->
+<!-- <script type="text/rocketlazyloadscript" async data-rocket-src="https://tag.clearbitscripts.com/v1/9e62d98abcda96207b073b7cf3a5a4ca/identify.js"></script> -->
+<!-- End Clearbit --><script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="//script.crazyegg.com/pages/scripts/0122/3448.js" async="async"></script><script type="text/rocketlazyloadscript">document.addEventListener('DOMContentLoaded', function () {
+(function () {
+  const SIGNUP_PATH_FRAGMENT = "/oauth/account/sign-up";
+
+  function mergeParamsNoOverwrite(targetUrl, sourceParams) {
+    sourceParams.forEach((value, key) => {
+      if (!targetUrl.searchParams.has(key)) {
+        targetUrl.searchParams.append(key, value);
+      }
+    });
+  }
+
+  function isTargetSignup(url) {
+    // Allow multiple envs, but ensure it's a frontegg.com host and correct path
+    return (
+      url.hostname.endsWith("frontegg.com") &&
+      url.pathname.includes(SIGNUP_PATH_FRAGMENT)
+    );
+  }
+
+  function buildEnhancedUrl(originalHref) {
+    const url = new URL(originalHref, window.location.origin);
+    if (!isTargetSignup(url)) return null;
+
+    // merge current page params without overwriting existing ones
+    mergeParamsNoOverwrite(url, new URLSearchParams(window.location.search));
+
+    // add referrer=agen if missing
+    if (!url.searchParams.has("utm_referrer")) {
+      url.searchParams.append("utm_referrer", "frontegg");
+    }
+
+    return url.toString();
+  }
+
+  function bindLink(a) {
+    if (a.__signupEnhancerBound) return;
+    a.__signupEnhancerBound = true;
+
+    a.addEventListener("click", (e) => {
+      const href = a.getAttribute("href");
+      if (!href) return;
+
+      const enhanced = buildEnhancedUrl(href);
+      if (!enhanced) return;
+
+      // Force the enhanced URL to be used
+      e.preventDefault();
+
+      const target = a.getAttribute("target");
+      if (target === "_blank") {
+        window.open(enhanced, "_blank", "noopener");
+      } else {
+        window.location.assign(enhanced);
+      }
+    }, true); // capture helps if other handlers exist
+  }
+
+  function scan(root = document) {
+    root.querySelectorAll(`a[href*="${SIGNUP_PATH_FRAGMENT}"]`).forEach(bindLink);
+  }
+
+  scan();
+
+  // Catch links added later (Framer/SPA/WordPress dynamic)
+  new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      for (const node of m.addedNodes) {
+        if (node.nodeType !== 1) continue;
+        if (node.matches?.(`a[href*="${SIGNUP_PATH_FRAGMENT}"]`)) bindLink(node);
+        if (node.querySelectorAll) scan(node);
+      }
+    }
+  }).observe(document.documentElement, { childList: true, subtree: true });
+})();
+		
+(function () {
+  // 1) Which params to persist
+  const PERSIST_KEYS = [
+    /^utm_/i,
+    /^gclid$/i,
+    /^fbclid$/i,
+    /^msclkid$/i
+  ];
+
+  // 2) Where to store them
+  const STORAGE_KEY = "__persisted_params__";
+
+  // 3) Only decorate links that stay on the same site
+  function isInternalLink(url) {
+    return url.origin === window.location.origin;
+  }
+
+  function shouldPersistKey(key) {
+    return PERSIST_KEYS.some((re) => re.test(key));
+  }
+
+  function loadStored() {
+    try {
+      return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "{}");
+    } catch {
+      return {};
+    }
+  }
+
+  function saveStored(obj) {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+    } catch {}
+  }
+
+  // Merge current URL params into storage (but don't overwrite stored values unless empty)
+  function captureFromCurrentUrl() {
+    const stored = loadStored();
+    const current = new URLSearchParams(window.location.search);
+
+    current.forEach((value, key) => {
+      if (!shouldPersistKey(key)) return;
+      if (!stored[key]) stored[key] = value; // keep first-touch by default
+    });
+
+    saveStored(stored);
+    return stored;
+  }
+
+  // Append stored params to target URL WITHOUT overwriting existing params on the link
+  function decorateUrlNoOverwrite(url, stored) {
+    Object.entries(stored).forEach(([key, value]) => {
+      if (!url.searchParams.has(key)) {
+        url.searchParams.append(key, value);
+      }
+    });
+  }
+
+  // Bind: on click, ensure navigation uses decorated URL
+  function bindLink(a, stored) {
+    if (a.__utmBound) return;
+    a.__utmBound = true;
+
+    a.addEventListener("click", (e) => {
+      const href = a.getAttribute("href");
+      if (!href) return;
+
+      // ignore anchors, javascript:, mailto:, tel:
+      if (href.startsWith("#") || href.startsWith("javascript:")) return;
+      if (href.startsWith("mailto:") || href.startsWith("tel:")) return;
+
+      let url;
+      try {
+        url = new URL(href, window.location.origin);
+      } catch {
+        return;
+      }
+
+      // only persist across internal navigation
+      if (!isInternalLink(url)) return;
+
+      // Ensure we use the latest stored values (in case a previous page had new UTMs)
+      stored = captureFromCurrentUrl();
+
+      decorateUrlNoOverwrite(url, stored);
+
+      // If nothing changed, do nothing
+      const enhanced = url.toString();
+      if (enhanced === a.href) return;
+
+      // Force navigation to the enhanced URL (works even with SPA-ish handlers)
+      e.preventDefault();
+      window.location.assign(enhanced);
+    }, true);
+  }
+
+  function scanAndBind(root = document) {
+    const stored = loadStored();
+    root.querySelectorAll("a[href]").forEach((a) => bindLink(a, stored));
+  }
+
+  // Initial capture (first page load)
+  captureFromCurrentUrl();
+
+  // Bind all links now
+  scanAndBind();
+
+  // Watch for dynamically added links (Framer, WP, SPA)
+  new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      for (const node of m.addedNodes) {
+        if (node.nodeType !== 1) continue;
+        if (node.matches?.("a[href]")) scanAndBind(node.parentNode || document);
+        if (node.querySelectorAll) scanAndBind(node);
+      }
+    }
+  }).observe(document.documentElement, { childList: true, subtree: true });
+})();
+
+
+});
+</script><link rel="icon" href="https://frontegg.com/wp-content/uploads/2021/11/ficon.svg" sizes="32x32">
+<link rel="icon" href="https://frontegg.com/wp-content/uploads/2021/11/ficon.svg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://frontegg.com/wp-content/uploads/2021/11/ficon.svg">
+<meta name="msapplication-TileImage" content="https://frontegg.com/wp-content/uploads/2021/11/ficon.svg">
+		<style type="text/css" id="wp-custom-css">
+			.logo__menu {
+    border-top: 1px solid rgba(209, 209, 214, 0.50);
+}
+/* black box at the bottom */
+
+.page-id-21195 .author__wrap,
+.page-id-21314 .author__wrap,
+.page-id-21202 .author__wrap {
+    background-color: #000000;
+}
+
+
+
+/* TMP */
+
+.page-id-21168 .footer__cta, 
+.page-id-21181 .footer__cta,
+.page-id-21195 .footer__cta,
+.page-id-21202 .footer__cta,
+.page-id-21298 .footer__cta,
+.page-id-21302 .footer__cta,
+.page-id-21314 .footer__cta,
+.page-id-21717 .footer__cta,
+.page-id-21168 .footer__main, 
+.page-id-21181 .footer__main,
+.page-id-21195 .footer__main, 
+.page-id-21202 .footer__main, 
+.page-id-21298 .footer__main, 
+.page-id-21302 .footer__main, 
+.page-id-21314 .footer__main, 
+.page-id-21717 .footer__main, 
+.page-id-21168 #primary-menu,
+.page-id-21195 #primary-menu,
+.page-id-21202 #primary-menu,
+.page-id-21181 #primary-menu, 
+.page-id-21298 #primary-menu,
+.page-id-21302 #primary-menu,
+.page-id-21314 #primary-menu,
+.page-id-21717 #primary-menu,
+.footer .copyright:before {
+	display: none;
+}
+
+/* .page-id-18208 .hero__content {
+	display: none;
+}
+.page-id-18208 .hero img {
+	width: auto !important;
+} */
+
+
+/* Remove top bar from certain pages */
+.page-id-21181 .header-banner,
+.page-id-21195 .header-banner,
+.page-id-21202 .header-banner,
+.page-id-21298 .header-banner,
+.page-id-21302 .header-banner,
+.page-id-21314 .header-banner,
+.page-id-21717 .header-banner,
+.page-id-21168 .header-banner {
+    display: none !important;
+}
+
+.page-id-20208 .hs-form h2 {
+	color: #000;
+	font-size: 20px !important;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+.fancybox-content iframe {
+	width: 100%;
+	height: 100%;
+}
+@media (max-width: 680px) {
+	.fancybox-content {
+		.fancybox-content {
+			padding: 10px;
+		}
+	}
+}
+/* .header-v4 + #main {
+	padding-top: 80px;
+} */
+.header-v4 {
+	height: auto !important;
+}
+.header-banner {
+	margin: 0 0 8px !important;
+	background: linear-gradient(
+  86deg,
+  #0427B0 0%,
+  #041E87 4%,
+  #031663 8%,
+  #020F44 12%,
+  #010A2B 17%,
+  #010618 22%,
+  #01030B 28%,
+  #010103 35.5%,
+  #010101 50%,
+  #010101 50%,
+  #020101 56.5%,
+  #090404 65.5%,
+  #16080A 71%,
+  #270E12 75.5%,
+  #3D161C 78.5%,
+  #591F28 84%,
+  #7A2B37 87.5%,
+  #A03848 92.5%,
+  #C8465A 100%
+) !important;
+
+}
+.header-banner__close {
+	display: none;
+}
+.features__head {
+	top: 122px;
+}
+.header-banner .btn--small {
+	border: none !important;
+}
+/* @media only screen and (max-width: 1024px) {
+.header-banner {
+	margin: 0 0 20px !important;
+	}
+body.mobile-menu-open .nav {
+		top: 176px;
+	}
+.features__head {
+		top: 137px;
+	}
+} */
+/* @media only screen and (max-width: 480px) {
+    .header-v4 {
+        padding: 0 0 8px;
+    }
+	.header-v4 + #main {
+			padding-top: 48px;
+	}
+} */
+/* TMP */
+.page-template-page-identiverse .header-v4 + #main {
+	padding-top: 70px;
+}
+@media only screen and (max-width: 1024px) {
+    .page-template-page-identiverse .mobile-menu-open .nav {
+        top: 83px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .page-template-page-identiverse .header-v4 {
+        padding: 23px 0 28px;
+    }
+}
+.page-template-dorian .header-banner {
+	display: none;
+}	
+.page-template-dorian .header-v4 + #main {
+    padding-top: 0;
+}
+@media only screen and (max-width: 1024px) {
+    .page-template-dorian.mobile-menu-open .nav {
+        top: 83px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .page-template-dorian .header-v4 {
+        padding: 23px 0 8px;
+    }
+}
+
+.page-id-18874 .privacy-content__sidebar {
+    display: none;
+}
+
+.comeet-outer-wrapper {
+    height: auto !important;
+    font-size: 18px;
+}
+[data-wpr-lazyrender] {
+    content-visibility: visible !important;
+}
+.single-resources .fancybox-content {
+	width: 100%;
+	height: 100%;
+}
+ .copyright span {
+	 display: flex;
+	 flex-wrap: wrap;
+	 gap: 3px;
+}
+.page-id-16568 .privacy-content__sidebar {
+    display: none;
+}
+.privacy-content__body {
+    width: 900px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.page-id-528 .privacy-content__date,
+.page-id-16568 .privacy-content__date {
+    display: none;
+}
+ .copyright span a {
+	 color: #9999A5 !important;
+	 text-decoration: none;
+}
+.subscribe-section-custom {
+    display: none;
+}
+div#positions, .career-position-comeet  {
+    font-size: 0;
+}
+.partners-slider {
+   display: flex;
+	gap: 20px;
+}
+.blog-main__sticky .blog-list__item__image img {
+	border-radius: 16px;
+}
+.article-content__thumbnail img {
+	border-radius: 40px;
+}
+@media (max-width: 480px) {
+	.application-cta__content .btn {
+		text-align: center;
+	}
+}
+
+/*  */
+
+#hubspot-messages-iframe-container {
+	z-index: 2 !important;
+}
+#cookie-law-info-bar {
+    z-index: 3 !important;
+}
+#bitnami-banner {display:none;}
+
+header.site-header {
+	position: absolute !important;
+}
+
+.comments-post {
+	display: none;
+}
+
+.footer__newsletter .wpcf7-form {
+    height: 50px;
+}
+.footer__newsletter .wpcf7-response-output {
+    display: none;
+}
+
+.resource-item-section__content img {
+	max-width: 100%;
+	height: auto;
+}
+
+figure.aligncenter {
+    text-align: center;
+}
+
+#ez-toc-container {
+	  -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/* .article__body p+div#ez-toc-container,
+.article-content p+div#ez-toc-container {
+    margin-top: -32px !important;
+} */
+
+.rmp-btn {
+    background-color: #1f50f3 !important;
+    padding: 8px 16px !important;
+    margin-bottom: 0 !important;
+}
+.rmp-btn:hover {
+	  background-color: #003AE4 !important;
+}
+
+.wp-block-kevinbatdorf-code-block-pro {
+    margin-bottom: 30px;
+}
+.wp-block-table table {
+	border-collapse: collapse;
+}
+.wp-block-table th, .wp-block-table td {
+	border: 1px solid #000;
+	padding: 5px;
+}
+
+/* TOC */
+ul.ez-toc-list-level-3 {
+    display: none;
+}
+.ez-toc-heading-level-2:nth-child(n+11) {
+    display: none;
+}
+
+/* Cookies */
+#cookie-law-info-again {
+    background-image: url(https://cdn-cookieyes.com/assets/images/revisit.svg);
+	    background-color: #214ff3 !important;
+    background-image: url(https://cdn-cookieyes.com/assets/images/revisit.svg);
+	background-repeat: no-repeat;
+	background-size: 40px;
+	background-position: center;
+	border-radius: 50%;
+	width: 50px !important;
+	height: 50px;
+	box-shadow: none;
+	bottom: 15px !important;
+}
+.contact .hs-form .form-columns-1 {
+    margin-bottom: 0px!important;
+}		</style>
+					<style type="text/css">
+					</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link data-minify="1" rel="stylesheet" id="cookie-law-info-table-css" href="https://frontegg.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-table.css?ver=1773775208" type="text/css" media="all">
+
+<meta name="generator" content="WP Rocket 3.21.0" data-wpr-features="wpr_delay_js wpr_defer_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_oci wpr_image_dimensions wpr_minify_css wpr_preload_links wpr_desktop"><link href="https://dev.visualwebsiteoptimizer.com" rel="preconnect"><link href="https://script.crazyegg.com" rel="preconnect"><link href="https://static.addtoany.com" rel="preconnect"><link href="https://js.hs-scripts.com" rel="preconnect"></head>
+<body class="home wp-singular page-template page-template-page-templates page-template-page-index-v8 page-template-page-templatespage-index-v8-php page page-id-21808 wp-theme-frontegg frontegg no-sidebar">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MG2M58X"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+<div id="wrapper" class="site"> 
+	
+	
+	<div id="main" class="site-content">
+
+		<header class="header-sm">
+			<div class="container">
+				<a href="https://frontegg.com" class="custom-logo-link">
+					<img width="136" height="26" class="custom-logo" src="/wp-content/uploads/2023/07/logo-white-2.svg" alt="Frontegg">
+				</a>
+
+				<div class="burger-sm" aria-label="menu"><i></i></div>
+
+				<nav>
+					<div class="main-menu">
+						<div class="menu-buttons-menu-container"><ul id="primary-menu" class="menu"><li id="menu-item-21816" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21816"><a target="_blank" href="https://frontegg-prod.frontegg.com/oauth/account/sign-up">Sign in</a></li>
+<li id="menu-item-21817" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21817"><a target="_blank" href="https://frontegg-prod.us.frontegg.com/oauth/account/sign-up">Start for free</a></li>
+<li id="menu-item-21818" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21818"><a href="/contact-sales">Contact sales</a></li>
+</ul></div>					</div>
+				</nav>
+			</div>
+		</header>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Frontegg",
+        "url": "https://frontegg.com/",
+        "logo": "https://frontegg.com/wp-content/uploads/2024/10/Logo-10.png",
+        "description": "Frontegg is an end-to-end user management platform for B2B SaaS, powering strategies from PLG to enterprise readiness. Easy migration, no credit card required.",
+        "email": "info@frontegg.com",
+        "sameAs": [
+            "https://x.com/FronteggForSaaS",
+            "https://www.linkedin.com/company/frontegg/",
+            "https://www.youtube.com/@frontegg2663"
+        ]
+    }
+</script>
+
+<div class="container">
+    <div class="section-group">
+
+        <section class="hero">
+            <div class="hero__wrap">
+                                    <h1>Identity and access for every entry point</h1>
+                
+                                    <p>Frontegg secures every entry point into your SaaS app</p>
+                
+                                                    <div class="btn-group">
+                                                    <a href="/contact-sales" class="btn-new btn-new-primary" target="">Contact sales</a>
+                        
+                                                    <a href="https://frontegg-prod.frontegg.com/oauth/account/sign-up" class="btn-new btn-new-outline" target="_blank">Start for free</a>
+                                            </div>
+                            </div>
+        </section>
+
+        <section class="partners-slider">
+                                                            <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2022/11/logo-5.svg" width="150" height="50" alt="">
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2023/01/logo.svg" width="150" height="50" alt="">
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2022/11/logo.svg" width="150" height="50" alt="">
+                                            </div>
+                		                                                            <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2022/07/logo-1.svg" width="150" height="50" alt="">
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2022/07/logo-2-1.svg" width="150" height="50" alt="">
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2022/11/logo-1.svg" width="150" height="50" alt="">
+                                            </div>
+                		                                                            <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2023/01/logo-2.svg" width="150" height="50" alt="">
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2022/11/logo-2.svg" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2022/11/logo-2.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://frontegg.com/wp-content/uploads/2022/11/logo-2.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                		                                                            <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2023/01/logo-3.svg" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2023/01/logo-3.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://frontegg.com/wp-content/uploads/2023/01/logo-3.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="https://frontegg.com/wp-content/uploads/2022/11/logo-6.svg" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2022/11/logo-6.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img src="https://frontegg.com/wp-content/uploads/2022/11/logo-6.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2022/07/logo-7.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2022/07/logo-7.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                		                                                            <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2023/07/logo-15.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2023/07/logo-15.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2022/07/logo-17.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2022/07/logo-17.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2022/12/logo.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2022/12/logo.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                		                                                            <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2023/05/logo-9.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2023/05/logo-9.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2023/05/logo-10.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2023/05/logo-10.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/finonex-grey.png.webp"><noscript><img src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/finonex-grey.png.webp"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2023/05/logo-11.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2023/05/logo-11.svg"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/kindertales-logo-grey-1.png.webp"><noscript><img src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/kindertales-logo-grey-1.png.webp"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/Toffu-A-greyI.png.webp"><noscript><img src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/Toffu-A-greyI.png.webp"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/TrueVault-grey-1-scaled.png.webp"><noscript><img src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/TrueVault-grey-1-scaled.png.webp"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                                    <div class="partners-slider__item">
+                                                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%2050'%3E%3C/svg%3E" width="150" height="50" alt="" data-lazy-src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/AdvanceAI-grey-horizontal-scaled.png.webp"><noscript><img src="https://frontegg.com/wp-content/webp-express/webp-images/uploads/2025/08/AdvanceAI-grey-horizontal-scaled.png.webp"  width="150" height="50" alt="" /></noscript>
+                                            </div>
+                		                </section>
+        <section class="products">
+                                                
+                    <a href="http://agen.co/" class="products__item" target="_blank">
+                        <div class="products__item__head">
+                            <h2>Agen.co</h2>
+                            <p>Open your SaaS product to the AI revolution. Our enterprise-grade agentic layer allows your users to interact with your product through generative AI platforms — safely. </p>
+                            <div class="btn-group">
+                                <span class="btn-new btn-new-outline btn-new-icon">Discover</span>
+                            </div>
+                        </div>
+
+                        <div class="products__item__img">
+                                                                                        <img fetchpriority="high" width="1080" height="793" src="https://frontegg.com/wp-content/uploads/2026/02/Agen-Image-1.webp" alt="">
+                                                    </div>
+                    </a>
+                                    
+                    <a href="http://frontegg.com/ciam" class="products__item" target="">
+                        <div class="products__item__head">
+                            <h2>Frontegg CIAM</h2>
+                            <p>Identity is table-stakes for every customer-facing app. But as you scale, maintaining it becomes a huge time suck. Our low-code CIAM platform lets you can go back to innovating what truly matters.</p>
+                            <div class="btn-group">
+                                <span class="btn-new btn-new-outline btn-new-icon">Discover</span>
+                            </div>
+                        </div>
+
+                        <div class="products__item__img">
+                                                                                        <img width="1320" height="968" src="https://frontegg.com/wp-content/uploads/2026/02/Frontegg-CIAM-Image-_1.webp" alt="">
+                                                    </div>
+                    </a>
+                                    </section>
+
+    </div>
+</div>
+
+	</div><!-- #main -->
+	
+	<footer class="footer-sm">
+		<div class="container">
+			<a href="https://frontegg.com" aria-label="logo link">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20168%2032'%3E%3C/svg%3E" width="168" height="32" alt="" data-lazy-src="https://frontegg.com/wp-content/uploads/2023/05/logo-1.svg"><noscript><img src="https://frontegg.com/wp-content/uploads/2023/05/logo-1.svg" width="168" height="32" alt="" /></noscript>
+							</a>
+
+			<p>© 2026 Frontegg™  |  All rights reserved</p>
+		</div>
+	</footer>
+
+</div><!-- #page -->
+
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+            window._nslDOMReady = (function () {
+                const executedCallbacks = new Set();
+            
+                return function (callback) {
+                    /**
+                    * Third parties might dispatch DOMContentLoaded events, so we need to ensure that we only run our callback once!
+                    */
+                    if (executedCallbacks.has(callback)) return;
+            
+                    const wrappedCallback = function () {
+                        if (executedCallbacks.has(callback)) return;
+                        executedCallbacks.add(callback);
+                        callback();
+                    };
+            
+                    if (document.readyState === "complete" || document.readyState === "interactive") {
+                        wrappedCallback();
+                    } else {
+                        document.addEventListener("DOMContentLoaded", wrappedCallback);
+                    }
+                };
+            })();
+        </script><script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="addtoany-core-js-before">
+/* <![CDATA[ */
+window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};
+a2a_config.icon_color="transparent,#9999a5";
+
+//# sourceURL=addtoany-core-js-before
+/* ]]> */
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" defer="" data-rocket-src="https://static.addtoany.com/menu/page.js" id="addtoany-core-js"></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/themes/frontegg/js/jquery.min.js?ver=1773303002" id="jquery-js" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" defer="" data-rocket-src="https://frontegg.com/wp-content/plugins/add-to-any/addtoany.min.js?ver=1.1" id="addtoany-jquery-js"></script>
+<script type="text/javascript" id="cookie-law-info-js-extra">
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":["cookielawinfo-checkbox-analytics","cookielawinfo-checkbox-advertisement","cookielawinfo-checkbox-others","_hp2_id.*","_GRECAPTCHA","rc::a","rc::f","rc::c","rc::b","AWSALBCORS","JSESSIONID","cb_user_id","bcookie","_vwo_uuid_v2","_omappvp","_omappvs","_gcl_au","_hp2_ses_props.*","_hjSessionUser_*","_hjSession_*","cb_group_id","cb_anonymous_id","_vis_opt_s","_vis_opt_test_cookie","messagesUtk","li_gc","lidc","AWSALB","_cfuvid","debug","events_distinct_id","_g2_session_id","_hp2_hld346349427843107.1065080579","h1_device_id","__Host-session","cbtest","__tld__","pfjscookies","_hp2_hld8090462093010520.1065080579","_crowdcontrol_session_key","_hp2_hld6722177740337317.1065080579","__cf_bm","cookieyes-consent","CookieLawInfoConsent","cookielawinfo-checkbox-necessary","cookielawinfo-checkbox-functional","cookielawinfo-checkbox-performance"],"cookielist":[],"non_necessary_cookies":{"necessary":["_hp2_id.*","_GRECAPTCHA","rc::a","rc::f","rc::c","rc::b","AWSALBCORS","JSESSIONID","__cf_bm","cookieyes-consent","CookieLawInfoConsent"],"functional":["_vis_opt_s","_vis_opt_test_cookie","messagesUtk","li_gc","lidc"],"performance":["AWSALB"],"analytics":["_vwo_uuid_v2","_omappvp","_omappvs","_gcl_au","_hp2_ses_props.*","_hjSessionUser_*","_hjSession_*","cb_group_id","cb_anonymous_id"],"advertisement":["cb_user_id","bcookie"],"others":["_cfuvid","debug","events_distinct_id","_g2_session_id","_hp2_hld346349427843107.1065080579","h1_device_id","__Host-session","cbtest","__tld__","pfjscookies","_hp2_hld8090462093010520.1065080579","_crowdcontrol_session_key","_hp2_hld6722177740337317.1065080579"]},"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#FFF","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#003ae4","button_1_button_hover":"#002eb6","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#444","button_2_as_button":"","button_2_hidebar":"","button_3_button_colour":"#010101","button_3_button_hover":"#010101","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#010101","button_4_as_button":"","button_7_button_colour":"#003ae4","button_7_button_hover":"#002eb6","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"Helvetica, sans-serif","header_fix":"","notify_animate_hide":"","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"left","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"15px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"https://frontegg.com/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+/* ]]> */
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.4.0" id="cookie-law-info-js" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="mwl-build-js-js-extra">
+/* <![CDATA[ */
+var mwl_settings = {"api_url":"https://frontegg.com/wp-json/meow-lightbox/v1/","rest_nonce":"1dd917f562","plugin_url":"https://frontegg.com/wp-content/plugins/meow-lightbox/app/","version":"1773472779","settings":{"rtf_slider_fix":false,"engine":"default","backdrop_opacity":85,"theme":"dark","flat_orientation":"below","orientation":"auto","selector":".entry-content, .gallery, .mgl-gallery, .wp-block-gallery,  .wp-block-image","selector_ahead":false,"deep_linking":false,"deep_linking_slug":"mwl","rendering_delay":300,"skip_dynamic_fetch":false,"include_orphans":false,"js_logs":false,"social_sharing":false,"social_sharing_facebook":true,"social_sharing_twitter":true,"social_sharing_pinterest":true,"separate_galleries":false,"disable_arrows_on_mobile":false,"animation_toggle":"none","animation_speed":"normal","low_res_placeholder":false,"wordpress_big_image":false,"right_click_protection":true,"magnification":true,"full_screen_desktop":false,"full_screen_mobile":false,"anti_selector":".blog, .archive, .emoji, .attachment-post-image, .no-lightbox","preloading":false,"download_link":false,"caption_source":"caption","caption_ellipsis":false,"exif":{"title":false,"caption":false,"camera":false,"lens":true,"date":false,"date_timezone":false,"shutter_speed":false,"aperture":false,"focal_length":true,"copyright":false,"author":false,"iso":false,"keywords":false,"metadata_toggle":false,"metadata_toggle_start_hidden":false},"slideshow":{"enabled":false,"timer":3000,"autoplay":false},"map":{"enabled":false}}};
+//# sourceURL=mwl-build-js-js-extra
+/* ]]> */
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/plugins/meow-lightbox/app/lightbox.js?ver=1773472779" id="mwl-build-js-js" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/careers|/contact-sales|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://frontegg.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/themes/frontegg/js/jquery-migrate.min.js?ver=1773303002" id="jquer-migrate-js" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/themes/frontegg/js/general-2.js?ver=1773303002" id="general-2-js-js" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/themes/frontegg/js/slick.min.js?ver=1773303002" id="slick-js-js" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/themes/frontegg/js/home-v8.js?ver=1773303002" id="home-v8-js-js" data-rocket-defer="" defer=""></script>
+<script type="text/javascript" id="ajax_scripts-js-extra">
+/* <![CDATA[ */
+var ajax_loadmore_params = {"ajaxurl":"https://frontegg.com/wp-admin/admin-ajax.php","posts":"{\"error\":\"\",\"m\":\"\",\"p\":\"21808\",\"post_parent\":\"\",\"subpost\":\"\",\"subpost_id\":\"\",\"attachment\":\"\",\"attachment_id\":0,\"name\":\"\",\"pagename\":\"\",\"page_id\":\"21808\",\"second\":\"\",\"minute\":\"\",\"hour\":\"\",\"day\":0,\"monthnum\":0,\"year\":0,\"w\":0,\"category_name\":\"\",\"tag\":\"\",\"cat\":\"\",\"tag_id\":\"\",\"author\":\"\",\"author_name\":\"\",\"feed\":\"\",\"tb\":\"\",\"paged\":0,\"meta_key\":\"\",\"meta_value\":\"\",\"preview\":\"\",\"s\":\"\",\"sentence\":\"\",\"title\":\"\",\"fields\":\"all\",\"menu_order\":\"\",\"embed\":\"\",\"category__in\":[],\"category__not_in\":[],\"category__and\":[],\"post__in\":[],\"post__not_in\":[],\"post_name__in\":[],\"tag__in\":[],\"tag__not_in\":[],\"tag__and\":[],\"tag_slug__in\":[],\"tag_slug__and\":[],\"post_parent__in\":[],\"post_parent__not_in\":[],\"author__in\":[],\"author__not_in\":[],\"search_columns\":[],\"ignore_sticky_posts\":false,\"suppress_filters\":false,\"cache_results\":true,\"update_post_term_cache\":true,\"update_menu_item_cache\":false,\"lazy_load_term_meta\":true,\"update_post_meta_cache\":true,\"post_type\":\"\",\"posts_per_page\":7,\"nopaging\":false,\"comments_per_page\":\"10\",\"no_found_rows\":false,\"order\":\"DESC\"}","current_page":"1","max_page":"0"};
+var ajax_loadmore_resources = {"ajaxurl":"https://frontegg.com/wp-admin/admin-ajax.php","posts":"{\"error\":\"\",\"m\":\"\",\"p\":\"21808\",\"post_parent\":\"\",\"subpost\":\"\",\"subpost_id\":\"\",\"attachment\":\"\",\"attachment_id\":0,\"name\":\"\",\"pagename\":\"\",\"page_id\":\"21808\",\"second\":\"\",\"minute\":\"\",\"hour\":\"\",\"day\":0,\"monthnum\":0,\"year\":0,\"w\":0,\"category_name\":\"\",\"tag\":\"\",\"cat\":\"\",\"tag_id\":\"\",\"author\":\"\",\"author_name\":\"\",\"feed\":\"\",\"tb\":\"\",\"paged\":0,\"meta_key\":\"\",\"meta_value\":\"\",\"preview\":\"\",\"s\":\"\",\"sentence\":\"\",\"title\":\"\",\"fields\":\"all\",\"menu_order\":\"\",\"embed\":\"\",\"category__in\":[],\"category__not_in\":[],\"category__and\":[],\"post__in\":[],\"post__not_in\":[],\"post_name__in\":[],\"tag__in\":[],\"tag__not_in\":[],\"tag__and\":[],\"tag_slug__in\":[],\"tag_slug__and\":[],\"post_parent__in\":[],\"post_parent__not_in\":[],\"author__in\":[],\"author__not_in\":[],\"search_columns\":[],\"ignore_sticky_posts\":false,\"suppress_filters\":false,\"cache_results\":true,\"update_post_term_cache\":true,\"update_menu_item_cache\":false,\"lazy_load_term_meta\":true,\"update_post_meta_cache\":true,\"post_type\":\"\",\"posts_per_page\":7,\"nopaging\":false,\"comments_per_page\":\"10\",\"no_found_rows\":false,\"order\":\"DESC\"}","current_page":"1","max_page":"0"};
+//# sourceURL=ajax_scripts-js-extra
+/* ]]> */
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/themes/frontegg/js/post-ajax.js?ver=1.0.3" id="ajax_scripts-js" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript">(function(d){var s=d.createElement("script");s.type="text/javascript";s.src="https://a.omappapi.com/app/js/api.min.js";s.async=true;s.id="omapi-script";d.getElementsByTagName("head")[0].appendChild(s);})(document);</script><script type="text/javascript" id="ivory-search-scripts-js-extra">
+/* <![CDATA[ */
+var IvorySearchVars = {"is_analytics_enabled":"1"};
+//# sourceURL=ivory-search-scripts-js-extra
+/* ]]> */
+</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/plugins/add-search-to-menu/public/js/ivory-search.min.js?ver=5.5.14" id="ivory-search-scripts-js" data-rocket-defer="" defer=""></script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/frontegg/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>This website uses cookies to improve your browsing experience and to analyze our site usage and traffic for marketing purposes. For more information, please see our <a href="/privacy-policy">Privacy Policy</a>. <br>By clicking “Accept All” you consent to our use of cookies. <a role="button" class="cli_settings_button">Cookie settings</a><a role="button" id="cookie_action_close_header_reject" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button wt-cli-reject-btn" data-cli_action="reject">Reject all</a><a id="wt-cli-accept-all-btn" role="button" data-cli_action="accept_all" class="wt-cli-element medium cli-plugin-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button">Accept all</a></span></div><div id="cookie-law-info-again" data-nosnippet="true"><span id="cookie_hdr_showagain"></span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these cookies, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may have an effect on your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+															<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked="checked">
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Always Enabled</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="functional" data-toggle="cli-toggle-tab">
+								Functional							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-functional" class="cli-user-preference-checkbox" data-id="checkbox-functional">
+									<label for="wt-cli-checkbox-functional" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Functional</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="functional">
+								<div class="wt-cli-cookie-description">
+									Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.
+<table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duration</th><th class="cookielawinfo-column-4">Description</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_vis_opt_s</td><td class="cookielawinfo-column-3">3 months 8 days</td><td class="cookielawinfo-column-4">Visual Website Optimizer sets this cookie to detect if there are new to or returning to a particular test.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_vis_opt_test_cookie</td><td class="cookielawinfo-column-3">session</td><td class="cookielawinfo-column-4">Visual Website Optimizer creates this cookie to determine whether or not cookies are enabled on the user's browser.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">li_gc</td><td class="cookielawinfo-column-3">6 months</td><td class="cookielawinfo-column-4">Linkedin set this cookie for storing visitor's consent regarding using cookies for non-essential purposes.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">lidc</td><td class="cookielawinfo-column-3">1 day</td><td class="cookielawinfo-column-4">LinkedIn sets the lidc cookie to facilitate data center selection.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">messagesUtk</td><td class="cookielawinfo-column-3">6 months</td><td class="cookielawinfo-column-4">HubSpot sets this cookie to recognize visitors who chat via the chatflows tool.</td></tr></tbody></table>								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="performance" data-toggle="cli-toggle-tab">
+								Performance							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-performance" class="cli-user-preference-checkbox" data-id="checkbox-performance">
+									<label for="wt-cli-checkbox-performance" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Performance</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="performance">
+								<div class="wt-cli-cookie-description">
+									Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.
+<table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duration</th><th class="cookielawinfo-column-4">Description</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">AWSALB</td><td class="cookielawinfo-column-3">7 days</td><td class="cookielawinfo-column-4">AWSALB is an application load balancer cookie set by Amazon Web Services to map the session to the target.</td></tr></tbody></table>								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="analytics" data-toggle="cli-toggle-tab">
+								Analytics							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-analytics" class="cli-user-preference-checkbox" data-id="checkbox-analytics">
+									<label for="wt-cli-checkbox-analytics" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Analytics</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="analytics">
+								<div class="wt-cli-cookie-description">
+									Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.
+<table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duration</th><th class="cookielawinfo-column-4">Description</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_gcl_au</td><td class="cookielawinfo-column-3">3 months</td><td class="cookielawinfo-column-4">Google Tag Manager sets the cookie to experiment advertisement efficiency of websites using their services.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_hjSession_*</td><td class="cookielawinfo-column-3">1 hour</td><td class="cookielawinfo-column-4">Hotjar sets this cookie to ensure data from subsequent visits to the same site is attributed to the same user ID, which persists in the Hotjar User ID, which is unique to that site.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_hjSessionUser_*</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">Hotjar sets this cookie to ensure data from subsequent visits to the same site is attributed to the same user ID, which persists in the Hotjar User ID, which is unique to that site.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_hp2_ses_props.*</td><td class="cookielawinfo-column-3">1 hour</td><td class="cookielawinfo-column-4">Heap sets this cookie to store the timestamp and cookie domain or path.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_omappvp</td><td class="cookielawinfo-column-3">1 year 1 month 4 days</td><td class="cookielawinfo-column-4">The _omappvp cookie is set to distinguish new and returning users and is used in conjunction with _omappvs cookie.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_omappvs</td><td class="cookielawinfo-column-3">20 minutes</td><td class="cookielawinfo-column-4">The _omappvs cookie, used in conjunction with the _omappvp cookies, is used to determine if the visitor has visited the website before, or if it is a new visitor.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_vwo_uuid_v2</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">This cookie is set by Visual Website Optimiser and calculates unique traffic on a website.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cb_anonymous_id</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">Clearbit sets this cookie to track page views and traits for Clearbit.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cb_group_id</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">Clearbit sets this cookie to track page views and traits for Clearbit.</td></tr></tbody></table>								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="advertisement" data-toggle="cli-toggle-tab">
+								Advertisement							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-advertisement" class="cli-user-preference-checkbox" data-id="checkbox-advertisement">
+									<label for="wt-cli-checkbox-advertisement" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Advertisement</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="advertisement">
+								<div class="wt-cli-cookie-description">
+									Advertisement cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.
+<table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duration</th><th class="cookielawinfo-column-4">Description</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">bcookie</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">LinkedIn sets this cookie from LinkedIn share buttons and ad tags to recognize browser IDs.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cb_user_id</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">Clearbit sets this cookie to collect data on visitors. This information is used to assign visitors into segments, making website advertising more relevant.</td></tr></tbody></table>								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="others" data-toggle="cli-toggle-tab">
+								Others							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-others" class="cli-user-preference-checkbox" data-id="checkbox-others">
+									<label for="wt-cli-checkbox-others" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Others</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="others">
+								<div class="wt-cli-cookie-description">
+									Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.
+<table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duration</th><th class="cookielawinfo-column-4">Description</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">__Host-session</td><td class="cookielawinfo-column-3">14 days</td><td class="cookielawinfo-column-4">No description available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">__tld__</td><td class="cookielawinfo-column-3">session</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_cfuvid</td><td class="cookielawinfo-column-3">session</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_crowdcontrol_session_key</td><td class="cookielawinfo-column-3">session</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_g2_session_id</td><td class="cookielawinfo-column-3">session</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_hp2_hld346349427843107.1065080579</td><td class="cookielawinfo-column-3">5 minutes</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_hp2_hld6722177740337317.1065080579</td><td class="cookielawinfo-column-3">5 minutes</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">_hp2_hld8090462093010520.1065080579</td><td class="cookielawinfo-column-3">5 minutes</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cbtest</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">debug</td><td class="cookielawinfo-column-3">never</td><td class="cookielawinfo-column-4">No description available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">events_distinct_id</td><td class="cookielawinfo-column-3">session</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">h1_device_id</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">pfjscookies</td><td class="cookielawinfo-column-3">1 year</td><td class="cookielawinfo-column-4">Description is currently not available.</td></tr></tbody></table>								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+												<div class="wt-cli-ckyes-footer-section">
+							<div class="wt-cli-ckyes-brand-logo">Powered by <a href="https://www.cookieyes.com/"><img width="300" height="60" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%2060'%3E%3C/svg%3E" alt="CookieYes Logo" data-lazy-src="https://frontegg.com/wp-content/plugins/cookie-law-info/legacy/public/images/logo-cookieyes.svg"><noscript><img width="300" height="60" src="https://frontegg.com/wp-content/plugins/cookie-law-info/legacy/public/images/logo-cookieyes.svg" alt="CookieYes Logo"></noscript></a></div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><!-- Start of HubSpot Embed Code -->
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="hs-script-loader" async="" defer="" data-rocket-src="//js.hs-scripts.com/7615593.js"></script>
+<!-- End of HubSpot Embed Code --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: How did you hear about Frontegg - hubspot form -->
+<script type="text/rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,214042,'j3ybolecf59euues6oer');</script>
+<!-- / OptinMonster --><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Hoe dod you hear about Frontegg -->
+<script type="text/rocketlazyloadscript">(function(d,u,ac){var s=d.createElement('script');s.type='text/javascript';s.src='https://a.omappapi.com/app/js/api.min.js';s.async=true;s.dataset.user=u;s.dataset.campaign=ac;d.getElementsByTagName('head')[0].appendChild(s);})(document,214042,'gh1pttlkvz10pq9jg6tg');</script>
+<!-- / OptinMonster -->		<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+		var j3ybolecf59euues6oer_shortcode = true;var gh1pttlkvz10pq9jg6tg_shortcode = true;		</script>
+		<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://frontegg.com/wp-content/plugins/optinmonster/assets/dist/js/helper.min.js?ver=2.16.22" id="optinmonster-wp-helper-js" data-rocket-defer="" defer=""></script>
+		<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">var omapi_localized = {
+			ajax: 'https://frontegg.com/wp-admin/admin-ajax.php?optin-monster-ajax-route=1',
+			nonce: '259f51d3b1',
+			slugs:
+			{"j3ybolecf59euues6oer":{"slug":"j3ybolecf59euues6oer","mailpoet":false},"gh1pttlkvz10pq9jg6tg":{"slug":"gh1pttlkvz10pq9jg6tg","mailpoet":false}}		};</script>
+				<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">var omapi_data = {"object_id":21808,"object_key":"page","object_type":"post","term_ids":[],"wp_json":"https:\/\/frontegg.com\/wp-json","wc_active":false,"edd_active":false,"nonce":"1dd917f562"};</script>
+		<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://frontegg.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+
+
+</body></html>

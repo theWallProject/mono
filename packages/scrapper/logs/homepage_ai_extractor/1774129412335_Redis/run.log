@@ -1,0 +1,111 @@
+[2026-03-21T21:43:32.338Z] === Homepage AI Extractor: Redis ===
+[2026-03-21T21:43:32.338Z] Started at: 2026-03-21T21:43:32.338Z
+[2026-03-21T21:43:32.338Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774129412335_Redis
+[2026-03-21T21:43:32.338Z] Company: Redis
+[2026-03-21T21:43:32.339Z] Website: redis.io
+[2026-03-21T21:43:32.339Z] cbRank: 570
+[2026-03-21T21:43:32.339Z] Reasons: f
+[2026-03-21T21:43:32.339Z] Fetching: https://redis.io
+[2026-03-21T21:43:43.089Z] Network idle timeout — continuing with current state
+[2026-03-21T21:43:43.177Z] Redirected: https://redis.io -> https://redis.io/
+[2026-03-21T21:43:43.199Z] Saved HTML (959390 bytes) to page.html
+[2026-03-21T21:43:43.203Z] Extracted 73 unique links from page
+[2026-03-21T21:43:43.204Z] Saved 73 links to links.json
+[2026-03-21T21:43:43.207Z] Extracted footer HTML (25086 chars)
+[2026-03-21T21:43:43.208Z] Extracted header HTML (43961 chars)
+[2026-03-21T21:43:43.211Z] Website (post-redirect): https://redis.io/ → origin: https://redis.io
+[2026-03-21T21:43:43.211Z]   SUBDOMAIN: cloud.redis.io (added to ws)
+[2026-03-21T21:43:43.212Z]   SUBDOMAIN: trust.redis.io (added to ws)
+[2026-03-21T21:43:43.212Z]   SUBDOMAIN: university.redis.io (added to ws)
+[2026-03-21T21:43:43.212Z] Website subdomains found: 3
+[2026-03-21T21:43:43.212Z] External links: 8 (of 73 total)
+[2026-03-21T21:43:43.212Z] ── All external links ──
+[2026-03-21T21:43:43.212Z]   EXT: https://discord.gg/redis
+[2026-03-21T21:43:43.212Z]   EXT: https://github.com/redis/redis
+[2026-03-21T21:43:43.212Z]   EXT: https://support.redislabs.com
+[2026-03-21T21:43:43.212Z]   EXT: https://www.facebook.com/Redisinc
+[2026-03-21T21:43:43.212Z]   EXT: https://www.instagram.com/redisinc
+[2026-03-21T21:43:43.212Z]   EXT: https://www.linkedin.com/company/redisinc
+[2026-03-21T21:43:43.212Z]   EXT: https://www.youtube.com/c/redisinc
+[2026-03-21T21:43:43.212Z]   EXT: https://x.com/Redisinc
+[2026-03-21T21:43:43.212Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:43:43.213Z]   UNCATEGORIZED: https://discord.gg/redis
+[2026-03-21T21:43:43.213Z]   REGEX: gh <- https://github.com/redis/redis
+[2026-03-21T21:43:43.213Z]   UNCATEGORIZED: https://support.redislabs.com
+[2026-03-21T21:43:43.213Z]   REGEX: fb <- https://www.facebook.com/Redisinc
+[2026-03-21T21:43:43.213Z]   REGEX: ig <- https://www.instagram.com/redisinc
+[2026-03-21T21:43:43.213Z]   REGEX: li <- https://www.linkedin.com/company/redisinc
+[2026-03-21T21:43:43.213Z]   REGEX: ytp <- https://www.youtube.com/c/redisinc
+[2026-03-21T21:43:43.213Z]   REGEX: tw <- https://x.com/Redisinc
+[2026-03-21T21:43:43.213Z] Programmatic result: ws:4, gh:1, fb:1, ig:1, li:1, ytp:1, tw:1 | 2 uncategorized
+[2026-03-21T21:43:43.213Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:43:43.216Z] Saved AI prompt (8177 chars) to ai_prompt.txt
+[2026-03-21T21:43:43.217Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:43:43.220Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:44:13.812Z]   AI: First token received, streaming...
+[2026-03-21T21:44:26.755Z]   AI streaming: 202 chars received (43.5s elapsed)
+[2026-03-21T21:44:29.390Z] AI response complete: 257 chars in 46.2s
+[2026-03-21T21:44:29.391Z] Saved AI response to ai_response.json
+[2026-03-21T21:44:29.392Z] ── Parsing AI response (8 lines) ──
+[2026-03-21T21:44:29.392Z]   AI LINK: https://github.com/redis/redis/
+[2026-03-21T21:44:29.392Z]   AI LINK: https://www.facebook.com/Redisinc
+[2026-03-21T21:44:29.392Z]   AI LINK: https://www.youtube.com/c/redisinc
+[2026-03-21T21:44:29.393Z]   AI LINK: https://www.linkedin.com/company/redisinc/
+[2026-03-21T21:44:29.393Z]   AI LINK: https://www.instagram.com/redisinc/
+[2026-03-21T21:44:29.393Z]   AI LINK: https://x.com/Redisinc
+[2026-03-21T21:44:29.393Z]   AI LINK: https://discord.gg/redis
+[2026-03-21T21:44:29.393Z]   AI LINK: https://support.redislabs.com
+[2026-03-21T21:44:29.393Z] AI returned 8 valid links
+[2026-03-21T21:44:29.394Z] ── Categorizing 8 AI-returned links ──
+[2026-03-21T21:44:29.394Z]   AI→REGEX: gh <- https://github.com/redis/redis/ (duplicate, skipped)
+[2026-03-21T21:44:29.394Z]   AI→REGEX: fb <- https://www.facebook.com/Redisinc (duplicate, skipped)
+[2026-03-21T21:44:29.394Z]   AI→REGEX: ytp <- https://www.youtube.com/c/redisinc (duplicate, skipped)
+[2026-03-21T21:44:29.394Z]   AI→REGEX: li <- https://www.linkedin.com/company/redisinc/ (duplicate, skipped)
+[2026-03-21T21:44:29.395Z]   AI→REGEX: ig <- https://www.instagram.com/redisinc/ (duplicate, skipped)
+[2026-03-21T21:44:29.395Z]   AI→REGEX: tw <- https://x.com/Redisinc (duplicate, skipped)
+[2026-03-21T21:44:29.395Z]   AI→URLS: https://discord.gg/redis
+[2026-03-21T21:44:29.395Z]   AI→URLS: https://support.redislabs.com
+[2026-03-21T21:44:29.398Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:44:29.399Z] Footer/header origins (10):
+[2026-03-21T21:44:29.399Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-21T21:44:29.399Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T21:44:29.399Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T21:44:29.399Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T21:44:29.399Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T21:44:29.400Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T21:44:29.400Z]   FOOTER/HEADER ORIGIN: https://trust.redis.io
+[2026-03-21T21:44:29.400Z]   FOOTER/HEADER ORIGIN: https://university.redis.io
+[2026-03-21T21:44:29.400Z]   FOOTER/HEADER ORIGIN: https://support.redislabs.com
+[2026-03-21T21:44:29.400Z]   FOOTER/HEADER ORIGIN: https://cloud.redis.io
+[2026-03-21T21:44:29.400Z]   SKIP (AI claimed): https://discord.gg/redis
+[2026-03-21T21:44:29.400Z]   SKIP (AI claimed): https://support.redislabs.com
+[2026-03-21T21:44:29.400Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:44:29.401Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:44:29.401Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T21:44:29.401Z] ── Step 3: Final dedup ──
+[2026-03-21T21:44:29.401Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T21:44:29.401Z] ── FINAL RESULT ──
+[2026-03-21T21:44:29.401Z]   ws (4):
+[2026-03-21T21:44:29.401Z]     - https://cloud.redis.io
+[2026-03-21T21:44:29.401Z]     - https://redis.io
+[2026-03-21T21:44:29.401Z]     - https://trust.redis.io
+[2026-03-21T21:44:29.401Z]     - https://university.redis.io
+[2026-03-21T21:44:29.401Z]   li (1):
+[2026-03-21T21:44:29.402Z]     - https://www.linkedin.com/company/redisinc
+[2026-03-21T21:44:29.402Z]   fb (1):
+[2026-03-21T21:44:29.402Z]     - https://www.facebook.com/redisinc
+[2026-03-21T21:44:29.402Z]   tw (1):
+[2026-03-21T21:44:29.402Z]     - https://x.com/redisinc
+[2026-03-21T21:44:29.402Z]   ig (1):
+[2026-03-21T21:44:29.402Z]     - https://www.instagram.com/redisinc
+[2026-03-21T21:44:29.402Z]   gh (1):
+[2026-03-21T21:44:29.403Z]     - https://github.com/redis
+[2026-03-21T21:44:29.403Z]   ytp (1):
+[2026-03-21T21:44:29.403Z]     - https://www.youtube.com/@redisinc
+[2026-03-21T21:44:29.403Z]   urls (2):
+[2026-03-21T21:44:29.403Z]     - https://discord.gg/redis
+[2026-03-21T21:44:29.403Z]     - https://support.redislabs.com
+[2026-03-21T21:44:29.403Z] Summary: ws:4, gh:1, fb:1, ig:1, li:1, ytp:1, tw:1, urls:2
+[2026-03-21T21:44:29.404Z] Saved final result to result.json
+[2026-03-21T21:44:29.405Z] Override fields: ws, li, fb, tw, ig, gh, ytp, urls
+[2026-03-21T21:44:29.405Z] Finished at: 2026-03-21T21:44:29.405Z

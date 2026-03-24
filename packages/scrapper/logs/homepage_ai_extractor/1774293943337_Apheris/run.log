@@ -1,0 +1,57 @@
+[2026-03-23T19:25:43.338Z] === Homepage AI Extractor: Apheris ===
+[2026-03-23T19:25:43.338Z] Started at: 2026-03-23T19:25:43.338Z
+[2026-03-23T19:25:43.338Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774293943337_Apheris
+[2026-03-23T19:25:43.338Z] Company: Apheris
+[2026-03-23T19:25:43.338Z] Website: apheris.com
+[2026-03-23T19:25:43.338Z] cbRank: 9025
+[2026-03-23T19:25:43.338Z] Reasons: i
+[2026-03-23T19:25:43.338Z] Fetching: https://apheris.com
+[2026-03-23T19:25:44.831Z] Redirected: https://apheris.com -> https://www.apheris.com/
+[2026-03-23T19:25:44.834Z] Saved HTML (67746 bytes) to page.html
+[2026-03-23T19:25:44.836Z] Extracted 15 unique links from page
+[2026-03-23T19:25:44.837Z] Saved 15 links to links.json
+[2026-03-23T19:25:44.838Z] Extracted footer HTML (3482 chars)
+[2026-03-23T19:25:44.838Z] Extracted header HTML (2482 chars)
+[2026-03-23T19:25:44.842Z] Website (post-redirect): https://www.apheris.com/ → origin: https://www.apheris.com
+[2026-03-23T19:25:44.842Z]   SUBDOMAIN: trust.apheris.com (added to ws)
+[2026-03-23T19:25:44.842Z] Website subdomains found: 1
+[2026-03-23T19:25:44.842Z] External links: 2 (of 15 total)
+[2026-03-23T19:25:44.842Z] ── All external links ──
+[2026-03-23T19:25:44.842Z]   EXT: https://linkedin.com/company/apheris
+[2026-03-23T19:25:44.842Z]   EXT: https://share.hsforms.com/13YFC44dcS06zA6AtYh8OJA5bpil
+[2026-03-23T19:25:44.842Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:25:44.842Z]   REGEX: li <- https://linkedin.com/company/apheris
+[2026-03-23T19:25:44.843Z]   UNCATEGORIZED: https://share.hsforms.com/13YFC44dcS06zA6AtYh8OJA5bpil
+[2026-03-23T19:25:44.843Z] Programmatic result: ws:2, li:1 | 1 uncategorized
+[2026-03-23T19:25:44.843Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:25:44.844Z] Saved AI prompt (3247 chars) to ai_prompt.txt
+[2026-03-23T19:25:44.844Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:25:44.846Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:25:56.496Z]   AI: First token received, streaming...
+[2026-03-23T19:25:57.652Z] AI response complete: 36 chars in 12.8s
+[2026-03-23T19:25:57.654Z] Saved AI response to ai_response.json
+[2026-03-23T19:25:57.654Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T19:25:57.654Z]   AI LINK: https://linkedin.com/company/apheris
+[2026-03-23T19:25:57.654Z] AI returned 1 valid links
+[2026-03-23T19:25:57.654Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T19:25:57.655Z]   AI→REGEX: li <- https://linkedin.com/company/apheris (duplicate, skipped)
+[2026-03-23T19:25:57.655Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:25:57.655Z] Footer/header origins (2):
+[2026-03-23T19:25:57.656Z]   FOOTER/HEADER ORIGIN: https://linkedin.com
+[2026-03-23T19:25:57.656Z]   FOOTER/HEADER ORIGIN: https://trust.apheris.com
+[2026-03-23T19:25:57.656Z]   SKIP (not in footer/header): https://share.hsforms.com/13YFC44dcS06zA6AtYh8OJA5bpil
+[2026-03-23T19:25:57.656Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:25:57.656Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:25:57.656Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:25:57.656Z] ── Step 3: Final dedup ──
+[2026-03-23T19:25:57.656Z] No urls to dedup
+[2026-03-23T19:25:57.656Z] ── FINAL RESULT ──
+[2026-03-23T19:25:57.656Z]   ws (2):
+[2026-03-23T19:25:57.656Z]     - https://trust.apheris.com
+[2026-03-23T19:25:57.657Z]     - https://www.apheris.com
+[2026-03-23T19:25:57.657Z]   li (1):
+[2026-03-23T19:25:57.657Z]     - https://www.linkedin.com/company/apheris
+[2026-03-23T19:25:57.657Z] Summary: ws:2, li:1
+[2026-03-23T19:25:57.661Z] Saved final result to result.json
+[2026-03-23T19:25:57.661Z] Override fields: ws, li
+[2026-03-23T19:25:57.661Z] Finished at: 2026-03-23T19:25:57.661Z

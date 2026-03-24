@@ -1,0 +1,83 @@
+[2026-03-23T16:47:16.270Z] === Homepage AI Extractor: Funky fish ===
+[2026-03-23T16:47:16.270Z] Started at: 2026-03-23T16:47:16.270Z
+[2026-03-23T16:47:16.270Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774284436269_Funky_fish
+[2026-03-23T16:47:16.271Z] Company: Funky fish
+[2026-03-23T16:47:16.271Z] Website: funkyfish.com
+[2026-03-23T16:47:16.271Z] cbRank: 2950185
+[2026-03-23T16:47:16.271Z] Reasons: f
+[2026-03-23T16:47:16.271Z] Fetching: https://funkyfish.com
+[2026-03-23T16:47:28.177Z] Network idle timeout — continuing with current state
+[2026-03-23T16:47:28.223Z] Redirected: https://funkyfish.com -> https://www.funkyfish.com/
+[2026-03-23T16:47:28.236Z] Saved HTML (473935 bytes) to page.html
+[2026-03-23T16:47:28.240Z] Extracted 57 unique links from page
+[2026-03-23T16:47:28.241Z] Saved 57 links to links.json
+[2026-03-23T16:47:28.245Z] Extracted footer HTML (25449 chars)
+[2026-03-23T16:47:28.245Z] Extracted header HTML (16184 chars)
+[2026-03-23T16:47:28.251Z] Website (post-redirect): https://www.funkyfish.com/ → origin: https://www.funkyfish.com
+[2026-03-23T16:47:28.251Z]   SUBDOMAIN: il.funkyfish.com (added to ws)
+[2026-03-23T16:47:28.251Z] Website subdomains found: 1
+[2026-03-23T16:47:28.252Z] External links: 5 (of 57 total)
+[2026-03-23T16:47:28.252Z] ── All external links ──
+[2026-03-23T16:47:28.252Z]   EXT: http://facebook.com/Funkyfishltd
+[2026-03-23T16:47:28.252Z]   EXT: https://twitter.com/funkyfishLTD
+[2026-03-23T16:47:28.252Z]   EXT: https://www.element-israel.com
+[2026-03-23T16:47:28.252Z]   EXT: https://www.instagram.com/funkyfish_official
+[2026-03-23T16:47:28.252Z]   EXT: https://www.pinterest.com/flookycom
+[2026-03-23T16:47:28.252Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T16:47:28.252Z]   REGEX: fb <- http://facebook.com/Funkyfishltd
+[2026-03-23T16:47:28.252Z]   REGEX: tw <- https://twitter.com/funkyfishLTD
+[2026-03-23T16:47:28.252Z]   UNCATEGORIZED: https://www.element-israel.com
+[2026-03-23T16:47:28.252Z]   REGEX: ig <- https://www.instagram.com/funkyfish_official
+[2026-03-23T16:47:28.252Z]   UNCATEGORIZED: https://www.pinterest.com/flookycom
+[2026-03-23T16:47:28.252Z] Programmatic result: ws:2, fb:1, tw:1, ig:1 | 2 uncategorized
+[2026-03-23T16:47:28.252Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T16:47:28.256Z] Saved AI prompt (5344 chars) to ai_prompt.txt
+[2026-03-23T16:47:28.256Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T16:47:28.260Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T16:47:50.065Z]   AI: First token received, streaming...
+[2026-03-23T16:47:58.817Z] AI response complete: 148 chars in 30.6s
+[2026-03-23T16:47:58.819Z] Saved AI response to ai_response.json
+[2026-03-23T16:47:58.819Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T16:47:58.819Z]   AI LINK: https://www.instagram.com/funkyfish_official/
+[2026-03-23T16:47:58.819Z]   AI LINK: http://facebook.com/Funkyfishltd
+[2026-03-23T16:47:58.819Z]   AI LINK: https://twitter.com/funkyfishLTD
+[2026-03-23T16:47:58.819Z]   AI LINK: https://www.pinterest.com/flookycom/
+[2026-03-23T16:47:58.819Z] AI returned 4 valid links
+[2026-03-23T16:47:58.819Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T16:47:58.819Z]   AI→REGEX: ig <- https://www.instagram.com/funkyfish_official/ (duplicate, skipped)
+[2026-03-23T16:47:58.820Z]   AI→REGEX: fb <- http://facebook.com/Funkyfishltd (duplicate, skipped)
+[2026-03-23T16:47:58.820Z]   AI→REGEX: tw <- https://twitter.com/funkyfishLTD (duplicate, skipped)
+[2026-03-23T16:47:58.820Z]   AI→URLS: https://www.pinterest.com/flookycom (cleaned from https://www.pinterest.com/flookycom/)
+[2026-03-23T16:47:58.821Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T16:47:58.821Z] Footer/header origins (7):
+[2026-03-23T16:47:58.821Z]   FOOTER/HEADER ORIGIN: https://il.funkyfish.com
+[2026-03-23T16:47:58.821Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T16:47:58.822Z]   FOOTER/HEADER ORIGIN: http://facebook.com
+[2026-03-23T16:47:58.822Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T16:47:58.822Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-23T16:47:58.822Z]   FOOTER/HEADER ORIGIN: https://www.element-israel.com
+[2026-03-23T16:47:58.822Z]   FOOTER/HEADER ORIGIN: http://il.funkyfish.com
+[2026-03-23T16:47:58.822Z]   ADDED: urls <- https://www.element-israel.com
+[2026-03-23T16:47:58.822Z]   SKIP (AI claimed): https://www.pinterest.com/flookycom
+[2026-03-23T16:47:58.822Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-23T16:47:58.822Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T16:47:58.822Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T16:47:58.822Z] ── Step 3: Final dedup ──
+[2026-03-23T16:47:58.822Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-23T16:47:58.822Z] ── FINAL RESULT ──
+[2026-03-23T16:47:58.822Z]   ws (2):
+[2026-03-23T16:47:58.823Z]     - https://il.funkyfish.com
+[2026-03-23T16:47:58.823Z]     - https://www.funkyfish.com
+[2026-03-23T16:47:58.823Z]   fb (1):
+[2026-03-23T16:47:58.823Z]     - https://www.facebook.com/funkyfishltd
+[2026-03-23T16:47:58.823Z]   tw (1):
+[2026-03-23T16:47:58.823Z]     - https://x.com/funkyfishltd
+[2026-03-23T16:47:58.823Z]   ig (1):
+[2026-03-23T16:47:58.823Z]     - https://www.instagram.com/funkyfish_official
+[2026-03-23T16:47:58.823Z]   urls (2):
+[2026-03-23T16:47:58.823Z]     - https://www.element-israel.com
+[2026-03-23T16:47:58.823Z]     - https://www.pinterest.com/flookycom
+[2026-03-23T16:47:58.823Z] Summary: ws:2, fb:1, tw:1, ig:1, urls:2
+[2026-03-23T16:47:58.824Z] Saved final result to result.json
+[2026-03-23T16:47:58.825Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-23T16:47:58.825Z] Finished at: 2026-03-23T16:47:58.825Z

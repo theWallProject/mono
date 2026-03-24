@@ -1,0 +1,58 @@
+[2026-03-22T00:17:14.207Z] === Homepage AI Extractor: Lama AI ===
+[2026-03-22T00:17:14.207Z] Started at: 2026-03-22T00:17:14.207Z
+[2026-03-22T00:17:14.207Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774138634207_Lama_AI
+[2026-03-22T00:17:14.208Z] Company: Lama AI
+[2026-03-22T00:17:14.208Z] Website: lama.ai
+[2026-03-22T00:17:14.208Z] cbRank: 11866
+[2026-03-22T00:17:14.208Z] Reasons: f
+[2026-03-22T00:17:14.208Z] Fetching: https://lama.ai
+[2026-03-22T00:17:15.779Z] Redirected: https://lama.ai -> https://www.lama.ai/
+[2026-03-22T00:17:15.793Z] Saved HTML (427995 bytes) to page.html
+[2026-03-22T00:17:15.798Z] Extracted 41 unique links from page
+[2026-03-22T00:17:15.799Z] Saved 41 links to links.json
+[2026-03-22T00:17:15.803Z] No footer section found in DOM
+[2026-03-22T00:17:15.803Z] Extracted header HTML (23698 chars)
+[2026-03-22T00:17:15.807Z] Website (post-redirect): https://www.lama.ai/ → origin: https://www.lama.ai
+[2026-03-22T00:17:15.807Z]   SUBDOMAIN: app.lama.ai (added to ws)
+[2026-03-22T00:17:15.807Z] Website subdomains found: 1
+[2026-03-22T00:17:15.808Z] External links: 2 (of 41 total)
+[2026-03-22T00:17:15.808Z] ── All external links ──
+[2026-03-22T00:17:15.808Z]   EXT: https://lama-ai.instatus.com
+[2026-03-22T00:17:15.808Z]   EXT: https://www.linkedin.com/company/lamaai
+[2026-03-22T00:17:15.808Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:17:15.808Z]   UNCATEGORIZED: https://lama-ai.instatus.com
+[2026-03-22T00:17:15.808Z]   REGEX: li <- https://www.linkedin.com/company/lamaai
+[2026-03-22T00:17:15.808Z] Programmatic result: ws:2, li:1 | 1 uncategorized
+[2026-03-22T00:17:15.808Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:17:15.812Z] Saved AI prompt (1958 chars) to ai_prompt.txt
+[2026-03-22T00:17:15.812Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:17:15.817Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:17:23.088Z]   AI: First token received, streaming...
+[2026-03-22T00:17:23.563Z] AI response complete: 28 chars in 7.8s
+[2026-03-22T00:17:23.564Z] Saved AI response to ai_response.json
+[2026-03-22T00:17:23.564Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T00:17:23.564Z]   AI LINK: https://lama-ai.instatus.com
+[2026-03-22T00:17:23.565Z] AI returned 1 valid links
+[2026-03-22T00:17:23.565Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T00:17:23.565Z]   AI→URLS: https://lama-ai.instatus.com
+[2026-03-22T00:17:23.566Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:17:23.566Z] Footer/header origins (1):
+[2026-03-22T00:17:23.566Z]   FOOTER/HEADER ORIGIN: https://app.lama.ai
+[2026-03-22T00:17:23.566Z]   SKIP (AI claimed): https://lama-ai.instatus.com
+[2026-03-22T00:17:23.566Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:17:23.566Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:17:23.566Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:17:23.567Z] ── Step 3: Final dedup ──
+[2026-03-22T00:17:23.567Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T00:17:23.567Z] ── FINAL RESULT ──
+[2026-03-22T00:17:23.567Z]   ws (2):
+[2026-03-22T00:17:23.567Z]     - https://app.lama.ai
+[2026-03-22T00:17:23.567Z]     - https://www.lama.ai
+[2026-03-22T00:17:23.567Z]   li (1):
+[2026-03-22T00:17:23.567Z]     - https://www.linkedin.com/company/lamaai
+[2026-03-22T00:17:23.567Z]   urls (1):
+[2026-03-22T00:17:23.567Z]     - https://lama-ai.instatus.com
+[2026-03-22T00:17:23.568Z] Summary: ws:2, li:1, urls:1
+[2026-03-22T00:17:23.569Z] Saved final result to result.json
+[2026-03-22T00:17:23.569Z] Override fields: ws, li
+[2026-03-22T00:17:23.569Z] Finished at: 2026-03-22T00:17:23.569Z

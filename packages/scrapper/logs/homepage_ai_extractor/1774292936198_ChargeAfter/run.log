@@ -1,0 +1,62 @@
+[2026-03-23T19:08:56.199Z] === Homepage AI Extractor: ChargeAfter ===
+[2026-03-23T19:08:56.199Z] Started at: 2026-03-23T19:08:56.199Z
+[2026-03-23T19:08:56.199Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774292936198_ChargeAfter
+[2026-03-23T19:08:56.199Z] Company: ChargeAfter
+[2026-03-23T19:08:56.199Z] Website: chargeafter.com
+[2026-03-23T19:08:56.199Z] cbRank: 7818
+[2026-03-23T19:08:56.199Z] Reasons: i
+[2026-03-23T19:08:56.199Z] Fetching: https://chargeafter.com
+[2026-03-23T19:08:59.820Z] Redirected: https://chargeafter.com -> https://chargeafter.com/
+[2026-03-23T19:08:59.829Z] Saved HTML (262168 bytes) to page.html
+[2026-03-23T19:08:59.832Z] Extracted 36 unique links from page
+[2026-03-23T19:08:59.833Z] Saved 36 links to links.json
+[2026-03-23T19:08:59.836Z] Extracted footer HTML (14902 chars)
+[2026-03-23T19:08:59.836Z] Extracted header HTML (9221 chars)
+[2026-03-23T19:08:59.839Z] Website (post-redirect): https://chargeafter.com/ → origin: https://chargeafter.com
+[2026-03-23T19:08:59.840Z]   SUBDOMAIN: operate.chargeafter.com (added to ws)
+[2026-03-23T19:08:59.840Z] Website subdomains found: 1
+[2026-03-23T19:08:59.840Z] External links: 2 (of 36 total)
+[2026-03-23T19:08:59.840Z] ── All external links ──
+[2026-03-23T19:08:59.840Z]   EXT: https://il.linkedin.com/company/chargeafter
+[2026-03-23T19:08:59.840Z]   EXT: https://twitter.com/ChargeAfter
+[2026-03-23T19:08:59.840Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T19:08:59.840Z]   REGEX: li <- https://il.linkedin.com/company/chargeafter
+[2026-03-23T19:08:59.840Z]   REGEX: tw <- https://twitter.com/ChargeAfter
+[2026-03-23T19:08:59.841Z] Programmatic result: ws:2, li:1, tw:1 | 0 uncategorized
+[2026-03-23T19:08:59.841Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T19:08:59.842Z] Saved AI prompt (4427 chars) to ai_prompt.txt
+[2026-03-23T19:08:59.842Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T19:08:59.846Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T19:09:16.339Z]   AI: First token received, streaming...
+[2026-03-23T19:09:19.356Z] AI response complete: 75 chars in 19.5s
+[2026-03-23T19:09:19.358Z] Saved AI response to ai_response.json
+[2026-03-23T19:09:19.358Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T19:09:19.358Z]   AI LINK: https://il.linkedin.com/company/chargeafter
+[2026-03-23T19:09:19.358Z]   AI LINK: https://twitter.com/ChargeAfter
+[2026-03-23T19:09:19.358Z] AI returned 2 valid links
+[2026-03-23T19:09:19.358Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T19:09:19.358Z]   AI→REGEX: li <- https://il.linkedin.com/company/chargeafter (duplicate, skipped)
+[2026-03-23T19:09:19.359Z]   AI→REGEX: tw <- https://twitter.com/ChargeAfter (duplicate, skipped)
+[2026-03-23T19:09:19.360Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T19:09:19.360Z] Footer/header origins (4):
+[2026-03-23T19:09:19.360Z]   FOOTER/HEADER ORIGIN: https://chargeafter.com
+[2026-03-23T19:09:19.360Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-23T19:09:19.361Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T19:09:19.361Z]   FOOTER/HEADER ORIGIN: https://operate.chargeafter.com
+[2026-03-23T19:09:19.361Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T19:09:19.361Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T19:09:19.361Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T19:09:19.361Z] ── Step 3: Final dedup ──
+[2026-03-23T19:09:19.361Z] No urls to dedup
+[2026-03-23T19:09:19.362Z] ── FINAL RESULT ──
+[2026-03-23T19:09:19.362Z]   ws (2):
+[2026-03-23T19:09:19.362Z]     - https://chargeafter.com
+[2026-03-23T19:09:19.362Z]     - https://operate.chargeafter.com
+[2026-03-23T19:09:19.362Z]   li (1):
+[2026-03-23T19:09:19.362Z]     - https://www.linkedin.com/company/chargeafter
+[2026-03-23T19:09:19.362Z]   tw (1):
+[2026-03-23T19:09:19.362Z]     - https://x.com/chargeafter
+[2026-03-23T19:09:19.362Z] Summary: ws:2, li:1, tw:1
+[2026-03-23T19:09:19.366Z] Saved final result to result.json
+[2026-03-23T19:09:19.367Z] Override fields: ws, li, tw
+[2026-03-23T19:09:19.367Z] Finished at: 2026-03-23T19:09:19.367Z

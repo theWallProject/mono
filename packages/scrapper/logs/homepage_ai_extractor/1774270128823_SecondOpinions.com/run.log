@@ -1,0 +1,73 @@
+[2026-03-23T12:48:48.823Z] === Homepage AI Extractor: SecondOpinions.com ===
+[2026-03-23T12:48:48.823Z] Started at: 2026-03-23T12:48:48.823Z
+[2026-03-23T12:48:48.823Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774270128823_SecondOpinions.com
+[2026-03-23T12:48:48.823Z] Company: SecondOpinions.com
+[2026-03-23T12:48:48.823Z] Website: secondopinions.com
+[2026-03-23T12:48:48.823Z] cbRank: 560481
+[2026-03-23T12:48:48.823Z] Reasons: f
+[2026-03-23T12:48:48.823Z] Fetching: https://secondopinions.com
+[2026-03-23T12:48:53.140Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T12:48:56.067Z] Redirected: https://secondopinions.com -> https://www.secondopinions.com/
+[2026-03-23T12:48:56.072Z] Saved HTML (210304 bytes) to page.html
+[2026-03-23T12:48:56.074Z] Extracted 30 unique links from page
+[2026-03-23T12:48:56.074Z] Saved 30 links to links.json
+[2026-03-23T12:48:56.076Z] Extracted footer HTML (4653 chars)
+[2026-03-23T12:48:56.076Z] Extracted header HTML (4443 chars)
+[2026-03-23T12:48:56.080Z] Website (post-redirect): https://www.secondopinions.com/ → origin: https://www.secondopinions.com
+[2026-03-23T12:48:56.080Z]   SUBDOMAIN: app.secondopinions.com (added to ws)
+[2026-03-23T12:48:56.080Z] Website subdomains found: 1
+[2026-03-23T12:48:56.080Z] External links: 5 (of 30 total)
+[2026-03-23T12:48:56.080Z] ── All external links ──
+[2026-03-23T12:48:56.080Z]   EXT: https://www.cookiepro.com/products/cookie-consent
+[2026-03-23T12:48:56.080Z]   EXT: https://www.facebook.com/profile.php?id=61572436487497
+[2026-03-23T12:48:56.080Z]   EXT: https://www.linkedin.com/company/66297013/admin/dashboard
+[2026-03-23T12:48:56.081Z]   EXT: https://www.nanox.vision/terms/cookies-policy
+[2026-03-23T12:48:56.081Z]   EXT: https://www.nanox.vision/terms/privacy-policy
+[2026-03-23T12:48:56.081Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T12:48:56.081Z]   UNCATEGORIZED: https://www.cookiepro.com/products/cookie-consent
+[2026-03-23T12:48:56.082Z]   REGEX: li <- https://www.linkedin.com/company/66297013/admin/dashboard
+[2026-03-23T12:48:56.082Z]   UNCATEGORIZED: https://www.nanox.vision/terms/cookies-policy
+[2026-03-23T12:48:56.082Z]   UNCATEGORIZED: https://www.nanox.vision/terms/privacy-policy
+[2026-03-23T12:48:56.082Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T12:48:56.888Z]   RESOLVE: https://www.facebook.com/profile.php?id=61572436487497 → https://www.facebook.com/people/SecondOpinions/61572436487497
+[2026-03-23T12:48:56.897Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/SecondOpinions/61572436487497 (from https://www.facebook.com/profile.php?id=61572436487497)
+[2026-03-23T12:48:56.897Z] Programmatic result: ws:2, li:1 | 3 uncategorized
+[2026-03-23T12:48:56.898Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T12:48:56.898Z] Saved AI prompt (4416 chars) to ai_prompt.txt
+[2026-03-23T12:48:56.898Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T12:48:56.902Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T12:49:12.903Z]   AI: First token received, streaming...
+[2026-03-23T12:49:21.612Z] AI response complete: 113 chars in 24.7s
+[2026-03-23T12:49:21.614Z] Saved AI response to ai_response.json
+[2026-03-23T12:49:21.614Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T12:49:21.614Z]   AI LINK: https://www.linkedin.com/company/66297013/admin/dashboard/
+[2026-03-23T12:49:21.614Z]   AI LINK: https://www.facebook.com/profile.php?id=61572436487497
+[2026-03-23T12:49:21.614Z] AI returned 2 valid links
+[2026-03-23T12:49:21.615Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T12:49:21.615Z]   AI→REGEX: li <- https://www.linkedin.com/company/66297013/admin/dashboard/ (duplicate, skipped)
+[2026-03-23T12:49:22.513Z]   RESOLVE: https://www.facebook.com/profile.php?id=61572436487497 → https://www.facebook.com/people/SecondOpinions/61572436487497
+[2026-03-23T12:49:22.537Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/SecondOpinions/61572436487497 (from https://www.facebook.com/profile.php?id=61572436487497)
+[2026-03-23T12:49:22.537Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T12:49:22.537Z] Footer/header origins (4):
+[2026-03-23T12:49:22.537Z]   FOOTER/HEADER ORIGIN: https://www.secondopinions.com
+[2026-03-23T12:49:22.537Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T12:49:22.537Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T12:49:22.537Z]   FOOTER/HEADER ORIGIN: https://app.secondopinions.com
+[2026-03-23T12:49:22.537Z]   SKIP (not in footer/header): https://www.cookiepro.com/products/cookie-consent
+[2026-03-23T12:49:22.537Z]   SKIP (not in footer/header): https://www.nanox.vision/terms/cookies-policy
+[2026-03-23T12:49:22.537Z]   SKIP (not in footer/header): https://www.nanox.vision/terms/privacy-policy
+[2026-03-23T12:49:22.537Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T12:49:22.537Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T12:49:22.537Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T12:49:22.537Z] ── Step 3: Final dedup ──
+[2026-03-23T12:49:22.537Z] No urls to dedup
+[2026-03-23T12:49:22.537Z] ── FINAL RESULT ──
+[2026-03-23T12:49:22.538Z]   ws (2):
+[2026-03-23T12:49:22.538Z]     - https://app.secondopinions.com
+[2026-03-23T12:49:22.538Z]     - https://www.secondopinions.com
+[2026-03-23T12:49:22.538Z]   li (1):
+[2026-03-23T12:49:22.538Z]     - https://www.linkedin.com/company/66297013
+[2026-03-23T12:49:22.538Z] Summary: ws:2, li:1
+[2026-03-23T12:49:22.539Z] Saved final result to result.json
+[2026-03-23T12:49:22.539Z] Override fields: ws, li
+[2026-03-23T12:49:22.539Z] Finished at: 2026-03-23T12:49:22.539Z

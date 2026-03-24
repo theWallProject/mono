@@ -1,0 +1,68 @@
+[2026-03-22T03:40:10.277Z] === Homepage AI Extractor: Checkmyguest ===
+[2026-03-22T03:40:10.277Z] Started at: 2026-03-22T03:40:10.277Z
+[2026-03-22T03:40:10.277Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774150810276_Checkmyguest
+[2026-03-22T03:40:10.277Z] Company: Checkmyguest
+[2026-03-22T03:40:10.277Z] Website: checkmyguest.fr
+[2026-03-22T03:40:10.277Z] cbRank: 58931
+[2026-03-22T03:40:10.277Z] Reasons: f
+[2026-03-22T03:40:10.278Z] Fetching: https://checkmyguest.fr
+[2026-03-22T03:40:13.266Z] Redirected: https://checkmyguest.fr -> https://www.checkmyguest.fr/
+[2026-03-22T03:40:13.276Z] Saved HTML (383441 bytes) to page.html
+[2026-03-22T03:40:13.279Z] Extracted 14 unique links from page
+[2026-03-22T03:40:13.280Z] Saved 14 links to links.json
+[2026-03-22T03:40:13.282Z] Extracted footer HTML (10140 chars)
+[2026-03-22T03:40:13.282Z] No header section found in DOM
+[2026-03-22T03:40:13.286Z] Website (post-redirect): https://www.checkmyguest.fr/ → origin: https://www.checkmyguest.fr
+[2026-03-22T03:40:13.287Z]   SUBDOMAIN: gestion.checkmyguest.fr (added to ws)
+[2026-03-22T03:40:13.287Z]   SUBDOMAIN: my.checkmyguest.fr (added to ws)
+[2026-03-22T03:40:13.287Z]   SUBDOMAIN: transaction.checkmyguest.fr (added to ws)
+[2026-03-22T03:40:13.287Z]   SUBDOMAIN: travel.checkmyguest.fr (added to ws)
+[2026-03-22T03:40:13.287Z] Website subdomains found: 4
+[2026-03-22T03:40:13.287Z] External links: 2 (of 14 total)
+[2026-03-22T03:40:13.287Z] ── All external links ──
+[2026-03-22T03:40:13.287Z]   EXT: https://www.linkedin.com/company/checkmyguest/?originalSubdomain=fr
+[2026-03-22T03:40:13.287Z]   EXT: https://x.com/checkmyguest
+[2026-03-22T03:40:13.287Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T03:40:13.287Z]   REGEX: li <- https://www.linkedin.com/company/checkmyguest/?originalSubdomain=fr
+[2026-03-22T03:40:13.288Z]   REGEX: tw <- https://x.com/checkmyguest
+[2026-03-22T03:40:13.288Z] Programmatic result: ws:5, li:1, tw:1 | 0 uncategorized
+[2026-03-22T03:40:13.288Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T03:40:13.291Z] Saved AI prompt (4874 chars) to ai_prompt.txt
+[2026-03-22T03:40:13.291Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T03:40:13.295Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T03:40:30.441Z]   AI: First token received, streaming...
+[2026-03-22T03:40:34.848Z] AI response complete: 94 chars in 21.6s
+[2026-03-22T03:40:34.850Z] Saved AI response to ai_response.json
+[2026-03-22T03:40:34.850Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T03:40:34.850Z]   AI LINK: https://www.linkedin.com/company/checkmyguest/?originalSubdomain=fr
+[2026-03-22T03:40:34.850Z]   AI LINK: https://x.com/checkmyguest
+[2026-03-22T03:40:34.851Z] AI returned 2 valid links
+[2026-03-22T03:40:34.851Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T03:40:34.851Z]   AI→REGEX: li <- https://www.linkedin.com/company/checkmyguest/?originalSubdomain=fr (duplicate, skipped)
+[2026-03-22T03:40:34.851Z]   AI→REGEX: tw <- https://x.com/checkmyguest (duplicate, skipped)
+[2026-03-22T03:40:34.852Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T03:40:34.852Z] Footer/header origins (4):
+[2026-03-22T03:40:34.852Z]   FOOTER/HEADER ORIGIN: https://transaction.checkmyguest.fr
+[2026-03-22T03:40:34.852Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T03:40:34.852Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T03:40:34.852Z]   FOOTER/HEADER ORIGIN: https://gestion.checkmyguest.fr
+[2026-03-22T03:40:34.853Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T03:40:34.853Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T03:40:34.853Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T03:40:34.853Z] ── Step 3: Final dedup ──
+[2026-03-22T03:40:34.853Z] No urls to dedup
+[2026-03-22T03:40:34.853Z] ── FINAL RESULT ──
+[2026-03-22T03:40:34.853Z]   ws (5):
+[2026-03-22T03:40:34.853Z]     - https://gestion.checkmyguest.fr
+[2026-03-22T03:40:34.853Z]     - https://my.checkmyguest.fr
+[2026-03-22T03:40:34.853Z]     - https://transaction.checkmyguest.fr
+[2026-03-22T03:40:34.853Z]     - https://travel.checkmyguest.fr
+[2026-03-22T03:40:34.854Z]     - https://www.checkmyguest.fr
+[2026-03-22T03:40:34.854Z]   li (1):
+[2026-03-22T03:40:34.854Z]     - https://www.linkedin.com/company/checkmyguest
+[2026-03-22T03:40:34.854Z]   tw (1):
+[2026-03-22T03:40:34.854Z]     - https://x.com/checkmyguest
+[2026-03-22T03:40:34.854Z] Summary: ws:5, li:1, tw:1
+[2026-03-22T03:40:34.855Z] Saved final result to result.json
+[2026-03-22T03:40:34.855Z] Override fields: ws, li, tw
+[2026-03-22T03:40:34.856Z] Finished at: 2026-03-22T03:40:34.856Z

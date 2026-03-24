@@ -1,0 +1,80 @@
+[2026-03-24T00:54:19.728Z] === Homepage AI Extractor: Mailchain ===
+[2026-03-24T00:54:19.728Z] Started at: 2026-03-24T00:54:19.728Z
+[2026-03-24T00:54:19.728Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774313659727_Mailchain
+[2026-03-24T00:54:19.728Z] Company: Mailchain
+[2026-03-24T00:54:19.728Z] Website: mailchain.com
+[2026-03-24T00:54:19.728Z] cbRank: 69637
+[2026-03-24T00:54:19.728Z] Reasons: i
+[2026-03-24T00:54:19.728Z] Fetching: https://mailchain.com
+[2026-03-24T00:54:20.959Z] Redirected: https://mailchain.com -> https://mailchain.com/
+[2026-03-24T00:54:20.964Z] Saved HTML (89785 bytes) to page.html
+[2026-03-24T00:54:20.966Z] Extracted 39 unique links from page
+[2026-03-24T00:54:20.967Z] Saved 39 links to links.json
+[2026-03-24T00:54:20.968Z] No footer section found in DOM
+[2026-03-24T00:54:20.968Z] Extracted header HTML (4962 chars)
+[2026-03-24T00:54:20.972Z] Website (post-redirect): https://mailchain.com/ → origin: https://mailchain.com
+[2026-03-24T00:54:20.972Z]   SUBDOMAIN: app.mailchain.com (added to ws)
+[2026-03-24T00:54:20.972Z]   SUBDOMAIN: docs.mailchain.com (added to ws)
+[2026-03-24T00:54:20.972Z]   SUBDOMAIN: go.mailchain.com (added to ws)
+[2026-03-24T00:54:20.972Z] Website subdomains found: 3
+[2026-03-24T00:54:20.972Z] External links: 7 (of 39 total)
+[2026-03-24T00:54:20.972Z] ── All external links ──
+[2026-03-24T00:54:20.972Z]   EXT: https://github.com/mailchain
+[2026-03-24T00:54:20.972Z]   EXT: https://github.com/mailchain/examples-js
+[2026-03-24T00:54:20.972Z]   EXT: https://github.com/mailchain/mailchain-sdk-js
+[2026-03-24T00:54:20.972Z]   EXT: https://lenster.xyz/u/mailchain
+[2026-03-24T00:54:20.972Z]   EXT: https://twitter.com/Mailchain_xyz
+[2026-03-24T00:54:20.972Z]   EXT: https://warpcast.com/mailchain
+[2026-03-24T00:54:20.972Z]   EXT: https://www.linkedin.com/company/mailchain
+[2026-03-24T00:54:20.972Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:54:20.973Z]   REGEX: gh <- https://github.com/mailchain
+[2026-03-24T00:54:20.973Z]   REGEX: gh <- https://github.com/mailchain/examples-js (duplicate, skipped)
+[2026-03-24T00:54:20.973Z]   REGEX: gh <- https://github.com/mailchain/mailchain-sdk-js (duplicate, skipped)
+[2026-03-24T00:54:20.974Z]   UNCATEGORIZED: https://lenster.xyz/u/mailchain
+[2026-03-24T00:54:20.974Z]   REGEX: tw <- https://twitter.com/Mailchain_xyz
+[2026-03-24T00:54:20.974Z]   UNCATEGORIZED: https://warpcast.com/mailchain
+[2026-03-24T00:54:20.974Z]   REGEX: li <- https://www.linkedin.com/company/mailchain
+[2026-03-24T00:54:20.974Z] Programmatic result: ws:4, gh:1, tw:1, li:1 | 2 uncategorized
+[2026-03-24T00:54:20.974Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:54:20.975Z] Saved AI prompt (2000 chars) to ai_prompt.txt
+[2026-03-24T00:54:20.975Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:54:20.980Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:54:27.533Z]   AI: First token received, streaming...
+[2026-03-24T00:54:30.262Z] AI response complete: 62 chars in 9.3s
+[2026-03-24T00:54:30.264Z] Saved AI response to ai_response.json
+[2026-03-24T00:54:30.264Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T00:54:30.264Z]   AI LINK: https://lenster.xyz/u/mailchain
+[2026-03-24T00:54:30.264Z]   AI LINK: https://warpcast.com/mailchain
+[2026-03-24T00:54:30.264Z] AI returned 2 valid links
+[2026-03-24T00:54:30.265Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T00:54:30.265Z]   AI→URLS: https://lenster.xyz/u/mailchain
+[2026-03-24T00:54:30.265Z]   AI→URLS: https://warpcast.com/mailchain
+[2026-03-24T00:54:30.265Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:54:30.265Z] Footer/header origins (1):
+[2026-03-24T00:54:30.266Z]   FOOTER/HEADER ORIGIN: https://docs.mailchain.com
+[2026-03-24T00:54:30.266Z]   SKIP (AI claimed): https://lenster.xyz/u/mailchain
+[2026-03-24T00:54:30.266Z]   SKIP (AI claimed): https://warpcast.com/mailchain
+[2026-03-24T00:54:30.266Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T00:54:30.266Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:54:30.266Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:54:30.266Z] ── Step 3: Final dedup ──
+[2026-03-24T00:54:30.266Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-24T00:54:30.266Z] ── FINAL RESULT ──
+[2026-03-24T00:54:30.266Z]   ws (4):
+[2026-03-24T00:54:30.266Z]     - https://app.mailchain.com
+[2026-03-24T00:54:30.266Z]     - https://docs.mailchain.com
+[2026-03-24T00:54:30.267Z]     - https://go.mailchain.com
+[2026-03-24T00:54:30.267Z]     - https://mailchain.com
+[2026-03-24T00:54:30.267Z]   li (1):
+[2026-03-24T00:54:30.267Z]     - https://www.linkedin.com/company/mailchain
+[2026-03-24T00:54:30.267Z]   tw (1):
+[2026-03-24T00:54:30.267Z]     - https://x.com/mailchain_xyz
+[2026-03-24T00:54:30.267Z]   gh (1):
+[2026-03-24T00:54:30.267Z]     - https://github.com/mailchain
+[2026-03-24T00:54:30.267Z]   urls (2):
+[2026-03-24T00:54:30.267Z]     - https://lenster.xyz/u/mailchain
+[2026-03-24T00:54:30.268Z]     - https://warpcast.com/mailchain
+[2026-03-24T00:54:30.268Z] Summary: ws:4, gh:1, tw:1, li:1, urls:2
+[2026-03-24T00:54:30.268Z] Saved final result to result.json
+[2026-03-24T00:54:30.269Z] Override fields: ws, li, tw, gh, urls
+[2026-03-24T00:54:30.269Z] Finished at: 2026-03-24T00:54:30.269Z

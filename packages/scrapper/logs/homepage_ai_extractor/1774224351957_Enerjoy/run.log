@@ -1,0 +1,63 @@
+[2026-03-23T00:05:51.957Z] === Homepage AI Extractor: Enerjoy ===
+[2026-03-23T00:05:51.957Z] Started at: 2026-03-23T00:05:51.957Z
+[2026-03-23T00:05:51.957Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774224351957_Enerjoy
+[2026-03-23T00:05:51.957Z] Company: Enerjoy
+[2026-03-23T00:05:51.957Z] Website: enerjoy.co
+[2026-03-23T00:05:51.957Z] cbRank: 385519
+[2026-03-23T00:05:51.957Z] Reasons: f
+[2026-03-23T00:05:51.957Z] Fetching: https://enerjoy.co
+[2026-03-23T00:05:54.455Z] Redirected: https://enerjoy.co -> https://enerjoy.co/
+[2026-03-23T00:05:54.464Z] Saved HTML (282613 bytes) to page.html
+[2026-03-23T00:05:54.474Z] Extracted 17 unique links from page
+[2026-03-23T00:05:54.475Z] Saved 17 links to links.json
+[2026-03-23T00:05:54.479Z] Extracted footer HTML (7486 chars)
+[2026-03-23T00:05:54.479Z] Extracted header HTML (10779 chars)
+[2026-03-23T00:05:54.482Z] Website (post-redirect): https://enerjoy.co/ → origin: https://enerjoy.co
+[2026-03-23T00:05:54.483Z] External links: 4 (of 17 total)
+[2026-03-23T00:05:54.483Z] ── All external links ──
+[2026-03-23T00:05:54.483Z]   EXT: https://player.vimeo.com/video/318176461
+[2026-03-23T00:05:54.483Z]   EXT: https://www.facebook.com/enerjoy.co
+[2026-03-23T00:05:54.483Z]   EXT: https://www.linkedin.com/company/enerjoy
+[2026-03-23T00:05:54.483Z]   EXT: https://www.youtube.com/embed/QQvDGfh2m1s
+[2026-03-23T00:05:54.483Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:05:54.484Z]   UNCATEGORIZED: https://player.vimeo.com/video/318176461
+[2026-03-23T00:05:54.485Z]   REGEX: fb <- https://www.facebook.com/enerjoy.co
+[2026-03-23T00:05:54.485Z]   REGEX: li <- https://www.linkedin.com/company/enerjoy
+[2026-03-23T00:05:54.485Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T00:05:54.485Z]   SKIP (regex domain, no match): https://www.youtube.com/embed/QQvDGfh2m1s
+[2026-03-23T00:05:54.485Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-23T00:05:54.485Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:05:54.489Z] Saved AI prompt (9279 chars) to ai_prompt.txt
+[2026-03-23T00:05:54.489Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:05:54.493Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:07:08.424Z]   AI: First token received, streaming...
+[2026-03-23T00:07:12.296Z] AI response complete: 77 chars in 77.8s
+[2026-03-23T00:07:12.298Z] Saved AI response to ai_response.json
+[2026-03-23T00:07:12.298Z] ── Parsing AI response (2 lines) ──
+[2026-03-23T00:07:12.298Z]   AI LINK: https://www.facebook.com/enerjoy.co
+[2026-03-23T00:07:12.298Z]   AI LINK: https://www.linkedin.com/company/enerjoy/
+[2026-03-23T00:07:12.298Z] AI returned 2 valid links
+[2026-03-23T00:07:12.298Z] ── Categorizing 2 AI-returned links ──
+[2026-03-23T00:07:12.299Z]   AI→REGEX: fb <- https://www.facebook.com/enerjoy.co (duplicate, skipped)
+[2026-03-23T00:07:12.299Z]   AI→REGEX: li <- https://www.linkedin.com/company/enerjoy/ (duplicate, skipped)
+[2026-03-23T00:07:12.300Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:07:12.300Z] Footer/header origins (2):
+[2026-03-23T00:07:12.301Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T00:07:12.301Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:07:12.301Z]   SKIP (not in footer/header): https://player.vimeo.com/video/318176461
+[2026-03-23T00:07:12.301Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T00:07:12.301Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:07:12.301Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:07:12.301Z] ── Step 3: Final dedup ──
+[2026-03-23T00:07:12.301Z] No urls to dedup
+[2026-03-23T00:07:12.302Z] ── FINAL RESULT ──
+[2026-03-23T00:07:12.302Z]   ws (1):
+[2026-03-23T00:07:12.302Z]     - https://enerjoy.co
+[2026-03-23T00:07:12.302Z]   li (1):
+[2026-03-23T00:07:12.302Z]     - https://www.linkedin.com/company/enerjoy
+[2026-03-23T00:07:12.302Z]   fb (1):
+[2026-03-23T00:07:12.302Z]     - https://www.facebook.com/enerjoy.co
+[2026-03-23T00:07:12.302Z] Summary: ws:1, fb:1, li:1
+[2026-03-23T00:07:12.303Z] Saved final result to result.json
+[2026-03-23T00:07:12.304Z] Override fields: ws, li, fb
+[2026-03-23T00:07:12.304Z] Finished at: 2026-03-23T00:07:12.304Z

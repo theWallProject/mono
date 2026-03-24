@@ -1,0 +1,72 @@
+[2026-03-23T01:12:30.947Z] === Homepage AI Extractor: evmux ===
+[2026-03-23T01:12:30.947Z] Started at: 2026-03-23T01:12:30.947Z
+[2026-03-23T01:12:30.947Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774228350946_evmux
+[2026-03-23T01:12:30.947Z] Company: evmux
+[2026-03-23T01:12:30.947Z] Website: evmux.com
+[2026-03-23T01:12:30.947Z] cbRank: 486582
+[2026-03-23T01:12:30.947Z] Reasons: f
+[2026-03-23T01:12:30.947Z] Fetching: https://evmux.com
+[2026-03-23T01:12:34.360Z] Redirected: https://evmux.com -> https://www.evmux.com/
+[2026-03-23T01:12:34.363Z] Saved HTML (34119 bytes) to page.html
+[2026-03-23T01:12:34.365Z] Extracted 15 unique links from page
+[2026-03-23T01:12:34.365Z] Saved 15 links to links.json
+[2026-03-23T01:12:34.367Z] Extracted footer HTML (1992 chars)
+[2026-03-23T01:12:34.368Z] Extracted header HTML (2246 chars)
+[2026-03-23T01:12:34.370Z] Website (post-redirect): https://www.evmux.com/ → origin: https://www.evmux.com
+[2026-03-23T01:12:34.371Z]   SUBDOMAIN: console.evmux.com (added to ws)
+[2026-03-23T01:12:34.371Z] Website subdomains found: 1
+[2026-03-23T01:12:34.371Z] External links: 3 (of 15 total)
+[2026-03-23T01:12:34.371Z] ── All external links ──
+[2026-03-23T01:12:34.371Z]   EXT: https://www.facebook.com/evmux
+[2026-03-23T01:12:34.371Z]   EXT: https://www.linkedin.com/company/evmux
+[2026-03-23T01:12:34.371Z]   EXT: https://www.youtube.com/channel/UCLrqfpxbXUuEg3AG9BNI2GA
+[2026-03-23T01:12:34.371Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T01:12:34.371Z]   REGEX: fb <- https://www.facebook.com/evmux
+[2026-03-23T01:12:34.372Z]   REGEX: li <- https://www.linkedin.com/company/evmux
+[2026-03-23T01:12:34.372Z]   REGEX: ytc <- https://www.youtube.com/channel/UCLrqfpxbXUuEg3AG9BNI2GA
+[2026-03-23T01:12:34.372Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-23T01:12:34.372Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T01:12:34.375Z] Saved AI prompt (3305 chars) to ai_prompt.txt
+[2026-03-23T01:12:34.375Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T01:12:34.379Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T01:12:46.558Z]   AI: First token received, streaming...
+[2026-03-23T01:12:55.680Z] AI response complete: 127 chars in 21.3s
+[2026-03-23T01:12:55.682Z] Saved AI response to ai_response.json
+[2026-03-23T01:12:55.682Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T01:12:55.682Z]   AI LINK: https://www.facebook.com/evmux
+[2026-03-23T01:12:55.682Z]   AI LINK: https://www.youtube.com/channel/UCLrqfpxbXUuEg3AG9BNI2GA
+[2026-03-23T01:12:55.683Z]   AI LINK: https://www.linkedin.com/company/evmux/
+[2026-03-23T01:12:55.683Z] AI returned 3 valid links
+[2026-03-23T01:12:55.683Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T01:12:55.683Z]   AI→REGEX: fb <- https://www.facebook.com/evmux (duplicate, skipped)
+[2026-03-23T01:12:55.683Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCLrqfpxbXUuEg3AG9BNI2GA (duplicate, skipped)
+[2026-03-23T01:12:55.684Z]   AI→REGEX: li <- https://www.linkedin.com/company/evmux/ (duplicate, skipped)
+[2026-03-23T01:12:55.685Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T01:12:55.685Z] Footer/header origins (4):
+[2026-03-23T01:12:55.685Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T01:12:55.685Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T01:12:55.685Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T01:12:55.685Z]   FOOTER/HEADER ORIGIN: https://console.evmux.com
+[2026-03-23T01:12:55.685Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T01:12:55.685Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T01:12:55.686Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-23T01:12:56.001Z]   YOUTUBE: resolved UCLrqfpxbXUuEg3AG9BNI2GA → @Evmux
+[2026-03-23T01:12:56.001Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-23T01:12:56.001Z] ── Step 3: Final dedup ──
+[2026-03-23T01:12:56.001Z] No urls to dedup
+[2026-03-23T01:12:56.001Z] ── FINAL RESULT ──
+[2026-03-23T01:12:56.002Z]   ws (2):
+[2026-03-23T01:12:56.002Z]     - https://console.evmux.com
+[2026-03-23T01:12:56.002Z]     - https://www.evmux.com
+[2026-03-23T01:12:56.002Z]   li (1):
+[2026-03-23T01:12:56.002Z]     - https://www.linkedin.com/company/evmux
+[2026-03-23T01:12:56.002Z]   fb (1):
+[2026-03-23T01:12:56.002Z]     - https://www.facebook.com/evmux
+[2026-03-23T01:12:56.002Z]   ytp (1):
+[2026-03-23T01:12:56.002Z]     - https://www.youtube.com/@Evmux
+[2026-03-23T01:12:56.002Z]   ytc (1):
+[2026-03-23T01:12:56.002Z]     - https://www.youtube.com/channel/UCLrqfpxbXUuEg3AG9BNI2GA
+[2026-03-23T01:12:56.002Z] Summary: ws:2, fb:1, li:1, ytc:1, ytp:1
+[2026-03-23T01:12:56.003Z] Saved final result to result.json
+[2026-03-23T01:12:56.003Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-23T01:12:56.003Z] Finished at: 2026-03-23T01:12:56.003Z

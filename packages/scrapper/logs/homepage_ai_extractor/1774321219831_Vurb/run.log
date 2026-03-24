@@ -1,0 +1,82 @@
+[2026-03-24T03:00:19.831Z] === Homepage AI Extractor: Vurb ===
+[2026-03-24T03:00:19.832Z] Started at: 2026-03-24T03:00:19.831Z
+[2026-03-24T03:00:19.832Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774321219831_Vurb
+[2026-03-24T03:00:19.832Z] Company: Vurb
+[2026-03-24T03:00:19.832Z] Website: vurb.com
+[2026-03-24T03:00:19.832Z] cbRank: 295784
+[2026-03-24T03:00:19.832Z] Reasons: i
+[2026-03-24T03:00:19.832Z] Fetching: https://vurb.com
+[2026-03-24T03:00:22.040Z] Redirected: https://vurb.com -> https://vurb.com/
+[2026-03-24T03:00:22.044Z] Saved HTML (20023 bytes) to page.html
+[2026-03-24T03:00:22.047Z] Extracted 11 unique links from page
+[2026-03-24T03:00:22.047Z] Saved 11 links to links.json
+[2026-03-24T03:00:22.050Z] Extracted footer HTML (1776 chars)
+[2026-03-24T03:00:22.050Z] Extracted header HTML (94 chars)
+[2026-03-24T03:00:22.053Z] Website (post-redirect): https://vurb.com/ → origin: https://vurb.com
+[2026-03-24T03:00:22.053Z]   SUBDOMAIN: blog.vurb.com (added to ws)
+[2026-03-24T03:00:22.054Z] Website subdomains found: 1
+[2026-03-24T03:00:22.054Z] External links: 5 (of 11 total)
+[2026-03-24T03:00:22.054Z] ── All external links ──
+[2026-03-24T03:00:22.054Z]   EXT: http://techcrunch.com/2014/05/05/vurb
+[2026-03-24T03:00:22.054Z]   EXT: https://instagram.com/vurbapp
+[2026-03-24T03:00:22.054Z]   EXT: https://twitter.com/vurbapp
+[2026-03-24T03:00:22.054Z]   EXT: https://www.facebook.com/VurbApp
+[2026-03-24T03:00:22.054Z]   EXT: https://www.linkedin.com/company/vurb
+[2026-03-24T03:00:22.054Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T03:00:22.054Z]   UNCATEGORIZED: http://techcrunch.com/2014/05/05/vurb
+[2026-03-24T03:00:22.054Z]   REGEX: ig <- https://instagram.com/vurbapp
+[2026-03-24T03:00:22.054Z]   REGEX: tw <- https://twitter.com/vurbapp
+[2026-03-24T03:00:22.054Z]   REGEX: fb <- https://www.facebook.com/VurbApp
+[2026-03-24T03:00:22.054Z]   REGEX: li <- https://www.linkedin.com/company/vurb
+[2026-03-24T03:00:22.054Z] Programmatic result: ws:2, ig:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-24T03:00:22.055Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T03:00:22.058Z] Saved AI prompt (3035 chars) to ai_prompt.txt
+[2026-03-24T03:00:22.058Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T03:00:22.062Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T03:00:34.045Z]   AI: First token received, streaming...
+[2026-03-24T03:00:42.094Z] AI response complete: 149 chars in 20.0s
+[2026-03-24T03:00:42.095Z] Saved AI response to ai_response.json
+[2026-03-24T03:00:42.095Z] ── Parsing AI response (5 lines) ──
+[2026-03-24T03:00:42.095Z]   AI LINK: http://blog.vurb.com
+[2026-03-24T03:00:42.096Z]   AI LINK: https://www.facebook.com/VurbApp
+[2026-03-24T03:00:42.096Z]   AI LINK: https://twitter.com/vurbapp
+[2026-03-24T03:00:42.096Z]   AI LINK: https://www.linkedin.com/company/vurb
+[2026-03-24T03:00:42.096Z]   AI LINK: https://instagram.com/vurbapp
+[2026-03-24T03:00:42.096Z] AI returned 5 valid links
+[2026-03-24T03:00:42.096Z] ── Categorizing 5 AI-returned links ──
+[2026-03-24T03:00:42.097Z]   AI→URLS: http://blog.vurb.com
+[2026-03-24T03:00:42.097Z]   AI→REGEX: fb <- https://www.facebook.com/VurbApp (duplicate, skipped)
+[2026-03-24T03:00:42.097Z]   AI→REGEX: tw <- https://twitter.com/vurbapp (duplicate, skipped)
+[2026-03-24T03:00:42.097Z]   AI→REGEX: li <- https://www.linkedin.com/company/vurb (duplicate, skipped)
+[2026-03-24T03:00:42.097Z]   AI→REGEX: ig <- https://instagram.com/vurbapp (duplicate, skipped)
+[2026-03-24T03:00:42.098Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T03:00:42.098Z] Footer/header origins (5):
+[2026-03-24T03:00:42.098Z]   FOOTER/HEADER ORIGIN: http://blog.vurb.com
+[2026-03-24T03:00:42.098Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T03:00:42.098Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T03:00:42.098Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T03:00:42.098Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-24T03:00:42.098Z]   SKIP (not in footer/header): http://techcrunch.com/2014/05/05/vurb
+[2026-03-24T03:00:42.098Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T03:00:42.098Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T03:00:42.098Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T03:00:42.098Z] ── Step 3: Final dedup ──
+[2026-03-24T03:00:42.099Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T03:00:42.099Z] ── FINAL RESULT ──
+[2026-03-24T03:00:42.099Z]   ws (2):
+[2026-03-24T03:00:42.099Z]     - https://blog.vurb.com
+[2026-03-24T03:00:42.099Z]     - https://vurb.com
+[2026-03-24T03:00:42.099Z]   li (1):
+[2026-03-24T03:00:42.099Z]     - https://www.linkedin.com/company/vurb
+[2026-03-24T03:00:42.099Z]   fb (1):
+[2026-03-24T03:00:42.100Z]     - https://www.facebook.com/vurbapp
+[2026-03-24T03:00:42.100Z]   tw (1):
+[2026-03-24T03:00:42.100Z]     - https://x.com/vurbapp
+[2026-03-24T03:00:42.100Z]   ig (1):
+[2026-03-24T03:00:42.100Z]     - https://www.instagram.com/vurbapp
+[2026-03-24T03:00:42.100Z]   urls (1):
+[2026-03-24T03:00:42.100Z]     - http://blog.vurb.com
+[2026-03-24T03:00:42.100Z] Summary: ws:2, ig:1, tw:1, fb:1, li:1, urls:1
+[2026-03-24T03:00:42.101Z] Saved final result to result.json
+[2026-03-24T03:00:42.102Z] Override fields: ws, li, fb, tw, ig
+[2026-03-24T03:00:42.102Z] Finished at: 2026-03-24T03:00:42.102Z

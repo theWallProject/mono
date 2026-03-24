@@ -1,0 +1,84 @@
+[2026-03-22T01:19:33.171Z] === Homepage AI Extractor: vFunction ===
+[2026-03-22T01:19:33.171Z] Started at: 2026-03-22T01:19:33.171Z
+[2026-03-22T01:19:33.171Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774142373170_vFunction
+[2026-03-22T01:19:33.171Z] Company: vFunction
+[2026-03-22T01:19:33.171Z] Website: vfunction.com
+[2026-03-22T01:19:33.171Z] cbRank: 21461
+[2026-03-22T01:19:33.172Z] Reasons: f
+[2026-03-22T01:19:33.172Z] Fetching: https://vfunction.com
+[2026-03-22T01:19:35.719Z] Redirected: https://vfunction.com -> https://vfunction.com/
+[2026-03-22T01:19:35.726Z] Saved HTML (191196 bytes) to page.html
+[2026-03-22T01:19:35.730Z] Extracted 51 unique links from page
+[2026-03-22T01:19:35.731Z] Saved 51 links to links.json
+[2026-03-22T01:19:35.734Z] Extracted footer HTML (12763 chars)
+[2026-03-22T01:19:35.735Z] Extracted header HTML (19403 chars)
+[2026-03-22T01:19:35.739Z] Website (post-redirect): https://vfunction.com/ → origin: https://vfunction.com
+[2026-03-22T01:19:35.739Z]   SUBDOMAIN: portal.vfunction.com (added to ws)
+[2026-03-22T01:19:35.739Z] Website subdomains found: 1
+[2026-03-22T01:19:35.739Z] External links: 4 (of 51 total)
+[2026-03-22T01:19:35.739Z] ── All external links ──
+[2026-03-22T01:19:35.740Z]   EXT: https://www.facebook.com/vFunction
+[2026-03-22T01:19:35.740Z]   EXT: https://www.linkedin.com/company/vfunction
+[2026-03-22T01:19:35.740Z]   EXT: https://www.youtube.com/channel/UCsSCnDF8pzpM87JYAcxYRNQ
+[2026-03-22T01:19:35.740Z]   EXT: https://x.com/v_function
+[2026-03-22T01:19:35.740Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:19:35.740Z]   REGEX: fb <- https://www.facebook.com/vFunction
+[2026-03-22T01:19:35.740Z]   REGEX: li <- https://www.linkedin.com/company/vfunction
+[2026-03-22T01:19:35.740Z]   REGEX: ytc <- https://www.youtube.com/channel/UCsSCnDF8pzpM87JYAcxYRNQ
+[2026-03-22T01:19:35.740Z]   REGEX: tw <- https://x.com/v_function
+[2026-03-22T01:19:35.740Z] Programmatic result: ws:2, fb:1, li:1, ytc:1, tw:1 | 0 uncategorized
+[2026-03-22T01:19:35.740Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:19:35.744Z] Saved AI prompt (4526 chars) to ai_prompt.txt
+[2026-03-22T01:19:35.744Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:19:35.749Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:19:52.666Z]   AI: First token received, streaming...
+[2026-03-22T01:20:04.482Z] AI response complete: 189 chars in 28.7s
+[2026-03-22T01:20:04.483Z] Saved AI response to ai_response.json
+[2026-03-22T01:20:04.484Z] ── Parsing AI response (5 lines) ──
+[2026-03-22T01:20:04.484Z]   AI LINK: https://x.com/v_function
+[2026-03-22T01:20:04.484Z]   AI LINK: https://www.youtube.com/channel/UCsSCnDF8pzpM87JYAcxYRNQ
+[2026-03-22T01:20:04.484Z]   AI LINK: https://www.linkedin.com/company/vfunction
+[2026-03-22T01:20:04.484Z]   AI LINK: https://www.facebook.com/vFunction
+[2026-03-22T01:20:04.485Z]   AI LINK: https://portal.vfunction.com/
+[2026-03-22T01:20:04.485Z] AI returned 5 valid links
+[2026-03-22T01:20:04.485Z] ── Categorizing 5 AI-returned links ──
+[2026-03-22T01:20:04.485Z]   AI→REGEX: tw <- https://x.com/v_function (duplicate, skipped)
+[2026-03-22T01:20:04.485Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCsSCnDF8pzpM87JYAcxYRNQ (duplicate, skipped)
+[2026-03-22T01:20:04.486Z]   AI→REGEX: li <- https://www.linkedin.com/company/vfunction (duplicate, skipped)
+[2026-03-22T01:20:04.486Z]   AI→REGEX: fb <- https://www.facebook.com/vFunction (duplicate, skipped)
+[2026-03-22T01:20:04.486Z]   AI→URLS: https://portal.vfunction.com (cleaned from https://portal.vfunction.com/)
+[2026-03-22T01:20:04.488Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:20:04.488Z] Footer/header origins (6):
+[2026-03-22T01:20:04.488Z]   FOOTER/HEADER ORIGIN: https://vfunction.com
+[2026-03-22T01:20:04.488Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-22T01:20:04.488Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:20:04.488Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:20:04.489Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T01:20:04.489Z]   FOOTER/HEADER ORIGIN: https://portal.vfunction.com
+[2026-03-22T01:20:04.489Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T01:20:04.489Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:20:04.489Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T01:20:04.820Z]   YOUTUBE: resolved UCsSCnDF8pzpM87JYAcxYRNQ → @vfunction
+[2026-03-22T01:20:04.820Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T01:20:04.820Z] ── Step 3: Final dedup ──
+[2026-03-22T01:20:04.820Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T01:20:04.820Z] ── FINAL RESULT ──
+[2026-03-22T01:20:04.820Z]   ws (2):
+[2026-03-22T01:20:04.821Z]     - https://portal.vfunction.com
+[2026-03-22T01:20:04.821Z]     - https://vfunction.com
+[2026-03-22T01:20:04.821Z]   li (1):
+[2026-03-22T01:20:04.821Z]     - https://www.linkedin.com/company/vfunction
+[2026-03-22T01:20:04.821Z]   fb (1):
+[2026-03-22T01:20:04.821Z]     - https://www.facebook.com/vfunction
+[2026-03-22T01:20:04.821Z]   tw (1):
+[2026-03-22T01:20:04.821Z]     - https://x.com/v_function
+[2026-03-22T01:20:04.821Z]   ytp (1):
+[2026-03-22T01:20:04.821Z]     - https://www.youtube.com/@vfunction
+[2026-03-22T01:20:04.821Z]   ytc (1):
+[2026-03-22T01:20:04.821Z]     - https://www.youtube.com/channel/UCsSCnDF8pzpM87JYAcxYRNQ
+[2026-03-22T01:20:04.821Z]   urls (1):
+[2026-03-22T01:20:04.822Z]     - https://portal.vfunction.com
+[2026-03-22T01:20:04.822Z] Summary: ws:2, fb:1, li:1, ytc:1, tw:1, urls:1, ytp:1
+[2026-03-22T01:20:04.823Z] Saved final result to result.json
+[2026-03-22T01:20:04.823Z] Override fields: ws, li, fb, tw, ytp, ytc
+[2026-03-22T01:20:04.823Z] Finished at: 2026-03-22T01:20:04.823Z

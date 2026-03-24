@@ -1,0 +1,62 @@
+[2026-03-21T14:11:29.489Z] === Homepage AI Extractor: Telsys ===
+[2026-03-21T14:11:29.489Z] Started at: 2026-03-21T14:11:29.489Z
+[2026-03-21T14:11:29.489Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774102289489_Telsys
+[2026-03-21T14:11:29.489Z] Company: Telsys
+[2026-03-21T14:11:29.489Z] Website: telsys.co.il
+[2026-03-21T14:11:29.489Z] cbRank: 3431598
+[2026-03-21T14:11:29.490Z] Reasons: h
+[2026-03-21T14:11:29.490Z] Fetching: https://telsys.co.il
+[2026-03-21T14:11:32.348Z] Redirected: https://telsys.co.il -> https://telsys.co.il/
+[2026-03-21T14:11:32.354Z] Saved HTML (151847 bytes) to page.html
+[2026-03-21T14:11:32.358Z] Extracted 17 unique links from page
+[2026-03-21T14:11:32.358Z] Saved 17 links to links.json
+[2026-03-21T14:11:32.361Z] Extracted footer HTML (9656 chars)
+[2026-03-21T14:11:32.361Z] Extracted header HTML (10403 chars)
+[2026-03-21T14:11:32.364Z] Website (post-redirect): https://telsys.co.il/ → origin: https://telsys.co.il
+[2026-03-21T14:11:32.364Z] External links: 3 (of 17 total)
+[2026-03-21T14:11:32.364Z] ── All external links ──
+[2026-03-21T14:11:32.364Z]   EXT: https://eyalpour.co.il
+[2026-03-21T14:11:32.364Z]   EXT: https://meutzevet.co.il
+[2026-03-21T14:11:32.364Z]   EXT: https://www.linkedin.com/company/56887
+[2026-03-21T14:11:32.364Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:11:32.364Z]   UNCATEGORIZED: https://eyalpour.co.il
+[2026-03-21T14:11:32.364Z]   UNCATEGORIZED: https://meutzevet.co.il
+[2026-03-21T14:11:32.364Z]   REGEX: li <- https://www.linkedin.com/company/56887
+[2026-03-21T14:11:32.365Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-21T14:11:32.365Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:11:32.366Z] Saved AI prompt (6256 chars) to ai_prompt.txt
+[2026-03-21T14:11:32.366Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:11:32.370Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:12:00.869Z]   AI: First token received, streaming...
+[2026-03-21T14:12:03.073Z] AI response complete: 39 chars in 30.7s
+[2026-03-21T14:12:03.074Z] Saved AI response to ai_response.json
+[2026-03-21T14:12:03.075Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T14:12:03.075Z]   AI LINK: https://www.linkedin.com/company/56887/
+[2026-03-21T14:12:03.075Z] AI returned 1 valid links
+[2026-03-21T14:12:03.075Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T14:12:03.075Z]   AI→REGEX: li <- https://www.linkedin.com/company/56887/ (duplicate, skipped)
+[2026-03-21T14:12:03.076Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:12:03.076Z] Footer/header origins (4):
+[2026-03-21T14:12:03.076Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T14:12:03.077Z]   FOOTER/HEADER ORIGIN: https://eyalpour.co.il
+[2026-03-21T14:12:03.077Z]   FOOTER/HEADER ORIGIN: https://meutzevet.co.il
+[2026-03-21T14:12:03.077Z]   FOOTER/HEADER ORIGIN: https://telsys.co.il
+[2026-03-21T14:12:03.077Z]   ADDED: urls <- https://eyalpour.co.il
+[2026-03-21T14:12:03.078Z]   ADDED: urls <- https://meutzevet.co.il
+[2026-03-21T14:12:03.078Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-21T14:12:03.078Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:12:03.078Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:12:03.078Z] ── Step 3: Final dedup ──
+[2026-03-21T14:12:03.079Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T14:12:03.079Z] ── FINAL RESULT ──
+[2026-03-21T14:12:03.079Z]   ws (1):
+[2026-03-21T14:12:03.079Z]     - https://telsys.co.il
+[2026-03-21T14:12:03.079Z]   li (1):
+[2026-03-21T14:12:03.080Z]     - https://www.linkedin.com/company/56887
+[2026-03-21T14:12:03.080Z]   urls (2):
+[2026-03-21T14:12:03.080Z]     - https://eyalpour.co.il
+[2026-03-21T14:12:03.080Z]     - https://meutzevet.co.il
+[2026-03-21T14:12:03.080Z] Summary: ws:1, li:1, urls:2
+[2026-03-21T14:12:03.082Z] Saved final result to result.json
+[2026-03-21T14:12:03.082Z] Override fields: ws, li, urls
+[2026-03-21T14:12:03.082Z] Finished at: 2026-03-21T14:12:03.082Z

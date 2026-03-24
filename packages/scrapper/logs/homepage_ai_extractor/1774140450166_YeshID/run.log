@@ -1,0 +1,79 @@
+[2026-03-22T00:47:30.167Z] === Homepage AI Extractor: YeshID ===
+[2026-03-22T00:47:30.167Z] Started at: 2026-03-22T00:47:30.167Z
+[2026-03-22T00:47:30.168Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774140450166_YeshID
+[2026-03-22T00:47:30.168Z] Company: YeshID
+[2026-03-22T00:47:30.168Z] Website: yeshid.com
+[2026-03-22T00:47:30.168Z] cbRank: 16628
+[2026-03-22T00:47:30.168Z] Reasons: f
+[2026-03-22T00:47:30.168Z] Fetching: https://yeshid.com
+[2026-03-22T00:47:41.571Z] Network idle timeout — continuing with current state
+[2026-03-22T00:47:41.608Z] Redirected: https://yeshid.com -> https://www.yeshid.com/
+[2026-03-22T00:47:41.612Z] Saved HTML (74375 bytes) to page.html
+[2026-03-22T00:47:41.614Z] Extracted 28 unique links from page
+[2026-03-22T00:47:41.615Z] Saved 28 links to links.json
+[2026-03-22T00:47:41.617Z] Extracted footer HTML (8659 chars)
+[2026-03-22T00:47:41.617Z] Extracted header HTML (5188 chars)
+[2026-03-22T00:47:41.633Z] Website (post-redirect): https://www.yeshid.com/ → origin: https://www.yeshid.com
+[2026-03-22T00:47:41.633Z]   SUBDOMAIN: app.yeshid.com (added to ws)
+[2026-03-22T00:47:41.633Z]   SUBDOMAIN: roi.yeshid.com (added to ws)
+[2026-03-22T00:47:41.633Z]   SUBDOMAIN: ssotax.yeshid.com (added to ws)
+[2026-03-22T00:47:41.633Z]   SUBDOMAIN: trust.yeshid.com (added to ws)
+[2026-03-22T00:47:41.633Z] Website subdomains found: 4
+[2026-03-22T00:47:41.633Z] External links: 3 (of 28 total)
+[2026-03-22T00:47:41.634Z] ── All external links ──
+[2026-03-22T00:47:41.634Z]   EXT: https://www.facebook.com/yeshidco
+[2026-03-22T00:47:41.634Z]   EXT: https://www.linkedin.com/company/yeshid
+[2026-03-22T00:47:41.634Z]   EXT: https://www.youtube.com/@YeshID
+[2026-03-22T00:47:41.634Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:47:41.634Z]   REGEX: fb <- https://www.facebook.com/yeshidco
+[2026-03-22T00:47:41.634Z]   REGEX: li <- https://www.linkedin.com/company/yeshid
+[2026-03-22T00:47:41.635Z]   REGEX: ytp <- https://www.youtube.com/@YeshID
+[2026-03-22T00:47:41.635Z] Programmatic result: ws:5, fb:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-22T00:47:41.635Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:47:41.665Z] Saved AI prompt (2780 chars) to ai_prompt.txt
+[2026-03-22T00:47:41.665Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:47:41.669Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:47:51.441Z]   AI: First token received, streaming...
+[2026-03-22T00:47:57.234Z] AI response complete: 105 chars in 15.6s
+[2026-03-22T00:47:57.235Z] Saved AI response to ai_response.json
+[2026-03-22T00:47:57.235Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:47:57.235Z]   AI LINK: https://www.facebook.com/yeshidco
+[2026-03-22T00:47:57.236Z]   AI LINK: https://www.youtube.com/@YeshID
+[2026-03-22T00:47:57.236Z]   AI LINK: https://www.linkedin.com/company/yeshid
+[2026-03-22T00:47:57.236Z] AI returned 3 valid links
+[2026-03-22T00:47:57.236Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:47:57.236Z]   AI→REGEX: fb <- https://www.facebook.com/yeshidco (duplicate, skipped)
+[2026-03-22T00:47:57.237Z]   AI→REGEX: ytp <- https://www.youtube.com/@YeshID (duplicate, skipped)
+[2026-03-22T00:47:57.237Z]   AI→REGEX: li <- https://www.linkedin.com/company/yeshid (duplicate, skipped)
+[2026-03-22T00:47:57.239Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:47:57.239Z] Footer/header origins (8):
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://trust.yeshid.com
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://www.yeshid.com
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://ssotax.yeshid.com
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://roi.yeshid.com
+[2026-03-22T00:47:57.239Z]   FOOTER/HEADER ORIGIN: https://app.yeshid.com
+[2026-03-22T00:47:57.240Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:47:57.240Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:47:57.240Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:47:57.240Z] ── Step 3: Final dedup ──
+[2026-03-22T00:47:57.240Z] No urls to dedup
+[2026-03-22T00:47:57.241Z] ── FINAL RESULT ──
+[2026-03-22T00:47:57.241Z]   ws (5):
+[2026-03-22T00:47:57.241Z]     - https://app.yeshid.com
+[2026-03-22T00:47:57.241Z]     - https://roi.yeshid.com
+[2026-03-22T00:47:57.241Z]     - https://ssotax.yeshid.com
+[2026-03-22T00:47:57.241Z]     - https://trust.yeshid.com
+[2026-03-22T00:47:57.242Z]     - https://www.yeshid.com
+[2026-03-22T00:47:57.242Z]   li (1):
+[2026-03-22T00:47:57.242Z]     - https://www.linkedin.com/company/yeshid
+[2026-03-22T00:47:57.242Z]   fb (1):
+[2026-03-22T00:47:57.242Z]     - https://www.facebook.com/yeshidco
+[2026-03-22T00:47:57.242Z]   ytp (1):
+[2026-03-22T00:47:57.242Z]     - https://www.youtube.com/@yeshid
+[2026-03-22T00:47:57.243Z] Summary: ws:5, fb:1, li:1, ytp:1
+[2026-03-22T00:47:57.244Z] Saved final result to result.json
+[2026-03-22T00:47:57.244Z] Override fields: ws, li, fb, ytp
+[2026-03-22T00:47:57.244Z] Finished at: 2026-03-22T00:47:57.244Z

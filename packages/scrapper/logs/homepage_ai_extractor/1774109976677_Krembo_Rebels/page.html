@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KremboRebels</title>
+
+  <!-- Google Fonts: Lato -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --main:#9e0503;     /* primary */
+      --text:#333;        /* text color */
+      --bg:#fff;          /* page bg */
+      --muted:#f7f7f7;    /* light bg */
+      --ring: rgba(158,5,3,.35); /* focus ring */
+    }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:'Lato', sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .video-hero{
+      position:relative;
+      width:100%;
+      height:72vh;
+      min-height:420px;
+      max-height:900px;
+      overflow:hidden;
+      background:#000;
+      isolation:isolate;
+    }
+    .video-hero iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+    .video-cover{
+      position:absolute;
+      inset:0;
+      background:#000 center / cover no-repeat;
+      z-index:2;
+      transition: opacity .35s ease;
+    }
+    .video-cover.hidden{ opacity:0; pointer-events:none; }
+    .container{
+      max-width:960px;
+      margin:-64px auto 0;
+      padding:0 20px 72px;
+      position:relative;
+      z-index:3;
+    }
+    .contact-card{
+      background:#fff;
+      border-radius:18px;
+      box-shadow:0 20px 40px rgba(0,0,0,.12);
+      padding:42px 28px 34px;
+      border:1px solid rgba(0,0,0,.04);
+    }
+    @media (min-width: 740px){ .contact-card{ padding:54px 56px; } }
+    h1,h2{ line-height:1.2; margin:0 0 .5em; color:var(--text); }
+    header.section-head{ text-align:center; margin-bottom:22px; }
+    header.section-head h2{
+      font-weight:900;
+      font-size:clamp(2rem, 3.6vw, 3rem);
+      letter-spacing:.2px;
+    }
+    header.section-head h2 .accent{ color:var(--main); }
+    header.section-head .lede{
+      font-size:clamp(1.05rem, 1.5vw, 1.25rem);
+      margin-top:.35rem;
+      opacity:.95;
+    }
+    .headline-underline{
+      width:92px; height:6px; border-radius:999px; background:var(--main);
+      margin:14px auto 0; opacity:.9;
+    }
+    form{ margin-top:24px; }
+    .grid{ display:grid; grid-template-columns:1fr; gap:16px; }
+    @media (min-width: 740px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    .field{ display:flex; flex-direction:column; gap:8px; }
+    .field.full{ grid-column:1 / -1; }
+    label{ font-weight:700; }
+    .hint{ font-size:.9rem; opacity:.8; }
+    input, textarea{
+      width:100%;
+      box-sizing:border-box;
+      padding:14px 16px;
+      border:1.5px solid #ddd;
+      border-radius:12px;
+      font:inherit;
+      background:#fff;
+      transition:border-color .2s, box-shadow .2s;
+      color:var(--text);
+    }
+    textarea{ min-height:140px; resize:vertical; }
+    input:focus, textarea:focus{
+      outline:none;
+      border-color:var(--main);
+      box-shadow:0 0 0 4px var(--ring);
+    }
+    .req{ color:var(--main); font-weight:900; margin-left:6px; }
+    .actions{ margin-top:14px; display:flex; gap:12px; align-items:center; }
+    button[type="submit"]{
+      appearance:none;
+      border:0;
+      background:var(--main);
+      color:#fff;
+      font-weight:900;
+      padding:14px 22px;
+      border-radius:999px;
+      letter-spacing:.3px;
+      cursor:pointer;
+      transition: transform .06s ease, filter .2s ease;
+    }
+    button[type="submit"]:hover{ filter:brightness(1.05); }
+    button[type="submit"]:active{ transform: translateY(1px) scale(0.99); }
+    .note{ font-size:.9rem; opacity:.85; }
+    .msg{ display:none; padding:14px 16px; border-radius:12px; margin-top:14px;}
+    .msg.ok{ display:block; background:var(--muted); border-left:4px solid var(--main); }
+    .msg.err{ display:block; background:#fee; border-left:4px solid #c00; }
+    @media all and (max-width:768px){ .video-hero {height:auto;} }
+    @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+  </style>
+
+  <!-- reCAPTCHA v3 script -->
+  <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-obDEicORg1BccYuEfFig6FFh0s3Ho2B7lr6lAHLJGwZTVRSgTgfEKmrfdJ2g/NkT"></script><script src="https://www.google.com/recaptcha/api.js?render=6LdgHrorAAAAAGpICw57c0Kiv5V9ia_WpeThrEes"></script>
+</head>
+<body>
+
+  <!-- Top: Full-width Vimeo video (autoplay, muted, minimal UI) with cover -->
+  <section class="video-hero" aria-label="Background video">
+    <div id="videoCover" class="video-cover hidden" aria-hidden="true" style="background-image: url(&quot;https://i.vimeocdn.com/video/2051988079-2a17db86e4c0adabef4806bb5a043d5fceaeee5f697e830517d44da684ab3f9a-d_295x166?region=us&quot;);"></div>
+    <iframe id="vimeoPlayer" src="https://player.vimeo.com/video/1113479796?autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;background=1&amp;playsinline=1" allow="autoplay; fullscreen; picture-in-picture" title="Hero Background Video" data-ready="true"></iframe>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="container" id="contact">
+    <div class="contact-card">
+      <header class="section-head">
+        <h2>Contact us <span class="accent">today</span>.</h2>
+        <div class="headline-underline" aria-hidden="true"></div>
+        <p class="lede">Make your accountant go "holly sh*t" tomorrow</p>
+      </header>
+
+      <form id="contactForm" method="post" action="#formStatus">
+        <div class="grid">
+          <!-- Full Name (required) -->
+          <div class="field full">
+            <label for="full_name">Full name: <span class="req" aria-hidden="true">*</span></label>
+            <input id="full_name" name="full_name" type="text" autocomplete="name" required="" aria-required="true" value="">
+          </div>
+
+          <!-- Email (required) -->
+          <div class="field">
+            <label for="email">Email: <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required="" aria-required="true" value="">
+          </div>
+
+          <!-- Phone (required) -->
+          <div class="field">
+            <label for="phone">Phone: <span class="req" aria-hidden="true">*</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required="" aria-required="true" value="">
+          </div>
+
+          <!-- Message (optional) -->
+          <div class="field full">
+            <label for="message">Message: </label>
+            <textarea id="message" name="message" placeholder="Add any info you like (optional)"></textarea>
+          </div>
+        </div>
+
+        <!-- reCAPTCHA v3 hidden fields -->
+        <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+        <input type="hidden" name="recaptcha_action" id="recaptcha_action" value="contact">
+
+        <div class="actions">
+          <button type="submit">Hell Yeah</button>
+          <span class="note">Fields marked <span class="req">*</span> are required.</span>
+        </div>
+
+                  <p id="formStatus" class="msg" role="status" aria-live="polite"></p>
+              </form>
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    (function($){
+      $(function(){
+
+        // ===== reCAPTCHA v3: get token per-submit with action "contact"
+        const SITE_KEY = '6LdgHrorAAAAAGpICw57c0Kiv5V9ia_WpeThrEes';
+        const $form = $('#contactForm');
+
+        $form.on('submit', function(e){
+          // If grecaptcha is present, fetch token async before submitting
+          if (typeof grecaptcha !== 'undefined') {
+            e.preventDefault();
+            const action = $('#recaptcha_action').val() || 'contact';
+            grecaptcha.ready(function(){
+              grecaptcha.execute(SITE_KEY, {action}).then(function(token){
+                $('#recaptcha_token').val(token);
+                // Submit after token is set
+                $form.off('submit'); // avoid loop
+                $form.trigger('submit');
+              }).catch(function(){
+                // Fallback: submit anyway (server will fail gracefully)
+                $form.off('submit').trigger('submit');
+              });
+            });
+          }
+          // else: let it submit; server will reject missing token
+        });
+
+        // ===== Vimeo cover logic =====
+        const playerEl = document.getElementById('vimeoPlayer');
+        const coverEl  = document.getElementById('videoCover');
+        fetch('https://vimeo.com/api/oembed.json?url=' + encodeURIComponent('https://vimeo.com/1113479796'))
+          .then(r => r.ok ? r.json() : null)
+          .then(data => { if (data && data.thumbnail_url) { coverEl.style.backgroundImage = 'url(' + data.thumbnail_url + ')'; } })
+          .catch(()=>{});
+        const player = new Vimeo.Player(playerEl);
+        player.on('play',   () => coverEl.classList.add('hidden'));
+        player.on('loaded', () => setTimeout(()=>coverEl.classList.add('hidden'), 300));
+        player.on('bufferend', () => coverEl.classList.add('hidden'));
+
+        // ===== Client-side helper: mark invalids on submit =====
+        $form.on('submit', function(){
+          if(this.checkValidity() === false){
+            $('#formStatus').removeClass('ok').addClass('err').text('Please fill in all required fields.').show();
+          }
+        });
+      });
+    })(jQuery);
+	(function($){
+  $(function(){
+
+    // --- helper: scroll + focus #formStatus when it has a message ---
+    function jumpToStatus() {
+      const el = document.getElementById('formStatus');
+      if (!el) return;
+      const hasMsg =
+        el.classList.contains('ok') ||
+        el.classList.contains('err') ||
+        (el.textContent && el.textContent.trim().length > 0);
+
+      if (hasMsg) {
+        // make it focusable for a11y, then focus + scroll
+        if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex','-1');
+        el.focus();
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // set the hash without adding a new history entry
+        if (location.hash !== '#formStatus') {
+          history.replaceState(null, '', '#formStatus');
+        }
+      }
+    }
+
+    // Run after page load (covers server-side success/error)
+    jumpToStatus();
+
+    // ====== your existing code (trimmed here) ======
+    const $form = $('#contactForm');
+
+    // On client-side invalid submission, also show & jump
+    $form.on('submit', function(){
+      if (this.checkValidity() === false) {
+        $('#formStatus')
+          .removeClass('ok').addClass('err')
+          .text('Please fill in all required fields.')
+          .show();
+        jumpToStatus();
+      }
+    });
+
+    // (keep your reCAPTCHA + Vimeo code as-is)
+
+  });
+})(jQuery);
+  </script>
+
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-h42lpnx97kmq" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdgHrorAAAAAGpICw57c0Kiv5V9ia_WpeThrEes&amp;co=aHR0cHM6Ly9rcmVtYm9yZWJlbHMuY29tOjQ0Mw..&amp;hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=b131mhiqk8d5"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

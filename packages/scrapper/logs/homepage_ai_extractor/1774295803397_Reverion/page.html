@@ -1,0 +1,1226 @@
+<!DOCTYPE html><html lang="de-DE" class="js lenis"><head><style data-hubspot-styled-components=""></style><style data-tippy-stylesheet="">.tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;white-space:normal;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:transparent;border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}</style><style>:root{--litepicker-container-months-color-bg: #fff;--litepicker-container-months-box-shadow-color: #ddd;--litepicker-footer-color-bg: #fafafa;--litepicker-footer-box-shadow-color: #ddd;--litepicker-tooltip-color-bg: #fff;--litepicker-month-header-color: #333;--litepicker-button-prev-month-color: #9e9e9e;--litepicker-button-next-month-color: #9e9e9e;--litepicker-button-prev-month-color-hover: #2196f3;--litepicker-button-next-month-color-hover: #2196f3;--litepicker-month-width: calc(var(--litepicker-day-width) * 7);--litepicker-month-weekday-color: #9e9e9e;--litepicker-month-week-number-color: #9e9e9e;--litepicker-day-width: 38px;--litepicker-day-color: #333;--litepicker-day-color-hover: #2196f3;--litepicker-is-today-color: #f44336;--litepicker-is-in-range-color: #bbdefb;--litepicker-is-locked-color: #9e9e9e;--litepicker-is-start-color: #fff;--litepicker-is-start-color-bg: #2196f3;--litepicker-is-end-color: #fff;--litepicker-is-end-color-bg: #2196f3;--litepicker-button-cancel-color: #fff;--litepicker-button-cancel-color-bg: #9e9e9e;--litepicker-button-apply-color: #fff;--litepicker-button-apply-color-bg: #2196f3;--litepicker-button-reset-color: #909090;--litepicker-button-reset-color-hover: #2196f3;--litepicker-highlighted-day-color: #333;--litepicker-highlighted-day-color-bg: #ffeb3b}.show-week-numbers{--litepicker-month-width: calc(var(--litepicker-day-width) * 8)}.litepicker{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-size:0.8em;display:none}.litepicker button{border:none;background:none}.litepicker .container__main{display:-webkit-box;display:-ms-flexbox;display:flex}.litepicker .container__months{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;background-color:var(--litepicker-container-months-color-bg);border-radius:5px;-webkit-box-shadow:0 0 5px var(--litepicker-container-months-box-shadow-color);box-shadow:0 0 5px var(--litepicker-container-months-box-shadow-color);width:calc(var(--litepicker-month-width) + 10px);-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__months.columns-2{width:calc((var(--litepicker-month-width) * 2) + 20px)}.litepicker .container__months.columns-3{width:calc((var(--litepicker-month-width) * 3) + 30px)}.litepicker .container__months.columns-4{width:calc((var(--litepicker-month-width) * 4) + 40px)}.litepicker .container__months.split-view .month-item-header .button-previous-month,.litepicker .container__months.split-view .month-item-header .button-next-month{visibility:visible}.litepicker .container__months .month-item{padding:5px;width:var(--litepicker-month-width);-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__months .month-item-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;font-weight:500;padding:10px 5px;text-align:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:var(--litepicker-month-header-color)}.litepicker .container__months .month-item-header div{-webkit-box-flex:1;-ms-flex:1;flex:1}.litepicker .container__months .month-item-header div>.month-item-name{margin-right:5px}.litepicker .container__months .month-item-header div>.month-item-year{padding:0}.litepicker .container__months .month-item-header .reset-button{color:var(--litepicker-button-reset-color)}.litepicker .container__months .month-item-header .reset-button>svg{fill:var(--litepicker-button-reset-color)}.litepicker .container__months .month-item-header .reset-button *{pointer-events:none}.litepicker .container__months .month-item-header .reset-button:hover{color:var(--litepicker-button-reset-color-hover)}.litepicker .container__months .month-item-header .reset-button:hover>svg{fill:var(--litepicker-button-reset-color-hover)}.litepicker .container__months .month-item-header .button-previous-month,.litepicker .container__months .month-item-header .button-next-month{visibility:hidden;text-decoration:none;padding:3px 5px;border-radius:3px;-webkit-transition:color 0.3s, border 0.3s;transition:color 0.3s, border 0.3s;cursor:default}.litepicker .container__months .month-item-header .button-previous-month *,.litepicker .container__months .month-item-header .button-next-month *{pointer-events:none}.litepicker .container__months .month-item-header .button-previous-month{color:var(--litepicker-button-prev-month-color)}.litepicker .container__months .month-item-header .button-previous-month>svg,.litepicker .container__months .month-item-header .button-previous-month>img{fill:var(--litepicker-button-prev-month-color)}.litepicker .container__months .month-item-header .button-previous-month:hover{color:var(--litepicker-button-prev-month-color-hover)}.litepicker .container__months .month-item-header .button-previous-month:hover>svg{fill:var(--litepicker-button-prev-month-color-hover)}.litepicker .container__months .month-item-header .button-next-month{color:var(--litepicker-button-next-month-color)}.litepicker .container__months .month-item-header .button-next-month>svg,.litepicker .container__months .month-item-header .button-next-month>img{fill:var(--litepicker-button-next-month-color)}.litepicker .container__months .month-item-header .button-next-month:hover{color:var(--litepicker-button-next-month-color-hover)}.litepicker .container__months .month-item-header .button-next-month:hover>svg{fill:var(--litepicker-button-next-month-color-hover)}.litepicker .container__months .month-item-weekdays-row{display:-webkit-box;display:-ms-flexbox;display:flex;justify-self:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;color:var(--litepicker-month-weekday-color)}.litepicker .container__months .month-item-weekdays-row>div{padding:5px 0;font-size:85%;-webkit-box-flex:1;-ms-flex:1;flex:1;width:var(--litepicker-day-width);text-align:center}.litepicker .container__months .month-item:first-child .button-previous-month{visibility:visible}.litepicker .container__months .month-item:last-child .button-next-month{visibility:visible}.litepicker .container__months .month-item.no-previous-month .button-previous-month{visibility:hidden}.litepicker .container__months .month-item.no-next-month .button-next-month{visibility:hidden}.litepicker .container__days{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;justify-self:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:center;-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__days>div,.litepicker .container__days>a{padding:5px 0;width:var(--litepicker-day-width)}.litepicker .container__days .day-item{color:var(--litepicker-day-color);text-align:center;text-decoration:none;border-radius:3px;-webkit-transition:color 0.3s, border 0.3s;transition:color 0.3s, border 0.3s;cursor:default}.litepicker .container__days .day-item:hover{color:var(--litepicker-day-color-hover);-webkit-box-shadow:inset 0 0 0 1px var(--litepicker-day-color-hover);box-shadow:inset 0 0 0 1px var(--litepicker-day-color-hover)}.litepicker .container__days .day-item.is-today{color:var(--litepicker-is-today-color)}.litepicker .container__days .day-item.is-locked{color:var(--litepicker-is-locked-color)}.litepicker .container__days .day-item.is-locked:hover{color:var(--litepicker-is-locked-color);-webkit-box-shadow:none;box-shadow:none;cursor:default}.litepicker .container__days .day-item.is-in-range{background-color:var(--litepicker-is-in-range-color);border-radius:0}.litepicker .container__days .day-item.is-start-date{color:var(--litepicker-is-start-color);background-color:var(--litepicker-is-start-color-bg);border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:0;border-bottom-right-radius:0}.litepicker .container__days .day-item.is-start-date.is-flipped{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-end-date{color:var(--litepicker-is-end-color);background-color:var(--litepicker-is-end-color-bg);border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-end-date.is-flipped{border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:0;border-bottom-right-radius:0}.litepicker .container__days .day-item.is-start-date.is-end-date{border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-highlighted{color:var(--litepicker-highlighted-day-color);background-color:var(--litepicker-highlighted-day-color-bg)}.litepicker .container__days .week-number{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;color:var(--litepicker-month-week-number-color);font-size:85%}.litepicker .container__footer{text-align:right;padding:10px 5px;margin:0 5px;background-color:var(--litepicker-footer-color-bg);-webkit-box-shadow:inset 0px 3px 3px 0px var(--litepicker-footer-box-shadow-color);box-shadow:inset 0px 3px 3px 0px var(--litepicker-footer-box-shadow-color);border-bottom-left-radius:5px;border-bottom-right-radius:5px}.litepicker .container__footer .preview-date-range{margin-right:10px;font-size:90%}.litepicker .container__footer .button-cancel{background-color:var(--litepicker-button-cancel-color-bg);color:var(--litepicker-button-cancel-color);border:0;padding:3px 7px 4px;border-radius:3px}.litepicker .container__footer .button-cancel *{pointer-events:none}.litepicker .container__footer .button-apply{background-color:var(--litepicker-button-apply-color-bg);color:var(--litepicker-button-apply-color);border:0;padding:3px 7px 4px;border-radius:3px;margin-left:10px;margin-right:10px}.litepicker .container__footer .button-apply:disabled{opacity:0.7}.litepicker .container__footer .button-apply *{pointer-events:none}.litepicker .container__tooltip{position:absolute;margin-top:-4px;padding:4px 8px;border-radius:4px;background-color:var(--litepicker-tooltip-color-bg);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25);box-shadow:0 1px 3px rgba(0,0,0,0.25);white-space:nowrap;font-size:11px;pointer-events:none;visibility:hidden}.litepicker .container__tooltip:before{position:absolute;bottom:-5px;left:calc(50% - 5px);border-top:5px solid rgba(0,0,0,0.12);border-right:5px solid transparent;border-left:5px solid transparent;content:""}.litepicker .container__tooltip:after{position:absolute;bottom:-4px;left:calc(50% - 4px);border-top:4px solid var(--litepicker-tooltip-color-bg);border-right:4px solid transparent;border-left:4px solid transparent;content:""}
+</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#fafafa">
+        <link rel="icon" type="image/png" href="https://reverion.com/wp-content/themes/reverion/assets/layout/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="https://reverion.com/wp-content/themes/reverion/assets/layout/favicon/favicon.svg">
+        <link rel="shortcut icon" href="https://reverion.com/wp-content/themes/reverion/assets/layout/favicon/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://reverion.com/wp-content/themes/reverion/assets/layout/favicon/apple-touch-icon.png">
+        <link rel="manifest" href="https://reverion.com/wp-content/themes/reverion/assets/layout/favicon/site.webmanifest">
+
+        <script type="text/javascript" async="" src="//reverion.com/wp-content/uploads/matomo/matomo.js"></script><script>
+            document.documentElement.className = 'js';         
+            const BASE_URL_ASSETS = 'https://reverion.com/wp-content/themes/reverion/assets/',
+                LANG = {
+                    "onmap": "Google Maps"    
+                },
+                GMAPS_API_KEY   = 'AIzaSyD65l9YeHp7cCQLXlsaSYceGkOHOWI-UeI',
+                BASE_URL = "https://reverion.com";
+        </script> 
+        <script defer="" charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+
+     	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.0 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Reversible Kraftwerke von Reverion | Bis zu 80 % Effizienz</title>
+	<meta name="description" content="Reversible Kraftwerke von Reverion erreichen bis zu 80 % Wirkungsgrad – doppelt so effizient wie herkömmliche Systeme.">
+	<link rel="canonical" href="https://reverion.com/">
+	<meta property="og:locale" content="de_DE">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Reversible Kraftwerke von Reverion | Bis zu 80 % Effizienz">
+	<meta property="og:description" content="Reversible Kraftwerke von Reverion erreichen bis zu 80 % Wirkungsgrad – doppelt so effizient wie herkömmliche Systeme.">
+	<meta property="og:url" content="https://reverion.com/">
+	<meta property="og:site_name" content="Reverion">
+	<meta property="article:modified_time" content="2025-08-29T09:37:51+00:00">
+	<meta property="og:image" content="https://reverion.com/wp-content/uploads/2025/07/reverion_biogas-power-plant_flexible_effizient_en-scaled.jpeg">
+	<meta property="og:image:width" content="2560">
+	<meta property="og:image:height" content="1410">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://reverion.com/","url":"https://reverion.com/","name":"Reversible Kraftwerke von Reverion | Bis zu 80 % Effizienz","isPartOf":{"@id":"https://reverion.com/#website"},"datePublished":"2025-05-15T12:34:06+00:00","dateModified":"2025-08-29T09:37:51+00:00","description":"Reversible Kraftwerke von Reverion erreichen bis zu 80 % Wirkungsgrad – doppelt so effizient wie herkömmliche Systeme.","breadcrumb":{"@id":"https://reverion.com/#breadcrumb"},"inLanguage":"de","potentialAction":[{"@type":"ReadAction","target":["https://reverion.com/"]}]},{"@type":"BreadcrumbList","@id":"https://reverion.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Domovská stránka"}]},{"@type":"WebSite","@id":"https://reverion.com/#website","url":"https://reverion.com/","name":"Reverion","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://reverion.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"de"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://reverion.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Freverion.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://reverion.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Freverion.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="https://reverion.com/wp-includes/css/dist/block-library/style.min.css?ver=6.9.4" media="all">
+
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="main-css" href="https://reverion.com/wp-content/themes/reverion/assets/css/main.min.css?ver=1757072010" media="all">
+<link rel="stylesheet" id="moove_gdpr_frontend-css" href="https://reverion.com/wp-content/plugins/gdpr-cookie-compliance/dist/styles/gdpr-main.css?ver=5.0.11" media="all">
+<style id="moove_gdpr_frontend-inline-css">
+#moove_gdpr_cookie_modal,#moove_gdpr_cookie_info_bar,.gdpr_cookie_settings_shortcode_content{font-family:&#039;Nunito&#039;,sans-serif}#moove_gdpr_save_popup_settings_button{background-color:#373737;color:#fff}#moove_gdpr_save_popup_settings_button:hover{background-color:#000}#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton,#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton{background-color:#004841}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton,.gdpr_cookie_settings_shortcode_content .gdpr-shr-button.button-green{background-color:#004841;border-color:#004841}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton:hover,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton:hover,.gdpr_cookie_settings_shortcode_content .gdpr-shr-button.button-green:hover{background-color:#fff;color:#004841}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close span.gdpr-icon{background-color:#004841;border:1px solid #004841}#moove_gdpr_cookie_info_bar span.moove-gdpr-infobar-allow-all.focus-g,#moove_gdpr_cookie_info_bar span.moove-gdpr-infobar-allow-all:focus,#moove_gdpr_cookie_info_bar button.moove-gdpr-infobar-allow-all.focus-g,#moove_gdpr_cookie_info_bar button.moove-gdpr-infobar-allow-all:focus,#moove_gdpr_cookie_info_bar span.moove-gdpr-infobar-reject-btn.focus-g,#moove_gdpr_cookie_info_bar span.moove-gdpr-infobar-reject-btn:focus,#moove_gdpr_cookie_info_bar button.moove-gdpr-infobar-reject-btn.focus-g,#moove_gdpr_cookie_info_bar button.moove-gdpr-infobar-reject-btn:focus,#moove_gdpr_cookie_info_bar span.change-settings-button.focus-g,#moove_gdpr_cookie_info_bar span.change-settings-button:focus,#moove_gdpr_cookie_info_bar button.change-settings-button.focus-g,#moove_gdpr_cookie_info_bar button.change-settings-button:focus{-webkit-box-shadow:0 0 1px 3px #004841;-moz-box-shadow:0 0 1px 3px #004841;box-shadow:0 0 1px 3px #004841}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close i:hover,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close span.gdpr-icon:hover,#moove_gdpr_cookie_info_bar span[data-href]>u.change-settings-button{color:#004841}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected a span.gdpr-icon,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected button span.gdpr-icon{color:inherit}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a span.gdpr-icon,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button span.gdpr-icon{color:inherit}#moove_gdpr_cookie_modal .gdpr-acc-link{line-height:0;font-size:0;color:transparent;position:absolute}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close:hover i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-tab-main .moove-gdpr-tab-main-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content span.change-settings-button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.change-settings-button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button:hover,#moove_gdpr_cookie_info_bar span[data-href]>u.change-settings-button,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content span.change-settings-button.focus-g,span.change-settings-button:focus,button.change-settings-button.focus-g,button.change-settings-button:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button:focus{color:#004841}#moove_gdpr_cookie_modal .moove-gdpr-branding.focus-g span,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-tab-main a.focus-g,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-tab-main .gdpr-cd-details-toggle.focus-g{color:#004841}#moove_gdpr_cookie_modal.gdpr_lightbox-hide{display:none}
+/*# sourceURL=moove_gdpr_frontend-inline-css */
+</style>
+<script id="wpml-cookie-js-extra">
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"de","expires":1,"path":"/"}};
+//# sourceURL=wpml-cookie-js-extra
+</script>
+<script src="https://reverion.com/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=486900" id="wpml-cookie-js" defer="" data-wp-strategy="defer"></script>
+<script src="https://reverion.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://reverion.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script id="jquery-js-after">
+var $ = jQuery.noConflict();
+//# sourceURL=jquery-js-after
+</script>
+<link rel="https://api.w.org/" href="https://reverion.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://reverion.com/wp-json/wp/v2/pages/90"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://reverion.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="shortlink" href="https://reverion.com/">
+<meta name="generator" content="WPML ver:4.8.6 stt:1,3;">
+<noscript><style>.lazyload[data-src]{display:none !important;}</style></noscript><style>.lazyload{background-image:none !important;}.lazyload:before{background-image:none !important;}</style><link rel="icon" href="https://reverion.com/wp-content/uploads/2025/07/cropped-Reverion-Logo-2-32x32.png" sizes="32x32">
+<link rel="icon" href="https://reverion.com/wp-content/uploads/2025/07/cropped-Reverion-Logo-2-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://reverion.com/wp-content/uploads/2025/07/cropped-Reverion-Logo-2-180x180.png">
+<meta name="msapplication-TileImage" content="https://reverion.com/wp-content/uploads/2025/07/cropped-Reverion-Logo-2-270x270.png">
+		<style id="wp-custom-css">
+			.otgs-development-site-front-end {
+	display: none;
+}		</style>
+		        
+    <script src="https://reverion.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4" defer=""></script></head>
+
+    <body class="home wp-singular page-template-default page page-id-90 wp-theme-reverion" onunload="" style="">
+                <!-- CLIPs -->
+        <div class="svghide_cont">
+            <div class="svghide">  
+
+                <svg>
+                    <symbol viewBox="0 0 344 4000" id="s_msk1">
+                        <path vector-effect="non-scaling-stroke" d="M344,3856.23l0,-3845.23c0,-6.075 -4.925,-11 -11,-11l-322,0c-6.028,0 -10.923,4.848 -10.999,10.858l-0.001,0.142l0,3977.99c0,7.77 7.829,13.071 15.023,10.238l0.17,-0.069l322,-132.754c4.055,-1.671 6.723,-5.589 6.805,-9.961l0.002,-0.209Z"></path>
+                    </symbol>
+                    <defs>
+                        <clipPath id="s_imgmask" clipPathUnits="objectBoundingBox">
+                            <path d="M0,1 L1,1 L1,0.05 C1,0.022,0.986,0,0.968,0 L0.032,0 C0.014,0,0,0.022,0,0.049 L0,0.05 L0,1"></path>
+                        </clipPath>
+                    </defs>
+                </svg>  
+                
+            </div>
+        </div>
+
+        <!--             
+            header_observer 
+            elm_animlogo_observer
+        -->
+        <div class="container header_observer elm_animlogo_observer observe intersecting">
+            <div class="header_sentinel"></div>
+            <!-- HEADER - dark -->
+            <header class="header  header_anim observe" style="--delay: 2700ms">
+
+                <div class="header_inner wrapper_full">
+                    <div class="header_content">
+                        <a href="https://reverion.com" title="" class="elm_logo elm_animlogo header_logo" style="--delay: 850ms">
+                            <svg class="sico">                                
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l1"></use></g>
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l2"></use></g>
+                            
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l3"></use></g>
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l4"></use></g>
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l5"></use></g>
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l6"></use></g>
+
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l7"></use></g>
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l8"></use></g>
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l9"></use></g>
+                                <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l10"></use></g>                               
+                            </svg>
+                        </a>
+
+                        <div class="header_lang">
+                            <a href="https://reverion.com/en/" class="">EN</a><a href="https://reverion.com/" class="active">DE</a>                        </div>
+
+                        <button type="button" class="nav_cover toggle-menu"></button>                        
+
+                        <div class="nav_cont">
+                            
+                            <div class="nav_scroll">
+                                <nav class="nav">
+                                    <ul id="menu-main-menu" class="topmenu"><li id="menu-item-211" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" style="--animation-order: 0; --animation-order-reverse: 11;"><a><span>Produkte</span><svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_ar_d"></use></svg></a>
+<ul class="submenu">
+	<li id="menu-item-805" class="menu-item menu-item-type-post_type menu-item-object-page" style="--animation-order: 1; --animation-order-reverse: 10;"><a href="https://reverion.com/biogas-kraftwerke/"><span>Biogas</span></a></li>
+	<li id="menu-item-804" class="menu-item menu-item-type-post_type menu-item-object-page" style="--animation-order: 2; --animation-order-reverse: 9;"><a href="https://reverion.com/wasserstoff-kraftwerke/"><span>Wasserstoff</span></a></li>
+	<li id="menu-item-1098" class="menu-item menu-item-type-custom menu-item-object-custom" style="--animation-order: 3; --animation-order-reverse: 8;"><a href="https://reverion.com/projekte/"><span>Projekte</span></a></li>
+</ul>
+</li>
+<li id="menu-item-215" class="menu-item menu-item-type-post_type menu-item-object-page" style="--animation-order: 4; --animation-order-reverse: 7;"><a href="https://reverion.com/technologie/"><span>Technologie</span><svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_ar_d"></use></svg></a></li>
+<li id="menu-item-2363" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" style="--animation-order: 5; --animation-order-reverse: 6;"><a href="#"><span>Über uns</span><svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_ar_d"></use></svg></a>
+<ul class="submenu">
+	<li id="menu-item-1114" class="menu-item menu-item-type-custom menu-item-object-custom" style="--animation-order: 6; --animation-order-reverse: 5;"><a href="https://reverion.com/team/"><span>Team</span></a></li>
+	<li id="menu-item-845" class="menu-item menu-item-type-post_type menu-item-object-page" style="--animation-order: 7; --animation-order-reverse: 4;"><a href="https://reverion.com/mission/"><span>Mission</span></a></li>
+</ul>
+</li>
+<li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page" style="--animation-order: 8; --animation-order-reverse: 3;"><a href="https://reverion.com/karriere/"><span>Karriere</span><svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_ar_d"></use></svg></a></li>
+<li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page" style="--animation-order: 9; --animation-order-reverse: 2;"><a href="https://reverion.com/news/"><span>News</span><svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_ar_d"></use></svg></a></li>
+<li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page" style="--animation-order: 10; --animation-order-reverse: 1;"><a href="https://reverion.com/kontakt/"><span>Kontakt</span><svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_ar_d"></use></svg></a></li>
+</ul>                                </nav>
+                            </div>
+
+                            <button type="button" class="nav_close toggle-menu">
+                                <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg?d#s_menuc"></use></svg>     
+                            </button>
+
+                        </div>
+
+                        <button type="button" class="nav_open toggle-menu">
+                            <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg?d#s_menu"></use></svg>     
+                        </button>
+                    </div>     
+                </div>
+
+            </header>    <!-- MAIN -->
+    <main class="main">
+        <!-- HERO -->
+         
+        <div class="box_hero observe elm_animlogo_observer intersecting">
+            <div class="box_hero_sizer"></div>
+            <div class="box_hero_bg para_cont no_filter box_hero_anim" style="--delay: 1000ms">
+                <div class="para " style="translate: none; rotate: none; scale: none; transform: translate3d(0px, -0.0277%, 0px);">
+                                             <video preload="" src="https://reverion.com/wp-content/uploads/2025/07/Reverion-Home.mov" playsinline="" muted="" loop="" autoplay="" x-webkit-airplay="deny" disableremoteplayback="" disablepictureinpicture=""></video>
+                                    </div>
+            </div>
+
+            <div class="box_hero_inner wrapper_full">
+                <div class="box_hero_content">
+                    <h1 class="box_hero_logo elm_logo elm_animlogo" style="--delay: 2000ms">
+                        <svg class="sico">       
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l1"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l2"></use></g>
+                        
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l3"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l4"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l5"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l6"></use></g>
+
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l7"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l8"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l9"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_l10"></use></g>                               
+                        </svg>
+                    </h1> 
+                    <h2 class="title_h32 font_w400 mgt-20 text_center color_c1 observe anim_drop1 intersecting" style="--delay: 3000ms">
+                        Reversible Brennstoffzellensysteme                </h2></div> 
+
+                <div class="box_hero_bottom wrapper_full">
+                    <a href="#continue" title="" class="box_hero_more">
+                        <span>mehr entdecken</span>
+                        <svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg?d#s_sym"></use></svg>     
+                    </a>
+                </div>
+            </div>
+        </div>
+
+       
+
+        <!-- POWER PLAN -->
+        <section class="bg_c2 pdt-140 pdt-100lg pdb-160 pdb-100lg pos_rel oh">
+            
+            <div id="continue"></div>
+            
+            <div id="particles-js" class="particles-js"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="1280" height="1914"></canvas></div>
+
+            <div class="wrapper pos_rel">
+                <h2 class="title_h32 color_c1 text_center anim_drop1 observe anim_delay">
+                    Hocheffizientes Kraftwerk, Elektrolyseur, Energiespeicher und Carbon Capture - kurz: Reverion                </h2>
+                                                    <div class="block_center mgt-80 wmax700_xlm wmax320_mdm">
+                        <div class="grid">
+                                                            <!-- ITEM -->
+<div class="col4 col2_xlm col1_mdm dflex mgt-40 anim_drop1 observe anim_delay">
+                <a href="https://reverion.com/biogas-kraftwerke/" target="" class="item_shape transition w100p">
+            <div class="item_shape_bg">
+            <div class="top">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMin slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>    
+            </div>
+            <div class="bottom">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMax slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>        
+            </div>
+        </div>                                  
+        <div class="item_shape_content color_c1 hovercolor_c2">
+            <div class="pd-25 dflex flex-dir-column w100p">
+                <svg class="sico color_c4 item_shape_arrow"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>
+
+                <h3 class="title_h4 mgt-20 w100p">Biogas</h3>
+
+                <div class="page_content reset_margins pdt-20 w100p">
+                    <p style="text-align: left;"><strong>Maximal effizient</strong><br>
+Unsere reversiblen Kraftwerke erreichen einen Wirkungsgrad von bis zu 80 % bei der Stromumwandlung und sind damit doppelt so effizient wie herkömmliche Systeme. Die Kraftwerke sind konsequent auf maximale Effizienz und einen dauerhaft zuverlässigen, ressourcenschonenden Betrieb ausgelegt – von der landwirtschaftlichen bis zur großskaligen Biogasanlage.</p>
+                </div>
+            </div>
+        </div>
+        <div class="item_shape_tags pdl-25 pdr-25">
+                                                            <div class="elm_tag  color_c2">CH4</div>
+                                    <div class="elm_tag bg_c8 color_c2">CO2</div>
+                                    <div class="elm_tag bg_c5 color_c2">H2</div>
+                                    </div>
+    </a></div>                                                            <!-- ITEM -->
+<div class="col4 col2_xlm col1_mdm dflex mgt-40 anim_drop1 observe anim_delay">
+                <a href="https://reverion.com/wasserstoff-kraftwerke/" target="" class="item_shape transition w100p">
+            <div class="item_shape_bg">
+            <div class="top">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMin slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>    
+            </div>
+            <div class="bottom">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMax slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>        
+            </div>
+        </div>                                  
+        <div class="item_shape_content color_c1 hovercolor_c2">
+            <div class="pd-25 dflex flex-dir-column w100p">
+                <svg class="sico color_c4 item_shape_arrow"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>
+
+                <h3 class="title_h4 mgt-20 w100p">Wasserstoff</h3>
+
+                <div class="page_content reset_margins pdt-20 w100p">
+                    <p><strong data-start="538" data-end="564">Industrie und Speicher</strong><br data-start="564" data-end="567">Unser Wasserstoffkraftwerk erreicht bis zu 75 % Roundtrip-Wirkungsgrad und ermöglicht eine verlustarme Speicherung erneuerbarer Energie. Das sorgt für eine besonders schnelle Amortisation und macht grünen Wasserstoff zu einem entscheidenden Baustein für die stabile, flexible und klimafreundliche Energieversorgung.</p>
+                </div>
+            </div>
+        </div>
+        <div class="item_shape_tags pdl-25 pdr-25">
+                                                            <div class="elm_tag bg_c5 color_c2">H2</div>
+                                    </div>
+    </a></div>                                                            <!-- ITEM -->
+<div class="col4 col2_xlm col1_mdm dflex mgt-40 anim_drop1 observe anim_delay">
+                <a href="https://reverion.com/technologie/" target="" class="item_shape transition w100p">
+            <div class="item_shape_bg">
+            <div class="top">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMin slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>    
+            </div>
+            <div class="bottom">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMax slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>        
+            </div>
+        </div>                                  
+        <div class="item_shape_content color_c1 hovercolor_c2">
+            <div class="pd-25 dflex flex-dir-column w100p">
+                <svg class="sico color_c4 item_shape_arrow"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>
+
+                <h3 class="title_h4 mgt-20 w100p">Technologie</h3>
+
+                <div class="page_content reset_margins pdt-20 w100p">
+                    <p data-start="913" data-end="1267"><strong data-start="913" data-end="929">Revolutionär</strong><br data-start="929" data-end="932">Ob Stromerzeugung aus Biogas, Umwandlung von Strom in Methan oder Sektorenkopplung über Wasserstoff – unsere flexiblen Systeme liefern die passende Lösung. Im Zentrum stehen innovative Brennstoffzellen mit höchster Effizienz und kurzen Umschaltzeiten – für maximale Dynamik und Performance.</p>
+<p data-start="913" data-end="1267">
+                </p></div>
+            </div>
+        </div>
+        <div class="item_shape_tags pdl-25 pdr-25">
+                                                            <div class="elm_tag  color_c2">CH4</div>
+                                    <div class="elm_tag bg_c5 color_c2">H2</div>
+                                    </div>
+    </a></div>                                                            <!-- ITEM -->
+<div class="col4 col2_xlm col1_mdm dflex mgt-40 anim_drop1 observe anim_delay">
+                <a href="https://reverion.com/projekte" target="" class="item_shape transition w100p">
+            <div class="item_shape_bg">
+            <div class="top">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMin slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>    
+            </div>
+            <div class="bottom">
+                <svg class="sico color_c2 hovercolor_c1" transform="translate(-0.5 -0.5)" preserveAspectRatio="xMinYMax slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>        
+            </div>
+        </div>                                  
+        <div class="item_shape_content color_c1 hovercolor_c2">
+            <div class="pd-25 dflex flex-dir-column w100p">
+                <svg class="sico color_c4 item_shape_arrow"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>
+
+                <h3 class="title_h4 mgt-20 w100p">Projekte</h3>
+
+                <div class="page_content reset_margins pdt-20 w100p">
+                    <p><strong data-start="1274" data-end="1294">Reverion im Feld<br>
+</strong>Unsere Projektsteckbriefe zeigen, wie Reverion-Kraftwerke konkret zur ökologischen und wirtschaftlichen Nachhaltigkeit beitragen. Unsere Technologie zeigt an immer mehr Standorten im Praxiseinsatz eindrucksvoll, wie neue Maßstäbe im Energiesektor gesetzt werden können.</p>
+<p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+        <div class="item_shape_tags pdl-25 pdr-25">
+                                </div>
+    </a></div>                                                    </div>
+                    </div>
+                            </div>
+        </section>
+                                                        <!-- CARD -->
+                <!-- CO2 -->
+                <section class="pdt-30 pdb-30">
+                    <div class="wrapper_lw2">
+                        <div class="box_bg">
+                            <div class="box_bg_bg">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABg4AAAMmAQMAAAAXJOgXAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAK9JREFUGBntwTEBAAAAwiD7p14Gf2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJwCZhAAAc7heZMAAAAASUVORK5CYII=" alt="" class="op_20-60 lazyload" data-src="https://reverion.com/wp-content/uploads/2025/07/hero8.jpg" decoding="async" data-eio-rwidth="1550" data-eio-rheight="806"><noscript><img src="https://reverion.com/wp-content/uploads/2025/07/hero8.jpg" alt="" class="op_20-60" data-eio="l" /></noscript>
+                                </div>
+                            <div class="box_bg_inner mg-auto wrapper4 pdt-100 pdb-100 pdt-50lg pdb-50lg color_c1">
+                                                                    <div class="elm_tag bg_c8 color_c2">CO2</div>
+                                                                <h2 class="title_h1 mgt-15 mgl-100 mgl-0lg">Climate Positive Power</h2>
+                                <div class="mgl-160 pdl-60 pdl-0lg mgl-60xl mgl-0lg mgt-30 mgt-25lg">
+                                    <div class="page_content text_s22 no_margins">
+                                        <p></p><p>„Klimafreundlich“ ist für uns kein Schlagwort: Wir revolutionieren Kraftwerke mit hocheffizienten, emissionsfreien Brennstoffzellen, verdoppeln den Energieertrag und stabilisieren das Stromnetz. Überschüssiger erneuerbarer Strom wird in Methan oder Wasserstoff umgewandelt – für klimapositive, nachhaltige Energie. Im Gegensatz zu klassischen Blockheizkraftwerken arbeiten Reverion-Anlagen emissionsfrei; das abgeschiedene CO₂ kann industriell genutzt oder langfristig gespeichert werden.</p>
+<p></p>
+                                    </div>
+                                            <a href="https://reverion.com/mission/" title="Was uns antreibt" class="btn_basic bg_c4 mgt-30 mgt-25lg" target="_self">
+            <span data-text="Was uns antreibt">
+                Was uns antreibt            </span>
+        </a>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                            <!-- Reverion and You -->
+        <section class="bg_c2 pdt-140 pdt-100lg pdb-140 pdb-100lg pdt-0md pos_rel oh">
+
+            <div class="bg_sym2">
+                <svg viewBox="0 0 42 40" fill-rule="evenodd" preserveAspectRatio="xMinYMid meet">
+                    <path vector-effect="non-scaling-stroke" d="M0,18.384l0,-18.374l16.3,-0l0.005,-0.01l13.942,-0l0,0.01l10.311,-0c1.281,0 1.924,1.545 1.018,2.448l-12.842,13.375c-0.695,0.678 -1.227,1.593 -1.448,2.26c-0.3,0.909 -0.255,1.693 -0.255,1.693l0,1.153l13.527,0c1.281,0 1.924,1.547 1.018,2.451l-16.99,16.187c-0.908,0.904 -2.458,0.264 -2.458,-1.015l-0,-17.623l0.016,0l-0,-1.591c-0.009,-0.068 -0.016,-0.138 -0.016,-0.21l-0,-14.388l-2.593,0c-0,0 -1.295,0.016 -2.081,0.457c-0.311,0.143 -0.606,0.342 -0.905,0.585l-10.076,10.268l-0,0.005c-0.696,0.68 -1.094,1.361 -1.316,2.03c-0.297,0.907 -0.254,1.593 -0.254,1.593l-0,1.308l13.529,-0.057c1.28,0 1.924,1.547 1.016,2.451l-16.99,16.187c-0.907,0.904 -2.458,0.264 -2.458,-1.015l-0,-17.545l0.018,0l-0,-2.414c-0.01,-0.073 -0.018,-0.146 -0.018,-0.219Z"></path>
+                    <path pathLength="100" vector-effect="non-scaling-stroke" d="M0,18.384l0,-18.374l16.3,-0l0.005,-0.01l13.942,-0l0,0.01l10.311,-0c1.281,0 1.924,1.545 1.018,2.448l-12.842,13.375c-0.695,0.678 -1.227,1.593 -1.448,2.26c-0.3,0.909 -0.255,1.693 -0.255,1.693l0,1.153l13.527,0c1.281,0 1.924,1.547 1.018,2.451l-16.99,16.187c-0.908,0.904 -2.458,0.264 -2.458,-1.015l-0,-17.623l0.016,0l-0,-1.591c-0.009,-0.068 -0.016,-0.138 -0.016,-0.21l-0,-14.388l-2.593,0c-0,0 -1.295,0.016 -2.081,0.457c-0.311,0.143 -0.606,0.342 -0.905,0.585l-10.076,10.268l-0,0.005c-0.696,0.68 -1.094,1.361 -1.316,2.03c-0.297,0.907 -0.254,1.593 -0.254,1.593l-0,1.308l13.529,-0.057c1.28,0 1.924,1.547 1.016,2.451l-16.99,16.187c-0.907,0.904 -2.458,0.264 -2.458,-1.015l-0,-17.545l0.018,0l-0,-2.414c-0.01,-0.073 -0.018,-0.146 -0.018,-0.219Z"></path>
+                </svg>
+            </div>
+
+            <div class="box_about pos_rel">
+
+                <div class="box_about_right anim_drop1 observe anim_delay">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAMYAQMAAABv8Qe4AAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAHlJREFUGBntwQEBAAAAgqD+r3ZIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgHsBjycAAW8VW1UAAAAASUVORK5CYII=" alt="Das Reverion Team arbeitet gemeinsam vor dem Firmenlogo – konzentriert, engagiert und im Austausch." data-src="https://reverion.com/wp-content/uploads/2025/07/reverion_teamwork_logo-2-1024x792.jpeg" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="792"><noscript><img src="https://reverion.com/wp-content/uploads/2025/07/reverion_teamwork_logo-2-1024x792.jpeg" alt="Das Reverion Team arbeitet gemeinsam vor dem Firmenlogo – konzentriert, engagiert und im Austausch." class="" data-eio="l" /></noscript>
+                    </div>
+
+                <div class="box_about_left mgt-60md color_c1">
+
+                    <div class="box_about_text anim_drop1 observe anim_delay"> 
+                        <h2 class="title_h1">Werde Teil von etwas Großem</h2>
+                        
+                        <div class="page_content reset_margins text_s22 mgt-40 mgl-100 mgl-60xl mgl-0lg">
+                            <p>Lust, mehr über das Team von Reverion zu erfahren und die Energiezukunft mitzugestalten? Als Ausgründung der TU München treibt Reverion mit Brennstoffzellentechnologie die Energiewende an. Zusammenhalt, Entdeckergeist und der Wunsch, die Welt von morgen zu gestalten, bringen Spitzenforschung in die Praxis und beschleunigen die Energiewende.<br data-start="561" data-end="564">Willst du mitmachen?</p>
+                        </div>
+                                <a href="https://reverion.com/karriere/" title="Karriere" class="btn_basic bg_c4 mgt-40 wmin220 mgl-100 mgl-60xl mgl-0lg" target="_self">
+            <span data-text="Karriere">
+                Karriere            </span>
+        </a>
+                            </div>
+                </div>
+                
+            </div>
+
+            <div class="wrapper wmax740_lgm wmax320_mdm pos_rel pdt-140 pdt-100lg anim_drop1 observe anim_delay">
+                <div class="grid mid-space">
+                    <div class="col2 col1_lgm self-end">
+                        <svg class="box_about_quote_icon sico color_c5"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_q"></use></svg>
+                        <div class="text_big no_margins color_c1 mgt-40 wmax520 mgl-40 mgl-20md">
+                            <p><span style="font-weight: 400;">Wir sind ein Team von Menschen mit Pioniergeist – </span><span style="font-weight: 400;">Tüftler:innen und Innovator:innen, die die Energiewelt von morgen gestalten. Erfahre mehr über Reverions Mission und das Team dahinter.</span></p>
+                        </div>
+                    </div>
+                                                                                            <div class="col4 col2_lgm col1_mdm mgt-40lg dflex">
+                                <!-- ITEM -->
+<div class="item_shape transition w100p">
+    <div class="item_shape_bg">
+        <div class="top">
+            <svg class="sico color_c2 hovercolor_c1" preserveAspectRatio="xMinYMin slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>    
+        </div>
+        <div class="bottom">
+            <svg class="sico color_c2 hovercolor_c1" preserveAspectRatio="xMinYMax slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>        
+        </div>
+    </div>
+    <div class="item_shape_img">
+        <div class="img">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAIUAQMAAAC+RMx3AAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAFhJREFUGBntwQEBAAAAgqD+r3ZIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgXDCMAAbRd7gcAAAAASUVORK5CYII=" alt="Ein Gründer von Reverion arbeitet am Container und blickt dabei zur Seite in die Ferne – zwischen technischem Fokus und visionärem Denken." data-src="https://reverion.com/wp-content/uploads/2025/07/reverion_gruender_am_container-1024x532.jpeg" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="532"><noscript><img src="https://reverion.com/wp-content/uploads/2025/07/reverion_gruender_am_container-1024x532.jpeg" alt="Ein Gründer von Reverion arbeitet am Container und blickt dabei zur Seite in die Ferne – zwischen technischem Fokus und visionärem Denken." class="" data-eio="l" /></noscript>
+            </div>
+    </div>
+
+    <div class="item_shape_content color_c1 hovercolor_c2">
+        <div class="pdt-30 pdb-30 pd-30">
+                <a href="https://reverion.com/mission/" class="btn_more big" target="_self">
+        <span>Reverions Mission</span>
+        <svg class="sico color_c4"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>
+    </a>
+            </div>
+    </div>
+</div>                            </div>
+                                                    <div class="col4 col2_lgm col1_mdm mgt-40lg dflex">
+                                <!-- ITEM -->
+<div class="item_shape transition w100p">
+    <div class="item_shape_bg">
+        <div class="top">
+            <svg class="sico color_c2 hovercolor_c1" preserveAspectRatio="xMinYMin slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>    
+        </div>
+        <div class="bottom">
+            <svg class="sico color_c2 hovercolor_c1" preserveAspectRatio="xMinYMax slice" viewBox="0 0 344 4000"><use href="#s_msk1"></use></svg>        
+        </div>
+    </div>
+    <div class="item_shape_img">
+        <div class="img">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAIUAQMAAAC+RMx3AAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAFhJREFUGBntwQEBAAAAgqD+r3ZIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgXDCMAAbRd7gcAAAAASUVORK5CYII=" alt="Das fröhliche Reverion Team steht vor einer grünen Wiese – vereint hinter der Mission ‚Climate Positive Power‘ für eine CO₂-negative Zukunft." data-src="https://reverion.com/wp-content/uploads/2025/07/reverion_team-1024x532.jpeg" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="532"><noscript><img src="https://reverion.com/wp-content/uploads/2025/07/reverion_team-1024x532.jpeg" alt="Das fröhliche Reverion Team steht vor einer grünen Wiese – vereint hinter der Mission ‚Climate Positive Power‘ für eine CO₂-negative Zukunft." class="" data-eio="l" /></noscript>
+            </div>
+    </div>
+
+    <div class="item_shape_content color_c1 hovercolor_c2">
+        <div class="pdt-30 pdb-30 pd-30">
+                <a href="https://reverion.com/team/" class="btn_more big" target="_self">
+        <span>Das Reverion Team</span>
+        <svg class="sico color_c4"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>
+    </a>
+            </div>
+    </div>
+</div>                            </div>
+                                                            </div>
+            </div>
+        
+        </section>
+
+        <!-- NEWS -->
+        <section class="bg_c7 pdt-100 pdt-80lg pdb-100 pdb-80lg">
+            <div class="wrapper anim_drop1 observe anim_delay">
+                <h2 class="title_h1 color_c2">News und Events</h2>
+
+                <div class="grid mid-space mgt-60 mgt-45lg">
+                    <div class="col28p col3_xlm col2_mdm col1_smm dflex">         
+
+                        <section class="item_event w100p wmax300_xl">
+
+                            <h3 class="title_h52"><a href="#" title="">Nächstes Event</a></h3>
+                            <article class="item_news">
+    <a href="https://reverion.com/3119/" title="Triff uns auf der KontakTA in Augsburg!" class="item_news_image">
+            </a>
+    <div class="item_news_content">
+                    <time class="item_event_date title_h7">
+                12th March 2026            </time>       
+                <h4 class="item_event_title no_margins mgt-15">
+            <a href="https://reverion.com/3119/" title="Triff uns auf der KontakTA in Augsburg!">
+                Triff uns auf der KontakTA in Augsburg!            </a>
+        </h4>
+    </div>
+</article>
+                                                                <a href="https://reverion.com/category/veranstaltungen/" title="Alle Veranstaltungen" class="btn_more text_w500 text_ul_nohover mgt-auto">
+                                        <span>Alle Veranstaltungen</span>
+                                        <svg class="sico color_c4"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>
+                                    </a>
+                                                                
+                        </section>
+
+                    </div>
+                                                                        <div class="col18p col3_xlm col2_mdm col1_smm dflex pdt-30 pdb-30">
+                                <article class="item_news w100p">
+    <a href="https://reverion.com/reverion-ernennt-andreas-aepli-zum-chief-financial-officer/" title="Reverion&nbsp;ernennt Andreas Aepli zum Chief Financial Officer" class="item_news_image">
+                    <img width="500" height="281" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEZAQMAAABbwkWVAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAChJREFUGBntwQENAAAAwiD7p34ON2AAAAAAAAAAAAAAAAAAAAAAAFwKRkAAARyfIQIAAAAASUVORK5CYII=" class="attachment-big_thumbnail size-big_thumbnail wp-post-image lazyload" alt="" decoding="async" fetchpriority="high" data-src="https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-500x281.jpg" data-srcset="https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-500x281.jpg 500w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-300x169.jpg 300w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-1024x576.jpg 1024w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-768x432.jpg 768w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-1536x864.jpg 1536w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-2048x1152.jpg 2048w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-978x550.jpg 978w" data-sizes="auto" data-eio-rwidth="500" data-eio-rheight="281"><noscript><img width="500" height="281" src="https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-500x281.jpg" class="attachment-big_thumbnail size-big_thumbnail wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-500x281.jpg 500w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-300x169.jpg 300w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-1024x576.jpg 1024w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-768x432.jpg 768w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-1536x864.jpg 1536w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-2048x1152.jpg 2048w, https://reverion.com/wp-content/uploads/2026/03/Start-Andreas-Aepli-978x550.jpg 978w" sizes="(max-width: 500px) 100vw, 500px" data-eio="l" /></noscript>            </a>
+    <div class="item_news_content">
+        <h3 class="item_news_title">
+            <a href="https://reverion.com/reverion-ernennt-andreas-aepli-zum-chief-financial-officer/">Reverion&nbsp;ernennt Andreas Aepli zum Chief Financial Officer</a>
+        </h3>
+        <div class="item_news_text no_margins">
+            <p></p>
+                    </div>
+        <a href="https://reverion.com/reverion-ernennt-andreas-aepli-zum-chief-financial-officer/" title="Reverion&nbsp;ernennt Andreas Aepli zum Chief Financial Officer" class="item_news_more color_c2">
+            mehr        </a>
+    </div>
+</article>
+                            </div>
+                                                    <div class="col18p col3_xlm col2_mdm col1_smm dflex pdt-30 pdb-30">
+                                <article class="item_news w100p">
+    <a href="https://reverion.com/reverion-und-frontier-entwickeln-neuen-weg-zur-kohlenstoffentfernung-aus-biogas/" title="Reverion und Frontier entwickeln neuen Weg zur Kohlenstoffentfernung aus Biogas" class="item_news_image">
+                    <img width="500" height="500" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0AQMAAADxGE3JAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAADVJREFUGBntwTEBAAAAwiD7p95jDGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF30AAAHoAg2/AAAAAElFTkSuQmCC" class="attachment-big_thumbnail size-big_thumbnail wp-post-image lazyload" alt="" decoding="async" data-src="https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-500x500.jpeg" data-srcset="https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-500x500.jpeg 500w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-300x300.jpeg 300w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-1024x1024.jpeg 1024w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-150x150.jpeg 150w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-768x768.jpeg 768w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-1536x1536.jpeg 1536w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-2048x2048.jpeg 2048w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-550x550.jpeg 550w" data-sizes="auto" data-eio-rwidth="500" data-eio-rheight="500"><noscript><img width="500" height="500" src="https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-500x500.jpeg" class="attachment-big_thumbnail size-big_thumbnail wp-post-image" alt="" decoding="async" srcset="https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-500x500.jpeg 500w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-300x300.jpeg 300w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-1024x1024.jpeg 1024w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-150x150.jpeg 150w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-768x768.jpeg 768w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-1536x1536.jpeg 1536w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-2048x2048.jpeg 2048w, https://reverion.com/wp-content/uploads/2025/11/FrontierxReverion_251124-550x550.jpeg 550w" sizes="(max-width: 500px) 100vw, 500px" data-eio="l" /></noscript>            </a>
+    <div class="item_news_content">
+        <h3 class="item_news_title">
+            <a href="https://reverion.com/reverion-und-frontier-entwickeln-neuen-weg-zur-kohlenstoffentfernung-aus-biogas/">Reverion und Frontier entwickeln neuen Weg zur Kohlenstoffentfernung aus Biogas</a>
+        </h3>
+        <div class="item_news_text no_margins">
+            <p></p>
+                    </div>
+        <a href="https://reverion.com/reverion-und-frontier-entwickeln-neuen-weg-zur-kohlenstoffentfernung-aus-biogas/" title="Reverion und Frontier entwickeln neuen Weg zur Kohlenstoffentfernung aus Biogas" class="item_news_more color_c2">
+            mehr        </a>
+    </div>
+</article>
+                            </div>
+                                                    <div class="col18p col3_xlm col2_mdm col1_smm dflex pdt-30 pdb-30">
+                                <article class="item_news w100p">
+    <a href="https://reverion.com/reverion-kraftwerk-erreicht-effizienz-weltrekord/" title="Reverion-Kraftwerk erreicht Effizienz-Weltrekord" class="item_news_image">
+                    <img width="500" height="281" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEZAQMAAABbwkWVAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAChJREFUGBntwQENAAAAwiD7p34ON2AAAAAAAAAAAAAAAAAAAAAAAFwKRkAAARyfIQIAAAAASUVORK5CYII=" class="attachment-big_thumbnail size-big_thumbnail wp-post-image lazyload" alt="" decoding="async" data-src="https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-500x281.jpg" data-srcset="https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-500x281.jpg 500w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-300x169.jpg 300w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-1024x576.jpg 1024w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-768x432.jpg 768w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-1536x864.jpg 1536w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-2048x1152.jpg 2048w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-978x550.jpg 978w" data-sizes="auto" data-eio-rwidth="500" data-eio-rheight="281"><noscript><img width="500" height="281" src="https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-500x281.jpg" class="attachment-big_thumbnail size-big_thumbnail wp-post-image" alt="" decoding="async" srcset="https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-500x281.jpg 500w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-300x169.jpg 300w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-1024x576.jpg 1024w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-768x432.jpg 768w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-1536x864.jpg 1536w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-2048x1152.jpg 2048w, https://reverion.com/wp-content/uploads/2025/09/Reverion-Container-Muehlacker-2_CR-Reverion-GmbH-978x550.jpg 978w" sizes="(max-width: 500px) 100vw, 500px" data-eio="l" /></noscript>            </a>
+    <div class="item_news_content">
+        <h3 class="item_news_title">
+            <a href="https://reverion.com/reverion-kraftwerk-erreicht-effizienz-weltrekord/">Reverion-Kraftwerk erreicht Effizienz-Weltrekord</a>
+        </h3>
+        <div class="item_news_text no_margins">
+            <p></p>
+                    </div>
+        <a href="https://reverion.com/reverion-kraftwerk-erreicht-effizienz-weltrekord/" title="Reverion-Kraftwerk erreicht Effizienz-Weltrekord" class="item_news_more color_c2">
+            mehr        </a>
+    </div>
+</article>
+                            </div>
+                                                    <div class="col18p col3_xlm col2_mdm col1_smm dflex pdt-30 pdb-30">
+                                <article class="item_news w100p">
+    <a href="https://reverion.com/wichtiger-dialog-politik/" title="Wichtiger Dialog mit politischen Akteur*innen – gemeinsam eine erneuerbare Energiezukunft gestalten&nbsp;" class="item_news_image">
+                    <img width="500" height="400" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAGQAQMAAABifQCFAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAC9JREFUGBntwTEBAAAAwiD7p14Hb2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADALWQAAAEubTE6AAAAAElFTkSuQmCC" class="attachment-big_thumbnail size-big_thumbnail wp-post-image lazyload" alt="Ortsgruppe der Grünen Windach beim Besuch des Reverion-Kraftwerks in Eresing" decoding="async" data-src="https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-500x400.webp" data-srcset="https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-500x400.webp 500w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-300x240.webp 300w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-1024x819.webp 1024w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-768x614.webp 768w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-1536x1229.webp 1536w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-2048x1638.webp 2048w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-688x550.webp 688w" data-sizes="auto" data-eio-rwidth="500" data-eio-rheight="400"><noscript><img width="500" height="400" src="https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-500x400.webp" class="attachment-big_thumbnail size-big_thumbnail wp-post-image" alt="Ortsgruppe der Grünen Windach beim Besuch des Reverion-Kraftwerks in Eresing" decoding="async" srcset="https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-500x400.webp 500w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-300x240.webp 300w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-1024x819.webp 1024w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-768x614.webp 768w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-1536x1229.webp 1536w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-2048x1638.webp 2048w, https://reverion.com/wp-content/uploads/2025/07/gruene-windach-besuch-reverion-kraftwerk-688x550.webp 688w" sizes="(max-width: 500px) 100vw, 500px" data-eio="l" /></noscript>            </a>
+    <div class="item_news_content">
+        <h3 class="item_news_title">
+            <a href="https://reverion.com/wichtiger-dialog-politik/">Wichtiger Dialog mit politischen Akteur*innen – gemeinsam eine erneuerbare Energiezukunft gestalten&nbsp;</a>
+        </h3>
+        <div class="item_news_text no_margins">
+            <p></p>
+                    </div>
+        <a href="https://reverion.com/wichtiger-dialog-politik/" title="Wichtiger Dialog mit politischen Akteur*innen – gemeinsam eine erneuerbare Energiezukunft gestalten&nbsp;" class="item_news_more color_c2">
+            mehr        </a>
+    </div>
+</article>
+                            </div>
+                                                                    
+                </div>
+                                        <div class="text_right mgt-60">
+                            <a href="https://reverion.com/category/nachrichten/" title="Alle News" class="btn_basic bg_c4 wmin220">
+                                <span data-text="Alle News">Alle News</span>
+                            </a>
+                        </div>
+                                    </div>
+        </section>
+
+        <!-- BOX NL -->
+        <section class="box_nl bg_c7 wrapper mgt-100 mgt-80lg anim_drop1 observe anim_delay">
+
+            <h2 class="title_h42 text_center_lgm color_c2">Bleib auf dem neuesten Stand.</h2>          
+
+            <div class="box_nl_inner mgt-20">      
+                <div class="no_margins text_s20 page_content">
+                    <p>In unserem Newsletter erfährst du alles über aktuelle Entwicklungen, spannende Hintergründe aus dem Reverion-Kosmos und Möglichkeiten zur Besichtigung.<br data-start="275" data-end="278"><strong data-start="278" data-end="325">Jetzt abonnieren und nichts mehr verpassen.</strong></p>
+                </div>
+
+                <button type="button" class="btn_basic toggle-nl" title="Newsletter ">
+                    Newsletter                 </button>
+            </div>                        
+            
+        </section>
+
+        <!-- Contact us -->
+        <section class="pdt-100 pdt-80lg">
+            <div class="wrapper2 w100p_lgm bg_c2 color_c1 pdt-100 pdt-80lg pdb-100 pdb-80lg">
+                <div class="wrapper4">
+                    <h2 class="title_h1 text_center anim_drop1 observe anim_delay">
+                        Noch Fragen? Melde dich gerne bei uns!                    </h2>
+                                                                <div class="grid mid-space">
+                                                            <div class="col2 col1_lgm dflex mgt-80 mgt-40lg anim_drop1 observe anim_delay">
+                                    <div class="item_contact w100p bg_c7 color_c3">
+    <div class="item_contact_image">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAF8AQMAAABrC1vdAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAEVJREFUGBntwQEBAAAAgqD+r3ZIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBe/fAABBkjOgAAAAABJRU5ErkJggg==" alt="Das Reverion Sales Team steht vor einem Reverion-Kraftwerk – bereit, Kund:innen zu Biogasoptimierung und innovativen Energielösungen zu beraten." data-src="https://reverion.com/wp-content/uploads/2025/07/reverion_sales_team_container-1024x380.jpg" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="380"><noscript><img src="https://reverion.com/wp-content/uploads/2025/07/reverion_sales_team_container-1024x380.jpg" alt="Das Reverion Sales Team steht vor einem Reverion-Kraftwerk – bereit, Kund:innen zu Biogasoptimierung und innovativen Energielösungen zu beraten." class="" data-eio="l" /></noscript>
+        </div>
+    <div class="item_contact_content">
+        <div class="item_contact_top">
+            <h3 class="title_h42">Sprich mit dem Sales-Team</h3>
+            <div class="page_content no_margins text_s20 responsive mgt-10">
+                <p>Du möchtest das Maximum aus deinem Biogas herausholen?</p>
+<p>Du denkst über die Investition in eine Biogasaufbereitung, Flexibilisierung oder einen Elektrolyseur nach?</p>
+<p>Du fragst dich, wie unser reversibles Brennstoffzellenkraftwerk in dein Energiekonzept passen kann? Dann melde dich bei unserem Sales-Team.</p>
+<p>Wir beraten dich gerne!</p>
+            </div>
+        </div>
+                            <div class="item_contact_bottom">
+                                                            <div class="page_content responsive no_margins text_s20 big_strong">
+                            <p data-pm-slice="1 1 []"><strong>Kontaktaufnahme Sales-Team</strong></p>
+<p><a href="mailto:sales@reverion.com">sales@reverion.com</a></p>
+<p>+49 8193 36392-93</p>
+                        </div>
+                                                                                <div>
+                                    <a href="https://share-eu1.hsforms.com/1D40VEFE3T3-2TCMX6GW-bgf8vlz" title="Vertriebsunterlagen herunterladen" class="btn_basic bg_c5 color_c3 wmax320 w100p" target="_blank">
+            <span data-text="Vertriebsunterlagen herunterladen">
+                Vertriebsunterlagen herunterladen            </span>
+        </a>
+                                </div>
+                                                                                <div class="page_content responsive no_margins text_s20 big_strong">
+                            <p>Du möchtest direkt einen Beratungstermin buchen?</p>
+                        </div>
+                                                                                <div>
+                                    <a href="https://meetings-eu1.hubspot.com/fabian-gohlke/meeting-website-d" title="Wähle einen Termin" class="btn_basic bg_c5 color_c3 wmax320 w100p" target="_blank">
+            <span data-text="Wähle einen Termin">
+                Wähle einen Termin            </span>
+        </a>
+                                </div>
+                                    
+                
+            </div>
+            </div>
+</div>                                </div>
+                                                            <div class="col2 col1_lgm dflex mgt-80 mgt-40lg anim_drop1 observe anim_delay">
+                                    <div class="item_contact w100p bg_c7 color_c3">
+    <div class="item_contact_image">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAEnAQMAAAANQqPpAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAADtJREFUGBntwTEBAAAAwiD7p14MH2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAW5SnAAH+7CsdAAAAAElFTkSuQmCC" alt="Das Info- und Presseteam von Reverion steht gemeinsam vor der Kamera – als erste Anlaufstelle für Informationen und Presseanfragen." data-src="https://reverion.com/wp-content/uploads/2025/07/reverion_info_presseteam-1024x295.jpg" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="295"><noscript><img src="https://reverion.com/wp-content/uploads/2025/07/reverion_info_presseteam-1024x295.jpg" alt="Das Info- und Presseteam von Reverion steht gemeinsam vor der Kamera – als erste Anlaufstelle für Informationen und Presseanfragen." class="" data-eio="l" /></noscript>
+        </div>
+    <div class="item_contact_content">
+        <div class="item_contact_top">
+            <h3 class="title_h42">Kontaktiere uns</h3>
+            <div class="page_content no_margins text_s20 responsive mgt-10">
+                <p>Du möchtest mehr über unser Unternehmen erfahren? Du bist auf der Suche nach der richtigen Ansprechperson für dein Anliegen? Dann melde dich gerne bei uns.</p>
+            </div>
+        </div>
+                            <div class="item_contact_bottom">
+                                                            <div class="page_content responsive no_margins text_s20 big_strong">
+                            <p><strong>Allgemeine Anfragen</strong></p>
+<p><a href="mailto:info@reverion.com">info@reverion.com</a></p>
+<p>+49 8193 36392-0</p>
+                        </div>
+                                                                                <div class="page_content responsive no_margins text_s20 big_strong">
+                            <p><strong>Presseanfragen</strong></p>
+<p>Hast du eine Presseanfrage oder benötigst Pressematerial? Hier helfen wir dir weiter.</p>
+<p>&nbsp;</p>
+<p><a href="mailto:press@reverion.com">press@reverion.com</a></p>
+                        </div>
+                                                                                <div class="page_content responsive no_margins text_s20 big_strong">
+                            <p>In unserem Pressekit findest du Fotos, Logos sowie Informationen über unsere Kraftwerke und das Unternehmen Reverion.</p>
+                        </div>
+                                                                                <div>
+                                    <a href="https://reverion.workplace.datto.com/7/filelink/a6332-973229a-79038b6667-2" title="Press-Kit" class="btn_basic bg_c5 color_c3 wmax320 w100p" target="_blank">
+            <span data-text="Press-Kit">
+                Press-Kit            </span>
+        </a>
+                                </div>
+                                    
+                
+            </div>
+            </div>
+</div>                                </div>
+                                                    </div>
+                                    </div>
+            </div>
+        </section>
+
+        <!-- Funded by -->
+        <section class="pdt-120 pdt-80lg anim_drop1 observe anim_delay">
+            <div class="wrapper2 w100p_lgm">
+                <div class="wrapper4">
+                    <h2 class="title_h1 color_c2 text_center">Gefördert durch</h2>
+                </div>
+
+                <div class="wrapper pdt-100 pdt-60lg">
+                                                                    <div class="swiper-logos-cont">
+
+                            <button type="button" class="btn_swiper swiper-prev" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-e2de7f2a4efa92cf">
+                                <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_l"></use></svg>    
+                            </button>
+                            <button type="button" class="btn_swiper swiper-next" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-e2de7f2a4efa92cf">
+                                <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>    
+                            </button>                             
+                            <div class="swiper-container swiper-logos swiper-flex slider-custom swiper-carousel swiper-initialized swiper-horizontal swiper-backface-hidden slider-ready" data-swiper-settings="{&quot;slidesPerView&quot;: &quot;auto&quot;, &quot;loop&quot;: true, &quot;center&quot;: false, 
+                                &quot;closestNavigation&quot;: true, &quot;closest&quot;: &quot;.swiper-logos-cont&quot;}">
+                                <div class="swiper-wrapper slider-flex-wrapper" id="swiper-wrapper-e2de7f2a4efa92cf" aria-live="polite">
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 6" data-swiper-slide-index="0">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 2560/416;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAACmAQMAAAB+2W8gAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACpJREFUGBntwQEBAAAAgqD+r3ZIwAAAAAAAAAAAAAAAAAAAAAAAAAAA4F5TpgAB/lEFOgAAAABJRU5ErkJggg==" alt="Logo Euopean Innovation Council" data-src="https://reverion.com/wp-content/uploads/2025/05/ll1-1024x166.png" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="166"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/ll1-1024x166.png" alt="Logo Euopean Innovation Council" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 6" data-swiper-slide-index="1">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 850/567;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA1IAAAI3AQMAAACrpvgZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAFJJREFUGBntwTEBAAAAwiD7p14KP2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwE7zQAAZoDAEIAAAAASUVORK5CYII=" alt="" data-src="https://reverion.com/wp-content/uploads/2025/08/BMFTR_de_Web_RGB_gef_durch.jpg" decoding="async" class="lazyload" data-eio-rwidth="850" data-eio-rheight="567"><noscript><img src="https://reverion.com/wp-content/uploads/2025/08/BMFTR_de_Web_RGB_gef_durch.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="3 / 6" data-swiper-slide-index="2">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 2560/1480;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAJQAQMAAAAqjYQNAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAGBJREFUGBntwQEBAAAAgqD+r3ZIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAewEqXwABvVMzMAAAAABJRU5ErkJggg==" alt="" data-src="https://reverion.com/wp-content/uploads/2025/06/logo-rentenbank-1024x592.jpg" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="592"><noscript><img src="https://reverion.com/wp-content/uploads/2025/06/logo-rentenbank-1024x592.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="4 / 6" data-swiper-slide-index="3">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 834/407;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0IAAAGXAQMAAACk/HKCAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAEBJREFUGBntwTEBAAAAwiD7p14Hb2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMApqIYAAQhezAkAAAAASUVORK5CYII=" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/ll3.png" decoding="async" class="lazyload" data-eio-rwidth="834" data-eio-rheight="407"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/ll3.png" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="5 / 6" data-swiper-slide-index="4">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 2560/407;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAACjAQMAAAAuFP6TAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACtJREFUGBntwTEBAAAAwiD7p14MH2AAAAAAAAAAAAAAAAAAAAAAAAAAALwFUiMAAaheMS0AAAAASUVORK5CYII=" alt="" data-src="https://reverion.com/wp-content/uploads/2025/06/EN_fundedbyttheIF_RGB_POS-1024x163.png" decoding="async" class="lazyload" data-eio-rwidth="1024" data-eio-rheight="163"><noscript><img src="https://reverion.com/wp-content/uploads/2025/06/EN_fundedbyttheIF_RGB_POS-1024x163.png" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="6 / 6" data-swiper-slide-index="5">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 850/865;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA1IAAANhAQMAAADXBhhHAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAHFJREFUGBntwYEAAAAAw6D7U4/gBtUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgCGz7AAFttzChAAAAAElFTkSuQmCC" alt="" data-src="https://reverion.com/wp-content/uploads/2025/08/BMWE_gefoerdert_de_RGB.png" decoding="async" class="lazyload" data-eio-rwidth="850" data-eio-rheight="865"><noscript><img src="https://reverion.com/wp-content/uploads/2025/08/BMWE_gefoerdert_de_RGB.png" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                    
+                                </div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Awards &amp; Honors -->
+        <section class="pdt-120 pdt-80lg pdb-120 pdb-0lg anim_drop1 observe anim_delay">
+            <div class="wrapper2 bg_c2 w100p_lgm color_c1 pdt-120 pdt-80lg pdb-120 pdb-80lg">
+                <div class="wrapper4">
+                    <h2 class="title_h1 text_center">Auszeichungen &amp; Ehrungen</h2>
+                </div>
+
+                <div class="wrapper pdt-100 pdt-60lg">
+                                                                <div class="swiper-logos-cont">
+
+                            <button type="button" class="btn_swiper swiper-prev" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-0257f63a02c6d5b2">
+                                <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_l"></use></svg>    
+                            </button>
+                            <button type="button" class="btn_swiper swiper-next" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-0257f63a02c6d5b2">
+                                <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_ar3_r"></use></svg>    
+                            </button>                             
+                        
+                            <div class="swiper-container swiper-logos swiper-flex slider-custom swiper-carousel swiper-initialized swiper-horizontal swiper-backface-hidden slider-ready" data-swiper-settings="{&quot;slidesPerView&quot;: &quot;auto&quot;, &quot;loop&quot;: true, &quot;center&quot;: false, 
+                                &quot;closestNavigation&quot;: true, &quot;closest&quot;: &quot;.swiper-logos-cont&quot;}">
+                                <div class="swiper-wrapper slider-flex-wrapper" id="swiper-wrapper-0257f63a02c6d5b2" aria-live="polite">
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" data-swiper-slide-index="0">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 405/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZUAAADAAQMAAAD2oWyIAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACBJREFUGBntwQENAAAAwiD7p34ON2AAAAAAAAAAAABwKCcAAAELnklbAAAAAElFTkSuQmCC" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l4.jpg" decoding="async" class="lazyload" data-eio-rwidth="405" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l4.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 8" data-swiper-slide-index="1">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 233/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAADAAQMAAADbWtZeAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAABxJREFUGBntwYEAAAAAw6D7Uw/gCtUAAAAAAIATF0AAAYjkWv0AAAAASUVORK5CYII=" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l3.jpg" decoding="async" class="lazyload" data-eio-rwidth="233" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l3.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="3 / 8" data-swiper-slide-index="2">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 275/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAADAAQMAAAAduhXOAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAB1JREFUGBntwQENAAAAwiD7p34PBwwAAAAAAACOBBsAAAEYygWQAAAAAElFTkSuQmCC" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l2.jpg" decoding="async" class="lazyload" data-eio-rwidth="275" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l2.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="4 / 8" data-swiper-slide-index="3">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 508/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfwAAADAAQMAAADbU0MyAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACNJREFUGBntwTEBAAAAwiD7p14KP2AAAAAAAAAAAAAAAABnATDAAAHYmoO5AAAAAElFTkSuQmCC" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l1.jpg" decoding="async" class="lazyload" data-eio-rwidth="508" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l1.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="5 / 8" data-swiper-slide-index="4">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 405/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZUAAADAAQMAAAD2oWyIAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACBJREFUGBntwQENAAAAwiD7p34ON2AAAAAAAAAAAABwKCcAAAELnklbAAAAAElFTkSuQmCC" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l4.jpg" decoding="async" class="lazyload" data-eio-rwidth="405" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l4.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="6 / 8" data-swiper-slide-index="5">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 233/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAADAAQMAAADbWtZeAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAABxJREFUGBntwYEAAAAAw6D7Uw/gCtUAAAAAAIATF0AAAYjkWv0AAAAASUVORK5CYII=" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l3.jpg" decoding="async" class="lazyload" data-eio-rwidth="233" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l3.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="7 / 8" data-swiper-slide-index="6">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 275/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAADAAQMAAAAduhXOAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAB1JREFUGBntwQENAAAAwiD7p34PBwwAAAAAAACOBBsAAAEYygWQAAAAAElFTkSuQmCC" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l2.jpg" decoding="async" class="lazyload" data-eio-rwidth="275" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l2.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                                                                                                    <!-- ITEM -->
+                                        <div class="swiper-slide" role="group" aria-label="8 / 8" data-swiper-slide-index="7">
+                                            <div class="swiper-slide-image" style="aspect-ratio: 508/192;">
+                                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfwAAADAAQMAAADbU0MyAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACNJREFUGBntwTEBAAAAwiD7p14KP2AAAAAAAAAAAAAAAABnATDAAAHYmoO5AAAAAElFTkSuQmCC" alt="" data-src="https://reverion.com/wp-content/uploads/2025/05/l1.jpg" decoding="async" class="lazyload" data-eio-rwidth="508" data-eio-rheight="192"><noscript><img src="https://reverion.com/wp-content/uploads/2025/05/l1.jpg" alt="" class="" data-eio="l" /></noscript>
+                                                </div>
+                                        </div>
+                                    
+                                </div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                                
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- MAIN -->
+            
+            <!-- FOOTER -->
+            <footer class="footer sticked">
+
+                <div class="footer_top wrapper">
+                    <div class="grid mid-space">
+
+                        <div class="col29p col4_xlm col1_lgm order-last-lg">
+                            <div class="mgl-auto mgr-autolg wfit text_center_lgm">
+                                                                    <a href="https://reverion.com" title="" class="elm_logo footer_logo">
+                                                <img src="https://reverion.com/wp-content/uploads/2025/06/Reverion_logo_AW_01-02_light-and-dark-green.svg" alt="" data-src="https://reverion.com/wp-content/uploads/2025/06/Reverion_logo_AW_01-02_light-and-dark-green.svg" decoding="async" class=" lazyloaded"><noscript><img src="https://reverion.com/wp-content/uploads/2025/06/Reverion_logo_AW_01-02_light-and-dark-green.svg" alt="" class="" data-eio="l" /></noscript>
+                                        </a>
+                                                                                                                                                                                <a href="https://www.linkedin.com/company/79387072/" class="btn_soc  mgt-100 mgt-30lg" target="_blank">
+        <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg#s_in"></use></svg>
+    </a>
+                                                                                                    </div>                            
+                        </div>
+
+                        <div class="col29p col4_xlm col1_lgm footer_item mgt-30lg">
+                            <address class="footer_address no_margins">
+                                <h2>Reverion</h2>
+<p>Am Mittelfeld 11</p>
+<p>86922 Eresing</p>
+<p>Germany</p>
+<p>&nbsp;</p>
+<h2>Pressekontakt</h2>
+<p><a href="mailto:press@reverion.com">press@reverion.com</a></p>
+<p>&nbsp;</p>
+<h2>Allgemeine Anfragen</h2>
+<p><a href="mailto:info@reverion.com">info@reverion.com</a></p>
+<p>+49 8193 36392-0</p>
+                            </address>
+                        </div>
+                                                                            <div class="col14p col6_xlm col1_lgm footer_item">
+                                <h2 class="footer_title">Reverion</h2>
+                                <ul class="footer_list">
+                                                                                                                        <li>
+                                                <a href="https://reverion.com/">
+                                                    Home                                                </a>
+                                            </li>
+                                                                                                                                                                <li>
+                                                <a href="https://reverion.com/mission/">
+                                                    Mission                                                </a>
+                                            </li>
+                                                                                                                                                                <li>
+                                                <a href="https://reverion.com/karriere/">
+                                                    Karriere                                                </a>
+                                            </li>
+                                                                                                                                                                <li>
+                                                <a href="https://reverion.com/team/">
+                                                    Team                                                </a>
+                                            </li>
+                                                                                                            </ul>
+                            </div>    
+                                            
+                                                                            <div class="col14p col6_xlm col1_lgm footer_item">
+                                <h2 class="footer_title">Produkt</h2>
+                                <ul class="footer_list">
+                                                                                                                        <li>
+                                                <a href="https://reverion.com/biogas-kraftwerke/">
+                                                    Biogas                                                </a>
+                                            </li>
+                                                                                                                                                                <li>
+                                                <a href="https://reverion.com/wasserstoff-kraftwerke/">
+                                                    Wasserstoff                                                </a>
+                                            </li>
+                                                                                                                                                                <li>
+                                                <a href="https://reverion.com/projekte/">
+                                                    Projekte                                                </a>
+                                            </li>
+                                                                                                                                                                <li>
+                                                <a href="https://reverion.com/technologie/">
+                                                    Technologie                                                </a>
+                                            </li>
+                                                                                                                                                                <li>
+                                                <a href="https://reverion.com/faq/">
+                                                    FAQ                                                </a>
+                                            </li>
+                                                                                                            </ul>
+                            </div>    
+                                            
+                                                                            <div class="col14p col6_xlm col1_lgm footer_item">
+                                <h2 class="footer_title">Kontaktiere uns</h2>
+                                <ul class="footer_list">
+                                                                                                                        <li>
+                                                <a href="https://reverion.com/kontakt/">
+                                                    Kontakt                                                </a>
+                                            </li>
+                                                                                                            </ul>
+                            </div>    
+                                            
+                    </div>
+                </div>
+
+                <div class="footer_bottom wrapper">
+                    <div class="grid mid-space align-center">
+
+                        <div class="col60p col1_lgm order-last-lg">
+                            <ul id="menu-fusszeilenmenue-unten" class="footer_bottom_list"><li id="menu-item-273" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-273"><a href="https://reverion.com/datenschutzerklaerung/">Datenschutzerklärung</a></li>
+<li id="menu-item-825" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-825"><a rel="privacy-policy" href="https://reverion.com/reverion-impressum/">Impressum</a></li>
+</ul>                        </div>
+
+                        <div class="col29p col1_lgm mgt-25lg">
+                            © 2026 Reverion. Alle Rechte vorbehalten. 
+                        </div>                      
+                    </div>    
+                </div>                
+
+            </footer>
+
+        </div>
+
+        <div class="loading_mask isloading observe intersecting">
+            <div>
+                <svg class="sico"><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg?d#s_sym"></use></svg>     
+            </div>
+        </div>
+        <div class="pop_nl">
+            <div class="pop_nl_scroll">
+                <div class="pop_nl_inner">
+                    
+                    <button class="pop_nl_close toggle-nl" type="button">
+                        <svg class="sicofill"><use href="https://reverion.com/wp-content/themes/reverion//assets/layout/icons.svg?d#s_menuc"></use></svg>    
+                    </button>
+
+                    <div class="pop_nl_content">
+                        <template class="newsletter-popup-script">
+                            <script>
+                                hbspt.forms.create({
+                                    region: "eu1",
+                                    portalId: "25608455",
+                                    formId: "8b0072ae-7a61-4961-80a7-b722a6a9ede8"
+                                });
+                            </script>                    
+                        </template>   
+                    </div>
+                </div>
+            </div>            
+        </div> 
+                    <!-- LOADING COVER -->
+            <div class="loading_cover">
+                <div>
+                    <div class="elm_logo">
+                        <svg class="sico logo">
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l1"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l2"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l3"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l4"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l5"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l6"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l7"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l8"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l9"></use></g>
+                            <g><use href="https://reverion.com/wp-content/themes/reverion/assets/layout/icons.svg#s_l10"></use></g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+         	    <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/reverion/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- Matomo --><script>
+(function () {
+function initTracking() {
+var _paq = window._paq = window._paq || [];
+_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);_paq.push(['alwaysUseSendBeacon']);_paq.push(['setTrackerUrl', "\/\/reverion.com\/wp-content\/plugins\/matomo\/app\/matomo.php"]);_paq.push(['setSiteId', '1']);var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+g.type='text/javascript'; g.async=true; g.src="\/\/reverion.com\/wp-content\/uploads\/matomo\/matomo.js"; s.parentNode.insertBefore(g,s);
+}
+if (document.prerendering) {
+	document.addEventListener('prerenderingchange', initTracking, {once: true});
+} else {
+	initTracking();
+}
+})();
+</script>
+<!-- End Matomo Code -->	<!--copyscapeskip-->
+	<aside id="moove_gdpr_cookie_info_bar" class="moove-gdpr-info-bar-hidden moove-gdpr-align-center moove-gdpr-dark-scheme gdpr_infobar_postion_bottom" aria-label="GDPR Cookie-Banner" style="display: none;">
+	<div class="moove-gdpr-info-bar-container">
+		<div class="moove-gdpr-info-bar-content">
+		
+<div class="moove-gdpr-cookie-notice">
+  <p data-start="358" data-end="600">Wir verwenden Cookies, um unsere Website nutzerfreundlich zu gestalten. Einige sind technisch notwendig, andere dienen Statistik- oder Marketingzwecken oder ermöglichen externe Medien (z. B. YouTube).</p>
+<p data-start="602" data-end="778">Weitere Informationen finden Sie in unserer <a class="decorated-link cursor-pointer" href="https://reverion.com/datenschutzerklaerung/" target="_new" rel="noopener" data-start="646" data-end="706">Datenschutzerklärung</a>.</p>
+</div>
+<!--  .moove-gdpr-cookie-notice -->
+		
+<div class="moove-gdpr-button-holder">
+			<button class="mgbutton moove-gdpr-infobar-allow-all gdpr-fbo-0" aria-label="Alle akzeptieren">Alle akzeptieren</button>
+						<button class="mgbutton moove-gdpr-infobar-reject-btn gdpr-fbo-1 " aria-label="Ablehnen">Ablehnen</button>
+							<button class="mgbutton moove-gdpr-infobar-settings-btn change-settings-button gdpr-fbo-2" aria-haspopup="true" data-href="#moove_gdpr_cookie_modal" aria-label="Einstellungen">Einstellungen</button>
+			</div>
+<!--  .button-container -->
+		</div>
+		<!-- moove-gdpr-info-bar-content -->
+	</div>
+	<!-- moove-gdpr-info-bar-container -->
+	</aside>
+	<!-- #moove_gdpr_cookie_info_bar -->
+	<!--/copyscapeskip-->
+<script id="eio-lazy-load-js-before">
+var eio_lazy_vars = {"exactdn_domain":"","skip_autoscale":0,"bg_min_dpr":1.1,"threshold":0,"use_dpr":1};
+//# sourceURL=eio-lazy-load-js-before
+</script>
+<script src="https://reverion.com/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js?ver=841" id="eio-lazy-load-js" async="" data-wp-strategy="async"></script>
+<script id="ajax-scripts-js-extra">
+var myAjax = {"ajaxurl":"https://reverion.com/wp-admin/admin-ajax.php"};
+//# sourceURL=ajax-scripts-js-extra
+</script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/scripts.js?ver=1755786575" id="ajax-scripts-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/helpers/vendor.js" id="vendor-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/helpers/lenis.min.js" id="lenis-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/helpers/gsap.min.js" id="gsap-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/helpers/scrolltrigger.min.js" id="scrolltrigger-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/main.min.js" id="main-min-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/scroll.js" id="scroll-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/helpers/particles.min.js" id="particles-min-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/particles.js" id="particles-js"></script>
+<script src="https://reverion.com/wp-content/themes/reverion/assets/js/scroll_cards.js" id="scroll_cards-js"></script>
+<script id="moove_gdpr_frontend-js-extra">
+var moove_frontend_gdpr_scripts = {"ajaxurl":"https://reverion.com/wp-admin/admin-ajax.php","post_id":"90","plugin_dir":"https://reverion.com/wp-content/plugins/gdpr-cookie-compliance","show_icons":"all","is_page":"1","ajax_cookie_removal":"false","strict_init":"2","enabled_default":{"strict":1,"third_party":0,"advanced":0,"performance":0,"preference":0},"geo_location":"false","force_reload":"true","is_single":"","hide_save_btn":"false","current_user":"0","cookie_expiration":"365","script_delay":"2000","close_btn_action":"1","close_btn_rdr":"","scripts_defined":"{\"cache\":true,\"header\":\"\",\"body\":\"\",\"footer\":\"\",\"thirdparty\":{\"header\":\"\",\"body\":\"\",\"footer\":\"\"},\"strict\":{\"header\":\"\",\"body\":\"\",\"footer\":\"\"},\"advanced\":{\"header\":\"\",\"body\":\"\",\"footer\":\"\"}}","gdpr_scor":"true","wp_lang":"_de","wp_consent_api":"false","gdpr_nonce":"0cd5566a20"};
+//# sourceURL=moove_gdpr_frontend-js-extra
+</script>
+<script src="https://reverion.com/wp-content/plugins/gdpr-cookie-compliance/dist/scripts/main.js?ver=5.0.11" id="moove_gdpr_frontend-js"></script>
+<script id="moove_gdpr_frontend-js-after">
+var gdpr_consent__strict = "false"
+var gdpr_consent__thirdparty = "false"
+var gdpr_consent__advanced = "false"
+var gdpr_consent__performance = "false"
+var gdpr_consent__preference = "false"
+var gdpr_consent__cookies = ""
+//# sourceURL=moove_gdpr_frontend-js-after
+</script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://reverion.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://reverion.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+	<!--copyscapeskip-->
+	<button data-href="#moove_gdpr_cookie_modal" aria-haspopup="true" id="moove_gdpr_save_popup_settings_button" style="display: none;" class="" aria-label="Cookie-Einstellungen ändern">
+	<span class="moove_gdpr_icon">
+		<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="max-width: 30px; max-height: 30px;">
+		<g data-name="1">
+			<path d="M293.9,450H233.53a15,15,0,0,1-14.92-13.42l-4.47-42.09a152.77,152.77,0,0,1-18.25-7.56L163,413.53a15,15,0,0,1-20-1.06l-42.69-42.69a15,15,0,0,1-1.06-20l26.61-32.93a152.15,152.15,0,0,1-7.57-18.25L76.13,294.1a15,15,0,0,1-13.42-14.91V218.81A15,15,0,0,1,76.13,203.9l42.09-4.47a152.15,152.15,0,0,1,7.57-18.25L99.18,148.25a15,15,0,0,1,1.06-20l42.69-42.69a15,15,0,0,1,20-1.06l32.93,26.6a152.77,152.77,0,0,1,18.25-7.56l4.47-42.09A15,15,0,0,1,233.53,48H293.9a15,15,0,0,1,14.92,13.42l4.46,42.09a152.91,152.91,0,0,1,18.26,7.56l32.92-26.6a15,15,0,0,1,20,1.06l42.69,42.69a15,15,0,0,1,1.06,20l-26.61,32.93a153.8,153.8,0,0,1,7.57,18.25l42.09,4.47a15,15,0,0,1,13.41,14.91v60.38A15,15,0,0,1,451.3,294.1l-42.09,4.47a153.8,153.8,0,0,1-7.57,18.25l26.61,32.93a15,15,0,0,1-1.06,20L384.5,412.47a15,15,0,0,1-20,1.06l-32.92-26.6a152.91,152.91,0,0,1-18.26,7.56l-4.46,42.09A15,15,0,0,1,293.9,450ZM247,420h33.39l4.09-38.56a15,15,0,0,1,11.06-12.91A123,123,0,0,0,325.7,356a15,15,0,0,1,17,1.31l30.16,24.37,23.61-23.61L372.06,328a15,15,0,0,1-1.31-17,122.63,122.63,0,0,0,12.49-30.14,15,15,0,0,1,12.92-11.06l38.55-4.1V232.31l-38.55-4.1a15,15,0,0,1-12.92-11.06A122.63,122.63,0,0,0,370.75,187a15,15,0,0,1,1.31-17l24.37-30.16-23.61-23.61-30.16,24.37a15,15,0,0,1-17,1.31,123,123,0,0,0-30.14-12.49,15,15,0,0,1-11.06-12.91L280.41,78H247l-4.09,38.56a15,15,0,0,1-11.07,12.91A122.79,122.79,0,0,0,201.73,142a15,15,0,0,1-17-1.31L154.6,116.28,131,139.89l24.38,30.16a15,15,0,0,1,1.3,17,123.41,123.41,0,0,0-12.49,30.14,15,15,0,0,1-12.91,11.06l-38.56,4.1v33.38l38.56,4.1a15,15,0,0,1,12.91,11.06A123.41,123.41,0,0,0,156.67,311a15,15,0,0,1-1.3,17L131,358.11l23.61,23.61,30.17-24.37a15,15,0,0,1,17-1.31,122.79,122.79,0,0,0,30.13,12.49,15,15,0,0,1,11.07,12.91ZM449.71,279.19h0Z" fill="currentColor"></path>
+			<path d="M263.71,340.36A91.36,91.36,0,1,1,355.08,249,91.46,91.46,0,0,1,263.71,340.36Zm0-152.72A61.36,61.36,0,1,0,325.08,249,61.43,61.43,0,0,0,263.71,187.64Z" fill="currentColor"></path>
+		</g>
+		</svg>
+	</span>
+
+	<span class="moove_gdpr_text">Cookie-Einstellungen ändern</span>
+	</button>
+	<!--/copyscapeskip-->
+    
+	<!--copyscapeskip-->
+	<!-- V1 -->
+	<dialog id="moove_gdpr_cookie_modal" class="gdpr_lightbox-hide" aria-modal="true" aria-label="GDPR Einstellungsansicht">
+	<div class="moove-gdpr-modal-content moove-clearfix logo-position-left moove_gdpr_modal_theme_v1">
+		    
+		<button class="moove-gdpr-modal-close" autofocus="" aria-label="GDPR Cookie-Einstellungen schließen">
+			<span class="gdpr-sr-only">GDPR Cookie-Einstellungen schließen</span>
+			<span class="gdpr-icon moovegdpr-arrow-close"></span>
+		</button>
+				<div class="moove-gdpr-modal-left-content">
+		
+<div class="moove-gdpr-company-logo-holder">
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMcAAAAdAQMAAAAkburMAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA5JREFUGBljGAWjYEQBAALyAAFZFR5lAAAAAElFTkSuQmCC" alt="" width="199" height="29" class="img-responsive lazyload" data-src="https://reverion.com/wp-content/uploads/2025/07/reverion-logo-3.png" decoding="async" data-eio-rwidth="199" data-eio-rheight="29"><noscript><img src="https://reverion.com/wp-content/uploads/2025/07/reverion-logo-3.png" alt=""   width="199"  height="29"  class="img-responsive" data-eio="l" /></noscript>
+</div>
+<!--  .moove-gdpr-company-logo-holder -->
+		<ul id="moove-gdpr-menu">
+			
+<li class="menu-item-on menu-item-privacy_overview menu-item-selected">
+	<button data-href="#privacy_overview" class="moove-gdpr-tab-nav" aria-label="Datenschutz-Übersicht">
+	<span class="gdpr-nav-tab-title">Datenschutz-Übersicht</span>
+	</button>
+</li>
+
+	<li class="menu-item-strict-necessary-cookies menu-item-off">
+	<button data-href="#strict-necessary-cookies" class="moove-gdpr-tab-nav" aria-label="Unbedingt notwendige Cookies">
+		<span class="gdpr-nav-tab-title">Unbedingt notwendige Cookies</span>
+	</button>
+	</li>
+
+
+
+
+
+		</ul>
+		
+<div class="moove-gdpr-branding-cnt">
+			<a href="https://wordpress.org/plugins/gdpr-cookie-compliance/" rel="noopener noreferrer" target="_blank" class="moove-gdpr-branding">Powered by&nbsp; <span>GDPR Cookie Compliance</span></a>
+		</div>
+<!--  .moove-gdpr-branding -->
+		</div>
+		<!--  .moove-gdpr-modal-left-content -->
+		<div class="moove-gdpr-modal-right-content">
+		<div class="moove-gdpr-modal-title">
+			 
+		</div>
+		<!-- .moove-gdpr-modal-ritle -->
+		<div class="main-modal-content">
+
+			<div class="moove-gdpr-tab-content">
+			
+<div id="privacy_overview" class="moove-gdpr-tab-main">
+		<span class="tab-title">Datenschutz-Übersicht</span>
+		<div class="moove-gdpr-tab-main-content">
+	<p>Diese Website verwendet Cookies, damit wir dir die bestmögliche Benutzererfahrung bieten können. Cookie-Informationen werden in deinem Browser gespeichert und führen Funktionen aus, wie das Wiedererkennen von dir, wenn du auf unsere Website zurückkehrst, und hilft unserem Team zu verstehen, welche Abschnitte der Website für dich am interessantesten und nützlichsten sind.</p>
+		</div>
+	<!--  .moove-gdpr-tab-main-content -->
+
+</div>
+<!-- #privacy_overview -->
+			
+  <div id="strict-necessary-cookies" class="moove-gdpr-tab-main" style="display:none">
+    <span class="tab-title">Unbedingt notwendige Cookies</span>
+    <div class="moove-gdpr-tab-main-content">
+      <p>Unbedingt notwendige Cookies sollten jederzeit aktiviert sein, damit wir deine Einstellungen für die Cookie-Einstellungen speichern können.</p>
+      <div class="moove-gdpr-status-bar ">
+        <div class="gdpr-cc-form-wrap">
+          <div class="gdpr-cc-form-fieldset">
+            <label class="cookie-switch" for="moove_gdpr_strict_cookies">    
+              <span class="gdpr-sr-only">Cookies aktivieren oder deaktivieren</span>        
+              <input type="checkbox" aria-label="Unbedingt notwendige Cookies" value="check" name="moove_gdpr_strict_cookies" id="moove_gdpr_strict_cookies">
+              <span class="cookie-slider cookie-round gdpr-sr" data-text-enable="Aktiviert" data-text-disabled="Deaktiviert">
+                <span class="gdpr-sr-label">
+                  <span class="gdpr-sr-enable">Aktiviert</span>
+                  <span class="gdpr-sr-disable">Deaktiviert</span>
+                </span>
+              </span>
+            </label>
+          </div>
+          <!-- .gdpr-cc-form-fieldset -->
+        </div>
+        <!-- .gdpr-cc-form-wrap -->
+      </div>
+      <!-- .moove-gdpr-status-bar -->
+                                              
+    </div>
+    <!--  .moove-gdpr-tab-main-content -->
+  </div>
+  <!-- #strict-necesarry-cookies -->
+			
+			
+									
+			</div>
+			<!--  .moove-gdpr-tab-content -->
+		</div>
+		<!--  .main-modal-content -->
+		<div class="moove-gdpr-modal-footer-content">
+			<div class="moove-gdpr-button-holder">
+						<button class="mgbutton moove-gdpr-modal-allow-all button-visible" aria-label="Alle aktivieren">Alle aktivieren</button>
+								<button class="mgbutton moove-gdpr-modal-reject-all button-visible" aria-label="Alle ablehnen">Alle ablehnen</button>
+								<button class="mgbutton moove-gdpr-modal-save-settings button-visible" aria-label="Einstellungen speichern">Einstellungen speichern</button>
+				</div>
+<!--  .moove-gdpr-button-holder -->
+		</div>
+		<!--  .moove-gdpr-modal-footer-content -->
+		</div>
+		<!--  .moove-gdpr-modal-right-content -->
+
+		<div class="moove-clearfix"></div>
+
+	</div>
+	<!--  .moove-gdpr-modal-content -->
+	</dialog>
+	<!-- #moove_gdpr_cookie_modal -->
+	<!--/copyscapeskip-->
+        <script>
+            var nl_init = false; 
+            document.addEventListener('click', e => {
+                if (!e.target.closest('.toggle-nl') || nl_init) return;
+                const t = document.querySelector('.newsletter-popup-script');
+                if (t) { t.parentNode.appendChild(t.content); t.remove(); nl_init = true; }
+                setTimeout(function(){
+                    document.querySelector('.pop_nl').classList.add('loaded');
+                }, 1000);                
+            });         
+        </script>
+    
+
+</body></html>

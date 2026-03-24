@@ -1,0 +1,55 @@
+[2026-03-21T18:02:42.153Z] === Homepage AI Extractor: Cooper ===
+[2026-03-21T18:02:42.153Z] Started at: 2026-03-21T18:02:42.153Z
+[2026-03-21T18:02:42.153Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774116162153_Cooper
+[2026-03-21T18:02:42.153Z] Company: Cooper
+[2026-03-21T18:02:42.153Z] Website: cooper-ag.com
+[2026-03-21T18:02:42.154Z] cbRank: 3627600
+[2026-03-21T18:02:42.154Z] Reasons: h
+[2026-03-21T18:02:42.154Z] Fetching: https://cooper-ag.com
+[2026-03-21T18:02:53.400Z] Network idle timeout — continuing with current state
+[2026-03-21T18:02:53.439Z] Redirected: https://cooper-ag.com -> https://www.cooper-ag.com/
+[2026-03-21T18:02:53.455Z] Saved HTML (618917 bytes) to page.html
+[2026-03-21T18:02:53.458Z] Extracted 5 unique links from page
+[2026-03-21T18:02:53.458Z] Saved 5 links to links.json
+[2026-03-21T18:02:53.461Z] Extracted footer HTML (9354 chars)
+[2026-03-21T18:02:53.461Z] Extracted header HTML (7035 chars)
+[2026-03-21T18:02:53.464Z] Website (post-redirect): https://www.cooper-ag.com/ → origin: https://www.cooper-ag.com
+[2026-03-21T18:02:53.464Z] External links: 2 (of 5 total)
+[2026-03-21T18:02:53.464Z] ── All external links ──
+[2026-03-21T18:02:53.464Z]   EXT: https://www.linkedin.com/company/cooper-investment-and-consulting
+[2026-03-21T18:02:53.464Z]   EXT: https://www.linkedin.com/in/guycooper
+[2026-03-21T18:02:53.465Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T18:02:53.465Z]   REGEX: li <- https://www.linkedin.com/company/cooper-investment-and-consulting
+[2026-03-21T18:02:53.465Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-21T18:02:53.465Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/guycooper
+[2026-03-21T18:02:53.465Z] Programmatic result: ws:1, li:1 | 0 uncategorized
+[2026-03-21T18:02:53.465Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T18:02:53.466Z] Saved AI prompt (7718 chars) to ai_prompt.txt
+[2026-03-21T18:02:53.466Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T18:02:53.471Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T18:03:29.497Z]   AI: First token received, streaming...
+[2026-03-21T18:03:32.184Z] AI response complete: 66 chars in 38.7s
+[2026-03-21T18:03:32.186Z] Saved AI response to ai_response.json
+[2026-03-21T18:03:32.186Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T18:03:32.186Z]   AI LINK: https://www.linkedin.com/company/cooper-investment-and-consulting/
+[2026-03-21T18:03:32.186Z] AI returned 1 valid links
+[2026-03-21T18:03:32.187Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T18:03:32.187Z]   AI→REGEX: li <- https://www.linkedin.com/company/cooper-investment-and-consulting/ (duplicate, skipped)
+[2026-03-21T18:03:32.187Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T18:03:32.187Z] Footer/header origins (2):
+[2026-03-21T18:03:32.188Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T18:03:32.188Z]   FOOTER/HEADER ORIGIN: https://www.cooper-ag.com
+[2026-03-21T18:03:32.188Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T18:03:32.188Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T18:03:32.188Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T18:03:32.188Z] ── Step 3: Final dedup ──
+[2026-03-21T18:03:32.188Z] No urls to dedup
+[2026-03-21T18:03:32.188Z] ── FINAL RESULT ──
+[2026-03-21T18:03:32.189Z]   ws (1):
+[2026-03-21T18:03:32.189Z]     - https://www.cooper-ag.com
+[2026-03-21T18:03:32.189Z]   li (1):
+[2026-03-21T18:03:32.189Z]     - https://www.linkedin.com/company/cooper-investment-and-consulting
+[2026-03-21T18:03:32.189Z] Summary: ws:1, li:1
+[2026-03-21T18:03:32.190Z] Saved final result to result.json
+[2026-03-21T18:03:32.190Z] Override fields: ws, li
+[2026-03-21T18:03:32.190Z] Finished at: 2026-03-21T18:03:32.190Z

@@ -1,0 +1,90 @@
+[2026-03-23T16:19:00.392Z] === Homepage AI Extractor: Pagewiz ===
+[2026-03-23T16:19:00.392Z] Started at: 2026-03-23T16:19:00.392Z
+[2026-03-23T16:19:00.392Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774282740391_Pagewiz
+[2026-03-23T16:19:00.392Z] Company: Pagewiz
+[2026-03-23T16:19:00.392Z] Website: pagewiz.com
+[2026-03-23T16:19:00.392Z] cbRank: 2306861
+[2026-03-23T16:19:00.392Z] Reasons: f
+[2026-03-23T16:19:00.392Z] Fetching: https://pagewiz.com
+[2026-03-23T16:19:02.548Z] Redirected: https://pagewiz.com -> https://www.pagewiz.com/
+[2026-03-23T16:19:02.552Z] Saved HTML (43600 bytes) to page.html
+[2026-03-23T16:19:02.554Z] Extracted 28 unique links from page
+[2026-03-23T16:19:02.555Z] Saved 28 links to links.json
+[2026-03-23T16:19:02.557Z] Extracted footer HTML (2784 chars)
+[2026-03-23T16:19:02.557Z] Extracted header HTML (5708 chars)
+[2026-03-23T16:19:02.560Z] Website (post-redirect): https://www.pagewiz.com/ → origin: https://www.pagewiz.com
+[2026-03-23T16:19:02.560Z]   SUBDOMAIN: cp.pagewiz.com (added to ws)
+[2026-03-23T16:19:02.560Z]   SUBDOMAIN: lp5.pagewiz.com (added to ws)
+[2026-03-23T16:19:02.561Z] Website subdomains found: 2
+[2026-03-23T16:19:02.561Z] External links: 6 (of 28 total)
+[2026-03-23T16:19:02.561Z] ── All external links ──
+[2026-03-23T16:19:02.561Z]   EXT: https://twitter.com/pagewiz_app
+[2026-03-23T16:19:02.561Z]   EXT: https://www.facebook.com/groups/pagewiz
+[2026-03-23T16:19:02.561Z]   EXT: https://www.facebook.com/pagewiz
+[2026-03-23T16:19:02.561Z]   EXT: https://www.instagram.com/pagewiz
+[2026-03-23T16:19:02.561Z]   EXT: https://www.linkedin.com/company/pagewiz
+[2026-03-23T16:19:02.561Z]   EXT: https://www.linkedin.com/in/seomontreal
+[2026-03-23T16:19:02.561Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T16:19:02.562Z]   REGEX: tw <- https://twitter.com/pagewiz_app
+[2026-03-23T16:19:02.562Z]   REGEX: fb <- https://www.facebook.com/pagewiz
+[2026-03-23T16:19:02.562Z]   REGEX: ig <- https://www.instagram.com/pagewiz
+[2026-03-23T16:19:02.562Z]   REGEX: li <- https://www.linkedin.com/company/pagewiz
+[2026-03-23T16:19:02.562Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-23T16:19:02.562Z]   SKIP (regex domain, no match): https://www.facebook.com/groups/pagewiz
+[2026-03-23T16:19:02.562Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/seomontreal
+[2026-03-23T16:19:02.562Z] Programmatic result: ws:3, tw:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-23T16:19:02.562Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T16:19:02.566Z] Saved AI prompt (4078 chars) to ai_prompt.txt
+[2026-03-23T16:19:02.566Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T16:19:02.570Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T16:19:17.474Z]   AI: First token received, streaming...
+[2026-03-23T16:19:30.237Z]   AI streaming: 200 chars received (27.7s elapsed)
+[2026-03-23T16:19:30.238Z] AI response complete: 209 chars in 27.7s
+[2026-03-23T16:19:30.240Z] Saved AI response to ai_response.json
+[2026-03-23T16:19:30.240Z] ── Parsing AI response (6 lines) ──
+[2026-03-23T16:19:30.240Z]   AI LINK: https://www.pagewiz.com/blog
+[2026-03-23T16:19:30.240Z]   AI LINK: https://www.facebook.com/pagewiz
+[2026-03-23T16:19:30.240Z]   AI LINK: https://www.facebook.com/groups/pagewiz
+[2026-03-23T16:19:30.240Z]   AI LINK: https://www.linkedin.com/company/pagewiz
+[2026-03-23T16:19:30.240Z]   AI LINK: https://twitter.com/pagewiz_app
+[2026-03-23T16:19:30.240Z]   AI LINK: https://www.instagram.com/pagewiz/
+[2026-03-23T16:19:30.240Z] AI returned 6 valid links
+[2026-03-23T16:19:30.240Z] ── Categorizing 6 AI-returned links ──
+[2026-03-23T16:19:30.241Z]   AI→URLS: https://www.pagewiz.com/blog
+[2026-03-23T16:19:30.241Z]   AI→REGEX: fb <- https://www.facebook.com/pagewiz (duplicate, skipped)
+[2026-03-23T16:19:30.241Z]   AI→SKIP (regex domain, no match): https://www.facebook.com/groups/pagewiz
+[2026-03-23T16:19:30.241Z]   AI→REGEX: li <- https://www.linkedin.com/company/pagewiz (duplicate, skipped)
+[2026-03-23T16:19:30.242Z]   AI→REGEX: tw <- https://twitter.com/pagewiz_app (duplicate, skipped)
+[2026-03-23T16:19:30.242Z]   AI→REGEX: ig <- https://www.instagram.com/pagewiz/ (duplicate, skipped)
+[2026-03-23T16:19:30.242Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T16:19:30.242Z] Footer/header origins (6):
+[2026-03-23T16:19:30.242Z]   FOOTER/HEADER ORIGIN: https://www.pagewiz.com
+[2026-03-23T16:19:30.243Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T16:19:30.243Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T16:19:30.243Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T16:19:30.243Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T16:19:30.243Z]   FOOTER/HEADER ORIGIN: https://cp.pagewiz.com
+[2026-03-23T16:19:30.243Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T16:19:30.243Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T16:19:30.243Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T16:19:30.243Z] ── Step 3: Final dedup ──
+[2026-03-23T16:19:30.243Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T16:19:30.243Z] ── FINAL RESULT ──
+[2026-03-23T16:19:30.243Z]   ws (3):
+[2026-03-23T16:19:30.243Z]     - https://cp.pagewiz.com
+[2026-03-23T16:19:30.244Z]     - https://lp5.pagewiz.com
+[2026-03-23T16:19:30.244Z]     - https://www.pagewiz.com
+[2026-03-23T16:19:30.244Z]   li (1):
+[2026-03-23T16:19:30.244Z]     - https://www.linkedin.com/company/pagewiz
+[2026-03-23T16:19:30.244Z]   fb (1):
+[2026-03-23T16:19:30.244Z]     - https://www.facebook.com/pagewiz
+[2026-03-23T16:19:30.244Z]   tw (1):
+[2026-03-23T16:19:30.244Z]     - https://x.com/pagewiz_app
+[2026-03-23T16:19:30.244Z]   ig (1):
+[2026-03-23T16:19:30.244Z]     - https://www.instagram.com/pagewiz
+[2026-03-23T16:19:30.244Z]   urls (1):
+[2026-03-23T16:19:30.244Z]     - https://www.pagewiz.com/blog
+[2026-03-23T16:19:30.244Z] Summary: ws:3, tw:1, fb:1, ig:1, li:1, urls:1
+[2026-03-23T16:19:30.245Z] Saved final result to result.json
+[2026-03-23T16:19:30.246Z] Override fields: ws, li, fb, tw, ig
+[2026-03-23T16:19:30.246Z] Finished at: 2026-03-23T16:19:30.246Z

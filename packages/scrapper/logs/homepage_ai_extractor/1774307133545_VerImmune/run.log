@@ -1,0 +1,64 @@
+[2026-03-23T23:05:33.546Z] === Homepage AI Extractor: VerImmune ===
+[2026-03-23T23:05:33.546Z] Started at: 2026-03-23T23:05:33.546Z
+[2026-03-23T23:05:33.546Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774307133545_VerImmune
+[2026-03-23T23:05:33.546Z] Company: VerImmune
+[2026-03-23T23:05:33.546Z] Website: verimmune.com
+[2026-03-23T23:05:33.546Z] cbRank: 36638
+[2026-03-23T23:05:33.546Z] Reasons: i
+[2026-03-23T23:05:33.546Z] Fetching: https://verimmune.com
+[2026-03-23T23:05:35.357Z] Redirected: https://verimmune.com -> https://www.verimmune.com/
+[2026-03-23T23:05:35.362Z] Saved HTML (121202 bytes) to page.html
+[2026-03-23T23:05:35.364Z] Extracted 9 unique links from page
+[2026-03-23T23:05:35.364Z] Saved 9 links to links.json
+[2026-03-23T23:05:35.366Z] Extracted footer HTML (4015 chars)
+[2026-03-23T23:05:35.366Z] Extracted header HTML (2757 chars)
+[2026-03-23T23:05:35.370Z] Website (post-redirect): https://www.verimmune.com/ → origin: https://www.verimmune.com
+[2026-03-23T23:05:35.370Z] External links: 3 (of 9 total)
+[2026-03-23T23:05:35.370Z] ── All external links ──
+[2026-03-23T23:05:35.370Z]   EXT: https://twitter.com/VerImmune_
+[2026-03-23T23:05:35.370Z]   EXT: https://www.facebook.com/VerImmune
+[2026-03-23T23:05:35.370Z]   EXT: https://www.linkedin.com/company/verimmune/about
+[2026-03-23T23:05:35.370Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:05:35.370Z]   REGEX: tw <- https://twitter.com/VerImmune_
+[2026-03-23T23:05:35.370Z]   REGEX: fb <- https://www.facebook.com/VerImmune
+[2026-03-23T23:05:35.370Z]   REGEX: li <- https://www.linkedin.com/company/verimmune/about
+[2026-03-23T23:05:35.370Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-23T23:05:35.371Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:05:35.372Z] Saved AI prompt (4413 chars) to ai_prompt.txt
+[2026-03-23T23:05:35.372Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:05:35.374Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:05:52.406Z]   AI: First token received, streaming...
+[2026-03-23T23:05:58.445Z] AI response complete: 116 chars in 23.1s
+[2026-03-23T23:05:58.447Z] Saved AI response to ai_response.json
+[2026-03-23T23:05:58.447Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T23:05:58.447Z]   AI LINK: https://www.linkedin.com/company/verimmune/about/
+[2026-03-23T23:05:58.447Z]   AI LINK: https://twitter.com/VerImmune_
+[2026-03-23T23:05:58.447Z]   AI LINK: https://www.facebook.com/VerImmune/
+[2026-03-23T23:05:58.447Z] AI returned 3 valid links
+[2026-03-23T23:05:58.447Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T23:05:58.447Z]   AI→REGEX: li <- https://www.linkedin.com/company/verimmune/about/ (duplicate, skipped)
+[2026-03-23T23:05:58.447Z]   AI→REGEX: tw <- https://twitter.com/VerImmune_ (duplicate, skipped)
+[2026-03-23T23:05:58.448Z]   AI→REGEX: fb <- https://www.facebook.com/VerImmune/ (duplicate, skipped)
+[2026-03-23T23:05:58.448Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:05:58.448Z] Footer/header origins (3):
+[2026-03-23T23:05:58.448Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:05:58.448Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T23:05:58.448Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T23:05:58.448Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:05:58.448Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:05:58.448Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:05:58.448Z] ── Step 3: Final dedup ──
+[2026-03-23T23:05:58.449Z] No urls to dedup
+[2026-03-23T23:05:58.449Z] ── FINAL RESULT ──
+[2026-03-23T23:05:58.449Z]   ws (1):
+[2026-03-23T23:05:58.449Z]     - https://www.verimmune.com
+[2026-03-23T23:05:58.449Z]   li (1):
+[2026-03-23T23:05:58.449Z]     - https://www.linkedin.com/company/verimmune
+[2026-03-23T23:05:58.449Z]   fb (1):
+[2026-03-23T23:05:58.449Z]     - https://www.facebook.com/verimmune
+[2026-03-23T23:05:58.449Z]   tw (1):
+[2026-03-23T23:05:58.449Z]     - https://x.com/verimmune_
+[2026-03-23T23:05:58.449Z] Summary: ws:1, tw:1, fb:1, li:1
+[2026-03-23T23:05:58.450Z] Saved final result to result.json
+[2026-03-23T23:05:58.450Z] Override fields: ws, li, fb, tw
+[2026-03-23T23:05:58.450Z] Finished at: 2026-03-23T23:05:58.450Z

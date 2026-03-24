@@ -1,0 +1,67 @@
+[2026-03-21T14:52:09.439Z] === Homepage AI Extractor: H & H Investment ===
+[2026-03-21T14:52:09.440Z] Started at: 2026-03-21T14:52:09.440Z
+[2026-03-21T14:52:09.440Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774104729439_H_&_H_Investment
+[2026-03-21T14:52:09.440Z] Company: H & H Investment
+[2026-03-21T14:52:09.440Z] Website: hhinvestment.com
+[2026-03-21T14:52:09.440Z] cbRank: 3474190
+[2026-03-21T14:52:09.440Z] Reasons: h
+[2026-03-21T14:52:09.440Z] Fetching: https://hhinvestment.com
+[2026-03-21T14:52:20.146Z] Network idle timeout — continuing with current state
+[2026-03-21T14:52:20.178Z] Redirected: https://hhinvestment.com -> https://www.hhinvestment.com/
+[2026-03-21T14:52:20.188Z] Saved HTML (355630 bytes) to page.html
+[2026-03-21T14:52:20.190Z] Extracted 5 unique links from page
+[2026-03-21T14:52:20.190Z] Saved 5 links to links.json
+[2026-03-21T14:52:20.192Z] Extracted footer HTML (7087 chars)
+[2026-03-21T14:52:20.192Z] Extracted header HTML (1508 chars)
+[2026-03-21T14:52:20.195Z] Website (post-redirect): https://www.hhinvestment.com/ → origin: https://www.hhinvestment.com
+[2026-03-21T14:52:20.195Z] External links: 4 (of 5 total)
+[2026-03-21T14:52:20.195Z] ── All external links ──
+[2026-03-21T14:52:20.195Z]   EXT: http://www.hh-law.co.il
+[2026-03-21T14:52:20.195Z]   EXT: https://twitter.com/Wix
+[2026-03-21T14:52:20.195Z]   EXT: https://www.facebook.com/wix
+[2026-03-21T14:52:20.195Z]   EXT: https://www.linkedin.com/company/wix-com
+[2026-03-21T14:52:20.196Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T14:52:20.196Z]   UNCATEGORIZED: http://www.hh-law.co.il
+[2026-03-21T14:52:20.196Z]   REGEX: tw <- https://twitter.com/Wix
+[2026-03-21T14:52:20.196Z]   REGEX: fb <- https://www.facebook.com/wix
+[2026-03-21T14:52:20.196Z]   REGEX: li <- https://www.linkedin.com/company/wix-com
+[2026-03-21T14:52:20.196Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-21T14:52:20.196Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T14:52:20.197Z] Saved AI prompt (6601 chars) to ai_prompt.txt
+[2026-03-21T14:52:20.197Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T14:52:20.202Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T14:52:54.930Z]   AI: First token received, streaming...
+[2026-03-21T14:52:55.433Z] AI response complete: 23 chars in 35.2s
+[2026-03-21T14:52:55.434Z] Saved AI response to ai_response.json
+[2026-03-21T14:52:55.434Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T14:52:55.434Z]   AI LINK: http://www.hh-law.co.il
+[2026-03-21T14:52:55.434Z] AI returned 1 valid links
+[2026-03-21T14:52:55.434Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T14:52:55.434Z]   AI→URLS: http://www.hh-law.co.il
+[2026-03-21T14:52:55.435Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T14:52:55.435Z] Footer/header origins (4):
+[2026-03-21T14:52:55.435Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T14:52:55.435Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T14:52:55.435Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T14:52:55.435Z]   FOOTER/HEADER ORIGIN: https://www.hhinvestment.com
+[2026-03-21T14:52:55.435Z]   SKIP (AI claimed): http://www.hh-law.co.il
+[2026-03-21T14:52:55.435Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T14:52:55.435Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T14:52:55.435Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T14:52:55.435Z] ── Step 3: Final dedup ──
+[2026-03-21T14:52:55.435Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T14:52:55.435Z] ── FINAL RESULT ──
+[2026-03-21T14:52:55.435Z]   ws (1):
+[2026-03-21T14:52:55.435Z]     - https://www.hhinvestment.com
+[2026-03-21T14:52:55.436Z]   li (1):
+[2026-03-21T14:52:55.436Z]     - https://www.linkedin.com/company/wix-com
+[2026-03-21T14:52:55.436Z]   fb (1):
+[2026-03-21T14:52:55.436Z]     - https://www.facebook.com/wix
+[2026-03-21T14:52:55.436Z]   tw (1):
+[2026-03-21T14:52:55.436Z]     - https://x.com/wix
+[2026-03-21T14:52:55.436Z]   urls (1):
+[2026-03-21T14:52:55.436Z]     - http://www.hh-law.co.il
+[2026-03-21T14:52:55.436Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-21T14:52:55.437Z] Saved final result to result.json
+[2026-03-21T14:52:55.437Z] Override fields: ws, li, fb, tw, urls
+[2026-03-21T14:52:55.437Z] Finished at: 2026-03-21T14:52:55.437Z

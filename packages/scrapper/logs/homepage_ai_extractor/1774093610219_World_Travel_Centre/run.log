@@ -1,0 +1,70 @@
+[2026-03-21T11:46:50.220Z] === Homepage AI Extractor: World Travel Centre ===
+[2026-03-21T11:46:50.220Z] Started at: 2026-03-21T11:46:50.220Z
+[2026-03-21T11:46:50.220Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774093610219_World_Travel_Centre
+[2026-03-21T11:46:50.220Z] Company: World Travel Centre
+[2026-03-21T11:46:50.220Z] Website: wtc.co.il
+[2026-03-21T11:46:50.220Z] cbRank: 3310053
+[2026-03-21T11:46:50.220Z] Reasons: h
+[2026-03-21T11:46:50.220Z] Fetching: https://wtc.co.il
+[2026-03-21T11:46:55.152Z] Redirected: https://wtc.co.il -> https://wtc.co.il/
+[2026-03-21T11:46:55.163Z] Saved HTML (488045 bytes) to page.html
+[2026-03-21T11:46:55.167Z] Extracted 237 unique links from page
+[2026-03-21T11:46:55.168Z] Saved 237 links to links.json
+[2026-03-21T11:46:55.172Z] Extracted footer HTML (415 chars)
+[2026-03-21T11:46:55.173Z] Extracted header HTML (124828 chars)
+[2026-03-21T11:46:55.176Z] Website (post-redirect): https://wtc.co.il/ → origin: https://wtc.co.il
+[2026-03-21T11:46:55.177Z] External links: 5 (of 237 total)
+[2026-03-21T11:46:55.177Z] ── All external links ──
+[2026-03-21T11:46:55.177Z]   EXT: http://www.negishim.org
+[2026-03-21T11:46:55.177Z]   EXT: https://wa.me/+972547534126
+[2026-03-21T11:46:55.177Z]   EXT: https://www.facebook.com/wtc.co.il
+[2026-03-21T11:46:55.177Z]   EXT: https://www.instagram.com/wtc_israel
+[2026-03-21T11:46:55.177Z]   EXT: https://www.youtube.com/channel/UCbqjtM8_6WQcnwb2x8QTOkA/featured?view_as=subscriber
+[2026-03-21T11:46:55.177Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T11:46:55.178Z]   UNCATEGORIZED: http://www.negishim.org
+[2026-03-21T11:46:55.178Z]   UNCATEGORIZED: https://wa.me/+972547534126
+[2026-03-21T11:46:55.178Z]   REGEX: fb <- https://www.facebook.com/wtc.co.il
+[2026-03-21T11:46:55.178Z]   REGEX: ig <- https://www.instagram.com/wtc_israel
+[2026-03-21T11:46:55.178Z]   REGEX: ytc <- https://www.youtube.com/channel/UCbqjtM8_6WQcnwb2x8QTOkA/featured?view_as=subscriber
+[2026-03-21T11:46:55.178Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-21T11:46:55.178Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T11:46:55.179Z] Saved AI prompt (2190 chars) to ai_prompt.txt
+[2026-03-21T11:46:55.179Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T11:46:55.182Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T11:47:03.627Z]   AI: First token received, streaming...
+[2026-03-21T11:47:05.979Z] AI response complete: 27 chars in 10.8s
+[2026-03-21T11:47:05.979Z] Saved AI response to ai_response.json
+[2026-03-21T11:47:05.979Z] ── Parsing AI response (1 lines) ──
+[2026-03-21T11:47:05.980Z]   AI LINK: https://wa.me/+972547534126
+[2026-03-21T11:47:05.980Z] AI returned 1 valid links
+[2026-03-21T11:47:05.980Z] ── Categorizing 1 AI-returned links ──
+[2026-03-21T11:47:05.980Z]   AI→URLS: https://wa.me/+972547534126
+[2026-03-21T11:47:05.982Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T11:47:05.982Z] Footer/header origins (1):
+[2026-03-21T11:47:05.982Z]   FOOTER/HEADER ORIGIN: https://wtc.co.il
+[2026-03-21T11:47:05.982Z]   SKIP (not in footer/header): http://www.negishim.org
+[2026-03-21T11:47:05.982Z]   SKIP (AI claimed): https://wa.me/+972547534126
+[2026-03-21T11:47:05.982Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T11:47:05.982Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T11:47:05.982Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T11:47:06.430Z]   YOUTUBE: resolved UCbqjtM8_6WQcnwb2x8QTOkA → @wtcisrael2915
+[2026-03-21T11:47:06.430Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T11:47:06.430Z] ── Step 3: Final dedup ──
+[2026-03-21T11:47:06.430Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T11:47:06.430Z] ── FINAL RESULT ──
+[2026-03-21T11:47:06.430Z]   ws (1):
+[2026-03-21T11:47:06.430Z]     - https://wtc.co.il
+[2026-03-21T11:47:06.430Z]   fb (1):
+[2026-03-21T11:47:06.430Z]     - https://www.facebook.com/wtc.co.il
+[2026-03-21T11:47:06.430Z]   ig (1):
+[2026-03-21T11:47:06.430Z]     - https://www.instagram.com/wtc_israel
+[2026-03-21T11:47:06.430Z]   ytp (1):
+[2026-03-21T11:47:06.430Z]     - https://www.youtube.com/@wtcisrael2915
+[2026-03-21T11:47:06.431Z]   ytc (1):
+[2026-03-21T11:47:06.431Z]     - https://www.youtube.com/channel/UCbqjtM8_6WQcnwb2x8QTOkA
+[2026-03-21T11:47:06.431Z]   urls (1):
+[2026-03-21T11:47:06.431Z]     - https://wa.me/+972547534126
+[2026-03-21T11:47:06.431Z] Summary: ws:1, fb:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-21T11:47:06.432Z] Saved final result to result.json
+[2026-03-21T11:47:06.432Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-21T11:47:06.432Z] Finished at: 2026-03-21T11:47:06.432Z

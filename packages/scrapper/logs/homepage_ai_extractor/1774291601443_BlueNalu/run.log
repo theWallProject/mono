@@ -1,0 +1,74 @@
+[2026-03-23T18:46:41.443Z] === Homepage AI Extractor: BlueNalu ===
+[2026-03-23T18:46:41.444Z] Started at: 2026-03-23T18:46:41.444Z
+[2026-03-23T18:46:41.444Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774291601443_BlueNalu
+[2026-03-23T18:46:41.444Z] Company: BlueNalu
+[2026-03-23T18:46:41.444Z] Website: bluenalu.com
+[2026-03-23T18:46:41.444Z] cbRank: 5980
+[2026-03-23T18:46:41.444Z] Reasons: i
+[2026-03-23T18:46:41.444Z] Fetching: https://bluenalu.com
+[2026-03-23T18:46:52.927Z] Network idle timeout — continuing with current state
+[2026-03-23T18:46:52.983Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T18:47:00.970Z] Redirected: https://bluenalu.com -> https://www.bluenalu.com/
+[2026-03-23T18:47:00.976Z] Saved HTML (152086 bytes) to page.html
+[2026-03-23T18:47:00.978Z] Extracted 14 unique links from page
+[2026-03-23T18:47:00.978Z] Saved 14 links to links.json
+[2026-03-23T18:47:00.981Z] Extracted footer HTML (53211 chars)
+[2026-03-23T18:47:00.982Z] Extracted header HTML (17219 chars)
+[2026-03-23T18:47:00.985Z] Website (post-redirect): https://www.bluenalu.com/ → origin: https://www.bluenalu.com
+[2026-03-23T18:47:00.985Z] External links: 4 (of 14 total)
+[2026-03-23T18:47:00.985Z] ── All external links ──
+[2026-03-23T18:47:00.985Z]   EXT: https://www.facebook.com/bluenaluinc#
+[2026-03-23T18:47:00.985Z]   EXT: https://www.indeed.com/cmp/Blue-Nalu,-Inc./jobs
+[2026-03-23T18:47:00.985Z]   EXT: https://www.instagram.com/BlueNaluInc
+[2026-03-23T18:47:00.985Z]   EXT: https://www.linkedin.com/company/bluenalu
+[2026-03-23T18:47:00.985Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T18:47:00.986Z]   REGEX: fb <- https://www.facebook.com/bluenaluinc#
+[2026-03-23T18:47:00.986Z]   UNCATEGORIZED: https://www.indeed.com/cmp/Blue-Nalu,-Inc./jobs
+[2026-03-23T18:47:00.986Z]   REGEX: ig <- https://www.instagram.com/BlueNaluInc
+[2026-03-23T18:47:00.986Z]   REGEX: li <- https://www.linkedin.com/company/bluenalu
+[2026-03-23T18:47:00.986Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-23T18:47:00.986Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T18:47:00.987Z] Saved AI prompt (2350 chars) to ai_prompt.txt
+[2026-03-23T18:47:00.987Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T18:47:00.991Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T18:47:09.433Z]   AI: First token received, streaming...
+[2026-03-23T18:47:19.282Z] AI response complete: 167 chars in 18.3s
+[2026-03-23T18:47:19.284Z] Saved AI response to ai_response.json
+[2026-03-23T18:47:19.284Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T18:47:19.284Z]   AI LINK: https://www.indeed.com/cmp/Blue-Nalu,-Inc./jobs
+[2026-03-23T18:47:19.284Z]   AI LINK: https://www.facebook.com/bluenaluinc#
+[2026-03-23T18:47:19.284Z]   AI LINK: https://www.instagram.com/BlueNaluInc/
+[2026-03-23T18:47:19.284Z]   AI LINK: https://www.linkedin.com/company/bluenalu/
+[2026-03-23T18:47:19.285Z] AI returned 4 valid links
+[2026-03-23T18:47:19.285Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T18:47:19.285Z]   AI→URLS: https://www.indeed.com/cmp/Blue-Nalu,-Inc./jobs
+[2026-03-23T18:47:19.285Z]   AI→REGEX: fb <- https://www.facebook.com/bluenaluinc# (duplicate, skipped)
+[2026-03-23T18:47:19.285Z]   AI→REGEX: ig <- https://www.instagram.com/BlueNaluInc/ (duplicate, skipped)
+[2026-03-23T18:47:19.285Z]   AI→REGEX: li <- https://www.linkedin.com/company/bluenalu/ (duplicate, skipped)
+[2026-03-23T18:47:19.286Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T18:47:19.286Z] Footer/header origins (4):
+[2026-03-23T18:47:19.286Z]   FOOTER/HEADER ORIGIN: https://www.indeed.com
+[2026-03-23T18:47:19.286Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T18:47:19.287Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T18:47:19.287Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T18:47:19.287Z]   SKIP (AI claimed): https://www.indeed.com/cmp/Blue-Nalu,-Inc./jobs
+[2026-03-23T18:47:19.287Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T18:47:19.287Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T18:47:19.287Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T18:47:19.287Z] ── Step 3: Final dedup ──
+[2026-03-23T18:47:19.287Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T18:47:19.287Z] ── FINAL RESULT ──
+[2026-03-23T18:47:19.287Z]   ws (1):
+[2026-03-23T18:47:19.287Z]     - https://www.bluenalu.com
+[2026-03-23T18:47:19.287Z]   li (1):
+[2026-03-23T18:47:19.287Z]     - https://www.linkedin.com/company/bluenalu
+[2026-03-23T18:47:19.287Z]   fb (1):
+[2026-03-23T18:47:19.288Z]     - https://www.facebook.com/bluenaluinc#
+[2026-03-23T18:47:19.288Z]   ig (1):
+[2026-03-23T18:47:19.288Z]     - https://www.instagram.com/bluenaluinc
+[2026-03-23T18:47:19.288Z]   urls (1):
+[2026-03-23T18:47:19.288Z]     - https://www.indeed.com/cmp/Blue-Nalu,-Inc./jobs
+[2026-03-23T18:47:19.288Z] Summary: ws:1, fb:1, ig:1, li:1, urls:1
+[2026-03-23T18:47:19.289Z] Saved final result to result.json
+[2026-03-23T18:47:19.289Z] Override fields: ws, li, fb, ig, urls
+[2026-03-23T18:47:19.289Z] Finished at: 2026-03-23T18:47:19.289Z

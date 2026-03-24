@@ -1,0 +1,57 @@
+[2026-03-22T02:06:13.928Z] === Homepage AI Extractor: Tymely ===
+[2026-03-22T02:06:13.928Z] Started at: 2026-03-22T02:06:13.928Z
+[2026-03-22T02:06:13.928Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774145173927_Tymely
+[2026-03-22T02:06:13.928Z] Company: Tymely
+[2026-03-22T02:06:13.928Z] Website: tymely.ai
+[2026-03-22T02:06:13.928Z] cbRank: 30615
+[2026-03-22T02:06:13.928Z] Reasons: f
+[2026-03-22T02:06:13.928Z] Fetching: https://tymely.ai
+[2026-03-22T02:06:24.806Z] Network idle timeout — continuing with current state
+[2026-03-22T02:06:24.852Z] Redirected: https://tymely.ai -> https://www.tymely.ai/
+[2026-03-22T02:06:24.898Z] Saved HTML (1797635 bytes) to page.html
+[2026-03-22T02:06:24.902Z] Extracted 23 unique links from page
+[2026-03-22T02:06:24.903Z] Saved 23 links to links.json
+[2026-03-22T02:06:24.913Z] Extracted footer HTML (5620 chars)
+[2026-03-22T02:06:24.913Z] Extracted header HTML (10337 chars)
+[2026-03-22T02:06:24.918Z] Website (post-redirect): https://www.tymely.ai/ → origin: https://www.tymely.ai
+[2026-03-22T02:06:24.918Z] External links: 3 (of 23 total)
+[2026-03-22T02:06:24.918Z] ── All external links ──
+[2026-03-22T02:06:24.919Z]   EXT: https://www.enable.co.il
+[2026-03-22T02:06:24.919Z]   EXT: https://www.linkedin.com/company/tymelyinc
+[2026-03-22T02:06:24.919Z]   EXT: https://www.upress.co.il
+[2026-03-22T02:06:24.919Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T02:06:24.919Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-22T02:06:24.919Z]   REGEX: li <- https://www.linkedin.com/company/tymelyinc
+[2026-03-22T02:06:24.919Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-22T02:06:24.919Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-22T02:06:24.919Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T02:06:24.920Z] Saved AI prompt (3827 chars) to ai_prompt.txt
+[2026-03-22T02:06:24.921Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T02:06:24.925Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T02:06:40.207Z]   AI: First token received, streaming...
+[2026-03-22T02:06:41.825Z] AI response complete: 43 chars in 16.9s
+[2026-03-22T02:06:41.827Z] Saved AI response to ai_response.json
+[2026-03-22T02:06:41.827Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T02:06:41.827Z]   AI LINK: https://www.linkedin.com/company/tymelyinc/
+[2026-03-22T02:06:41.827Z] AI returned 1 valid links
+[2026-03-22T02:06:41.828Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T02:06:41.828Z]   AI→REGEX: li <- https://www.linkedin.com/company/tymelyinc/ (duplicate, skipped)
+[2026-03-22T02:06:41.829Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T02:06:41.829Z] Footer/header origins (1):
+[2026-03-22T02:06:41.829Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T02:06:41.830Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-22T02:06:41.830Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-22T02:06:41.830Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T02:06:41.830Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T02:06:41.830Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T02:06:41.830Z] ── Step 3: Final dedup ──
+[2026-03-22T02:06:41.830Z] No urls to dedup
+[2026-03-22T02:06:41.830Z] ── FINAL RESULT ──
+[2026-03-22T02:06:41.831Z]   ws (1):
+[2026-03-22T02:06:41.831Z]     - https://www.tymely.ai
+[2026-03-22T02:06:41.831Z]   li (1):
+[2026-03-22T02:06:41.831Z]     - https://www.linkedin.com/company/tymelyinc
+[2026-03-22T02:06:41.831Z] Summary: ws:1, li:1
+[2026-03-22T02:06:41.832Z] Saved final result to result.json
+[2026-03-22T02:06:41.832Z] Override fields: ws, li
+[2026-03-22T02:06:41.833Z] Finished at: 2026-03-22T02:06:41.833Z

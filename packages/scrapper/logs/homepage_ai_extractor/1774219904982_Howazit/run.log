@@ -1,0 +1,62 @@
+[2026-03-22T22:51:44.983Z] === Homepage AI Extractor: Howazit ===
+[2026-03-22T22:51:44.983Z] Started at: 2026-03-22T22:51:44.983Z
+[2026-03-22T22:51:44.983Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774219904982_Howazit
+[2026-03-22T22:51:44.983Z] Company: Howazit
+[2026-03-22T22:51:44.983Z] Website: howazit.com
+[2026-03-22T22:51:44.983Z] cbRank: 292502
+[2026-03-22T22:51:44.983Z] Reasons: f
+[2026-03-22T22:51:44.983Z] Fetching: https://howazit.com
+[2026-03-22T22:51:57.651Z] Network idle timeout — continuing with current state
+[2026-03-22T22:51:57.706Z] Redirected: https://howazit.com -> https://www.howazit.com/
+[2026-03-22T22:51:57.778Z] Saved HTML (3067056 bytes) to page.html
+[2026-03-22T22:51:57.783Z] Extracted 28 unique links from page
+[2026-03-22T22:51:57.783Z] Saved 28 links to links.json
+[2026-03-22T22:51:57.786Z] No footer section found in DOM
+[2026-03-22T22:51:57.786Z] Extracted header HTML (490 chars)
+[2026-03-22T22:51:57.789Z] Website (post-redirect): https://www.howazit.com/ → origin: https://www.howazit.com
+[2026-03-22T22:51:57.789Z]   SUBDOMAIN: admin.howazit.com (added to ws)
+[2026-03-22T22:51:57.790Z] Website subdomains found: 1
+[2026-03-22T22:51:57.790Z] External links: 4 (of 28 total)
+[2026-03-22T22:51:57.790Z] ── All external links ──
+[2026-03-22T22:51:57.790Z]   EXT: https://api.whatsapp.com/send/?phone=972521207095
+[2026-03-22T22:51:57.790Z]   EXT: https://www.facebook.com/howazit
+[2026-03-22T22:51:57.790Z]   EXT: https://www.linkedin.com/company/howazit
+[2026-03-22T22:51:57.791Z]   EXT: https://www.sii.org.il/en/certificationssearch?approveType=%D7%9E%D7%A2&query=1122728
+[2026-03-22T22:51:57.791Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:51:57.791Z]   UNCATEGORIZED: https://api.whatsapp.com/send/?phone=972521207095
+[2026-03-22T22:51:57.792Z]   REGEX: fb <- https://www.facebook.com/howazit
+[2026-03-22T22:51:57.792Z]   REGEX: li <- https://www.linkedin.com/company/howazit
+[2026-03-22T22:51:57.792Z]   UNCATEGORIZED: https://www.sii.org.il/en/certificationssearch?approveType=%D7%9E%D7%A2&query=1122728
+[2026-03-22T22:51:57.792Z] Programmatic result: ws:2, fb:1, li:1 | 2 uncategorized
+[2026-03-22T22:51:57.792Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:51:57.822Z] Saved AI prompt (2067 chars) to ai_prompt.txt
+[2026-03-22T22:51:57.822Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:51:57.826Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:52:03.346Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-22T22:52:03.346Z] AI response complete: 0 chars in 5.5s
+[2026-03-22T22:52:03.348Z] Saved AI response to ai_response.json
+[2026-03-22T22:52:03.348Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T22:52:03.348Z] AI returned 0 valid links
+[2026-03-22T22:52:03.348Z] ── Categorizing 0 AI-returned links ──
+[2026-03-22T22:52:03.348Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:52:03.348Z] Footer/header origins (1):
+[2026-03-22T22:52:03.349Z]   FOOTER/HEADER ORIGIN: https://www.howazit.com
+[2026-03-22T22:52:03.349Z]   SKIP (not in footer/header): https://api.whatsapp.com/send/?phone=972521207095
+[2026-03-22T22:52:03.349Z]   SKIP (not in footer/header): https://www.sii.org.il/en/certificationssearch?approveType=%D7%9E%D7%A2&query=1122728
+[2026-03-22T22:52:03.349Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T22:52:03.349Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:52:03.349Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T22:52:03.349Z] ── Step 3: Final dedup ──
+[2026-03-22T22:52:03.350Z] No urls to dedup
+[2026-03-22T22:52:03.350Z] ── FINAL RESULT ──
+[2026-03-22T22:52:03.350Z]   ws (2):
+[2026-03-22T22:52:03.350Z]     - https://admin.howazit.com
+[2026-03-22T22:52:03.350Z]     - https://www.howazit.com
+[2026-03-22T22:52:03.350Z]   li (1):
+[2026-03-22T22:52:03.350Z]     - https://www.linkedin.com/company/howazit
+[2026-03-22T22:52:03.350Z]   fb (1):
+[2026-03-22T22:52:03.350Z]     - https://www.facebook.com/howazit
+[2026-03-22T22:52:03.350Z] Summary: ws:2, fb:1, li:1
+[2026-03-22T22:52:03.352Z] Saved final result to result.json
+[2026-03-22T22:52:03.352Z] Override fields: ws, li, fb
+[2026-03-22T22:52:03.352Z] Finished at: 2026-03-22T22:52:03.352Z

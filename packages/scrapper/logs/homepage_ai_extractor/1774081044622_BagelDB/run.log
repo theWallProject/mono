@@ -1,0 +1,82 @@
+[2026-03-21T08:17:24.622Z] === Homepage AI Extractor: BagelDB ===
+[2026-03-21T08:17:24.622Z] Started at: 2026-03-21T08:17:24.622Z
+[2026-03-21T08:17:24.623Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774081044622_BagelDB
+[2026-03-21T08:17:24.623Z] Company: BagelDB
+[2026-03-21T08:17:24.623Z] Website: bageldb.com
+[2026-03-21T08:17:24.623Z] cbRank: 3148110
+[2026-03-21T08:17:24.623Z] Reasons: h
+[2026-03-21T08:17:24.623Z] Fetching: https://bageldb.com
+[2026-03-21T08:17:28.183Z] Redirected: https://bageldb.com -> https://bageldb.com/
+[2026-03-21T08:17:28.211Z] Saved HTML (1185170 bytes) to page.html
+[2026-03-21T08:17:28.214Z] Extracted 21 unique links from page
+[2026-03-21T08:17:28.214Z] Saved 21 links to links.json
+[2026-03-21T08:17:28.216Z] Extracted footer HTML (1482 chars)
+[2026-03-21T08:17:28.216Z] Extracted header HTML (1050 chars)
+[2026-03-21T08:17:28.219Z] Website (post-redirect): https://bageldb.com/ → origin: https://bageldb.com
+[2026-03-21T08:17:28.219Z]   SUBDOMAIN: app.bageldb.com (added to ws)
+[2026-03-21T08:17:28.219Z]   SUBDOMAIN: docs.bageldb.com (added to ws)
+[2026-03-21T08:17:28.219Z] Website subdomains found: 2
+[2026-03-21T08:17:28.219Z] External links: 4 (of 21 total)
+[2026-03-21T08:17:28.219Z] ── All external links ──
+[2026-03-21T08:17:28.219Z]   EXT: https://bagelstudio.co
+[2026-03-21T08:17:28.219Z]   EXT: https://discord.gg/49hq7wu
+[2026-03-21T08:17:28.219Z]   EXT: https://github.com/bageldb
+[2026-03-21T08:17:28.219Z]   EXT: https://www.youtube.com/channel/UCLLbZLIpifVEb-zXzOfsGgw
+[2026-03-21T08:17:28.219Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:17:28.220Z]   UNCATEGORIZED: https://bagelstudio.co
+[2026-03-21T08:17:28.220Z]   UNCATEGORIZED: https://discord.gg/49hq7wu
+[2026-03-21T08:17:28.220Z]   REGEX: gh <- https://github.com/bageldb
+[2026-03-21T08:17:28.220Z]   REGEX: ytc <- https://www.youtube.com/channel/UCLLbZLIpifVEb-zXzOfsGgw
+[2026-03-21T08:17:28.220Z] Programmatic result: ws:3, gh:1, ytc:1 | 2 uncategorized
+[2026-03-21T08:17:28.220Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:17:28.220Z] Saved AI prompt (2820 chars) to ai_prompt.txt
+[2026-03-21T08:17:28.220Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:17:28.224Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:17:38.285Z]   AI: First token received, streaming...
+[2026-03-21T08:17:47.258Z] AI response complete: 110 chars in 19.0s
+[2026-03-21T08:17:47.259Z] Saved AI response to ai_response.json
+[2026-03-21T08:17:47.259Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T08:17:47.260Z]   AI LINK: https://discord.gg/49hq7wu
+[2026-03-21T08:17:47.260Z]   AI LINK: https://github.com/bageldb
+[2026-03-21T08:17:47.260Z]   AI LINK: https://www.youtube.com/channel/UCLLbZLIpifVEb-zXzOfsGgw
+[2026-03-21T08:17:47.260Z] AI returned 3 valid links
+[2026-03-21T08:17:47.260Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T08:17:47.260Z]   AI→URLS: https://discord.gg/49hq7wu
+[2026-03-21T08:17:47.261Z]   AI→REGEX: gh <- https://github.com/bageldb (duplicate, skipped)
+[2026-03-21T08:17:47.261Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCLLbZLIpifVEb-zXzOfsGgw (duplicate, skipped)
+[2026-03-21T08:17:47.261Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:17:47.261Z] Footer/header origins (7):
+[2026-03-21T08:17:47.262Z]   FOOTER/HEADER ORIGIN: https://docs.bageldb.com
+[2026-03-21T08:17:47.262Z]   FOOTER/HEADER ORIGIN: https://discord.gg
+[2026-03-21T08:17:47.262Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-21T08:17:47.262Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T08:17:47.262Z]   FOOTER/HEADER ORIGIN: https://app.bageldb.com
+[2026-03-21T08:17:47.262Z]   FOOTER/HEADER ORIGIN: http://app.bageldb.com
+[2026-03-21T08:17:47.262Z]   FOOTER/HEADER ORIGIN: https://bagelstudio.co
+[2026-03-21T08:17:47.262Z]   ADDED: urls <- https://bagelstudio.co
+[2026-03-21T08:17:47.262Z]   SKIP (AI claimed): https://discord.gg/49hq7wu
+[2026-03-21T08:17:47.262Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T08:17:47.262Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:17:47.263Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T08:17:47.567Z]   YOUTUBE: resolved UCLLbZLIpifVEb-zXzOfsGgw → @bagelstudio6295
+[2026-03-21T08:17:47.567Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T08:17:47.567Z] ── Step 3: Final dedup ──
+[2026-03-21T08:17:47.567Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T08:17:47.567Z] ── FINAL RESULT ──
+[2026-03-21T08:17:47.567Z]   ws (3):
+[2026-03-21T08:17:47.567Z]     - https://app.bageldb.com
+[2026-03-21T08:17:47.567Z]     - https://bageldb.com
+[2026-03-21T08:17:47.568Z]     - https://docs.bageldb.com
+[2026-03-21T08:17:47.568Z]   gh (1):
+[2026-03-21T08:17:47.568Z]     - https://github.com/bageldb
+[2026-03-21T08:17:47.568Z]   ytp (1):
+[2026-03-21T08:17:47.568Z]     - https://www.youtube.com/@bagelstudio6295
+[2026-03-21T08:17:47.568Z]   ytc (1):
+[2026-03-21T08:17:47.568Z]     - https://www.youtube.com/channel/UCLLbZLIpifVEb-zXzOfsGgw
+[2026-03-21T08:17:47.568Z]   urls (2):
+[2026-03-21T08:17:47.568Z]     - https://bagelstudio.co
+[2026-03-21T08:17:47.568Z]     - https://discord.gg/49hq7wu
+[2026-03-21T08:17:47.568Z] Summary: ws:3, gh:1, ytc:1, urls:2, ytp:1
+[2026-03-21T08:17:47.569Z] Saved final result to result.json
+[2026-03-21T08:17:47.569Z] Override fields: ws, gh, ytp, ytc, urls
+[2026-03-21T08:17:47.569Z] Finished at: 2026-03-21T08:17:47.569Z

@@ -1,0 +1,72 @@
+[2026-03-22T06:16:53.031Z] === Homepage AI Extractor: Visitt.io ===
+[2026-03-22T06:16:53.031Z] Started at: 2026-03-22T06:16:53.031Z
+[2026-03-22T06:16:53.031Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774160213030_Visitt.io
+[2026-03-22T06:16:53.031Z] Company: Visitt.io
+[2026-03-22T06:16:53.031Z] Website: visitt.io
+[2026-03-22T06:16:53.031Z] cbRank: 199758
+[2026-03-22T06:16:53.031Z] Reasons: f, i
+[2026-03-22T06:16:53.031Z] Fetching: https://visitt.io
+[2026-03-22T06:16:56.286Z] Redirected: https://visitt.io -> https://visitt.io/
+[2026-03-22T06:16:56.292Z] Saved HTML (181748 bytes) to page.html
+[2026-03-22T06:16:56.295Z] Extracted 30 unique links from page
+[2026-03-22T06:16:56.296Z] Saved 30 links to links.json
+[2026-03-22T06:16:56.299Z] Extracted footer HTML (22983 chars)
+[2026-03-22T06:16:56.299Z] Extracted header HTML (17003 chars)
+[2026-03-22T06:16:56.303Z] Website (post-redirect): https://visitt.io/ → origin: https://visitt.io
+[2026-03-22T06:16:56.303Z]   SUBDOMAIN: app.visitt.io (added to ws)
+[2026-03-22T06:16:56.303Z]   SUBDOMAIN: help.visitt.io (added to ws)
+[2026-03-22T06:16:56.303Z] Website subdomains found: 2
+[2026-03-22T06:16:56.303Z] External links: 2 (of 30 total)
+[2026-03-22T06:16:56.303Z] ── All external links ──
+[2026-03-22T06:16:56.303Z]   EXT: https://www.linkedin.com/company/visitt
+[2026-03-22T06:16:56.304Z]   EXT: https://www.youtube.com/channel/UCvOkRohcB8V661l6KfHryJA
+[2026-03-22T06:16:56.304Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:16:56.304Z]   REGEX: li <- https://www.linkedin.com/company/visitt
+[2026-03-22T06:16:56.304Z]   REGEX: ytc <- https://www.youtube.com/channel/UCvOkRohcB8V661l6KfHryJA
+[2026-03-22T06:16:56.304Z] Programmatic result: ws:3, li:1, ytc:1 | 0 uncategorized
+[2026-03-22T06:16:56.304Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:16:56.307Z] Saved AI prompt (11749 chars) to ai_prompt.txt
+[2026-03-22T06:16:56.307Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:16:56.312Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:18:02.806Z]   AI: First token received, streaming...
+[2026-03-22T06:18:12.283Z] AI response complete: 118 chars in 76.0s
+[2026-03-22T06:18:12.284Z] Saved AI response to ai_response.json
+[2026-03-22T06:18:12.284Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T06:18:12.284Z]   AI LINK: https://www.linkedin.com/company/visitt
+[2026-03-22T06:18:12.284Z]   AI LINK: https://www.youtube.com/channel/UCvOkRohcB8V661l6KfHryJA
+[2026-03-22T06:18:12.285Z]   AI LINK: https://app.visitt.io
+[2026-03-22T06:18:12.285Z] AI returned 3 valid links
+[2026-03-22T06:18:12.285Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T06:18:12.285Z]   AI→REGEX: li <- https://www.linkedin.com/company/visitt (duplicate, skipped)
+[2026-03-22T06:18:12.285Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCvOkRohcB8V661l6KfHryJA (duplicate, skipped)
+[2026-03-22T06:18:12.286Z]   AI→URLS: https://app.visitt.io
+[2026-03-22T06:18:12.287Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:18:12.287Z] Footer/header origins (4):
+[2026-03-22T06:18:12.288Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T06:18:12.288Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T06:18:12.288Z]   FOOTER/HEADER ORIGIN: https://app.visitt.io
+[2026-03-22T06:18:12.288Z]   FOOTER/HEADER ORIGIN: https://help.visitt.io
+[2026-03-22T06:18:12.288Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:18:12.288Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:18:12.288Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T06:18:12.560Z]   YOUTUBE: resolved UCvOkRohcB8V661l6KfHryJA → @visitt1973
+[2026-03-22T06:18:12.560Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T06:18:12.560Z] ── Step 3: Final dedup ──
+[2026-03-22T06:18:12.560Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T06:18:12.560Z] ── FINAL RESULT ──
+[2026-03-22T06:18:12.560Z]   ws (3):
+[2026-03-22T06:18:12.560Z]     - https://app.visitt.io
+[2026-03-22T06:18:12.560Z]     - https://help.visitt.io
+[2026-03-22T06:18:12.560Z]     - https://visitt.io
+[2026-03-22T06:18:12.560Z]   li (1):
+[2026-03-22T06:18:12.561Z]     - https://www.linkedin.com/company/visitt
+[2026-03-22T06:18:12.561Z]   ytp (1):
+[2026-03-22T06:18:12.561Z]     - https://www.youtube.com/@visitt1973
+[2026-03-22T06:18:12.561Z]   ytc (1):
+[2026-03-22T06:18:12.561Z]     - https://www.youtube.com/channel/UCvOkRohcB8V661l6KfHryJA
+[2026-03-22T06:18:12.561Z]   urls (1):
+[2026-03-22T06:18:12.561Z]     - https://app.visitt.io
+[2026-03-22T06:18:12.561Z] Summary: ws:3, li:1, ytc:1, urls:1, ytp:1
+[2026-03-22T06:18:12.562Z] Saved final result to result.json
+[2026-03-22T06:18:12.562Z] Override fields: ws, li, ytp, ytc
+[2026-03-22T06:18:12.562Z] Finished at: 2026-03-22T06:18:12.562Z

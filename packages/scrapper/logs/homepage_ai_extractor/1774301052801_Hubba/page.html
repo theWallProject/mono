@@ -1,0 +1,1449 @@
+<!DOCTYPE html><html><head>
+    <title>Hubba</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="/static/style.css?v=1.2">
+
+    
+
+    
+
+</head>
+<body>
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/static/logo.png" alt="hubba">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="/contact-us">Contact Us</a> 
+            <a href="/favorites" title="View Favorites">
+                <svg viewBox="0 0 24 24" class="icon-heart">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                </svg>
+            </a>
+        </nav>
+    </div>
+</header>
+
+
+
+
+
+
+<main class="content-wrapper">
+    
+<section class="banner-slogan">
+    <p>Hubba, Where Vehicles Get Discovered!</p>
+</section>
+
+<button class="fab-filter" id="filter-fab" onclick="toggleSidebar()">☰</button>
+
+<div class="page-wrapper">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Filters</h2>
+            <button onclick="toggleSidebar()" class="btn-close-sidebar">✕</button>
+        </div>
+        <div class="sidebar-scroll">
+            <div class="filter-section">
+                <span class="filter-label">Make</span>
+                <div class="multi-select" id="make-list">
+                <label id="label-make-Acura" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Acura" onchange="updateFilterSelection('make', 'Acura', this.checked)">
+                        Acura
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-make-Audi" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Audi" onchange="updateFilterSelection('make', 'Audi', this.checked)">
+                        Audi
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-make-BMW" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="BMW" onchange="updateFilterSelection('make', 'BMW', this.checked)">
+                        BMW
+                    </div>
+                    <span class="count-badge">(21)</span>
+                </label>
+            
+                <label id="label-make-Cadillac" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Cadillac" onchange="updateFilterSelection('make', 'Cadillac', this.checked)">
+                        Cadillac
+                    </div>
+                    <span class="count-badge">(8)</span>
+                </label>
+            
+                <label id="label-make-Chevrolet" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Chevrolet" onchange="updateFilterSelection('make', 'Chevrolet', this.checked)">
+                        Chevrolet
+                    </div>
+                    <span class="count-badge">(11)</span>
+                </label>
+            
+                <label id="label-make-Ford" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Ford" onchange="updateFilterSelection('make', 'Ford', this.checked)">
+                        Ford
+                    </div>
+                    <span class="count-badge">(57)</span>
+                </label>
+            
+                <label id="label-make-GMC" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="GMC" onchange="updateFilterSelection('make', 'GMC', this.checked)">
+                        GMC
+                    </div>
+                    <span class="count-badge">(29)</span>
+                </label>
+            
+                <label id="label-make-Honda" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Honda" onchange="updateFilterSelection('make', 'Honda', this.checked)">
+                        Honda
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-make-Jeep" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Jeep" onchange="updateFilterSelection('make', 'Jeep', this.checked)">
+                        Jeep
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-make-Kia" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Kia" onchange="updateFilterSelection('make', 'Kia', this.checked)">
+                        Kia
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-make-LandRover" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Land Rover" onchange="updateFilterSelection('make', 'Land Rover', this.checked)">
+                        Land Rover
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-make-Lexus" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Lexus" onchange="updateFilterSelection('make', 'Lexus', this.checked)">
+                        Lexus
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-make-MINI" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="MINI" onchange="updateFilterSelection('make', 'MINI', this.checked)">
+                        MINI
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-make-Mercedes-Benz" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Mercedes-Benz" onchange="updateFilterSelection('make', 'Mercedes-Benz', this.checked)">
+                        Mercedes-Benz
+                    </div>
+                    <span class="count-badge">(6)</span>
+                </label>
+            
+                <label id="label-make-Porsche" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Porsche" onchange="updateFilterSelection('make', 'Porsche', this.checked)">
+                        Porsche
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-make-Ram" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Ram" onchange="updateFilterSelection('make', 'Ram', this.checked)">
+                        Ram
+                    </div>
+                    <span class="count-badge">(7)</span>
+                </label>
+            
+                <label id="label-make-Tesla" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Tesla" onchange="updateFilterSelection('make', 'Tesla', this.checked)">
+                        Tesla
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            </div>
+            </div>
+            <div class="filter-section">
+                <span class="filter-label">Model</span>
+                <div class="multi-select" id="model-list">
+                <label id="label-model-1500" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="1500" onchange="updateFilterSelection('model', '1500', this.checked)">
+                        1500
+                    </div>
+                    <span class="count-badge">(7)</span>
+                </label>
+            
+                <label id="label-model-718Cayman" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="718 Cayman" onchange="updateFilterSelection('model', '718 Cayman', this.checked)">
+                        718 Cayman
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Acadia" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Acadia" onchange="updateFilterSelection('model', 'Acadia', this.checked)">
+                        Acadia
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-Bronco" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Bronco" onchange="updateFilterSelection('model', 'Bronco', this.checked)">
+                        Bronco
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-BroncoSport" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Bronco Sport" onchange="updateFilterSelection('model', 'Bronco Sport', this.checked)">
+                        Bronco Sport
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-C-Class" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="C-Class" onchange="updateFilterSelection('model', 'C-Class', this.checked)">
+                        C-Class
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-CLS" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="CLS" onchange="updateFilterSelection('model', 'CLS', this.checked)">
+                        CLS
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-CT4" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="CT4" onchange="updateFilterSelection('model', 'CT4', this.checked)">
+                        CT4
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-CT5" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="CT5" onchange="updateFilterSelection('model', 'CT5', this.checked)">
+                        CT5
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Cayenne" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Cayenne" onchange="updateFilterSelection('model', 'Cayenne', this.checked)">
+                        Cayenne
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-CivicSi" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Civic Si" onchange="updateFilterSelection('model', 'Civic Si', this.checked)">
+                        Civic Si
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Colorado" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Colorado" onchange="updateFilterSelection('model', 'Colorado', this.checked)">
+                        Colorado
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Corvette" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Corvette" onchange="updateFilterSelection('model', 'Corvette', this.checked)">
+                        Corvette
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-EQE" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="EQE" onchange="updateFilterSelection('model', 'EQE', this.checked)">
+                        EQE
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-ES" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="ES" onchange="updateFilterSelection('model', 'ES', this.checked)">
+                        ES
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-EV9" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="EV9" onchange="updateFilterSelection('model', 'EV9', this.checked)">
+                        EV9
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Escalade" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Escalade" onchange="updateFilterSelection('model', 'Escalade', this.checked)">
+                        Escalade
+                    </div>
+                    <span class="count-badge">(5)</span>
+                </label>
+            
+                <label id="label-model-Expedition" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Expedition" onchange="updateFilterSelection('model', 'Expedition', this.checked)">
+                        Expedition
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-ExpeditionMAX" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Expedition MAX" onchange="updateFilterSelection('model', 'Expedition MAX', this.checked)">
+                        Expedition MAX
+                    </div>
+                    <span class="count-badge">(4)</span>
+                </label>
+            
+                <label id="label-model-Explorer" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Explorer" onchange="updateFilterSelection('model', 'Explorer', this.checked)">
+                        Explorer
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-F-150" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="F-150" onchange="updateFilterSelection('model', 'F-150', this.checked)">
+                        F-150
+                    </div>
+                    <span class="count-badge">(35)</span>
+                </label>
+            
+                <label id="label-model-F-250" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="F-250" onchange="updateFilterSelection('model', 'F-250', this.checked)">
+                        F-250
+                    </div>
+                    <span class="count-badge">(5)</span>
+                </label>
+            
+                <label id="label-model-F-350" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="F-350" onchange="updateFilterSelection('model', 'F-350', this.checked)">
+                        F-350
+                    </div>
+                    <span class="count-badge">(3)</span>
+                </label>
+            
+                <label id="label-model-GLE" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="GLE" onchange="updateFilterSelection('model', 'GLE', this.checked)">
+                        GLE
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-GLS" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="GLS" onchange="updateFilterSelection('model', 'GLS', this.checked)">
+                        GLS
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Hardtop" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Hardtop" onchange="updateFilterSelection('model', 'Hardtop', this.checked)">
+                        Hardtop
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-ModelY" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Model Y" onchange="updateFilterSelection('model', 'Model Y', this.checked)">
+                        Model Y
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Mustang" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Mustang" onchange="updateFilterSelection('model', 'Mustang', this.checked)">
+                        Mustang
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-RDX" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="RDX" onchange="updateFilterSelection('model', 'RDX', this.checked)">
+                        RDX
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-RS3" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="RS 3" onchange="updateFilterSelection('model', 'RS 3', this.checked)">
+                        RS 3
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-RangeRover" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Range Rover" onchange="updateFilterSelection('model', 'Range Rover', this.checked)">
+                        Range Rover
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-RangeRoverSport" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Range Rover Sport" onchange="updateFilterSelection('model', 'Range Rover Sport', this.checked)">
+                        Range Rover Sport
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-S4" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="S4" onchange="updateFilterSelection('model', 'S4', this.checked)">
+                        S4
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Savana2500" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Savana 2500" onchange="updateFilterSelection('model', 'Savana 2500', this.checked)">
+                        Savana 2500
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-Sierra1500" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Sierra 1500" onchange="updateFilterSelection('model', 'Sierra 1500', this.checked)">
+                        Sierra 1500
+                    </div>
+                    <span class="count-badge">(8)</span>
+                </label>
+            
+                <label id="label-model-Sierra2500HD" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Sierra 2500HD" onchange="updateFilterSelection('model', 'Sierra 2500HD', this.checked)">
+                        Sierra 2500HD
+                    </div>
+                    <span class="count-badge">(6)</span>
+                </label>
+            
+                <label id="label-model-Sierra3500HD" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Sierra 3500HD" onchange="updateFilterSelection('model', 'Sierra 3500HD', this.checked)">
+                        Sierra 3500HD
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-Silverado1500" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Silverado 1500" onchange="updateFilterSelection('model', 'Silverado 1500', this.checked)">
+                        Silverado 1500
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-Silverado2500HD" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Silverado 2500HD" onchange="updateFilterSelection('model', 'Silverado 2500HD', this.checked)">
+                        Silverado 2500HD
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Silverado3500HD" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Silverado 3500HD" onchange="updateFilterSelection('model', 'Silverado 3500HD', this.checked)">
+                        Silverado 3500HD
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Suburban" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Suburban" onchange="updateFilterSelection('model', 'Suburban', this.checked)">
+                        Suburban
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-Tahoe" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Tahoe" onchange="updateFilterSelection('model', 'Tahoe', this.checked)">
+                        Tahoe
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-Transit250" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Transit 250" onchange="updateFilterSelection('model', 'Transit 250', this.checked)">
+                        Transit 250
+                    </div>
+                    <span class="count-badge">(3)</span>
+                </label>
+            
+                <label id="label-model-Traverse" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Traverse" onchange="updateFilterSelection('model', 'Traverse', this.checked)">
+                        Traverse
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Wrangler" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Wrangler" onchange="updateFilterSelection('model', 'Wrangler', this.checked)">
+                        Wrangler
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-X3" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="X3" onchange="updateFilterSelection('model', 'X3', this.checked)">
+                        X3
+                    </div>
+                    <span class="count-badge">(3)</span>
+                </label>
+            
+                <label id="label-model-X3M" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="X3 M" onchange="updateFilterSelection('model', 'X3 M', this.checked)">
+                        X3 M
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-X4" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="X4" onchange="updateFilterSelection('model', 'X4', this.checked)">
+                        X4
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-X5" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="X5" onchange="updateFilterSelection('model', 'X5', this.checked)">
+                        X5
+                    </div>
+                    <span class="count-badge">(12)</span>
+                </label>
+            
+                <label id="label-model-X6" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="X6" onchange="updateFilterSelection('model', 'X6', this.checked)">
+                        X6
+                    </div>
+                    <span class="count-badge">(2)</span>
+                </label>
+            
+                <label id="label-model-X6M" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="X6 M" onchange="updateFilterSelection('model', 'X6 M', this.checked)">
+                        X6 M
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-X7" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="X7" onchange="updateFilterSelection('model', 'X7', this.checked)">
+                        X7
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-XT6" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="XT6" onchange="updateFilterSelection('model', 'XT6', this.checked)">
+                        XT6
+                    </div>
+                    <span class="count-badge">(1)</span>
+                </label>
+            
+                <label id="label-model-Yukon" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Yukon" onchange="updateFilterSelection('model', 'Yukon', this.checked)">
+                        Yukon
+                    </div>
+                    <span class="count-badge">(6)</span>
+                </label>
+            
+                <label id="label-model-YukonXL" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Yukon XL" onchange="updateFilterSelection('model', 'Yukon XL', this.checked)">
+                        Yukon XL
+                    </div>
+                    <span class="count-badge">(3)</span>
+                </label>
+            </div>
+            </div>
+            <div class="filter-section">
+                <span class="filter-label">Year Range</span>
+                <div class="select-row">
+                    <select id="year-min-select" onchange="handleRangeChange('year')"><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option></select>
+                    <select id="year-max-select" onchange="handleRangeChange('year')"><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option></select>
+                </div>
+            </div>
+            <div class="filter-section">
+                <span class="filter-label">Miles Range</span>
+                <div class="select-row">
+                    <select id="miles-min-select" onchange="handleRangeChange('miles')"><option value="0">0</option><option value="10000">10,000</option><option value="20000">20,000</option><option value="30000">30,000</option><option value="40000">40,000</option><option value="50000">50,000</option><option value="60000">60,000</option><option value="70000">70,000</option><option value="80000">80,000</option><option value="90000">90,000</option><option value="100000">100,000</option><option value="110000">110,000</option><option value="120000">120,000</option><option value="130000">130,000</option><option value="140000">140,000</option><option value="150000">150,000</option><option value="160000">160,000</option><option value="170000">170,000</option><option value="180000">180,000</option><option value="190000">190,000</option><option value="200000">200,000</option><option value="210000">210,000</option><option value="220000">220,000</option><option value="230000">230,000</option><option value="240000">240,000</option><option value="250000">250,000</option></select>
+                    <select id="miles-max-select" onchange="handleRangeChange('miles')"><option value="0">0</option><option value="10000">10,000</option><option value="20000">20,000</option><option value="30000">30,000</option><option value="40000">40,000</option><option value="50000">50,000</option><option value="60000">60,000</option><option value="70000">70,000</option><option value="80000">80,000</option><option value="90000">90,000</option><option value="100000">100,000</option><option value="110000">110,000</option><option value="120000">120,000</option><option value="130000">130,000</option><option value="140000">140,000</option><option value="150000">150,000</option><option value="160000">160,000</option><option value="170000">170,000</option><option value="180000">180,000</option><option value="190000">190,000</option><option value="200000">200,000</option><option value="210000">210,000</option><option value="220000">220,000</option><option value="230000">230,000</option><option value="240000">240,000</option><option value="250000">250,000</option></select>
+                </div>
+            </div>
+            <div class="filter-section">
+                <span class="filter-label">Location</span>
+                <div class="multi-select" id="location-list">
+                <label id="label-location-ManheimFlint" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Manheim Flint" onchange="updateFilterSelection('location', 'Manheim Flint', this.checked)">
+                        Manheim Flint
+                    </div>
+                    <span class="count-badge">(42)</span>
+                </label>
+            
+                <label id="label-location-ManheimPennsylvania" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="Manheim Pennsylvania" onchange="updateFilterSelection('location', 'Manheim Pennsylvania', this.checked)">
+                        Manheim Pennsylvania
+                    </div>
+                    <span class="count-badge">(95)</span>
+                </label>
+            
+                <label id="label-location-OPENLANEToronto" style="pointer-events: auto;">
+                    <div>
+                        <input type="checkbox" value="OPENLANE Toronto" onchange="updateFilterSelection('location', 'OPENLANE Toronto', this.checked)">
+                        OPENLANE Toronto
+                    </div>
+                    <span class="count-badge">(17)</span>
+                </label>
+            </div>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <button id="reset-btn" class="btn-reset" onclick="resetAllFilters()">Clear All</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div id="grid" class="inventory-grid">
+        <a href="/vehicle/1FTFW5L80SKF23002" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftfw5l80skf23002_96c23f5f-1f3b-4a7a-ada0-95f204891187_Zyv4fbpqo.jpg?updatedAt=1773074567423" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2025</span>
+                        <span>Ford F-150 Lariat</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>222 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FT7W2BT6KEE97674" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ft7w2bt6kee97674_f69b84eb-d0a6-417b-a445-1bd6bab4c3fa_JSjzSgI0Y.jpg?updatedAt=1772635503181" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2019</span>
+                        <span>Ford F-250 Lariat</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>26,573 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-red"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GC1YMEYXPF166326" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gc1ymeyxpf166326_c7867b17-cc2a-4c0f-8d44-88b019e8534c_vahuDhmHO.jpg?updatedAt=1772634952558" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>Chevrolet Silverado 2500HD Custom</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>25,422 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GYS4BKJ7KR359160" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gys4bkj7kr359160_29edf0ef-7428-4e98-82ab-1bcb1ef3b940_OM0msZ-w6R.jpg?updatedAt=1774277851822" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2019</span>
+                        <span>Cadillac Escalade Luxury</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>80,510 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FTFW1E50MFB96818" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftfw1e50mfb96818_cfbacd75-7864-469b-9120-236d971ae6b5_l42LgpE5iL.jpg?updatedAt=1774277768103" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2021</span>
+                        <span>Ford F-150 XLT</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>81,522 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-white"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1C6SRFFTXPN523498" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1c6srfftxpn523498_f2fa1d3e-7ddf-42c9-847a-a062fd08e885_Gu9Z-rV31.jpg?updatedAt=1772635063717" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>Ram 1500 Big Horn</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>26,312 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-blue"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GKS2GKT1PR252563" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gks2gkt1pr252563_0f3275d5-0802-4df6-b151-177de386efcd_4oYObpvZ-T.jpg?updatedAt=1773074528949" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>GMC Yukon XL SLT</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>39,416 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-maroon"></span>
+                    </div>
+                    <div class="card-loc">📍 OPENLANE Toronto</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GKS2DKL5PR495548" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gks2dkl5pr495548_3a0e299e-9a8b-4f88-bc6b-26c5afd44cd4_bsmUYtslG.jpg?updatedAt=1772634756134" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>GMC Yukon Denali</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>39,827 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-white"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GCUDEE88RZ232842" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gcudee88rz232842_a626a928-3afd-44c2-8fac-9291887f18d9_MTWeBXZtk.jpg?updatedAt=1774277802214" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2024</span>
+                        <span>Chevrolet Silverado 1500 RST</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>28,650 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-gray"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FMEE5DP8PLB40135" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1fmee5dp8plb40135_1f95d7d4-36b7-4c5c-a88f-9488305fd97b_1m3Ixx72j.jpg?updatedAt=1772635485665" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>Ford Bronco Wildtrak</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>13,601 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-blue"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/5UX53DP0XR9V84893" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/5ux53dp0xr9v84893_2c4887ac-5eb2-4d7a-b076-cddb72e66d94_0AWsTX_1J.jpg?updatedAt=1773074519282" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2024</span>
+                        <span>BMW X3 xDrive30i</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>5,491 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-white"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/WP0AB2A81HS285516" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/wp0ab2a81hs285516_b0b93802-44d4-4bd5-a6e4-31fe84fe40b3_E6eTuewAe.jpg?updatedAt=1772635295296" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2017</span>
+                        <span>Porsche 718 Cayman S</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>34,146 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-blue"></span>
+                    </div>
+                    <div class="card-loc">📍 OPENLANE Toronto</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GNSKSKD9PR448264" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gnskskd9pr448264_1deb3e85-fe89-4b6a-9145-099578a7fba4_RjZO9RB92X.jpg?updatedAt=1774277952933" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>Chevrolet Tahoe Premier</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>35,948 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FTEW1E58KFB29876" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftew1e58kfb29876_525c93e6-48e7-44f6-a12b-ebae7aeb3790_xKmjm2mdJ.jpg?updatedAt=1772634407820" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2019</span>
+                        <span>Ford F-150 Lariat</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>46,105 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-white"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/7SAYGDEF0NF468163" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/7saygdef0nf468163_d834a048-0131-419f-b721-87833fb8a8ee_3K8VC3nUoR.jpg?updatedAt=1774277796826" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2022</span>
+                        <span>Tesla Model Y Performance</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>30,824 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-silver"></span>
+                    </div>
+                    <div class="card-loc">📍 OPENLANE Toronto</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GYS4CKLXPR196020" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gys4cklxpr196020_22990567-3995-4481-970c-23e461122d9d_LKyLplDtuA.jpg?updatedAt=1772635118646" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>Cadillac Escalade Premium Luxury</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>50,838 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GT49WEY2NF297768" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gt49wey2nf297768_3293604b-f0ee-4fa8-afcf-4e49a6f2b7a8_h3Jq-LAzF.jpg?updatedAt=1772635516907" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2022</span>
+                        <span>GMC Sierra 3500HD Denali</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>33,738 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-white"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GT49XEY1RF349595" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gt49xey1rf349595_3239fa6e-5335-4f19-9a38-fb418855408c_hqCcRtzck.jpg?updatedAt=1772634445779" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2024</span>
+                        <span>GMC Sierra 2500HD Denali Ultimate</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>22,194 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1GT49WEY4MF184788" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1gt49wey4mf184788_3ee13c3b-6c6e-4085-a3b2-066badd553b5_wDYldBAq9.jpg?updatedAt=1773074589608" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2021</span>
+                        <span>GMC Sierra 3500HD Denali</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>74,089 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FTFW7LD7RFA10647" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftfw7ld7rfa10647_b95915a9-5da6-429f-93e6-e3a15b083897_KZ1srb4yhS.jpg?updatedAt=1772635908994" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2024</span>
+                        <span>Ford F-150 Hybrid Platinum</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>29,325 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FTFW1E84NKE82545" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftfw1e84nke82545_fe5bc7ca-85a6-46c4-8b9e-8536672c11e7_96XHebltaE.jpg?updatedAt=1772635420395" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2022</span>
+                        <span>Ford F-150 XLT</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>42,398 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-silver"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FT8W3BM7REC28564" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ft8w3bm7rec28564_6fc35754-4718-41b4-89cd-5ff81ee8fae2_gl0qDar7Jv.jpg?updatedAt=1772634698935" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2024</span>
+                        <span>Ford F-350 Lariat</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>33,091 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-white"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FTFW7LD1SFB53664" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftfw7ld1sfb53664_ee0bbd1d-36fd-424e-b410-00df94c0f269_nwjfW8Lzv.jpg?updatedAt=1774277812106" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2025</span>
+                        <span>Ford F-150 Hybrid Platinum</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>9,987 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-blue"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/3FMCR9B69PRD29262" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/3fmcr9b69prd29262_fc8c5f62-c84c-4a00-b518-ad371141df8f_lSMDhsOOe.jpg?updatedAt=1772635006759" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>Ford Bronco Sport Big Bend</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>43,211 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-white"></span>
+                    </div>
+                    <div class="card-loc">📍 OPENLANE Toronto</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FTEW1EP8NKE61894" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftew1ep8nke61894_65cc9a44-21c5-4a94-84e5-6c48aaa77960_7E42hv3Wlk.jpg?updatedAt=1773074512131" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2022</span>
+                        <span>Ford F-150 Lariat</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>34,565 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/JTHBA30GX45024415" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/jthba30gx45024415_b68d1102-ba67-4267-b034-1a2c8b5ea59e_K733Ei2-K.jpg?updatedAt=1772636016367" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2004</span>
+                        <span>Lexus ES ES 330</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>205,346 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 OPENLANE Toronto</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/4JGDA5GB5KB217470" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/4jgda5gb5kb217470_c616e16c-5543-4d91-99f7-40ec024846bb_VZnBKQQ1F.jpg?updatedAt=1774277778404" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2019</span>
+                        <span>Mercedes-Benz GLE GLE 400</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>57,102 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-gray"></span>
+                    </div>
+                    <div class="card-loc">📍 OPENLANE Toronto</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1C6SRFU97NN416588" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1c6srfu97nn416588_c01f6e5c-ad6e-436a-96e7-5bd4a01d487d_93rif5ZhX_.jpg?updatedAt=1774277797124" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2022</span>
+                        <span>Ram 1500 TRX</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>35,347 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-black"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/5UX83DP07N9N28675" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/5ux83dp07n9n28675_0b825cda-391b-4310-8f03-bc81b45078d2_uYldu382VY.jpg?updatedAt=1774277790562" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2022</span>
+                        <span>BMW X3 M40i</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>45,227 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-blue"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Pennsylvania</div>
+                </div>
+            </div>
+        </a>
+    
+        <a href="/vehicle/1FTFW1E86PKF38133" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="https://ik.imagekit.io/hubba/1ftfw1e86pkf38133_250aa44e-4f6b-4510-b507-28c1f8a6e34c_gZ6YLww8l.jpg?updatedAt=1774277889781" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>2023</span>
+                        <span>Ford F-150 Lariat</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>19,804 mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-gray"></span>
+                    </div>
+                    <div class="card-loc">📍 Manheim Flint</div>
+                </div>
+            </div>
+        </a>
+    </div>
+        <div id="pagination" class="pagination"><button class="page-btn disabled" onclick="goToPage(1)">«</button><button class="page-btn disabled" onclick="goToPage(0)">‹</button><button class="page-btn active" onclick="goToPage(1)">1</button><button class="page-btn " onclick="goToPage(2)">2</button><button class="page-btn " onclick="goToPage(3)">3</button><button class="page-btn " onclick="goToPage(4)">4</button><button class="page-btn " onclick="goToPage(5)">5</button><button class="page-btn " onclick="goToPage(2)">›</button><button class="page-btn " onclick="goToPage(6)">»</button></div>
+    </main>
+</div>
+
+<script>
+    let filterState = { 
+        page: 1, make: [], model: [], location: [], 
+        year_min: null, year_max: null, miles_min: null, miles_max: null 
+    };
+
+    let isRequestPending = false;
+    let isSidebarInitialized = false;
+    let databaseBounds = null;
+
+    async function fetchVehicles() {
+        if (isRequestPending) return;
+        isRequestPending = true;
+
+        const queryParams = new URLSearchParams({ page: filterState.page });
+        if(filterState.year_min !== null) queryParams.append('year_min', Number(filterState.year_min));
+        if(filterState.year_max !== null) queryParams.append('year_max', Number(filterState.year_max));
+        if(filterState.miles_min !== null) queryParams.append('miles_min', Number(filterState.miles_min));
+        if(filterState.miles_max !== null) queryParams.append('miles_max', Number(filterState.miles_max));
+        
+        filterState.make.forEach(val => queryParams.append('make', val));
+        filterState.model.forEach(val => queryParams.append('model', val));
+        filterState.location.forEach(val => queryParams.append('location', val));
+
+        try {
+            const response = await fetch(`/api/vehicles?${queryParams.toString()}`);
+            const data = await response.json();
+
+            if (!isSidebarInitialized) {
+                databaseBounds = data.filters.bounds;
+                filterState.year_min = Number(databaseBounds.year_min);
+                filterState.year_max = Number(databaseBounds.year_max);
+                filterState.miles_min = Number(databaseBounds.miles_min);
+                filterState.miles_max = Number(databaseBounds.miles_max);
+                initializeSidebarUI(data.filters);
+                isSidebarInitialized = true;
+            }
+
+            updateCategoryUI('make', data.filters.counts.makes);
+            updateCategoryUI('model', data.filters.counts.models);
+            updateCategoryUI('location', data.filters.counts.locations);
+            
+            renderVehicleGrid(data.vehicles);
+            renderPaginationControls(data.total_pages);
+            updateResetButtonVisibility();
+        } catch (error) {
+            console.error(error);
+        } finally {
+            isRequestPending = false;
+        }
+    }
+
+    function initializeSidebarUI(filters) {
+        populateDropdownRange('year-min-select', 'year-max-select', databaseBounds.year_min, databaseBounds.year_max, true, 1);
+        populateDropdownRange('miles-min-select', 'miles-max-select', databaseBounds.miles_min, databaseBounds.miles_max, false, 10000);
+        
+        createCheckboxList('make-list', filters.makes, 'make');
+        createCheckboxList('location-list', filters.locations, 'location');
+        createCheckboxList('model-list', filters.models, 'model');
+    }
+
+    function populateDropdownRange(minId, maxId, minVal, maxVal, isYearFormat, stepValue) {
+        const minSelect = document.getElementById(minId);
+        const maxSelect = document.getElementById(maxId);
+        minSelect.innerHTML = ''; 
+        maxSelect.innerHTML = '';
+        let start = Number(minVal), end = Number(maxVal), step = Number(stepValue);
+        for (let val = start; val <= end; val += step) {
+            const label = isYearFormat ? val.toString() : val.toLocaleString();
+            minSelect.add(new Option(label, val));
+            maxSelect.add(new Option(label, val));
+        }
+        if (Number(maxSelect.options[maxSelect.options.length - 1]?.value) !== end) {
+            const label = isYearFormat ? end.toString() : end.toLocaleString();
+            minSelect.add(new Option(label, end));
+            maxSelect.add(new Option(label, end));
+        }
+        minSelect.value = start;
+        maxSelect.value = end;
+    }
+
+    function createCheckboxList(containerId, items, stateKey) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = items.map(item => {
+            const safeId = item.toString().replace(/\s/g, '');
+            return `
+                <label id="label-${stateKey}-${safeId}">
+                    <div>
+                        <input type="checkbox" value="${item}" onchange="updateFilterSelection('${stateKey}', '${item}', this.checked)">
+                        ${item}
+                    </div>
+                    <span class="count-badge"></span>
+                </label>
+            `;
+        }).join('');
+    }
+
+    function updateCategoryUI(key, categoryCounts) {
+        const labels = document.querySelectorAll(`[id^="label-${key}-"]`);
+        labels.forEach(label => {
+            const input = label.querySelector('input');
+            const value = input.value;
+            const count = categoryCounts[value] || 0;
+            const badge = label.querySelector('.count-badge');
+            badge.innerText = `(${count})`;
+
+            if (count === 0 && !input.checked) {
+                label.classList.add('zero-count');
+                input.disabled = true;
+                label.style.pointerEvents = 'none';
+            } else {
+                label.classList.remove('zero-count');
+                input.disabled = false;
+                label.style.pointerEvents = 'auto';
+            }
+        });
+    }
+
+    function updateFilterSelection(key, value, isChecked) {
+        if (isChecked) {
+            if (!filterState[key].includes(value)) filterState[key].push(value);
+        } else {
+            filterState[key] = filterState[key].filter(item => item !== value);
+        }
+        filterState.page = 1;
+        fetchVehicles();
+    }
+
+    function handleRangeChange(type) {
+        const minEl = document.getElementById(`${type}-min-select`);
+        const maxEl = document.getElementById(`${type}-max-select`);
+        if (Number(minEl.value) > Number(maxEl.value)) maxEl.value = minEl.value;
+        filterState[`${type}_min`] = Number(minEl.value);
+        filterState[`${type}_max`] = Number(maxEl.value);
+        filterState.page = 1;
+        fetchVehicles();
+    }
+
+function renderVehicleGrid(vehicles) {
+    document.getElementById('grid').innerHTML = vehicles.map(car => `
+        <a href="/vehicle/${car.vin || '#'}" target="_blank" class="card-link">
+            <div class="card">
+                <img class="card-img" src="${car.thumbnail || ''}" alt="Vehicle">
+                <div class="card-info">
+                    <div class="card-title">
+                        <span>${car.year}</span>
+                        <span>${car.make} ${car.model} ${car.trim || ''}</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>${parseInt(car.miles).toLocaleString()} mi</span>
+                        <span>•</span>
+                        <span class="color-dot color-${car.color ? car.color.toLowerCase() : 'grey'}"></span>
+                    </div>
+                    <div class="card-loc">📍 ${car.location}</div>
+                </div>
+            </div>
+        </a>
+    `).join('');
+}
+    function renderPaginationControls(totalPages) {
+        const container = document.getElementById('pagination');
+        if (totalPages <= 1) { container.innerHTML = ''; return; }
+        let html = `<button class="page-btn ${filterState.page === 1 ? 'disabled' : ''}" onclick="goToPage(1)">«</button>`;
+        html += `<button class="page-btn ${filterState.page === 1 ? 'disabled' : ''}" onclick="goToPage(${filterState.page - 1})">‹</button>`;
+        let start = Math.max(1, filterState.page - 2), end = Math.min(totalPages, start + 4);
+        if (end - start < 4) start = Math.max(1, end - 4);
+        for (let i = start; i <= end; i++) html += `<button class="page-btn ${i === filterState.page ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+        html += `<button class="page-btn ${filterState.page === totalPages ? 'disabled' : ''}" onclick="goToPage(${filterState.page + 1})">›</button>`;
+        html += `<button class="page-btn ${filterState.page === totalPages ? 'disabled' : ''}" onclick="goToPage(${totalPages})">»</button>`;
+        container.innerHTML = html;
+    }
+
+    function goToPage(pageNumber) {
+        filterState.page = pageNumber;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        fetchVehicles();
+    }
+
+    function resetAllFilters() {
+        filterState = { 
+            page: 1, make: [], model: [], location: [], 
+            year_min: databaseBounds.year_min, year_max: databaseBounds.year_max, 
+            miles_min: databaseBounds.miles_min, miles_max: databaseBounds.miles_max 
+        };
+        document.querySelectorAll('.sidebar input').forEach(input => { input.checked = false; input.disabled = false; });
+        document.querySelectorAll('.sidebar label').forEach(label => { label.style.pointerEvents = 'auto'; label.classList.remove('zero-count'); });
+        document.getElementById('year-min-select').value = databaseBounds.year_min;
+        document.getElementById('year-max-select').value = databaseBounds.year_max;
+        document.getElementById('miles-min-select').value = databaseBounds.miles_min;
+        document.getElementById('miles-max-select').value = databaseBounds.miles_max;
+        fetchVehicles();
+    }
+
+    function updateResetButtonVisibility() {
+        const isModified = filterState.make.length > 0 || filterState.model.length > 0 || filterState.location.length > 0 || filterState.year_min != databaseBounds.year_min || filterState.year_max != databaseBounds.year_max || filterState.miles_min != databaseBounds.miles_min || filterState.miles_max != databaseBounds.miles_max;
+        document.getElementById('reset-btn').classList.toggle('active', isModified);
+    }
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const fab = document.getElementById('filter-fab');
+        const isOpen = sidebar.classList.toggle('open');
+        fab.style.display = isOpen ? 'none' : 'flex';
+    }
+
+    fetchVehicles();
+</script>
+
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <img src="/static/logo.png" alt="hubba" class="footer-logo">
+        <p>© 2026 Hubba. All rights reserved.</p>
+    </div>
+</footer>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e108042584be531',t:'MTc3NDMwMTA0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+</body></html>

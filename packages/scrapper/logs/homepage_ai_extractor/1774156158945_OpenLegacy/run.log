@@ -1,0 +1,86 @@
+[2026-03-22T05:09:18.946Z] === Homepage AI Extractor: OpenLegacy ===
+[2026-03-22T05:09:18.946Z] Started at: 2026-03-22T05:09:18.946Z
+[2026-03-22T05:09:18.946Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774156158945_OpenLegacy
+[2026-03-22T05:09:18.946Z] Company: OpenLegacy
+[2026-03-22T05:09:18.946Z] Website: openlegacy.com
+[2026-03-22T05:09:18.946Z] cbRank: 115753
+[2026-03-22T05:09:18.946Z] Reasons: f
+[2026-03-22T05:09:18.946Z] Fetching: https://openlegacy.com
+[2026-03-22T05:09:30.117Z] Network idle timeout — continuing with current state
+[2026-03-22T05:09:30.169Z] Redirected: https://openlegacy.com -> https://www.openlegacy.com/
+[2026-03-22T05:09:30.180Z] Saved HTML (305576 bytes) to page.html
+[2026-03-22T05:09:30.184Z] Extracted 53 unique links from page
+[2026-03-22T05:09:30.185Z] Saved 53 links to links.json
+[2026-03-22T05:09:30.189Z] Extracted footer HTML (15687 chars)
+[2026-03-22T05:09:30.190Z] Extracted header HTML (38245 chars)
+[2026-03-22T05:09:30.196Z] Website (post-redirect): https://www.openlegacy.com/ → origin: https://www.openlegacy.com
+[2026-03-22T05:09:30.197Z]   SUBDOMAIN: explore.openlegacy.com (added to ws)
+[2026-03-22T05:09:30.197Z] Website subdomains found: 1
+[2026-03-22T05:09:30.197Z] External links: 5 (of 53 total)
+[2026-03-22T05:09:30.197Z] ── All external links ──
+[2026-03-22T05:09:30.197Z]   EXT: https://twitter.com/openlegacy
+[2026-03-22T05:09:30.197Z]   EXT: https://www.facebook.com/openlegacy
+[2026-03-22T05:09:30.197Z]   EXT: https://www.forbes.com/sites/forbestechcouncil/2023/03/07/cloud-or-on-prem-it-doesnt-have-to-be-a-question/?sh=57629d223fda
+[2026-03-22T05:09:30.197Z]   EXT: https://www.linkedin.com/company/openlegacy-inc
+[2026-03-22T05:09:30.198Z]   EXT: https://www.youtube.com/user/OpenLegacyTube
+[2026-03-22T05:09:30.198Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T05:09:30.198Z]   REGEX: tw <- https://twitter.com/openlegacy
+[2026-03-22T05:09:30.198Z]   REGEX: fb <- https://www.facebook.com/openlegacy
+[2026-03-22T05:09:30.198Z]   UNCATEGORIZED: https://www.forbes.com/sites/forbestechcouncil/2023/03/07/cloud-or-on-prem-it-doesnt-have-to-be-a-question/?sh=57629d223fda
+[2026-03-22T05:09:30.198Z]   REGEX: li <- https://www.linkedin.com/company/openlegacy-inc
+[2026-03-22T05:09:30.198Z]   REGEX: ytp <- https://www.youtube.com/user/OpenLegacyTube
+[2026-03-22T05:09:30.198Z] Programmatic result: ws:2, tw:1, fb:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-22T05:09:30.198Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T05:09:30.202Z] Saved AI prompt (10986 chars) to ai_prompt.txt
+[2026-03-22T05:09:30.202Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T05:09:30.207Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T05:10:14.091Z]   AI: First token received, streaming...
+[2026-03-22T05:10:23.045Z] AI response complete: 191 chars in 52.8s
+[2026-03-22T05:10:23.047Z] Saved AI response to ai_response.json
+[2026-03-22T05:10:23.047Z] ── Parsing AI response (5 lines) ──
+[2026-03-22T05:10:23.047Z]   AI LINK: https://www.linkedin.com/company/openlegacy-inc/
+[2026-03-22T05:10:23.047Z]   AI LINK: https://www.youtube.com/user/OpenLegacyTube
+[2026-03-22T05:10:23.047Z]   AI LINK: https://twitter.com/openlegacy
+[2026-03-22T05:10:23.048Z]   AI LINK: https://www.facebook.com/openlegacy
+[2026-03-22T05:10:23.048Z]   AI LINK: https://www.openlegacy.com/blog
+[2026-03-22T05:10:23.048Z] AI returned 5 valid links
+[2026-03-22T05:10:23.048Z] ── Categorizing 5 AI-returned links ──
+[2026-03-22T05:10:23.048Z]   AI→REGEX: li <- https://www.linkedin.com/company/openlegacy-inc/ (duplicate, skipped)
+[2026-03-22T05:10:23.048Z]   AI→REGEX: ytp <- https://www.youtube.com/user/OpenLegacyTube (duplicate, skipped)
+[2026-03-22T05:10:23.049Z]   AI→REGEX: tw <- https://twitter.com/openlegacy (duplicate, skipped)
+[2026-03-22T05:10:23.049Z]   AI→REGEX: fb <- https://www.facebook.com/openlegacy (duplicate, skipped)
+[2026-03-22T05:10:23.050Z]   AI→URLS: https://www.openlegacy.com/blog
+[2026-03-22T05:10:23.050Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T05:10:23.050Z] Footer/header origins (7):
+[2026-03-22T05:10:23.050Z]   FOOTER/HEADER ORIGIN: https://www.openlegacy.com
+[2026-03-22T05:10:23.051Z]   FOOTER/HEADER ORIGIN: https://explore.openlegacy.com
+[2026-03-22T05:10:23.051Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T05:10:23.051Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T05:10:23.051Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T05:10:23.051Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T05:10:23.051Z]   FOOTER/HEADER ORIGIN: https://www.forbes.com
+[2026-03-22T05:10:23.051Z]   ADDED: urls <- https://www.forbes.com/sites/forbestechcouncil/2023/03/07/cloud-or-on-prem-it-doesnt-have-to-be-a-question (cleaned from https://www.forbes.com/sites/forbestechcouncil/2023/03/07/cloud-or-on-prem-it-doesnt-have-to-be-a-question/?sh=57629d223fda)
+[2026-03-22T05:10:23.051Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T05:10:23.052Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T05:10:23.052Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T05:10:23.052Z] ── Step 3: Final dedup ──
+[2026-03-22T05:10:23.052Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T05:10:23.052Z] ── FINAL RESULT ──
+[2026-03-22T05:10:23.052Z]   ws (2):
+[2026-03-22T05:10:23.052Z]     - https://explore.openlegacy.com
+[2026-03-22T05:10:23.053Z]     - https://www.openlegacy.com
+[2026-03-22T05:10:23.053Z]   li (1):
+[2026-03-22T05:10:23.053Z]     - https://www.linkedin.com/company/openlegacy-inc
+[2026-03-22T05:10:23.053Z]   fb (1):
+[2026-03-22T05:10:23.053Z]     - https://www.facebook.com/openlegacy
+[2026-03-22T05:10:23.053Z]   tw (1):
+[2026-03-22T05:10:23.053Z]     - https://x.com/openlegacy
+[2026-03-22T05:10:23.054Z]   ytp (1):
+[2026-03-22T05:10:23.054Z]     - https://www.youtube.com/@openlegacytube
+[2026-03-22T05:10:23.054Z]   urls (2):
+[2026-03-22T05:10:23.054Z]     - https://www.forbes.com/sites/forbestechcouncil/2023/03/07/cloud-or-on-prem-it-doesnt-have-to-be-a-question
+[2026-03-22T05:10:23.054Z]     - https://www.openlegacy.com/blog
+[2026-03-22T05:10:23.054Z] Summary: ws:2, tw:1, fb:1, li:1, ytp:1, urls:2
+[2026-03-22T05:10:23.056Z] Saved final result to result.json
+[2026-03-22T05:10:23.056Z] Override fields: ws, li, fb, tw, ytp, urls
+[2026-03-22T05:10:23.056Z] Finished at: 2026-03-22T05:10:23.056Z

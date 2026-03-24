@@ -1,0 +1,78 @@
+[2026-03-21T21:46:39.637Z] === Homepage AI Extractor: MIND ===
+[2026-03-21T21:46:39.637Z] Started at: 2026-03-21T21:46:39.637Z
+[2026-03-21T21:46:39.637Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774129599636_MIND
+[2026-03-21T21:46:39.637Z] Company: MIND
+[2026-03-21T21:46:39.637Z] Website: mind.io
+[2026-03-21T21:46:39.637Z] cbRank: 724
+[2026-03-21T21:46:39.637Z] Reasons: f
+[2026-03-21T21:46:39.637Z] Fetching: https://mind.io
+[2026-03-21T21:46:43.297Z] Redirected: https://mind.io -> https://mind.io/
+[2026-03-21T21:46:43.310Z] Saved HTML (531342 bytes) to page.html
+[2026-03-21T21:46:43.317Z] Extracted 52 unique links from page
+[2026-03-21T21:46:43.320Z] Saved 52 links to links.json
+[2026-03-21T21:46:43.336Z] Extracted footer HTML (23844 chars)
+[2026-03-21T21:46:43.336Z] Extracted header HTML (82559 chars)
+[2026-03-21T21:46:43.339Z] Website (post-redirect): https://mind.io/ → origin: https://mind.io
+[2026-03-21T21:46:43.340Z]   SUBDOMAIN: app.mind.io (added to ws)
+[2026-03-21T21:46:43.340Z]   SUBDOMAIN: trust.mind.io (added to ws)
+[2026-03-21T21:46:43.340Z] Website subdomains found: 2
+[2026-03-21T21:46:43.340Z] External links: 3 (of 52 total)
+[2026-03-21T21:46:43.340Z] ── All external links ──
+[2026-03-21T21:46:43.340Z]   EXT: https://www.facebook.com/profile.php?id=61565129216936
+[2026-03-21T21:46:43.340Z]   EXT: https://www.linkedin.com/company/mindsecurity
+[2026-03-21T21:46:43.340Z]   EXT: https://x.com/MIND_Securityio
+[2026-03-21T21:46:43.340Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:46:43.340Z]   REGEX: li <- https://www.linkedin.com/company/mindsecurity
+[2026-03-21T21:46:43.341Z]   REGEX: tw <- https://x.com/MIND_Securityio
+[2026-03-21T21:46:43.341Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-21T21:46:44.466Z]   RESOLVE: https://www.facebook.com/profile.php?id=61565129216936 → https://www.facebook.com/MINDSecurity
+[2026-03-21T21:46:44.479Z]   RESOLVED: fb <- https://www.facebook.com/MINDSecurity (from https://www.facebook.com/profile.php?id=61565129216936)
+[2026-03-21T21:46:44.480Z] Programmatic result: ws:3, li:1, tw:1, fb:1 | 0 uncategorized
+[2026-03-21T21:46:44.480Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:46:44.480Z] Saved AI prompt (4956 chars) to ai_prompt.txt
+[2026-03-21T21:46:44.481Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:46:44.485Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:47:03.277Z]   AI: First token received, streaming...
+[2026-03-21T21:47:13.807Z] AI response complete: 153 chars in 29.3s
+[2026-03-21T21:47:13.809Z] Saved AI response to ai_response.json
+[2026-03-21T21:47:13.809Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T21:47:13.809Z]   AI LINK: https://x.com/MIND_Securityio
+[2026-03-21T21:47:13.809Z]   AI LINK: https://www.linkedin.com/company/mindsecurity
+[2026-03-21T21:47:13.810Z]   AI LINK: https://www.facebook.com/profile.php?id=61565129216936
+[2026-03-21T21:47:13.810Z]   AI LINK: https://trust.mind.io/
+[2026-03-21T21:47:13.810Z] AI returned 4 valid links
+[2026-03-21T21:47:13.810Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T21:47:13.810Z]   AI→REGEX: tw <- https://x.com/MIND_Securityio (duplicate, skipped)
+[2026-03-21T21:47:13.810Z]   AI→REGEX: li <- https://www.linkedin.com/company/mindsecurity (duplicate, skipped)
+[2026-03-21T21:47:14.870Z]   RESOLVE: https://www.facebook.com/profile.php?id=61565129216936 → https://www.facebook.com/MINDSecurity
+[2026-03-21T21:47:14.893Z]   AI→RESOLVED: fb <- https://www.facebook.com/MINDSecurity (from https://www.facebook.com/profile.php?id=61565129216936) (duplicate)
+[2026-03-21T21:47:14.893Z]   AI→URLS: https://trust.mind.io (cleaned from https://trust.mind.io/)
+[2026-03-21T21:47:14.894Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:47:14.894Z] Footer/header origins (5):
+[2026-03-21T21:47:14.894Z]   FOOTER/HEADER ORIGIN: https://trust.mind.io
+[2026-03-21T21:47:14.894Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T21:47:14.894Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T21:47:14.894Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T21:47:14.894Z]   FOOTER/HEADER ORIGIN: https://app.mind.io
+[2026-03-21T21:47:14.894Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:47:14.894Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:47:14.894Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T21:47:14.894Z] ── Step 3: Final dedup ──
+[2026-03-21T21:47:14.894Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T21:47:14.894Z] ── FINAL RESULT ──
+[2026-03-21T21:47:14.894Z]   ws (3):
+[2026-03-21T21:47:14.894Z]     - https://app.mind.io
+[2026-03-21T21:47:14.894Z]     - https://mind.io
+[2026-03-21T21:47:14.894Z]     - https://trust.mind.io
+[2026-03-21T21:47:14.894Z]   li (1):
+[2026-03-21T21:47:14.894Z]     - https://www.linkedin.com/company/mindsecurity
+[2026-03-21T21:47:14.894Z]   fb (1):
+[2026-03-21T21:47:14.894Z]     - https://www.facebook.com/mindsecurity
+[2026-03-21T21:47:14.895Z]   tw (1):
+[2026-03-21T21:47:14.895Z]     - https://x.com/mind_securityio
+[2026-03-21T21:47:14.895Z]   urls (1):
+[2026-03-21T21:47:14.895Z]     - https://trust.mind.io
+[2026-03-21T21:47:14.895Z] Summary: ws:3, li:1, tw:1, fb:1, urls:1
+[2026-03-21T21:47:14.895Z] Saved final result to result.json
+[2026-03-21T21:47:14.895Z] Override fields: ws, li, fb, tw
+[2026-03-21T21:47:14.895Z] Finished at: 2026-03-21T21:47:14.895Z

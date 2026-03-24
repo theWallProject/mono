@@ -1,0 +1,89 @@
+[2026-03-21T20:56:03.369Z] === Homepage AI Extractor: Forter ===
+[2026-03-21T20:56:03.370Z] Started at: 2026-03-21T20:56:03.370Z
+[2026-03-21T20:56:03.370Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774126563369_Forter
+[2026-03-21T20:56:03.370Z] Company: Forter
+[2026-03-21T20:56:03.370Z] Website: forter.com
+[2026-03-21T20:56:03.370Z] cbRank: N/A
+[2026-03-21T20:56:03.370Z] Reasons: h
+[2026-03-21T20:56:03.370Z] Fetching: https://forter.com
+[2026-03-21T20:56:05.763Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-21T20:56:10.796Z] Redirected: https://forter.com -> https://www.forter.com/
+[2026-03-21T20:56:10.809Z] Saved HTML (456809 bytes) to page.html
+[2026-03-21T20:56:10.812Z] Extracted 46 unique links from page
+[2026-03-21T20:56:10.813Z] Saved 46 links to links.json
+[2026-03-21T20:56:10.817Z] Extracted footer HTML (17467 chars)
+[2026-03-21T20:56:10.817Z] Extracted header HTML (56830 chars)
+[2026-03-21T20:56:10.822Z] Website (post-redirect): https://www.forter.com/ → origin: https://www.forter.com
+[2026-03-21T20:56:10.822Z]   SUBDOMAIN: ai.forter.com (added to ws)
+[2026-03-21T20:56:10.822Z]   SUBDOMAIN: docs.forter.com (added to ws)
+[2026-03-21T20:56:10.822Z]   SUBDOMAIN: hello.forter.com (added to ws)
+[2026-03-21T20:56:10.823Z]   SUBDOMAIN: portal.forter.com (added to ws)
+[2026-03-21T20:56:10.823Z]   SUBDOMAIN: support.forter.com (added to ws)
+[2026-03-21T20:56:10.823Z] Website subdomains found: 5
+[2026-03-21T20:56:10.823Z] External links: 5 (of 46 total)
+[2026-03-21T20:56:10.823Z] ── All external links ──
+[2026-03-21T20:56:10.823Z]   EXT: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T20:56:10.823Z]   EXT: https://www.instagram.com/forter_life
+[2026-03-21T20:56:10.823Z]   EXT: https://www.linkedin.com/company/forter
+[2026-03-21T20:56:10.823Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T20:56:10.823Z]   EXT: https://x.com/ForterGlobal
+[2026-03-21T20:56:10.823Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T20:56:10.823Z]   UNCATEGORIZED: https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T20:56:10.823Z]   REGEX: ig <- https://www.instagram.com/forter_life
+[2026-03-21T20:56:10.823Z]   REGEX: li <- https://www.linkedin.com/company/forter
+[2026-03-21T20:56:10.824Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T20:56:10.824Z]   REGEX: tw <- https://x.com/ForterGlobal
+[2026-03-21T20:56:10.824Z] Programmatic result: ws:6, ig:1, li:1, tw:1 | 2 uncategorized
+[2026-03-21T20:56:10.824Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T20:56:10.827Z] Saved AI prompt (6614 chars) to ai_prompt.txt
+[2026-03-21T20:56:10.828Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T20:56:10.832Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T20:56:39.764Z]   AI: First token received, streaming...
+[2026-03-21T20:56:45.747Z] AI response complete: 106 chars in 34.9s
+[2026-03-21T20:56:45.748Z] Saved AI response to ai_response.json
+[2026-03-21T20:56:45.748Z] ── Parsing AI response (3 lines) ──
+[2026-03-21T20:56:45.749Z]   AI LINK: https://www.instagram.com/forter_life/
+[2026-03-21T20:56:45.749Z]   AI LINK: https://x.com/ForterGlobal
+[2026-03-21T20:56:45.749Z]   AI LINK: https://www.linkedin.com/company/forter/
+[2026-03-21T20:56:45.749Z] AI returned 3 valid links
+[2026-03-21T20:56:45.749Z] ── Categorizing 3 AI-returned links ──
+[2026-03-21T20:56:45.750Z]   AI→REGEX: ig <- https://www.instagram.com/forter_life/ (duplicate, skipped)
+[2026-03-21T20:56:45.750Z]   AI→REGEX: tw <- https://x.com/ForterGlobal (duplicate, skipped)
+[2026-03-21T20:56:45.750Z]   AI→REGEX: li <- https://www.linkedin.com/company/forter/ (duplicate, skipped)
+[2026-03-21T20:56:45.752Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T20:56:45.752Z] Footer/header origins (10):
+[2026-03-21T20:56:45.752Z]   FOOTER/HEADER ORIGIN: https://www.forter.com
+[2026-03-21T20:56:45.752Z]   FOOTER/HEADER ORIGIN: https://www.g2.com
+[2026-03-21T20:56:45.752Z]   FOOTER/HEADER ORIGIN: https://hello.forter.com
+[2026-03-21T20:56:45.752Z]   FOOTER/HEADER ORIGIN: https://docs.forter.com
+[2026-03-21T20:56:45.752Z]   FOOTER/HEADER ORIGIN: https://support.forter.com
+[2026-03-21T20:56:45.752Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T20:56:45.753Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-21T20:56:45.753Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T20:56:45.753Z]   FOOTER/HEADER ORIGIN: https://resources.forter.com
+[2026-03-21T20:56:45.753Z]   FOOTER/HEADER ORIGIN: https://portal.forter.com
+[2026-03-21T20:56:45.753Z]   SKIP (not in footer/header): https://cookiepedia.co.uk/giving-consent-to-cookies
+[2026-03-21T20:56:45.753Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-21T20:56:45.753Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T20:56:45.754Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T20:56:45.754Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T20:56:45.754Z] ── Step 3: Final dedup ──
+[2026-03-21T20:56:45.754Z] No urls to dedup
+[2026-03-21T20:56:45.754Z] ── FINAL RESULT ──
+[2026-03-21T20:56:45.754Z]   ws (6):
+[2026-03-21T20:56:45.755Z]     - https://ai.forter.com
+[2026-03-21T20:56:45.755Z]     - https://docs.forter.com
+[2026-03-21T20:56:45.755Z]     - https://hello.forter.com
+[2026-03-21T20:56:45.755Z]     - https://portal.forter.com
+[2026-03-21T20:56:45.755Z]     - https://support.forter.com
+[2026-03-21T20:56:45.755Z]     - https://www.forter.com
+[2026-03-21T20:56:45.755Z]   li (1):
+[2026-03-21T20:56:45.755Z]     - https://www.linkedin.com/company/forter
+[2026-03-21T20:56:45.756Z]   tw (1):
+[2026-03-21T20:56:45.756Z]     - https://x.com/forterglobal
+[2026-03-21T20:56:45.756Z]   ig (1):
+[2026-03-21T20:56:45.756Z]     - https://www.instagram.com/forter_life
+[2026-03-21T20:56:45.756Z] Summary: ws:6, ig:1, li:1, tw:1
+[2026-03-21T20:56:45.757Z] Saved final result to result.json
+[2026-03-21T20:56:45.757Z] Override fields: ws, li, tw, ig
+[2026-03-21T20:56:45.758Z] Finished at: 2026-03-21T20:56:45.758Z

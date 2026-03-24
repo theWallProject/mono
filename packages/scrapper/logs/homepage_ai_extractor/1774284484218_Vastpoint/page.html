@@ -1,0 +1,815 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        .turbo-progress-bar {
+            position: fixed;
+            display: block;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #0076ff;
+            z-index: 2147483647;
+            transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+            transform: translate3d(0, 0, 0);
+        }
+    </style>
+    <title>Vastpoint</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--<meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token" content="jPlai7LFDxu8RkJqFFQ6AD8Maam6daRcsgcdQB6b__ONrDeUKkFwBa6X2ZkYOlyYKO-lbynNsAS8QWbLbH3uYQ">-->
+    <!--<link href="styles.css" rel="stylesheet" />-->
+    <link href="/assets/appstyle.css" rel="stylesheet">
+
+
+    <script type="module">import "application"</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #team {
+            padding-top: 20px;
+            background-color: #f2eaea;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: #2a7d2e;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: #2a7d2e;
+            margin-bottom: 20px;
+        }
+
+        /* Board Members & Management Titles */
+        .text-center {
+            text-align: center;
+        }
+
+        .line-bottom {
+            border-bottom: 2px solid #37a145;
+            width: auto;
+        }
+
+        .pt-5 {
+            padding-top: 3rem !important;
+        }
+
+        /* Team Card Layout */
+        .team-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+            .team-card:hover {
+                transform: translateY(-10px);
+            }
+
+        /* Team Member Image */
+        .team-image {
+            width: 200px; /* Square image size */
+            height: 200px;
+            object-position: top;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            filter: grayscale(100%); /* Makes all images black & white */
+        }
+
+            .team-image:hover {
+                transform: scale(1.05);
+                filter: grayscale(100%); /* Optional: restores color on hover */
+            }
+
+        /* Name & Role */
+        .team-card h6 {
+            font-size: 1.2rem;
+            color: #2a7d2e;
+            margin-top: 15px; /* Adds spacing from image */
+            margin-bottom: 5px; /* Keeps role close to name */
+            font-weight: bold;
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Description Styling */
+        .team-card .info {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+            .team-card .info p {
+                color: #777;
+                margin-bottom: 10px;
+                line-height: 1.5;
+                font-size: 0.95rem;
+            }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team-card {
+                padding: 15px;
+            }
+
+            .team-image {
+                width: 160px;
+                height: 160px;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+
+</head>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" style="">
+
+    <nav class="navbar navbar-expand-lg bg-gradient">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="logo-animate loaded" height="90px" alt="logo" src="/assets/W01v_VAST_B1b_Logo - BlackText_1.jpg">
+            </a>
+            <button class="bg-transparent outline-0 border-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <img height="32px" alt="logo" src="/assets/menu.svg">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-md align-items-center py-5 py-lg-0">
+                    <li class="nav-item py-4 py-lg-0  mx-4">
+                        <a href="#about" class="color-white text-decoration-none footer-link text-uppercase">About</a>
+                    </li>
+                    <li class="nav-item py-4 py-lg-0  mx-4">
+                        <a href="#experience" class="color-white text-decoration-none footer-link text-uppercase">Experience</a>
+                    </li>
+                    <li class="nav-item py-4 py-lg-0  mx-4">
+                        <a href="#impact" class="color-white text-decoration-none footer-link text-uppercase">Impact</a>
+                    </li>
+                    <!--<li class="nav-item py-4 py-lg-0 mx-4">
+                        <a href="#team" class="color-white text-decoration-none footer-link text-uppercase">Team</a>
+                    </li>-->
+                    <li class="nav-item py-4 py-lg-0 mx-4">
+                        <a class="color-white text-decoration-none footer-link text-uppercase" href="/assets/terra-vital-art-challenge-jan-24.pdf" download="">Art Challenge</a>
+                    </li>
+                    <li class="nav-item py-4 py-lg-0 mx-4">
+                        <a class="color-white text-decoration-none footer-link text-uppercase" href="/assets/Vastpoint_Newsletter_Q2-2025.pdf" download="">Newsletter</a>
+                    </li>
+                </ul>
+                <!-- <div class="text-center pb-5 pb-lg-0">
+                    <a href="#" class="text-md contact-btn color-white text-decoration-none text-uppercase">Contact</a>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+    <section id="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-3xl fw-medium fst-italic aos-init aos-animate mt-6" data-aos="fade-up">
+                        We specialize in land administration and geospatial technologies in high-growth countries
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="py-5 my-5">
+        <div class="container">
+            <div class="row">
+                <!-- Text Section -->
+                <div class="col-12 col-xl-4">
+                    <h2 class="text-3xl line-right fw-light color-green aos-init" data-aos="fade-right" data-aos-duration="1000">
+                        About
+                    </h2>
+                    <p class="text-xl mt-3 color-dark-green aos-init" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1200">
+                        VASTPOINT, where innovation meets impact, our mission is to boost sustainable development by
+                        delivering land administration, GIS solutions, and increasing property tax collection.
+                    </p>
+                </div>
+
+                <!-- Image Section -->
+                <div class="col-12 col-xl-8 mt-5 mt-xl-0">
+                    <div class="h-100 w-100 ps-xl-5 position-relative aos-init" data-aos="fade-left" data-aos-duration="1000">
+                        <img height="592px" width="1134px" class="w-100 object-fit-cover shadow about-img" src="/assets/ABOUT_PIC12.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="bg-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-3xl color-light-green fst-italic aos-init" data-aos="fade-up">
+                        We support the full land administration cycle with our innovative methodologies and proprietary
+                        cutting-edge
+                        technologies
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features-card">
+        <div class="container">
+            <div class="row shadow">
+                <div class="col-12 col-md-6 col-xl-3 feature-card aos-init" data-aos="fade-up">
+                    <h3 class="text-lg color-white fw-medium line-top line-green">
+                        Data preparation,
+                        processing, analysis,
+                        and, management
+                    </h3>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 feature-card aos-init" data-aos="fade-up">
+                    <h3 class="text-lg color-white fw-medium line-top line-green">
+                        Community building,
+                        and land use
+                        management
+                    </h3>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 feature-card aos-init" data-aos="fade-up">
+                    <h3 class="text-lg color-white fw-medium line-top line-green">
+                        Mapping and Land registration,
+                        boundaries
+                        delimitation
+                        and, title certification
+                    </h3>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 feature-card aos-init" data-aos="fade-up">
+                    <h3 class="text-lg color-white fw-medium line-top line-green">
+                        Property appraisal
+                        and tax collection
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="py-5 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-10 col-xl-7">
+                    <h2 class="text-3xl fw-light line-right color-green aos-init" data-aos="fade-up">Experience</h2>
+                    <p class="text-xl mt-3 color-dark-green aos-init" data-aos="fade-up">
+                        VASTPOINT's team is a proven leader in designing and
+                        implementing transformative large-scale land administration
+                        projects across Africa, India, and the Middle East.
+                    </p>
+                    <p class="text-xl mt-3 color-dark-green aos-init" data-aos="fade-up">
+                        Our methodologies, coupled with proprietary cutting-edge
+                        technologies, are carefully crafted to address the distinctive
+                        challenges faced by low- and middle-income countries.
+                    </p>
+                    <p class="text-xl mt-3 color-dark-green aos-init" data-aos="fade-up">
+                        This unique combination sets us apart, ensuring the delivery
+                        of lasting positive change to governments and citizens.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-md-6 col-xl-4 mt-4">
+                    <div class="shadow h-100 aos-init" data-aos="fade-up">
+                        <img height="350px" width="540px" class="h-auto mw-100" alt="" src="/assets/TERRA_E_PROJ1_MOZ.jpg">
+                        <div class="p-4 d-flex flex-column ">
+                            <h3 class="text-2xl fw-light color-green line-right">
+                                MOZAMBIQUE
+                            </h3>
+                            <p class="text-base color-dark-green">
+                                Mozambique: Terra Segura Land Administration Project" (World Bank operation).
+                            </p>
+                            <p class="text-base color-dark-green">
+                                Provision of Delimitation of Communities, Basic Land Use Planning and Land
+                                Regularization, parcels demarcation,
+                                boundaries survey and preparation and issuance of over 1.1 Million Land Titles in (7)
+                                seven provinces.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mt-4">
+                    <div class="shadow h-100 aos-init" data-aos="fade-up">
+                        <img height="350px" width="540px" class="h-auto mw-100" alt="" src="/assets/TERRA_E_PROJ2_CVERDE.jpg">
+                        <div class="p-4 d-flex flex-column ">
+                            <h3 class="text-2xl fw-light color-green line-right">
+                                CABO VERDE
+                            </h3>
+                            <p class="text-base color-dark-green">
+                                Santiago Island Land Registry Operation (world Bank operation) Clarify the rights and
+                                boundaries of about 235,500
+                                properties.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mt-4">
+                    <div class="shadow h-100 aos-init" data-aos="fade-up">
+                        <img height="350px" width="540px" class="h-auto mw-100" alt="" src="/assets/TERRA_E_PROJ3_SAFRICA.jpg">
+                        <div class="p-4 d-flex flex-column ">
+                            <h3 class="text-2xl fw-light color-green line-right">
+                                SOUTH AFRICA
+                            </h3>
+                            <p class="text-base color-dark-green">
+                                Cadastre Mapping and Valuation of over 8 million properties.
+                            </p>
+                            <p class="text-base color-dark-green">
+                                Mapping and valuation in metropolitan and urban municipalities for property tax
+                                purposes, generating annual tax revenue
+                                of over $1 billion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="impact" class="bg-gradient py-5 my-5">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-12 col-xl-6">
+                    <h2 class="text-3xl color-light-green line-right fw-light aos-init" data-aos="fade-up">Impact</h2>
+                    <p class="text-2xl my-4 color-white fw-light aos-init" data-aos="fade-up">
+                        " With the majority of the world’s population lacking secure land and property rights, land is at
+                        the center of
+                        development challenges" (World Bank)
+                    </p>
+                    <div class="d-flex flex-column gap-4">
+                        <div class="d-flex gap-3">
+                            <img height="80px" width="80px" class="object-fit-contain aos-init" data-aos="fade-up" src="/assets/Icon_Impact_01s.png">
+                            <div class="d-flex gap-2 flex-column">
+                                <p class="text-xl color-white fw-light mb-0 aos-init" data-aos="fade-up">
+                                    Our goal is to improve land administration in high-growth countries to:
+                                </p>
+                                <ul class="text-xl color-light-green fw-light mt-0">
+                                    <li data-aos="fade-up" class="aos-init">
+                                        Promote sustainable development
+                                    </li>
+                                    <li data-aos="fade-up" class="aos-init">
+                                        Ensure citizens’ provision of basic services
+                                    </li>
+                                    <li data-aos="fade-up" class="aos-init">
+                                        Improve citizens’ quality of life
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <img height="80px" width="80px" class="object-fit-contain aos-init" data-aos="fade-up" src="/assets/Icon_Impact_02.png">
+                            <div class="d-flex gap-2 flex-column">
+                                <p class="text-xl color-white fw-light mb-0 aos-init" data-aos="fade-up">
+                                    We help secure land tenure rights by:
+                                </p>
+                                <ul class="text-xl color-light-green fw-light mt-0">
+                                    <li data-aos="fade-up" class="aos-init">
+                                        Increasing trust and reducing conflictsbetween local communities and the
+                                        government
+                                    </li>
+                                    <li data-aos="fade-up" class="aos-init">
+                                        Promoting land-based economic development
+                                    </li>
+                                    <li data-aos="fade-up" class="aos-init">
+                                        Advance women’s rights in land-related matters
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6 mt-5 mt-xl-0">
+                    <div class="row">
+                        <!-- First Row -->
+                        <div class="col-6 col-md-4 py-3 text-center aos-init" data-aos="fade-up">
+                            <div class="circle">
+                                <span class="num"><span data-counter="3323708">3,323,708</span></span>
+                            </div>
+                            <h5 class="text-lg color-light-green text-uppercase mt-3">
+                                Total Population Served <br> (both sex, project)
+                            </h5>
+                        </div>
+
+                        <div class="col-6 col-md-4 py-3 text-center aos-init" data-aos="fade-up">
+                            <div class="circle">
+                                <span class="num"><span data-counter="821349">821,349</span></span>
+                            </div>
+                            <h5 class="text-lg color-light-green text-uppercase mt-3">
+                                Number of Land Titles Awarded
+                            </h5>
+                        </div>
+
+                        <div class="col-6 col-md-4 py-3 text-center aos-init" data-aos="fade-up">
+                            <div class="circle">
+                                <span class="num"><span data-counter="541481">541,481</span></span>
+                            </div>
+                            <h5 class="text-lg color-light-green text-uppercase mt-3">
+                                Total Number Land Coverage (Ha)
+                            </h5>
+                        </div>
+
+                        <!-- Second Row -->
+                        <div class="col-6 col-md-4 py-3 text-center aos-init" data-aos="fade-up">
+                            <div class="circle">
+                                <span class="num"><span data-counter="444800">444,800</span></span>
+                            </div>
+                            <h5 class="text-lg color-light-green text-uppercase mt-3">
+                                Female Land Owners <br> (co-ownership or single-owner)
+                            </h5>
+                        </div>
+
+                        <div class="col-6 col-md-4 py-3 text-center aos-init" data-aos="fade-up">
+                            <div class="circle">
+                                <span class="num"><span data-counter="54">54</span>%</span>
+                            </div>
+                            <h5 class="text-lg color-light-green text-uppercase mt-3">
+                                Female Land Owners <br>(co-ownership or single-owner)
+                            </h5>
+                        </div>
+
+                        <div class="col-6 col-md-4 py-3 text-center aos-init" data-aos="fade-up">
+                            <div class="circle">
+                                <span class="num"><span data-counter="20650">20,650</span></span>
+                            </div>
+                            <h5 class="text-lg color-light-green text-uppercase mt-3">
+                                Number of individuals
+                                receiving training &amp; <br> Capacity Building
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <section id="impact-2">
+        <div class="container py-5 mb-5">
+            <div class="row align-items-center">
+                <div class="col-12 col-xl-6 pe-xl-5">
+                    <h2 class="text-3xl color-green line-right fw-light aos-init" data-aos="fade-up">Impact</h2>
+                    <p class="text-2xl my-4 color-dark-green fw-light aos-init" data-aos="fade-up">
+                        Land’s fundamental role in sustainable development is reflected in 8 targets and 12 indicators
+                        of the SDGs.
+                    </p>
+                    <p class="text-2xl my-4 color-dark-green fw-light aos-init" data-aos="fade-up">
+                        Strengthening land rights is critical for development and poverty reduction efforts.
+                    </p>
+                </div>
+
+                <div class="col-12 col-xl-6 mt-5 mt-xl-0 ps-xl-5 text-center">
+                    <img height="350px" width="340px" class="h-auto mw-100" src="/assets/Impact_SDG_LRES.png">
+                </div>
+
+                 <!--<div class="col-12 col-xl-6 mt-5 mt-xl-0 ps-xl-5">
+                    <div data-aos="fade-up"
+                        class="d-flex align-items-center justify-content-between p-3 pe-4 mb-3 impact-list-item">
+                        <img src="./assets/images/Impact_03_Environment_ICON.webp" alt="no poverty icon" height="64px"
+                            width="64px" class="h-auto object-fit-cover">
+                        <h5 class="text-2xl text-uppercase color-white fw-light">
+                            ENVIRONMENT
+                        </h5>
+                    </div>
+                    <div data-aos="fade-up"
+                        class="d-flex align-items-center justify-content-between p-3 pe-4 mb-3 impact-list-item">
+                        <img src="./assets/images/Impact_04_Agriculture_ICON.webp" alt="no poverty icon" height="64px"
+                            width="64px" class="h-auto object-fit-cover">
+                        <h5 class="text-2xl text-uppercase color-white fw-light">
+                            AGRICULTURE
+                        </h5>
+                    </div>
+                    <div data-aos="fade-up"
+                        class="d-flex align-items-center justify-content-between p-3 pe-4 mb-3 impact-list-item">
+                        <img src="./assets/images/Impact_05_UrbDev_ICON.webp" alt="no poverty icon" height="64px"
+                            width="64px" class="h-auto object-fit-cover">
+                        <h5 class="text-2xl text-uppercase color-white fw-light">
+                            URBAN DEVELOPMENT
+                        </h5>
+                    </div>
+                    <div data-aos="fade-up"
+                        class="d-flex align-items-center justify-content-between p-3 pe-4 mb-3 impact-list-item">
+                        <img src="./assets/images/Impact_06_EcoGrowth_ICON.webp" alt="no poverty icon" height="64px"
+                            width="64px" class="h-auto object-fit-cover">
+                        <h5 class="text-2xl text-uppercase color-white fw-light">
+                            ECONOMIC GROWTH
+                        </h5>
+                    </div>
+                    <div data-aos="fade-up"
+                        class="d-flex align-items-center justify-content-between p-3 pe-4 mb-3 impact-list-item">
+                        <img src="./assets/images/Impact_07_GEquality_ICON.webp" alt="no poverty icon" height="64px"
+                            width="64px" class="h-auto object-fit-cover">
+                        <h5 class="text-2xl text-uppercase color-white fw-light">
+                            GENDER EQUALITY
+                        </h5>
+                    </div>
+                </div>--> 
+            </div>
+        </div>
+    </section>
+    <!--<section id="team" class="bg-light-gray">
+        <div class="container py-5">-->
+            <!-- Team Title -->
+            <!--<div class="aos-init" data-aos="fade-up">
+                <h2 class="text-4xl color-green fw-light">Our Team</h2>
+            </div>-->
+
+            <!-- Board Members Row -->
+            <!--<div class="row aos-init" data-aos="fade-up">
+                <div class="col-12">
+                    <h3 class="text-3xl color-dark-green">Advisory Board</h3>
+                    <div class="pt-0 line-bottom mb-2"></div>
+                </div>-->
+
+
+                <!-- Nimrod -->
+                <!--<div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Nimrod Gerber</h6>
+                        <p>Director (Chairperson)</p>
+                        <img src="/assets/NG- Personal Photo.jpg" alt="Nimrod" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>With over 20 years of operational experience implementing investments, partnerships, and projects in Africa and emerging markets to drive large-scale environmental and societal impact, </p>
+                            <p>Nimrod focuses on fostering economic growth in urban and rural communities through sustainable infrastructure, food production, agro-industry, healthcare, and more, leveraging expertise in private sector and government engagements across diverse business models, investment strategies, and financing structures.</p>
+                        </div>
+                    </div>
+                </div>-->
+
+
+
+                <!-- Gil Zilberman -->
+                <!--<div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Gil Picovsky</h6>
+                        <p>Director</p>
+                        <img src="/assets/Staff_AB_01_Gil.jpg" alt="Gil Zilberman" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>Gil brings 25 years of versatile experience as an investment banker, principal, and tech entrepreneur across multiple industries worldwide.</p>-->
+                            <!--<p>Held key technical positions in over 150 municipalities and dozens of IT systems projects.</p>-->
+                        <!--</div>
+                    </div>
+                </div>-->
+
+                <!--Amit Stibbe-->
+                <!--<div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Amit Stibbe</h6>
+                        <p>Co-Founder</p>
+                        <img src="/assets/Staff_LT_01_Amit.png" alt="Amit Stibbe" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>Over 10 years of experience in operational positions and project management.</p>
+                            <p>Deep understanding of impact investing, particularly in the land administration and water sectors.</p>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- Sefi Porat -->
+                <!--<div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Sefi Porat</h6>
+                        <p>Co-Founder</p>
+                        <img src="/assets/Staff_LT_06_Sefi.png" alt="Sefi Porat" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>Over 10 years of experience in Information Systems and financing.</p>
+                            <p>Leading the characterization and development of commercial GIS platforms for authorities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Hallel Elnir</h6>
+                        <p>Stakeholder Management</p>
+                        <img src="/assets/Staff_AB_01_Hallel_002.png" alt="Hallel Elnir" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>Over 10 years of experience in international development and urban and rural planning.</p>
+                            <p>Extensive operational experience overseeing development projects in emerging markets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <!-- Management Team Row -->
+            <!--<div class="row  aos-init mt-4" data-aos="fade-up">
+                <div class="col-12">
+                    <h3 class="text-3xl color-dark-green">Management Team</h3>
+                    <div class="pt-0 line-bottom mb-2"></div>
+                </div>-->
+
+                <!-- Willy Govender -->
+                <!--<div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Willy Govender</h6>
+                        <p>CEO (Co-Founder)</p>
+                        <img src="/assets/Staff_LT_04_Willy.png" alt="Willy Govender" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>Entrepreneur with over 35 years of experience in IT and geospatial solutions.</p>
+                            <p>Co-chair for Africa UNGGIM and executive director for the World Geospatial Industry Council.</p>
+                            <p>Expert in land administration and property valuation.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Gil Zilberman</h6>
+                        <p>Operations</p>
+                        <img src="/assets/Staff_AB_01_Gil1.png" alt="Reshme Nandlal" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>
+                                Over 20 years of experience in Information Systems, GIS applications, urban planning systems, and smart cities.
+                                Held key technical positions in leading more than 150 municipalities and dozens of IT systems projects
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Ashley Gangaram</h6>
+                        <p>Technology</p>
+                        <img src="/assets/Ashley_Gangaram.jpg" alt="Ashley Gangaram" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>
+                                Over 16 years of experience in the technology sector, GIS, System integration, and software solutions.
+                                Responsible for overseeing technology development, security, and IT strategy to meet organisational goals.
+                            </p>
+                            <p>
+                                Proven expertise in leading digital transformation projects, improving efficiency, scalability, and reliability.
+                                Experience managing diverse technology teams across multiple countries, focusing on innovative solutions for public and private sector clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Reshme Nandlal</h6>
+                        <p>Corporate Finance Executive (FM)</p>
+                        <img src="/assets/Reshme.jpg" alt="Reshme Nandlal" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>Finance professional with 20 years’ experience in financial and management accounting, including audits, tax, and statutory compliance.</p>
+                            <p>
+                                Highly skilled in multi-disciplinary functions, including Treasury, HR; payroll, and implementing and driving processes.
+                                Have BCom degree, Honours in Management accounting, Qualified SAIPA Professional Accountant, and completing the CIMA Strategic level exams.
+                            </p>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- Yazeed Zoabi -->
+                <!--<div class="col-12 col-md-6 col-xl-3 mt-4 team-member aos-init" data-aos="fade-right">
+                    <div class="team-card">
+                        <h6>Yazeed Zoabi</h6>
+                        <p>Sales and Marketing</p>
+                        <img src="/assets/Staff_LT_05_Jazeed.png" alt="Yazeed Zoabi" class="team-image">
+                        <div class="line-bottom"></div>
+                        <div class="info">
+                            <p>Over 15 years of experience in mapping and cadaster in Africa.</p>
+                            <p>Held key technical positions in leading national cadaster projects in the African continent.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>-->
+
+    <footer class="bg-dark-green">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-xl-6 text-center">
+                    <div class="image-container d-flex justify-content-center mb-4">
+                        <img class="fade-image active" src="/assets/Vastpoint_Logo_Horizontal.jpg" alt="logo">
+                        <img class="fade-image" src="/assets/Vastpoint_terravital.png" alt="logo">
+
+                    </div>
+                    <!--<img height="54px" alt="logo" src="/assets/Vastpoint_Logo_Horizontal.jpg">-->
+                    <div class="text-base color-white py-3">
+                        <p class="text-base color-white py-4">
+                            <i>At VASTPOINT, the macro and micro </i><br>
+                            <i>live in perfect harmony</i><br>
+                            Terra Vital, a VASTPOINT brand
+                        </p>
+                    </div>
+                    <div class="d-flex gap-4 justify-content-center   flex-wrap">
+                        <a href="#about" class="color-light-green text-decoration-none footer-link text-uppercase">About</a>
+                        <span class="fw-bold color-white">|</span>
+                        <a href="#experience" class="color-light-green text-decoration-none footer-link text-uppercase">Experience</a>
+                        <span class="fw-bold color-white">|</span>
+                        <a href="#impact" class="color-light-green text-decoration-none footer-link text-uppercase">Impact</a>
+                        <span class="fw-bold color-white">|</span>
+                        <a href="#team" class="color-light-green text-decoration-none footer-link text-uppercase">Team</a>
+                        <span class="fw-bold color-white">|</span>
+                        <a class="color-light-green text-decoration-none footer-link text-uppercase" download="terra-vital-art-challenge-jan-24.pdf" href="terra-vital-art-challenge-jan-24.pdf">Art Challenge</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-black py-3 d-flex align-items-center flex-column flex-md-row justify-content-between px-5">
+            <div class="d-flex gap-md-4 justify-content-center text-small flex-grow-1 flex-wrap flex-column flex-md-row align-items-center mb-4 mb-md-0">
+                <a href="mailto:Info@vital-terra.com" class="color-white text-decoration-none footer-link">info@vastpoint.com</a>
+                <span class="d-none d-md-block fw-bold color-white">|</span>
+                <p class="color-white text-decoration-none m-0">
+                    Address: Building 15 2nd floor, Woodlands Office Park, 20 Woodlands Drive, Woodlands, Johannesburg, South Africa
+                </p>
+            </div>
+
+            <p class="d-md-none text-small color-white mt-4">Copyright @ 2025</p>
+        </div>
+    </footer>
+
+
+    <!--  -->
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init(); // Initialize AOS for advanced animations
+        });
+    </script>
+    <!-- logo animation -->
+    <script>
+        window.addEventListener('load', function () {
+            const logo = document.querySelector('.logo-animate');
+            logo.classList.add('loaded');
+        });
+    </script>
+    <script>
+        // footer images
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll(".fade-image");
+            let currentIndex = 0;
+
+            function changeImage() {
+                images[currentIndex].classList.remove("active");
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add("active");
+            }
+
+            setInterval(changeImage, 10000); // Change image every 10 seconds
+        });
+    </script>
+
+
+</body></html>

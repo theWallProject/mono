@@ -1,0 +1,64 @@
+[2026-03-22T22:39:47.379Z] === Homepage AI Extractor: Explor Ads ===
+[2026-03-22T22:39:47.379Z] Started at: 2026-03-22T22:39:47.379Z
+[2026-03-22T22:39:47.379Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774219187379_Explor_Ads
+[2026-03-22T22:39:47.380Z] Company: Explor Ads
+[2026-03-22T22:39:47.380Z] Website: explorads.media
+[2026-03-22T22:39:47.380Z] cbRank: 275866
+[2026-03-22T22:39:47.380Z] Reasons: f
+[2026-03-22T22:39:47.380Z] Fetching: https://explorads.media
+[2026-03-22T22:39:49.115Z] Redirected: https://explorads.media -> https://explorads.media/
+[2026-03-22T22:39:49.120Z] Saved HTML (137126 bytes) to page.html
+[2026-03-22T22:39:49.122Z] Extracted 11 unique links from page
+[2026-03-22T22:39:49.122Z] Saved 11 links to links.json
+[2026-03-22T22:39:49.124Z] Extracted footer HTML (10312 chars)
+[2026-03-22T22:39:49.124Z] Extracted header HTML (2868 chars)
+[2026-03-22T22:39:49.128Z] Website (post-redirect): https://explorads.media/ → origin: https://explorads.media
+[2026-03-22T22:39:49.128Z] External links: 4 (of 11 total)
+[2026-03-22T22:39:49.128Z] ── All external links ──
+[2026-03-22T22:39:49.128Z]   EXT: https://login.exploradsteam.com/advertiser/signup
+[2026-03-22T22:39:49.128Z]   EXT: https://login.exploradsteam.com/publisher/signup
+[2026-03-22T22:39:49.128Z]   EXT: https://www.facebook.com/ExplorAds-LTD-103208628301163
+[2026-03-22T22:39:49.128Z]   EXT: https://www.linkedin.com/company/explorads-ltd
+[2026-03-22T22:39:49.128Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:39:49.128Z]   UNCATEGORIZED: https://login.exploradsteam.com/advertiser/signup
+[2026-03-22T22:39:49.129Z]   UNCATEGORIZED: https://login.exploradsteam.com/publisher/signup
+[2026-03-22T22:39:49.129Z]   REGEX: fb <- https://www.facebook.com/ExplorAds-LTD-103208628301163
+[2026-03-22T22:39:49.129Z]   REGEX: li <- https://www.linkedin.com/company/explorads-ltd
+[2026-03-22T22:39:49.129Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-22T22:39:49.129Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:39:49.130Z] Saved AI prompt (5412 chars) to ai_prompt.txt
+[2026-03-22T22:39:49.130Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:39:49.134Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:40:10.912Z]   AI: First token received, streaming...
+[2026-03-22T22:40:19.480Z] AI response complete: 102 chars in 30.4s
+[2026-03-22T22:40:19.482Z] Saved AI response to ai_response.json
+[2026-03-22T22:40:19.482Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T22:40:19.482Z]   AI LINK: https://www.facebook.com/ExplorAds-LTD-103208628301163
+[2026-03-22T22:40:19.482Z]   AI LINK: https://www.linkedin.com/company/explorads-ltd/
+[2026-03-22T22:40:19.483Z] AI returned 2 valid links
+[2026-03-22T22:40:19.483Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T22:40:19.483Z]   AI→REGEX: fb <- https://www.facebook.com/ExplorAds-LTD-103208628301163 (duplicate, skipped)
+[2026-03-22T22:40:19.483Z]   AI→REGEX: li <- https://www.linkedin.com/company/explorads-ltd/ (duplicate, skipped)
+[2026-03-22T22:40:19.484Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:40:19.484Z] Footer/header origins (3):
+[2026-03-22T22:40:19.484Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T22:40:19.484Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T22:40:19.484Z]   FOOTER/HEADER ORIGIN: https://explorads.media
+[2026-03-22T22:40:19.484Z]   SKIP (not in footer/header): https://login.exploradsteam.com/advertiser/signup
+[2026-03-22T22:40:19.484Z]   SKIP (not in footer/header): https://login.exploradsteam.com/publisher/signup
+[2026-03-22T22:40:19.484Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T22:40:19.484Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:40:19.484Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T22:40:19.485Z] ── Step 3: Final dedup ──
+[2026-03-22T22:40:19.485Z] No urls to dedup
+[2026-03-22T22:40:19.485Z] ── FINAL RESULT ──
+[2026-03-22T22:40:19.485Z]   ws (1):
+[2026-03-22T22:40:19.485Z]     - https://explorads.media
+[2026-03-22T22:40:19.485Z]   li (1):
+[2026-03-22T22:40:19.485Z]     - https://www.linkedin.com/company/explorads-ltd
+[2026-03-22T22:40:19.485Z]   fb (1):
+[2026-03-22T22:40:19.485Z]     - https://www.facebook.com/explorads-ltd-103208628301163
+[2026-03-22T22:40:19.485Z] Summary: ws:1, fb:1, li:1
+[2026-03-22T22:40:19.487Z] Saved final result to result.json
+[2026-03-22T22:40:19.487Z] Override fields: ws, li, fb
+[2026-03-22T22:40:19.487Z] Finished at: 2026-03-22T22:40:19.487Z

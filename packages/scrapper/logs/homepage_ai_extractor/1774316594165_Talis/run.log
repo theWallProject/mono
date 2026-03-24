@@ -1,0 +1,78 @@
+[2026-03-24T01:43:14.166Z] === Homepage AI Extractor: Talis ===
+[2026-03-24T01:43:14.166Z] Started at: 2026-03-24T01:43:14.166Z
+[2026-03-24T01:43:14.166Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774316594165_Talis
+[2026-03-24T01:43:14.166Z] Company: Talis
+[2026-03-24T01:43:14.166Z] Website: talis.art
+[2026-03-24T01:43:14.166Z] cbRank: 95498
+[2026-03-24T01:43:14.166Z] Reasons: i
+[2026-03-24T01:43:14.166Z] Fetching: https://talis.art
+[2026-03-24T01:43:16.368Z] Redirected: https://talis.art -> https://talis.art/
+[2026-03-24T01:43:16.370Z] Saved HTML (27149 bytes) to page.html
+[2026-03-24T01:43:16.372Z] Extracted 10 unique links from page
+[2026-03-24T01:43:16.372Z] Saved 10 links to links.json
+[2026-03-24T01:43:16.374Z] Extracted footer HTML (1142 chars)
+[2026-03-24T01:43:16.374Z] Extracted header HTML (7121 chars)
+[2026-03-24T01:43:16.377Z] Website (post-redirect): https://talis.art/ → origin: https://talis.art
+[2026-03-24T01:43:16.377Z]   SUBDOMAIN: blog.talis.art (added to ws)
+[2026-03-24T01:43:16.377Z]   SUBDOMAIN: governance.talis.art (added to ws)
+[2026-03-24T01:43:16.377Z]   SUBDOMAIN: injective.talis.art (added to ws)
+[2026-03-24T01:43:16.377Z]   SUBDOMAIN: orai.talis.art (added to ws)
+[2026-03-24T01:43:16.377Z]   SUBDOMAIN: xion.talis.art (added to ws)
+[2026-03-24T01:43:16.377Z] Website subdomains found: 5
+[2026-03-24T01:43:16.377Z] External links: 3 (of 10 total)
+[2026-03-24T01:43:16.377Z] ── All external links ──
+[2026-03-24T01:43:16.378Z]   EXT: https://discord.com/invite/pgxEttXaZa
+[2026-03-24T01:43:16.378Z]   EXT: https://t.me/talisprotocol
+[2026-03-24T01:43:16.378Z]   EXT: https://twitter.com/ProtocolTalis
+[2026-03-24T01:43:16.378Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:43:16.378Z]   UNCATEGORIZED: https://discord.com/invite/pgxEttXaZa
+[2026-03-24T01:43:16.378Z]   UNCATEGORIZED: https://t.me/talisprotocol
+[2026-03-24T01:43:16.378Z]   REGEX: tw <- https://twitter.com/ProtocolTalis
+[2026-03-24T01:43:16.378Z] Programmatic result: ws:6, tw:1 | 2 uncategorized
+[2026-03-24T01:43:16.378Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:43:16.379Z] Saved AI prompt (2575 chars) to ai_prompt.txt
+[2026-03-24T01:43:16.380Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:43:16.384Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:43:25.153Z]   AI: First token received, streaming...
+[2026-03-24T01:43:31.113Z] AI response complete: 98 chars in 14.7s
+[2026-03-24T01:43:31.114Z] Saved AI response to ai_response.json
+[2026-03-24T01:43:31.114Z] ── Parsing AI response (3 lines) ──
+[2026-03-24T01:43:31.115Z]   AI LINK: https://twitter.com/ProtocolTalis
+[2026-03-24T01:43:31.115Z]   AI LINK: https://t.me/talisprotocol
+[2026-03-24T01:43:31.115Z]   AI LINK: https://discord.com/invite/pgxEttXaZa
+[2026-03-24T01:43:31.115Z] AI returned 3 valid links
+[2026-03-24T01:43:31.115Z] ── Categorizing 3 AI-returned links ──
+[2026-03-24T01:43:31.115Z]   AI→REGEX: tw <- https://twitter.com/ProtocolTalis (duplicate, skipped)
+[2026-03-24T01:43:31.115Z]   AI→URLS: https://t.me/talisprotocol
+[2026-03-24T01:43:31.116Z]   AI→URLS: https://discord.com/invite/pgxEttXaZa
+[2026-03-24T01:43:31.116Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:43:31.116Z] Footer/header origins (5):
+[2026-03-24T01:43:31.116Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T01:43:31.116Z]   FOOTER/HEADER ORIGIN: https://t.me
+[2026-03-24T01:43:31.116Z]   FOOTER/HEADER ORIGIN: https://discord.com
+[2026-03-24T01:43:31.116Z]   FOOTER/HEADER ORIGIN: https://governance.talis.art
+[2026-03-24T01:43:31.116Z]   FOOTER/HEADER ORIGIN: https://blog.talis.art
+[2026-03-24T01:43:31.117Z]   SKIP (AI claimed): https://discord.com/invite/pgxEttXaZa
+[2026-03-24T01:43:31.117Z]   SKIP (AI claimed): https://t.me/talisprotocol
+[2026-03-24T01:43:31.117Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:43:31.117Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:43:31.117Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:43:31.117Z] ── Step 3: Final dedup ──
+[2026-03-24T01:43:31.117Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-24T01:43:31.117Z] ── FINAL RESULT ──
+[2026-03-24T01:43:31.117Z]   ws (6):
+[2026-03-24T01:43:31.117Z]     - https://blog.talis.art
+[2026-03-24T01:43:31.117Z]     - https://governance.talis.art
+[2026-03-24T01:43:31.117Z]     - https://injective.talis.art
+[2026-03-24T01:43:31.117Z]     - https://orai.talis.art
+[2026-03-24T01:43:31.118Z]     - https://talis.art
+[2026-03-24T01:43:31.118Z]     - https://xion.talis.art
+[2026-03-24T01:43:31.118Z]   tw (1):
+[2026-03-24T01:43:31.118Z]     - https://x.com/protocoltalis
+[2026-03-24T01:43:31.118Z]   urls (2):
+[2026-03-24T01:43:31.118Z]     - https://discord.com/invite/pgxEttXaZa
+[2026-03-24T01:43:31.118Z]     - https://t.me/talisprotocol
+[2026-03-24T01:43:31.118Z] Summary: ws:6, tw:1, urls:2
+[2026-03-24T01:43:31.119Z] Saved final result to result.json
+[2026-03-24T01:43:31.119Z] Override fields: ws, tw, urls
+[2026-03-24T01:43:31.119Z] Finished at: 2026-03-24T01:43:31.119Z

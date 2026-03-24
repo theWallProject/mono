@@ -1,0 +1,82 @@
+[2026-03-22T01:04:59.746Z] === Homepage AI Extractor: Centraleyes ===
+[2026-03-22T01:04:59.746Z] Started at: 2026-03-22T01:04:59.746Z
+[2026-03-22T01:04:59.746Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774141499745_Centraleyes
+[2026-03-22T01:04:59.746Z] Company: Centraleyes
+[2026-03-22T01:04:59.746Z] Website: centraleyes.com
+[2026-03-22T01:04:59.746Z] cbRank: 18507
+[2026-03-22T01:04:59.746Z] Reasons: f
+[2026-03-22T01:04:59.746Z] Fetching: https://centraleyes.com
+[2026-03-22T01:05:04.083Z] Redirected: https://centraleyes.com -> https://www.centraleyes.com/
+[2026-03-22T01:05:04.109Z] Saved HTML (926644 bytes) to page.html
+[2026-03-22T01:05:04.115Z] Extracted 112 unique links from page
+[2026-03-22T01:05:04.116Z] Saved 112 links to links.json
+[2026-03-22T01:05:04.124Z] Extracted footer HTML (72321 chars)
+[2026-03-22T01:05:04.125Z] Extracted header HTML (259343 chars)
+[2026-03-22T01:05:04.129Z] Website (post-redirect): https://www.centraleyes.com/ → origin: https://www.centraleyes.com
+[2026-03-22T01:05:04.129Z]   SUBDOMAIN: resources.centraleyes.com (added to ws)
+[2026-03-22T01:05:04.129Z] Website subdomains found: 1
+[2026-03-22T01:05:04.130Z] External links: 5 (of 112 total)
+[2026-03-22T01:05:04.130Z] ── All external links ──
+[2026-03-22T01:05:04.130Z]   EXT: https://goo.gl/maps/GHTor5e5pqcK5evU8
+[2026-03-22T01:05:04.130Z]   EXT: https://twitter.com/Centraleyes_
+[2026-03-22T01:05:04.130Z]   EXT: https://vimeo.com/1079077388
+[2026-03-22T01:05:04.130Z]   EXT: https://www.linkedin.com/company/cygov
+[2026-03-22T01:05:04.130Z]   EXT: https://www.youtube.com/channel/UCi3kSjEXU1kPnaI0ErJTjzw
+[2026-03-22T01:05:04.130Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T01:05:04.130Z]   UNCATEGORIZED: https://goo.gl/maps/GHTor5e5pqcK5evU8
+[2026-03-22T01:05:04.130Z]   REGEX: tw <- https://twitter.com/Centraleyes_
+[2026-03-22T01:05:04.130Z]   UNCATEGORIZED: https://vimeo.com/1079077388
+[2026-03-22T01:05:04.130Z]   REGEX: li <- https://www.linkedin.com/company/cygov
+[2026-03-22T01:05:04.131Z]   REGEX: ytc <- https://www.youtube.com/channel/UCi3kSjEXU1kPnaI0ErJTjzw
+[2026-03-22T01:05:04.131Z] Programmatic result: ws:2, tw:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-22T01:05:04.131Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T01:05:04.135Z] Saved AI prompt (5192 chars) to ai_prompt.txt
+[2026-03-22T01:05:04.135Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T01:05:04.139Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T01:05:24.104Z]   AI: First token received, streaming...
+[2026-03-22T01:05:33.810Z] AI response complete: 129 chars in 29.7s
+[2026-03-22T01:05:33.812Z] Saved AI response to ai_response.json
+[2026-03-22T01:05:33.812Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T01:05:33.813Z]   AI LINK: https://twitter.com/Centraleyes_
+[2026-03-22T01:05:33.813Z]   AI LINK: https://www.linkedin.com/company/cygov/
+[2026-03-22T01:05:33.813Z]   AI LINK: https://www.youtube.com/channel/UCi3kSjEXU1kPnaI0ErJTjzw
+[2026-03-22T01:05:33.813Z] AI returned 3 valid links
+[2026-03-22T01:05:33.813Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T01:05:33.814Z]   AI→REGEX: tw <- https://twitter.com/Centraleyes_ (duplicate, skipped)
+[2026-03-22T01:05:33.814Z]   AI→REGEX: li <- https://www.linkedin.com/company/cygov/ (duplicate, skipped)
+[2026-03-22T01:05:33.814Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCi3kSjEXU1kPnaI0ErJTjzw (duplicate, skipped)
+[2026-03-22T01:05:33.818Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T01:05:33.819Z] Footer/header origins (6):
+[2026-03-22T01:05:33.819Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-22T01:05:33.819Z]   FOOTER/HEADER ORIGIN: https://www.centraleyes.com
+[2026-03-22T01:05:33.819Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T01:05:33.819Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T01:05:33.819Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T01:05:33.819Z]   FOOTER/HEADER ORIGIN: https://resources.centraleyes.com
+[2026-03-22T01:05:33.820Z]   ADDED: urls <- https://goo.gl/maps/GHTor5e5pqcK5evU8
+[2026-03-22T01:05:33.820Z]   SKIP (not in footer/header): https://vimeo.com/1079077388
+[2026-03-22T01:05:33.820Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T01:05:33.820Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T01:05:33.820Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T01:05:34.072Z]   YOUTUBE: resolved UCi3kSjEXU1kPnaI0ErJTjzw → @CentraleyesGRC
+[2026-03-22T01:05:34.072Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T01:05:34.073Z] ── Step 3: Final dedup ──
+[2026-03-22T01:05:34.073Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-22T01:05:34.073Z] ── FINAL RESULT ──
+[2026-03-22T01:05:34.073Z]   ws (2):
+[2026-03-22T01:05:34.073Z]     - https://resources.centraleyes.com
+[2026-03-22T01:05:34.073Z]     - https://www.centraleyes.com
+[2026-03-22T01:05:34.073Z]   li (1):
+[2026-03-22T01:05:34.073Z]     - https://www.linkedin.com/company/cygov
+[2026-03-22T01:05:34.074Z]   tw (1):
+[2026-03-22T01:05:34.074Z]     - https://x.com/centraleyes_
+[2026-03-22T01:05:34.074Z]   ytp (1):
+[2026-03-22T01:05:34.074Z]     - https://www.youtube.com/@CentraleyesGRC
+[2026-03-22T01:05:34.074Z]   ytc (1):
+[2026-03-22T01:05:34.074Z]     - https://www.youtube.com/channel/UCi3kSjEXU1kPnaI0ErJTjzw
+[2026-03-22T01:05:34.074Z]   urls (1):
+[2026-03-22T01:05:34.074Z]     - https://goo.gl/maps/GHTor5e5pqcK5evU8
+[2026-03-22T01:05:34.074Z] Summary: ws:2, tw:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-22T01:05:34.075Z] Saved final result to result.json
+[2026-03-22T01:05:34.075Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-22T01:05:34.075Z] Finished at: 2026-03-22T01:05:34.075Z

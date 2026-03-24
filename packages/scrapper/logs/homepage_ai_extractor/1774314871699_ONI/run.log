@@ -1,0 +1,90 @@
+[2026-03-24T01:14:31.700Z] === Homepage AI Extractor: ONI ===
+[2026-03-24T01:14:31.700Z] Started at: 2026-03-24T01:14:31.700Z
+[2026-03-24T01:14:31.700Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774314871699_ONI
+[2026-03-24T01:14:31.700Z] Company: ONI
+[2026-03-24T01:14:31.700Z] Website: oni.bio
+[2026-03-24T01:14:31.700Z] cbRank: 80739
+[2026-03-24T01:14:31.700Z] Reasons: i
+[2026-03-24T01:14:31.700Z] Fetching: https://oni.bio
+[2026-03-24T01:14:34.139Z] Redirected: https://oni.bio -> https://oni.bio/
+[2026-03-24T01:14:34.148Z] Saved HTML (288708 bytes) to page.html
+[2026-03-24T01:14:34.151Z] Extracted 71 unique links from page
+[2026-03-24T01:14:34.152Z] Saved 71 links to links.json
+[2026-03-24T01:14:34.154Z] Extracted footer HTML (6450 chars)
+[2026-03-24T01:14:34.154Z] Extracted header HTML (7195 chars)
+[2026-03-24T01:14:34.167Z] Website (post-redirect): https://oni.bio/ → origin: https://oni.bio
+[2026-03-24T01:14:34.167Z]   SUBDOMAIN: insights.oni.bio (added to ws)
+[2026-03-24T01:14:34.168Z]   SUBDOMAIN: pages.oni.bio (added to ws)
+[2026-03-24T01:14:34.168Z] Website subdomains found: 2
+[2026-03-24T01:14:34.168Z] External links: 7 (of 71 total)
+[2026-03-24T01:14:34.168Z] ── All external links ──
+[2026-03-24T01:14:34.168Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-24T01:14:34.168Z]   EXT: https://twitter.com/oniHQ
+[2026-03-24T01:14:34.168Z]   EXT: https://www.facebook.com/ONIdotBIO
+[2026-03-24T01:14:34.168Z]   EXT: https://www.instagram.com/oni_bio
+[2026-03-24T01:14:34.168Z]   EXT: https://www.linkedin.com/company/onibio
+[2026-03-24T01:14:34.168Z]   EXT: https://www.statcounter.com
+[2026-03-24T01:14:34.168Z]   EXT: https://www.youtube.com/@oni-bio
+[2026-03-24T01:14:34.168Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:14:34.169Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-24T01:14:34.170Z]   REGEX: tw <- https://twitter.com/oniHQ
+[2026-03-24T01:14:34.170Z]   REGEX: fb <- https://www.facebook.com/ONIdotBIO
+[2026-03-24T01:14:34.170Z]   REGEX: ig <- https://www.instagram.com/oni_bio
+[2026-03-24T01:14:34.170Z]   REGEX: li <- https://www.linkedin.com/company/onibio
+[2026-03-24T01:14:34.170Z]   UNCATEGORIZED: https://www.statcounter.com
+[2026-03-24T01:14:34.170Z]   REGEX: ytp <- https://www.youtube.com/@oni-bio
+[2026-03-24T01:14:34.170Z] Programmatic result: ws:3, tw:1, fb:1, ig:1, li:1, ytp:1 | 2 uncategorized
+[2026-03-24T01:14:34.170Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:14:34.174Z] Saved AI prompt (5851 chars) to ai_prompt.txt
+[2026-03-24T01:14:34.174Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:14:34.180Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:14:56.364Z]   AI: First token received, streaming...
+[2026-03-24T01:15:06.732Z] AI response complete: 169 chars in 32.6s
+[2026-03-24T01:15:06.733Z] Saved AI response to ai_response.json
+[2026-03-24T01:15:06.734Z] ── Parsing AI response (5 lines) ──
+[2026-03-24T01:15:06.734Z]   AI LINK: https://www.linkedin.com/company/onibio
+[2026-03-24T01:15:06.734Z]   AI LINK: https://twitter.com/oniHQ
+[2026-03-24T01:15:06.734Z]   AI LINK: https://www.instagram.com/oni_bio/
+[2026-03-24T01:15:06.734Z]   AI LINK: https://www.youtube.com/@oni-bio
+[2026-03-24T01:15:06.734Z]   AI LINK: https://www.facebook.com/ONIdotBIO/
+[2026-03-24T01:15:06.734Z] AI returned 5 valid links
+[2026-03-24T01:15:06.735Z] ── Categorizing 5 AI-returned links ──
+[2026-03-24T01:15:06.735Z]   AI→REGEX: li <- https://www.linkedin.com/company/onibio (duplicate, skipped)
+[2026-03-24T01:15:06.735Z]   AI→REGEX: tw <- https://twitter.com/oniHQ (duplicate, skipped)
+[2026-03-24T01:15:06.736Z]   AI→REGEX: ig <- https://www.instagram.com/oni_bio/ (duplicate, skipped)
+[2026-03-24T01:15:06.736Z]   AI→REGEX: ytp <- https://www.youtube.com/@oni-bio (duplicate, skipped)
+[2026-03-24T01:15:06.736Z]   AI→REGEX: fb <- https://www.facebook.com/ONIdotBIO/ (duplicate, skipped)
+[2026-03-24T01:15:06.737Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:15:06.737Z] Footer/header origins (6):
+[2026-03-24T01:15:06.738Z]   FOOTER/HEADER ORIGIN: https://oni.bio
+[2026-03-24T01:15:06.738Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T01:15:06.738Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-24T01:15:06.738Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-24T01:15:06.738Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-24T01:15:06.738Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-24T01:15:06.738Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-24T01:15:06.738Z]   SKIP (not in footer/header): https://www.statcounter.com
+[2026-03-24T01:15:06.738Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:15:06.738Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:15:06.738Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:15:06.738Z] ── Step 3: Final dedup ──
+[2026-03-24T01:15:06.739Z] No urls to dedup
+[2026-03-24T01:15:06.739Z] ── FINAL RESULT ──
+[2026-03-24T01:15:06.739Z]   ws (3):
+[2026-03-24T01:15:06.739Z]     - https://insights.oni.bio
+[2026-03-24T01:15:06.739Z]     - https://oni.bio
+[2026-03-24T01:15:06.739Z]     - https://pages.oni.bio
+[2026-03-24T01:15:06.739Z]   li (1):
+[2026-03-24T01:15:06.739Z]     - https://www.linkedin.com/company/onibio
+[2026-03-24T01:15:06.739Z]   fb (1):
+[2026-03-24T01:15:06.739Z]     - https://www.facebook.com/onidotbio
+[2026-03-24T01:15:06.739Z]   tw (1):
+[2026-03-24T01:15:06.739Z]     - https://x.com/onihq
+[2026-03-24T01:15:06.739Z]   ig (1):
+[2026-03-24T01:15:06.739Z]     - https://www.instagram.com/oni_bio
+[2026-03-24T01:15:06.739Z]   ytp (1):
+[2026-03-24T01:15:06.740Z]     - https://www.youtube.com/@oni-bio
+[2026-03-24T01:15:06.740Z] Summary: ws:3, tw:1, fb:1, ig:1, li:1, ytp:1
+[2026-03-24T01:15:06.741Z] Saved final result to result.json
+[2026-03-24T01:15:06.741Z] Override fields: ws, li, fb, tw, ig, ytp
+[2026-03-24T01:15:06.741Z] Finished at: 2026-03-24T01:15:06.741Z

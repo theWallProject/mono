@@ -1,0 +1,65 @@
+[2026-03-22T22:41:17.334Z] === Homepage AI Extractor: AppSharp ===
+[2026-03-22T22:41:17.334Z] Started at: 2026-03-22T22:41:17.334Z
+[2026-03-22T22:41:17.334Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774219277333_AppSharp
+[2026-03-22T22:41:17.334Z] Company: AppSharp
+[2026-03-22T22:41:17.334Z] Website: appsharp.com
+[2026-03-22T22:41:17.334Z] cbRank: 277351
+[2026-03-22T22:41:17.334Z] Reasons: f
+[2026-03-22T22:41:17.334Z] Fetching: https://appsharp.com
+[2026-03-22T22:41:19.579Z] Redirected: https://appsharp.com -> https://www.appsharp.com/
+[2026-03-22T22:41:19.581Z] Saved HTML (9835 bytes) to page.html
+[2026-03-22T22:41:19.583Z] Extracted 8 unique links from page
+[2026-03-22T22:41:19.583Z] Saved 8 links to links.json
+[2026-03-22T22:41:19.586Z] Extracted footer HTML (133 chars)
+[2026-03-22T22:41:19.586Z] Extracted header HTML (1104 chars)
+[2026-03-22T22:41:19.588Z] Website (post-redirect): https://www.appsharp.com/ → origin: https://www.appsharp.com
+[2026-03-22T22:41:19.588Z]   SUBDOMAIN: footprint.appsharp.com (added to ws)
+[2026-03-22T22:41:19.589Z] Website subdomains found: 1
+[2026-03-22T22:41:19.589Z] External links: 3 (of 8 total)
+[2026-03-22T22:41:19.589Z] ── All external links ──
+[2026-03-22T22:41:19.589Z]   EXT: https://sitebooster.com
+[2026-03-22T22:41:19.589Z]   EXT: https://www.biz.me
+[2026-03-22T22:41:19.589Z]   EXT: https://www.wix.com/app-market/online-business-card/overview
+[2026-03-22T22:41:19.589Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T22:41:19.589Z]   UNCATEGORIZED: https://sitebooster.com
+[2026-03-22T22:41:19.589Z]   UNCATEGORIZED: https://www.biz.me
+[2026-03-22T22:41:19.589Z]   UNCATEGORIZED: https://www.wix.com/app-market/online-business-card/overview
+[2026-03-22T22:41:19.589Z] Programmatic result: ws:2 | 3 uncategorized
+[2026-03-22T22:41:19.589Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T22:41:19.590Z] Saved AI prompt (2102 chars) to ai_prompt.txt
+[2026-03-22T22:41:19.590Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T22:41:19.594Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T22:41:26.966Z]   AI: First token received, streaming...
+[2026-03-22T22:41:28.766Z] AI response complete: 60 chars in 9.2s
+[2026-03-22T22:41:28.768Z] Saved AI response to ai_response.json
+[2026-03-22T22:41:28.768Z] ── Parsing AI response (1 lines) ──
+[2026-03-22T22:41:28.768Z]   AI LINK: https://www.wix.com/app-market/online-business-card/overview
+[2026-03-22T22:41:28.769Z] AI returned 1 valid links
+[2026-03-22T22:41:28.769Z] ── Categorizing 1 AI-returned links ──
+[2026-03-22T22:41:28.769Z]   AI→URLS: https://www.wix.com/app-market/online-business-card/overview
+[2026-03-22T22:41:28.770Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T22:41:28.770Z] Footer/header origins (4):
+[2026-03-22T22:41:28.770Z]   FOOTER/HEADER ORIGIN: https://footprint.appsharp.com
+[2026-03-22T22:41:28.770Z]   FOOTER/HEADER ORIGIN: https://sitebooster.com
+[2026-03-22T22:41:28.770Z]   FOOTER/HEADER ORIGIN: https://www.biz.me
+[2026-03-22T22:41:28.770Z]   FOOTER/HEADER ORIGIN: https://www.wix.com
+[2026-03-22T22:41:28.771Z]   ADDED: urls <- https://sitebooster.com
+[2026-03-22T22:41:28.771Z]   ADDED: urls <- https://www.biz.me
+[2026-03-22T22:41:28.771Z]   SKIP (AI claimed): https://www.wix.com/app-market/online-business-card/overview
+[2026-03-22T22:41:28.771Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-22T22:41:28.771Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T22:41:28.771Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T22:41:28.771Z] ── Step 3: Final dedup ──
+[2026-03-22T22:41:28.772Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-22T22:41:28.772Z] ── FINAL RESULT ──
+[2026-03-22T22:41:28.772Z]   ws (2):
+[2026-03-22T22:41:28.772Z]     - https://footprint.appsharp.com
+[2026-03-22T22:41:28.772Z]     - https://www.appsharp.com
+[2026-03-22T22:41:28.772Z]   urls (3):
+[2026-03-22T22:41:28.772Z]     - https://sitebooster.com
+[2026-03-22T22:41:28.773Z]     - https://www.biz.me
+[2026-03-22T22:41:28.773Z]     - https://www.wix.com/app-market/online-business-card/overview
+[2026-03-22T22:41:28.773Z] Summary: ws:2, urls:3
+[2026-03-22T22:41:28.775Z] Saved final result to result.json
+[2026-03-22T22:41:28.775Z] Override fields: ws, urls
+[2026-03-22T22:41:28.775Z] Finished at: 2026-03-22T22:41:28.775Z

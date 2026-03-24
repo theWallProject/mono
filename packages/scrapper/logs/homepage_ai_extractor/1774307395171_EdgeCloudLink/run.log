@@ -1,0 +1,81 @@
+[2026-03-23T23:09:55.172Z] === Homepage AI Extractor: EdgeCloudLink ===
+[2026-03-23T23:09:55.172Z] Started at: 2026-03-23T23:09:55.172Z
+[2026-03-23T23:09:55.172Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774307395171_EdgeCloudLink
+[2026-03-23T23:09:55.173Z] Company: EdgeCloudLink
+[2026-03-23T23:09:55.173Z] Website: ecldc.com
+[2026-03-23T23:09:55.173Z] cbRank: 38079
+[2026-03-23T23:09:55.173Z] Reasons: i
+[2026-03-23T23:09:55.173Z] Fetching: https://ecldc.com
+[2026-03-23T23:09:57.304Z] Redirected: https://ecldc.com -> https://ecldc.com/
+[2026-03-23T23:09:57.307Z] Saved HTML (51602 bytes) to page.html
+[2026-03-23T23:09:57.309Z] Extracted 13 unique links from page
+[2026-03-23T23:09:57.309Z] Saved 13 links to links.json
+[2026-03-23T23:09:57.311Z] Extracted footer HTML (4712 chars)
+[2026-03-23T23:09:57.311Z] Extracted header HTML (2012 chars)
+[2026-03-23T23:09:57.314Z] Website (post-redirect): https://ecldc.com/ → origin: https://ecldc.com
+[2026-03-23T23:09:57.315Z] External links: 6 (of 13 total)
+[2026-03-23T23:09:57.315Z] ── All external links ──
+[2026-03-23T23:09:57.315Z]   EXT: http://ecldc-com.preview-domain.com/contact-us/#buildyoursite
+[2026-03-23T23:09:57.315Z]   EXT: http://ecldc-com.preview-domain.com/product
+[2026-03-23T23:09:57.315Z]   EXT: https://jobs.lever.co/ecldc
+[2026-03-23T23:09:57.315Z]   EXT: https://twitter.com/ECL_DC
+[2026-03-23T23:09:57.315Z]   EXT: https://www.facebook.com/profile.php?id=100089777105937
+[2026-03-23T23:09:57.315Z]   EXT: https://www.linkedin.com/company/ecldc
+[2026-03-23T23:09:57.315Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:09:57.315Z]   UNCATEGORIZED: http://ecldc-com.preview-domain.com/contact-us/#buildyoursite
+[2026-03-23T23:09:57.315Z]   UNCATEGORIZED: http://ecldc-com.preview-domain.com/product
+[2026-03-23T23:09:57.315Z]   UNCATEGORIZED: https://jobs.lever.co/ecldc
+[2026-03-23T23:09:57.315Z]   REGEX: tw <- https://twitter.com/ECL_DC
+[2026-03-23T23:09:57.315Z]   REGEX: li <- https://www.linkedin.com/company/ecldc
+[2026-03-23T23:09:57.315Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-23T23:09:58.272Z]   RESOLVE: https://www.facebook.com/profile.php?id=100089777105937 → https://www.facebook.com/people/ECL/100089777105937
+[2026-03-23T23:09:58.291Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/ECL/100089777105937 (from https://www.facebook.com/profile.php?id=100089777105937)
+[2026-03-23T23:09:58.291Z] Programmatic result: ws:1, tw:1, li:1 | 3 uncategorized
+[2026-03-23T23:09:58.291Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:09:58.295Z] Saved AI prompt (3850 chars) to ai_prompt.txt
+[2026-03-23T23:09:58.295Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:09:58.300Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:10:12.953Z]   AI: First token received, streaming...
+[2026-03-23T23:10:24.000Z] AI response complete: 150 chars in 25.7s
+[2026-03-23T23:10:24.001Z] Saved AI response to ai_response.json
+[2026-03-23T23:10:24.002Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T23:10:24.002Z]   AI LINK: https://jobs.lever.co/ecldc
+[2026-03-23T23:10:24.002Z]   AI LINK: https://twitter.com/ECL_DC
+[2026-03-23T23:10:24.002Z]   AI LINK: https://www.facebook.com/profile.php?id=100089777105937
+[2026-03-23T23:10:24.002Z]   AI LINK: https://www.linkedin.com/company/ecldc/
+[2026-03-23T23:10:24.002Z] AI returned 4 valid links
+[2026-03-23T23:10:24.002Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T23:10:24.003Z]   AI→URLS: https://jobs.lever.co/ecldc
+[2026-03-23T23:10:24.003Z]   AI→REGEX: tw <- https://twitter.com/ECL_DC (duplicate, skipped)
+[2026-03-23T23:10:24.709Z]   RESOLVE: https://www.facebook.com/profile.php?id=100089777105937 → https://www.facebook.com/people/ECL/100089777105937
+[2026-03-23T23:10:24.726Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/ECL/100089777105937 (from https://www.facebook.com/profile.php?id=100089777105937)
+[2026-03-23T23:10:24.727Z]   AI→REGEX: li <- https://www.linkedin.com/company/ecldc/ (duplicate, skipped)
+[2026-03-23T23:10:24.727Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:10:24.727Z] Footer/header origins (6):
+[2026-03-23T23:10:24.727Z]   FOOTER/HEADER ORIGIN: https://ecldc.com
+[2026-03-23T23:10:24.727Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T23:10:24.727Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T23:10:24.727Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:10:24.727Z]   FOOTER/HEADER ORIGIN: https://jobs.lever.co
+[2026-03-23T23:10:24.727Z]   FOOTER/HEADER ORIGIN: http://ecldc.com
+[2026-03-23T23:10:24.727Z]   SKIP (not in footer/header): http://ecldc-com.preview-domain.com/contact-us/#buildyoursite
+[2026-03-23T23:10:24.727Z]   SKIP (not in footer/header): http://ecldc-com.preview-domain.com/product
+[2026-03-23T23:10:24.727Z]   SKIP (AI claimed): https://jobs.lever.co/ecldc
+[2026-03-23T23:10:24.727Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:10:24.727Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:10:24.727Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:10:24.727Z] ── Step 3: Final dedup ──
+[2026-03-23T23:10:24.727Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T23:10:24.727Z] ── FINAL RESULT ──
+[2026-03-23T23:10:24.727Z]   ws (1):
+[2026-03-23T23:10:24.727Z]     - https://ecldc.com
+[2026-03-23T23:10:24.728Z]   li (1):
+[2026-03-23T23:10:24.728Z]     - https://www.linkedin.com/company/ecldc
+[2026-03-23T23:10:24.728Z]   tw (1):
+[2026-03-23T23:10:24.728Z]     - https://x.com/ecl_dc
+[2026-03-23T23:10:24.728Z]   urls (1):
+[2026-03-23T23:10:24.728Z]     - https://jobs.lever.co/ecldc
+[2026-03-23T23:10:24.728Z] Summary: ws:1, tw:1, li:1, urls:1
+[2026-03-23T23:10:24.728Z] Saved final result to result.json
+[2026-03-23T23:10:24.729Z] Override fields: ws, li, tw, urls
+[2026-03-23T23:10:24.729Z] Finished at: 2026-03-23T23:10:24.729Z

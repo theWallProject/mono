@@ -1,0 +1,75 @@
+[2026-03-23T21:04:21.669Z] === Homepage AI Extractor: Skycatch ===
+[2026-03-23T21:04:21.669Z] Started at: 2026-03-23T21:04:21.669Z
+[2026-03-23T21:04:21.669Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774299861668_Skycatch
+[2026-03-23T21:04:21.669Z] Company: Skycatch
+[2026-03-23T21:04:21.669Z] Website: skycatch.com
+[2026-03-23T21:04:21.669Z] cbRank: 18921
+[2026-03-23T21:04:21.669Z] Reasons: i
+[2026-03-23T21:04:21.669Z] Fetching: https://skycatch.com
+[2026-03-23T21:04:23.270Z] Redirected: https://skycatch.com -> https://skycatch.com/
+[2026-03-23T21:04:23.274Z] Saved HTML (84634 bytes) to page.html
+[2026-03-23T21:04:23.277Z] Extracted 17 unique links from page
+[2026-03-23T21:04:23.277Z] Saved 17 links to links.json
+[2026-03-23T21:04:23.279Z] Extracted footer HTML (10965 chars)
+[2026-03-23T21:04:23.279Z] Extracted header HTML (3566 chars)
+[2026-03-23T21:04:23.281Z] Website (post-redirect): https://skycatch.com/ → origin: https://skycatch.com
+[2026-03-23T21:04:23.282Z]   SUBDOMAIN: datahub.skycatch.com (added to ws)
+[2026-03-23T21:04:23.282Z]   SUBDOMAIN: support.skycatch.com (added to ws)
+[2026-03-23T21:04:23.282Z] Website subdomains found: 2
+[2026-03-23T21:04:23.282Z] External links: 4 (of 17 total)
+[2026-03-23T21:04:23.282Z] ── All external links ──
+[2026-03-23T21:04:23.282Z]   EXT: https://dronemaps.io
+[2026-03-23T21:04:23.282Z]   EXT: https://skycatch.bamboohr.com/careers
+[2026-03-23T21:04:23.282Z]   EXT: https://www.linkedin.com/company/skycatch
+[2026-03-23T21:04:23.282Z]   EXT: https://www.youtube.com/skycatchInc
+[2026-03-23T21:04:23.282Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T21:04:23.282Z]   UNCATEGORIZED: https://dronemaps.io
+[2026-03-23T21:04:23.282Z]   UNCATEGORIZED: https://skycatch.bamboohr.com/careers
+[2026-03-23T21:04:23.283Z]   REGEX: li <- https://www.linkedin.com/company/skycatch
+[2026-03-23T21:04:23.283Z]   REGEX: ytp <- https://www.youtube.com/skycatchInc
+[2026-03-23T21:04:23.283Z] Programmatic result: ws:3, li:1, ytp:1 | 2 uncategorized
+[2026-03-23T21:04:23.283Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T21:04:23.287Z] Saved AI prompt (9213 chars) to ai_prompt.txt
+[2026-03-23T21:04:23.287Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T21:04:23.290Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T21:05:08.259Z]   AI: First token received, streaming...
+[2026-03-23T21:05:15.116Z] AI response complete: 115 chars in 51.8s
+[2026-03-23T21:05:15.117Z] Saved AI response to ai_response.json
+[2026-03-23T21:05:15.117Z] ── Parsing AI response (3 lines) ──
+[2026-03-23T21:05:15.117Z]   AI LINK: https://skycatch.bamboohr.com/careers
+[2026-03-23T21:05:15.117Z]   AI LINK: https://www.linkedin.com/company/skycatch
+[2026-03-23T21:05:15.118Z]   AI LINK: https://www.youtube.com/skycatchInc
+[2026-03-23T21:05:15.118Z] AI returned 3 valid links
+[2026-03-23T21:05:15.118Z] ── Categorizing 3 AI-returned links ──
+[2026-03-23T21:05:15.118Z]   AI→URLS: https://skycatch.bamboohr.com/careers
+[2026-03-23T21:05:15.118Z]   AI→REGEX: li <- https://www.linkedin.com/company/skycatch (duplicate, skipped)
+[2026-03-23T21:05:15.118Z]   AI→REGEX: ytp <- https://www.youtube.com/skycatchInc (duplicate, skipped)
+[2026-03-23T21:05:15.119Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T21:05:15.119Z] Footer/header origins (5):
+[2026-03-23T21:05:15.119Z]   FOOTER/HEADER ORIGIN: https://support.skycatch.com
+[2026-03-23T21:05:15.119Z]   FOOTER/HEADER ORIGIN: https://skycatch.bamboohr.com
+[2026-03-23T21:05:15.119Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T21:05:15.119Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-23T21:05:15.119Z]   FOOTER/HEADER ORIGIN: https://datahub.skycatch.com
+[2026-03-23T21:05:15.119Z]   SKIP (not in footer/header): https://dronemaps.io
+[2026-03-23T21:05:15.119Z]   SKIP (AI claimed): https://skycatch.bamboohr.com/careers
+[2026-03-23T21:05:15.119Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T21:05:15.119Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T21:05:15.119Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T21:05:15.119Z] ── Step 3: Final dedup ──
+[2026-03-23T21:05:15.120Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T21:05:15.120Z] ── FINAL RESULT ──
+[2026-03-23T21:05:15.120Z]   ws (3):
+[2026-03-23T21:05:15.120Z]     - https://datahub.skycatch.com
+[2026-03-23T21:05:15.120Z]     - https://skycatch.com
+[2026-03-23T21:05:15.120Z]     - https://support.skycatch.com
+[2026-03-23T21:05:15.120Z]   li (1):
+[2026-03-23T21:05:15.120Z]     - https://www.linkedin.com/company/skycatch
+[2026-03-23T21:05:15.120Z]   ytp (1):
+[2026-03-23T21:05:15.120Z]     - https://www.youtube.com/@skycatchinc
+[2026-03-23T21:05:15.120Z]   urls (1):
+[2026-03-23T21:05:15.120Z]     - https://skycatch.bamboohr.com/careers
+[2026-03-23T21:05:15.121Z] Summary: ws:3, li:1, ytp:1, urls:1
+[2026-03-23T21:05:15.121Z] Saved final result to result.json
+[2026-03-23T21:05:15.122Z] Override fields: ws, li, ytp, urls
+[2026-03-23T21:05:15.122Z] Finished at: 2026-03-23T21:05:15.122Z

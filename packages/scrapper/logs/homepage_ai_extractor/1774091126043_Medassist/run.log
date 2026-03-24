@@ -1,0 +1,82 @@
+[2026-03-21T11:05:26.043Z] === Homepage AI Extractor: Medassist ===
+[2026-03-21T11:05:26.044Z] Started at: 2026-03-21T11:05:26.044Z
+[2026-03-21T11:05:26.044Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774091126043_Medassist
+[2026-03-21T11:05:26.044Z] Company: Medassist
+[2026-03-21T11:05:26.044Z] Website: medassist.co.il
+[2026-03-21T11:05:26.044Z] cbRank: 3262921
+[2026-03-21T11:05:26.044Z] Reasons: h
+[2026-03-21T11:05:26.044Z] Fetching: https://medassist.co.il
+[2026-03-21T11:05:29.889Z] Redirected: https://medassist.co.il -> https://medassist.co.il/
+[2026-03-21T11:05:29.902Z] Saved HTML (545453 bytes) to page.html
+[2026-03-21T11:05:29.906Z] Extracted 38 unique links from page
+[2026-03-21T11:05:29.907Z] Saved 38 links to links.json
+[2026-03-21T11:05:29.909Z] Extracted footer HTML (21184 chars)
+[2026-03-21T11:05:29.909Z] Extracted header HTML (19813 chars)
+[2026-03-21T11:05:29.913Z] Website (post-redirect): https://medassist.co.il/ → origin: https://medassist.co.il
+[2026-03-21T11:05:29.913Z]   SUBDOMAIN: eng.medassist.co.il (added to ws)
+[2026-03-21T11:05:29.913Z] Website subdomains found: 1
+[2026-03-21T11:05:29.913Z] External links: 6 (of 38 total)
+[2026-03-21T11:05:29.913Z] ── All external links ──
+[2026-03-21T11:05:29.913Z]   EXT: https://policies.google.com/privacy
+[2026-03-21T11:05:29.913Z]   EXT: https://policies.google.com/terms
+[2026-03-21T11:05:29.913Z]   EXT: https://www.enable.co.il
+[2026-03-21T11:05:29.914Z]   EXT: https://www.facebook.com/MedAssist.co.il
+[2026-03-21T11:05:29.914Z]   EXT: https://www.upress.co.il
+[2026-03-21T11:05:29.914Z]   EXT: https://www.youtube.com/channel/UCbDe3jfMvdQCorOAWvgAN_Q/videos
+[2026-03-21T11:05:29.914Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T11:05:29.914Z]   UNCATEGORIZED: https://policies.google.com/privacy
+[2026-03-21T11:05:29.914Z]   UNCATEGORIZED: https://policies.google.com/terms
+[2026-03-21T11:05:29.914Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-21T11:05:29.914Z]   REGEX: fb <- https://www.facebook.com/MedAssist.co.il
+[2026-03-21T11:05:29.914Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-21T11:05:29.914Z]   REGEX: ytc <- https://www.youtube.com/channel/UCbDe3jfMvdQCorOAWvgAN_Q/videos
+[2026-03-21T11:05:29.914Z] Programmatic result: ws:2, fb:1, ytc:1 | 4 uncategorized
+[2026-03-21T11:05:29.914Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T11:05:29.918Z] Saved AI prompt (11321 chars) to ai_prompt.txt
+[2026-03-21T11:05:29.918Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T11:05:29.922Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T11:06:21.408Z]   AI: First token received, streaming...
+[2026-03-21T11:06:28.803Z] AI response complete: 105 chars in 58.9s
+[2026-03-21T11:06:28.804Z] Saved AI response to ai_response.json
+[2026-03-21T11:06:28.804Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T11:06:28.804Z]   AI LINK: https://www.facebook.com/MedAssist.co.il/
+[2026-03-21T11:06:28.805Z]   AI LINK: https://www.youtube.com/channel/UCbDe3jfMvdQCorOAWvgAN_Q/videos
+[2026-03-21T11:06:28.805Z] AI returned 2 valid links
+[2026-03-21T11:06:28.805Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T11:06:28.805Z]   AI→REGEX: fb <- https://www.facebook.com/MedAssist.co.il/ (duplicate, skipped)
+[2026-03-21T11:06:28.805Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCbDe3jfMvdQCorOAWvgAN_Q/videos (duplicate, skipped)
+[2026-03-21T11:06:28.805Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T11:06:28.805Z] Footer/header origins (5):
+[2026-03-21T11:06:28.805Z]   FOOTER/HEADER ORIGIN: https://policies.google.com
+[2026-03-21T11:06:28.806Z]   FOOTER/HEADER ORIGIN: https://medassist.co.il
+[2026-03-21T11:06:28.806Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T11:06:28.806Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T11:06:28.806Z]   FOOTER/HEADER ORIGIN: https://eng.medassist.co.il
+[2026-03-21T11:06:28.806Z]   ADDED: urls <- https://policies.google.com/privacy
+[2026-03-21T11:06:28.806Z]   ADDED: urls <- https://policies.google.com/terms
+[2026-03-21T11:06:28.806Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-21T11:06:28.806Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-21T11:06:28.806Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-21T11:06:28.806Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T11:06:28.806Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T11:06:29.067Z]   YOUTUBE: resolved UCbDe3jfMvdQCorOAWvgAN_Q → @medassist2849
+[2026-03-21T11:06:29.067Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T11:06:29.067Z] ── Step 3: Final dedup ──
+[2026-03-21T11:06:29.067Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T11:06:29.067Z] ── FINAL RESULT ──
+[2026-03-21T11:06:29.067Z]   ws (2):
+[2026-03-21T11:06:29.067Z]     - https://eng.medassist.co.il
+[2026-03-21T11:06:29.067Z]     - https://medassist.co.il
+[2026-03-21T11:06:29.067Z]   fb (1):
+[2026-03-21T11:06:29.068Z]     - https://www.facebook.com/medassist.co.il
+[2026-03-21T11:06:29.068Z]   ytp (1):
+[2026-03-21T11:06:29.068Z]     - https://www.youtube.com/@medassist2849
+[2026-03-21T11:06:29.068Z]   ytc (1):
+[2026-03-21T11:06:29.068Z]     - https://www.youtube.com/channel/UCbDe3jfMvdQCorOAWvgAN_Q
+[2026-03-21T11:06:29.068Z]   urls (2):
+[2026-03-21T11:06:29.068Z]     - https://policies.google.com/privacy
+[2026-03-21T11:06:29.068Z]     - https://policies.google.com/terms
+[2026-03-21T11:06:29.068Z] Summary: ws:2, fb:1, ytc:1, urls:2, ytp:1
+[2026-03-21T11:06:29.068Z] Saved final result to result.json
+[2026-03-21T11:06:29.069Z] Override fields: ws, fb, ytp, ytc, urls
+[2026-03-21T11:06:29.069Z] Finished at: 2026-03-21T11:06:29.069Z

@@ -1,0 +1,60 @@
+[2026-03-23T00:03:13.047Z] === Homepage AI Extractor: Triomed AB ===
+[2026-03-23T00:03:13.047Z] Started at: 2026-03-23T00:03:13.047Z
+[2026-03-23T00:03:13.047Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774224193046_Triomed_AB
+[2026-03-23T00:03:13.047Z] Company: Triomed AB
+[2026-03-23T00:03:13.047Z] Website: triomed.se
+[2026-03-23T00:03:13.047Z] cbRank: 380140
+[2026-03-23T00:03:13.048Z] Reasons: f
+[2026-03-23T00:03:13.048Z] Fetching: https://triomed.se
+[2026-03-23T00:03:14.806Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T00:03:17.793Z] Redirected: https://triomed.se -> https://triomed.se/
+[2026-03-23T00:03:17.799Z] Saved HTML (196219 bytes) to page.html
+[2026-03-23T00:03:17.801Z] Extracted 14 unique links from page
+[2026-03-23T00:03:17.801Z] Saved 14 links to links.json
+[2026-03-23T00:03:17.803Z] Extracted footer HTML (6172 chars)
+[2026-03-23T00:03:17.803Z] Extracted header HTML (6371 chars)
+[2026-03-23T00:03:17.808Z] Website (post-redirect): https://triomed.se/ → origin: https://triomed.se
+[2026-03-23T00:03:17.808Z] External links: 4 (of 14 total)
+[2026-03-23T00:03:17.808Z] ── All external links ──
+[2026-03-23T00:03:17.808Z]   EXT: https://journals.lww.com/cjasn/abstract/2024/02000/effects_of_steady_glucose_concentration_peritoneal.13.aspx
+[2026-03-23T00:03:17.808Z]   EXT: https://pmc.ncbi.nlm.nih.gov/articles/PMC11969901
+[2026-03-23T00:03:17.808Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T00:03:17.808Z]   EXT: https://www.linkedin.com/company/triomedab/posts
+[2026-03-23T00:03:17.808Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T00:03:17.809Z]   UNCATEGORIZED: https://journals.lww.com/cjasn/abstract/2024/02000/effects_of_steady_glucose_concentration_peritoneal.13.aspx
+[2026-03-23T00:03:17.809Z]   UNCATEGORIZED: https://pmc.ncbi.nlm.nih.gov/articles/PMC11969901
+[2026-03-23T00:03:17.809Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T00:03:17.809Z]   REGEX: li <- https://www.linkedin.com/company/triomedab/posts
+[2026-03-23T00:03:17.809Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-23T00:03:17.809Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T00:03:17.812Z] Saved AI prompt (3777 chars) to ai_prompt.txt
+[2026-03-23T00:03:17.812Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T00:03:17.816Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T00:03:31.327Z]   AI: First token received, streaming...
+[2026-03-23T00:03:33.168Z] AI response complete: 49 chars in 15.4s
+[2026-03-23T00:03:33.169Z] Saved AI response to ai_response.json
+[2026-03-23T00:03:33.170Z] ── Parsing AI response (1 lines) ──
+[2026-03-23T00:03:33.170Z]   AI LINK: https://www.linkedin.com/company/triomedab/posts/
+[2026-03-23T00:03:33.170Z] AI returned 1 valid links
+[2026-03-23T00:03:33.170Z] ── Categorizing 1 AI-returned links ──
+[2026-03-23T00:03:33.170Z]   AI→REGEX: li <- https://www.linkedin.com/company/triomedab/posts/ (duplicate, skipped)
+[2026-03-23T00:03:33.171Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T00:03:33.171Z] Footer/header origins (1):
+[2026-03-23T00:03:33.171Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T00:03:33.172Z]   SKIP (not in footer/header): https://journals.lww.com/cjasn/abstract/2024/02000/effects_of_steady_glucose_concentration_peritoneal.13.aspx
+[2026-03-23T00:03:33.172Z]   SKIP (not in footer/header): https://pmc.ncbi.nlm.nih.gov/articles/PMC11969901
+[2026-03-23T00:03:33.172Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-23T00:03:33.172Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T00:03:33.172Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T00:03:33.172Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T00:03:33.173Z] ── Step 3: Final dedup ──
+[2026-03-23T00:03:33.173Z] No urls to dedup
+[2026-03-23T00:03:33.173Z] ── FINAL RESULT ──
+[2026-03-23T00:03:33.173Z]   ws (1):
+[2026-03-23T00:03:33.173Z]     - https://triomed.se
+[2026-03-23T00:03:33.173Z]   li (1):
+[2026-03-23T00:03:33.173Z]     - https://www.linkedin.com/company/triomedab
+[2026-03-23T00:03:33.173Z] Summary: ws:1, li:1
+[2026-03-23T00:03:33.175Z] Saved final result to result.json
+[2026-03-23T00:03:33.175Z] Override fields: ws, li
+[2026-03-23T00:03:33.175Z] Finished at: 2026-03-23T00:03:33.175Z

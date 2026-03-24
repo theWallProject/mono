@@ -1,0 +1,65 @@
+[2026-03-24T00:28:52.627Z] === Homepage AI Extractor: Kleep ===
+[2026-03-24T00:28:52.627Z] Started at: 2026-03-24T00:28:52.627Z
+[2026-03-24T00:28:52.627Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774312132626_Kleep
+[2026-03-24T00:28:52.627Z] Company: Kleep
+[2026-03-24T00:28:52.627Z] Website: kleep.ai
+[2026-03-24T00:28:52.627Z] cbRank: 60849
+[2026-03-24T00:28:52.627Z] Reasons: i
+[2026-03-24T00:28:52.627Z] Fetching: https://kleep.ai
+[2026-03-24T00:28:56.059Z] Redirected: https://kleep.ai -> https://kleep.ai/
+[2026-03-24T00:28:56.069Z] Saved HTML (421081 bytes) to page.html
+[2026-03-24T00:28:56.071Z] Extracted 17 unique links from page
+[2026-03-24T00:28:56.071Z] Saved 17 links to links.json
+[2026-03-24T00:28:56.073Z] Extracted footer HTML (9317 chars)
+[2026-03-24T00:28:56.073Z] Extracted header HTML (4568 chars)
+[2026-03-24T00:28:56.077Z] Website (post-redirect): https://kleep.ai/ → origin: https://kleep.ai
+[2026-03-24T00:28:56.077Z] External links: 3 (of 17 total)
+[2026-03-24T00:28:56.077Z] ── All external links ──
+[2026-03-24T00:28:56.077Z]   EXT: https://instagram.com/getkleep
+[2026-03-24T00:28:56.077Z]   EXT: https://kleep.notion.site/Kleep-Talent-Hub-15cee5dd34a5410a976f4f2e384370cd
+[2026-03-24T00:28:56.077Z]   EXT: https://www.linkedin.com/company/kleepfr
+[2026-03-24T00:28:56.077Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:28:56.078Z]   REGEX: ig <- https://instagram.com/getkleep
+[2026-03-24T00:28:56.078Z]   UNCATEGORIZED: https://kleep.notion.site/Kleep-Talent-Hub-15cee5dd34a5410a976f4f2e384370cd
+[2026-03-24T00:28:56.078Z]   REGEX: li <- https://www.linkedin.com/company/kleepfr
+[2026-03-24T00:28:56.078Z] Programmatic result: ws:1, ig:1, li:1 | 1 uncategorized
+[2026-03-24T00:28:56.078Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:28:56.080Z] Saved AI prompt (6791 chars) to ai_prompt.txt
+[2026-03-24T00:28:56.080Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:28:56.084Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:29:24.169Z]   AI: First token received, streaming...
+[2026-03-24T00:29:37.391Z] AI response complete: 148 chars in 41.3s
+[2026-03-24T00:29:37.393Z] Saved AI response to ai_response.json
+[2026-03-24T00:29:37.393Z] ── Parsing AI response (3 lines) ──
+[2026-03-24T00:29:37.393Z]   AI LINK: https://instagram.com/getkleep
+[2026-03-24T00:29:37.393Z]   AI LINK: https://www.linkedin.com/company/kleepfr/
+[2026-03-24T00:29:37.394Z]   AI LINK: https://kleep.notion.site/Kleep-Talent-Hub-15cee5dd34a5410a976f4f2e384370cd
+[2026-03-24T00:29:37.394Z] AI returned 3 valid links
+[2026-03-24T00:29:37.394Z] ── Categorizing 3 AI-returned links ──
+[2026-03-24T00:29:37.394Z]   AI→REGEX: ig <- https://instagram.com/getkleep (duplicate, skipped)
+[2026-03-24T00:29:37.394Z]   AI→REGEX: li <- https://www.linkedin.com/company/kleepfr/ (duplicate, skipped)
+[2026-03-24T00:29:37.395Z]   AI→URLS: https://kleep.notion.site/Kleep-Talent-Hub-15cee5dd34a5410a976f4f2e384370cd
+[2026-03-24T00:29:37.396Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:29:37.396Z] Footer/header origins (3):
+[2026-03-24T00:29:37.396Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-24T00:29:37.396Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-24T00:29:37.396Z]   FOOTER/HEADER ORIGIN: https://kleep.notion.site
+[2026-03-24T00:29:37.396Z]   SKIP (AI claimed): https://kleep.notion.site/Kleep-Talent-Hub-15cee5dd34a5410a976f4f2e384370cd
+[2026-03-24T00:29:37.396Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T00:29:37.396Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:29:37.396Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:29:37.397Z] ── Step 3: Final dedup ──
+[2026-03-24T00:29:37.397Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-24T00:29:37.397Z] ── FINAL RESULT ──
+[2026-03-24T00:29:37.397Z]   ws (1):
+[2026-03-24T00:29:37.397Z]     - https://kleep.ai
+[2026-03-24T00:29:37.397Z]   li (1):
+[2026-03-24T00:29:37.397Z]     - https://www.linkedin.com/company/kleepfr
+[2026-03-24T00:29:37.397Z]   ig (1):
+[2026-03-24T00:29:37.397Z]     - https://www.instagram.com/getkleep
+[2026-03-24T00:29:37.397Z]   urls (1):
+[2026-03-24T00:29:37.397Z]     - https://kleep.notion.site/Kleep-Talent-Hub-15cee5dd34a5410a976f4f2e384370cd
+[2026-03-24T00:29:37.397Z] Summary: ws:1, ig:1, li:1, urls:1
+[2026-03-24T00:29:37.398Z] Saved final result to result.json
+[2026-03-24T00:29:37.398Z] Override fields: ws, li, ig, urls
+[2026-03-24T00:29:37.398Z] Finished at: 2026-03-24T00:29:37.398Z

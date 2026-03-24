@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoliteLabs</title>
+  <link rel="icon" type="image/png" href="image.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      color: #fff;
+      height: 100dvh;
+      overflow: hidden;
+      font-family: 'DM Sans', sans-serif;
+      cursor: crosshair;
+      user-select: none;
+    }
+
+    .stone-wrap {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .stone {
+      width: 220px; height: 220px;
+      position: relative;
+    }
+
+    .facet {
+      position: absolute; inset: 0;
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    }
+
+    .facet-1 {
+      background: conic-gradient(from 0deg, #1a1140, #352878, #5b4caf, #8071c8, #352878, #1a1140);
+      animation: dichroic 8s ease-in-out infinite;
+    }
+    .facet-2 {
+      inset: 12px;
+      clip-path: polygon(50% 5%, 95% 40%, 78% 95%, 22% 95%, 5% 40%);
+      background: conic-gradient(from 120deg, #0e0a24, #251a5c, #4a3a8f, #6b5eb8, #251a5c, #0e0a24);
+      animation: dichroic 8s ease-in-out infinite reverse;
+      mix-blend-mode: screen;
+    }
+    .facet-3 {
+      inset: 36px;
+      clip-path: polygon(50% 10%, 88% 42%, 74% 90%, 26% 90%, 12% 42%);
+      background: conic-gradient(from 240deg, #17103a, #3d2e80, #5e50a5, #3d2e80, #17103a);
+      animation: dichroic 8s 2s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    .stone-glow {
+      position: absolute;
+      inset: -60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(91,76,175,0.15), transparent 70%);
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    .stone-line {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 1px; height: 300px;
+      background: linear-gradient(to bottom, transparent, rgba(91,76,175,0.15), transparent);
+      transform: translate(-50%, -50%);
+    }
+
+    .logo-img {
+      width: 180px; height: 180px;
+      object-fit: contain;
+      position: relative;
+      filter: drop-shadow(0 0 40px rgba(91,76,175,0.25));
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes dichroic {
+      0%, 100% { filter: hue-rotate(0deg) brightness(0.9); }
+      33% { filter: hue-rotate(25deg) brightness(1.1); }
+      66% { filter: hue-rotate(-15deg) brightness(0.95); }
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+    }
+
+    .wordmark {
+      position: fixed;
+      bottom: 12vh; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+    }
+
+    .wordmark h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.45em;
+      text-transform: lowercase;
+      color: #fff;
+      opacity: 0;
+      animation: fadeUp 1.5s 0.3s ease forwards;
+    }
+
+    .tagline {
+      margin-top: 1.2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 1.5s 0.9s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .corner {
+      position: fixed; z-index: 10;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .corner a {
+      color: rgba(255,255,255,0.15);
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+    .corner a:hover { color: rgba(255,255,255,0.6); }
+
+    .tl { top: 2rem; left: 2.5rem; }
+    .tr { top: 2rem; right: 2.5rem; }
+    .bl { bottom: 2rem; left: 2.5rem; }
+    .br { bottom: 2rem; right: 2.5rem; }
+
+    .scan {
+      position: fixed; inset: 0; z-index: 3;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+    }
+
+    .rule {
+      position: fixed;
+      top: 50%; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent 95%);
+      z-index: 0;
+    }
+
+    .noise {
+      position: fixed; inset: 0; z-index: 4;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+
+    @media (max-width: 600px) {
+      .logo-img { width: 120px; height: 120px; }
+      .wordmark h1 { font-size: 0.85rem; letter-spacing: 0.35em; }
+      .corner { font-size: 0.5rem; }
+      .tl, .tr { top: 1.2rem; }
+      .bl, .br { bottom: 1.2rem; }
+      .tl, .bl { left: 1.2rem; }
+      .tr, .br { right: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="noise"></div>
+  <div class="scan"></div>
+  <div class="rule"></div>
+
+  <div class="corner tl"><a href="https://github.com/iolitelabs" target="_blank" rel="noopener">source</a></div>
+  <div class="corner tr"><a href="https://marketplace.visualstudio.com/publishers/iolitelabs" target="_blank" rel="noopener">install</a></div>
+  <div class="corner bl"><a href="mailto:support@iolite.io">contact</a></div>
+  <div class="corner br">open source</div>
+
+  <div class="stone-wrap">
+    <div class="stone-line"></div>
+    <div class="stone-glow"></div>
+    <img src="image.png" alt="IoliteLabs" class="logo-img" draggable="false">
+  </div>
+
+  <div class="wordmark">
+    <h1>IoliteLabs</h1>
+    <div class="tagline">rise above all language barriers</div>
+  </div>
+
+  <script>
+    document.addEventListener('mousemove', e => {
+      const cx = (e.clientX / innerWidth - 0.5) * 2;
+      const cy = (e.clientY / innerHeight - 0.5) * 2;
+      const logo = document.querySelector('.logo-img');
+      logo.style.transform = `rotateY(${cx * 8}deg) rotateX(${cy * -6}deg)`;
+      logo.style.transition = 'transform 0.6s cubic-bezier(.03,.98,.52,.99)';
+    });
+  </script>
+
+
+
+</body></html>

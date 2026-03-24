@@ -1,0 +1,72 @@
+[2026-03-24T01:02:53.062Z] === Homepage AI Extractor: Dealpath ===
+[2026-03-24T01:02:53.062Z] Started at: 2026-03-24T01:02:53.062Z
+[2026-03-24T01:02:53.062Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774314173061_Dealpath
+[2026-03-24T01:02:53.062Z] Company: Dealpath
+[2026-03-24T01:02:53.062Z] Website: dealpath.com
+[2026-03-24T01:02:53.062Z] cbRank: 73109
+[2026-03-24T01:02:53.062Z] Reasons: i
+[2026-03-24T01:02:53.062Z] Fetching: https://dealpath.com
+[2026-03-24T01:02:56.898Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-24T01:02:59.136Z] Redirected: https://dealpath.com -> https://www.dealpath.com/
+[2026-03-24T01:02:59.152Z] Saved HTML (570894 bytes) to page.html
+[2026-03-24T01:02:59.155Z] Extracted 47 unique links from page
+[2026-03-24T01:02:59.156Z] Saved 47 links to links.json
+[2026-03-24T01:02:59.160Z] No footer section found in DOM
+[2026-03-24T01:02:59.160Z] Extracted header HTML (118577 chars)
+[2026-03-24T01:02:59.164Z] Website (post-redirect): https://www.dealpath.com/ → origin: https://www.dealpath.com
+[2026-03-24T01:02:59.164Z]   SUBDOMAIN: app.dealpath.com (added to ws)
+[2026-03-24T01:02:59.164Z] Website subdomains found: 1
+[2026-03-24T01:02:59.164Z] External links: 6 (of 47 total)
+[2026-03-24T01:02:59.164Z] ── All external links ──
+[2026-03-24T01:02:59.164Z]   EXT: https://twitter.com/dealpath
+[2026-03-24T01:02:59.165Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-24T01:02:59.165Z]   EXT: https://www.facebook.com/DealpathHQ
+[2026-03-24T01:02:59.165Z]   EXT: https://www.instagram.com/dealpath_
+[2026-03-24T01:02:59.165Z]   EXT: https://www.linkedin.com/company/dealpath
+[2026-03-24T01:02:59.165Z]   EXT: https://www.youtube.com/@dealpath917
+[2026-03-24T01:02:59.165Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T01:02:59.165Z]   REGEX: tw <- https://twitter.com/dealpath
+[2026-03-24T01:02:59.166Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-24T01:02:59.166Z]   REGEX: fb <- https://www.facebook.com/DealpathHQ
+[2026-03-24T01:02:59.166Z]   REGEX: ig <- https://www.instagram.com/dealpath_
+[2026-03-24T01:02:59.166Z]   REGEX: li <- https://www.linkedin.com/company/dealpath
+[2026-03-24T01:02:59.167Z]   REGEX: ytp <- https://www.youtube.com/@dealpath917
+[2026-03-24T01:02:59.167Z] Programmatic result: ws:2, tw:1, fb:1, ig:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-24T01:02:59.167Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T01:02:59.170Z] Saved AI prompt (2051 chars) to ai_prompt.txt
+[2026-03-24T01:02:59.170Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T01:02:59.174Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T01:03:04.611Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-24T01:03:04.611Z] AI response complete: 0 chars in 5.4s
+[2026-03-24T01:03:04.613Z] Saved AI response to ai_response.json
+[2026-03-24T01:03:04.613Z] ── Parsing AI response (1 lines) ──
+[2026-03-24T01:03:04.613Z] AI returned 0 valid links
+[2026-03-24T01:03:04.613Z] ── Categorizing 0 AI-returned links ──
+[2026-03-24T01:03:04.615Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T01:03:04.615Z] Footer/header origins (2):
+[2026-03-24T01:03:04.615Z]   FOOTER/HEADER ORIGIN: https://www.dealpath.com
+[2026-03-24T01:03:04.616Z]   FOOTER/HEADER ORIGIN: https://app.dealpath.com
+[2026-03-24T01:03:04.616Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-24T01:03:04.616Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T01:03:04.616Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T01:03:04.616Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T01:03:04.616Z] ── Step 3: Final dedup ──
+[2026-03-24T01:03:04.616Z] No urls to dedup
+[2026-03-24T01:03:04.616Z] ── FINAL RESULT ──
+[2026-03-24T01:03:04.616Z]   ws (2):
+[2026-03-24T01:03:04.616Z]     - https://app.dealpath.com
+[2026-03-24T01:03:04.616Z]     - https://www.dealpath.com
+[2026-03-24T01:03:04.616Z]   li (1):
+[2026-03-24T01:03:04.617Z]     - https://www.linkedin.com/company/dealpath
+[2026-03-24T01:03:04.617Z]   fb (1):
+[2026-03-24T01:03:04.617Z]     - https://www.facebook.com/dealpathhq
+[2026-03-24T01:03:04.617Z]   tw (1):
+[2026-03-24T01:03:04.617Z]     - https://x.com/dealpath
+[2026-03-24T01:03:04.617Z]   ig (1):
+[2026-03-24T01:03:04.617Z]     - https://www.instagram.com/dealpath_
+[2026-03-24T01:03:04.617Z]   ytp (1):
+[2026-03-24T01:03:04.617Z]     - https://www.youtube.com/@dealpath917
+[2026-03-24T01:03:04.617Z] Summary: ws:2, tw:1, fb:1, ig:1, li:1, ytp:1
+[2026-03-24T01:03:04.618Z] Saved final result to result.json
+[2026-03-24T01:03:04.618Z] Override fields: ws, li, fb, tw, ig, ytp
+[2026-03-24T01:03:04.618Z] Finished at: 2026-03-24T01:03:04.618Z

@@ -1,0 +1,86 @@
+[2026-03-21T12:00:32.813Z] === Homepage AI Extractor: Ofek GMAT ===
+[2026-03-21T12:00:32.813Z] Started at: 2026-03-21T12:00:32.813Z
+[2026-03-21T12:00:32.813Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774094432812_Ofek_GMAT
+[2026-03-21T12:00:32.813Z] Company: Ofek GMAT
+[2026-03-21T12:00:32.813Z] Website: ofekgmat.com
+[2026-03-21T12:00:32.813Z] cbRank: 3323425
+[2026-03-21T12:00:32.813Z] Reasons: h
+[2026-03-21T12:00:32.813Z] Fetching: https://ofekgmat.com
+[2026-03-21T12:00:37.237Z] Redirected: https://ofekgmat.com -> https://www.ofekgmat.com/
+[2026-03-21T12:00:37.242Z] Saved HTML (64332 bytes) to page.html
+[2026-03-21T12:00:37.245Z] Extracted 28 unique links from page
+[2026-03-21T12:00:37.246Z] Saved 28 links to links.json
+[2026-03-21T12:00:37.253Z] Extracted footer HTML (4490 chars)
+[2026-03-21T12:00:37.253Z] Extracted header HTML (6793 chars)
+[2026-03-21T12:00:37.259Z] Website (post-redirect): https://www.ofekgmat.com/ → origin: https://www.ofekgmat.com
+[2026-03-21T12:00:37.259Z]   SUBDOMAIN: forum.ofekgmat.com (added to ws)
+[2026-03-21T12:00:37.259Z] Website subdomains found: 1
+[2026-03-21T12:00:37.260Z] External links: 6 (of 28 total)
+[2026-03-21T12:00:37.260Z] ── All external links ──
+[2026-03-21T12:00:37.260Z]   EXT: http://www.linkedin.com/company/ofek-gmat?trk=company_logo
+[2026-03-21T12:00:37.260Z]   EXT: https://api.whatsapp.com/send?phone=9720544595699
+[2026-03-21T12:00:37.260Z]   EXT: https://ofekgmat.blossom-kc.com
+[2026-03-21T12:00:37.260Z]   EXT: https://plus.google.com/u/0/+Ofekgmat/about
+[2026-03-21T12:00:37.260Z]   EXT: https://www.dooble.co.il
+[2026-03-21T12:00:37.260Z]   EXT: https://www.facebook.com/ofekgmat
+[2026-03-21T12:00:37.260Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T12:00:37.260Z]   REGEX: li <- http://www.linkedin.com/company/ofek-gmat?trk=company_logo
+[2026-03-21T12:00:37.261Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=9720544595699
+[2026-03-21T12:00:37.261Z]   UNCATEGORIZED: https://ofekgmat.blossom-kc.com
+[2026-03-21T12:00:37.261Z]   UNCATEGORIZED: https://plus.google.com/u/0/+Ofekgmat/about
+[2026-03-21T12:00:37.261Z]   UNCATEGORIZED: https://www.dooble.co.il
+[2026-03-21T12:00:37.261Z]   REGEX: fb <- https://www.facebook.com/ofekgmat
+[2026-03-21T12:00:37.261Z] Programmatic result: ws:2, li:1, fb:1 | 4 uncategorized
+[2026-03-21T12:00:37.261Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T12:00:37.263Z] Saved AI prompt (6028 chars) to ai_prompt.txt
+[2026-03-21T12:00:37.263Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T12:00:37.268Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T12:01:02.272Z]   AI: First token received, streaming...
+[2026-03-21T12:01:13.481Z] AI response complete: 163 chars in 36.2s
+[2026-03-21T12:01:13.482Z] Saved AI response to ai_response.json
+[2026-03-21T12:01:13.483Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T12:01:13.483Z]   AI LINK: https://plus.google.com/u/0/+Ofekgmat/about
+[2026-03-21T12:01:13.483Z]   AI LINK: https://www.facebook.com/ofekgmat
+[2026-03-21T12:01:13.483Z]   AI LINK: http://www.linkedin.com/company/ofek-gmat?trk=company_logo
+[2026-03-21T12:01:13.483Z]   AI LINK: http://forum.ofekgmat.com/
+[2026-03-21T12:01:13.483Z] AI returned 4 valid links
+[2026-03-21T12:01:13.483Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T12:01:13.483Z]   AI→URLS: https://plus.google.com/u/0/+Ofekgmat/about
+[2026-03-21T12:01:13.483Z]   AI→REGEX: fb <- https://www.facebook.com/ofekgmat (duplicate, skipped)
+[2026-03-21T12:01:13.484Z]   AI→REGEX: li <- http://www.linkedin.com/company/ofek-gmat?trk=company_logo (duplicate, skipped)
+[2026-03-21T12:01:13.484Z]   AI→URLS: http://forum.ofekgmat.com (cleaned from http://forum.ofekgmat.com/)
+[2026-03-21T12:01:13.484Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T12:01:13.484Z] Footer/header origins (7):
+[2026-03-21T12:01:13.484Z]   FOOTER/HEADER ORIGIN: http://forum.ofekgmat.com
+[2026-03-21T12:01:13.484Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-21T12:01:13.484Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T12:01:13.484Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-21T12:01:13.484Z]   FOOTER/HEADER ORIGIN: https://www.dooble.co.il
+[2026-03-21T12:01:13.484Z]   FOOTER/HEADER ORIGIN: https://ofekgmat.blossom-kc.com
+[2026-03-21T12:01:13.484Z]   FOOTER/HEADER ORIGIN: http://www.ofekgmat.com
+[2026-03-21T12:01:13.484Z]   SKIP (not in footer/header): https://api.whatsapp.com/send?phone=9720544595699
+[2026-03-21T12:01:13.484Z]   ADDED: urls <- https://ofekgmat.blossom-kc.com
+[2026-03-21T12:01:13.485Z]   SKIP (AI claimed): https://plus.google.com/u/0/+Ofekgmat/about
+[2026-03-21T12:01:13.485Z]   ADDED: urls <- https://www.dooble.co.il
+[2026-03-21T12:01:13.485Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-21T12:01:13.485Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T12:01:13.485Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T12:01:13.485Z] ── Step 3: Final dedup ──
+[2026-03-21T12:01:13.485Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-21T12:01:13.485Z] ── FINAL RESULT ──
+[2026-03-21T12:01:13.485Z]   ws (2):
+[2026-03-21T12:01:13.485Z]     - https://forum.ofekgmat.com
+[2026-03-21T12:01:13.485Z]     - https://www.ofekgmat.com
+[2026-03-21T12:01:13.485Z]   li (1):
+[2026-03-21T12:01:13.485Z]     - https://www.linkedin.com/company/ofek-gmat
+[2026-03-21T12:01:13.485Z]   fb (1):
+[2026-03-21T12:01:13.485Z]     - https://www.facebook.com/ofekgmat
+[2026-03-21T12:01:13.485Z]   urls (4):
+[2026-03-21T12:01:13.485Z]     - http://forum.ofekgmat.com
+[2026-03-21T12:01:13.485Z]     - https://ofekgmat.blossom-kc.com
+[2026-03-21T12:01:13.485Z]     - https://plus.google.com/u/0/+Ofekgmat/about
+[2026-03-21T12:01:13.485Z]     - https://www.dooble.co.il
+[2026-03-21T12:01:13.485Z] Summary: ws:2, li:1, fb:1, urls:4
+[2026-03-21T12:01:13.486Z] Saved final result to result.json
+[2026-03-21T12:01:13.486Z] Override fields: ws, li, fb, urls
+[2026-03-21T12:01:13.486Z] Finished at: 2026-03-21T12:01:13.486Z

@@ -1,0 +1,87 @@
+[2026-03-21T21:49:45.169Z] === Homepage AI Extractor: Hello Heart ===
+[2026-03-21T21:49:45.170Z] Started at: 2026-03-21T21:49:45.170Z
+[2026-03-21T21:49:45.170Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774129785169_Hello_Heart
+[2026-03-21T21:49:45.170Z] Company: Hello Heart
+[2026-03-21T21:49:45.170Z] Website: helloheart.com
+[2026-03-21T21:49:45.170Z] cbRank: 805
+[2026-03-21T21:49:45.170Z] Reasons: f, i
+[2026-03-21T21:49:45.170Z] Fetching: https://helloheart.com
+[2026-03-21T21:49:56.187Z] Network idle timeout — continuing with current state
+[2026-03-21T21:49:56.270Z] Dismissed cookie consent popup via: button:has-text("I Accept")
+[2026-03-21T21:50:04.241Z] Redirected: https://helloheart.com -> https://www.helloheart.com/
+[2026-03-21T21:50:04.248Z] Saved HTML (258804 bytes) to page.html
+[2026-03-21T21:50:04.251Z] Extracted 42 unique links from page
+[2026-03-21T21:50:04.252Z] Saved 42 links to links.json
+[2026-03-21T21:50:04.255Z] Extracted footer HTML (19816 chars)
+[2026-03-21T21:50:04.255Z] Extracted header HTML (18795 chars)
+[2026-03-21T21:50:04.265Z] Website (post-redirect): https://www.helloheart.com/ → origin: https://www.helloheart.com
+[2026-03-21T21:50:04.266Z]   SUBDOMAIN: join.helloheart.com (added to ws)
+[2026-03-21T21:50:04.266Z]   SUBDOMAIN: support.helloheart.com (added to ws)
+[2026-03-21T21:50:04.266Z] Website subdomains found: 2
+[2026-03-21T21:50:04.266Z] External links: 5 (of 42 total)
+[2026-03-21T21:50:04.266Z] ── All external links ──
+[2026-03-21T21:50:04.266Z]   EXT: https://www.facebook.com/HelloHeartApp
+[2026-03-21T21:50:04.266Z]   EXT: https://www.instagram.com/helloheartapp
+[2026-03-21T21:50:04.266Z]   EXT: https://www.linkedin.com/company/helloheart/mycompany/verification
+[2026-03-21T21:50:04.266Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T21:50:04.266Z]   EXT: https://www.twitter.com/HelloHeartApp
+[2026-03-21T21:50:04.266Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:50:04.266Z]   REGEX: fb <- https://www.facebook.com/HelloHeartApp
+[2026-03-21T21:50:04.266Z]   REGEX: ig <- https://www.instagram.com/helloheartapp
+[2026-03-21T21:50:04.267Z]   REGEX: li <- https://www.linkedin.com/company/helloheart/mycompany/verification
+[2026-03-21T21:50:04.267Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-21T21:50:04.267Z]   REGEX: tw <- https://www.twitter.com/HelloHeartApp
+[2026-03-21T21:50:04.267Z] Programmatic result: ws:3, fb:1, ig:1, li:1, tw:1 | 1 uncategorized
+[2026-03-21T21:50:04.267Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:50:04.268Z] Saved AI prompt (8447 chars) to ai_prompt.txt
+[2026-03-21T21:50:04.268Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:50:04.273Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:50:43.105Z]   AI: First token received, streaming...
+[2026-03-21T21:50:52.663Z] AI response complete: 186 chars in 48.4s
+[2026-03-21T21:50:52.664Z] Saved AI response to ai_response.json
+[2026-03-21T21:50:52.664Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T21:50:52.664Z]   AI LINK: https://www.facebook.com/HelloHeartApp/
+[2026-03-21T21:50:52.665Z]   AI LINK: https://www.twitter.com/HelloHeartApp/
+[2026-03-21T21:50:52.665Z]   AI LINK: https://www.instagram.com/helloheartapp
+[2026-03-21T21:50:52.665Z]   AI LINK: https://www.linkedin.com/company/helloheart/mycompany/verification/
+[2026-03-21T21:50:52.665Z] AI returned 4 valid links
+[2026-03-21T21:50:52.665Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T21:50:52.666Z]   AI→REGEX: fb <- https://www.facebook.com/HelloHeartApp/ (duplicate, skipped)
+[2026-03-21T21:50:52.666Z]   AI→REGEX: tw <- https://www.twitter.com/HelloHeartApp/ (duplicate, skipped)
+[2026-03-21T21:50:52.666Z]   AI→REGEX: ig <- https://www.instagram.com/helloheartapp (duplicate, skipped)
+[2026-03-21T21:50:52.666Z]   AI→REGEX: li <- https://www.linkedin.com/company/helloheart/mycompany/verification/ (duplicate, skipped)
+[2026-03-21T21:50:52.669Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:50:52.669Z] Footer/header origins (10):
+[2026-03-21T21:50:52.669Z]   FOOTER/HEADER ORIGIN: https://support.helloheart.com
+[2026-03-21T21:50:52.669Z]   FOOTER/HEADER ORIGIN: http://www.helloheart.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: https://www.helloheart.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: http://join.helloheart.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: https://helloheart.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: https://www.twitter.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T21:50:52.670Z]   FOOTER/HEADER ORIGIN: http://helloheart.com
+[2026-03-21T21:50:52.671Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-21T21:50:52.671Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:50:52.671Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:50:52.671Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T21:50:52.671Z] ── Step 3: Final dedup ──
+[2026-03-21T21:50:52.672Z] No urls to dedup
+[2026-03-21T21:50:52.677Z] ── FINAL RESULT ──
+[2026-03-21T21:50:52.677Z]   ws (3):
+[2026-03-21T21:50:52.677Z]     - https://join.helloheart.com
+[2026-03-21T21:50:52.677Z]     - https://support.helloheart.com
+[2026-03-21T21:50:52.677Z]     - https://www.helloheart.com
+[2026-03-21T21:50:52.678Z]   li (1):
+[2026-03-21T21:50:52.678Z]     - https://www.linkedin.com/company/helloheart
+[2026-03-21T21:50:52.678Z]   fb (1):
+[2026-03-21T21:50:52.678Z]     - https://www.facebook.com/helloheartapp
+[2026-03-21T21:50:52.678Z]   tw (1):
+[2026-03-21T21:50:52.678Z]     - https://x.com/helloheartapp
+[2026-03-21T21:50:52.678Z]   ig (1):
+[2026-03-21T21:50:52.678Z]     - https://www.instagram.com/helloheartapp
+[2026-03-21T21:50:52.678Z] Summary: ws:3, fb:1, ig:1, li:1, tw:1
+[2026-03-21T21:50:52.679Z] Saved final result to result.json
+[2026-03-21T21:50:52.679Z] Override fields: ws, li, fb, tw, ig
+[2026-03-21T21:50:52.679Z] Finished at: 2026-03-21T21:50:52.679Z

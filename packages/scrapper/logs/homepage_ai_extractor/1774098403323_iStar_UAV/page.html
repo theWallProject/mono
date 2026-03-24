@@ -1,0 +1,912 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.2 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Integrated, comprehensive UAS solutions – Istar</title><link rel="stylesheet" href="https://www.istaruav.com/wp-content/cache/min/1/d92c31494c83d540ea05889b343d0f89.css" media="all" data-minify="1">
+	<link rel="canonical" href="https://www.istaruav.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Integrated, comprehensive UAS solutions – Istar">
+	<meta property="og:description" content="INTEGRATED, COMPREHENSIVE UAS SOLUTIONS iSTAR delivers comprehensive UAS platforms integrating advanced systems &amp; technologies to provide customised UAS solutions. Designed by UAS technology experts with decades of combined operational and field expertise, we provide bespoke UAS solutions for aerial monitoring, perimeter and border security to surveillance operations, search &amp; rescue and first response missions. iSTAR’s […]">
+	<meta property="og:url" content="https://www.istaruav.com/">
+	<meta property="og:site_name" content="Istar">
+	<meta property="article:modified_time" content="2024-01-17T15:29:10+00:00">
+	<meta property="og:image" content="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1423.jpg">
+	<meta property="og:image:width" content="1900">
+	<meta property="og:image:height" content="1074">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.istaruav.com/","url":"https://www.istaruav.com/","name":"Integrated, comprehensive UAS solutions &#8211; Istar","isPartOf":{"@id":"https://www.istaruav.com/#website"},"about":{"@id":"https://www.istaruav.com/#organization"},"primaryImageOfPage":{"@id":"https://www.istaruav.com/#primaryimage"},"image":{"@id":"https://www.istaruav.com/#primaryimage"},"thumbnailUrl":"https://www.istaruav.com/wp-content/uploads/2021/10/Group-1423.jpg","datePublished":"2021-10-14T09:34:28+00:00","dateModified":"2024-01-17T15:29:10+00:00","breadcrumb":{"@id":"https://www.istaruav.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.istaruav.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.istaruav.com/#primaryimage","url":"https://www.istaruav.com/wp-content/uploads/2021/10/Group-1423.jpg","contentUrl":"https://www.istaruav.com/wp-content/uploads/2021/10/Group-1423.jpg","width":1900,"height":1074},{"@type":"BreadcrumbList","@id":"https://www.istaruav.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.istaruav.com/#website","url":"https://www.istaruav.com/","name":"Istar","description":"iSTAR &#8211; Surveillance &amp; Intelligence Systems","publisher":{"@id":"https://www.istaruav.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.istaruav.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.istaruav.com/#organization","name":"ISTAR","url":"https://www.istaruav.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.istaruav.com/#/schema/logo/image/","url":"https://www.istaruav.com/wp-content/uploads/2021/07/logo-with-BG.svg","contentUrl":"https://www.istaruav.com/wp-content/uploads/2021/07/logo-with-BG.svg","width":215,"height":153,"caption":"ISTAR"},"image":{"@id":"https://www.istaruav.com/#/schema/logo/image/"}}]}</script>
+	<meta name="google-site-verification" content="DnvAqIEYYT8H6NjCDxteKjYQz5O-FEJaXU8efIP2IwE">
+	<meta name="yandex-verification" content="ad1c92451b7a98fa">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//js-eu1.hs-scripts.com">
+<link rel="dns-prefetch" href="//www.istaruav.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+<link rel="alternate" type="application/rss+xml" title="Istar » Feed" href="https://www.istaruav.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Istar » Comments Feed" href="https://www.istaruav.com/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.istaruav.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.istaruav.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.istaruav.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.istaruav.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" id="elementor-post-1178-css" href="https://www.istaruav.com/wp-content/uploads/elementor/css/post-1178.css?ver=1774074164" media="all">
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://www.istaruav.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://www.istaruav.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.istaruav.com/wp-json/wp/v2/pages/1178"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.istaruav.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="shortlink" href="https://www.istaruav.com/">
+<meta name="generator" content="Site Kit by Google 1.174.0">			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.44-->
+			<script type="rocketlazyloadscript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<meta name="generator" content="Elementor 3.35.7; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			
+<!-- Google Tag Manager snippet added by Site Kit -->
+<script type="rocketlazyloadscript">
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-PZJVN2N' );
+			
+</script>
+
+<!-- End Google Tag Manager snippet added by Site Kit -->
+<link rel="icon" href="https://www.istaruav.com/wp-content/uploads/2022/04/cropped-iStar-favicon@2x-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.istaruav.com/wp-content/uploads/2022/04/cropped-iStar-favicon@2x-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.istaruav.com/wp-content/uploads/2022/04/cropped-iStar-favicon@2x-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.istaruav.com/wp-content/uploads/2022/04/cropped-iStar-favicon@2x-270x270.png">
+		<style id="wp-custom-css">
+			.grecaptcha-badge { visibility: hidden; }		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+<body class="home wp-singular page-template page-template-elementor_canvas page page-id-1178 wp-theme-hello-elementor wp-child-theme-avnongroup elementor-default elementor-template-canvas elementor-kit-4 elementor-page elementor-page-1178">
+			<!-- Google Tag Manager (noscript) snippet added by Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZJVN2N" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
+				<div data-elementor-type="wp-page" data-elementor-id="1178" class="elementor elementor-1178">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-7e6f657 elementor-section-height-min-height elementor-section-items-stretch elementor-section-boxed elementor-section-height-default" data-id="7e6f657" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a63191d" data-id="a63191d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7187255 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="7187255" data-element_type="widget" data-e-type="widget" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="144" height="103" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20144%20103'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1209" alt="iStar" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-287.png"><noscript><img decoding="async" width="144" height="103" src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-287.png" class="attachment-full size-full wp-image-1209" alt="iStar" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-1238c7b elementor-widget__width-initial elementor-fixed elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="1238c7b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;fixed&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="144" height="103" src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-287.png" class="attachment-full size-full wp-image-1209 entered lazyloaded" alt="iStar" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-287.png" data-ll-status="loaded"><noscript><img decoding="async" width="144" height="103" src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-287.png" class="attachment-full size-full wp-image-1209" alt="iStar" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-9291e16 animated-slow elementor-widget elementor-widget-image animated slideInUp" data-id="9291e16" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation_delay&quot;:500}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img fetchpriority="high" decoding="async" width="1472" height="860" src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367.png" class="attachment-full size-full wp-image-1252 entered lazyloaded" alt="" data-lazy-srcset="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367.png 1472w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-250x146.png 250w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-1024x598.png 1024w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-768x449.png 768w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-600x351.png 600w" data-lazy-sizes="(max-width: 1472px) 100vw, 1472px" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367.png" data-ll-status="loaded" sizes="(max-width: 1472px) 100vw, 1472px" srcset="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367.png 1472w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-250x146.png 250w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-1024x598.png 1024w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-768x449.png 768w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-600x351.png 600w"><noscript><img fetchpriority="high" decoding="async" width="1472" height="860" src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367.png" class="attachment-full size-full wp-image-1252" alt="" srcset="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367.png 1472w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-250x146.png 250w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-1024x598.png 1024w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-768x449.png 768w, https://www.istaruav.com/wp-content/uploads/2021/10/Group-1367-600x351.png 600w" sizes="(max-width: 1472px) 100vw, 1472px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-170af7b hobana elementor-widget elementor-widget-heading" data-id="170af7b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default"><span>INTEGRATED, COMPREHENSIVE</span> UAS SOLUTIONS</h1>				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-e4bc738 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e4bc738" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-wider">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-da2c97d" data-id="da2c97d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-600f38d elementor-widget elementor-widget-text-editor" data-id="600f38d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>iSTAR delivers comprehensive UAS platforms integrating advanced systems &amp; technologies to provide customised UAS solutions. Designed by UAS technology experts with decades of combined operational and field expertise, we provide bespoke UAS solutions for aerial monitoring, perimeter and border security to surveillance operations, search &amp; rescue and first response missions.</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d4ab69d" data-id="d4ab69d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-41c9f3d elementor-widget elementor-widget-text-editor" data-id="41c9f3d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>iSTAR’s world-class unmanned platforms are designed for long-endurance security, intelligence and surveillance missions. For over a decade, the iSTAR engineers have been designing and producing special purpose, fixed-wing and VTOL airborne systems and sub-systems for HLS, low-intensity conflicts, law enforcement, S&amp;R and commercial applications.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5079f0a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5079f0a" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-82eea7d" data-id="82eea7d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-9a83c2d hobana elementor-widget elementor-widget-heading" data-id="9a83c2d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default"><span> UNRIVALLED </span>PERFORMANCE</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-104f760 elementor-widget elementor-widget-text-editor" data-id="104f760" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Manufactured from advanced composite materials, iSTAR offers one of the world’s most advanced, high endurance VTOL unmanned aircraft. We provide unrivalled performance harnessing extended vertical take-off fixed-wing with a highly reliable multi-rotor system and fuel-powered combustion engine.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-90aa0b3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="90aa0b3" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f49261b" data-id="f49261b" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-3370d92 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3370d92" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-ac9a3bb" data-id="ac9a3bb" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6a40509 elementor-widget elementor-widget-image" data-id="6a40509" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1215" alt="Auto Take-off" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Auto-Take-off.svg"><noscript><img decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Auto-Take-off.svg" class="attachment-full size-full wp-image-1215" alt="Auto Take-off" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-a5b7ce8 elementor-widget elementor-widget-heading" data-id="a5b7ce8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">AUTO TAKE-OFF</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-777e12c elementor-widget elementor-widget-text-editor" data-id="777e12c" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									and Landing								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-f215be0" data-id="f215be0" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-17dab28 elementor-widget elementor-widget-image" data-id="17dab28" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1217" alt="Guided Mode" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Guided-Mode.svg"><noscript><img loading="lazy" decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Guided-Mode.svg" class="attachment-full size-full wp-image-1217" alt="Guided Mode" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-861b54c elementor-widget elementor-widget-heading" data-id="861b54c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">GUIDED MODE</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-4cc261b elementor-widget elementor-widget-text-editor" data-id="4cc261b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									Point and click autonomous mission flight mode								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-61537ee" data-id="61537ee" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b758591 elementor-widget elementor-widget-image" data-id="b758591" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1416" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Rapic-deploiment.svg"><noscript><img loading="lazy" decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Rapic-deploiment.svg" class="attachment-full size-full wp-image-1416" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-f5365e4 elementor-widget elementor-widget-heading" data-id="f5365e4" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">RAPID DEPLOYMENT</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-f563696 elementor-widget elementor-widget-text-editor" data-id="f563696" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Quick Lock &amp; Latch features <br>for rapid deployment in<br>under 20 min</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-b3520ad" data-id="b3520ad" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3650d35 elementor-widget elementor-widget-image" data-id="3650d35" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1214" alt="Advanced Missions" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Advanced-Missions.svg"><noscript><img loading="lazy" decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Advanced-Missions.svg" class="attachment-full size-full wp-image-1214" alt="Advanced Missions" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-e433dac elementor-widget elementor-widget-heading" data-id="e433dac" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">ADVANCED MISSIONS</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-e0b9226 elementor-widget elementor-widget-text-editor" data-id="e0b9226" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Planning capabilities</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-8b2d13d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8b2d13d" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-143fa63" data-id="143fa63" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-aad1266 elementor-widget elementor-widget-image" data-id="aad1266" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1417" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-edurance.svg"><noscript><img loading="lazy" decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-edurance.svg" class="attachment-full size-full wp-image-1417" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-fe18be8 elementor-widget elementor-widget-heading" data-id="fe18be8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">HIGH ENDURANCE</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-03bf34a elementor-widget elementor-widget-text-editor" data-id="03bf34a" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Cover more ground and <br>gain access to hard-to-<br>reach places.</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-822fcaf" data-id="822fcaf" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-59a011b elementor-widget elementor-widget-image" data-id="59a011b" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1220" alt="Payload Triggering" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Payload-Triggering.svg"><noscript><img loading="lazy" decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Payload-Triggering.svg" class="attachment-full size-full wp-image-1220" alt="Payload Triggering" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-d283c21 elementor-widget elementor-widget-heading" data-id="d283c21" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">PAYLOAD TRIGGERING</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-890ab40 elementor-widget elementor-widget-text-editor" data-id="890ab40" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									Auto triggering using Geo Reference, Time or Distance Interval/ override for manual triggering								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-b0ece7d" data-id="b0ece7d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-606f0eb elementor-widget elementor-widget-image" data-id="606f0eb" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1223" alt="VTOL transition" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-VTOL-transition.svg"><noscript><img loading="lazy" decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-VTOL-transition.svg" class="attachment-full size-full wp-image-1223" alt="VTOL transition" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-2891d65 elementor-widget elementor-widget-heading" data-id="2891d65" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">VTOL TRANSITION</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-0f31696 elementor-widget elementor-widget-text-editor" data-id="0f31696" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Seamless autonomous transition between multirotor and fixedwing modes</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-d2a28be" data-id="d2a28be" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d0e6ae1 elementor-widget elementor-widget-image" data-id="d0e6ae1" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="149" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20149'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1422" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1419.svg"><noscript><img loading="lazy" decoding="async" width="150" height="149" src="https://www.istaruav.com/wp-content/uploads/2021/10/Group-1419.svg" class="attachment-full size-full wp-image-1422" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-f9490df elementor-widget elementor-widget-heading" data-id="f9490df" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">AVIONICS SYSTEM</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-67275c9 elementor-widget elementor-widget-text-editor" data-id="67275c9" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>In-house developed, all-in-one <br>VTOL fixed-wing autopilot and <br>ground control systems</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3303428 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="3303428" data-element_type="section" data-e-type="section" data-settings="{&quot;shape_divider_top&quot;:&quot;triangle&quot;}">
+					<div class="elementor-shape elementor-shape-top" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500,98.9L0,6.1V0h1000v6.1L500,98.9z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6ad1bfd" data-id="6ad1bfd" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-676ce47 elementor-widget elementor-widget-heading" data-id="676ce47" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">APPLICATIONS</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a0c9267 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a0c9267" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5d0d19e" data-id="5d0d19e" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-681e512 hobana elementor-widget elementor-widget-heading" data-id="681e512" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">DETECT, TRACK, IDENTIFY, REACT</h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-1fc9065 elementor-widget elementor-widget-text-editor" data-id="1fc9065" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>From the protection of airports, maritime assets and critical infrastructures to military bases and government headquarters, we strive to provide forward-thinking solutions for multiple HLS applications to support anticipation and mitigation of threats to public safety and national security.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-39ed01c elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="39ed01c" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-64de436" data-id="64de436" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ab59311 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ab59311" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9038f58" data-id="9038f58" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b39883b hobana elementor-widget elementor-widget-heading" data-id="b39883b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">iSTAR PROVIDES CLOSE <br>COMBAT SUPPORT FOR</h2>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-59c4822 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="59c4822" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-b99e8ce" data-id="b99e8ce" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-f01ce59 bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f01ce59" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-b65770e" data-id="b65770e" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-dc53153 elementor-widget elementor-widget-heading" data-id="dc53153" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">LAW<br>ENFORCEMENT</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-6241130" data-id="6241130" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-9ea31ef bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ea31ef" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-5704088" data-id="5704088" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-97ab14b elementor-widget elementor-widget-heading" data-id="97ab14b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">PERIMETER SECURITY</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-36b88fd" data-id="36b88fd" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-35fe73e bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="35fe73e" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-02a158c" data-id="02a158c" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fa9fe79 elementor-widget elementor-widget-heading" data-id="fa9fe79" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">COASTAL SECURITY</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-09a95cb" data-id="09a95cb" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-8593c65 bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8593c65" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-f8cd445" data-id="f8cd445" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f527ed1 elementor-widget elementor-widget-heading" data-id="f527ed1" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">STRATEGIC INFRASTRUCTURES</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-943ef45 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="943ef45" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-70abcb5" data-id="70abcb5" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-372ef5a bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="372ef5a" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-0656d08" data-id="0656d08" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-79ff749 elementor-widget elementor-widget-heading" data-id="79ff749" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">BORDERS</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-87ea47f" data-id="87ea47f" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-6ea0c32 bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6ea0c32" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-aac7208" data-id="aac7208" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-326f15e elementor-widget elementor-widget-heading" data-id="326f15e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">MILITARY</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-779ed3d" data-id="779ed3d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-a1ffb5c bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a1ffb5c" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-25edc3e" data-id="25edc3e" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ba28987 elementor-widget elementor-widget-heading" data-id="ba28987" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">MAPPING</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-836d303" data-id="836d303" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-a353ab3 bubi elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a353ab3" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-9d308b7" data-id="9d308b7" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e039a7b elementor-widget elementor-widget-heading" data-id="e039a7b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">S&amp;R</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-18e40aa elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="18e40aa" data-element_type="section" data-e-type="section" data-settings="{&quot;shape_divider_top&quot;:&quot;triangle&quot;}">
+					<div class="elementor-shape elementor-shape-top" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500,98.9L0,6.1V0h1000v6.1L500,98.9z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-691f1ae" data-id="691f1ae" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fe51111 elementor-widget elementor-widget-heading" data-id="fe51111" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h6 class="elementor-heading-title elementor-size-default">TOP PAYLOADS, TOP VIEW</h6>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6279dd3 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="6279dd3" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;background_motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;background_motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-31b47dd" data-id="31b47dd" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e26ada0 elementor-widget elementor-widget-image" data-id="e26ada0" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="250" height="300" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20250%20300'%3E%3C/svg%3E" class="attachment-large size-large wp-image-1245" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/shutterstock_761940757.png"><noscript><img loading="lazy" decoding="async" width="250" height="300" src="https://www.istaruav.com/wp-content/uploads/2021/10/shutterstock_761940757.png" class="attachment-large size-large wp-image-1245" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-71161eb elementor-widget elementor-widget-text-editor" data-id="71161eb" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>iSTAR provides a wide range of high-performance <br>EO/IR payloads customised to meet your system<br>specifications and mission requirements. From<br>advanced user interfaces to leading-edge <br>embedded technologies, iSTAR delivers advanced<br>VISINT capabilities to ensure mission success.</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-8236a3a elementor-hidden-mobile" data-id="8236a3a" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-13cff46 elementor-hidden-mobile" data-id="13cff46" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-22a9602 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="22a9602" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-d22d497" data-id="d22d497" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a0f3271 elementor-widget elementor-widget-image" data-id="a0f3271" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="111" height="167" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20111%20167'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1365" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/HD40-thumbnail.png"><noscript><img loading="lazy" decoding="async" width="111" height="167" src="https://www.istaruav.com/wp-content/uploads/2021/10/HD40-thumbnail.png" class="attachment-full size-full wp-image-1365" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-f6cbb60" data-id="f6cbb60" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e703c31 elementor-widget elementor-widget-image" data-id="e703c31" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="167" height="167" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20167%20167'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1366" alt="" data-lazy-srcset="https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb.png 167w, https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb-150x150.png 150w, https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb-100x100.png 100w" data-lazy-sizes="(max-width: 167px) 100vw, 167px" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb.png"><noscript><img loading="lazy" decoding="async" width="167" height="167" src="https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb.png" class="attachment-full size-full wp-image-1366" alt="" srcset="https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb.png 167w, https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb-150x150.png 150w, https://www.istaruav.com/wp-content/uploads/2021/10/HD45-thumb-100x100.png 100w" sizes="(max-width: 167px) 100vw, 167px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-09c0725" data-id="09c0725" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-9216ed5 elementor-widget elementor-widget-image" data-id="9216ed5" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="112" height="168" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20112%20168'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1367" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/HD80-thumbnail.png"><noscript><img loading="lazy" decoding="async" width="112" height="168" src="https://www.istaruav.com/wp-content/uploads/2021/10/HD80-thumbnail.png" class="attachment-full size-full wp-image-1367" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-3eeff98" data-id="3eeff98" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1b151e6 elementor-widget elementor-widget-image" data-id="1b151e6" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="144" height="179" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20144%20179'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1369" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/UV900-163_CM142A_CM142-Datasheet_3-2-0-2.png"><noscript><img loading="lazy" decoding="async" width="144" height="179" src="https://www.istaruav.com/wp-content/uploads/2021/10/UV900-163_CM142A_CM142-Datasheet_3-2-0-2.png" class="attachment-full size-full wp-image-1369" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-2d96623" data-id="2d96623" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2394a3d elementor-widget elementor-widget-image" data-id="2394a3d" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="135" height="198" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20135%20198'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1364" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/CAMERA-2.png"><noscript><img loading="lazy" decoding="async" width="135" height="198" src="https://www.istaruav.com/wp-content/uploads/2021/10/CAMERA-2.png" class="attachment-full size-full wp-image-1364" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-01436e2" data-id="01436e2" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0217547 elementor-widget elementor-widget-image" data-id="0217547" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="111" height="167" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20111%20167'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1365" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/HD40-thumbnail.png"><noscript><img loading="lazy" decoding="async" width="111" height="167" src="https://www.istaruav.com/wp-content/uploads/2021/10/HD40-thumbnail.png" class="attachment-full size-full wp-image-1365" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-e3724aa elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="e3724aa" data-element_type="section" data-e-type="section" data-settings="{&quot;shape_divider_top&quot;:&quot;triangle&quot;}">
+					<div class="elementor-shape elementor-shape-top" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500,98.9L0,6.1V0h1000v6.1L500,98.9z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-44eba91" data-id="44eba91" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-53bc39e elementor-widget elementor-widget-heading" data-id="53bc39e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h6 class="elementor-heading-title elementor-size-default">ADVANCED C2 PLATFORMS</h6>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c8e05fb elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c8e05fb" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5bcd1f8" data-id="5bcd1f8" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ec7147c elementor-widget elementor-widget-text-editor" data-id="ec7147c" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>The iSTAR C2 Mobile Command &amp; Control provides real-time information enabling the operational team to make fast and accurate decisions.</p><p>Our Unmanned Vehicle Control System is a field-proven C2 system based on the iSTAR architecture and used to control the UAS remotely. The relay system facilitates the control of multiple systems.</p><p>Powered by our flexible approach and unique modular platforms, we provide customised solutions, with an option to add additional consoles and modules. The vehicle command and telemetry displays and configurations, telemetry displays, and range maps are designed according to customer preference.</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2f8d357" data-id="2f8d357" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2ebb916 elementor-widget elementor-widget-image" data-id="2ebb916" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="800" height="494" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20494'%3E%3C/svg%3E" class="attachment-large size-large wp-image-1401" alt="" data-lazy-srcset="https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1.png 937w, https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1-250x154.png 250w, https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1-768x475.png 768w, https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1-600x371.png 600w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1.png"><noscript><img loading="lazy" decoding="async" width="800" height="494" src="https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1.png" class="attachment-large size-large wp-image-1401" alt="" srcset="https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1.png 937w, https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1-250x154.png 250w, https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1-768x475.png 768w, https://www.istaruav.com/wp-content/uploads/2021/10/Mobile-C2-isolated-1-600x371.png 600w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-05d113b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="05d113b" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-e85c53b" data-id="e85c53b" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3b02828 elementor-widget elementor-widget-image" data-id="3b02828" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="800" height="799" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20799'%3E%3C/svg%3E" class="attachment-large size-large wp-image-1403" alt="" data-lazy-srcset="https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar.png 864w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-250x250.png 250w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-150x150.png 150w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-768x767.png 768w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-300x300.png 300w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-600x599.png 600w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-100x100.png 100w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar.png"><noscript><img loading="lazy" decoding="async" width="800" height="799" src="https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar.png" class="attachment-large size-large wp-image-1403" alt="" srcset="https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar.png 864w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-250x250.png 250w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-150x150.png 150w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-768x767.png 768w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-300x300.png 300w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-600x599.png 600w, https://www.istaruav.com/wp-content/uploads/2021/10/vtol-c2-Radar-100x100.png 100w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4c9497e" data-id="4c9497e" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-4466bae elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4466bae" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8ea7efb" data-id="8ea7efb" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b09a8a2 elementor-widget elementor-widget-image" data-id="b09a8a2" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="140" height="139" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20140%20139'%3E%3C/svg%3E" title="" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Advanced-Design-1.svg"><noscript><img width="140" height="139" decoding="async" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Advanced-Design-1.svg" title="" alt="" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-597ad4f" data-id="597ad4f" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-af0682b elementor-widget elementor-widget-heading" data-id="af0682b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">ADVANCED DESIGN</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-cf3bae7 elementor-widget elementor-widget-text-editor" data-id="cf3bae7" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>The iSTAR C2 is designed and manufactured in-house, specifically for our aircraft. With large HD displays, integrated storage, build-in antenna connectors, the iSTAR GCS is comprehensive Command and Control station.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-91a9fec elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="91a9fec" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-bb0aa3b" data-id="bb0aa3b" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f6da4db elementor-widget elementor-widget-image" data-id="f6da4db" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-image-1376" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Compact-Rugged-1.svg"><noscript><img loading="lazy" decoding="async" width="150" height="150" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Compact-Rugged-1.svg" class="attachment-thumbnail size-thumbnail wp-image-1376" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6a6e764" data-id="6a6e764" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-50a6ad9 elementor-widget elementor-widget-heading" data-id="50a6ad9" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">COMPACT &amp; RUGGED</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-0dab1c6 elementor-widget elementor-widget-text-editor" data-id="0dab1c6" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Built from lightweight carbon composite and aluminum materials, industrial-grade components sealed in the world’s best travel case, the iSTAR C2 is compact, easy to transport and deploy.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-5f78b30 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5f78b30" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c9038f0" data-id="c9038f0" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-349eef4 elementor-widget elementor-widget-image" data-id="349eef4" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-image-1378" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Reliable-Power-1.svg"><noscript><img loading="lazy" decoding="async" width="150" height="150" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Reliable-Power-1.svg" class="attachment-thumbnail size-thumbnail wp-image-1378" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9edbc0c" data-id="9edbc0c" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2d1f650 elementor-widget elementor-widget-heading" data-id="2d1f650" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">RELIABLE POWER</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-3549990 elementor-widget elementor-widget-text-editor" data-id="3549990" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>With two power sources, the iSTAR C2 allows for reliable, continuous operation in the field. Hot-swappable battery packs together with AC power, which switches over instantly in a power cut.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-b9fabde elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b9fabde" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-cbe1621" data-id="cbe1621" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c1e8076 elementor-widget elementor-widget-image" data-id="c1e8076" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-image-1377" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Long-Range-1.svg"><noscript><img loading="lazy" decoding="async" width="150" height="150" src="https://www.istaruav.com/wp-content/uploads/2021/10/istar-icon-Long-Range-1.svg" class="attachment-thumbnail size-thumbnail wp-image-1377" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-99011f2" data-id="99011f2" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a44fcdf elementor-widget elementor-widget-heading" data-id="a44fcdf" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">LONG RANGE</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-aa45272 elementor-widget elementor-widget-text-editor" data-id="aa45272" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>The standard iSTAR C2 features a 2.4Ghz data &amp; video link which offers up to 10km range and up to 250km range with our optional advanced Antenna Tracking systems.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-93e927a elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="93e927a" data-element_type="section" data-e-type="section" data-settings="{&quot;shape_divider_top&quot;:&quot;triangle&quot;}">
+					<div class="elementor-shape elementor-shape-top" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500,98.9L0,6.1V0h1000v6.1L500,98.9z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-62cb783" data-id="62cb783" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-cd07b27 elementor-widget elementor-widget-heading" data-id="cd07b27" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h6 class="elementor-heading-title elementor-size-default">CONTACT US FOR MORE INFORMATION</h6>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-88e5eb9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="88e5eb9" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7fbed71" data-id="7fbed71" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3443f9a elementor-widget elementor-widget-html" data-id="3443f9a" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<script type="rocketlazyloadscript" charset="utf-8" data-rocket-type="text/javascript" data-rocket-src="//js-eu1.hsforms.net/forms/v2.js"></script>
+<script type="rocketlazyloadscript">
+  hbspt.forms.create({
+    region: "eu1",
+    portalId: "25292846",
+    formId: "d7cfa3ea-38a5-480b-a42e-50843495d6da"
+  });
+</script>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7662969 elementor-widget elementor-widget-heading" data-id="7662969" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">Or email us at info@istaruav.com</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8fe6a24 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8fe6a24" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e1f6954" data-id="e1f6954" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-34074ce elementor-widget elementor-widget-image" data-id="34074ce" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="86" height="68" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2086%2068'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1379" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/logo.png"><noscript><img loading="lazy" decoding="async" width="86" height="68" src="https://www.istaruav.com/wp-content/uploads/2021/10/logo.png" class="attachment-full size-full wp-image-1379" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-415b2dc elementor-widget elementor-widget-heading" data-id="415b2dc" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default"><a href="https://www.istaruav.com/privacy-policy/">Privacy Policy</a></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-2f0d317 elementor-widget elementor-widget-image" data-id="2f0d317" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="attachment-large size-large wp-image-1380" alt="" data-lazy-src="https://www.istaruav.com/wp-content/uploads/2021/10/part-of-avnon-holding.svg"><noscript><img loading="lazy" decoding="async" width="800" height="800" src="https://www.istaruav.com/wp-content/uploads/2021/10/part-of-avnon-holding.svg" class="attachment-large size-large wp-image-1380" alt="" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/avnongroup/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"home","leadinPluginVersion":"11.3.44"};
+//# sourceURL=leadin-script-loader-js-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.istaruav.com/wp-content/cache/min/1/25292846.js?ver=1726998953" id="leadin-script-loader-js-js" defer=""></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.istaruav.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.35.7" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.35.7" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.35.7","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"theme_builder_v2":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_editor_one":true,"import-export-customization":true,"page-transitions":true,"notes":true,"loop":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/www.istaruav.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.istaruav.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.istaruav.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"731652e2bc"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":1178,"title":"Integrated%2C%20comprehensive%20UAS%20solutions%20%E2%80%93%20Istar","excerpt":"","featuredImage":"https:\/\/www.istaruav.com\/wp-content\/uploads\/2021\/10\/Group-1423-1024x579.jpg"}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.35.7" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.12.0" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.istaruav.com\/wp-admin\/admin-ajax.php","nonce":"3ef12a3bc5","urls":{"assets":"https:\/\/www.istaruav.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.istaruav.com\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.istaruav.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.12.0" id="elementor-pro-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.12.0" id="pro-preloaded-elements-handlers-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.istaruav.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.12.0" id="e-sticky-js" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://www.istaruav.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>	<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

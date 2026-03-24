@@ -1,0 +1,77 @@
+[2026-03-21T21:54:48.354Z] === Homepage AI Extractor: Tastewise ===
+[2026-03-21T21:54:48.354Z] Started at: 2026-03-21T21:54:48.354Z
+[2026-03-21T21:54:48.354Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774130088353_Tastewise
+[2026-03-21T21:54:48.354Z] Company: Tastewise
+[2026-03-21T21:54:48.354Z] Website: tastewise.io
+[2026-03-21T21:54:48.354Z] cbRank: 1137
+[2026-03-21T21:54:48.354Z] Reasons: f
+[2026-03-21T21:54:48.354Z] Fetching: https://tastewise.io
+[2026-03-21T21:54:50.371Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-21T21:54:53.739Z] Redirected: https://tastewise.io -> https://tastewise.io/
+[2026-03-21T21:54:53.760Z] Saved HTML (766472 bytes) to page.html
+[2026-03-21T21:54:53.763Z] Extracted 48 unique links from page
+[2026-03-21T21:54:53.764Z] Saved 48 links to links.json
+[2026-03-21T21:54:53.768Z] Extracted footer HTML (54668 chars)
+[2026-03-21T21:54:53.768Z] Extracted header HTML (19341 chars)
+[2026-03-21T21:54:53.773Z] Website (post-redirect): https://tastewise.io/ → origin: https://tastewise.io
+[2026-03-21T21:54:53.773Z]   SUBDOMAIN: app.tastewise.io (added to ws)
+[2026-03-21T21:54:53.774Z] Website subdomains found: 1
+[2026-03-21T21:54:53.774Z] External links: 4 (of 48 total)
+[2026-03-21T21:54:53.774Z] ── All external links ──
+[2026-03-21T21:54:53.774Z]   EXT: https://linkedin.com/company/tastewise
+[2026-03-21T21:54:53.774Z]   EXT: https://twitter.com/tastewiseai
+[2026-03-21T21:54:53.774Z]   EXT: https://www.facebook.com/tastewiseAI
+[2026-03-21T21:54:53.774Z]   EXT: https://www.instagram.com/tastewise.ai
+[2026-03-21T21:54:53.774Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T21:54:53.774Z]   REGEX: li <- https://linkedin.com/company/tastewise
+[2026-03-21T21:54:53.775Z]   REGEX: tw <- https://twitter.com/tastewiseai
+[2026-03-21T21:54:53.775Z]   REGEX: fb <- https://www.facebook.com/tastewiseAI
+[2026-03-21T21:54:53.775Z]   REGEX: ig <- https://www.instagram.com/tastewise.ai
+[2026-03-21T21:54:53.775Z] Programmatic result: ws:2, li:1, tw:1, fb:1, ig:1 | 0 uncategorized
+[2026-03-21T21:54:53.775Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T21:54:53.778Z] Saved AI prompt (2823 chars) to ai_prompt.txt
+[2026-03-21T21:54:53.778Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T21:54:53.782Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T21:55:03.788Z]   AI: First token received, streaming...
+[2026-03-21T21:55:11.487Z] AI response complete: 148 chars in 17.7s
+[2026-03-21T21:55:11.489Z] Saved AI response to ai_response.json
+[2026-03-21T21:55:11.489Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T21:55:11.489Z]   AI LINK: https://www.facebook.com/tastewiseAI/
+[2026-03-21T21:55:11.489Z]   AI LINK: https://www.instagram.com/tastewise.ai/
+[2026-03-21T21:55:11.489Z]   AI LINK: https://linkedin.com/company/tastewise
+[2026-03-21T21:55:11.490Z]   AI LINK: https://twitter.com/tastewiseai
+[2026-03-21T21:55:11.490Z] AI returned 4 valid links
+[2026-03-21T21:55:11.490Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T21:55:11.490Z]   AI→REGEX: fb <- https://www.facebook.com/tastewiseAI/ (duplicate, skipped)
+[2026-03-21T21:55:11.490Z]   AI→REGEX: ig <- https://www.instagram.com/tastewise.ai/ (duplicate, skipped)
+[2026-03-21T21:55:11.491Z]   AI→REGEX: li <- https://linkedin.com/company/tastewise (duplicate, skipped)
+[2026-03-21T21:55:11.491Z]   AI→REGEX: tw <- https://twitter.com/tastewiseai (duplicate, skipped)
+[2026-03-21T21:55:11.493Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T21:55:11.493Z] Footer/header origins (6):
+[2026-03-21T21:55:11.493Z]   FOOTER/HEADER ORIGIN: https://tastewise.io
+[2026-03-21T21:55:11.493Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T21:55:11.493Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T21:55:11.493Z]   FOOTER/HEADER ORIGIN: https://linkedin.com
+[2026-03-21T21:55:11.494Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T21:55:11.494Z]   FOOTER/HEADER ORIGIN: https://app.tastewise.io
+[2026-03-21T21:55:11.494Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T21:55:11.494Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T21:55:11.494Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T21:55:11.494Z] ── Step 3: Final dedup ──
+[2026-03-21T21:55:11.495Z] No urls to dedup
+[2026-03-21T21:55:11.495Z] ── FINAL RESULT ──
+[2026-03-21T21:55:11.495Z]   ws (2):
+[2026-03-21T21:55:11.495Z]     - https://app.tastewise.io
+[2026-03-21T21:55:11.495Z]     - https://tastewise.io
+[2026-03-21T21:55:11.496Z]   li (1):
+[2026-03-21T21:55:11.496Z]     - https://www.linkedin.com/company/tastewise
+[2026-03-21T21:55:11.496Z]   fb (1):
+[2026-03-21T21:55:11.496Z]     - https://www.facebook.com/tastewiseai
+[2026-03-21T21:55:11.496Z]   tw (1):
+[2026-03-21T21:55:11.496Z]     - https://x.com/tastewiseai
+[2026-03-21T21:55:11.496Z]   ig (1):
+[2026-03-21T21:55:11.496Z]     - https://www.instagram.com/tastewise.ai
+[2026-03-21T21:55:11.497Z] Summary: ws:2, li:1, tw:1, fb:1, ig:1
+[2026-03-21T21:55:11.498Z] Saved final result to result.json
+[2026-03-21T21:55:11.498Z] Override fields: ws, li, fb, tw, ig
+[2026-03-21T21:55:11.498Z] Finished at: 2026-03-21T21:55:11.498Z

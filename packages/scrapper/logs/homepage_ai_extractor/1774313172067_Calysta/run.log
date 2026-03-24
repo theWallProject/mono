@@ -1,0 +1,58 @@
+[2026-03-24T00:46:12.068Z] === Homepage AI Extractor: Calysta ===
+[2026-03-24T00:46:12.068Z] Started at: 2026-03-24T00:46:12.068Z
+[2026-03-24T00:46:12.068Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774313172067_Calysta
+[2026-03-24T00:46:12.068Z] Company: Calysta
+[2026-03-24T00:46:12.069Z] Website: calysta.com
+[2026-03-24T00:46:12.069Z] cbRank: 65509
+[2026-03-24T00:46:12.069Z] Reasons: i
+[2026-03-24T00:46:12.069Z] Fetching: https://calysta.com
+[2026-03-24T00:46:16.211Z] Redirected: https://calysta.com -> https://calysta.com/
+[2026-03-24T00:46:16.218Z] Saved HTML (184371 bytes) to page.html
+[2026-03-24T00:46:16.223Z] Extracted 21 unique links from page
+[2026-03-24T00:46:16.223Z] Saved 21 links to links.json
+[2026-03-24T00:46:16.225Z] Extracted footer HTML (7555 chars)
+[2026-03-24T00:46:16.225Z] Extracted header HTML (48418 chars)
+[2026-03-24T00:46:16.229Z] Website (post-redirect): https://calysta.com/ → origin: https://calysta.com
+[2026-03-24T00:46:16.229Z] External links: 2 (of 21 total)
+[2026-03-24T00:46:16.229Z] ── All external links ──
+[2026-03-24T00:46:16.229Z]   EXT: https://id.linkedin.com/company/calysta-energy
+[2026-03-24T00:46:16.229Z]   EXT: https://x.com/feedkind?lang=en
+[2026-03-24T00:46:16.230Z] ── Step 1: Programmatic categorization ──
+[2026-03-24T00:46:16.230Z]   REGEX: li <- https://id.linkedin.com/company/calysta-energy
+[2026-03-24T00:46:16.230Z]   REGEX: tw <- https://x.com/feedkind?lang=en
+[2026-03-24T00:46:16.230Z] Programmatic result: ws:1, li:1, tw:1 | 0 uncategorized
+[2026-03-24T00:46:16.230Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-24T00:46:16.231Z] Saved AI prompt (5689 chars) to ai_prompt.txt
+[2026-03-24T00:46:16.231Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-24T00:46:16.235Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-24T00:46:39.424Z]   AI: First token received, streaming...
+[2026-03-24T00:46:42.865Z] AI response complete: 77 chars in 26.6s
+[2026-03-24T00:46:42.866Z] Saved AI response to ai_response.json
+[2026-03-24T00:46:42.867Z] ── Parsing AI response (2 lines) ──
+[2026-03-24T00:46:42.867Z]   AI LINK: https://x.com/feedkind?lang=en
+[2026-03-24T00:46:42.867Z]   AI LINK: https://id.linkedin.com/company/calysta-energy
+[2026-03-24T00:46:42.867Z] AI returned 2 valid links
+[2026-03-24T00:46:42.867Z] ── Categorizing 2 AI-returned links ──
+[2026-03-24T00:46:42.867Z]   AI→REGEX: tw <- https://x.com/feedkind?lang=en (duplicate, skipped)
+[2026-03-24T00:46:42.867Z]   AI→REGEX: li <- https://id.linkedin.com/company/calysta-energy (duplicate, skipped)
+[2026-03-24T00:46:42.868Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-24T00:46:42.868Z] Footer/header origins (3):
+[2026-03-24T00:46:42.868Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-24T00:46:42.868Z]   FOOTER/HEADER ORIGIN: https://id.linkedin.com
+[2026-03-24T00:46:42.868Z]   FOOTER/HEADER ORIGIN: https://calysta.com
+[2026-03-24T00:46:42.868Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-24T00:46:42.868Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-24T00:46:42.868Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-24T00:46:42.868Z] ── Step 3: Final dedup ──
+[2026-03-24T00:46:42.868Z] No urls to dedup
+[2026-03-24T00:46:42.868Z] ── FINAL RESULT ──
+[2026-03-24T00:46:42.869Z]   ws (1):
+[2026-03-24T00:46:42.869Z]     - https://calysta.com
+[2026-03-24T00:46:42.869Z]   li (1):
+[2026-03-24T00:46:42.869Z]     - https://www.linkedin.com/company/calysta-energy
+[2026-03-24T00:46:42.869Z]   tw (1):
+[2026-03-24T00:46:42.869Z]     - https://x.com/feedkind
+[2026-03-24T00:46:42.869Z] Summary: ws:1, li:1, tw:1
+[2026-03-24T00:46:42.870Z] Saved final result to result.json
+[2026-03-24T00:46:42.870Z] Override fields: ws, li, tw
+[2026-03-24T00:46:42.870Z] Finished at: 2026-03-24T00:46:42.870Z

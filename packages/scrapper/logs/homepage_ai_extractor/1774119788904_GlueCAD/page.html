@@ -1,0 +1,588 @@
+<!DOCTYPE html><html><head>
+<title>תוכנית לאומית לניטור פרפרים בישראל | BMS-IL,  Israel Butterfly Monitoring Scheme </title>
+
+<meta name="GENERATOR" content="Microsoft Visual Studio 6.0">
+<meta name="description" content="אתר ומאגר תצפיות הפרפרים של 'תכנית לאומית לניטור הפרפרים', מיזם מדע אזרחי הגדול בארץ.  דיווח ממתנדבים ומקהילות ניטור מכל הארץ בעזרת אפליקציות ובסיוע צמוד של מומחי הפרפרים."> 
+ <meta name="keywords" content="פורטל תצפיות ניטור הפרפרים של ישראל, ניטור פרפרים, תכנית לאומית לניטור פרפרים, מגוון ביולוגי, מדע אזרחי, פרפרים,  סמן אקולוגי, מאגר תצפיות פרפרים, פורטל פרפרים, אפליקציות דיווח, תצפיות פרפרים,  ראיתי פרפר, הפרפרים שראיתי, ישראל פאר BMS-IL  , butterfly database,  biodiversity, butterfly spotting , butterfly sightings , butterfly monitoring ">
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1255">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<script type="text/javascript" src="js/butterfly.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/homepage.js"></script>
+<link rel="stylesheet" type="text/css" href="css/hompage.css">
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+      	<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+	<!--<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">--> 
+<link rel="icon" type="image/gif" href="images/BMS-IL2.jpg">	
+<link rel="shortcut icon" type="image/gif" href="images/BMS-IL2.jpg">	
+<script type="text/javascript" src="js/dialog.js"></script>
+<script>
+  $(function() {
+	function resizeUi() {
+    var h = $(window).height();
+    var w = $(window).width();
+    alert("34 h = " + h);
+    $("#tt").css('height', h-95 );
+    $(".ui-tabs-panel").css('height', h-140 );
+};
+
+    $( "#tabs" ).tabs();
+    $('#tt').tabs({  
+    border:true,  
+    onSelect:function(title){  
+        //alert(title+' is selected');  
+        //resizeUi() ;
+        var tab = $('#tt').tabs('getSelected');
+		var index = $('#tt').tabs('getTabIndex',tab);
+		var userId=$('input[id=loginId]').val();
+		var typedId=$('input[id=typedId]').val();
+		var permit=$('input[id=permit]').val();
+		var lng=$('input[id=txtlng]').val();
+		var transLoginId = $('input[id=transLoginId]').val();
+		//alert(tab.heght);
+		//alert(tab.width);
+		//alert("permit1 = " + permit);
+		//alert("selected index = " + index);
+		//alert(index);
+		switch(index)
+		{
+		case 0:
+		//$("#homepage").html("<iframe src='test_combo_input.htm'></iframe>");  
+//$("#homepage").html("<iframe src='mainForm_json.asp'></iframe>");  
+//$("#homepage").html("<iframe src='blabla.htm'></iframe>");  
+		  break;
+		case 2:
+			//alert("select 2")
+			loadTab2();
+		  break;
+		case 3:
+			//alert(document.getElementById("loginId").value)
+			//alert("homepage selected 3")
+			loadTab3();
+			//alert("case 3 transLoginId = " + transLoginId);
+			
+		  break;
+		case 4:
+			loadTab4();
+			break;
+		case 1:
+		//alert(permit)
+			loadTab1();
+		  break;
+		case 5:
+		//alert("5");
+		loadTab5();
+		break;
+		/*tab: tab,
+	options: {
+		title: 'New Title',
+		href: 'monitorGroups/groups_main/index.html'; // the new content URL
+	}
+	options: {
+		title: 'New Title',
+		href: 'monitorGroups/groups_main/index.html'; // the new content URL
+	}
+	*/
+			//href: 'monitorGroups/groups_main/index.html';
+		}
+    }  
+  
+});  
+
+  });
+ 
+  $(function() {
+	
+	$("#login").click(function() { 
+		//alert("click");
+		$('#tt').tabs('select', 2);
+		return;
+		
+		$("#MyDialog").dialog({
+					autoOpen: false,
+					height: 300,
+					width: 300,
+					hide: "explode",
+					modal: true});
+		//alert("f");
+		$("#MyDialog").show(3000);
+		$("#MyDialog").dialog("open");
+		//alert("1") 
+		
+		$("#MyDialog").html("<iframe src='login_user.asp?lng='" + lng + "' width='280' height='280' scrolling='no' frameborder='0'></iframe>");  
+		//alert("2");
+		});
+
+$("#changelogin").click(function() { 
+		//alert("jj");
+		$("#MyDialog").dialog({
+					autoOpen: false,
+					height: 300,
+					width: 300,
+					hide: "explode",
+					modal: true});
+		$("#MyDialog").show(3000);
+		$("#MyDialog").dialog("open"); 
+		$("#MyDialog").html("<iframe src='login_user.asp?lng='" + lng + "' width='280' height='280' scrolling='no' frameborder='0'></iframe>");  
+
+		});
+    $('#tt').tabs({
+	tools:'#tab-tools'
+});
+$('#tabs').tabs({
+  onSelect: function(event, ui) {
+	alert("g");
+    var url = "login_user.asp"//$.data(ui.tab, 'load.tabs');
+    if(url) {
+      location.href = url + "?tab=" + ui.index;
+      return false;
+    }
+    return true;
+  }
+});
+});  
+  function window_onload() 
+{
+	//alert("navigator.appName " + navigator.appName)
+	var ver = msieversion();
+	if(ver ==false)
+	{
+		//alert("chrome")
+		}
+	else
+	{
+	//	alert("IE" + ver);
+	//alert("ver = " + ver)
+			var answ =  confirm("This Site is best viewed in Google Chrome. Continue?");
+		//alert(answ)
+		if(answ==false)
+			window.close();
+
+	}
+	//if(navigator.appName!="Netscape")
+	//{
+	//	var answ =  confirm("This Site is best viewed in Google Chrome. Continue?");
+		//alert(answ)
+	//	if(answ==false)
+	//		window.close();
+	//}
+	//alert("This Site is best viewed in Google Chrome!")
+}
+function msieversion() {
+	//alert("msieversion")
+            var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    var trident = ua.indexOf('Trident/');
+//alert("msie = " + msie)
+    if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+//alert("trident = " + trident)
+    if (trident > 0) {
+        // IE 11 (or newer) => return version number
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+       }
+
+    // other browser
+    return false;
+    }
+		
+ function showSkarim() {
+	var mapWindow = window.open("skarim/index.html" , "skarim",  location=0,status=0,resizable=yes,scrollbars=1, width=450,height=300);
+	mapWindow.moveTo(0, 10);
+	mapWindow.focus();
+  }
+  
+  </script>
+  <style>
+  #tblBott td{FONT-FAMILY: Arial;  
+      FONT-SIZE: 16px; }
+
+  .hidden { display: none }
+  a {font-size:9px;}
+  a, a:visited {
+    color: inherit;
+}
+  #tabs-icons .ui-tabs-nav .ui-icon { 
+    display: inline-block; 
+    
+}
+ 
+ .hidden modal {
+    position:   fixed;
+    z-index:    1000;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('https://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+#tblTop{
+    border-collapse: collapse;
+    PADDING-BOTTOM: 10px; 
+    MARGIN-LEFT: 7px;
+}
+#tblBott{
+border-collapse: collapse;
+    border: 0px solid lightgray;
+    HEIGHT: 40px;
+    WIDTH: 150px;
+}
+#tdslider
+{
+	background-color:#EAEAEC;
+}
+.tdTop{BORDER-BOTTOM:lightgray thin solid;}
+
+.tdadvert
+{
+	BORDER-LEFT: lightgray thin solid;
+}
+#maintable
+{
+	HEIGHT: 95%;
+	WIDTH: 82%;
+	border: 0px solid black;
+}
+td {
+white-space: nowrap;
+}
+</style>
+<style>
+body{
+margin:0;
+bgcolor="#BBBBBB";
+overflow-x: hidden;
+overflow-y: scroll;
+}
+body_{
+margin:0;
+bgcolor="#BBBBBB";
+scroll="auto";
+overflow-x: hidden;
+}
+#triftame td iframe {HEIGHT:535px;}
+#tblTop td {BORDER-BOTTOM:lightgray thin solid;}
+
+#tblBott td {BORDER-TOP:lightgray thin solid;}
+center
+      {
+      FONT-FAMILY: Arial, Helvetica, sans-serif;  
+      FONT-SIZE: 20px; 
+      FONT-WEIGHT: bold;
+      }
+.shadow {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	font-weight: bold;
+	text-shadow: #666 0 1px 2px;
+}
+#container1{
+width:90%;
+margin: 20px 40px 0px 50px;
+overflow:hidden;
+float:left;
+background:url("images/bck.jpg") repeat;
+border: 1px solid green;
+border-radius:15px;
+box-shadow: 10px 10px 20px #888888;
+}
+#container_{BACKGROUND-COLOR:"#BBBBBB";}
+ 
+body{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 62.5%;
+	background:url("images/body_bck.jpg") repeat;
+}
+            .pics {
+                display: inline;
+            }
+
+            .pics img {
+                max-height: 60px;
+                max-width: 200px;
+                object-fit: cover;
+                
+            }
+            .botpics{
+				display: inline;
+            }
+
+            .botpics img {
+                max-height: 45px;
+                max-width: 875px;
+                object-fit: cover;
+            }
+  #footer,#footer2
+{
+clear: both;
+margin: 0;
+padding: .5em;
+color: #333;
+float:left;
+top:-25px;
+position:relative;
+height:10px;
+
+}
+#footerImg1
+{
+position:relative;
+left:20px;
+top:0px;
+}
+#tt { 
+    display: inline-block; 
+    
+}  
+        </style>
+
+
+</head>
+<body>
+<form name="myForm" method="post" action="" language="javascript" onsubmit="document.getElementById('chNew').checked=true; return FORM1_onsubmit()">
+<input type="hidden" id="permit" name="permit" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2" value="readOnly">
+<input type="hidden" id="trackPermit" name="trackPermit" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2" value="readOnly">
+ 
+
+<input type="hidden" id="txtlng" name="txtlng" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2" value="hbr">
+
+<input type="hidden" id="txturl" name="txturl" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2">
+<input type="hidden" id="loginId" name="loginId" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2">
+<input type="hidden" id="transLoginId" name="transLoginId" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2">
+<input type="hidden" id="afterSave" name="afterSave" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2">
+<input type="hidden" id="userAdmin" name="userAdmin" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2">
+<input type="hidden" id="typedId" name="typedId" style="POSITION: absolute; WIDTH: 1px; HEIGHT: 1px; TOP: 1px" size="2">
+<div id="MyDialog" title="כניסה למערכת" class="hidden" style="direction: rtl;">
+</div>
+<div id="trackLoginDlg" title="כניסה למערכת" class="hidden">
+</div>
+<div id="waitDialog" title="Please Wait" class="hidden modal">
+</div>
+
+<div id="container" style="BACKGROUND-COLOR: white;">
+
+<table border="0" cellspacing="0" cellpadding="0" width="1160" align="center">
+<tbody><tr>
+<td width="960" style="VERTICAL-ALIGN: top">
+
+<!-- banner 
+	<table style="WIDTH: 100%; HEIGHT: 100px; background-position: center;" background="images/newIsrael-BMSIL.jpg" border="0" cellspacing="0" cellpadding="0"  >
+		<tr style="HEIGHT:20px;"  >
+		<td ></td>
+		</tr>
+	</TABLE>
+	--->
+	<table border="0" bordercolor="#aaa" cellspacing="0" cellpadding="0">
+	<tbody><tr>
+		<td><img align="center" width="100%" src="images/newIsrael-BMSIL.jpg"></td>
+	</tr>
+</tbody></table>
+
+    <table border="0" cellpadding="0" cellspacing="0" width="1160">
+	<tbody>
+	<tr>
+	<td><center>
+		<div style="position:relative;TOP:5px; WIDTH: 260px; left:300px; Z-INDEX: 10;">
+		 
+		 
+		 
+		  <a href="skarim/index.html" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" iconcls="icon-large-chart" plain="true" id="seker" onclick="showSkarim();" group=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">סקרים</span><span class="l-btn-icon icon-large-chart">&nbsp;</span></span></a>  
+		  
+		 <a href="partners/partners_hb.html" target="_blank" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" id="partners" group=""><span class="l-btn-left"><span class="l-btn-text">שיתופים</span></span></a>  
+		
+ 		  <!-- <a href="javascript:void(0)" class="easyui-linkbutton"  plain="true"  id="contact" onclick="mail_onclick();" >צור קשר</a> -->
+ 		 
+ 		<a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" name="login" plain="true" id="main_login" onclick="login_onclick(this);" group=""><span class="l-btn-left"><span class="l-btn-text"><font color="BROWN">Login</font></span></span></a>  
+
+		 <a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" plain="true" id="hbr" onclick="changeLng(this);" group=""><span class="l-btn-left"><span class="l-btn-text">ENG</span></span></a> 
+		 
+              <!--    &nbsp;&nbsp;
+		<a href="javascript:void(0)" class="easyui-linkbutton"  plain="true"  id="hbr" onclick="changeLng(this)" ><img src= "/icons/usa.png"   title=" ENG"></a> 
+		 <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-no" plain="true"   onclick="confirmCloseDialog()">Logout</a>  
+		--> 
+		 </div>
+		<div id="tt" class="easyui-tabs tabs-container" style="position:relative;TOP:-28px;WIDTH: 1160px; ">  
+			  
+				  
+			 
+				  
+			        
+			 
+			  
+
+			<!--
+			<div title="קהילות מנטרים" id="transectGroups" style="WIDTH: 390px; HEIGHT: 390px; OVERFLOW: hidden" >	</div>        
+                            -->
+		<div class="tabs-header" style="width: 1160px;"><div class="tabs-scroller-left" style="display: none;"></div><div class="tabs-scroller-right" style="display: none;"></div><div class="tabs-wrap" style="margin-left: 0px; margin-right: 0px; width: 1158px;"><ul class="tabs" style="height: 32px;"><li class="tabs-selected tabs-first"><span class="tabs-inner" style="height: 32px; line-height: 30px;"><span class="tabs-title">דף הבית</span><span class="tabs-icon"></span></span></li><li><span class="tabs-inner" style="height: 32px; line-height: 30px;"><span class="tabs-title">תצפיות אקראיות</span><span class="tabs-icon"></span></span></li><li><span class="tabs-inner" style="height: 32px; line-height: 30px;"><span class="tabs-title">דווח תצפית אקראית</span><span class="tabs-icon"></span></span></li><li><span class="tabs-inner" style="height: 32px; line-height: 30px;"><span class="tabs-title">דווח ניטור במסלול / גינה</span><span class="tabs-icon"></span></span></li><li class="tabs-last"><span class="tabs-inner" style="height: 32px; line-height: 30px;"><span class="tabs-title">תצפיות ניטור במסלול / גינה</span><span class="tabs-icon"></span></span></li></ul></div></div><div class="tabs-panels" style="width: 1160px;"><div class="panel panel-htop" style="display: block; width: 1158px;"><div title="" id="homepage" style="padding: 2px; width: 1158px;" class="panel-body panel-body-noheader panel-body-noborder">  
+				
+<table id="TABLE1" border="0" width="100%" cellspacing="1" cellpadding="1" align="center">
+  <tbody><tr style="WIDTH: 100%; HEIGHT:20%">
+    <td colspan="3" align="center" valign="middle">
+         
+	<table id="tblTop" class="pics" border="0" cellspacing="1" cellpadding="5" align="center">
+  
+  <tbody><tr>
+  
+  <td valign="center" align="middle" class="tdTop"><img id="IMG1" title="זנב סנונית הוורדנים" src="images\1.PNG"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+    <td valign="center" align="middle"><img title="לבנין העוזרר" align="middle" src="images\2.PNG"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+    <td valign="center" align="middle" class="tdTop"><img id="IMG1" title="כחליל פאולה" src="images\3.PNG"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+    <td valign="center" align="middle"><img title="נחליל מקושט" align="middle" src="images\4.PNG"></td>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     
+     <td valign="center" align="middle">                    <img id="IMG1" title="ויקי-פרפר" align="middle" src="images\doniana.jpg"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+    <td valign="center" align="middle"><img id="IMG1" title="נמפית קטלב" align="middle" src="images\6.png"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+      <td valign="center" align="middle"><img id="IMG1" title="נמפית הסרפד" align="middle" src="images\7.png"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+       <td valign="center" align="middle"><img id="IMG1" title="נמפית יערה" align="middle" src="images\8.png"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+    <td valign="center" align="middle"><img id="IMG1" title="כחליל חומעה" align="middle" src="images\9.png"></td>
+      </tr>
+
+	  
+   
+  </tbody></table>
+  
+   </td>
+  </tr>
+  
+  
+ 
+<tr style="HEIGHT:550px;" id="triftame">
+  <td valign="middle" style="WIDTH: 20%" width="20%" align="left">
+    <iframe src="slideshow.htm" width="100%" frameborder="0" scrolling="no"></iframe>
+  </td>
+ 
+ 
+<td align="right" valign="top" class="tdadvert" style="WIDTH: 60%" width="60%">
+	
+	<iframe src="buttHome.htm" width="100%" frameborder="0" scrolling="no"></iframe>
+</td>
+
+<td valign="top" class="tdadvert" align="right" style="WIDTH: 20%" width="20%">
+	<iframe src="hompage_rightFrame.htm" width="100%" frameborder="0" scrolling="no"></iframe>
+</td>
+</tr>
+
+ 
+ 
+     
+<tr>
+   <td valign="top" colspan="3" align="center">
+      
+
+<!--  שותפים -----------   -->
+
+ <table id="tblBott" class="botpics" border="0" cellspacing="1" cellpadding="5" align="center" width="1200px">
+  
+  <tbody><tr style="HEIGHT: 40px; background-color:#cff3; height:40px ; ">
+      <td nowrap="" align="left">&nbsp;</td>
+
+     <td align="center" nowrap="" style="PADDING-RIGHT: 5px; FONT-FAMILY: arial; FONT-SIZE: xx-small">
+     Israel Peer <br>BMS-IL IT  Mng. <br>data curator
+    </td>
+    <td valign="center" align="middle">
+		<a target="blank" href="http://www.gluecad-bio.com/about/gluecad_en1.html">  
+		<img alt="ישראל פאר" src="icons/GlueCADNew.jpg" width="80px"></a>
+    </td>
+		
+   <td> &nbsp;&nbsp;&nbsp; &nbsp;</td>
+   
+     <td align="center" nowrap="" style="PADDING-RIGHT: 5px; FONT-FAMILY: arial; FONT-SIZE: xx-small">
+		UFZ Germany <br> Dept. <br>Ecosystem Services
+</td>
+    <td valign="center" align="middle">
+		<a target="blank" href="https://www.ufz.de/index.php?en=38961"> 
+		<img id="IMG1" border="0" alt="" src="icons\ufz2.jpg" height="50px"></a>
+    </td>
+	
+  <td> &nbsp;&nbsp;&nbsp; &nbsp;</td>
+ 
+     <td align="center" nowrap="" style="PADDING-RIGHT: 5px; FONT-FAMILY: arial; FONT-SIZE: xx-small">
+ Steinhardt Museum <br>of   <br>
+  Natural History  </td>
+    <td valign="center" align="middle">
+		<a target="blank" href="https://smnh.tau.ac.il"> 
+		<img alt="" src="icons\muzeum.png" width="60px"></a>
+    </td>
+
+
+  <td> &nbsp;&nbsp;&nbsp; &nbsp;</td>
+    <td align="center" nowrap="" style="PADDING-RIGHT: 5px; FONT-FAMILY: arial; FONT-SIZE: xx-small">
+  HaMaarag – Israels National <br> Ecosystem Assessment <br>Program  
+  </td>
+    <td valign="center" align="middle">
+		<a target="blank" href="https://www.hamaarag.org.il/">
+		<img alt="" src="icons\hamaaragE.png" width="100px"></a>
+    </td>
+	
+    <td> &nbsp;&nbsp;&nbsp; &nbsp;</td>
+    <td align="center" nowrap="" style="PADDING-RIGHT: 5px; FONT-FAMILY: arial; FONT-SIZE: xx-small">
+  THE ISRAELI <br>  LEPIDOPTERIST'S
+  </td>
+    <td valign="center" align="middle">
+		<a target="blank" href="https://agudatparpar.wixsite.com/aguda"> 
+		<img alt="" src="icons\ils.jpg" height="50px"></a>
+    </td>
+	
+
+	
+     </tr>
+  </tbody></table>
+  
+   </td>
+  </tr>
+  </tbody></table>
+      
+		          </div></div><div class="panel panel-htop" style="display: none;"><div id="report" title="" style="padding: 20px;" class="panel-body panel-body-noheader panel-body-noborder">  
+					</div></div><div class="panel panel-htop" style="display: none;"><div title="" id="observ" style="overflow: hidden;" class="panel-body panel-body-noheader panel-body-noborder">
+					</div></div><div class="panel panel-htop" style="display: none;"><div title="" id="transect" style="overflow: hidden;" class="panel-body panel-body-noheader panel-body-noborder">
+					</div></div><div class="panel panel-htop" style="display: none;"><div title="" id="transectRep" style="overflow: hidden;" class="panel-body panel-body-noheader panel-body-noborder">
+					</div></div></div></div>
+		</center>
+		</td>
+		</tr>
+		</tbody>
+             </table>
+ 
+  
+ 
+  
+ <!--   <td colSpan=3 style="BACKGROUND-COLOR: silver" vAlign="center"> -->
+        <div style="BACKGROUND-COLOR: #ddffcc; font-size: 12px" valign="center">
+	 Sponsored &amp; Developement : Israel Peer, GlueCAD – Biodiversity IT  &nbsp;&nbsp;&nbsp;&nbsp; @GlueCAD ltd. 
+       </div>
+   
+ 
+<!--Closing "container"-->
+
+
+
+
+
+	
+
+	
+
+
+</td></tr></tbody></table></div></form></body></html>

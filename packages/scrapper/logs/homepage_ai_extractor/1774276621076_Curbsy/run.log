@@ -1,0 +1,72 @@
+[2026-03-23T14:37:01.077Z] === Homepage AI Extractor: Curbsy ===
+[2026-03-23T14:37:01.077Z] Started at: 2026-03-23T14:37:01.077Z
+[2026-03-23T14:37:01.077Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774276621076_Curbsy
+[2026-03-23T14:37:01.077Z] Company: Curbsy
+[2026-03-23T14:37:01.077Z] Website: curbsy.com
+[2026-03-23T14:37:01.077Z] cbRank: 1004518
+[2026-03-23T14:37:01.077Z] Reasons: f
+[2026-03-23T14:37:01.077Z] Fetching: https://curbsy.com
+[2026-03-23T14:37:02.926Z] Redirected: https://curbsy.com -> https://curbsy.com/
+[2026-03-23T14:37:02.928Z] Saved HTML (26336 bytes) to page.html
+[2026-03-23T14:37:02.930Z] Extracted 15 unique links from page
+[2026-03-23T14:37:02.931Z] Saved 15 links to links.json
+[2026-03-23T14:37:02.934Z] Extracted footer HTML (2772 chars)
+[2026-03-23T14:37:02.934Z] Extracted header HTML (8080 chars)
+[2026-03-23T14:37:02.937Z] Website (post-redirect): https://curbsy.com/ → origin: https://curbsy.com
+[2026-03-23T14:37:02.937Z] External links: 4 (of 15 total)
+[2026-03-23T14:37:02.937Z] ── All external links ──
+[2026-03-23T14:37:02.937Z]   EXT: https://www.behance.net/curbsyiom
+[2026-03-23T14:37:02.937Z]   EXT: https://www.facebook.com/curbsyltd
+[2026-03-23T14:37:02.937Z]   EXT: https://www.linkedin.com/company/curbsyltd
+[2026-03-23T14:37:02.937Z]   EXT: https://www.twitter.com/curbsy
+[2026-03-23T14:37:02.938Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T14:37:02.938Z]   UNCATEGORIZED: https://www.behance.net/curbsyiom
+[2026-03-23T14:37:02.938Z]   REGEX: fb <- https://www.facebook.com/curbsyltd
+[2026-03-23T14:37:02.938Z]   REGEX: li <- https://www.linkedin.com/company/curbsyltd
+[2026-03-23T14:37:02.938Z]   REGEX: tw <- https://www.twitter.com/curbsy
+[2026-03-23T14:37:02.938Z] Programmatic result: ws:1, fb:1, li:1, tw:1 | 1 uncategorized
+[2026-03-23T14:37:02.938Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T14:37:02.939Z] Saved AI prompt (3052 chars) to ai_prompt.txt
+[2026-03-23T14:37:02.939Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T14:37:02.943Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T14:37:14.022Z]   AI: First token received, streaming...
+[2026-03-23T14:37:22.940Z] AI response complete: 142 chars in 20.0s
+[2026-03-23T14:37:22.942Z] Saved AI response to ai_response.json
+[2026-03-23T14:37:22.942Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T14:37:22.942Z]   AI LINK: https://www.linkedin.com/company/curbsyltd
+[2026-03-23T14:37:22.942Z]   AI LINK: https://www.twitter.com/curbsy
+[2026-03-23T14:37:22.942Z]   AI LINK: https://www.facebook.com/curbsyltd
+[2026-03-23T14:37:22.943Z]   AI LINK: https://www.behance.net/curbsyiom
+[2026-03-23T14:37:22.943Z] AI returned 4 valid links
+[2026-03-23T14:37:22.943Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T14:37:22.943Z]   AI→REGEX: li <- https://www.linkedin.com/company/curbsyltd (duplicate, skipped)
+[2026-03-23T14:37:22.943Z]   AI→REGEX: tw <- https://www.twitter.com/curbsy (duplicate, skipped)
+[2026-03-23T14:37:22.943Z]   AI→REGEX: fb <- https://www.facebook.com/curbsyltd (duplicate, skipped)
+[2026-03-23T14:37:22.943Z]   AI→URLS: https://www.behance.net/curbsyiom
+[2026-03-23T14:37:22.944Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T14:37:22.944Z] Footer/header origins (4):
+[2026-03-23T14:37:22.944Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T14:37:22.944Z]   FOOTER/HEADER ORIGIN: https://www.twitter.com
+[2026-03-23T14:37:22.944Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T14:37:22.944Z]   FOOTER/HEADER ORIGIN: https://www.behance.net
+[2026-03-23T14:37:22.944Z]   SKIP (AI claimed): https://www.behance.net/curbsyiom
+[2026-03-23T14:37:22.945Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T14:37:22.945Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T14:37:22.945Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T14:37:22.945Z] ── Step 3: Final dedup ──
+[2026-03-23T14:37:22.945Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-23T14:37:22.945Z] ── FINAL RESULT ──
+[2026-03-23T14:37:22.945Z]   ws (1):
+[2026-03-23T14:37:22.946Z]     - https://curbsy.com
+[2026-03-23T14:37:22.946Z]   li (1):
+[2026-03-23T14:37:22.946Z]     - https://www.linkedin.com/company/curbsyltd
+[2026-03-23T14:37:22.946Z]   fb (1):
+[2026-03-23T14:37:22.946Z]     - https://www.facebook.com/curbsyltd
+[2026-03-23T14:37:22.946Z]   tw (1):
+[2026-03-23T14:37:22.946Z]     - https://x.com/curbsy
+[2026-03-23T14:37:22.946Z]   urls (1):
+[2026-03-23T14:37:22.946Z]     - https://www.behance.net/curbsyiom
+[2026-03-23T14:37:22.946Z] Summary: ws:1, fb:1, li:1, tw:1, urls:1
+[2026-03-23T14:37:22.947Z] Saved final result to result.json
+[2026-03-23T14:37:22.947Z] Override fields: ws, li, fb, tw, urls
+[2026-03-23T14:37:22.948Z] Finished at: 2026-03-23T14:37:22.948Z

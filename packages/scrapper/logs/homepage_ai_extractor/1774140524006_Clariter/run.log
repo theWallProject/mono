@@ -1,0 +1,70 @@
+[2026-03-22T00:48:44.006Z] === Homepage AI Extractor: Clariter ===
+[2026-03-22T00:48:44.006Z] Started at: 2026-03-22T00:48:44.006Z
+[2026-03-22T00:48:44.007Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774140524006_Clariter
+[2026-03-22T00:48:44.007Z] Company: Clariter
+[2026-03-22T00:48:44.007Z] Website: clariter.com
+[2026-03-22T00:48:44.007Z] cbRank: 16676
+[2026-03-22T00:48:44.007Z] Reasons: f
+[2026-03-22T00:48:44.007Z] Fetching: https://clariter.com
+[2026-03-22T00:48:54.451Z] Network idle timeout — continuing with current state
+[2026-03-22T00:48:54.488Z] Redirected: https://clariter.com -> https://clariter.com/
+[2026-03-22T00:48:54.491Z] Saved HTML (52515 bytes) to page.html
+[2026-03-22T00:48:54.493Z] Extracted 15 unique links from page
+[2026-03-22T00:48:54.494Z] Saved 15 links to links.json
+[2026-03-22T00:48:54.496Z] Extracted footer HTML (5225 chars)
+[2026-03-22T00:48:54.496Z] Extracted header HTML (5138 chars)
+[2026-03-22T00:48:54.501Z] Website (post-redirect): https://clariter.com/ → origin: https://clariter.com
+[2026-03-22T00:48:54.501Z] External links: 3 (of 15 total)
+[2026-03-22T00:48:54.501Z] ── All external links ──
+[2026-03-22T00:48:54.501Z]   EXT: https://www.facebook.com/clariter.cleanslate
+[2026-03-22T00:48:54.501Z]   EXT: https://www.linkedin.com/company/clariter-group-bv/?originalSubdomain=il
+[2026-03-22T00:48:54.501Z]   EXT: https://www.youtube.com/channel/UCm5Bn_0zE6SoH10efwJHjCQ
+[2026-03-22T00:48:54.501Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:48:54.501Z]   REGEX: fb <- https://www.facebook.com/clariter.cleanslate
+[2026-03-22T00:48:54.501Z]   REGEX: li <- https://www.linkedin.com/company/clariter-group-bv/?originalSubdomain=il
+[2026-03-22T00:48:54.502Z]   REGEX: ytc <- https://www.youtube.com/channel/UCm5Bn_0zE6SoH10efwJHjCQ
+[2026-03-22T00:48:54.502Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-22T00:48:54.502Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:48:54.505Z] Saved AI prompt (5294 chars) to ai_prompt.txt
+[2026-03-22T00:48:54.505Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:48:54.509Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:49:15.886Z]   AI: First token received, streaming...
+[2026-03-22T00:49:28.753Z] AI response complete: 175 chars in 34.2s
+[2026-03-22T00:49:28.755Z] Saved AI response to ai_response.json
+[2026-03-22T00:49:28.755Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T00:49:28.755Z]   AI LINK: https://www.facebook.com/clariter.cleanslate/
+[2026-03-22T00:49:28.756Z]   AI LINK: https://www.youtube.com/channel/UCm5Bn_0zE6SoH10efwJHjCQ
+[2026-03-22T00:49:28.756Z]   AI LINK: https://www.linkedin.com/company/clariter-group-bv/?originalSubdomain=il
+[2026-03-22T00:49:28.756Z] AI returned 3 valid links
+[2026-03-22T00:49:28.756Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T00:49:28.756Z]   AI→REGEX: fb <- https://www.facebook.com/clariter.cleanslate/ (duplicate, skipped)
+[2026-03-22T00:49:28.757Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCm5Bn_0zE6SoH10efwJHjCQ (duplicate, skipped)
+[2026-03-22T00:49:28.757Z]   AI→REGEX: li <- https://www.linkedin.com/company/clariter-group-bv/?originalSubdomain=il (duplicate, skipped)
+[2026-03-22T00:49:28.757Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:49:28.758Z] Footer/header origins (4):
+[2026-03-22T00:49:28.758Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T00:49:28.758Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-22T00:49:28.758Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T00:49:28.758Z]   FOOTER/HEADER ORIGIN: https://clariter.com
+[2026-03-22T00:49:28.758Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:49:28.758Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:49:28.758Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-22T00:49:31.301Z]   YOUTUBE: resolved UCm5Bn_0zE6SoH10efwJHjCQ → @clariter8788
+[2026-03-22T00:49:31.301Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-22T00:49:31.301Z] ── Step 3: Final dedup ──
+[2026-03-22T00:49:31.301Z] No urls to dedup
+[2026-03-22T00:49:31.301Z] ── FINAL RESULT ──
+[2026-03-22T00:49:31.301Z]   ws (1):
+[2026-03-22T00:49:31.302Z]     - https://clariter.com
+[2026-03-22T00:49:31.302Z]   li (1):
+[2026-03-22T00:49:31.302Z]     - https://www.linkedin.com/company/clariter-group-bv
+[2026-03-22T00:49:31.302Z]   fb (1):
+[2026-03-22T00:49:31.302Z]     - https://www.facebook.com/clariter.cleanslate
+[2026-03-22T00:49:31.302Z]   ytp (1):
+[2026-03-22T00:49:31.302Z]     - https://www.youtube.com/@clariter8788
+[2026-03-22T00:49:31.302Z]   ytc (1):
+[2026-03-22T00:49:31.302Z]     - https://www.youtube.com/channel/UCm5Bn_0zE6SoH10efwJHjCQ
+[2026-03-22T00:49:31.302Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-22T00:49:31.303Z] Saved final result to result.json
+[2026-03-22T00:49:31.303Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-22T00:49:31.303Z] Finished at: 2026-03-22T00:49:31.303Z

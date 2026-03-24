@@ -1,0 +1,65 @@
+[2026-03-22T06:31:30.390Z] === Homepage AI Extractor: Rotate ===
+[2026-03-22T06:31:30.390Z] Started at: 2026-03-22T06:31:30.390Z
+[2026-03-22T06:31:30.390Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774161090389_Rotate
+[2026-03-22T06:31:30.390Z] Company: Rotate
+[2026-03-22T06:31:30.391Z] Website: withrotate.com
+[2026-03-22T06:31:30.391Z] cbRank: 208944
+[2026-03-22T06:31:30.391Z] Reasons: f
+[2026-03-22T06:31:30.391Z] Fetching: https://withrotate.com
+[2026-03-22T06:31:34.525Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-22T06:31:37.438Z] Redirected: https://withrotate.com -> https://withrotate.com/
+[2026-03-22T06:31:37.449Z] Saved HTML (449690 bytes) to page.html
+[2026-03-22T06:31:37.451Z] Extracted 23 unique links from page
+[2026-03-22T06:31:37.452Z] Saved 23 links to links.json
+[2026-03-22T06:31:37.457Z] Extracted footer HTML (149468 chars)
+[2026-03-22T06:31:37.457Z] Extracted header HTML (4789 chars)
+[2026-03-22T06:31:37.461Z] Website (post-redirect): https://withrotate.com/ → origin: https://withrotate.com
+[2026-03-22T06:31:37.461Z]   SUBDOMAIN: app.withrotate.com (added to ws)
+[2026-03-22T06:31:37.461Z]   SUBDOMAIN: blog.withrotate.com (added to ws)
+[2026-03-22T06:31:37.461Z] Website subdomains found: 2
+[2026-03-22T06:31:37.461Z] External links: 1 (of 23 total)
+[2026-03-22T06:31:37.461Z] ── All external links ──
+[2026-03-22T06:31:37.461Z]   EXT: https://www.linkedin.com/company/withrotate
+[2026-03-22T06:31:37.461Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T06:31:37.462Z]   REGEX: li <- https://www.linkedin.com/company/withrotate
+[2026-03-22T06:31:37.462Z] Programmatic result: ws:3, li:1 | 0 uncategorized
+[2026-03-22T06:31:37.462Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T06:31:37.491Z] Saved AI prompt (2362 chars) to ai_prompt.txt
+[2026-03-22T06:31:37.492Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T06:31:37.495Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T06:31:45.639Z]   AI: First token received, streaming...
+[2026-03-22T06:31:50.262Z] AI response complete: 100 chars in 12.8s
+[2026-03-22T06:31:50.263Z] Saved AI response to ai_response.json
+[2026-03-22T06:31:50.263Z] ── Parsing AI response (3 lines) ──
+[2026-03-22T06:31:50.264Z]   AI LINK: https://www.linkedin.com/company/withrotate/
+[2026-03-22T06:31:50.264Z]   AI LINK: https://blog.withrotate.com
+[2026-03-22T06:31:50.264Z]   AI LINK: https://app.withrotate.com/
+[2026-03-22T06:31:50.264Z] AI returned 3 valid links
+[2026-03-22T06:31:50.264Z] ── Categorizing 3 AI-returned links ──
+[2026-03-22T06:31:50.265Z]   AI→REGEX: li <- https://www.linkedin.com/company/withrotate/ (duplicate, skipped)
+[2026-03-22T06:31:50.267Z]   AI→URLS: https://blog.withrotate.com
+[2026-03-22T06:31:50.268Z]   AI→URLS: https://app.withrotate.com (cleaned from https://app.withrotate.com/)
+[2026-03-22T06:31:50.269Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T06:31:50.269Z] Footer/header origins (3):
+[2026-03-22T06:31:50.270Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T06:31:50.270Z]   FOOTER/HEADER ORIGIN: https://blog.withrotate.com
+[2026-03-22T06:31:50.270Z]   FOOTER/HEADER ORIGIN: https://app.withrotate.com
+[2026-03-22T06:31:50.270Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T06:31:50.270Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T06:31:50.271Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T06:31:50.271Z] ── Step 3: Final dedup ──
+[2026-03-22T06:31:50.271Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T06:31:50.271Z] ── FINAL RESULT ──
+[2026-03-22T06:31:50.271Z]   ws (3):
+[2026-03-22T06:31:50.272Z]     - https://app.withrotate.com
+[2026-03-22T06:31:50.272Z]     - https://blog.withrotate.com
+[2026-03-22T06:31:50.272Z]     - https://withrotate.com
+[2026-03-22T06:31:50.272Z]   li (1):
+[2026-03-22T06:31:50.272Z]     - https://www.linkedin.com/company/withrotate
+[2026-03-22T06:31:50.273Z]   urls (2):
+[2026-03-22T06:31:50.273Z]     - https://app.withrotate.com
+[2026-03-22T06:31:50.273Z]     - https://blog.withrotate.com
+[2026-03-22T06:31:50.273Z] Summary: ws:3, li:1, urls:2
+[2026-03-22T06:31:50.275Z] Saved final result to result.json
+[2026-03-22T06:31:50.275Z] Override fields: ws, li
+[2026-03-22T06:31:50.275Z] Finished at: 2026-03-22T06:31:50.275Z

@@ -1,0 +1,86 @@
+[2026-03-23T23:10:26.827Z] === Homepage AI Extractor: Freetrade ===
+[2026-03-23T23:10:26.827Z] Started at: 2026-03-23T23:10:26.827Z
+[2026-03-23T23:10:26.827Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774307426827_Freetrade
+[2026-03-23T23:10:26.827Z] Company: Freetrade
+[2026-03-23T23:10:26.828Z] Website: freetrade.io
+[2026-03-23T23:10:26.828Z] cbRank: 38119
+[2026-03-23T23:10:26.828Z] Reasons: i
+[2026-03-23T23:10:26.828Z] Fetching: https://freetrade.io
+[2026-03-23T23:10:29.918Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-23T23:10:32.852Z] Redirected: https://freetrade.io -> https://freetrade.io/
+[2026-03-23T23:10:32.862Z] Saved HTML (418263 bytes) to page.html
+[2026-03-23T23:10:32.865Z] Extracted 71 unique links from page
+[2026-03-23T23:10:32.865Z] Saved 71 links to links.json
+[2026-03-23T23:10:32.868Z] Extracted footer HTML (32537 chars)
+[2026-03-23T23:10:32.868Z] Extracted header HTML (47303 chars)
+[2026-03-23T23:10:32.875Z] Website (post-redirect): https://freetrade.io/ → origin: https://freetrade.io
+[2026-03-23T23:10:32.875Z]   SUBDOMAIN: magic.freetrade.io (added to ws)
+[2026-03-23T23:10:32.875Z]   SUBDOMAIN: web.freetrade.io (added to ws)
+[2026-03-23T23:10:32.875Z] Website subdomains found: 2
+[2026-03-23T23:10:32.875Z] External links: 6 (of 71 total)
+[2026-03-23T23:10:32.875Z] ── All external links ──
+[2026-03-23T23:10:32.875Z]   EXT: https://twitter.com/freetrade
+[2026-03-23T23:10:32.875Z]   EXT: https://www.facebook.com/freetradeapp
+[2026-03-23T23:10:32.875Z]   EXT: https://www.fca.org.uk
+[2026-03-23T23:10:32.875Z]   EXT: https://www.fscs.org.uk/what-we-cover/investments
+[2026-03-23T23:10:32.875Z]   EXT: https://www.instagram.com/freetrade
+[2026-03-23T23:10:32.876Z]   EXT: https://www.linkedin.com/company/freetrade
+[2026-03-23T23:10:32.876Z] ── Step 1: Programmatic categorization ──
+[2026-03-23T23:10:32.876Z]   REGEX: tw <- https://twitter.com/freetrade
+[2026-03-23T23:10:32.876Z]   REGEX: fb <- https://www.facebook.com/freetradeapp
+[2026-03-23T23:10:32.876Z]   UNCATEGORIZED: https://www.fca.org.uk
+[2026-03-23T23:10:32.876Z]   UNCATEGORIZED: https://www.fscs.org.uk/what-we-cover/investments
+[2026-03-23T23:10:32.876Z]   REGEX: ig <- https://www.instagram.com/freetrade
+[2026-03-23T23:10:32.876Z]   REGEX: li <- https://www.linkedin.com/company/freetrade
+[2026-03-23T23:10:32.876Z] Programmatic result: ws:3, tw:1, fb:1, ig:1, li:1 | 2 uncategorized
+[2026-03-23T23:10:32.876Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-23T23:10:32.879Z] Saved AI prompt (2951 chars) to ai_prompt.txt
+[2026-03-23T23:10:32.879Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-23T23:10:32.883Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-23T23:10:42.699Z]   AI: First token received, streaming...
+[2026-03-23T23:10:50.217Z] AI response complete: 148 chars in 17.3s
+[2026-03-23T23:10:50.219Z] Saved AI response to ai_response.json
+[2026-03-23T23:10:50.219Z] ── Parsing AI response (4 lines) ──
+[2026-03-23T23:10:50.219Z]   AI LINK: https://www.linkedin.com/company/freetrade/
+[2026-03-23T23:10:50.219Z]   AI LINK: https://www.facebook.com/freetradeapp
+[2026-03-23T23:10:50.219Z]   AI LINK: https://twitter.com/freetrade
+[2026-03-23T23:10:50.219Z]   AI LINK: https://www.instagram.com/freetrade/
+[2026-03-23T23:10:50.219Z] AI returned 4 valid links
+[2026-03-23T23:10:50.219Z] ── Categorizing 4 AI-returned links ──
+[2026-03-23T23:10:50.219Z]   AI→REGEX: li <- https://www.linkedin.com/company/freetrade/ (duplicate, skipped)
+[2026-03-23T23:10:50.219Z]   AI→REGEX: fb <- https://www.facebook.com/freetradeapp (duplicate, skipped)
+[2026-03-23T23:10:50.220Z]   AI→REGEX: tw <- https://twitter.com/freetrade (duplicate, skipped)
+[2026-03-23T23:10:50.220Z]   AI→REGEX: ig <- https://www.instagram.com/freetrade/ (duplicate, skipped)
+[2026-03-23T23:10:50.221Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-23T23:10:50.221Z] Footer/header origins (7):
+[2026-03-23T23:10:50.221Z]   FOOTER/HEADER ORIGIN: https://freetrade.io
+[2026-03-23T23:10:50.221Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-23T23:10:50.222Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-23T23:10:50.222Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-23T23:10:50.222Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-23T23:10:50.222Z]   FOOTER/HEADER ORIGIN: https://web.freetrade.io
+[2026-03-23T23:10:50.222Z]   FOOTER/HEADER ORIGIN: https://magic.freetrade.io
+[2026-03-23T23:10:50.222Z]   SKIP (not in footer/header): https://www.fca.org.uk
+[2026-03-23T23:10:50.222Z]   SKIP (not in footer/header): https://www.fscs.org.uk/what-we-cover/investments
+[2026-03-23T23:10:50.222Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-23T23:10:50.222Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-23T23:10:50.222Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-23T23:10:50.223Z] ── Step 3: Final dedup ──
+[2026-03-23T23:10:50.223Z] No urls to dedup
+[2026-03-23T23:10:50.223Z] ── FINAL RESULT ──
+[2026-03-23T23:10:50.223Z]   ws (3):
+[2026-03-23T23:10:50.223Z]     - https://freetrade.io
+[2026-03-23T23:10:50.223Z]     - https://magic.freetrade.io
+[2026-03-23T23:10:50.223Z]     - https://web.freetrade.io
+[2026-03-23T23:10:50.223Z]   li (1):
+[2026-03-23T23:10:50.224Z]     - https://www.linkedin.com/company/freetrade
+[2026-03-23T23:10:50.224Z]   fb (1):
+[2026-03-23T23:10:50.224Z]     - https://www.facebook.com/freetradeapp
+[2026-03-23T23:10:50.224Z]   tw (1):
+[2026-03-23T23:10:50.224Z]     - https://x.com/freetrade
+[2026-03-23T23:10:50.224Z]   ig (1):
+[2026-03-23T23:10:50.224Z]     - https://www.instagram.com/freetrade
+[2026-03-23T23:10:50.224Z] Summary: ws:3, tw:1, fb:1, ig:1, li:1
+[2026-03-23T23:10:50.225Z] Saved final result to result.json
+[2026-03-23T23:10:50.225Z] Override fields: ws, li, fb, tw, ig
+[2026-03-23T23:10:50.225Z] Finished at: 2026-03-23T23:10:50.225Z

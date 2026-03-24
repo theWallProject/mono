@@ -1,0 +1,64 @@
+[2026-03-22T07:02:01.587Z] === Homepage AI Extractor: Gimmonix ===
+[2026-03-22T07:02:01.587Z] Started at: 2026-03-22T07:02:01.587Z
+[2026-03-22T07:02:01.587Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774162921586_Gimmonix
+[2026-03-22T07:02:01.587Z] Company: Gimmonix
+[2026-03-22T07:02:01.587Z] Website: gimmonix.com
+[2026-03-22T07:02:01.587Z] cbRank: 245178
+[2026-03-22T07:02:01.587Z] Reasons: f
+[2026-03-22T07:02:01.587Z] Fetching: https://gimmonix.com
+[2026-03-22T07:02:12.413Z] Network idle timeout — continuing with current state
+[2026-03-22T07:02:12.479Z] Redirected: https://gimmonix.com -> https://gimmonix.com/
+[2026-03-22T07:02:12.495Z] Saved HTML (618177 bytes) to page.html
+[2026-03-22T07:02:12.505Z] Extracted 24 unique links from page
+[2026-03-22T07:02:12.506Z] Saved 24 links to links.json
+[2026-03-22T07:02:12.509Z] Extracted footer HTML (5559 chars)
+[2026-03-22T07:02:12.509Z] Extracted header HTML (9954 chars)
+[2026-03-22T07:02:12.515Z] Website (post-redirect): https://gimmonix.com/ → origin: https://gimmonix.com
+[2026-03-22T07:02:12.515Z]   SUBDOMAIN: documentation.hsp.gimmonix.com (added to ws)
+[2026-03-22T07:02:12.515Z] Website subdomains found: 1
+[2026-03-22T07:02:12.515Z] External links: 2 (of 24 total)
+[2026-03-22T07:02:12.515Z] ── All external links ──
+[2026-03-22T07:02:12.515Z]   EXT: https://league.design
+[2026-03-22T07:02:12.515Z]   EXT: https://www.linkedin.com/company/gimmonix/?originalSubdomain=uk
+[2026-03-22T07:02:12.515Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T07:02:12.516Z]   UNCATEGORIZED: https://league.design
+[2026-03-22T07:02:12.516Z]   REGEX: li <- https://www.linkedin.com/company/gimmonix/?originalSubdomain=uk
+[2026-03-22T07:02:12.516Z] Programmatic result: ws:2, li:1 | 1 uncategorized
+[2026-03-22T07:02:12.516Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T07:02:12.520Z] Saved AI prompt (4713 chars) to ai_prompt.txt
+[2026-03-22T07:02:12.520Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T07:02:12.524Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T07:02:31.208Z]   AI: First token received, streaming...
+[2026-03-22T07:02:38.224Z] AI response complete: 128 chars in 25.7s
+[2026-03-22T07:02:38.225Z] Saved AI response to ai_response.json
+[2026-03-22T07:02:38.225Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T07:02:38.226Z]   AI LINK: https://www.linkedin.com/company/gimmonix/?originalSubdomain=uk
+[2026-03-22T07:02:38.226Z]   AI LINK: https://documentation.hsp.gimmonix.com/docs/introducing-gimmonix
+[2026-03-22T07:02:38.226Z] AI returned 2 valid links
+[2026-03-22T07:02:38.226Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T07:02:38.227Z]   AI→REGEX: li <- https://www.linkedin.com/company/gimmonix/?originalSubdomain=uk (duplicate, skipped)
+[2026-03-22T07:02:38.228Z]   AI→URLS: https://documentation.hsp.gimmonix.com/docs/introducing-gimmonix
+[2026-03-22T07:02:38.229Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T07:02:38.229Z] Footer/header origins (3):
+[2026-03-22T07:02:38.229Z]   FOOTER/HEADER ORIGIN: https://documentation.hsp.gimmonix.com
+[2026-03-22T07:02:38.229Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T07:02:38.229Z]   FOOTER/HEADER ORIGIN: https://league.design
+[2026-03-22T07:02:38.229Z]   ADDED: urls <- https://league.design
+[2026-03-22T07:02:38.229Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-22T07:02:38.229Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T07:02:38.230Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T07:02:38.230Z] ── Step 3: Final dedup ──
+[2026-03-22T07:02:38.230Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T07:02:38.230Z] ── FINAL RESULT ──
+[2026-03-22T07:02:38.230Z]   ws (2):
+[2026-03-22T07:02:38.230Z]     - https://documentation.hsp.gimmonix.com
+[2026-03-22T07:02:38.230Z]     - https://gimmonix.com
+[2026-03-22T07:02:38.231Z]   li (1):
+[2026-03-22T07:02:38.231Z]     - https://www.linkedin.com/company/gimmonix
+[2026-03-22T07:02:38.231Z]   urls (2):
+[2026-03-22T07:02:38.231Z]     - https://documentation.hsp.gimmonix.com/docs/introducing-gimmonix
+[2026-03-22T07:02:38.231Z]     - https://league.design
+[2026-03-22T07:02:38.231Z] Summary: ws:2, li:1, urls:2
+[2026-03-22T07:02:38.232Z] Saved final result to result.json
+[2026-03-22T07:02:38.233Z] Override fields: ws, li, urls
+[2026-03-22T07:02:38.233Z] Finished at: 2026-03-22T07:02:38.233Z

@@ -1,0 +1,76 @@
+[2026-03-21T23:13:10.109Z] === Homepage AI Extractor: DigitalOwl ===
+[2026-03-21T23:13:10.109Z] Started at: 2026-03-21T23:13:10.109Z
+[2026-03-21T23:13:10.109Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774134790108_DigitalOwl
+[2026-03-21T23:13:10.109Z] Company: DigitalOwl
+[2026-03-21T23:13:10.109Z] Website: digitalowl.com
+[2026-03-21T23:13:10.109Z] cbRank: 5025
+[2026-03-21T23:13:10.109Z] Reasons: f, i
+[2026-03-21T23:13:10.109Z] Fetching: https://digitalowl.com
+[2026-03-21T23:13:14.502Z] Redirected: https://digitalowl.com -> https://digitalowl.com/
+[2026-03-21T23:13:14.555Z] Saved HTML (2713043 bytes) to page.html
+[2026-03-21T23:13:14.566Z] Extracted 47 unique links from page
+[2026-03-21T23:13:14.567Z] Saved 47 links to links.json
+[2026-03-21T23:13:14.582Z] Extracted footer HTML (5818 chars)
+[2026-03-21T23:13:14.582Z] Extracted header HTML (31015 chars)
+[2026-03-21T23:13:14.585Z] Website (post-redirect): https://digitalowl.com/ → origin: https://digitalowl.com
+[2026-03-21T23:13:14.586Z] External links: 4 (of 47 total)
+[2026-03-21T23:13:14.586Z] ── All external links ──
+[2026-03-21T23:13:14.586Z]   EXT: https://ssp.us.digitalowl.app/terms
+[2026-03-21T23:13:14.586Z]   EXT: https://us.digitalowl.app
+[2026-03-21T23:13:14.586Z]   EXT: https://www.linkedin.com/company/digitalowlai
+[2026-03-21T23:13:14.586Z]   EXT: https://www.youtube.com/channel/UC-xrd535own7ZSqiksxldrQ
+[2026-03-21T23:13:14.586Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T23:13:14.586Z]   UNCATEGORIZED: https://ssp.us.digitalowl.app/terms
+[2026-03-21T23:13:14.587Z]   UNCATEGORIZED: https://us.digitalowl.app
+[2026-03-21T23:13:14.587Z]   REGEX: li <- https://www.linkedin.com/company/digitalowlai
+[2026-03-21T23:13:14.587Z]   REGEX: ytc <- https://www.youtube.com/channel/UC-xrd535own7ZSqiksxldrQ
+[2026-03-21T23:13:14.587Z] Programmatic result: ws:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-21T23:13:14.587Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T23:13:14.588Z] Saved AI prompt (4703 chars) to ai_prompt.txt
+[2026-03-21T23:13:14.588Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T23:13:14.592Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T23:13:34.650Z]   AI: First token received, streaming...
+[2026-03-21T23:13:45.044Z] AI response complete: 165 chars in 30.5s
+[2026-03-21T23:13:45.045Z] Saved AI response to ai_response.json
+[2026-03-21T23:13:45.045Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T23:13:45.045Z]   AI LINK: https://us.digitalowl.app/
+[2026-03-21T23:13:45.046Z]   AI LINK: https://ssp.us.digitalowl.app/terms
+[2026-03-21T23:13:45.046Z]   AI LINK: https://www.linkedin.com/company/digitalowlai
+[2026-03-21T23:13:45.046Z]   AI LINK: https://www.youtube.com/channel/UC-xrd535own7ZSqiksxldrQ
+[2026-03-21T23:13:45.046Z] AI returned 4 valid links
+[2026-03-21T23:13:45.046Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T23:13:45.047Z]   AI→URLS: https://us.digitalowl.app (cleaned from https://us.digitalowl.app/)
+[2026-03-21T23:13:45.047Z]   AI→URLS: https://ssp.us.digitalowl.app/terms
+[2026-03-21T23:13:45.047Z]   AI→REGEX: li <- https://www.linkedin.com/company/digitalowlai (duplicate, skipped)
+[2026-03-21T23:13:45.047Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC-xrd535own7ZSqiksxldrQ (duplicate, skipped)
+[2026-03-21T23:13:45.049Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T23:13:45.049Z] Footer/header origins (4):
+[2026-03-21T23:13:45.049Z]   FOOTER/HEADER ORIGIN: https://us.digitalowl.app
+[2026-03-21T23:13:45.049Z]   FOOTER/HEADER ORIGIN: https://ssp.us.digitalowl.app
+[2026-03-21T23:13:45.049Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T23:13:45.049Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-21T23:13:45.049Z]   SKIP (AI claimed): https://ssp.us.digitalowl.app/terms
+[2026-03-21T23:13:45.050Z]   SKIP (AI claimed): https://us.digitalowl.app
+[2026-03-21T23:13:45.050Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T23:13:45.050Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T23:13:45.050Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-21T23:13:45.340Z]   YOUTUBE: resolved UC-xrd535own7ZSqiksxldrQ → @digitalowl6575
+[2026-03-21T23:13:45.340Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-21T23:13:45.340Z] ── Step 3: Final dedup ──
+[2026-03-21T23:13:45.340Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-21T23:13:45.340Z] ── FINAL RESULT ──
+[2026-03-21T23:13:45.341Z]   ws (1):
+[2026-03-21T23:13:45.341Z]     - https://digitalowl.com
+[2026-03-21T23:13:45.341Z]   li (1):
+[2026-03-21T23:13:45.341Z]     - https://www.linkedin.com/company/digitalowlai
+[2026-03-21T23:13:45.341Z]   ytp (1):
+[2026-03-21T23:13:45.341Z]     - https://www.youtube.com/@digitalowl6575
+[2026-03-21T23:13:45.341Z]   ytc (1):
+[2026-03-21T23:13:45.341Z]     - https://www.youtube.com/channel/UC-xrd535own7ZSqiksxldrQ
+[2026-03-21T23:13:45.341Z]   urls (2):
+[2026-03-21T23:13:45.341Z]     - https://ssp.us.digitalowl.app/terms
+[2026-03-21T23:13:45.341Z]     - https://us.digitalowl.app
+[2026-03-21T23:13:45.341Z] Summary: ws:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-21T23:13:45.342Z] Saved final result to result.json
+[2026-03-21T23:13:45.342Z] Override fields: ws, li, ytp, ytc, urls
+[2026-03-21T23:13:45.342Z] Finished at: 2026-03-21T23:13:45.342Z

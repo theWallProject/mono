@@ -1,0 +1,77 @@
+[2026-03-22T00:08:31.542Z] === Homepage AI Extractor: YOOBIC ===
+[2026-03-22T00:08:31.542Z] Started at: 2026-03-22T00:08:31.542Z
+[2026-03-22T00:08:31.542Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774138111541_YOOBIC
+[2026-03-22T00:08:31.542Z] Company: YOOBIC
+[2026-03-22T00:08:31.542Z] Website: yoobic.com
+[2026-03-22T00:08:31.542Z] cbRank: 11136
+[2026-03-22T00:08:31.542Z] Reasons: f
+[2026-03-22T00:08:31.542Z] Fetching: https://yoobic.com
+[2026-03-22T00:08:35.763Z] Redirected: https://yoobic.com -> https://yoobic.com/
+[2026-03-22T00:08:35.769Z] Saved HTML (231503 bytes) to page.html
+[2026-03-22T00:08:35.771Z] Extracted 52 unique links from page
+[2026-03-22T00:08:35.772Z] Saved 52 links to links.json
+[2026-03-22T00:08:35.774Z] Extracted footer HTML (773 chars)
+[2026-03-22T00:08:35.774Z] Extracted header HTML (23113 chars)
+[2026-03-22T00:08:35.778Z] Website (post-redirect): https://yoobic.com/ → origin: https://yoobic.com
+[2026-03-22T00:08:35.778Z]   SUBDOMAIN: trust.yoobic.com (added to ws)
+[2026-03-22T00:08:35.778Z]   SUBDOMAIN: careers.yoobic.com (added to ws)
+[2026-03-22T00:08:35.778Z]   SUBDOMAIN: info.yoobic.com (added to ws)
+[2026-03-22T00:08:35.778Z] Website subdomains found: 3
+[2026-03-22T00:08:35.778Z] External links: 4 (of 52 total)
+[2026-03-22T00:08:35.778Z] ── All external links ──
+[2026-03-22T00:08:35.778Z]   EXT: https://www.facebook.com/yoobicapp
+[2026-03-22T00:08:35.778Z]   EXT: https://www.instagram.com/yoobic_
+[2026-03-22T00:08:35.778Z]   EXT: https://www.linkedin.com/company/yoobic
+[2026-03-22T00:08:35.779Z]   EXT: https://yoobic.zendesk.com/hc/en-gb
+[2026-03-22T00:08:35.779Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T00:08:35.779Z]   REGEX: fb <- https://www.facebook.com/yoobicapp
+[2026-03-22T00:08:35.779Z]   REGEX: ig <- https://www.instagram.com/yoobic_
+[2026-03-22T00:08:35.779Z]   REGEX: li <- https://www.linkedin.com/company/yoobic
+[2026-03-22T00:08:35.779Z]   UNCATEGORIZED: https://yoobic.zendesk.com/hc/en-gb
+[2026-03-22T00:08:35.779Z] Programmatic result: ws:4, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-22T00:08:35.779Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T00:08:35.780Z] Saved AI prompt (2406 chars) to ai_prompt.txt
+[2026-03-22T00:08:35.780Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T00:08:35.785Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T00:08:44.897Z]   AI: First token received, streaming...
+[2026-03-22T00:08:48.383Z] AI response complete: 59 chars in 12.6s
+[2026-03-22T00:08:48.384Z] Saved AI response to ai_response.json
+[2026-03-22T00:08:48.385Z] ── Parsing AI response (2 lines) ──
+[2026-03-22T00:08:48.385Z]   AI LINK: https://yoobic.zendesk.com/hc/en-gb
+[2026-03-22T00:08:48.385Z]   AI LINK: http://trust.yoobic.com
+[2026-03-22T00:08:48.385Z] AI returned 2 valid links
+[2026-03-22T00:08:48.385Z] ── Categorizing 2 AI-returned links ──
+[2026-03-22T00:08:48.386Z]   AI→URLS: https://yoobic.zendesk.com/hc/en-gb
+[2026-03-22T00:08:48.386Z]   AI→URLS: http://trust.yoobic.com
+[2026-03-22T00:08:48.387Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T00:08:48.387Z] Footer/header origins (5):
+[2026-03-22T00:08:48.387Z]   FOOTER/HEADER ORIGIN: https://info.yoobic.com
+[2026-03-22T00:08:48.387Z]   FOOTER/HEADER ORIGIN: http://trust.yoobic.com
+[2026-03-22T00:08:48.387Z]   FOOTER/HEADER ORIGIN: https://yoobic.com
+[2026-03-22T00:08:48.387Z]   FOOTER/HEADER ORIGIN: https://yoobic.zendesk.com
+[2026-03-22T00:08:48.387Z]   FOOTER/HEADER ORIGIN: https://careers.yoobic.com
+[2026-03-22T00:08:48.387Z]   SKIP (AI claimed): https://yoobic.zendesk.com/hc/en-gb
+[2026-03-22T00:08:48.388Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T00:08:48.388Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T00:08:48.388Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T00:08:48.388Z] ── Step 3: Final dedup ──
+[2026-03-22T00:08:48.388Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-22T00:08:48.388Z] ── FINAL RESULT ──
+[2026-03-22T00:08:48.388Z]   ws (4):
+[2026-03-22T00:08:48.388Z]     - https://careers.yoobic.com
+[2026-03-22T00:08:48.388Z]     - https://info.yoobic.com
+[2026-03-22T00:08:48.388Z]     - https://trust.yoobic.com
+[2026-03-22T00:08:48.388Z]     - https://yoobic.com
+[2026-03-22T00:08:48.389Z]   li (1):
+[2026-03-22T00:08:48.389Z]     - https://www.linkedin.com/company/yoobic
+[2026-03-22T00:08:48.389Z]   fb (1):
+[2026-03-22T00:08:48.389Z]     - https://www.facebook.com/yoobicapp
+[2026-03-22T00:08:48.389Z]   ig (1):
+[2026-03-22T00:08:48.389Z]     - https://www.instagram.com/yoobic_
+[2026-03-22T00:08:48.389Z]   urls (2):
+[2026-03-22T00:08:48.389Z]     - http://trust.yoobic.com
+[2026-03-22T00:08:48.389Z]     - https://yoobic.zendesk.com/hc/en-gb
+[2026-03-22T00:08:48.390Z] Summary: ws:4, fb:1, ig:1, li:1, urls:2
+[2026-03-22T00:08:48.390Z] Saved final result to result.json
+[2026-03-22T00:08:48.391Z] Override fields: ws, li, fb, ig, urls
+[2026-03-22T00:08:48.391Z] Finished at: 2026-03-22T00:08:48.391Z

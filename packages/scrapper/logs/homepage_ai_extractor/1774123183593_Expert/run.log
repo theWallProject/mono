@@ -1,0 +1,75 @@
+[2026-03-21T19:59:43.594Z] === Homepage AI Extractor: Expert ===
+[2026-03-21T19:59:43.594Z] Started at: 2026-03-21T19:59:43.594Z
+[2026-03-21T19:59:43.594Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774123183593_Expert
+[2026-03-21T19:59:43.594Z] Company: Expert
+[2026-03-21T19:59:43.594Z] Website: expert.co.il
+[2026-03-21T19:59:43.595Z] cbRank: 3780467
+[2026-03-21T19:59:43.595Z] Reasons: h
+[2026-03-21T19:59:43.595Z] Fetching: https://expert.co.il
+[2026-03-21T19:59:48.000Z] Redirected: https://expert.co.il -> https://www.expert.co.il/
+[2026-03-21T19:59:48.015Z] Saved HTML (515735 bytes) to page.html
+[2026-03-21T19:59:48.021Z] Extracted 147 unique links from page
+[2026-03-21T19:59:48.022Z] Saved 147 links to links.json
+[2026-03-21T19:59:48.027Z] Extracted footer HTML (28340 chars)
+[2026-03-21T19:59:48.027Z] Extracted header HTML (124187 chars)
+[2026-03-21T19:59:48.031Z] Website (post-redirect): https://www.expert.co.il/ → origin: https://www.expert.co.il
+[2026-03-21T19:59:48.032Z] External links: 5 (of 147 total)
+[2026-03-21T19:59:48.032Z] ── All external links ──
+[2026-03-21T19:59:48.032Z]   EXT: https://twitter.com/Expert_co_il
+[2026-03-21T19:59:48.032Z]   EXT: https://www.facebook.com/EXPERT.CO.IL
+[2026-03-21T19:59:48.032Z]   EXT: https://www.facebook.com/groups/independant.il
+[2026-03-21T19:59:48.032Z]   EXT: https://www.instagram.com/expert_il
+[2026-03-21T19:59:48.032Z]   EXT: https://www.linkedin.com/company/expertil
+[2026-03-21T19:59:48.032Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T19:59:48.032Z]   REGEX: tw <- https://twitter.com/Expert_co_il
+[2026-03-21T19:59:48.032Z]   REGEX: fb <- https://www.facebook.com/EXPERT.CO.IL
+[2026-03-21T19:59:48.032Z]   REGEX: ig <- https://www.instagram.com/expert_il
+[2026-03-21T19:59:48.032Z]   REGEX: li <- https://www.linkedin.com/company/expertil
+[2026-03-21T19:59:48.032Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-21T19:59:48.032Z]   SKIP (regex domain, no match): https://www.facebook.com/groups/independant.il
+[2026-03-21T19:59:48.032Z] Programmatic result: ws:1, tw:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-21T19:59:48.033Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T19:59:48.034Z] Saved AI prompt (10201 chars) to ai_prompt.txt
+[2026-03-21T19:59:48.034Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T19:59:48.038Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T20:01:17.137Z]   AI: First token received, streaming...
+[2026-03-21T20:01:25.605Z] AI response complete: 150 chars in 97.6s
+[2026-03-21T20:01:25.607Z] Saved AI response to ai_response.json
+[2026-03-21T20:01:25.607Z] ── Parsing AI response (4 lines) ──
+[2026-03-21T20:01:25.607Z]   AI LINK: https://twitter.com/Expert_co_il
+[2026-03-21T20:01:25.607Z]   AI LINK: https://www.facebook.com/EXPERT.CO.IL
+[2026-03-21T20:01:25.608Z]   AI LINK: https://www.linkedin.com/company/expertil/
+[2026-03-21T20:01:25.608Z]   AI LINK: https://www.instagram.com/expert_il/
+[2026-03-21T20:01:25.608Z] AI returned 4 valid links
+[2026-03-21T20:01:25.608Z] ── Categorizing 4 AI-returned links ──
+[2026-03-21T20:01:25.608Z]   AI→REGEX: tw <- https://twitter.com/Expert_co_il (duplicate, skipped)
+[2026-03-21T20:01:25.609Z]   AI→REGEX: fb <- https://www.facebook.com/EXPERT.CO.IL (duplicate, skipped)
+[2026-03-21T20:01:25.609Z]   AI→REGEX: li <- https://www.linkedin.com/company/expertil/ (duplicate, skipped)
+[2026-03-21T20:01:25.609Z]   AI→REGEX: ig <- https://www.instagram.com/expert_il/ (duplicate, skipped)
+[2026-03-21T20:01:25.611Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T20:01:25.611Z] Footer/header origins (5):
+[2026-03-21T20:01:25.611Z]   FOOTER/HEADER ORIGIN: https://www.expert.co.il
+[2026-03-21T20:01:25.611Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-21T20:01:25.612Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T20:01:25.612Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T20:01:25.612Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T20:01:25.612Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-21T20:01:25.612Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T20:01:25.612Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T20:01:25.612Z] ── Step 3: Final dedup ──
+[2026-03-21T20:01:25.612Z] No urls to dedup
+[2026-03-21T20:01:25.612Z] ── FINAL RESULT ──
+[2026-03-21T20:01:25.613Z]   ws (1):
+[2026-03-21T20:01:25.613Z]     - https://www.expert.co.il
+[2026-03-21T20:01:25.613Z]   li (1):
+[2026-03-21T20:01:25.613Z]     - https://www.linkedin.com/company/expertil
+[2026-03-21T20:01:25.613Z]   fb (1):
+[2026-03-21T20:01:25.613Z]     - https://www.facebook.com/expert.co.il
+[2026-03-21T20:01:25.613Z]   tw (1):
+[2026-03-21T20:01:25.613Z]     - https://x.com/expert_co_il
+[2026-03-21T20:01:25.613Z]   ig (1):
+[2026-03-21T20:01:25.614Z]     - https://www.instagram.com/expert_il
+[2026-03-21T20:01:25.614Z] Summary: ws:1, tw:1, fb:1, ig:1, li:1
+[2026-03-21T20:01:25.614Z] Saved final result to result.json
+[2026-03-21T20:01:25.615Z] Override fields: ws, li, fb, tw, ig
+[2026-03-21T20:01:25.615Z] Finished at: 2026-03-21T20:01:25.615Z

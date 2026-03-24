@@ -1,0 +1,81 @@
+[2026-03-22T03:04:02.261Z] === Homepage AI Extractor: Apester ===
+[2026-03-22T03:04:02.261Z] Started at: 2026-03-22T03:04:02.261Z
+[2026-03-22T03:04:02.261Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774148642260_Apester
+[2026-03-22T03:04:02.261Z] Company: Apester
+[2026-03-22T03:04:02.261Z] Website: apester.com
+[2026-03-22T03:04:02.261Z] cbRank: 43832
+[2026-03-22T03:04:02.261Z] Reasons: f, i
+[2026-03-22T03:04:02.261Z] Fetching: https://apester.com
+[2026-03-22T03:04:06.375Z] Redirected: https://apester.com -> https://apester.com/
+[2026-03-22T03:04:06.385Z] Saved HTML (343612 bytes) to page.html
+[2026-03-22T03:04:06.393Z] Extracted 58 unique links from page
+[2026-03-22T03:04:06.394Z] Saved 58 links to links.json
+[2026-03-22T03:04:06.399Z] Extracted footer HTML (16008 chars)
+[2026-03-22T03:04:06.399Z] Extracted header HTML (20056 chars)
+[2026-03-22T03:04:06.403Z] Website (post-redirect): https://apester.com/ → origin: https://apester.com
+[2026-03-22T03:04:06.403Z]   SUBDOMAIN: content.apester.com (added to ws)
+[2026-03-22T03:04:06.404Z]   SUBDOMAIN: help.apester.com (added to ws)
+[2026-03-22T03:04:06.404Z]   SUBDOMAIN: portal.apester.com (added to ws)
+[2026-03-22T03:04:06.404Z] Website subdomains found: 3
+[2026-03-22T03:04:06.404Z] External links: 4 (of 58 total)
+[2026-03-22T03:04:06.404Z] ── All external links ──
+[2026-03-22T03:04:06.404Z]   EXT: https://twitter.com/ApesterMag
+[2026-03-22T03:04:06.404Z]   EXT: https://www.facebook.com/apestermag
+[2026-03-22T03:04:06.404Z]   EXT: https://www.instagram.com/apester.official?igsh=OXp2MG9tdGV6ZXMx
+[2026-03-22T03:04:06.404Z]   EXT: https://www.linkedin.com/company/apester
+[2026-03-22T03:04:06.404Z] ── Step 1: Programmatic categorization ──
+[2026-03-22T03:04:06.405Z]   REGEX: tw <- https://twitter.com/ApesterMag
+[2026-03-22T03:04:06.405Z]   REGEX: fb <- https://www.facebook.com/apestermag
+[2026-03-22T03:04:06.405Z]   REGEX: ig <- https://www.instagram.com/apester.official?igsh=OXp2MG9tdGV6ZXMx
+[2026-03-22T03:04:06.405Z]   REGEX: li <- https://www.linkedin.com/company/apester
+[2026-03-22T03:04:06.405Z] Programmatic result: ws:4, tw:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-22T03:04:06.405Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-22T03:04:06.409Z] Saved AI prompt (9299 chars) to ai_prompt.txt
+[2026-03-22T03:04:06.409Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-22T03:04:06.413Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-22T03:04:45.194Z]   AI: First token received, streaming...
+[2026-03-22T03:04:56.980Z] AI response complete: 172 chars in 50.6s
+[2026-03-22T03:04:56.981Z] Saved AI response to ai_response.json
+[2026-03-22T03:04:56.981Z] ── Parsing AI response (4 lines) ──
+[2026-03-22T03:04:56.982Z]   AI LINK: https://www.linkedin.com/company/apester
+[2026-03-22T03:04:56.982Z]   AI LINK: https://www.facebook.com/apestermag
+[2026-03-22T03:04:56.982Z]   AI LINK: https://twitter.com/ApesterMag
+[2026-03-22T03:04:56.982Z]   AI LINK: https://www.instagram.com/apester.official?igsh=OXp2MG9tdGV6ZXMx
+[2026-03-22T03:04:56.982Z] AI returned 4 valid links
+[2026-03-22T03:04:56.982Z] ── Categorizing 4 AI-returned links ──
+[2026-03-22T03:04:56.983Z]   AI→REGEX: li <- https://www.linkedin.com/company/apester (duplicate, skipped)
+[2026-03-22T03:04:56.983Z]   AI→REGEX: fb <- https://www.facebook.com/apestermag (duplicate, skipped)
+[2026-03-22T03:04:56.983Z]   AI→REGEX: tw <- https://twitter.com/ApesterMag (duplicate, skipped)
+[2026-03-22T03:04:56.984Z]   AI→REGEX: ig <- https://www.instagram.com/apester.official?igsh=OXp2MG9tdGV6ZXMx (duplicate, skipped)
+[2026-03-22T03:04:56.984Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-22T03:04:56.984Z] Footer/header origins (7):
+[2026-03-22T03:04:56.984Z]   FOOTER/HEADER ORIGIN: https://apester.com
+[2026-03-22T03:04:56.985Z]   FOOTER/HEADER ORIGIN: https://help.apester.com
+[2026-03-22T03:04:56.985Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-22T03:04:56.985Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-22T03:04:56.985Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-22T03:04:56.985Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-22T03:04:56.985Z]   FOOTER/HEADER ORIGIN: https://portal.apester.com
+[2026-03-22T03:04:56.985Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-22T03:04:56.985Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-22T03:04:56.986Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-22T03:04:56.986Z] ── Step 3: Final dedup ──
+[2026-03-22T03:04:56.986Z] No urls to dedup
+[2026-03-22T03:04:56.986Z] ── FINAL RESULT ──
+[2026-03-22T03:04:56.986Z]   ws (4):
+[2026-03-22T03:04:56.987Z]     - https://apester.com
+[2026-03-22T03:04:56.987Z]     - https://content.apester.com
+[2026-03-22T03:04:56.987Z]     - https://help.apester.com
+[2026-03-22T03:04:56.987Z]     - https://portal.apester.com
+[2026-03-22T03:04:56.987Z]   li (1):
+[2026-03-22T03:04:56.987Z]     - https://www.linkedin.com/company/apester
+[2026-03-22T03:04:56.987Z]   fb (1):
+[2026-03-22T03:04:56.988Z]     - https://www.facebook.com/apestermag
+[2026-03-22T03:04:56.988Z]   tw (1):
+[2026-03-22T03:04:56.988Z]     - https://x.com/apestermag
+[2026-03-22T03:04:56.988Z]   ig (1):
+[2026-03-22T03:04:56.988Z]     - https://www.instagram.com/apester.official
+[2026-03-22T03:04:56.988Z] Summary: ws:4, tw:1, fb:1, ig:1, li:1
+[2026-03-22T03:04:56.989Z] Saved final result to result.json
+[2026-03-22T03:04:56.990Z] Override fields: ws, li, fb, tw, ig
+[2026-03-22T03:04:56.990Z] Finished at: 2026-03-22T03:04:56.990Z

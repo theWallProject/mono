@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<!-- CSRF Token -->
+<meta name="csrf-token" content="TjJFvuQdqme5JK6znDLMQGEr1Hd8iKKkSX4ogPTj">
+
+<title>TrueDiscussion - Homepage</title>
+<meta name="description" content="Homepage of TrueDiscussion - Where facts speak louder than shouts.">
+<meta name="keywords" content="true discussion, collaborative discussions, information seeking, factual answers, collaborative debates and arguments">
+
+
+
+<!-- App credentials -->
+<meta name="author" content="TrueDiscussion">
+<meta name="version" content="v0.8.40.7">
+
+<!-- Favicon -->
+<link href="https://www.truediscussion.org/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+<!-- Canonical Link -->
+<link rel="canonical" href="https://www.truediscussion.org">
+
+<!-- Styles -->
+<link href="https://www.truediscussion.org/build/css/frontend.css?id=ed47cf1f33fc33d4e173" rel="stylesheet">
+<link href="https://www.truediscussion.org/build/css/frontend-all.css?id=116f1a6ff07391e0f7bb" rel="stylesheet">
+
+
+
+<!-- Scripts -->
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZH20L5KZFM&amp;cx=c&amp;gtm=4e63i0"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TGSQVNJ"></script><script type="text/javascript">
+	window.TD = {"user":null};
+</script>
+
+<script src="https://www.truediscussion.org/build/js/frontend.js?id=ae44f6c7a54b384ef281"></script>
+
+
+<!-- Google Tag Manager -->
+<script>
+    (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TGSQVNJ');
+</script>
+<!-- End Google Tag Manager -->
+    <link href="https://www.truediscussion.org/css/homepage.css" rel="stylesheet">
+    <script>
+    /**
+     * All routes of this module will be accessible from other modules via "rootState"
+     * "rootState" is used for global properties access
+     * "state" is used only for local properties access
+     *  -----------
+     *  In store modules we use it in following format:
+     *      rootState.site.routeUserSettings
+     *      - or -
+     *      getters.isUserLogged
+     *      getters.appEnv
+     *      getters.csrfToken
+     *  -----------
+     *  In components we use it in following format (in HTML use $store):
+     *      store.state.site.routeUserSettings
+     *      store.state.site.authUsername
+     *      store.state.site.authCheck
+     *      store.state.site.csrfToken
+     *      - or -
+     *      store.getters.isUserLogged
+     *      store.getters.userName
+     *      store.getters.csrfToken
+     */
+    const site = {
+        state: {
+
+            csrfToken: document.querySelector('meta[name=csrf-token]').getAttribute('content'),
+
+            configAppName: "TrueDiscussion",
+            configAppEnv: "production",
+
+            configSiteDynamicArguments: "",
+            configSiteMaximumTags: "50",
+            configSiteMaximumReferences: "100",
+            configSiteMissingAvatar: "https://www.truediscussion.org/images/icons/missing.png",
+            configSiteDefaultAvatar: "https://www.truediscussion.org/images/icons/default.png",
+            configAssets: "https://www.truediscussion.org/",
+
+            ///////////////////////////////////////////////
+
+            authCheck: "",
+            authVerified: "",
+            authArgumentPicker: "",
+            authUsername: "",
+            authDisplayName: "",
+            authAvatarImage: "",
+            authAvatarPath: "",
+            authInfluence: "0",
+            authHasRoleAdmin: "",
+            authHasRolePodiumMod: "",
+
+            ///////////////////////////////////////////////
+
+            routeHome: "https://www.truediscussion.org/main",
+            routeBackendHome: "https://www.truediscussion.org/backend/home",
+            routeLogin: "https://www.truediscussion.org/login",
+            routeLogout: "https://www.truediscussion.org/logout",
+
+            routeNewsletterSignup: "https://www.truediscussion.org/newsletter/signup",
+            routeContactSendEmail: "https://www.truediscussion.org/contact/sendEmail",
+            routeJoinBetaEmail: "https://www.truediscussion.org/contact/joinBetaEmail",
+
+            routeUserAccount: "https://www.truediscussion.org/user",
+            routeUserMarkNotificationAsRead: "https://www.truediscussion.org/user/markNotificationAsRead",
+            routeUserResetNewNotifications: "https://www.truediscussion.org/user/resetNewNotifications",
+            routeUserSupport: "https://www.truediscussion.org/user/support",
+
+            routeTicketsIndex: "https://www.truediscussion.org/tickets",
+
+            routeApiWebEditingModeSubmission: "https://www.truediscussion.org/api/web/editingModeSubmission",
+            routeApiWebUserFollow: "https://www.truediscussion.org/api/web/stmntFollow",
+            routeApiWebStatementMinInfo: "https://www.truediscussion.org/api/web/statement/:id",
+            routeApiWebStatementFullInfo: "https://www.truediscussion.org/api/web/statement/extra/:id",
+            routeApiWebStatementArguments: "https://www.truediscussion.org/api/web/statement/:id/arguments",
+            routeApiWebStatementStrength: "https://www.truediscussion.org/api/web/statement/:id/strength",
+            routeApiWebStatementRefs: "https://www.truediscussion.org/api/web/statement/:id/refs",
+            routeApiWebStatementLogics: "https://www.truediscussion.org/api/web/statement/:id/logics",
+            routeApiWebStatementForumAddress: "https://www.truediscussion.org/api/web/argument/:id/forumAddress",
+            routeApiWebRefInfo: "https://www.truediscussion.org/api/web/ref/:id",
+
+            routePodiumStatement: "https://www.truediscussion.org/podium/statement/:id/:slug",
+
+            routeUserSettings: "https://www.truediscussion.org/user/settings",
+            routeApiSearchHome: "https://www.truediscussion.org/api/web/search/home",
+
+            /* argument */
+            routePodium: "https://www.truediscussion.org/podium",
+            routePodiumArgument: "https://www.truediscussion.org/podium/argument/:id/:slug",
+            routeApiWebArgumentPost: "https://www.truediscussion.org/api/web/argument/post",
+            routeApiWebArgumentDelete: "https://www.truediscussion.org/api/web/argument/del",
+
+            /* tag */
+            routeApiWebTicketsCreate: "https://www.truediscussion.org/api/web/flag",
+
+            /* ref */
+            routeApiWebSearchRef: "https://www.truediscussion.org/api/web/search/ref",
+            routeApiWebCreatorInfo: "https://www.truediscussion.org/api/web/userInfo",
+            routeApiWebTagNameCheck: "https://www.truediscussion.org/api/web/tagNameCheck/:name",
+
+            /* ref-history */
+            routeApiWebStatementRefHistory: "https://www.truediscussion.org/api/web/statement/:stmntId/refHistory/:refId",
+
+            /* stmnt */
+            routeApiWebSearchStatement: "https://www.truediscussion.org/api/web/search/statement",
+            routeApiWebSearchContextWhere: "https://www.truediscussion.org/api/web/search/context/where",
+            routeApiWebSearchContextWhen: "https://www.truediscussion.org/api/web/search/context/when",
+            routeApiWebSearchTag: "https://www.truediscussion.org/api/web/search/tag",
+
+            /* arguments */
+            routeUserUserpage: "https://www.truediscussion.org/user/:user",
+            routeChatterDiscussionShowInCategoryArg: "https://www.truediscussion.org/forums/discussion/arguments/:slug",
+            routeChatterDiscussionShowInCategoryStmt: 'https://www.truediscussion.org/forums/discussion/statements/:slug',
+            routeChatterDiscussionShowInCategoryRef: "https://www.truediscussion.org/forums/discussion/references/:slug",
+            routeApiWebUserLike: "https://www.truediscussion.org/api/web/argLike",
+            routeApiWebUserFav: "https://www.truediscussion.org/api/web/argFav",
+
+            routeApiWebDynamicArgumentAddUser: "https://www.truediscussion.org/api/web/argument/dynamic/addUser",
+            routeApiWebDynamicArgumentRemoveUser: "https://www.truediscussion.org/api/web/argument/dynamic/removeUser",
+            routeApiWebDynamicArgumentCountViewers: "https://www.truediscussion.org/api/web/argument/dynamic/countViewers",
+            routeApiWebDynamicArgumentTurnOn: "https://www.truediscussion.org/api/web/argument/dynamic/turnOn",
+            routeApiWebDynamicArgumentTurnOff: "https://www.truediscussion.org/api/web/argument/dynamic/turnOff",
+
+            routeApiWebUserVote: "https://www.truediscussion.org/api/web/userVote",
+
+            routePageTerms: "https://www.truediscussion.org/terms-and-conditions",
+            routeApiWebUserDisclaimer: "https://www.truediscussion.org/api/web/disclaimerConfirm",
+
+            routeChatterDiscussionNewTdDiscussion:"https://www.truediscussion.org/forums/discussion/new",
+
+            routeAvatarRemove: "https://www.truediscussion.org/backend/users/:user/removeAvatar",
+
+        },
+        getters: {
+            isDynamicArgumentsEnabled: (state) => state.configSiteDynamicArguments ? true : false,
+            siteMaximumTags: (state) => state.configSiteMaximumTags,
+            siteMaximumRefs: (state) => state.configSiteMaximumReferences,
+            siteMissingAvatar: (state) => state.configSiteMissingAvatar,
+            siteDefaultAvatar: (state) => state.configSiteDefaultAvatar,
+
+            csrfToken: (state) => state.csrfToken,
+            appEnv: (state) => state.configAppEnv,
+            appName: (state) => state.configAppName,
+            isLocalEnv: (state) => ['local', 'development'].includes(state.configAppEnv) ? true : false,
+
+            isUserLogged: (state) => state.authCheck ? true : false,
+            isUserVerified: (state) => state.authVerified ? true : false,
+            isUserLoggedAndVerified: (state) => state.authCheck && state.authVerified,
+            isUserArgumentPicker: (state) => state.authArgumentPicker ? true : false,
+            hasRoleAdmin: (state) => state.authHasRoleAdmin ? true : false,
+            hasRolePodiumMod: (state) => state.authHasRolePodiumMod ? true : false,
+            userName: (state) => state.authUsername,
+            userDisplayName: (state) => state.authDisplayName,
+            userAvatar: (state) => state.authAvatarImage,
+            userAvatarPath: (state) => state.authAvatarPath,
+            userInfluence: (state) => state.authInfluence,
+        },
+        mutations: {
+        },
+        actions: {
+        }
+    }
+</script>    <script>
+      const store = new Vuex.Store({
+        modules: {
+          site,
+        },
+      })
+    </script>
+</head>
+<body data-spy="scroll" data-target="#navbarsDefault" class="frontend">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGSQVNJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<main id="app" role="main" class="container-wide"><div id="joinBetaModal" class="modal"><div role="document" class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header hero-bg py-4"><img src="https://www.truediscussion.org/images/icons/logo2.png" alt="logo" class="float-left px-lg-5 ml-lg-n3"> <button type="button" data-dismiss="modal" aria-label="Close" class="close  mx-n2"><span aria-hidden="true" class="dark-bg-text">×</span></button></div> <div class="modal-body container-padding-small px-lg-5 px-3"><div id="contact-us" class="form-row"><div class="col-lg-12 col-11"><h3>Want to join the beta? </h3> <p>Fill in your details and we'll get back to you.</p></div></div> <div class="my-lg-4 my-2"><div class="form-row"><div class="col-lg-12 mb-3"><input type="text" placeholder="My name" maxlength="64" class="form-control"></div></div> <div class="form-row"><div class="col-lg-12 mb-3"><input type="text" placeholder="My email" maxlength="64" class="form-control"></div></div> <div class="form-row"><div class="col-lg-12"><textarea placeholder="Why I'd like to join" rows="2" maxlength="1024" class="form-control"></textarea> <b class="optional">Optional</b></div></div></div> <!----> <div class="form-row"><div class="col-lg-5 mt-3"><button type="button" class="send-button">SEND<!----></button></div></div></div></div></div></div> <div class="jumbotron hero-bg mb-0 _debug dark-bg-text "><div class="container"><div class="row mt-lg-n5"><div class="col-6 text-left mb-3 my-sm-0"><a href="https://www.truediscussion.org"><img src="https://www.truediscussion.org/images/icons/logo2.png" alt="logo" class="float-left"></a></div> <div class="col-6 text-right"><a href="https://www.truediscussion.org/login" title="My Account - Click to Login"><i aria-hidden="true" class="fa fa-user-circle my-account-icon"></i></a></div></div> <div class="row"><div class="col"><div class="mx-auto my-5 w-lg-50 text-left"><h1 class="title">TrueDiscussion</h1> <p class="subtitle">Where facts speak louder than shouts</p> <p><a role="button" data-toggle="modal" data-target="#joinBetaModal" class="btn btn-login btn-login-home mt-2 btn-box-shadow">JOIN OUR BETA</a></p></div></div></div></div></div> <div class="link-menu border-bottom sticky-top"><nav id="homepage-nav" class="container nav justify-content-between"><div id="navbarsDefault" role="navigation"><ul class="nav nav-fill"><li class="nav-item active"><a href="#what-is-td" class="nav-link">What is TrueDiscussion?</a> <hr class="active-underline"></li> <li class="nav-item"><a href="#articles" class="nav-link">Articles</a> <hr class="active-underline"></li> <li class="nav-item"><a href="#who-we-are" class="nav-link">Who we are</a> <hr class="active-underline"></li> <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a> <hr class="active-underline"></li></ul></div> <div class="p-0 d-none d-lg-block text-end"><a href="https://www.linkedin.com/company/truediscussion/" target="_blank" title="Find us on LinkedIn"><i aria-hidden="true" class="fa fa-linkedin-square social-icon"></i></a></div></nav></div> <div class="link-menu border-top fixed-bottom d-lg-none"><nav class="container nav justify-content-between"><div class="p-0 text-end"><a href="https://www.linkedin.com/company/truediscussion/" target="_blank" title="Find us on LinkedIn"><i aria-hidden="true" class="fa fa-linkedin-square social-icon"></i></a></div> <div><a role="button" data-toggle="modal" data-target="#joinBetaModal" class="btn btn-login btn-login-home mt-1">JOIN OUR BETA</a></div></nav></div> <div id="what-is-td" class="container container-padding"><div class="row"><div class="col-lg-6 order-2 order-lg-1"><div class="pb-3"><h2>What do we do?</h2> <p>TrueDiscussion aims to solve the pains of the post-truth era by combining the knowledge and experiences of all people and facilitating a better understanding of what is true and what is not.</p></div> <div class="pb-3"><h2>How do we do it?</h2> <p>TrueDiscussion offers a place for productive discussions. It measures and calculates all users' arguments and claims, providing a reliable,  unbiased yes/no answer for any question, in every subject.</p></div> <div><h2>Why do we need it?</h2> <p>
+					Since the rise of the internet, we are experiencing an information overload that only increases with time. With it, we see a growing amount of fake news and misinformation and it's getting hard to know who to trust and what is true. Sociologists are reporting an escalation in the levels of segmentation, mistrust and polarisation all over the world.
+					Something has to change.
+				</p> <p>
+					Help us make the change:
+				</p> <a href="https://www.truediscussion.org/login" role="button" data-toggle="modal" data-target="#joinBetaModal" class="btn btn-login btn-login-home mt-2">JOIN OUR BETA</a></div></div> <div class="col-lg-1 order-lg-2 d-none d-lg-block"></div> <div id="what-is-td-pic" class="col-lg-5 order-1 order-lg-3"></div></div></div> <div id="articles" class="container-wide"><div class="container container-padding"><div class="row"><div class="col-12 col-lg-9"><div class="row"><div class="col"><h2>Articles</h2></div></div> <hr class="my-4"> <a href="https://www.truediscussion.org/articles/polarisation-is-an-existential-threat" class="unset-link"><div class="row mt-3 hover-effect flex-nowrap mx-0"><div class="align-self-center flex-shrink-1"><img src="https://www.truediscussion.org/images/pages/polarisation-is-an-existential-threat.jpg" alt="Article - Polarisation is an Existential Threat" class="article-image"></div> <div class="text-left ml-3 ml-md-4 ml-lg-5 align-self-center flex-grow-1"><h3 class="my-0 mb-lg-3">Polarisation is an Existential Threat</h3> <p class="d-none d-lg-block m-0">
+							Political polarisation is on the rise worldwide. Politicians are starting to realise that this tiger cannot be ridden forever.
+						</p></div></div></a> <hr class="my-4"> <a href="https://www.truediscussion.org/articles/truth-isnt-partisan-until-it-is" class="unset-link"><div class="row mt-3 hover-effect flex-nowrap mx-0"><div class="align-self-center flex-shrink-1"><img src="https://www.truediscussion.org/images/pages/truth-isnt-partisan-until-it-is.jpg" alt="Article - Truth isn’t partisan – until it is" class="article-image"></div> <div class="text-left ml-3 ml-md-4 ml-lg-5 align-self-center flex-grow-1"><h3 class="my-0 mb-lg-3">Truth isn’t partisan – until it is</h3> <p class="d-none d-lg-block m-0">
+							Journalists are struggling to report on the facts in politicised matters without looking partisan themselves. What can be done?
+						</p></div></div></a> <hr class="my-4"> <a href="https://www.truediscussion.org/articles/is-trust-the-experts-the-answer" class="unset-link"><div class="row mt-3 hover-effect flex-nowrap mx-0"><div class="align-self-center flex-shrink-1"><img src="https://www.truediscussion.org/images/pages/is-trust-the-experts-the-answer.jpg" alt="Article - Is “Trust the Experts” the answer?" class="article-image"></div> <div class="text-left ml-3 ml-md-4 ml-lg-5 align-self-center flex-grow-1"><h3 class="my-0 mb-lg-3">Is “Trust the Experts” the answer?</h3> <p class="d-none d-lg-block m-0">
+							Faced with a tide of misinformation, we’ve been advised to trust the opinion of experts. But that is not enough.
+						</p></div></div></a> <hr class="my-4"> <a href="https://www.truediscussion.org/articles" class="more-articles">More articles</a></div></div></div></div> <div class="newsletter-signup hero-bg dark-bg-text"><div class="container container-padding-small"><div class="row"><div class="col-lg-6"><h2>Stay updated</h2> <p>Sign up for our newsletter</p> <div class="form-row"><input id="email" type="text" name="email" placeholder="My email" maxlength="64" autocomplete="off" class="form-control"> <button type="button">SUBSCRIBE<!----></button></div> <!----></div> <div class="d-none d-lg-block col-lg-6"><img src="https://www.truediscussion.org/images/icons/logo2.png" alt="logo" class="float-right mt-n2"></div></div></div></div> <div id="who-we-are" class="who-we-are container-wide"><div class="container container-padding"><div class="row"><div class="col-12 col-lg-9"><div class="row"><div class="col"><h2>Meet Our Team</h2></div></div> <hr class="my-3"> <div class="row mt-3 flex-nowrap mx-0"><div class="flex-shrink-1"><img src="https://www.truediscussion.org/images/team/keren-square.jpg" alt="Keren Shimshi" class="team-rounded"></div> <div class="text-left ml-3 ml-md-4 ml-lg-5 mr-xl-5 align-self-center flex-grow-1"><h3>Keren Shimshi - CEO</h3> <p class="mb-0">
+						Keren is our Chief Executive. She has turned the fantasy of TrueDiscussion into existing technology.
+						Graduate of Mamram and Ofek 324 with 15 years of experience in Web Development, Graphic Design and User Experience.
+					</p></div></div> <hr class="my-3"> <div class="row mt-3 flex-nowrap mx-0"><div class="flex-shrink-1"><img src="https://www.truediscussion.org/images/team/noam-square.jpg" alt="Noam Morey" class="team-rounded"></div> <div class="text-left ml-3 ml-md-4 ml-lg-5 mr-xl-5 align-self-center flex-grow-1"><h3>Noam Morey - CPO</h3> <p class="mb-0">
+						Noam is our product man. He invented the algorithm that calculates truth using his multidisciplinary background,
+						that combines Computing, Machine Learning, Moral Philosophy, Philosophy of Science and Diplomacy.
+					</p></div></div> <hr class="my-3"> <div class="row mt-3 flex-nowrap mx-0"><div class="flex-shrink-1"><img src="https://www.truediscussion.org/images/team/samuel.jpg" alt="samuel-akopyan" class="team-rounded"></div> <div class="text-left ml-3 ml-md-4 ml-lg-5 mr-xl-5 align-self-center flex-grow-1"><h3>Samuel Akopyan - Lead Developer</h3> <p class="mb-0">
+						Samuel joined TrueDiscussion in 2020 as a full-stack developer. Every feature, front-end or back - he had a hand in all.
+						Before us, Samuel was the founder and chief programmer of ApPHP, a web software development company.
+					</p></div></div> <hr class="mt-3"></div></div></div></div> <div id="contact" class="contact-us hero-bg dark-bg-text"><div class="container container-padding"><div><div class="form-row"><div class="col-12"><h2>Contact us</h2></div></div> <div><div class="form-row"><div class="col-lg-5 mb-3"><input type="text" placeholder="My name" maxlength="64" class="form-control"></div></div> <div class="form-row"><div class="col-lg-5 mb-3"><input type="text" placeholder="My email" maxlength="64" class="form-control"></div></div> <div class="form-row"><div class="col-lg-5"><textarea placeholder="Message" rows="2" maxlength="1024" class="form-control"></textarea></div></div></div> <!----> <div class="form-row"><div class="col-lg-5 mt-3"><button type="button" class="send-button">SEND<!----></button></div></div></div></div></div></main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 footer-copyright text-center">
+                <div class="d-inline-block mr-3">2017-2026 TrueDiscussion™</div>
+                <div class="d-inline-block">
+                    <a href="#top" class="top btn-top" title="Go to top">
+                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="link-menu border-top  d-lg-none">
+    	<nav class="container nav justify-content-between">
+		<div class="p-0 text-end">
+
+
+			<a href="https://www.linkedin.com/company/truediscussion/" target="_blank" title="Find us on LinkedIn"><i class="fa fa-linkedin-square social-icon" aria-hidden="true"></i></a>
+		</div>
+		<div>
+		<a class="btn btn-login btn-login-home mt-1" role="button" data-toggle="modal" data-target="#joinBetaModal">JOIN OUR BETA</a>
+		</div>
+	</nav>
+</div>
+
+<script>
+    this.vue = new Vue({
+        el: '#app',
+        store
+    });
+</script>
+
+
+
+</body></html>

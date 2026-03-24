@@ -1,0 +1,73 @@
+[2026-03-21T08:22:07.412Z] === Homepage AI Extractor: Stybel ===
+[2026-03-21T08:22:07.412Z] Started at: 2026-03-21T08:22:07.412Z
+[2026-03-21T08:22:07.412Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774081327412_Stybel
+[2026-03-21T08:22:07.412Z] Company: Stybel
+[2026-03-21T08:22:07.412Z] Website: stybel.co.il
+[2026-03-21T08:22:07.413Z] cbRank: 3150375
+[2026-03-21T08:22:07.413Z] Reasons: h
+[2026-03-21T08:22:07.413Z] Fetching: https://stybel.co.il
+[2026-03-21T08:22:09.680Z] Redirected: https://stybel.co.il -> https://stybel.co.il/
+[2026-03-21T08:22:09.690Z] Saved HTML (290435 bytes) to page.html
+[2026-03-21T08:22:09.695Z] Extracted 47 unique links from page
+[2026-03-21T08:22:09.696Z] Saved 47 links to links.json
+[2026-03-21T08:22:09.699Z] Extracted footer HTML (11033 chars)
+[2026-03-21T08:22:09.699Z] Extracted header HTML (8484 chars)
+[2026-03-21T08:22:09.702Z] Website (post-redirect): https://stybel.co.il/ → origin: https://stybel.co.il
+[2026-03-21T08:22:09.702Z] External links: 6 (of 47 total)
+[2026-03-21T08:22:09.702Z] ── All external links ──
+[2026-03-21T08:22:09.703Z]   EXT: https://example.com
+[2026-03-21T08:22:09.703Z]   EXT: https://wa.me/972509048953
+[2026-03-21T08:22:09.703Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-21T08:22:09.703Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-21T08:22:09.703Z]   EXT: https://www.facebook.com/StybelFlour
+[2026-03-21T08:22:09.703Z]   EXT: https://www.instagram.com/stybelflour
+[2026-03-21T08:22:09.703Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T08:22:09.703Z]   UNCATEGORIZED: https://example.com
+[2026-03-21T08:22:09.703Z]   UNCATEGORIZED: https://wa.me/972509048953
+[2026-03-21T08:22:09.703Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-21T08:22:09.704Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-21T08:22:09.704Z]   REGEX: fb <- https://www.facebook.com/StybelFlour
+[2026-03-21T08:22:09.704Z]   REGEX: ig <- https://www.instagram.com/stybelflour
+[2026-03-21T08:22:09.704Z] Programmatic result: ws:1, fb:1, ig:1 | 4 uncategorized
+[2026-03-21T08:22:09.704Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T08:22:09.708Z] Saved AI prompt (6107 chars) to ai_prompt.txt
+[2026-03-21T08:22:09.709Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T08:22:09.712Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T08:22:42.335Z]   AI: First token received, streaming...
+[2026-03-21T08:22:46.640Z] AI response complete: 76 chars in 36.9s
+[2026-03-21T08:22:46.642Z] Saved AI response to ai_response.json
+[2026-03-21T08:22:46.642Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T08:22:46.642Z]   AI LINK: https://www.facebook.com/StybelFlour/
+[2026-03-21T08:22:46.642Z]   AI LINK: https://www.instagram.com/stybelflour/
+[2026-03-21T08:22:46.642Z] AI returned 2 valid links
+[2026-03-21T08:22:46.643Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T08:22:46.643Z]   AI→REGEX: fb <- https://www.facebook.com/StybelFlour/ (duplicate, skipped)
+[2026-03-21T08:22:46.643Z]   AI→REGEX: ig <- https://www.instagram.com/stybelflour/ (duplicate, skipped)
+[2026-03-21T08:22:46.643Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T08:22:46.643Z] Footer/header origins (4):
+[2026-03-21T08:22:46.644Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-21T08:22:46.644Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-21T08:22:46.644Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-21T08:22:46.644Z]   FOOTER/HEADER ORIGIN: https://stybel.co.il
+[2026-03-21T08:22:46.644Z]   SKIP (not in footer/header): https://example.com
+[2026-03-21T08:22:46.644Z]   ADDED: urls <- https://wa.me/972509048953
+[2026-03-21T08:22:46.644Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-21T08:22:46.645Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-21T08:22:46.645Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T08:22:46.645Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T08:22:46.645Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T08:22:46.645Z] ── Step 3: Final dedup ──
+[2026-03-21T08:22:46.645Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T08:22:46.645Z] ── FINAL RESULT ──
+[2026-03-21T08:22:46.646Z]   ws (1):
+[2026-03-21T08:22:46.646Z]     - https://stybel.co.il
+[2026-03-21T08:22:46.646Z]   fb (1):
+[2026-03-21T08:22:46.646Z]     - https://www.facebook.com/stybelflour
+[2026-03-21T08:22:46.646Z]   ig (1):
+[2026-03-21T08:22:46.646Z]     - https://www.instagram.com/stybelflour
+[2026-03-21T08:22:46.646Z]   urls (1):
+[2026-03-21T08:22:46.646Z]     - https://wa.me/972509048953
+[2026-03-21T08:22:46.646Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-21T08:22:46.648Z] Saved final result to result.json
+[2026-03-21T08:22:46.648Z] Override fields: ws, fb, ig, urls
+[2026-03-21T08:22:46.648Z] Finished at: 2026-03-21T08:22:46.648Z

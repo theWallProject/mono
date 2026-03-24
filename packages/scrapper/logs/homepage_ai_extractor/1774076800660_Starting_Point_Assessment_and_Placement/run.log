@@ -1,0 +1,76 @@
+[2026-03-21T07:06:40.660Z] === Homepage AI Extractor: Starting Point Assessment and Placement ===
+[2026-03-21T07:06:40.660Z] Started at: 2026-03-21T07:06:40.660Z
+[2026-03-21T07:06:40.660Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1774076800660_Starting_Point_Assessment_and_Placement
+[2026-03-21T07:06:40.660Z] Company: Starting Point Assessment and Placement
+[2026-03-21T07:06:40.661Z] Website: spoint.co.il
+[2026-03-21T07:06:40.661Z] cbRank: 3092169
+[2026-03-21T07:06:40.661Z] Reasons: h
+[2026-03-21T07:06:40.661Z] Fetching: https://spoint.co.il
+[2026-03-21T07:06:45.320Z] Redirected: https://spoint.co.il -> https://www.spoint.co.il/
+[2026-03-21T07:06:45.328Z] Saved HTML (383462 bytes) to page.html
+[2026-03-21T07:06:45.332Z] Extracted 34 unique links from page
+[2026-03-21T07:06:45.332Z] Saved 34 links to links.json
+[2026-03-21T07:06:45.335Z] Extracted footer HTML (13541 chars)
+[2026-03-21T07:06:45.335Z] Extracted header HTML (11311 chars)
+[2026-03-21T07:06:45.338Z] Website (post-redirect): https://www.spoint.co.il/ → origin: https://www.spoint.co.il
+[2026-03-21T07:06:45.338Z] External links: 7 (of 34 total)
+[2026-03-21T07:06:45.338Z] ── All external links ──
+[2026-03-21T07:06:45.338Z]   EXT: http://www.facebook.com/spoint.co.il
+[2026-03-21T07:06:45.338Z]   EXT: http://www.quatro-digital.com
+[2026-03-21T07:06:45.338Z]   EXT: https://vee.co.il
+[2026-03-21T07:06:45.338Z]   EXT: https://vee.co.il/pricing
+[2026-03-21T07:06:45.338Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-21T07:06:45.338Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-21T07:06:45.338Z]   EXT: https://www.linkedin.com/company/1853488/admin
+[2026-03-21T07:06:45.338Z] ── Step 1: Programmatic categorization ──
+[2026-03-21T07:06:45.338Z]   REGEX: fb <- http://www.facebook.com/spoint.co.il
+[2026-03-21T07:06:45.339Z]   UNCATEGORIZED: http://www.quatro-digital.com
+[2026-03-21T07:06:45.339Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-21T07:06:45.339Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-21T07:06:45.339Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-21T07:06:45.339Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-21T07:06:45.339Z]   REGEX: li <- https://www.linkedin.com/company/1853488/admin
+[2026-03-21T07:06:45.339Z] Programmatic result: ws:1, fb:1, li:1 | 5 uncategorized
+[2026-03-21T07:06:45.339Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-21T07:06:45.341Z] Saved AI prompt (6708 chars) to ai_prompt.txt
+[2026-03-21T07:06:45.341Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-21T07:06:45.345Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-21T07:07:23.619Z]   AI: First token received, streaming...
+[2026-03-21T07:07:28.637Z] AI response complete: 84 chars in 43.3s
+[2026-03-21T07:07:28.639Z] Saved AI response to ai_response.json
+[2026-03-21T07:07:28.640Z] ── Parsing AI response (2 lines) ──
+[2026-03-21T07:07:28.640Z]   AI LINK: https://www.linkedin.com/company/1853488/admin/
+[2026-03-21T07:07:28.640Z]   AI LINK: http://www.facebook.com/spoint.co.il
+[2026-03-21T07:07:28.640Z] AI returned 2 valid links
+[2026-03-21T07:07:28.640Z] ── Categorizing 2 AI-returned links ──
+[2026-03-21T07:07:28.641Z]   AI→REGEX: li <- https://www.linkedin.com/company/1853488/admin/ (duplicate, skipped)
+[2026-03-21T07:07:28.641Z]   AI→REGEX: fb <- http://www.facebook.com/spoint.co.il (duplicate, skipped)
+[2026-03-21T07:07:28.641Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-21T07:07:28.641Z] Footer/header origins (4):
+[2026-03-21T07:07:28.642Z]   FOOTER/HEADER ORIGIN: https://www.spoint.co.il
+[2026-03-21T07:07:28.642Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-21T07:07:28.642Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-21T07:07:28.642Z]   FOOTER/HEADER ORIGIN: http://www.quatro-digital.com
+[2026-03-21T07:07:28.642Z]   ADDED: urls <- http://www.quatro-digital.com
+[2026-03-21T07:07:28.642Z]   SKIP (not in footer/header): https://vee.co.il
+[2026-03-21T07:07:28.642Z]   SKIP (not in footer/header): https://vee.co.il/pricing
+[2026-03-21T07:07:28.642Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+[2026-03-21T07:07:28.642Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=sl-branding
+[2026-03-21T07:07:28.642Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-21T07:07:28.642Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-21T07:07:28.643Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-21T07:07:28.643Z] ── Step 3: Final dedup ──
+[2026-03-21T07:07:28.643Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-21T07:07:28.643Z] ── FINAL RESULT ──
+[2026-03-21T07:07:28.643Z]   ws (1):
+[2026-03-21T07:07:28.643Z]     - https://www.spoint.co.il
+[2026-03-21T07:07:28.643Z]   li (1):
+[2026-03-21T07:07:28.643Z]     - https://www.linkedin.com/company/1853488
+[2026-03-21T07:07:28.643Z]   fb (1):
+[2026-03-21T07:07:28.644Z]     - https://www.facebook.com/spoint.co.il
+[2026-03-21T07:07:28.644Z]   urls (1):
+[2026-03-21T07:07:28.644Z]     - http://www.quatro-digital.com
+[2026-03-21T07:07:28.644Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-21T07:07:28.645Z] Saved final result to result.json
+[2026-03-21T07:07:28.646Z] Override fields: ws, li, fb, urls
+[2026-03-21T07:07:28.646Z] Finished at: 2026-03-21T07:07:28.646Z
