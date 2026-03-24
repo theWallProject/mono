@@ -53,6 +53,7 @@ const inputFilePath = path.join(__dirname, "../../../results/2_merged/2_MERGED_A
 type LoadDataStats = {
   total: number
   hints: number
+  bds: number
   retryList: number
   alreadyProcessed: number
 }
@@ -106,15 +107,24 @@ const loadData = (): LoadedData => {
   const stats: LoadDataStats = {
     total: data.length,
     hints: 0,
+    bds: 0,
     retryList: retryNames.size,
     alreadyProcessed: 0
   }
 
-  // Filter: skip already processed, existing overrides, hints, and companies on the retry list
+  // BDS reasons - these entries should be skipped in batch AI mode
+  const BDS_REASONS = new Set(["BDS_PRIO", "BDS_GRASS", "BDS_PRESSURE"])
+
+  // Filter: skip already processed, existing overrides, hints, BDS entries, and companies on the retry list
   const unprocessedItems = sortedItems.filter((item) => {
     // Skip hints (they are alternative suggestions, not companies to process)
     if (item.isHint) {
       stats.hints++
+      return false
+    }
+    // Skip BDS entries (boycott list - not meant for AI extraction)
+    if (item.reasons?.some((reason) => BDS_REASONS.has(reason))) {
+      stats.bds++
       return false
     }
     // Look up override by item.name directly, or by reverse-mapping renamed names
@@ -145,6 +155,7 @@ const loadData = (): LoadedData => {
   log(`Found ${unprocessedItems.length} companies to process`)
   log(`  Total entries: ${stats.total}`)
   log(`  Hints (skipped): ${stats.hints}`)
+  log(`  BDS entries (skipped): ${stats.bds}`)
   log(`  In retry list: ${stats.retryList}`)
   log(`  Already processed: ${stats.alreadyProcessed}`)
 
