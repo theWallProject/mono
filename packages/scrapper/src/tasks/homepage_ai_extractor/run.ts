@@ -19,7 +19,7 @@ import * as readline from "readline"
 import { chromium, Page } from "playwright"
 
 import { error, log } from "../../helper"
-import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../../types"
+import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema, MergedDataItem } from "../../types"
 import { allLinksGreen, describeNonGreenFields, nameAppearsInLink } from "../validate/green_check"
 import { sortByReasonAndCbRank } from "../validate/sorting"
 import { displayStatistics } from "../validate/statistics"
@@ -51,10 +51,10 @@ const FINALIZE_BATCH_SIZE = 10
 const inputFilePath = path.join(__dirname, "../../../results/2_merged/2_MERGED_ALL.json")
 
 type LoadedData = {
-  allItems: CrunchbaseScrappedItemType[]
-  sortedItems: CrunchbaseScrappedItemType[]
+  allItems: MergedDataItem[]
+  sortedItems: MergedDataItem[]
   currentOverrides: Record<string, ManualOverrideValue>
-  unprocessedItems: CrunchbaseScrappedItemType[]
+  unprocessedItems: MergedDataItem[]
 }
 
 const loadData = (): LoadedData => {
@@ -93,8 +93,10 @@ const loadData = (): LoadedData => {
     }
   }
 
-  // Filter: skip already processed, existing overrides, and companies on the retry list
+// Filter: skip already processed, existing overrides, hints, and companies on the retry list
   const unprocessedItems = sortedItems.filter((item) => {
+    // Skip hints (they are alternative suggestions, not companies to process)
+    if (item.isHint) return false
     // Look up override by item.name directly, or by reverse-mapping renamed names
     const originalKey = renamedToKey.get(item.name)
     const existing = currentOverrides[item.name] ?? (

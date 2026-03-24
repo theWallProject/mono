@@ -1,4 +1,4 @@
-import { CrunchbaseScrappedItemType } from "../../types"
+import { CrunchbaseScrappedItemType, MergedDataItem } from "../../types"
 
 /**
  * Gets the priority of an item based on its reasons:
@@ -19,7 +19,7 @@ export const getReasonPriority = (item: CrunchbaseScrappedItemType): number => {
   return 3 // Other reasons = lowest priority
 }
 
-export const sortByReasonAndCbRank = (items: CrunchbaseScrappedItemType[]): CrunchbaseScrappedItemType[] => {
+export const sortByReasonAndCbRank = (items: MergedDataItem[]): MergedDataItem[] => {
   return [...items].sort((a, b) => {
     // First sort by reason priority (h first, then f, then others)
     const priorityA = getReasonPriority(a)
