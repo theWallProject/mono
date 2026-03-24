@@ -15,7 +15,7 @@ import inquirer from "inquirer"
 import { error, log } from "./helper"
 import { warmUpModel } from "./tasks/homepage_ai_extractor/ai_client"
 import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./tasks/homepage_ai_extractor/config"
-import { runInteractive, runBatch, runRetry } from "./tasks/homepage_ai_extractor/run"
+import { runInteractive, runBatch, runRetry, getUnprocessedCount } from "./tasks/homepage_ai_extractor/run"
 import { getRetryListCount } from "./tasks/homepage_ai_extractor/retry_list"
 
 // Only register error handlers when this file is executed directly (not imported)
@@ -120,7 +120,24 @@ const handleInteractiveMode = async (): Promise<void> => {
 
 const handleBatchMode = async (): Promise<void> => {
   log("\n--- Batch Mode ---")
-  log("This will auto-process companies without browser review.\n")
+
+  const { count, stats } = getUnprocessedCount()
+
+  if (count === 0) {
+    log("No companies left to process.")
+    log(`  Total entries scanned: ${stats.total}`)
+    log(`  Hints skipped: ${stats.hints}`)
+    log(`  In retry list: ${stats.retryList}`)
+    log(`  Already processed: ${stats.alreadyProcessed}`)
+    log("\nUse 'Retry' mode to re-process failed companies, or add new entries to the database.")
+    return
+  }
+
+  log(`${count} companies available for batch processing.`)
+  log(`  Total entries scanned: ${stats.total}`)
+  log(`  Hints skipped: ${stats.hints}`)
+  log(`  In retry list: ${stats.retryList}`)
+  log(`  Already processed: ${stats.alreadyProcessed}\n`)
 
   const batchSize = await promptForBatchSize()
   log(`Starting batch of ${batchSize} companies...\n`)
