@@ -50,11 +50,19 @@ const FINALIZE_BATCH_SIZE = 10
 
 const inputFilePath = path.join(__dirname, "../../../results/2_merged/2_MERGED_ALL.json")
 
+type LoadDataStats = {
+  total: number
+  hints: number
+  retryList: number
+  alreadyProcessed: number
+}
+
 type LoadedData = {
   allItems: MergedDataItem[]
   sortedItems: MergedDataItem[]
   currentOverrides: Record<string, ManualOverrideValue>
   unprocessedItems: MergedDataItem[]
+  stats: LoadDataStats
 }
 
 const loadData = (): LoadedData => {
@@ -80,7 +88,8 @@ const loadData = (): LoadedData => {
 
   // Load retry list to exclude companies pending retry (they should only be
   // re-processed via the dedicated Retry mode, not picked up again by Batch)
-  const retryNames = new Set(loadRetryList().map((entry) => entry.companyName))
+  const retryListEntries = loadRetryList()
+  const retryNames = new Set(retryListEntries.map((entry) => entry.companyName))
 
   // Build a reverse map: renamed name → override key.
   // Overrides with a `name` field rename the company in the merged data, so
@@ -93,29 +102,62 @@ const loadData = (): LoadedData => {
     }
   }
 
-// Filter: skip already processed, existing overrides, hints, and companies on the retry list
+  // Track stats for filtering
+  const stats: LoadDataStats = {
+    total: data.length,
+    hints: 0,
+    retryList: retryNames.size,
+    alreadyProcessed: 0
+  }
+
+  // Filter: skip already processed, existing overrides, hints, and companies on the retry list
   const unprocessedItems = sortedItems.filter((item) => {
     // Skip hints (they are alternative suggestions, not companies to process)
-    if (item.isHint) return false
+    if (item.isHint) {
+      stats.hints++
+      return false
+    }
     // Look up override by item.name directly, or by reverse-mapping renamed names
     const originalKey = renamedToKey.get(item.name)
     const existing = currentOverrides[item.name] ?? (
       originalKey !== undefined ? currentOverrides[originalKey] : undefined
     )
     // Skip if human-verified (_meta.isVerified or _meta.isBrowserVerified)
-    if (existing && isVerified(existing)) return false
+    if (existing && isVerified(existing)) {
+      stats.alreadyProcessed++
+      return false
+    }
     // Skip if auto-extracted (_meta.isHomepage)
-    if (existing && isHomepage(existing)) return false
+    if (existing && isHomepage(existing)) {
+      stats.alreadyProcessed++
+      return false
+    }
     // Skip if already has any override data (per user request: "ignore existing for now")
-    if (existing && Object.keys(existing).length > 0) return false
+    if (existing && Object.keys(existing).length > 0) {
+      stats.alreadyProcessed++
+      return false
+    }
     // Skip if on the retry list (will be handled by Retry mode)
     if (retryNames.has(item.name)) return false
     return true
   })
 
-  log(`Found ${unprocessedItems.length} unprocessed items (no existing overrides, excluding ${retryNames.size} in retry list)`)
+  log(`Found ${unprocessedItems.length} companies to process`)
+  log(`  Total entries: ${stats.total}`)
+  log(`  Hints (skipped): ${stats.hints}`)
+  log(`  In retry list: ${stats.retryList}`)
+  log(`  Already processed: ${stats.alreadyProcessed}`)
 
-  return { allItems: data, sortedItems, currentOverrides, unprocessedItems }
+return { allItems: data, sortedItems, currentOverrides, unprocessedItems, stats }
+}
+
+/**
+ * Get the count of unprocessed companies and stats about filtered items.
+ * Used by the menu to show counts before starting batch processing.
+ */
+export const getUnprocessedCount = (): { count: number; stats: LoadDataStats } => {
+  const { unprocessedItems, stats } = loadData()
+  return { count: unprocessedItems.length, stats }
 }
 
 // ────────────────────────────────────────────────────────────────────────────
