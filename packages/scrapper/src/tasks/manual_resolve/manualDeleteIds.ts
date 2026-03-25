@@ -11,5 +11,5 @@ export const manualDeleteIds = [
   "watani-mall",
   "razztech",
   "haat-delivery",
-  "wego"
+  "wego","al-razi-center-for-rehabilitation-of-children"
 ]
