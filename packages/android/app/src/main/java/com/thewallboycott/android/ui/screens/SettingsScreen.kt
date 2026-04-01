@@ -3,8 +3,11 @@ package com.thewallboycott.android.ui.screens
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
+import android.provider.Settings
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,21 +32,32 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import com.thewallboycott.android.R
+import com.thewallboycott.android.accessibility.AccessibilityPreferences
+import com.thewallboycott.android.accessibility.LinkedInAccessibilityService
 import com.thewallboycott.android.data.AppPreferences
 import com.thewallboycott.android.data.AppPreferences.SupportedLanguage
 import com.thewallboycott.android.ui.theme.WallBackground
@@ -53,21 +67,22 @@ import com.thewallboycott.android.ui.theme.WallPrimary
 import com.thewallboycott.android.ui.theme.WallSurfaceVariant
 
 /**
- * Settings screen with language switcher.
+ * Settings screen with language switcher and LinkedIn detection settings.
  *
- * Displays a list of supported languages as selectable options within a card.
- * The first option is always "System Default" which resolves to the best matching
- * supported language based on the device locale. Selecting a language immediately
- * applies it via AppCompat's per-app locale API, which recreates the activity.
+ * Displays:
+ * - Language selection (system default + supported languages)
+ * - LinkedIn Detection toggle with permission status
  *
- * Design matches the existing card-based layout pattern used in SupportScreen.
+ * Design follows the existing card-based layout pattern used in SupportScreen.
  */
 @Composable
 fun SettingsScreen() {
     val context = LocalContext.current
     val activity = context.findActivity()
     val appPreferences = remember { AppPreferences(context) }
+    val accessibilityPrefs = remember { AccessibilityPreferences(context) }
     val scrollState = rememberScrollState()
+    val lifecycleOwner = LocalLifecycleOwner.current
 
     // Read LocalConfiguration so this composable recomposes whenever the
     // system configuration changes (locale, layout direction, etc.).
@@ -82,6 +97,25 @@ fun SettingsScreen() {
     val isSystemDefault = storedTag.isEmpty()
     val resolvedSystemLanguage = appPreferences.resolveSystemLanguage()
 
+    // LinkedIn Detection state
+    var hasAccessibilityPermission by remember { mutableStateOf(AccessibilityPreferences.hasAccessibilityPermission(context)) }
+    var hasOverlayPermission by remember { mutableStateOf(AccessibilityPreferences.hasOverlayPermission(context)) }
+    var isFeatureEnabled by remember { mutableStateOf(accessibilityPrefs.isEnabled()) }
+
+    // Refresh permission states when returning from settings
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                hasAccessibilityPermission = AccessibilityPreferences.hasAccessibilityPermission(context)
+                hasOverlayPermission = AccessibilityPreferences.hasOverlayPermission(context)
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
+
     val canScrollDown by remember {
         derivedStateOf {
             scrollState.value < scrollState.maxValue
@@ -95,7 +129,7 @@ fun SettingsScreen() {
                 .verticalScroll(scrollState)
                 .padding(16.dp)
         ) {
-            // Section header
+            // === Language Section ===
             Text(
                 text = stringResource(R.string.settings_language),
                 style = MaterialTheme.typography.titleMedium,
@@ -153,9 +187,8 @@ fun SettingsScreen() {
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Info card
+            // Language info card
+            Spacer(modifier = Modifier.height(12.dp))
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
@@ -183,6 +216,105 @@ fun SettingsScreen() {
                 }
             }
 
+            // === LinkedIn Detection Section ===
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Text(
+                text = stringResource(R.string.linkedin_detection_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = WallOnSurface
+            )
+
+            Text(
+                text = stringResource(R.string.linkedin_detection_description),
+                style = MaterialTheme.typography.bodySmall,
+                color = WallOnSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp, bottom = 12.dp)
+            )
+
+            // Main toggle card
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
+            ) {
+                Column {
+                    // Permission status indicators
+                    PermissionStatusRow(
+                        label = stringResource(R.string.linkedin_permission_accessibility),
+                        isGranted = hasAccessibilityPermission,
+                        onClick = {
+                            context.startActivity(AccessibilityPreferences.createAccessibilitySettingsIntent())
+                        }
+                    )
+
+                    HorizontalDivider(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        color = WallOnSurfaceVariant.copy(alpha = 0.12f)
+                    )
+
+                    PermissionStatusRow(
+                        label = stringResource(R.string.linkedin_permission_overlay),
+                        isGranted = hasOverlayPermission,
+                        onClick = {
+                            context.startActivity(AccessibilityPreferences.createOverlaySettingsIntent(context))
+                        }
+                    )
+
+                    HorizontalDivider(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        color = WallOnSurfaceVariant.copy(alpha = 0.12f)
+                    )
+
+                    // Enable toggle
+                    val canEnable = hasAccessibilityPermission && hasOverlayPermission
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(enabled = canEnable) {
+                                isFeatureEnabled = !isFeatureEnabled
+                                accessibilityPrefs.setEnabled(isFeatureEnabled)
+                            }
+                            .padding(horizontal = 16.dp, vertical = 14.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = if (canEnable) {
+                                    if (isFeatureEnabled) stringResource(R.string.linkedin_detection_enabled)
+                                    else stringResource(R.string.linkedin_detection_disabled)
+                                } else {
+                                    stringResource(R.string.linkedin_detection_title)
+                                },
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontWeight = if (isFeatureEnabled && canEnable) FontWeight.SemiBold else FontWeight.Normal,
+                                color = if (canEnable) WallOnSurface else WallOnSurfaceVariant
+                            )
+                            if (!canEnable) {
+                                Text(
+                                    text = stringResource(R.string.linkedin_open_linkedin),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = WallOnSurfaceVariant
+                                )
+                            }
+                        }
+
+                        Switch(
+                            checked = isFeatureEnabled && canEnable,
+                            onCheckedChange = null, // Handled by parent clickable
+                            enabled = canEnable,
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = WallPrimary,
+                                checkedTrackColor = WallPrimary.copy(alpha = 0.5f),
+                                uncheckedThumbColor = WallOnSurfaceVariant,
+                                uncheckedTrackColor = WallSurfaceVariant
+                            )
+                        )
+                    }
+                }
+            }
+
             Spacer(modifier = Modifier.height(16.dp))
         }
 
@@ -201,6 +333,55 @@ fun SettingsScreen() {
                             )
                         )
                     )
+            )
+        }
+    }
+}
+
+/**
+ * A permission status row showing granted/denied state with an action button.
+ */
+@Composable
+private fun PermissionStatusRow(
+    label: String,
+    isGranted: Boolean,
+    onClick: () -> Unit
+) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null,
+                onClick = onClick
+            )
+            .padding(horizontal = 16.dp, vertical = 14.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.bodyLarge,
+                color = WallOnSurface
+            )
+            Text(
+                text = if (isGranted) "✓ Granted" else "✗ Required",
+                style = MaterialTheme.typography.bodySmall,
+                color = if (isGranted) WallPrimary else WallOnSurfaceVariant
+            )
+        }
+
+        // Action button
+        if (!isGranted) {
+            Text(
+                text = if (isPressed) "Opening..." else "Enable",
+                style = MaterialTheme.typography.labelLarge,
+                color = WallPrimary,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.clickable(onClick = onClick)
             )
         }
     }

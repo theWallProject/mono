@@ -16,6 +16,10 @@
     <!-- Required for Foreground Services on modern Android -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SHORT_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Required for LinkedIn accessibility overlay -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -66,6 +70,29 @@
         <receiver
             android:name=".background.NotificationActionReceiver"
             android:exported="false" />
+
+        <!-- LinkedIn Accessibility Service - monitors LinkedIn feed for flagged companies -->
+        <service
+            android:name=".accessibility.LinkedInAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- LinkedIn Overlay Service - displays flagged companies overlay -->
+        <service
+            android:name=".accessibility.LinkedInOverlayService"
+            android:foregroundServiceType="specialUse"
+            android:exported="false">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="accessibility" />
+        </service>
 
     </application>
 
