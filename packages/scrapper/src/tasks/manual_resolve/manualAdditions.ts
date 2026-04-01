@@ -1311,6 +1311,89 @@ export const manualAdditions: ManualAdditionItem[] = [
     ]
   },
   {
+    name: "inDrive",
+    reasons: ["c"],
+    ws: ["https://indrive.com"],
+    li: [
+      "https://www.linkedin.com/company/indrive",
+      "https://www.linkedin.com/company/indrive-tech",
+      "https://www.linkedin.com/showcase/indrivetech"
+    ],
+    fb: [
+      "https://www.facebook.com/INDRIVE.SAUDI.ARABIA",
+      "https://www.facebook.com/InDrive.Egypt.2023",
+      "https://www.facebook.com/Maroc.InDriver",
+      "https://www.facebook.com/indrive.iq",
+      "https://www.facebook.com/indrive.malaysia",
+      "https://www.facebook.com/indrive.malaysia/?brand_redir=303734373615539",
+      "https://www.facebook.com/indrive.services.co",
+      "https://www.facebook.com/indrivejo"
+    ],
+    tw: [
+      "https://x.com/SupportDrivers",
+      "https://x.com/inDrive",
+      "https://x.com/inDriveBrasil",
+      "https://x.com/inDriveLatam",
+      "https://x.com/muzvambaradzi"
+    ],
+    ig: [
+      "https://www.instagram.com/indrive",
+      "https://www.instagram.com/indrive.dz",
+      "https://www.instagram.com/indrive.eg",
+      "https://www.instagram.com/indrive.ma",
+      "https://www.instagram.com/indrive.my"
+    ],
+    gh: ["https://github.com/inDriver"],
+    ytp: [
+      "https://www.youtube.com/@inDrive.Qazaqstan",
+      "https://www.youtube.com/@inDrivePeru",
+      "https://www.youtube.com/@inDrive_Nepal",
+      "https://www.youtube.com/@inVisionU",
+      "https://www.youtube.com/@indrive.mexico",
+      "https://www.youtube.com/@indrive.official",
+      "https://www.youtube.com/@indriveMENA",
+      "https://www.youtube.com/@indriveindia",
+      "https://www.youtube.com/@indrivemorocco",
+      "https://www.youtube.com/@indriveregistrationcenter"
+    ],
+    tt: [
+      "https://www.tiktok.com/@indrive",
+      "https://www.tiktok.com/@indrive.br",
+      "https://www.tiktok.com/@indrive.co",
+      "https://www.tiktok.com/@indrive.dz",
+      "https://www.tiktok.com/@indrive.eg",
+      "https://www.tiktok.com/@indrive.id",
+      "https://www.tiktok.com/@indrive.kaz",
+      "https://www.tiktok.com/@indrive.kz",
+      "https://www.tiktok.com/@indrive.latam",
+      "https://www.tiktok.com/@indrive.ma",
+      "https://www.tiktok.com/@indrive.mx",
+      "https://www.tiktok.com/@indrive.my",
+      "https://www.tiktok.com/@indrive.ng",
+      "https://www.tiktok.com/@indrive.np",
+      "https://www.tiktok.com/@indrive.pak",
+      "https://www.tiktok.com/@indrive.pe",
+      "https://www.tiktok.com/@indrive.phl",
+      "https://www.tiktok.com/@indrive.sa",
+      "https://www.tiktok.com/@indrive.za",
+      "https://www.tiktok.com/@indrivebucara"
+    ],
+    th: [
+      "https://www.threads.com/@indrive",
+      "https://www.threads.com/@indrive.kz",
+      "https://www.threads.com/@indrive.my",
+      "https://www.threads.com/@indrive.ph",
+      "https://www.threads.com/@indrive_krg"
+    ],
+    urls: ["https://apps.apple.com/us/app/indrive-save-on-city-rides/id780125801"],
+    android_app_ids: ["sinet.startup.inDriver"],
+    proof_text:
+      "inDrive partnered with Israeli AI fleet management platform Autofleet on October 15, 2025, to provide intelligent fleet solutions for partners globally.",
+    proof_link:
+      "https://web.archive.org/web/20260209174345/https://autofleet.io/press-release/autofleet-partners-with-indrive-to-launch-a-new-global-fleet-management-platform",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Intel",
     reasons: ["BDS_PRIO"],
     ws: [
