@@ -15,6 +15,7 @@ import {
   findInDatabaseBySelector,
   getMainDomain,
   getRegisteredDomain,
+  FinalDBFileSchema,
   type FinalDBFileType
 } from "./index"
 
@@ -1545,6 +1546,111 @@ describe("findHintByDomain", () => {
       const result = findHintByDomain("bbc.com", mockHintDb)
       expect(result).not.toBeNull()
       expect(result?.hintCompanyId).toBeUndefined()
+    })
+  })
+})
+
+describe("FinalDBFileSchema - Custom reason validation", () => {
+  describe("Valid entries with reason 'c'", () => {
+    it("should accept entry with reason 'c' and proof_text", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["c"],
+        n: "Test Company",
+        proof_text: "Evidence of Israeli connection"
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(true)
+    })
+
+    it("should accept entry with reason 'c' and proof_link", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["c"],
+        n: "Test Company",
+        proof_link: "https://example.com/evidence"
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(true)
+    })
+
+    it("should accept entry with reason 'c' and both proof_text and proof_link", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["c"],
+        n: "Test Company",
+        proof_text: "Evidence of Israeli connection",
+        proof_link: "https://example.com/evidence"
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(true)
+    })
+
+    it("should accept entry with reason 'c' alongside other reasons", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["h", "c"],
+        n: "Test Company",
+        proof_text: "Additional evidence"
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(true)
+    })
+  })
+
+  describe("Invalid entries with reason 'c'", () => {
+    it("should reject entry with reason 'c' but no proof fields", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["c"],
+        n: "Test Company"
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(false)
+      const error = result.success ? null : result.error
+      expect(error).not.toBeNull()
+      expect(error?.issues[0]?.message).toContain("must have proof_text or proof_link")
+    })
+
+    it("should reject entry with reason 'c' and empty proof_text", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["c"],
+        n: "Test Company",
+        proof_text: ""
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(false)
+    })
+  })
+
+  describe("Valid entries without reason 'c'", () => {
+    it("should accept entry with other reasons and no proof fields", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["h"],
+        n: "Test Company"
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(true)
+    })
+
+    it("should accept entry with BDS reasons and no proof fields", () => {
+      const entry = {
+        id: "test-company",
+        ws: "https://example.com",
+        r: ["BDS_PRIO"],
+        n: "Test Company"
+      }
+      const result = FinalDBFileSchema.safeParse(entry)
+      expect(result.success).toBe(true)
     })
   })
 })

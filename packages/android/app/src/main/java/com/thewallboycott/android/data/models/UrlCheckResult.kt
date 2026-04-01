@@ -13,8 +13,8 @@ sealed class UrlCheckResult {
         val name: String,
         val alt: List<Alternative>?,
         val stockSymbol: String?,
-        val comment: String?,
-        val link: String?,
+        val proofText: String?,
+        val proofLink: String?,
         val rule: RuleInfo
     ) : UrlCheckResult()
 }

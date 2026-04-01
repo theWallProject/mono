@@ -47,6 +47,10 @@ const formatValue = (item: ManualAdditionItem): string => {
   if ("android_app_ids" in item && item.android_app_ids !== undefined)
     fields.push(`android_app_ids: ${JSON.stringify(item.android_app_ids)}`)
   if ("alt" in item && item.alt !== undefined) fields.push(`alt: ${JSON.stringify(item.alt)}`)
+  if ("proof_text" in item && item.proof_text !== undefined)
+    fields.push(`proof_text: ${JSON.stringify(item.proof_text)}`)
+  if ("proof_link" in item && item.proof_link !== undefined)
+    fields.push(`proof_link: ${JSON.stringify(item.proof_link)}`)
 
   // Serialize _meta if present
   if ("_meta" in item && typeof item._meta === "object" && item._meta !== null) {

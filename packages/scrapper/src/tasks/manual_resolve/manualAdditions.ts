@@ -2099,6 +2099,53 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Tinder",
+    reasons: ["c"],
+    ws: ["https://tinder.com"],
+    li: ["https://www.linkedin.com/company/tinder-incorporated"],
+    tw: ["https://x.com/Tinder", "https://x.com/Tinder_India", "https://x.com/Tinder_Japan"],
+    ig: ["https://www.instagram.com/tinder"],
+    gh: ["https://github.com/Tinder"],
+    ytp: [
+      "https://www.youtube.com/@Tinder",
+      "https://www.youtube.com/@TinderBrasil",
+      "https://www.youtube.com/@TinderIndia",
+      "https://www.youtube.com/@TinderKoreaGo",
+      "https://www.youtube.com/@tinderSEAsia",
+      "https://www.youtube.com/@tinder_uk",
+      "https://www.youtube.com/@tinderaustralia",
+      "https://www.youtube.com/@tinderdeutschland",
+      "https://www.youtube.com/@tinderinternational2124",
+      "https://www.youtube.com/@tinderlatam"
+    ],
+    tt: [
+      "https://www.tiktok.com/@tinder",
+      "https://www.tiktok.com/@tinder.brasil",
+      "https://www.tiktok.com/@tinder.es",
+      "https://www.tiktok.com/@tinder.france",
+      "https://www.tiktok.com/@tinder.germany",
+      "https://www.tiktok.com/@tinder_korea",
+      "https://www.tiktok.com/@tinder_latam",
+      "https://www.tiktok.com/@tinder_uk",
+      "https://www.tiktok.com/@tinderau",
+      "https://www.tiktok.com/@tinderca",
+      "https://www.tiktok.com/@tindersingapore",
+      "https://www.tiktok.com/@tinderthailand"
+    ],
+    th: ["https://www.threads.com/@tinder", "https://www.threads.com/@tinderbrasil"],
+    urls: [
+      "https://apps.apple.com/us/app/tinder-dating-app-date-chat/id547702041",
+      "https://marketplace.visualstudio.com/search?term=Tinder",
+      "https://www.npmjs.com/search?q=Tinder",
+      "https://www.reddit.com/r/Tinder"
+    ],
+    android_app_ids: ["com.tinder"],
+    proof_text:
+      "Spencer Rascoff, Match Group’s CEO (The parent company of many dating apps) has publicly supported Israeli soldiers fighting in Gaza in 2023. He was also a board member at Palantir (2020–2022), a surveillance tech firm with ties to the CIA and Israeli intelligence",
+    proof_link: "https://blog.boycat.io/posts/match-group-salams-acquisition-idf-support-palantir-controversy",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Webselenese",
     reasons: ["h"],
     li: ["https://www.linkedin.com/company/webselenese"],

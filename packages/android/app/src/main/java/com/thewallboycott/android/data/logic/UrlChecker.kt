@@ -152,8 +152,8 @@ class UrlChecker(
                     name = domain,
                     alt = null,
                     stockSymbol = null,
-                    comment = context.getString(R.string.result_comment_israeli_domain),
-                    link = domain,
+                    proofText = context.getString(R.string.result_comment_israeli_domain),
+                    proofLink = null,
                     rule = RuleInfo(domain, "il")
                 )
             }
@@ -417,8 +417,8 @@ class UrlChecker(
                 name = findResult.n,
                 alt = findResult.alt,
                 stockSymbol = findResult.s,
-                comment = findResult.c,
-                link = findResult.ws,
+                proofText = findResult.proofText,
+                proofLink = findResult.proofLink,
                 rule = RuleInfo(selector, selectorKey)
             )
         }

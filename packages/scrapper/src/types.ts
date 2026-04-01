@@ -125,7 +125,11 @@ const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   /** Android developer ID like "com.wix" (not full app package IDs) */
   android_dev_id: z.string().optional(),
   /** Array of full Android app package IDs for exact matching */
-  android_app_ids: z.array(z.string()).optional()
+  android_app_ids: z.array(z.string()).optional(),
+  /** Custom evidence text - required when reason 'c' (Custom) is used */
+  proof_text: z.string().optional(),
+  /** URL to source/evidence - required when reason 'c' (Custom) is used */
+  proof_link: z.string().url().optional()
 })
 
 export const MergedDataFileSchema = z.array(MergedDataItemSchema)
@@ -154,7 +158,11 @@ export const CompressedManualItemSchema = z
     /** Android developer ID like "com.wix" (not full app package IDs) */
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
-    android_app_ids: z.array(z.string()).optional()
+    android_app_ids: z.array(z.string()).optional(),
+    /** Custom evidence text - required when reason 'c' (Custom) is used */
+    proof_text: z.string().optional(),
+    /** URL to source/evidence - required when reason 'c' (Custom) is used */
+    proof_link: z.string().url().optional()
   })
   .strict()
 
@@ -216,7 +224,11 @@ export const ManualEntrySchema = z
     /** Android developer ID like "com.wix" (not full app package IDs) */
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
-    android_app_ids: z.array(z.string()).optional()
+    android_app_ids: z.array(z.string()).optional(),
+    /** Custom evidence text - required when reason 'c' (Custom) is used */
+    proof_text: z.string().optional(),
+    /** URL to source/evidence - required when reason 'c' (Custom) is used */
+    proof_link: z.string().url().optional()
   })
   .strict()
 
@@ -286,4 +298,14 @@ export type ManualOverrideFields = {
     n: string // name
     ws: string // website
   }>
+  /**
+   * Custom evidence text - required when reason 'c' (Custom) is used.
+   * Provides explanation for why the company is flagged.
+   */
+  proof_text?: string
+  /**
+   * URL to source/evidence - required when reason 'c' (Custom) is used.
+   * Must be a valid URL.
+   */
+  proof_link?: string
 } & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">

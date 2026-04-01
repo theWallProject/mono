@@ -151,7 +151,8 @@ const promptForReasons = async (): Promise<APIListOfReasonsValues[]> => {
         { name: "i - Significant investment from Israeli VCs", value: "i" },
         { name: "BDS_PRIO - Priority target on BDS boycott list", value: "BDS_PRIO" },
         { name: "BDS_GRASS - Grassroots target on BDS boycott list", value: "BDS_GRASS" },
-        { name: "BDS_PRESSURE - Pressure target on BDS boycott list", value: "BDS_PRESSURE" }
+        { name: "BDS_PRESSURE - Pressure target on BDS boycott list", value: "BDS_PRESSURE" },
+        { name: "c - Custom (requires proof_text or proof_link)", value: "c" }
       ],
       validate: (input: string[]) => {
         if (!Array.isArray(input) || input.length === 0) {
@@ -172,6 +173,84 @@ const promptForReasons = async (): Promise<APIListOfReasonsValues[]> => {
     }
   }
   return validatedReasons
+}
+
+/**
+ * Prompt for proof fields when 'c' (Custom) reason is selected.
+ * At least one of proof_text or proof_link must be provided.
+ */
+const promptForProofFields = async (): Promise<{ proof_text?: string; proof_link?: string }> => {
+  const { hasProof } = await inquirer.prompt<{ hasProof: boolean }>([
+    {
+      type: "confirm",
+      name: "hasProof",
+      message: "Add proof_text (custom evidence text)?",
+      default: true
+    }
+  ])
+
+  let proof_text: string | undefined
+  let proof_link: string | undefined
+
+  if (hasProof) {
+    const { text } = await inquirer.prompt<{ text: string }>([
+      {
+        type: "input",
+        name: "text",
+        message: "Enter proof_text (evidence for why company is flagged):",
+        validate: (input: string) => {
+          if (!input || !input.trim()) {
+            return "proof_text cannot be empty (press Ctrl+C to skip)"
+          }
+          return true
+        }
+      }
+    ])
+    proof_text = text.trim()
+  }
+
+  const { hasLink } = await inquirer.prompt<{ hasLink: boolean }>([
+    {
+      type: "confirm",
+      name: "hasLink",
+      message: "Add proof_link (URL to source/evidence)?",
+      default: !proof_text
+    }
+  ])
+
+  if (hasLink) {
+    const { link } = await inquirer.prompt<{ link: string }>([
+      {
+        type: "input",
+        name: "link",
+        message: "Enter proof_link (URL to source/evidence):",
+        validate: (input: string) => {
+          if (!input || !input.trim()) {
+            return "proof_link cannot be empty (press Ctrl+C to skip)"
+          }
+          try {
+            new URL(input.trim())
+            return true
+          } catch {
+            return "proof_link must be a valid URL"
+          }
+        }
+      }
+    ])
+    proof_link = link.trim()
+  }
+
+  // Ensure at least one proof field is provided
+  if (!proof_text && !proof_link) {
+    error("At least one of proof_text or proof_link is required for 'c' (Custom) reason")
+    // Recursively prompt until at least one is provided
+    return promptForProofFields()
+  }
+
+  const result: { proof_text?: string; proof_link?: string } = {}
+  if (proof_text) result.proof_text = proof_text
+  if (proof_link) result.proof_link = proof_link
+  return result
 }
 
 const promptForBrowserMode = async (): Promise<"sequential" | "all-at-once"> => {
@@ -208,13 +287,20 @@ const handleAddAdditionAction = async (): Promise<void> => {
   }
 
   const reasons = await promptForReasons()
+
+  // If 'c' (Custom) reason is selected, prompt for proof fields
+  let proofFields: { proof_text?: string; proof_link?: string } | undefined
+  if (reasons.includes("c")) {
+    proofFields = await promptForProofFields()
+  }
+
   const browserMode = await promptForBrowserMode()
 
   try {
     if (browserMode === "sequential") {
-      await addNewEntryLinksForAdditionsSequential(companyName, reasons)
+      await addNewEntryLinksForAdditionsSequential(companyName, reasons, proofFields)
     } else {
-      await addNewEntryLinksForAdditions(companyName, reasons)
+      await addNewEntryLinksForAdditions(companyName, reasons, proofFields)
     }
     log(`✅ Added new entry "${companyName}" to manualAdditions.ts`)
   } catch (err) {

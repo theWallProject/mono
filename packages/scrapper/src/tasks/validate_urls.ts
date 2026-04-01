@@ -1298,7 +1298,8 @@ const findCompanyByName = (
  */
 export async function addNewEntryLinksForAdditions(
   companyName: string,
-  reasons: valuesOfListOfReasons[]
+  reasons: valuesOfListOfReasons[],
+  proofFields?: { proof_text?: string; proof_link?: string }
 ): Promise<void> {
   let browserContext: BrowserContext | null = null
 
@@ -1881,7 +1882,9 @@ export async function addNewEntryLinksForAdditions(
         ...(collectedUrls.ytc !== undefined && { ytc: collectedUrls.ytc }),
         ...(collectedUrls.tt !== undefined && { tt: collectedUrls.tt }),
         ...(collectedUrls.th !== undefined && { th: collectedUrls.th }),
-        ...(collectedUrls.android_app_ids !== undefined && { android_app_ids: collectedUrls.android_app_ids })
+        ...(collectedUrls.android_app_ids !== undefined && { android_app_ids: collectedUrls.android_app_ids }),
+        ...(proofFields?.proof_text && { proof_text: proofFields.proof_text }),
+        ...(proofFields?.proof_link && { proof_link: proofFields.proof_link })
       }
 
       currentAdditions.push(addition)
@@ -1890,7 +1893,9 @@ export async function addNewEntryLinksForAdditions(
       const addition: ManualAdditionItem = {
         name: companyName,
         reasons,
-        _meta: browserVerifiedMeta
+        _meta: browserVerifiedMeta,
+        ...(proofFields?.proof_text && { proof_text: proofFields.proof_text }),
+        ...(proofFields?.proof_link && { proof_link: proofFields.proof_link })
       }
       currentAdditions.push(addition)
     }
@@ -2398,7 +2403,8 @@ async function saveEntryProgress(
   companyName: string,
   reasons: valuesOfListOfReasons[],
   categorized: CategorizedUrls,
-  isComplete: boolean
+  isComplete: boolean,
+  proofFields?: { proof_text?: string; proof_link?: string }
 ): Promise<void> {
   const manualAdditionsPath = path.join(__dirname, "./manual_resolve/manualAdditions.ts")
 
@@ -2446,7 +2452,9 @@ async function saveEntryProgress(
     ...(processedYtc?.length && { ytc: processedYtc }),
     ...(processedTt?.length && { tt: processedTt }),
     ...(processedTh?.length && { th: processedTh }),
-    ...(processedAndroidAppIds?.length && { android_app_ids: processedAndroidAppIds })
+    ...(processedAndroidAppIds?.length && { android_app_ids: processedAndroidAppIds }),
+    ...(proofFields?.proof_text && { proof_text: proofFields.proof_text }),
+    ...(proofFields?.proof_link && { proof_link: proofFields.proof_link })
   }
 
   if (existingIndex >= 0) {
@@ -2479,7 +2487,8 @@ async function saveEntryProgress(
  */
 export async function addNewEntryLinksForAdditionsSequential(
   companyName: string,
-  reasons: valuesOfListOfReasons[]
+  reasons: valuesOfListOfReasons[],
+  proofFields?: { proof_text?: string; proof_link?: string }
 ): Promise<void> {
   const userDataDir = path.join(__dirname, "../../.browser-profile")
   const extensionDir = path.join(__dirname, "../../../addon/build/chrome-mv3-dev")
@@ -2520,7 +2529,7 @@ export async function addNewEntryLinksForAdditionsSequential(
 
     // Save progress after each platform
     const isComplete = i === searchServices.length - 1
-    await saveEntryProgress(companyName, reasons, categorized, isComplete)
+    await saveEntryProgress(companyName, reasons, categorized, isComplete, proofFields)
     log(`  💾 Progress saved (${i + 1}/${searchServices.length} platforms)`)
   }
 
