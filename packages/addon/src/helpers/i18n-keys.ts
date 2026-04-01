@@ -27,6 +27,7 @@ type ExpectedReasonKeys =
   | "reasonBDSPriority"
   | "reasonBDSGrassroots"
   | "reasonBDSPressure"
+  | "reasonCustom"
 
 /**
  * Union type of reason-related i18n message keys.

@@ -18,7 +18,9 @@ export const APIListOfReasons = {
   /** BDS Grassroots - Grassroots organic boycott targets */
   BDSGrassroots: "BDS_GRASS",
   /** BDS Pressure - Pressure targets */
-  BDSPressure: "BDS_PRESSURE"
+  BDSPressure: "BDS_PRESSURE",
+  /** Custom - Requires proof_text or proof_link */
+  Custom: "c"
 } as const
 
 export type valuesOfListOfReasons = (typeof APIListOfReasons)[keyof typeof APIListOfReasons]
@@ -33,7 +35,8 @@ export const APIListOfReasonsSchema = z.enum([
   APIListOfReasons.Url,
   APIListOfReasons.BDSPriority,
   APIListOfReasons.BDSGrassroots,
-  APIListOfReasons.BDSPressure
+  APIListOfReasons.BDSPressure,
+  APIListOfReasons.Custom
 ])
 
 export type APIListOfReasonsValues = z.infer<typeof APIListOfReasonsSchema>
@@ -77,8 +80,8 @@ export type UrlCheckResult =
       name: string
       alt?: { n: string; ws: string }[]
       stockSymbol?: string
-      comment?: string
-      link?: string
+      proofText?: string
+      proofLink?: string
       rule: {
         selector: string
         key: LinkField
@@ -159,9 +162,11 @@ export const FinalDBFileSchema = z
     r: z.array(APIListOfReasonsSchema),
     /** name */
     n: z.string(),
-    /** comment */
-    c: z.string().optional(),
-    /** stock sympol */
+    /** proof text - evidence/explanation for why company is flagged */
+    proof_text: z.string().optional(),
+    /** proof link - URL to source/evidence */
+    proof_link: z.string().url().optional(),
+    /** stock symbol */
     s: z.string().optional(),
     /** alternative names */
     alt: z
@@ -192,6 +197,15 @@ export const FinalDBFileSchema = z
     android_app_ids: z.array(z.string()).optional()
   })
   .strict()
+  .refine(
+    (data) => {
+      if (data.r.includes("c")) {
+        return !!(data.proof_text || data.proof_link)
+      }
+      return true
+    },
+    { message: "Entries with reason 'c' (Custom) must have proof_text or proof_link" }
+  )
 
 export type FinalDBFileType = z.infer<typeof FinalDBFileSchema>
 
@@ -597,18 +611,14 @@ export function formatResult(findResult: FinalDBFileType, selector: string, sele
     }
   }
 
-  // For regular entries, extract string value from ws (should always be string, not array)
-  // If it's an array (shouldn't happen for non-hints), take first value
-  const link = Array.isArray(findResult.ws) ? findResult.ws[0] : findResult.ws
-
   return {
     isHint: false,
     reasons: findResult.r,
     name: findResult.n,
     alt: findResult.alt,
     stockSymbol: findResult.s,
-    comment: findResult.c,
-    link,
+    proofText: findResult.proof_text,
+    proofLink: findResult.proof_link,
     rule: {
       selector,
       key: selectorKey

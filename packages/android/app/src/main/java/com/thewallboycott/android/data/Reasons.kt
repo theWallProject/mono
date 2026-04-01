@@ -19,5 +19,6 @@ val reasonsMap = mapOf(
     "u" to Reason(R.string.reason_url, ReasonLevel.ERROR),
     "BDS_PRIO" to Reason(R.string.reason_bds_priority, ReasonLevel.ERROR),
     "BDS_GRASS" to Reason(R.string.reason_bds_grassroots, ReasonLevel.ERROR),
-    "BDS_PRESSURE" to Reason(R.string.reason_bds_pressure, ReasonLevel.WARNING)
+    "BDS_PRESSURE" to Reason(R.string.reason_bds_pressure, ReasonLevel.WARNING),
+    "c" to Reason(R.string.reason_custom, ReasonLevel.ERROR)
 )

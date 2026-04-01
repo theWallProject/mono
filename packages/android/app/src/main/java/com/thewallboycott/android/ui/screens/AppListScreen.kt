@@ -16,6 +16,7 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
@@ -755,13 +756,41 @@ fun AppInfoCard(
                             )
                         } else {
                             val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
-                            Column {
+                            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                                 reasons.forEach { reason ->
                                     Text(
                                         text = "• ${stringResource(reason.messageResId)}",
                                         style = MaterialTheme.typography.bodySmall,
                                         color = bodyColor
                                     )
+                                }
+                                // Proof section - shows proof text inline with optional source link
+                                if (!itemInfo.proofText.isNullOrBlank()) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier.padding(top = 4.dp)
+                                    ) {
+                                        Text(
+                                            text = itemInfo.proofText,
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = bodyColor.copy(alpha = 0.8f),
+                                            modifier = Modifier.weight(1f)
+                                        )
+                                        if (!itemInfo.proofLink.isNullOrBlank()) {
+                                            Spacer(modifier = Modifier.width(8.dp))
+                                            Icon(
+                                                imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                                                contentDescription = stringResource(R.string.proof_view_source),
+                                                tint = bodyColor,
+                                                modifier = Modifier
+                                                    .size(18.dp)
+                                                    .clickable {
+                                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(itemInfo.proofLink))
+                                                        context.startActivity(intent)
+                                                    }
+                                            )
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -921,13 +950,41 @@ fun BdsAppInfoCard(
                         color = WallBdsAccent
                     )
                     val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
-                    Column {
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         reasons.forEach { reason ->
                             Text(
                                 text = "• ${stringResource(reason.messageResId)}",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = WallOnBdsContainer
                             )
+                        }
+                        // Proof section - shows proof text inline with optional source link
+                        if (!itemInfo.proofText.isNullOrBlank()) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(top = 4.dp)
+                            ) {
+                                Text(
+                                    text = itemInfo.proofText,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = WallOnBdsContainer.copy(alpha = 0.8f),
+                                    modifier = Modifier.weight(1f)
+                                )
+                                if (!itemInfo.proofLink.isNullOrBlank()) {
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                                        contentDescription = stringResource(R.string.proof_view_source),
+                                        tint = WallBdsAccent,
+                                        modifier = Modifier
+                                            .size(18.dp)
+                                            .clickable {
+                                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(itemInfo.proofLink))
+                                                context.startActivity(intent)
+                                            }
+                                    )
+                                }
+                            }
                         }
                     }
                 }

@@ -31,8 +31,12 @@ data class AllItem(
     val r: List<String>,
     /** Name of the entity */
     val n: String,
-    /** Comment */
-    val c: String? = null,
+    /** Proof text - evidence/explanation for why company is flagged */
+    @SerialName("proof_text")
+    val proofText: String? = null,
+    /** Proof link - URL to source/evidence */
+    @SerialName("proof_link")
+    val proofLink: String? = null,
     /** Stock Symbol */
     val s: String? = null,
     /** Alternative names */

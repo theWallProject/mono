@@ -26,6 +26,8 @@ export function getReasonI18nKey(reason: valuesOfListOfReasons): ReasonI18nKey {
       return "reasonBDSGrassroots"
     case "BDS_PRESSURE":
       return "reasonBDSPressure"
+    case "c":
+      return "reasonCustom"
     default: {
       // Exhaustiveness check: if all cases are handled, reason should be never
       const _exhaustive: never = reason

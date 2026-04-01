@@ -59,7 +59,9 @@ const loadJsonFiles = async (folderPath: string) => {
           ...(mergedItem?.hintCompanyId ? { hintCompanyId: mergedItem.hintCompanyId } : {}),
           ...(mergedItem?.hint_android_id ? { hint_android_id: mergedItem.hint_android_id } : {}),
           ...(mergedItem?.android_dev_id ? { android_dev_id: mergedItem.android_dev_id } : {}),
-          ...(mergedItem?.android_app_ids ? { android_app_ids: mergedItem.android_app_ids } : {})
+          ...(mergedItem?.android_app_ids ? { android_app_ids: mergedItem.android_app_ids } : {}),
+          ...(mergedItem?.proof_text ? { proof_text: mergedItem.proof_text } : {}),
+          ...(mergedItem?.proof_link ? { proof_link: mergedItem.proof_link } : {})
         }
       }
     }

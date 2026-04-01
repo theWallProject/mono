@@ -22,6 +22,9 @@ declare const styles: {
   readonly pillBadge: string
   readonly pillBadgeContainerLeft: string
   readonly pillBadgeContainerRight: string
+  readonly proofLink: string
+  readonly proofSection: string
+  readonly proofText: string
   readonly shieldCircleBg: string
   readonly shieldIcon: string
   readonly visible: string

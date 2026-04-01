@@ -120,6 +120,17 @@ export const TRANSLATIONS = {
     zh_CN: "$1是BDS抵制名单上的施压目标",
     zh_TW: "$1是BDS抵制名單上的施壓目標"
   },
+  reasonCustom: {
+    en: "Connection found: $1",
+    ar: "تم العثور على صلة: $1",
+    id: "Koneksi ditemukan: $1",
+    ms: "Sambungan dijumpai: $1",
+    bn: "সংযোগ পাওয়া গেছে: $1",
+    fr: "Connexion trouvée : $1",
+    nl: "Verbinding gevonden: $1",
+    zh_CN: "发现关联：$1",
+    zh_TW: "發現關聯：$1"
+  },
   modalShareMobileImage: {
     en: "Share image",
     ar: "أنشر صورة",
@@ -262,6 +273,17 @@ export const TRANSLATIONS = {
     nl: "Weet je het zeker? We hebben weinig maar belangrijke tips. Je kunt deze instelling altijd wijzigen in de extensie-opties.",
     zh_CN: "你确定吗？我们只有很少但重要的提示。您可以随时在扩展选项中更改此设置。",
     zh_TW: "你確定嗎？我們只有很少但重要的提示。您可以隨時在擴展選項中更改此設置。"
+  },
+  proof_viewSource: {
+    en: "View Source",
+    ar: "عرض المصدر",
+    id: "Lihat Sumber",
+    ms: "Lihat Sumber",
+    bn: "সূত্র দেখুন",
+    fr: "Voir la source",
+    nl: "Bron bekijken",
+    zh_CN: "查看来源",
+    zh_TW: "查看來源"
   }
 } satisfies TransDB
 

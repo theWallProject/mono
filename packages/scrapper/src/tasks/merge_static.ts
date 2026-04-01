@@ -524,6 +524,8 @@ const loadJsonFiles = async (folderPath: string) => {
     // Note: alt field is handled separately in final.ts, not here
     const android_dev_id = "android_dev_id" in addition ? addition.android_dev_id : undefined
     const android_app_ids = "android_app_ids" in addition ? addition.android_app_ids : undefined
+    const proof_text = "proof_text" in addition ? addition.proof_text : undefined
+    const proof_link = "proof_link" in addition ? addition.proof_link : undefined
 
     // Helper to safely get field value from addition
     const getFieldValue = (field: LinkField): unknown => {
@@ -576,6 +578,13 @@ const loadJsonFiles = async (folderPath: string) => {
       if (android_app_ids) {
         updatedItem.android_app_ids = android_app_ids
       }
+      // Carry proof fields to the base entry
+      if (proof_text) {
+        updatedItem.proof_text = proof_text
+      }
+      if (proof_link) {
+        updatedItem.proof_link = proof_link
+      }
 
       for (const [field, urls] of fieldUrls.entries()) {
         const [firstUrl, ...rest] = urls
@@ -590,7 +599,9 @@ const loadJsonFiles = async (folderPath: string) => {
             const newItem: MergedDataItem = {
               id: newId,
               name: existingItem.name,
-              reasons: updatedItem.reasons
+              reasons: updatedItem.reasons,
+              ...(proof_text ? { proof_text } : {}),
+              ...(proof_link ? { proof_link } : {})
             }
             setField(newItem, field, removeProtocol(url))
             additionalItems.push(newItem)
@@ -642,7 +653,9 @@ const loadJsonFiles = async (folderPath: string) => {
       name: addition.name,
       reasons,
       ...(android_dev_id ? { android_dev_id } : {}),
-      ...(android_app_ids ? { android_app_ids } : {})
+      ...(android_app_ids ? { android_app_ids } : {}),
+      ...(proof_text ? { proof_text } : {}),
+      ...(proof_link ? { proof_link } : {})
     }
 
     // Apply first URLs to the base entry
@@ -665,7 +678,9 @@ const loadJsonFiles = async (folderPath: string) => {
           const newItem: MergedDataItem = {
             id: generatedId,
             name: addition.name,
-            reasons
+            reasons,
+            ...(proof_text ? { proof_text } : {}),
+            ...(proof_link ? { proof_link } : {})
           }
           setField(newItem, field, removeProtocol(url))
           additionalItems.push(newItem)

@@ -23,14 +23,15 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -586,13 +587,35 @@ fun MatchResultCard(
                     color = bodyColor
                 )
             }
-            result.comment?.let {
-                Text(
-                    stringResource(R.string.result_comment_prefix, it),
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = bodyColor
-                )
+            
+            // Proof section - shows proof text inline with optional source link
+            if (!result.proofText.isNullOrBlank()) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(top = 8.dp)
+                ) {
+                    Text(
+                        text = result.proofText,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = bodyColor.copy(alpha = 0.8f),
+                        modifier = Modifier.weight(1f)
+                    )
+                    
+                    if (!result.proofLink.isNullOrBlank()) {
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                            contentDescription = stringResource(R.string.proof_view_source),
+                            tint = bodyColor,
+                            modifier = Modifier
+                                .size(20.dp)
+                                .clickable {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(result.proofLink))
+                                    context.startActivity(intent)
+                                }
+                        )
+                    }
+                }
             }
 
             // Show alternatives sub-card if available
