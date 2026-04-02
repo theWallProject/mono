@@ -41,6 +41,7 @@ class LinkedInOverlayService : Service() {
         
         const val ACTION_SHOW_OVERLAY = "com.thewallboycott.android.action.SHOW_OVERLAY"
         const val ACTION_HIDE_OVERLAY = "com.thewallboycott.android.action.HIDE_OVERLAY"
+        const val ACTION_DISMISS_OVERLAY = "com.thewallboycott.android.action.DISMISS_OVERLAY"  // User clicked X
         const val EXTRA_COMPANIES = "companies"
         
         /**
@@ -55,11 +56,26 @@ class LinkedInOverlayService : Service() {
         }
         
         /**
-         * Hide the overlay.
+         * Hide the overlay (system-triggered, e.g., LinkedIn went to background).
+         * Does NOT set userDismissed - user can see overlay again when returning to LinkedIn.
          */
         fun hideOverlay(context: Context) {
+            Log.i(TAG, "=== hideOverlay() STATIC METHOD CALLED ===")
+            Log.i(TAG, "  Creating HIDE_OVERLAY intent")
             val intent = Intent(context, LinkedInOverlayService::class.java).apply {
                 action = ACTION_HIDE_OVERLAY
+            }
+            context.startService(intent)
+            Log.i(TAG, "  startService() called for HIDE_OVERLAY")
+        }
+        
+        /**
+         * Dismiss the overlay (user-triggered, clicked X button).
+         * Sets userDismissed - overlay won't show until LinkedIn restarts.
+         */
+        fun dismissOverlay(context: Context) {
+            val intent = Intent(context, LinkedInOverlayService::class.java).apply {
+                action = ACTION_DISMISS_OVERLAY
             }
             context.startService(intent)
         }
@@ -88,12 +104,18 @@ class LinkedInOverlayService : Service() {
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         createNotificationChannel()
         
+        // Reset dismissal state on service creation (fresh start)
+        userDismissed = false
+        
         // Start as foreground service
         startForeground(NOTIFICATION_ID, createNotification())
     }
     
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.d(TAG, "onStartCommand: action=${intent?.action}")
+        Log.i(TAG, "=== onStartCommand ===")
+        Log.i(TAG, "  action: ${intent?.action}")
+        Log.i(TAG, "  isOverlayShowing: $isOverlayShowing")
+        Log.i(TAG, "  userDismissed: $userDismissed")
         
         when (intent?.action) {
             ACTION_SHOW_OVERLAY -> {
@@ -104,15 +126,26 @@ class LinkedInOverlayService : Service() {
                     intent.getSerializableExtra(EXTRA_COMPANIES) as? ArrayList<FlaggedCompany>
                 } ?: emptyList()
                 
+                Log.i(TAG, "  SHOW_OVERLAY: ${companies.size} companies")
                 showOverlay(companies)
             }
             ACTION_HIDE_OVERLAY -> {
+                // System-triggered hide (LinkedIn went to background)
+                // Do NOT set userDismissed - user can see overlay when returning
+                Log.i(TAG, "  HIDE_OVERLAY: System-triggered hide, NOT setting userDismissed")
+                Log.i(TAG, "  HIDE_OVERLAY: Current isOverlayShowing = $isOverlayShowing")
+                hideOverlay()
+                Log.i(TAG, "  HIDE_OVERLAY: After hideOverlay(), isOverlayShowing = $isOverlayShowing")
+            }
+            ACTION_DISMISS_OVERLAY -> {
+                // User clicked X button - set userDismissed
+                Log.i(TAG, "  DISMISS_OVERLAY: User clicked X - setting userDismissed = true")
                 userDismissed = true
                 hideOverlay()
             }
             "com.thewallboycott.android.action.RESET_DISMISSAL" -> {
+                Log.i(TAG, "  RESET_DISMISSAL: Setting userDismissed = false")
                 userDismissed = false
-                Log.d(TAG, "Dismissal reset")
             }
         }
         
@@ -197,15 +230,23 @@ class LinkedInOverlayService : Service() {
     }
     
     private fun hideOverlay() {
+        Log.i(TAG, "=== hideOverlay() INSTANCE METHOD ===")
+        Log.i(TAG, "  isOverlayShowing: $isOverlayShowing")
+        Log.i(TAG, "  overlayView: ${overlayView != null}")
+        
         if (isOverlayShowing && overlayView != null) {
+            Log.i(TAG, "  ACTION: Removing overlay from window manager")
             try {
                 windowManager.removeView(overlayView)
-                Log.i(TAG, "Overlay removed from window")
+                Log.i(TAG, "  ACTION: Overlay REMOVED successfully")
             } catch (e: Exception) {
-                Log.e(TAG, "Failed to remove overlay view", e)
+                Log.e(TAG, "  ERROR: Failed to remove overlay view: ${e.message}", e)
             }
             isOverlayShowing = false
             currentCompanies = emptyList()
+            Log.i(TAG, "  ACTION: isOverlayShowing set to false")
+        } else {
+            Log.i(TAG, "  ACTION: No overlay to remove (isOverlayShowing=$isOverlayShowing, overlayView=$overlayView)")
         }
     }
     
@@ -283,8 +324,8 @@ class LinkedInOverlayService : Service() {
             typeface = android.graphics.Typeface.DEFAULT_BOLD
             setPadding(marginPx, 0, 0, 0)
             setOnClickListener {
-                Log.i(TAG, "Dismiss button clicked")
-                hideOverlay()
+                Log.i(TAG, "Dismiss button clicked - user dismissed")
+                dismissOverlay(applicationContext)
             }
         }
         
