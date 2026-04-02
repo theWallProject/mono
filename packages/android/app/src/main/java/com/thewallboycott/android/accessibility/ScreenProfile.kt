@@ -85,6 +85,9 @@ sealed class ScreenProfile(val id: String) {
          * Unknown is implicitly the fallback.
          */
         val ALL_PROFILES: List<ScreenProfile> = listOf(
+            UserProfile,          // User profile with work history (must be before Feed)
+            JobSearchNative,      // Native RecyclerView job search
+            JobSearchResults,     // Compose-based job search results
             Feed,
             CompanyPage,
             Jobs,
@@ -127,6 +130,332 @@ sealed class ScreenProfile(val id: String) {
      * Get human-readable description of this profile.
      */
     abstract fun getDescription(): String
+    
+    /**
+     * Profile for native job search results (RecyclerView-based).
+     * This is different from Compose-based job search.
+     * 
+     * Detection criteria:
+     * - Has `careers_job_list_fragment_recycler_view` (native RecyclerView)
+     * - Has `search_filters_list` (filter chips)
+     * - Has `ad_entity_lockup_subtitle` (company names)
+     * 
+     * Company extraction strategy:
+     * - Find all `ad_entity_lockup_subtitle` TextViews
+     * - These contain company names: "KGiSL", "Nicoll Curtin", "Michael Page", etc.
+     */
+    @Suppress("DEPRECATION")
+    object JobSearchNative : ScreenProfile("job_search_native") {
+        
+        private const val CAREERS_RECYCLER_ID = "careers_job_list_fragment_recycler_view"
+        private const val SEARCH_FILTERS_ID = "search_filters_list"
+        private const val COMPANY_SUBTITLE_ID = "ad_entity_lockup_subtitle"
+        
+        override fun matches(rootNode: AccessibilityNodeInfo, packageName: String, className: String?): Boolean {
+            // Check package
+            if (packageName != "com.linkedin.android") {
+                Log.d(TAG, "JobSearchNative.matches: Wrong package: $packageName")
+                return false
+            }
+            
+            // Check for careers job list recycler (native RecyclerView)
+            val careersRecycler = NodeQuery.create()
+                .withViewId(CAREERS_RECYCLER_ID)
+                .findFirstIn(rootNode)
+            
+            if (careersRecycler != null) {
+                careersRecycler.recycle()
+                Log.i(TAG, "JobSearchNative.matches: MATCHED - Native job search detected (careers_recycler)")
+                return true
+            }
+            
+            // Also check for search filters list (present in job search)
+            val searchFilters = NodeQuery.create()
+                .withViewId(SEARCH_FILTERS_ID)
+                .findFirstIn(rootNode)
+            
+            if (searchFilters != null) {
+                searchFilters.recycle()
+                Log.i(TAG, "JobSearchNative.matches: MATCHED - Native job search detected (search_filters)")
+                return true
+            }
+            
+            Log.d(TAG, "JobSearchNative.matches: No native job search views found")
+            return false
+        }
+        
+        override fun extractCompanyNames(rootNode: AccessibilityNodeInfo): List<String> {
+            val companies = mutableListOf<String>()
+            val processedNames = mutableSetOf<String>()
+            
+            // Find all company subtitle TextViews (ad_entity_lockup_subtitle)
+            NodeQuery.findAll(rootNode) { node ->
+                node.viewIdResourceName?.contains(COMPANY_SUBTITLE_ID) == true
+            }.forEach { node ->
+                val companyName = node.text?.toString()?.trim()
+                
+                if (companyName != null && 
+                    companyName.isNotEmpty() && 
+                    companyName !in processedNames) {
+                    Log.d(TAG, "JobSearchNative: Found company '$companyName'")
+                    companies.add(companyName)
+                    processedNames.add(companyName)
+                }
+                
+                node.recycle()
+            }
+            
+            Log.i(TAG, "JobSearchNative.extractCompanyNames: Found ${companies.size} companies: ${companies.joinToString()}")
+            return companies
+        }
+        
+        override fun getDescription(): String = "LinkedIn Job Search (Native)"
+    }
+    
+    /**
+     * Profile for LinkedIn job search results.
+     * Has similar structure to Feed but with job-specific filters.
+     * 
+     * Detection criteria:
+     * - Has `sdui_compose_view` and `lazyColumn` (like Feed)
+     * - Has `lazyRow` with filter buttons ("Jobs", "Date posted", "Easy Apply", "Remote")
+     * - Has "results" text (e.g., "34 results")
+     * - Has "View job" content descriptions
+     * 
+     * Company extraction strategy:
+     * - In job cards, company name is the second TextView after job title
+     * - Pattern: [Job TitleTextView] → [Company Name TextView] → [Location TextView]
+     */
+    @Suppress("DEPRECATION")
+    object JobSearchResults : ScreenProfile("job_search_results") {
+        
+        override fun matches(rootNode: AccessibilityNodeInfo, packageName: String, className: String?): Boolean {
+            // Check package
+            if (packageName != "com.linkedin.android") {
+                Log.d(TAG, "JobSearchResults.matches: Wrong package: $packageName")
+                return false
+            }
+            
+            // Check for job-specific markers:
+            // 1. "results" text (e.g., "34 results")
+            // 2. "View job" content description
+            // 3. Filter tabs in lazyRow
+            
+            var hasResultsText = false
+            var hasViewJobDesc = false
+            var hasJobsFilter = false
+            
+            // Check for "results" text
+            NodeQuery.findAll(rootNode) { node ->
+                node.text?.toString()?.contains("results") == true
+            }.forEach { node ->
+                hasResultsText = true
+                node.recycle()
+            }
+            
+            // Check for "View job" content description
+            NodeQuery.findAll(rootNode) { node ->
+                node.contentDescription?.toString()?.contains("View job") == true
+            }.forEach { node ->
+                hasViewJobDesc = true
+                node.recycle()
+            }
+            
+            // Check for Jobs filter in lazyRow
+            NodeQuery.findAll(rootNode) { node ->
+                node.text?.toString() == "Jobs"
+            }.forEach { node ->
+                // Check if parent has "Filter by" in content description
+                val parent = node.parent
+                if (parent != null) {
+                    val parentDesc = parent.contentDescription?.toString()
+                    if (parentDesc?.contains("Filter by") == true) {
+                        hasJobsFilter = true
+                    }
+                    parent.recycle()
+                }
+                node.recycle()
+            }
+            
+            val isJobSearch = hasResultsText && hasViewJobDesc
+            if (isJobSearch) {
+                Log.i(TAG, "JobSearchResults.matches: MATCHED - Job search results detected (results=$hasResultsText, viewJob=$hasViewJobDesc, jobsFilter=$hasJobsFilter)")
+            }
+            
+            return isJobSearch
+        }
+        
+        override fun extractCompanyNames(rootNode: AccessibilityNodeInfo): List<String> {
+            val companies = mutableListOf<String>()
+            val processedNames = mutableSetOf<String>()
+            
+            // Find job cards by looking for "View job" content description
+            // Then extract company name (second TextView in job card)
+            NodeQuery.findAll(rootNode) { node ->
+                node.contentDescription?.toString()?.contains("View job") == true
+            }.forEach { viewJobNode ->
+                // Get the parent job card
+                val jobCard = viewJobNode.parent ?: return@forEach
+                
+                try {
+                    // Find TextViews in the job card
+                    // Structure: [Job Title] → [Company Name] → [Location]
+                    val textViews = mutableListOf<AccessibilityNodeInfo>()
+                    
+                    fun collectTextViews(node: AccessibilityNodeInfo, depth: Int = 0) {
+                        if (depth > 5) return // Limit depth
+                        
+                        if (node.text != null && node.text.isNotEmpty()) {
+                            textViews.add(node)
+                        }
+                        
+                        for (i in 0 until node.childCount) {
+                            node.getChild(i)?.let { collectTextViews(it, depth + 1) }
+                        }
+                    }
+                    
+                    collectTextViews(jobCard)
+                    
+                    // Find company name (second TextView after job title)
+                    // Job title usually contains job-related keywords or is the first non-location text
+                    for (i in 0 until textViews.size - 1) {
+                        val currentText = textViews[i].text?.toString()?.trim() ?: continue
+                        val nextText = textViews[i + 1].text?.toString()?.trim() ?: continue
+                        
+                        // Skip if current is location or generic text
+                        if (isLocationText(currentText) || isGenericJobText(currentText)) continue
+                        
+                        // Company name is often short and follows job title
+                        // Check if next text is a company name (short, no special chars)
+                        if (nextText.length <= 50 && !isLocationText(nextText) && !isGenericJobText(nextText)) {
+                            // Additional check: company names are usually short and don't contain job keywords
+                            if (!containsJobKeywords(nextText) && nextText !in processedNames) {
+                                Log.d(TAG, "JobSearchResults: Found company '$nextText' (after '$currentText')")
+                                companies.add(nextText)
+                                processedNames.add(nextText)
+                                break // Only take first valid company per job card
+                            }
+                        }
+                    }
+                    
+                    textViews.forEach { it.recycle() }
+                    
+                } finally {
+                    jobCard.recycle()
+                }
+                
+                viewJobNode.recycle()
+            }
+            
+            Log.i(TAG, "JobSearchResults.extractCompanyNames: Found ${companies.size} companies: ${companies.joinToString()}")
+            return companies
+        }
+        
+        private fun isLocationText(text: String): Boolean {
+            // Location patterns: "City, Country", "City (On-site)", "City (Hybrid)", "City (Remote)"
+            return text.contains("(On-site)") ||
+                   text.contains("(Hybrid)") ||
+                   text.contains("(Remote)") ||
+                   text.matches(Regex(".*[,\u00b7].*")) || // Contains comma or middle dot
+                   text.contains("Israel") ||
+                   text.contains("Tel Aviv") ||
+                   text.contains("Be'er Sheva")
+        }
+        
+        private fun isGenericJobText(text: String): Boolean {
+            val generic = setOf(
+                "View job", "Easy Apply", "Actively reviewing applicants", "Be an early applicant",
+                "1 day ago", "1 week ago", "2 weeks ago", "results", "Viewed",
+                "Promoted", "Sponsored"
+            )
+            return text in generic || text.contains("·")
+        }
+        
+        private fun containsJobKeywords(text: String): Boolean {
+            val keywords = listOf("Developer", "Engineer", "Manager", "Lead", "Senior", "Junior",
+                "Fullstack", "Frontend", "Backend", "Director", "Analyst", "Designer", "Architect")
+            return keywords.any { text.contains(it, ignoreCase = true) }
+        }
+        
+        override fun getDescription(): String = "LinkedIn Job Search Results"
+    }
+    
+/**
+     * Profile for LinkedIn user profile pages (work experience).
+     * Shows work history with company names.
+     * 
+     * Detection criteria:
+     * - Has "Experience" text with count (e.g., "Experience (8)")
+     * - Has "Back button" content description
+     * 
+     * Company extraction strategy:
+     * - Logo content descriptions: "Amazon logo" → "Amazon"
+     */
+    @Suppress("DEPRECATION")
+    object UserProfile : ScreenProfile("user_profile") {
+        
+        override fun matches(rootNode: AccessibilityNodeInfo, packageName: String, className: String?): Boolean {
+            if (packageName != "com.linkedin.android") {
+                Log.d(TAG, "UserProfile.matches: Wrong package: $packageName")
+                return false
+            }
+            
+            var hasExperience = false
+            var hasBackButton = false
+            
+            // Check for "Experience (N)" pattern
+            NodeQuery.findAll(rootNode) { node ->
+                val text = node.text?.toString() ?: return@findAll false
+                if (text.contains("Experience") && text.contains("(")) {
+                    hasExperience = true
+                }
+                false
+            }
+            
+            // Check for "Back button" content description
+            NodeQuery.findAll(rootNode) { node ->
+                val contentDesc = node.contentDescription?.toString() ?: return@findAll false
+                if (contentDesc == "Back button") {
+                    hasBackButton = true
+                }
+                false
+            }
+            
+            if (hasExperience && hasBackButton) {
+                Log.i(TAG, "UserProfile.matches: MATCHED - User profile detected")
+                return true
+            }
+            
+            Log.d(TAG, "UserProfile.matches: Not a user profile")
+            return false
+        }
+        
+        override fun extractCompanyNames(rootNode: AccessibilityNodeInfo): List<String> {
+            val companies = mutableListOf<String>()
+            val processedNames = mutableSetOf<String>()
+            
+            // Extract company names from logo content descriptions: "Company logo" → "Company"
+            NodeQuery.findAll(rootNode) { node ->
+                node.contentDescription?.toString()?.endsWith(" logo") == true
+            }.forEach { node ->
+                val contentDesc = node.contentDescription?.toString()!!
+                val companyName = contentDesc.removeSuffix(" logo").trim()
+                
+                if (companyName.isNotEmpty() && companyName !in processedNames) {
+                    Log.d(TAG, "UserProfile: Found company '$companyName'")
+                    companies.add(companyName)
+                    processedNames.add(companyName)
+                }
+                
+                node.recycle()
+            }
+            
+            Log.i(TAG, "UserProfile.extractCompanyNames: Found ${companies.size} companies: ${companies.joinToString()}")
+            return companies
+        }
+        
+        override fun getDescription(): String = "LinkedIn User Profile"
+    }
     
     /**
      * Profile for LinkedIn main feed.
@@ -180,6 +509,33 @@ sealed class ScreenProfile(val id: String) {
             }
             
             lazyColumn.recycle()
+            
+            // Exclude user profile pages (have "Experience (N)" header)
+            // Check for "Back button" content description which is present on profile pages
+            var hasBackButton = false
+            NodeQuery.findAll(rootNode) { node ->
+                if (node.contentDescription?.toString() == "Back button") {
+                    hasBackButton = true
+                }
+                false
+            }
+            
+            // Also check for Experience section with count
+            if (hasBackButton) {
+                // Check if there's Experience section
+                NodeQuery.findAll(rootNode) { node ->
+                    val text = node.text?.toString() ?: return@findAll false
+                    text.contains("Experience") && text.contains("(")
+                }.forEach { 
+                    hasBackButton = true
+                    it.recycle()
+                }
+            }
+            
+            if (hasBackButton) {
+                Log.d(TAG, "Feed.matches: Excluding - looks like user profile (has Back button + Experience)")
+                return false
+            }
             
             Log.i(TAG, "Feed.matches: MATCHED - Feed screen detected")
             return true
@@ -447,17 +803,78 @@ override fun extractCompanyNames(rootNode: AccessibilityNodeInfo): List<String> 
     
     /**
      * Profile for LinkedIn job listings.
-     * Job cards contain company names.
+     * Job cards contain company names in `ad_entity_lockup_subtitle`.
+     * 
+     * Detection criteria:
+     * - Has `job_collections_discovery_search_bar_container` or
+     * - Has `job_search_collection_list_fragment_recycler_view`
+     * 
+     * Company extraction strategy:
+     * - Find all `ad_entity_lockup_subtitle` TextViews
+     * - These contain company names posting jobs
      */
+    @Suppress("DEPRECATION")
     object Jobs : ScreenProfile("jobs") {
+        
+        private const val JOBS_SEARCH_BAR_CONTAINER_ID = "job_collections_discovery_search_bar_container"
+        private const val JOBS_LIST_RECYCLER_ID = "job_search_collection_list_fragment_recycler_view"
+        private const val COMPANY_SUBTITLE_ID = "ad_entity_lockup_subtitle"
+        
         override fun matches(rootNode: AccessibilityNodeInfo, packageName: String, className: String?): Boolean {
-            // Check for Jobs tab being active or jobs-specific views
-            // Placeholder - needs more analysis
+            // Check package
+            if (packageName != "com.linkedin.android") {
+                Log.d(TAG, "Jobs.matches: Wrong package: $packageName")
+                return false
+            }
+            
+            // Check for jobs-specific view IDs
+            val searchBarContainer = NodeQuery.create()
+                .withViewId(JOBS_SEARCH_BAR_CONTAINER_ID)
+                .findFirstIn(rootNode)
+            
+            if (searchBarContainer != null) {
+                searchBarContainer.recycle()
+                Log.i(TAG, "Jobs.matches: MATCHED - Jobs screen detected (search_bar_container)")
+                return true
+            }
+            
+            val jobsList = NodeQuery.create()
+                .withViewId(JOBS_LIST_RECYCLER_ID)
+                .findFirstIn(rootNode)
+            
+            if (jobsList != null) {
+                jobsList.recycle()
+                Log.i(TAG, "Jobs.matches: MATCHED - Jobs screen detected (jobs_list_recycler)")
+                return true
+            }
+            
+            Log.d(TAG, "Jobs.matches: No jobs views found")
             return false
         }
         
         override fun extractCompanyNames(rootNode: AccessibilityNodeInfo): List<String> {
-            throw NotImplementedError("Jobs extraction not implemented")
+            val companies = mutableListOf<String>()
+            val processedNames = mutableSetOf<String>()
+            
+            // Find all company subtitle TextViews (ad_entity_lockup_subtitle)
+            NodeQuery.findAll(rootNode) { node ->
+                node.viewIdResourceName?.contains(COMPANY_SUBTITLE_ID) == true
+            }.forEach { node ->
+                val companyName = node.text?.toString()?.trim()
+                
+                if (companyName != null && 
+                    companyName.isNotEmpty() && 
+                    companyName !in processedNames) {
+                    Log.d(TAG, "Jobs: Found company '$companyName'")
+                    companies.add(companyName)
+                    processedNames.add(companyName)
+                }
+                
+                node.recycle()
+            }
+            
+            Log.i(TAG, "Jobs.extractCompanyNames: Found ${companies.size} companies: ${companies.joinToString()}")
+            return companies
         }
         
         override fun getDescription(): String = "LinkedIn Jobs"

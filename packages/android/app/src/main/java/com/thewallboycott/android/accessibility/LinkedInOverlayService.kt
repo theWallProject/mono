@@ -20,6 +20,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import com.thewallboycott.android.R
+import com.thewallboycott.android.data.reasonsMap
 
 /**
  * Foreground service that displays a persistent overlay when flagged companies are detected in LinkedIn.
@@ -89,6 +90,18 @@ class LinkedInOverlayService : Service() {
             }
             context.startService(intent)
         }
+    }
+    
+    /**
+     * Translate reason codes to display strings.
+     * Example: "h, f" -> "Headquarters: Israel, Founder from Israel"
+     */
+    private fun translateReasons(reasonsStr: String): String {
+        val reasonCodes = reasonsStr.split(",").map { it.trim() }
+        return reasonCodes
+            .mapNotNull { code -> reasonsMap[code]?.messageResId }
+            .map { resId -> this.getString(resId) }
+            .joinToString(", ")
     }
     
     private lateinit var windowManager: WindowManager
@@ -254,29 +267,62 @@ class LinkedInOverlayService : Service() {
         val scrollView = overlayView as? android.widget.ScrollView ?: return
         val container = scrollView.getChildAt(0) as? android.widget.LinearLayout ?: return
         
-        // Find the company views (skip header at index 0)
-        val companyViews = (1 until container.childCount).map { container.getChildAt(it) }
+        // Remove all views except header (index 0)
+        while (container.childCount > 1) {
+            container.removeViewAt(1)
+        }
         
-        // Remove old company views
-        companyViews.forEach { container.removeView(it) }
-        
-        // Add new company views
         val marginPx = (8 * resources.displayMetrics.density).toInt()
+        val textColor = android.graphics.Color.parseColor("#FFB4A1")
+        val linkColor = android.graphics.Color.parseColor("#FF6B4D")
+        val reasonColor = android.graphics.Color.parseColor("#FFB4A1")
+        
+        // Add new company views with reasons
         companies.forEach { company ->
-            val companyView = createCompanyTextView(company, marginPx)
+            // Company name
+            val companyView = TextView(this).apply {
+                text = company.name
+                setTextColor(textColor)
+                textSize = 14f
+                typeface = android.graphics.Typeface.DEFAULT_BOLD
+                setPadding(0, marginPx / 2, 0, 0)
+                
+                if (company.linkedinUrl != null) {
+                    setTextColor(linkColor)
+                    setOnClickListener {
+                        openLinkedInCompany(company.linkedinUrl)
+                    }
+                }
+            }
             container.addView(companyView)
+            
+            // Reason (translated)
+            val reasonText = translateReasons(company.reasons)
+            val reasonView = TextView(this).apply {
+                text = reasonText
+                setTextColor(reasonColor)
+                alpha = 0.7f
+                textSize = 12f
+                setPadding(0, 0, 0, marginPx)
+            }
+            container.addView(reasonView)
         }
     }
     
     private fun createCompanyTextView(company: FlaggedCompany, marginPx: Int): TextView {
+        val linkColor = android.graphics.Color.parseColor("#FF6B4D")
+        val textColor = android.graphics.Color.parseColor("#FFB4A1")
+        
         return TextView(this).apply {
-            text = "• ${company.name}"
-            setTextColor(android.graphics.Color.WHITE)
+            text = company.name
+            setTextColor(textColor)
             textSize = 14f
-            setPadding(0, marginPx / 2, 0, marginPx / 2)
+            typeface = android.graphics.Typeface.DEFAULT_BOLD
+            setPadding(0, marginPx / 2, 0, 0)
             
+            // Make clickable if has LinkedIn URL
             if (company.linkedinUrl != null) {
-                setTextColor(android.graphics.Color.parseColor("#4FC3F7"))
+                setTextColor(linkColor)
                 setOnClickListener {
                     openLinkedInCompany(company.linkedinUrl)
                 }
@@ -289,29 +335,47 @@ class LinkedInOverlayService : Service() {
         val paddingPx = (12 * dpScale).toInt()
         val marginPx = (8 * dpScale).toInt()
         
+        // App colors (from Color.kt)
+        val bgColor = android.graphics.Color.parseColor("#3D1A12")  // WallPrimaryContainer
+        val titleColor = android.graphics.Color.parseColor("#FFB4A1")  // WallOnPrimaryContainer
+        val accentColor = android.graphics.Color.parseColor("#B72B00")  // WallPrimary
+        val textColor = android.graphics.Color.parseColor("#FFB4A1")  // WallOnPrimaryContainer
+        val reasonColor = android.graphics.Color.parseColor("#FFB4A1")  // WallOnPrimaryContainer with alpha
+        val linkColor = android.graphics.Color.parseColor("#FF6B4D")  // Link color (burnt orange lighter)
+        
         // Main container
         val container = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(Color.parseColor("#CC000000"))
+            setBackgroundColor(bgColor)
             setPadding(paddingPx, paddingPx, paddingPx, paddingPx)
             
             // Rounded corners
             background = GradientDrawable().apply {
-                setColor(Color.parseColor("#E6000000"))
-                cornerRadius = 12 * dpScale
+                setColor(bgColor)
+                cornerRadius = 16 * dpScale
             }
         }
         
-        // Header with title and dismiss button
+        // Header with logo, title, and dismiss button
         val headerLayout = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             setPadding(0, 0, 0, marginPx)
         }
         
+        // Logo (shield icon)
+        val logoView = android.widget.ImageView(this).apply {
+            val logoSize = (24 * dpScale).toInt()
+            layoutParams = LinearLayout.LayoutParams(logoSize, logoSize).apply {
+                marginEnd = (8 * dpScale).toInt()
+            }
+            setImageResource(R.drawable.ic_wall_shield)
+            setColorFilter(accentColor)  // Tint with brand color
+        }
+        
         val titleView = TextView(this).apply {
             text = getString(R.string.linkedin_overlay_title)
-            setTextColor(Color.WHITE)
+            setTextColor(titleColor)
             textSize = 14f
             typeface = android.graphics.Typeface.DEFAULT_BOLD
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
@@ -319,7 +383,7 @@ class LinkedInOverlayService : Service() {
         
         val dismissButton = TextView(this).apply {
             text = "×"
-            setTextColor(Color.parseColor("#FF6B6B"))
+            setTextColor(titleColor)
             textSize = 24f
             typeface = android.graphics.Typeface.DEFAULT_BOLD
             setPadding(marginPx, 0, 0, 0)
@@ -329,27 +393,41 @@ class LinkedInOverlayService : Service() {
             }
         }
         
+        headerLayout.addView(logoView)
         headerLayout.addView(titleView)
         headerLayout.addView(dismissButton)
         container.addView(headerLayout)
         
-        // Company list
+        // Company list with reasons
         companies.forEach { company ->
+            // Company name
             val companyView = TextView(this).apply {
-                text = "• ${company.name}"
-                setTextColor(Color.WHITE)
+                text = company.name
+                setTextColor(textColor)
                 textSize = 14f
-                setPadding(0, marginPx / 2, 0, marginPx / 2)
+                typeface = android.graphics.Typeface.DEFAULT_BOLD
+                setPadding(0, marginPx / 2, 0, 0)
                 
-                // Only make clickable if has LinkedIn URL
+                // Make clickable if has LinkedIn URL
                 if (company.linkedinUrl != null) {
-                    setTextColor(Color.parseColor("#4FC3F7"))
+                    setTextColor(linkColor)
                     setOnClickListener {
                         openLinkedInCompany(company.linkedinUrl)
                     }
                 }
             }
             container.addView(companyView)
+            
+            // Reason (translated)
+            val reasonText = translateReasons(company.reasons)
+            val reasonView = TextView(this).apply {
+                text = reasonText
+                setTextColor(reasonColor)
+                alpha = 0.7f
+                textSize = 12f
+                setPadding(0, 0, 0, marginPx)
+            }
+            container.addView(reasonView)
         }
         
         // Wrap in ScrollView for long lists

@@ -38,7 +38,7 @@ class LinkedInAccessibilityService : AccessibilityService() {
     
     companion object {
         private const val TAG = "LinkedInAccessibility"
-        private const val POLL_INTERVAL_MS = 5000L
+        private const val POLL_INTERVAL_MS = 3000L
         private const val LOG_BATCH_SIZE = 50
         private const val LOG_FLUSH_INTERVAL_MS = 100L
         
@@ -93,7 +93,36 @@ class LinkedInAccessibilityService : AccessibilityService() {
                 handleWindowStateChanged(event)
             }
             else -> {
-                // Skip all other events
+                // Check if we left LinkedIn (for events that don't trigger WINDOW_STATE_CHANGED)
+                checkForLinkedInExit(event)
+            }
+        }
+    }
+    
+    /**
+     * Quick check on ALL events to detect LinkedIn exit faster.
+     * This catches cases where WINDOW_STATE_CHANGED isn't fired for home button.
+     */
+    private fun checkForLinkedInExit(event: AccessibilityEvent) {
+        if (!isLinkedInForeground.get()) return
+        
+        val packageName = event.packageName?.toString()
+        
+        // Log all events we receive while LinkedIn is in foreground (for debugging)
+        if (packageName != LINKEDIN_PACKAGE && packageName != null && !packageName.startsWith("com.linkedin")) {
+            asyncLog(LogSeverity.I, TAG, "=== QUICK EXIT DETECTED (event type ${event.eventType}) ===")
+            asyncLog(LogSeverity.I, TAG, "  package: $packageName")
+            asyncLog(LogSeverity.I, TAG, "  className: ${event.className}")
+            asyncLog(LogSeverity.I, TAG, "  ACTION: Hiding overlay immediately")
+            
+            isLinkedInForeground.set(false)
+            linkedInWasInBackground = true
+            
+            try {
+                LinkedInOverlayService.hideOverlay(applicationContext)
+                asyncLog(LogSeverity.I, TAG, "  ACTION: hideOverlay() call completed")
+            } catch (e: Exception) {
+                asyncLog(LogSeverity.E, TAG, "  hideOverlay() FAILED: ${e.message}")
             }
         }
     }
