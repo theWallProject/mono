@@ -399,46 +399,43 @@ sealed class ScreenProfile(val id: String) {
             return true
         }
         
-        override fun extractCompanyNames(rootNode: AccessibilityNodeInfo): List<String> {
+override fun extractCompanyNames(rootNode: AccessibilityNodeInfo): List<String> {
             val companies = mutableListOf<String>()
             
+            // Get from pages_top_card_title
+            // Note: LinkedIn shows "Company x" for verified/premium pages
+            // The "x" is a verification badge, and contentDesc includes "Verified"
+            val titleNode = NodeQuery.create()
+                .withViewId(PAGES_TOP_CARD_TITLE_ID)
+                .findFirstIn(rootNode)
+                ?: throw IllegalStateException("pages_top_card_title not found in CompanyPage")
+            
             try {
-                // Get from pages_top_card_title (may have "Verified" suffix)
-                val titleNode = NodeQuery.create()
-                    .withViewId(PAGES_TOP_CARD_TITLE_ID)
-                    .findFirstIn(rootNode)
+                val contentDesc = titleNode.contentDescription?.toString()?.trim()
+                    ?: throw IllegalStateException("pages_top_card_title has no contentDescription")
                 
-                if (titleNode != null) {
-                    // Try contentDescription first (e.g., "Fiverr x, Verified")
-                    val contentDesc = titleNode.contentDescription?.toString()?.trim()
-                    if (!contentDesc.isNullOrEmpty()) {
-                        // Remove "Verified" suffix if present
-                        val name = contentDesc
-                            .removeSuffix(", Verified")
-                            .removeSuffix(" Verified")
-                            .trim()
-                        if (name.isNotEmpty()) {
-                            Log.d(TAG, "CompanyPage: Found company from title contentDesc: '$name'")
-                            companies.add(name)
-                        }
-                    } else {
-                        // Fall back to text
-                        val text = titleNode.text?.toString()?.trim()
-                        if (!text.isNullOrEmpty()) {
-                            // Remove " x" suffix (e.g., "Fiverr x" -> "Fiverr")
-                            val name = text.removeSuffix(" x").trim()
-                            if (name.isNotEmpty()) {
-                                Log.d(TAG, "CompanyPage: Found company from title text: '$name'")
-                                companies.add(name)
-                            }
-                        }
-                    }
-                    titleNode.recycle()
+                // LinkedIn format: 
+                // - Unverified: "Company Name"
+                // - Verified: "Company x, Verified"
+                // Only strip " x" if "Verified" is present
+                val name = if (contentDesc.contains("Verified")) {
+                    contentDesc
+                        .replace(Regex(",\\s*Verified$"), "")
+                        .replace(Regex("\\s+x$"), "")
+                        .trim()
+                } else {
+                    contentDesc
                 }
                 
-            } catch (e: Exception) {
-                Log.e(TAG, "CompanyPage.extractCompanyNames: Error during extraction", e)
-                throw e
+                if (name.isEmpty()) {
+                    throw IllegalStateException("Company name is empty after cleaning contentDesc: '$contentDesc'")
+                }
+                
+                Log.d(TAG, "CompanyPage: Extracted '$name' from contentDesc '$contentDesc'")
+                companies.add(name)
+                
+            } finally {
+                titleNode.recycle()
             }
             
             Log.i(TAG, "CompanyPage.extractCompanyNames: Found ${companies.size} companies: ${companies.joinToString()}")

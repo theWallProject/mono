@@ -276,6 +276,11 @@ adb shell am start com.thewallboycott.android/.MainActivity
 
 ## Changelog
 
+### 2026-04-02 - Phase 4 Bug Fixes
+- Fixed race condition with `isLinkedInForeground` - changed from plain `Boolean` to `AtomicBoolean`
+- Background polling thread was reading stale value before main thread update was visible
+- Updated all usages to use `.get()` / `.set()` for thread-safe access
+
 ### 2026-04-02 - Phase 4 Complete (Overlay Service)
 - Created `LinkedInOverlayService.kt` - foreground service with notification
 - Implemented overlay UI with LinearLayout + TextViews (rounded corners, styled)
