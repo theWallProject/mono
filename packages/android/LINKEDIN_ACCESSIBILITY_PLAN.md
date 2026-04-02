@@ -280,6 +280,15 @@ adb shell am start com.thewallboycott.android/.MainActivity
 - Fixed race condition with `isLinkedInForeground` - changed from plain `Boolean` to `AtomicBoolean`
 - Background polling thread was reading stale value before main thread update was visible
 - Updated all usages to use `.get()` / `.set()` for thread-safe access
+- Added `hideOverlay()` call when polling detects LinkedIn not in foreground (Android doesn't always send WINDOW_STATE_CHANGED for home button)
+- Reduced polling interval from 5 seconds to 3 seconds for faster response
+- Added `checkForLinkedInExit()` to monitor ALL accessibility events for faster exit detection
+
+### 2026-04-02 - Jobs Profile Implementation
+- Implemented `ScreenProfile.Jobs` to detect LinkedIn Jobs page
+- Detection: `job_collections_discovery_search_bar_container` or `job_search_collection_list_fragment_recycler_view`
+- Company extraction: `ad_entity_lockup_subtitle` contains company names
+- Companies extracted: "Arvato Systems Malaysia", "Salt", "Great Pyramid", "Nicoll Curtin"
 
 ### 2026-04-02 - Phase 4 Complete (Overlay Service)
 - Created `LinkedInOverlayService.kt` - foreground service with notification
