@@ -270,4 +270,37 @@ class ScanWorkerTest {
             knownApps.contains("com.hintable.app")
         )
     }
+
+    // ==================== appNotificationId ====================
+
+    @Test
+    fun appNotificationId_returnsStableId() {
+        val id1 = ScanWorker.appNotificationId("com.example.app")
+        val id2 = ScanWorker.appNotificationId("com.example.app")
+        assertEquals("Same package should produce same ID", id1, id2)
+    }
+
+    @Test
+    fun appNotificationId_alwaysInBoundedRange() {
+        val packages = listOf(
+            "com.example.app", "org.test", "a", "com.very.long.package.name.here",
+            "com.1234567890", "z"
+        )
+        packages.forEach { pkg ->
+            val id = ScanWorker.appNotificationId(pkg)
+            assertTrue("ID for '$pkg' should be >= 1000, was $id", id >= 1000)
+            assertTrue("ID for '$pkg' should be < 11000, was $id", id < 11000)
+        }
+    }
+
+    @Test
+    fun appNotificationId_neverCollidesWithProgressId() {
+        val packages = listOf(
+            "com.example.app", "org.test", "a", "com.very.long.package.name.here"
+        )
+        packages.forEach { pkg ->
+            val id = ScanWorker.appNotificationId(pkg)
+            assertTrue("ID should never be 42 (progress notification)", id != 42)
+        }
+    }
 }
