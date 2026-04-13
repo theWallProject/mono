@@ -1,0 +1,37 @@
+{
+  "name": "@thewall/ios",
+  "version": "1.5.0",
+  "description": "The Wall iOS Safari Web Extension",
+  "private": true,
+  "scripts": {
+    "sync-extension": "bash scripts/sync-extension-resources.sh",
+    "generate-project": "xcodegen generate",
+    "build": "bash scripts/build.sh",
+    "build:debug": "bash scripts/build.sh debug",
+    "build:release": "bash scripts/build.sh release",
+    "test": "xcodebuild test -scheme TheWall -destination 'platform=iOS Simulator,name=iPhone 15'",
+    "test:unit": "xcodebuild test -scheme TheWall -destination 'platform=iOS Simulator,name=iPhone 15' -only-testing:TheWallTests",
+    "test:ui": "xcodebuild test -scheme TheWall -destination 'platform=iOS Simulator,name=iPhone 15' -only-testing:TheWallUITests",
+    "bump-version": "bash scripts/bump-version.sh",
+    "release": "bash scripts/release.sh",
+    "release:beta": "cd fastlane && fastlane beta",
+    "release:store": "cd fastlane && fastlane release",
+    "validate-metadata": "bash scripts/validate-metadata.sh",
+    "clean": "rm -rf build/ DerivedData/ TheWall.xcodeproj/ TheWall.xcworkspace/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theWallProject/mono.git",
+    "directory": "packages/ios"
+  },
+  "keywords": [
+    "ios",
+    "safari",
+    "extension",
+    "boycott",
+    "palestine"
+  ],
+  "author": "theWall",
+  "license": "MIT",
+  "devDependencies": {}
+}

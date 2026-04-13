@@ -29,6 +29,8 @@ function formatReasonBot(reason: valuesOfListOfReasons, t: TFunction): string {
       return t("reasons.BDS_GRASS")
     case "BDS_PRESSURE":
       return t("reasons.BDS_PRESSURE")
+    case "c":
+      return t("reasons.c")
     default: {
       const _exhaustive: never = reason
       throw new Error(`Unexpected reason: ${_exhaustive}`)

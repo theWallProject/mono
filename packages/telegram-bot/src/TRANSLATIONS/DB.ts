@@ -238,6 +238,28 @@ export const TRANSLATIONS = {
     zh_CN: "BDS施压",
     zh_TW: "BDS施壓"
   },
+  "reasons.c": {
+    en: "Custom reason",
+    ar: "سبب مخصص",
+    id: "Alasan khusus",
+    ms: "Sebab tersuai",
+    bn: "কাস্টম কারণ",
+    fr: "Raison personnalisée",
+    nl: "Aangepaste reden",
+    zh_CN: "自定义原因",
+    zh_TW: "自訂原因"
+  },
+  "reasons.short.c": {
+    en: "Custom",
+    ar: "مخصص",
+    id: "Khusus",
+    ms: "Tersuai",
+    bn: "কাস্টম",
+    fr: "Personnalisé",
+    nl: "Aangepast",
+    zh_CN: "自定义",
+    zh_TW: "自訂"
+  },
   "help.noUrl": {
     en: "Please send me a URL to check. I can check if a link is safe or flagged.",
     ar: "يرجى إرسال رابط للتحقق. يمكنني التحقق مما إذا كان الرابط آمناً أم محظوراً.",
