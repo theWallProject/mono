@@ -40,7 +40,8 @@ class ScanWorker(
     private val appContext: Context,
     workerParams: WorkerParameters,
     private val databaseProvider: DatabaseProvider = AssetDatabaseProvider(appContext),
-    private val packageScanner: PackageScanner = SystemPackageScanner(appContext)
+    private val packageScanner: PackageScanner = SystemPackageScanner(appContext),
+    private val prefs: NotificationPreferences = NotificationPreferences(appContext)
 ) : CoroutineWorker(appContext, workerParams) {
 
     companion object {
@@ -72,8 +73,6 @@ class ScanWorker(
             return APP_NOTIFICATION_BASE_ID + (packageName.hashCode() and 0x7FFFFFFF) % APP_NOTIFICATION_RANGE
         }
     }
-
-    private val prefs = NotificationPreferences(appContext)
 
     override suspend fun doWork(): Result {
         val forceNotify = inputData.getBoolean(INPUT_FORCE_NOTIFY, false)
