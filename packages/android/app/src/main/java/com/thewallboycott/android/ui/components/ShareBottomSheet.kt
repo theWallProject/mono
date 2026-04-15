@@ -190,14 +190,7 @@ fun ShareDialog(
                 )
             }
         },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(
-                    text = stringResource(R.string.btn_not_now),
-                    color = WallOnSurfaceVariant
-                )
-            }
-        }
+        dismissButton = {}
     )
 }
 
