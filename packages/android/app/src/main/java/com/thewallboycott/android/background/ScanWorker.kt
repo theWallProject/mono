@@ -36,7 +36,7 @@ import kotlinx.coroutines.withContext
  * - Respects ignored and snoozed apps (won't count or notify about them)
  * - Uses grouped notifications with per-app actions (Ignore, Remind Later)
  */
-class ScanWorker(
+class ScanWorker @JvmOverloads constructor(
     private val appContext: Context,
     workerParams: WorkerParameters,
     private val databaseProvider: DatabaseProvider = AssetDatabaseProvider(appContext),
@@ -78,13 +78,20 @@ class ScanWorker(
         val forceNotify = inputData.getBoolean(INPUT_FORCE_NOTIFY, false)
         Log.d(TAG, "Scan worker started. forceNotify=$forceNotify")
 
-        val progressNotification = createProgressNotification()
-        val foregroundInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE)
-        } else {
-            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification)
+        // Try to promote to foreground service for progress notification.
+        // This will fail when the app is in the background on API 31+ — that's fine,
+        // the scan still runs as a regular background worker.
+        try {
+            val progressNotification = createProgressNotification()
+            val foregroundInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE)
+            } else {
+                ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification)
+            }
+            setForeground(foregroundInfo)
+        } catch (e: Exception) {
+            Log.d(TAG, "Could not start foreground service (app in background), continuing as background work.")
         }
-        setForeground(foregroundInfo)
 
         return withContext(Dispatchers.IO) {
             try {
@@ -202,6 +209,15 @@ class ScanWorker(
         val currentApps = scanResult.blacklistedApps.map { it.packageName }.toSet()
         val knownApps = prefs.getKnownApps()
 
+        // First run: seed known apps without notifying
+        val isFirstRun = knownApps.isEmpty() && currentApps.isNotEmpty()
+        if (isFirstRun && !forceNotify) {
+            Log.d(TAG, "First scan: seeding ${currentApps.size} known apps without notifying.")
+            prefs.setKnownApps(currentApps)
+            prefs.setLastNotificationTime()
+            return
+        }
+
         // Find truly new apps (installed since last scan)
         val newApps = currentApps - knownApps
 
@@ -236,7 +252,13 @@ class ScanWorker(
         }
 
         if (shouldNotify) {
-            val sent = sendNotifications(scanResult.blacklistedApps)
+            // Only notify for new apps, unless it's a reminder or force (then notify all)
+            val appsToNotify = if (newApps.isNotEmpty() && !forceNotify) {
+                scanResult.blacklistedApps.filter { it.packageName in newApps }
+            } else {
+                scanResult.blacklistedApps
+            }
+            val sent = sendNotifications(appsToNotify)
             if (sent) {
                 prefs.setLastNotificationTime()
                 prefs.setLastNotifiedApps(currentApps)
@@ -301,7 +323,7 @@ class ScanWorker(
             .setContentTitle(title)
             .setContentText(text)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setContentIntent(contentPendingIntent)
             .addAction(0, appContext.getString(R.string.notif_action_ignore), ignorePendingIntent)
@@ -333,7 +355,7 @@ class ScanWorker(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = appContext.getString(R.string.notif_channel_name)
             val descriptionText = appContext.getString(R.string.notif_channel_description)
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
