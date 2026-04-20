@@ -42,6 +42,7 @@ export type TR_NAME =
   | "show_alternatives"
   | "show_bds_guide"
   | "report_mistake"
+  | "donation_bricks"
   | "share_fb"
   | "share_tw"
   | "share_li"
