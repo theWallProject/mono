@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Allows scanning all apps -->
-    <uses-permission
-        android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="PackageVisibilityPolicy,QueryAllPackagesPermission" />
+    <!--
+      Package visibility is declared via a <queries> block generated at build
+      time from ALL.json (see app/build.gradle.kts :: GenerateQueriesManifestTask).
+      We deliberately do NOT request QUERY_ALL_PACKAGES — Play Store policy
+      restricts it to a narrow set of app categories.
+    -->
 
     <!-- Allows uninstalling apps -->
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />

@@ -102,6 +102,40 @@ export const microsoftBdsHints: CompressedManualItemType[] = [
       "https://www.tiktok.com/search/user?q=Microsoft"
     ],
     android_dev_id: "com.microsoft",
+    // <queries> only matches exact package names; enumerate the well-known
+    // Microsoft apps so the Android scanner can detect them post-migration
+    // off QUERY_ALL_PACKAGES.
+    android_curated_app_ids: [
+      // Communication
+      "com.microsoft.office.outlook",
+      "com.microsoft.teams",
+      "com.microsoft.teams2",
+      // Office suite
+      "com.microsoft.office.officehubrow",
+      "com.microsoft.office.word",
+      "com.microsoft.office.excel",
+      "com.microsoft.office.powerpoint",
+      "com.microsoft.office.onenote",
+      "com.microsoft.office.lens",
+      // OneDrive / cloud
+      "com.microsoft.skydrive",
+      "com.microsoft.todos",
+      // Browser / search / AI
+      "com.microsoft.emmx",
+      "com.microsoft.bing",
+      "com.microsoft.copilot",
+      "com.microsoft.bingaichat",
+      // Authenticator / security
+      "com.microsoft.azure.authenticator",
+      "com.microsoft.windowsintune.companyportal",
+      // Gaming / phone
+      "com.microsoft.xboxone.smartglass",
+      "com.microsoft.appmanager",
+      // Other
+      "com.microsoft.launcher",
+      "com.microsoft.notes",
+      "com.microsoft.swiftkey"
+    ],
     isHint: true,
     hintText: "Microsoft is a BDS consumer boycott priority - directly complicit in Israeli apartheid.",
     hintUrl: "https://bdsmovement.net/microsoft",

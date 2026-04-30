@@ -644,6 +644,107 @@ class ScanWorkerTest {
         )
     }
 
+    // ==================== Curated App IDs ====================
+
+    @Test
+    fun doWork_curatedAppIdMatch_detected() = runTest {
+        // Blacklist entry whose only Android signal beyond android_dev_id is
+        // curated_app_ids. The runtime matcher must consult curated_app_ids
+        // directly, not rely on the (now-redundant) prefix branch.
+        val curatedEntry = AllItem(
+            id = "curated_corp",
+            r = listOf("h"),
+            n = "Curated Corp",
+            androidDevId = "com.curatedcorp",
+            androidCuratedAppIds = listOf("com.curatedcorp.flagship")
+        )
+        val worker = buildWorker(
+            dbItems = listOf(curatedEntry),
+            packages = listOf(fakePackage("com.curatedcorp.flagship"))
+        )
+        worker.doWork()
+
+        val knownApps = prefs.getKnownApps()
+        assertTrue(
+            "Curated app ID match should be tracked as known",
+            knownApps.contains("com.curatedcorp.flagship")
+        )
+    }
+
+    @Test
+    fun doWork_curatedOnly_noDevIdOrAppIds_stillScanned() = runTest {
+        // Regression guard: the `blacklistWithAndroid` filter must include
+        // entries whose only Android signal is curated_app_ids. Previously the
+        // filter required dev_id or app_ids, so curated-only entries were silently dropped.
+        val curatedOnly = AllItem(
+            id = "curated_solo",
+            r = listOf("f"),
+            n = "Solo Curated",
+            androidCuratedAppIds = listOf("com.solo.curated.app")
+        )
+        val worker = buildWorker(
+            dbItems = listOf(curatedOnly),
+            packages = listOf(fakePackage("com.solo.curated.app"))
+        )
+        worker.doWork()
+
+        val knownApps = prefs.getKnownApps()
+        assertTrue(
+            "Curated-only entry should still be scanned and tracked",
+            knownApps.contains("com.solo.curated.app")
+        )
+    }
+
+    @Test
+    fun doWork_hintCuratedAppIdMatch_notInKnownApps() = runTest {
+        // Regression guard: hints with curated_app_ids must match at runtime
+        // (previously the hint matcher only checked androidAppIds), but hints
+        // are still excluded from the known-apps notification ledger.
+        val hintEntry = AllItem(
+            id = "hint_curated",
+            r = emptyList(),
+            n = "Hint Curated",
+            isHint = true,
+            hintText = "Try the alternative",
+            androidCuratedAppIds = listOf("com.hint.curated.app")
+        )
+        val worker = buildWorker(
+            dbItems = listOf(hintEntry),
+            packages = listOf(fakePackage("com.hint.curated.app"))
+        )
+        worker.doWork()
+
+        val knownApps = prefs.getKnownApps()
+        assertFalse(
+            "Hint apps (even matched via curated) should not be in known apps",
+            knownApps.contains("com.hint.curated.app")
+        )
+    }
+
+    @Test
+    fun doWork_curatedAppId_unrelatedPackage_notMatched() = runTest {
+        // A package that does not appear in curated_app_ids, android_app_ids,
+        // or the dev_id namespace must not be flagged.
+        val curatedEntry = AllItem(
+            id = "curated_other",
+            r = listOf("h"),
+            n = "Curated Other",
+            androidCuratedAppIds = listOf("com.other.alpha")
+        )
+        val worker = buildWorker(
+            dbItems = listOf(curatedEntry),
+            packages = listOf(fakePackage("com.unrelated.app"))
+        )
+        worker.doWork()
+
+        val knownApps = prefs.getKnownApps()
+        assertFalse(
+            "Unrelated package must not match curated entry",
+            knownApps.contains("com.unrelated.app")
+        )
+        assertTrue("No known apps expected", knownApps.isEmpty())
+    }
+
     // ==================== Custom Reason ("c") in Database ====================
 
     @Test

@@ -194,7 +194,17 @@ export const FinalDBFileSchema = z
     /** Android developer ID like "com.wix" (not full app package IDs) */
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
-    android_app_ids: z.array(z.string()).optional()
+    android_app_ids: z.array(z.string()).optional(),
+    /**
+     * Curated expansions for `android_dev_id` prefixes. Android's <queries>
+     * element only matches exact package names, never prefixes, so any entry
+     * that uses `android_dev_id` (and whose actual installed apps don't share
+     * the dev-id literally) MUST enumerate the concrete packages here for the
+     * Android scanner to detect them post Play-Store policy migration off
+     * QUERY_ALL_PACKAGES. Optional when `android_app_ids` already covers
+     * everything reachable for that dev-id.
+     */
+    android_curated_app_ids: z.array(z.string()).optional()
   })
   .strict()
   .refine(

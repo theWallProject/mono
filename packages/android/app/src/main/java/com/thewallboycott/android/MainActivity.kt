@@ -1,17 +1,13 @@
 package com.thewallboycott.android
 
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -20,10 +16,6 @@ import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
-import androidx.core.net.toUri
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.thewallboycott.android.ui.AppScaffold
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
@@ -38,7 +30,6 @@ import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.onboarding.OnboardingScreen
 import com.thewallboycott.android.ui.screens.AppListScreen
-import com.thewallboycott.android.ui.screens.PermissionRequestScreen
 import com.thewallboycott.android.ui.screens.StartScreen
 import com.thewallboycott.android.ui.screens.SettingsScreen
 import com.thewallboycott.android.ui.screens.SupportScreen
@@ -48,10 +39,6 @@ import java.util.concurrent.TimeUnit
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : AppCompatActivity() {
-
-    private val permissionLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {}
 
     private var sharedUrl by mutableStateOf<String?>(null)
     private var navigateToScreen by mutableStateOf<String?>(null)
@@ -136,23 +123,6 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun hasQueryAllPackagesPermission(): Boolean {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            checkSelfPermission(android.Manifest.permission.QUERY_ALL_PACKAGES) == PackageManager.PERMISSION_GRANTED
-        } else {
-            true
-        }
-    }
-
-    private fun requestQueryAllPackagesPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val intent = Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
-                data = "package:$packageName".toUri()
-            }
-            permissionLauncher.launch(intent)
-        }
-    }
-
     @Composable
     private fun MainScreen(
         initialUrl: String?,
@@ -171,7 +141,6 @@ class MainActivity : AppCompatActivity() {
         var scanState by rememberSaveable {
             mutableStateOf(ScanState.Scanning) // Auto-start scanning
         }
-        var permissionGranted by rememberSaveable { mutableStateOf(hasQueryAllPackagesPermission()) }
         var refreshTrigger by rememberSaveable { mutableIntStateOf(0) }
         val context = LocalContext.current
         val shareManager = remember { ShareManager(context) }
@@ -183,27 +152,8 @@ class MainActivity : AppCompatActivity() {
             scanState = ScanState.Scanning
             onNavigationHandled()
         }
-         if (initialUrl != null) {
+        if (initialUrl != null) {
             currentScreen = Screen.UrlLookup
-        }
-
-
-        // Effect to check for permission changes on resume
-        val lifecycleOwner = LocalLifecycleOwner.current
-        DisposableEffect(lifecycleOwner) {
-            val observer = LifecycleEventObserver { _, event ->
-                if (event == Lifecycle.Event.ON_RESUME) {
-                    val hasPermission = hasQueryAllPackagesPermission()
-                    if (hasPermission && !permissionGranted) {
-                        scanState = ScanState.Scanning // Auto-scan after permission is granted
-                    }
-                    permissionGranted = hasPermission
-                }
-            }
-            lifecycleOwner.lifecycle.addObserver(observer)
-            onDispose {
-                lifecycleOwner.lifecycle.removeObserver(observer)
-            }
         }
 
         AppScaffold(
@@ -227,13 +177,7 @@ class MainActivity : AppCompatActivity() {
                                 WorkManager.getInstance(context).enqueue(scanRequest)
                             }
                         )
-                        ScanState.Scanning -> {
-                            if (permissionGranted) {
-                                AppListScreen(externalRefreshTrigger = refreshTrigger)
-                            } else {
-                                PermissionRequestScreen(onRequestPermission = ::requestQueryAllPackagesPermission)
-                            }
-                        }
+                        ScanState.Scanning -> AppListScreen(externalRefreshTrigger = refreshTrigger)
                     }
                 }
                 is Screen.UrlLookup -> UrlLookupScreen(
