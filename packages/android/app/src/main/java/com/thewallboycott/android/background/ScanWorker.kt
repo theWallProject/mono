@@ -139,9 +139,15 @@ class ScanWorker @JvmOverloads constructor(
         // Separate hints from regular blacklist items
         val (hints, blacklist) = allItems.partition { it.isHint == true }
 
-        // Filter to only items with Android identifiers
-        val blacklistWithAndroid = blacklist.filter { it.androidDevId != null || it.androidAppIds != null }
-        val hintsWithAndroid = hints.filter { it.androidAppIds != null }
+        // Filter to only items with Android identifiers. Curated app IDs count
+        // as a real signal — a hint or blocklist entry that only declares
+        // android_curated_app_ids must still be scanned at runtime.
+        val blacklistWithAndroid = blacklist.filter {
+            it.androidDevId != null || it.androidAppIds != null || it.androidCuratedAppIds != null
+        }
+        val hintsWithAndroid = hints.filter {
+            it.androidAppIds != null || it.androidCuratedAppIds != null
+        }
 
         // PackageScanner already filters out system apps
         val installedApps = packageScanner.getInstalledPackages()
@@ -158,11 +164,22 @@ class ScanWorker @JvmOverloads constructor(
                 return@forEach
             }
 
-            // Check against blacklist first (takes priority)
+            // Check against blacklist first (takes priority).
+            //
+            // Matching strategies, in order:
+            //   1. android_app_ids — exact package match curated by the scrapper.
+            //   2. android_curated_app_ids — exact match against the schema-driven
+            //      expansion of a developer prefix into concrete package IDs.
+            //   3. android_dev_id — prefix match. Largely redundant under <queries>
+            //      (the OS only returns packages we already enumerated) but kept as
+            //      a defensive catch when a curated package shares the dev_id
+            //      namespace (e.g. dev_id="com.wix" attributes "com.wix.admin"
+            //      back to Wix without an extra mapping).
             val matchingBlacklistItem = blacklistWithAndroid.find { item ->
                 val appIdsMatch = item.androidAppIds?.contains(app.packageName) == true
+                val curatedMatch = item.androidCuratedAppIds?.contains(app.packageName) == true
                 val devIdMatch = item.androidDevId?.let { app.packageName.startsWith("$it.") || app.packageName == it } == true
-                appIdsMatch || devIdMatch
+                appIdsMatch || curatedMatch || devIdMatch
             }
 
             if (matchingBlacklistItem != null) {
@@ -175,9 +192,12 @@ class ScanWorker @JvmOverloads constructor(
                 return@forEach
             }
 
-            // Check against hints
+            // Check against hints. Hints only ever match by exact package name —
+            // we never resolve a hint via android_dev_id prefix because hint
+            // attribution should be unambiguous.
             val matchingHintItem = hintsWithAndroid.find { item ->
-                item.androidAppIds?.contains(app.packageName) == true
+                item.androidAppIds?.contains(app.packageName) == true ||
+                    item.androidCuratedAppIds?.contains(app.packageName) == true
             }
 
             if (matchingHintItem != null) {

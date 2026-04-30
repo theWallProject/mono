@@ -455,8 +455,8 @@ const loadJsonFiles = async (folderPath: string) => {
         }
 
         // Hard fail if key doesn't exist in the row object (invalid property)
-        // Allow android_dev_id and android_app_ids even if not in current row (they're optional schema fields)
-        const validOptionalFields = ["android_dev_id", "android_app_ids"]
+        // Allow android_* fields even if not in current row (they're optional schema fields)
+        const validOptionalFields = ["android_dev_id", "android_app_ids", "android_curated_app_ids"]
         if (!(key in updatedRow) && !validOptionalFields.includes(key)) {
           const validKeys = Object.keys(updatedRow).join(", ")
           error(`Unexpected override key "${key}" for ${row.name}. Valid keys: ${validKeys}`)
@@ -524,6 +524,8 @@ const loadJsonFiles = async (folderPath: string) => {
     // Note: alt field is handled separately in final.ts, not here
     const android_dev_id = "android_dev_id" in addition ? addition.android_dev_id : undefined
     const android_app_ids = "android_app_ids" in addition ? addition.android_app_ids : undefined
+    const android_curated_app_ids =
+      "android_curated_app_ids" in addition ? addition.android_curated_app_ids : undefined
     const proof_text = "proof_text" in addition ? addition.proof_text : undefined
     const proof_link = "proof_link" in addition ? addition.proof_link : undefined
 
@@ -577,6 +579,9 @@ const loadJsonFiles = async (folderPath: string) => {
       }
       if (android_app_ids) {
         updatedItem.android_app_ids = android_app_ids
+      }
+      if (android_curated_app_ids) {
+        updatedItem.android_curated_app_ids = android_curated_app_ids
       }
       // Carry proof fields to the base entry
       if (proof_text) {
@@ -654,6 +659,7 @@ const loadJsonFiles = async (folderPath: string) => {
       reasons,
       ...(android_dev_id ? { android_dev_id } : {}),
       ...(android_app_ids ? { android_app_ids } : {}),
+      ...(android_curated_app_ids ? { android_curated_app_ids } : {}),
       ...(proof_text ? { proof_text } : {}),
       ...(proof_link ? { proof_link } : {})
     }
