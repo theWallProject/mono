@@ -31,9 +31,9 @@ export function warn(...params: unknown[]) {
   // debugger
 }
 
-export type TR_CAT = "Button"
+export type TR_CAT = "Button" | "Page"
 
-export type TR_ACTION = "Click"
+export type TR_ACTION = "Click" | "View"
 
 export type TR_NAME =
   | "dismiss_close"
@@ -43,6 +43,10 @@ export type TR_NAME =
   | "show_bds_guide"
   | "report_mistake"
   | "donation_bricks"
+  | "donation_wall_image"
+  | "donate_monthly"
+  | "uninstall_form"
+  | "telpshow_youtube"
   | "share_fb"
   | "share_tw"
   | "share_li"
@@ -67,6 +71,18 @@ export type TR_NAME =
   | "options_android_app"
   | "linkedin_job_processing_enable"
   | "linkedin_job_processing_disable"
+  | "whatsnew_share_fb"
+  | "whatsnew_share_tw"
+  | "whatsnew_share_li"
+  | "whatsnew_share_wa"
+  | "whatsnew_share_tg"
+  | "whatsnew_donate_monthly"
+  | "whatsnew_donate_onetime"
+  | "whatsnew_donation_image"
+  | "whatsnew_contact"
+  | "whatsnew_report"
+  | "whatsnew_youtube_telpshow"
+  | "whatsnew_visit_website"
 
 // Helper to safely check for test mode
 function isTestModeEnabled(): boolean {
@@ -96,9 +112,23 @@ export function track(category: TR_CAT, action: TR_ACTION, name: TR_NAME) {
 
   try {
     const img = document.createElement("img")
-    // imageUrl += "&e_v=" + encodeURIComponent(value) // Optional numeric value
     img.src = `https://the-wall.win/bg.gif?rec=1&e_c=${encodeURIComponent(category)}&e_a=${encodeURIComponent(action)}&e_n=${encodeURIComponent(name)}`
 
+    document.body.appendChild(img)
+  } catch (e) {
+    error(e)
+  }
+}
+
+export function trackPageView(name: string) {
+  if (isTestModeEnabled()) {
+    console.log("[TEST] TrackPageView:", { name })
+    return
+  }
+
+  try {
+    const img = document.createElement("img")
+    img.src = `https://the-wall.win/bg.gif?rec=1&e_c=Page&e_a=View&e_n=${encodeURIComponent(name)}`
     document.body.appendChild(img)
   } catch (e) {
     error(e)
