@@ -7,7 +7,7 @@ import { MessageTypes, type Message, type MessageResponseMap, type SendResponse 
 
 // Versions that should trigger the "what's new" page
 // User controls which versions trigger it by adding versions to this array
-const WHATS_NEW_VERSIONS = ["1.7.0", "1.9.0", "1.10.0", "1.10.2"]
+const WHATS_NEW_VERSIONS = ["1.7.0", "1.9.0", "1.10.0", "1.10.2", "1.15.0"]
 
 chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)
@@ -31,9 +31,10 @@ chrome.runtime.onInstalled.addListener((details) => {
           const shownVersions = await getWhatsNewShownVersions()
           if (!shownVersions.includes(currentVersion)) {
             log(`Opening what's new page for version ${currentVersion}`)
-            // Open the what's new page
+            const fromVersion = details.reason === "update" ? details.previousVersion || "unknown" : "install"
+            const whatNewUrl = `${chrome.runtime.getURL("tabs/whats-new.html")}?from=${encodeURIComponent(fromVersion)}&to=${encodeURIComponent(currentVersion)}`
             await chrome.tabs.create({
-              url: chrome.runtime.getURL("tabs/whats-new.html"),
+              url: whatNewUrl,
               active: false
             })
             // Mark this version as shown

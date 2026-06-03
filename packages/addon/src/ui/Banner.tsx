@@ -4,7 +4,6 @@ import { toast, Toaster } from "react-hot-toast"
 import { getExtensionURL, track } from "~helpers"
 
 import backgroundImage from "../../assets/images/bg-pattern.png"
-import donateIcon from "../../assets/images/donate-icon.svg"
 import shieldIcon from "../../assets/images/shield-icon.svg"
 import warningIcon from "../../assets/images/warning-icon.svg"
 import { error, log } from "../helpers"
@@ -469,18 +468,9 @@ export const Banner = () => {
             {/* Modal container with shield icon */}
             <div className={style.modalContainer}>
               {/* Close button - top right */}
-              <button
-                type="button"
-                className={style.closeButton}
-                onClick={onDismissClick}
-                aria-label="Close">
+              <button type="button" className={style.closeButton} onClick={onDismissClick} aria-label="Close">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M1 1L13 13M13 1L1 13"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
+                  <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </button>
               {/* Shield circle background */}
@@ -514,8 +504,7 @@ export const Banner = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className={style.proofLink}
-                          title={getI18nMessage("proof_viewSource")}
-                        >
+                          title={getI18nMessage("proof_viewSource")}>
                           <svg
                             width="18"
                             height="18"
@@ -524,8 +513,7 @@ export const Banner = () => {
                             stroke="currentColor"
                             strokeWidth="2"
                             strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
+                            strokeLinejoin="round">
                             <path d="M15 3h6v6" />
                             <path d="M10 14L21 3" />
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -580,12 +568,16 @@ export const Banner = () => {
                       }}
                     />
                   )}
-
                 </div>
               </div>
+            </div>
 
-              {/* Report button inside modal */}
-              <div className={style.bottomBar}>
+            {/* Share and report - directly under modal */}
+            <div className={style.bottomShareBar}>
+              <div className={style.pillBadgeContainerLeft}>
+                <ShareButton text={getI18nMessage("sharingMessageText")} url={"https://the-wall.win"} />
+              </div>
+              <div className={style.pillBadgeContainerRight}>
                 <button
                   type="button"
                   className={style.warningButton}
@@ -596,27 +588,23 @@ export const Banner = () => {
                 </button>
               </div>
             </div>
-
-            {/* Donate and share - directly under modal */}
-            <div className={style.bottomShareBar}>
-              <div className={style.pillBadgeContainerLeft}>
-                <button
-                  type="button"
-                  className={style.pillBadge}
-                  onClick={() => {
-                    track("Button", "Click", "support_ko_fi")
-                    window.open("https://ko-fi.com/thewalladdon", "_blank")
-                  }}>
-                  <img src={getExtensionURL(donateIcon)} alt="" />
-                  {getI18nMessage("modalDonateButton")}
-                </button>
-              </div>
-
-              <div className={style.pillBadgeContainerRight}>
-                <ShareButton text={getI18nMessage("sharingMessageText")} url={"https://the-wall.win"} />
-              </div>
-            </div>
           </div>
+          <a
+            href="https://ko-fi.com/thewalladdon"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={style.donationLink}
+            onClick={() => track("Button", "Click", "donation_bricks")}>
+            <picture>
+              <source media="(min-width: 1024px)" srcSet="https://the-wall.win/dynamic/donations.png?maxRowBricks=26" />
+              <source media="(min-width: 640px)" srcSet="https://the-wall.win/dynamic/donations.png?maxRowBricks=15" />
+              <img
+                src="https://the-wall.win/dynamic/donations.png?maxRowBricks=11"
+                alt=""
+                className={style.donationBricks}
+              />
+            </picture>
+          </a>
         </div>
       ) : null}
     </>
