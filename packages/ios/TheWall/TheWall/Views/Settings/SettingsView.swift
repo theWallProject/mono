@@ -244,7 +244,7 @@ private struct AboutView: View {
                 VStack(spacing: 12) {
                     StatRowView(
                         icon: "building.2",
-                        value: "19,000+",
+                        value: "26,000+",
                         label: String(localized: "about.stats.companies", defaultValue: "Companies tracked")
                     )
                     StatRowView(

@@ -83,7 +83,7 @@ private struct HomeTabView: View {
                 .frame(height: 180)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
 
-            Text(String(localized: "home.hero.badge", defaultValue: "19,000+ Companies"))
+            Text(String(localized: "home.hero.badge", defaultValue: "26,000+ Companies"))
                 .font(.wallCaptionMedium)
                 .foregroundStyle(Color.wallBadgeText)
                 .padding(.horizontal, 16)
@@ -138,7 +138,7 @@ private struct HomeTabView: View {
                 Image(systemName: "building.2")
                     .foregroundStyle(Color.wallPrimary)
 
-                Text(String(localized: "status.about.companyCount", defaultValue: "19,000+ companies in database"))
+                Text(String(localized: "status.about.companyCount", defaultValue: "26,000+ companies in database"))
                     .font(.wallCaptionMedium)
                     .foregroundStyle(Color.wallOnSurface)
             }

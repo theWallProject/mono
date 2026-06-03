@@ -61,7 +61,7 @@ struct CompletionPageView: View {
             VStack(alignment: .leading, spacing: 16) {
                 FeatureRowView(
                     icon: "magnifyingglass.circle.fill",
-                    text: String(localized: "completion.feature.browse", defaultValue: "Browse our database of 19,000+ companies")
+                    text: String(localized: "completion.feature.browse", defaultValue: "Browse our database of 26,000+ companies")
                 )
 
                 FeatureRowView(
