@@ -6,13 +6,14 @@ declare const styles: {
   readonly altPopupMenu: string
   readonly bgLayer: string
   readonly bgOverlay: string
-  readonly bottomBar: string
   readonly bottomShareBar: string
   readonly button: string
   readonly buttonFadeIn: string
   readonly buttonsWrapper: string
   readonly closeButton: string
   readonly container: string
+  readonly donationBricks: string
+  readonly donationLink: string
   readonly modalContainer: string
   readonly modalContentWrapper: string
   readonly modalFadeIn: string

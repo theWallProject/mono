@@ -36,11 +36,12 @@ import kotlinx.coroutines.withContext
  * - Respects ignored and snoozed apps (won't count or notify about them)
  * - Uses grouped notifications with per-app actions (Ignore, Remind Later)
  */
-class ScanWorker(
+class ScanWorker @JvmOverloads constructor(
     private val appContext: Context,
     workerParams: WorkerParameters,
     private val databaseProvider: DatabaseProvider = AssetDatabaseProvider(appContext),
-    private val packageScanner: PackageScanner = SystemPackageScanner(appContext)
+    private val packageScanner: PackageScanner = SystemPackageScanner(appContext),
+    private val prefs: NotificationPreferences = NotificationPreferences(appContext)
 ) : CoroutineWorker(appContext, workerParams) {
 
     companion object {
@@ -51,27 +52,46 @@ class ScanWorker(
         const val INPUT_FORCE_NOTIFY = "force_notify"
 
         private const val CHANNEL_ID = "BACKGROUND_SCAN_CHANNEL"
+        private const val PROGRESS_CHANNEL_ID = "BACKGROUND_SCAN_PROGRESS_CHANNEL"
         private const val PROGRESS_NOTIFICATION_ID = 42
 
-        /** Base ID for individual app notifications. Actual ID = BASE + hash of package name */
+        /**
+         * Notification ID and PendingIntent request code ranges:
+         * - Content intent:  [1000, 11000)
+         * - Ignore action:   [21000, 31000)
+         * - Snooze action:   [41000, 51000)
+         */
         private const val APP_NOTIFICATION_BASE_ID = 1000
+        private const val APP_NOTIFICATION_RANGE = 10000
+        private const val IGNORE_REQUEST_CODE_OFFSET = 20000
+        private const val SNOOZE_REQUEST_CODE_OFFSET = 40000
 
         private const val TAG = "ScanWorker"
-    }
 
-    private val prefs = NotificationPreferences(appContext)
+        /** Stable notification ID that never collides with [PROGRESS_NOTIFICATION_ID]. */
+        fun appNotificationId(packageName: String): Int {
+            return APP_NOTIFICATION_BASE_ID + (packageName.hashCode() and 0x7FFFFFFF) % APP_NOTIFICATION_RANGE
+        }
+    }
 
     override suspend fun doWork(): Result {
         val forceNotify = inputData.getBoolean(INPUT_FORCE_NOTIFY, false)
         Log.d(TAG, "Scan worker started. forceNotify=$forceNotify")
 
-        val progressNotification = createProgressNotification()
-        val foregroundInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE)
-        } else {
-            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification)
+        // Try to promote to foreground service for progress notification.
+        // This will fail when the app is in the background on API 31+ — that's fine,
+        // the scan still runs as a regular background worker.
+        try {
+            val progressNotification = createProgressNotification()
+            val foregroundInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE)
+            } else {
+                ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification)
+            }
+            setForeground(foregroundInfo)
+        } catch (e: Exception) {
+            Log.d(TAG, "Could not start foreground service (app in background), continuing as background work.")
         }
-        setForeground(foregroundInfo)
 
         return withContext(Dispatchers.IO) {
             try {
@@ -189,6 +209,15 @@ class ScanWorker(
         val currentApps = scanResult.blacklistedApps.map { it.packageName }.toSet()
         val knownApps = prefs.getKnownApps()
 
+        // First run: seed known apps without notifying
+        val isFirstRun = knownApps.isEmpty() && currentApps.isNotEmpty()
+        if (isFirstRun && !forceNotify) {
+            Log.d(TAG, "First scan: seeding ${currentApps.size} known apps without notifying.")
+            prefs.setKnownApps(currentApps)
+            prefs.setLastNotificationTime()
+            return
+        }
+
         // Find truly new apps (installed since last scan)
         val newApps = currentApps - knownApps
 
@@ -223,39 +252,46 @@ class ScanWorker(
         }
 
         if (shouldNotify) {
-            sendNotifications(scanResult.blacklistedApps)
-            prefs.setLastNotificationTime()
-            prefs.setLastNotifiedApps(currentApps)
+            // Only notify for new apps, unless it's a reminder or force (then notify all)
+            val appsToNotify = if (newApps.isNotEmpty() && !forceNotify) {
+                scanResult.blacklistedApps.filter { it.packageName in newApps }
+            } else {
+                scanResult.blacklistedApps
+            }
+            val sent = sendNotifications(appsToNotify)
+            if (sent) {
+                prefs.setLastNotificationTime()
+                prefs.setLastNotifiedApps(currentApps)
+            }
         }
     }
 
     /**
      * Sends individual notifications for each detected app.
      */
-    private fun sendNotifications(apps: List<DetectedApp>) {
+    private fun sendNotifications(apps: List<DetectedApp>): Boolean {
         if (ActivityCompat.checkSelfPermission(appContext, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "Cannot send notifications: POST_NOTIFICATIONS permission not granted.")
-            return
+            return false
         }
 
         createNotificationChannel()
         val notificationManager = NotificationManagerCompat.from(appContext)
 
         apps.forEach { app ->
-            val notificationId = APP_NOTIFICATION_BASE_ID + app.packageName.hashCode()
-            val notification = createAppNotification(app)
+            val notificationId = appNotificationId(app.packageName)
+            val notification = createAppNotification(app, notificationId)
             notificationManager.notify(notificationId, notification)
         }
 
         Log.d(TAG, "Sent ${apps.size} notifications")
+        return true
     }
 
     /**
      * Creates a notification for a single app with Ignore/Snooze actions.
      */
-    private fun createAppNotification(app: DetectedApp): android.app.Notification {
-        val notificationId = APP_NOTIFICATION_BASE_ID + app.packageName.hashCode()
-
+    private fun createAppNotification(app: DetectedApp, notificationId: Int): android.app.Notification {
         // Content intent - open app to scan screen
         val contentIntent = Intent(appContext, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -269,14 +305,14 @@ class ScanWorker(
         // Ignore action
         val ignoreIntent = NotificationActionReceiver.createIgnoreIntent(appContext, app.packageName, notificationId)
         val ignorePendingIntent = PendingIntent.getBroadcast(
-            appContext, notificationId * 2, ignoreIntent,
+            appContext, notificationId + IGNORE_REQUEST_CODE_OFFSET, ignoreIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         // Snooze action (Remind Later)
         val snoozeIntent = NotificationActionReceiver.createSnoozeIntent(appContext, app.packageName, notificationId)
         val snoozePendingIntent = PendingIntent.getBroadcast(
-            appContext, notificationId * 2 + 1, snoozeIntent,
+            appContext, notificationId + SNOOZE_REQUEST_CODE_OFFSET, snoozeIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
@@ -287,7 +323,7 @@ class ScanWorker(
             .setContentTitle(title)
             .setContentText(text)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setContentIntent(contentPendingIntent)
             .addAction(0, appContext.getString(R.string.notif_action_ignore), ignorePendingIntent)
@@ -305,8 +341,8 @@ class ScanWorker(
     }
 
     private fun createProgressNotification(): android.app.Notification {
-        createNotificationChannel()
-        return NotificationCompat.Builder(appContext, CHANNEL_ID)
+        createProgressNotificationChannel()
+        return NotificationCompat.Builder(appContext, PROGRESS_CHANNEL_ID)
             .setContentTitle(appContext.getString(R.string.notif_progress_title))
             .setContentText(appContext.getString(R.string.notif_progress_text))
             .setSmallIcon(R.drawable.ic_launcher_foreground)
@@ -319,9 +355,25 @@ class ScanWorker(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = appContext.getString(R.string.notif_channel_name)
             val descriptionText = appContext.getString(R.string.notif_channel_description)
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText
+            }
+            val notificationManager: NotificationManager =
+                appContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private fun createProgressNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                PROGRESS_CHANNEL_ID,
+                appContext.getString(R.string.notif_progress_channel_name),
+                NotificationManager.IMPORTANCE_LOW
+            ).apply {
+                description = appContext.getString(R.string.notif_progress_channel_description)
+                setShowBadge(false)
             }
             val notificationManager: NotificationManager =
                 appContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

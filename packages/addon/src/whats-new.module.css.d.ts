@@ -1,37 +1,32 @@
 declare const styles: {
-  readonly androidButton: string
-  readonly badgeShimmer: string
   readonly bgLayer: string
   readonly bgOverlay: string
-  readonly boycatCta: string
-  readonly comingSoonBadge: string
+  readonly combinedTitle: string
+  readonly communitySection: string
   readonly contactButton: string
   readonly container: string
   readonly content: string
   readonly contentWrapper: string
   readonly donateButton: string
-  readonly donationSection: string
-  readonly externalLink: string
+  readonly donateButtonRow: string
+  readonly donationImage: string
+  readonly donationImageLink: string
   readonly fadeInUp: string
-  readonly featureImage: string
-  readonly featureList: string
   readonly featureSection: string
   readonly featureText: string
   readonly footer: string
   readonly footerActions: string
   readonly gradientShift: string
   readonly header: string
-  readonly highlightSection: string
-  readonly imageContainer: string
+  readonly installDropSection: string
   readonly largeDonateButton: string
   readonly link: string
-  readonly noteText: string
-  readonly optionsImage: string
-  readonly optionsImageContainer: string
-  readonly platformItem: string
-  readonly platformList: string
+  readonly oneTimeButton: string
+  readonly playIcon: string
+  readonly playOverlay: string
   readonly pluginName: string
   readonly pulseGlow: string
+  readonly reportButton: string
   readonly sectionTitle: string
   readonly shareButton: string
   readonly shareButtons: string
@@ -40,15 +35,15 @@ declare const styles: {
   readonly shimmer: string
   readonly theWallLogo: string
   readonly title: string
-  readonly urgentBadge: string
-  readonly urgentPulse: string
+  readonly urgentSection: string
   readonly version: string
   readonly versionContent: string
   readonly versionSection: string
   readonly versionText: string
-  readonly voteBtnPulse: string
-  readonly voteButton: string
-  readonly voteCta: string
-  readonly voteShine: string
+  readonly videoCaption: string
+  readonly videoThumbnail: string
+  readonly videoThumbnailContainer: string
+  readonly videoThumbnailLink: string
+  readonly videoThumbnailWrapper: string
 }
 export = styles
