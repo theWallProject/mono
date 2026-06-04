@@ -51,6 +51,18 @@ struct Company: Codable, Identifiable, Hashable {
     /// Suggested alternative companies
     let alternatives: [Alternative]?
 
+    /// True when this entry is itself a suggested alternative for the company at `website`.
+    let isHint: Bool?
+
+    /// Pitch text shown in place of "Reasons for Flagging" for hint entries.
+    let hintText: String?
+
+    /// External URL to visit the alternative (e.g. https://upscrolled.com/?ref=thewall).
+    let hintUrl: String?
+
+    /// ID of the hint-providing company (used by the catalogue to dedupe hints).
+    let hintCompanyId: String?
+
     // MARK: - Coding Keys
 
     enum CodingKeys: String, CodingKey {
@@ -69,6 +81,10 @@ struct Company: Codable, Identifiable, Hashable {
         case youtubePage = "ytp"
         case stockTicker = "s"
         case alternatives = "alt"
+        case isHint
+        case hintText
+        case hintUrl
+        case hintCompanyId
     }
 
     // MARK: - Computed Properties
@@ -76,6 +92,17 @@ struct Company: Codable, Identifiable, Hashable {
     /// Display domain (website if available, otherwise ID slug)
     var domain: String {
         website ?? id
+    }
+
+    /// True if this row represents a suggested alternative rather than a flagged company.
+    var isAlternative: Bool {
+        isHint == true
+    }
+
+    /// Host of the suggested alternative's external URL (e.g. "upscrolled.com").
+    var alternativeHost: String? {
+        guard let raw = hintUrl, let url = URL(string: raw), let host = url.host else { return nil }
+        return host.hasPrefix("www.") ? String(host.dropFirst(4)) : host
     }
 
     /// Parsed CompanyReason objects
