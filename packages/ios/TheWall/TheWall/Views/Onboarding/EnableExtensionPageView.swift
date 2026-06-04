@@ -33,14 +33,14 @@ struct EnableExtensionPageView: View {
 
                     if !extensionEnabled {
                         Button {
-                            if let url = URL(string: UIApplication.openSettingsURLString) {
+                            if let url = URL(string: "https://techforpalestine.org") {
                                 UIApplication.shared.open(url)
                             }
                         } label: {
                             HStack(spacing: 8) {
-                                Image(systemName: "gear")
+                                Image(systemName: "safari")
                                     .font(.system(size: 18, weight: .semibold))
-                                Text(String(localized: "enableExtension.openSettings", defaultValue: "Open Settings"))
+                                Text(String(localized: "enableExtension.openSafari", defaultValue: "Open Safari"))
                                     .font(.wallButton)
                             }
                             .foregroundStyle(.white)
