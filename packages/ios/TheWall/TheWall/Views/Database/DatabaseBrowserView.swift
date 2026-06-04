@@ -238,46 +238,66 @@ private struct CompanyRowView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            // Company icon
+            // Icon — semantically tinted: amber lightbulb for hints, red building for flagged companies
             ZStack {
                 Circle()
-                    .fill(Color.wallPrimary.opacity(0.1))
+                    .fill(accentTint.opacity(0.12))
                     .frame(width: 44, height: 44)
 
-                Image(systemName: "building.2")
+                Image(systemName: company.isAlternative ? "lightbulb.fill" : "building.2")
                     .font(.system(size: 20))
-                    .foregroundStyle(Color.wallPrimary)
+                    .foregroundStyle(accentTint)
             }
 
-            // Company info
+            // Info
             VStack(alignment: .leading, spacing: 4) {
                 Text(company.name)
                     .font(.wallBodyMedium)
                     .foregroundStyle(Color.wallOnSurface)
 
-                Text(company.domain)
-                    .font(.wallCaption)
-                    .foregroundStyle(Color.wallOnSurface.opacity(0.6))
-
-                // Reason badges
-                if !company.companyReasons.isEmpty {
+                if company.isAlternative {
                     HStack(spacing: 4) {
-                        ForEach(company.companyReasons.prefix(3), id: \.self) { reason in
-                            Text(reason.rawValue.uppercased())
-                                .font(.system(size: 10, weight: .semibold))
-                                .foregroundStyle(Color.wallBadgeText)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(
-                                    Capsule()
-                                        .fill(Color.wallBadgeBg)
-                                )
-                        }
+                        Image(systemName: "arrow.right")
+                            .font(.system(size: 10, weight: .semibold))
+                            .foregroundStyle(Color.wallOnSurface.opacity(0.4))
+                            .flipsForRightToLeftLayoutDirection(true)
+                        Text(altSubtitle)
+                            .font(.wallCaption)
+                            .foregroundStyle(Color.wallOnSurface.opacity(0.6))
+                            .lineLimit(1)
+                    }
 
-                        if company.companyReasons.count > 3 {
-                            Text("+\(company.companyReasons.count - 3)")
-                                .font(.system(size: 10, weight: .semibold))
-                                .foregroundStyle(Color.wallOnSurface.opacity(0.5))
+                    Text(String(localized: "database.row.alternativeTag", defaultValue: "Suggested alternative"))
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(accentTint)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(
+                            Capsule().fill(accentTint.opacity(0.14))
+                        )
+                } else {
+                    Text(company.domain)
+                        .font(.wallCaption)
+                        .foregroundStyle(Color.wallOnSurface.opacity(0.6))
+
+                    if !company.companyReasons.isEmpty {
+                        HStack(spacing: 4) {
+                            ForEach(company.companyReasons.prefix(3), id: \.self) { reason in
+                                Text(reason.rawValue.uppercased())
+                                    .font(.system(size: 10, weight: .semibold))
+                                    .foregroundStyle(Color.wallBadgeText)
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(
+                                        Capsule().fill(Color.wallBadgeBg)
+                                    )
+                            }
+
+                            if company.companyReasons.count > 3 {
+                                Text("+\(company.companyReasons.count - 3)")
+                                    .font(.system(size: 10, weight: .semibold))
+                                    .foregroundStyle(Color.wallOnSurface.opacity(0.5))
+                            }
                         }
                     }
                 }
@@ -285,7 +305,6 @@ private struct CompanyRowView: View {
 
             Spacer()
 
-            // Chevron
             Image(systemName: "chevron.right")
                 .font(.system(size: 14))
                 .foregroundStyle(Color.wallOnSurface.opacity(0.3))
@@ -293,6 +312,16 @@ private struct CompanyRowView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
         .background(Color.wallBackground)
+    }
+
+    private var accentTint: Color {
+        // Hints use amber/secondary palette; flagged companies stay in the primary red palette.
+        company.isAlternative ? Color.wallSecondary : Color.wallPrimary
+    }
+
+    private var altSubtitle: String {
+        let target = company.domain
+        return String(format: String(localized: "database.row.alternativeTo", defaultValue: "Alternative to %@"), target)
     }
 }
 
