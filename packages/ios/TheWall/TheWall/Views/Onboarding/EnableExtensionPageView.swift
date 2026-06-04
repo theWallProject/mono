@@ -2,17 +2,13 @@ import SwiftUI
 
 /// Enable Extension page (Page 3 of onboarding)
 ///
-/// Guides the user through enabling the Safari extension with
-/// native iOS Settings-style visual step cards and an "Open Settings" button.
+/// Guides the user through enabling the Safari extension. The user opens
+/// Settings to flip the toggle, then taps "I've enabled it" to advance.
 struct EnableExtensionPageView: View {
 
-    @StateObject private var activityChecker = ExtensionActivityChecker()
-    @State private var extensionDetected = false
+    @State private var extensionEnabled = false
 
-    /// Called when the extension is detected as active
     var onExtensionDetected: (() -> Void)?
-
-    private let pollTimer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 
     var body: some View {
         GeometryReader { geometry in
@@ -20,26 +16,22 @@ struct EnableExtensionPageView: View {
                 VStack(spacing: 20) {
                     Spacer(minLength: 8)
 
-                    // Title
                     Text(String(localized: "enableExtension.title", defaultValue: "Enable the Extension"))
                         .font(.wallHeading1)
                         .foregroundStyle(Color.wallOnSurface)
                         .multilineTextAlignment(.center)
 
-                    // Subtitle
                     Text(String(localized: "enableExtension.subtitle", defaultValue: "Follow these steps to activate The Wall"))
                         .font(.wallBody)
                         .foregroundStyle(Color.wallOnSurface.opacity(0.7))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 8)
 
-                    // Visual step cards
                     SafariExtensionGuideView()
 
                     Spacer(minLength: 12)
 
-                    // Open Settings button
-                    if !extensionDetected {
+                    if !extensionEnabled {
                         Button {
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(url)
@@ -60,15 +52,31 @@ struct EnableExtensionPageView: View {
                             )
                         }
                         .buttonStyle(.plain)
+
+                        Button {
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                extensionEnabled = true
+                            }
+                        } label: {
+                            Text(String(localized: "enableExtension.iveEnabled", defaultValue: "I've enabled it"))
+                                .font(.wallButton)
+                                .foregroundStyle(Color.wallPrimary)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 14)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .strokeBorder(Color.wallPrimary, lineWidth: 1.5)
+                                )
+                        }
+                        .buttonStyle(.plain)
                     }
 
-                    // Success celebration when extension detected
-                    if extensionDetected {
+                    if extensionEnabled {
                         successView
                             .transition(.scale.combined(with: .opacity))
                             .onAppear {
                                 triggerSuccessHaptic()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
                                     onExtensionDetected?()
                                 }
                             }
@@ -78,21 +86,6 @@ struct EnableExtensionPageView: View {
                 }
                 .frame(minHeight: geometry.size.height)
                 .padding()
-            }
-        }
-        .onReceive(pollTimer) { _ in
-            guard !extensionDetected else { return }
-            activityChecker.check()
-            if activityChecker.isLikelyActive {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                    extensionDetected = true
-                }
-            }
-        }
-        .onAppear {
-            activityChecker.check()
-            if activityChecker.isLikelyActive {
-                extensionDetected = true
             }
         }
     }
