@@ -65,7 +65,7 @@ struct SettingsView: View {
                     )
                 }
 
-                Link(destination: URL(string: "https://ko-fi.com/thewall")!) {
+                Link(destination: URL(string: "https://ko-fi.com/thewalladdon")!) {
                     SettingRowView(
                         icon: "heart.fill",
                         iconColor: .red,
@@ -73,7 +73,7 @@ struct SettingsView: View {
                     )
                 }
 
-                Link(destination: URL(string: "https://thewall.app/privacy")!) {
+                Link(destination: URL(string: "https://the-wall.win/privacy")!) {
                     SettingRowView(
                         icon: "hand.raised.fill",
                         iconColor: .green,
@@ -263,11 +263,11 @@ private struct AboutView: View {
                         .font(.wallHeading3)
                         .foregroundStyle(Color.wallOnSurface)
 
-                    Link(destination: URL(string: "https://thewall.app")!) {
+                    Link(destination: URL(string: "https://the-wall.win")!) {
                         LinkRowView(
                             icon: "globe",
                             title: String(localized: "about.website", defaultValue: "Website"),
-                            url: "thewall.app"
+                            url: "the-wall.win"
                         )
                     }
 
