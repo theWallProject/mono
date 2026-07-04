@@ -35,16 +35,10 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.techforpalestine.thewalladdon.ios
         INFOPLIST_FILE: TheWall/TheWall/Info.plist
         CODE_SIGN_ENTITLEMENTS: TheWall/TheWall/TheWall.entitlements
-        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_STYLE: Automatic
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: WallPrimary
         ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
-      configs:
-        Debug:
-          CODE_SIGN_IDENTITY: "iPhone Developer"
-        Release:
-          CODE_SIGN_IDENTITY: "iPhone Distribution"
-          PROVISIONING_PROFILE_SPECIFIER: "Mohamed Elawadi IOS app profile"
     dependencies:
       - target: TheWallExtension
         embed: true
@@ -70,15 +64,9 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.techforpalestine.thewalladdon.ios.extension
         INFOPLIST_FILE: TheWall/TheWallExtension/Info.plist
         CODE_SIGN_ENTITLEMENTS: TheWall/TheWallExtension/TheWallExtension.entitlements
-        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_STYLE: Automatic
         SKIP_INSTALL: YES
         SWIFT_EMIT_LOC_STRINGS: YES
-      configs:
-        Debug:
-          CODE_SIGN_IDENTITY: "iPhone Developer"
-        Release:
-          CODE_SIGN_IDENTITY: "iPhone Distribution"
-          PROVISIONING_PROFILE_SPECIFIER: "Mohamed Elawadi iOS extension profile"
     preBuildScripts:
       - name: Sync Extension Resources
         script: |
