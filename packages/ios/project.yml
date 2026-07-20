@@ -1,0 +1,129 @@
+name: TheWall
+options:
+  bundleIdPrefix: com.techforpalestine.thewalladdon
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: en
+  xcodeVersion: "15.0"
+  groupSortPosition: top
+  knownRegions: [en, ar]
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: FR6DUF5C3C
+    MARKETING_VERSION: "1.5.1"
+    CURRENT_PROJECT_VERSION: "4"
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1,2"  # iPhone and iPad
+    SUPPORTS_MACCATALYST: NO
+    GENERATE_INFOPLIST_FILE: NO
+
+targets:
+  TheWall:
+    type: application
+    platform: iOS
+    sources:
+      - TheWall/TheWall
+    resources:
+      - path: TheWall/TheWall/Data
+        buildPhase: resources
+      - TheWall/TheWall/Localizable.xcstrings
+      - TheWall/TheWall/InfoPlist.xcstrings
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.techforpalestine.thewalladdon.ios
+        INFOPLIST_FILE: TheWall/TheWall/Info.plist
+        CODE_SIGN_ENTITLEMENTS: TheWall/TheWall/TheWall.entitlements
+        CODE_SIGN_STYLE: Automatic
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: WallPrimary
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+    dependencies:
+      - target: TheWallExtension
+        embed: true
+    scheme:
+      testTargets:
+        - TheWallTests
+        - TheWallUITests
+      gatherCoverageData: true
+
+  TheWallExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: TheWall/TheWallExtension
+        excludes:
+          - "Resources/_locales/**"
+    resources:
+      - path: TheWall/TheWallExtension/Resources
+        excludes:
+          - "_locales/**"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.techforpalestine.thewalladdon.ios.extension
+        INFOPLIST_FILE: TheWall/TheWallExtension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: TheWall/TheWallExtension/TheWallExtension.entitlements
+        CODE_SIGN_STYLE: Automatic
+        SKIP_INSTALL: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+    preBuildScripts:
+      - name: Sync Extension Resources
+        script: |
+          # Only sync if the addon build exists
+          if [ -d "../addon/build/safari-mv3-prod" ]; then
+            bash "${PROJECT_DIR}/scripts/sync-extension-resources.sh"
+          else
+            echo "warning: Safari extension not built. Run 'pnpm --filter @thewall/addon build:safari' first."
+          fi
+        showEnvVars: false
+
+  TheWallTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - TheWall/TheWallTests
+    dependencies:
+      - target: TheWall
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.techforpalestine.thewalladdon.ios.tests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/TheWall.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TheWall"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+
+  TheWallUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - TheWall/TheWallUITests
+    dependencies:
+      - target: TheWall
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.techforpalestine.thewalladdon.ios.uitests
+        TEST_TARGET_NAME: TheWall
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+
+schemes:
+  TheWall:
+    build:
+      targets:
+        TheWall: all
+        TheWallExtension: all
+    run:
+      config: Debug
+      commandLineArguments:
+        "--reset-onboarding": false
+        "--use-test-database": false
+    test:
+      config: Debug
+      gatherCoverageData: true
+      targets:
+        - TheWallTests
+        - TheWallUITests
+      commandLineArguments:
+        "--reset-onboarding": true
+        "--use-test-database": true
+    archive:
+      config: Release

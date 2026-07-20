@@ -161,17 +161,6 @@ export const TRANSLATIONS = {
     zh_CN: "BDS抵制名单上的施压目标",
     zh_TW: "BDS抵制名單上的施壓目標"
   },
-  "reasons.c": {
-    en: "Custom boycott reason",
-    ar: "سبب مقاطعة مخصص",
-    id: "Alasan boikot khusus",
-    ms: "Sebab boikot tersuai",
-    bn: "কাস্টম বয়কট কারণ",
-    fr: "Raison de boycott personnalisée",
-    nl: "Aangepaste boycotreden",
-    zh_CN: "自定义抵制原因",
-    zh_TW: "自定義抵制原因"
-  },
   "reasons.short.h": {
     en: "HQ in Israel",
     ar: "المقر في الكيان الصهيوني",
@@ -249,6 +238,17 @@ export const TRANSLATIONS = {
     zh_CN: "BDS施压",
     zh_TW: "BDS施壓"
   },
+  "reasons.c": {
+    en: "Custom reason",
+    ar: "سبب مخصص",
+    id: "Alasan khusus",
+    ms: "Sebab tersuai",
+    bn: "কাস্টম কারণ",
+    fr: "Raison personnalisée",
+    nl: "Aangepaste reden",
+    zh_CN: "自定义原因",
+    zh_TW: "自訂原因"
+  },
   "reasons.short.c": {
     en: "Custom",
     ar: "مخصص",
@@ -258,7 +258,7 @@ export const TRANSLATIONS = {
     fr: "Personnalisé",
     nl: "Aangepast",
     zh_CN: "自定义",
-    zh_TW: "自定義"
+    zh_TW: "自訂"
   },
   "help.noUrl": {
     en: "Please send me a URL to check. I can check if a link is safe or flagged.",

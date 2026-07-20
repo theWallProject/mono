@@ -1,0 +1,160 @@
+# Fastfile for The Wall iOS
+
+default_platform(:ios)
+
+platform :ios do
+  before_all do
+    ensure_git_status_clean
+  end
+
+  desc "Push a new beta build to TestFlight"
+  desc "Usage: fastlane beta"
+  lane :beta do
+    # Increment build number
+    increment_build_number(
+      xcodeproj: "TheWall.xcodeproj"
+    )
+
+    # Build the app
+    build_app(
+      scheme: "TheWall",
+      export_method: "app-store",
+      output_directory: "./build",
+      output_name: "TheWall.ipa",
+      clean: true,
+      include_bitcode: false,
+      export_options: {
+        provisioningProfiles: {
+          "com.techforpalestine.thewalladdon.ios" => "Mohamed Elawadi IOS app profile",
+          "com.techforpalestine.thewalladdon.ios.extension" => "Mohamed Elawadi iOS extension profile"
+        }
+      }
+    )
+
+    # Upload to TestFlight
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      distribute_external: false,
+      notify_external_testers: false
+    )
+
+    # Commit version bump
+    commit_version_bump(
+      message: "chore(ios): bump build number for TestFlight",
+      xcodeproj: "TheWall.xcodeproj",
+      force: true
+    )
+
+    # Tag build
+    add_git_tag(
+      grouping: "ios-beta",
+      prefix: "ios/beta/",
+      build_number: get_build_number(xcodeproj: "TheWall.xcodeproj")
+    )
+
+    push_to_git_remote
+
+    UI.success("✅ Beta build uploaded to TestFlight successfully!")
+    UI.message("Build number: #{get_build_number(xcodeproj: 'TheWall.xcodeproj')}")
+  end
+
+  desc "Deploy a new version to the App Store"
+  desc "Usage: fastlane release"
+  lane :release do
+    # Build the app
+    build_app(
+      scheme: "TheWall",
+      export_method: "app-store",
+      output_directory: "./build",
+      output_name: "TheWall.ipa",
+      clean: true,
+      include_bitcode: false
+    )
+
+    # Upload to App Store
+    upload_to_app_store(
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      skip_metadata: false,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false
+    )
+
+    # Tag release
+    add_git_tag(
+      grouping: "ios-release",
+      prefix: "ios/v",
+      build_number: get_version_number(xcodeproj: "TheWall.xcodeproj")
+    )
+
+    push_to_git_remote
+
+    UI.success("✅ Release uploaded to App Store Connect successfully!")
+    UI.message("Version: #{get_version_number(xcodeproj: 'TheWall.xcodeproj')}")
+    UI.message("⚠️  Remember to manually submit for review in App Store Connect")
+  end
+
+  desc "Run all tests"
+  lane :test do
+    run_tests(
+      scheme: "TheWall",
+      devices: ["iPhone 15"],
+      clean: true,
+      code_coverage: true
+    )
+
+    UI.success("✅ All tests passed!")
+  end
+
+  desc "Build without uploading (for CI validation)"
+  lane :build_only do
+    build_app(
+      scheme: "TheWall",
+      skip_codesigning: true,
+      skip_package_ipa: true,
+      configuration: "Debug",
+      destination: "generic/platform=iOS Simulator"
+    )
+
+    UI.success("✅ Build successful!")
+  end
+
+  desc "Generate and upload screenshots"
+  lane :screenshots do
+    capture_screenshots(
+      scheme: "TheWall",
+      devices: [
+        "iPhone 15 Pro Max",
+        "iPhone 15",
+        "iPhone SE (3rd generation)",
+        "iPad Pro (12.9-inch) (6th generation)"
+      ],
+      languages: ["en-US", "ar"],
+      clear_previous_screenshots: true,
+      stop_after_first_error: false,
+      test_without_building: false
+    )
+
+    upload_to_app_store(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      overwrite_screenshots: true
+    )
+
+    UI.success("✅ Screenshots captured and uploaded!")
+  end
+
+  desc "Validate App Store metadata"
+  lane :validate_metadata do
+    sh("bash ../scripts/validate-metadata.sh")
+
+    UI.success("✅ Metadata validation passed!")
+  end
+
+  # Error handling
+  error do |lane, exception|
+    UI.error("❌ Error in lane '#{lane}': #{exception.message}")
+  end
+end
