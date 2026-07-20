@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#b72b00" />
+  <meta name="description" content="Enable The Wall Safari extension on iPhone in two taps." />
+  <title>Enable The Wall in Safari</title>
+  <style>
+    :root {
+      --wall-primary: #b72b00;
+      --wall-primary-dark: #8a1f00;
+      --wall-secondary: #2b8a3e;
+      --wall-bg: #fffaf6;
+      --wall-surface: #ffffff;
+      --wall-surface-variant: #f5ece4;
+      --wall-on-surface: #1d1916;
+      --wall-on-surface-soft: rgba(29, 25, 22, 0.6);
+      --wall-on-surface-mute: rgba(29, 25, 22, 0.45);
+      --wall-outline: #e6dccf;
+      --wall-shadow: 0 2px 12px rgba(183, 43, 0, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --wall-bg: #1a1614;
+        --wall-surface: #221d1a;
+        --wall-surface-variant: #2b231e;
+        --wall-on-surface: #f6efe7;
+        --wall-on-surface-soft: rgba(246, 239, 231, 0.7);
+        --wall-on-surface-mute: rgba(246, 239, 231, 0.5);
+        --wall-outline: #3a302a;
+        --wall-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+      background: var(--wall-bg);
+      color: var(--wall-on-surface);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+      padding: max(env(safe-area-inset-top), 16px) 16px calc(max(env(safe-area-inset-bottom), 16px) + 80px);
+    }
+
+    .wrap {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Status banner */
+    .status {
+      position: sticky;
+      top: 8px;
+      z-index: 10;
+      background: var(--wall-surface);
+      border: 1px solid var(--wall-outline);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--wall-shadow);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .status.is-active {
+      background: color-mix(in srgb, var(--wall-secondary) 12%, var(--wall-surface));
+      border-color: color-mix(in srgb, var(--wall-secondary) 35%, var(--wall-outline));
+    }
+    .status__dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--wall-on-surface-mute);
+      flex-shrink: 0;
+      position: relative;
+    }
+    .status__dot::before {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      background: inherit;
+      opacity: 0.35;
+      animation: pulse 1.8s ease-out infinite;
+    }
+    .status.is-active .status__dot {
+      background: var(--wall-secondary);
+    }
+    .status.is-active .status__dot::before {
+      animation: none;
+      opacity: 0;
+    }
+    .status__text {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .status__hint {
+      font-size: 12px;
+      color: var(--wall-on-surface-soft);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .status__col { display: flex; flex-direction: column; min-width: 0; }
+    @keyframes pulse {
+      0%   { transform: scale(0.6); opacity: 0.6; }
+      80%  { transform: scale(1.6); opacity: 0; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 32px 8px 8px;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: color-mix(in srgb, var(--wall-primary) 12%, transparent);
+      color: var(--wall-primary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .hero__title {
+      font-size: clamp(26px, 6vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 12px 0 8px;
+    }
+    .hero__sub {
+      color: var(--wall-on-surface-soft);
+      font-size: 15px;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    /* Step cards */
+    .step {
+      background: var(--wall-surface-variant);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 16px;
+      box-shadow: var(--wall-shadow);
+    }
+    .step__head { display: flex; align-items: center; gap: 12px; }
+    .step__badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--wall-primary), var(--wall-primary-dark));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 2px 6px rgba(183, 43, 0, 0.35);
+    }
+    .step__title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .step__desc {
+      color: var(--wall-on-surface-soft);
+      font-size: 14px;
+      margin: 10px 0 14px;
+    }
+
+    /* Step 1 visual: phone toolbar mock with arrow */
+    .toolbar-mock {
+      position: relative;
+      background: var(--wall-surface);
+      border-radius: 12px;
+      padding: 14px 12px 18px;
+      border: 1px solid var(--wall-outline);
+      overflow: hidden;
+    }
+    .toolbar-mock__url {
+      background: color-mix(in srgb, var(--wall-on-surface) 8%, transparent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--wall-on-surface-soft);
+    }
+    .toolbar-mock__aa {
+      background: var(--wall-surface);
+      border: 1px solid var(--wall-outline);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-weight: 700;
+      color: var(--wall-on-surface);
+      font-size: 14px;
+      box-shadow: 0 0 0 0 rgba(183, 43, 0, 0.5);
+      animation: aaPulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes aaPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(183, 43, 0, 0.6); }
+      50%      { box-shadow: 0 0 0 10px rgba(183, 43, 0, 0); }
+    }
+    .toolbar-mock__site { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .toolbar-mock__arrow {
+      position: absolute;
+      left: 30px;
+      bottom: -2px;
+      color: var(--wall-primary);
+      font-size: 32px;
+      animation: arrowBounce 1.4s ease-in-out infinite;
+      filter: drop-shadow(0 2px 4px rgba(183, 43, 0, 0.35));
+    }
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(-4px); }
+      50%      { transform: translateY(4px); }
+    }
+
+    /* Step 2 visual: GIF */
+    .step__gif {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--wall-outline);
+      background: var(--wall-surface);
+    }
+
+    /* Footer / verification CTA */
+    .check {
+      margin-top: 18px;
+      text-align: center;
+    }
+    .check__btn {
+      appearance: none;
+      border: 1.5px solid var(--wall-primary);
+      background: transparent;
+      color: var(--wall-primary);
+      font: inherit;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .check__btn:active {
+      background: var(--wall-primary);
+      color: #fff;
+    }
+
+    /* Success overlay */
+    .success {
+      margin-top: 18px;
+      background: color-mix(in srgb, var(--wall-secondary) 10%, var(--wall-surface));
+      border: 1px solid color-mix(in srgb, var(--wall-secondary) 30%, var(--wall-outline));
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      display: none;
+    }
+    .success.is-visible {
+      display: block;
+      animation: rise 0.5s ease-out;
+    }
+    .success__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: var(--wall-secondary);
+      color: #fff;
+      display: inline-grid;
+      place-items: center;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    .success__title { font-size: 19px; font-weight: 700; color: var(--wall-secondary); }
+    .success__hint { color: var(--wall-on-surface-soft); font-size: 14px; margin-top: 6px; }
+    @keyframes rise {
+      from { transform: translateY(8px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Trust footer */
+    .trust {
+      text-align: center;
+      color: var(--wall-on-surface-mute);
+      font-size: 12px;
+      margin-top: 28px;
+      padding: 0 8px;
+    }
+    .trust a { color: inherit; text-decoration: underline; }
+
+    /* RTL */
+    html[dir="rtl"] .toolbar-mock__arrow { left: auto; right: 30px; transform: scaleX(-1); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="status" class="status" role="status" aria-live="polite">
+      <span class="status__dot" aria-hidden="true"></span>
+      <span class="status__col">
+        <span id="statusText" class="status__text">Looking for The Wall…</span>
+        <span class="status__hint">We'll detect it as soon as the extension is enabled.</span>
+      </span>
+    </div>
+
+    <header class="hero">
+      <span class="hero__badge">SAFARI EXTENSION</span>
+      <h1 class="hero__title">Enable The Wall</h1>
+      <p class="hero__sub">Two taps in Safari and you're protected on every site.</p>
+    </header>
+
+    <section class="step" aria-labelledby="step1Title">
+      <div class="step__head">
+        <span class="step__badge" aria-hidden="true">1</span>
+        <h2 id="step1Title" class="step__title">Tap the AA button</h2>
+      </div>
+      <p class="step__desc">It's in the bottom-left of the address bar on this page.</p>
+      <div class="toolbar-mock" aria-hidden="true">
+        <div class="toolbar-mock__url">
+          <span class="toolbar-mock__aa">AA</span>
+          <span class="toolbar-mock__site">techforpalestine.org</span>
+        </div>
+        <span class="toolbar-mock__arrow">↓</span>
+      </div>
+    </section>
+
+    <section class="step" aria-labelledby="step2Title">
+      <div class="step__head">
+        <span class="step__badge" aria-hidden="true">2</span>
+        <h2 id="step2Title" class="step__title">Manage Extensions → Turn on The Wall</h2>
+      </div>
+      <p class="step__desc">Choose Manage Extensions, then flip the switch.</p>
+      <img class="step__gif" src="safari-enable.gif" alt="Animated tutorial showing the AA menu and Manage Extensions screen with The Wall toggle." width="320" height="210" loading="eager" />
+    </section>
+
+    <div id="success" class="success" aria-live="assertive">
+      <div class="success__icon" aria-hidden="true">✓</div>
+      <div class="success__title">The Wall is active</div>
+      <p class="success__hint">You can close this tab and browse normally.</p>
+    </div>
+
+    <div id="check" class="check">
+      <button id="checkBtn" class="check__btn" type="button">I've enabled it</button>
+    </div>
+
+    <p class="trust">
+      Free, open source, and built for Palestine. <br />
+      <a href="https://techforpalestine.org">techforpalestine.org</a>
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var statusEl = document.getElementById("status");
+      var statusText = document.getElementById("statusText");
+      var successEl = document.getElementById("success");
+      var checkEl = document.getElementById("check");
+      var checkBtn = document.getElementById("checkBtn");
+
+      var detected = false;
+
+      function markActive(reason) {
+        if (detected) return;
+        detected = true;
+        statusEl.classList.add("is-active");
+        statusText.textContent = "The Wall is enabled";
+        successEl.classList.add("is-visible");
+        checkEl.style.display = "none";
+        try { console.info("[TheWall landing] detected:", reason); } catch (e) {}
+      }
+
+      // 1) Listen for a custom event the content script can dispatch.
+      window.addEventListener("thewall:active", function () { markActive("event"); }, false);
+
+      // 2) Listen for postMessage handshakes from the content script.
+      window.addEventListener("message", function (event) {
+        if (!event || !event.data) return;
+        var data = event.data;
+        if (data === "thewall:active" || (typeof data === "object" && data.source === "the-wall" && data.type === "active")) {
+          markActive("postMessage");
+        }
+      }, false);
+
+      // 3) Poll for known DOM markers (set by the content script if we ever wire it).
+      function check() {
+        if (detected) return;
+        if (window.theWallExtension === true || window.theWallExtension === "active") {
+          markActive("window flag");
+          return;
+        }
+        if (document.querySelector('meta[name="thewall-extension"][content="active"]')) {
+          markActive("meta tag");
+          return;
+        }
+        if (document.documentElement.getAttribute("data-thewall-active") === "true") {
+          markActive("data attribute");
+          return;
+        }
+      }
+
+      // 4) Watch for any element the extension might inject.
+      var observer = new MutationObserver(function (mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          var nodes = mutations[i].addedNodes;
+          for (var j = 0; j < nodes.length; j++) {
+            var node = nodes[j];
+            if (node.nodeType !== 1) continue;
+            var el = node;
+            if (el.id && /^(the[-_]?wall|thewall)/i.test(el.id)) {
+              markActive("injected id=" + el.id);
+              return;
+            }
+            if (el.className && typeof el.className === "string" && /the[-_]?wall|thewall/i.test(el.className)) {
+              markActive("injected class");
+              return;
+            }
+          }
+        }
+      });
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+
+      // Initial + periodic poll for the first 30 seconds.
+      check();
+      var interval = setInterval(function () {
+        check();
+        if (detected) clearInterval(interval);
+      }, 1000);
+      setTimeout(function () { clearInterval(interval); }, 30000);
+
+      // Manual confirmation fallback.
+      checkBtn.addEventListener("click", function () {
+        markActive("manual");
+      });
+    })();
+  </script>
+</body>
+</html>
