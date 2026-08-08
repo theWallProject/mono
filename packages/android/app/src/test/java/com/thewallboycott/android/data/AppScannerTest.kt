@@ -330,6 +330,122 @@ class AppScannerTest {
         )
     }
 
+    // ==================== Curated App IDs ====================
+
+    @Test
+    fun scan_matchesByAndroidCuratedAppId() = runTest {
+        // An entry whose curated list contains the installed package should flag it,
+        // even when androidAppIds is null. This is the post-<queries> path: the
+        // build-time generator emits curated_app_ids into <queries>, and the
+        // runtime matcher must recognise them.
+        val curatedEntry = AllItem(
+            id = "curated_only",
+            r = listOf("h"),
+            n = "Curated Co",
+            androidDevId = "com.curated",
+            androidCuratedAppIds = listOf("com.curated.alpha", "com.curated.beta")
+        )
+        val packages = listOf(fakePackage("com.curated.beta"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(curatedEntry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertEquals("Curated app ID should flag the package", 1, results.blacklisted.size)
+        assertEquals("Curated Co", results.blacklisted[0].second.n)
+    }
+
+    @Test
+    fun scan_curatedOnly_withoutDevIdOrAppIds_stillMatches() = runTest {
+        // Entries that declare only curated_app_ids (no dev_id, no app_ids) must
+        // still match — schema allows curated as the sole Android signal.
+        val curatedOnly = AllItem(
+            id = "curated_solo",
+            r = listOf("f"),
+            n = "Solo Co",
+            androidCuratedAppIds = listOf("com.solo.app")
+        )
+        val packages = listOf(fakePackage("com.solo.app"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(curatedOnly)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertEquals("Curated-only entry should still flag", 1, results.blacklisted.size)
+        assertEquals("Solo Co", results.blacklisted[0].second.n)
+    }
+
+    @Test
+    fun scan_curatedAppId_unrelatedPackage_doesNotMatch() = runTest {
+        // A package not present in curated, app_ids, or dev_id namespace must not match.
+        val curatedEntry = AllItem(
+            id = "curated_other",
+            r = listOf("h"),
+            n = "Curated Other",
+            androidCuratedAppIds = listOf("com.curated.alpha")
+        )
+        val packages = listOf(fakePackage("com.unrelated.app"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(curatedEntry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertTrue("Unrelated package must not match curated entry", results.blacklisted.isEmpty())
+        assertEquals("Should be in other", 1, results.other.size)
+    }
+
+    @Test
+    fun scan_hint_matchesByCuratedAppId() = runTest {
+        // Regression guard: previously the hint matcher only consulted androidAppIds
+        // and silently ignored curated_app_ids. After the fix, hints with curated
+        // expansions must match at runtime.
+        val hintEntry = AllItem(
+            id = "hint_curated",
+            r = emptyList(),
+            n = "Hint Curated",
+            isHint = true,
+            hintText = "Try the alternative",
+            androidCuratedAppIds = listOf("com.hint.curated.app")
+        )
+        val packages = listOf(fakePackage("com.hint.curated.app"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(hintEntry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertTrue("blacklisted should be empty", results.blacklisted.isEmpty())
+        assertEquals("hinted should have 1 (matched via curated)", 1, results.hinted.size)
+        assertEquals("Hint Curated", results.hinted[0].second.n)
+    }
+
+    @Test
+    fun scan_curatedMatch_blacklistTakesPriorityOverHint() = runTest {
+        // When the same package matches a blacklist entry via curated AND a hint
+        // entry via curated, the blacklist must still win.
+        val blacklistEntry = AllItem(
+            id = "dual_curated_black",
+            r = listOf("h"),
+            n = "Dual Curated Co",
+            androidCuratedAppIds = listOf("com.dual.curated.app")
+        )
+        val hintEntry = AllItem(
+            id = "dual_curated_hint",
+            r = emptyList(),
+            n = "Dual Curated Hint",
+            isHint = true,
+            hintText = "Alternative",
+            androidCuratedAppIds = listOf("com.dual.curated.app")
+        )
+        val packages = listOf(fakePackage("com.dual.curated.app"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(blacklistEntry, hintEntry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertEquals("blacklisted should win", 1, results.blacklisted.size)
+        assertTrue("hinted should be empty", results.hinted.isEmpty())
+    }
+
     // ==================== Real Database Integration ====================
 
     @Test

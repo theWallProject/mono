@@ -55,6 +55,14 @@ data class AllItem(
     /** Array of full Android app package IDs for exact matching */
     @SerialName("android_app_ids")
     val androidAppIds: List<String>? = null,
+    /**
+     * Curated expansions for `android_dev_id` prefixes. The build-time queries
+     * manifest generator reads this from ALL.json; runtime scanning uses
+     * androidAppIds for matching, so this field is only deserialized to keep
+     * Json {ignoreUnknownKeys} off and surface schema drift early.
+     */
+    @SerialName("android_curated_app_ids")
+    val androidCuratedAppIds: List<String>? = null,
     /** Hint for an alternative Android app */
     @SerialName("hint_android_id")
     val hintAndroidId: String? = null

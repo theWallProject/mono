@@ -1026,6 +1026,7 @@ export const manualOverrides: Record<
     gh: ["https://github.com/au10tixmobile"],
     urls: ["https://play.google.com/store/apps/developer?id=Au10tix"],
     android_dev_id: "com.au10tix",
+    android_curated_app_ids: ["com.au10tix"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   "AV Design Studio": {
@@ -8408,6 +8409,7 @@ export const manualOverrides: Record<
       "https://play.google.com/store/apps/developer?id=Bluesky+PBLLC"
     ],
     android_dev_id: "xyz.blueskyweb",
+    android_curated_app_ids: ["xyz.blueskyweb.app"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   Bluespine: {
@@ -12734,7 +12736,6 @@ export const manualOverrides: Record<
       "https://coolautomation.my.salesforce-sites.com/OrderForm/resource/15000/OrderForm/index.html",
       "https://professional.coolremote.net"
     ],
-    android_dev_id: "CoolAutomation",
     _meta: { isHomepage: true, isVerified: true }
   },
   CoolVOC: {
@@ -16893,7 +16894,6 @@ export const manualOverrides: Record<
     gh: ["https://github.com/Earnix"],
     ytp: ["https://www.youtube.com/@Earnix_Inc"],
     urls: ["https://play.google.com/store/apps/developer?id=Earnix+Ltd"],
-    android_dev_id: "mobile.app1hh7BC4Jb6",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Earth Force Technologies": {
@@ -26183,7 +26183,6 @@ export const manualOverrides: Record<
   },
   "IFeel Labs": {
     ws: ["https://ifeellabs.com"],
-    android_dev_id: "iFeel+Labs",
     _meta: { isHomepage: true, isVerified: true }
   },
   "IGOS-MN RF Shielding": {
@@ -29061,7 +29060,6 @@ export const manualOverrides: Record<
     ws: ["https://joyvoo.com"],
     li: ["https://www.linkedin.com/company/joyvoo"],
     urls: ["https://apps.apple.com/us/developer/joyvoo-ltd/id441053285"],
-    android_dev_id: "Joyvoo+LTD",
     _meta: { isHomepage: true, isVerified: true }
   },
   Jubaan: {
@@ -36140,6 +36138,7 @@ export const manualOverrides: Record<
       "https://play.google.com/store/apps/developer?id=MoonPay"
     ],
     android_dev_id: "com.moonpay",
+    android_curated_app_ids: ["com.moonpay.android"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Moonshot AI": {
@@ -37956,7 +37955,6 @@ export const manualOverrides: Record<
       "https://apps.apple.com/us/developer/neuro-hero-limited/id739746387",
       "https://www.pinterest.ie/NeuroHero"
     ],
-    android_dev_id: "Neuro Hero Ltd",
     _meta: { isHomepage: true, isVerified: true }
   },
   NeuroBlade: {
@@ -39427,6 +39425,7 @@ export const manualOverrides: Record<
       "https://job-boards.greenhouse.io/omadahealth"
     ],
     android_dev_id: "com.healthcoda",
+    android_curated_app_ids: ["com.healthcoda.app"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   "OmegaPH Business Consulting": {
@@ -49406,6 +49405,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCm-vzfQy1lNglsXRBY6Vu5w"],
     urls: ["https://play.google.com/store/apps/developer?id=Zimperium+INC."],
     android_dev_id: "com.sentinelone",
+    android_curated_app_ids: ["com.sentinelone.mobile.android"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   Sentra: {
@@ -50499,6 +50499,7 @@ export const manualOverrides: Record<
       "https://play.google.com/store/apps/developer?id=Silverfort+Inc."
     ],
     android_dev_id: "com.silverfort",
+    android_curated_app_ids: ["com.silverfort.mobile"],
     alt: [
       { n: "Keycloak", ws: "https://www.keycloak.org" },
       { n: "BeyondTrust", ws: "https://www.beyondtrust.com" },
@@ -53095,7 +53096,6 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/strixdrones"],
     ytp: ["https://www.youtube.com/@strixdrones489"],
     urls: ["https://apps.apple.com/us/developer/strix-drones/id1234567890", "https://medium.com/@strixdrones"],
-    android_dev_id: "Strix+Drones",
     _meta: { isHomepage: true, isVerified: true }
   },
   StrongDM: {
@@ -62150,6 +62150,7 @@ export const manualOverrides: Record<
       { n: "Tilda", ws: "https://tilda.cc" }
     ],
     android_dev_id: "com.wix",
+    android_curated_app_ids: ["com.wix.admin", "com.wix.android", "com.wix.restaurants", "com.wix.spaces"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Wix Japan": {

@@ -37,6 +37,19 @@ pnpm lint
 pnpm clean
 ```
 
+## Debugging on Device
+
+ADB helpers live in `scripts/`:
+
+- [`scripts/adb.sh`](scripts/adb.sh) — install / uninstall / clear-data / generic logcat (`bash scripts/adb.sh install`).
+- [`scripts/trigger-worker.sh`](scripts/trigger-worker.sh) — exercise the background `ScanWorker` end-to-end. Triggers one-shot scans, force-runs the periodic JobScheduler job, simulates `PACKAGE_ADDED` broadcasts, and tails the relevant log tags. See [`scripts/trigger-worker.md`](scripts/trigger-worker.md) for the full command reference.
+
+```bash
+bash scripts/trigger-worker.sh scan       # one-shot scan
+bash scripts/trigger-worker.sh force-now  # re-run periodic job, ignore constraints
+bash scripts/trigger-worker.sh logs       # tail ScanWorker / receivers / WorkManager
+```
+
 ## Release
 
 ### First-Time Setup
@@ -235,7 +248,10 @@ scripts/
 ├── build.sh                  # Build with JAVA_HOME setup
 ├── release.sh                # Full release workflow
 ├── bump-version.sh           # Version incrementing
-└── validate-metadata.sh      # Metadata validation
+├── validate-metadata.sh      # Metadata validation
+├── adb.sh                    # ADB helpers (install/uninstall/logcat)
+├── trigger-worker.sh         # ScanWorker testing harness (see trigger-worker.md)
+└── trigger-worker.md         # Worker-trigger command reference
 
 fastlane/
 └── metadata/android/         # Play Store metadata

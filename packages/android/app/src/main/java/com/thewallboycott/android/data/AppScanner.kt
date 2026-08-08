@@ -89,15 +89,27 @@ class AppScanner(
 
     /**
      * Checks if a database item matches a given package name.
-     * Matches by exact app ID or developer ID prefix.
      *
-     * Developer ID matching requires a dot separator to prevent false positives:
-     * - devId="com.wix" matches "com.wix.android" (dot after prefix)
-     * - devId="com.wix" matches "com.wix" (exact match)
-     * - devId="com.wix" does NOT match "com.wixsite.builder" (no dot separator)
+     * Three matching strategies, all of which only ever see packages enumerated
+     * in the build-time-generated <queries> manifest (we no longer hold
+     * QUERY_ALL_PACKAGES, so the OS will not surface anything else):
+     *  1. Exact match against `android_app_ids` (curated by the scrapper).
+     *  2. Exact match against `android_curated_app_ids` (the schema field that
+     *     expands a developer prefix into concrete package IDs at build time).
+     *  3. Prefix match against `android_dev_id`. Under <queries> this branch is
+     *     largely redundant — the OS only returns packages we already
+     *     enumerated — but it remains as a defensive catch in case a curated
+     *     entry happens to share a dev_id namespace (e.g. dev_id="com.wix",
+     *     curated app "com.wix.admin" is correctly attributed to Wix without
+     *     us listing the dev_id mapping in two places).
+     *
+     * Developer ID prefix matching requires a dot separator to prevent false
+     * positives: devId="com.wix" matches "com.wix.android" and "com.wix" but
+     * NOT "com.wixsite.builder".
      */
     private fun matchesPackage(item: AllItem, packageName: String): Boolean {
         return (item.androidAppIds?.contains(packageName) == true) ||
+            (item.androidCuratedAppIds?.contains(packageName) == true) ||
             (item.androidDevId?.let { packageName.startsWith("$it.") || packageName == it } == true)
     }
 }

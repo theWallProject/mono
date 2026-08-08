@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug-only manifest overlay. Merged on top of app/src/main/AndroidManifest.xml
+  for debug builds and stripped entirely from release. Hosts ADB-only test
+  hooks that must not ship to production.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <!--
+          ADB trigger for the ScanWorker. Lets `adb shell am broadcast` enqueue
+          a one-shot scan with forceNotify=true, without launching MainActivity.
+
+          See: scripts/trigger-worker.sh, app/src/debug/.../ScanTriggerReceiver.kt
+        -->
+        <receiver
+            android:name=".background.ScanTriggerReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.thewallboycott.android.action.TRIGGER_SCAN" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

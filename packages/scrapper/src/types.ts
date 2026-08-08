@@ -126,6 +126,13 @@ const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   android_dev_id: z.string().optional(),
   /** Array of full Android app package IDs for exact matching */
   android_app_ids: z.array(z.string()).optional(),
+  /**
+   * Curated expansions for `android_dev_id` prefixes. Android's <queries>
+   * element only matches exact package names, never prefixes — so any entry
+   * with `android_dev_id` whose installed apps don't share the dev-id literally
+   * MUST enumerate them here for the Android scanner to detect them.
+   */
+  android_curated_app_ids: z.array(z.string()).optional(),
   /** Custom evidence text - required when reason 'c' (Custom) is used */
   proof_text: z.string().optional(),
   /** URL to source/evidence - required when reason 'c' (Custom) is used */
@@ -159,6 +166,13 @@ export const CompressedManualItemSchema = z
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
     android_app_ids: z.array(z.string()).optional(),
+    /**
+     * Curated expansions for `android_dev_id` prefixes. Android's <queries>
+     * element only matches exact package names, never prefixes — so any entry
+     * with `android_dev_id` whose installed apps don't share the dev-id literally
+     * MUST enumerate them here for the Android scanner to detect them.
+     */
+    android_curated_app_ids: z.array(z.string()).optional(),
     /** Custom evidence text - required when reason 'c' (Custom) is used */
     proof_text: z.string().optional(),
     /** URL to source/evidence - required when reason 'c' (Custom) is used */
@@ -225,6 +239,13 @@ export const ManualEntrySchema = z
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
     android_app_ids: z.array(z.string()).optional(),
+    /**
+     * Curated expansions for `android_dev_id` prefixes. Android's <queries>
+     * element only matches exact package names, never prefixes — so any entry
+     * with `android_dev_id` whose installed apps don't share the dev-id literally
+     * MUST enumerate them here for the Android scanner to detect them.
+     */
+    android_curated_app_ids: z.array(z.string()).optional(),
     /** Custom evidence text - required when reason 'c' (Custom) is used */
     proof_text: z.string().optional(),
     /** URL to source/evidence - required when reason 'c' (Custom) is used */
@@ -286,6 +307,12 @@ export type ManualOverrideFields = {
    * Use this when you want to block specific apps rather than all apps from a developer.
    */
   android_app_ids?: string[]
+  /**
+   * Curated expansions for an `android_dev_id` prefix. Required when an entry
+   * has `android_dev_id` but the installed apps do not share the dev-id
+   * literally (e.g. dev-id "com.wix" but actual app "com.wix.admin").
+   */
+  android_curated_app_ids?: string[]
   /**
    * Unsupported/uncategorized URLs collected during extraction.
    * These are URLs that couldn't be mapped to a specific link field.
