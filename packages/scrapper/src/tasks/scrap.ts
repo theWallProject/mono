@@ -16,9 +16,23 @@ type ScrappingConfig = {
 }
 
 const homeUrl = "https://www.crunchbase.com"
+// Slow, human-ish pacing helpers (avoid rate limits / bot detection)
+const sleepRaw = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms))
+const jitter = (min: number, max: number): number => min + Math.random() * (max - min)
+// SCRAP_PACING: <1 = faster (e.g. 0.5 doubles speed), >1 = slower. Default 1.
+const PACE = (() => {
+  const v = Number(process.env.SCRAP_PACING)
+  return Number.isFinite(v) && v > 0 ? v : 1
+})()
+const pacedSleep = async (min: number, max: number): Promise<void> => sleepRaw(jitter(min, max) * PACE)
+// If the filtered count stays above this, the rank range didn't apply (full search shown).
+// Rank ranges are sized to stay under ~1000 results each.
+const RANK_RETRY_THRESHOLD = 1500
+// NOTE: rank ranges disabled for now (searches have no CB Rank filter set; UI moved).
+// Each stage is scraped in a single pass; enable rank-splitting later via SCRAP_USE_RANK.
 const filterStages: ScrappingConfig[] = [
   {
-    cbSearchUrl: "https://www.crunchbase.com/discover/saved/israel-active/ec0496b1-5137-4e73-a3eb-a9e7ea6b2900",
+    cbSearchUrl: "https://www.crunchbase.com/discover/saved/hq-in-israel-active/deaa5454-5810-4e44-890a-afe06235eb47",
     reasons: [APIListOfReasons.HeadQuarterInIL],
     fileName: "HQ_ISR",
     cbSteps: [
@@ -44,7 +58,7 @@ const filterStages: ScrappingConfig[] = [
     ]
   },
   {
-    cbSearchUrl: "https://www.crunchbase.com/discover/saved/israel-founder-active/a5dfe009-c869-4d34-8b3c-c0213f08056b",
+    cbSearchUrl: "https://www.crunchbase.com/discover/saved/founder-in-israel-active/644e19cd-6cf8-463f-9966-5aa5515cd0cb",
     reasons: [APIListOfReasons.FounderInIL],
     fileName: "FOUNDER_ISR",
     cbSteps: [
@@ -55,7 +69,7 @@ const filterStages: ScrappingConfig[] = [
   },
   {
     cbSearchUrl:
-      "https://www.crunchbase.com/discover/saved/israel-investor-active/04acb0ea-daee-4b71-955b-13c6b95a0483",
+      "https://www.crunchbase.com/discover/saved/investor-in-israel-not-founders-active/e70864f2-2bfa-4b39-b695-7b89ef13b407",
     reasons: [APIListOfReasons.InvestorNotFounderInIL],
     fileName: "INV_NOT_FOUNDER_ISR",
     cbSteps: [
@@ -63,28 +77,6 @@ const filterStages: ScrappingConfig[] = [
       [50001, 999999999]
     ]
   }
-  // {
-  //   cbSearchUrl:
-  //     "https://www.crunchbase.com/lists/berlin-halal-friendly/6dab6829-5be0-4038-a408-edf172fb269a/organization.companies",
-  //   reasons: [APIListOfReasons.FounderInIL],
-  //   fileName: "TMP_BERLIN",
-  //   cbSteps: [
-  //     [1, 130000],
-  //     [130001, 320000],
-  //     [320001, 550000],
-  //     [550001, 840000],
-  //     [840001, 1120000],
-  //     [1120001, 1420000],
-  //     [1420001, 1700000],
-  //     [1700001, 1950000],
-  //     [1950001, 2220000],
-  //     [2220001, 2480000],
-  //     [2480001, 2730000],
-  //     [2730001, 3000000],
-  //     [3000001, 3300000],
-  //     [3300001, 999999999],
-  //   ],
-  // },
 ]
 
 export async function run() {
@@ -97,14 +89,37 @@ export async function run() {
     throw new Error("EMAIL and PASSWORD must be set")
   }
 
-  const browser = await puppeteer.launch({
-    headless: false,
-    // executablePath: "/usr/bin/google-chrome",
-    // args: ["--start-maximized"],
-    args: ["--window-size=1800,1000"]
-    // userDataDir,
-  })
+  const launchArgs = [
+    "--window-size=1800,1000",
+    // Required on Ubuntu 23.10+ (AppArmor restricts unprivileged user namespaces)
+    "--no-sandbox",
+    // Hide Chrome automation marker flags from page JS / Cloudflare checks
+    "--disable-blink-features=AutomationControlled",
+    "--disable-infobars"
+  ]
+  // Route through a local CONNECT proxy bound to a different (un-banned) source address.
+  // See scripts/slaac-proxy.mjs — set SCRAP_PROXY_SERVER to enable.
+  if (process.env.SCRAP_PROXY_SERVER) {
+    launchArgs.push(`--proxy-server=${process.env.SCRAP_PROXY_SERVER}`)
+    log(`Using proxy: ${process.env.SCRAP_PROXY_SERVER}`)
+  }
+
+  const browser =
+    process.env.SCRAP_CONNECT === "1"
+      ? await puppeteer.connect({ browserURL: "http://127.0.0.1:9222", defaultViewport: null })
+      : await puppeteer.launch({
+          headless: false,
+          userDataDir: path.join(__dirname, `../../${process.env.SCRAP_PROFILE_DIR || ".browser-profile"}`),
+          args: launchArgs
+        })
   const page = await browser.newPage()
+
+  // Mask automation markers before any page script runs
+  await page.evaluateOnNewDocument(() => {
+    Object.defineProperty(navigator, "webdriver", { get: () => undefined })
+  })
+
+  page.setDefaultTimeout(60000)
 
   page.on("error", (err) => {
     error("Scrap browser error occurred:", err)
@@ -122,24 +137,88 @@ export async function run() {
 
   await page.setViewport({ width: 1800, height: 1000 })
 
-  // Navigate to the page
+  // Navigate to the site; login is ONLY performed when SCRAP_ALLOW_LOGIN=1 (never by default).
   await page.goto(homeUrl, { waitUntil: "domcontentloaded" })
+  await page.waitForNetworkIdle({ timeout: 6000 }).catch(() => {})
+  // give the SPA time to hydrate + restore any session before deciding auth state
+  await sleepRaw(6000)
   await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
+  await sleepRaw(jitter(2000, 3500))
 
-  await page.waitForSelector('[aria-label="Log In"]')
-  await page.click('[aria-label="Log In"]')
-  await page.waitForSelector('[type="email"]')
-  await new Promise((resolve) => setTimeout(resolve, 3000))
+  const auth = await page.evaluate(() => ({
+    hasLoginLink: !!document.querySelector('a[href="/login"]'),
+    hasEmail: !!document.querySelector('[type="email"]')
+  }))
 
-  await page.type('[type="email"]', EMAIL, { delay: 50 })
-  await page.type('[type="password"]', PASSWORD, { delay: 50 })
-  await page.click('[type="submit"]')
-  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
+  const canLogin = process.env.SCRAP_ALLOW_LOGIN === "1"
+
+  if (auth.hasLoginLink || auth.hasEmail) {
+    if (!canLogin) {
+      throw new Error(
+        "NOT LOGGED IN and automated login is disabled (SCRAP_ALLOW_LOGIN is not set). " +
+          "Log in once manually in the profile browser, then re-run this scrape."
+      )
+    }
+    log("SCRAP_ALLOW_LOGIN=1 — performing login...")
+    if (!auth.hasEmail) {
+      await page.evaluate(() => (document.querySelector('a[href="/login"]') as HTMLElement | null)?.click())
+      await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
+    }
+    await page.waitForSelector('[type="email"]', { timeout: 30000 })
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+
+    await humanType(page, '[type="email"]', EMAIL)
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    await page.waitForSelector('[type="password"]', { timeout: 15000 })
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    await humanType(page, '[type="password"]', PASSWORD)
+
+    await new Promise((resolve) => setTimeout(resolve, 700))
+    await page.click('[type="submit"]')
+  } else {
+    log("Session looks authenticated — skipping login.")
+  }
+
+  // Wait for the login to complete (redirect away from /login)
+  log("Waiting for login to complete...")
+  await page
+    .waitForFunction(() => !window.location.pathname.includes("/login"), { timeout: 90000 })
+    .catch(() => {})
+  await page.waitForNetworkIdle({ timeout: 8000 }).catch(() => {})
+
+  const currentPageUrl = page.url()
+  log("Current URL after login:", currentPageUrl)
+
+  const blocked = await page.evaluate(() =>
+    document.body.innerText.includes("Sorry, you have been blocked")
+  )
+  if (blocked) {
+    error("Cloudflare block page detected after login.")
+    await page.screenshot({ path: path.join(__dirname, "../../logs/cf-blocked.png") }).catch(() => {})
+    throw new Error(
+      "Cloudflare blocked the automated browser during login. " +
+        "Try completing the login manually once (headed browser) so the session cookie (cf_clearance) is stored in .browser-profile/"
+    )
+  }
 
   log("Continuing after login...")
+
+  // Hard guard: refuse to scrape while logged out (avoids empty batches & wasted requests)
+  const authed = await page.evaluate(() => !document.querySelector('a[href="/login"]'))
+  if (!authed) {
+    throw new Error(
+      "NOT AUTHENTICATED. No automated login is performed by default. " +
+        "Open the browser manually, log in to Crunchbase once (so the session is stored in the profile), then re-run."
+    )
+  }
   const stageCounts = []
 
   for (const stage of filterStages) {
+    if (process.env.SCRAP_STAGE && !stage.fileName.includes(process.env.SCRAP_STAGE)) {
+      log(`skip stage ${stage.fileName} (SCRAP_STAGE=${process.env.SCRAP_STAGE})`)
+      continue
+    }
     log("processing stage:", stage)
 
     let batchNum = 1
@@ -153,43 +232,52 @@ export async function run() {
       }
 
       log(`before naviagting to ${stage.cbSearchUrl}`)
+      await pacedSleep(1200, 1500)
 
       await page.goto(stage.cbSearchUrl, { waitUntil: "domcontentloaded" })
+      await page.waitForNetworkIdle({ timeout: 8000 }).catch(() => {})
+      await pacedSleep(2000, 2500)
 
-      // log("before reloading");
-      // await page.reload({ waitUntil: "domcontentloaded" });
-
-      await setFilter(page, 0, from)
-      log("after setting from")
-
-      await setFilter(page, 1, to)
-      log("after setting to")
-
-      try {
-        await clickSearchButton(page)
-      } catch (error) {
-        warn("couldnt click search, skipping", error)
+      // Guard: transient "Oops! There was a problem!" crash pages must not become empty batches
+      for (let tries = 0; tries < 3; tries++) {
+        const errPage = await page.evaluate(() => document.body.innerText.includes("Oops! There was a problem!"))
+        if (!errPage) break
+        warn(`\u26a0\ufe0f Crash/error page detected — waiting ${12 + tries * 8}s, then reloading...`)
+        await sleepRaw((12 + tries * 8) * 1000)
+        await page.reload({ waitUntil: "domcontentloaded" })
+        await page.waitForNetworkIdle({ timeout: 8000 }).catch(() => {})
+        await pacedSleep(3000, 5000)
       }
 
-      const resultsInfo = await page.waitForSelector(".component--results-info")
-      if (!resultsInfo) {
-        throw new Error("no results info found")
+      let appliedRange = await setRankFilter(page, from, to)
+      if (!appliedRange) {
+        warn("⚠️ No CB Rank filter found/applyable on this search — scraping full search (uncapped)")
+      } else {
+        log(`rank range applied: ${from} - ${to}`)
       }
 
-      const resultsInfoText = await resultsInfo.evaluate((el) => el.textContent?.trim())
-      log("Results info text:", resultsInfoText)
-      // extract number from pattern "of 789,76 results"
-      const splitResult = resultsInfoText?.split("of")
-      const afterOf = splitResult?.[1]
-      if (afterOf === undefined) {
-        throw new Error("Failed to extract count from results info text")
+      // Read the filtered count. Ranges are sized to stay under ~1000 results; if the count is
+      // far larger (unfiltered full search), the rank didn't take — reload and retry the range.
+      const readCount = async (): Promise<number> => {
+        const resultsInfo = await page.waitForSelector(".component--results-info")
+        if (!resultsInfo) return 0
+        const resultsInfoText = await resultsInfo.evaluate((el) => el.textContent?.trim())
+        log("Results info text:", resultsInfoText)
+        const afterOf = resultsInfoText?.split("of")?.[1]
+        if (afterOf === undefined) return 0
+        const strCount = afterOf.match(/[\d,]+/)?.[0]?.replace(/,/g, "")
+        return strCount ? parseInt(strCount) : 0
       }
-      const strCountFromResultsInfo = afterOf.match(/\d+/)?.[0]
 
-      if (!strCountFromResultsInfo) {
-        throw new Error("no number from results info found")
+      let countFromResultsInfo = await readCount()
+      for (let attempt = 0; attempt < 3 && appliedRange && countFromResultsInfo > RANK_RETRY_THRESHOLD; attempt++) {
+        warn(`\u26a0\ufe0f Rank filter likely didn't apply (count=${countFromResultsInfo} > ${RANK_RETRY_THRESHOLD}) — reloading & retrying range ${from}-${to} (attempt ${attempt + 1})`)
+        await page.reload({ waitUntil: "domcontentloaded" })
+        await page.waitForNetworkIdle({ timeout: 8000 }).catch(() => {})
+        await pacedSleep(2000, 3000)
+        appliedRange = await setRankFilter(page, from, to)
+        countFromResultsInfo = await readCount()
       }
-      const countFromResultsInfo = parseInt(strCountFromResultsInfo)
 
       stageCounts.push({ batchNum, countFromResultsInfo })
 
@@ -225,85 +313,125 @@ export async function run() {
   // await browser.close();
 }
 
+/**
+ * Types text with randomized, human-like delays and clicks into the field first.
+ */
+async function humanType(page: Page, selector: string, text: string): Promise<void> {
+  await page.click(selector)
+  await new Promise((resolve) => setTimeout(resolve, 200 + Math.random() * 400))
+  for (const char of text) {
+    await page.keyboard.type(char)
+    await new Promise((resolve) => setTimeout(resolve, 40 + Math.random() * 130))
+  }
+}
+
+/**
+ * Set the CB Rank (Company) range on the saved search's rank filter:
+ * ensure operator = "between", then fill the two number inputs [from, to].
+ * Returns true when a rank range was applied. Grid auto-refreshes on Enter.
+ */
+async function setRankFilter(page: Page, from: number, to: number): Promise<boolean> {
+  // 1) ensure the value editor is open — click "values" ONLY when no inputs are rendered,
+  //    because clicking an already-open editor collapses it (this was the flakiness)
+  const editorState = await page.evaluate(() => {
+    const row = [...document.querySelectorAll(".component--query-item")]
+      .filter((r) => !/query-item-add/.test(r.className || ""))
+      .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
+    if (!row) return { ok: false, inputs: -1 }
+    const n = [...row.querySelectorAll("input")].filter((i) => i.type !== "hidden" && i.type !== "checkbox").length
+    return { ok: true, inputs: n }
+  })
+  if (!editorState.ok) return false
+  if (editorState.inputs === 0) {
+    const opened = await page.evaluate(() => {
+      const row = [...document.querySelectorAll(".component--query-item")]
+        .filter((r) => !/query-item-add/.test(r.className || ""))
+        .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
+      const v = row?.querySelector(".component--values")
+      if (v) {
+        ;(v as HTMLElement).click()
+        return true
+      }
+      return false
+    })
+    if (!opened) return false
+    await pacedSleep(1400, 2200)
+  }
+
+  // 2) force operator to "between" (the validated commit recipe)
+  const selClicked = await page.evaluate(() => {
+    const row = [...document.querySelectorAll(".component--query-item")]
+      .filter((r) => !/query-item-add/.test(r.className || ""))
+      .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
+    const sel = row?.querySelector<HTMLElement>(".mat-mdc-select, mat-select")
+    if (!sel) return false
+    sel.click()
+    return true
+  })
+  if (!selClicked) return false
+  await pacedSleep(1400, 2200)
+  const picked = await page.evaluate(() => {
+    const opt = [...document.querySelectorAll(".mat-mdc-option, mat-option")].find(
+      (o) => (o as HTMLElement).innerText.trim() === "between"
+    )
+    if (opt) {
+      ;(opt as HTMLElement).click()
+      return true
+    }
+    return false
+  })
+  if (!picked) return false
+  await pacedSleep(1400, 2200)
+
+  // 3) fill the two number inputs [from, to]
+  const filled = await page.evaluate(
+    (from, to) => {
+      const row = [...document.querySelectorAll(".component--query-item")]
+        .filter((r) => !/query-item-add/.test(r.className || ""))
+        .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
+      const ins = row ? [...row.querySelectorAll("input")].filter((i) => i.type !== "hidden" && i.type !== "checkbox") : []
+      if (ins.length < 2) return false
+      const i0 = ins[0] as HTMLInputElement
+      const i1 = ins[1] as HTMLInputElement
+      const desc = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")
+      const setter = desc?.set
+      if (!setter) return false
+      i0.focus()
+      setter.call(i0, String(from))
+      i0.dispatchEvent(new Event("input", { bubbles: true }))
+      i1.focus()
+      setter.call(i1, String(to))
+      i1.dispatchEvent(new Event("input", { bubbles: true }))
+      return true
+    },
+    from,
+    to
+  )
+  if (!filled) return false
+  await sleepRaw(jitter(900, 1500))
+
+  // 4) commit: Enter, then wait for the grid to refresh
+  await page.keyboard.press("Enter")
+  await page.waitForNetworkIdle({ timeout: 15000 }).catch(() => {})
+  await pacedSleep(1200, 2000)
+  return true
+}
+
 function saveResultsToFile(results: CrunchbaseScrappedItemType[], fileName: string) {
   const filePath = path.join(__dirname, "../../results/1_batches/cb/", fileName)
 
   log(`scraping complete. Saving ${results.length} rows to [${filePath}]...`)
   const text = JSON.stringify(results)
 
-  fs.writeFileSync(filePath, text, { flag: "a" })
+  // "w" overwrites any stale/partial content from a previous run (skip-check above means
+  // existing complete batches are never re-written, so overwriting is always safe here)
+  fs.writeFileSync(filePath, text, { flag: "w" })
   log(`Results saved to ${filePath}`)
-}
-
-async function clickSearchButton(page: Page): Promise<void> {
-  log("Clicking the search button...")
-  const searchButtonSelector = '[data-cy="search-button"]'
-
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-  await page.waitForSelector(searchButtonSelector, { timeout: 1000 })
-
-  try {
-    await page.click(searchButtonSelector)
-    log("Search button clicked, waiting for results to load...")
-  } catch (error) {
-    warn("Couldnt click search button button, waiting for results to load...", error)
-  }
-  await new Promise((resolve) => setTimeout(resolve, 5000))
-}
-
-async function setFilter(page: Page, index: number, value: number): Promise<void> {
-  const selector = ".component--number-input .mdc-text-field__input"
-
-  log(`Setting filter for ${selector} with value ${value}[${index}]`)
-
-  // Wait for element to be ready with increased timeout
-  await page.waitForSelector(selector)
-
-  // Use page.$$ to get fresh handles each time
-  const fields = await page.$$(selector)
-  if (!fields[index]) {
-    throw new Error(`Field at index ${index} not found`)
-  }
-
-  // Focus and click using page.evaluate with property checks
-  await page.evaluate((element: unknown) => {
-    // Type narrowing without assertions: check if element has required methods
-    if (element && typeof element === "object" && element !== null && "focus" in element && "select" in element) {
-      // Use Object.getOwnPropertyDescriptor or direct property access
-      // Since we're in browser context, element is a DOM element with these methods
-      const elementRecord: Record<string, unknown> = {}
-      Object.assign(elementRecord, element)
-      const focusMethod = elementRecord["focus"]
-      const selectMethod = elementRecord["select"]
-
-      if (typeof focusMethod === "function" && typeof selectMethod === "function") {
-        // Use Function.prototype.call to invoke without type assertions
-        Function.prototype.call.call(focusMethod, element)
-        Function.prototype.call.call(selectMethod, element)
-      }
-    }
-  }, fields[index])
-
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
-  // Clear existing value
-  await page.keyboard.press("Backspace")
-
-  // Type new value directly
-  await page.keyboard.type(value.toString(), { delay: 100 })
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
-  // Click away to trigger any change events
-  if (index === 1) {
-    await page.mouse.click(500, 100)
-  }
-  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 }
 
 async function processTable(page: Page, stage: ScrappingConfig): Promise<CrunchbaseScrappedItemType[]> {
   const results: CrunchbaseScrappedItemType[] = []
   let hasMore = true
-  let currentFirstRowName = ""
 
   while (hasMore) {
     log("waiting for table body...")
@@ -311,6 +439,7 @@ async function processTable(page: Page, stage: ScrappingConfig): Promise<Crunchb
 
     await page.waitForSelector(".body-wrapper")
     await page.waitForSelector(".body-wrapper grid-row")
+    await pacedSleep(600, 1400)
 
     const rows = await page.$$(".body-wrapper grid-row")
 
@@ -370,25 +499,15 @@ async function processTable(page: Page, stage: ScrappingConfig): Promise<Crunchb
 
     if (hasMore) {
       log("has more... clicking next")
+      // Slow down: random pause before/after pagination
+      await pacedSleep(1200, 2500)
       await nextBtn.click()
 
-      // Wait for the first row to change
-      const newFirstRowSelector = ".body-wrapper grid-row [data-columnid=identifier]"
-
-      currentFirstRowName = await page.evaluate(
-        (selector) => document.querySelector<HTMLDivElement>(selector)?.innerText || "",
-        newFirstRowSelector
-      )
-
-      await page.waitForFunction(
-        (selector, currentName) => document.querySelector<HTMLDivElement>(selector)?.innerText !== currentName,
-        { timeout: 5000 },
-        newFirstRowSelector,
-        currentFirstRowName
-      )
-
-      log("waiting for content to load...")
-      await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
+      // Wait for the new page's data to load (network idle + a short jittered pause).
+      // NOTE: dropped the old per-page 30s "first row changed" wait — it added a ~30s stall
+      // on every page while rows were already unique, and made scrapes ~15x slower.
+      await page.waitForNetworkIdle({ timeout: 10000 }).catch(() => {})
+      await pacedSleep(800, 1500)
     }
   }
 

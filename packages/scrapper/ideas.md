@@ -8,3 +8,4 @@
 - https://team8.vc/portfolio/
 - https://team8.vc/team8-capital/
 - https://team8.vc/team/
+- TEST QUEUED (2026-10-04): try the Query view (Filters | Query toggle) to set the CB Rank range instead of the manual value-editor sequence in setRankFilter — potentially less flaky than the current click-values → operator-dropdown → fill → Enter recipe.
