@@ -10,10 +10,6 @@ import { getExtensionURL, track, trackPageView } from "../helpers"
 import { getI18nMessage } from "../helpers/i18n-keys"
 import styles from "../whats-new.module.css"
 
-const YOUTUBE_VIDEO_ID = "8Zg1xq5SJEw"
-const YOUTUBE_URL = `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`
-const YOUTUBE_THUMBNAIL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`
-
 function WhatsNew() {
   useEffect(() => {
     document.documentElement.style.margin = "0"
@@ -75,16 +71,6 @@ function WhatsNew() {
     window.open("mailto:the.wall.addon@proton.me?subject=Contact - The Wall Extension", "_blank")
   }
 
-  const handleReport = () => {
-    track("Button", "Click", "whatsnew_report")
-    window.open("mailto:the.wall.addon@proton.me?subject=Report - The Wall Extension", "_blank")
-  }
-
-  const handleYouTube = () => {
-    track("Button", "Click", "whatsnew_youtube_telpshow")
-    window.open(YOUTUBE_URL, "_blank")
-  }
-
   const handleDonationImage = () => {
     track("Button", "Click", "whatsnew_donation_image")
   }
@@ -114,16 +100,6 @@ function WhatsNew() {
               <p className={styles.version}>Version 1.15.0</p>
             </div>
           </div>
-
-          {/* Custom Reasons */}
-          <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>Custom Boycott Reasons</h2>
-            <p className={styles.featureText}>
-              We&apos;ve added support for custom boycott reasons with source links. When a company is flagged,
-              you&apos;ll now see the specific connection alongside a &quot;View Source&quot; link that takes you
-              directly to the evidence. More transparency, more accountability.
-            </p>
-          </section>
 
           {/* Urgent Appeal */}
           <section className={`${styles.featureSection} ${styles.urgentSection}`}>
@@ -164,57 +140,6 @@ function WhatsNew() {
                 Donate Monthly
               </button>
             </div>
-          </section>
-
-          {/* Community Spotlight - Telpshow */}
-          <section className={`${styles.featureSection} ${styles.communitySection}`}>
-            <h2 className={styles.sectionTitle}>Community Spotlight</h2>
-            <p className={styles.featureText}>
-              Huge thanks to <strong>Telpshow</strong> for covering The Wall on YouTube and spreading the word. His
-              support means a lot to this project.
-            </p>
-            <div className={styles.videoThumbnailContainer}>
-              <a
-                href={YOUTUBE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.videoThumbnailLink}
-                onClick={handleYouTube}>
-                <div className={styles.videoThumbnailWrapper}>
-                  <img
-                    src={YOUTUBE_THUMBNAIL}
-                    alt="Telpshow's YouTube coverage of The Wall"
-                    className={styles.videoThumbnail}
-                  />
-                  <div className={styles.playOverlay}>
-                    <svg className={styles.playIcon} viewBox="0 0 24 24" fill="white">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-                <span className={styles.videoCaption}>Watch on YouTube</span>
-              </a>
-            </div>
-          </section>
-
-          {/* Install Drop Notice */}
-          <section className={`${styles.featureSection} ${styles.installDropSection}`}>
-            <h2 className={styles.sectionTitle}>Mysterious Install Count Drop</h2>
-            <p className={styles.featureText}>
-              In just a few days, our install count went from over 10,000 to around 3,000 — a disappearance of roughly
-              7,000 installs with no explanation. We suspect this may be a mistake or possibly harassment from Google,
-              and we are actively investigating.
-            </p>
-            <p className={styles.featureText} style={{ fontWeight: "600" }}>
-              If you&apos;ve experienced any issues, please report them.
-            </p>
-            <p className={styles.featureText}>
-              More updates soon. In the meantime, sharing the extension and donating is the best way to help save this
-              project.
-            </p>
-            <button className={styles.reportButton} onClick={handleReport}>
-              Report an Issue
-            </button>
           </section>
         </div>
 
