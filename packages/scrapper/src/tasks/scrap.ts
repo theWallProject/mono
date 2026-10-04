@@ -25,11 +25,12 @@ const PACE = (() => {
   return Number.isFinite(v) && v > 0 ? v : 1
 })()
 const pacedSleep = async (min: number, max: number): Promise<void> => sleepRaw(jitter(min, max) * PACE)
-// If the filtered count stays above this, the rank range didn't apply (full search shown).
-// Rank ranges are sized to stay under ~1000 results each.
-const RANK_RETRY_THRESHOLD = 1500
-// NOTE: rank ranges disabled for now (searches have no CB Rank filter set; UI moved).
-// Each stage is scraped in a single pass; enable rank-splitting later via SCRAP_USE_RANK.
+// Crunchbase caps in-page results at 1000. Ranges exceeding this are auto-split in half
+// (the live count is read first — "fetch the max number" — and only over-cap ranges split).
+const RANGE_CAP = 950
+const MAX_SPLIT_DEPTH = 14
+// Ranges learned from the 2026-10-04 scrape (fine-grained, each ≤ ~1000 results):
+// HQ = 30 buckets, Founder = 16 buckets. Recorded in results/1_batches/cb_ranges.json.
 const filterStages: ScrappingConfig[] = [
   {
     cbSearchUrl: "https://www.crunchbase.com/discover/saved/hq-in-israel-active/deaa5454-5810-4e44-890a-afe06235eb47",
@@ -47,14 +48,25 @@ const filterStages: ScrappingConfig[] = [
       [1000001, 1100000],
       [1100001, 1300000],
       [1300001, 1530000],
-      [1530001, 1800000],
+      [1530001, 1665000],
+      [1665001, 1800000],
       [1800001, 2050000],
       [2050001, 2290000],
       [2290001, 2580000],
       [2580001, 2850000],
-      [2850001, 3180000],
-      [3180001, 3540000],
-      [3540001, 9999999]
+      [2850001, 3015000],
+      [3015001, 3180000],
+      [3180001, 3360000],
+      [3360001, 3540000],
+      [3540001, 3741875],
+      [3741876, 3943750],
+      [3943751, 4145625],
+      [4145626, 4347500],
+      [4347501, 4751250],
+      [4751251, 5155000],
+      [5155001, 5558750],
+      [5558751, 5962500],
+      [5962501, 6770000]
     ]
   },
   {
@@ -62,9 +74,22 @@ const filterStages: ScrappingConfig[] = [
     reasons: [APIListOfReasons.FounderInIL],
     fileName: "FOUNDER_ISR",
     cbSteps: [
-      [1, 150000],
-      [150001, 1200000],
-      [1200001, 999999999]
+      [1, 37500],
+      [37501, 75000],
+      [75001, 150000],
+      [150001, 281250],
+      [281251, 412500],
+      [412501, 543750],
+      [543751, 675000],
+      [675001, 937500],
+      [937501, 1200000],
+      [1200001, 1687696],
+      [1687697, 2175391],
+      [2175392, 2663087],
+      [2663088, 3150782],
+      [3150783, 4126173],
+      [4126174, 5101563],
+      [5101564, 9003125]
     ]
   },
   {
@@ -72,8 +97,10 @@ const filterStages: ScrappingConfig[] = [
       "https://www.crunchbase.com/discover/saved/investor-in-israel-not-founders-active/e70864f2-2bfa-4b39-b695-7b89ef13b407",
     reasons: [APIListOfReasons.InvestorNotFounderInIL],
     fileName: "INV_NOT_FOUNDER_ISR",
+    // HQ-in-Israel and founder-in-Israel are excluded; ranges learned 2026-10-04.
     cbSteps: [
-      [1, 50000],
+      [1, 25000],
+      [25001, 50000],
       [50001, 999999999]
     ]
   }
@@ -213,6 +240,14 @@ export async function run() {
     )
   }
   const stageCounts = []
+  // Seed from the previously recorded sidecar so stages skipped via SCRAP_STAGE keep their ranges.
+  const rangesPath = path.join(__dirname, "../../results/1_batches/cb_ranges.json")
+  const rangesByStage: Record<string, Array<[number, number]>> = {}
+  try {
+    Object.assign(rangesByStage, JSON.parse(fs.readFileSync(rangesPath, "utf8")))
+  } catch {
+    /* no sidecar yet */
+  }
 
   for (const stage of filterStages) {
     if (process.env.SCRAP_STAGE && !stage.fileName.includes(process.env.SCRAP_STAGE)) {
@@ -221,17 +256,26 @@ export async function run() {
     }
     log("processing stage:", stage)
 
+    // Range queue with auto-split: read the live count first; ranges over the 1000-row view
+    // cap are split in half and reprocessed, so nothing is truncated.
+    const rangeQueue: Array<[number, number, number]> = stage.cbSteps.map(([f, t]) => [f, t, 0])
     let batchNum = 1
+    const stageRanges: Array<[number, number]> = []
 
-    for (const [from, to] of stage.cbSteps) {
-      if (fs.existsSync(path.join(__dirname, `../../results/1_batches/cb/${stage.fileName}_${batchNum}.json`))) {
-        warn(`Skipping stage ${stage.fileName}_${batchNum}...`)
+    while (rangeQueue.length > 0) {
+      const item = rangeQueue.shift()
+      if (!item) break
+      const [rangeFrom, rangeTo, depth] = item
+      const outFile = `${stage.fileName}_${batchNum}.json`
+      const outPath = path.join(__dirname, `../../results/1_batches/cb/${outFile}`)
+      if (fs.existsSync(outPath)) {
+        warn(`Skipping existing batch ${outFile}`)
+        stageRanges.push([rangeFrom, rangeTo])
         batchNum += 1
-
         continue
       }
 
-      log(`before naviagting to ${stage.cbSearchUrl}`)
+      log(`before navigating to ${stage.cbSearchUrl} (range ${rangeFrom}-${rangeTo})`)
       await pacedSleep(1200, 1500)
 
       await page.goto(stage.cbSearchUrl, { waitUntil: "domcontentloaded" })
@@ -249,39 +293,41 @@ export async function run() {
         await pacedSleep(3000, 5000)
       }
 
-      let appliedRange = await setRankFilter(page, from, to)
-      if (!appliedRange) {
-        warn("⚠️ No CB Rank filter found/applyable on this search — scraping full search (uncapped)")
-      } else {
-        log(`rank range applied: ${from} - ${to}`)
-      }
+      const appliedRange = await setRankFilter(page, rangeFrom, rangeTo)
+      log(appliedRange ? `rank range applied: ${rangeFrom} - ${rangeTo}` : "\u26a0\ufe0f rank filter not found/applyable — will scrape whatever is shown")
 
-      // Read the filtered count. Ranges are sized to stay under ~1000 results; if the count is
-      // far larger (unfiltered full search), the rank didn't take — reload and retry the range.
+      // Read the filtered count.
       const readCount = async (): Promise<number> => {
         const resultsInfo = await page.waitForSelector(".component--results-info")
         if (!resultsInfo) return 0
         const resultsInfoText = await resultsInfo.evaluate((el) => el.textContent?.trim())
         log("Results info text:", resultsInfoText)
-        const afterOf = resultsInfoText?.split("of")?.[1]
-        if (afterOf === undefined) return 0
-        const strCount = afterOf.match(/[\d,]+/)?.[0]?.replace(/,/g, "")
-        return strCount ? parseInt(strCount) : 0
+        // e.g. "Prev 1-50 Next  of 1,883 results" OR small sets: "36 results"
+        const num = resultsInfoText?.match(/([\d,]+)\s*results?/)?.[1]
+        return num ? parseInt(num.replace(/,/g, ""), 10) : 0
       }
 
-      let countFromResultsInfo = await readCount()
-      for (let attempt = 0; attempt < 3 && appliedRange && countFromResultsInfo > RANK_RETRY_THRESHOLD; attempt++) {
-        warn(`\u26a0\ufe0f Rank filter likely didn't apply (count=${countFromResultsInfo} > ${RANK_RETRY_THRESHOLD}) — reloading & retrying range ${from}-${to} (attempt ${attempt + 1})`)
-        await page.reload({ waitUntil: "domcontentloaded" })
-        await page.waitForNetworkIdle({ timeout: 8000 }).catch(() => {})
-        await pacedSleep(2000, 3000)
-        appliedRange = await setRankFilter(page, from, to)
-        countFromResultsInfo = await readCount()
+      const countFromResultsInfo = await readCount()
+
+      // 0-result ranges (empty tail beyond the max rank) — no table, skip.
+      if (countFromResultsInfo === 0) {
+        warn(`range [${rangeFrom}-${rangeTo}] = 0 results — skipping (nothing to scrape)`)
+        continue
       }
 
-      stageCounts.push({ batchNum, countFromResultsInfo })
+      // Auto-split: only over-cap ranges get split (count is fetched first), halves reprocessed.
+      if (countFromResultsInfo > RANGE_CAP && rangeTo - rangeFrom > 4000 && depth < MAX_SPLIT_DEPTH) {
+        const mid = Math.floor((rangeFrom + rangeTo) / 2)
+        warn(
+          `\u00bb range [${rangeFrom}-${rangeTo}] = ${countFromResultsInfo} (>${RANGE_CAP}) — splitting into [${rangeFrom}-${mid}] and [${mid + 1}-${rangeTo}]`
+        )
+        rangeQueue.unshift([mid + 1, rangeTo, depth + 1])
+        rangeQueue.unshift([rangeFrom, mid, depth + 1])
+        continue
+      }
 
-      // if (resultsInfo) {
+      stageCounts.push({ batch: batchNum, range: `${rangeFrom}-${rangeTo}`, count: countFromResultsInfo })
+
       const textNodes = await page.evaluate(() => {
         const element = document.querySelector(".component--results-info")
         if (!element) return []
@@ -298,17 +344,25 @@ export async function run() {
 
       results.sort((a, b) => a.name.localeCompare(b.name))
       if (results.length !== countFromResultsInfo) {
-        warn(`Size mismatch [${from}]: ${results.length} !== ${countFromResultsInfo}`)
+        warn(`Size mismatch [${rangeFrom}-${rangeTo}]: ${results.length} !== ${countFromResultsInfo}`)
       }
 
-      saveResultsToFile(results, `${stage.fileName}_${batchNum}.json`)
+      saveResultsToFile(results, outFile)
+      stageRanges.push([rangeFrom, rangeTo])
       batchNum += 1
+      await pacedSleep(1500, 2500)
     }
 
+    rangesByStage[stage.fileName] = stageRanges
     log("stageCounts", stageCounts)
     // await page.goto(stage.cbSearchUrl, { waitUntil: "domcontentloaded" });
     // await new Promise((resolve) => setTimeout(resolve, 10000));
   }
+
+  // Record the exact ranges per batch (numeration order) so config can be updated split-free,
+  // independent of the (plain-numbered) filenames.
+  fs.writeFileSync(rangesPath, JSON.stringify(rangesByStage, null, 1))
+  log(`Recorded ${Object.keys(rangesByStage).length} stage(s) of ranges to ${rangesPath}`)
 
   // await browser.close();
 }
@@ -326,94 +380,71 @@ async function humanType(page: Page, selector: string, text: string): Promise<vo
 }
 
 /**
- * Set the CB Rank (Company) range on the saved search's rank filter:
- * ensure operator = "between", then fill the two number inputs [from, to].
- * Returns true when a rank range was applied. Grid auto-refreshes on Enter.
+ * Set the CB Rank (Company) range on the saved search's rank filter.
+ * Query-mode approach (validated): click each rank number input, TYPE the value with real
+ * key events, then Tab — Angular commits on blur. No operator-menu/native-setter tricks.
  */
 async function setRankFilter(page: Page, from: number, to: number): Promise<boolean> {
-  // 1) ensure the value editor is open — click "values" ONLY when no inputs are rendered,
-  //    because clicking an already-open editor collapses it (this was the flakiness)
-  const editorState = await page.evaluate(() => {
-    const row = [...document.querySelectorAll(".component--query-item")]
-      .filter((r) => !/query-item-add/.test(r.className || ""))
-      .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
-    if (!row) return { ok: false, inputs: -1 }
-    const n = [...row.querySelectorAll("input")].filter((i) => i.type !== "hidden" && i.type !== "checkbox").length
-    return { ok: true, inputs: n }
-  })
-  if (!editorState.ok) return false
-  if (editorState.inputs === 0) {
-    const opened = await page.evaluate(() => {
+  // helper: focus the idx-th "Enter number …" input of the rank row via JS (mouse clicks can be
+  // intercepted by overlays on some pages — JS focus is reliable) and TYPE the value as real keys.
+  const typeInto = async (value: number, idx: number): Promise<boolean> => {
+    const ok = await page.evaluate((idx) => {
+      const rows = [...document.querySelectorAll(".component--query-item")]
+        .filter((r) => !/query-item-add/.test(r.className || ""))
+      const rankRow = rows.find((r) => /CB Rank/.test((r as HTMLElement).innerText))
+      const ins = rankRow
+        ? [...rankRow.querySelectorAll("input")].filter((i) => /Enter number/.test(i.placeholder || ""))
+        : []
+      const target = ins[idx]
+      if (target) {
+        ;(target as HTMLInputElement).scrollIntoView({ block: "center" })
+        ;(target as HTMLInputElement).focus()
+        return true
+      }
+      return false
+    }, idx)
+    if (!ok) return false
+    await sleepRaw(jitter(700, 1100))
+    await page.keyboard.type(String(value), { delay: 50 })
+    await sleepRaw(jitter(500, 900))
+    await page.keyboard.press("Tab")
+    await sleepRaw(jitter(1200, 1800))
+    return true
+  }
+
+  // ensure the rank row's inputs are rendered (open the Query view if needed)
+  const rankInputCount = async (): Promise<number> =>
+    page.evaluate(() => {
       const row = [...document.querySelectorAll(".component--query-item")]
         .filter((r) => !/query-item-add/.test(r.className || ""))
         .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
-      const v = row?.querySelector(".component--values")
-      if (v) {
-        ;(v as HTMLElement).click()
+      if (!row) return -1
+      return [...row.querySelectorAll("input")].filter((i) => /Enter number/.test(i.placeholder || "")).length
+    })
+
+  let n = await rankInputCount()
+  if (n < 0) return false
+  if (n < 2) {
+    const q = await page.evaluate(() => {
+      const btn = [...document.querySelectorAll("button")].find((b2) => /^\s*query\s*$/i.test((b2.innerText || "").trim()))
+      if (btn) {
+        btn.click()
         return true
       }
       return false
     })
-    if (!opened) return false
-    await pacedSleep(1400, 2200)
+    if (!q) return false
+    await sleepRaw(jitter(2500, 3500))
+    n = await rankInputCount()
   }
+  if (n < 2) return false
 
-  // 2) force operator to "between" (the validated commit recipe)
-  const selClicked = await page.evaluate(() => {
-    const row = [...document.querySelectorAll(".component--query-item")]
-      .filter((r) => !/query-item-add/.test(r.className || ""))
-      .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
-    const sel = row?.querySelector<HTMLElement>(".mat-mdc-select, mat-select")
-    if (!sel) return false
-    sel.click()
-    return true
-  })
-  if (!selClicked) return false
-  await pacedSleep(1400, 2200)
-  const picked = await page.evaluate(() => {
-    const opt = [...document.querySelectorAll(".mat-mdc-option, mat-option")].find(
-      (o) => (o as HTMLElement).innerText.trim() === "between"
-    )
-    if (opt) {
-      ;(opt as HTMLElement).click()
-      return true
-    }
-    return false
-  })
-  if (!picked) return false
-  await pacedSleep(1400, 2200)
+  if (!(await typeInto(from, 0))) return false
+  if (!(await typeInto(to, 1))) return false
 
-  // 3) fill the two number inputs [from, to]
-  const filled = await page.evaluate(
-    (from, to) => {
-      const row = [...document.querySelectorAll(".component--query-item")]
-        .filter((r) => !/query-item-add/.test(r.className || ""))
-        .find((r) => /CB Rank/.test((r as HTMLElement).innerText))
-      const ins = row ? [...row.querySelectorAll("input")].filter((i) => i.type !== "hidden" && i.type !== "checkbox") : []
-      if (ins.length < 2) return false
-      const i0 = ins[0] as HTMLInputElement
-      const i1 = ins[1] as HTMLInputElement
-      const desc = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")
-      const setter = desc?.set
-      if (!setter) return false
-      i0.focus()
-      setter.call(i0, String(from))
-      i0.dispatchEvent(new Event("input", { bubbles: true }))
-      i1.focus()
-      setter.call(i1, String(to))
-      i1.dispatchEvent(new Event("input", { bubbles: true }))
-      return true
-    },
-    from,
-    to
-  )
-  if (!filled) return false
-  await sleepRaw(jitter(900, 1500))
-
-  // 4) commit: Enter, then wait for the grid to refresh
-  await page.keyboard.press("Enter")
+  // absolutely wait for the grid to refresh before the caller reads the count
   await page.waitForNetworkIdle({ timeout: 15000 }).catch(() => {})
-  await pacedSleep(1200, 2000)
+  await sleepRaw(jitter(6000, 8000))
   return true
 }
 
@@ -437,11 +468,15 @@ async function processTable(page: Page, stage: ScrappingConfig): Promise<Crunchb
     log("waiting for table body...")
     await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 
-    await page.waitForSelector(".body-wrapper")
-    await page.waitForSelector(".body-wrapper grid-row")
+    await page.waitForSelector(".body-wrapper", { timeout: 20000 }).catch(() => {})
+    await page.waitForSelector(".body-wrapper grid-row", { timeout: 20000 }).catch(() => {})
     await pacedSleep(600, 1400)
 
     const rows = await page.$$(".body-wrapper grid-row")
+    if (rows.length === 0) {
+      warn("No table rows found — stopping pagination (partial/empty range)")
+      break
+    }
 
     log(`processing [${rows.length}] rows...`)
     for (const row of rows) {
