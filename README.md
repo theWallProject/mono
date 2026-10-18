@@ -1,3 +1,7 @@
+> **⚠️ Existing clones must be re-cloned.**
+> This repository's Git history was rewritten to strip ~11 GB of scraper website data (`packages/scrapper/logs/`) that made clones enormous.
+> The affected branches were force-pushed, so `git pull`/`fetch` will not work on an old clone — please delete it and clone fresh.
+
 # The Wall Monorepo
 
 Monorepo for The Wall project packages using pnpm workspaces.
