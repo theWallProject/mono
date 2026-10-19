@@ -84,18 +84,25 @@ export const isNumericalLinkedInUrl = (url: string): boolean => {
  * Throws immediately if the page URL indicates a login/auth page.
  * This means the LinkedIn session in the browser profile has expired.
  */
-const assertNotLoginPage = (pageUrl: string): void => {
+const assertNotLoginPage = (pageUrl: string, failHard: boolean): string => {
   const urlPath = new URL(pageUrl).pathname
   for (const pattern of LOGIN_PAGE_PATTERNS) {
     if (pattern.test(urlPath)) {
-      throw new Error(
-        `LinkedIn login required: browser redirected to ${pageUrl}\n` +
-          `The LinkedIn session in the browser profile has expired.\n` +
-          `Fix: run "pnpm data" → "Validate URLs" mode, log into LinkedIn in the browser, then close it.\n` +
-          `Browser profile location: ${BROWSER_PROFILE_DIR}`
-      )
+      if (failHard) {
+        throw new Error(
+          `LinkedIn login required: browser redirected to ${pageUrl}\n` +
+            `The LinkedIn session in the browser profile has expired.\n` +
+            `Fix: run "pnpm data" → "Validate URLs" mode, log into LinkedIn in the browser, then close it.\n` +
+            `Browser profile location: ${BROWSER_PROFILE_DIR}`
+        )
+      }
+      // Non-fatal mode: report the expired session. The caller keeps the
+      // numerical-ID URL as-is; the green-check routes it to the retry list
+      // instead of aborting the whole batch.
+      return pageUrl
     }
   }
+  return ""
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -180,7 +187,8 @@ const applyAntiDetection = async (page: Page): Promise<void> => {
 const resolveOneLinkedInUrl = async (
   numericalUrl: string,
   context: BrowserContext,
-  logger: CompanyLogger
+  logger: CompanyLogger,
+  failHard: boolean
 ): Promise<string | null> => {
   let page: Page | null = null
 
@@ -208,8 +216,12 @@ const resolveOneLinkedInUrl = async (
 
     const finalUrl = page.url().replace(/\/+$/, "")
 
-    // Check for login redirect — fail hard
-    assertNotLoginPage(finalUrl)
+    // Check for login redirect — fatal in failHard mode, otherwise benign
+    const loginUrl = assertNotLoginPage(finalUrl, failHard)
+    if (loginUrl) {
+      logger.log(`  LINKEDIN: session expired (redirected to ${loginUrl}) — keeping numerical ID`)
+      return null
+    }
 
     // Normalize for comparison
     const inputNormalized = numericalUrl.replace(/\/+$/, "").toLowerCase()
@@ -263,12 +275,16 @@ const resolveOneLinkedInUrl = async (
  *
  * Returns a new override object with the resolved URLs added (original is not mutated).
  *
- * @throws {Error} If LinkedIn login has expired (redirects to auth page).
- *   This is a fatal error — the caller should stop the batch.
+ * @param failHard If false, an expired LinkedIn session keeps the numerical-ID
+ *   URL as-is (returning the override unchanged) instead of throwing — so a
+ *   long unattended batch degrades to the retry list rather than aborting.
+ * @throws {Error} If LinkedIn login has expired AND failHard is true.
+ *   The caller should stop the batch.
  */
 export const resolveLinkedInNumericalIds = async <T extends Record<string, unknown>>(
   override: T,
-  logger: CompanyLogger
+  logger: CompanyLogger,
+  failHard = true
 ): Promise<T> => {
   const liField = override.li
   if (!liField) return override
@@ -298,7 +314,7 @@ export const resolveLinkedInNumericalIds = async <T extends Record<string, unkno
 
     const resolvedUrls: string[] = []
     for (const url of numericalUrls) {
-      const resolved = await resolveOneLinkedInUrl(url, context, logger)
+      const resolved = await resolveOneLinkedInUrl(url, context, logger, failHard)
       if (resolved) {
         resolvedUrls.push(resolved)
       }

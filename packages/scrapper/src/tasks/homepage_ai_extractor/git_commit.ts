@@ -17,7 +17,10 @@ import { log } from "../../helper"
 // ────────────────────────────────────────────────────────────────────────────
 
 const PROTECTED_BRANCHES = ["main", "master"] as const
-const GIT_TIMEOUT_MS = 30_000
+// `git add .` from the monorepo root scans a multi-GB working tree (per-company
+// logs + regenerated DB files). 30s was too tight under load (batch + chromium +
+// LLM inference) and execSync kills the process on timeout, aborting the batch.
+const GIT_TIMEOUT_MS = 180_000
 
 // ────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -140,35 +143,40 @@ export const assertGitPreconditions = (): void => {
  * extraction itself succeeded — they're added to the retry list for manual
  * review, but the commit title should reflect that data was extracted.
  *
- * Throws on ANY git failure or if there are unexpectedly no changes to commit.
- * The caller (runBatch) must let this propagate to abort the batch immediately.
+ * Throws on git failures. When there is nothing staged (a same-name company
+ * produced byte-identical data), it logs a NO-OP marker and returns instead of
+ * aborting — the batch tracks and continues. See same_name_collisions tracking
+ * in run.ts / the batch log.
  */
 export const commitCompanyResult = (
   companyName: string,
   success: boolean,
   errorType?: string
 ): void => {
-  // Stage everything from the monorepo root
-  git("add .")
+  // Stage modifications to tracked files only. The batch never creates new
+  // tracked files (per-company logs are gitignored), and `git add .` walks the
+  // entire multi-GB working tree — which can stall and trip the execSync
+  // timeout under load (observed: intermittent fatal `git add .` aborts).
+  // `-u` restricts staging to tracked paths (manualOverrides.ts, retry_list.json,
+  // regenerated ALL.json copies).
+  git("add -u")
 
-  // Verify something was actually staged — if not, something is broken.
-  // saveManualOverrides and addToRetryList always produce file changes,
-  // so an empty staging area is an unexpected invariant violation.
+  // Check whether anything is staged. Nothing staged = the extraction produced
+  // byte-identical data (typically a second entry sharing the same company
+  // name — overrides are keyed by name). That is not data loss, so skip the
+  // commit and continue rather than aborting the whole run.
   try {
     git("diff --cached --quiet")
-    // Exit 0 means nothing is staged — this should never happen
-    throw new Error(
-      `Fatal: no changes to commit after processing "${companyName}". ` +
-        `This is unexpected — saveManualOverrides or addToRetryList should always produce file changes. ` +
-        `Aborting to prevent silent data loss.`
+    log(
+      `  NO-OP: no changes for "${companyName}" — identical to existing override (same-name collision); skipping commit`
     )
+    return
   } catch (err) {
-    // If it's our own "no changes" error, re-throw it
-    if (err instanceof Error && err.message.startsWith("Fatal: no changes")) {
+    // Exit code 1 from `git diff --cached --quiet` means there ARE staged
+    // changes — the happy path. Re-throw any non-"failed command" error.
+    if (err instanceof Error && !err.message.startsWith("Fatal: git command failed")) {
       throw err
     }
-    // Otherwise: exit code 1 from `git diff --cached --quiet` means there
-    // ARE staged changes — this is the happy path, continue to commit.
   }
 
   // Build commit message

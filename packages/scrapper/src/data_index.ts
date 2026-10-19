@@ -82,7 +82,7 @@ const promptForAction = async (): Promise<Action> => {
           value: "quick-verify"
         },
         {
-          name: "AI homepage extraction — Extract social links via LM Studio",
+          name: "AI homepage extraction — Extract social links via local model server",
           value: "homepage-ai"
         },
         new inquirer.Separator(),

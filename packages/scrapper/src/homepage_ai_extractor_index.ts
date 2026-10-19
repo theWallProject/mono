@@ -130,6 +130,7 @@ const handleBatchMode = async (): Promise<void> => {
     log(`  BDS entries skipped: ${stats.bds}`)
     log(`  In retry list: ${stats.retryList}`)
     log(`  Already processed: ${stats.alreadyProcessed}`)
+    log(`  Duplicate-name entries: ${stats.duplicateNames}`)
     log("\nUse 'Retry' mode to re-process failed companies, or add new entries to the database.")
     return
   }
@@ -170,12 +171,12 @@ const main = async () => {
   log("║   Automated social link extraction using AI         ║")
   log("╚══════════════════════════════════════════════════════╝")
   log("")
-  log(`LM Studio: ${HOMEPAGE_AI_EXTRACTOR_CONFIG.lmStudio.baseUrl}`)
-  log(`Model:     ${HOMEPAGE_AI_EXTRACTOR_CONFIG.lmStudio.model}`)
+  log(`Model server: ${HOMEPAGE_AI_EXTRACTOR_CONFIG.provider.baseUrl}`)
+  log(`Model:        ${HOMEPAGE_AI_EXTRACTOR_CONFIG.provider.model}`)
   log("")
 
   // Warm up the model — forces it to load into memory so real requests don't stall
-  log("Warming up LM Studio model (this may take a moment on first run)...")
+  log("Warming up model (this may take a moment on first run)...")
   await warmUpModel()
   log("")
 

@@ -1,5 +1,6 @@
 /**
- * LM Studio API client using the OpenAI-compatible /v1/chat/completions endpoint.
+ * OpenAI-compatible chat completions client (served by Unsloth studio, LM Studio,
+ * or any /v1/chat/completions endpoint).
  *
  * Uses streaming mode (Server-Sent Events) so that:
  *   1. The idle timeout resets on every chunk — the request won't be killed
@@ -57,7 +58,7 @@ const parseSseLine = (line: string): string | null | typeof DONE => {
 }
 
 /**
- * Sends a streaming chat completion request to the LM Studio server.
+ * Sends a streaming chat completion request to the model server.
  *
  * Throws on:
  *   - Connection failure (server down, wrong IP/port)
@@ -72,7 +73,7 @@ export const chatCompletion = async (
   messages: ChatMessage[],
   callbacks: ChatCompletionCallbacks
 ): Promise<string> => {
-  const config = HOMEPAGE_AI_EXTRACTOR_CONFIG.lmStudio
+  const config = HOMEPAGE_AI_EXTRACTOR_CONFIG.provider
   const { log, onProgress } = callbacks
 
   const url = new URL("/v1/chat/completions", config.baseUrl)
@@ -84,10 +85,22 @@ export const chatCompletion = async (
     messages,
     max_tokens: config.maxTokens,
     temperature: config.temperature,
-    stream: true
+    stream: true,
+    // Qwen3.x reasoning models think before answering unless told otherwise.
+    // This task is grounded link-filtering — thinking adds 5-7x latency for
+    // identical output, so it's off by default (see provider.enableThinking).
+    chat_template_kwargs: { enable_thinking: config.enableThinking }
   })
 
-  log(`Connecting to LM Studio at ${config.baseUrl} (model: ${config.model})...`)
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    "Content-Length": String(Buffer.byteLength(requestBody))
+  }
+  if (config.apiKey) {
+    headers.Authorization = `Bearer ${config.apiKey}`
+  }
+
+  log(`Connecting to model server at ${config.baseUrl} (model: ${config.model})...`)
 
   return new Promise<string>((resolve, reject) => {
     let settled = false
@@ -104,7 +117,7 @@ export const chatCompletion = async (
       settle(() =>
         reject(
           new Error(
-            `LM Studio API request exceeded overall deadline of ${config.requestTimeout}ms. ` +
+            `Model server API request exceeded overall deadline of ${config.requestTimeout}ms. ` +
               "The model may be too slow for this prompt size."
           )
         )
@@ -122,8 +135,8 @@ export const chatCompletion = async (
         settle(() =>
           reject(
             new Error(
-              `LM Studio stream idle for ${idleMs}ms with no data. ` +
-                "The server may have stalled. Check LM Studio logs."
+              `Model server stream idle for ${idleMs}ms with no data. ` +
+                "The server may have stalled. Check the model server logs."
             )
           )
         )
@@ -144,10 +157,7 @@ export const chatCompletion = async (
         port: url.port || (isHttps ? 443 : 80),
         path: url.pathname,
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Content-Length": Buffer.byteLength(requestBody)
-        }
+        headers
       },
       (res) => {
         resetIdleTimer()
@@ -162,7 +172,7 @@ export const chatCompletion = async (
             settle(() =>
               reject(
                 new Error(
-                  `LM Studio API returned HTTP ${res.statusCode}: ${body.slice(0, 1000)}`
+                  `Model server returned HTTP ${res.statusCode}: ${body.slice(0, 1000)}`
                 )
               )
             )
@@ -223,7 +233,7 @@ export const chatCompletion = async (
         res.on("error", (err) => {
           cleanup()
           settle(() =>
-            reject(new Error(`LM Studio API response stream error: ${err.message}`))
+            reject(new Error(`Model server API response stream error: ${err.message}`))
           )
         })
       }
@@ -233,7 +243,7 @@ export const chatCompletion = async (
       cleanup()
       settle(() =>
         reject(
-          new Error(`Failed to connect to LM Studio at ${config.baseUrl}: ${err.message}`)
+          new Error(`Failed to connect to model server at ${config.baseUrl}: ${err.message}`)
         )
       )
     })
@@ -244,7 +254,7 @@ export const chatCompletion = async (
 }
 
 /**
- * Warms up the LM Studio model by sending a small request and waiting for a
+ * Warms up the model by sending a small request and waiting for a
  * full response. This forces the model to load into memory (if not already)
  * so that subsequent real requests don't stall on cold-start latency.
  *
@@ -252,7 +262,7 @@ export const chatCompletion = async (
  * the server is unreachable or the model fails to respond.
  */
 export const warmUpModel = async (): Promise<void> => {
-  const config = HOMEPAGE_AI_EXTRACTOR_CONFIG.lmStudio
+  const config = HOMEPAGE_AI_EXTRACTOR_CONFIG.provider
   const startTime = Date.now()
 
   try {
@@ -264,25 +274,25 @@ export const warmUpModel = async (): Promise<void> => {
       }
     )
     if (!response || response.trim().length === 0) {
-      throw new Error("LM Studio returned empty response during warmup")
+      throw new Error("Model server returned empty response during warmup")
     }
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
     console.log(
-      `LM Studio warmed up in ${elapsed}s — model ready (${config.model} @ ${config.baseUrl})`
+      `Model server warmed up in ${elapsed}s — model ready (${config.model} @ ${config.baseUrl})`
     )
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err)
     throw new Error(
-      `LM Studio warmup failed:\n` +
+      `Model server warmup failed:\n` +
         `  Server: ${config.baseUrl}\n` +
         `  Model: ${config.model}\n` +
         `  Error: ${message}\n` +
         `  \n` +
         `  Troubleshooting:\n` +
-        `  1. Is LM Studio running and the model loaded?\n` +
+        `  1. Is the model server running and the model loaded?\n` +
         `  2. Is the server URL correct in config.ts?\n` +
         `  3. Is the network accessible from this machine?\n` +
-        `  4. Is the model name correct? Check LM Studio's loaded models.`
+        `  4. Is the model name correct? Check the server's loaded models.`
     )
   }
 }

@@ -29,6 +29,7 @@ import { isFromRegexDomain } from "../validate/url_categorization"
 import { extractUrlOrigin } from "../validate/url_utils"
 import { chatCompletion } from "./ai_client"
 import type { CompanyLogger } from "./company_logger"
+import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./config"
 import { getOrCreateBrowser, type LinkExtractionResult } from "./link_extractor"
 import { resolveYouTubeChannelHandles } from "./youtube_resolver"
 
@@ -318,8 +319,7 @@ const resolveRedirectForRegexDomain = async (
   try {
     const browser = await getOrCreateBrowser()
     context = await browser.newContext({
-      userAgent:
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      userAgent: HOMEPAGE_AI_EXTRACTOR_CONFIG.playwright.userAgent
     })
     page = await context.newPage()
 

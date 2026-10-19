@@ -1,42 +1,62 @@
 /**
  * Configuration for the Homepage AI Extractor
  *
- * LM Studio server settings, Playwright options, batch parameters, and logging config.
- * Update the lmStudio.baseUrl with your server's IP and port.
+ * OpenAI-compatible model server settings (Unsloth local backend by default),
+ * Playwright options, batch parameters, and logging config.
  */
 
 export const HOMEPAGE_AI_EXTRACTOR_CONFIG = {
-  lmStudio: {
-    /** Base URL for the LM Studio server (OpenAI-compatible API) - set via LM_STUDIO_URL env */
-    baseUrl: (() => {
-      const url = process.env.LM_STUDIO_URL
-      if (!url) throw new Error("LM_STUDIO_URL environment variable is required")
-      return url
-    })(),
-    /** Model identifier as registered in LM Studio */
-    model: "Qwen2.5-72B-Instruct-GGUF",
-    /** Maximum tokens for AI response */
-    maxTokens: 4096,
+  provider: {
+    /** Base URL for the OpenAI-compatible model server - defaults to local Unsloth */
+    baseUrl: process.env.HOMEPAGE_AI_BASE_URL ?? "http://127.0.0.1:8888",
+    /**
+     * API key sent as `Authorization: Bearer`. Set explicitly via
+     * HOMEPAGE_AI_API_KEY. No fallback: if the server needs a key (e.g. to
+     * auto-load an unloaded model), the run fails early rather than guessing.
+     */
+    apiKey: process.env.HOMEPAGE_AI_API_KEY,
+    /** Model identifier as served by the model server */
+    model: process.env.HOMEPAGE_AI_MODEL ?? "unsloth/Qwen3.8-27B-GGUF",
+    /**
+     * Enable the model's hidden reasoning phase (Qwen3.x `enable_thinking`).
+     *
+     * This extraction task is grounded link-filtering — the model must return
+     * only verbatim URLs from the provided list. Reasoning adds a 5-7x latency
+     * cost and produces identical output (measured). Disabled by default, but
+     * trivially re-enabled with HOMEPAGE_AI_ENABLE_THINKING=1 (or flipping this
+     * constant) if a future model or domain-set benefits from it.
+     */
+    enableThinking: process.env.HOMEPAGE_AI_ENABLE_THINKING === "1",
+    /** Maximum tokens for AI response (generous - reasoning models spend tokens thinking) */
+    maxTokens: 8192,
     /** Low temperature for deterministic extraction */
     temperature: 0.1,
-    /** Overall hard deadline for the entire AI request in milliseconds (45 minutes) */
-    requestTimeout: 1000 * 60 * 45,
+    /** Overall hard deadline for the entire AI request in milliseconds (30 minutes) */
+    requestTimeout: 1000 * 60 * 30,
     /**
-     * Max time to wait with no streaming data before considering the server stalled.
-     * Must be generous: LM Studio sends NO data during prompt processing, which can
-     * take 30+ minutes for large prompts on a 72B model (~512 tokens/30s at ~29K tokens).
-     * This only catches true stalls (server crash mid-stream), not slow inference.
+     * Max time to wait with no data before considering the server stalled.
+     * Generous: reasoning models stream `reasoning_content` while thinking, which
+     * keeps the idle timer alive — this only catches true stalls (server crash
+     * mid-stream), not slow inference.
      */
-    streamIdleTimeout: 1000 * 60 * 35
+    streamIdleTimeout: 1000 * 60 * 15
   },
   playwright: {
     /** Page load timeout in milliseconds */
     timeout: 60_000,
     /** Wait for network idle timeout (for JS-rendered content) */
     networkIdleTimeout: 10_000,
-    /** Realistic user agent string */
+    /**
+     * Firefox UA — CRITICAL for Cloudflare WAF bypass.
+     *
+     * Many target sites run Cloudflare WAF rules that block any request whose
+     * UA contains the literal token "Chrome" (measured: 0/20 403-sites pass
+     * with Chrome UA, 10/20 pass with Firefox/Safari on the same IP/TLS).
+     * Firefox UA renders full JS identically — it just avoids the naive
+     * string-based anti-scraper rule.
+     */
     userAgent:
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
     /** Viewport dimensions */
     viewport: { width: 1280, height: 720 }
   },
@@ -50,7 +70,19 @@ export const HOMEPAGE_AI_EXTRACTOR_CONFIG = {
      * that persist after retry) before the entire batch fails hard.
      * Prevents silent degradation when something systemic is wrong.
      */
-    maxSkipsPerBatch: 5
+    maxSkipsPerBatch: 5,
+    /**
+     * Run the full pipeline regeneration (merge → extract → final ALL.json →
+     * copy to addon/android/telegram) every N processed companies.
+     *
+     * Each regen costs ~2-4 minutes on the 18MB merged dataset, so doing it
+     * every 10 companies is a major tax on long batches. Every 50 is a good
+     * balance: the addon DB stays reasonably fresh during a run, and a full
+     * regeneration is always run at the end of the batch.
+     *
+     * Overridable via HOMEPAGE_AI_FINALIZE_EVERY.
+     */
+    finalizeEvery: Number(process.env.HOMEPAGE_AI_FINALIZE_EVERY ?? 50)
   },
   logging: {
     /** Base directory for per-company debug logs (relative to scrapper package root) */

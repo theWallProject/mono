@@ -6,7 +6,7 @@ export default defineConfig({
     environment: "node",
     exclude: ["dist/**", "node_modules/**"],
     env: {
-      LM_STUDIO_URL: "http://localhost:1234"
+      HOMEPAGE_AI_BASE_URL: "http://localhost:1234"
     }
   }
 })

@@ -26,6 +26,7 @@ import { displayStatistics } from "../validate/statistics"
 import { isVerified, isHomepage, type ManualOverrideValue, type MetaState, homepageMeta } from "../validate/types"
 import { loadManualOverrides, saveManualOverrides } from "../validate/override_io"
 import { categorizeLinks, deduplicateSocialLinks, type CategorizedLinks } from "./ai_categorizer"
+import { warmUpModel } from "./ai_client"
 import { CompanyLogger } from "./company_logger"
 import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./config"
 import {
@@ -40,15 +41,45 @@ import {
   removeFromRetryList
 } from "./retry_list"
 import { assertGitPreconditions, commitCompanyResult } from "./git_commit"
+import { acquireBatchLock } from "./batch_lock"
 import { runUpdateSteps } from "../../index"
 
-const FINALIZE_BATCH_SIZE = 10
-
-// ────────────────────────────────────────────────────────────────────────────
-// Data loading
-// ────────────────────────────────────────────────────────────────────────────
-
 const inputFilePath = path.join(__dirname, "../../../results/2_merged/2_MERGED_ALL.json")
+
+/**
+ * Report file listing every company name that maps to more than one merged
+ * entry. Overrides are keyed by name, so these collide (last write wins) — the
+ * report makes the collision cases reviewable. Written to the (gitignored) logs
+ * dir at the start of a batch run.
+ */
+const SAME_NAME_REPORT_PATH = path.join(
+  __dirname,
+  "../../../logs/homepage_ai_extractor/same_name_groups.json"
+)
+
+const writeSameNameReport = (items: MergedDataItem[]): void => {
+  const groups = new Map<string, string[]>()
+  for (const item of items) {
+    const ids = groups.get(item.name) ?? []
+    ids.push(item.id)
+    groups.set(item.name, ids)
+  }
+  const collisions = [...groups.entries()]
+    .filter(([, ids]) => ids.length > 1)
+    .map(([name, ids]) => ({ name, ids }))
+
+  try {
+    fs.mkdirSync(path.dirname(SAME_NAME_REPORT_PATH), { recursive: true })
+    fs.writeFileSync(
+      SAME_NAME_REPORT_PATH,
+      JSON.stringify({ generatedAt: new Date().toISOString(), count: collisions.length, groups: collisions }, null, 2)
+    )
+    log(`Same-name collision report: ${collisions.length} groups → ${SAME_NAME_REPORT_PATH}`)
+  } catch (err) {
+    // Non-fatal: reporting must never break a run.
+    log(`Could not write same-name report: ${err instanceof Error ? err.message : String(err)}`)
+  }
+}
 
 type LoadDataStats = {
   total: number
@@ -56,6 +87,7 @@ type LoadDataStats = {
   bds: number
   retryList: number
   alreadyProcessed: number
+  duplicateNames: number
 }
 
 type LoadedData = {
@@ -109,11 +141,19 @@ const loadData = (): LoadedData => {
     hints: 0,
     bds: 0,
     retryList: retryNames.size,
-    alreadyProcessed: 0
+    alreadyProcessed: 0,
+    duplicateNames: 0
   }
 
   // BDS reasons - these entries should be skipped in batch AI mode
   const BDS_REASONS = new Set(["BDS_PRIO", "BDS_GRASS", "BDS_PRESSURE"])
+
+  // Overrides are keyed by company NAME, but the merged data contains multiple
+  // entries sharing a name (multi-URL manual splits, duplicate Crunchbase org
+  // records, cross-source collisions). We deliberately process EVERY entry (no
+  // dedup) and TRACK the collisions: a same-name re-save overwrites the earlier
+  // override (last write wins); an identical re-save becomes a no-op commit.
+  const seenNames = new Set<string>()
 
   // Filter: skip already processed, existing overrides, hints, BDS entries, and companies on the retry list
   const unprocessedItems = sortedItems.filter((item) => {
@@ -149,6 +189,13 @@ const loadData = (): LoadedData => {
     }
     // Skip if on the retry list (will be handled by Retry mode)
     if (retryNames.has(item.name)) return false
+
+    // Track same-name entries but do NOT skip — process every entry.
+    if (seenNames.has(item.name)) {
+      stats.duplicateNames++
+    } else {
+      seenNames.add(item.name)
+    }
     return true
   })
 
@@ -158,6 +205,7 @@ const loadData = (): LoadedData => {
   log(`  BDS entries (skipped): ${stats.bds}`)
   log(`  In retry list: ${stats.retryList}`)
   log(`  Already processed: ${stats.alreadyProcessed}`)
+  log(`  Duplicate-name entries (processed): ${stats.duplicateNames}`)
 
 return { allItems: data, sortedItems, currentOverrides, unprocessedItems, stats }
 }
@@ -672,6 +720,7 @@ const promptForAlternativeUrl = async (companyName: string, errorType: string): 
  * Returns the name of the processed company (or null if none left).
  */
 export const runInteractive = async (companyNameOverride?: string): Promise<string | null> => {
+  acquireBatchLock("interactive")
   const { sortedItems, currentOverrides, unprocessedItems } = loadData()
 
   if (unprocessedItems.length === 0) {
@@ -793,12 +842,23 @@ export const runInteractive = async (companyNameOverride?: string): Promise<stri
  * Saves after each company.
  */
 export const runBatch = async (batchSize?: number): Promise<void> => {
+  // Prevent concurrent runs — two writers corrupt state and race the git index.
+  acquireBatchLock("batch")
+
   // Fail hard and early if git state is not suitable for auto-commits
   assertGitPreconditions()
+
+  // Fail fast if the model server can't serve the model — otherwise the batch
+  // would abort only after `maxSkipsPerBatch` companies. Requires the model to
+  // be loaded, or an explicit HOMEPAGE_AI_API_KEY so Unsloth can auto-load it.
+  await warmUpModel()
 
   const size = batchSize ?? HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.defaultSize
   const { sortedItems, unprocessedItems } = loadData()
   const currentOverrides = loadManualOverrides()
+
+  // Record same-name collision cases for review (overrides are name-keyed).
+  writeSameNameReport(sortedItems)
 
   const itemsToProcess = unprocessedItems.slice(0, size)
   log(`\nBatch mode: processing ${itemsToProcess.length} companies (of ${unprocessedItems.length} remaining)`)
@@ -811,7 +871,8 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
   const maxSkips = HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.maxSkipsPerBatch
 
   const runFinalizeIfNeeded = async (force = false) => {
-    const shouldRun = force || (pendingFinalize && processedCount % FINALIZE_BATCH_SIZE === 0)
+    const shouldRun =
+      force || (pendingFinalize && processedCount % HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.finalizeEvery === 0)
     if (!shouldRun) return
     log(`\nFinalizing batch (${processedCount} companies processed)...`)
     await runUpdateSteps({ shouldScrap: false, shouldValidate: false })
@@ -899,16 +960,18 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
     // If the override contains numerical LinkedIn IDs (e.g., /company/12345),
     // resolve them to string slugs via a persistent browser with LinkedIn login.
     // This adds the resolved slug URL alongside the original numerical URL.
-    // Throws (fatal) if LinkedIn login has expired.
+    // failHard=false: an expired LinkedIn session keeps the numerical URL and
+    // routes it to the retry list instead of aborting the whole batch.
     const batchLogger = new CompanyLogger(item.name)
     let resolvedOverride: typeof result.override
     try {
       resolvedOverride = await resolveLinkedInNumericalIds(
         result.override,
-        batchLogger
+        batchLogger,
+        false // non-fatal in batch mode — a session expiry must not kill 500 companies
       )
     } catch (err) {
-      // LinkedIn login errors are fatal — stop the batch gracefully
+      // Unexpected (non-login) LinkedIn errors are still fatal — stop the batch gracefully
       await closeSharedBrowser()
       throw err
     }
@@ -1010,6 +1073,11 @@ export const runRetry = async (): Promise<void> => {
     return
   }
 
+  acquireBatchLock("retry")
+
+  // Fail fast if the model server can't serve the model.
+  await warmUpModel()
+
   log(`\nRetry mode: ${retryEntries.length} companies to retry`)
   for (const entry of retryEntries) {
     log(`  - ${entry.companyName} (${entry.errorType}, retries: ${entry.retryCount})`)
@@ -1056,12 +1124,14 @@ export const runRetry = async (): Promise<void> => {
     }
 
     // ── LinkedIn numerical ID resolution ──────────────────────────────────
+    // failHard=false: expired session keeps the numerical URL (→ retry list)
     const retryLogger = new CompanyLogger(item.name)
     let resolvedOverride: typeof result.override
     try {
       resolvedOverride = await resolveLinkedInNumericalIds(
         result.override,
-        retryLogger
+        retryLogger,
+        false // non-fatal — a session expiry must not abort retry mode
       )
     } catch (err) {
       await closeSharedBrowser()
