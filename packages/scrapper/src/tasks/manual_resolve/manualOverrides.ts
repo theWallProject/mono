@@ -44326,6 +44326,10 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nerdeez: {
+    ws: ["https://www.nerdeez.com"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Nerlos: { ws: ["https://nerlos.com"], li: ["https://www.linkedin.com/company/nerlos"], _meta: { isHomepage: true } },
   Nesbad: {
     ws: ["https://nesbad.com"],
