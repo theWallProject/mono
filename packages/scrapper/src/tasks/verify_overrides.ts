@@ -1033,7 +1033,7 @@ const autoVerifyDuplicates = (
   return { remaining, autoVerifiedCount }
 }
 
-const main = async (): Promise<void> => {
+const main = async (options?: { readonly autoOnly?: boolean }): Promise<void> => {
   log(`${BOLD}${WHITE}`)
   log("  data:verify — Quick verification of auto-extracted entries")
   log(`${RESET}${DIM}  Review homepage-extracted links. Verify (←) or postpone (→). Exit (x).${RESET}`)
@@ -1075,6 +1075,14 @@ const main = async (): Promise<void> => {
 
   const remainingUnverified = unverifiedResult.remaining
   const remainingPostponed = postponedResult.remaining
+
+  // Headless: stop after the automatic duplicate pass. No keypress review.
+  if (options?.autoOnly === true) {
+    await saveQueue.drain()
+    log(`${GREEN}--autoOnly: skipping interactive review.${RESET}`)
+    printSummary(0, totalAutoVerified, overrides)
+    return
+  }
 
   if (remainingUnverified.length === 0 && remainingPostponed.length === 0) {
     await saveQueue.drain()

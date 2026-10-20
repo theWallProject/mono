@@ -15,6 +15,7 @@
 
 import inquirer from "inquirer"
 
+import type { CliOptions, DataAction } from "./cli/args"
 import { error, log } from "./helper"
 
 process.on("unhandledRejection", (reason) => {
@@ -164,7 +165,30 @@ const handleFullPipeline = async (): Promise<void> => {
 // Main
 // ────────────────────────────────────────────────────────────────────────────
 
-const main = async (): Promise<void> => {
+const main = async () => {
+  const args = process.argv.slice(2)
+
+  // Any flag (other than --help) means headless: never block on a menu.
+  if (args.length > 0) {
+    const { parseDataCli, handleHelp } = await import("./cli/args")
+    const options = parseDataCli(args)
+
+    if (handleHelp(options)) return
+
+    if (options.action === undefined) {
+      throw new Error("Missing --action. Run 'pnpm data --help' for the list.")
+    }
+
+    // Keep stdout machine-readable when the caller asked for JSON.
+    if (options.json === true) {
+      const { setLogToStderr } = await import("./helper")
+      setLogToStderr(true)
+    }
+
+    await runHeadlessAction(options.action, options)
+    return
+  }
+
   const action = await promptForAction()
 
   switch (action) {
@@ -189,6 +213,79 @@ const main = async (): Promise<void> => {
     case "full-pipeline":
       await handleFullPipeline()
       break
+    default: {
+      const _exhaustive: never = action
+      throw new Error(`Unknown action: ${_exhaustive}`)
+    }
+  }
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Headless dispatch (agent / CI)
+// ────────────────────────────────────────────────────────────────────────────
+
+const runHeadlessAction = async (action: DataAction, options: CliOptions): Promise<void> => {
+  switch (action) {
+    case "add": {
+      const { addEntryFromCli } = await import("./cli/addEntry")
+      const result = await addEntryFromCli(options)
+
+      if (options.json === true) {
+        console.log(JSON.stringify(result, null, 2))
+      }
+      if (result.nonGreen !== null) {
+        log(`\n⚠️  Non-green links (name not in URL): ${result.nonGreen}`)
+      }
+
+      if (options.apply === true && result.written) {
+        await handleApplyOverrides()
+      }
+      return
+    }
+    case "validate": {
+      const { handleValidateAction } = await import("./validate_index")
+      await handleValidateAction({ company: options.company, apply: options.apply })
+      return
+    }
+    case "delete": {
+      const { handleDeleteAction } = await import("./validate_index")
+      await handleDeleteAction(options.id)
+      return
+    }
+    case "quick-verify": {
+      const { run } = await import("./tasks/verify_overrides")
+      await run({ autoOnly: options.autoOnly === true })
+      return
+    }
+    case "homepage-ai": {
+      if (options.mode === undefined) {
+        throw new Error("Missing --mode interactive|batch|retry for --action homepage-ai.")
+      }
+      if (options.baseUrl !== undefined) {
+        // Config reads the env var at import time, so it must be set before import.
+        process.env.HOMEPAGE_AI_BASE_URL = options.baseUrl
+      }
+      const { runHeadless } = await import("./homepage_ai_extractor_index")
+      await runHeadless({
+        mode: options.mode,
+        size: options.size,
+        company: options.company,
+        apply: options.apply
+      })
+      return
+    }
+    case "apply-overrides": {
+      await handleApplyOverrides()
+      return
+    }
+    case "full-pipeline": {
+      const { runUpdateSteps } = await import("./index")
+      await runUpdateSteps({
+        shouldScrap: options.scrap === true,
+        shouldValidate: options.validate === true
+      })
+      return
+    }
     default: {
       const _exhaustive: never = action
       throw new Error(`Unknown action: ${_exhaustive}`)

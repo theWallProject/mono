@@ -1066,11 +1066,24 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
  *
  * Same as batch mode but operates on the retry list instead of unprocessed items.
  */
-export const runRetry = async (): Promise<void> => {
-  const retryEntries = loadRetryList()
-  if (retryEntries.length === 0) {
+export const runRetry = async (onlyCompany?: string): Promise<void> => {
+  const allRetryEntries = loadRetryList()
+  if (allRetryEntries.length === 0) {
     log("Retry list is empty. Nothing to retry.")
     return
+  }
+
+  // Headless: scope the run to a single company instead of the whole list.
+  const retryEntries =
+    onlyCompany === undefined
+      ? allRetryEntries
+      : allRetryEntries.filter((entry) => entry.companyName === onlyCompany)
+
+  if (retryEntries.length === 0) {
+    throw new Error(
+      `Company "${onlyCompany ?? ""}" is not in the retry list. ` +
+        `Run 'pnpm data --action homepage-ai --mode batch' first, or check the exact name.`
+    )
   }
 
   acquireBatchLock("retry")

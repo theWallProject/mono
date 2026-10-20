@@ -2552,7 +2552,12 @@ export async function addNewEntryLinksForAdditionsSequential(
   log(`\n✓ Entry added for ${companyName}`)
 }
 
-export async function run() {
+export type ValidateRunOptions = {
+  /** Process this company instead of prompting for one (headless mode). */
+  readonly company?: string
+}
+
+export async function run(options?: ValidateRunOptions) {
   let browserContext: BrowserContext | null = null
 
   // Persistent browser profile path
@@ -2595,8 +2600,9 @@ export async function run() {
     }
     const defaultCompany = firstUnprocessedItem.name
 
-    // Prompt user for company name with default prefilled
-    const selectedCompanyName = await promptForCompanyName(defaultCompany)
+    // Headless: take the company from --company, otherwise prompt with the
+    // queue head prefilled.
+    const selectedCompanyName = options?.company ?? (await promptForCompanyName(defaultCompany))
 
     // Find the selected company by exact case-sensitive match
     const item = findCompanyByName(selectedCompanyName, unprocessedItems)

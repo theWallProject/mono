@@ -93,6 +93,22 @@ export const runUpdateSteps = async (options?: { shouldScrap?: boolean; shouldVa
 }
 
 const main = async () => {
+  const args = process.argv.slice(2)
+
+  // Headless: any flag means no prompts.
+  if (args.length > 0) {
+    const { parseDataCli, handleHelp } = await import("./cli/args")
+    const options = parseDataCli(args)
+
+    if (handleHelp(options)) return
+
+    await runUpdateSteps({
+      shouldScrap: options.scrap === true,
+      shouldValidate: options.validate === true
+    })
+    return
+  }
+
   const answers = await inquirer.prompt([
     {
       type: "confirm",

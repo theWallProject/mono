@@ -12,11 +12,12 @@
 import { execSync } from "child_process"
 import inquirer from "inquirer"
 
+import type { HomepageMode } from "./cli/args"
 import { error, log } from "./helper"
 import { warmUpModel } from "./tasks/homepage_ai_extractor/ai_client"
 import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./tasks/homepage_ai_extractor/config"
-import { runInteractive, runBatch, runRetry, getUnprocessedCount } from "./tasks/homepage_ai_extractor/run"
 import { getRetryListCount } from "./tasks/homepage_ai_extractor/retry_list"
+import { getUnprocessedCount, runBatch, runInteractive, runRetry } from "./tasks/homepage_ai_extractor/run"
 
 // Only register error handlers when this file is executed directly (not imported)
 if (require.main === module) {
@@ -102,13 +103,13 @@ const promptForApplyOverrides = async (): Promise<boolean> => {
 // Mode handlers
 // ────────────────────────────────────────────────────────────────────────────
 
-const handleInteractiveMode = async (): Promise<void> => {
+const handleInteractiveMode = async (companyOverride?: string): Promise<void> => {
   log("\n--- Interactive Mode ---")
   log("This will process one company at a time with browser review.\n")
 
   // For interactive, we could let the user pick a specific company
   // For now, process the next one in queue (can override via prompt)
-  const result = await runInteractive()
+  const result = await runInteractive(companyOverride)
 
   if (result === null) {
     log("No companies left to process.")
@@ -148,7 +149,7 @@ const handleBatchMode = async (): Promise<void> => {
   await runBatch(batchSize)
 }
 
-const handleRetryMode = async (): Promise<void> => {
+const handleRetryMode = async (companyOverride?: string): Promise<void> => {
   log("\n--- Retry Mode ---")
 
   const retryCount = getRetryListCount()
@@ -158,7 +159,52 @@ const handleRetryMode = async (): Promise<void> => {
   }
 
   log(`${retryCount} companies in retry list.\n`)
-  await runRetry()
+  await runRetry(companyOverride)
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Headless entry (agent/CI)
+// ────────────────────────────────────────────────────────────────────────────
+
+export type HomepageCliOptions = {
+  readonly mode: HomepageMode
+  readonly size?: number
+  readonly company?: string
+  readonly apply?: boolean
+}
+
+/**
+ * Runs the extractor without any prompts. Requires an explicit --mode so an
+ * agent never blocks on stdin by accident.
+ */
+const runHeadless = async (options: HomepageCliOptions): Promise<void> => {
+  log(`Model server: ${HOMEPAGE_AI_EXTRACTOR_CONFIG.provider.baseUrl}`)
+  log(`Model:        ${HOMEPAGE_AI_EXTRACTOR_CONFIG.provider.model}`)
+  log("")
+
+  log("Warming up model (this may take a moment on first run)...")
+  await warmUpModel()
+  log("")
+
+  if (options.mode === "interactive") {
+    await handleInteractiveMode(options.company)
+  } else if (options.mode === "batch") {
+    await runBatch(options.size)
+  } else {
+    await handleRetryMode(options.company)
+  }
+
+  if (options.apply !== true) {
+    log("Skipping apply-overrides. Run 'pnpm data --action apply-overrides' when ready.")
+    return
+  }
+
+  log("\nApplying manual overrides to output files...")
+  execSync("pnpm run apply-overrides", {
+    stdio: "inherit",
+    cwd: process.cwd()
+  })
+  log("All files updated successfully!")
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -210,7 +256,7 @@ const main = async () => {
   }
 }
 
-export { main as run }
+export { main as run, runHeadless }
 
 // Run directly when executed as a script
 if (require.main === module) {

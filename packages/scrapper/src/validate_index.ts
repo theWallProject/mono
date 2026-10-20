@@ -123,11 +123,11 @@ const loadManualAdditions = (): Array<{ name: string }> => {
   return additions
 }
 
-const handleDeleteAction = async (): Promise<void> => {
+const handleDeleteAction = async (companyIdOverride?: string): Promise<void> => {
   const currentDeleteIds = loadManualDeleteIds()
   log(`\nCurrent manualDeleteIds: ${currentDeleteIds.length} entries`)
 
-  const companyId = await promptForCompanyId()
+  const companyId = companyIdOverride ?? (await promptForCompanyId())
 
   if (currentDeleteIds.includes(companyId)) {
     log(`⚠️  Company ID "${companyId}" already exists in manualDeleteIds.ts`)
@@ -326,12 +326,29 @@ const handleAddAdditionAction = async (): Promise<void> => {
   applyOverridesWithLog()
 }
 
-const handleValidateAction = async (): Promise<void> => {
+export type ValidateActionOptions = {
+  /** Process this company without prompting for a name. */
+  readonly company?: string
+  /** Run apply-overrides afterwards without asking. */
+  readonly apply?: boolean
+}
+
+const handleValidateAction = async (options?: ValidateActionOptions): Promise<void> => {
   try {
-    await validateUrls()
+    await validateUrls(options?.company !== undefined ? { company: options.company } : undefined)
   } catch (err) {
     error("Validation error:", err)
     // Still try to apply overrides even if validation had errors
+  }
+
+  if (options?.apply === true) {
+    applyOverridesWithLog()
+    return
+  }
+
+  if (options?.apply === false) {
+    log("⏭️  Skipping apply-overrides. Run 'pnpm data --action apply-overrides' when ready.")
+    return
   }
 
   await promptAndApplyOverrides()

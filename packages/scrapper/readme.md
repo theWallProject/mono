@@ -73,11 +73,47 @@ Create three saved searches in Crunchbase with these filters:
 
 ## Usage
 
+### Interactive (human)
+
 ```bash
-npm run dev
+pnpm data        # menu: add / validate / delete / quick-verify / homepage-ai / apply
+npm run dev      # full pipeline (prompts for scrape + validate)
 ```
 
-Prompts for: Scraping, URL validation, Copy to addon
+### Headless (agent / CI)
+
+Every flag suppresses menus and prompts, so nothing blocks on stdin:
+
+```bash
+pnpm data --help
+
+# add a company
+pnpm data --action add --name "Acme" --reasons h \
+  --ws https://acme.com --li https://www.linkedin.com/company/acme --apply
+
+# validate one company in the browser, then apply
+pnpm data --action validate --company "Acme" --apply
+
+# delete by id
+pnpm data --action delete --id acme
+
+# homepage extractor
+pnpm data --action homepage-ai --mode retry --company Nerdeez
+pnpm data --action homepage-ai --mode batch --size 20 --apply
+
+# quick verify (duplicates only, no keypresses)
+pnpm data --action quick-verify --autoOnly
+
+# regenerate everything
+pnpm data --action apply-overrides
+```
+
+Useful flags: `--dryRun` (validate + print, write nothing), `--json` (machine-readable
+result on stdout, logs moved to stderr), `--strict` (fail when the company name is not
+in a URL). `--action add` refuses a name that already exists in `manualAdditions` or
+`manualOverrides`, and requires `--proofText`/`--proofLink` for reason `c`.
+
+Both modes share the same validation and write paths; the interactive menu is unchanged.
 
 Other scripts: `npm run merge`, `npm run convert`
 
