@@ -44469,6 +44469,7 @@ export const manualOverrides: Record<
     urls: ["https://maps.app.goo.gl/m3zhiPZpWrWWPCcx6"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Netgo: { ws: ["https://netgo-ltd.co.il"], fb: ["https://www.facebook.com/netgodp"], _meta: { isHomepage: true } },
   "Netina Foundation": {
     ws: ["https://netina.org"],
     urls: ["https://gateway20.pelecard.biz/PaymentEnquiry/Index"],
