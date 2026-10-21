@@ -2145,6 +2145,14 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Tatte Bakery & Café",
+    reasons: ["f"],
+    ws: ["https://tattebakery.com"],
+    li: ["https://www.linkedin.com/company/tatte-fine-cookies-&-cakes"],
+    ig: ["https://www.instagram.com/tattebakery"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Texaco",
     reasons: ["BDS_PRIO"],
     ws: [
