@@ -72306,6 +72306,7 @@ export const manualOverrides: Record<
   Waze: {
     ws: ["https://www.waze.com"],
     urls: ["https://itunes.apple.com/app/app-store/id323229106", "https://market.android.com/details"],
+    alt: [{ n: "TuJu", ws: "https://tuju.my" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   "We Rave You": {
