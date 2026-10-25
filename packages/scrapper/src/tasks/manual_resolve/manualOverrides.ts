@@ -65233,6 +65233,10 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tenzai: {
+    ws: ["https://tenzai.com"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Tera-Pass": {
     ws: ["https://www.tera-pass.com"],
     urls: ["http://www.simply-smart.com"],
