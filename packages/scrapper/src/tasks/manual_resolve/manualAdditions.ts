@@ -2085,6 +2085,32 @@ export const manualAdditions: ManualAdditionItem[] = [
     tw: ["https://x.com/Siemens"]
   },
   {
+    name: "Simple Mobile Tools",
+    reasons: ["h"],
+    ws: ["https://simplemobiletools.com"],
+    android_app_ids: [
+      "com.simplemobiletools.gallery.pro",
+      "com.simplemobiletools.calendar.pro",
+      "com.simplemobiletools.camera",
+      "com.simplemobiletools.calculator",
+      "com.simplemobiletools.musicplayer",
+      "com.simplemobiletools.filemanager.pro",
+      "com.simplemobiletools.notes.pro",
+      "com.simplemobiletools.smsmessenger",
+      "com.simplemobiletools.dialer",
+      "com.simplemobiletools.keyboard",
+      "com.simplemobiletools.launcher",
+      "com.simplemobiletools.clock",
+      "com.simplemobiletools.flashlight",
+      "com.simplemobiletools.voicerecorder",
+      "com.simplemobiletools.applauncher",
+      "com.simplemobiletools.contacts",
+      "com.simplemobiletools.draw"
+    ],
+    alt: [{ n: "Fossify", ws: "https://fossify.org" }],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "SodaStream",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.sodastream.com"],
