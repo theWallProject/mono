@@ -13,6 +13,13 @@ export type ManualAdditionItem = {
 
 export const manualAdditions: ManualAdditionItem[] = [
   {
+    name: "Adlis Smart",
+    reasons: ["h"],
+    ws: ["https://adlissmart.com", "https://adlis.co.il"],
+    li: ["https://www.linkedin.com/company/adlis-smart"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "AHAV",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.ahava.com"],
