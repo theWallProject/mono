@@ -324,6 +324,14 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Anchor Browser",
+    reasons: ["h"],
+    ws: ["https://anchorbrowser.io"],
+    li: ["https://www.linkedin.com/company/anchorbrowser"],
+    tw: ["https://x.com/AnchorBrowser"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "AXA",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.axa.com", "https://www.axa.com.hk"],
