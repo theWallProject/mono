@@ -2186,6 +2186,16 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Spectator",
+    reasons: ["c"],
+    ws: ["https://spectator.com"],
+    fb: ["https://www.facebook.com/Spectator1828-111263798903232"],
+    ytp: ["https://www.youtube.com/@SpectatorTV"],
+    proof_text: "Gives a platform to Limor Simhony Philpott's pro-Israel propaganda.",
+    proof_link: "https://spectator.com/writer/limor-simhony-philpott/",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Tatte Bakery & Café",
     reasons: ["f"],
     ws: ["https://tattebakery.com"],
