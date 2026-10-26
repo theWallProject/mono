@@ -2323,6 +2323,26 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Vercel",
+    reasons: ["c"],
+    ws: ["https://vercel.com"],
+    li: ["https://www.linkedin.com/company/vercel"],
+    fb: ["https://www.facebook.com/VercelHQ"],
+    tw: ["https://x.com/vercel"],
+    ig: ["https://www.instagram.com/vercel"],
+    gh: ["https://github.com/vercel"],
+    ytp: ["https://www.youtube.com/@VercelHQ"],
+    proof_text: "Its CEO posted a photo with Israeli PM Benjamin Netanyahu, prompting developers to drop the platform.",
+    proof_link:
+      "https://www.middleeasteye.net/trending/developers-drop-vercel-call-boycott-after-ceo-posts-selfie-netanyahu",
+    alt: [
+      { n: "Migrate Off Vercel", ws: "https://migrateoffvercel.org" },
+      { n: "Boon Digital Solutions", ws: "https://boondigitalsolutions.com" },
+      { n: "Netlify", ws: "https://netlify.com" }
+    ],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Webselenese",
     reasons: ["h"],
     li: ["https://www.linkedin.com/company/webselenese"],
