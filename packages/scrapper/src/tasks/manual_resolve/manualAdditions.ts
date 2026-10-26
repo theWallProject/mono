@@ -1492,6 +1492,30 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Match Group",
+    reasons: ["c"],
+    ws: ["https://mtch.com"],
+    li: ["https://www.linkedin.com/company/matchgroup"],
+    android_app_ids: [
+      "com.match.android.matchmobile",
+      "com.okcupid.okcupid",
+      "com.peoplemedia.ourtime",
+      "com.match.android.stir",
+      "co.hinge.app",
+      "com.pof.android",
+      "com.minderapps.minder",
+      "com.affinityapps.blk",
+      "com.affinityapps.chispa",
+      "com.affinityapps.twozerofour",
+      "com.azarlive.android",
+      "com.bintree.ablo"
+    ],
+    proof_text:
+      "Parent of Tinder, Hinge, OkCupid, Match and Plenty of Fish. Its CEO Spencer Rascoff publicly supported Israeli soldiers fighting in Gaza in 2023 and sat on the board of Palantir (2020-2022), a surveillance firm tied to Israeli intelligence.",
+    proof_link: "https://blog.boycat.io/posts/match-group-salams-acquisition-idf-support-palantir-controversy",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "McDonalds",
     reasons: ["BDS_GRASS"],
     ws: ["https://www.mcdonalds.com"],
