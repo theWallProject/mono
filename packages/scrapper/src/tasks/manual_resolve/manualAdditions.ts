@@ -1492,6 +1492,17 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Lattice",
+    reasons: ["i"],
+    ws: ["https://lattice.com"],
+    li: ["https://www.linkedin.com/company/lattice-hq"],
+    fb: ["https://www.facebook.com/LatticeCommunity"],
+    tw: ["https://twitter.com/LatticeHQ"],
+    ytp: ["https://www.youtube.com/c/Latticehq"],
+    android_app_ids: ["com.lattice"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Match Group",
     reasons: ["c"],
     ws: ["https://mtch.com"],
