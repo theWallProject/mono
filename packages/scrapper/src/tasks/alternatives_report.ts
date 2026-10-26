@@ -3,9 +3,13 @@
 import mergedall from "../../results/2_merged/2_MERGED_ALL.json"
 import { warn } from "../helper"
 import { MergedDataFileSchema } from "../types"
-import { manualOverrides } from "./manual_resolve/manualOverrides"
+import { loadManualOverrides } from "./manual_resolve/loaders"
 
 const report = () => {
+  // Loaded here, not at module scope: the file is rewritten at runtime by the CLI (see
+  // manual_resolve/loaders.ts).
+  const manualOverrides = loadManualOverrides()
+
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
   // This will throw immediately if validation fails
   const merged = MergedDataFileSchema.parse(mergedall)

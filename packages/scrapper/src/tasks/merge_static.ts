@@ -21,9 +21,8 @@ import { cleanWebsite, error, log } from "../helper"
 import { CrunchbaseScrappedItemsSchema, ManualEntriesSchema, MergedDataItem } from "../types"
 import { androidDeleteIds } from "./manual_resolve/androidDeleteIds"
 import { androidDiscoveries } from "./manual_resolve/androidDiscoveries"
-import { manualAdditions } from "./manual_resolve/manualAdditions"
+import { loadManualAdditions, loadManualOverrides } from "./manual_resolve/loaders"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
-import { manualOverrides } from "./manual_resolve/manualOverrides"
 import { isOverrideTrusted } from "./validate/types"
 
 /** Extracts the profile identifier from a URL for a given link field. Used for ID generation and dedup. */
@@ -149,6 +148,11 @@ const mergedCBPath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.js
 const outputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
 
 const loadJsonFiles = async (folderPath: string) => {
+  // Loaded here, not at module scope: these files are rewritten at runtime by the CLI, and a
+  // module-scope import would bind the pre-write contents (see manual_resolve/loaders.ts).
+  const manualAdditions = loadManualAdditions()
+  const manualOverrides = loadManualOverrides()
+
   const mergedCBContent = fs.readFileSync(mergedCBPath, "utf-8")
 
   const combinedArray = CrunchbaseScrappedItemsSchema.parse(JSON.parse(mergedCBContent))

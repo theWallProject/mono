@@ -8,7 +8,7 @@ import {
   type valuesOfListOfReasons
 } from "@theWallProject/common"
 
-import { manualOverrides } from "./manual_resolve/manualOverrides"
+import { loadManualOverrides } from "./manual_resolve/loaders"
 
 /**
  * Generates Android blacklist.json from manualOverrides.ts
@@ -40,6 +40,10 @@ export async function generateAndroidBlacklist() {
   }
 
   const blacklist: BlacklistItem[] = []
+
+  // Loaded here, not at module scope: the file is rewritten at runtime by the CLI (see
+  // manual_resolve/loaders.ts).
+  const manualOverrides = loadManualOverrides()
 
   // Iterate through manualOverrides and extract Android entries
   for (const [companyName, override] of Object.entries(manualOverrides)) {

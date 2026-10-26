@@ -11,8 +11,7 @@ import {
 } from "@theWallProject/common"
 
 import { error, log, warn } from "../helper"
-import { manualOverrides } from "./manual_resolve/manualOverrides"
-import { manualAdditions } from "./manual_resolve/manualAdditions"
+import { loadManualAdditions, loadManualOverrides } from "./manual_resolve/loaders"
 
 /**
  * All API endpoint rules with their corresponding link field names.
@@ -143,6 +142,11 @@ function getExistingSelectors<T extends object>(
  * Fails hard if violations are found so the developer can fix and re-run.
  */
 export function validateUrlsField(): Violation[] {
+  // Loaded here, not at module scope: these files are rewritten at runtime by the CLI (see
+  // manual_resolve/loaders.ts).
+  const manualAdditions = loadManualAdditions()
+  const manualOverrides = loadManualOverrides()
+
   const violations: Violation[] = []
   const duplicates: Duplicate[] = []
 

@@ -5,8 +5,7 @@ import { z } from "zod"
 
 import { log } from "../helper"
 import { DBFileNames, MergedDataFileSchema, NetworksFlatItemsSchema } from "../types"
-import { manualAdditions } from "./manual_resolve/manualAdditions"
-import { manualOverrides } from "./manual_resolve/manualOverrides"
+import { loadManualAdditions, loadManualOverrides } from "./manual_resolve/loaders"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
 const mergedDataPath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
@@ -14,6 +13,11 @@ const mergedDataPath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL
 const outputFilePath = path.join(__dirname, `../../results/4_final/${DBFileNames.ALL}.json`)
 
 const loadJsonFiles = async (folderPath: string) => {
+  // Loaded here, not at module scope: these files are rewritten at runtime by the CLI, and a
+  // module-scope import would bind the pre-write contents (see manual_resolve/loaders.ts).
+  const manualAdditions = loadManualAdditions()
+  const manualOverrides = loadManualOverrides()
+
   // Load merged data to get stock symbol, hints, and Android fields
   const mergedDataContent = fs.readFileSync(mergedDataPath, "utf-8")
   const mergedData = MergedDataFileSchema.parse(JSON.parse(mergedDataContent))

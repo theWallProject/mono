@@ -10,6 +10,7 @@ import {
   addNewEntryLinksForAdditionsSequential,
   run as validateUrls
 } from "./tasks/validate_urls"
+import { loadManualAdditions } from "./tasks/manual_resolve/loaders"
 import { loadModule } from "./utils/moduleLoader"
 
 // Only register error handlers when this file is executed directly (not imported)
@@ -110,17 +111,6 @@ const promptForCompanyName = async (
     }
   ])
   return companyName.trim()
-}
-
-const loadManualAdditions = (): Array<{ name: string }> => {
-  const manualAdditionsPath = path.join(__dirname, "./tasks/manual_resolve/manualAdditions.ts")
-  const modulePath = path.resolve(manualAdditionsPath)
-  const module = loadModule<{ manualAdditions?: Array<{ name: string }> }>(modulePath)
-  const additions = module.manualAdditions || []
-  if (!Array.isArray(additions)) {
-    throw new Error("manualAdditions is not an array")
-  }
-  return additions
 }
 
 const handleDeleteAction = async (companyIdOverride?: string): Promise<void> => {

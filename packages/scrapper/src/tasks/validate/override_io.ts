@@ -2,9 +2,12 @@ import path from "path"
 import { formatAndWrite } from "@theWallProject/common"
 
 import { log } from "../../helper"
+import { loadManualOverrides } from "../manual_resolve/loaders"
 import type { EntryMeta, ManualOverrideValue } from "./types"
-import { assertNoLegacyProcessed, hasMeta } from "./types"
+import { hasMeta } from "./types"
 import { cleanFieldValue } from "./url_utils"
+
+export { loadManualOverrides }
 
 const manualOverridesPath = path.join(__dirname, "../manual_resolve/manualOverrides.ts")
 
@@ -63,23 +66,6 @@ const formatValue = (value: ManualOverrideValue): string => {
       return `{}`
     }
   }
-}
-
-export const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
-  const modulePath = path.resolve(manualOverridesPath)
-  const resolvedPath = require.resolve(modulePath)
-  Reflect.deleteProperty(require.cache, resolvedPath)
-  const module = require(modulePath)
-  const overrides = module.manualOverrides satisfies Record<string, ManualOverrideValue>
-
-  // Fail fast: reject any entries with the legacy _processed field
-  for (const [key, value] of Object.entries(overrides)) {
-    if (typeof value === "object" && value !== null) {
-      assertNoLegacyProcessed(value, key)
-    }
-  }
-
-  return overrides
 }
 
 const serializeOverrides = (overrides: Record<string, ManualOverrideValue>): string => {

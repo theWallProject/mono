@@ -2,10 +2,11 @@ import path from "path"
 import { formatAndWrite } from "@theWallProject/common"
 
 import { log } from "../../helper"
-import { loadModule } from "../../utils/moduleLoader"
 import type { ManualAdditionItem } from "../manual_resolve/manualAdditions"
-import { assertNoLegacyProcessed, type EntryMeta } from "./types"
+import type { EntryMeta } from "./types"
 import { cleanFieldValue } from "./url_utils"
+
+export { loadManualAdditions } from "../manual_resolve/loaders"
 
 const manualAdditionsPath = path.join(__dirname, "../manual_resolve/manualAdditions.ts")
 
@@ -60,22 +61,6 @@ const formatValue = (item: ManualAdditionItem): string => {
   }
 
   return `{ ${fields.join(", ")} }`
-}
-
-export const loadManualAdditions = (): ManualAdditionItem[] => {
-  const modulePath = path.resolve(manualAdditionsPath)
-  const module = loadModule<{ manualAdditions?: ManualAdditionItem[] }>(modulePath)
-  const additions = module.manualAdditions || []
-  if (!Array.isArray(additions)) {
-    throw new Error("manualAdditions is not an array")
-  }
-
-  // Fail fast: reject any entries with the legacy _processed field
-  for (const item of additions) {
-    assertNoLegacyProcessed(item, item.name ?? "<unknown>")
-  }
-
-  return additions
 }
 
 export const saveManualAdditions = async (additions: ManualAdditionItem[]): Promise<void> => {
