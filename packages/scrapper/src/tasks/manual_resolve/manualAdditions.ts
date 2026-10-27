@@ -2110,6 +2110,22 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Red Hat",
+    reasons: ["c"],
+    ws: ["https://www.redhat.com"],
+    li: ["https://www.linkedin.com/company/red-hat"],
+    fb: ["https://www.facebook.com/RedHat"],
+    tw: ["https://x.com/RedHat"],
+    ig: ["https://www.instagram.com/red_hat"],
+    ytp: ["https://www.youtube.com/@redhat"],
+    ytc: ["https://www.youtube.com/channel/UCp6NUFV9mSEK6RxUiEVymVg"],
+    android_app_ids: ["com.redhat.summit"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Reebok",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.reebok.com", "https://www.reebok.eu", "https://reebok.abfrl.in"],
