@@ -2121,7 +2121,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     ytc: ["https://www.youtube.com/channel/UCp6NUFV9mSEK6RxUiEVymVg"],
     android_app_ids: ["com.redhat.summit"],
     proof_text:
-      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+      "Runs an R&D branch in Ra'anana, Israel, and speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
     proof_link: "https://www.leverageisrael.com",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
