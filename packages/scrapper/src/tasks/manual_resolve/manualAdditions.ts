@@ -1161,7 +1161,8 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.expedia.com",
       "https://expediagroup.com",
       "https://www.expedia.com.my",
-      "https://www.expediapartnercentral.com"
+      "https://www.expediapartnercentral.com",
+      "https://www.vrbo.com"
     ],
     li: [
       "https://www.linkedin.com/company/expedia-cruises",
@@ -1171,9 +1172,10 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.linkedin.com/company/expediagroup/posts",
       "https://www.linkedin.com/showcase/expedia",
       "https://www.linkedin.com/showcase/expedia-group-advertising",
-      "https://www.linkedin.com/showcase/expedia-group-partnerships"
+      "https://www.linkedin.com/showcase/expedia-group-partnerships",
+      "https://www.linkedin.com/company/vrbo"
     ],
-    fb: ["https://www.facebook.com/Expedia.de"],
+    fb: ["https://www.facebook.com/Expedia.de", "https://www.facebook.com/vrbo"],
     tw: [
       "https://x.com/Expedia",
       "https://x.com/ExpediaAsia",
@@ -1182,7 +1184,8 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://x.com/ExpediaHelp",
       "https://x.com/ExpediaUK",
       "https://x.com/expedia_au",
-      "https://x.com/lifeatEG"
+      "https://x.com/lifeatEG",
+      "https://x.com/vrbo"
     ],
     ig: [
       "https://www.instagram.com/ecdalhousieaspen",
@@ -1197,7 +1200,8 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.instagram.com/expediamx",
       "https://www.instagram.com/expediaprotrav",
       "https://www.instagram.com/expediatrips",
-      "https://www.instagram.com/expediaza_lps"
+      "https://www.instagram.com/expediaza_lps",
+      "https://www.instagram.com/vrbo"
     ],
     ytp: [
       "https://www.youtube.com/@ExpediaCruisesFranchise",
@@ -1223,7 +1227,8 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.youtube.com/@expediafrica",
       "https://www.youtube.com/@expediaindia677",
       "https://www.youtube.com/@expediauk",
-      "https://www.youtube.com/user/Expedia/custom"
+      "https://www.youtube.com/user/Expedia/custom",
+      "https://www.youtube.com/@vrbo"
     ],
     tt: ["https://www.tiktok.com/@expedia"],
     th: [
@@ -1236,7 +1241,12 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://apps.apple.com/us/app/expedia-hotels-flights-cars/id427916203",
       "https://chromewebstore.google.com/detail/expedia-price-scraper/hkohddkblmjfdhlkhnbjoaekkncagcno"
     ],
-    android_app_ids: ["com.expedia.bookings", "com.expediapartnercentral"],
+    android_app_ids: [
+      "com.expedia.bookings",
+      "com.expediapartnercentral",
+      "com.vrbo.android",
+      "com.homeaway.owner"
+    ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
