@@ -1514,6 +1514,21 @@ export const manualAdditions: ManualAdditionItem[] = [
     li: ["https://www.linkedin.com/company/jedyapps"]
   },
   {
+    name: "Kaggle",
+    reasons: ["c"],
+    ws: ["https://www.kaggle.com"],
+    li: ["https://www.linkedin.com/company/kaggle"],
+    fb: ["https://www.facebook.com/kaggle"],
+    tw: ["https://x.com/kaggle"],
+    gh: ["https://github.com/kaggle"],
+    ytp: ["https://www.youtube.com/@kaggle"],
+    ytc: ["https://www.youtube.com/channel/UCSNeZleDn9c74yQc-EKnVTA"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Kamatera",
     reasons: ["h"],
     ws: ["https://www.kamatera.com"],
@@ -2314,6 +2329,18 @@ export const manualAdditions: ManualAdditionItem[] = [
     proof_text:
       "Its founder's investment firm led a 600 million euro round into Helsing, a defence company building AI for military use.",
     proof_link: "https://www.cnbc.com/2025/06/17/spotifys-daniel-ek-leads-investment-in-defense-startup-helsing.html",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
+    name: "Sumble",
+    reasons: ["c"],
+    ws: ["https://sumble.com"],
+    li: ["https://www.linkedin.com/company/sumble"],
+    tw: ["https://x.com/SumbleData"],
+    gh: ["https://github.com/SumbleData"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
