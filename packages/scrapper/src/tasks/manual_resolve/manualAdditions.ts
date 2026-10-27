@@ -2114,6 +2114,17 @@ export const manualAdditions: ManualAdditionItem[] = [
     tw: ["https://x.com/Sabra"]
   },
   {
+    name: "Sastrify",
+    reasons: ["h"],
+    ws: ["https://www.sastrify.com"],
+    li: ["https://www.linkedin.com/company/sastrify"],
+    fb: ["https://www.facebook.com/sastrify"],
+    tw: ["https://x.com/sastrify"],
+    ig: ["https://www.instagram.com/sastrify"],
+    ytp: ["https://www.youtube.com/@sastrify"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Siemens",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.siemens.com", "https://www.siemens-stiftung.org"],
