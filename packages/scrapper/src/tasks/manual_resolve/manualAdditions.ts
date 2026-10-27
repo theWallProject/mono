@@ -1279,6 +1279,21 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Fenwick",
+    reasons: ["c"],
+    ws: ["https://www.fenwick.com"],
+    li: ["https://www.linkedin.com/company/fenwick-&-west"],
+    fb: ["https://www.facebook.com/fenwick"],
+    tw: ["https://x.com/FenwickWest"],
+    ig: ["https://www.instagram.com/fenwickllp"],
+    ytp: ["https://www.youtube.com/@FenwickLLP"],
+    ytc: ["https://www.youtube.com/channel/UCbt3GUSFMhIxWfF8ea3B_AA"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "HP",
     reasons: ["BDS_PRIO"],
     ws: [
@@ -2385,8 +2400,8 @@ export const manualAdditions: ManualAdditionItem[] = [
     fb: ["https://www.facebook.com/UpWest.vc"],
     tw: ["https://x.com/upwestvc"],
     ig: ["https://www.instagram.com/upwest.vc"],
-    ytc: ["https://www.youtube.com/channel/UCNvxBcpiA9aR_oKUnpy7YEQ"],
     ytp: ["https://www.youtube.com/@upwestvc5903"],
+    ytc: ["https://www.youtube.com/channel/UCNvxBcpiA9aR_oKUnpy7YEQ"],
     proof_text:
       "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
     proof_link: "https://www.leverageisrael.com",
