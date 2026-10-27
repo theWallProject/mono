@@ -1483,6 +1483,16 @@ export const manualAdditions: ManualAdditionItem[] = [
     li: ["https://www.linkedin.com/company/jedyapps"]
   },
   {
+    name: "Kamatera",
+    reasons: ["h"],
+    ws: ["https://www.kamatera.com"],
+    li: ["https://www.linkedin.com/company/kamateracloud"],
+    tw: ["https://x.com/Kamatera_Cloud"],
+    gh: ["https://github.com/kamatera"],
+    ytp: ["https://www.youtube.com/@Kamatera"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Kape Technologies",
     reasons: ["f"],
     ws: ["https://www.kape.com"],
