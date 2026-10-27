@@ -6514,6 +6514,13 @@ export const manualOverrides: Record<
     urls: ["https://wa.me/972502090802"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Aviv group": {
+    ws: ["https://avivcomp.co.il"],
+    li: ["https://www.linkedin.com/company/aviv-group-real-estate-ltd"],
+    ig: ["https://www.instagram.com/aviv__group_1963"],
+    fb: ["https://www.facebook.com/61567786274025"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Aviv Melisron": {
     ws: ["https://avivmelisron.co.il"],
     li: ["https://www.linkedin.com/company/avivbymelisron"],
