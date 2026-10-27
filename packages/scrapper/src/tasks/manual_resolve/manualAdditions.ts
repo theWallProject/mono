@@ -1701,6 +1701,19 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Moroccanoil",
+    reasons: ["h"],
+    ws: ["https://www.moroccanoil.com"],
+    li: ["https://www.linkedin.com/company/moroccanoil"],
+    fb: ["https://www.facebook.com/Moroccanoil"],
+    tw: ["https://x.com/Moroccanoil"],
+    ig: ["https://www.instagram.com/moroccanoil"],
+    ytp: ["https://www.youtube.com/@Moroccanoil"],
+    tt: ["https://www.tiktok.com/@moroccanoil"],
+    android_app_ids: ["com.colordestination.professional.moroccanoil"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "PapaJohns",
     reasons: ["BDS_GRASS"],
     ws: ["https://www.papajohns.com"],
