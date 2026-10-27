@@ -73166,19 +73166,28 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Wix: {
-    ws: ["https://www.wix.com", "https://stylable.io", "https://wix.github.io"],
-    li: ["https://www.linkedin.com/company/wix-com", "https://www.linkedin.com/showcase/wix-engineering"],
-    fb: ["https://www.facebook.com/wix"],
+    ws: ["https://www.wix.com", "https://stylable.io", "https://wix.github.io", "https://base44.com"],
+    li: [
+      "https://www.linkedin.com/company/wix-com",
+      "https://www.linkedin.com/showcase/wix-engineering",
+      "https://www.linkedin.com/company/base44"
+    ],
+    fb: ["https://www.facebook.com/wix", "https://www.facebook.com/Base44App"],
     tw: [
       "https://x.com/WixEng",
       "https://x.com/WixHelp",
       "https://x.com/reactnativenav",
       "https://x.com/rnuilib",
-      "https://x.com/wix"
+      "https://x.com/wix",
+      "https://x.com/base44"
     ],
-    ig: ["https://www.instagram.com/wix"],
+    ig: ["https://www.instagram.com/wix", "https://www.instagram.com/base44.app"],
     gh: ["https://github.com/wix", "https://github.com/wix-academy", "https://github.com/wix-incubator"],
-    ytp: ["https://www.youtube.com/@Wix", "https://www.youtube.com/@WixStudio"],
+    ytp: [
+      "https://www.youtube.com/@Wix",
+      "https://www.youtube.com/@WixStudio",
+      "https://www.youtube.com/@Base44App"
+    ],
     tt: ["https://www.tiktok.com/@wix"],
     th: ["https://www.threads.com/@wix"],
     urls: [
@@ -73201,6 +73210,7 @@ export const manualOverrides: Record<
       { n: "Webnode", ws: "https://www.webnode.com" },
       { n: "Tilda", ws: "https://tilda.cc" }
     ],
+    android_app_ids: ["com.base44.android"],
     android_dev_id: "com.wix",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
