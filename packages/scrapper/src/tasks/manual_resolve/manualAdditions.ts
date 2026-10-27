@@ -1241,12 +1241,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://apps.apple.com/us/app/expedia-hotels-flights-cars/id427916203",
       "https://chromewebstore.google.com/detail/expedia-price-scraper/hkohddkblmjfdhlkhnbjoaekkncagcno"
     ],
-    android_app_ids: [
-      "com.expedia.bookings",
-      "com.expediapartnercentral",
-      "com.vrbo.android",
-      "com.homeaway.owner"
-    ],
+    android_app_ids: ["com.expedia.bookings", "com.expediapartnercentral", "com.vrbo.android", "com.homeaway.owner"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
@@ -2241,6 +2236,22 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Spotify",
+    reasons: ["c"],
+    ws: ["https://www.spotify.com"],
+    li: ["https://www.linkedin.com/company/spotify"],
+    fb: ["https://www.facebook.com/Spotify"],
+    tw: ["https://x.com/spotify"],
+    ig: ["https://www.instagram.com/spotify"],
+    gh: ["https://github.com/spotify"],
+    ytp: ["https://www.youtube.com/@Spotify"],
+    android_app_ids: ["com.spotify.music"],
+    proof_text:
+      "Its founder's investment firm led a 600 million euro round into Helsing, a defence company building AI for military use.",
+    proof_link: "https://www.cnbc.com/2025/06/17/spotifys-daniel-ek-leads-investment-in-defense-startup-helsing.html",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Tatte Bakery & Café",
     reasons: ["f"],
     ws: ["https://tattebakery.com"],
@@ -2342,14 +2353,14 @@ export const manualAdditions: ManualAdditionItem[] = [
     ig: ["https://www.instagram.com/vercel"],
     gh: ["https://github.com/vercel"],
     ytp: ["https://www.youtube.com/@VercelHQ"],
-    proof_text: "Its CEO posted a photo with Israeli PM Benjamin Netanyahu, prompting developers to drop the platform.",
-    proof_link:
-      "https://www.middleeasteye.net/trending/developers-drop-vercel-call-boycott-after-ceo-posts-selfie-netanyahu",
     alt: [
       { n: "Migrate Off Vercel", ws: "https://migrateoffvercel.org" },
       { n: "Boon Digital Solutions", ws: "https://boondigitalsolutions.com" },
       { n: "Netlify", ws: "https://netlify.com" }
     ],
+    proof_text: "Its CEO posted a photo with Israeli PM Benjamin Netanyahu, prompting developers to drop the platform.",
+    proof_link:
+      "https://www.middleeasteye.net/trending/developers-drop-vercel-call-boycott-after-ceo-posts-selfie-netanyahu",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
