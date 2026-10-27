@@ -2386,6 +2386,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     tw: ["https://x.com/upwestvc"],
     ig: ["https://www.instagram.com/upwest.vc"],
     ytc: ["https://www.youtube.com/channel/UCNvxBcpiA9aR_oKUnpy7YEQ"],
+    ytp: ["https://www.youtube.com/@upwestvc5903"],
     proof_text:
       "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
     proof_link: "https://www.leverageisrael.com",
