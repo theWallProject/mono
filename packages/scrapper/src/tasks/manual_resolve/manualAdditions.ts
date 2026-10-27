@@ -426,6 +426,22 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Box (cloud storage)",
+    reasons: ["c"],
+    ws: ["https://www.box.com"],
+    li: ["https://www.linkedin.com/company/box"],
+    fb: ["https://www.facebook.com/box"],
+    tw: ["https://x.com/box"],
+    gh: ["https://github.com/box"],
+    ytp: ["https://www.youtube.com/@box"],
+    ytc: ["https://www.youtube.com/channel/UClVkSYJyS4XTpzukZn1zm7w"],
+    android_app_ids: ["com.box.android"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "BurgerKing",
     reasons: ["BDS_GRASS"],
     fb: [
