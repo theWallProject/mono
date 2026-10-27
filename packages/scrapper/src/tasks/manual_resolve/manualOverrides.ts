@@ -59927,6 +59927,8 @@ export const manualOverrides: Record<
     tw: ["https://x.com/hellosimply"],
     ig: ["https://www.instagram.com/hellosimply"],
     ytp: ["https://www.youtube.com/c/hellosimply"],
+    gh: ["https://github.com/joytunes"],
+    android_app_ids: ["com.joytunes.simplypiano", "com.joytunes.simplyguitar"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Simply AD": {
