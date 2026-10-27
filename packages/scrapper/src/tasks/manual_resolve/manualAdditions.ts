@@ -1873,6 +1873,16 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Pitango",
+    reasons: ["h"],
+    ws: ["https://www.pitango.com"],
+    li: ["https://www.linkedin.com/company/pitango-vc"],
+    tw: ["https://x.com/Pitango"],
+    ytp: ["https://www.youtube.com/@PitangoVC"],
+    ytc: ["https://www.youtube.com/channel/UC1lnY6EcrYlLPQkAApXtzZw"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "PizzaHut",
     reasons: ["BDS_GRASS"],
     ws: ["https://www.pizzahut.com", "https://www.pizzahut.com.my"],
