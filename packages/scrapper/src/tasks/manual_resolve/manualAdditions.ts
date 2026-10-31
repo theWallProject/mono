@@ -684,6 +684,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Cerebras Systems",
+    reasons: ["c"],
+    ws: ["https://www.cerebras.ai"],
+    li: ["https://www.linkedin.com/company/cerebras-systems"],
+    tw: ["https://x.com/cerebras"],
+    gh: ["https://github.com/Cerebras"],
+    ytp: ["https://www.youtube.com/@Cerebras"],
+    ytc: ["https://www.youtube.com/channel/UCAAJD_MScghZj9R1cUZ3c8w"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Chevron",
     reasons: ["BDS_PRIO"],
     ws: [
