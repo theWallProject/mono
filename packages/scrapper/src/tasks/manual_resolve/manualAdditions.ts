@@ -1774,6 +1774,18 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "NVIDIA",
+    reasons: ["c"],
+    ws: ["https://www.nvidia.com"],
+    li: ["https://www.linkedin.com/company/nvidia"],
+    tw: ["https://x.com/nvidia"],
+    ytp: ["https://www.youtube.com/@nvidia"],
+    proof_text:
+      "Acquired the Israeli companies Mellanox (7 billion USD, 2020) and Run:ai (700 million USD, 2024), and speaks at Leverage IL, a San Francisco conference staged to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "PapaJohns",
     reasons: ["BDS_GRASS"],
     ws: ["https://www.papajohns.com"],
