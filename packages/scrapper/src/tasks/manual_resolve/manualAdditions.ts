@@ -120,6 +120,21 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Allianz",
+    reasons: ["c"],
+    ws: ["https://www.allianz.com"],
+    li: ["https://www.linkedin.com/company/allianz"],
+    fb: ["https://www.facebook.com/Allianz"],
+    tw: ["https://x.com/Allianz"],
+    ytp: ["https://www.youtube.com/@Allianz"],
+    ytc: ["https://www.youtube.com/channel/UCeGmH7XrpzCjlrrxoAVnWPA"],
+    tt: ["https://www.tiktok.com/@allianz"],
+    proof_text:
+      "Invested in at least 14 major weapons companies on the BDS divestment shortlist, including Elbit Systems - more than 450 million dollars as of February 2025 - and its PIMCO subsidiary invests in Israeli treasury bonds.",
+    proof_link: "https://investigate.afsc.org/company/allianz",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "AlphaSignal",
     reasons: ["c"],
     ws: ["https://alphasignal.ai"],
