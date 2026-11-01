@@ -2265,6 +2265,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Root Ventures",
+    reasons: ["c"],
+    ws: ["https://root.vc"],
+    li: ["https://www.linkedin.com/company/root-ventures"],
+    tw: ["https://x.com/rootvc"],
+    gh: ["https://github.com/rootvc"],
+    ytp: ["https://www.youtube.com/@rootVc"],
+    ytc: ["https://www.youtube.com/channel/UC9EA7JH6TRPB8FfqCcFhJHg"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Sabra",
     reasons: ["BDS_PRIO"],
     ws: ["https://sabra.com"],
