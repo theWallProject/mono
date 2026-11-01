@@ -103,6 +103,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "AlphaSignal",
+    reasons: ["c"],
+    ws: ["https://alphasignal.ai"],
+    li: ["https://www.linkedin.com/company/alphasignal"],
+    tw: ["https://x.com/AlphaSignalAI"],
+    ig: ["https://www.instagram.com/alphasignal.ai"],
+    ytp: ["https://www.youtube.com/@AlphaSignal"],
+    ytc: ["https://www.youtube.com/channel/UCMlqkf7gfpod3DBa5hVu0xA"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Amazon",
     reasons: ["BDS_PRESSURE"],
     ws: [
