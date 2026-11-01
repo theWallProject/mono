@@ -1196,6 +1196,17 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Eragon",
+    reasons: ["c"],
+    ws: ["https://www.eragon.ai"],
+    li: ["https://www.linkedin.com/company/eragonai"],
+    tw: ["https://x.com/EragonAI"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Expedia",
     reasons: ["BDS_PRESSURE"],
     ws: [
