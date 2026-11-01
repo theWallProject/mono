@@ -1849,6 +1849,15 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Nimble Way",
+    reasons: ["h"],
+    ws: ["https://www.nimbleway.com"],
+    li: ["https://www.linkedin.com/company/nimbledata"],
+    tw: ["https://x.com/nimble_search"],
+    gh: ["https://github.com/nimbleway"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "NVIDIA",
     reasons: ["c"],
     ws: ["https://www.nvidia.com"],
