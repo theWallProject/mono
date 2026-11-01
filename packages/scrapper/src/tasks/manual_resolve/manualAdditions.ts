@@ -1392,6 +1392,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Greylock",
+    reasons: ["c"],
+    ws: ["https://greylock.com"],
+    li: ["https://www.linkedin.com/company/greylock-partners"],
+    tw: ["https://x.com/GreylockVC"],
+    gh: ["https://github.com/greylock"],
+    ytp: ["https://www.youtube.com/@GreylockVC"],
+    ytc: ["https://www.youtube.com/channel/UCZ7x7yDBbEFCGztD8BYvRhA"],
+    proof_text:
+      "Partner at Leverage IL and says 'Israel is a core investment market'; hired a dedicated partner for Israeli founders and has backed nine Israeli companies over 20 years.",
+    proof_link: "https://greylock.com/firm-news/welcome-mor-chen",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "HP",
     reasons: ["BDS_PRIO"],
     ws: [
