@@ -378,6 +378,22 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Anti-Defamation League",
+    reasons: ["c"],
+    ws: ["https://www.adl.org"],
+    li: ["https://www.linkedin.com/company/anti-defamation-league"],
+    fb: ["https://www.facebook.com/adlorg"],
+    tw: ["https://x.com/ADL"],
+    ig: ["https://www.instagram.com/adl_national"],
+    ytp: ["https://www.youtube.com/@Anti-Defamation-League"],
+    ytc: ["https://www.youtube.com/channel/UCfVotMGyD7sVMomr2AzsBtQ"],
+    tt: ["https://www.tiktok.com/@adl"],
+    proof_text:
+      "Pro-Israel advocacy organisation that campaigns to equate criticism of Israel and anti-Zionism with antisemitism.",
+    proof_link: "https://www.theguardian.com/news/2024/jan/05/adl-pro-israel-advocacy-zionism-antisemitism",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "AXA",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.axa.com", "https://www.axa.com.hk"],
