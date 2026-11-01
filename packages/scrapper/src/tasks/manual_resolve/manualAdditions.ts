@@ -103,6 +103,23 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Airwallex",
+    reasons: ["c"],
+    ws: ["https://www.airwallex.com"],
+    li: ["https://www.linkedin.com/company/airwallex"],
+    fb: ["https://www.facebook.com/airwallex"],
+    tw: ["https://x.com/airwallex"],
+    ig: ["https://www.instagram.com/airwallex"],
+    gh: ["https://github.com/airwallex"],
+    ytp: ["https://www.youtube.com/@airwallex"],
+    ytc: ["https://www.youtube.com/channel/UCAHrD1DAdLu9ugJDdw_3xWQ"],
+    android_app_ids: ["com.airwallex"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "AlphaSignal",
     reasons: ["c"],
     ws: ["https://alphasignal.ai"],
