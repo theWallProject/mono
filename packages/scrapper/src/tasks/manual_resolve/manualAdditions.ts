@@ -2290,6 +2290,17 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Ribbit Capital",
+    reasons: ["c"],
+    ws: ["https://www.ribbitcap.com"],
+    li: ["https://www.linkedin.com/company/ribbit-capital"],
+    tw: ["https://x.com/ribbitcapital"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Root Ventures",
     reasons: ["c"],
     ws: ["https://root.vc"],
