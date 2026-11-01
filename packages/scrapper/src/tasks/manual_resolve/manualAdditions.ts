@@ -1578,6 +1578,17 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Leverage.Work",
+    reasons: ["c"],
+    ws: ["https://www.leverage.work", "https://www.leverageisrael.com"],
+    li: ["https://www.linkedin.com/company/leverage-work"],
+    tw: ["https://x.com/Leverage_Work"],
+    proof_text:
+      "Organiser of Leverage IL, a San Francisco conference staged to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Long Journey Ventures",
     reasons: ["c"],
     ws: ["https://www.longjourney.vc"],
