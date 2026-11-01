@@ -962,6 +962,17 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Dell Technologies Capital",
+    reasons: ["c"],
+    ws: ["https://www.delltechnologiescapital.com"],
+    li: ["https://www.linkedin.com/company/delltechcapital"],
+    tw: ["https://x.com/DellTechCapital"],
+    proof_text:
+      "Venture investment arm of Dell Technologies; invests across the U.S., Israel and Europe, and speaks at Leverage IL, a San Francisco conference staged to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Disney+",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.disneyplus.com"],
