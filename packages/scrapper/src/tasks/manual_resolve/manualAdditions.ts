@@ -363,6 +363,21 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Andreessen Horowitz (a16z)",
+    reasons: ["c"],
+    ws: ["https://a16z.com"],
+    li: ["https://www.linkedin.com/company/a16z"],
+    tw: ["https://x.com/a16z"],
+    ig: ["https://www.instagram.com/a16z"],
+    gh: ["https://github.com/a16z"],
+    ytp: ["https://www.youtube.com/@a16z"],
+    ytc: ["https://www.youtube.com/channel/UC9cn0TuPq4dnbTY-CBsm8XA"],
+    proof_text:
+      "Co-host of Leverage IL and the most active investor in Israeli companies in 2024; runs closed-door Tel Aviv events recruiting founders from elite IDF units.",
+    proof_link: "https://www.calcalistech.com/ctechnews/article/oif0bk8uu",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "AXA",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.axa.com", "https://www.axa.com.hk"],
