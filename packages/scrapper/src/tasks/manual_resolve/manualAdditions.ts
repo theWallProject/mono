@@ -1786,6 +1786,21 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Palantir",
+    reasons: ["c"],
+    ws: ["https://www.palantir.com"],
+    li: ["https://www.linkedin.com/company/palantir-technologies"],
+    fb: ["https://www.facebook.com/Palantir"],
+    tw: ["https://x.com/PalantirTech"],
+    gh: ["https://github.com/palantir"],
+    ytp: ["https://www.youtube.com/@palantirtech"],
+    ytc: ["https://www.youtube.com/channel/UCwed6_f0WcDIioXvMQfcP2Q"],
+    proof_text:
+      "Entered a strategic partnership with Israel's Ministry of Defense to support its war effort, and held a board meeting in Tel Aviv in solidarity.",
+    proof_link: "https://bdsmovement.net/palantir",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "PapaJohns",
     reasons: ["BDS_GRASS"],
     ws: ["https://www.papajohns.com"],
