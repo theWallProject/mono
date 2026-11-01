@@ -2452,6 +2452,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Terragrit",
+    reasons: ["c"],
+    ws: ["https://terragrit.com"],
+    li: ["https://www.linkedin.com/company/terragrit"],
+    tw: ["https://x.com/terragrit"],
+    ig: ["https://www.instagram.com/terragrit"],
+    ytp: ["https://www.youtube.com/@terragrit"],
+    ytc: ["https://www.youtube.com/channel/UCIV98QO0p3TerAzXnFn433w"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Texaco",
     reasons: ["BDS_PRIO"],
     ws: [
