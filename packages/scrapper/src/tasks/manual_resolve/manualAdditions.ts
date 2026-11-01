@@ -1682,6 +1682,19 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Manifest Law",
+    reasons: ["c"],
+    ws: ["https://manifestlaw.com"],
+    li: ["https://www.linkedin.com/company/manifestlaw"],
+    fb: ["https://www.facebook.com/manifestimmigrationlaw"],
+    ig: ["https://www.instagram.com/manifestlaw_immigration"],
+    ytp: ["https://www.youtube.com/@TryManifest"],
+    proof_text:
+      "Speaks at Leverage IL, a conference staged in San Francisco to promote Israeli founders and Israel's AI and defence industry.",
+    proof_link: "https://www.leverageisrael.com",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Match Group",
     reasons: ["c"],
     ws: ["https://mtch.com"],
