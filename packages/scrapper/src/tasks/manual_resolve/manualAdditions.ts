@@ -409,6 +409,21 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Atlas Air",
+    reasons: ["c"],
+    ws: ["https://www.atlasair.com", "https://www.atlasairworldwide.com"],
+    li: ["https://www.linkedin.com/company/atlas-air"],
+    fb: ["https://www.facebook.com/atlasairworldwide"],
+    tw: ["https://x.com/AtlasAirWW"],
+    ig: ["https://www.instagram.com/atlasairworldwide"],
+    ytc: ["https://www.youtube.com/channel/UCmaxIqNf9BDba6CF5j0p1Eg"],
+    tt: ["https://www.tiktok.com/@atlasair"],
+    proof_text:
+      "A cargo and passenger charter airline that has transported weapons from the US to Israel during the genocide in Gaza.",
+    proof_link: "https://investigate.info/company/atlas-air",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "AXA",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.axa.com", "https://www.axa.com.hk"],

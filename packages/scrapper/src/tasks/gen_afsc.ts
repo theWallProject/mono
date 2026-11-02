@@ -51,6 +51,10 @@ const DecisionSchema = z
     action: z.enum(["add", "skip", "merge", "enrich"]),
     reason: APIListOfReasonsSchema.optional(),
     ws: z.string().optional(),
+    /** Additional domains for the same company (brands people actually encounter). */
+    wsExtra: z.array(z.string()).optional(),
+    /** Overrides the AFSC summary when that summary omits the Israel evidence we are citing. */
+    proofText: z.string().optional(),
     note: z.string().optional(),
     decidedAt: z.string().optional(),
   })
@@ -114,9 +118,21 @@ export async function run() {
       id: `AFSC_${isin}`,
       reasons: [reason],
       ws,
-      proof_text: decodeEntities(row.summary),
+      proof_text: decodeEntities(decision?.proofText ?? row.summary),
       proof_link: row.link,
     })
+
+    for (const extra of decision?.wsExtra ?? []) {
+      const slug = extra.replace(/[^a-z0-9]+/gi, "_")
+      merged.push({
+        name,
+        id: `AFSC_${isin}_ws_${slug}`,
+        reasons: [reason],
+        ws: extra,
+        proof_text: decodeEntities(decision?.proofText ?? row.summary),
+        proof_link: row.link,
+      })
+    }
   }
 
   const sorted = merged.sort((a, b) => a.name.localeCompare(b.name))
