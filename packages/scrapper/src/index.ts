@@ -6,6 +6,7 @@ import { run as extractSocial } from "./tasks/extract_social"
 import { run as extractWebsites } from "./tasks/extract_websites"
 import { run as final } from "./tasks/final"
 import { run as genStaticBIT } from "./tasks/gen_buyIsraeliTech"
+import { run as genAFSC } from "./tasks/gen_afsc"
 import { run as genStatic } from "./tasks/gen_static"
 // import { generateAndroidBlacklist } from "./tasks/generate_android_blacklist"
 import { run as mergeCB } from "./tasks/merge_cb"
@@ -56,6 +57,9 @@ export const runUpdateSteps = async (options?: { shouldScrap?: boolean; shouldVa
 
   log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 4: Prepare BuyIsTech Data...")
   await genStaticBIT()
+
+  log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 4b: Prepare AFSC Data...")
+  await genAFSC()
 
   log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 5: Merging All Results...")
   const sorted = await mergeStatic()
