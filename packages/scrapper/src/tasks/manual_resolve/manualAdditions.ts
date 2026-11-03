@@ -13,6 +13,20 @@ export type ManualAdditionItem = {
 
 export const manualAdditions: ManualAdditionItem[] = [
   {
+    name: "PayPal Holdings",
+    reasons: ["c"],
+    li: ["https://www.linkedin.com/company/paypal"],
+    tw: ["https://x.com/paypal"],
+    ig: ["https://www.instagram.com/paypal"],
+    ytp: ["https://www.youtube.com/@paypal"],
+    tt: ["https://www.tiktok.com/@paypal"],
+    android_app_ids: ["com.paypal.android.p2pmobile", "com.venmo", "com.xoom.android.app"],
+    proof_text:
+      "Operates in Israel and serves Israeli settlers in the occupied West Bank while refusing to provide services to Palestinians there, a policy 7amleh's 2024 report found violates PayPal's own code of conduct and Palestinian rights to work and development.",
+    proof_link: "https://investigate.info/company/paypal",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Adlis Smart",
     reasons: ["h"],
     ws: ["https://adlissmart.com", "https://adlis.co.il"],
