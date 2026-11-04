@@ -348,7 +348,12 @@ const loadJsonFiles = async (folderPath: string) => {
     row.fb = removeProtocol(row.fb)
     row.tw = removeProtocol(row.tw)
 
-    const override = manualOverrides[row.name]
+    // AFSC rows are keyed on ISIN and hand-curated from the dataset, so a name match against an
+    // unrelated company's override must not rewrite them. Real case: AFSC's 'Polaris' (Polaris Inc,
+    // NYSE: PII) matched the override for the Israeli company also displayed as 'Polaris', which
+    // replaced polaris.com with polarisolutions.com and silently dropped the row from WEBSITES.
+    const isAfscRow = row.id.startsWith("AFSC_")
+    const override = isAfscRow ? undefined : manualOverrides[row.name]
 
     if (override) {
       // Skip unverified overrides — let the original CB data pass through unchanged.
