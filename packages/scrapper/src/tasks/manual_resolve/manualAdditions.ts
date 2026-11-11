@@ -13,6 +13,20 @@ export type ManualAdditionItem = {
 
 export const manualAdditions: ManualAdditionItem[] = [
   {
+    name: "Wendy's",
+    reasons: ["c"],
+    li: ["https://www.linkedin.com/company/wendys"],
+    tw: ["https://x.com/wendys"],
+    ig: ["https://www.instagram.com/wendys"],
+    ytp: ["https://www.youtube.com/@wendys"],
+    tt: ["https://www.tiktok.com/@wendys"],
+    android_app_ids: ["com.wendys.nutritiontool"],
+    proof_text:
+      "A December 2023 class action alleges incarcerated people in Alabama are 'leased' out to day jobs at its restaurants under a convict-leasing system paying below the legal minimum wage, and its policies prohibit forced labour but do not ban all forms of prison labour.",
+    proof_link: "https://investigate.info/company/wendys",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Walmart",
     reasons: ["c"],
     li: ["https://www.linkedin.com/company/walmart"],
