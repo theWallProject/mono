@@ -55,6 +55,12 @@ const DecisionSchema = z
     wsExtra: z.array(z.string()).optional(),
     /** Overrides the AFSC summary when that summary omits the Israel evidence we are citing. */
     proofText: z.string().optional(),
+    /**
+     * Overrides the dataset's `Link` when that slug belongs to a different company. The dataset's
+     * slugs are not unique (13 are shared) and a few are outright wrong, so corrections live here
+     * in the curated ledger rather than in afsc.json, which is re-parsed from the xlsx.
+     */
+    proofLink: z.string().url().optional(),
     note: z.string().optional(),
     decidedAt: z.string().optional(),
   })
@@ -119,7 +125,7 @@ export async function run() {
       reasons: [reason],
       ws,
       proof_text: decodeEntities(decision?.proofText ?? row.summary),
-      proof_link: row.link,
+      proof_link: decision?.proofLink ?? row.link,
     })
 
     for (const extra of decision?.wsExtra ?? []) {
@@ -130,7 +136,7 @@ export async function run() {
         reasons: [reason],
         ws: extra,
         proof_text: decodeEntities(decision?.proofText ?? row.summary),
-        proof_link: row.link,
+        proof_link: decision?.proofLink ?? row.link,
       })
     }
   }
