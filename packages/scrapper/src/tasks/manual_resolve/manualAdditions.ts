@@ -13,6 +13,20 @@ export type ManualAdditionItem = {
 
 export const manualAdditions: ManualAdditionItem[] = [
   {
+    name: "Walmart",
+    reasons: ["c"],
+    li: ["https://www.linkedin.com/company/walmart"],
+    tw: ["https://x.com/walmart"],
+    ig: ["https://www.instagram.com/walmart"],
+    ytp: ["https://www.youtube.com/@walmart"],
+    tt: ["https://www.tiktok.com/@walmart"],
+    android_app_ids: ["com.walmart.android", "com.walmart.sparkdriver"],
+    proof_text:
+      "It buys from suppliers using prison labour, including beef from cattle raised by incarcerated people at Angola, and its 2023 code of conduct bars forced labour but dropped the explicit ban on prison labour its 2014 policy carried.",
+    proof_link: "https://investigate.info/company/walmart",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "PayPal Holdings",
     reasons: ["c"],
     li: ["https://www.linkedin.com/company/paypal"],
