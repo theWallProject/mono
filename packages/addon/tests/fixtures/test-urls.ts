@@ -1,9 +1,10 @@
 import { readFileSync } from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
-import type { FinalDBFileType, LinkField, SpecialDomains } from "@theWallProject/common"
-import { findInDatabaseByDomain, findInDatabaseBySelector, getMainDomain } from "@theWallProject/common"
+import type { FinalDBFileType, LinkField, SpecialDomains, valuesOfListOfReasons } from "@theWallProject/common"
+import { APIListOfReasons, findInDatabaseByDomain, findInDatabaseBySelector, getMainDomain } from "@theWallProject/common"
 
+import { getModalReasonLevel } from "../../src/helpers/reasonLevels"
 import { findMatchingRule } from "../../src/rules"
 
 const __filename = fileURLToPath(import.meta.url)
@@ -296,6 +297,60 @@ export function getRandomUrls(options: {
   }
 
   return filtered.slice(0, count)
+}
+
+/**
+ * Every valid reason code, derived from the shared enum so this cannot drift from the schema.
+ */
+const KNOWN_REASONS: ReadonlySet<string> = new Set(Object.values(APIListOfReasons))
+
+function isKnownReason(value: string): value is valuesOfListOfReasons {
+  return KNOWN_REASONS.has(value)
+}
+
+/**
+ * Narrows a database reason list to known reason codes.
+ * Throws on an unknown code: the database is schema-validated, so an unknown value means
+ * corrupted data, not a case to skip silently.
+ */
+function toKnownReasons(reasons: readonly string[]): valuesOfListOfReasons[] {
+  const unknown = reasons.filter((reason) => !isKnownReason(reason))
+  if (unknown.length > 0) {
+    throw new Error(`Unknown reason code(s) in database: ${unknown.join(", ")}`)
+  }
+  return reasons.filter(isKnownReason)
+}
+
+/**
+ * Get a banner URL whose reason list resolves to the given severity level.
+ *
+ * Level resolution is delegated to getModalReasonLevel, the same function the banner uses,
+ * so the fixture can never disagree with the UI about what "red" and "yellow" mean.
+ * Excludes hints and social profiles. FAILS HARD if the database has no match.
+ */
+export function getUrlForReasonLevel(level: "red" | "yellow"): CategorizedUrl {
+  const filtered: CategorizedUrl[] = []
+  for (const entry of database) {
+    if (entry.isHint && entry.hintText) continue
+
+    const reasons = toKnownReasons(entry.r)
+    if (reasons.length === 0 || getModalReasonLevel(reasons) !== level) continue
+
+    for (const result of extractResults(entry)) {
+      if (result.isHint) continue
+      // Social profiles frequently require login or block automation, which would fail the
+      // navigation rather than the assertion under test. Only plain websites are reliable here.
+      if (result.hasSocialMedia) continue
+      filtered.push(result)
+    }
+  }
+
+  if (filtered.length === 0) {
+    throw new Error(`No banner URLs found for severity level "${level}"`)
+  }
+
+  const index = Math.floor(Math.random() * filtered.length)
+  return filtered[index]!
 }
 
 /**

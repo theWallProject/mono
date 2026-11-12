@@ -13,7 +13,10 @@
   --wall-green-dark: #146c43;
   /* Severity levels: red = current modal colour, yellow = indirect connection. */
   --wall-modal-bg-red: #b72b00;
-  --wall-modal-bg-yellow: #8a5a00;
+  --wall-modal-bg-yellow: #ffc300;
+  /* Yellow is light enough that white text cannot reach AA (1.61:1), so the yellow tier
+     switches the modal's text to this ink. Contrast on #ffc300: 10.28:1. */
+  --wall-ink: #2b1d00;
 }
 
 .container {
@@ -118,9 +121,44 @@
   margin-top: 20px;
 }
 
-/* Yellow severity: indirect connection (founder/investor, lower BDS tier, custom). */
+/* Yellow severity: indirect connection (founder/investor, lower BDS tier, custom).
+   The background is a real yellow, which no white text can sit on accessibly, so the whole
+   modal flips to ink. Scoped child overrides below carry that flip. */
 .modalContainerYellow {
   background-color: var(--wall-modal-bg-yellow);
+  color: var(--wall-ink);
+}
+
+/* Ink overrides for every text surface inside the yellow modal.
+   Measured on #ffc300: ink 10.21:1, whereas the red tier's white (1.61:1) and #ffe1cd
+   secondary (1.29:1) both fail badly. Scoped to the yellow modifier so the red tier is
+   untouched. */
+.modalContainerYellow .modalContentWrapper,
+.modalContainerYellow .proofText,
+.modalContainerYellow .proofLink,
+.modalContainerYellow .closeButton {
+  color: var(--wall-ink);
+}
+
+.modalContainerYellow .closeButton {
+  background: rgba(43, 29, 0, 0.12);
+}
+
+.modalContainerYellow .closeButton:hover {
+  background: rgba(43, 29, 0, 0.22);
+  color: var(--wall-ink);
+  box-shadow: 0 0 12px rgba(43, 29, 0, 0.25);
+}
+
+.modalContainerYellow .closeButton:active {
+  background: rgba(43, 29, 0, 0.3);
+}
+
+/* The alternatives/CTA button keeps its white surface: white on yellow would fail, and the
+   green label reads at 6.2:1 against the button itself. Only its shadow deepens so it still
+   separates from the lighter background. */
+.modalContainerYellow .button {
+  box-shadow: 0 2px 10px rgba(43, 29, 0, 0.28);
 }
 
 .closeButton {
