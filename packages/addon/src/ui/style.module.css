@@ -11,6 +11,9 @@
   --wall-badge-text: #932300;
   --wall-green: #1a8754;
   --wall-green-dark: #146c43;
+  /* Severity levels: red = current modal colour, yellow = indirect connection. */
+  --wall-modal-bg-red: #b72b00;
+  --wall-modal-bg-yellow: #8a5a00;
 }
 
 .container {
@@ -110,9 +113,14 @@
   transition: opacity 0.5s;
   position: relative;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  background-color: #b72b00;
+  background-color: var(--wall-modal-bg-red);
   border-radius: 20px;
   margin-top: 20px;
+}
+
+/* Yellow severity: indirect connection (founder/investor, lower BDS tier, custom). */
+.modalContainerYellow {
+  background-color: var(--wall-modal-bg-yellow);
 }
 
 .closeButton {

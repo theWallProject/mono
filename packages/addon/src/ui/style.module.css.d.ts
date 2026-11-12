@@ -15,6 +15,7 @@ declare const styles: {
   readonly donationBricks: string
   readonly donationLink: string
   readonly modalContainer: string
+  readonly modalContainerYellow: string
   readonly modalContentWrapper: string
   readonly modalFadeIn: string
   readonly modalMargin: string

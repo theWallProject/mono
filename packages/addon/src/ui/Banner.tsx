@@ -9,6 +9,7 @@ import warningIcon from "../../assets/images/warning-icon.svg"
 import { error, log } from "../helpers"
 import { getI18nMessage } from "../helpers/i18n-keys"
 import { getReasonI18nKey } from "../helpers/reasonMap"
+import { getModalReasonLevel } from "../helpers/reasonLevels"
 import { findRuleOfType, isUrlOnlyRule, processRule } from "../rules"
 import { ShareButton } from "../share_button/ShareButton"
 import {
@@ -466,7 +467,10 @@ export const Banner = () => {
           {/* Wrapper for modal and share bar to stack vertically */}
           <div className={style.modalWrapper}>
             {/* Modal container with shield icon */}
-            <div className={style.modalContainer}>
+            <div
+              className={`${style.modalContainer} ${
+                getModalReasonLevel(testResult.reasons) === "yellow" ? style.modalContainerYellow : ""
+              }`}>
               {/* Close button - top right */}
               <button type="button" className={style.closeButton} onClick={onDismissClick} aria-label="Close">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
