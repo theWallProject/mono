@@ -1,16 +1,27 @@
 import type { BrowserContext, Page } from "playwright"
 import { afterAll, beforeAll, describe, expect, it } from "vitest"
 
-import { getRandomResult, getRandomUrls, getUrlWithAlternatives, getUrlWithoutAlternatives } from "../fixtures/test-urls"
+import {
+  getRandomResult,
+  getRandomUrls,
+  getUrlCandidatesWithoutAlternatives,
+  getUrlCandidatesWithAlternatives,
+  getUrlWithAlternatives,
+  getUrlWithoutAlternatives
+} from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
 import {
+  extensionUi,
   getAlternativesMenu,
+  gotoUrlWithBanner,
   isBannerDisplayed,
   navigateToUrl,
   safeClosePage,
+  waitFor,
   waitForBanner,
-  waitForBannerButton
+  waitForBannerButton,
+  waitForBannerLink
 } from "../utils/extension"
 
 describe("Banner Display - Single Tab Isolated Tests", () => {
@@ -33,22 +44,23 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
     beforeAll(async () => {
       console.log("[TEST] Setting up single URL for all standard banner tests")
-      testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+      page = await context.newPage()
+
+      // Walk candidates until one renders a banner. A single random pick from a live database
+      // regularly lands on a dead domain, an off-host redirect, or a profile that shows
+      // nothing, which would fail this whole describe block before any assertion runs.
+      const candidates: ReturnType<typeof getRandomResult>[] = []
+      for (let i = 0; i < 20; i++) {
+        candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
+      }
+
+      testUrl = await gotoUrlWithBanner(page, candidates, "any-banner")
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
       if (testUrl.isHint) {
         throw new Error(`Test URL ${testUrl.url} is a hint URL, but we need a banner URL.`)
       }
 
-      page = await context.newPage()
-      const navSuccess = await navigateToUrl(page, testUrl.url)
-      if (!navSuccess) {
-        console.log(`[TEST] Navigation failed: ${testUrl.url}`)
-        throw new Error(`Failed to navigate to ${testUrl.url}`)
-      }
-
-      // Wait for banner to appear - this is the unified function that handles all waiting
-      await waitForBanner(page)
       console.log("[TEST] Banner appeared, ready for all standard tests")
     })
 
@@ -98,15 +110,22 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       console.log("[TEST] Hovering over share container to ensure dropdown is visible")
       await shareContainer.hover()
 
-      // Wait for dropdown to become visible (CSS transition)
-      await page.waitForSelector('[class*="dropdown"][class*="visible"]', { state: "visible", timeout: 3000 })
-
-      console.log("[TEST] Looking for share buttons by aria-label")
+      // Wait for the dropdown to actually become visible. The previous `waitForSelector`
+      // matched only when the transition had already flipped `visibility`, so the following
+      // point-in-time `isVisible()` on the button could still race the 0.2s transition.
+      console.log("[TEST] Waiting for share dropdown to open")
       const shareButton = page.locator('button[aria-label*="Share on"]').first()
-
-      // Verify share button exists and is visible
-      const buttonVisible = await shareButton.isVisible()
-      expect(buttonVisible).toBe(true)
+      await waitFor(
+        async () => {
+          const count = await shareButton.count()
+          return count > 0 && (await shareButton.isVisible())
+        },
+        {
+          timeout: 3000,
+          interval: 100,
+          description: "share dropdown button to become visible after hover"
+        }
+      )
 
       console.log("[TEST] Clicking share button (LinkedIn)")
       // Set up listener for new page (share buttons open in new tab)
@@ -129,23 +148,25 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       console.log(`[TEST] ✓ Close button displayed`)
     })
 
-    it("should display donation button on banner", async () => {
-      console.log("[TEST] Verifying donation button is visible")
-      const donateButton = await waitForBannerButton(page, /donate/i)
+    it("should display donation link on banner", async () => {
+      console.log("[TEST] Verifying donation link is visible")
+      // The donation element is an anchor around a decorative image, so it is queried by
+      // destination rather than by role/name.
+      const donationLink = await waitForBannerLink(page, "ko-fi.com")
 
-      const isVisible = await donateButton.first().isVisible()
+      const isVisible = await donationLink.first().isVisible()
       expect(isVisible).toBe(true)
-      console.log(`[TEST] ✓ Donation button displayed`)
+      console.log(`[TEST] ✓ Donation link displayed`)
     })
 
-    it("should open Ko-fi link when donation button is clicked", async () => {
-      console.log("[TEST] Clicking donation button")
-      const donateButton = await waitForBannerButton(page, /donate/i)
+    it("should open Ko-fi link when donation link is clicked", async () => {
+      console.log("[TEST] Clicking donation link")
+      const donationLink = await waitForBannerLink(page, "ko-fi.com")
 
       // Set up listener for new page (opens in new tab)
       const newPagePromise = context.waitForEvent("page", { timeout: 5000 })
 
-      await donateButton.first().click()
+      await donationLink.first().click()
 
       // Wait for new page to open
       const newPage = await newPagePromise
@@ -157,7 +178,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       expect(containsKoFi).toBe(true)
 
       await newPage.close()
-      console.log(`[TEST] ✓ Donation button opens Ko-fi link in new tab`)
+      console.log(`[TEST] ✓ Donation link opens Ko-fi in new tab`)
     })
 
     it("should display report mistake button in bottom bar", async () => {
@@ -202,18 +223,20 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
     it("should dismiss banner when close button is clicked", async () => {
       console.log("[TEST] Starting: should dismiss banner when close button is clicked")
 
-      const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
-      console.log(`[TEST] Selected URL: ${testUrl.url}`)
-
       const page = await context.newPage()
       try {
-        const navSuccess = await navigateToUrl(page, testUrl.url)
-        if (!navSuccess) {
-          console.log(`[TEST] Navigation failed, skipping test: ${testUrl.url}`)
-          return
+        // Walk candidates until one renders a banner instead of skipping the test when a
+        // single random URL happens to be dead.
+        // A larger pool is needed here than elsewhere: this describe block runs late in the
+        // file, so a modest 15-candidate walk occasionally finds nothing when that draw
+        // happens to be mostly stale domains.
+        const candidates: ReturnType<typeof getRandomResult>[] = []
+        for (let i = 0; i < 40; i++) {
+          candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
         }
 
-        await waitForBanner(page)
+        const testUrl = await gotoUrlWithBanner(page, candidates, "any-banner")
+        console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
         console.log("[TEST] Clicking close button")
         const closeButton = await waitForBannerButton(page, /close/i)
@@ -244,24 +267,36 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
     it("should not show banner again after dismissal on same page", async () => {
       console.log("[TEST] Starting: should not show banner again after dismissal on same page")
 
-      // Use a different URL than the previous tests to avoid storage conflicts
-      const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true, ruleType: "urlOnly" })
-      console.log(`[TEST] Selected URL: ${testUrl.url}`)
-
+      // Pick a URL that actually shows a banner, then dismiss it. A random live URL can land
+      // on a dead domain, an off-host redirect, or a social profile that renders no banner,
+      // which fails this test for reasons unrelated to dismissal.
       const page = await context.newPage()
       try {
-        // First visit - banner should appear
-        console.log("[TEST] First visit - navigating to URL")
-        const nav1Success = await navigateToUrl(page, testUrl.url)
-        if (!nav1Success) {
-          console.log(`[TEST] Navigation failed, skipping test`)
-          return
+        let testUrl: ReturnType<typeof getRandomResult> | undefined
+        let bannerReady = false
+
+        for (let attempt = 0; attempt < 10 && !bannerReady; attempt++) {
+          const candidate = getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false })
+          console.log(`[TEST] Trying URL (${attempt + 1}/10): ${candidate.url}`)
+
+          const navigated = await navigateToUrl(page, candidate.url)
+          if (!navigated) {
+            continue
+          }
+
+          bannerReady = await waitForBanner(page)
+            .then(() => true)
+            .catch(() => false)
+          if (bannerReady) {
+            testUrl = candidate
+          }
         }
 
-        await waitForBanner(page).catch((error) => {
-          console.log(`[TEST] Banner did not appear (might be dismissed from previous test): ${error.message}`)
-          throw error
-        })
+        if (testUrl === undefined) {
+          throw new Error("Could not find a URL that displays a banner in 10 attempts")
+        }
+        const dismissedUrl: string = testUrl.url
+        console.log(`[TEST] Selected URL: ${dismissedUrl}`)
 
         // Dismiss banner
         console.log("[TEST] Dismissing banner")
@@ -285,7 +320,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
         // Navigate back to same URL
         console.log("[TEST] Navigating back to same URL")
-        const nav3Success = await navigateToUrl(page, testUrl.url)
+        const nav3Success = await navigateToUrl(page, dismissedUrl)
         expect(nav3Success).toBe(true)
 
         console.log("[TEST] Verifying banner does not reappear")
@@ -315,20 +350,17 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
     beforeAll(async () => {
       console.log("[TEST] Setting up URL with alternatives")
-      testUrl = getUrlWithAlternatives({ excludeLoginRequired: true })
+      page = await context.newPage()
+
+      // Walk candidates until one renders a banner. A single random live URL can be dead or
+      // redirect away, which would fail this whole describe block before any assertion runs.
+      testUrl = await gotoUrlWithBanner(page, getUrlCandidatesWithAlternatives({ excludeLoginRequired: true }), "with-alternatives")
       console.log(`[TEST] Selected URL with alternatives: ${testUrl.url}`)
 
       if (testUrl.isHint) {
         throw new Error(`Test URL ${testUrl.url} is a hint URL, but we need a banner URL.`)
       }
 
-      page = await context.newPage()
-      const navSuccess = await navigateToUrl(page, testUrl.url)
-      if (!navSuccess) {
-        throw new Error(`Failed to navigate to ${testUrl.url}`)
-      }
-
-      await waitForBanner(page)
       console.log("[TEST] Banner appeared, ready for alternatives tests")
     })
 
@@ -350,16 +382,33 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       const alternativesButton = await waitForBannerButton(page, /show.*alternatives|alternatives/i)
       await alternativesButton.first().hover()
 
-      // Wait for CSS transition (opacity/visibility transition is 200ms)
-      await page.waitForTimeout(300)
+      // The menu fades in via a 200ms CSS transition driven by React state. Wait for the
+      // element to actually become visible instead of sleeping a fixed 300ms and hoping the
+      // transition beat the race.
+      console.log("[TEST] Waiting for alternatives menu to become visible")
+      const menuLocator = page.locator('[class*="altPopupMenu"]').first()
+      const menuAppeared = await waitFor(
+        async () => {
+          const count = await menuLocator.count()
+          return count > 0 && (await menuLocator.isVisible())
+        },
+        {
+          timeout: 3000,
+          interval: 100,
+          description: "alternatives menu to become visible after hover"
+        }
+      )
+        .then(() => true)
+        .catch(() => false)
 
-      console.log("[TEST] Checking alternatives menu appears")
+      expect(menuAppeared).toBe(true)
+
+      console.log("[TEST] Checking alternatives menu content")
       const menu = await getAlternativesMenu(page)
-      const menuExists = menu !== null
-      expect(menuExists).toBe(true)
+      expect(menu).not.toBeNull()
 
       // Verify menu contains alternatives
-      const menuText = menu ? await menu.textContent() : null
+      const menuText = await menu!.textContent()
       const hasMenuText = menuText !== null && menuText.length > 0
       expect(hasMenuText).toBe(true)
 
@@ -373,21 +422,16 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
     beforeAll(async () => {
       console.log("[TEST] Setting up URL without alternatives")
-      testUrl = getUrlWithoutAlternatives({ excludeLoginRequired: true })
+      page = await context.newPage()
+
+      // Walk candidates until one renders a banner, see the alternatives block above.
+      testUrl = await gotoUrlWithBanner(page, getUrlCandidatesWithoutAlternatives({ excludeLoginRequired: true }), "without-alternatives")
       console.log(`[TEST] Selected URL without alternatives: ${testUrl.url}`)
 
       if (testUrl.isHint) {
         throw new Error(`Test URL ${testUrl.url} is a hint URL, but we need a banner URL.`)
       }
 
-      page = await context.newPage()
-      const navSuccess = await navigateToUrl(page, testUrl.url)
-      if (!navSuccess) {
-        console.log(`[TEST] Navigation failed: ${testUrl.url}`)
-        throw new Error(`Failed to navigate to ${testUrl.url}`)
-      }
-
-      await waitForBanner(page)
       console.log("[TEST] Banner appeared, ready for Support Palestine tests")
     })
 
@@ -403,7 +447,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       expect(isVisible).toBe(true)
 
       // Verify alternatives button does NOT appear
-      const alternativesButton = page.getByRole("button", { name: /show.*alternatives|alternatives/i })
+      const alternativesButton = extensionUi(page).getByRole("button", { name: /show.*alternatives|alternatives/i })
       const alternativesCount = await alternativesButton.count()
       const alternativesVisible =
         alternativesCount > 0

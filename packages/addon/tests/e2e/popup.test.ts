@@ -166,20 +166,18 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
         console.log("[TEST] Clicking toggle")
         await hintsToggleContainer.click()
 
-        // Wait for success message
-        console.log("[TEST] Waiting for success message")
+        // Wait for the checkbox state to actually flip. The previous wait matched on page
+        // text containing "Hints", which is always true because the label reads
+        // "Enable Hints" — so it returned immediately and raced the React update.
+        console.log("[TEST] Waiting for checkbox state to flip")
         await waitFor(
           async () => {
-            const body = popup.locator("body")
-            const pageText = await body.textContent()
-            return (
-              pageText !== null &&
-              (pageText.includes("Hints") || pageText.includes("disabled") || pageText.includes("enabled"))
-            )
+            const current = await hintsCheckbox.isChecked()
+            return current !== initialChecked
           },
           {
             timeout: 5000,
-            description: "success message to appear after toggle"
+            description: "hints checkbox state to flip after toggle"
           }
         )
 

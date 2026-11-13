@@ -1,11 +1,14 @@
-import type { BrowserContext } from "playwright"
+import type { BrowserContext, Page } from "playwright"
 import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
-import { getRandomResult } from "../fixtures/test-urls"
+import { getHintUrlCandidates, type CategorizedUrl } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
-import { isHintsToastShown, navigateToUrl, waitFor, waitUntilHintShown } from "../utils/extension"
-import { simulateExistingUser } from "../utils/storage"
+import { extensionUi, isHintsToastShown, navigateToUrl, tryHintUrl, waitFor } from "../utils/extension"
+import { simulateExistingUser, clearAllStorage } from "../utils/storage"
+
+/** How many hint candidates to try before giving up on finding a working one. */
+const MAX_HINT_ATTEMPTS = 12
 
 describe("Hints System - Single Tab Isolated Tests", () => {
   let context: BrowserContext
@@ -23,24 +26,41 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     await context.close().catch(() => {})
   })
 
+  /**
+   * Navigates to a hint URL that demonstrably renders the hint toast.
+   *
+   * Hint entries include sites that redirect EU visitors to consent portals or login walls.
+   * On those the extension correctly does nothing, because it never saw the flagged target.
+   * Host comparison cannot separate that from a legitimate landing (`edition.cnn.com` for
+   * `cnn.com`), so this probes for the toast itself and keeps the first URL that works.
+   * On success the toast is already on screen.
+   *
+   * Fails hard if no candidate renders a toast, rather than quietly testing a redirect page.
+   */
+  const gotoHintUrlWithToast = async (page: Page): Promise<CategorizedUrl> => {
+    const candidates = getHintUrlCandidates()
+
+    for (const candidate of candidates.slice(0, MAX_HINT_ATTEMPTS)) {
+      console.log(`[TEST] Trying hint URL: ${candidate.url}`)
+      if (await tryHintUrl(page, candidate.url)) {
+        return candidate
+      }
+    }
+
+    throw new Error(`No hint URL rendered a hint toast (tried ${Math.min(candidates.length, MAX_HINT_ATTEMPTS)})`)
+  }
+
   it("should show hints toast on hint URLs", async () => {
     console.log("[TEST] Starting: should show hints toast on hint URLs")
 
-    // Get ONE hint URL - test once
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
-    console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
-
     const page = await context.newPage()
     try {
-      const navSuccess = await navigateToUrl(page, testUrl.url)
+      const testUrl = await gotoHintUrlWithToast(page)
+      console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
 
-      expect(navSuccess).toBe(true)
-
-      // await waitForExtensionProcessing(page)
-
-      // Debug hint state if toast not visible
-      const toastVisible = await waitUntilHintShown(page)
-
+      // The probe already confirmed the toast is on screen; assert it explicitly so a future
+      // change that stops rendering after the probe still fails loudly here.
+      const toastVisible = await isHintsToastShown(page)
       expect(toastVisible).toBe(true)
 
       markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
@@ -56,47 +76,37 @@ describe("Hints System - Single Tab Isolated Tests", () => {
   it("should show hint only once per session when visiting same URL multiple times", async () => {
     console.log("[TEST] Starting: should show hint only once per session")
 
-    // EXPLICIT: Get a hint URL
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
-    console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
-
     const page = await context.newPage()
     try {
-      // First visit - hint should appear
-      console.log("[TEST] First visit - navigating to hint URL")
-      const nav1Success = await navigateToUrl(page, testUrl.url)
-      if (!nav1Success) {
-        throw new Error(`Failed to navigate to hint URL: ${testUrl.url}`)
-      }
-
-      // await waitForExtensionProcessing(page)
-
-      const firstVisitToastVisible = await waitUntilHintShown(page)
-      expect(firstVisitToastVisible).toBe(true)
+      const testUrl = await gotoHintUrlWithToast(page)
+      console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
 
       // Navigate away
       console.log("[TEST] Navigating away from hint URL")
-      const nav2Success = await navigateToUrl(page, "https://example.com")
-      if (!nav2Success) {
-        // Don't add example.com to bad links - it's a test URL
+      const navigatedAway = await navigateToUrl(page, "https://example.com")
+      if (!navigatedAway) {
         throw new Error("Failed to navigate to example.com")
       }
-      // await waitForExtensionProcessing(page)
 
       // Second visit to same hint URL in same session - hint should NOT appear again
       console.log("[TEST] Second visit - navigating back to same hint URL")
-      const nav3Success = await navigateToUrl(page, testUrl.url)
-      if (!nav3Success) {
-        console.log(`[TEST] Navigation failed, skipping test: ${testUrl.url}`)
-        return // Skip this test
+      const navigatedBack = await navigateToUrl(page, testUrl.url)
+      if (!navigatedBack) {
+        throw new Error(`Failed to navigate back to hint URL: ${testUrl.url}`)
       }
-      // await waitForExtensionProcessing(page)
 
-      // Wait a moment for extension to process, then check that hint doesn't appear
-      await new Promise<void>((resolve) => setTimeout(() => resolve(), 2000))
+      // Give the extension a bounded chance to (incorrectly) re-show the toast, rather than
+      // sleeping a fixed duration and hoping.
       console.log("[TEST] Verifying hint does not appear on second visit")
-      const secondVisitToastVisible = await isHintsToastShown(page)
-      expect(secondVisitToastVisible).toBe(false)
+      const reappeared = await waitFor(async () => await isHintsToastShown(page), {
+        timeout: 2000,
+        interval: 200,
+        description: "hint toast to reappear (should not)"
+      })
+        .then(() => true)
+        .catch(() => false)
+
+      expect(reappeared).toBe(false)
 
       markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
       console.log(`[TEST] ✓ Test passed: hint does not reappear on second visit`)
@@ -111,30 +121,38 @@ describe("Hints System - Single Tab Isolated Tests", () => {
   it("should not show hints when system is disabled", async () => {
     console.log("[TEST] Starting: should not show hints when system is disabled")
 
-    // Disable hints system
+    // Establish a working hint URL with hints ENABLED first. Probing for a toast after
+    // disabling the system would be circular: no URL can ever produce a toast, so the probe
+    // would exhaust its candidates and fail for the wrong reason.
+    const warmupPage = await context.newPage()
+    let testUrl: CategorizedUrl
+    try {
+      testUrl = await gotoHintUrlWithToast(warmupPage)
+    } finally {
+      await warmupPage.close()
+    }
+    console.log(`[TEST] Working hint URL established: ${testUrl.url}`)
+
+    // Clear the rate-limit marker so the second visit is eligible to show again, then
+    // disable the system. Without clearing, the suppression could come from the cooldown
+    // rather than from the setting under test.
+    await clearAllStorage(context, extensionId)
     await simulateExistingUser(context, extensionId, { hintsDisabled: true })
     console.log("[TEST] Hints system disabled")
 
-    // EXPLICIT: Get a hint URL
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
-    console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
-
     const page = await context.newPage()
     try {
-      console.log(`[TEST] Navigating to hint URL: ${testUrl.url}`)
-      const navSuccess = await navigateToUrl(page, testUrl.url)
-      if (!navSuccess) {
-        console.log(`[TEST] Navigation failed, skipping test: ${testUrl.url}`)
-        return // Skip this test
-      }
-
-      // await waitForExtensionProcessing(page)
-
-      // Wait a moment for extension to process
-      await new Promise<void>((resolve) => setTimeout(() => resolve(), 2000))
+      const navigated = await navigateToUrl(page, testUrl.url)
+      expect(navigated).toBe(true)
 
       console.log("[TEST] Verifying hint toast does NOT appear")
-      const toastVisible = await isHintsToastShown(page)
+      const toastVisible = await waitFor(async () => await isHintsToastShown(page), {
+        timeout: 3000,
+        interval: 200,
+        description: "hint toast to appear despite system being disabled"
+      })
+        .then(() => true)
+        .catch(() => false)
       expect(toastVisible).toBe(false)
 
       console.log(`[TEST] ✓ Test passed: hints do not show when system is disabled`)
@@ -149,29 +167,18 @@ describe("Hints System - Single Tab Isolated Tests", () => {
   it("should allow dismissing hints temporarily", async () => {
     console.log("[TEST] Starting: should allow dismissing hints temporarily")
 
-    // EXPLICIT: Get a hint URL
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
-    console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
-
     const page = await context.newPage()
     try {
+      const testUrl = await gotoHintUrlWithToast(page)
       console.log(`[TEST] Navigating to hint URL: ${testUrl.url}`)
-      const navSuccess = await navigateToUrl(page, testUrl.url)
-      if (!navSuccess) {
-        console.log(`[TEST] Navigation failed, skipping test: ${testUrl.url}`)
-        return // Skip this test
-      }
 
-      // Wait for page to be ready
-      await page.waitForLoadState("domcontentloaded")
-
-      // Toast should be visible
-      const toastVisible = await waitUntilHintShown(page)
+      // The probe confirms the toast is visible.
+      const toastVisible = await isHintsToastShown(page)
       expect(toastVisible).toBe(true)
 
       // Find and click the first dismiss button (expands the toast)
       console.log("[TEST] Looking for dismiss button to expand toast")
-      const expandButton = page.getByRole("button", { name: /dismiss/i }).first()
+      const expandButton = extensionUi(page).getByRole("button", { name: /dismiss/i }).first()
       const expandButtonCount = await expandButton.count()
       expect(expandButtonCount).toBeGreaterThan(0)
       const expandButtonVisible = await expandButton.isVisible()
@@ -180,42 +187,40 @@ describe("Hints System - Single Tab Isolated Tests", () => {
       console.log("[TEST] Clicking dismiss button to expand toast")
       await expandButton.click()
 
-      // Wait for toast to expand and show "Dismiss this" button
-      await new Promise<void>((resolve) => setTimeout(() => resolve(), 300))
-
-      // Find and click "Dismiss this" button (actually dismisses the toast)
-      console.log("[TEST] Looking for 'Dismiss this' button")
-      const dismissThisButton = page.getByRole("button", { name: /dismiss this/i }).first()
-      const dismissThisButtonCount = await dismissThisButton.count()
-      expect(dismissThisButtonCount).toBeGreaterThan(0)
-      const dismissThisButtonVisible = await dismissThisButton.isVisible()
-      expect(dismissThisButtonVisible).toBe(true)
+      // Wait for the expanded view to expose the "Dismiss this" action. This is a real DOM
+      // condition rather than a fixed sleep.
+      const dismissThisButton = extensionUi(page).getByRole("button", { name: /dismiss this/i }).first()
+      await waitFor(
+        async () => {
+          const count = await dismissThisButton.count()
+          return count > 0 && (await dismissThisButton.isVisible())
+        },
+        {
+          timeout: 3000,
+          interval: 100,
+          description: "'Dismiss this' button to appear after expanding the toast"
+        }
+      )
 
       console.log("[TEST] Clicking 'Dismiss this' button")
       await dismissThisButton.click()
 
-      // Give the dismiss action a moment to process
-      await new Promise<void>((resolve) => setTimeout(() => resolve(), 300))
-
-      // Wait for toast to be dismissed
-      console.log("[TEST] Waiting for hint toast to be dismissed")
-      await waitFor(
-        async () => {
-          const visible = await isHintsToastShown(page)
-          console.log(`[TEST] Toast visible check: ${visible}`)
-          return !visible
-        },
+      // Toast should disappear
+      const dismissed = await waitFor(
+        async () => !(await isHintsToastShown(page)),
         {
-          timeout: 5000,
-          interval: 200,
-          description: "hint toast to be dismissed after clicking"
+          timeout: 3000,
+          interval: 100,
+          description: "hint toast to disappear after dismissal"
         }
       )
+        .then(() => true)
+        .catch(() => false)
 
-      const toastDismissed = await isHintsToastShown(page)
-      expect(toastDismissed).toBe(false)
+      expect(dismissed).toBe(true)
 
-      console.log(`[TEST] ✓ Test passed: hint dismissed correctly`)
+      markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
+      console.log(`[TEST] ✓ Test passed: hint dismissed temporarily`)
     } catch (error) {
       console.error(`[TEST] ✗ Test failed:`, error)
       throw error

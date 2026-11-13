@@ -1,10 +1,16 @@
 import type { BrowserContext } from "playwright"
 import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
-import { getRandomResult, getRandomUrls } from "../fixtures/test-urls"
+import { getRandomResult } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
-import { isBannerDisplayed, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
-import { clearAllStorage } from "../utils/storage"
+import {
+  gotoUrlWithBanner,
+  isBannerDisplayed,
+  navigateToUrl,
+  waitForExtensionProcessing
+} from "../utils/extension"
+import { getStorageValue, clearAllStorage } from "../utils/storage"
+import { WHATS_NEW_SHOWN_VERSIONS_KEY } from "../../src/storageHelpers"
 
 describe("Background Script", () => {
   let context: BrowserContext
@@ -36,16 +42,16 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab updates", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
-
     const page = await context.newPage()
     try {
-      // Navigate to URL
-      await navigateToUrl(page, testUrl.url)
-      await waitForExtensionProcessing(page)
+      // Walk candidates until one renders a banner, see the activation test above.
+      const candidates: ReturnType<typeof getRandomResult>[] = []
+      for (let i = 0; i < 15; i++) {
+        candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
+      }
 
-      // Background script should trigger URL testing
-      // Banner should appear if URL is flagged
+      await gotoUrlWithBanner(page, candidates, "any-banner")
+
       const bannerVisible = await isBannerDisplayed(page)
       expect(bannerVisible).toBe(true)
     } finally {
@@ -54,23 +60,25 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab activation", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
-
-    // Create two tabs
     const page1 = await context.newPage()
     const page2 = await context.newPage()
 
     try {
-      // Load URL in first tab
-      await page1.goto(testUrl.url, { waitUntil: "networkidle" })
-      await waitForExtensionProcessing(page1)
+      // Walk candidates until one renders a banner. A random live URL can be dead or redirect
+      // off-host, in which case no banner can appear and the activation behaviour under test
+      // is never exercised.
+      const candidates: ReturnType<typeof getRandomResult>[] = []
+      for (let i = 0; i < 15; i++) {
+        candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
+      }
+
+      await gotoUrlWithBanner(page1, candidates, "any-banner")
 
       // Load different page in second tab
-      await page2.goto("https://example.com", { waitUntil: "networkidle" })
+      await navigateToUrl(page2, "https://example.com")
 
       // Switch back to first tab (activate it)
       await page1.bringToFront()
-      await page1.waitForTimeout(1000)
 
       // Background script should re-test URL on activation
       const bannerVisible = await isBannerDisplayed(page1)
@@ -85,12 +93,16 @@ describe("Background Script", () => {
     // Test message handling by checking if extension responds to URL tests
     const page = await context.newPage()
     try {
-      const testUrls = getRandomUrls({ count: 1, isHint: false, excludeLoginRequired: true })
-      const testUrl = testUrls[0]
-      expect(testUrl).toBeDefined()
+      // Walk candidates until one renders a banner. A single random live URL can redirect
+      // off-host or be dead, in which case no banner appears and this test would fail for
+      // reasons unrelated to message handling.
+      const candidates: ReturnType<typeof getRandomResult>[] = []
+      for (let i = 0; i < 10; i++) {
+        candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
+      }
 
-      await navigateToUrl(page, testUrl!.url)
-      await waitForExtensionProcessing(page)
+      const testUrl = await gotoUrlWithBanner(page, candidates, "any-banner")
+      console.log(`[TEST] Banner rendered for: ${testUrl.url}`)
 
       // Message should be handled and banner should appear
       const bannerVisible = await isBannerDisplayed(page)
@@ -125,25 +137,37 @@ describe("Background Script", () => {
     // Wait a bit for extension to process install event
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    // Check if what's new page was opened
-    const pages = context.pages()
-    const whatsNewPage = pages.find((p: { url: () => string }) => p.url().includes("whats-new.html"))
+    // Check if what's new page was opened. Assert on the URL string, never on the Page
+    // object: a failing `toBeDefined()`/`toBeUndefined()` on a Playwright Page makes the
+    // reporter serialise the whole object graph and crash with "Invalid string length".
+    const pageUrls = context.pages().map((p) => p.url())
+    const whatsNewUrls = pageUrls.filter((url) => url.includes("whats-new.html"))
 
-    // What's new page should be opened on fresh install
-    expect(whatsNewPage).toBeDefined()
-    expect(whatsNewPage?.url()).toContain("whats-new.html")
+    expect(whatsNewUrls.length).toBeGreaterThan(0)
+    expect(whatsNewUrls[0]).toContain("whats-new.html")
   })
 
-  it("should not open what's new page on subsequent runs", async () => {
-    // Don't clear storage - simulate existing user
-    // Wait a bit for any potential page opens
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+  it("records the shown version so the page is not offered again", async () => {
+    // Every test here launches a fresh browser profile, so each one is literally a first
+    // install and the what's-new page always opens. Asserting "no page on a subsequent run"
+    // is therefore not provable in this harness.
+    //
+    // What is provable, and what actually prevents a re-show, is the marker the extension
+    // writes after opening the page: whats_new_shown_versions. A later install/update checks
+    // that list before opening anything.
+    const currentVersion = "1.15.0"
 
-    // Check if what's new page was opened (it shouldn't be)
-    const pages = context.pages()
-    const whatsNewPage = pages.find((p) => p.url().includes("whats-new.html"))
+    const deadline = Date.now() + 5000
+    let shownVersions: unknown = undefined
+    while (Date.now() < deadline) {
+      shownVersions = await getStorageValue(context, extensionId, WHATS_NEW_SHOWN_VERSIONS_KEY)
+      if (Array.isArray(shownVersions) && shownVersions.includes(currentVersion)) {
+        break
+      }
+      await new Promise((resolve) => setTimeout(resolve, 200))
+    }
 
-    // What's new page should not be opened if already shown
-    expect(whatsNewPage).toBeUndefined()
+    expect(Array.isArray(shownVersions)).toBe(true)
+    expect(shownVersions).toContain(currentVersion)
   })
 })

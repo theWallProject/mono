@@ -42,8 +42,91 @@ export async function navigateToUrl(page: Page, url: string, timeout = 30000): P
     // Handle network errors (DNS failures, timeouts, etc.)
     const errorMessage = error instanceof Error ? error.message : String(error)
     console.log(`[TEST] Failed to load URL: ${url} - ${errorMessage}`)
+
+    // A failed goto can leave the page still navigating — a slow site that never settles, or
+    // a redirect that arrives after the wait gave up. The next goto then dies with
+    // "Navigation is interrupted by another navigation", so one dead domain poisons every
+    // candidate after it and the whole walk fails. Reset to a blank page to break that.
+    await resetPage(page)
     return false
   }
+}
+
+/**
+ * Return a page to a known-idle state after a failed navigation.
+ *
+ * Navigating to about:blank here does not work: the aborted load is still pending, so the
+ * blank navigation races the next `goto` and every later candidate then fails with
+ * "Navigation is interrupted by another navigation to about:blank".
+ *
+ * Stopping the outstanding load is the actual requirement — it settles the page without
+ * starting a competing navigation.
+ *
+ * Best-effort by design: the page is already in an error state, so anything that fails here
+ * must not replace the original navigation error.
+ */
+async function resetPage(page: Page): Promise<void> {
+  try {
+    await page.evaluate(() => window.stop())
+  } catch {
+    // A page on chrome-error:// has no JS context to stop; there is nothing pending either.
+    console.log("[TEST] Page had no scriptable context to stop after a failed navigation")
+  }
+}
+
+/**
+ * Navigation succeeded AND the browser is still on the requested host.
+ *
+ * Hint entries point at a mix of plain websites and social profiles. Many of them now
+ * redirect away in a real browser — YouTube sends EU visitors to consent.youtube.com,
+ * claude.ai bounces to /login, and so on. When that happens the flag lookup was never
+ * performed for the target, so asserting the toast appeared tests nothing about the
+ * extension. Callers use this to pick a URL that actually stays put.
+ *
+ * The host comparison is strict (only a leading "www." is ignored) on purpose: allowing any
+ * subdomain would accept `consent.youtube.com` for a `youtube.com` target, which is exactly
+ * the redirect this guard exists to reject.
+ */
+export async function navigateToUrlStayingOnHost(page: Page, url: string, timeout = 30000): Promise<boolean> {
+  const navigated = await navigateToUrl(page, url, timeout)
+  if (!navigated) {
+    return false
+  }
+
+  const normalize = (host: string): string => host.replace(/^www\./, "")
+  const requestedHost = normalize(new URL(url).hostname)
+  const landedHost = normalize(new URL(page.url()).hostname)
+
+  const staysOnHost = landedHost === requestedHost
+
+  if (!staysOnHost) {
+    console.log(`[TEST] Redirected off-host: requested ${requestedHost}, landed ${landedHost} — treating as unusable`)
+  }
+
+  return staysOnHost
+}
+
+/**
+ * Navigates to a hint URL and reports whether the hint toast actually appeared.
+ *
+ * This is the honest way to pick a hint URL: host comparison cannot tell a legitimate
+ * landing (`edition.cnn.com` for `cnn.com`) from a consent interstitial
+ * (`consent.youtube.com` for `youtube.com`), and registrable-domain comparison gets both
+ * cases wrong. What the tests need is a URL where the extension genuinely acts, so probe
+ * for the toast itself.
+ *
+ * @returns true when the toast rendered within `toastTimeout`
+ */
+export async function tryHintUrl(page: Page, url: string, toastTimeout = 4000): Promise<boolean> {
+  const navigated = await navigateToUrl(page, url)
+  if (!navigated) {
+    console.log(`[TEST] Hint probe: navigation failed for ${url}`)
+    return false
+  }
+
+  const appeared = await waitUntilHintShown(page, toastTimeout)
+  console.log(`[TEST] Hint probe: ${url} -> ${appeared ? "toast shown" : "no toast"}`)
+  return appeared
 }
 
 /**
@@ -96,10 +179,11 @@ export async function isBannerDisplayed(page: Page): Promise<boolean> {
  * Wait for banner to appear using Playwright's optimized waiting
  * Waits ONLY for the logo - single thing, fast
  */
-export async function waitForBanner(page: Page): Promise<void> {
-  console.log("[TEST] Waiting for banner to appear (checking logo)")
+export async function waitForBanner(page: Page, timeout = 30000): Promise<void> {
+  console.log(`[TEST] Waiting for banner to appear (checking logo, timeout ${timeout}ms)`)
   await page.waitForSelector('img[alt="The Wall Logo"]', {
-    state: "visible"
+    state: "visible",
+    timeout
   })
   console.log("[TEST] ✓ Banner appeared (logo is visible)")
 }
@@ -367,6 +451,18 @@ export async function waitFor(
 }
 
 /**
+ * Locator scoped to the extension's own UI (the Plasmo shadow host).
+ *
+ * The banner renders inside a `plasmo-csui` shadow root. Unscoped page queries also match
+ * the host page's own controls — a page with an aria-label="Close" dialog button (cookie
+ * banners, modals) resolves that first, and the click then hangs on an unrelated element.
+ * Every query that targets extension UI must go through this scope.
+ */
+export function extensionUi(page: Page): ReturnType<Page["locator"]> {
+  return page.locator("plasmo-csui")
+}
+
+/**
  * Wait for banner button to appear
  * @param page - Playwright page
  * @param buttonName - Button name pattern (regex or string)
@@ -381,7 +477,9 @@ export async function waitForBannerButton(
   console.log(`[TEST] Finding banner button: ${buttonName} (should be immediately available after banner)`)
 
   const buttonPattern = typeof buttonName === "string" ? new RegExp(buttonName, "i") : buttonName
-  const button = page.getByRole("button", { name: buttonPattern })
+  // Scope to the extension's shadow host: an unscoped role query also matches the host
+  // page's own buttons (a cookie dialog's aria-label="Close", for instance).
+  const button = extensionUi(page).getByRole("button", { name: buttonPattern })
 
   // Button should be immediately available after banner appears
   // Just verify it exists and is visible (no waiting needed)
@@ -401,6 +499,115 @@ export async function waitForBannerButton(
   console.log(`[TEST] Banner button found: ${buttonName}`)
   return button
 }
+
+/**
+ * Wait for a banner link to appear.
+ *
+ * The banner's donation element is an anchor wrapping a decorative image, so it has no
+ * accessible name and is not exposed with the "button" role. It must be queried as a link
+ * by destination, which is also what the test actually cares about (the Ko-fi target).
+ *
+ * @param page - Playwright page
+ * @param hrefPattern - Substring or RegExp the link href must match
+ * @throws Error if no matching visible link exists
+ */
+export async function waitForBannerLink(page: Page, hrefPattern: string | RegExp): Promise<ReturnType<Page["locator"]>> {
+  console.log(`[TEST] Finding banner link: ${hrefPattern}`)
+
+  const hrefSource = typeof hrefPattern === "string" ? hrefPattern : hrefPattern.source
+  const link = page.locator(`a[href*="${hrefSource}"]`)
+
+  const count = await link.count()
+  if (count === 0) {
+    throw new Error(`Banner link matching "${hrefPattern}" not found. Banner should be visible first.`)
+  }
+
+  const isVisible = await link
+    .first()
+    .isVisible()
+    .catch(() => false)
+  if (!isVisible) {
+    throw new Error(`Banner link "${hrefPattern}" exists but is not visible.`)
+  }
+
+  console.log(`[TEST] Banner link found: ${hrefPattern}`)
+  return link
+}
+
+/**
+ * Navigates to a URL that actually renders the banner, trying candidates in order.
+ *
+ * Every banner test needs a page where the extension genuinely acts. Picking one URL at
+ * random from a live database regularly lands on a dead domain, an off-host redirect, or a
+ * profile that renders nothing — and the test then fails for reasons unrelated to what it
+ * asserts. This walks candidates and returns the first one that shows a banner, so on
+ * success the banner is already on screen.
+ *
+ * Fails hard if none of the candidates works, rather than asserting against a blank page.
+ */
+/**
+ * URLs that rendered a banner once in this run, keyed by what the caller needs from them.
+ *
+ * Each test separately rolls random live URLs, so each has its own chance of drawing dead
+ * domains; a handful of tests in one file then fail for reasons unrelated to their assertions.
+ * Reusing a URL already proven to work in this process removes that per-test lottery.
+ *
+ * The key is mandatory rather than derived: a test that needs a yellow-reason banner must
+ * never be handed a cached red one, so unrelated constraints cannot share an entry.
+ */
+const provenBannerUrls = new Map<string, string>()
+
+export async function gotoUrlWithBanner<T extends { url: string }>(
+  page: Page,
+  candidates: T[],
+  reuseKey: string,
+  bannerTimeout = 10000
+): Promise<T> {
+  const startedAt = Date.now()
+  // Bound the whole walk, not just each candidate: with a generous per-candidate timeout a
+  // long candidate list can outlive the test's own timeout, turning a clear "no banner"
+  // failure into an opaque test timeout.
+  const walkBudgetMs = 120_000
+
+  // Try this key's known-good URL first. It is a real candidate from this same database, so
+  // reusing it is legitimate — it just is not left to chance a second time.
+  const provenUrl = provenBannerUrls.get(reuseKey)
+  const ordered: T[] = provenUrl
+    ? [
+        ...candidates.filter((c) => c.url === provenUrl),
+        ...candidates.filter((c) => c.url !== provenUrl)
+      ]
+    : candidates
+
+  for (const candidate of ordered) {
+    if (Date.now() - startedAt > walkBudgetMs) {
+      throw new Error(
+        `Banner walk exceeded ${walkBudgetMs}ms without finding a candidate that renders a banner (reuse key "${reuseKey}")`
+      )
+    }
+
+    console.log(`[TEST] Trying banner URL: ${candidate.url}`)
+
+    const navigated = await navigateToUrl(page, candidate.url)
+    if (!navigated) {
+      continue
+    }
+
+    const appeared = await waitForBanner(page, bannerTimeout)
+      .then(() => true)
+      .catch(() => false)
+    if (appeared) {
+      provenBannerUrls.set(reuseKey, candidate.url)
+      console.log(`[TEST] Banner rendered after ${ordered.indexOf(candidate) + 1} candidate(s)`)
+      return candidate
+    }
+  }
+
+  throw new Error(
+    `No candidate URL rendered a banner (tried all ${ordered.length}, reuse key "${reuseKey}")`
+  )
+}
+
 
 /**
  * Check if alternatives menu is visible

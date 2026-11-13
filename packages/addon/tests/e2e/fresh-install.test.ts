@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest"
 import { HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { getExtensionPopup } from "../utils/extension"
-import { simulateFreshInstall, verifyStorage } from "../utils/storage"
+import { hasStorageKey, simulateFreshInstall, verifyStorage } from "../utils/storage"
 
 describe("Fresh Install Scenarios", () => {
   let context: BrowserContext
@@ -65,12 +65,11 @@ describe("Fresh Install Scenarios", () => {
     const verified = await verifyStorage(context, extensionId, {})
     expect(verified).toBe(true)
 
-    // Verify hints_system_disabled is not set
-    const hasDisabledKey = await verifyStorage(context, extensionId, {
-      [HINTS_SYSTEM_DISABLED_KEY]: undefined
-    })
-    // This will be false if key doesn't exist, which is correct
-    expect(hasDisabledKey).toBe(false)
+    // The feature is "enabled by default" precisely because the disabled flag is absent.
+    // Assert key absence directly: comparing against `undefined` would also pass when the
+    // key exists holding undefined, which is not the same thing.
+    const disabledKeyPresent = await hasStorageKey(context, extensionId, HINTS_SYSTEM_DISABLED_KEY)
+    expect(disabledKeyPresent).toBe(false)
   })
 
   it("should have empty storage initially", async () => {

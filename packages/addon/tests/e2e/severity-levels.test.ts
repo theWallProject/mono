@@ -4,10 +4,10 @@ import { fileURLToPath } from "url"
 import type { BrowserContext, Page } from "playwright"
 import { afterAll, beforeAll, describe, expect, it } from "vitest"
 
-import { getUrlForReasonLevel, type CategorizedUrl } from "../fixtures/test-urls"
+import { getUrlsForReasonLevel, type CategorizedUrl } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
-import { navigateToUrl, safeClosePage, waitForBanner } from "../utils/extension"
+import { gotoUrlWithBanner, safeClosePage } from "../utils/extension"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -116,15 +116,15 @@ describe("Banner severity levels", () => {
     let testUrl: CategorizedUrl
 
     beforeAll(async () => {
-      testUrl = getUrlForReasonLevel("yellow")
+      page = await context.newPage()
+
+      // Walk candidates until one renders a banner. A single random live domain can be dead or
+      // redirect away, which would fail this block for reasons unrelated to severity styling.
+      testUrl = await gotoUrlWithBanner(page, getUrlsForReasonLevel("yellow"), "severity-yellow")
       console.log(`[TEST] Yellow-tier URL: ${testUrl.url} (reasons: ${testUrl.reasons.join(",")})`)
 
-      page = await context.newPage()
-      const navigated = await navigateToUrl(page, testUrl.url)
-      if (!navigated) {
-        throw new Error(`Failed to navigate to yellow-tier URL ${testUrl.url}`)
-      }
-      await waitForBanner(page)
+      const reasons = testUrl.reasons.join(",")
+      console.log(`[TEST] Confirmed yellow tier: ${reasons}`)
     })
 
     afterAll(async () => {
@@ -168,15 +168,15 @@ describe("Banner severity levels", () => {
     let testUrl: CategorizedUrl
 
     beforeAll(async () => {
-      testUrl = getUrlForReasonLevel("red")
+      page = await context.newPage()
+
+      // Walk candidates until one renders a banner. A single random live domain can be dead or
+      // redirect away, which would fail this block for reasons unrelated to severity styling.
+      testUrl = await gotoUrlWithBanner(page, getUrlsForReasonLevel("red"), "severity-red")
       console.log(`[TEST] Red-tier URL: ${testUrl.url} (reasons: ${testUrl.reasons.join(",")})`)
 
-      page = await context.newPage()
-      const navigated = await navigateToUrl(page, testUrl.url)
-      if (!navigated) {
-        throw new Error(`Failed to navigate to red-tier URL ${testUrl.url}`)
-      }
-      await waitForBanner(page)
+      const reasons = testUrl.reasons.join(",")
+      console.log(`[TEST] Confirmed red tier: ${reasons}`)
     })
 
     afterAll(async () => {

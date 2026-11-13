@@ -328,7 +328,7 @@ function toKnownReasons(reasons: readonly string[]): valuesOfListOfReasons[] {
  * so the fixture can never disagree with the UI about what "red" and "yellow" mean.
  * Excludes hints and social profiles. FAILS HARD if the database has no match.
  */
-export function getUrlForReasonLevel(level: "red" | "yellow"): CategorizedUrl {
+export function getUrlsForReasonLevel(level: "red" | "yellow"): CategorizedUrl[] {
   const filtered: CategorizedUrl[] = []
   for (const entry of database) {
     if (entry.isHint && entry.hintText) continue
@@ -349,8 +349,126 @@ export function getUrlForReasonLevel(level: "red" | "yellow"): CategorizedUrl {
     throw new Error(`No banner URLs found for severity level "${level}"`)
   }
 
-  const index = Math.floor(Math.random() * filtered.length)
-  return filtered[index]!
+  // Shuffle so candidate walks cover different companies across runs.
+  for (let i = filtered.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[filtered[i]!, filtered[j]!] = [filtered[j]!, filtered[i]!]
+  }
+
+  return filtered
+}
+
+/**
+ * All hint URL candidates from the database, in random order.
+ *
+ * Hint entries mix plain websites with social profiles. Several of them redirect away in a
+ * real browser (EU consent portals, login walls), so a single random pick frequently lands
+ * on a page where the extension correctly does nothing. Callers walk this list until one
+ * URL actually stays on its own host.
+ */
+export function getHintUrlCandidates(options?: { excludeLoginRequired?: boolean }): CategorizedUrl[] {
+  const { excludeLoginRequired = true } = options || {}
+
+  const filtered: CategorizedUrl[] = []
+  for (const entry of database) {
+    if (!entry.isHint || !entry.hintText) continue
+    for (const result of extractResults(entry)) {
+      if (!result.isHint) continue
+      if (excludeLoginRequired && (result.domain === "linkedin.com" || result.domain === "instagram.com")) {
+        continue
+      }
+      filtered.push(result)
+    }
+  }
+
+  if (filtered.length === 0) {
+    throw new Error("No hint URL candidates found in database")
+  }
+
+  // Fisher-Yates shuffle so different runs cover different hint entries
+  for (let i = filtered.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[filtered[i]!, filtered[j]!] = [filtered[j]!, filtered[i]!]
+  }
+
+  return filtered
+}
+
+/**
+ * All URL candidates whose database entry has alternatives, shuffled.
+ *
+ * Banner tests need several candidates because a single random live URL can be dead or
+ * redirect away; callers walk this list until a banner actually renders.
+ */
+export function getUrlCandidatesWithAlternatives(options?: { excludeLoginRequired?: boolean }): CategorizedUrl[] {
+  const { excludeLoginRequired = false } = options || {}
+
+  const entries = database.filter(
+    (entry) => entry.alt && Array.isArray(entry.alt) && entry.alt.length > 0 && !entry.isHint
+  )
+
+  if (entries.length === 0) {
+    throw new Error("No entries with alternatives found in database. Cannot test alternatives button.")
+  }
+
+  let filtered: CategorizedUrl[] = []
+  for (const entry of entries) {
+    filtered.push(...extractResults(entry))
+  }
+
+  filtered = filtered.filter((url) => !url.isHint)
+
+  if (excludeLoginRequired) {
+    filtered = filtered.filter((u) => !u.url.includes("linkedin.com") && !u.url.includes("instagram.com"))
+  }
+
+  if (filtered.length === 0) {
+    throw new Error(`No URLs with alternatives found matching criteria. excludeLoginRequired=${excludeLoginRequired}`)
+  }
+
+  for (let i = filtered.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[filtered[i]!, filtered[j]!] = [filtered[j]!, filtered[i]!]
+  }
+
+  return filtered
+}
+
+/**
+ * All URL candidates whose database entry has NO alternatives, shuffled.
+ */
+export function getUrlCandidatesWithoutAlternatives(options?: { excludeLoginRequired?: boolean }): CategorizedUrl[] {
+  const { excludeLoginRequired = false } = options || {}
+
+  const entries = database.filter(
+    (entry) => (!entry.alt || !Array.isArray(entry.alt) || entry.alt.length === 0) && !entry.isHint
+  )
+
+  if (entries.length === 0) {
+    throw new Error("No entries without alternatives found in database. Cannot test Support Palestine button.")
+  }
+
+  let filtered: CategorizedUrl[] = []
+  for (const entry of entries) {
+    filtered.push(...extractResults(entry))
+  }
+
+  filtered = filtered.filter((url) => !url.isHint)
+
+  if (excludeLoginRequired) {
+    filtered = filtered.filter((u) => !u.url.includes("linkedin.com") && !u.url.includes("instagram.com"))
+  }
+
+  if (filtered.length === 0) {
+    throw new Error(`No URLs without alternatives found matching criteria. excludeLoginRequired=${excludeLoginRequired}`)
+  }
+
+  for (let i = filtered.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[filtered[i]!, filtered[j]!] = [filtered[j]!, filtered[i]!]
+  }
+
+  return filtered
 }
 
 /**

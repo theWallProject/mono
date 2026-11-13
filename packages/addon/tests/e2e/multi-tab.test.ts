@@ -5,6 +5,7 @@ import { HINT_DISMISSED_PERM_PREFIX, HINT_SHOWN_PREFIX, HINTS_SYSTEM_DISABLED_KE
 import { getRandomResult, getRandomUrls } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import {
+  extensionUi,
   isBannerDisplayed,
   isHintsToastShown,
   navigateToUrl,
@@ -257,7 +258,7 @@ describe.skip("Multi-Tab Scenarios", () => {
       expect(await isBannerDisplayed(page2)).toBe(true)
 
       // Dismiss in first tab
-      const closeButton = page1.getByRole("button", { name: /close/i }).first()
+      const closeButton = extensionUi(page1).getByRole("button", { name: /close/i }).first()
       await closeButton.click()
 
       // Wait for banner to be dismissed

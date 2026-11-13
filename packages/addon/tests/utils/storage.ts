@@ -1,3 +1,4 @@
+import { isDeepStrictEqual } from "node:util"
 import type { BrowserContext } from "playwright"
 
 import { HINT_DISMISSED_PERM_PREFIX, HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
@@ -92,7 +93,11 @@ export async function setSettings(
 }
 
 /**
- * Verify storage state
+ * Verify storage state.
+ *
+ * Compares deeply: storage values include arrays (e.g. whats_new_shown_versions) and
+ * objects, which can never be equal by reference to a freshly built expected value.
+ * A shallow `!==` made every such assertion fail regardless of stored content.
  */
 export async function verifyStorage(
   context: BrowserContext,
@@ -112,7 +117,7 @@ export async function verifyStorage(
     })
 
     for (const [key, value] of Object.entries(expected)) {
-      if (actual[key] !== value) {
+      if (!isDeepStrictEqual(actual[key], value)) {
         return false
       }
     }
@@ -123,8 +128,31 @@ export async function verifyStorage(
 }
 
 /**
- * Simulate fresh install (clear all storage)
+ * Check whether a storage key is present at all.
+ *
+ * Distinct from verifyStorage with an `undefined` expectation: that compares the value, and
+ * a missing key reads as undefined, so it cannot tell "absent" from "explicitly undefined".
  */
+export async function hasStorageKey(
+  context: BrowserContext,
+  extensionId: string,
+  key: string
+): Promise<boolean> {
+  const page = await context.newPage()
+  try {
+    const popupUrl = getExtensionPopupUrl(extensionId)
+    await page.goto(popupUrl)
+    return await page.evaluate(async (storageKey: string) => {
+      return new Promise<boolean>((resolve) => {
+        chrome.storage.local.get(null, (items) => {
+          resolve(Object.prototype.hasOwnProperty.call(items, storageKey))
+        })
+      })
+    }, key)
+  } finally {
+    await page.close()
+  }
+}
 export async function simulateFreshInstall(context: BrowserContext, extensionId: string): Promise<void> {
   await clearAllStorage(context, extensionId)
 }
