@@ -31,6 +31,11 @@ function WhatsNew() {
 
   const extensionName = getI18nMessage("extensionName")
 
+  // The page is opened as tabs/whats-new.html?from=<old>&to=<version>, so the version shown
+  // to the user comes from the URL the background script built. Reading it here instead of
+  // hardcoding it means a release can never display a stale version number.
+  const shownVersion = new URLSearchParams(window.location.search).get("to") ?? ""
+
   const handleShare = (platform: string) => {
     const url = "https://the-wall.win"
     const text = "Check out The Wall extension!"
@@ -97,7 +102,7 @@ function WhatsNew() {
             <img src={getExtensionURL(shieldIcon)} alt="The Wall Logo" className={styles.theWallLogo} />
             <div className={styles.versionContent}>
               <h1 className={styles.combinedTitle}>What&apos;s New — {extensionName}</h1>
-              <p className={styles.version}>Version 1.15.0</p>
+              <p className={styles.version}>Version {shownVersion}</p>
             </div>
           </div>
 
