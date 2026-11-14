@@ -106,67 +106,45 @@ function WhatsNew() {
             </div>
           </div>
 
-          {/* Database growth — the headline of this release */}
+          {/* Hero: the headline number, deliberately large */}
           <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>📈 20,000 → 30,000 Companies</h2>
-            <p className={styles.featureText} style={{ fontWeight: "600" }}>
-              The database now holds over 30,000 companies — up from the 20,000 this extension has been advertising.
-            </p>
-            <p className={styles.featureText}>
-              Every entry is checked by hand. In practice that means far more of the sites you actually visit now get
-              flagged — including a large batch of companies connected to Israel through their headquarters, founders,
-              investors, or BDS campaigns.
+            <div className={styles.heroCount}>
+              <span className={styles.heroFrom}>20,000</span>
+              <span className={styles.heroArrow}>→</span>
+              <span className={styles.heroTo}>30,000</span>
+            </div>
+            <p className={styles.heroCaption}>
+              <strong>50% more companies.</strong> Hand-checked.
             </p>
           </section>
 
           {/* AFSC dataset */}
           <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>📋 The AFSC List</h2>
-            <p className={styles.featureText} style={{ fontWeight: "600" }}>
-              A whole new source of companies, built from the American Friends Service Committee&apos;s public dataset.
-            </p>
+            <h2 className={styles.sectionTitle}>📋 New: The AFSC List</h2>
             <p className={styles.featureText}>
-              Every row was checked against the source by hand. 81 companies were confirmed and added; 92 were
-              examined and rejected because the evidence did not hold up. Anything still unclear stays out until it is
-              proven.
-            </p>
-            <p className={styles.featureText}>
-              These are overwhelmingly large American companies — 78 of the 81 — so they show up on sites you would not
-              otherwise expect to see flagged.
+              <strong>81</strong> new companies from the AFSC dataset, 78 of them American. <strong>92</strong> were
+              examined and rejected — the evidence did not hold up.
             </p>
           </section>
 
           {/* Severity tiers */}
           <section className={styles.featureSection}>
             <h2 className={styles.sectionTitle}>🟡 Two Warning Levels</h2>
-            <p className={styles.featureText} style={{ fontWeight: "600" }}>
-              Not every connection is equally serious, so warnings now come in two levels instead of one.
+            <p className={styles.featureText}>
+              <strong style={{ color: "#b72b00" }}>Red</strong> — direct link: Israeli HQ, a{" "}
+              <code>.il</code> domain, or a priority BDS target.
             </p>
             <p className={styles.featureText}>
-              <strong style={{ color: "#b72b00" }}>Red</strong> means a direct link — the company is headquartered in
-              Israel, the site is a <code>.il</code> domain, or it is a priority BDS target.
-            </p>
-            <p className={styles.featureText}>
-              <strong style={{ color: "#b45309" }}>Yellow</strong> means a real but less direct connection — a founder
-              or investor tied to Israel, a grassroots BDS campaign, or a reason added by the community.
-            </p>
-            <p className={styles.featureText}>
-              Yellow warnings stay readable and calm so you can make your own call, while red still stops you in your
-              tracks.
+              <strong style={{ color: "#b45309" }}>Yellow</strong> — indirect: a founder, an investor, or a community
+              reason.
             </p>
           </section>
 
           {/* Urgent Appeal */}
           <section className={`${styles.featureSection} ${styles.urgentSection}`}>
-            <h2 className={styles.sectionTitle}>Your Support Is Critical</h2>
+            <h2 className={styles.sectionTitle}>Keep This Project Alive</h2>
             <p className={styles.featureText} style={{ fontWeight: "600" }}>
-              This project needs your help to survive. A monthly donation of any amount — even $1 — gives me the
-              stability to dedicate real time to new features, bug fixes, and data updates instead of chasing freelance
-              gigs.
-            </p>
-            <p className={styles.featureText}>
-              Every brick on this wall represents someone who believes this project matters. See the wall grow in
-              real-time:
+              Even $1/month buys me real time for new features and data updates.
             </p>
             <a
               href="https://ko-fi.com/thewalladdon"
