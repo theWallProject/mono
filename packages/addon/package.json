@@ -17,7 +17,7 @@
     "package:ff": "plasmo package --target=firefox-mv2",
     "package:edge": "plasmo package --target=edge-mv3",
     "package:opera": "plasmo package --target=opera-mv3",
-    "pre-build": "tcm -p \"src/**/*.css\" && prettier --write \"src/**/*.css.d.ts\" \"TRANSLATIONS/**/*.ts\" && pnpm run trans && pnpm run type-check",
+    "pre-build": "tcm -p \"src/**/*.css\" && prettier --write \"src/**/*.css.d.ts\" \"TRANSLATIONS/**/*.ts\" && pnpm run trans && pnpm run type-check && pnpm run stats",
     "watch": "tcm -p 'src/**/*.css' -w",
     "nuke": "rm -rf node_modules build .plasmo && pnpm store prune && pnpm install",
     "test": "vitest run",
@@ -26,7 +26,8 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk",
-    "test:coverage-report": "vitest run --coverage && node tests/utils/coverage.ts"
+    "test:coverage-report": "vitest run --coverage && node tests/utils/coverage.ts",
+    "stats": "node build-scripts/database-stats.mjs"
   },
   "type": "module",
   "dependencies": {
