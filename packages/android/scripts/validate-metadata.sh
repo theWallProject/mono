@@ -9,6 +9,7 @@ set -e
 cd "$(dirname "$0")/.."
 
 METADATA_DIR="fastlane/metadata/android"
+VERSION_FILE="version.properties"
 
 # ========================================================================
 # REQUIRED LOCALES — add new languages here
@@ -31,8 +32,19 @@ CHANGELOG_LIMIT=500
 ERRORS=0
 WARNINGS=0
 
+if [ -f "$VERSION_FILE" ]; then
+    CURRENT_VERSION_CODE=$(grep "VERSION_CODE" "$VERSION_FILE" | cut -d'=' -f2)
+    CURRENT_VERSION_NAME=$(grep "VERSION_NAME" "$VERSION_FILE" | cut -d'=' -f2)
+else
+    CURRENT_VERSION_CODE=""
+    CURRENT_VERSION_NAME=""
+fi
+
 echo "Validating Play Store metadata..."
 echo "Required locales: ${REQUIRED_LOCALES[*]}"
+if [ -n "$CURRENT_VERSION_CODE" ]; then
+    echo "Current version: v$CURRENT_VERSION_NAME (code: $CURRENT_VERSION_CODE)"
+fi
 echo ""
 
 # Function to check character count
@@ -114,6 +126,19 @@ for locale in "${REQUIRED_LOCALES[@]}"; do
     else
         echo -e "${YELLOW}[WARN]${NC} $locale: No changelogs directory found"
         WARNINGS=$((WARNINGS + 1))
+    fi
+
+    # A changelog for the exact versionCode being uploaded is required by Play, but its
+    # absence is not caught by validating whatever files happen to exist. Version code 21
+    # shipped with no changelog because of exactly that gap.
+    if [ -n "$CURRENT_VERSION_CODE" ]; then
+        required_changelog="$LOCALE_DIR/changelogs/$CURRENT_VERSION_CODE.txt"
+        if [ -f "$required_changelog" ]; then
+            check_length "$required_changelog" $CHANGELOG_LIMIT "$locale/changelog v$CURRENT_VERSION_CODE (current version)"
+        else
+            echo -e "${RED}[MISSING]${NC} $locale: no changelog for version code $CURRENT_VERSION_CODE ($required_changelog)"
+            ERRORS=$((ERRORS + 1))
+        fi
     fi
 
     echo ""
