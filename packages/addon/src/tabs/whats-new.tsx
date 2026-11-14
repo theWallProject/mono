@@ -106,6 +106,39 @@ function WhatsNew() {
             </div>
           </div>
 
+          {/* Database growth — the headline of this release */}
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>📈 20,000 → 30,000 Companies</h2>
+            <p className={styles.featureText} style={{ fontWeight: "600" }}>
+              The database now holds over 30,000 companies — up from the 20,000 this extension has been advertising.
+            </p>
+            <p className={styles.featureText}>
+              Every entry is checked by hand. In practice that means far more of the sites you actually visit now get
+              flagged — including a large batch of companies connected to Israel through their headquarters, founders,
+              investors, or BDS campaigns.
+            </p>
+          </section>
+
+          {/* Severity tiers */}
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>🟡 Two Warning Levels</h2>
+            <p className={styles.featureText} style={{ fontWeight: "600" }}>
+              Not every connection is equally serious, so warnings now come in two levels instead of one.
+            </p>
+            <p className={styles.featureText}>
+              <strong style={{ color: "#b72b00" }}>Red</strong> means a direct link — the company is headquartered in
+              Israel, the site is a <code>.il</code> domain, or it is a priority BDS target.
+            </p>
+            <p className={styles.featureText}>
+              <strong style={{ color: "#b45309" }}>Yellow</strong> means a real but less direct connection — a founder
+              or investor tied to Israel, a grassroots BDS campaign, or a reason added by the community.
+            </p>
+            <p className={styles.featureText}>
+              Yellow warnings stay readable and calm so you can make your own call, while red still stops you in your
+              tracks.
+            </p>
+          </section>
+
           {/* Urgent Appeal */}
           <section className={`${styles.featureSection} ${styles.urgentSection}`}>
             <h2 className={styles.sectionTitle}>Your Support Is Critical</h2>
