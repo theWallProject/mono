@@ -3,13 +3,40 @@
 default_platform(:ios)
 
 platform :ios do
-  before_all do
-    ensure_git_status_clean
+  LANES_REQUIRING_CLEAN_GIT = [:beta, :release].freeze
+
+  before_all do |lane|
+    ensure_git_status_clean if LANES_REQUIRING_CLEAN_GIT.include?(lane)
+  end
+
+  # Authenticates fastlane's App Store Connect actions (pilot, deliver, precheck)
+  # via the App Store Connect API key. Reads credentials from fastlane/.env.
+  def load_app_store_connect_api_key
+    key_id = ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"]
+    issuer_id = ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"]
+    key_filepath = ENV["APP_STORE_CONNECT_API_KEY_KEY_FILEPATH"]
+
+    if key_id.nil? || issuer_id.nil? || key_filepath.nil?
+      UI.user_error!(
+        "Missing App Store Connect API credentials. " \
+        "Copy fastlane/.env.example to fastlane/.env and fill in the values."
+      )
+    end
+
+    app_store_connect_api_key(
+      key_id: key_id,
+      issuer_id: issuer_id,
+      key_filepath: File.expand_path(key_filepath),
+      duration: 1200,
+      in_house: false
+    )
   end
 
   desc "Push a new beta build to TestFlight"
   desc "Usage: fastlane beta"
   lane :beta do
+    load_app_store_connect_api_key
+
     # Increment build number
     increment_build_number(
       xcodeproj: "TheWall.xcodeproj"
@@ -59,9 +86,54 @@ platform :ios do
     UI.message("Build number: #{get_build_number(xcodeproj: 'TheWall.xcodeproj')}")
   end
 
+  desc "Build with current project.yml version and upload to TestFlight (no git ops, no auto-bump)"
+  desc "Usage: fastlane beta_no_git"
+  lane :beta_no_git do
+    load_app_store_connect_api_key
+
+    build_app(
+      scheme: "TheWall",
+      export_method: "app-store",
+      output_directory: "./build",
+      output_name: "TheWall.ipa",
+      clean: true,
+      include_bitcode: false
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      distribute_external: false,
+      notify_external_testers: false
+    )
+
+    UI.success("✅ Beta build uploaded to TestFlight")
+  end
+
+  desc "Upload a pre-built IPA to TestFlight (no rebuild)"
+  desc "Usage: fastlane upload [ipa:path/to/TheWall.ipa]"
+  lane :upload do |options|
+    load_app_store_connect_api_key
+
+    ipa_path = options[:ipa] || "./build/TheWall.ipa"
+    UI.user_error!("IPA not found at #{ipa_path}") unless File.exist?(ipa_path)
+
+    upload_to_testflight(
+      ipa: ipa_path,
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      distribute_external: false,
+      notify_external_testers: false
+    )
+
+    UI.success("✅ #{ipa_path} uploaded to TestFlight")
+  end
+
   desc "Deploy a new version to the App Store"
   desc "Usage: fastlane release"
   lane :release do
+    load_app_store_connect_api_key
+
     # Build the app
     build_app(
       scheme: "TheWall",
@@ -123,6 +195,8 @@ platform :ios do
 
   desc "Generate and upload screenshots"
   lane :screenshots do
+    load_app_store_connect_api_key
+
     capture_screenshots(
       scheme: "TheWall",
       devices: [
