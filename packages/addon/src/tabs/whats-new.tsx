@@ -119,6 +119,23 @@ function WhatsNew() {
             </p>
           </section>
 
+          {/* AFSC dataset */}
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>📋 The AFSC List</h2>
+            <p className={styles.featureText} style={{ fontWeight: "600" }}>
+              A whole new source of companies, built from the American Friends Service Committee&apos;s public dataset.
+            </p>
+            <p className={styles.featureText}>
+              Every row was checked against the source by hand. 81 companies were confirmed and added; 92 were
+              examined and rejected because the evidence did not hold up. Anything still unclear stays out until it is
+              proven.
+            </p>
+            <p className={styles.featureText}>
+              These are overwhelmingly large American companies — 78 of the 81 — so they show up on sites you would not
+              otherwise expect to see flagged.
+            </p>
+          </section>
+
           {/* Severity tiers */}
           <section className={styles.featureSection}>
             <h2 className={styles.sectionTitle}>🟡 Two Warning Levels</h2>
