@@ -218,7 +218,7 @@ Common flags:
   --androidAppIds a,b       Android app package ids
   --proofText / --proofLink Required for reason "c"
   --apply                   Run apply-overrides afterwards
-  --industries "A,B"        alternatives-propose: override auto-selected industries
+  --industries "A,B"        Required for alternatives-propose: exact taxonomy names
   --limit <n>               alternatives-propose: candidates to propose (default 40)
   --minScore <0..1>         alternatives-propose: similarity floor (default 0.35)
   --proposal <path>         alternatives-apply: proposal file to apply
@@ -269,7 +269,11 @@ export const requireString = (
 }
 
 /** Requires a repeatable flag for a headless run. */
-export const requireArray = (options: CliOptions, key: "reasons" | "ws" | "names", hint: string): string[] => {
+export const requireArray = (
+  options: CliOptions,
+  key: "reasons" | "ws" | "names" | "industries",
+  hint: string
+): string[] => {
   const value = options[key]
   if (value === undefined || value.length === 0) {
     throw new Error(`Missing required flag --${key}. ${hint}`)

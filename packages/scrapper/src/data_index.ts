@@ -310,6 +310,12 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
 
       const name = requireString(options, "name", 'Pass --name "Company Name".')
       const websites = requireArray(options, "ws", "Pass the alternative's website as --ws https://example.com.")
+      // Required by design: the industry gate is the caller's judgement, not the tool's.
+      const industries = requireArray(
+        options,
+        "industries",
+        'Pass --industries "Events,Professional Networking" using exact taxonomy names.'
+      )
 
       if (websites.length !== 1) {
         throw new Error(`alternatives-propose takes exactly one --ws website, received ${websites.length}.`)
@@ -325,7 +331,7 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
         website,
         // Generous by default: the review step is the filter, not an arbitrary cap.
         limit: options.limit ?? 40,
-        industries: options.industries,
+        industries,
         minScore: options.minScore ?? 0.35
       })
 

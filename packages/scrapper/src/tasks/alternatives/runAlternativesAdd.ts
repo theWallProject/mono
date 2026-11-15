@@ -23,7 +23,6 @@ import { MergedDataFileSchema } from "../../types"
 import { checkAbsence, type CorpusEntry } from "./absenceCheck"
 import { buildProfileText, fetchCompanyProfile } from "./companyProfile"
 import { buildIndustryTaxonomyHashInput, loadIndustryTaxonomy } from "./industryTaxonomy"
-import { inferIndustries } from "./industrySelection"
 import {
   buildProposal,
   loadProposal,
@@ -42,7 +41,8 @@ export type ProposeOptions = {
   website: string
   /** How many candidates to put in the proposal. Generous by default: review is the filter. */
   limit: number
-  industries?: string[] | undefined
+  /** Required. Industries to gate on — chosen by the caller, never inferred. */
+  industries: string[]
   minScore: number
 }
 
@@ -133,11 +133,13 @@ export const proposeAlternatives = async (options: ProposeOptions): Promise<Prop
 
   const taxonomy = loadIndustryTaxonomy()
   const industryNames = taxonomy.industries.map((entry) => entry.name)
-  const industriesOverridden = options.industries !== undefined && options.industries.length > 0
 
-  const industries = industriesOverridden
-    ? validateSuppliedIndustries(options.industries ?? [], industryNames)
-    : (await inferIndustries(profileText, industryNames)).selected
+  // Industries are required and are never inferred. Inference measured badly on the
+  // reference case: the generic buckets (Video, Video Streaming, Video Editing) outscore
+  // the specific ones (Professional Networking, Events, Communities), so an inferred gate
+  // admits video-infrastructure vendors as "competitors" of a networking platform. The
+  // caller supplies the gate; the tool does not guess it.
+  const industries = validateSuppliedIndustries(options.industries, industryNames)
 
   log(`Industries: ${industries.join(", ")}`)
 
@@ -169,7 +171,7 @@ export const proposeAlternatives = async (options: ProposeOptions): Promise<Prop
     profileSources: profile.sources,
     industries,
     minScore: options.minScore,
-    industriesOverridden,
+    industriesOverridden: true,
     candidates
   })
 
@@ -180,7 +182,7 @@ export const proposeAlternatives = async (options: ProposeOptions): Promise<Prop
     alternative: proposal.alternative,
     profileText,
     industries,
-    industriesOverridden,
+    industriesOverridden: true,
     proposalPath,
     candidates,
     rejectedBelowScore
