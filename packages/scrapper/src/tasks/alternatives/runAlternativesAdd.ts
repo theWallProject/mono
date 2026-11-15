@@ -1,22 +1,16 @@
 /**
- * `--action alternatives-add`: attach a clean alternative to its competitors in our corpus.
+ * Two-step alternatives flow: propose, review, then apply.
  *
- * The flow, in order, each step a hard gate:
+ * Step 1 (`proposeAlternatives`) is fully automated: guard, fetch, infer industries, rank
+ * the corpus, write a proposal file. It NEVER touches manualOverrides.
  *
- *   1. Refuse if the company is already in our database. Mido's requirement is explicit:
- *      "I have an alternative that I know is not in our database, you should inform me
- *      otherwise and stop." Stopping means stopping — nothing is fetched or written.
- *   2. Fetch the company's own profile (JSON-LD / meta description). No profile means no
- *      query, and a vague query produces a confident wrong answer.
- *   3. Choose which of OUR industries describe it, by zero-shot match against the taxonomy.
- *   4. Rank the whole corpus by embedding similarity.
- *   5. Gate on those industries. The gate filters; it never reorders — measured, letting
- *      industry overlap influence the score put broadcast hardware vendors above real
- *      competitors.
- *   6. Attach the alternative to the survivors, or (with --dryRun) just report them.
+ * Step 2 (`applyAlternatives`) writes only the names a human or agent approved after
+ * reading that proposal.
  *
- * Every step that can fail loudly does: a stale index, an empty profile, an empty gate and
- * an empty result set all throw rather than producing a plausible-looking empty answer.
+ * The split is deliberate. The automated ranking is a candidate generator, not a decision:
+ * on the reference case its top 25 held video-CDN vendors, a subtitling service and a
+ * video-indexing company alongside the genuine hits, because "video" dominates the
+ * descriptions either way. The judgement has to happen against the actual list.
  */
 
 import fs from "fs"
@@ -24,60 +18,46 @@ import path from "path"
 
 import { getRegisteredDomain } from "@theWallProject/common"
 
-import { error, log } from "../../helper"
+import { log } from "../../helper"
 import { MergedDataFileSchema } from "../../types"
 import { checkAbsence, type CorpusEntry } from "./absenceCheck"
-import { buildProfileText, fetchCompanyProfile, type CompanyProfile } from "./companyProfile"
+import { buildProfileText, fetchCompanyProfile } from "./companyProfile"
 import { buildIndustryTaxonomyHashInput, loadIndustryTaxonomy } from "./industryTaxonomy"
 import { inferIndustries } from "./industrySelection"
 import {
-  assertIndexFresh,
-  buildCorpusText,
-  EMBEDDING_DIMENSIONS,
-  gateByIndustries,
-  loadIndex,
-  rankBySimilarity,
-  type SimilarityHit
-} from "./similarity"
+  buildProposal,
+  loadProposal,
+  resolveApprovedCandidates,
+  saveProposal,
+  type Proposal,
+  type ProposalCandidate
+} from "./proposal"
+import { assertIndexFresh, gateByIndustries, loadIndex, rankBySimilarity, type SimilarityHit } from "./similarity"
 import { appendAlternativeToCompanies, type WrittenCompany } from "./alternativeWriter"
 
 const mergedDataPath = path.join(__dirname, "../../../results/2_merged/2_MERGED_ALL.json")
 
-export type AlternativesAddOptions = {
-  /** Company being added as an alternative. */
+export type ProposeOptions = {
   name: string
-  /** Its website. */
   website: string
-  /** How many competitors to attach to. */
+  /** How many candidates to put in the proposal. Generous by default: review is the filter. */
   limit: number
-  /** Skip writing; report what would happen. */
-  dryRun: boolean
-  /** Override the automatically selected industries. */
   industries?: string[] | undefined
-  /** Reject hits below this similarity. */
   minScore: number
 }
 
-export type AlternativesAddResult = {
-  /** Company name as supplied. */
-  name: string
-  /** The profile text actually used as the query. */
+export type ProposeResult = {
+  alternative: { n: string; ws: string }
   profileText: string
-  /** Profile provenance, so a weak profile is visible. */
-  profileSources: CompanyProfile["sources"]
-  /** Industries the gate used. */
   industries: string[]
-  /** Companies that would receive / received the alternative. */
-  selected: Array<{ name: string; score: number; industries: string[] }>
-  /** Per-company write outcome (empty on a dry run). */
-  written: WrittenCompany[]
-  /** Companies below `minScore` that were therefore not attached. */
+  industriesOverridden: boolean
+  /** Where the proposal was written. */
+  proposalPath: string
+  candidates: ProposalCandidate[]
   rejectedBelowScore: number
-  /** True when nothing was written. */
-  dryRun: boolean
 }
 
-/** Loads distinct companies from the merged corpus, the same view the index is built from. */
+/** Loads distinct companies from the merged corpus — the same view the index is built from. */
 export const loadCorpus = (): Array<CorpusEntry & { description?: string; industries?: string[] }> => {
   const raw = fs.readFileSync(mergedDataPath, "utf-8")
   const parsed = MergedDataFileSchema.parse(JSON.parse(raw))
@@ -108,28 +88,24 @@ export const loadCorpus = (): Array<CorpusEntry & { description?: string; indust
   return [...byName.values()]
 }
 
-/**
- * Computes the corpus fingerprint for a set of companies.
- *
- * Must match exactly what the index was built with, so it derives from `buildCorpusText`
- * over the same distinct-company view.
- */
+/** Corpus fingerprint shared with the index and the taxonomy. */
 export const computeAlternativesCorpusHash = (
   corpus: ReadonlyArray<{ name: string; description?: string; industries?: string[] }>
 ): string => buildIndustryTaxonomyHashInput(corpus)
 
-export const runAlternativesAdd = async (options: AlternativesAddOptions): Promise<AlternativesAddResult> => {
+/**
+ * Generates a proposal. Writes a file describing the candidates; writes nothing to the
+ * curated override data.
+ */
+export const proposeAlternatives = async (options: ProposeOptions): Promise<ProposeResult> => {
   const websiteDomain = getRegisteredDomain(options.website)
   log(`Checking whether "${options.name}" (${websiteDomain}) is already in the database...`)
 
   const corpus = loadCorpus()
 
-  // ── 1. Hard stop when the company is already ours ──────────────────────────────
   const verdict = checkAbsence({ name: options.name, website: options.website }, corpus)
 
   if (!verdict.absent) {
-    // Cap the list: a platform domain (wix.com) also matches every customer site hosted on a
-    // subdomain of it, so a legitimate collision can arrive with dozens of rows attached.
     const MAX_REPORTED = 10
     const reported = verdict.matches.slice(0, MAX_REPORTED)
     const detail = reported
@@ -146,7 +122,6 @@ export const runAlternativesAdd = async (options: AlternativesAddOptions): Promi
 
   log(`"${options.name}" is not in the database. Continuing.`)
 
-  // ── 2. Profile ────────────────────────────────────────────────────────────────
   const profile = await fetchCompanyProfile(options.website)
   const profileText = buildProfileText(profile)
 
@@ -156,67 +131,96 @@ export const runAlternativesAdd = async (options: AlternativesAddOptions): Promi
 
   log(`Profile: ${profileText.slice(0, 160)}${profileText.length > 160 ? "..." : ""}`)
 
-  // ── 3. Industries ─────────────────────────────────────────────────────────────
   const taxonomy = loadIndustryTaxonomy()
   const industryNames = taxonomy.industries.map((entry) => entry.name)
+  const industriesOverridden = options.industries !== undefined && options.industries.length > 0
 
-  const industries =
-    options.industries !== undefined && options.industries.length > 0
-      ? validateSuppliedIndustries(options.industries, industryNames)
-      : (await inferIndustries(profileText, industryNames)).selected
+  const industries = industriesOverridden
+    ? validateSuppliedIndustries(options.industries ?? [], industryNames)
+    : (await inferIndustries(profileText, industryNames)).selected
 
   log(`Industries: ${industries.join(", ")}`)
 
-  // ── 4. Similarity ─────────────────────────────────────────────────────────────
   const { meta } = loadIndex()
   assertIndexFresh(meta, computeAlternativesCorpusHash(corpus))
 
   const ranked: SimilarityHit[] = await rankBySimilarity(profileText, corpus)
-
-  // ── 5. Gate, then score floor ─────────────────────────────────────────────────
   const gated = gateByIndustries(ranked, industries)
   const aboveFloor = gated.filter((hit) => hit.score >= options.minScore)
   const rejectedBelowScore = gated.length - aboveFloor.length
-  const selected = aboveFloor.slice(0, options.limit)
 
-  if (selected.length === 0) {
+  if (aboveFloor.length === 0) {
     throw new Error(
-      `No companies matched. ${gated.length} passed the industry gate but none reached a similarity of ` +
-        `${options.minScore.toFixed(2)}. Nothing to attach to.`
+      `No candidates. ${gated.length} passed the industry gate but none reached a similarity of ` +
+        `${options.minScore.toFixed(2)}.`
     )
   }
 
-  const selectedNames = selected.map((hit) => hit.name)
+  const candidates: ProposalCandidate[] = aboveFloor.slice(0, options.limit).map((hit) => ({
+    name: hit.name,
+    score: Number(hit.score.toFixed(4)),
+    industries: hit.industries,
+    ...(hit.description !== undefined ? { description: hit.description } : {})
+  }))
 
-  // ── 6. Write ──────────────────────────────────────────────────────────────────
-  if (options.dryRun) {
-    log(`Dry run: would attach "${options.name}" to ${selectedNames.length} companies.`)
-    return {
-      name: options.name,
-      profileText,
-      profileSources: profile.sources,
-      industries,
-      selected: selected.map((hit) => ({ name: hit.name, score: hit.score, industries: hit.industries })),
-      written: [],
-      rejectedBelowScore,
-      dryRun: true
-    }
-  }
-
-  const writeResult = await appendAlternativeToCompanies(selectedNames, {
-    n: options.name,
-    ws: options.website
-  })
-
-  return {
-    name: options.name,
+  const proposal = buildProposal({
+    alternative: { n: options.name, ws: options.website },
     profileText,
     profileSources: profile.sources,
     industries,
-    selected: selected.map((hit) => ({ name: hit.name, score: hit.score, industries: hit.industries })),
-    written: writeResult.written,
-    rejectedBelowScore,
-    dryRun: false
+    minScore: options.minScore,
+    industriesOverridden,
+    candidates
+  })
+
+  const proposalPath = saveProposal(proposal)
+  log(`Proposal written to ${proposalPath}`)
+
+  return {
+    alternative: proposal.alternative,
+    profileText,
+    industries,
+    industriesOverridden,
+    proposalPath,
+    candidates,
+    rejectedBelowScore
+  }
+}
+
+export type ApplyResult = {
+  alternative: { n: string; ws: string }
+  applied: string[]
+  written: WrittenCompany[]
+}
+
+/**
+ * Writes the approved subset of a proposal.
+ *
+ * Every name must come from that proposal. Writing cannot be reached without an explicit
+ * list, which is the property that was missing before: the tool used to decide and write in
+ * one step, leaving review to happen after the curated data had already changed.
+ */
+export const applyAlternatives = async (
+  proposalPath: string,
+  approvedNames: readonly string[]
+): Promise<ApplyResult> => {
+  const proposal = loadProposal(proposalPath)
+  const approved = resolveApprovedCandidates(proposal, approvedNames)
+
+  log(
+    `Applying "${proposal.alternative.n}" to ${approved.length} approved companies ` +
+      `(proposal has ${proposal.candidates.length}).`
+  )
+
+  const writeResult = await appendAlternativeToCompanies(
+    approved.map((candidate) => candidate.name),
+    proposal.alternative
+  )
+
+  return {
+    alternative: proposal.alternative,
+    applied: approved.map((candidate) => candidate.name),
+    written: writeResult.written
   }
 }
 
@@ -255,4 +259,4 @@ export const validateSuppliedIndustries = (
   return resolved
 }
 
-export { error, EMBEDDING_DIMENSIONS, buildCorpusText }
+export type { Proposal }

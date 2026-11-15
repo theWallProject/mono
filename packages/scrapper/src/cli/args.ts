@@ -21,7 +21,8 @@ export const DATA_ACTIONS = [
   "full-pipeline",
   "industry-taxonomy",
   "alternatives-index",
-  "alternatives-add"
+  "alternatives-propose",
+  "alternatives-apply"
 ] as const
 
 export type DataAction = (typeof DATA_ACTIONS)[number]
@@ -67,6 +68,7 @@ const OPTIONS = {
   proofLink: stringOption,
   // behaviour
   apply: booleanOption,
+  write: booleanOption,
   strict: booleanOption,
   dryRun: booleanOption,
   autoOnly: booleanOption,
@@ -78,6 +80,8 @@ const OPTIONS = {
   industries: multiStringOption,
   limit: stringOption,
   minScore: stringOption,
+  names: multiStringOption,
+  proposal: stringOption,
   // full pipeline
   scrap: booleanOption,
   validate: booleanOption
@@ -119,6 +123,7 @@ const CliOptionsSchema = z
     proofText: z.string().trim().min(1).optional(),
     proofLink: z.string().trim().url().optional(),
     apply: z.boolean().optional(),
+    write: z.boolean().optional(),
     strict: z.boolean().optional(),
     dryRun: z.boolean().optional(),
     autoOnly: z.boolean().optional(),
@@ -128,6 +133,8 @@ const CliOptionsSchema = z
     industries: z.array(z.string().trim().min(1)).optional(),
     limit: z.coerce.number().int().min(1).max(10000).optional(),
     minScore: z.coerce.number().min(-1).max(1).optional(),
+    names: z.array(z.string().trim().min(1)).optional(),
+    proposal: z.string().trim().min(1).optional(),
     scrap: z.boolean().optional(),
     validate: z.boolean().optional()
   })
@@ -175,6 +182,7 @@ export const parseDataCli = (argv: string[]): CliOptions => {
   raw.urls = splitUrlList(values.urls)
   raw.androidAppIds = splitUrlList(values.androidAppIds)
   raw.industries = splitUrlList(values.industries)
+  raw.names = splitUrlList(values.names)
 
   return CliOptionsSchema.parse(raw)
 }
@@ -195,7 +203,8 @@ Actions:
   full-pipeline    Run the whole data pipeline
   industry-taxonomy Rebuild the industry list from the merged corpus
   alternatives-index Rebuild the similarity index (run after the corpus changes)
-  alternatives-add  Attach an alternative to its competitors in our corpus
+  alternatives-propose Rank candidate competitors into a reviewable proposal
+  alternatives-apply Write an approved subset of a proposal (never auto-selects)
 
 Common flags:
   --action <action>         See above
@@ -209,6 +218,11 @@ Common flags:
   --androidAppIds a,b       Android app package ids
   --proofText / --proofLink Required for reason "c"
   --apply                   Run apply-overrides afterwards
+  --industries "A,B"        alternatives-propose: override auto-selected industries
+  --limit <n>               alternatives-propose: candidates to propose (default 40)
+  --minScore <0..1>         alternatives-propose: similarity floor (default 0.35)
+  --proposal <path>         alternatives-apply: proposal file to apply
+  --names "A,B"             alternatives-apply: companies you reviewed and approve
   --strict                  Fail on non-green (name-not-in-URL) links
   --dryRun                  Validate + print, write nothing
   --json                    Print the result as JSON
@@ -242,7 +256,11 @@ export const handleHelp = (options: CliOptions): boolean => {
 }
 
 /** Requires a flag for a headless run; throws with usage guidance otherwise. */
-export const requireString = (options: CliOptions, key: "name" | "company" | "id", hint: string): string => {
+export const requireString = (
+  options: CliOptions,
+  key: "name" | "company" | "id" | "proposal",
+  hint: string
+): string => {
   const value = options[key]
   if (value === undefined) {
     throw new Error(`Missing required flag --${key}. ${hint}`)
@@ -251,7 +269,7 @@ export const requireString = (options: CliOptions, key: "name" | "company" | "id
 }
 
 /** Requires a repeatable flag for a headless run. */
-export const requireArray = (options: CliOptions, key: "reasons" | "ws", hint: string): string[] => {
+export const requireArray = (options: CliOptions, key: "reasons" | "ws" | "names", hint: string): string[] => {
   const value = options[key]
   if (value === undefined || value.length === 0) {
     throw new Error(`Missing required flag --${key}. ${hint}`)

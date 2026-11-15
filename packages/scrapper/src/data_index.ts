@@ -304,15 +304,15 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
       }
       return
     }
-    case "alternatives-add": {
-      const { runAlternativesAdd } = await import("./tasks/alternatives/runAlternativesAdd")
+    case "alternatives-propose": {
+      const { proposeAlternatives } = await import("./tasks/alternatives/runAlternativesAdd")
       const { requireArray, requireString } = await import("./cli/args")
 
       const name = requireString(options, "name", 'Pass --name "Company Name".')
       const websites = requireArray(options, "ws", "Pass the alternative's website as --ws https://example.com.")
 
       if (websites.length !== 1) {
-        throw new Error(`alternatives-add takes exactly one --ws website, received ${websites.length}.`)
+        throw new Error(`alternatives-propose takes exactly one --ws website, received ${websites.length}.`)
       }
 
       const website = websites[0]
@@ -320,29 +320,53 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
         throw new Error("Missing --ws website.")
       }
 
-      const result = await runAlternativesAdd({
+      const result = await proposeAlternatives({
         name,
         website,
-        limit: options.limit ?? 25,
-        dryRun: options.dryRun ?? true,
+        // Generous by default: the review step is the filter, not an arbitrary cap.
+        limit: options.limit ?? 40,
         industries: options.industries,
         minScore: options.minScore ?? 0.35
       })
 
       if (options.json === true) {
         console.log(JSON.stringify(result, null, 2))
-      } else {
-        log(`\n${result.dryRun ? "Would attach" : "Attached"} "${result.name}" to ${result.selected.length} companies:`)
-        for (const hit of result.selected) {
-          log(`  ${hit.score.toFixed(3)}  ${hit.name}  [${hit.industries.slice(0, 3).join(", ")}]`)
-        }
-        if (result.rejectedBelowScore > 0) {
-          log(`\n(${result.rejectedBelowScore} more passed the industry gate but scored below the floor.)`)
-        }
-        if (result.dryRun) {
-          log("\nDry run: nothing written. Re-run without --dryRun to apply.")
-        }
+        return
       }
+
+      log(`\nProposal for "${result.alternative.n}" (${result.candidates.length} candidates)`)
+      log(`Industries: ${result.industries.join(", ")}${result.industriesOverridden ? " (supplied)" : " (inferred)"}`)
+      log("")
+      for (const candidate of result.candidates) {
+        const description = candidate.description === undefined ? "" : ` — ${candidate.description}`
+        log(`  ${candidate.score.toFixed(3)}  ${candidate.name}${description}`)
+      }
+      if (result.rejectedBelowScore > 0) {
+        log(`\n(${result.rejectedBelowScore} more passed the industry gate but scored below the floor.)`)
+      }
+      log(`\nNothing was written. Review the list, then apply the approved names with:`)
+      log(`  pnpm data --action alternatives-apply --proposal "${result.proposalPath}" --names "A,B,C"`)
+      return
+    }
+    case "alternatives-apply": {
+      const { applyAlternatives } = await import("./tasks/alternatives/runAlternativesAdd")
+      const { requireArray, requireString } = await import("./cli/args")
+
+      const proposalPath = requireString(options, "proposal", "Pass --proposal <path> printed by alternatives-propose.")
+      const names = requireArray(options, "names", 'Pass --names "A,B" for the companies you approved.')
+
+      const result = await applyAlternatives(proposalPath, names)
+
+      if (options.json === true) {
+        console.log(JSON.stringify(result, null, 2))
+        return
+      }
+
+      log(`\nApplied "${result.alternative.n}" to ${result.applied.length} approved companies:`)
+      for (const entry of result.written) {
+        log(`  ${entry.added ? "added" : "already present"}  ${entry.name}  (${entry.alternativeCount} alternatives)`)
+      }
+      log("\nRun 'pnpm data --action apply-overrides' to regenerate ALL.json and its copies.")
       return
     }
     default: {
