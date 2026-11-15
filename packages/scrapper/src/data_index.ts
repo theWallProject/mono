@@ -286,6 +286,15 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
       })
       return
     }
+    case "industry-taxonomy": {
+      const { run } = await import("./tasks/alternatives/industryTaxonomy")
+      const taxonomy = run()
+
+      if (options.json === true) {
+        console.log(JSON.stringify(taxonomy, null, 2))
+      }
+      return
+    }
     default: {
       const _exhaustive: never = action
       throw new Error(`Unknown action: ${_exhaustive}`)

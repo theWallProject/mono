@@ -18,7 +18,8 @@ export const DATA_ACTIONS = [
   "quick-verify",
   "homepage-ai",
   "apply-overrides",
-  "full-pipeline"
+  "full-pipeline",
+  "industry-taxonomy"
 ] as const
 
 export type DataAction = (typeof DATA_ACTIONS)[number]
@@ -182,6 +183,7 @@ Actions:
   homepage-ai      Run the homepage AI extractor
   apply-overrides  Regenerate merged/final ALL.json + copies
   full-pipeline    Run the whole data pipeline
+  industry-taxonomy Rebuild the industry list from the merged corpus
 
 Common flags:
   --action <action>         See above
