@@ -22,6 +22,15 @@ import type { CompanyProfile } from "./companyProfile"
 
 const proposalsDir = path.join(__dirname, "../../../results/alternatives")
 
+/**
+ * Directory proposals are written to.
+ *
+ * Overridable so tests cannot write into the real proposals directory: a test that called
+ * `saveProposal` with fixed sample data silently replaced a real proposal file, which is
+ * both a lost working file and a false impression of what was reviewed.
+ */
+export const resolveProposalsDir = (): string => process.env.ALTERNATIVES_PROPOSALS_DIR ?? proposalsDir
+
 export const ProposalCandidateSchema = z
   .object({
     name: z.string().min(1),
@@ -62,7 +71,8 @@ export const proposalSlug = (name: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
 
-export const proposalPathFor = (name: string): string => path.join(proposalsDir, `${proposalSlug(name)}.json`)
+export const proposalPathFor = (name: string): string =>
+  path.join(resolveProposalsDir(), `${proposalSlug(name)}.json`)
 
 /** Writes the proposal, creating the directory when missing. Replaces any previous proposal. */
 export const saveProposal = (proposal: Proposal): string => {

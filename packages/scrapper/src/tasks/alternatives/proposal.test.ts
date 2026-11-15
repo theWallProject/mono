@@ -1,4 +1,7 @@
-import { describe, expect, it } from "vitest"
+import fs from "fs"
+import os from "os"
+import path from "path"
+import { afterAll, beforeAll, describe, expect, it } from "vitest"
 
 import {
   buildProposal,
@@ -10,6 +13,24 @@ import {
   saveProposal,
   type Proposal
 } from "./proposal"
+
+// Redirect proposal writes to a temp directory. Without this, `saveProposal` in these tests
+// overwrote the real results/alternatives/brainsmingle.json with the sample data below.
+const TEST_DIR = fs.mkdtempSync(path.join(os.tmpdir(), "alternatives-proposals-"))
+const previousDir = process.env.ALTERNATIVES_PROPOSALS_DIR
+
+beforeAll(() => {
+  process.env.ALTERNATIVES_PROPOSALS_DIR = TEST_DIR
+})
+
+afterAll(() => {
+  if (previousDir === undefined) {
+    delete process.env.ALTERNATIVES_PROPOSALS_DIR
+  } else {
+    process.env.ALTERNATIVES_PROPOSALS_DIR = previousDir
+  }
+  fs.rmSync(TEST_DIR, { recursive: true, force: true })
+})
 
 const proposal = (candidates: Array<{ name: string; score: number }>): Proposal =>
   buildProposal({
@@ -32,7 +53,8 @@ describe("proposalSlug", () => {
 
 describe("proposalPathFor", () => {
   it("derives the path from the slug", () => {
-    expect(proposalPathFor("BrainsMingle")).toMatch(/alternatives\/brainsmingle\.json$/)
+    // The directory is redirected to a temp dir during tests; only the filename is asserted.
+    expect(proposalPathFor("BrainsMingle")).toMatch(/brainsmingle\.json$/)
   })
 })
 
