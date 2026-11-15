@@ -56,14 +56,14 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "PenLink",
-    reasons: ["i"],
+    reasons: ["i", "c"],
     ws: ["https://www.penlink.com"],
     li: ["https://www.linkedin.com/company/penlink"],
     tw: ["https://x.com/penlink"],
     ig: ["https://www.instagram.com/penlink"],
     ytp: ["https://www.youtube.com/@penlink1"],
     proof_text:
-      "PenLink, a Nebraska surveillance vendor, merged in July 2023 with the Israeli contractor Cobwebs Technologies after Spire Capital bought Cobwebs for $200 million. The three Cobwebs founders took over PenLink's technology, product, marketing, strategy and international sales, and founder Omri Timianker now oversees its international operations. The flagship Tangles/Webloc platform is Cobwebs technology, built by former Israeli special-forces and intelligence members, and tracks up to 500 million mobile devices.",
+      "Its Webloc product is an ad-based geolocation surveillance system: it ingests device identifiers and location coordinates harvested from consumer apps and digital advertising, giving police and intelligence customers a constantly updated feed on up to 500 million phones, refreshed every 4 to 24 hours, plus three years of history. Citizen Lab documented use by ICE, the US military, Texas DPS, Hungarian domestic intelligence and El Salvador's national police, and could not determine the current data supply chain; PenLink says its providers collect consent through SDKs and filter sensitive locations. The technology came from the Israeli contractor Cobwebs, which Spire Capital bought for $200m and merged into PenLink in 2023, moving Cobwebs' three founders into its technology, product, marketing, strategy and international sales leadership.",
     proof_link:
       "https://citizenlab.ca/research/analysis-of-penlinks-ad-based-geolocation-surveillance-tech/",
     _meta: { isVerified: true, isBrowserVerified: true }
