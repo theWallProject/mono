@@ -27,6 +27,7 @@ declare const styles: {
   readonly proofLink: string
   readonly proofSection: string
   readonly proofText: string
+  readonly secondaryActionLink: string
   readonly shieldCircleBg: string
   readonly shieldIcon: string
   readonly visible: string

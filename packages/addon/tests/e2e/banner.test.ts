@@ -377,10 +377,12 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       console.log(`[TEST] ✓ Alternatives button displayed for URL with alternatives`)
     })
 
-    it("should show alternatives menu when alternatives button is hovered", async () => {
-      console.log("[TEST] Hovering alternatives button to trigger menu")
+    it("should show alternatives menu when alternatives button is clicked", async () => {
+      console.log("[TEST] Clicking alternatives button to trigger menu")
       const alternativesButton = await waitForBannerButton(page, /show.*alternatives|alternatives/i)
-      await alternativesButton.first().hover()
+      // Click (not hover): the button opens the menu itself, so the menu is reachable with a
+      // touch device or keyboard. Hover stays supported as an enhancement.
+      await alternativesButton.first().click()
 
       // The menu fades in via a 200ms CSS transition driven by React state. Wait for the
       // element to actually become visible instead of sleeping a fixed 300ms and hoping the
@@ -395,7 +397,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
         {
           timeout: 3000,
           interval: 100,
-          description: "alternatives menu to become visible after hover"
+          description: "alternatives menu to become visible after click"
         }
       )
         .then(() => true)
@@ -413,6 +415,19 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       expect(hasMenuText).toBe(true)
 
       console.log(`[TEST] ✓ Alternatives menu displayed correctly`)
+    })
+
+    it("should expose alternatives menu state to assistive technology", async () => {
+      const alternativesButton = await waitForBannerButton(page, /show.*alternatives|alternatives/i)
+      const button = alternativesButton.first()
+
+      // The button controls a popup, so it must announce that and reflect current state.
+      expect(await button.getAttribute("aria-haspopup")).toBe("true")
+
+      await button.click()
+      await expect
+        .poll(async () => button.getAttribute("aria-expanded"), { timeout: 3000, interval: 100 })
+        .toBe("true")
     })
   })
 
