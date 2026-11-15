@@ -375,6 +375,36 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
       log("\nRun 'pnpm data --action apply-overrides' to regenerate ALL.json and its copies.")
       return
     }
+    case "alternatives-remove": {
+      const { removeAlternativeFromCompanies } = await import("./tasks/alternatives/alternativeWriter")
+      const { requireArray, requireString } = await import("./cli/args")
+
+      const name = requireString(options, "name", 'Pass --name "Company Name" for the alternative to detach.')
+      const websites = requireArray(options, "ws", "Pass the alternative's website as --ws https://example.com.")
+      const names = requireArray(options, "names", 'Pass --names "A,B" for the companies to detach it from.')
+
+      const website = websites[0]
+      if (websites.length !== 1 || website === undefined) {
+        throw new Error(`alternatives-remove takes exactly one --ws website, received ${websites.length}.`)
+      }
+
+      const result = await removeAlternativeFromCompanies(names, { n: name, ws: website })
+
+      if (options.json === true) {
+        console.log(JSON.stringify(result, null, 2))
+        return
+      }
+
+      log(`\nRemoved "${name}" from ${result.removed.length} companies:`)
+      for (const removedName of result.removed) {
+        log(`  ${removedName}`)
+      }
+      if (result.untouched.length > 0) {
+        log(`\nLeft untouched (did not carry it): ${result.untouched.join(", ")}`)
+      }
+      log("\nRun 'pnpm data --action apply-overrides' to regenerate ALL.json and its copies.")
+      return
+    }
     default: {
       const _exhaustive: never = action
       throw new Error(`Unknown action: ${_exhaustive}`)

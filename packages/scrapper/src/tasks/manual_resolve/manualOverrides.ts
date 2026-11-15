@@ -5053,7 +5053,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "Arcant Control Systems": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "Arcant Control Systems": {},
   Archimedes: {
     ws: [
       "https://careers.archimedesfi.com",
@@ -5379,7 +5379,7 @@ export const manualOverrides: Record<
     urls: ["https://cpicardgroup.com/privacy-policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "Arrowmedia Israel": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "Arrowmedia Israel": {},
   Arrows: {
     ws: ["https://www.ar-rows.com"],
     li: ["https://www.linkedin.com/company/arrows-communication-assistive-technology"],
@@ -15646,7 +15646,6 @@ export const manualOverrides: Record<
   "Crowder Live": {
     ws: ["https://crowder.live"],
     urls: ["https://de.wordpress.org"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   Crypti: {
@@ -22019,7 +22018,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/evertas"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  Everthere: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Everthere: {},
   Everysight: {
     ws: ["https://support.everysight.com", "https://www.everysight.com"],
     li: ["https://www.linkedin.com/company/9495827", "https://www.linkedin.com/company/everysight"],
@@ -22385,7 +22384,7 @@ export const manualOverrides: Record<
     urls: ["http://icservice.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  Exponeto: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Exponeto: {},
   ExportYourStore: {
     ws: [
       "https://app.exportyourstore.com",
@@ -25066,7 +25065,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
-  Fundstarter: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Fundstarter: {},
   Funexpected: {
     ws: ["https://funexpectedapps.com"],
     fb: ["https://www.facebook.com/funexpected.apps"],
@@ -25390,7 +25389,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/gns.cloud"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "GO-OUT": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "GO-OUT": {},
   GOARC: {
     ws: ["https://go-arc.com"],
     li: ["https://www.linkedin.com/company/goarc"],
@@ -29366,7 +29365,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@hirezio"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  HiTechistim: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  HiTechistim: {},
   "Hibernating Rhinos": {
     ws: ["https://hibernatingrhinos.com"],
     urls: ["https://ravendb.net"],
@@ -30251,7 +30250,7 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/howazit"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "HubSpace TLV": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "HubSpace TLV": {},
   Hubitus: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
   "Hudson Rock": {
     ws: [
@@ -30557,7 +30556,7 @@ export const manualOverrides: Record<
     urls: ["http://www.i-til.co.il/bennykamin", "http://www.i-til.co.il/forum"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "I.C.Y Media": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "I.C.Y Media": {},
   "I.M Segev": {
     ws: ["https://www.imsegev.co.il"],
     li: ["https://www.linkedin.com/company/im-segev"],
@@ -33163,7 +33162,6 @@ export const manualOverrides: Record<
   "Israel Startup Network": {
     ws: ["https://www.israelstartupnetwork.com"],
     urls: ["http://www.meetup.com/IsraelStartupNetwork"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Israel Tech Policy Institute": {
@@ -44272,7 +44270,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
-  NeedIn: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  NeedIn: {},
   Neema: {
     ws: ["https://docs.getneema.com", "https://getneema.com"],
     li: ["https://www.linkedin.com/company/neema-official"],
@@ -55412,7 +55410,7 @@ export const manualOverrides: Record<
     urls: ["https://finder.startupnationcentral.org/company_page/roadsense"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  RoadShows: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  RoadShows: {},
   Roadio: {
     ws: ["https://roadio.io"],
     fb: ["https://www.facebook.com/roadio.io"],
@@ -57660,7 +57658,6 @@ export const manualOverrides: Record<
     ws: ["https://go.screenz.live", "https://records.screenz.live", "https://www.screenz.live"],
     fb: ["https://www.facebook.com/screenzlive"],
     ig: ["https://www.instagram.com/screenz.live_israel"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Scribe Security": {
@@ -58714,7 +58711,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
-  Shaker: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Shaker: {},
   Shalag: {
     ws: ["https://shalag.com"],
     li: ["https://www.linkedin.com/company/shalag"],
@@ -62523,7 +62520,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
-  Storyhunter: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Storyhunter: {},
   Storywise: {
     ws: ["https://www.storywise.ai"],
     urls: ["https://www.storywisenetwork.com", "https://www.storywisepublishers.com"],
@@ -63095,7 +63092,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/sunbit_fintech"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  Sunbow: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Sunbow: {},
   SundaySky: {
     ws: [
       "https://app.sundaysky.com",
@@ -70660,7 +70657,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@vee.channel"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  VeedMe: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  VeedMe: {},
   Veedy: {
     ws: ["https://app.veedy.ai", "https://veedy.ai"],
     urls: ["https://getadly.com"],
@@ -70749,7 +70746,6 @@ export const manualOverrides: Record<
     tw: ["https://x.com/velocityfdn"],
     ytp: ["https://www.youtube.com/@velocitynetworkfoundation5966"],
     ytc: ["https://www.youtube.com/channel/UCIacYdd-yXJ3uU2Its0-1rg"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   Velotix: {
@@ -71857,7 +71853,6 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/withloveinternet"],
     ytp: ["https://www.youtube.com/@withloveinternet"],
     tt: ["https://www.tiktok.com/@withloveinternet"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   WIZIX: {
@@ -72351,7 +72346,7 @@ export const manualOverrides: Record<
     alt: [{ n: "TuJu", ws: "https://tuju.my" }],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "We Create Global Productions": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "We Create Global Productions": {},
   "We Rave You": {
     ws: ["https://magazine.weraveyou.com", "https://weraveyou.com"],
     li: ["https://www.linkedin.com/company/weraveyou"],
@@ -73019,7 +73014,7 @@ export const manualOverrides: Record<
     urls: ["https://minknvik.com"],
     _meta: { isHomepage: true }
   },
-  "Windows - Channels For Communication": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "Windows - Channels For Communication": {},
   Windward: {
     ws: ["https://developer.windward.ai", "https://windward.ai"],
     li: ["https://www.linkedin.com/company/windward-ltd-"],

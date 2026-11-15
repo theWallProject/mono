@@ -53,6 +53,72 @@ export const normalizeAlternativeUrl = (url: string): string =>
     .replace(/^www\./, "")
     .replace(/\/+$/, "")
 
+const sameAlternative = (a: AlternativeEntry, b: AlternativeEntry): boolean =>
+  normalizeAlternativeUrl(a.ws) === normalizeAlternativeUrl(b.ws)
+
+/**
+ * Removes the alternative from every named company.
+ *
+ * Exists because review is not only additive: applying a generous list and then trimming it
+ * is a normal outcome, and hand-editing a 9,000-entry file to undo it is how mistakes get
+ * made. A company is left untouched when it does not carry the alternative, and its `alt`
+ * array is dropped entirely when it was the only entry, so no empty arrays linger.
+ */
+export const removeAlternativeFromCompanies = async (
+  companies: readonly string[],
+  alternative: AlternativeEntry
+): Promise<{ removed: string[]; untouched: string[] }> => {
+  if (companies.length === 0) {
+    throw new Error("No companies to remove the alternative from.")
+  }
+
+  const overrides = loadManualOverrides()
+  const removed: string[] = []
+  const untouched: string[] = []
+
+  for (const name of companies) {
+    const existing = overrides[name]
+    const existingAlternatives = readExistingAlternatives(existing)
+
+    if (!existingAlternatives.some((entry) => sameAlternative(entry, alternative))) {
+      untouched.push(name)
+      continue
+    }
+
+    if (existing === undefined || typeof existing !== "object" || existing === null) {
+      throw new Error(`"${name}" has an alternative to remove but no override object. Data is inconsistent.`)
+    }
+
+    const kept = existingAlternatives.filter((entry) => !sameAlternative(entry, alternative))
+
+    if (kept.length > 0) {
+      overrides[name] = { ...existing, alt: kept }
+    } else {
+      // Drop `alt` entirely rather than leaving `alt: []` behind: an empty array is not the
+      // same shape as "no alternatives" and would render an empty popup. Rebuilt field by
+      // field because ManualOverrideValue is a union and not every member declares `alt`.
+      const rest: Record<string, unknown> = {}
+      for (const [key, value] of Object.entries(existing)) {
+        if (key !== "alt") {
+          rest[key] = value
+        }
+      }
+      overrides[name] = rest
+    }
+
+    removed.push(name)
+  }
+
+  if (removed.length === 0) {
+    throw new Error(`None of the ${companies.length} companies carry "${alternative.n}". Nothing to remove.`)
+  }
+
+  await saveManualOverrides(overrides, { allowNewKeys: true })
+  log(`Removed "${alternative.n}" from ${removed.length} companies (${untouched.length} did not have it).`)
+
+  return { removed, untouched }
+}
+
 /** Reads the existing `alt` array off an override value, tolerating every stored shape. */
 export const readExistingAlternatives = (value: ManualOverrideValue | undefined): AlternativeEntry[] => {
   if (value === undefined || typeof value !== "object" || value === null) {

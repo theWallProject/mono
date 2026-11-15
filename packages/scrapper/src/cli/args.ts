@@ -22,7 +22,8 @@ export const DATA_ACTIONS = [
   "industry-taxonomy",
   "alternatives-index",
   "alternatives-propose",
-  "alternatives-apply"
+  "alternatives-apply",
+  "alternatives-remove"
 ] as const
 
 export type DataAction = (typeof DATA_ACTIONS)[number]
@@ -205,6 +206,7 @@ Actions:
   alternatives-index Rebuild the similarity index (run after the corpus changes)
   alternatives-propose Rank candidate competitors into a reviewable proposal
   alternatives-apply Write an approved subset of a proposal (never auto-selects)
+  alternatives-remove Detach an alternative from named companies
 
 Common flags:
   --action <action>         See above
@@ -222,7 +224,7 @@ Common flags:
   --limit <n>               alternatives-propose: candidates to propose (default 40)
   --minScore <0..1>         alternatives-propose: similarity floor (default 0.35)
   --proposal <path>         alternatives-apply: proposal file to apply
-  --names "A,B"             alternatives-apply: companies you reviewed and approve
+  --names "A,B"             alternatives-apply/remove: companies to act on
   --strict                  Fail on non-green (name-not-in-URL) links
   --dryRun                  Validate + print, write nothing
   --json                    Print the result as JSON

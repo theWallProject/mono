@@ -10,7 +10,13 @@ const mocks = vi.hoisted(() => ({
 vi.mock("../manual_resolve/loaders", () => ({ loadManualOverrides: mocks.loadManualOverrides }))
 vi.mock("../validate/override_io", () => ({ saveManualOverrides: mocks.saveManualOverrides }))
 
-import { appendAlternativeToCompanies, normalizeAlternativeUrl, readExistingAlternatives } from "./alternativeWriter"
+import {
+  appendAlternativeToCompanies,
+  normalizeAlternativeUrl,
+  readExistingAlternatives,
+  removeAlternativeFromCompanies
+} from "./alternativeWriter"
+
 const { loadManualOverrides, saveManualOverrides } = mocks
 
 // The writer's IO is the override file, which is exercised end-to-end by the CLI rather
@@ -148,5 +154,55 @@ describe("appendAlternativeToCompanies", () => {
 
   it("throws on an empty alternative website", async () => {
     await expect(appendAlternativeToCompanies(["A"], { n: "X", ws: "  " })).rejects.toThrow(/website/)
+  })
+})
+
+describe("removeAlternativeFromCompanies", () => {
+  it("removes the alternative from an entry that has others", async () => {
+    loadManualOverrides.mockReturnValue({
+      Wix: { alt: [{ n: "Tilda", ws: "https://tilda.cc" }, ALTERNATIVE] }
+    })
+
+    await removeAlternativeFromCompanies(["Wix"], ALTERNATIVE)
+
+    const written = saveManualOverrides.mock.calls[0]?.[0]
+    expect(written.Wix.alt).toEqual([{ n: "Tilda", ws: "https://tilda.cc" }])
+  })
+
+  it("drops the alt key entirely when it was the only alternative", async () => {
+    // `alt: []` is a different shape from "no alternatives" and would render an empty popup.
+    loadManualOverrides.mockReturnValue({ Wix: { ws: ["https://wix.com"], alt: [ALTERNATIVE] } })
+
+    await removeAlternativeFromCompanies(["Wix"], ALTERNATIVE)
+
+    const written = saveManualOverrides.mock.calls[0]?.[0]
+    expect(written.Wix).toEqual({ ws: ["https://wix.com"] })
+    expect("alt" in written.Wix).toBe(false)
+  })
+
+  it("leaves companies that do not carry the alternative untouched", async () => {
+    loadManualOverrides.mockReturnValue({ A: { alt: [ALTERNATIVE] }, B: { alt: [{ n: "X", ws: "https://x.com" }] } })
+
+    const result = await removeAlternativeFromCompanies(["A", "B"], ALTERNATIVE)
+
+    expect(result.removed).toEqual(["A"])
+    expect(result.untouched).toEqual(["B"])
+  })
+
+  it("matches through URL variations", async () => {
+    loadManualOverrides.mockReturnValue({ Wix: { alt: [{ n: "BM", ws: "http://www.brainsmingle.com/" }] } })
+
+    const result = await removeAlternativeFromCompanies(["Wix"], ALTERNATIVE)
+    expect(result.removed).toEqual(["Wix"])
+  })
+
+  it("throws when no company carries it, rather than reporting a silent success", async () => {
+    loadManualOverrides.mockReturnValue({ A: { alt: [{ n: "X", ws: "https://x.com" }] } })
+
+    await expect(removeAlternativeFromCompanies(["A"], ALTERNATIVE)).rejects.toThrow(/Nothing to remove/)
+  })
+
+  it("throws when there is nothing to remove from", async () => {
+    await expect(removeAlternativeFromCompanies([], ALTERNATIVE)).rejects.toThrow(/No companies/)
   })
 })
