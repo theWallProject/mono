@@ -55,6 +55,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "PenLink",
+    reasons: ["i"],
+    ws: ["https://www.penlink.com"],
+    li: ["https://www.linkedin.com/company/penlink"],
+    tw: ["https://x.com/penlink"],
+    ig: ["https://www.instagram.com/penlink"],
+    ytp: ["https://www.youtube.com/@penlink1"],
+    proof_text:
+      "PenLink, a Nebraska surveillance vendor, merged in July 2023 with the Israeli contractor Cobwebs Technologies after Spire Capital bought Cobwebs for $200 million. The three Cobwebs founders took over PenLink's technology, product, marketing, strategy and international sales, and founder Omri Timianker now oversees its international operations. The flagship Tangles/Webloc platform is Cobwebs technology, built by former Israeli special-forces and intelligence members, and tracks up to 500 million mobile devices.",
+    proof_link:
+      "https://citizenlab.ca/research/analysis-of-penlinks-ad-based-geolocation-surveillance-tech/",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Adlis Smart",
     reasons: ["h"],
     ws: ["https://adlissmart.com", "https://adlis.co.il"],
