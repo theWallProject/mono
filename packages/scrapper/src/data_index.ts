@@ -295,6 +295,56 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
       }
       return
     }
+    case "alternatives-index": {
+      const { run } = await import("./tasks/alternatives/runIndexBuild")
+      const result = await run()
+
+      if (options.json === true) {
+        console.log(JSON.stringify({ companies: result.companies, ...result.meta, names: undefined }, null, 2))
+      }
+      return
+    }
+    case "alternatives-add": {
+      const { runAlternativesAdd } = await import("./tasks/alternatives/runAlternativesAdd")
+      const { requireArray, requireString } = await import("./cli/args")
+
+      const name = requireString(options, "name", 'Pass --name "Company Name".')
+      const websites = requireArray(options, "ws", "Pass the alternative's website as --ws https://example.com.")
+
+      if (websites.length !== 1) {
+        throw new Error(`alternatives-add takes exactly one --ws website, received ${websites.length}.`)
+      }
+
+      const website = websites[0]
+      if (website === undefined) {
+        throw new Error("Missing --ws website.")
+      }
+
+      const result = await runAlternativesAdd({
+        name,
+        website,
+        limit: options.limit ?? 25,
+        dryRun: options.dryRun ?? true,
+        industries: options.industries,
+        minScore: options.minScore ?? 0.35
+      })
+
+      if (options.json === true) {
+        console.log(JSON.stringify(result, null, 2))
+      } else {
+        log(`\n${result.dryRun ? "Would attach" : "Attached"} "${result.name}" to ${result.selected.length} companies:`)
+        for (const hit of result.selected) {
+          log(`  ${hit.score.toFixed(3)}  ${hit.name}  [${hit.industries.slice(0, 3).join(", ")}]`)
+        }
+        if (result.rejectedBelowScore > 0) {
+          log(`\n(${result.rejectedBelowScore} more passed the industry gate but scored below the floor.)`)
+        }
+        if (result.dryRun) {
+          log("\nDry run: nothing written. Re-run without --dryRun to apply.")
+        }
+      }
+      return
+    }
     default: {
       const _exhaustive: never = action
       throw new Error(`Unknown action: ${_exhaustive}`)

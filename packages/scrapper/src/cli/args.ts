@@ -19,7 +19,9 @@ export const DATA_ACTIONS = [
   "homepage-ai",
   "apply-overrides",
   "full-pipeline",
-  "industry-taxonomy"
+  "industry-taxonomy",
+  "alternatives-index",
+  "alternatives-add"
 ] as const
 
 export type DataAction = (typeof DATA_ACTIONS)[number]
@@ -72,6 +74,10 @@ const OPTIONS = {
   mode: stringOption,
   size: stringOption,
   baseUrl: stringOption,
+  // alternatives
+  industries: multiStringOption,
+  limit: stringOption,
+  minScore: stringOption,
   // full pipeline
   scrap: booleanOption,
   validate: booleanOption
@@ -119,6 +125,9 @@ const CliOptionsSchema = z
     mode: z.enum(HOMEPAGE_MODES).optional(),
     size: z.coerce.number().int().min(1).max(10000).optional(),
     baseUrl: z.string().trim().url().optional(),
+    industries: z.array(z.string().trim().min(1)).optional(),
+    limit: z.coerce.number().int().min(1).max(10000).optional(),
+    minScore: z.coerce.number().min(-1).max(1).optional(),
     scrap: z.boolean().optional(),
     validate: z.boolean().optional()
   })
@@ -165,6 +174,7 @@ export const parseDataCli = (argv: string[]): CliOptions => {
   }
   raw.urls = splitUrlList(values.urls)
   raw.androidAppIds = splitUrlList(values.androidAppIds)
+  raw.industries = splitUrlList(values.industries)
 
   return CliOptionsSchema.parse(raw)
 }
@@ -184,6 +194,8 @@ Actions:
   apply-overrides  Regenerate merged/final ALL.json + copies
   full-pipeline    Run the whole data pipeline
   industry-taxonomy Rebuild the industry list from the merged corpus
+  alternatives-index Rebuild the similarity index (run after the corpus changes)
+  alternatives-add  Attach an alternative to its competitors in our corpus
 
 Common flags:
   --action <action>         See above

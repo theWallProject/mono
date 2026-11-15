@@ -71,6 +71,17 @@ export const computeIndustryCorpusHash = (entries: ReadonlyArray<{ name: string;
   return createHash("sha256").update(lines.join("\n")).digest("hex").slice(0, 16)
 }
 
+/**
+ * Fingerprint input shared by the taxonomy and the similarity index.
+ *
+ * Both must agree on exactly what "the corpus" is: the distinct-company view, keyed by
+ * name, with only the fields the derived artifacts depend on. If they disagreed, either
+ * artifact would report itself stale against its own rebuild.
+ */
+export const buildIndustryTaxonomyHashInput = (
+  entries: ReadonlyArray<{ name: string; industries?: string[] }>
+): string => computeIndustryCorpusHash(entries)
+
 /** Builds the taxonomy from merged rows. Pure — no I/O, so it is unit-testable. */
 export const buildIndustryTaxonomy = (
   entries: ReadonlyArray<{ name: string; industries?: string[] }>

@@ -7,6 +7,11 @@ allowBuilds:
   esbuild: true
   lmdb: true
   msgpackr-extract: true
+  # onnxruntime-node ships a native binary that its postinstall fetches. Without the build
+  # the alternatives similarity search fails at import time with "cannot find module".
+  onnxruntime-node: true
+  # protobufjs generates its code in a postinstall step.
+  protobufjs: true
   puppeteer: true
   sharp: true
   spawn-sync: true
