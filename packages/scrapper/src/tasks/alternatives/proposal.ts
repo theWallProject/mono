@@ -62,10 +62,9 @@ export const proposalSlug = (name: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
 
-export const proposalPathFor = (name: string): string =>
-  path.join(proposalsDir, `${proposalSlug(name)}.proposal.json`)
+export const proposalPathFor = (name: string): string => path.join(proposalsDir, `${proposalSlug(name)}.json`)
 
-/** Writes the proposal, creating the directory when missing. */
+/** Writes the proposal, creating the directory when missing. Replaces any previous proposal. */
 export const saveProposal = (proposal: Proposal): string => {
   const validated = ProposalSchema.parse(proposal)
   const target = proposalPathFor(validated.alternative.n)

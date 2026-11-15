@@ -32,7 +32,7 @@ describe("proposalSlug", () => {
 
 describe("proposalPathFor", () => {
   it("derives the path from the slug", () => {
-    expect(proposalPathFor("BrainsMingle")).toMatch(/alternatives\/brainsmingle\.proposal\.json$/)
+    expect(proposalPathFor("BrainsMingle")).toMatch(/alternatives\/brainsmingle\.json$/)
   })
 })
 
@@ -63,7 +63,7 @@ describe("saveProposal / loadProposal", () => {
   })
 
   it("throws with an actionable message when the file is missing", () => {
-    expect(() => loadProposal("/nonexistent/nope.proposal.json")).toThrow(/alternatives-propose/)
+    expect(() => loadProposal("/nonexistent/nope.json")).toThrow(/alternatives-propose/)
   })
 })
 

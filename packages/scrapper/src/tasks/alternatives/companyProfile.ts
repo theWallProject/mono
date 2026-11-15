@@ -56,7 +56,13 @@ export type CompanyProfile = {
   metaDescription?: string
   /** Social/identity URLs declared by the site. */
   sameAs: string[]
-  /** Which sources contributed, so a weak profile is visible rather than silently weak. */
+  /**
+   * Which sources were PRESENT on the page.
+   *
+   * This is an availability record, not a list of what went into `buildProfileText`: the
+   * title is extracted and reported here but deliberately excluded from the embedded text,
+   * because it usually repeats the brand and pulls in same-named companies.
+   */
   sources: Array<"jsonLd" | "metaDescription" | "title">
 }
 
