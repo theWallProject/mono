@@ -5123,7 +5123,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@arcuromedical"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "Arel Communications & Software": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "Arel Communications & Software": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   Argentum: {
     ws: ["https://argentumconsultants.eu"],
     urls: [
@@ -10990,7 +10990,7 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/byondpitch-117477977905841"],
     ig: ["https://www.instagram.com/byond.pitch"],
     ytp: ["https://www.youtube.com/@byondpitch"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
+    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }],
     _meta: { isHomepage: true }
   },
   Bzigo: {
@@ -13187,7 +13187,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/chunk_foods"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "CiNet Network": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "CiNet Network": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   Cidev: {
     ws: ["https://cidevgroup.com"],
     li: ["https://www.linkedin.com/company/1272348", "https://www.linkedin.com/company/cidev-agencies-1973-ltd."],
@@ -14660,7 +14660,7 @@ export const manualOverrides: Record<
     android_app_ids: ["com.comunix.pokerface"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  Comvidi: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Comvidi: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   "ConSienta Ltd.": {
     ws: ["https://www.consienta.com"],
     li: ["https://www.linkedin.com/company/consienta"],
@@ -24927,7 +24927,7 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/raveh-ravid-co-106655090989556"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  Friendsee: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Friendsee: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   "Frish Technologies": {
     ws: ["http://www.frish.co.il"],
     fb: [
@@ -27063,7 +27063,7 @@ export const manualOverrides: Record<
   },
   Gloww: {
     ws: ["https://app.gloww.com", "https://gloww.com"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
+    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   Glue: {
@@ -30251,7 +30251,7 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "HubSpace TLV": {},
-  Hubitus: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  Hubitus: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   "Hudson Rock": {
     ws: [
       "https://bayonet.hudsonrock.com",
@@ -52327,7 +52327,7 @@ export const manualOverrides: Record<
     android_app_ids: ["com.qaonline.app"],
     _meta: { isHomepage: true }
   },
-  "QCONF Conferencing": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "QCONF Conferencing": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   QEDIT: {
     ws: ["https://qed-it.com"],
     li: ["https://www.linkedin.com/company/qedit"],
@@ -55818,7 +55818,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/rumbletalk"],
     ig: ["https://www.instagram.com/rumbletalk"],
     urls: ["https://www.pinterest.com/rumbletalkchat"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
+    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Run The Trap": {
@@ -65088,7 +65088,7 @@ export const manualOverrides: Record<
   TeeMeW: {
     ws: ["https://metaverse.teemew.com", "https://www.teemew.com"],
     li: ["https://www.linkedin.com/company/74196291", "https://www.linkedin.com/company/teemewevent"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
+    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Tego AI": {
@@ -67294,7 +67294,7 @@ export const manualOverrides: Record<
     urls: ["https://www.godaddy.com/websites/website-builder"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "Touch Conference": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "Touch Conference": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   "Touch-E": { ws: ["https://touchetv.com"], urls: ["https://pharmacie-marseille.com"], _meta: { isHomepage: true } },
   "Touring Israel": {
     ws: ["https://touringisrael.com"],
@@ -70711,7 +70711,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@VeidanCoIl"],
     ytc: ["https://www.youtube.com/channel/UCTxKPCaFNkajQRFwb0f6O0Q"],
     urls: ["https://notfromhere.net", "https://www.addtoany.com", "https://www.addtoany.com/share"],
-    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }],
+    alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }],
     _meta: { isHomepage: true, isVerified: true }
   },
   VeinWay: {
@@ -75766,7 +75766,7 @@ export const manualOverrides: Record<
     urls: ["https://pearlcom.co.il"],
     _meta: { isHomepage: true }
   },
-  camelx: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  camelx: { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   "capNsub Ltd.": {
     ws: ["https://www.capnsub.com"],
     li: ["https://www.linkedin.com/company/capnsub-inc."],
@@ -76703,7 +76703,7 @@ export const manualOverrides: Record<
     urls: ["http://www.gingold.co.il", "http://youtu.be/NKGneQh-R8Y"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "isc2 israel chapter": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com" }] },
+  "isc2 israel chapter": { alt: [{ n: "BrainsMingle", ws: "https://brainsmingle.com/ahmed9223" }] },
   "itas industrial technology & services": {
     ws: ["https://itas.co.il"],
     fb: [
