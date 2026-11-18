@@ -18,11 +18,10 @@ declare const styles: {
   readonly footerActions: string
   readonly gradientShift: string
   readonly header: string
-  readonly heroArrow: string
-  readonly heroCaption: string
-  readonly heroCount: string
-  readonly heroFrom: string
-  readonly heroTo: string
+  readonly heroEyebrow: string
+  readonly heroPoster: string
+  readonly heroSection: string
+  readonly heroSub: string
   readonly installDropSection: string
   readonly largeDonateButton: string
   readonly link: string
@@ -30,7 +29,6 @@ declare const styles: {
   readonly playIcon: string
   readonly playOverlay: string
   readonly pluginName: string
-  readonly pulseGlow: string
   readonly reportButton: string
   readonly sectionTitle: string
   readonly shareButton: string

@@ -348,23 +348,11 @@
   background: #e65100 !important;
   color: #ffffff !important;
   box-shadow: 0 4px 16px rgba(230, 81, 0, 0.4) !important;
-  animation: pulseGlow 2s ease-in-out infinite !important;
   font-weight: 700 !important;
-}
-
-@keyframes pulseGlow {
-  0%,
-  100% {
-    box-shadow: 0 4px 16px rgba(230, 81, 0, 0.4);
-  }
-  50% {
-    box-shadow: 0 6px 24px rgba(230, 81, 0, 0.6);
-  }
 }
 
 .largeDonateButton:hover {
   box-shadow: 0 6px 24px rgba(230, 81, 0, 0.5) !important;
-  animation: none !important;
   background: #ff6d00 !important;
 }
 
@@ -768,44 +756,62 @@
    line inside a card: large numerals, high contrast, and the "before" value
    deliberately de-emphasised so growth reads at a glance.
    ───────────────────────────────────────────────────────────────────────── */
-.heroCount {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 4px 0 10px 0;
+/* ─────────────────────────────────────────────────────────────────────────
+   Masthead + hero, gazette register.
+
+   The page is an issue of a gazette, not a software receipt: the figure is set
+   at poster scale in ink black on off-white with a red rule under it, like a
+   newspaper front page. No strikethrough and no arrow — replacement framing
+   cheapens both numbers, so growth lives in one plain sub-line.
+   ───────────────────────────────────────────────────────────────────────── */
+.heroSection {
+  background: #faf8f5 !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  padding: 28px 24px 22px !important;
+  box-shadow: none !important;
+  border-bottom: 4px solid #b72b00 !important;
 }
 
-.heroFrom {
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 30px;
+.heroEyebrow {
+  margin: 0 0 6px 0;
+  text-align: center;
+  font-size: 12px;
   font-weight: 700;
-  color: #9b9b9b;
-  letter-spacing: -0.5px;
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #6b6b6b;
 }
 
-.heroArrow {
-  font-size: 26px;
-  font-weight: 700;
-  color: #b72b00;
-}
-
-.heroTo {
+/* ~120px poster numeral, ink black, tight tracking */
+.heroPoster {
+  margin: 0;
+  text-align: center;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 42px;
+  font-size: 120px;
+  line-height: 0.92;
   font-weight: 800;
-  color: #b72b00;
-  letter-spacing: -1px;
-  line-height: 1;
+  letter-spacing: -6px;
+  color: #1a1a1a;
+  font-variant-numeric: tabular-nums;
 }
 
-.heroCaption {
+.heroSub {
+  margin: 12px auto 0 auto;
+  max-width: 560px;
   text-align: center;
   font-size: 15px;
-  line-height: 1.5;
-  color: #444444;
-  margin: 0;
+  line-height: 1.55;
+  color: #4a4a4a;
+}
+
+@media (max-width: 560px) {
+  .heroPoster {
+    font-size: 76px;
+    letter-spacing: -4px;
+  }
+
+  .heroSub {
+    font-size: 14px;
+  }
 }

@@ -97,54 +97,94 @@ function WhatsNew() {
 
       <div className={styles.contentWrapper}>
         <div className={styles.content}>
-          {/* Version number */}
+          {/* Masthead: the release is an issue, not a changelog entry */}
           <div className={styles.versionSection}>
             <img src={getExtensionURL(shieldIcon)} alt="The Wall Logo" className={styles.theWallLogo} />
             <div className={styles.versionContent}>
-              <h1 className={styles.combinedTitle}>What&apos;s New — {extensionName}</h1>
-              <p className={styles.version}>Version {shownVersion}</p>
+              <h1 className={styles.combinedTitle}>{extensionName}</h1>
+              <p className={styles.version}>Issue {shownVersion}</p>
             </div>
           </div>
 
-          {/* Hero: the headline number, deliberately large */}
-          <section className={styles.featureSection}>
-            <div className={styles.heroCount}>
-              <span className={styles.heroFrom}>20,000</span>
-              <span className={styles.heroArrow}>→</span>
-              <span className={styles.heroTo}>30,000</span>
-            </div>
-            <p className={styles.heroCaption}>
-              <strong>50% more companies.</strong> Hand-checked.
+          {/* Hero: poster scale. The number is the headline, not a stat line. */}
+          <section className={`${styles.featureSection} ${styles.heroSection}`}>
+            <p className={styles.heroEyebrow}>Companies in the database</p>
+            <p className={styles.heroPoster}>30,000</p>
+            <p className={styles.heroSub}>
+              Up from 20,000. Ten thousand companies added in one release — each one checked by hand before it went in.
             </p>
           </section>
 
-          {/* AFSC dataset */}
+          {/* What the jump actually cost */}
           <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>📋 New: The AFSC List</h2>
+            <h2 className={styles.sectionTitle}>What ten thousand takes</h2>
             <p className={styles.featureText}>
-              <strong>81</strong> new companies from the AFSC dataset, 78 of them American. <strong>92</strong> were
-              examined and rejected — the evidence did not hold up.
+              Not a bulk import. Every company needs a source, a reason, and a category before it can earn a warning —
+              and the checking is manual. That is why ten thousand entries took far longer than the number suggests.
+            </p>
+          </section>
+
+          {/* Privacy: verifiable, and unusual */}
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>The list never leaves your browser</h2>
+            <p className={styles.featureText}>
+              The only thing that ever leaves is a count of which buttons got clicked — never the site you were on.
+            </p>
+          </section>
+
+          {/* AFSC dataset — the adds are the story, not the rejects */}
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>The AFSC list joined the database</h2>
+            <p className={styles.featureText}>
+              <strong>81</strong> companies from the American Friends Service Committee&apos;s public dataset — 78 of
+              them US firms, so they get flagged on sites you would not otherwise expect.
+            </p>
+            <p className={styles.featureText}>
+              Every row was checked against the source before it went in, and anything the evidence could not support
+              stayed out.
             </p>
           </section>
 
           {/* Severity tiers */}
           <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>🟡 Two Warning Levels</h2>
+            <h2 className={styles.sectionTitle}>A direct link is not the same as an indirect one</h2>
             <p className={styles.featureText}>
-              <strong style={{ color: "#b72b00" }}>Red</strong> — direct link: Israeli HQ, a{" "}
-              <code>.il</code> domain, or a priority BDS target.
+              <strong style={{ color: "#b72b00" }}>Red</strong> — a direct connection: Israeli headquarters, a{" "}
+              <code>.il</code> domain, or a BDS priority target.
             </p>
             <p className={styles.featureText}>
-              <strong style={{ color: "#b45309" }}>Yellow</strong> — indirect: a founder, an investor, or a community
-              reason.
+              <strong style={{ color: "#b45309" }}>Yellow</strong> — an indirect one: a founder, an investor, or a
+              community connection.
+            </p>
+            <p className={styles.featureText}>
+              Both are warnings. The colour tells you how strong the case is, so the two never look alike.
+            </p>
+          </section>
+
+          {/* The funding trade-off, stated as cause and effect. No apology, no ask. */}
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>Why this issue took longer</h2>
+            <p className={styles.featureText}>
+              Donations were low this cycle, so the hours went to paid work. The Wall is a side project — it does not
+              pay rent, the paid work does.
+            </p>
+            <p className={styles.featureText}>
+              That is the whole trade-off, stated plainly:{" "}
+              <strong>
+                more support means less time spent elsewhere, which means more companies checked and issues that arrive
+                sooner.
+              </strong>
             </p>
           </section>
 
           {/* Urgent Appeal */}
           <section className={`${styles.featureSection} ${styles.urgentSection}`}>
-            <h2 className={styles.sectionTitle}>Keep This Project Alive</h2>
+            <h2 className={styles.sectionTitle}>Fund the next ten thousand</h2>
             <p className={styles.featureText} style={{ fontWeight: "600" }}>
-              Even $1/month buys me real time for new features and data updates.
+              $1 a month is time — the difference between an issue every season and one every few weeks.
+            </p>
+            <p className={styles.featureText}>
+              The money does not buy gratitude. It buys companies checked, sources read, and entries that keep arriving.
             </p>
             <a
               href="https://ko-fi.com/thewalladdon"
@@ -190,7 +230,7 @@ function WhatsNew() {
               Visit the-wall.win
             </a>
             <button className={styles.contactButton} onClick={handleContact}>
-              Contact Us
+              Send Feedback
             </button>
           </div>
 
