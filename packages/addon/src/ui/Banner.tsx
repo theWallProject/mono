@@ -473,7 +473,13 @@ export const Banner = () => {
       />
       {testResult && !testResult.isDismissed && !testResult.isHint ? (
         <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
-          <img src="https://the-wall.win/bg.gif?rec=1&action_name=wall" alt="" />
+          <img
+            src="https://the-wall.win/bg.gif?rec=1&action_name=wall"
+            alt=""
+            referrerPolicy="no-referrer"
+            width={1}
+            height={1}
+          />
           {/* Background pattern layer */}
           <div
             className={style.bgLayer}
