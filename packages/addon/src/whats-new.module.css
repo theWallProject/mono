@@ -1,5 +1,34 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   The Wall, literally.
+
+   The page is a brick wall, and everything on it is a PASTER, not a memo:
+   flat ink and flat paper, thick black rules, hard offset shadows with no
+   blur, tape over one corner, and display type set heavy and tight. Notices
+   printed on A4 read like an office; posters pasted at 3am read like the
+   street this project is about.
+
+   Two faces only, both shipped with the extension: Outfit for display,
+   Roboto for text. `font-display: swap` so a slow font never hides copy.
+   ───────────────────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/Outfit-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Wall";
+  src: url("../assets/fonts/Roboto-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 .container {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto Wall", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
@@ -9,30 +38,100 @@
   position: relative;
   margin: 0;
   padding: 0;
-  overflow-y: auto;
-  background-color: #b72b00;
+  background-color: #241f1b;
 }
 
+/* The wall. Tiled small so the bricks read as texture, dimmed so paper
+   carries the contrast. */
 .bgLayer {
-  width: 100vw;
-  height: 100vh;
   position: fixed;
-  top: 0;
-  left: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.95;
+  inset: 0;
+  background-repeat: repeat;
+  background-size: 560px auto;
+  background-position: top center;
+  filter: brightness(0.62) saturate(0.8);
   z-index: 1;
 }
 
-.bgOverlay {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 2;
+.contentWrapper {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 54px 22px 8px;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  padding-bottom: 24px;
+}
+
+/* ── A pasted sheet ───────────────────────────────────────────────────────
+   Flat stock, a thick ink keyline, and a shadow with an offset and no blur —
+   the shadow a paste-up casts when it is a millimetre off the wall, not the
+   soft glow of a UI card. */
+/* Every block is edged on the LEFT only: a painted spine, never a printed
+   frame. No top, right or bottom keylines anywhere on the page. */
+.paper {
+  position: relative;
+  background: #f0e9dc;
+  border: none;
+  border-left: 8px solid #141210;
+  border-radius: 0;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
+  padding: 32px 36px;
+}
+
+.paper::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  width: 108px;
+  height: 25px;
+  background: rgba(226, 217, 199, 0.62);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.tiltLeft {
+  transform: rotate(-1.2deg);
+}
+.tiltRight {
+  transform: rotate(1deg);
+}
+.tiltLeftSoft {
+  transform: rotate(-0.5deg);
+}
+.tiltRightSoft {
+  transform: rotate(0.6deg);
+}
+
+.tiltLeft::before,
+.tiltLeftSoft::before {
+  left: 42px;
+  transform: rotate(-4deg);
+}
+
+.tiltRight::before,
+.tiltRightSoft::before {
+  right: 46px;
+  transform: rotate(3.5deg);
+}
+
+/* ── Masthead: the poster that names the paste-up ── */
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 26px;
+  align-self: flex-start;
+  max-width: 700px;
+  background: #141210;
+  border: none;
+  border-left: 12px solid #b72b00;
 }
 
 .theWallLogo {
@@ -42,776 +141,953 @@
   flex-shrink: 0;
 }
 
-.contentWrapper {
-  position: relative;
-  z-index: 3;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 16px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: rgba(183, 43, 0, 0.95);
-  backdrop-filter: blur(10px);
+.mastheadText {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  gap: 4px;
 }
 
-.header {
-  margin-bottom: 24px;
-  flex-shrink: 0;
-}
-
-.pluginName {
-  margin: 0 0 6px 0;
-  font-size: 13px;
-  color: #aaa;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.title {
+.mastheadTitle {
   margin: 0;
-  font-size: 36px;
+  font-family: "Outfit", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #f0e9dc;
+  letter-spacing: -0.9px;
+  line-height: 1.02;
+}
+
+.mastheadSub {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 11.5px;
   font-weight: 700;
-  font-family: "Instrument Sans", sans-serif;
-  color: #ffffff;
-  letter-spacing: -0.5px;
+  color: #ff6a3d;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  white-space: nowrap;
 }
 
-@keyframes gradientShift {
-  0%,
-  100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-
-.versionSection {
-  margin-bottom: 16px;
-  padding: 8px 12px;
-  background: #ffffff;
-  border: none;
-  position: relative;
-  overflow: hidden;
+/* ── Group bands ──────────────────────────────────────────────────────────
+   A stencilled stripe of ink straight onto the brick, marking which family
+   of paper follows. Paint, not another sheet. */
+.groupBand {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 8px 0 -14px -34px;
+  padding: 16px 28px 16px 24px;
+  border-left: 16px solid #b72b00;
+  background: linear-gradient(90deg, rgba(20, 18, 16, 0.97) 0%, rgba(20, 18, 16, 0.72) 78%, transparent 100%);
+  transform: rotate(-0.4deg);
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+.groupBandText {
+  font-family: "Outfit", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #f0e9dc;
 }
 
-.version {
-  margin: 0;
-  font-size: 14px;
-  color: #666;
-  font-weight: 600;
-  position: relative;
-  z-index: 1;
-}
-
-.content {
-  width: 100%;
-  box-sizing: border-box;
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 8px;
-  scroll-behavior: smooth;
-}
-
-.content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-}
-
-.content::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-
-.content::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.versionSection,
-.featureSection {
-  margin-bottom: 12px;
-  background: #ffffff;
+/* ── The number: one poster, one figure, a red spine ── */
+.heroPoster {
+  text-align: center;
+  padding: 40px 30px 34px;
+  background: #141210;
   border: none;
-  border-radius: 12px;
-  padding: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 12px solid #b72b00;
+  overflow: hidden;
 }
 
-.featureSection:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.heroEyebrow {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #a89f92;
+}
+
+.heroFigure {
+  margin: 6px 0 0 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 188px;
+  line-height: 0.86;
+  font-weight: 800;
+  letter-spacing: -11px;
+  color: #f0e9dc;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The old count, crossed out by hand: dimmer than the number that replaced
+   it, so the growth is read, not explained. */
+.heroBefore {
+  margin: 20px 0 -4px 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -3.5px;
+  color: rgba(240, 233, 220, 0.34);
+  text-decoration: line-through;
+  text-decoration-color: #b72b00;
+  text-decoration-thickness: 8px;
+  transform: rotate(-1.8deg);
+  font-variant-numeric: tabular-nums;
+}
+
+.heroSub {
+  margin: 20px auto 0 auto;
+  max-width: 560px;
+  font-size: 20px;
+  line-height: 1.45;
+  color: rgba(240, 233, 220, 0.8);
+}
+
+/* ── Notices ── */
+.notice {
+  max-width: 780px;
 }
 
 .sectionTitle {
-  font-size: 18px;
-  font-weight: 700;
-  font-family: "Instrument Sans", sans-serif;
-  color: #b72b00;
-  margin: 0 0 10px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: -0.2px;
-}
-
-.versionText,
-.featureText {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444444;
-  margin: 0 0 8px 0;
-}
-
-.versionContent {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex: 1;
-}
-
-.combinedTitle {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  font-family: "Instrument Sans", sans-serif;
-  color: #b72b00;
-  letter-spacing: -0.3px;
-  line-height: 1.2;
-}
-
-.footer {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 2px solid rgba(255, 255, 255, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex-shrink: 0;
-}
-
-.footerActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Buttons */
-.donateButton,
-.contactButton {
-  box-sizing: border-box;
-  cursor: pointer;
-  user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  color: #b72b00;
-  background: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: #141210;
+  margin: 0 0 20px 0;
+  padding: 0 0 14px 0;
   border: none;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  padding: 10px 20px;
-  position: relative;
-  overflow: hidden;
-  min-height: 40px;
+  border-bottom: 6px solid #141210;
+  text-transform: uppercase;
+  letter-spacing: -1.3px;
+  line-height: 0.96;
 }
 
-.donateButton::before,
-.contactButton::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition:
-    width 0.6s,
-    height 0.6s;
+.featureText {
+  font-size: 19px;
+  line-height: 1.55;
+  color: #2b2620;
+  margin: 0 0 16px 0;
+  max-width: 62ch;
 }
 
-.donateButton:hover::before,
-.contactButton:hover::before {
-  width: 300px;
-  height: 300px;
+.featureText:last-child {
+  margin-bottom: 0;
 }
 
-.donateButton:hover,
-.contactButton:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  background: #f5f5f5;
-}
-
-.donateButton:active,
-.contactButton:active {
-  transform: translateY(-1px) scale(0.98);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.link {
-  color: #ffe1cd;
-  text-decoration: none;
-  font-size: 14px;
+/* Severity reads as two ink swatches, because it is a severity. */
+.tierRed {
+  background: #b72b00;
+  color: #f0e9dc;
+  padding: 1px 7px 2px;
   font-weight: 700;
-  transition: all 0.2s ease;
-  padding: 6px 0;
+}
+
+.tierAmber {
+  background: #c07612;
+  color: #141210;
+  padding: 1px 7px 2px;
+  font-weight: 700;
+}
+
+.inlineLink {
+  color: #b72b00;
+  text-decoration: none;
+  border-bottom: 3px solid #b72b00;
+}
+
+.inlineLink:hover {
+  color: #141210;
+  border-bottom-color: #141210;
+}
+
+/* ── A scrap of its own ───────────────────────────────────────────────────
+   One sentence and the link it came with. Narrower than a notice and
+   inverted, so a dig never reads as a section of the update. */
+.sideNote {
+  background: #141210;
+  border: none;
+  border-left: 12px solid #b72b00;
+  padding: 32px 36px 34px;
+}
+
+.sideNoteKicker {
+  margin: 0 0 12px 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #ff6a3d;
+}
+
+.sideNoteText {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -1.3px;
+  color: #f0e9dc;
+  padding-bottom: 16px;
+  border-bottom: 6px solid rgba(240, 233, 220, 0.85);
+}
+
+.sideNoteLink {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ff6a3d;
+  text-decoration: none;
+  border-bottom: 3px solid #ff6a3d;
+  padding-bottom: 3px;
+}
+
+.sideNoteLink:hover {
+  color: #f0e9dc;
+  border-bottom-color: #f0e9dc;
+}
+
+/* ── A report, quoted with its own numbers ── */
+.reportTag {
+  display: inline-block;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #f0e9dc;
+  background: #1f4d3a;
+  padding: 5px 10px;
+  margin: 0 0 16px 0;
+}
+
+/* Half width on the left, text on the right: the diagram reads as a pasted
+   print with the writing beside it. */
+.reportGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.reportMedia,
+.reportBody {
+  min-width: 0;
+}
+
+.reportMap {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+}
+
+.reportCaption {
+  margin: 10px 0 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #5e564b;
+}
+
+.reportLink {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: "Outfit", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #b72b00;
+  text-decoration: none;
+  border-bottom: 4px solid #b72b00;
+  padding-bottom: 3px;
+}
+
+.reportLink:hover {
+  color: #141210;
+  border-bottom-color: #141210;
+}
+
+/* ── The board ────────────────────────────────────────────────────────────
+   Events are pasted posters, not rows in a table: the event's own banner is
+   the poster, the words sit on a dark scrim at its foot, and the date is
+   stamped top-right the way a flyer is stamped. */
+.newsBoard {
+  background: #f0e9dc;
+}
+
+.newsHead {
+  margin-bottom: 22px;
+}
+
+.newsKicker {
+  display: inline-block;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #f0e9dc;
+  background: #b72b00;
+  padding: 5px 10px;
+  margin: 0 0 14px 0;
+}
+
+.newsTitle {
+  color: #141210;
+  font-family: "Outfit", sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -1.4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.newsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.newsRow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  text-decoration: none;
+  border: none;
+  border-left: 8px solid #b72b00;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
+  transition: transform 0.16s ease;
+  background: #141210;
+}
+
+.newsRow:hover {
+  transform: translateY(-3px) rotate(-0.3deg);
+}
+
+/* The art sits above the words, never under them: the banners carry their own
+   titles, and a scrim over the middle of one printed them twice. The frame
+   takes the banner's own 1200x630 ratio so nothing is cropped at all. */
+.newsThumbWrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  flex: none;
+  background: #0d0b09;
+}
+
+.newsThumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Left-anchored: both banners carry their name on the left, so a centre
+     crop cuts the name instead of the artwork. */
+  object-position: left center;
+  display: block;
+}
+
+.newsStamp {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #b72b00;
+  color: #f0e9dc;
+  padding: 8px 12px 7px;
+  line-height: 1;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+.newsStampDay {
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.newsStampMonth {
+  font-family: "Outfit", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.newsBody {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 26px 22px;
+  background: #141210;
+}
+
+.newsMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Says the word: these are events, not reading recommendations. */
+.eventTag {
+  font-family: "Outfit", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #f0e9dc;
+  background: #b72b00;
+  padding: 4px 9px;
+}
+
+.newsWhere {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ff8a5c;
+}
+
+.newsName {
+  font-family: "Outfit", sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #f0e9dc;
+  line-height: 0.95;
+  letter-spacing: -1.1px;
+  text-transform: uppercase;
+}
+
+.newsWhat {
+  font-size: 17px;
+  line-height: 1.4;
+  color: rgba(240, 233, 220, 0.86);
+  max-width: 52ch;
+}
+
+.newsCta {
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ff8a5c;
+  margin-top: 4px;
+}
+
+.newsRow:hover .newsCta {
+  color: #f0e9dc;
+}
+
+/* ── One voice ── */
+.spotlight {
+  border-left: 12px solid #1f4d3a;
+}
+
+.spotlightKicker {
+  display: inline-block;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #f0e9dc;
+  background: #1f4d3a;
+  padding: 5px 10px;
+  margin: 0 0 16px 0;
+}
+
+.spotlightTitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  color: #141210;
+  margin: 0 0 16px 0;
+  letter-spacing: -1.4px;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.spotlightLink {
   display: inline-flex;
   align-items: center;
+  gap: 9px;
+  margin-top: 6px;
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #b72b00;
+  text-decoration: none;
+  border-bottom: 4px solid #b72b00;
+  padding-bottom: 3px;
 }
 
-.link:hover {
-  color: #ffffff;
-  text-decoration: underline;
-  transform: translateY(-1px);
+.spotlightLink:hover {
+  color: #141210;
+  border-bottom-color: #141210;
 }
 
-/* Urgent Appeal Section */
-.urgentSection {
-  background: #fff5ed !important;
-  border: 2px solid #e65100 !important;
-  position: relative;
-  overflow: visible;
+/* Pinned to the left of the copy, small: a photo taped onto the poster, not
+   a hero image. */
+.spotlightImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 4px 0 0 0;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
+  transform: rotate(1.4deg);
 }
 
-.urgentSection::after {
-  content: "🙏";
-  position: absolute;
-  top: -12px;
-  right: 16px;
-  font-size: 28px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+.spotlightBody {
+  min-width: 0;
 }
 
+.spotlightGrid {
+  display: grid;
+  grid-template-columns: 176px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── The ask: the one red sheet on the wall ── */
+.askPoster {
+  background: #b72b00;
+  border: none;
+  border-left: 10px solid #141210;
+  padding: 34px 36px 36px;
+}
+
+.askTitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  color: #f0e9dc;
+  margin: 0 0 18px 0;
+  letter-spacing: -1.8px;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.askPoster .featureText {
+  color: rgba(240, 233, 220, 0.94);
+}
+
+/* The tracker is a picture pasted on the poster, not a widget hovering over
+   it: a paper mat, a keyline, and its own small tilt. */
 .donationImageLink {
   display: block;
-  margin-top: 12px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.donationImageLink:hover {
-  transform: scale(1.01);
+  margin-top: 22px;
+  padding: 10px;
+  background: #f0e9dc;
+  border: none;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.45);
+  transform: rotate(-0.8deg);
 }
 
 .donationImage {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 10px;
+  border: none;
 }
 
 .donateButtonRow {
   display: flex;
-  gap: 12px;
-  margin-top: 16px;
-  flex-wrap: wrap;
+  margin-top: 22px;
 }
 
-.largeDonateButton {
-  font-size: 15px !important;
-  padding: 11px 24px !important;
-  background: #e65100 !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 16px rgba(230, 81, 0, 0.4) !important;
-  font-weight: 700 !important;
-}
-
-.largeDonateButton:hover {
-  box-shadow: 0 6px 24px rgba(230, 81, 0, 0.5) !important;
-  background: #ff6d00 !important;
-}
-
-.oneTimeButton {
-  font-size: 14px !important;
-  background: #ffffff !important;
-  color: #b72b00 !important;
-  border: 2px solid #b72b00 !important;
-  box-shadow: none !important;
-}
-
-.oneTimeButton:hover {
-  background: #fff5ed !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-}
-
-/* Install Drop Section */
-.installDropSection {
-  background: #fff8e1 !important;
-  border: 2px solid #f57f17 !important;
-}
-
-.reportButton {
+.donateButton {
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
-  white-space: nowrap;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #f57f17;
-  color: #ffffff;
-  margin-top: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(245, 127, 23, 0.3);
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f0e9dc;
+  background: #141210;
+  border: 3px solid #141210;
+  border-radius: 0;
+  padding: 15px 30px;
+  min-height: 48px;
+  transition: background 0.15s ease;
 }
 
-.reportButton:hover {
-  background: #ff9800;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 127, 23, 0.4);
+.donateButton:hover {
+  background: #2c241c;
 }
 
-.reportButton:active {
-  transform: translateY(-1px) scale(0.98);
-  box-shadow: 0 4px 12px rgba(245, 127, 23, 0.3);
+.donateButton:active {
+  background: #000000;
 }
 
-/* Community Spotlight - YouTube */
-.communitySection {
-  background: #ffffff !important;
-  border: none !important;
-}
-
-.videoThumbnailContainer {
-  margin-top: 12px;
-}
-
-.videoThumbnailLink {
-  display: block;
-  text-decoration: none;
-  max-width: 480px;
-  transition: transform 0.3s ease;
-}
-
-.videoThumbnailLink:hover {
-  transform: translateY(-2px);
-}
-
-.videoThumbnailWrapper {
+/* ── The bar at the bottom of the wall ── */
+.footer {
   position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 44px 0 6px;
+  padding: 30px 34px 32px;
+  background: #141210;
+  border: none;
+  border-left: 12px solid #b72b00;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
 }
 
-.videoThumbnail {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.playOverlay {
+.footer::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
+  top: -14px;
+  left: 42px;
+  width: 108px;
+  height: 25px;
+  transform: rotate(-4deg);
+  background: rgba(226, 217, 199, 0.62);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   pointer-events: none;
 }
 
-.videoThumbnailLink:hover .playOverlay {
-  background: rgba(255, 0, 0, 0.9);
+.footerKicker {
+  margin: 0 0 10px 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #ff6a3d;
 }
 
-.playIcon {
-  width: 28px;
-  height: 28px;
-  margin-left: 4px;
+.footerTitle {
+  margin: 0 0 22px 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+  color: #f0e9dc;
 }
 
-.videoCaption {
-  display: block;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #b72b00;
-  text-align: center;
+/* Five tiles, each a control a thumb can hit: the links were too small to
+   find when they were a row of grey glyphs in a bar. */
+.socialRow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
 }
 
-/* Share Section */
-.shareSection {
+.socialTile {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.shareLabel {
-  font-size: 13px;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.shareButtons {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.shareButton {
-  background: #ffffff;
-  border: none;
+  gap: 9px;
+  padding: 16px 6px 14px;
+  background: rgba(240, 233, 220, 0.07);
+  border: 2px solid rgba(240, 233, 220, 0.35);
+  border-radius: 0;
+  color: #f0e9dc;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 12px;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+.socialTile:hover {
+  background: #b72b00;
+  border-color: #b72b00;
+}
+
+.footerFoot {
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  min-width: 44px;
-  min-height: 44px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 22px;
 }
 
-.shareButton:hover {
-  background: #f5f5f5;
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.feedbackButton {
+  padding: 14px 24px;
+  background: #f0e9dc;
+  border: none;
+  border-radius: 0;
+  color: #141210;
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.14s ease;
 }
 
-.shareButton:active {
-  transform: translateY(-1px) scale(1.02);
+.feedbackButton:hover {
+  background: #ffffff;
 }
 
-/* Fade-in animation for sections */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+.footerSite {
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f0e9dc;
+  text-decoration: none;
+  border-bottom: 3px solid #b72b00;
+  padding-bottom: 3px;
+}
+
+.footerSite:hover {
+  color: #ff8a5c;
+  border-bottom-color: #ff8a5c;
+}
+
+/* ── The graffiti on the wall itself ──────────────────────────────────────
+   Placed in the HTML, never baked into the tile, so window size can never
+   crop it. It keeps company with the ask, low on the wall. */
+.graffiti {
+  position: fixed;
+  right: max(12px, calc((100vw - 900px) / 2 - 240px));
+  bottom: 0;
+  width: 210px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+@media (max-width: 1150px) {
+  .graffiti {
+    display: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
-.featureSection {
-  animation: fadeInUp 0.6s ease-out backwards;
-}
-
-.featureSection:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.featureSection:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.featureSection:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.featureSection:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.featureSection:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-/* Responsive design */
-@media (min-width: 768px) {
-  .contentWrapper {
-    padding: 24px 32px;
-  }
-
-  .header {
-    margin-bottom: 28px;
-  }
-
-  .pluginName {
-    font-size: 14px;
-    margin-bottom: 8px;
-  }
-
-  .title {
-    font-size: 42px;
-  }
-
-  .version {
-    font-size: 18px;
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .newsThumbWrap {
+    aspect-ratio: 1200 / 630;
   }
 
+  /* Tablet: the paste-up keeps its proportions, the type comes down a
+     step so headlines stop breaking into four lines. */
   .sectionTitle {
-    font-size: 19px;
+    font-size: 36px;
+    letter-spacing: -1px;
   }
 
-  .combinedTitle {
+  .spotlightTitle {
+    font-size: 36px;
+  }
+
+  .footerTitle {
     font-size: 32px;
   }
 
-  .versionText,
-  .featureText {
-    font-size: 17px;
+  .heroFigure {
+    font-size: 150px;
+    letter-spacing: -9px;
   }
 
-  .featureSection {
-    margin-bottom: 14px;
-  }
-
-  .footer {
-    padding-top: 20px;
-    gap: 18px;
+  .heroBefore {
+    font-size: 58px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 640px) {
   .contentWrapper {
-    padding: 14px 12px;
+    padding: 34px 14px 4px;
   }
 
-  .header {
-    margin-bottom: 20px;
+  /* Five tiles in one row makes the labels collide on a phone. */
+  .socialRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .pluginName {
-    font-size: 12px;
-    margin-bottom: 5px;
+  .socialTile {
+    padding: 14px 4px 12px;
   }
 
-  .title {
+  .socialTile span {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .footerTitle {
     font-size: 28px;
   }
 
-  .version {
-    font-size: 16px;
+  .paper {
+    padding: 22px 20px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
   }
 
-  .sectionTitle {
-    font-size: 17px;
-    margin-bottom: 8px;
+  .content {
+    gap: 34px;
   }
 
-  .versionText,
-  .featureText {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .versionContent {
-    padding: 10px;
-  }
-
-  .combinedTitle {
-    font-size: 22px;
-  }
-
-  .versionSection,
-  .featureSection {
-    margin-bottom: 10px;
-    padding: 14px;
-  }
-
-  .footer {
-    margin-top: 16px;
-    padding-top: 14px;
-    gap: 12px;
-  }
-
-  .footerActions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .donateButton,
-  .contactButton {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 0;
-    justify-content: center;
-    font-size: 14px;
-    padding: 10px 18px;
-  }
-
-  .link {
-    font-size: 14px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .shareSection {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .shareLabel {
-    font-size: 12px;
-  }
-
-  .shareButtons {
-    gap: 12px;
-  }
-
-  .shareButton {
-    padding: 10px;
-  }
-
-  .donateButtonRow {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .donateButtonRow .donateButton {
-    width: 100%;
-    margin-right: 0;
-    justify-content: center;
-  }
-
-  .videoThumbnailLink {
-    max-width: 100%;
-  }
-
-  .playOverlay {
-    width: 48px;
-    height: 48px;
-  }
-
-  .playIcon {
-    width: 22px;
-    height: 22px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contentWrapper {
-    padding: 12px 10px;
-  }
-
-  .title {
-    font-size: 24px;
-  }
-
-  .sectionTitle {
-    font-size: 16px;
-  }
-
-  .combinedTitle {
-    font-size: 20px;
-  }
-
-  .versionText,
-  .featureText {
-    font-size: 14px;
-  }
-
-  .versionSection,
-  .featureSection {
-    padding: 12px;
-  }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────
-   Hero count — the single most important number in this release.
-
-   20,000 → 30,000 is the headline, so it gets a dedicated block instead of a
-   line inside a card: large numerals, high contrast, and the "before" value
-   deliberately de-emphasised so growth reads at a glance.
-   ───────────────────────────────────────────────────────────────────────── */
-/* ─────────────────────────────────────────────────────────────────────────
-   Masthead + hero, gazette register.
-
-   The page is an issue of a gazette, not a software receipt: the figure is set
-   at poster scale in ink black on off-white with a red rule under it, like a
-   newspaper front page. No strikethrough and no arrow — replacement framing
-   cheapens both numbers, so growth lives in one plain sub-line.
-   ───────────────────────────────────────────────────────────────────────── */
-.heroSection {
-  background: #faf8f5 !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-  padding: 28px 24px 22px !important;
-  box-shadow: none !important;
-  border-bottom: 4px solid #b72b00 !important;
-}
-
-.heroEyebrow {
-  margin: 0 0 6px 0;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #6b6b6b;
-}
-
-/* ~120px poster numeral, ink black, tight tracking */
-.heroPoster {
-  margin: 0;
-  text-align: center;
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 120px;
-  line-height: 0.92;
-  font-weight: 800;
-  letter-spacing: -6px;
-  color: #1a1a1a;
-  font-variant-numeric: tabular-nums;
-}
-
-.heroSub {
-  margin: 12px auto 0 auto;
-  max-width: 560px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.55;
-  color: #4a4a4a;
-}
-
-@media (max-width: 560px) {
   .heroPoster {
-    font-size: 76px;
-    letter-spacing: -4px;
+    padding: 54px 18px 28px;
+  }
+
+  .heroEyebrow {
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+  }
+
+  .heroFigure {
+    font-size: 96px;
+    letter-spacing: -5px;
+  }
+
+  .heroBefore {
+    font-size: 40px;
+    letter-spacing: -1.8px;
+    text-decoration-thickness: 5px;
+    margin-top: 16px;
   }
 
   .heroSub {
+    font-size: 17px;
+  }
+
+  .mastheadTitle {
+    font-size: 22px;
+    letter-spacing: -0.6px;
+  }
+
+  .mastheadSub {
+    font-size: 10px;
+    letter-spacing: 1.1px;
+  }
+
+  .theWallLogo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .reportGrid,
+  .spotlightGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .spotlightImage {
+    width: 55%;
+  }
+
+  .sideNoteText {
+    font-size: 30px;
+    letter-spacing: -0.8px;
+  }
+
+  .groupBand {
+    margin-left: -14px;
+    padding: 12px 18px 12px 14px;
+    border-left-width: 10px;
+  }
+
+  .groupBandText {
     font-size: 14px;
+    letter-spacing: 0.24em;
+  }
+
+  .sectionTitle {
+    font-size: 29px;
+    letter-spacing: -0.8px;
+    border-bottom-width: 5px;
+  }
+
+  .newsTitle,
+  .spotlightTitle {
+    font-size: 30px;
+    letter-spacing: -0.9px;
+  }
+
+  .askTitle {
+    font-size: 34px;
+    letter-spacing: -1.1px;
+  }
+
+  .newsName {
+    font-size: 27px;
+    letter-spacing: -0.7px;
+  }
+
+  .newsWhat {
+    font-size: 15px;
+  }
+
+  .newsBody {
+    padding: 16px 18px 18px;
+  }
+
+  .newsStamp {
+    top: 10px;
+    right: 10px;
+    padding: 6px 9px 5px;
+  }
+
+  .newsStampDay {
+    font-size: 23px;
+  }
+
+  .sideNoteText {
+    font-size: 21px;
+  }
+
+  .spotlightImage {
+    width: 118px;
+    margin: 2px 0 12px 14px;
+  }
+
+  .featureText {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  /* Half size works on a desk, not on a phone. */
+  .reportMap {
+    float: none;
+    width: 100%;
+    margin: 8px 0 10px;
+  }
+
+  .tiltLeft,
+  .tiltRight,
+  .tiltLeftSoft,
+  .tiltRightSoft,
+  .groupBand {
+    transform: none;
+  }
+
+  .footer {
+    gap: 8px;
+    margin: 34px -14px 0;
   }
 }

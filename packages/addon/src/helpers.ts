@@ -83,6 +83,11 @@ export type TR_NAME =
   | "whatsnew_report"
   | "whatsnew_youtube_telpshow"
   | "whatsnew_visit_website"
+  | "whatsnew_news_techrebellion"
+  | "whatsnew_news_rooted"
+  | "whatsnew_news_amazon"
+  | "whatsnew_camouflage_ig"
+  | "whatsnew_wikipedia_report"
 
 // Helper to safely check for test mode
 function isTestModeEnabled(): boolean {

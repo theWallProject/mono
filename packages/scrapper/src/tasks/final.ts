@@ -12,6 +12,20 @@ const mergedDataPath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL
 
 const outputFilePath = path.join(__dirname, `../../results/4_final/${DBFileNames.ALL}.json`)
 
+/**
+ * Every package that ships a copy of ALL.json, relative to this file.
+ *
+ * This is a list rather than three inline blocks because iOS was missing from it and silently
+ * shipped a 26,821-entry database while every other client was on 30,236. Adding a consumer
+ * means adding one line here; nothing else in this function changes.
+ */
+const DB_COPY_TARGETS = [
+  "../../../addon/src/db/ALL.json",
+  "../../../android/app/src/main/assets/ALL.json",
+  "../../../telegram-bot/db/ALL.json",
+  "../../../ios/TheWall/TheWall/Data/ALL.json"
+] as const
+
 const loadJsonFiles = async (folderPath: string) => {
   // Loaded here, not at module scope: these files are rewritten at runtime by the CLI, and a
   // module-scope import would bind the pre-write contents (see manual_resolve/loaders.ts).
@@ -113,32 +127,15 @@ const saveJsonToFile = async (data: string | object, outputFilePath: string) => 
     // Copy ALL.json to all destinations right after it's generated
     const allJsonPath = outputFilePath
 
-    // Copy to addon
-    const addonTarget = path.join(__dirname, `../../../addon/src/db/ALL.json`)
-    const addonDir = path.dirname(addonTarget)
-    if (!fs.existsSync(addonDir)) {
-      fs.mkdirSync(addonDir, { recursive: true })
+    for (const target of DB_COPY_TARGETS) {
+      const targetPath = path.join(__dirname, target)
+      const targetDir = path.dirname(targetPath)
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true })
+      }
+      fs.copyFileSync(allJsonPath, targetPath)
+      log(`Copied ALL.json to ${target}: ${targetPath}`)
     }
-    fs.copyFileSync(allJsonPath, addonTarget)
-    log(`Copied ALL.json to addon: ${addonTarget}`)
-
-    // Copy to Android assets
-    const androidTarget = path.join(__dirname, `../../../android/app/src/main/assets/ALL.json`)
-    const androidDir = path.dirname(androidTarget)
-    if (!fs.existsSync(androidDir)) {
-      fs.mkdirSync(androidDir, { recursive: true })
-    }
-    fs.copyFileSync(allJsonPath, androidTarget)
-    log(`Copied ALL.json to Android assets: ${androidTarget}`)
-
-    // Copy to telegram-bot
-    const telegramTarget = path.join(__dirname, `../../../telegram-bot/db/ALL.json`)
-    const telegramDir = path.dirname(telegramTarget)
-    if (!fs.existsSync(telegramDir)) {
-      fs.mkdirSync(telegramDir, { recursive: true })
-    }
-    fs.copyFileSync(allJsonPath, telegramTarget)
-    log(`Copied ALL.json to telegram-bot: ${telegramTarget}`)
   } catch (err) {
     console.error(`Failed to write or copy ${outputFilePath}:`, err)
     if (err instanceof Error) {

@@ -1,9 +1,7 @@
 declare const styles: {
+  readonly askPoster: string
+  readonly askTitle: string
   readonly bgLayer: string
-  readonly bgOverlay: string
-  readonly combinedTitle: string
-  readonly communitySection: string
-  readonly contactButton: string
   readonly container: string
   readonly content: string
   readonly contentWrapper: string
@@ -11,42 +9,73 @@ declare const styles: {
   readonly donateButtonRow: string
   readonly donationImage: string
   readonly donationImageLink: string
-  readonly fadeInUp: string
-  readonly featureSection: string
+  readonly eventTag: string
   readonly featureText: string
+  readonly feedbackButton: string
   readonly footer: string
-  readonly footerActions: string
-  readonly gradientShift: string
-  readonly header: string
+  readonly footerFoot: string
+  readonly footerKicker: string
+  readonly footerSite: string
+  readonly footerTitle: string
+  readonly graffiti: string
+  readonly groupBand: string
+  readonly groupBandText: string
+  readonly heroBefore: string
   readonly heroEyebrow: string
+  readonly heroFigure: string
   readonly heroPoster: string
-  readonly heroSection: string
   readonly heroSub: string
-  readonly installDropSection: string
-  readonly largeDonateButton: string
-  readonly link: string
-  readonly oneTimeButton: string
-  readonly playIcon: string
-  readonly playOverlay: string
-  readonly pluginName: string
-  readonly reportButton: string
+  readonly inlineLink: string
+  readonly masthead: string
+  readonly mastheadSub: string
+  readonly mastheadText: string
+  readonly mastheadTitle: string
+  readonly newsBoard: string
+  readonly newsBody: string
+  readonly newsCta: string
+  readonly newsGrid: string
+  readonly newsHead: string
+  readonly newsKicker: string
+  readonly newsMeta: string
+  readonly newsName: string
+  readonly newsRow: string
+  readonly newsStamp: string
+  readonly newsStampDay: string
+  readonly newsStampMonth: string
+  readonly newsThumb: string
+  readonly newsThumbWrap: string
+  readonly newsTitle: string
+  readonly newsWhat: string
+  readonly newsWhere: string
+  readonly notice: string
+  readonly paper: string
+  readonly reportBody: string
+  readonly reportCaption: string
+  readonly reportGrid: string
+  readonly reportLink: string
+  readonly reportMap: string
+  readonly reportMedia: string
+  readonly reportTag: string
   readonly sectionTitle: string
-  readonly shareButton: string
-  readonly shareButtons: string
-  readonly shareLabel: string
-  readonly shareSection: string
-  readonly shimmer: string
+  readonly sideNote: string
+  readonly sideNoteKicker: string
+  readonly sideNoteLink: string
+  readonly sideNoteText: string
+  readonly socialRow: string
+  readonly socialTile: string
+  readonly spotlight: string
+  readonly spotlightBody: string
+  readonly spotlightGrid: string
+  readonly spotlightImage: string
+  readonly spotlightKicker: string
+  readonly spotlightLink: string
+  readonly spotlightTitle: string
   readonly theWallLogo: string
-  readonly title: string
-  readonly urgentSection: string
-  readonly version: string
-  readonly versionContent: string
-  readonly versionSection: string
-  readonly versionText: string
-  readonly videoCaption: string
-  readonly videoThumbnail: string
-  readonly videoThumbnailContainer: string
-  readonly videoThumbnailLink: string
-  readonly videoThumbnailWrapper: string
+  readonly tierAmber: string
+  readonly tierRed: string
+  readonly tiltLeft: string
+  readonly tiltLeftSoft: string
+  readonly tiltRight: string
+  readonly tiltRightSoft: string
 }
 export = styles

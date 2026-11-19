@@ -2623,6 +2623,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Stripe",
+    reasons: ["c"],
+    ws: ["https://stripe.com"],
+    urls: [
+      "https://stripe.com/legal/service-providers",
+      "https://www.theguardian.com/technology/2025/jan/01/muslim-friendly-websites-apps"
+    ],
+    proof_text:
+      "Cut off a Muslim crowdfunding platform after five years at its banking partner's instruction, and would not support humanitarian work in sanctioned jurisdictions.",
+    proof_link: "https://www.theguardian.com/technology/2025/jan/01/muslim-friendly-websites-apps",
+    alt: [{ n: "PayGood", ws: "https://paygood.com" }],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Sumble",
     reasons: ["c"],
     ws: ["https://sumble.com"],
