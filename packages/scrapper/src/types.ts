@@ -134,6 +134,15 @@ const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
 
 export const MergedDataFileSchema = z.array(MergedDataItemSchema)
 
+/**
+ * Stock tickers keyed by entry id, from `static_data/external/stockSymbols.json`.
+ *
+ * Crunchbase's export no longer carries a symbol column, so these values are curated once and
+ * merged into every rebuild. Keyed by id rather than company name because a company can own
+ * several rows (one per site, per regional page, per app listing).
+ */
+export const StockSymbolsSchema = z.record(z.string().min(1), z.string().min(1))
+
 export const CompressedManualItemSchema = z
   .object({
     reasons: z.array(APIListOfReasonsSchema).optional(),
@@ -225,6 +234,15 @@ export const ManualEntrySchema = z
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
     android_app_ids: z.array(z.string()).optional(),
+    /**
+     * Stock ticker as recorded by the source (Crunchbase or the AFSC dataset).
+     *
+     * Carried on every entry, not just AFSC ones: the addon renders it beside the company
+     * name and Android's search matches on it. It was missing from this schema, so static
+     * sources had nowhere to put a ticker and the values were silently dropped on merge —
+     * the AFSC dataset alone has a symbol for all 255 of its rows.
+     */
+    stock_symbol: z.string().optional(),
     /** Custom evidence text - required when reason 'c' (Custom) is used */
     proof_text: z.string().optional(),
     /** URL to source/evidence - required when reason 'c' (Custom) is used */

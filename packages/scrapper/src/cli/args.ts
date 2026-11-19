@@ -18,7 +18,12 @@ export const DATA_ACTIONS = [
   "quick-verify",
   "homepage-ai",
   "apply-overrides",
-  "full-pipeline"
+  "full-pipeline",
+  "industry-taxonomy",
+  "alternatives-index",
+  "alternatives-propose",
+  "alternatives-apply",
+  "alternatives-remove"
 ] as const
 
 export type DataAction = (typeof DATA_ACTIONS)[number]
@@ -64,6 +69,7 @@ const OPTIONS = {
   proofLink: stringOption,
   // behaviour
   apply: booleanOption,
+  write: booleanOption,
   strict: booleanOption,
   dryRun: booleanOption,
   autoOnly: booleanOption,
@@ -71,6 +77,12 @@ const OPTIONS = {
   mode: stringOption,
   size: stringOption,
   baseUrl: stringOption,
+  // alternatives
+  industries: multiStringOption,
+  limit: stringOption,
+  minScore: stringOption,
+  names: multiStringOption,
+  proposal: stringOption,
   // full pipeline
   scrap: booleanOption,
   validate: booleanOption
@@ -112,12 +124,18 @@ const CliOptionsSchema = z
     proofText: z.string().trim().min(1).optional(),
     proofLink: z.string().trim().url().optional(),
     apply: z.boolean().optional(),
+    write: z.boolean().optional(),
     strict: z.boolean().optional(),
     dryRun: z.boolean().optional(),
     autoOnly: z.boolean().optional(),
     mode: z.enum(HOMEPAGE_MODES).optional(),
     size: z.coerce.number().int().min(1).max(10000).optional(),
     baseUrl: z.string().trim().url().optional(),
+    industries: z.array(z.string().trim().min(1)).optional(),
+    limit: z.coerce.number().int().min(1).max(10000).optional(),
+    minScore: z.coerce.number().min(-1).max(1).optional(),
+    names: z.array(z.string().trim().min(1)).optional(),
+    proposal: z.string().trim().min(1).optional(),
     scrap: z.boolean().optional(),
     validate: z.boolean().optional()
   })
@@ -164,6 +182,8 @@ export const parseDataCli = (argv: string[]): CliOptions => {
   }
   raw.urls = splitUrlList(values.urls)
   raw.androidAppIds = splitUrlList(values.androidAppIds)
+  raw.industries = splitUrlList(values.industries)
+  raw.names = splitUrlList(values.names)
 
   return CliOptionsSchema.parse(raw)
 }
@@ -182,6 +202,11 @@ Actions:
   homepage-ai      Run the homepage AI extractor
   apply-overrides  Regenerate merged/final ALL.json + copies
   full-pipeline    Run the whole data pipeline
+  industry-taxonomy Rebuild the industry list from the merged corpus
+  alternatives-index Rebuild the similarity index (run after the corpus changes)
+  alternatives-propose Rank candidate competitors into a reviewable proposal
+  alternatives-apply Write an approved subset of a proposal (never auto-selects)
+  alternatives-remove Detach an alternative from named companies
 
 Common flags:
   --action <action>         See above
@@ -195,6 +220,11 @@ Common flags:
   --androidAppIds a,b       Android app package ids
   --proofText / --proofLink Required for reason "c"
   --apply                   Run apply-overrides afterwards
+  --industries "A,B"        Required for alternatives-propose: exact taxonomy names
+  --limit <n>               alternatives-propose: candidates to propose (default 40)
+  --minScore <0..1>         alternatives-propose: similarity floor (default 0.35)
+  --proposal <path>         alternatives-apply: proposal file to apply
+  --names "A,B"             alternatives-apply/remove: companies to act on
   --strict                  Fail on non-green (name-not-in-URL) links
   --dryRun                  Validate + print, write nothing
   --json                    Print the result as JSON
@@ -228,7 +258,11 @@ export const handleHelp = (options: CliOptions): boolean => {
 }
 
 /** Requires a flag for a headless run; throws with usage guidance otherwise. */
-export const requireString = (options: CliOptions, key: "name" | "company" | "id", hint: string): string => {
+export const requireString = (
+  options: CliOptions,
+  key: "name" | "company" | "id" | "proposal",
+  hint: string
+): string => {
   const value = options[key]
   if (value === undefined) {
     throw new Error(`Missing required flag --${key}. ${hint}`)
@@ -237,7 +271,11 @@ export const requireString = (options: CliOptions, key: "name" | "company" | "id
 }
 
 /** Requires a repeatable flag for a headless run. */
-export const requireArray = (options: CliOptions, key: "reasons" | "ws", hint: string): string[] => {
+export const requireArray = (
+  options: CliOptions,
+  key: "reasons" | "ws" | "names" | "industries",
+  hint: string
+): string[] => {
   const value = options[key]
   if (value === undefined || value.length === 0) {
     throw new Error(`Missing required flag --${key}. ${hint}`)

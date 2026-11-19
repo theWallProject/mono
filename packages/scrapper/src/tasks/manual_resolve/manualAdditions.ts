@@ -13,62 +13,6 @@ export type ManualAdditionItem = {
 
 export const manualAdditions: ManualAdditionItem[] = [
   {
-    name: "Wendy's",
-    reasons: ["c"],
-    li: ["https://www.linkedin.com/company/wendys"],
-    tw: ["https://x.com/wendys"],
-    ig: ["https://www.instagram.com/wendys"],
-    ytp: ["https://www.youtube.com/@wendys"],
-    tt: ["https://www.tiktok.com/@wendys"],
-    android_app_ids: ["com.wendys.nutritiontool"],
-    proof_text:
-      "A December 2023 class action alleges incarcerated people in Alabama are 'leased' out to day jobs at its restaurants under a convict-leasing system paying below the legal minimum wage, and its policies prohibit forced labour but do not ban all forms of prison labour.",
-    proof_link: "https://investigate.info/company/wendys",
-    _meta: { isVerified: true, isBrowserVerified: true }
-  },
-  {
-    name: "Walmart",
-    reasons: ["c"],
-    li: ["https://www.linkedin.com/company/walmart"],
-    tw: ["https://x.com/walmart"],
-    ig: ["https://www.instagram.com/walmart"],
-    ytp: ["https://www.youtube.com/@walmart"],
-    tt: ["https://www.tiktok.com/@walmart"],
-    android_app_ids: ["com.walmart.android", "com.walmart.sparkdriver"],
-    proof_text:
-      "It buys from suppliers using prison labour, including beef from cattle raised by incarcerated people at Angola, and its 2023 code of conduct bars forced labour but dropped the explicit ban on prison labour its 2014 policy carried.",
-    proof_link: "https://investigate.info/company/walmart",
-    _meta: { isVerified: true, isBrowserVerified: true }
-  },
-  {
-    name: "PayPal Holdings",
-    reasons: ["c"],
-    li: ["https://www.linkedin.com/company/paypal"],
-    tw: ["https://x.com/paypal"],
-    ig: ["https://www.instagram.com/paypal"],
-    ytp: ["https://www.youtube.com/@paypal"],
-    tt: ["https://www.tiktok.com/@paypal"],
-    android_app_ids: ["com.paypal.android.p2pmobile", "com.venmo", "com.xoom.android.app"],
-    proof_text:
-      "Operates in Israel and serves Israeli settlers in the occupied West Bank while refusing to provide services to Palestinians there, a policy 7amleh's 2024 report found violates PayPal's own code of conduct and Palestinian rights to work and development.",
-    proof_link: "https://investigate.info/company/paypal",
-    _meta: { isVerified: true, isBrowserVerified: true }
-  },
-  {
-    name: "PenLink",
-    reasons: ["i", "c"],
-    ws: ["https://www.penlink.com"],
-    li: ["https://www.linkedin.com/company/penlink"],
-    tw: ["https://x.com/penlink"],
-    ig: ["https://www.instagram.com/penlink"],
-    ytp: ["https://www.youtube.com/@penlink1"],
-    proof_text:
-      "Its Webloc product is an ad-based geolocation surveillance system: it ingests device identifiers and location coordinates harvested from consumer apps and digital advertising, giving police and intelligence customers a constantly updated feed on up to 500 million phones, refreshed every 4 to 24 hours, plus three years of history. Citizen Lab documented use by ICE, the US military, Texas DPS, Hungarian domestic intelligence and El Salvador's national police, and could not determine the current data supply chain; PenLink says its providers collect consent through SDKs and filter sensitive locations. The technology came from the Israeli contractor Cobwebs, which Spire Capital bought for $200m and merged into PenLink in 2023, moving Cobwebs' three founders into its technology, product, marketing, strategy and international sales leadership.",
-    proof_link:
-      "https://citizenlab.ca/research/analysis-of-penlinks-ad-based-geolocation-surveillance-tech/",
-    _meta: { isVerified: true, isBrowserVerified: true }
-  },
-  {
     name: "Adlis Smart",
     reasons: ["h"],
     ws: ["https://adlissmart.com", "https://adlis.co.il"],
@@ -2142,6 +2086,33 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "PayPal Holdings",
+    reasons: ["c"],
+    li: ["https://www.linkedin.com/company/paypal"],
+    tw: ["https://x.com/paypal"],
+    ig: ["https://www.instagram.com/paypal"],
+    ytp: ["https://www.youtube.com/@paypal"],
+    tt: ["https://www.tiktok.com/@paypal"],
+    android_app_ids: ["com.paypal.android.p2pmobile", "com.venmo", "com.xoom.android.app"],
+    proof_text:
+      "Operates in Israel and serves Israeli settlers in the occupied West Bank while refusing to provide services to Palestinians there, a policy 7amleh's 2024 report found violates PayPal's own code of conduct and Palestinian rights to work and development.",
+    proof_link: "https://investigate.info/company/paypal",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
+    name: "PenLink",
+    reasons: ["i", "c"],
+    ws: ["https://www.penlink.com"],
+    li: ["https://www.linkedin.com/company/penlink"],
+    tw: ["https://x.com/penlink"],
+    ig: ["https://www.instagram.com/penlink"],
+    ytp: ["https://www.youtube.com/@penlink1"],
+    proof_text:
+      "Its Webloc product is an ad-based geolocation surveillance system: it ingests device identifiers and location coordinates harvested from consumer apps and digital advertising, giving police and intelligence customers a constantly updated feed on up to 500 million phones, refreshed every 4 to 24 hours, plus three years of history. Citizen Lab documented use by ICE, the US military, Texas DPS, Hungarian domestic intelligence and El Salvador's national police, and could not determine the current data supply chain; PenLink says its providers collect consent through SDKs and filter sensitive locations. The technology came from the Israeli contractor Cobwebs, which Spire Capital bought for $200m and merged into PenLink in 2023, moving Cobwebs' three founders into its technology, product, marketing, strategy and international sales leadership.",
+    proof_link: "https://citizenlab.ca/research/analysis-of-penlinks-ad-based-geolocation-surveillance-tech/",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Pitango",
     reasons: ["h"],
     ws: ["https://www.pitango.com"],
@@ -2652,6 +2623,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Stripe",
+    reasons: ["c"],
+    ws: ["https://stripe.com"],
+    urls: [
+      "https://stripe.com/legal/service-providers",
+      "https://www.theguardian.com/technology/2025/jan/01/muslim-friendly-websites-apps"
+    ],
+    proof_text:
+      "Cut off a Muslim crowdfunding platform after five years at its banking partner's instruction, and would not support humanitarian work in sanctioned jurisdictions.",
+    proof_link: "https://www.theguardian.com/technology/2025/jan/01/muslim-friendly-websites-apps",
+    alt: [{ n: "PayGood", ws: "https://paygood.com" }],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Sumble",
     reasons: ["c"],
     ws: ["https://sumble.com"],
@@ -2805,11 +2790,39 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Walmart",
+    reasons: ["c"],
+    li: ["https://www.linkedin.com/company/walmart"],
+    tw: ["https://x.com/walmart"],
+    ig: ["https://www.instagram.com/walmart"],
+    ytp: ["https://www.youtube.com/@walmart"],
+    tt: ["https://www.tiktok.com/@walmart"],
+    android_app_ids: ["com.walmart.android", "com.walmart.sparkdriver"],
+    proof_text:
+      "It buys from suppliers using prison labour, including beef from cattle raised by incarcerated people at Angola, and its 2023 code of conduct bars forced labour but dropped the explicit ban on prison labour its 2014 policy carried.",
+    proof_link: "https://investigate.info/company/walmart",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Webselenese",
     reasons: ["h"],
     li: ["https://www.linkedin.com/company/webselenese"],
     gh: ["https://github.com/Webselenese-AI"],
     urls: ["https://www.webselenese.com"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
+    name: "Wendy's",
+    reasons: ["c"],
+    li: ["https://www.linkedin.com/company/wendys"],
+    tw: ["https://x.com/wendys"],
+    ig: ["https://www.instagram.com/wendys"],
+    ytp: ["https://www.youtube.com/@wendys"],
+    tt: ["https://www.tiktok.com/@wendys"],
+    android_app_ids: ["com.wendys.nutritiontool"],
+    proof_text:
+      "A December 2023 class action alleges incarcerated people in Alabama are 'leased' out to day jobs at its restaurants under a convict-leasing system paying below the legal minimum wage, and its policies prohibit forced labour but do not ban all forms of prison labour.",
+    proof_link: "https://investigate.info/company/wendys",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   { name: "Wixsite (hosting)", reasons: ["h"], ws: ["wixsite.com"], li: [""], fb: [""], tw: [""] },
@@ -2847,6 +2860,21 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.npmjs.com/~zenmate"
     ],
     alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
+    name: "Zoom Communications",
+    reasons: ["c"],
+    ws: ["https://zoom.us"],
+    li: ["https://www.linkedin.com/company/zoom"],
+    fb: ["https://www.facebook.com/zoom"],
+    tw: ["https://x.com/Zoom"],
+    ig: ["https://www.instagram.com/zoom"],
+    ytp: ["https://www.youtube.com/zoommeetings"],
+    proof_text:
+      "Bought $75 million of shares in Israeli software company monday.com in its June 2021 IPO private placement, alongside Salesforce. monday.com is Israeli-headquartered and already in this database. Also gifted a university-wide deployment of its video platform to the Technion-Israel Institute of Technology in October 2018.",
+    proof_link:
+      "https://www.cnbc.com/2021/06/10/zoom-and-salesforce-make-23-million-after-ipo-of-israels-mondaycom.html",
     _meta: { isVerified: true, isBrowserVerified: true }
   }
 ]

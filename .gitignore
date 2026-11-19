@@ -24,6 +24,11 @@ packages/android/*.log
 packages/scrapper/logs/
 !packages/scrapper/logs/homepage_ai_extractor/retry_list.json
 
+# Downloaded embedding model cache (regenerated on demand by --action alternatives-index).
+# The sidecar itself (embeddings.int8.bin + meta.json) IS committed: queries must not
+# require re-embedding 23k companies.
+packages/scrapper/results/index/models/
+
 # Local env files
 .env*.local
 .env
@@ -62,3 +67,6 @@ captures/
 packages/android/keystore.properties
 
 packages/android/.kotlin
+
+# Alternatives proposals are per-run working files, not source data.
+packages/scrapper/results/alternatives/

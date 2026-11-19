@@ -7,6 +7,7 @@ import backgroundImage from "../../assets/images/bg-pattern.png"
 import shieldIcon from "../../assets/images/shield-icon.svg"
 import warningIcon from "../../assets/images/warning-icon.svg"
 import { error, log } from "../helpers"
+import { resolveBannerActions } from "../helpers/bannerActions"
 import { getI18nMessage } from "../helpers/i18n-keys"
 import { getReasonI18nKey } from "../helpers/reasonMap"
 import { getModalReasonLevel } from "../helpers/reasonLevels"
@@ -30,7 +31,10 @@ import style from "./style.module.css"
 const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000
 
 export const Banner = () => {
-  const [areAlternativesShown, setAreAlternativesShown] = useState(false)
+  const [isAlternativesHovered, setIsAlternativesHovered] = useState(false)
+  const [isAlternativesPinned, setIsAlternativesPinned] = useState(false)
+  const areAlternativesShown = isAlternativesHovered || isAlternativesPinned
+  const alternativesWrapperRef = useRef<HTMLDivElement | null>(null)
 
   const [testResult, setTestResult] = useState<MessageResponseMap[MessageTypes.TestUrl]>()
   const toastIdRef = useRef<string | null>(null)
@@ -437,6 +441,22 @@ export const Banner = () => {
     }
   }, [testResult, showHintToast])
 
+  // Close the popup on Escape so it is dismissible without a mouse. Pinning is what keeps it
+  // open after a click or tap, so Escape clears the pin (hover state is the mouse's own concern).
+  useEffect(() => {
+    if (!areAlternativesShown) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsAlternativesPinned(false)
+        alternativesWrapperRef.current?.querySelector("button")?.focus()
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [areAlternativesShown])
+
   return (
     <>
       <Toaster
@@ -453,7 +473,13 @@ export const Banner = () => {
       />
       {testResult && !testResult.isDismissed && !testResult.isHint ? (
         <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
-          <img src="https://the-wall.win/bg.gif?rec=1&action_name=wall" alt="" />
+          <img
+            src="https://the-wall.win/bg.gif?rec=1&action_name=wall"
+            alt=""
+            referrerPolicy="no-referrer"
+            width={1}
+            height={1}
+          />
           {/* Background pattern layer */}
           <div
             className={style.bgLayer}
@@ -529,49 +555,100 @@ export const Banner = () => {
                 </div>
 
                 <div className={style.buttonsWrapper}>
-                  {testResult.reasons.some((r) => r === "BDS_PRIO" || r === "BDS_GRASS" || r === "BDS_PRESSURE") ? (
-                    <Button
-                      title={getI18nMessage("modalShowBDSGuide")}
-                      onClick={() => {
-                        track("Button", "Click", "show_bds_guide")
-                        setTimeout(() => {
-                          window.location.href = "https://bdsmovement.net/Guide-to-BDS-Boycott"
-                        }, 500)
-                      }}
-                    />
-                  ) : testResult.alt ? (
-                    <div
-                      className={style.altButtonWrapper}
-                      onMouseEnter={() => {
-                        track("Button", "Click", "show_alternatives")
-                        setAreAlternativesShown(true)
-                      }}
-                      onMouseLeave={() => setAreAlternativesShown(false)}>
-                      <Button title={getI18nMessage("modalShowAlternatives")} onClick={() => {}} />
-                      <div className={`${style.altPopupMenu} ${areAlternativesShown ? style.visible : ""}`}>
-                        <ul className={style.altPopupList}>
-                          {testResult.alt.map((alt) => (
-                            <li key={alt.ws} className={style.altPopupItem}>
-                              <a href={alt.ws} className={style.altLink}>
-                                {alt.n}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  ) : (
-                    <Button
-                      title={getI18nMessage("modalSupportPalestine")}
-                      onClick={() => {
-                        track("Button", "Click", "support_pal")
+                  {(() => {
+                    // Actions are independent capabilities (alternatives, BDS guide, support link),
+                    // so they are resolved into a ranked list rather than picked by a ternary.
+                    // The first is the primary button; the rest render as quieter links below it.
+                    const actions = resolveBannerActions({
+                      reasons: testResult.reasons,
+                      hasAlternatives: Boolean(testResult.alt?.length)
+                    })
+                    const [primaryAction, ...secondaryActions] = actions
 
-                        setTimeout(() => {
-                          window.location.href = "https://techforpalestine.org"
-                        }, 500)
-                      }}
-                    />
-                  )}
+                    if (primaryAction === undefined) {
+                      throw new Error("resolveBannerActions must return at least one action")
+                    }
+
+                    return (
+                      <>
+                        {primaryAction === "alternatives" && testResult.alt ? (
+                          <div
+                            ref={alternativesWrapperRef}
+                            className={style.altButtonWrapper}
+                            onMouseEnter={() => setIsAlternativesHovered(true)}
+                            onMouseLeave={() => setIsAlternativesHovered(false)}
+                            onBlur={(event) => {
+                              // Close only when focus leaves the whole wrapper (e.g. tabbing past the
+                              // last link), not when moving between the button and its popup.
+                              const nextFocused = event.relatedTarget
+                              if (!(nextFocused instanceof Node) || !event.currentTarget.contains(nextFocused)) {
+                                setIsAlternativesPinned(false)
+                              }
+                            }}>
+                            <Button
+                              title={getI18nMessage("modalShowAlternatives")}
+                              onClick={() => {
+                                track("Button", "Click", "show_alternatives")
+                                // Pin/toggle rather than relying on hover: clicking is how touch and
+                                // keyboard users reach this popup at all.
+                                setIsAlternativesPinned((pinned) => !pinned)
+                              }}
+                              ariaHasPopup="true"
+                              ariaExpanded={areAlternativesShown}
+                            />
+                            <div className={`${style.altPopupMenu} ${areAlternativesShown ? style.visible : ""}`}>
+                              <ul className={style.altPopupList}>
+                                {testResult.alt.map((alt) => (
+                                  <li key={alt.ws} className={style.altPopupItem}>
+                                    <a href={alt.ws} className={style.altLink}>
+                                      {alt.n}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ) : primaryAction === "bdsGuide" ? (
+                          <Button
+                            title={getI18nMessage("modalShowBDSGuide")}
+                            onClick={() => {
+                              track("Button", "Click", "show_bds_guide")
+                              setTimeout(() => {
+                                window.location.href = "https://bdsmovement.net/Guide-to-BDS-Boycott"
+                              }, 500)
+                            }}
+                          />
+                        ) : (
+                          <Button
+                            title={getI18nMessage("modalSupportPalestine")}
+                            onClick={() => {
+                              track("Button", "Click", "support_pal")
+                              setTimeout(() => {
+                                window.location.href = "https://techforpalestine.org"
+                              }, 500)
+                            }}
+                          />
+                        )}
+
+                        {secondaryActions.map((action) =>
+                          action === "bdsGuide" ? (
+                            <button
+                              key={action}
+                              type="button"
+                              className={style.secondaryActionLink}
+                              onClick={() => {
+                                track("Button", "Click", "show_bds_guide")
+                                setTimeout(() => {
+                                  window.location.href = "https://bdsmovement.net/Guide-to-BDS-Boycott"
+                                }, 500)
+                              }}>
+                              {getI18nMessage("modalShowBDSGuide")}
+                            </button>
+                          ) : null
+                        )}
+                      </>
+                    )
+                  })()}
                 </div>
               </div>
             </div>

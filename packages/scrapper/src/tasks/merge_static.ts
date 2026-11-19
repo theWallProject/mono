@@ -18,7 +18,7 @@ import {
 } from "@theWallProject/common"
 
 import { cleanWebsite, error, log } from "../helper"
-import { CrunchbaseScrappedItemsSchema, ManualEntriesSchema, MergedDataItem } from "../types"
+import { CrunchbaseScrappedItemsSchema, ManualEntriesSchema, MergedDataItem, StockSymbolsSchema } from "../types"
 import { androidDeleteIds } from "./manual_resolve/androidDeleteIds"
 import { androidDiscoveries } from "./manual_resolve/androidDiscoveries"
 import { loadManualAdditions, loadManualOverrides } from "./manual_resolve/loaders"
@@ -146,6 +146,7 @@ const folderPath = path.join(__dirname, "../../results/1_batches/static")
 const mergedCBPath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.json")
 
 const outputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
+const stockSymbolsPath = path.join(__dirname, "../static_data/external/stockSymbols.json")
 
 const loadJsonFiles = async (folderPath: string) => {
   // Loaded here, not at module scope: these files are rewritten at runtime by the CLI, and a
@@ -394,7 +395,10 @@ const loadJsonFiles = async (folderPath: string) => {
         if (Array.isArray(overrideValue)) {
           // Deduplicate URLs by selector before processing
           // (e.g., linkedin.com/company/foo and linkedin.com/company/foo/?origin → keep only the first)
-          const dedupedUrls = deduplicateOverrideUrls(overrideValue.filter((u): u is string => typeof u === "string" && u !== ""), field)
+          const dedupedUrls = deduplicateOverrideUrls(
+            overrideValue.filter((u): u is string => typeof u === "string" && u !== ""),
+            field
+          )
 
           // Update original with first element
           if (dedupedUrls.length > 0) {
@@ -756,10 +760,37 @@ const loadJsonFiles = async (folderPath: string) => {
       }
     }
   }
-  log(`Applied ${androidApplied}/${androidDiscoveries.length} Android app discoveries (${androidPackagesDeleted} package(s) excluded via androidDeleteIds)`)
+  log(
+    `Applied ${androidApplied}/${androidDiscoveries.length} Android app discoveries (${androidPackagesDeleted} package(s) excluded via androidDeleteIds)`
+  )
 
   // Combine processed items with additional items
   const manuallyUpdatedArray = [...processedItems, ...additionalItems]
+
+  /**
+   * Apply the committed stock-symbol map.
+   *
+   * Crunchbase stopped returning a symbol column (`stock_symbol` is `""` on every scraped row),
+   * so a regenerate wiped every ticker in the database. The addon prints the ticker next to the
+   * company name and Android's search matches on it, so losing them silently broke both.
+   *
+   * The map lives in `static_data/external/stockSymbols.json`, keyed by entry id — not by name,
+   * because 200 of these companies own several rows. Existing values win, so AFSC's own symbols
+   * (carried through gen_afsc) are never overwritten, and a row that disappears from the database
+   * simply stops matching instead of resurrecting stale data.
+   */
+  const stockSymbols = StockSymbolsSchema.parse(JSON.parse(fs.readFileSync(stockSymbolsPath, "utf-8")))
+  let symbolsApplied = 0
+  for (const item of manuallyUpdatedArray) {
+    // Sources emit "" for a missing ticker rather than omitting the field, so a real value is
+    // anything with content — an explicit undefined check would never fire.
+    if (item.stock_symbol !== undefined && item.stock_symbol !== "") continue
+    const symbol = stockSymbols[item.id]
+    if (symbol === undefined) continue
+    item.stock_symbol = symbol
+    symbolsApplied++
+  }
+  log(`Applied ${symbolsApplied}/${Object.keys(stockSymbols).length} stock symbols`)
 
   const sortedArray = manuallyUpdatedArray.sort((a, b) => a.name.localeCompare(b.name))
 

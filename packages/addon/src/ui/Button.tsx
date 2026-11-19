@@ -7,9 +7,19 @@ const Button: FC<{
   onClick: () => void
   onMouseEnter?: MouseEventHandler<HTMLButtonElement>
   onMouseLeave?: MouseEventHandler<HTMLButtonElement>
-}> = ({ title, onClick, onMouseEnter, onMouseLeave }) => {
+  /** Set when the button opens a popup, so assistive tech announces it. */
+  ariaHasPopup?: "true" | "menu" | "listbox"
+  /** Current popup visibility, paired with `ariaHasPopup`. */
+  ariaExpanded?: boolean
+}> = ({ title, onClick, onMouseEnter, onMouseLeave, ariaHasPopup, ariaExpanded }) => {
   return (
-    <button onClick={onClick} className={style.button} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <button
+      onClick={onClick}
+      className={style.button}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      {...(ariaHasPopup !== undefined ? { "aria-haspopup": ariaHasPopup } : {})}
+      {...(ariaExpanded !== undefined ? { "aria-expanded": ariaExpanded } : {})}>
       {title}
     </button>
   )

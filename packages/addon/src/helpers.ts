@@ -83,6 +83,11 @@ export type TR_NAME =
   | "whatsnew_report"
   | "whatsnew_youtube_telpshow"
   | "whatsnew_visit_website"
+  | "whatsnew_news_techrebellion"
+  | "whatsnew_news_rooted"
+  | "whatsnew_news_amazon"
+  | "whatsnew_camouflage_ig"
+  | "whatsnew_wikipedia_report"
 
 // Helper to safely check for test mode
 function isTestModeEnabled(): boolean {
@@ -103,6 +108,32 @@ function isTestModeEnabled(): boolean {
   return false
 }
 
+/**
+ * Fire one Matomo tracking pixel.
+ *
+ * `referrerPolicy` must be set BEFORE `src`: without it the image request carries
+ * the host page's Referer, and Matomo stores that URL as the page view — which
+ * leaks the user's browsing history into our analytics for every tracked click.
+ * The node is removed once it settles so repeated events don't accumulate in the
+ * host page's DOM.
+ */
+function sendTrackingPixel(params: string) {
+  try {
+    const img = document.createElement("img")
+    img.referrerPolicy = "no-referrer"
+    img.width = 1
+    img.height = 1
+    img.alt = ""
+    img.setAttribute("aria-hidden", "true")
+    img.addEventListener("load", () => img.remove(), { once: true })
+    img.addEventListener("error", () => img.remove(), { once: true })
+    img.src = `https://the-wall.win/bg.gif?rec=1&${params}`
+    document.body.appendChild(img)
+  } catch (e) {
+    error(e)
+  }
+}
+
 export function track(category: TR_CAT, action: TR_ACTION, name: TR_NAME) {
   // Disable tracking in test mode - log instead
   if (isTestModeEnabled()) {
@@ -110,14 +141,9 @@ export function track(category: TR_CAT, action: TR_ACTION, name: TR_NAME) {
     return
   }
 
-  try {
-    const img = document.createElement("img")
-    img.src = `https://the-wall.win/bg.gif?rec=1&e_c=${encodeURIComponent(category)}&e_a=${encodeURIComponent(action)}&e_n=${encodeURIComponent(name)}`
-
-    document.body.appendChild(img)
-  } catch (e) {
-    error(e)
-  }
+  sendTrackingPixel(
+    `e_c=${encodeURIComponent(category)}&e_a=${encodeURIComponent(action)}&e_n=${encodeURIComponent(name)}`
+  )
 }
 
 export function trackPageView(name: string) {
@@ -126,13 +152,7 @@ export function trackPageView(name: string) {
     return
   }
 
-  try {
-    const img = document.createElement("img")
-    img.src = `https://the-wall.win/bg.gif?rec=1&e_c=Page&e_a=View&e_n=${encodeURIComponent(name)}`
-    document.body.appendChild(img)
-  } catch (e) {
-    error(e)
-  }
+  sendTrackingPixel(`e_c=Page&e_a=View&e_n=${encodeURIComponent(name)}`)
 }
 
 // Shared helper to ensure proper extension URL

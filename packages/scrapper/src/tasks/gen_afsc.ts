@@ -36,7 +36,7 @@ const AfscRowSchema = z
     prisons: z.string(),
     occupations: z.string(),
     borders: z.string(),
-    link: z.string(),
+    link: z.string()
   })
   .strict()
 
@@ -62,7 +62,7 @@ const DecisionSchema = z
      */
     proofLink: z.string().url().optional(),
     note: z.string().optional(),
-    decidedAt: z.string().optional(),
+    decidedAt: z.string().optional()
   })
   .strict()
 
@@ -90,6 +90,7 @@ export async function run() {
     ws: string
     proof_text: string
     proof_link: string
+    stock_symbol?: string
   }> = []
 
   const skipped: string[] = []
@@ -119,6 +120,10 @@ export async function run() {
 
     const reason = decision?.reason ?? (row.hq === "Israel" ? "h" : "c")
 
+    // The dataset carries a ticker for every row; keep it on the primary entry only, so the
+    // extra brand domains do not each claim the same symbol as a separate row.
+    const stockSymbol = row.symbol.trim()
+
     merged.push({
       name,
       id: `AFSC_${isin}`,
@@ -126,6 +131,7 @@ export async function run() {
       ws,
       proof_text: decodeEntities(decision?.proofText ?? row.summary),
       proof_link: decision?.proofLink ?? row.link,
+      ...(stockSymbol !== "" ? { stock_symbol: stockSymbol } : {})
     })
 
     for (const extra of decision?.wsExtra ?? []) {
@@ -136,7 +142,7 @@ export async function run() {
         reasons: [reason],
         ws: extra,
         proof_text: decodeEntities(decision?.proofText ?? row.summary),
-        proof_link: decision?.proofLink ?? row.link,
+        proof_link: decision?.proofLink ?? row.link
       })
     }
   }

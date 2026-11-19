@@ -286,6 +286,125 @@ const runHeadlessAction = async (action: DataAction, options: CliOptions): Promi
       })
       return
     }
+    case "industry-taxonomy": {
+      const { run } = await import("./tasks/alternatives/industryTaxonomy")
+      const taxonomy = run()
+
+      if (options.json === true) {
+        console.log(JSON.stringify(taxonomy, null, 2))
+      }
+      return
+    }
+    case "alternatives-index": {
+      const { run } = await import("./tasks/alternatives/runIndexBuild")
+      const result = await run()
+
+      if (options.json === true) {
+        console.log(JSON.stringify({ companies: result.companies, ...result.meta, names: undefined }, null, 2))
+      }
+      return
+    }
+    case "alternatives-propose": {
+      const { proposeAlternatives } = await import("./tasks/alternatives/runAlternativesAdd")
+      const { requireArray, requireString } = await import("./cli/args")
+
+      const name = requireString(options, "name", 'Pass --name "Company Name".')
+      const websites = requireArray(options, "ws", "Pass the alternative's website as --ws https://example.com.")
+      // Required by design: the industry gate is the caller's judgement, not the tool's.
+      const industries = requireArray(
+        options,
+        "industries",
+        'Pass --industries "Events,Professional Networking" using exact taxonomy names.'
+      )
+
+      if (websites.length !== 1) {
+        throw new Error(`alternatives-propose takes exactly one --ws website, received ${websites.length}.`)
+      }
+
+      const website = websites[0]
+      if (website === undefined) {
+        throw new Error("Missing --ws website.")
+      }
+
+      const result = await proposeAlternatives({
+        name,
+        website,
+        // Generous by default: the review step is the filter, not an arbitrary cap.
+        limit: options.limit ?? 40,
+        industries,
+        minScore: options.minScore ?? 0.35
+      })
+
+      if (options.json === true) {
+        console.log(JSON.stringify(result, null, 2))
+        return
+      }
+
+      log(`\nProposal for "${result.alternative.n}" (${result.candidates.length} candidates)`)
+      log(`Industries: ${result.industries.join(", ")}${result.industriesOverridden ? " (supplied)" : " (inferred)"}`)
+      log("")
+      for (const candidate of result.candidates) {
+        const description = candidate.description === undefined ? "" : ` — ${candidate.description}`
+        log(`  ${candidate.score.toFixed(3)}  ${candidate.name}${description}`)
+      }
+      if (result.rejectedBelowScore > 0) {
+        log(`\n(${result.rejectedBelowScore} more passed the industry gate but scored below the floor.)`)
+      }
+      log(`\nNothing was written. Review the list, then apply the approved names with:`)
+      log(`  pnpm data --action alternatives-apply --proposal "${result.proposalPath}" --names "A,B,C"`)
+      return
+    }
+    case "alternatives-apply": {
+      const { applyAlternatives } = await import("./tasks/alternatives/runAlternativesAdd")
+      const { requireArray, requireString } = await import("./cli/args")
+
+      const proposalPath = requireString(options, "proposal", "Pass --proposal <path> printed by alternatives-propose.")
+      const names = requireArray(options, "names", 'Pass --names "A,B" for the companies you approved.')
+
+      const result = await applyAlternatives(proposalPath, names)
+
+      if (options.json === true) {
+        console.log(JSON.stringify(result, null, 2))
+        return
+      }
+
+      log(`\nApplied "${result.alternative.n}" to ${result.applied.length} approved companies:`)
+      for (const entry of result.written) {
+        log(`  ${entry.added ? "added" : "already present"}  ${entry.name}  (${entry.alternativeCount} alternatives)`)
+      }
+      log("\nRun 'pnpm data --action apply-overrides' to regenerate ALL.json and its copies.")
+      return
+    }
+    case "alternatives-remove": {
+      const { removeAlternativeFromCompanies } = await import("./tasks/alternatives/alternativeWriter")
+      const { requireArray, requireString } = await import("./cli/args")
+
+      const name = requireString(options, "name", 'Pass --name "Company Name" for the alternative to detach.')
+      const websites = requireArray(options, "ws", "Pass the alternative's website as --ws https://example.com.")
+      const names = requireArray(options, "names", 'Pass --names "A,B" for the companies to detach it from.')
+
+      const website = websites[0]
+      if (websites.length !== 1 || website === undefined) {
+        throw new Error(`alternatives-remove takes exactly one --ws website, received ${websites.length}.`)
+      }
+
+      const result = await removeAlternativeFromCompanies(names, { n: name, ws: website })
+
+      if (options.json === true) {
+        console.log(JSON.stringify(result, null, 2))
+        return
+      }
+
+      log(`\nRemoved "${name}" from ${result.removed.length} companies:`)
+      for (const removedName of result.removed) {
+        log(`  ${removedName}`)
+      }
+      if (result.untouched.length > 0) {
+        log(`\nLeft untouched (did not carry it): ${result.untouched.join(", ")}`)
+      }
+      log("\nRun 'pnpm data --action apply-overrides' to regenerate ALL.json and its copies.")
+      return
+    }
     default: {
       const _exhaustive: never = action
       throw new Error(`Unknown action: ${_exhaustive}`)
