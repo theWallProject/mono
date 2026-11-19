@@ -1,11 +1,25 @@
 /**
  * Top-level release command for The Wall monorepo.
  *
- * Interactive CLI that orchestrates releases for individual packages:
+ * Orchestrates a release for one package:
  *   - addon:   bump version in package.json, run tests, build + package all browsers
  *   - android: delegate to the existing release.sh script
  *
- * Usage: pnpm release
+ * **Two modes, same code path.**
+ *
+ *   pnpm release                             interactive (unchanged default)
+ *   pnpm release --package addon --bump patch [--skip-tests] [--yes]
+ *
+ * The flags exist because the prompts make this script unusable by anything that is not a human at
+ * a TTY: an agent, CI, or a script has no one to answer `inquirer`. Without them the only way to
+ * release was to re-implement these steps by hand, which is how a release and the script that
+ * documents it drift apart.
+ *
+ * `--yes` skips the final confirmation and is REQUIRED together with `--skip-tests`: a release that
+ * neither ran the tests nor asked about it should be a deliberate act, not a default.
+ *
+ * Exit codes: 0 success, 1 failure, 2 bad usage. A machine caller can trust those; it cannot trust
+ * a human answering a prompt on its behalf.
  */
 
 import { execSync } from "child_process"
@@ -169,8 +183,149 @@ const run = (command: string, cwd?: string): void => {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// Arguments (non-interactive mode)
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * The flags this script accepts.
+ *
+ * Parsed by hand rather than with a library: five flags and a strict refusal of anything unknown
+ * does not justify a dependency, and an unknown flag must FAIL rather than be ignored — a caller that
+ * typed `--bump minro` should not get a patch release because the typo fell through.
+ */
+type Args = {
+  pkg?: Package
+  bump?: BumpType
+  /** An explicit target version, for a repo whose `package.json` fell behind what is published. */
+  version?: string
+  skipTests: boolean
+  yes: boolean
+  dryRun: boolean
+}
+
+const USAGE = `usage: pnpm release [--package addon|android] [--bump patch|minor|major]
+                    [--version X.Y.Z] [--skip-tests] [--yes] [--dry-run]
+
+With no flags the script asks interactively, exactly as before.`
+
+const parseArgs = (argv: string[]): Args => {
+  const args: Args = { skipTests: false, yes: false, dryRun: false }
+
+  const need = (i: number, flag: string): string => {
+    const v = argv[i + 1]
+    if (v === undefined || v.startsWith("--")) {
+      console.error(`Missing value for ${flag}\n\n${USAGE}`)
+      process.exit(2)
+    }
+    return v
+  }
+
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i]
+    switch (a) {
+      case "--package":
+      case "-p": {
+        const v = need(i, a)
+        if (v !== "addon" && v !== "android") {
+          console.error(`Unknown package '${v}' — expected addon or android\n\n${USAGE}`)
+          process.exit(2)
+        }
+        args.pkg = v
+        i++
+        break
+      }
+      case "--bump":
+      case "-b": {
+        const v = need(i, a)
+        if (v !== "patch" && v !== "minor" && v !== "major") {
+          console.error(`Unknown bump '${v}' — expected patch, minor or major\n\n${USAGE}`)
+          process.exit(2)
+        }
+        args.bump = v
+        i++
+        break
+      }
+      case "--version": {
+        const v = need(i, a)
+        if (!/^\d+\.\d+\.\d+$/.test(v)) {
+          console.error(`Invalid --version '${v}' — expected MAJOR.MINOR.PATCH\n\n${USAGE}`)
+          process.exit(2)
+        }
+        args.version = v
+        i++
+        break
+      }
+      case "--skip-tests":
+        args.skipTests = true
+        break
+      case "--yes":
+      case "-y":
+        args.yes = true
+        break
+      case "--dry-run":
+        args.dryRun = true
+        break
+      case "--help":
+      case "-h":
+        console.log(USAGE)
+        process.exit(0)
+        break
+      default:
+        console.error(`Unknown argument '${a}'\n\n${USAGE}`)
+        process.exit(2)
+    }
+  }
+
+  if (args.version !== undefined && args.bump !== undefined) {
+    console.error(`--version and --bump are alternatives; give one\n\n${USAGE}`)
+    process.exit(2)
+  }
+  // Half a non-interactive invocation is a mistake, not a request for prompts: a caller that named
+  // the package but not the target version would otherwise sit waiting on stdin forever.
+  const hasTarget = args.bump !== undefined || args.version !== undefined
+  if ((args.pkg === undefined) !== !hasTarget) {
+    console.error(`--package and one of --bump/--version must be given together\n\n${USAGE}`)
+    process.exit(2)
+  }
+  // Skipping tests without saying so out loud is refused: the confirmation is the only thing standing
+  // between a hurried caller and an untested artifact in a store.
+  if (args.skipTests && !args.yes && args.pkg !== undefined) {
+    console.error(`--skip-tests requires --yes, which acknowledges the release is untested`)
+    process.exit(2)
+  }
+  return args
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // Prompts
 // ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * The version this release will produce, and a refusal when that version is not an increase.
+ *
+ * Kept as one function because two call sites need the same answer: `main` prints it in the dry-run
+ * banner, `releaseAddon` writes it. When the validation lived only in `releaseAddon`, the banner
+ * announced a target that the flow was about to refuse — an output that contradicts itself.
+ */
+const resolveTargetVersion = (
+  currentVersion: string,
+  bumpType: BumpType,
+  explicit?: string
+): string => {
+  const current = parseSemVer(currentVersion)
+  if (explicit === undefined) return formatSemVer(bumpSemVer(current, bumpType))
+
+  const target = parseSemVer(explicit)
+  const cmp =
+    target.major - current.major || target.minor - current.minor || target.patch - current.patch
+  if (cmp <= 0) {
+    console.error(
+      `--version ${explicit} is not greater than the current ${currentVersion}; refusing`
+    )
+    process.exit(2)
+  }
+  return formatSemVer(target)
+}
 
 const promptForPackage = async (): Promise<Package> => {
   const addonVersion = readAddonVersion()
@@ -232,11 +387,12 @@ const promptForBumpType = async (
 // Release flows
 // ────────────────────────────────────────────────────────────────────────────
 
-const releaseAddon = async (bumpType: BumpType): Promise<void> => {
+const releaseAddon = async (bumpType: BumpType, args: Args): Promise<void> => {
   const currentVersion = readAddonVersion()
-  const current = parseSemVer(currentVersion)
-  const next = bumpSemVer(current, bumpType)
-  const nextVersion = formatSemVer(next)
+  // An explicit `--version` wins over the bump arithmetic: the repo's `package.json` can lag the
+  // store (1.15.1 and 1.15.2 were published from this source without a bump landing here), so
+  // "patch" from 1.15.0 collides with a version that is already live.
+  const nextVersion = resolveTargetVersion(currentVersion, bumpType, args.version)
 
   console.log("\n========================================")
   console.log("  The Wall Addon - Release")
@@ -244,21 +400,28 @@ const releaseAddon = async (bumpType: BumpType): Promise<void> => {
   console.log(`  ${currentVersion} -> ${nextVersion}`)
   console.log("========================================\n")
 
-  // Step 1: Optionally run tests
-  const { runTests } = await inquirer.prompt<{ runTests: boolean }>([
-    {
-      type: "confirm",
-      name: "runTests",
-      message: "Run addon tests before release?",
-      default: true
-    }
-  ])
+  // Step 1: tests. `--skip-tests` decides it without a prompt; otherwise ask, as before.
+  let runTests: boolean
+  if (args.pkg !== undefined) {
+    runTests = !args.skipTests
+  } else {
+    const answer = await inquirer.prompt<{ runTests: boolean }>([
+      {
+        type: "confirm",
+        name: "runTests",
+        message: "Run addon tests before release?",
+        default: true
+      }
+    ])
+    runTests = answer.runTests
+  }
 
   if (runTests) {
     console.log("[1/4] Running addon tests...")
-    run("pnpm test:addon")
+    if (!args.dryRun) run("pnpm test:addon")
   } else {
-    console.log("[1/4] Skipping tests")
+    // Loud, not quiet: an untested release is a fact the transcript should carry.
+    console.log("[1/4] SKIPPING TESTS (--skip-tests)")
   }
 
   // Step 2: Bump version in package.json
@@ -272,13 +435,21 @@ const releaseAddon = async (bumpType: BumpType): Promise<void> => {
     )
   }
 
-  pkg["version"] = nextVersion
-  writeFileSync(ADDON_PKG_PATH, JSON.stringify(pkg, null, 2) + "\n", "utf-8")
-  console.log(`  Updated ${ADDON_PKG_PATH}`)
+  if (args.dryRun) {
+    console.log(`  (dry run) would write ${nextVersion} to ${ADDON_PKG_PATH}`)
+  } else {
+    pkg["version"] = nextVersion
+    writeFileSync(ADDON_PKG_PATH, JSON.stringify(pkg, null, 2) + "\n", "utf-8")
+    console.log(`  Updated ${ADDON_PKG_PATH}`)
+  }
 
   // Step 3: Build + package all browsers
   console.log("\n[3/4] Building and packaging all browsers...")
-  run("pnpm --filter @theWallProject/addon run package")
+  if (args.dryRun) {
+    console.log("  (dry run) would run: pnpm --filter @theWallProject/addon run package")
+  } else {
+    run("pnpm --filter @theWallProject/addon run package")
+  }
 
   // Step 4: Open browser store dashboards for upload
   const CHROME_DASHBOARD = "https://chrome.google.com/u/1/webstore/devconsole/d286da10-f0e5-4eca-bb9e-e79fa3c8e029/kocebhffdnlgdahkbfeopdokcoikipam/edit/package"
@@ -300,10 +471,16 @@ const releaseAddon = async (bumpType: BumpType): Promise<void> => {
 
   // Done
   console.log("\n========================================")
-  console.log("  Addon release complete!")
+  // A dry run built nothing. Saying "release complete" over a run that wrote no file and produced no
+  // package is the kind of output that gets trusted and then discovered later.
+  console.log(args.dryRun ? "  Addon release DRY RUN — nothing written" : "  Addon release complete!")
   console.log("========================================")
   console.log(`  Version: v${nextVersion}`)
-  console.log("  Packages built for: Chrome, Firefox, Edge, Opera")
+  console.log(
+    args.dryRun
+      ? "  Packages: none (dry run)"
+      : "  Packages built for: Chrome, Firefox, Edge, Opera"
+  )
   console.log("========================================\n")
 }
 
@@ -350,17 +527,31 @@ const releaseAndroid = async (bumpType: BumpType): Promise<void> => {
 // ────────────────────────────────────────────────────────────────────────────
 
 const main = async (): Promise<void> => {
+  const args = parseArgs(process.argv.slice(2))
+
   console.log("\n========================================")
   console.log("  The Wall - Release")
   console.log("========================================\n")
 
-  const pkg = await promptForPackage()
+  // Flags given: no prompts at all. Flags absent: the original interactive flow, untouched — so
+  // `pnpm release` by hand behaves exactly as it did before this mode existed.
+  const pkg = args.pkg ?? (await promptForPackage())
   const currentVersion = readPackageVersion(pkg)
-  const bumpType = await promptForBumpType(pkg, currentVersion)
+  const bumpType = args.bump ?? (args.version ? "patch" : await promptForBumpType(pkg, currentVersion))
+
+  // Resolved here as well so a refused target is refused before the banner claims it.
+  const target = resolveTargetVersion(currentVersion, bumpType, args.version)
+
+  if (args.dryRun) {
+    console.log(
+      `DRY RUN: ${pkg} ${currentVersion} -> ${target}, ` +
+        `tests ${args.skipTests ? "SKIPPED" : "run"}, nothing written.\n`
+    )
+  }
 
   switch (pkg) {
     case "addon":
-      await releaseAddon(bumpType)
+      await releaseAddon(bumpType, args)
       break
     case "android":
       await releaseAndroid(bumpType)

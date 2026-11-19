@@ -310,13 +310,33 @@ export const CONFIG: APIEndpointConfig = {
 
 /**
  * Extracts the main domain from a given URL.
- **/
+ *
+ * Returns "" when the URL cannot be understood, and that is load-bearing: callers treat an empty
+ * result as "this entry has no website" and drop it from the output. So a malformed URL does not
+ * fail the run — it silently removes the site — which is why the error below is logged loudly rather
+ * than swallowed.
+ *
+ * The one shape worth naming: a space encoded at the START of the host
+ * (`https://%20www.playbucks.co/`). `new URL` accepts it and yields the hostname `%20www.playbucks.co`,
+ * which then fails to parse, and the entry ships with no website. That is a scrape defect, not a
+ * decision, so it is reported as such instead of looking like a URL that simply did not resolve.
+ */
 export function getMainDomain(url: string) {
   try {
     // Add protocol if missing
     const urlWithProtocol = url.startsWith("http://") || url.startsWith("https://") ? url : `https://${url}`
 
     const { hostname } = new URL(urlWithProtocol)
+
+    // A host with encoded whitespace or a leading/trailing dot is not a hostname. Refusing it here
+    // with the reason beats returning "" and letting the entry quietly lose its website.
+    if (/^%20|\s|^\.|\.$/.test(hostname)) {
+      console.error(
+        `getMainDomain: host is malformed ('${hostname}') for ${url} — the entry will ship without a website`
+      )
+      return ""
+    }
+
     const parsed = parse(hostname)
 
     if (parsed.hostname) {

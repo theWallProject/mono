@@ -49900,6 +49900,16 @@ export const manualOverrides: Record<
     urls: ["https://rebrand.ly/poe2025"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  // The Crunchbase scrape stored this website as "https://%20www.playbucks.co/", with the space
+  // percent-encoded in front of the host. `getMainDomain` cannot parse that hostname, logs an error
+  // and returns "" — so the entry shipped with no website at all, and the error line was the only
+  // clue it had. Fixed at the override layer rather than in the raw batch: the batch files are
+  // regenerated from Crunchbase, and an edit there would be thrown away on the next scrape.
+  PlayBucks: {
+    ws: ["https://www.playbucks.co"],
+    tw: ["https://x.com/playbucks"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   PlainID: {
     ws: [
       "https://go.plainid.com",
