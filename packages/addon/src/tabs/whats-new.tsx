@@ -329,7 +329,7 @@ function WhatsNew() {
             <div className={styles.spotlightGrid}>
               <img
                 src={moFollow}
-                alt="Mo in camouflage, with the prompt to follow @ca.mo.flage"
+                alt="Mo in camouflage"
                 className={styles.spotlightImage}
               />
               <div className={styles.spotlightBody}>
@@ -339,14 +339,17 @@ function WhatsNew() {
                   Meta has deleted more than 40 of his accounts. He is a Palestinian content creator, and he posts
                   anyway.
                 </p>
+                <p className={styles.featureText}>
+                  This link always points at his latest Instagram account.
+                </p>
                 <a
-                  href="https://www.instagram.com/ca.mo.flage"
+                  href="https://nexusg8.com/meet/mohamz?via=link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.spotlightLink}
                   onClick={handleCamouflage}>
                   <FaInstagram size={18} aria-hidden="true" />
-                  <span>@ca.mo.flage</span>
+                  <span>His latest account</span>
                 </a>
               </div>
             </div>

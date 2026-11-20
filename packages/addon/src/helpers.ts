@@ -109,6 +109,61 @@ function isTestModeEnabled(): boolean {
 }
 
 /**
+ * Anonymous first-party visitor id.
+ *
+ * Matomo groups events into one "visit" only when the requests share a visitor
+ * id. Without one, every pixel lands as a brand-new visitor (verified on this
+ * instance: distinct visitors == visits, 1:1), which makes unique counts and
+ * retention meaningless.
+ *
+ * The value is 16 random hex characters generated locally on first use and
+ * stored in chrome.storage.local. It is not derived from the browser, the
+ * device, or the user, and it is disclosed in the privacy policy.
+ */
+const VISITOR_ID_KEY = "visitor_id"
+const VISITOR_ID_RE = /^[0-9a-f]{16}$/
+
+let visitorIdPromise: Promise<string> | null = null
+
+function randomVisitorId(): string {
+  const bytes = new Uint8Array(8)
+  crypto.getRandomValues(bytes)
+  let out = ""
+  // `for…of` over the typed array keeps each element a `number`; indexing under
+  // `noUncheckedIndexedAccess` widens it to `number | undefined`.
+  for (const byte of bytes) {
+    out += byte.toString(16).padStart(2, "0")
+  }
+  return out
+}
+
+export async function getVisitorId(): Promise<string> {
+  if (visitorIdPromise) {
+    return visitorIdPromise
+  }
+
+  visitorIdPromise = new Promise<string>((resolve) => {
+    try {
+      chrome.storage.local.get([VISITOR_ID_KEY], (result) => {
+        const stored = result[VISITOR_ID_KEY]
+        if (typeof stored === "string" && VISITOR_ID_RE.test(stored)) {
+          resolve(stored)
+          return
+        }
+        const id = randomVisitorId()
+        chrome.storage.local.set({ [VISITOR_ID_KEY]: id }, () => resolve(id))
+      })
+    } catch (e) {
+      // Storage unavailable: use a session-only id rather than failing the event.
+      error(e)
+      resolve(randomVisitorId())
+    }
+  })
+
+  return visitorIdPromise
+}
+
+/**
  * Fire one Matomo tracking pixel.
  *
  * `referrerPolicy` must be set BEFORE `src`: without it the image request carries
@@ -118,20 +173,23 @@ function isTestModeEnabled(): boolean {
  * host page's DOM.
  */
 function sendTrackingPixel(params: string) {
-  try {
-    const img = document.createElement("img")
-    img.referrerPolicy = "no-referrer"
-    img.width = 1
-    img.height = 1
-    img.alt = ""
-    img.setAttribute("aria-hidden", "true")
-    img.addEventListener("load", () => img.remove(), { once: true })
-    img.addEventListener("error", () => img.remove(), { once: true })
-    img.src = `https://the-wall.win/bg.gif?rec=1&${params}`
-    document.body.appendChild(img)
-  } catch (e) {
-    error(e)
-  }
+  void (async () => {
+    const visitorId = await getVisitorId()
+    try {
+      const img = document.createElement("img")
+      img.referrerPolicy = "no-referrer"
+      img.width = 1
+      img.height = 1
+      img.alt = ""
+      img.setAttribute("aria-hidden", "true")
+      img.addEventListener("load", () => img.remove(), { once: true })
+      img.addEventListener("error", () => img.remove(), { once: true })
+      img.src = `https://the-wall.win/bg.gif?rec=1&_id=${visitorId}&${params}`
+      document.body.appendChild(img)
+    } catch (e) {
+      error(e)
+    }
+  })()
 }
 
 export function track(category: TR_CAT, action: TR_ACTION, name: TR_NAME) {
@@ -153,6 +211,19 @@ export function trackPageView(name: string) {
   }
 
   sendTrackingPixel(`e_c=Page&e_a=View&e_n=${encodeURIComponent(name)}`)
+}
+
+/**
+ * Banner impression. Fired once per banner mount from a component effect rather
+ * than as an inline <img>, so repeated renders don't record one impression each.
+ */
+export function trackWallImpression() {
+  if (isTestModeEnabled()) {
+    console.log("[TEST] TrackWallImpression")
+    return
+  }
+
+  sendTrackingPixel("action_name=wall")
 }
 
 // Shared helper to ensure proper extension URL

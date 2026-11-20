@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import { toast, Toaster } from "react-hot-toast"
 
-import { getExtensionURL, track } from "~helpers"
+import { getExtensionURL, track, trackWallImpression } from "~helpers"
 
 import backgroundImage from "../../assets/images/bg-pattern.png"
 import shieldIcon from "../../assets/images/shield-icon.svg"
@@ -40,6 +40,7 @@ export const Banner = () => {
   const toastIdRef = useRef<string | null>(null)
   const isCheckingHintRef = useRef<boolean>(false)
   const isTestingUrlRef = useRef<boolean>(false)
+  const hasTrackedImpressionRef = useRef<boolean>(false)
 
   // Check if a hint was shown recently (within 3 days)
   const wasHintShownRecently = async (hintId: string): Promise<boolean> => {
@@ -223,6 +224,17 @@ export const Banner = () => {
       }
     )
   }, [])
+
+  // Track one banner impression per mount. The old inline <img> lived inside the
+  // render body, so every re-render (SPA navigation, state changes) recorded
+  // another "pageview" on "/" — that is where the 79k/365d volume came from.
+  useEffect(() => {
+    const shouldShow = testResult !== undefined && !testResult.isDismissed && !testResult.isHint
+    if (!shouldShow || hasTrackedImpressionRef.current) return
+
+    hasTrackedImpressionRef.current = true
+    trackWallImpression()
+  }, [testResult])
 
   // Test URL on initial mount
   useEffect(() => {
@@ -473,13 +485,6 @@ export const Banner = () => {
       />
       {testResult && !testResult.isDismissed && !testResult.isHint ? (
         <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
-          <img
-            src="https://the-wall.win/bg.gif?rec=1&action_name=wall"
-            alt=""
-            referrerPolicy="no-referrer"
-            width={1}
-            height={1}
-          />
           {/* Background pattern layer */}
           <div
             className={style.bgLayer}
