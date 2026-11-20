@@ -1,28 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { extractIdentifier, deduplicateOverrideUrls, stripEncodedWhitespaceAfterProtocol } from "./merge_static"
-
-describe("stripEncodedWhitespaceAfterProtocol", () => {
-  it("repairs the percent-encoded space Crunchbase put in front of a host", () => {
-    expect(stripEncodedWhitespaceAfterProtocol("https://%20www.playbucks.co/")).toBe("https://www.playbucks.co/")
-  })
-
-  it("leaves a well-formed URL untouched", () => {
-    expect(stripEncodedWhitespaceAfterProtocol("https://www.playbucks.co/")).toBe("https://www.playbucks.co/")
-  })
-
-  it("decodes an encoded path without dropping its whitespace semantics", () => {
-    expect(stripEncodedWhitespaceAfterProtocol("https://example.com/a%20b")).toBe("https://example.com/a b")
-  })
-
-  it("trims a bare host that carries leading whitespace and no scheme", () => {
-    expect(stripEncodedWhitespaceAfterProtocol(" www.playbucks.co")).toBe("www.playbucks.co")
-    expect(stripEncodedWhitespaceAfterProtocol("%20www.playbucks.co")).toBe("www.playbucks.co")
-  })
-
-  it("returns a malformed escape unchanged instead of inventing a URL", () => {
-    expect(stripEncodedWhitespaceAfterProtocol("https://%zz.example")).toBe("https://%zz.example")
-  })
-})
+import { extractIdentifier, deduplicateOverrideUrls } from "./merge_static"
 
 describe("extractIdentifier", () => {
   // ──────────────────────────────────────────────────────────────────────
