@@ -776,6 +776,17 @@ export const manualAdditions: ManualAdditionItem[] = [
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
+    name: "Cellebrite",
+    // Proof-only in intent: merge_static refuses an addition with no link field, so ws repeats the
+    // domain already stored on the existing entry and only the proof fields actually change.
+    ws: ["https://cellebrite.com"],
+    proof_text:
+      "UK public bodies hold about £25m of contracts for its phone-extraction tools, and its extraction report has been used as prosecution evidence against a Palestine solidarity activist — including Signal messages recovered from an arrestee who was never charged.",
+    proof_link:
+      "https://statewatch.org/news/2026/november/uk-police-using-israeli-tools-to-scrape-devices-of-pro-palestine-activists/",
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
     name: "Cerebras Systems",
     reasons: ["c"],
     ws: ["https://www.cerebras.ai"],

@@ -112,6 +112,30 @@ export const extractIdentifier = (url: string, field: LinkField): string => {
 }
 
 /**
+ * Removes whitespace a scraper percent-encoded in front of a host.
+ *
+ * Crunchbase returned PlayBucks' website as `https://%20www.playbucks.co/` — a space, encoded, sitting
+ * between the scheme and the host. `new URL` throws on it, so the row lost its website and the only
+ * trace was an error line during the merge. Decoding first and dropping whitespace that directly
+ * follows the scheme recovers the real host.
+ *
+ * Nothing else is rewritten: a URL that is still unparseable afterwards goes to `getMainDomain`
+ * unchanged, which keeps refusing it with its own message. This repairs an encoding artefact, it
+ * does not launder a broken URL into a plausible one.
+ */
+export const stripEncodedWhitespaceAfterProtocol = (url: string): string => {
+  try {
+    return decodeURIComponent(url)
+      .trim()
+      .replace(/^(https?:\/\/)\s+/i, "$1")
+  } catch {
+    // A malformed escape (`%zz`) cannot be decoded; hand it over untouched so the caller's own
+    // validation reports it rather than this helper inventing a value.
+    return url
+  }
+}
+
+/**
  * Deduplicates a URL array by extracted selector for a given link field.
  * URLs that resolve to the same identifier (e.g., linkedin.com/company/foo and
  * linkedin.com/company/foo/?origin) are collapsed — only the first is kept.
@@ -341,7 +365,7 @@ const loadJsonFiles = async (folderPath: string) => {
     row.li = row.li?.replace("/company-beta/", "/company/")
 
     if (row.ws) {
-      row.ws = getMainDomain(row.ws)
+      row.ws = getMainDomain(stripEncodedWhitespaceAfterProtocol(row.ws))
     }
 
     row.ws = removeProtocol(row.ws)
