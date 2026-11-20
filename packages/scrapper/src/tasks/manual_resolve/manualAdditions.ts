@@ -2630,10 +2630,10 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://stripe.com/legal/service-providers",
       "https://www.theguardian.com/technology/2025/jan/01/muslim-friendly-websites-apps"
     ],
+    alt: [{ n: "PayGood", ws: "https://paygood.com" }],
     proof_text:
       "Cut off a Muslim crowdfunding platform after five years at its banking partner's instruction, and would not support humanitarian work in sanctioned jurisdictions.",
     proof_link: "https://www.theguardian.com/technology/2025/jan/01/muslim-friendly-websites-apps",
-    alt: [{ n: "PayGood", ws: "https://paygood.com" }],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
@@ -2705,6 +2705,32 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.texacolubricants.com/en_uk/home/products/by_brand/techron.html?src-tab=products"
     ],
     android_app_ids: ["com.polarislabs.horizon.texacolubewatch.android"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  {
+    name: "Tim Hortons",
+    reasons: ["c"],
+    ws: [
+      "https://www.timhortons.com",
+      "https://www.timhortons.ca",
+      "https://www.timhortons.co.uk",
+      "https://www.timhortons.ph",
+      "https://timhortons.my"
+    ],
+    li: ["https://www.linkedin.com/company/tim-hortons"],
+    fb: ["https://www.facebook.com/TimHortons"],
+    tw: ["https://x.com/TimHortons"],
+    ig: [
+      "https://www.instagram.com/timhortons",
+      "https://www.instagram.com/timhortonsmalaysia"
+    ],
+    ytp: ["https://www.youtube.com/@TimHortons", "https://www.youtube.com/@timhortonsmalaysia"],
+    tt: ["https://www.tiktok.com/@timhortons", "https://www.tiktok.com/@timhortonsmalaysia"],
+    th: ["https://www.threads.com/@timhortons"],
+    android_app_ids: ["digital.rbi.timhortons", "com.blink.timhortons"],
+    proof_text:
+      "Its app sends user data to an Israeli cyber-tech vendor founded by military-intelligence alumni, and Canada's privacy commissioner had already ruled the app collects excessive user data without proper consent.",
+    proof_link: "https://www.cjpme.org/pr_2026_11_17_tim_hortons_forter",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
