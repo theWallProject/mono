@@ -183,7 +183,7 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 
 **Storage:**
 
-- `chrome.storage.local` - All persistent data: dismissals (1 month TTL), hint settings, what's new tracking
+- `chrome.storage.local` - All persistent data: dismissals (1 month TTL), hint settings. The "what's new" page writes nothing here: whether it opens is the build-time flag `SHOULD_SHOW_WHATSNEW` in `src/whatsNew.ts`, which `pnpm release` asks about and rewrites on every addon release
 - Abstraction: `storageHelpers.ts`
 
 **Data:** `src/db/ALL.json` (2.8MB)

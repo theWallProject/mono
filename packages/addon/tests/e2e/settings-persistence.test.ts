@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
 import { HINT_DISMISSED_PERM_PREFIX, HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { getExtensionPopupUrl, launchBrowserWithExtension } from "../utils/browser"
-import { getStorageValue, hasStorageKey, setSettings, simulateExistingUser, verifyStorage } from "../utils/storage"
+import { getStorageValue, setSettings, simulateExistingUser, verifyStorage } from "../utils/storage"
 
 describe("Settings Persistence", () => {
   let context: BrowserContext
@@ -84,29 +84,6 @@ describe("Settings Persistence", () => {
       [HINTS_SYSTEM_DISABLED_KEY]: true
     })
     expect(verified).toBe(true)
-  })
-
-  it("records the shown version so the page is not offered again", async () => {
-    // The extension opens the what's-new page from chrome.runtime.onInstalled, which has
-    // already fired by the time a test can write storage. This test therefore asserts the
-    // part that is actually observable and that the suppression depends on: the shown
-    // version gets persisted, so a later install/update skips the page.
-    //
-    // Asserting `pages.find(whats-new) === undefined` here was not provable — the page is
-    // opened at install time, before any storage this test writes exists.
-    const shownVersions = ["1.6.0"]
-    await setSettings(context, extensionId, {
-      whats_new_shown_versions: shownVersions
-    })
-
-    const verified = await verifyStorage(context, extensionId, {
-      whats_new_shown_versions: shownVersions
-    })
-    expect(verified).toBe(true)
-
-    // And the key is genuinely present, not absent-and-coincidentally-undefined.
-    const keyPresent = await hasStorageKey(context, extensionId, "whats_new_shown_versions")
-    expect(keyPresent).toBe(true)
   })
 
   it("should persist dismissal across browser restart", async () => {

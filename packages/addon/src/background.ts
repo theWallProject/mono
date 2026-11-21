@@ -2,12 +2,9 @@
 
 import { error, log, warn } from "./helpers"
 import { isUrlFlagged } from "./storage"
-import { getWhatsNewShownVersions, markWhatsNewVersionAsShown, setLocalStorageItem } from "./storageHelpers"
+import { setLocalStorageItem } from "./storageHelpers"
 import { MessageTypes, type Message, type MessageResponseMap, type SendResponse } from "./types"
-
-// Versions that should trigger the "what's new" page
-// User controls which versions trigger it by adding versions to this array
-const WHATS_NEW_VERSIONS = ["1.7.0", "1.9.0", "1.10.0", "1.10.2", "1.15.0"]
+import { SHOULD_SHOW_WHATSNEW } from "./whatsNew"
 
 chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)
@@ -17,40 +14,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     error("Failed to set uninstall URL:", err)
   })
 
-  // Check if we should show "what's new" page
-  if (details.reason === "install" || details.reason === "update") {
-    void (async () => {
-      try {
-        const manifest = chrome.runtime.getManifest()
-        const currentVersion = manifest.version
-        log(`Checking what's new for version ${currentVersion}`)
-
-        // Check if this version should trigger the "what's new" page
-        if (WHATS_NEW_VERSIONS.includes(currentVersion)) {
-          // Check if this version has already been shown
-          const shownVersions = await getWhatsNewShownVersions()
-          if (!shownVersions.includes(currentVersion)) {
-            log(`Opening what's new page for version ${currentVersion}`)
-            const fromVersion = details.reason === "update" ? details.previousVersion || "unknown" : "install"
-            const whatNewUrl = `${chrome.runtime.getURL("tabs/whats-new.html")}?from=${encodeURIComponent(fromVersion)}&to=${encodeURIComponent(currentVersion)}`
-            await chrome.tabs.create({
-              url: whatNewUrl,
-              active: false
-            })
-            // Mark this version as shown
-            await markWhatsNewVersionAsShown(currentVersion)
-          } else {
-            log(`Version ${currentVersion} already shown, skipping what's new page`)
-          }
-        } else {
-          log(`Version ${currentVersion} not in WHATS_NEW_VERSIONS, skipping`)
-        }
-      } catch (e) {
-        error("Error checking what's new page:", e)
-        // Don't fail hard - just log the error
-      }
-    })()
-  }
+  maybeOpenWhatsNew(details)
 
   // const manifest = chrome.runtime.getManifest()
   // const contentScriptFile = manifest.content_scripts?.[0]?.js?.[0] // Get the first declared content script
@@ -85,6 +49,39 @@ chrome.runtime.onInstalled.addListener((details) => {
 chrome.runtime.onStartup.addListener(() => {
   log("background:runtime.onStartup")
 })
+
+/**
+ * Opens the "what's new" page for a build that switched it on.
+ *
+ * There is no per-user "already shown" marker, and none is needed: onInstalled fires once per
+ * install/update transition, and the `chrome_update` reason is excluded here, so one build with
+ * SHOULD_SHOW_WHATSNEW on shows the page at most once per browser. What this must never do again is
+ * decide "has this user seen this release" from a version list — that is what silently disarmed the
+ * page whenever a release landed one version off the list.
+ */
+function maybeOpenWhatsNew(details: chrome.runtime.InstalledDetails): void {
+  if (!SHOULD_SHOW_WHATSNEW) {
+    log("background:whats-new off for this build, skipping")
+    return
+  }
+
+  if (details.reason !== "install" && details.reason !== "update") {
+    log(`background:whats-new skipped for reason [${details.reason}]`)
+    return
+  }
+
+  try {
+    const currentVersion = chrome.runtime.getManifest().version
+    const fromVersion = details.reason === "update" ? details.previousVersion || "unknown" : "install"
+    const whatNewUrl = `${chrome.runtime.getURL("tabs/whats-new.html")}?from=${encodeURIComponent(fromVersion)}&to=${encodeURIComponent(currentVersion)}`
+    log(`background:whats-new opening for version [${currentVersion}]`)
+    chrome.tabs.create({ url: whatNewUrl, active: false }).catch((e: unknown) => {
+      error("background:whats-new failed to open:", e)
+    })
+  } catch (e) {
+    error("background:whats-new failed to build url:", e)
+  }
+}
 
 function isSpecialUrl(url: string) {
   try {

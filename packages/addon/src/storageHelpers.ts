@@ -5,7 +5,6 @@ export const HINT_SHOWN_PREFIX = "hint_shown_"
 export const HINT_DISMISSED_PERM_PREFIX = "hint_dismissed_perm_"
 export const HINT_COMPANY_DISMISSED_PERM_PREFIX = "hint_company_dismissed_perm_"
 export const HINTS_SYSTEM_DISABLED_KEY = "hints_system_disabled"
-export const WHATS_NEW_SHOWN_VERSIONS_KEY = "whats_new_shown_versions"
 
 export const getLocalStorageItem = async (key: string) => {
   log(`getLocalStorageItem getting key[${key}]`)
@@ -62,57 +61,6 @@ export const getAllLocalStorageItems = async (): Promise<Record<string, unknown>
       })
     } catch (e) {
       error(`getAllLocalStorageItems error`, e)
-      reject(e)
-    }
-  })
-}
-
-// What's New version tracking helpers
-export const getWhatsNewShownVersions = async (): Promise<string[]> => {
-  log(`getWhatsNewShownVersions getting versions`)
-  return new Promise((resolve, reject) => {
-    try {
-      chrome.storage.local.get([WHATS_NEW_SHOWN_VERSIONS_KEY], (result) => {
-        const keysArray = result[WHATS_NEW_SHOWN_VERSIONS_KEY] || []
-        if (!Array.isArray(keysArray)) {
-          throw new Error(`getWhatsNewShownVersions got invalid value`)
-        }
-
-        log(`getWhatsNewShownVersions got ${keysArray.length} versions`, keysArray)
-        resolve(keysArray)
-      })
-    } catch (e) {
-      error(`getWhatsNewShownVersions error`, e)
-      reject(e)
-    }
-  })
-}
-
-export const markWhatsNewVersionAsShown = async (version: string): Promise<void> => {
-  log(`markWhatsNewVersionAsShown marking version [${version}]`)
-  return new Promise((resolve, reject) => {
-    try {
-      getWhatsNewShownVersions()
-        .then((existingVersions) => {
-          if (!existingVersions.includes(version)) {
-            const updatedVersions = [...existingVersions, version]
-            chrome.storage.local.set({ [WHATS_NEW_SHOWN_VERSIONS_KEY]: updatedVersions }, () => {
-              log(`markWhatsNewVersionAsShown set version [${version}]`)
-              resolve()
-            })
-            return undefined
-          } else {
-            log(`markWhatsNewVersionAsShown version [${version}] already marked`)
-            resolve()
-            return undefined
-          }
-        })
-        .catch((e) => {
-          error(`markWhatsNewVersionAsShown error: ${version}`, e)
-          reject(e)
-        })
-    } catch (e) {
-      error(`markWhatsNewVersionAsShown error: ${version}`, e)
       reject(e)
     }
   })

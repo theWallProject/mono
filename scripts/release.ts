@@ -2,7 +2,8 @@
  * Top-level release command for The Wall monorepo.
  *
  * Orchestrates a release for one package:
- *   - addon:   bump version in package.json, run tests, build + package all browsers
+ *   - addon:   ask whether this build opens the what's new page, bump the version, run tests,
+ *              write that flag into packages/addon/src/whatsNew.ts, build + package all browsers
  *   - android: delegate to the existing release.sh script
  *
  * **Two modes, same code path.**
@@ -26,7 +27,6 @@ import { execSync } from "child_process"
 import { readFileSync, writeFileSync } from "fs"
 import { dirname, resolve } from "path"
 import { fileURLToPath } from "url"
-
 import inquirer from "inquirer"
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -63,10 +63,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const ROOT = resolve(__dirname, "..")
 const ADDON_PKG_PATH = resolve(ROOT, "packages/addon/package.json")
-const ANDROID_VERSION_PATH = resolve(
-  ROOT,
-  "packages/android/version.properties"
-)
+const ADDON_WHATSNEW_PATH = resolve(ROOT, "packages/addon/src/whatsNew.ts")
+const ANDROID_VERSION_PATH = resolve(ROOT, "packages/android/version.properties")
 
 // ────────────────────────────────────────────────────────────────────────────
 // Types
@@ -94,9 +92,7 @@ const parseSemVer = (version: string): SemVer => {
   const [major, minor, patch] = parts.map((p) => {
     const n = Number(p)
     if (!Number.isInteger(n) || n < 0) {
-      throw new Error(
-        `Invalid semver: "${version}" — "${p}" is not a valid number`
-      )
+      throw new Error(`Invalid semver: "${version}" — "${p}" is not a valid number`)
     }
     return n
   })
@@ -130,9 +126,7 @@ const readAddonVersion = (): string => {
   const pkg = JSON.parse(raw) as { version?: string }
 
   if (typeof pkg.version !== "string" || pkg.version.length === 0) {
-    throw new Error(
-      `Could not read version from ${ADDON_PKG_PATH} — "version" field is missing or empty`
-    )
+    throw new Error(`Could not read version from ${ADDON_PKG_PATH} — "version" field is missing or empty`)
   }
 
   // Validate it parses correctly
@@ -145,9 +139,7 @@ const readAndroidVersion = (): string => {
   const match = raw.match(/^VERSION_NAME=(.+)$/m)
 
   if (!match || !match[1]) {
-    throw new Error(
-      `Could not read VERSION_NAME from ${ANDROID_VERSION_PATH}`
-    )
+    throw new Error(`Could not read VERSION_NAME from ${ANDROID_VERSION_PATH}`)
   }
 
   const version = match[1].trim()
@@ -167,6 +159,63 @@ const readPackageVersion = (pkg: Package): string => {
       throw new Error(`Unknown package: ${_exhaustive}`)
     }
   }
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// What's new flag
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * The line in the addon source that decides whether this build opens the what's-new page.
+ *
+ * Anchored and single-line on purpose: the file carries a long comment above the declaration, and
+ * quietly rewriting a declaration that had been reworded would make the release lie about what it
+ * shipped. No match — throw.
+ */
+const WHATSNEW_FLAG_PATTERN = /^export const SHOULD_SHOW_WHATSNEW = (true|false)$/m
+
+const readWhatsNewFlag = (): boolean => {
+  const raw = readFileSync(ADDON_WHATSNEW_PATH, "utf-8")
+  const match = raw.match(WHATSNEW_FLAG_PATTERN)
+  if (!match || match[1] === undefined) {
+    throw new Error(
+      `Could not read SHOULD_SHOW_WHATSNEW from ${ADDON_WHATSNEW_PATH}. ` +
+        "The flag must stay a literal `export const SHOULD_SHOW_WHATSNEW = true|false` on one line."
+    )
+  }
+  return match[1] === "true"
+}
+
+/**
+ * Writes the flag and reads it back.
+ *
+ * Write-then-verify instead of trusting the replacement: the release's whole claim is "this build
+ * will open the page", and a regex that matched but produced something else would break that
+ * silently. If the read-back disagrees the release stops before building anything.
+ */
+const writeWhatsNewFlag = (show: boolean): void => {
+  const raw = readFileSync(ADDON_WHATSNEW_PATH, "utf-8")
+  if (!WHATSNEW_FLAG_PATTERN.test(raw)) {
+    throw new Error(
+      `Could not find SHOULD_SHOW_WHATSNEW in ${ADDON_WHATSNEW_PATH}; refusing to release ` +
+        `a build whose what's-new behaviour it cannot promise.`
+    )
+  }
+
+  const updated = raw.replace(WHATSNEW_FLAG_PATTERN, `export const SHOULD_SHOW_WHATSNEW = ${show}`)
+  if (updated === raw) {
+    console.log(`  SHOULD_SHOW_WHATSNEW already ${show} — unchanged`)
+  } else {
+    writeFileSync(ADDON_WHATSNEW_PATH, updated, "utf-8")
+  }
+
+  if (readWhatsNewFlag() !== show) {
+    throw new Error(
+      `Wrote SHOULD_SHOW_WHATSNEW = ${show} to ${ADDON_WHATSNEW_PATH} but reading it back ` +
+        `returned a different value. Refusing to continue.`
+    )
+  }
+  console.log(`  SHOULD_SHOW_WHATSNEW = ${show}`)
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -199,12 +248,15 @@ type Args = {
   /** An explicit target version, for a repo whose `package.json` fell behind what is published. */
   version?: string
   skipTests: boolean
+  /** Open the what's-new page for this build. Asked every release; never inherited from last time. */
+  whatsNew?: boolean
   yes: boolean
   dryRun: boolean
 }
 
 const USAGE = `usage: pnpm release [--package addon|android] [--bump patch|minor|major]
-                    [--version X.Y.Z] [--skip-tests] [--yes] [--dry-run]
+                    [--version X.Y.Z] [--skip-tests] [--whats-new|--no-whats-new]
+                    [--yes] [--dry-run]
 
 With no flags the script asks interactively, exactly as before.`
 
@@ -258,6 +310,12 @@ const parseArgs = (argv: string[]): Args => {
       case "--skip-tests":
         args.skipTests = true
         break
+      case "--whats-new":
+        args.whatsNew = true
+        break
+      case "--no-whats-new":
+        args.whatsNew = false
+        break
       case "--yes":
       case "-y":
         args.yes = true
@@ -293,6 +351,16 @@ const parseArgs = (argv: string[]): Args => {
     console.error(`--skip-tests requires --yes, which acknowledges the release is untested`)
     process.exit(2)
   }
+  // The what's-new decision belongs to the addon only, and a scripted addon release has to state it:
+  // the whole point of the flag is that nobody inherits last release's answer by accident.
+  if (args.whatsNew !== undefined && args.pkg === "android") {
+    console.error(`--whats-new/--no-whats-new only applies to the addon`)
+    process.exit(2)
+  }
+  if (args.pkg === "addon" && args.whatsNew === undefined) {
+    console.error(`A scripted addon release must say --whats-new or --no-whats-new\n\n${USAGE}`)
+    process.exit(2)
+  }
   return args
 }
 
@@ -307,21 +375,14 @@ const parseArgs = (argv: string[]): Args => {
  * banner, `releaseAddon` writes it. When the validation lived only in `releaseAddon`, the banner
  * announced a target that the flow was about to refuse — an output that contradicts itself.
  */
-const resolveTargetVersion = (
-  currentVersion: string,
-  bumpType: BumpType,
-  explicit?: string
-): string => {
+const resolveTargetVersion = (currentVersion: string, bumpType: BumpType, explicit?: string): string => {
   const current = parseSemVer(currentVersion)
   if (explicit === undefined) return formatSemVer(bumpSemVer(current, bumpType))
 
   const target = parseSemVer(explicit)
-  const cmp =
-    target.major - current.major || target.minor - current.minor || target.patch - current.patch
+  const cmp = target.major - current.major || target.minor - current.minor || target.patch - current.patch
   if (cmp <= 0) {
-    console.error(
-      `--version ${explicit} is not greater than the current ${currentVersion}; refusing`
-    )
+    console.error(`--version ${explicit} is not greater than the current ${currentVersion}; refusing`)
     process.exit(2)
   }
   return formatSemVer(target)
@@ -352,10 +413,7 @@ const promptForPackage = async (): Promise<Package> => {
   return pkg
 }
 
-const promptForBumpType = async (
-  pkg: Package,
-  currentVersion: string
-): Promise<BumpType> => {
+const promptForBumpType = async (pkg: Package, currentVersion: string): Promise<BumpType> => {
   const current = parseSemVer(currentVersion)
 
   const { bump } = await inquirer.prompt<{ bump: BumpType }>([
@@ -383,6 +441,26 @@ const promptForBumpType = async (
   return bump
 }
 
+/**
+ * Asked on every addon release, never defaulted from the previous answer.
+ *
+ * The flag is a build-time switch with no per-user memory, so a `true` that survives into a hotfix
+ * re-opens the page for people who already saw it. Making it a question keeps that a deliberate
+ * choice instead of a leftover.
+ */
+const promptForWhatsNew = async (nextVersion: string): Promise<boolean> => {
+  const { show } = await inquirer.prompt<{ show: boolean }>([
+    {
+      type: "confirm",
+      name: "show",
+      message: `Open the what's-new page for users installing or updating to v${nextVersion}?`,
+      default: false
+    }
+  ])
+
+  return show
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // Release flows
 // ────────────────────────────────────────────────────────────────────────────
@@ -393,11 +471,15 @@ const releaseAddon = async (bumpType: BumpType, args: Args): Promise<void> => {
   // store (1.15.1 and 1.15.2 were published from this source without a bump landing here), so
   // "patch" from 1.15.0 collides with a version that is already live.
   const nextVersion = resolveTargetVersion(currentVersion, bumpType, args.version)
+  // Resolved before the banner so the banner states the what's-new behaviour instead of promising it
+  // later. `--whats-new`/`--no-whats-new` answers for scripted releases; otherwise ask.
+  const showWhatsNew = args.whatsNew ?? (await promptForWhatsNew(nextVersion))
 
   console.log("\n========================================")
   console.log("  The Wall Addon - Release")
   console.log("========================================")
   console.log(`  ${currentVersion} -> ${nextVersion}`)
+  console.log(`  What's new page: ${showWhatsNew ? "ON" : "OFF"}`)
   console.log("========================================\n")
 
   // Step 1: tests. `--skip-tests` decides it without a prompt; otherwise ask, as before.
@@ -417,15 +499,15 @@ const releaseAddon = async (bumpType: BumpType, args: Args): Promise<void> => {
   }
 
   if (runTests) {
-    console.log("[1/4] Running addon tests...")
+    console.log("[1/5] Running addon tests...")
     if (!args.dryRun) run("pnpm test:addon")
   } else {
     // Loud, not quiet: an untested release is a fact the transcript should carry.
-    console.log("[1/4] SKIPPING TESTS (--skip-tests)")
+    console.log("[1/5] SKIPPING TESTS (--skip-tests)")
   }
 
   // Step 2: Bump version in package.json
-  console.log("\n[2/4] Bumping version...")
+  console.log("\n[2/5] Bumping version...")
   const raw = readFileSync(ADDON_PKG_PATH, "utf-8")
   const pkg = JSON.parse(raw) as Record<string, unknown>
 
@@ -443,19 +525,28 @@ const releaseAddon = async (bumpType: BumpType, args: Args): Promise<void> => {
     console.log(`  Updated ${ADDON_PKG_PATH}`)
   }
 
-  // Step 3: Build + package all browsers
-  console.log("\n[3/4] Building and packaging all browsers...")
+  // Step 3: Write the what's-new flag into the source, before the build reads it.
+  console.log("\n[3/5] Setting what's-new flag...")
+  if (args.dryRun) {
+    console.log(`  (dry run) would set SHOULD_SHOW_WHATSNEW = ${showWhatsNew} in ${ADDON_WHATSNEW_PATH}`)
+  } else {
+    writeWhatsNewFlag(showWhatsNew)
+  }
+
+  // Step 4: Build + package all browsers
+  console.log("\n[4/5] Building and packaging all browsers...")
   if (args.dryRun) {
     console.log("  (dry run) would run: pnpm --filter @theWallProject/addon run package")
   } else {
     run("pnpm --filter @theWallProject/addon run package")
   }
 
-  // Step 4: Open browser store dashboards for upload
-  const CHROME_DASHBOARD = "https://chrome.google.com/u/1/webstore/devconsole/d286da10-f0e5-4eca-bb9e-e79fa3c8e029/kocebhffdnlgdahkbfeopdokcoikipam/edit/package"
+  // Step 5: Open browser store dashboards for upload
+  const CHROME_DASHBOARD =
+    "https://chrome.google.com/u/1/webstore/devconsole/d286da10-f0e5-4eca-bb9e-e79fa3c8e029/kocebhffdnlgdahkbfeopdokcoikipam/edit/package"
   const FIREFOX_DASHBOARD = "https://addons.mozilla.org/en-US/developers/addon/the-wall-boycott-assistant/edit"
 
-  console.log("\n[4/4] Opening store dashboards...")
+  console.log("\n[5/5] Opening store dashboards...")
   console.log(`  Chrome: ${CHROME_DASHBOARD}`)
   console.log(`  Firefox: ${FIREFOX_DASHBOARD}`)
 
@@ -476,11 +567,8 @@ const releaseAddon = async (bumpType: BumpType, args: Args): Promise<void> => {
   console.log(args.dryRun ? "  Addon release DRY RUN — nothing written" : "  Addon release complete!")
   console.log("========================================")
   console.log(`  Version: v${nextVersion}`)
-  console.log(
-    args.dryRun
-      ? "  Packages: none (dry run)"
-      : "  Packages built for: Chrome, Firefox, Edge, Opera"
-  )
+  console.log(`  What's new page: ${showWhatsNew ? "ON" : "OFF"}`)
+  console.log(args.dryRun ? "  Packages: none (dry run)" : "  Packages built for: Chrome, Firefox, Edge, Opera")
   console.log("========================================\n")
 }
 
@@ -497,13 +585,11 @@ const releaseAndroid = async (bumpType: BumpType): Promise<void> => {
   console.log(`  Delegating to release.sh --bump ${bumpType}`)
   console.log("========================================\n")
 
-  run(
-    `pnpm --filter @theWallProject/android release:${bumpType}`,
-    ROOT
-  )
+  run(`pnpm --filter @theWallProject/android release:${bumpType}`, ROOT)
 
   // Open Play Console for upload
-  const PLAY_CONSOLE = "https://play.google.com/console/u/1/developers/8180178620581983549/app/4973169596895167459/tracks/open-testing"
+  const PLAY_CONSOLE =
+    "https://play.google.com/console/u/1/developers/8180178620581983549/app/4973169596895167459/tracks/open-testing"
 
   console.log("\nOpening Play Console...")
   console.log(`  ${PLAY_CONSOLE}`)
@@ -543,9 +629,11 @@ const main = async (): Promise<void> => {
   const target = resolveTargetVersion(currentVersion, bumpType, args.version)
 
   if (args.dryRun) {
+    const whatsNew = args.whatsNew === undefined ? "asked during the release" : args.whatsNew ? "ON" : "OFF"
     console.log(
       `DRY RUN: ${pkg} ${currentVersion} -> ${target}, ` +
-        `tests ${args.skipTests ? "SKIPPED" : "run"}, nothing written.\n`
+        `tests ${args.skipTests ? "SKIPPED" : "run"}, what's-new ${pkg === "addon" ? whatsNew : "n/a"}, ` +
+        `nothing written.\n`
     )
   }
 
@@ -565,12 +653,7 @@ const main = async (): Promise<void> => {
 
 main().catch((err: unknown) => {
   // Graceful exit on Ctrl+C / closed prompt
-  if (
-    err &&
-    typeof err === "object" &&
-    "name" in err &&
-    err.name === "ExitPromptError"
-  ) {
+  if (err && typeof err === "object" && "name" in err && err.name === "ExitPromptError") {
     console.log("\nAborted.")
     process.exit(0)
   }

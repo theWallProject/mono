@@ -95,8 +95,8 @@ export async function setSettings(
 /**
  * Verify storage state.
  *
- * Compares deeply: storage values include arrays (e.g. whats_new_shown_versions) and
- * objects, which can never be equal by reference to a freshly built expected value.
+ * Compares deeply: storage values include arrays and objects (sorted database lists, cached
+ * dismissal sets), which can never be equal by reference to a freshly built expected value.
  * A shallow `!==` made every such assertion fail regardless of stored content.
  */
 export async function verifyStorage(
@@ -133,11 +133,7 @@ export async function verifyStorage(
  * Distinct from verifyStorage with an `undefined` expectation: that compares the value, and
  * a missing key reads as undefined, so it cannot tell "absent" from "explicitly undefined".
  */
-export async function hasStorageKey(
-  context: BrowserContext,
-  extensionId: string,
-  key: string
-): Promise<boolean> {
+export async function hasStorageKey(context: BrowserContext, extensionId: string, key: string): Promise<boolean> {
   const page = await context.newPage()
   try {
     const popupUrl = getExtensionPopupUrl(extensionId)

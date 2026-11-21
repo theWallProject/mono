@@ -1,16 +1,33 @@
+import { readFileSync } from "fs"
+import path from "path"
 import type { BrowserContext } from "playwright"
 import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
+import { SHOULD_SHOW_WHATSNEW } from "../../src/whatsNew"
 import { getRandomResult } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
-import {
-  gotoUrlWithBanner,
-  isBannerDisplayed,
-  navigateToUrl,
-  waitForExtensionProcessing
-} from "../utils/extension"
-import { getStorageValue, clearAllStorage } from "../utils/storage"
-import { WHATS_NEW_SHOWN_VERSIONS_KEY } from "../../src/storageHelpers"
+import { gotoUrlWithBanner, isBannerDisplayed, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
+import { clearAllStorage } from "../utils/storage"
+
+/**
+ * The version the browser actually loaded, read from the built manifest rather than package.json:
+ * tests run against build/chrome-mv3-prod, which can lag a bump.
+ */
+const readBuiltVersion = (): string => {
+  const parsed: unknown = JSON.parse(
+    readFileSync(path.resolve(__dirname, "../../build/chrome-mv3-prod/manifest.json"), "utf-8")
+  )
+  if (typeof parsed !== "object" || parsed === null || !("version" in parsed)) {
+    throw new Error("build/chrome-mv3-prod/manifest.json has no version — build the extension first")
+  }
+  const version = parsed.version
+  if (typeof version !== "string" || version.length === 0) {
+    throw new Error("build/chrome-mv3-prod/manifest.json has an empty version")
+  }
+  return version
+}
+
+const builtVersion = readBuiltVersion()
 
 describe("Background Script", () => {
   let context: BrowserContext
@@ -130,44 +147,28 @@ describe("Background Script", () => {
     }
   })
 
-  it("should open what's new page on first install", async () => {
-    // Clear storage to simulate fresh install
-    await clearAllStorage(context, extensionId)
-
-    // Wait a bit for extension to process install event
+  it("opens what's new only when this build enables it", async () => {
+    // A fresh profile is a first install, so onInstalled runs with reason "install". Whether that
+    // opens tabs/whats-new.html is the build-time flag in src/whatsNew.ts. Assert that the extension
+    // agrees with the flag rather than hardcoding either outcome, so a bump can never leave this
+    // test asserting a behaviour the build does not have.
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    // Check if what's new page was opened. Assert on the URL string, never on the Page
-    // object: a failing `toBeDefined()`/`toBeUndefined()` on a Playwright Page makes the
-    // reporter serialise the whole object graph and crash with "Invalid string length".
-    const pageUrls = context.pages().map((p) => p.url())
-    const whatsNewUrls = pageUrls.filter((url) => url.includes("whats-new.html"))
+    // Assert on URL strings, never on the Page objects: serialising a Playwright Page in a failure
+    // message crashes the reporter with "Invalid string length". One expect, computed up front: a
+    // conditional expect would make the report depend on which branch ran.
+    const whatsNewUrls = context
+      .pages()
+      .map((p) => p.url())
+      .filter((url) => url.includes("whats-new.html"))
 
-    expect(whatsNewUrls.length).toBeGreaterThan(0)
-    expect(whatsNewUrls[0]).toContain("whats-new.html")
-  })
-
-  it("records the shown version so the page is not offered again", async () => {
-    // Every test here launches a fresh browser profile, so each one is literally a first
-    // install and the what's-new page always opens. Asserting "no page on a subsequent run"
-    // is therefore not provable in this harness.
-    //
-    // What is provable, and what actually prevents a re-show, is the marker the extension
-    // writes after opening the page: whats_new_shown_versions. A later install/update checks
-    // that list before opening anything.
-    const currentVersion = "1.15.0"
-
-    const deadline = Date.now() + 5000
-    let shownVersions: unknown = undefined
-    while (Date.now() < deadline) {
-      shownVersions = await getStorageValue(context, extensionId, WHATS_NEW_SHOWN_VERSIONS_KEY)
-      if (Array.isArray(shownVersions) && shownVersions.includes(currentVersion)) {
-        break
-      }
-      await new Promise((resolve) => setTimeout(resolve, 200))
+    const observed = {
+      opened: whatsNewUrls.length > 0,
+      versionInUrl: whatsNewUrls.some((url) => url.includes(`to=${encodeURIComponent(builtVersion)}`))
     }
 
-    expect(Array.isArray(shownVersions)).toBe(true)
-    expect(shownVersions).toContain(currentVersion)
+    // Expected outcome is the flag itself, not a branch on it: a literal `false` in the ternary made
+    // the rule (correctly) call one side dead code.
+    expect(observed).toEqual({ opened: SHOULD_SHOW_WHATSNEW, versionInUrl: SHOULD_SHOW_WHATSNEW })
   })
 })
