@@ -10,4 +10,4 @@
  * /^export const SHOULD_SHOW_WHATSNEW = (true|false)$/m and refuses to release when it finds nothing
  * to rewrite. `tests/unit/whatsNewFlag.test.ts` enforces the same shape.
  */
-export const SHOULD_SHOW_WHATSNEW = true
+export const SHOULD_SHOW_WHATSNEW = false

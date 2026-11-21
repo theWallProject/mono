@@ -359,7 +359,7 @@ function WhatsNew() {
 
         <footer className={`${styles.footer} ${styles.tiltLeftSoft}`}>
           <p className={styles.footerKicker}>Elsewhere</p>
-          <h2 className={styles.footerTitle}>Follow, or tell us off.</h2>
+          <h2 className={styles.footerTitle}>Share the addon, or tell us off.</h2>
           <div className={styles.socialRow}>
             <button
               className={styles.socialTile}
