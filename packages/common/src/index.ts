@@ -309,6 +309,60 @@ export const CONFIG: APIEndpointConfig = {
 }
 
 /**
+ * Hosts that belong to a platform, not to any one company.
+ *
+ * A company's `ws` is a domain, and the website matcher matches apex-then-subdomain, so a row
+ * holding one of these hosts blocks every customer page on the platform. Real damage already
+ * shipped: `https://www.etsy.com/il-en/shop/SophiaFineJewelry` collapsed to `etsy.com` and
+ * `https://linktr.ee/mt.wraps` collapsed to `linktr.ee`, each blocking the whole platform for
+ * every user.
+ *
+ * A profile URL on one of these hosts is not a website: it goes in `urls`, and the company is
+ * flagged through its own social selectors or its real domain.
+ */
+export const SHARED_HOSTS = [
+  "linktr.ee",
+  "linkin.bio",
+  "beacons.ai",
+  "bio.link",
+  "taplink.cc",
+  "carrd.co",
+  "stan.store",
+  "withkoji.com",
+  "etsy.com",
+  "wixsite.com",
+  "sites.google.com",
+  "business.site",
+  "blogspot.com",
+  "wordpress.com",
+  "medium.com",
+  "substack.com",
+  "notion.site",
+  "github.io",
+  "gitlab.io",
+  "netlify.app",
+  "vercel.app",
+  "webflow.io",
+  "myshopify.com",
+  "square.site",
+  "godaddysites.com",
+  "weebly.com",
+  "jimdosite.com",
+  "strikingly.com",
+  "foundr.com"
+] as const
+
+/**
+ * True when `domain` is a bare shared host (a platform root), meaning every customer page on that
+ * platform would match it. Subdomains of a shared host are fine: `hadarkeidar.wixsite.com` is one
+ * site, while `wixsite.com` is all of them.
+ */
+export function isSharedHost(domain: string): boolean {
+  const normalized = domain.toLowerCase().replace(/^www\./, "").replace(/\.$/, "")
+  return SHARED_HOSTS.some((host) => host === normalized)
+}
+
+/**
  * Extracts the main domain from a given URL.
  *
  * Returns "" when the URL cannot be understood, and that is load-bearing: callers treat an empty

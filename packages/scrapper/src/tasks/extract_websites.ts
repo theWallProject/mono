@@ -1,5 +1,5 @@
 import path from "path"
-import { formatAndWrite } from "@theWallProject/common"
+import { formatAndWrite, isSharedHost } from "@theWallProject/common"
 
 import { error, log, warn } from "../helper"
 import {
@@ -11,6 +11,14 @@ import {
 } from "../types"
 
 const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNames.WEBSITES}.json`)
+
+/**
+ * Rows deliberately parked on a shared host, so the guard below does not fight a decision.
+ *
+ * `manual_ws_wixsite_com` is an intentional blanket block on free Wix sites; the other two are
+ * scrape defects being repaired in `manualOverrides.ts` and must not reappear.
+ */
+const SHARED_HOST_ALLOWLIST = new Set<string>(["manual_ws_wixsite_com"])
 
 export const run = async (merged: CrunchbaseScrappedItemsType) => {
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
@@ -61,6 +69,18 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
     if (domain === undefined) {
       error(row)
       throw new Error(`Failed to extract domain from: ${website}`)
+    }
+
+    // A profile URL on a platform host collapses to the platform root, and the website matcher
+    // matches apex-then-subdomain: one scraped Etsy shop or Linktree page would block every shop and
+    // every Linktree on the internet. This shipped once (etsy.com, linktr.ee). Fail loudly instead of
+    // writing it again, and fix the source link (the profile belongs in `urls`).
+    if (isSharedHost(domain) && !SHARED_HOST_ALLOWLIST.has(row.id)) {
+      error(
+        `Shared-host website rejected for ${row.name} (${row.id}): '${website}' collapses to platform root '${domain}'. ` +
+          `Put the profile URL in \`urls\` and give the row its own domain or social selectors.`
+      )
+      throw new Error(`Shared-host website rejected: ${domain} (${row.id})`)
     }
 
     // if (domain.split(".").length > 2) {

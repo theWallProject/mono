@@ -15,9 +15,40 @@ import {
   findInDatabaseBySelector,
   getMainDomain,
   getRegisteredDomain,
+  isSharedHost,
+  SHARED_HOSTS,
   FinalDBFileSchema,
   type FinalDBFileType
 } from "./index"
+
+describe("isSharedHost", () => {
+  it("treats a bare platform root as shared", () => {
+    expect(isSharedHost("linktr.ee")).toBe(true)
+    expect(isSharedHost("etsy.com")).toBe(true)
+    expect(isSharedHost("wixsite.com")).toBe(true)
+  })
+
+  it("normalises case and a leading www", () => {
+    expect(isSharedHost("WWW.Etsy.com")).toBe(true)
+    expect(isSharedHost("etsy.com.")).toBe(true)
+  })
+
+  it("leaves a customer subdomain alone", () => {
+    // hadarkeidar.wixsite.com is one site; wixsite.com is every free Wix site.
+    expect(isSharedHost("hadarkeidar.wixsite.com")).toBe(false)
+    expect(isSharedHost("mt.wraps.linktr.ee")).toBe(false)
+  })
+
+  it("does not flag an ordinary company domain", () => {
+    expect(isSharedHost("wix.com")).toBe(false)
+    expect(isSharedHost("cellebrite.com")).toBe(false)
+  })
+
+  it("covers the two hosts that actually shipped as a block-everything row", () => {
+    expect(SHARED_HOSTS).toContain("linktr.ee")
+    expect(SHARED_HOSTS).toContain("etsy.com")
+  })
+})
 
 /**
  * Helper function to test if a URL matches a regex pattern and extracts the ID
