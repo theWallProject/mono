@@ -21140,6 +21140,15 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/empiricalhire"],
     _meta: { isHomepage: true }
   },
+  "Empowerment Software Solutions": {
+    ws: [],
+    li: ["https://www.linkedin.com/company/ess-empowermentsoftwaresolutions"],
+    fb: ["https://www.facebook.com/EmpowermentSoftwareSolutions"],
+    urls: [
+      "https://sites.google.com/ess.org.il/ess/%D7%9E%D7%A9%D7%A8%D7%95%D7%AA"
+    ],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Encer: {
     ws: ["https://www.encer.life", "https://encer.store"],
     li: ["https://www.linkedin.com/company/encer-ltd"],
@@ -42865,6 +42874,12 @@ export const manualOverrides: Record<
     urls: ["https://www.pinterest.com/MrFreeTools"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "mt wraps": {
+    ws: [],
+    li: ["https://www.linkedin.com/company/mt-wraps"],
+    urls: ["https://linktr.ee/mt.wraps"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Muhni: {
     ws: ["https://muhni.co.il"],
     fb: ["https://www.facebook.com/muhni.israel"],
@@ -46053,6 +46068,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/sonicodeeo"],
     urls: ["https://blog.odeeo.io", "https://www.kalungi.com/atlas-hubspot-theme-for-b2b-saas-software"],
     _meta: { isHomepage: true, isVerified: true }
+  },
+  odemland: {
+    ws: [],
+    li: ["https://www.linkedin.com/company/odemland"],
+    urls: ["https://linktr.ee/odemland"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   Odigos: {
     ws: ["https://odigos.io"],
@@ -61277,6 +61298,14 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   SonicEdge: { ws: ["https://sonicedge.io"], _meta: { isHomepage: true, isVerified: true } },
+  "Sophia Fine Jewelry": {
+    ws: [],
+    fb: ["https://www.facebook.com/SophiaFineJewelry"],
+    li: ["https://www.linkedin.com/company/sophiafinejewelry"],
+    tw: ["https://x.com/sophiajewelry1"],
+    urls: ["https://www.etsy.com/il-en/shop/SophiaFineJewelry"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Sonigo: {
     ws: ["https://www.sonigo.com"],
     fb: ["https://www.facebook.com/sonigo.quality.worldwide.moving"],
@@ -63917,6 +63946,12 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@tlv2go_apartments"],
     urls: ["https://www.dreamzone.co.il", "https://www.pinterest.com/tlv2go/_saved"],
     _meta: { isHomepage: true, isVerified: true }
+  },
+  "TMI Systems": {
+    ws: [],
+    li: ["https://www.linkedin.com/company/tmi-systems-pcb-design"],
+    urls: ["https://sites.google.com/view/tmisystems/home"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   "TMT Investments": {
     ws: ["https://tmtinvestments.com"],
@@ -72659,6 +72694,12 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/webox.cloud.services"],
     urls: ["https://cbs.weboxcloud.com/cbs/Logon.do", "https://login.microsoftonline.com"],
     _meta: { isHomepage: true, isVerified: true }
+  },
+  "webshed ai": {
+    ws: [],
+    li: ["https://www.linkedin.com/company/webshed-ai"],
+    urls: ["https://webshed.co.il"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Webs Internet Solutions": {
     ws: ["https://www.webs.co.il", "https://clientswebs.ussl.co.il"],

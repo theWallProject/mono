@@ -400,6 +400,16 @@ const loadJsonFiles = async (folderPath: string) => {
             field
           )
 
+          // An empty array means "this row has no website". It is the only way an override can clear
+          // a scraped `ws` that must not ship — e.g. a profile URL on a platform host, which collapses
+          // to the platform root and blocks every customer page there (see isSharedHost).
+          if (dedupedUrls.length === 0) {
+            if (overrideValue.length === 0) {
+              log(`Cleared ${field} for ${updatedRow.name} (empty override array)`)
+              setField(updatedRow, field, undefined)
+            }
+          }
+
           // Update original with first element
           if (dedupedUrls.length > 0) {
             const firstUrl = dedupedUrls[0]
