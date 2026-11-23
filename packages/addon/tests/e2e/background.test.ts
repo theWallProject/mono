@@ -3,7 +3,7 @@ import path from "path"
 import type { BrowserContext } from "playwright"
 import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
-import { SHOULD_SHOW_WHATSNEW } from "../../src/whatsNew"
+import { WHATS_NEW_PAGE_ID } from "../../src/whatsNew"
 import { getRandomResult } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { gotoUrlWithBanner, isBannerDisplayed, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
@@ -162,6 +162,6 @@ describe("Background Script", () => {
 
     expect(whatsNewUrls).toEqual([])
     // The build still has to carry the page, or there would be nothing to open later.
-    expect(SHOULD_SHOW_WHATSNEW).toBe(true)
+    expect(WHATS_NEW_PAGE_ID.length).toBeGreaterThan(0)
   })
 })

@@ -1,11 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 
-import {
-  SHOULD_SHOW_WHATSNEW,
-  WHATS_NEW_PAGE_ID,
-  WHATS_NEW_PAGE_VERSION,
-  WHATS_NEW_SEEN_KEY
-} from "../../src/whatsNew"
+import { readFileSync } from "fs"
+import path from "path"
+
+import { WHATS_NEW_PAGE_ID, WHATS_NEW_SEEN_KEY } from "../../src/whatsNew"
+
+const source = readFileSync(path.resolve(__dirname, "../../src/whatsNew.ts"), "utf-8")
 
 /**
  * Behavioural tests for the "what's new" gate in `src/background.ts`.
@@ -172,9 +172,8 @@ describe("what's new gate", () => {
   })
 
   describe("constants", () => {
-    it("keeps a non-empty page id and a semver page version", () => {
+    it("keeps a non-empty page id and storage key", () => {
       expect(WHATS_NEW_PAGE_ID.length).toBeGreaterThan(0)
-      expect(WHATS_NEW_PAGE_VERSION).toMatch(/^\d+\.\d+\.\d+$/)
       expect(WHATS_NEW_SEEN_KEY.length).toBeGreaterThan(0)
     })
 
@@ -183,8 +182,10 @@ describe("what's new gate", () => {
       expect(WHATS_NEW_SEEN_KEY).toMatch(/^[a-z0-9_]+$/)
     })
 
-    it("ships the page-carrying switch as a boolean literal", () => {
-      expect(typeof SHOULD_SHOW_WHATSNEW).toBe("boolean")
+    it("has no build-time page switch to fall out of sync", () => {
+      // The gate decides from the stored id alone; a flag here would be a second answer to the same
+      // question and could disagree with the ids.
+      expect(source).not.toMatch(/SHOULD_SHOW_WHATSNEW/)
     })
   })
 
@@ -262,26 +263,16 @@ describe("what's new gate", () => {
       expect(stored[WHATS_NEW_SEEN_KEY]).toBe(WHATS_NEW_PAGE_ID)
     })
 
-    it("passes the previous id as `from` and the page version as `to`", async () => {
+    it("passes the previous id as `from` and the build version as `to`", async () => {
       stored[WHATS_NEW_SEEN_KEY] = "older-page"
       await loadBackground()
       await fireInstall("update", "1.15.3")
 
       const url = new URL(String(openedTabs[0]?.url))
       expect(url.searchParams.get("from")).toBe("older-page")
-      expect(url.searchParams.get("to")).toBe(WHATS_NEW_PAGE_VERSION)
       expect(url.searchParams.get("page")).toBe(WHATS_NEW_PAGE_ID)
-    })
-
-    it("uses the page version, not the installed build version, in `to`", async () => {
-      stored[WHATS_NEW_SEEN_KEY] = "older-page"
-      await loadBackground()
-      await fireInstall("update", "1.15.3")
-
-      const url = new URL(String(openedTabs[0]?.url))
-      // getManifest() reports 9.9.9 in the mock; the page must still be labelled with its own version.
-      expect(url.searchParams.get("to")).not.toBe("9.9.9")
-      expect(url.searchParams.get("to")).toBe(WHATS_NEW_PAGE_VERSION)
+      // The mock manifest reports 9.9.9: the label has to come from there, not from a copy.
+      expect(url.searchParams.get("to")).toBe("9.9.9")
     })
 
     it("shows a skipped release: an installation two pages behind still gets the current one", async () => {
@@ -393,24 +384,11 @@ describe("what's new gate", () => {
     })
   })
 
-  describe("switch off", () => {
-    it("opens nothing and writes nothing when the build carries no page", async () => {
-      vi.resetModules()
-      vi.doMock("../../src/whatsNew", async () => {
-        const actual = await vi.importActual<typeof import("../../src/whatsNew")>("../../src/whatsNew")
-        return { ...actual, SHOULD_SHOW_WHATSNEW: false }
-      })
-
-      stored[WHATS_NEW_SEEN_KEY] = "older-page"
-      await import("../../src/background")
-      await fireInstall("update", "1.15.3")
-      await fireStartup()
-
-      expect(openedTabs).toEqual([])
-      expect(pageIdWrites()).toEqual([])
-      expect(stored[WHATS_NEW_SEEN_KEY]).toBe("older-page")
-
-      vi.doUnmock("../../src/whatsNew")
+  describe("no page switch", () => {
+    it("has nothing to switch off: the stored id is the only input", () => {
+      // Documented as an assertion because the removal of the build-time flag is the point: removing
+      // it means no build can disagree with the ids about whether a page exists.
+      expect(source).not.toMatch(/SHOULD_SHOW_WHATSNEW/)
     })
   })
 })

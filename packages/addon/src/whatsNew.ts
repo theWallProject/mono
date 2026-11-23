@@ -2,12 +2,16 @@
  * The "what's new" page: which page this build carries, and the per-installation marker that
  * makes each page open at most once.
  *
- * The old design used a build-time boolean and opened the page on every `onInstalled`. That made
- * "has this user seen it" equal "did this build fire onInstalled", so a hotfix re-opened the page
- * for everyone, and a user who skipped the release never saw it at all.
+ * There is deliberately no build-time switch and no page-specific version.
  *
- * So the identity of the *page* is what gets stored, never the version of the build that shipped
- * it. A hotfix keeps `WHATS_NEW_PAGE_ID` and is invisible to a user who already has that marker.
+ *  - The current build version is not duplicated here; it comes from `package.json` through the
+ *    manifest, so a bump can never leave the page labelled with a stale version.
+ *  - Whether this build carries a page is not answered by a second flag either. It is derived from
+ *    whether {@link WHATS_NEW_PAGE_ID} changed: an unchanged id means this release ships no page and
+ *    an existing installation therefore sees nothing.
+ *
+ * The identity stored per installation is the page id, never a version. That is what lets a hotfix
+ * stay silent while a user who skipped the release carrying a page still gets it later.
  */
 
 /**
@@ -17,18 +21,5 @@
  */
 export const WHATS_NEW_PAGE_ID = "2026-11-boycott-assistant"
 
-/** The version this page describes, shown in the masthead instead of the current build version. */
-export const WHATS_NEW_PAGE_VERSION = "1.16.0"
-
 /** Where the last page id this installation has seen is stored. */
 export const WHATS_NEW_SEEN_KEY = "whats_new_seen_id"
-
-/**
- * Whether this build carries a page at all.
- *
- * `scripts/release.ts` rewrites the line below on every release, so it must stay a literal
- * `true`/`false` on exactly this line: the script matches
- * /^export const SHOULD_SHOW_WHATSNEW = (true|false)$/m and refuses to release when it finds
- * nothing to rewrite. `tests/unit/whatsNewFlag.test.ts` enforces the same shape.
- */
-export const SHOULD_SHOW_WHATSNEW = true

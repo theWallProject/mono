@@ -4,12 +4,7 @@ import { error, getVisitorId, log, warn } from "./helpers"
 import { isUrlFlagged } from "./storage"
 import { getLocalStorageItem, setLocalStorageItem } from "./storageHelpers"
 import { MessageTypes, type Message, type MessageResponseMap, type SendResponse } from "./types"
-import {
-  SHOULD_SHOW_WHATSNEW,
-  WHATS_NEW_PAGE_ID,
-  WHATS_NEW_PAGE_VERSION,
-  WHATS_NEW_SEEN_KEY
-} from "./whatsNew"
+import { WHATS_NEW_PAGE_ID, WHATS_NEW_SEEN_KEY } from "./whatsNew"
 
 chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)
@@ -58,7 +53,7 @@ chrome.runtime.onStartup.addListener(() => {
   // Retry path for the what's-new page. `onInstalled` fires once per update and writes no marker
   // when the tab could not be created, so without this a browser restarted before the tab opened
   // would lose the page for good. The marker makes it still open at most once per installation.
-  if (SHOULD_SHOW_WHATSNEW) void openWhatsNewIfUnseen()
+  void openWhatsNewIfUnseen()
 })
 
 /**
@@ -88,11 +83,6 @@ async function configureUninstallUrl(): Promise<void> {
  * Seeds, or opens, the "what's new" page this build carries.
  */
 function maybeOpenWhatsNew(details: chrome.runtime.InstalledDetails): void {
-  if (!SHOULD_SHOW_WHATSNEW) {
-    log("background:whats-new off for this build, skipping")
-    return
-  }
-
   if (details.reason !== "install" && details.reason !== "update") {
     log(`background:whats-new skipped for reason [${details.reason}]`)
     return
@@ -131,12 +121,15 @@ async function openWhatsNewIfUnseen(): Promise<void> {
 
     const url = new URL(chrome.runtime.getURL("tabs/whats-new.html"))
     url.searchParams.set("from", String(seen))
-    url.searchParams.set("to", WHATS_NEW_PAGE_VERSION)
+    // The label comes from the build itself, through the manifest, so it cannot drift from the
+    // version in package.json. Nothing else in the extension keeps its own copy of the version.
+    const version = chrome.runtime.getManifest().version
+    url.searchParams.set("to", version)
     url.searchParams.set("page", WHATS_NEW_PAGE_ID)
 
     await chrome.tabs.create({ url: url.toString(), active: false })
     await setLocalStorageItem(WHATS_NEW_SEEN_KEY, WHATS_NEW_PAGE_ID)
-    log(`background:whats-new opened page [${WHATS_NEW_PAGE_ID}] version [${WHATS_NEW_PAGE_VERSION}]`)
+    log(`background:whats-new opened page [${WHATS_NEW_PAGE_ID}] version [${version}]`)
   } catch (e) {
     // No marker is written on failure, so the next startup tries again rather than silently
     // treating the page as delivered.

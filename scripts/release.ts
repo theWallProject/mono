@@ -2,8 +2,8 @@
  * Top-level release command for The Wall monorepo.
  *
  * Orchestrates a release for one package:
- *   - addon:   ask whether this build opens the what's new page, bump the version, run tests,
- *              write that flag into packages/addon/src/whatsNew.ts, build + package all browsers
+ *   - addon:   derive whether this build ships a new what's-new page from its page id, bump the
+ *              version, run tests, build + package all browsers
  *   - android: delegate to the existing release.sh script
  *
  * **Two modes, same code path.**
@@ -172,50 +172,54 @@ const readPackageVersion = (pkg: Package): string => {
  * quietly rewriting a declaration that had been reworded would make the release lie about what it
  * shipped. No match — throw.
  */
-const WHATSNEW_FLAG_PATTERN = /^export const SHOULD_SHOW_WHATSNEW = (true|false)$/m
+const WHATSNEW_PAGE_ID_PATTERN = /^export const WHATS_NEW_PAGE_ID = "([^"]+)"$/m
 
-const readWhatsNewFlag = (): boolean => {
+/**
+ * The page id this working tree carries.
+ *
+ * Anchored and single-line on purpose: the file carries a long comment above the declaration, and a
+ * declaration that had been reworded would make the release lie about what it shipped. No match —
+ * throw, because "could not read it" must never be treated as "no page".
+ */
+const readWhatsNewPageId = (): string => {
   const raw = readFileSync(ADDON_WHATSNEW_PATH, "utf-8")
-  const match = raw.match(WHATSNEW_FLAG_PATTERN)
+  const match = raw.match(WHATSNEW_PAGE_ID_PATTERN)
   if (!match || match[1] === undefined) {
     throw new Error(
-      `Could not read SHOULD_SHOW_WHATSNEW from ${ADDON_WHATSNEW_PATH}. ` +
-        "The flag must stay a literal `export const SHOULD_SHOW_WHATSNEW = true|false` on one line."
+      `Could not read WHATS_NEW_PAGE_ID from ${ADDON_WHATSNEW_PATH}. ` +
+        'The id must stay a literal `export const WHATS_NEW_PAGE_ID = "..."` on one line.'
     )
   }
-  return match[1] === "true"
+  return match[1]
+}
+
+/** The page id committed at HEAD, or null when the file did not exist then. */
+const readCommittedWhatsNewPageId = (): string | null => {
+  try {
+    const raw = execSync(`git show HEAD:packages/addon/src/whatsNew.ts`, {
+      cwd: ROOT,
+      encoding: "utf-8",
+      stdio: ["ignore", "pipe", "ignore"]
+    })
+    const match = raw.match(WHATSNEW_PAGE_ID_PATTERN)
+    return match?.[1] ?? null
+  } catch {
+    return null
+  }
 }
 
 /**
- * Writes the flag and reads it back.
+ * Whether this release ships a new page.
  *
- * Write-then-verify instead of trusting the replacement: the release's whole claim is "this build
- * will open the page", and a regex that matched but produced something else would break that
- * silently. If the read-back disagrees the release stops before building anything.
+ * This is derived, not declared: a page is "new" exactly when its id differs from the id committed
+ * at HEAD. An unchanged id means the build carries the same page an earlier release already
+ * shipped, so an existing installation sees nothing — which is the hotfix case. There is no second
+ * flag to keep in sync with this, and nothing to forget to reset.
  */
-const writeWhatsNewFlag = (show: boolean): void => {
-  const raw = readFileSync(ADDON_WHATSNEW_PATH, "utf-8")
-  if (!WHATSNEW_FLAG_PATTERN.test(raw)) {
-    throw new Error(
-      `Could not find SHOULD_SHOW_WHATSNEW in ${ADDON_WHATSNEW_PATH}; refusing to release ` +
-        `a build whose what's-new behaviour it cannot promise.`
-    )
-  }
-
-  const updated = raw.replace(WHATSNEW_FLAG_PATTERN, `export const SHOULD_SHOW_WHATSNEW = ${show}`)
-  if (updated === raw) {
-    console.log(`  SHOULD_SHOW_WHATSNEW already ${show} — unchanged`)
-  } else {
-    writeFileSync(ADDON_WHATSNEW_PATH, updated, "utf-8")
-  }
-
-  if (readWhatsNewFlag() !== show) {
-    throw new Error(
-      `Wrote SHOULD_SHOW_WHATSNEW = ${show} to ${ADDON_WHATSNEW_PATH} but reading it back ` +
-        `returned a different value. Refusing to continue.`
-    )
-  }
-  console.log(`  SHOULD_SHOW_WHATSNEW = ${show}`)
+const shipsNewWhatsNewPage = (): boolean => {
+  const committed = readCommittedWhatsNewPageId()
+  const working = readWhatsNewPageId()
+  return committed !== working
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -249,13 +253,12 @@ type Args = {
   version?: string
   skipTests: boolean
   /** Open the what's-new page for this build. Asked every release; never inherited from last time. */
-  whatsNew?: boolean
   yes: boolean
   dryRun: boolean
 }
 
 const USAGE = `usage: pnpm release [--package addon|android] [--bump patch|minor|major]
-                    [--version X.Y.Z] [--skip-tests] [--whats-new|--no-whats-new]
+                    [--version X.Y.Z] [--skip-tests]
                     [--yes] [--dry-run]
 
 With no flags the script asks interactively, exactly as before.`
@@ -310,12 +313,6 @@ const parseArgs = (argv: string[]): Args => {
       case "--skip-tests":
         args.skipTests = true
         break
-      case "--whats-new":
-        args.whatsNew = true
-        break
-      case "--no-whats-new":
-        args.whatsNew = false
-        break
       case "--yes":
       case "-y":
         args.yes = true
@@ -349,16 +346,6 @@ const parseArgs = (argv: string[]): Args => {
   // between a hurried caller and an untested artifact in a store.
   if (args.skipTests && !args.yes && args.pkg !== undefined) {
     console.error(`--skip-tests requires --yes, which acknowledges the release is untested`)
-    process.exit(2)
-  }
-  // The what's-new decision belongs to the addon only, and a scripted addon release has to state it:
-  // the whole point of the flag is that nobody inherits last release's answer by accident.
-  if (args.whatsNew !== undefined && args.pkg === "android") {
-    console.error(`--whats-new/--no-whats-new only applies to the addon`)
-    process.exit(2)
-  }
-  if (args.pkg === "addon" && args.whatsNew === undefined) {
-    console.error(`A scripted addon release must say --whats-new or --no-whats-new\n\n${USAGE}`)
     process.exit(2)
   }
   return args
@@ -441,26 +428,6 @@ const promptForBumpType = async (pkg: Package, currentVersion: string): Promise<
   return bump
 }
 
-/**
- * Asked on every addon release, never defaulted from the previous answer.
- *
- * The flag is a build-time switch with no per-user memory, so a `true` that survives into a hotfix
- * re-opens the page for people who already saw it. Making it a question keeps that a deliberate
- * choice instead of a leftover.
- */
-const promptForWhatsNew = async (nextVersion: string): Promise<boolean> => {
-  const { show } = await inquirer.prompt<{ show: boolean }>([
-    {
-      type: "confirm",
-      name: "show",
-      message: `Open the what's-new page for users installing or updating to v${nextVersion}?`,
-      default: false
-    }
-  ])
-
-  return show
-}
-
 // ────────────────────────────────────────────────────────────────────────────
 // Release flows
 // ────────────────────────────────────────────────────────────────────────────
@@ -471,15 +438,16 @@ const releaseAddon = async (bumpType: BumpType, args: Args): Promise<void> => {
   // store (1.15.1 and 1.15.2 were published from this source without a bump landing here), so
   // "patch" from 1.15.0 collides with a version that is already live.
   const nextVersion = resolveTargetVersion(currentVersion, bumpType, args.version)
-  // Resolved before the banner so the banner states the what's-new behaviour instead of promising it
-  // later. `--whats-new`/`--no-whats-new` answers for scripted releases; otherwise ask.
-  const showWhatsNew = args.whatsNew ?? (await promptForWhatsNew(nextVersion))
+  // Derived from the page id, not asked and not stored: a changed id is the page, an unchanged id
+  // is a build that ships the same page again and therefore shows nothing.
+  const showWhatsNew = shipsNewWhatsNewPage()
+  const whatsNewPageId = readWhatsNewPageId()
 
   console.log("\n========================================")
   console.log("  The Wall Addon - Release")
   console.log("========================================")
   console.log(`  ${currentVersion} -> ${nextVersion}`)
-  console.log(`  What's new page: ${showWhatsNew ? "ON" : "OFF"}`)
+  console.log(`  What's new page: ${showWhatsNew ? "NEW" : "none (same page id)"} [${whatsNewPageId}]`)
   console.log("========================================\n")
 
   // Step 1: tests. `--skip-tests` decides it without a prompt; otherwise ask, as before.
@@ -525,13 +493,11 @@ const releaseAddon = async (bumpType: BumpType, args: Args): Promise<void> => {
     console.log(`  Updated ${ADDON_PKG_PATH}`)
   }
 
-  // Step 3: Write the what's-new flag into the source, before the build reads it.
-  console.log("\n[3/5] Setting what's-new flag...")
-  if (args.dryRun) {
-    console.log(`  (dry run) would set SHOULD_SHOW_WHATSNEW = ${showWhatsNew} in ${ADDON_WHATSNEW_PATH}`)
-  } else {
-    writeWhatsNewFlag(showWhatsNew)
-  }
+  // Step 3: confirm what the build will say about the page, without writing anything. The page id
+  // is the source of truth and it was already edited by hand in the same commit as the copy.
+  console.log("\n[3/5] Checking what's-new page...")
+  console.log(`  Page id: ${whatsNewPageId}`)
+  console.log(`  This release ships a new page: ${showWhatsNew ? "yes" : "no"}`)
 
   // Step 4: Build + package all browsers
   console.log("\n[4/5] Building and packaging all browsers...")
@@ -629,10 +595,10 @@ const main = async (): Promise<void> => {
   const target = resolveTargetVersion(currentVersion, bumpType, args.version)
 
   if (args.dryRun) {
-    const whatsNew = args.whatsNew === undefined ? "asked during the release" : args.whatsNew ? "ON" : "OFF"
+    const whatsNew = pkg === "addon" && shipsNewWhatsNewPage() ? "NEW page" : "no new page"
     console.log(
       `DRY RUN: ${pkg} ${currentVersion} -> ${target}, ` +
-        `tests ${args.skipTests ? "SKIPPED" : "run"}, what's-new ${pkg === "addon" ? whatsNew : "n/a"}, ` +
+        `tests ${args.skipTests ? "SKIPPED" : "run"}, what's-new ${whatsNew}, ` +
         `nothing written.\n`
     )
   }

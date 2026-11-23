@@ -14,7 +14,6 @@ import wallTexture from "../../assets/images/wall-texture.jpg"
 import wikipediaInfluenceMap from "../../assets/images/wikipedia-influence-map.webp"
 import { getExtensionURL, track, trackPageView } from "../helpers"
 import styles from "../whats-new.module.css"
-import { WHATS_NEW_PAGE_VERSION } from "../whatsNew"
 
 function WhatsNew() {
   useEffect(() => {
@@ -35,10 +34,10 @@ function WhatsNew() {
     trackPageView(`whatsnew_update_${fromUnderscored}_to_${toUnderscored}`)
   }, [])
 
-  // The page is opened as tabs/whats-new.html?from=<old>&to=<page version>&page=<page id>, so the
-  // version shown is the one this page describes — not the build's version. A hotfix that ships this
-  // same page must not relabel it, and reading the version from the manifest is exactly what would.
-  const shownVersion = new URLSearchParams(window.location.search).get("to") || WHATS_NEW_PAGE_VERSION
+  // The page is opened as tabs/whats-new.html?from=<old>&to=<build version>&page=<page id>. The `to`
+  // value is the manifest version of the build that carried this copy, i.e. the same number as
+  // package.json; falling back to the manifest keeps a manually opened page honest too.
+  const shownVersion = new URLSearchParams(window.location.search).get("to") || chrome.runtime.getManifest().version
 
   const handleShare = (platform: string) => {
     const url = "https://the-wall.win"
