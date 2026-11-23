@@ -2232,6 +2232,34 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  "aqua software": {
+    // Scraped URL was hugedomains.com/payment-plan-setup.cfm?d=AquaSw.com — the domain reseller's own
+    // checkout page, which three other startups also appear under. HugeDomains is not in the corpus, and
+    // blocking a reseller's entire site because a customer's name was scraped off its checkout page is
+    // wrong in every direction.
+    ws: [],
+    li: ["https://www.linkedin.com/company/aqua-software"],
+    urls: ["https://www.hugedomains.com/payment-plan-setup.cfm?d=AquaSw.com"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  "Assessing Global Environmental Risks (AGER)": {
+    // Scraped URL was maoftech.org.il/en/startups/a-g-e-r — a portfolio page on the MAOF Tech incubator's
+    // site, shared with four other startups. The incubator is not in the corpus and its domain is unreachable
+    // today, so the startups are unblocked and nothing claims the domain.
+    ws: [],
+    li: ["https://www.linkedin.com/company/classapluss"],
+    urls: ["https://maoftech.org.il/en/startups/a-g-e-r"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  getapplicant: {
+    // hugedomains.com/payment-plan-setup.cfm?d=GetApplicant.com — the reseller's checkout page, same
+    // class as the other three startups on it. It became the domain holder only because the de-dupe
+    // promoted it after `aqua software` was cleared.
+    ws: [],
+    li: ["https://www.linkedin.com/company/getapplicant"],
+    urls: ["https://www.hugedomains.com/payment-plan-setup.cfm?d=GetApplicant.com"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Ag-Sense": {
     ws: ["https://ag-sense.com"],
     urls: ["https://theguy.co.il"],
@@ -20320,6 +20348,15 @@ export const manualOverrides: Record<
     urls: ["https://youtu.be/rpI9fPGPdZU"],
     _meta: { isHomepage: true }
   },
+  "Eilat Leaders Ltd": {
+    // Scraped URL was tlv.capital/eilatleaders — one of nine portfolio companies listed on TLV Capital's
+    // site. The root row is TLV Capital, so the domain belongs to the firm, not to whichever portfolio
+    // company the de-dupe happened to keep.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
+    urls: ["https://www.tlv.capital/eilatleaders"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Eilat People Love To Host": {
     ws: ["https://eilat.city"],
     fb: ["https://www.facebook.com/eilattourismcorporation"],
@@ -21018,6 +21055,15 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/elteltech"],
     urls: ["https://aluftech.co.il", "https://www.rotemdesign.com"],
     _meta: { isHomepage: true, isVerified: true }
+  },
+  "Epeius Pharma Ltd.": {
+    // Scraped URL was futurx.co.il/portfolio/epeius-pharma — a portfolio page on the FuturX incubator's
+    // site. The incubator is not in the corpus (its domain is dark today), so the company is unblocked
+    // rather than blocking every FuturX portfolio company on the strength of one of them.
+    ws: [],
+    li: ["https://www.linkedin.com/company/epeius-pharma"],
+    urls: ["https://www.futurx.co.il/portfolio/epeius-pharma/"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Emalogic Software": {
     ws: ["https://emalogic.com"],
@@ -23390,6 +23436,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Financia Securities Ltd": {
+    // tlv.capital/financiasecurities — a TLV Capital portfolio page, promoted by the de-dupe after
+    // Eilat Leaders was cleared. The root row is TLV Capital.
+    ws: [],
+    urls: ["https://www.tlv.capital/financiasecurities"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Fialkov Digital": {
     ws: ["https://www.fialkovdigital.com"],
     li: ["https://www.linkedin.com/company/fialkov-digital"],
@@ -24029,6 +24082,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@fizikal12"],
     urls: ["https://api.whatsapp.com/send"],
     _meta: { isHomepage: true, isVerified: true }
+  },
+  "Fly Gift": {
+    // maoftech.org.il/en/startups/fly-gift/ — a portfolio page on the MAOF Tech incubator. Promoted by
+    // the de-dupe after AGER was cleared; the incubator is still not in the corpus.
+    ws: [],
+    urls: ["https://maoftech.org.il/en/startups/fly-gift/"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   Flanksource: {
     ws: ["https://accounts.flanksource.com", "https://app.flanksource.com", "https://flanksource.com"],
@@ -26816,6 +26876,14 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Gizra: { ws: ["https://www.gizra.com"], gh: ["https://github.com/gizra"], _meta: { isHomepage: true } },
+  "Global SCM Financing Solutions Ltd": {
+    // tlv.capital/globalscmfinancingsolutions — a TLV Capital portfolio page; the domain belongs to TLV
+    // Capital's own root row, not to a portfolio company.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
+    urls: ["https://www.tlv.capital/globalscmfinancingsolutions"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Glam42: {
     ws: ["https://glam42.co.il"],
     fb: ["https://www.facebook.com/glam42il"],
@@ -27503,6 +27571,14 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   GrAppi: { ws: ["https://grappigis.com"], android_app_ids: ["com.grappigis.pro"], _meta: { isHomepage: true } },
+  Green2Pass: {
+    // Scraped URL was finder.startupnationcentral.org/company_page/green2pass — a profile in Startup
+    // Nation Central's public startup finder, shared with every other company listed there.
+    ws: [],
+    li: ["https://www.linkedin.com/company/startup-nation-central"],
+    urls: ["https://finder.startupnationcentral.org/company_page/green2pass"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Grabit Inc.": {
     ws: ["https://grabitinc.com"],
     li: ["https://www.linkedin.com/company/grabit-inc-"],
@@ -35093,6 +35169,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  "Keepi App": {
+    // maoftech.org.il/en/startups/keppi — a portfolio page on the MAOF Tech incubator, which is not in
+    // the corpus. Keeping the site unclaimed is better than naming a startup after the incubator.
+    ws: [],
+    li: ["https://www.linkedin.com/company/classapluss"],
+    urls: ["https://maoftech.org.il/en/startups/keppi"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Kedma Solar": {
     ws: ["https://kedmasolar.com"],
     li: ["https://www.linkedin.com/company/kedma-solar"],
@@ -38995,6 +39079,14 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@mys_architects"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MabTrix: {
+    // futurx.co.il/portfolio/mabtrix/ — a portfolio page on the FuturX incubator, promoted by the
+    // de-dupe after Epeius was cleared.
+    ws: [],
+    li: ["https://www.linkedin.com/company/futurx"],
+    urls: ["https://www.futurx.co.il/portfolio/mabtrix/"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   "Maabarot Products": {
     ws: ["https://maabarot.co.il"],
     li: ["https://www.linkedin.com/company/maabarot-products-ltd-mabr-"],
@@ -39220,6 +39312,13 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/mafil.solutions"],
     urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms"],
     _meta: { isHomepage: true, isVerified: true }
+  },
+  Magah: {
+    // A MAOF Tech portfolio page; the incubator is not in the corpus, so the site stays unclaimed.
+    ws: [],
+    li: ["https://www.linkedin.com/company/classapluss"],
+    urls: ["https://maoftech.org.il/en/startups/magah/"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   Magal: {
     ws: ["https://www.magaltech.com"],
@@ -48240,6 +48339,13 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/palta.life"],
     _meta: { isHomepage: true }
   },
+  "Paris - Tel Aviv Finance Solutions Ltd": {
+    // A TLV Capital portfolio page; the domain belongs to TLV Capital's own row.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
+    urls: ["https://www.tlv.capital/paristelaviv"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Panag: {
     ws: ["https://panag.co.il"],
     li: ["https://www.linkedin.com/company/panag"],
@@ -52138,6 +52244,13 @@ export const manualOverrides: Record<
     urls: ["https://www.34sp.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PunctuALL: {
+    // A MAOF Tech portfolio page; the incubator is not in the corpus, so the site stays unclaimed.
+    ws: [],
+    li: ["https://www.linkedin.com/company/classapluss"],
+    urls: ["https://maoftech.org.il/en/startups/punctuall"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Pumba: {
     ws: ["https://pumbaparking.com", "https://report25.pumbaparking.com"],
     li: ["https://www.linkedin.com/company/pumbaparking"],
@@ -55310,6 +55423,20 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/42296789", "https://www.linkedin.com/company/rise-nano-optics"],
     ig: ["https://www.instagram.com/rise_nanooptics"],
     _meta: { isHomepage: true }
+  },
+  "risotech": {
+    // hugedomains.com/payment-plan-setup.cfm?d=RisoTech.com — the reseller's checkout page, same class as the other three startups on it.
+    ws: [],
+    li: ["https://www.linkedin.com/company/risotech"],
+    urls: ["https://www.hugedomains.com/payment-plan-setup.cfm?d=RisoTech.com"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  "tech ware": {
+    // hugedomains.com payment-plan page for this company's own domain — the reseller's checkout, not this company's site.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tech-ware"],
+    urls: ["https://www.hugedomains.com/payment-plan-setup.cfm?d=TechWareAi.com"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Rise.ai": {
     ws: ["https://dev.rise.ai", "https://help.rise.ai", "https://platform.rise.ai", "https://rise.ai"],
@@ -63932,9 +64059,33 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "TLV Capital": {
+    // This entry owns the domain; the portfolio companies were each scraped from tlv.capital/<slug>.
+    // `isHomepage` alone makes an override untrusted, so the merge kept the sibling's value and the
+    // site showed a portfolio company's name instead of the firm's.
     ws: ["https://www.tlv.capital"],
     li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
-    _meta: { isHomepage: true }
+    _meta: { isHomepage: true, isVerified: true, isBrowserVerified: true }
+  },
+  "Magen Capital": {
+    // A TLV Capital portfolio page (tlv.capital/<slug>); the domain belongs to TLV Capital's own row.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
+    urls: ["https://www.tlv.capital/magencapital"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  "TLV Capital Luxury": {
+    // A TLV Capital portfolio page; the domain belongs to TLV Capital's own row.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
+    urls: ["https://www.tlv.capital/tlvcapitalluxury"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  "TLV Regulation & Risk Management Ltd": {
+    // A TLV Capital portfolio page; the domain belongs to TLV Capital's own row.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
+    urls: ["https://www.tlv.capital/consultation"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   "TLV Generator": {
     ws: ["https://www.tlvg.co"],
@@ -65157,6 +65308,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Tego-AI"],
     ytc: ["https://www.youtube.com/channel/UCXplu7NY17WfXVD1ROa7-AQ"],
     _meta: { isHomepage: true }
+  },
+  "Tel Aviv Global Capital Ltd": {
+    // A TLV Capital portfolio page; the domain belongs to TLV Capital's own row.
+    ws: [],
+    li: ["https://www.linkedin.com/company/tlv-capital-ltd"],
+    urls: ["https://www.tlv.capital/globalcapital"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Tel Aviv Doctor": {
     ws: ["https://telaviv-doctor.com"],
@@ -70519,6 +70677,15 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/valoo-124259219149631"],
     urls: ["https://www.meitav.co.il/en/alternative_investments/valoo"],
     _meta: { isHomepage: true }
+  },
+  "secondary prime": {
+    // Scraped URL was https://valoo.io/.well-known/captcha/?r=%2Fabout-us%2F — the scraper captured a
+    // captcha interstitial, not this company's site. Valoo's own entry already claims valoo.io, and it
+    // was losing the de-dupe to this row.
+    ws: [],
+    li: ["https://www.linkedin.com/company/secondary-prime"],
+    urls: ["https://valoo.io/.well-known/captcha/?r=%2Fabout-us%2F"],
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Valor Automation Solutions": {
     ws: ["https://www.valorasc.com"],
