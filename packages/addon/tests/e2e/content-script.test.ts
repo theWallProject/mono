@@ -1,7 +1,9 @@
 import type { BrowserContext } from "playwright"
 import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
-import { CLEAN_URLS, getRandomResult } from "../fixtures/test-urls"
+import { CLEAN_URLS, getRandomResult,
+  getKnownLiveBannerCandidates
+} from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { isBannerDisplayed, gotoUrlWithBanner, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
 
@@ -40,7 +42,7 @@ describe("Content Script", () => {
     try {
       // Walk candidates until one actually renders a banner instead of trusting a single
       // random live URL to load.
-      const candidates: ReturnType<typeof getRandomResult>[] = []
+      const candidates: ReturnType<typeof getRandomResult>[] = [...getKnownLiveBannerCandidates()]
       for (let i = 0; i < 15; i++) {
         candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
       }
@@ -57,7 +59,7 @@ describe("Content Script", () => {
   it("should trigger URL testing on page load", async () => {
     const page = await context.newPage()
     try {
-      const candidates: ReturnType<typeof getRandomResult>[] = []
+      const candidates: ReturnType<typeof getRandomResult>[] = [...getKnownLiveBannerCandidates()]
       for (let i = 0; i < 15; i++) {
         candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
       }

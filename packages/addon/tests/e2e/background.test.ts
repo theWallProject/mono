@@ -4,7 +4,9 @@ import type { BrowserContext } from "playwright"
 import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
 import { WHATS_NEW_PAGE_ID } from "../../src/whatsNew"
-import { getRandomResult } from "../fixtures/test-urls"
+import { getRandomResult,
+  getKnownLiveBannerCandidates
+} from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { gotoUrlWithBanner, isBannerDisplayed, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
 import { clearAllStorage } from "../utils/storage"
@@ -62,7 +64,7 @@ describe("Background Script", () => {
     const page = await context.newPage()
     try {
       // Walk candidates until one renders a banner, see the activation test above.
-      const candidates: ReturnType<typeof getRandomResult>[] = []
+      const candidates: ReturnType<typeof getRandomResult>[] = [...getKnownLiveBannerCandidates()]
       for (let i = 0; i < 15; i++) {
         candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
       }
@@ -84,7 +86,7 @@ describe("Background Script", () => {
       // Walk candidates until one renders a banner. A random live URL can be dead or redirect
       // off-host, in which case no banner can appear and the activation behaviour under test
       // is never exercised.
-      const candidates: ReturnType<typeof getRandomResult>[] = []
+      const candidates: ReturnType<typeof getRandomResult>[] = [...getKnownLiveBannerCandidates()]
       for (let i = 0; i < 15; i++) {
         candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
       }
@@ -113,7 +115,7 @@ describe("Background Script", () => {
       // Walk candidates until one renders a banner. A single random live URL can redirect
       // off-host or be dead, in which case no banner appears and this test would fail for
       // reasons unrelated to message handling.
-      const candidates: ReturnType<typeof getRandomResult>[] = []
+      const candidates: ReturnType<typeof getRandomResult>[] = [...getKnownLiveBannerCandidates()]
       for (let i = 0; i < 10; i++) {
         candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
       }

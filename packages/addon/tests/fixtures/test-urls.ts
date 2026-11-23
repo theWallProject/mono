@@ -184,6 +184,53 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
  * Get a random result from the database using filters
  * Returns the exact same result for the same filters (deterministic)
  */
+/**
+ * Domains verified live that are certainly in the database, tried before any random draw.
+ *
+ * The e2e suite used to pick a URL uniformly from ~30k scraped domains, so every test drew its own
+ * lottery: many of those domains are dead years later, and a release would fail on "no candidate
+ * rendered a banner" without anything being wrong with the extension. These are large, currently
+ * reachable companies that are flagged in `ALL.json`, so the banner is guaranteed once the page
+ * loads. Random draws still follow, so coverage of the wider database is unchanged.
+ *
+ * Verified with a plain HTTPS GET on 2026-11-23. Re-check before trusting an entry that stops
+ * rendering: `curl -o /dev/null -w "%{http_code}" https://<domain>`.
+ */
+const KNOWN_LIVE_FLAGGED_DOMAINS = [
+  "cyberark.com",
+  "nice.com",
+  "amdocs.com",
+  "payoneer.com",
+  "taboola.com",
+  "monday.com"
+] as const
+
+const knownLiveFlagged: CategorizedUrl[] = KNOWN_LIVE_FLAGGED_DOMAINS.flatMap((domain) => {
+  const entry = database.find((row) => getMainDomain(`https://${row.ws ?? ""}`) === domain)
+  if (!entry || !entry.ws) return []
+  return [
+    {
+      url: `https://${entry.ws}`,
+      ruleType: "urlOnly" as const,
+      reasons: entry.r,
+      isHint: !!(entry.isHint && entry.hintText),
+      domain,
+      hasSocialMedia: false
+    }
+  ]
+})
+
+/** Known-live flagged URLs, for tests that need a banner and nothing more specific. */
+export function getKnownLiveBannerCandidates(): CategorizedUrl[] {
+  if (knownLiveFlagged.length === 0) {
+    throw new Error(
+      "KNOWN_LIVE_FLAGGED_DOMAINS matched no database rows. The database or the domain list changed; " +
+        "fix the list rather than falling back to a random draw."
+    )
+  }
+  return [...knownLiveFlagged]
+}
+
 export function getRandomResult(options?: {
   ruleType?: "urlOnly" | "urlDomFull"
   isHint?: boolean

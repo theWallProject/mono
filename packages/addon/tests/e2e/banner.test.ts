@@ -7,7 +7,8 @@ import {
   getUrlCandidatesWithoutAlternatives,
   getUrlCandidatesWithAlternatives,
   getUrlWithAlternatives,
-  getUrlWithoutAlternatives
+  getUrlWithoutAlternatives,
+  getKnownLiveBannerCandidates
 } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
@@ -72,7 +73,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       // Walk candidates until one renders a banner. A single random pick from a live database
       // regularly lands on a dead domain, an off-host redirect, or a profile that shows
       // nothing, which would fail this whole describe block before any assertion runs.
-      const candidates: ReturnType<typeof getRandomResult>[] = []
+      const candidates: ReturnType<typeof getRandomResult>[] = [...getKnownLiveBannerCandidates()]
       for (let i = 0; i < 20; i++) {
         candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
       }
@@ -252,7 +253,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
         // A larger pool is needed here than elsewhere: this describe block runs late in the
         // file, so a modest 15-candidate walk occasionally finds nothing when that draw
         // happens to be mostly stale domains.
-        const candidates: ReturnType<typeof getRandomResult>[] = []
+        const candidates: ReturnType<typeof getRandomResult>[] = [...getKnownLiveBannerCandidates()]
         for (let i = 0; i < 40; i++) {
           candidates.push(getRandomResult({ isHint: false, excludeLoginRequired: true, hasSocialMedia: false }))
         }
