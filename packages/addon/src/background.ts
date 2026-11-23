@@ -1,18 +1,20 @@
 // import { sendToContentScript } from "@plasmohq/messaging"
 
-import { error, log, warn } from "./helpers"
+import { error, getVisitorId, log, warn } from "./helpers"
 import { isUrlFlagged } from "./storage"
-import { setLocalStorageItem } from "./storageHelpers"
+import { getLocalStorageItem, setLocalStorageItem } from "./storageHelpers"
 import { MessageTypes, type Message, type MessageResponseMap, type SendResponse } from "./types"
-import { SHOULD_SHOW_WHATSNEW } from "./whatsNew"
+import {
+  SHOULD_SHOW_WHATSNEW,
+  WHATS_NEW_PAGE_ID,
+  WHATS_NEW_PAGE_VERSION,
+  WHATS_NEW_SEEN_KEY
+} from "./whatsNew"
 
 chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)
 
-  // Set uninstall URL for feedback survey
-  chrome.runtime.setUninstallURL("https://tally.so/r/Np0Jpl").catch((err) => {
-    error("Failed to set uninstall URL:", err)
-  })
+  void configureUninstallUrl()
 
   maybeOpenWhatsNew(details)
 
@@ -48,16 +50,42 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 chrome.runtime.onStartup.addListener(() => {
   log("background:runtime.onStartup")
+  // Also set here, not only on install: browsers keep the uninstall URL per profile, so an
+  // existing user who never reinstalls would otherwise stay on whatever URL shipped with the
+  // build they first installed — the old Tally link, in this case.
+  void configureUninstallUrl()
+
+  // Retry path for the what's-new page. `onInstalled` fires once per update and writes no marker
+  // when the tab could not be created, so without this a browser restarted before the tab opened
+  // would lose the page for good. The marker makes it still open at most once per installation.
+  if (SHOULD_SHOW_WHATSNEW) void openWhatsNewIfUnseen()
 })
 
 /**
- * Opens the "what's new" page for a build that switched it on.
+ * Points the browser's uninstall URI at our own /noooooo page.
  *
- * There is no per-user "already shown" marker, and none is needed: onInstalled fires once per
- * install/update transition, and the `chrome_update` reason is excluded here, so one build with
- * SHOULD_SHOW_WHATSNEW on shows the page at most once per browser. What this must never do again is
- * decide "has this user seen this release" from a version list — that is what silently disarmed the
- * page whenever a release landed one version off the list.
+ * The page then reports the uninstall through Matomo itself, so the count lands next to the
+ * install events instead of inside a third-party form we cannot read. The uid and version travel
+ * as query params because this is the last chance to say anything: once the extension is gone,
+ * none of its code runs again.
+ */
+async function configureUninstallUrl(): Promise<void> {
+  try {
+    const visitorId = await getVisitorId()
+    const version = chrome.runtime.getManifest().version
+    const url = new URL("https://the-wall.win/noooooo")
+    url.searchParams.set("u", visitorId)
+    url.searchParams.set("v", version)
+
+    await chrome.runtime.setUninstallURL(url.toString())
+    log(`background:uninstall url set for version [${version}]`)
+  } catch (e) {
+    error("background:uninstall url failed:", e)
+  }
+}
+
+/**
+ * Seeds, or opens, the "what's new" page this build carries.
  */
 function maybeOpenWhatsNew(details: chrome.runtime.InstalledDetails): void {
   if (!SHOULD_SHOW_WHATSNEW) {
@@ -70,16 +98,49 @@ function maybeOpenWhatsNew(details: chrome.runtime.InstalledDetails): void {
     return
   }
 
+  void openWhatsNewIfUnseen()
+}
+
+/**
+ * Shows the page only when this installation has not recorded {@link WHATS_NEW_PAGE_ID} as seen.
+ *
+ * The stored value is the page id, never a build version, which is the whole point: a hotfix keeps
+ * the same id and therefore never re-opens anything, while a user who skipped the release that
+ * carried a page still gets it on the next update that carries the same id.
+ *
+ * "No stored value" is the migration case: the key did not exist before this shipped, so an
+ * installation with nothing stored cannot be distinguished from one that has not seen a page yet.
+ * It stores the current id and shows nothing, once. From then on the comparison is id-vs-id.
+ *
+ * Callable from `onStartup` as well as `onInstalled`, because the update handler runs once and a tab
+ * that failed to open has no second chance otherwise.
+ */
+async function openWhatsNewIfUnseen(): Promise<void> {
   try {
-    const currentVersion = chrome.runtime.getManifest().version
-    const fromVersion = details.reason === "update" ? details.previousVersion || "unknown" : "install"
-    const whatNewUrl = `${chrome.runtime.getURL("tabs/whats-new.html")}?from=${encodeURIComponent(fromVersion)}&to=${encodeURIComponent(currentVersion)}`
-    log(`background:whats-new opening for version [${currentVersion}]`)
-    chrome.tabs.create({ url: whatNewUrl, active: false }).catch((e: unknown) => {
-      error("background:whats-new failed to open:", e)
-    })
+    const seen = await getLocalStorageItem(WHATS_NEW_SEEN_KEY)
+    if (seen === null || seen === undefined || seen === "") {
+      await setLocalStorageItem(WHATS_NEW_SEEN_KEY, WHATS_NEW_PAGE_ID)
+      log(`background:whats-new no stored id, seeded [${WHATS_NEW_PAGE_ID}] and skipped`)
+      return
+    }
+
+    if (seen === WHATS_NEW_PAGE_ID) {
+      log(`background:whats-new already seen [${WHATS_NEW_PAGE_ID}]`)
+      return
+    }
+
+    const url = new URL(chrome.runtime.getURL("tabs/whats-new.html"))
+    url.searchParams.set("from", String(seen))
+    url.searchParams.set("to", WHATS_NEW_PAGE_VERSION)
+    url.searchParams.set("page", WHATS_NEW_PAGE_ID)
+
+    await chrome.tabs.create({ url: url.toString(), active: false })
+    await setLocalStorageItem(WHATS_NEW_SEEN_KEY, WHATS_NEW_PAGE_ID)
+    log(`background:whats-new opened page [${WHATS_NEW_PAGE_ID}] version [${WHATS_NEW_PAGE_VERSION}]`)
   } catch (e) {
-    error("background:whats-new failed to build url:", e)
+    // No marker is written on failure, so the next startup tries again rather than silently
+    // treating the page as delivered.
+    error("background:whats-new failed:", e)
   }
 }
 
