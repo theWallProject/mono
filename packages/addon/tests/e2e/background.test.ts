@@ -27,7 +27,7 @@ const readBuiltVersion = (): string => {
   return version
 }
 
-const builtVersion = readBuiltVersion()
+const builtVersion = readBuiltVersion(); void builtVersion
 
 describe("Background Script", () => {
   let context: BrowserContext
@@ -147,28 +147,21 @@ describe("Background Script", () => {
     }
   })
 
-  it("opens what's new only when this build enables it", async () => {
-    // A fresh profile is a first install, so onInstalled runs with reason "install". Whether that
-    // opens tabs/whats-new.html is the build-time flag in src/whatsNew.ts. Assert that the extension
-    // agrees with the flag rather than hardcoding either outcome, so a bump can never leave this
-    // test asserting a behaviour the build does not have.
+  it("does not open what's new on a first install, because a first install only seeds", async () => {
+    // A fresh profile is a first install, so onInstalled runs with reason "install". Since the gate
+    // now stores the page id and shows nothing when no id is stored, a first install must open no
+    // page at all. The build flag only says "this build carries a page", not "show it now".
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
     // Assert on URL strings, never on the Page objects: serialising a Playwright Page in a failure
-    // message crashes the reporter with "Invalid string length". One expect, computed up front: a
-    // conditional expect would make the report depend on which branch ran.
+    // message crashes the reporter with "Invalid string length".
     const whatsNewUrls = context
       .pages()
       .map((p) => p.url())
       .filter((url) => url.includes("whats-new.html"))
 
-    const observed = {
-      opened: whatsNewUrls.length > 0,
-      versionInUrl: whatsNewUrls.some((url) => url.includes(`to=${encodeURIComponent(builtVersion)}`))
-    }
-
-    // Expected outcome is the flag itself, not a branch on it: a literal `false` in the ternary made
-    // the rule (correctly) call one side dead code.
-    expect(observed).toEqual({ opened: SHOULD_SHOW_WHATSNEW, versionInUrl: SHOULD_SHOW_WHATSNEW })
+    expect(whatsNewUrls).toEqual([])
+    // The build still has to carry the page, or there would be nothing to open later.
+    expect(SHOULD_SHOW_WHATSNEW).toBe(true)
   })
 })
