@@ -517,17 +517,30 @@ export async function waitForBannerLink(page: Page, hrefPattern: string | RegExp
   const hrefSource = typeof hrefPattern === "string" ? hrefPattern : hrefPattern.source
   const link = page.locator(`a[href*="${hrefSource}"]`)
 
-  const count = await link.count()
-  if (count === 0) {
-    throw new Error(`Banner link matching "${hrefPattern}" not found. Banner should be visible first.`)
-  }
-
-  const isVisible = await link
-    .first()
-    .isVisible()
+  // Poll rather than check once: the banner mounts in stages and its panels fade in, so a link
+  // that exists but is still collapsed one moment is visible the next. A single isVisible() here
+  // turned a normal render race into a failing release.
+  const appeared = await waitFor(
+    async () => {
+      const count = await link.count()
+      if (count === 0) return false
+      return link
+        .first()
+        .isVisible()
+        .catch(() => false)
+    },
+    { timeout: 5000, interval: 100, description: `banner link "${hrefPattern}" to become visible` }
+  )
+    .then(() => true)
     .catch(() => false)
-  if (!isVisible) {
-    throw new Error(`Banner link "${hrefPattern}" exists but is not visible.`)
+
+  if (!appeared) {
+    const count = await link.count()
+    throw new Error(
+      count === 0
+        ? `Banner link matching "${hrefPattern}" not found. Banner should be visible first.`
+        : `Banner link "${hrefPattern}" exists but never became visible.`
+    )
   }
 
   console.log(`[TEST] Banner link found: ${hrefPattern}`)
