@@ -5519,6 +5519,18 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Asael Digital": { ws: ["https://asael.digital"], urls: ["https://wa.me/972546515743"], _meta: { isHomepage: true } },
+  Ascend: {
+    // Ascend is a Wix product whose only scraped URL was `https://www.wix.com/ascend/home`. The
+    // extractor truncates a path on the company's own domain, so that collapsed onto `wix.com` and
+    // the de-dupe kept this row — every user on wix.com was shown "Ascend" instead of "Wix".
+    // Ascend has no domain of its own: it lives inside Wix, whose own entry already claims wix.com.
+    // Leaving `ws` empty keeps the company searchable by name and by its LinkedIn slug while giving
+    // the domain back to Wix.
+    ws: [],
+    li: ["https://www.linkedin.com/company/wix-com"],
+    urls: ["https://www.wix.com/ascend/home"],
+    _meta: { isVerified: true, isBrowserVerified: true }
+  },
   Asden: {
     ws: ["https://asden.co.il"],
     urls: ["http://www.all-in-1.co.il", "https://api.whatsapp.com/send"],

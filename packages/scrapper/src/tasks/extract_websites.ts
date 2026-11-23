@@ -57,6 +57,38 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
 
   const result: NetworksFlatItemsType = []
 
+  // A URL with a path on the company's own domain is still that company's site, so `getMainDomain`
+  // legitimately truncates it. But when a *different* company also holds the truncated root, the
+  // truncation silently steals the domain: Crunchbase carried `www.wix.com/ascend/home` for Ascend and
+  // `www.wix.com` for Wix, both collapsed to `wix.com`, and the de-dupe kept Ascend — so every user on
+  // wix.com saw "Ascend". Compare names before writing, and refuse rather than pick a winner.
+  const declaredOrigin = new Map<string, { id: string; name: string; hadPath: boolean }[]>()
+
+  for (const row of db) {
+    if (!row.ws) continue
+    const withoutProtocol = row.ws.replace(/^https?:\/\//, "")
+    const hadPath = withoutProtocol.replace(/^[^/]+/, "").replace(/^\//, "").length > 0
+    const domain = withoutProtocol.replace(/^www\./, "").split("/")[0]
+    if (!domain) continue
+    const entries = declaredOrigin.get(domain) ?? []
+    entries.push({ id: row.id, name: row.name, hadPath })
+    declaredOrigin.set(domain, entries)
+  }
+
+  for (const domain of Array.from(declaredOrigin.keys())) {
+    const entries = declaredOrigin.get(domain) ?? []
+    const names = new Set(entries.map((e) => e.name.trim().toLowerCase()))
+    if (names.size < 2) continue
+    const truncated = entries.filter((e) => e.hadPath)
+    if (truncated.length === 0) continue
+    error(
+      `Domain collision on '${domain}': ${entries.map((e) => `${e.name} (${e.id})`).join(", ")}. ` +
+        `The path-bearing URL(s) ${truncated.map((e) => e.id).join(", ")} collapse onto the same root as another company. ` +
+        `Give the path-bearing company its own domain or a manual override; refusing to let one company show another's name.`
+    )
+    throw new Error(`Domain collision with a path-truncated website: ${domain}`)
+  }
+
   for (const row of db) {
     const website = row.ws
 
