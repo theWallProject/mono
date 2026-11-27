@@ -41748,7 +41748,10 @@ export const manualOverrides: Record<
         ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
       }
     ],
-    ws: ["https://www.metapyxl.com", "https://vault.metapyxl.io", "https://chromewebstore.google.com"],
+    // The Chrome Web Store entry lived here as a website and produced a bogus
+    // `chromewebstore.google.com` row; the store listing is already in `urls` below, which is where a
+    // store page belongs.
+    ws: ["https://www.metapyxl.com", "https://vault.metapyxl.io"],
     li: ["https://www.linkedin.com/company/metapyxl"],
     tw: ["https://x.com/metapyxl"],
     ig: ["https://www.instagram.com/metapyxl"],
