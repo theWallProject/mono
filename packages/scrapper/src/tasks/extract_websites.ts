@@ -20,40 +20,86 @@ const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNa
  */
 const SHARED_HOST_ALLOWLIST = new Set<string>(["manual_ws_wixsite_com"])
 
+/**
+ * Hosts whose whole domain belongs to a platform, not to one company.
+ *
+ * A scraped URL parked on one of these means the scrape grabbed a profile, a shop page or a
+ * checkout page, and collapsing it to the root would block every user of that platform — the
+ * `etsy.com` and `linktr.ee` incidents. A leading dot (`.steampowered`, `.apple.com`) spells "a
+ * subdomain of this": it never matched the bare apex, and that meaning is kept explicit below.
+ */
+const FILTERED_DOMAINS = ["google.com", "business.site", ".steampowered", "meetup.com", ".apple.com"]
+
+/**
+ * True when the host is one of FILTERED_DOMAINS, or a subdomain of one.
+ *
+ * Label boundaries, not `includes`. `"notgoogle.com".includes("google.com")` is true, so a substring
+ * test refuses any domain that merely *ends* with a filtered name — a company called notgoogle.com
+ * would be silently dropped as a scrape defect, and the filter is supposed to catch URLs genuinely on
+ * the platform. Comparing whole labels is what makes the two cases distinguishable.
+ */
+export const isFilteredDomain = (domain: string): boolean => {
+  const normalized = domain.toLowerCase().replace(/\.$/, "")
+  const labels = normalized.split(".")
+  return FILTERED_DOMAINS.some((entry) => {
+    const subdomainOnly = entry.startsWith(".")
+    const base = entry.replace(/^\./, "")
+    // The platform itself, or any subdomain of it.
+    if (normalized === base || normalized.endsWith(`.${base}`)) return true
+    // A dot-prefixed entry also means "any host that begins with this segment", which is how
+    // `.steampowered` catches `store.steampowered.com` and `store.steampowered.co`.
+    return subdomainOnly && labels.includes(base)
+  })
+}
+
+/**
+ * Whether a row's website survives the shared-host filter.
+ *
+ * Incoming data is refused: a scraped URL that lands on a filtered domain is a scrape defect, and
+ * this is loud about it.
+ *
+ * Curated hint rows are the exception, and only for a host below the filtered domain. A hint is a
+ * deliberate choice about where a suggestion belongs, so `ads.google.com` — the Google Ads console —
+ * must survive even though it sits under `google.com`. The bare filtered host is still refused, in
+ * both kinds of row: a hint on `google.com` would fire on Search, Gmail and Docs, which is the
+ * outcome the filter exists to prevent.
+ */
+export const shouldKeepWebsite = (
+  row: { ws?: string; isHint?: boolean },
+  onExcluded: (message: string) => void = () => {}
+): boolean => {
+  const website = row.ws
+  if (!website) return false
+
+  const domain = website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0]
+  if (domain === undefined) {
+    throw new Error(`Failed to extract domain from: ${website}`)
+  }
+
+  const filtered = isFilteredDomain(domain)
+  if (!filtered) return true
+
+  if (row.isHint) {
+    // A bare host has no label before its registered domain. `ads.google.com` does. Comparing the
+    // label count rather than a list of strings is what makes "the bare one" mean the same thing for
+    // `google.com`, `meetup.com` and the dot-prefixed `.steampowered` entry alike.
+    const bare = domain.split(".").length === 2
+    if (!bare) return true
+    onExcluded(`Website excluded ${website} => ${domain} (curated hint on the bare platform host)`)
+    return false
+  }
+
+  onExcluded(`Website excluded ${website} => ${domain}`)
+  return false
+}
+
 export const run = async (merged: CrunchbaseScrappedItemsType) => {
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
   // This will throw immediately if validation fails
   const mergedDB = MergedDataFileSchema.parse(merged)
   const duplicates: Record<string, NetworksFlatItemType[]> = {}
 
-  const db = mergedDB
-    .filter((row) => row.ws && row.ws !== "")
-    .filter((row) => {
-      const website = row.ws
-
-      let shouldKeep = false
-
-      if (website) {
-        const domain = website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0]
-        if (domain === undefined) {
-          throw new Error(`Failed to extract domain from: ${website}`)
-        }
-
-        shouldKeep = !(
-          domain.includes("google.com") ||
-          domain.includes("business.site") ||
-          domain.includes(".steampowered") ||
-          domain.includes("meetup") ||
-          domain.includes(".apple.com")
-        )
-
-        if (!shouldKeep) {
-          warn(`Website excluded ${website} => ${domain}`)
-        }
-      }
-
-      return shouldKeep
-    })
+  const db = mergedDB.filter((row) => row.ws && row.ws !== "").filter((row) => shouldKeepWebsite(row, warn))
 
   const result: NetworksFlatItemsType = []
 

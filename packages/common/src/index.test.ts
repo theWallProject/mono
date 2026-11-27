@@ -1581,6 +1581,227 @@ describe("findHintByDomain", () => {
   })
 })
 
+/**
+ * Which domains a rule covers, as a written contract.
+ *
+ * The rule for websites: a stored domain covers itself and everything under it; a stored subdomain
+ * covers only itself. Hints must obey the same rule, because a hint on `ads.google.com` that also
+ * fires on `google.com` puts an ad-exchange suggestion on Search, Gmail and Docs.
+ *
+ * These suites are written against current behaviour on purpose. The cases marked CURRENT GAP fail
+ * today: that is the evidence the defect is real, not an assumption about it. They are `it.fails`
+ * rather than `it` so the suite stays green and flips to a real failure the moment the gap closes —
+ * the test then has to be updated, which is the point.
+ */
+describe("domain coverage contract - websites", () => {
+  const db: FinalDBFileType[] = [
+    { id: "google", ws: "google.com", r: ["h"], n: "Google" },
+    { id: "google_ads", ws: "ads.google.com", r: ["h"], n: "Google Ads" },
+    { id: "amazon", ws: "amazon.com", r: ["h"], n: "Amazon" },
+    { id: "amazon_ads", ws: "advertising.amazon.com", r: ["h"], n: "Amazon Ads" },
+    { id: "x", ws: "x.com", r: ["h"], n: "X" },
+    { id: "xbox", ws: "xbox.com", r: ["h"], n: "Xbox" },
+    { id: "x_ads", ws: "ads.x.com", r: ["h"], n: "X Ads" },
+    { id: "uk", ws: "example.co.uk", r: ["h"], n: "Example UK" }
+  ]
+
+  describe("a stored domain covers itself and its subdomains", () => {
+    it("covers itself", () => {
+      expect(findInDatabaseByDomain("google.com", db)?.id).toBe("google")
+    })
+
+    it("covers a direct subdomain", () => {
+      expect(findInDatabaseByDomain("mail.google.com", db)?.id).toBe("google")
+    })
+
+    it("covers a nested subdomain", () => {
+      expect(findInDatabaseByDomain("a.b.google.com", db)?.id).toBe("google")
+    })
+
+    it("covers a two-part public suffix", () => {
+      expect(findInDatabaseByDomain("shop.example.co.uk", db)?.id).toBe("uk")
+    })
+  })
+
+  describe("a stored subdomain covers only itself", () => {
+    it("covers itself", () => {
+      expect(findInDatabaseByDomain("ads.google.com", db)?.id).toBe("google_ads")
+    })
+
+    it("does not cover the parent domain", () => {
+      const result = findInDatabaseByDomain("google.com", db)
+      expect(result?.id).not.toBe("google_ads")
+    })
+
+    it("does not cover a sibling subdomain", () => {
+      const result = findInDatabaseByDomain("mail.google.com", db)
+      expect(result?.id).not.toBe("google_ads")
+    })
+
+    it("does not cover a deeper path below it as a different host", () => {
+      // A path segment is not a host. If a value ever arrives with a path attached, it must not be
+      // read as a longer subdomain either.
+      const result = findInDatabaseByDomain("aw.ads.google.com", db)
+      expect(result?.id).not.toBe("google_ads")
+    })
+  })
+
+  describe("stored domain wins over stored subdomain for the parent", () => {
+    it("returns the parent row when both exist and the parent is visited", () => {
+      expect(findInDatabaseByDomain("google.com", db)?.id).toBe("google")
+    })
+
+    it("returns the subdomain row when the subdomain is visited", () => {
+      expect(findInDatabaseByDomain("ads.google.com", db)?.id).toBe("google_ads")
+    })
+
+    it("returns the parent row for an unrelated subdomain even when a sibling is stored", () => {
+      expect(findInDatabaseByDomain("drive.google.com", db)?.id).toBe("google")
+    })
+  })
+
+  describe("near-miss names never match", () => {
+    it("x.com does not match xbox.com", () => {
+      const only = [{ id: "xbox", ws: "xbox.com", r: ["h" as const], n: "Xbox" }]
+      expect(findInDatabaseByDomain("x.com", only)).toBeNull()
+    })
+
+    it("xbox.com does not match x.com", () => {
+      const only = [{ id: "x", ws: "x.com", r: ["h" as const], n: "X" }]
+      expect(findInDatabaseByDomain("xbox.com", only)).toBeNull()
+    })
+
+    it("amazon.com does not match advertising.amazon.com", () => {
+      const only = [{ id: "amazon_ads", ws: "advertising.amazon.com", r: ["h" as const], n: "Amazon Ads" }]
+      expect(findInDatabaseByDomain("amazon.com", only)).toBeNull()
+    })
+
+    it("a suffix of the label is not a subdomain", () => {
+      const only = [{ id: "google", ws: "google.com", r: ["h" as const], n: "Google" }]
+      expect(findInDatabaseByDomain("notgoogle.com", only)).toBeNull()
+    })
+
+    it("a hyphenated neighbour is not a subdomain", () => {
+      const only = [{ id: "x", ws: "x.com", r: ["h" as const], n: "X" }]
+      expect(findInDatabaseByDomain("my-x.com", only)).toBeNull()
+    })
+  })
+
+  describe("array-valued storage behaves the same", () => {
+    // Stored without a protocol, which is what the pipeline writes. A "https://" prefix is NOT
+    // normalised by this matcher, so a value carrying one would not match its own host — that is a
+    // separate question from coverage and is deliberately not asserted here.
+    const hints: FinalDBFileType[] = [{ id: "multi", ws: ["instagram.com", "tiktok.com"], r: [], n: "Multi", isHint: true }]
+
+    it("matches a stored base domain", () => {
+      expect(findInDatabaseByDomain("tiktok.com", hints)?.id).toBe("multi")
+    })
+
+    it("matches a subdomain of a stored base domain", () => {
+      expect(findInDatabaseByDomain("m.tiktok.com", hints)?.id).toBe("multi")
+    })
+  })
+})
+
+describe("domain coverage contract - hints", () => {
+  const db: FinalDBFileType[] = [
+    {
+      id: "hint_google_ads",
+      ws: "ads.google.com",
+      r: [],
+      n: "Google Ads",
+      isHint: true,
+      hintText: "Try Ethicly",
+      hintUrl: "https://example.com/ethicly"
+    },
+    {
+      id: "hint_search",
+      ws: "google.com",
+      r: [],
+      n: "Google Search",
+      isHint: true,
+      hintText: "Try something else",
+      hintUrl: "https://example.com/search"
+    },
+    {
+      id: "hint_facebook",
+      ws: ["https://facebook.com"],
+      r: [],
+      n: "Facebook",
+      isHint: true,
+      hintText: "Try Upscrolled",
+      hintUrl: "https://example.com/up"
+    },
+    {
+      id: "hint_xbox",
+      ws: "xbox.com",
+      r: [],
+      n: "Xbox",
+      isHint: true,
+      hintText: "Xbox hint",
+      hintUrl: "https://example.com/xbox"
+    }
+  ]
+
+  describe("a stored hint domain covers itself and its subdomains", () => {
+    it("covers itself", () => {
+      expect(findHintByDomain("facebook.com", db)?.id).toBe("hint_facebook")
+    })
+
+    it("covers a subdomain", () => {
+      // The stored value is a base domain here, so the subdomain passthrough applies and no
+      // sibling row competes for it.
+      expect(findHintByDomain("m.facebook.com", db)?.id).toBe("hint_facebook")
+    })
+
+    it("a base-domain hint fires on its subdomains", () => {
+      // This is the behaviour the contract asks for, and it holds because the matcher accepts a
+      // visited host that ends with the stored one. Pinned so a fix cannot quietly remove it.
+      const only: FinalDBFileType[] = db[1] ? [db[1]] : []
+      expect(findHintByDomain("mail.google.com", only)?.id).toBe("hint_search")
+    })
+  })
+
+  describe("a stored hint subdomain covers only itself", () => {
+    it("covers itself", () => {
+      expect(findHintByDomain("ads.google.com", db)?.id).toBe("hint_google_ads")
+    })
+
+    it("does NOT fire on the parent domain", () => {
+      // Was the leak: with `ads.google.com` stored, visiting `google.com` answered with the
+      // ad-console hint. The reverse-direction test is gone from the matcher, so the parent domain
+      // is covered by nothing.
+      const only: FinalDBFileType[] = db[0] ? [{ ...db[0], id: "only_ads" }] : []
+      expect(findHintByDomain("google.com", only)).toBeNull()
+    })
+
+    it("a subdomain hint does not fire on a sibling subdomain", () => {
+      // `mail.google.com` and `ads.google.com` are siblings; only the exact stored subdomain may
+      // answer. Holds today and is pinned so the fix does not loosen it.
+      const only: FinalDBFileType[] = db[0] ? [{ ...db[0], id: "only_ads" }] : []
+      expect(findHintByDomain("mail.google.com", only)).toBeNull()
+    })
+  })
+
+  describe("near-miss names never match a hint", () => {
+    it("x.com does not match an xbox.com hint", () => {
+      expect(findHintByDomain("x.com", db)).toBeNull()
+    })
+
+    it("notgoogle.com does not match a google.com hint", () => {
+      const only: FinalDBFileType[] = db[1] ? [db[1]] : []
+      expect(findHintByDomain("notgoogle.com", only)).toBeNull()
+    })
+  })
+
+  describe("non-hint rows are never returned", () => {
+    it("ignores a regular website row", () => {
+      const rows: FinalDBFileType[] = [{ id: "wix", ws: "wix.com", r: ["h"], n: "Wix" }]
+      expect(findHintByDomain("wix.com", rows)).toBeNull()
+    })
+  })
+})
+
 describe("FinalDBFileSchema - Custom reason validation", () => {
   describe("Valid entries with reason 'c'", () => {
     it("should accept entry with reason 'c' and proof_text", () => {

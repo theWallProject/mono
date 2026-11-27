@@ -73,6 +73,78 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     }
   })
 
+  /**
+   * The domain the hint database answers for, checked in a real browser with the real ALL.json.
+   *
+   * The unit contract in `@theWallProject/common` pins the matching rule. This pins the consequence:
+   * an ad console's subdomain produces the hint, and the parent domain does not. Both halves are
+   * required — an answer on `ads.google.com` proves nothing about `google.com`, and that second half
+   * is the one a user would notice if it went wrong.
+   *
+   * The symptom is read rather than assumed: `requestHintToast` reports what the extension answered
+   * for a URL, so "no hint" is a real result and not a page that failed to load. A network failure
+   * would otherwise be indistinguishable from correct behaviour.
+   */
+  describe("page-scoped hints stay off the parent domain", () => {
+    /** What the extension answers for a URL, without needing the page to render. */
+    const requestHintToast = async (page: Page, url: string): Promise<{ isHint: boolean; name?: string }> => {
+      const answer = await page.evaluate(
+        (target) =>
+          new Promise<{ isHint: boolean; name?: string } | null>((resolve) => {
+            // Same message the content script sends; see MessageTypes.TestUrl in src/types.ts.
+            chrome.runtime.sendMessage({ action: "TestUrl", url: target }, (result: unknown) => {
+              if (chrome.runtime.lastError || result === undefined || result === null) {
+                resolve(null)
+                return
+              }
+              const typed = result as { isHint?: boolean; name?: string }
+              resolve({ isHint: typed.isHint === true, name: typed.name })
+            })
+          }),
+        url
+      )
+
+      if (answer === null) {
+        throw new Error(`The extension did not answer for ${url} — a null answer is not "no hint"`)
+      }
+      return answer
+    }
+
+    it("shows the Google Ads hint on ads.google.com", async () => {
+      const page = await context.newPage()
+      try {
+        await navigateToUrl(page, "https://ads.google.com")
+        const answer = await requestHintToast(page, "https://ads.google.com/aw/campaigns")
+        expect(answer.isHint).toBe(true)
+        expect(answer.name).toBe("Google Ads")
+      } finally {
+        await page.close()
+      }
+    })
+
+    it("does NOT show a hint on google.com", async () => {
+      const page = await context.newPage()
+      try {
+        await navigateToUrl(page, "https://www.google.com")
+        const answer = await requestHintToast(page, "https://www.google.com/search?q=test")
+        expect(answer.isHint).toBe(false)
+      } finally {
+        await page.close()
+      }
+    })
+
+    it("does NOT show a hint on a sibling Google subdomain", async () => {
+      const page = await context.newPage()
+      try {
+        await navigateToUrl(page, "https://mail.google.com")
+        const answer = await requestHintToast(page, "https://mail.google.com/mail/u/0/")
+        expect(answer.isHint).toBe(false)
+      } finally {
+        await page.close()
+      }
+    })
+  })
+
   it("should show hint only once per session when visiting same URL multiple times", async () => {
     console.log("[TEST] Starting: should show hint only once per session")
 

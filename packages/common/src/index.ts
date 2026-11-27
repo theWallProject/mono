@@ -619,6 +619,13 @@ export function findInDatabaseByDomain(domain: string, database: FinalDBFileType
  * @returns The matching hint entry or null if no hint applies
  */
 export function findHintByDomain(domain: string, database: FinalDBFileType[]): FinalDBFileType | null {
+  // Same direction rule as findInDatabaseByDomain, and for the same reason: a stored domain covers
+  // itself and everything beneath it, while a stored subdomain covers only itself.
+  //
+  // The reverse test (`wsDomain.endsWith("." + domain)`) is deliberately absent. It made a hint
+  // stored on `ads.google.com` answer for `google.com`, which put an ad-console suggestion on
+  // Search, Gmail and Docs. A hint is shown unprompted on a site the user did not ask about, so an
+  // over-wide match is a wrong accusation, not a missed feature.
   const result = database.find((row) => {
     if (!row.isHint || !row.ws) return false
 
@@ -627,15 +634,11 @@ export function findHintByDomain(domain: string, database: FinalDBFileType[]): F
 
     return wsValues.some((wsValue) => {
       const wsDomain = getMainDomain(wsValue)
-      // Check for exact domain match or subdomain relationship
       // Exact match: "instagram.com" === "instagram.com"
-      // Subdomain: "www.instagram.com" ends with ".instagram.com"
+      // Subdomain of a stored base domain: "m.instagram.com" is covered by "instagram.com"
+      // A stored subdomain ("ads.google.com") covers itself and nothing above or beside it.
       // Avoids false positives like "xbox.com" matching "x.com"
-      return (
-        domain === wsDomain ||
-        domain.endsWith(`.${wsDomain}`) ||
-        wsDomain.endsWith(`.${domain}`)
-      )
+      return domain === wsDomain || isSubdomainOf(domain, wsDomain)
     })
   })
 

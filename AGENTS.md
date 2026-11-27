@@ -2,6 +2,17 @@
 
 This file provides guidance to AI Agents when working with code in this repository.
 
+## Rule zero: plan, then wait for the yes
+
+Before any non-trivial task, write the plan and stop for confirmation. One "go" covers one plan, not
+the next item in a list. Trivial means a single obvious step with no design choice in it — a version
+lookup, reading a file, a one-line fix the user already specified. Anything with more than one moving
+part, more than one file, or a decision the user has not already made is not trivial.
+
+If work started before the rule was stated, say what is in the tree and stop rather than finishing
+and asking forgiveness. Mido, 2026-11-27: *"always plan with me first and confirm unless the task is
+trivial!"*
+
 ## Project Overview
 
 The Wall is a monorepo containing a browser extension, Telegram bot, data scraper, and shared common library. The project uses pnpm workspaces with packages under `@theWallProject/*` scope.
