@@ -1,6 +1,7 @@
 import path from "path"
 import { formatAndWrite, isSharedHost } from "@theWallProject/common"
 
+import { DECIDED_EXCLUSIONS } from "../static_data/decided_exclusions"
 import { error, log, warn } from "../helper"
 import {
   CrunchbaseScrappedItemsType,
@@ -13,12 +14,12 @@ import {
 const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNames.WEBSITES}.json`)
 
 /**
- * Rows deliberately parked on a shared host, so the guard below does not fight a decision.
+ * Row ids that a shared-host rejection must not fire on.
  *
- * `manual_ws_wixsite_com` is an intentional blanket block on free Wix sites; the other two are
- * scrape defects being repaired in `manualOverrides.ts` and must not reappear.
+ * The decision record is the single place a human says "this row is allowed where it is", so it is
+ * consulted here rather than kept as a second set in source.
  */
-const SHARED_HOST_ALLOWLIST = new Set<string>(["manual_ws_wixsite_com"])
+const isDecidedRow = (id: string): boolean => DECIDED_EXCLUSIONS.has(id)
 
 /**
  * Hosts whose whole domain belongs to a platform, not to one company.
@@ -93,13 +94,87 @@ export const shouldKeepWebsite = (
   return false
 }
 
+/**
+ * A decided exclusion: a scraped row parked on a filtered platform host.
+ *
+ * The dataset is regenerated, not hand-edited, so a bad website field reappears on every rebuild.
+ * Dropping it silently is how `linktr.ee` and an Etsy shop once blocked whole platforms, and how 55
+ * rows disappeared with nothing but a log line. Each of those rows is a data defect that has to be
+ * resolved — give the company its real website, or delete the row — and this file is the record that
+ * the resolution happened.
+ *
+ * Keyed by row id, never by company name: one company can own several rows and only one of them be
+ * wrong, so a name-keyed decision would wave its other rows through.
+ */
+export type DecidedExclusion = {
+  /** Row id, as it appears in MANUAL.json and ALL.json. */
+  id: string
+  /** Company name at the time of the decision, so a stale id is readable when it breaks. */
+  name: string
+  /** The rejected website, so the reason is legible without re-running the scraper. */
+  website: string
+  /**
+   * Why this row no longer needs a website, or why the site is acceptable anyway.
+   *
+   * `deleted` — the row is in `manualDeleteIds.ts`; the company was not a real entry.
+   * `resolved` — the company now has a real website or is flagged through its social selectors.
+   */
+  decision: "deleted" | "resolved"
+  /** One line a human can check without opening the data. */
+  note: string
+}
+
 export const run = async (merged: CrunchbaseScrappedItemsType) => {
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
   // This will throw immediately if validation fails
   const mergedDB = MergedDataFileSchema.parse(merged)
   const duplicates: Record<string, NetworksFlatItemType[]> = {}
 
-  const db = mergedDB.filter((row) => row.ws && row.ws !== "").filter((row) => shouldKeepWebsite(row, warn))
+  // Fail on every undecided exclusion at once, not on the first one. A scrape produces these in
+  // batches, and a run that stops at row one turns a ten-minute job into ten runs.
+  const undecided: { id: string; name: string; website: string; domain: string }[] = []
+
+  const db = mergedDB
+    .filter((row) => row.ws && row.ws !== "")
+    .filter((row) => {
+      if (shouldKeepWebsite(row)) return true
+
+      const website = row.ws
+      if (!website) return false
+      const domain = website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0] ?? ""
+
+      // A curated hint on a bare platform host is a mistake in the hint itself, not scrape debris:
+      // `ads.google.com` is the rule, `google.com` would fire on Search, Gmail and Docs. That one is
+      // never a decision to record, so it still throws immediately.
+      if (row.isHint) {
+        throw new Error(
+          `Curated hint "${row.name}" (${row.id}) is stored on the bare platform host '${website}'. ` +
+            `A hint on a domain covers every page under it; store the host that owns the suggestion instead.`
+        )
+      }
+
+      const decided = DECIDED_EXCLUSIONS.get(row.id)
+      if (decided) {
+        warn(`Excluded by decision (${decided.decision}): ${row.name} (${row.id}) — ${website} — ${decided.note}`)
+        return false
+      }
+
+      undecided.push({ id: row.id, name: row.name, website, domain })
+      return false
+    })
+
+  if (undecided.length > 0) {
+    const lines = undecided
+      .map((r) => `  ${r.id}  "${r.name}"  ${r.website}  (host: ${r.domain})`)
+      .join("\n")
+    throw new Error(
+      `${undecided.length} scraped row(s) hold a website on a platform host and have no decision. ` +
+        `Each one either needs the company's real website or a row deletion — nothing here is dropped ` +
+        `silently, because a promoted platform domain blocks every user of that platform.\n` +
+        `Record the decision in packages/scrapper/src/static_data/decided_exclusions.ts ` +
+        `(keyed by row id), then re-run.\n${lines}`
+    )
+  }
 
   const result: NetworksFlatItemsType = []
 
@@ -153,7 +228,7 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
     // matches apex-then-subdomain: one scraped Etsy shop or Linktree page would block every shop and
     // every Linktree on the internet. This shipped once (etsy.com, linktr.ee). Fail loudly instead of
     // writing it again, and fix the source link (the profile belongs in `urls`).
-    if (isSharedHost(domain) && !SHARED_HOST_ALLOWLIST.has(row.id)) {
+    if (isSharedHost(domain) && !isDecidedRow(row.id)) {
       error(
         `Shared-host website rejected for ${row.name} (${row.id}): '${website}' collapses to platform root '${domain}'. ` +
           `Put the profile URL in \`urls\` and give the row its own domain or social selectors.`
