@@ -78279,11 +78279,6 @@ export const manualOverrides: Record<
     urls: ["https://mail.google.com/mail", "https://realmedia.co.il", "https://wa.me/972539450090"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "scouter - live scores & stats": {
-    // Crunchbase carried the App Store listing as this company's website. Scouter is a football
-    // scores app, and that is its own site.
-    ws: ["https://scouterapp.com"]
-  },
   sekooto: {
     ws: ["https://sekooto.com"],
     urls: ["https://jetserver.co.il", "https://jetserver.co.il/contact-us", "https://www.jetclients.co.il"],
