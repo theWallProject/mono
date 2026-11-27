@@ -1,7 +1,6 @@
 import path from "path"
 import { formatAndWrite, isSharedHost } from "@theWallProject/common"
 
-import { DECIDED_EXCLUSIONS } from "../static_data/decided_exclusions"
 import { error, log, warn } from "../helper"
 import {
   CrunchbaseScrappedItemsType,
@@ -19,7 +18,7 @@ const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNa
  * The decision record is the single place a human says "this row is allowed where it is", so it is
  * consulted here rather than kept as a second set in source.
  */
-const isDecidedRow = (id: string): boolean => DECIDED_EXCLUSIONS.has(id)
+const isDecidedRow = (id: string): boolean => id === "manual_ws_wixsite_com"
 
 /**
  * Hosts whose whole domain belongs to a platform, not to one company.
@@ -130,8 +129,15 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
   const mergedDB = MergedDataFileSchema.parse(merged)
   const duplicates: Record<string, NetworksFlatItemType[]> = {}
 
-  // Fail on every undecided exclusion at once, not on the first one. A scrape produces these in
-  // batches, and a run that stops at row one turns a ten-minute job into ten runs.
+  // The override is the decision. A company whose scraped website is a platform host gets its real
+  // website written into `manualOverrides` — a normal entry, the same one any other company has — and
+  // that value lands on the row before the filter runs. So by the time a website is tested here, what
+  // is being tested IS the curated answer: no decision flag, no second file, no vocabulary beyond the
+  // one the data already speaks.
+  //
+  // Anything still sitting on a platform host after that is scrap debris nobody has resolved, and it
+  // fails — every row at once, because a scrape produces these in batches and stopping at row one
+  // turns a ten-minute fix into ten runs.
   const undecided: { id: string; name: string; website: string; domain: string }[] = []
 
   const db = mergedDB
@@ -145,18 +151,12 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
 
       // A curated hint on a bare platform host is a mistake in the hint itself, not scrape debris:
       // `ads.google.com` is the rule, `google.com` would fire on Search, Gmail and Docs. That one is
-      // never a decision to record, so it still throws immediately.
+      // never a research problem, so it throws immediately.
       if (row.isHint) {
         throw new Error(
           `Curated hint "${row.name}" (${row.id}) is stored on the bare platform host '${website}'. ` +
             `A hint on a domain covers every page under it; store the host that owns the suggestion instead.`
         )
-      }
-
-      const decided = DECIDED_EXCLUSIONS.get(row.id)
-      if (decided) {
-        warn(`Excluded by decision (${decided.decision}): ${row.name} (${row.id}) — ${website} — ${decided.note}`)
-        return false
       }
 
       undecided.push({ id: row.id, name: row.name, website, domain })
@@ -168,11 +168,10 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
       .map((r) => `  ${r.id}  "${r.name}"  ${r.website}  (host: ${r.domain})`)
       .join("\n")
     throw new Error(
-      `${undecided.length} scraped row(s) hold a website on a platform host and have no decision. ` +
-        `Each one either needs the company's real website or a row deletion — nothing here is dropped ` +
-        `silently, because a promoted platform domain blocks every user of that platform.\n` +
-        `Record the decision in packages/scrapper/src/static_data/decided_exclusions.ts ` +
-        `(keyed by row id), then re-run.\n${lines}`
+      `${undecided.length} row(s) hold a website on a platform host and have no real website. ` +
+        `Find the company's actual site and add it to manualOverrides, or delete the row via ` +
+        `manualDeleteIds. Nothing is dropped silently: a promoted platform domain blocks every user ` +
+        `of that platform.\n${lines}`
     )
   }
 
