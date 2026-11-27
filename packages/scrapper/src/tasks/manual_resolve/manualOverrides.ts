@@ -540,6 +540,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   ADCORE: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://apps.adcore.com", "https://help.adcore.com", "https://www.adcore.com"],
     li: ["https://www.linkedin.com/company/215397", "https://www.linkedin.com/company/adcoreinc"],
     fb: ["https://www.facebook.com/adcoreinc"],
@@ -1698,6 +1704,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   AdMaven: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://ad-maven.com",
       "https://advertisers-help.ad-maven.com",
@@ -1713,11 +1725,23 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   AdOptim: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://is.adoptim.com", "https://www.adoptim.com"],
     li: ["https://www.linkedin.com/company/adoptim"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "AdServe.TV": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://adserve.tv", "https://blog.adserve.tv"],
     urls: ["https://forms.gle/gH4yTDdunmKn5jWg7"],
     _meta: { isHomepage: true, isVerified: true }
@@ -1955,6 +1979,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Adnimation LTD": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://reports.adnimation.com", "https://www.adnimation.com"],
     li: ["https://www.linkedin.com/company/adnimation"],
     fb: ["https://www.facebook.com/adnimation"],
@@ -1979,6 +2009,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Adorika: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://adorika.com"],
     li: ["https://www.linkedin.com/company/adorika"],
     fb: ["https://www.facebook.com/adorika2"],
@@ -2042,6 +2078,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   AdvandMedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://advandmedia.com"],
     li: ["https://www.linkedin.com/company/advandmedia"],
     _meta: { isHomepage: true, isVerified: true }
@@ -2134,11 +2176,23 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   AffiliArt: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://affiliart.com"],
     urls: ["https://affiliart.affise.com/v2/sign/in", "https://affiliart.affise.com/v2/sign/up"],
     _meta: { isHomepage: true }
   },
   "Affiliate Tracking System": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://affiliatets.com"],
     li: ["https://www.linkedin.com/company/affiliatets"],
     fb: ["https://www.facebook.com/affiliatets"],
@@ -4134,6 +4188,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Angora Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://insights.angoramedia.com", "https://www.angoramedia.com"],
     li: ["https://www.linkedin.com/company/angora-media"],
     fb: ["https://www.facebook.com/angoramediagroup"],
@@ -4442,6 +4502,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Anzu.io": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://go.anzu.io", "https://publishers.anzu.io", "https://www.anzu.io"],
     li: ["https://www.linkedin.com/company/anzuio"],
     fb: ["https://www.facebook.com/anzu.io"],
@@ -4559,6 +4625,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   AppGrade: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://appgrade.com", "https://www.appgrade-web.com"],
     ytp: ["https://www.youtube.com/@servicesappappgrade6688"],
     urls: ["https://apps.apple.com/us/app/appgrade-by-servicesapp/id1620057969", "https://www.servicesapp.com"],
@@ -4732,6 +4804,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Appnext: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://appnext.com", "https://blog.appnext.com"],
     fb: ["https://www.facebook.com/appnext"],
     tw: ["https://x.com/appnext_updates"],
@@ -4739,6 +4817,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   AppsFlyer: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://careers.appsflyer.com",
       "https://dev.appsflyer.com",
@@ -4798,6 +4882,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Apptimus: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://apptimus.media", "https://dsp.apptimus.media"],
     li: ["https://www.linkedin.com/company/apptimusmobile"],
     fb: ["https://www.facebook.com/apptimus.media"],
@@ -5363,6 +5453,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Arpeely: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.arpeely.com"],
     li: ["https://www.linkedin.com/company/arpeely"],
     ig: ["https://www.instagram.com/arpeely"],
@@ -6455,6 +6551,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Avantis Team": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.avantisteam.com"],
     urls: ["https://cyberchimps.com"],
     _meta: { isHomepage: true, isVerified: true }
@@ -7128,6 +7230,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "BMBY Software Systems": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://bmby.com",
       "https://login.bmby.com",
@@ -7231,6 +7339,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   BRAVE: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.thebrave.io"],
     li: ["https://www.linkedin.com/company/brave-global"],
     tw: ["https://x.com/thebraveio"],
@@ -7993,6 +8107,12 @@ export const manualOverrides: Record<
   },
   BeamUP: { ws: ["https://www.beamup.ai"], _meta: { isHomepage: true, isVerified: true } },
   Beamr: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://beamr.com", "https://blog.beamr.com", "https://cloud.beamr.com", "https://investors.beamr.com"],
     li: ["https://www.linkedin.com/company/beamr"],
     fb: ["https://www.facebook.com/BeamrVideo"],
@@ -8645,6 +8765,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Better Impression": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.bimpression.com"],
     li: ["https://www.linkedin.com/company/18235133", "https://www.linkedin.com/company/betterimpression"],
     fb: ["https://www.facebook.com/betterimpressiontlv"],
@@ -8765,6 +8891,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   BidVertiser: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.bidvertiser.com"],
     li: ["https://www.linkedin.com/company/bidvertiser"],
     fb: ["https://www.facebook.com/bidvertiser.social"],
@@ -8781,6 +8913,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Bidease: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://connect.bidease.com",
       "https://info.bidease.com",
@@ -8832,6 +8970,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Bigabid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.bigabid.com"],
     li: ["https://www.linkedin.com/company/bigabid"],
     _meta: { isHomepage: true, isVerified: true }
@@ -10014,6 +10158,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Boldwin: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://bold-win.com", "https://boldwin-sdk.bitbucket.io"],
     li: ["https://www.linkedin.com/company/boldwin-ltd"],
     urls: ["https://link.medium-rare-templates-shop.workers.dev", "https://webflow.com"],
@@ -11291,6 +11441,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   CONNACT: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://connact.cloud"],
     li: ["https://www.linkedin.com/company/connact-cloud"],
     urls: ["https://cloudpeople.club"],
@@ -12102,6 +12258,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Carbonatix LTD": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://carbonatix.com"],
     urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms"],
     _meta: { isHomepage: true }
@@ -12177,6 +12339,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Cardlytics: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://go.cardlytics.com",
       "https://ir.cardlytics.com",
@@ -12487,7 +12655,17 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@casterraag"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  "Castify.ai": { ws: ["https://castify.ai"], urls: ["https://castify.studio"], _meta: { isHomepage: true } },
+  "Castify.ai": {
+    ws: ["https://castify.ai"],
+    urls: ["https://castify.studio"],
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
+    _meta: { isHomepage: true }
+  },
   Castore: {
     ws: [
       "https://au.castore.com",
@@ -13409,6 +13587,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "CityGrid Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.citygrid.com"],
     fb: ["https://www.facebook.com/citygrid"],
     tw: ["https://x.com/citygridmedia"],
@@ -13685,6 +13869,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Clicxy: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://clicxy.com"],
     urls: ["https://partner.clicxy.swaarm-clients.com/login", "https://partner.clicxy.swaarm-clients.com/signup"],
     _meta: { isHomepage: true, isVerified: true }
@@ -13699,6 +13889,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Clinch: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://admin.clinch.co", "https://www.clinch.co"],
     li: ["https://www.linkedin.com/company/clinch", "https://www.linkedin.com/company/clinch-ai"],
     fb: ["https://www.facebook.com/clinchai"],
@@ -13734,6 +13930,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Clipoly: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://clipoly.com", "https://www.clipoly.com"],
     urls: ["https://www.godaddy.com/websites/website-builder"],
     _meta: { isHomepage: true, isVerified: true }
@@ -18862,6 +19064,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   DoubleVerify: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://doubleverify.com",
       "https://ir.doubleverify.com",
@@ -19875,6 +20083,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   EZmob: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://dashboard.ezmob.com", "https://ezmob.com"],
     li: ["https://www.linkedin.com/company/2742966", "https://www.linkedin.com/company/ezmob"],
     fb: ["https://www.facebook.com/ezmob"],
@@ -21149,6 +21363,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Emoona: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://emoona.co"],
     fb: ["https://www.facebook.com/emoona"],
     tw: ["https://x.com/emoona"],
@@ -21202,9 +21422,7 @@ export const manualOverrides: Record<
     ws: [],
     li: ["https://www.linkedin.com/company/ess-empowermentsoftwaresolutions"],
     fb: ["https://www.facebook.com/EmpowermentSoftwareSolutions"],
-    urls: [
-      "https://sites.google.com/ess.org.il/ess/%D7%9E%D7%A9%D7%A8%D7%95%D7%AA"
-    ],
+    urls: ["https://sites.google.com/ess.org.il/ess/%D7%9E%D7%A9%D7%A8%D7%95%D7%AA"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   Encer: {
@@ -22422,6 +22640,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Explor Ads": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://explorads.media"],
     li: ["https://www.linkedin.com/company/explorads-ltd"],
     fb: ["https://www.facebook.com/explorads-ltd-103208628301163"],
@@ -22918,6 +23142,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Facetrom: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.facetrom.com"],
     li: ["https://www.linkedin.com/company/facetrom"],
     fb: ["https://www.facebook.com/facetrom"],
@@ -23084,6 +23314,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Fanplayr: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://360.fanplayr.com",
       "https://docs.fanplayr.com",
@@ -24170,6 +24406,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Flexitricity: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://cms.flexitricity.com", "https://flexitricity.com", "https://portal.flexitricity.com"],
     li: ["https://www.linkedin.com/company/flexitricity"],
     ytp: ["https://www.youtube.com/@flexitricityltd"],
@@ -25944,6 +26186,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Gamoshi: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://gamoshi.com"],
     li: ["https://www.linkedin.com/company/10435056", "https://www.linkedin.com/company/gamoshi"],
     fb: ["https://www.facebook.com/gamoshi"],
@@ -26148,6 +26396,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Gefen: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://gefentechnologies.com"],
     li: ["https://www.linkedin.com/company/gefen-technologies"],
     fb: ["https://www.facebook.com/gefeninternationalai"],
@@ -26365,6 +26619,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   GeoEdge: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://site.geoedge.com", "https://www.geoedge.com"],
     li: ["https://www.linkedin.com/company/geoedge"],
     fb: ["https://www.facebook.com/geoedgepro"],
@@ -29074,6 +29334,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Haystack: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://contacts.thehaystackapp.com",
       "https://files.thehaystackapp.com",
@@ -29967,6 +30233,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Homeless.co.il": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://kablanim.homeless.co.il", "https://moked.homeless.co.il", "https://www.homeless.co.il"],
     fb: ["https://www.facebook.com/homeless.co.il"],
     _meta: { isHomepage: true, isVerified: true }
@@ -30446,6 +30718,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Hunt Performance Marketing": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://hunt.co.il"],
     li: ["https://www.linkedin.com/company/huntdigitalmarketing"],
     fb: ["https://www.facebook.com/huntdigital.il"],
@@ -30975,6 +31253,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   INCRMNTAL: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://knowledgebase.incrmntal.com", "https://www.incrmntal.com"],
     li: ["https://www.linkedin.com/company/incrmntal"],
     fb: ["https://www.facebook.com/incrmntal"],
@@ -32097,6 +32381,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Infogamy: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://infogamy.com"],
     urls: [
       "https://rebrand.ly/347708",
@@ -32107,6 +32397,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Infolinks Media, llc.": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://adshop.infolinks.com", "https://publishers.infolinks.com", "https://www.infolinks.com"],
     li: ["https://www.linkedin.com/company/927241", "https://www.linkedin.com/company/infolinksmedia"],
     fb: ["https://www.facebook.com/infolinks"],
@@ -32261,6 +32557,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Innovid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://help.innovid.com",
       "https://new.innovid.com",
@@ -32481,6 +32783,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Instreamatic: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://instreamatic.com"],
     fb: ["https://www.facebook.com/instreamatic"],
     urls: ["https://epg.agro.uba.ar/carreras/carreras-de-especializacion"],
@@ -34561,6 +34869,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "KO Digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://kodigital.io"],
     li: ["https://www.linkedin.com/company/ko-digital"],
     _meta: { isHomepage: true, isVerified: true }
@@ -34919,6 +35233,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Kape Technologies": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.kape.com"],
     li: ["https://www.linkedin.com/company/kape-technologies"],
     fb: ["https://www.facebook.com/kapedotcom"],
@@ -35972,6 +36292,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Kontroller CPM Software Ltd.": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.kontrollercpm.com"],
     urls: ["https://emode.digital", "https://liangold.studio"],
     _meta: { isHomepage: true, isVerified: true }
@@ -36551,6 +36877,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Lambadapp: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.lambadapp.com"],
     urls: ["https://partner.lambadapp.swaarm-clients.com/login"],
     _meta: { isHomepage: true, isVerified: true }
@@ -37775,6 +38107,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Liniad: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.liniad.com"],
     li: ["https://www.linkedin.com/company/liniad-media"],
     fb: ["https://www.facebook.com/liniadmedia"],
@@ -38543,6 +38881,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Luns: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://luns.io"],
     li: ["https://www.linkedin.com/company/luns"],
     fb: ["https://www.facebook.com/luns.io"],
@@ -39276,6 +39620,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Madgicx: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://academy.madgicx.com",
       "https://app.madgicx.com",
@@ -39785,6 +40135,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Mapp Digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://careers.mapp.com", "https://docs.mapp.com", "https://mapp.com"],
     li: ["https://www.linkedin.com/company/mapp-digital"],
     fb: ["https://www.facebook.com/mappdigitalinternational"],
@@ -39929,6 +40285,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Mars Media Group": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://mars.media"],
     li: ["https://www.linkedin.com/company/marsmediagroup"],
     ig: ["https://www.instagram.com/mars_media_group"],
@@ -40220,6 +40582,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Maximedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.maximedia.co.il"],
     urls: ["https://www.onestopdigital.co.il"],
     _meta: { isHomepage: true, isVerified: true }
@@ -41316,6 +41684,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Metadata: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://metadata.io", "https://platform.metadata.io", "https://metadatasupport.zendesk.com"],
     urls: ["https://demand.community", "https://thedemandevent.com/resources/demand"],
     _meta: { isHomepage: true, isVerified: true }
@@ -41368,6 +41742,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Metapyxl: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.metapyxl.com", "https://vault.metapyxl.io", "https://chromewebstore.google.com"],
     li: ["https://www.linkedin.com/company/metapyxl"],
     tw: ["https://x.com/metapyxl"],
@@ -41918,6 +42298,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Mine Marketing": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://mine-marketing.com"],
     li: ["https://www.linkedin.com/company/mine-marketing"],
     fb: ["https://www.facebook.com/minemarketing"],
@@ -42137,6 +42523,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   MixZone: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://mixzone.tv"],
     urls: ["https://mixzone.onsignage.com/studio/login.html"],
     _meta: { isHomepage: true, isVerified: true }
@@ -42201,6 +42593,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   MobiTech: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://blog.mobitech.io", "https://mobitech.io", "https://ui.mobitech.io"],
     li: ["https://www.linkedin.com/company/mobitech-io"],
     _meta: { isHomepage: true, isVerified: true }
@@ -42291,12 +42689,24 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Moblin: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://moblin.com"],
     li: ["https://www.linkedin.com/company/500033", "https://www.linkedin.com/company/moblin"],
     fb: ["https://www.facebook.com/moblinil"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Mobupps: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://mobupps.com"],
     li: ["https://www.linkedin.com/company/10212650", "https://www.linkedin.com/company/mobupps"],
     fb: ["https://www.facebook.com/mobupps"],
@@ -42633,6 +43043,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Moonshot Marketing": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.moonshot-marketing.com"],
     li: ["https://www.linkedin.com/company/moonshot-marketing-ltd"],
     ig: ["https://www.instagram.com/moonshotmarketing_life"],
@@ -42925,6 +43341,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Movvit: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://movvit.com"],
     urls: ["https://wordpress.org"],
     _meta: { isHomepage: true, isVerified: true }
@@ -43218,6 +43640,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   MyCast: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.my-cast.tv"],
     li: ["https://www.linkedin.com/company/my-cast"],
     fb: ["https://www.facebook.com/mycasttv"],
@@ -46166,6 +46594,12 @@ export const manualOverrides: Record<
   },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
   Oddin: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://adm.oddin.ai", "https://oddin.ai"],
     li: ["https://www.linkedin.com/company/oddin"],
     tw: ["https://x.com/oddinai"],
@@ -46173,6 +46607,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Odeeo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://blog.odeeo.io", "https://odeeo.io"],
     li: ["https://www.linkedin.com/company/odeeo"],
     fb: ["https://www.facebook.com/sonicodeeo"],
@@ -46677,6 +47117,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "One-eSIM": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.1-esim.com"],
     li: ["https://www.linkedin.com/company/1-esim", "https://www.linkedin.com/company/one-esim-africa"],
     urls: ["https://only-sim.com/en/guides/getting-started", "https://only-sim.com/en/tools/available-devices"],
@@ -47714,6 +48160,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Outbrain: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://dsr.outbrain.com", "https://my.outbrain.com", "https://www.outbrain.com"],
     li: ["https://www.linkedin.com/company/outbrain-direct-response"],
     fb: ["https://www.facebook.com/outbraindirectresponse"],
@@ -47762,6 +48214,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Ovalio: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://ovalio.io"],
     li: ["https://www.linkedin.com/company/ovalio-io"],
     _meta: { isHomepage: true }
@@ -47921,6 +48379,12 @@ export const manualOverrides: Record<
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   OxTraffic: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://oxtraffic.com", "https://partners.oxtraffic.com"],
     urls: ["http://zeronine.co.il"],
     _meta: { isHomepage: true, isVerified: true }
@@ -48578,6 +49042,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Parsempo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://control.parsempo.com", "https://parsempo.com"],
     li: ["https://www.linkedin.com/company/parsempo"],
     fb: ["https://www.facebook.com/goparsempo"],
@@ -48957,6 +49427,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Pazam: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.pazam.mobi"],
     urls: ["https://pazam.link/facebook", "https://pazam.link/instagram", "https://pazam.link/tiktok"],
     _meta: { isHomepage: true, isVerified: true }
@@ -49037,6 +49513,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Peer39: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://app.peer39.com", "https://www.peer39.com"],
     li: ["https://www.linkedin.com/company/peer39"],
     ytp: ["https://www.youtube.com/@peer39technology"],
@@ -49396,6 +49878,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Persona.ly": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://persona.ly", "https://dashboard.personaly.bid"],
     li: ["https://www.linkedin.com/company/persona-ly"],
     fb: ["https://www.facebook.com/persona.ly.monetization"],
@@ -49434,6 +49922,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Personyze: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://wiki.personyze.com", "https://www.personyze.com"],
     tw: ["https://x.com/personyze"],
     ytp: ["https://www.youtube.com/@personyzesupport6200"],
@@ -49612,6 +50106,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Phonder Technologies": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.phonder.com", "http://soldbyphonder.com"],
     fb: ["https://www.facebook.com/phonder.il"],
     tw: ["https://x.com/phonder"],
@@ -49876,6 +50376,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Pikoya: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://pikoya.com"],
     li: ["https://www.linkedin.com/company/pikoya"],
     fb: ["https://www.facebook.com/pikoya-1243369509008011"],
@@ -50313,6 +50819,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Play Leap": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://playleap.io", "https://wf.playleap.io"],
     li: ["https://www.linkedin.com/company/playleap"],
     fb: ["https://www.facebook.com/playleap"],
@@ -50328,6 +50840,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Play Tag": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://playtag.ai", "https://storyline.playtag.ai"],
     li: ["https://www.linkedin.com/company/playtagai"],
     ytp: ["https://www.youtube.com/@PLAYTAG-zy4gn"],
@@ -50375,7 +50893,17 @@ export const manualOverrides: Record<
     android_app_ids: ["com.playermaker.pm2"],
     _meta: { isHomepage: true, isVerified: true }
   },
-  PlayitViral: { ws: ["https://playitviral.com"], urls: ["http://mars-media-group.com"], _meta: { isHomepage: true } },
+  PlayitViral: {
+    ws: ["https://playitviral.com"],
+    urls: ["http://mars-media-group.com"],
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
+    _meta: { isHomepage: true }
+  },
   Playnance: {
     ws: ["https://docs.playnance.com", "https://playnance.com"],
     li: ["https://www.linkedin.com/company/playnance"],
@@ -51426,6 +51954,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Primis: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://console.primis.tech", "https://docs.primis.tech", "https://www.primis.tech"],
     li: ["https://www.linkedin.com/company/primis-um"],
     fb: ["https://www.facebook.com/primisum"],
@@ -51892,6 +52426,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Promo.com": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://promo.com", "https://support.promo.com"],
     li: ["https://www.linkedin.com/company/promodotcom"],
     fb: ["https://www.facebook.com/business", "https://www.facebook.com/promodotcom"],
@@ -52066,6 +52606,12 @@ export const manualOverrides: Record<
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   "Protected Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.protected.media"],
     li: ["https://www.linkedin.com/company/protected-media"],
     _meta: { isHomepage: true, isVerified: true }
@@ -52191,6 +52737,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Pubmint: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.pubmint.com"],
     li: ["https://www.linkedin.com/company/pubmint"],
     _meta: { isHomepage: true, isVerified: true }
@@ -52217,6 +52769,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Pulseem: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://api.pulseem.com",
       "https://pulseem.com",
@@ -52335,6 +52893,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Pushub: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://dsp.pushub.net", "https://login.pushub.net", "https://pushub.net"],
     li: ["https://www.linkedin.com/company/pushub"],
     ig: ["https://www.instagram.com/pushub_me"],
@@ -52962,6 +53526,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Quttera: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://blog.quttera.com", "https://quttera.com", "https://threats.quttera.com"],
     li: ["https://www.linkedin.com/company/quttera"],
     fb: ["https://www.facebook.com/quttera"],
@@ -53912,6 +54482,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Rational Instinct": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.rationalinstinct.com"],
     li: ["https://www.linkedin.com/company/rational-instinct"],
     urls: ["https://www.devsmelbourne.com.au"],
@@ -54134,6 +54710,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Reacheffect: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://reacheffect.com", "https://up.reacheffect.com"],
     li: ["https://www.linkedin.com/company/reacheffect"],
     fb: ["https://www.facebook.com/reacheffect"],
@@ -54662,6 +55244,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Reins: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.reinsglobal.com"],
     li: ["https://www.linkedin.com/company/reinsglobal"],
     ytp: ["https://www.youtube.com/@reinsglobal"],
@@ -55169,6 +55757,12 @@ export const manualOverrides: Record<
   },
   Revrod: { ws: ["https://www.revrod.io"], _meta: { isHomepage: true, isVerified: true } },
   Revtimize: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.revtimize.com"],
     urls: ["http://vimeo.com/61741062"],
     _meta: { isHomepage: true, isVerified: true }
@@ -55424,7 +56018,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/rise_nanooptics"],
     _meta: { isHomepage: true }
   },
-  "risotech": {
+  risotech: {
     // hugedomains.com/payment-plan-setup.cfm?d=RisoTech.com — the reseller's checkout page, same class as the other three startups on it.
     ws: [],
     li: ["https://www.linkedin.com/company/risotech"],
@@ -57100,6 +57694,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Samplead: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://dashboard.samplead.co", "https://www.samplead.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
@@ -57614,6 +58214,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Schemathics: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://crm.schemathics.com", "https://schemathics.com"],
     li: ["https://www.linkedin.com/company/schemathics"],
     _meta: { isHomepage: true, isVerified: true }
@@ -58305,6 +58911,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   SelectMedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.selectmedia.asia", "https://dashboard.selectmedia.io"],
     li: ["https://www.linkedin.com/company/selectmedia-pte-ltd-"],
     fb: ["https://www.facebook.com/selectmedia"],
@@ -58343,6 +58955,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Sellers.guide": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://sellers.guide"],
     li: ["https://www.linkedin.com/company/70959060", "https://www.linkedin.com/company/sellers-guide"],
     tw: ["https://x.com/sellers_guide"],
@@ -58759,6 +59377,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Sett: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.sett.ai"],
     li: ["https://www.linkedin.com/company/sett-ai"],
     _meta: { isHomepage: true, isVerified: true }
@@ -59809,6 +60433,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Sijak Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://sijakmedia.com"],
     li: ["https://www.linkedin.com/company/82587877", "https://www.linkedin.com/company/sijakmedia"],
     ig: ["https://www.instagram.com/sijakmedia"],
@@ -60205,6 +60835,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Singular: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://singular.co.il"],
     urls: [
       "https://cybersecurity.opentext.com/products/continuity-compliance/availability",
@@ -60332,6 +60968,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Skai: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://skai.io"],
     li: ["https://www.linkedin.com/company/skaicommerce"],
     fb: ["https://www.facebook.com/skaicommerce"],
@@ -61406,6 +62048,12 @@ export const manualOverrides: Record<
   },
   Somite: { tw: "https://x.com/somiteai" },
   Somplo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://admin.somplo.com", "https://somplo.com"],
     li: ["https://www.linkedin.com/company/18744793", "https://www.linkedin.com/company/somplo"],
     fb: ["https://www.facebook.com/somplocmp"],
@@ -62139,6 +62787,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Spot Runner": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://advertiser.spotrunner.com", "https://www.spotrunner.com", "https://spotrunner.net"],
     li: ["https://www.linkedin.com/company/10225", "https://www.linkedin.com/company/spot-runner"],
     urls: ["https://vimeo.com/spotrunner/videos"],
@@ -62876,6 +63530,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   StreamKey: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://dashboard.streamkey.tv", "https://www.streamkey.tv"],
     li: ["https://www.linkedin.com/company/109691123", "https://www.linkedin.com/company/streamkey-tv"],
     fb: ["https://www.facebook.com/streamkeytv"],
@@ -63120,6 +63780,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Subscrible: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://subscrible.com"],
     li: ["https://www.linkedin.com/company/93232994", "https://www.linkedin.com/company/subscrible"],
     urls: ["https://dashboard.subscrible.xyz/site/signup", "https://discord.com/invite/A9kARY4uRh"],
@@ -63127,6 +63793,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Subsmash: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://subsmash.com"],
     tw: ["https://x.com/subsmash_com"],
     _meta: { isHomepage: true, isVerified: true }
@@ -63272,6 +63944,12 @@ export const manualOverrides: Record<
   },
   Sunbow: {},
   SundaySky: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://app.sundaysky.com",
       "https://help.sundaysky.com",
@@ -64358,6 +65036,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Taboola: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://authentication.taboola.com",
       "https://developers.taboola.com",
@@ -64516,6 +65200,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Takoomi: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.takoomi.com"],
     li: ["https://www.linkedin.com/company/2637973", "https://www.linkedin.com/company/takoomi"],
     fb: ["https://www.facebook.com/takoomi-232322370169543"],
@@ -64851,6 +65541,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Taptica: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://admin.taptica.com", "https://www.taptica.com"],
     urls: ["https://www.nexxen.com"],
     _meta: { isHomepage: true, isVerified: true }
@@ -65046,6 +65742,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   Teads: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://academy.teads.com",
       "https://engineering.teads.com",
@@ -65774,6 +66476,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Teza: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://teza.ai"],
     urls: ["https://www.notion.so/Teza-Careers-16cbd939416a807c9b4af75535220856"],
     _meta: { isHomepage: true }
@@ -66641,6 +67349,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   ThoughtLeaders: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://app.thoughtleaders.io", "https://www.thoughtleaders.io"],
     li: ["https://www.linkedin.com/company/thoughtleaders-io"],
     fb: ["https://www.facebook.com/thoughtleaders.io"],
@@ -67047,6 +67761,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Tismo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://tismoapp.com"],
     urls: ["https://nirazo.co.il"],
     _meta: { isHomepage: true, isVerified: true }
@@ -67646,6 +68366,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Tracknow LTD": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://dashboard.tracknow.io",
       "https://docs.tracknow.io",
@@ -68496,6 +69222,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Truvid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://console.truvid.com", "https://truvid.com"],
     li: ["https://www.linkedin.com/company/truvid"],
     fb: ["https://www.facebook.com/truvidovp"],
@@ -69475,6 +70207,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "UNIPaaS Payments Technologies": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://docs.unipaas.com", "https://portal.unipaas.com", "https://www.unipaas.com"],
     li: ["https://www.linkedin.com/company/unipaas"],
     ytp: ["https://www.youtube.com/@unipaas"],
@@ -69769,6 +70507,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Unicell Advanced Cellular Solutions": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://unicell.co.il"],
     urls: ["https://tamar-green.com"],
     _meta: { isHomepage: true }
@@ -70321,6 +71065,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Uzerz: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://uzerz.com"],
     urls: ["https://www.godaddy.com/websites/website-builder"],
     _meta: { isHomepage: true }
@@ -70414,6 +71164,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   VFR: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://vfr.ai"],
     li: ["https://www.linkedin.com/company/vfrai"],
     fb: ["https://www.facebook.com/vfrctv"],
@@ -70610,6 +71366,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Valerann: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://valerann.com"],
     li: ["https://www.linkedin.com/company/valerann"],
     tw: ["https://x.com/valerann_ltd"],
@@ -70995,6 +71757,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Venndy: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://blog.venndy.com", "https://www.venndy.com", "http://blog.venndy.com"],
     fb: ["https://www.facebook.com/venndyapp"],
     tw: ["https://x.com/venndyapp"],
@@ -71793,6 +72561,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Voco Networks": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://voconet.io"],
     urls: [
       "https://www.alliance-francaise-des-designers.org",
@@ -72801,6 +73575,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Webbing Labs": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://webbinglabs.com"],
     urls: ["http://web.archive.org/web/20210305122812/mailto:Avraham@webbinglabs.com"],
     _meta: { isHomepage: true, isVerified: true }
@@ -72837,6 +73617,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Webiz: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://affiliate.webiz.com", "https://client.webiz.com", "https://webiz.com"],
     li: ["https://www.linkedin.com/company/webizcom"],
     fb: ["https://www.facebook.com/webizgeorgia"],
@@ -73286,6 +74072,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Winvid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.winvid.tv"],
     li: ["https://www.linkedin.com/company/winvid"],
     fb: ["https://www.facebook.com/winvidmedia"],
@@ -73813,6 +74605,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   XTEND: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://ir.xtend.me", "https://support.xtend.me", "https://www.xtend.me"],
     urls: ["http://ir.xtend.me", "https://support.xtend.me/wp-login.php"],
     _meta: { isHomepage: true, isVerified: true }
@@ -73828,6 +74626,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "XTRM QB": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://xtrmqb.com"],
     li: ["https://www.linkedin.com/company/xtrm-qb"],
     urls: ["https://athemes.com/theme/sydney"],
@@ -73854,6 +74658,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Xaria: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.xaria.world"],
     li: ["https://www.linkedin.com/company/xaria.world"],
     _meta: { isHomepage: true, isVerified: true }
@@ -74518,6 +75328,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Yesh: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://yesh.io"],
     li: ["https://www.linkedin.com/company/yeshmedia"],
     _meta: { isHomepage: true, isVerified: true }
@@ -74728,6 +75544,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Yoola: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://yoola.com"],
     li: ["https://www.linkedin.com/company/yoola-media"],
     fb: ["https://www.facebook.com/yoola"],
@@ -74771,6 +75593,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   YouAppi: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: [
       "https://console.youappi.com",
       "https://ja.youappi.com",
@@ -75054,6 +75882,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Zano: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://app.zanoplatform.com", "https://zanoplatform.com"],
     urls: ["https://www.capterra.com/p/10027632/Zano/reviews"],
     _meta: { isHomepage: true }
@@ -75453,6 +76287,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Zippor: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.zippormedia.com"],
     li: ["https://www.linkedin.com/company/zippor-ltd-"],
     _meta: { isHomepage: true, isVerified: true }
@@ -75582,6 +76422,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Zoomd: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://lp.zoomd.com", "https://zoomd.com"],
     li: ["https://www.linkedin.com/company/zoomd-com"],
     fb: ["https://www.facebook.com/zoomd.since2012"],
@@ -77122,6 +77968,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   moblers: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://moblers.com"],
     li: ["https://www.linkedin.com/company/moblers"],
     fb: ["https://www.facebook.com/moblers"],
@@ -77694,6 +78546,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   xCircular: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://www.xcircular.com"],
     li: ["https://www.linkedin.com/company/xcircular"],
     fb: ["https://www.facebook.com/xcircular"],
@@ -77715,6 +78573,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   yellowHEAD: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ],
     ws: ["https://partners.yellowhead.com", "https://www.yellowhead.com"],
     li: ["https://www.linkedin.com/company/yellowhead"],
     fb: ["https://www.facebook.com/yellowhead"],
@@ -77777,5 +78641,2213 @@ export const manualOverrides: Record<
       "https://www.latamfintech.co/articles/fintech-de-pagos-internacionales-zulu-lanza-producto-que-busca-acompanar-a-inversionistas-en-america-latina"
     ],
     _meta: { isHomepage: true, isVerified: true }
+  },
+  "+Added": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "360Affiliates": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "3pxMedia": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "770 digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "AEM Days": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  AdSap: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Aderbid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Adit-Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Admail: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  AdopSolutions: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Adoplayer: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Adopt Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Adtecho: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Adxperience: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Adzone Media Group Ltd": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Affsmedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Agraba: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Alison.ai": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "All-In": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "AlphaNeural AI": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Appalgo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Apply Mobile Technologies": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Apps Clicks": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Aranea Group": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Arrr Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Artimedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Audioboost: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  BabaNetwork: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Bat-Ads": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Baxo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Beaconwatcher: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Benefit Media Group": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  BetterReach: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Bid2bed: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  BidToZero: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Bpath: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Brightcom: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Bundlore: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Buzzin: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  CBDAffs: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "CPM Computer Services": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Canny AI": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "CashControl israel": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Cellosite: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Chiprix: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Click'nGo": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Clkim: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  CoMonetize: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  CodeFuel: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Combar: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Commfident: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Convertise Ltd.": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  CookPoint: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Coolix: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Cortex: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Cronus Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Crunchie Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Cucuvia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "DATAWAVING LTD": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "DYG LTD": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Dealers: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Definiti Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Digital Cherry": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  DiscoverTech: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Dispop: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "EST Digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "EX.CO": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "EagleTech.io": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Edge226: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Engageya: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Envite: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Esh Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Face 2 Face - Advanced Web Solutions": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Fast Corporate": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Feature.fm": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Flowmatic: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Fonety Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Fuga Technologies": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Fusionbutton ltd": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  GURUTRAFF: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Get in LTD": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  GetMedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Getmedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Giftoin - Next-Generation Loyalty and User Engagement Platform.": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Gizzmo.ai": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Glispa Create (formerly justAd)": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  GoBnnz: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Gpage: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Gradientt: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Grasp Studios": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Growlead Marketing": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Growth-X": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Hila Ganani Digital Marketing And Automations": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "HyperAd io": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  IbexNetwork: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Igor.Digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Imec Marketing & Trading In Internet (Findaff Investors)": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Imonomy Interactive": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "IndieAd.Tech": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  InforUMobile: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Intango: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Intuvid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Isus Intellectual Property": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Jeeng (formerly PowerInbox)": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Jellop: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Jinni Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Joon-io": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "KOALA.MEDIA": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  KeenKale: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "KeyPoint Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Kinoa Labs": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Klink Labs": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Komoona: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Kupoya: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "LETT DO": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  LIVengage: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  LeadBex: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Leadcoin: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Limitess: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Literally Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  MEDIA412: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  MOBADVANCE: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  MOBOPINIONS: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  MOONEE: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "MYATHENA AI LTD": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Marmar Media Ltd": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Matomy: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Mawelan: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Mediayo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Mega-Fabs Motion Systems": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Mempic Game Studio": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Metafy: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Mico Productions": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Minta: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  MonetizePlus: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  MyMedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Navin: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Neefla Technologies Ltd.": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Nexamob: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  NoptifyAI: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Novalmedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "O2R Intelligence": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "OP Games": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  OnBread: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Ondema: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Online Media Solutions": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Optinetix: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Oraki: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Otica.ai": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "PARETO SOLUTIONS": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  PLYmedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  PandaPepper: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "PandoLogic (formerly RealMatch)": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Perion: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Pijimi: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Pixplit: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  PlayScape: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Playgorithm: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Point of View Software": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  PrimeRoll: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Publlo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Pudding Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  PurpleAds: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Pursway: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Qbo Services": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Racana: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Radyoos Media Ltd": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  RealStash: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  RecipeGet: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Rentrust: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  RevenueHits: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Revizer: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Robotix Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Rumble: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  SMBIG: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "STADS Technologies": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Sageloc: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Search Machines": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Search-code.com": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Seerbanc: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  SelfAdvertiser: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Shalev Jencmen & Co.": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Shareitt: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Skyblue Digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Sonarax Technologies": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Sorbet Agency": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Spectalix: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Spotad: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Start.io": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Stevie: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Story Toons": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  StreamElements: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Streamatic International": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Swiftic: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "TOP TQ": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Tabatoo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Target Media Ads": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  TechidoMedia: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Tentica: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "The Video Nation": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  TonesHub: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Torox: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  TrackingDesk: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  TrafficBee: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Trans-Israel": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Tredio: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Twist Digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Txtrider: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "UM Digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Ulike: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Umedia Tlv Ltd": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Uplifted: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Upperate: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Urbanize: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "VIXI TV": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Velis Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  VeracityAds: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Verilla GANG": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Vidoo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Viewdeos: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Virtue Traffic": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Vocavu Solutions": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Volo Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "W.M. WEBmedia": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  WeLike: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  WetWater: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Winni App": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  WizzShake: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Wopa Ads": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  XLfluence: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Yadwire Technology": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Yahoo Ad Tech program": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Yaya Social": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "Yep Media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Yieldmo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Youffer: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  Zinc: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "adland-html-hebrew": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "algopeak.io": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  apperz: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  appssociate: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "be-incremental": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "bilderish studio": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "biscience - israel": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  blobix: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  bold: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "captiv8 by ac digital": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  cleversphere: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "click terminal": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "clickcease.com": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "display.io": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  eMonetization: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  eRate: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  eko: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  errnio: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "exponential.buzz": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  gill_benolid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "gix media": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "iOi Data Creative": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "inter-act now": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "kg media group": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "media pulse": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "mobile summits": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "moly.co.il": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  monetizego: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "moovitapp.com": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  my6sense: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "nRoll Marketing": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  optimob: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "organic tech": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  pickair: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  playleaks: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  "precise synergy": {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  rtbid: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  sPReader: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
+  },
+  zenmo: {
+    alt: [
+      {
+        n: "Ethicly",
+        ws: "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
+      }
+    ]
   }
 }
