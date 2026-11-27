@@ -148,3 +148,17 @@ describe("shouldKeepWebsite - curated hints", () => {
     expect(shouldKeepWebsite({ ws: "https://business.facebook.com", isHint: true })).toBe(true)
   })
 })
+
+/**
+ * The fail-hard path only runs inside `run()`, which needs the whole merged dataset. These call the
+ * predicate the same way the loop does, so the contract is pinned where it is cheap.
+ */
+describe("override as the decision", () => {
+  it("a curated real website passes the filter", () => {
+    expect(shouldKeepWebsite({ ws: "https://scouterapp.com" })).toBe(true)
+  })
+
+  it("the rejected platform URL would have failed", () => {
+    expect(shouldKeepWebsite({ ws: "https://apps.apple.com" })).toBe(false)
+  })
+})
