@@ -162,3 +162,31 @@ describe("override as the decision", () => {
     expect(shouldKeepWebsite({ ws: "https://apps.apple.com" })).toBe(false)
   })
 })
+
+/**
+ * The one curated exception, and the proof it is narrow.
+ *
+ * Firebase lives on a Google host because it IS a Google product. That single fact must not become
+ * a general permission for anything else on a filtered platform.
+ */
+describe("FILTERED_HOST_EXCEPTIONS", () => {
+  it("lets the named row keep its own platform host", () => {
+    expect(shouldKeepWebsite({ id: "firebase", ws: "firebase.google.com" })).toBe(true)
+  })
+
+  it("does not extend the exception to another id on the same host", () => {
+    expect(shouldKeepWebsite({ id: "some-other-company", ws: "firebase.google.com" })).toBe(false)
+  })
+
+  it("does not extend the exception to another Google subdomain", () => {
+    expect(shouldKeepWebsite({ id: "firebase", ws: "cloud.google.com" })).toBe(false)
+  })
+
+  it("does not let the id alone excuse a bare filtered host", () => {
+    expect(shouldKeepWebsite({ id: "firebase", ws: "google.com" })).toBe(false)
+  })
+
+  it("does not exempt a row with no id", () => {
+    expect(shouldKeepWebsite({ ws: "firebase.google.com" })).toBe(false)
+  })
+})

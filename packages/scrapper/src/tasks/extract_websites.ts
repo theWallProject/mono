@@ -64,8 +64,22 @@ export const isFilteredDomain = (domain: string): boolean => {
  * both kinds of row: a hint on `google.com` would fire on Search, Gmail and Docs, which is the
  * outcome the filter exists to prevent.
  */
+/**
+ * Filtered hosts that a named company is allowed to keep, and nothing else.
+ *
+ * This is deliberately tiny and keyed on the exact row id. It exists for the one case where the
+ * platform host IS the product's real address: Firebase is a Google product, so `firebase.google.com`
+ * is where it actually lives, and there is no separate domain to point at. Keeping the list here —
+ * one entry, one id — means a new exception needs a new line and a reason, rather than a broad rule
+ * that quietly reopens the hole the filter closes.
+ */
+const FILTERED_HOST_EXCEPTIONS: Record<string, string> = {
+  // Firebase is Google's mobile platform; firebase.google.com is its product home, not a scrape artefact.
+  firebase: "firebase.google.com"
+}
+
 export const shouldKeepWebsite = (
-  row: { ws?: string; isHint?: boolean },
+  row: { ws?: string; isHint?: boolean; id?: string },
   onExcluded: (message: string) => void = () => {}
 ): boolean => {
   const website = row.ws
@@ -75,6 +89,8 @@ export const shouldKeepWebsite = (
   if (domain === undefined) {
     throw new Error(`Failed to extract domain from: ${website}`)
   }
+
+  if (row.id !== undefined && FILTERED_HOST_EXCEPTIONS[row.id] === domain) return true
 
   const filtered = isFilteredDomain(domain)
   if (!filtered) return true
@@ -91,36 +107,6 @@ export const shouldKeepWebsite = (
 
   onExcluded(`Website excluded ${website} => ${domain}`)
   return false
-}
-
-/**
- * A decided exclusion: a scraped row parked on a filtered platform host.
- *
- * The dataset is regenerated, not hand-edited, so a bad website field reappears on every rebuild.
- * Dropping it silently is how `linktr.ee` and an Etsy shop once blocked whole platforms, and how 55
- * rows disappeared with nothing but a log line. Each of those rows is a data defect that has to be
- * resolved — give the company its real website, or delete the row — and this file is the record that
- * the resolution happened.
- *
- * Keyed by row id, never by company name: one company can own several rows and only one of them be
- * wrong, so a name-keyed decision would wave its other rows through.
- */
-export type DecidedExclusion = {
-  /** Row id, as it appears in MANUAL.json and ALL.json. */
-  id: string
-  /** Company name at the time of the decision, so a stale id is readable when it breaks. */
-  name: string
-  /** The rejected website, so the reason is legible without re-running the scraper. */
-  website: string
-  /**
-   * Why this row no longer needs a website, or why the site is acceptable anyway.
-   *
-   * `deleted` — the row is in `manualDeleteIds.ts`; the company was not a real entry.
-   * `resolved` — the company now has a real website or is flagged through its social selectors.
-   */
-  decision: "deleted" | "resolved"
-  /** One line a human can check without opening the data. */
-  note: string
 }
 
 export const run = async (merged: CrunchbaseScrappedItemsType) => {
@@ -143,7 +129,7 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
   const db = mergedDB
     .filter((row) => row.ws && row.ws !== "")
     .filter((row) => {
-      if (shouldKeepWebsite(row)) return true
+      if (shouldKeepWebsite({ ws: row.ws, isHint: row.isHint, id: row.id })) return true
 
       const website = row.ws
       if (!website) return false
