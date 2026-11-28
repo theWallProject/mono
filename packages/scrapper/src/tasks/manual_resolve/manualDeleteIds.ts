@@ -27,5 +27,18 @@ export const manualDeleteIds = [
   "45rpm-consulting",
   // A 2 Z Hair Fixed Clinic: website 404s; the only other link is a Facebook page, no domain of its
   // own anywhere in the record.
-  "a-2-z-hair-fixed-clinic-in-kashipur"
+  "a-2-z-hair-fixed-clinic-in-kashipur",
+  // The eleven below are the remainder of the business.site rows that carry no social link at all:
+  // dead website, nothing else to identify the company, nothing to find a real site from.
+  "aec-abroad-education-consultants-62b9",
+  "affordable-health-insurance-agency-b65f",
+  "candolim-glitter-sand",
+  "kiptui-kipkemei-co-advocates",
+  "powerfull-games",
+  "quake-engineering-bv",
+  "seo-solution-5f84",
+  "shimanta-inc",
+  "shree-ganpati-real-estate-best-property-dealers-in-mohali",
+  "shree-swastik-agro-power",
+  "southern-arizona-farrier-supply"
 ]
