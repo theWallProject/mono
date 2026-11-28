@@ -18,6 +18,10 @@ export const manualDeleteIds = [
   // (scouterapp.com -> domain reseller, scouter.app -> in-store deals, scouter.io -> Magic Patterns
   // placeholder). No real site exists, so the row goes rather than shipping a guess.
   "scouter-live-scores-stats",
+  // Goodlook: App Store listing only. LinkedIn (live, 9 followers) describes a fashion app; the
+  // obvious domain goodlookapp.com is a Hugedomains for-sale page, and an App Store search returns
+  // five unrelated apps under that name, none of them this one.
+  "goodlook-6f1e",
   // 360 Product Provider: the only website was a Wix business.site page that now returns 404, and
   // the record's socials are a personal LinkedIn profile (/in/daniel-barnes), a personal-looking
   // Facebook page and x.com/3provider. Nothing identifies the company as a company.
