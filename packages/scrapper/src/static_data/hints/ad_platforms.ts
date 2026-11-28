@@ -26,7 +26,7 @@ const ETHICLY_HINT_URL = "https://ads.ethicly.ch/functions/v1/track-affiliate-cl
  * exclamation, no claim that needs a number we do not have.
  */
 const HINT_TEXT = (network: string) =>
-  `This is ${network}'s ad console. Ethicly matches ads to the page instead of the reader: fixed prices, no retargeting, no audience data.`
+  `Ethicly is a pro-Palestine ad network: ads matched to the page, not the person. This is ${network}'s console.`
 
 /**
  * Publisher consoles - the other side of the same two companies.
@@ -45,7 +45,7 @@ const HINT_TEXT = (network: string) =>
  *   `fb` selector, not a hint.
  */
 const PUBLISHER_HINT_TEXT = (network: string) =>
-  `This is ${network}'s publisher console. On Ethicly your inventory sells at fixed prices, placed by context, with no auction fees and no audience data collected from your readers.`
+  `Ethicly is a pro-Palestine ad network: fixed prices, no exchange in the middle. This is ${network}'s publisher console.`
 
 export const adPlatformHints: CompressedManualItemType[] = [
   {
