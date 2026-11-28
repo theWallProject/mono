@@ -104,7 +104,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
       try {
         await page.goto(`chrome-extension://${extensionId}/popup.html`, { waitUntil: "domcontentloaded" })
         const { answered, result, error } = await page.evaluate(
-          (target) =>
+          async (target) =>
             new Promise<{ answered: boolean; result?: unknown; error?: string }>((resolve) => {
               // Same message the content script sends; see MessageTypes.TestUrl in src/types.ts.
               chrome.runtime.sendMessage({ action: "TestUrl", url: target }, (result: unknown) => {
@@ -129,9 +129,8 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     }
 
     it("answers with the Google Ads hint for the ad console URL", async () => {
-      const answer = (await answerForUrl("https://ads.google.com/aw/campaigns")) as { isHint?: boolean; name?: string }
-      expect(answer?.isHint).toBe(true)
-      expect(answer.name).toBe("Google Ads")
+      const answer: unknown = await answerForUrl("https://ads.google.com/aw/campaigns")
+      expect(answer).toMatchObject({ isHint: true, name: "Google Ads" })
     })
 
     it("does NOT answer with a hint for google.com", async () => {

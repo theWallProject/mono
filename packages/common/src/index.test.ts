@@ -1906,3 +1906,27 @@ describe("FinalDBFileSchema - Custom reason validation", () => {
     })
   })
 })
+
+describe("publisher console hints stay off their parents", () => {
+  const db: FinalDBFileType[] = [
+    { id: "p_adsense", ws: "adsense.google.com", r: [], n: "Google AdSense", isHint: true, hintText: "x", hintUrl: "y" },
+    { id: "p_admob", ws: "admob.google.com", r: [], n: "AdMob", isHint: true, hintText: "x", hintUrl: "y" },
+    { id: "p_aps", ws: "aps.amazon.com", r: [], n: "Amazon Publisher Services", isHint: true, hintText: "x", hintUrl: "y" }
+  ]
+
+  it("matches each publisher console", () => {
+    expect(findHintByDomain("adsense.google.com", db)?.id).toBe("p_adsense")
+    expect(findHintByDomain("admob.google.com", db)?.id).toBe("p_admob")
+    expect(findHintByDomain("aps.amazon.com", db)?.id).toBe("p_aps")
+  })
+
+  it("does not fire on google.com or amazon.com", () => {
+    expect(findHintByDomain("google.com", db)).toBeNull()
+    expect(findHintByDomain("amazon.com", db)).toBeNull()
+  })
+
+  it("does not fire on a sibling host of the same platform", () => {
+    expect(findHintByDomain("ads.google.com", db)).toBeNull()
+    expect(findHintByDomain("advertising.amazon.com", db)).toBeNull()
+  })
+})

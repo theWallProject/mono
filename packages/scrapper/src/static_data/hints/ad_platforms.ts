@@ -20,6 +20,25 @@ const ETHICLY_HINT_URL = "https://ads.ethicly.ch/functions/v1/track-affiliate-cl
 const HINT_TEXT = (network: string) =>
   `This is ${network}'s ad console. Ethicly sells ad space to publishers directly, without a network in the middle.`
 
+/**
+ * Publisher consoles - the other side of the same two companies.
+ *
+ * An advertiser console buys ad space; a publisher console sells it. Different pages, different
+ * intent, so these are their own hints rather than a second message squeezed into the first. Hosts
+ * were checked live before being written here: `adsense.google.com` (302 to /start/), `admob.google.com`
+ * (301 to /home/, and apps.admob.com redirects into it), `aps.amazon.com` (302).
+ *
+ * Left out on purpose, because no host could be verified:
+ * - X's publisher console. `mo.x.com` and `monetize.x.com` do not resolve, and x.com/monetization is
+ *   a path on x.com, which the host rule cannot scope without swallowing the whole site.
+ * - The SSPs (PubMatic, Magnite, OpenX). Their consoles either do not resolve or are company front
+ *   doors, and a direct-deal platform is not a drop-in swap for an SSP anyway.
+ * - Meta Audience Network, which is facebook.com/audiencenetwork — a page, not a host. It needs the
+ *   `fb` selector, not a hint.
+ */
+const PUBLISHER_HINT_TEXT = (network: string) =>
+  `This is ${network}'s publisher console. Ethicly sells ad space directly, so the money does not pass through a network.`
+
 export const adPlatformHints: CompressedManualItemType[] = [
   {
     name: "Google Ads",
@@ -48,6 +67,33 @@ export const adPlatformHints: CompressedManualItemType[] = [
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads",
     android_app_ids: ["com.amazon.adsmanager"]
+  },
+  {
+    name: "Google AdSense",
+    reasons: [],
+    ws: ["https://adsense.google.com"],
+    isHint: true,
+    hintText: PUBLISHER_HINT_TEXT("Google AdSense"),
+    hintUrl: ETHICLY_HINT_URL,
+    hintCompanyId: "ethicly_ads"
+  },
+  {
+    name: "AdMob",
+    reasons: [],
+    ws: ["https://admob.google.com"],
+    isHint: true,
+    hintText: PUBLISHER_HINT_TEXT("AdMob"),
+    hintUrl: ETHICLY_HINT_URL,
+    hintCompanyId: "ethicly_ads"
+  },
+  {
+    name: "Amazon Publisher Services",
+    reasons: [],
+    ws: ["https://aps.amazon.com"],
+    isHint: true,
+    hintText: PUBLISHER_HINT_TEXT("Amazon Publisher Services"),
+    hintUrl: ETHICLY_HINT_URL,
+    hintCompanyId: "ethicly_ads"
   },
   {
     name: "X Ads",
