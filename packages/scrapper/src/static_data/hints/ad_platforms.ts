@@ -99,9 +99,9 @@ export const adPlatformHints: CompressedManualItemType[] = [
     name: "X Ads",
     reasons: [],
     // ads.twitter.com and ads.x.com both 302 to business.x.com/en/advertising, and
-    // business.twitter.com 301s to business.x.com. One destination, one host to store: four rows
-    // saying the same thing is noise in the DB, not extra coverage.
-    ws: ["https://ads.twitter.com"],
+    // business.twitter.com 301s to business.x.com. Both live hosts are stored because people type
+    // either name; business.twitter.com is dropped as a redirect to the landing page only.
+    ws: ["https://ads.twitter.com", "https://ads.x.com"],
     isHint: true,
     hintText: HINT_TEXT("X"),
     hintUrl: ETHICLY_HINT_URL,
