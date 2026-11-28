@@ -25,8 +25,7 @@ const ETHICLY_HINT_URL = "https://ads.ethicly.ch/functions/v1/track-affiliate-cl
  * One sentence of what this page is, one of what Ethicly offers instead. No superlatives, no
  * exclamation, no claim that needs a number we do not have.
  */
-const HINT_TEXT = (_network: string) =>
-  `Ethicly is a pro-Palestine ad network: ads matched to the page, not the person.`
+const ADVERTISER_HINT_TEXT = `Ethicly is a pro-Palestine ad network: ads matched to the page, not the person.`
 
 /**
  * Publisher consoles - the other side of the same two companies.
@@ -44,8 +43,7 @@ const HINT_TEXT = (_network: string) =>
  * - Meta Audience Network, which is facebook.com/audiencenetwork — a page, not a host. It needs the
  *   `fb` selector, not a hint.
  */
-const PUBLISHER_HINT_TEXT = (_network: string) =>
-  `Ethicly is a pro-Palestine ad network: fixed prices, no exchange in the middle.`
+const PUBLISHER_HINT_TEXT = `Ethicly is a pro-Palestine ad network: fixed prices, no exchange in the middle.`
 
 export const adPlatformHints: CompressedManualItemType[] = [
   {
@@ -53,7 +51,7 @@ export const adPlatformHints: CompressedManualItemType[] = [
     reasons: [],
     ws: ["https://ads.google.com"],
     isHint: true,
-    hintText: HINT_TEXT("Google"),
+    hintText: ADVERTISER_HINT_TEXT,
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads"
   },
@@ -62,7 +60,7 @@ export const adPlatformHints: CompressedManualItemType[] = [
     reasons: [],
     ws: ["https://business.facebook.com", "https://adsmanager.facebook.com"],
     isHint: true,
-    hintText: HINT_TEXT("Meta"),
+    hintText: ADVERTISER_HINT_TEXT,
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads"
   },
@@ -71,7 +69,7 @@ export const adPlatformHints: CompressedManualItemType[] = [
     reasons: [],
     ws: ["https://advertising.amazon.com"],
     isHint: true,
-    hintText: HINT_TEXT("Amazon"),
+    hintText: ADVERTISER_HINT_TEXT,
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads",
     android_app_ids: ["com.amazon.adsmanager"]
@@ -81,7 +79,7 @@ export const adPlatformHints: CompressedManualItemType[] = [
     reasons: [],
     ws: ["https://adsense.google.com"],
     isHint: true,
-    hintText: PUBLISHER_HINT_TEXT("Google AdSense"),
+    hintText: PUBLISHER_HINT_TEXT,
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads"
   },
@@ -90,7 +88,7 @@ export const adPlatformHints: CompressedManualItemType[] = [
     reasons: [],
     ws: ["https://admob.google.com"],
     isHint: true,
-    hintText: PUBLISHER_HINT_TEXT("AdMob"),
+    hintText: PUBLISHER_HINT_TEXT,
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads"
   },
@@ -99,7 +97,7 @@ export const adPlatformHints: CompressedManualItemType[] = [
     reasons: [],
     ws: ["https://aps.amazon.com"],
     isHint: true,
-    hintText: PUBLISHER_HINT_TEXT("Amazon Publisher Services"),
+    hintText: PUBLISHER_HINT_TEXT,
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads"
   },
@@ -116,7 +114,7 @@ export const adPlatformHints: CompressedManualItemType[] = [
       "https://business.x.com"
     ],
     isHint: true,
-    hintText: HINT_TEXT("X"),
+    hintText: ADVERTISER_HINT_TEXT,
     hintUrl: ETHICLY_HINT_URL,
     hintCompanyId: "ethicly_ads"
   }
