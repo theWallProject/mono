@@ -98,7 +98,10 @@ export const adPlatformHints: CompressedManualItemType[] = [
   {
     name: "X Ads",
     reasons: [],
-    ws: ["https://ads.twitter.com", "https://ads.x.com", "https://business.twitter.com", "https://business.x.com"],
+    // ads.twitter.com and ads.x.com both 302 to business.x.com/en/advertising, and
+    // business.twitter.com 301s to business.x.com. One destination, one host to store: four rows
+    // saying the same thing is noise in the DB, not extra coverage.
+    ws: ["https://ads.twitter.com"],
     isHint: true,
     hintText: HINT_TEXT("X"),
     hintUrl: ETHICLY_HINT_URL,
