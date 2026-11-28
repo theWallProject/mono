@@ -10,6 +10,7 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+  extractSelector,
   findHintByDomain,
   findInDatabaseByDomain,
   findInDatabaseBySelector,
@@ -1955,5 +1956,33 @@ describe("X ads hosts", () => {
     // The bare domains are the whole platform, not the ads product.
     expect(findHintByDomain("x.com", db)).toBeNull()
     expect(findHintByDomain("twitter.com", db)).toBeNull()
+  })
+})
+
+describe("Meta Audience Network page", () => {
+  const db: FinalDBFileType[] = [
+    { id: "meta", ws: "meta.com", r: ["c"], n: "Meta Platforms", proof_text: "x" },
+    { id: "meta_an", fb: "audiencenetwork", r: ["c"], n: "Meta Platforms", proof_text: "x" },
+    { id: "upscrolled", ws: "facebook.com", r: [], n: "Upscrolled", isHint: true, hintText: "x", hintUrl: "y" }
+  ]
+
+  const rule = API_ENDPOINT_RULE_FACEBOOK
+
+  it("resolves one Facebook page to the flagged company", () => {
+    const url = "https://www.facebook.com/audiencenetwork"
+    const selector = extractSelector(url, rule)
+    expect(selector).toBe("audiencenetwork")
+    const row = findInDatabaseBySelector(selector ?? "", "fb", "facebook.com", db)
+    expect(row?.id).toBe("meta_an")
+  })
+
+  it("leaves every other Facebook page alone", () => {
+    const selector = extractSelector("https://www.facebook.com/someotherpage", rule)
+    expect(findInDatabaseBySelector(selector ?? "", "fb", "facebook.com", db)).toBeNull()
+  })
+
+  it("does not wall facebook.com itself", () => {
+    // facebook.com is still only the Upscrolled hint; the page row is scoped to its slug.
+    expect(findInDatabaseByDomain("facebook.com", db)?.id).toBe("upscrolled")
   })
 })

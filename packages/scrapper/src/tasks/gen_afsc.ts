@@ -53,6 +53,15 @@ const DecisionSchema = z
     ws: z.string().optional(),
     /** Additional domains for the same company (brands people actually encounter). */
     wsExtra: z.array(z.string()).optional(),
+    /**
+     * Facebook page URLs this company is flagged through, as full URLs — the extractor pulls the slug
+     * from one, and a bare slug yields nothing.
+     *
+     * `facebook.com` is a special domain resolved by the `fb` selector, so a page on it can never be a
+     * website: `ws` there blocks nothing, and the whole domain would block every user. A slug is the
+     * only honest way to mark one page.
+     */
+    fb: z.array(z.string()).optional(),
     /** Overrides the AFSC summary when that summary omits the Israel evidence we are citing. */
     proofText: z.string().optional(),
     /**
@@ -87,7 +96,10 @@ export async function run() {
     name: string
     id: string
     reasons: valuesOfListOfReasons[]
-    ws: string
+    /** Present on website rows; a Facebook-page row carries `fb` instead. */
+    ws?: string
+    /** Facebook page slug, for the row that is a page rather than a site. */
+    fb?: string
     proof_text: string
     proof_link: string
     stock_symbol?: string
@@ -133,6 +145,19 @@ export async function run() {
       proof_link: decision?.proofLink ?? row.link,
       ...(stockSymbol !== "" ? { stock_symbol: stockSymbol } : {})
     })
+
+    // One row per Facebook page. The extractor expects a full URL and pulls the slug out of it, so
+    // that is what the decision stores; a bare slug produces no selector at all and the row vanishes.
+    for (const pageUrl of decision?.fb ?? []) {
+      merged.push({
+        name,
+        id: `AFSC_${isin}_fb_${pageUrl.replace(/[^a-z0-9]+/gi, "_").replace(/^_|_$/g, "")}`,
+        reasons: [reason],
+        fb: pageUrl,
+        proof_text: decodeEntities(decision?.proofText ?? row.summary),
+        proof_link: decision?.proofLink ?? row.link
+      })
+    }
 
     for (const extra of decision?.wsExtra ?? []) {
       const slug = extra.replace(/[^a-z0-9]+/gi, "_")
