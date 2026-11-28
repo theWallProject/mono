@@ -22,6 +22,9 @@ export const manualDeleteIds = [
   // obvious domain goodlookapp.com is a Hugedomains for-sale page, and an App Store search returns
   // five unrelated apps under that name, none of them this one.
   "goodlook-6f1e",
+  // Israeli Web3 developers underground: a real Meetup group, but its only address is meetup.com and
+  // the LinkedIn link on the record points at Meetup's own company page. No site of its own.
+  "israeli-web3-developers-underground",
   // 360 Product Provider: the only website was a Wix business.site page that now returns 404, and
   // the record's socials are a personal LinkedIn profile (/in/daniel-barnes), a personal-looking
   // Facebook page and x.com/3provider. Nothing identifies the company as a company.
