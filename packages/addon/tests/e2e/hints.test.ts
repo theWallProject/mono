@@ -86,62 +86,65 @@ describe("Hints System - Single Tab Isolated Tests", () => {
    * would otherwise be indistinguishable from correct behaviour.
    */
   describe("page-scoped hints stay off the parent domain", () => {
-    /** What the extension answers for a URL, without needing the page to render. */
-    const requestHintToast = async (page: Page, url: string): Promise<{ isHint: boolean; name?: string }> => {
-      const answer = await page.evaluate(
-        (target) =>
-          new Promise<{ isHint: boolean; name?: string } | null>((resolve) => {
-            // Same message the content script sends; see MessageTypes.TestUrl in src/types.ts.
-            chrome.runtime.sendMessage({ action: "TestUrl", url: target }, (result: unknown) => {
-              if (chrome.runtime.lastError || result === undefined || result === null) {
-                resolve(null)
-                return
-              }
-              const typed = result as { isHint?: boolean; name?: string }
-              resolve({ isHint: typed.isHint === true, name: typed.name })
-            })
-          }),
-        url
-      )
+    /**
+     * What the extension answers for a URL, asked from the extension's own page.
+     *
+     * `chrome.runtime` only exists in the extension's context — evaluating in an ordinary tab throws
+     * on `chrome.runtime` being undefined. The popup is an extension page, so the same message the
+     * content script sends can be sent from there and the answer read directly.
+     *
+     * `undefined` is a real answer, not a failure: `isUrlFlagged` returns nothing when no entry
+     * matches and the host is not `.il`. It arrives here as `null`, because Chrome's message channel
+     * serialises `undefined` that way. A
+     * failed round-trip is a different thing and surfaces as `chrome.runtime.lastError`, which is
+     * reported as a thrown error so a broken harness cannot look like "nothing flagged".
+     */
+    const answerForUrl = async (url: string): Promise<unknown> => {
+      const page = await context.newPage()
+      try {
+        await page.goto(`chrome-extension://${extensionId}/popup.html`, { waitUntil: "domcontentloaded" })
+        const { answered, result, error } = await page.evaluate(
+          (target) =>
+            new Promise<{ answered: boolean; result?: unknown; error?: string }>((resolve) => {
+              // Same message the content script sends; see MessageTypes.TestUrl in src/types.ts.
+              chrome.runtime.sendMessage({ action: "TestUrl", url: target }, (result: unknown) => {
+                const lastError = chrome.runtime.lastError?.message
+                if (lastError) {
+                  resolve({ answered: false, error: lastError })
+                  return
+                }
+                resolve({ answered: true, result })
+              })
+            }),
+          url
+        )
 
-      if (answer === null) {
-        throw new Error(`The extension did not answer for ${url} — a null answer is not "no hint"`)
+        if (!answered) {
+          throw new Error(`The extension did not answer for ${url}: ${String(error)}`)
+        }
+        return result
+      } finally {
+        await page.close()
       }
-      return answer
     }
 
-    it("shows the Google Ads hint on ads.google.com", async () => {
-      const page = await context.newPage()
-      try {
-        await navigateToUrl(page, "https://ads.google.com")
-        const answer = await requestHintToast(page, "https://ads.google.com/aw/campaigns")
-        expect(answer.isHint).toBe(true)
-        expect(answer.name).toBe("Google Ads")
-      } finally {
-        await page.close()
-      }
+    it("answers with the Google Ads hint for the ad console URL", async () => {
+      const answer = (await answerForUrl("https://ads.google.com/aw/campaigns")) as { isHint?: boolean; name?: string }
+      expect(answer?.isHint).toBe(true)
+      expect(answer.name).toBe("Google Ads")
     })
 
-    it("does NOT show a hint on google.com", async () => {
-      const page = await context.newPage()
-      try {
-        await navigateToUrl(page, "https://www.google.com")
-        const answer = await requestHintToast(page, "https://www.google.com/search?q=test")
-        expect(answer.isHint).toBe(false)
-      } finally {
-        await page.close()
-      }
+    it("does NOT answer with a hint for google.com", async () => {
+      // The half a user would notice: an ad-exchange suggestion on Search. `undefined` is the
+      // extension saying "nothing here", which is exactly right.
+      // `undefined` crosses the message channel as `null`; both mean "nothing here".
+      const answer = await answerForUrl("https://www.google.com/search?q=test")
+      expect(answer).toBeFalsy()
     })
 
-    it("does NOT show a hint on a sibling Google subdomain", async () => {
-      const page = await context.newPage()
-      try {
-        await navigateToUrl(page, "https://mail.google.com")
-        const answer = await requestHintToast(page, "https://mail.google.com/mail/u/0/")
-        expect(answer.isHint).toBe(false)
-      } finally {
-        await page.close()
-      }
+    it("does NOT answer with a hint for a sibling Google subdomain", async () => {
+      const answer = await answerForUrl("https://mail.google.com/mail/u/0/")
+      expect(answer).toBeFalsy()
     })
   })
 
