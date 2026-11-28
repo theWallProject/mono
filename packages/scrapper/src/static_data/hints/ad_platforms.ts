@@ -17,8 +17,16 @@ import { CompressedManualItemType } from "../../types"
 
 const ETHICLY_HINT_URL = "https://ads.ethicly.ch/functions/v1/track-affiliate-click?utm_source=ahmed&utm_medium=wall&utm_campaign=extension"
 
+/**
+ * Copy that says what Ethicly actually does, taken from their own site rather than invented here:
+ * contextual placement, fixed prices, matched by the page rather than by the reader, no retargeting,
+ * no audience data, no auction. "Backed by Tech for Palestine" is theirs too.
+ *
+ * One sentence of what this page is, one of what Ethicly offers instead. No superlatives, no
+ * exclamation, no claim that needs a number we do not have.
+ */
 const HINT_TEXT = (network: string) =>
-  `This is ${network}'s ad console. Ethicly sells ad space to publishers directly, without a network in the middle.`
+  `This is ${network}'s ad console. Ethicly matches ads to the page instead of the reader: fixed prices, no retargeting, no audience data.`
 
 /**
  * Publisher consoles - the other side of the same two companies.
@@ -37,7 +45,7 @@ const HINT_TEXT = (network: string) =>
  *   `fb` selector, not a hint.
  */
 const PUBLISHER_HINT_TEXT = (network: string) =>
-  `This is ${network}'s publisher console. Ethicly sells ad space directly, so the money does not pass through a network.`
+  `This is ${network}'s publisher console. On Ethicly your inventory sells at fixed prices, placed by context, with no auction fees and no audience data collected from your readers.`
 
 export const adPlatformHints: CompressedManualItemType[] = [
   {
