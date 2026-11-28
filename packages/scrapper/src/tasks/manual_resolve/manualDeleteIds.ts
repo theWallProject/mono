@@ -21,5 +21,8 @@ export const manualDeleteIds = [
   // 360 Product Provider: the only website was a Wix business.site page that now returns 404, and
   // the record's socials are a personal LinkedIn profile (/in/daniel-barnes), a personal-looking
   // Facebook page and x.com/3provider. Nothing identifies the company as a company.
-  "360-product-provider"
+  "360-product-provider",
+  // 45rpm Consulting: website 404s and the only other link is a LinkedIn company page, which cannot
+  // serve as a website. Crunchbase description is the bare industry label.
+  "45rpm-consulting"
 ]
