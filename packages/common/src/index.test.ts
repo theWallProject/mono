@@ -1933,17 +1933,27 @@ describe("publisher console hints stay off their parents", () => {
 
 describe("X ads hosts", () => {
   const db: FinalDBFileType[] = [
-    { id: "x_ads", ws: ["ads.twitter.com", "ads.x.com"], r: [], n: "X Ads", isHint: true, hintText: "x", hintUrl: "y" }
+    {
+      id: "x_ads",
+      ws: ["ads.twitter.com", "ads.x.com", "business.twitter.com", "business.x.com"],
+      r: [],
+      n: "X Ads",
+      isHint: true,
+      hintText: "x",
+      hintUrl: "y"
+    }
   ]
 
-  it("matches both hostnames people type", () => {
+  it("matches every hostname people type", () => {
     expect(findHintByDomain("ads.twitter.com", db)?.id).toBe("x_ads")
     expect(findHintByDomain("ads.x.com", db)?.id).toBe("x_ads")
+    expect(findHintByDomain("business.twitter.com", db)?.id).toBe("x_ads")
+    expect(findHintByDomain("business.x.com", db)?.id).toBe("x_ads")
   })
 
   it("still stays off x.com and twitter.com", () => {
+    // The bare domains are the whole platform, not the ads product.
     expect(findHintByDomain("x.com", db)).toBeNull()
     expect(findHintByDomain("twitter.com", db)).toBeNull()
-    expect(findHintByDomain("business.x.com", db)).toBeNull()
   })
 })

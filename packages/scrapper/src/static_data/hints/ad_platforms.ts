@@ -98,10 +98,15 @@ export const adPlatformHints: CompressedManualItemType[] = [
   {
     name: "X Ads",
     reasons: [],
-    // ads.twitter.com and ads.x.com both 302 to business.x.com/en/advertising, and
-    // business.twitter.com 301s to business.x.com. Both live hosts are stored because people type
-    // either name; business.twitter.com is dropped as a redirect to the landing page only.
-    ws: ["https://ads.twitter.com", "https://ads.x.com"],
+    // Every one of these is live and reaches the ad console: ads.twitter.com and ads.x.com both 302
+    // to business.x.com/en/advertising, business.twitter.com 301s to business.x.com, and
+    // business.x.com is the destination itself. Stored as written, because people type any of them.
+    ws: [
+      "https://ads.twitter.com",
+      "https://ads.x.com",
+      "https://business.twitter.com",
+      "https://business.x.com"
+    ],
     isHint: true,
     hintText: HINT_TEXT("X"),
     hintUrl: ETHICLY_HINT_URL,
