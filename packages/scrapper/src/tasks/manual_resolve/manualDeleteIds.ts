@@ -25,6 +25,10 @@ export const manualDeleteIds = [
   // Israeli Web3 developers underground: a real Meetup group, but its only address is meetup.com and
   // the LinkedIn link on the record points at Meetup's own company page. No site of its own.
   "israeli-web3-developers-underground",
+  // Overall Adventures Ltd. (trading as Earthshine Games): its LinkedIn is live and specific (creator
+  // of Kingdoms Reborn), but the only website on the record is the Steam store page, and
+  // overalladventures.com, earthshinegames.com and overall-adventures.com do not resolve.
+  "overall-adventures-ltd",
   // 360 Product Provider: the only website was a Wix business.site page that now returns 404, and
   // the record's socials are a personal LinkedIn profile (/in/daniel-barnes), a personal-looking
   // Facebook page and x.com/3provider. Nothing identifies the company as a company.
