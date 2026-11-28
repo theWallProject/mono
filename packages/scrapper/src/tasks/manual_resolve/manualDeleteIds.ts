@@ -24,5 +24,8 @@ export const manualDeleteIds = [
   "360-product-provider",
   // 45rpm Consulting: website 404s and the only other link is a LinkedIn company page, which cannot
   // serve as a website. Crunchbase description is the bare industry label.
-  "45rpm-consulting"
+  "45rpm-consulting",
+  // A 2 Z Hair Fixed Clinic: website 404s; the only other link is a Facebook page, no domain of its
+  // own anywhere in the record.
+  "a-2-z-hair-fixed-clinic-in-kashipur"
 ]
