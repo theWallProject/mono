@@ -25,8 +25,8 @@ const ETHICLY_HINT_URL = "https://ads.ethicly.ch/functions/v1/track-affiliate-cl
  * One sentence of what this page is, one of what Ethicly offers instead. No superlatives, no
  * exclamation, no claim that needs a number we do not have.
  */
-const HINT_TEXT = (network: string) =>
-  `Ethicly is a pro-Palestine ad network: ads matched to the page, not the person. This is ${network}'s console.`
+const HINT_TEXT = (_network: string) =>
+  `Ethicly is a pro-Palestine ad network: ads matched to the page, not the person.`
 
 /**
  * Publisher consoles - the other side of the same two companies.
@@ -44,8 +44,8 @@ const HINT_TEXT = (network: string) =>
  * - Meta Audience Network, which is facebook.com/audiencenetwork — a page, not a host. It needs the
  *   `fb` selector, not a hint.
  */
-const PUBLISHER_HINT_TEXT = (network: string) =>
-  `Ethicly is a pro-Palestine ad network: fixed prices, no exchange in the middle. This is ${network}'s publisher console.`
+const PUBLISHER_HINT_TEXT = (_network: string) =>
+  `Ethicly is a pro-Palestine ad network: fixed prices, no exchange in the middle.`
 
 export const adPlatformHints: CompressedManualItemType[] = [
   {
